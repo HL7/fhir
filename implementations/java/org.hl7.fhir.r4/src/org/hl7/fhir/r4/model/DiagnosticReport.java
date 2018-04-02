@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -86,7 +86,7 @@ public class DiagnosticReport extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         * The authoring system does not know which of the status values currently applies to this report. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply although which one is not known.
          */
         UNKNOWN, 
         /**
@@ -162,7 +162,7 @@ public class DiagnosticReport extends DomainResource {
             case APPENDED: return "Subsequent to being final, the report has been modified by adding new content. The existing content is unchanged.";
             case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
             case ENTEREDINERROR: return "The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies to this report. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply although which one is not known.";
             default: return "?";
           }
         }
@@ -542,10 +542,10 @@ public class DiagnosticReport extends DomainResource {
 
 
     /**
-     * The status of the diagnostic report as a whole.
+     * The status of the diagnostic report.
      */
     @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="registered | partial | preliminary | final +", formalDefinition="The status of the diagnostic report as a whole." )
+    @Description(shortDefinition="registered | partial | preliminary | final +", formalDefinition="The status of the diagnostic report." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/diagnostic-report-status")
     protected Enumeration<DiagnosticReportStatus> status;
 
@@ -827,7 +827,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<DiagnosticReportStatus> getStatusElement() { 
       if (this.status == null)
@@ -847,7 +847,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (The status of the diagnostic report as a whole.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of the diagnostic report.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public DiagnosticReport setStatusElement(Enumeration<DiagnosticReportStatus> value) { 
       this.status = value;
@@ -855,14 +855,14 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return The status of the diagnostic report as a whole.
+     * @return The status of the diagnostic report.
      */
     public DiagnosticReportStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of the diagnostic report as a whole.
+     * @param value The status of the diagnostic report.
      */
     public DiagnosticReport setStatus(DiagnosticReportStatus value) { 
         if (this.status == null)
@@ -1660,7 +1660,7 @@ public class DiagnosticReport extends DomainResource {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Identifiers assigned to this report by the performer or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("basedOn", "Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ServiceRequest)", "Details concerning a service requested.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        children.add(new Property("status", "code", "The status of the diagnostic report as a whole.", 0, 1, status));
+        children.add(new Property("status", "code", "The status of the diagnostic report.", 0, 1, status));
         children.add(new Property("category", "CodeableConcept", "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.", 0, 1, category));
         children.add(new Property("code", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, 1, code));
         children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, 1, subject));
@@ -1683,7 +1683,7 @@ public class DiagnosticReport extends DomainResource {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this report by the performer or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ServiceRequest)", "Details concerning a service requested.", 0, java.lang.Integer.MAX_VALUE, basedOn);
-        case -892481550: /*status*/  return new Property("status", "code", "The status of the diagnostic report as a whole.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of the diagnostic report.", 0, 1, status);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.", 0, 1, category);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, 1, code);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Device|Location)", "The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.", 0, 1, subject);
@@ -2143,17 +2143,17 @@ public class DiagnosticReport extends DomainResource {
  /**
    * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>The code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</b><br>
+   * Description: <b>The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticReport.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="DiagnosticReport.code", description="The code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result", type="token" )
+  @SearchParamDefinition(name="code", path="DiagnosticReport.code", description="The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>The code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</b><br>
+   * Description: <b>The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticReport.code</b><br>
    * </p>

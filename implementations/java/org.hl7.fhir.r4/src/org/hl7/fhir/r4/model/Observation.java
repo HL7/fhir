@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -276,10 +276,10 @@ public class Observation extends DomainResource {
         protected Range age;
 
         /**
-         * Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
+         * Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of "normals".
          */
         @Child(name = "text", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Text based reference range in an observation", formalDefinition="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'." )
+        @Description(shortDefinition="Text based reference range in an observation", formalDefinition="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \"normals\"." )
         protected StringType text;
 
         private static final long serialVersionUID = -955638831L;
@@ -441,7 +441,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
+         * @return {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of "normals".). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
         public StringType getTextElement() { 
           if (this.text == null)
@@ -461,7 +461,7 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
+         * @param value {@link #text} (Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of "normals".). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
         public ObservationReferenceRangeComponent setTextElement(StringType value) { 
           this.text = value;
@@ -469,14 +469,14 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
+         * @return Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of "normals".
          */
         public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
-         * @param value Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of 'normals'.
+         * @param value Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of "Negative" or a list or table of "normals".
          */
         public ObservationReferenceRangeComponent setText(String value) { 
           if (Utilities.noString(value))
@@ -496,7 +496,7 @@ public class Observation extends DomainResource {
           children.add(new Property("type", "CodeableConcept", "Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.", 0, 1, type));
           children.add(new Property("appliesTo", "CodeableConcept", "Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.", 0, java.lang.Integer.MAX_VALUE, appliesTo));
           children.add(new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, 1, age));
-          children.add(new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'.", 0, 1, text));
+          children.add(new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \"normals\".", 0, 1, text));
         }
 
         @Override
@@ -507,7 +507,7 @@ public class Observation extends DomainResource {
           case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.", 0, 1, type);
           case -2089924569: /*appliesTo*/  return new Property("appliesTo", "CodeableConcept", "Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.", 0, java.lang.Integer.MAX_VALUE, appliesTo);
           case 96511: /*age*/  return new Property("age", "Range", "The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so.", 0, 1, age);
-          case 3556653: /*text*/  return new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of 'normals'.", 0, 1, text);
+          case 3556653: /*text*/  return new Property("text", "string", "Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \"normals\".", 0, 1, text);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1342,14 +1342,14 @@ public class Observation extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.
+     * The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.
      */
     @Child(name = "focus", type = {Reference.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The \"focal point\" of the observation", formalDefinition="The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus." )
+    @Description(shortDefinition="The \"focal point\" of the observation", formalDefinition="The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus." )
     protected Reference focus;
 
     /**
-     * The actual object that is the target of the reference (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * The actual object that is the target of the reference (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
     protected Resource focusTarget;
 
@@ -1858,7 +1858,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #focus} (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * @return {@link #focus} (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
     public Reference getFocus() { 
       if (this.focus == null)
@@ -1874,7 +1874,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @param value {@link #focus} (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * @param value {@link #focus} (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
     public Observation setFocus(Reference value) { 
       this.focus = value;
@@ -1882,14 +1882,14 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #focus} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * @return {@link #focus} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
     public Resource getFocusTarget() { 
       return this.focusTarget;
     }
 
     /**
-     * @param value {@link #focus} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * @param value {@link #focus} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
     public Observation setFocusTarget(Resource value) { 
       this.focusTarget = value;
@@ -2768,7 +2768,7 @@ public class Observation extends DomainResource {
         children.add(new Property("category", "CodeableConcept", "A code that classifies the general type of observation being made.", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation \"name\".", 0, 1, code));
         children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, 1, subject));
-        children.add(new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, 1, focus));
+        children.add(new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, 1, focus));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.", 0, 1, context));
         children.add(new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective));
         children.add(new Property("issued", "instant", "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.", 0, 1, issued));
@@ -2797,7 +2797,7 @@ public class Observation extends DomainResource {
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the general type of observation being made.", 0, java.lang.Integer.MAX_VALUE, category);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation \"name\".", 0, 1, code);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, 1, subject);
-        case 97604824: /*focus*/  return new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, 1, focus);
+        case 97604824: /*focus*/  return new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, 1, focus);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.", 0, 1, context);
         case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);

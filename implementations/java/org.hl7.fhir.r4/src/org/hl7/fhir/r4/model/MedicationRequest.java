@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -258,7 +258,7 @@ public class MedicationRequest extends DomainResource {
          */
         INSTANCEORDER, 
         /**
-         * The request represents a component or opiton for a RequestGroup that establishes timing, conditionality and/or  other constraints among a set of requests.
+         * The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or  other constraints among a set of requests.
          */
         OPTION, 
         /**
@@ -314,7 +314,7 @@ public class MedicationRequest extends DomainResource {
             case ORDER: return "The request represents a request/demand and authorization for action";
             case ORIGINALORDER: return "The request represents the original authorization for the medication request.";
             case INSTANCEORDER: return "The request represents an instance for the particular order, for example a medication administration record.";
-            case OPTION: return "The request represents a component or opiton for a RequestGroup that establishes timing, conditionality and/or  other constraints among a set of requests.";
+            case OPTION: return "The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or  other constraints among a set of requests.";
             default: return "?";
           }
         }
@@ -1126,17 +1126,17 @@ public class MedicationRequest extends DomainResource {
   }
 
     /**
-     * This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.
+     * This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a reimbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="External ids for this request", formalDefinition="This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system." )
+    @Description(shortDefinition="External ids for this request", formalDefinition="This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a reimbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system." )
     protected List<Identifier> identifier;
 
     /**
-     * A code specifying the current state of the order.  Generally this will be active or completed state.
+     * A code specifying the current state of the order.  Generally, this will be active or completed state.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown", formalDefinition="A code specifying the current state of the order.  Generally this will be active or completed state." )
+    @Description(shortDefinition="active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown", formalDefinition="A code specifying the current state of the order.  Generally, this will be active or completed state." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-request-status")
     protected Enumeration<MedicationRequestStatus> status;
 
@@ -1216,14 +1216,14 @@ public class MedicationRequest extends DomainResource {
     protected DateTimeType authoredOn;
 
     /**
-     * The individual, organization or device that initiated the request and has responsibility for its activation.
+     * The individual, organization, or device that initiated the request and has responsibility for its activation.
      */
     @Child(name = "requester", type = {Practitioner.class, PractitionerRole.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=10, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who/What requested the Request", formalDefinition="The individual, organization or device that initiated the request and has responsibility for its activation." )
+    @Description(shortDefinition="Who/What requested the Request", formalDefinition="The individual, organization, or device that initiated the request and has responsibility for its activation." )
     protected Reference requester;
 
     /**
-     * The actual object that is the target of the reference (The individual, organization or device that initiated the request and has responsibility for its activation.)
+     * The actual object that is the target of the reference (The individual, organization, or device that initiated the request and has responsibility for its activation.)
      */
     protected Resource requesterTarget;
 
@@ -1271,7 +1271,7 @@ public class MedicationRequest extends DomainResource {
      * Condition or observation that supports why the medication was ordered.
      */
     @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Condition or Observation that supports why the prescription is being written", formalDefinition="Condition or observation that supports why the medication was ordered." )
+    @Description(shortDefinition="Condition or observation that supports why the prescription is being written", formalDefinition="Condition or observation that supports why the medication was ordered." )
     protected List<Reference> reasonReference;
     /**
      * The actual objects that are the target of the reference (Condition or observation that supports why the medication was ordered.)
@@ -1280,10 +1280,10 @@ public class MedicationRequest extends DomainResource {
 
 
     /**
-     * The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.
+     * The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.
      */
     @Child(name = "instantiates", type = {UriType.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest." )
+    @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest." )
     protected List<UriType> instantiates;
 
     /**
@@ -1410,7 +1410,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.)
+     * @return {@link #identifier} (This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a reimbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1463,7 +1463,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code specifying the current state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code specifying the current state of the order.  Generally, this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<MedicationRequestStatus> getStatusElement() { 
       if (this.status == null)
@@ -1483,7 +1483,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code specifying the current state of the order.  Generally this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code specifying the current state of the order.  Generally, this will be active or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public MedicationRequest setStatusElement(Enumeration<MedicationRequestStatus> value) { 
       this.status = value;
@@ -1491,14 +1491,14 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return A code specifying the current state of the order.  Generally this will be active or completed state.
+     * @return A code specifying the current state of the order.  Generally, this will be active or completed state.
      */
     public MedicationRequestStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value A code specifying the current state of the order.  Generally this will be active or completed state.
+     * @param value A code specifying the current state of the order.  Generally, this will be active or completed state.
      */
     public MedicationRequest setStatus(MedicationRequestStatus value) { 
         if (this.status == null)
@@ -1896,7 +1896,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #requester} (The individual, organization or device that initiated the request and has responsibility for its activation.)
+     * @return {@link #requester} (The individual, organization, or device that initiated the request and has responsibility for its activation.)
      */
     public Reference getRequester() { 
       if (this.requester == null)
@@ -1912,7 +1912,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #requester} (The individual, organization or device that initiated the request and has responsibility for its activation.)
+     * @param value {@link #requester} (The individual, organization, or device that initiated the request and has responsibility for its activation.)
      */
     public MedicationRequest setRequester(Reference value) { 
       this.requester = value;
@@ -1920,14 +1920,14 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual, organization or device that initiated the request and has responsibility for its activation.)
+     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual, organization, or device that initiated the request and has responsibility for its activation.)
      */
     public Resource getRequesterTarget() { 
       return this.requesterTarget;
     }
 
     /**
-     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual, organization or device that initiated the request and has responsibility for its activation.)
+     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual, organization, or device that initiated the request and has responsibility for its activation.)
      */
     public MedicationRequest setRequesterTarget(Resource value) { 
       this.requesterTarget = value;
@@ -2158,7 +2158,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #instantiates} (The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.)
+     * @return {@link #instantiates} (The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.)
      */
     public List<UriType> getInstantiates() { 
       if (this.instantiates == null)
@@ -2184,7 +2184,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #instantiates} (The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.)
+     * @return {@link #instantiates} (The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.)
      */
     public UriType addInstantiatesElement() {//2 
       UriType t = new UriType();
@@ -2195,7 +2195,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #instantiates} (The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.)
+     * @param value {@link #instantiates} (The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.)
      */
     public MedicationRequest addInstantiates(String value) { //1
       UriType t = new UriType();
@@ -2207,7 +2207,7 @@ public class MedicationRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #instantiates} (The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.)
+     * @param value {@link #instantiates} (The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.)
      */
     public boolean hasInstantiates(String value) { 
       if (this.instantiates == null)
@@ -2742,8 +2742,8 @@ public class MedicationRequest extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("status", "code", "A code specifying the current state of the order.  Generally this will be active or completed state.", 0, 1, status));
+        children.add(new Property("identifier", "Identifier", "This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a reimbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("status", "code", "A code specifying the current state of the order.  Generally, this will be active or completed state.", 0, 1, status));
         children.add(new Property("intent", "code", "Whether the request is a proposal, plan, or an original order.", 0, 1, intent));
         children.add(new Property("category", "CodeableConcept", "Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient) or the type of treatment (i.e. chemotherapy or endocrine).", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("priority", "code", "Indicates how quickly the Medication Request should be addressed with respect to other requests.", 0, 1, priority));
@@ -2752,13 +2752,13 @@ public class MedicationRequest extends DomainResource {
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "A link to an encounter, or episode of care, that identifies the particular occurrence or set occurrences of contact between patient and health care provider.", 0, 1, context));
         children.add(new Property("supportingInformation", "Reference(Any)", "Include additional information (for example, patient height and weight) that supports the ordering of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         children.add(new Property("authoredOn", "dateTime", "The date (and perhaps time) when the prescription was initially written or authored on.", 0, 1, authoredOn));
-        children.add(new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual, organization or device that initiated the request and has responsibility for its activation.", 0, 1, requester));
+        children.add(new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual, organization, or device that initiated the request and has responsibility for its activation.", 0, 1, requester));
         children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|CareTeam)", "The specified desired performer of the medication treatment (e.g. the performer of the medication administration).", 0, 1, performer));
         children.add(new Property("performerType", "CodeableConcept", "Indicates the type of performer of the administration of the medication.", 0, 1, performerType));
         children.add(new Property("recorder", "Reference(Practitioner)", "The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.", 0, 1, recorder));
         children.add(new Property("reasonCode", "CodeableConcept", "The reason or the indication for ordering the medication.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was ordered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        children.add(new Property("instantiates", "uri", "The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("instantiates", "uri", "The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, instantiates));
         children.add(new Property("basedOn", "Reference(CarePlan|MedicationRequest|ServiceRequest)", "A plan or request that is fulfilled in whole or in part by this medication request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("groupIdentifier", "Identifier", "A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.", 0, 1, groupIdentifier));
         children.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the MedicationRequest.", 0, 1, statusReason));
@@ -2775,8 +2775,8 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -892481550: /*status*/  return new Property("status", "code", "A code specifying the current state of the order.  Generally this will be active or completed state.", 0, 1, status);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a reimbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -892481550: /*status*/  return new Property("status", "code", "A code specifying the current state of the order.  Generally, this will be active or completed state.", 0, 1, status);
         case -1183762788: /*intent*/  return new Property("intent", "code", "Whether the request is a proposal, plan, or an original order.", 0, 1, intent);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient) or the type of treatment (i.e. chemotherapy or endocrine).", 0, java.lang.Integer.MAX_VALUE, category);
         case -1165461084: /*priority*/  return new Property("priority", "code", "Indicates how quickly the Medication Request should be addressed with respect to other requests.", 0, 1, priority);
@@ -2788,13 +2788,13 @@ public class MedicationRequest extends DomainResource {
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "A link to an encounter, or episode of care, that identifies the particular occurrence or set occurrences of contact between patient and health care provider.", 0, 1, context);
         case -1248768647: /*supportingInformation*/  return new Property("supportingInformation", "Reference(Any)", "Include additional information (for example, patient height and weight) that supports the ordering of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation);
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "The date (and perhaps time) when the prescription was initially written or authored on.", 0, 1, authoredOn);
-        case 693933948: /*requester*/  return new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual, organization or device that initiated the request and has responsibility for its activation.", 0, 1, requester);
+        case 693933948: /*requester*/  return new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual, organization, or device that initiated the request and has responsibility for its activation.", 0, 1, requester);
         case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|CareTeam)", "The specified desired performer of the medication treatment (e.g. the performer of the medication administration).", 0, 1, performer);
         case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "Indicates the type of performer of the administration of the medication.", 0, 1, performerType);
         case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner)", "The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.", 0, 1, recorder);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "The reason or the indication for ordering the medication.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was ordered.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
-        case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "The URL pointing to a protocol, guideline, orderset, or other definition that is adhered to in whole or in part by this MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, instantiates);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|MedicationRequest|ServiceRequest)", "A plan or request that is fulfilled in whole or in part by this medication request.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -445338488: /*groupIdentifier*/  return new Property("groupIdentifier", "Identifier", "A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.", 0, 1, groupIdentifier);
         case 2051346646: /*statusReason*/  return new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the MedicationRequest.", 0, 1, statusReason);
@@ -3485,17 +3485,17 @@ public class MedicationRequest extends DomainResource {
  /**
    * Search parameter: <b>medication</b>
    * <p>
-   * Description: <b>Return prescriptions of this medication reference</b><br>
+   * Description: <b>Return prescriptions for this medication reference</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationRequest.medicationReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationRequest.medication.as(Reference)", description="Return prescriptions of this medication reference", type="reference", target={Medication.class } )
+  @SearchParamDefinition(name="medication", path="MedicationRequest.medication.as(Reference)", description="Return prescriptions for this medication reference", type="reference", target={Medication.class } )
   public static final String SP_MEDICATION = "medication";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>medication</b>
    * <p>
-   * Description: <b>Return prescriptions of this medication reference</b><br>
+   * Description: <b>Return prescriptions for this medication reference</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationRequest.medicationReference</b><br>
    * </p>

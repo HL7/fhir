@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -53,10 +53,10 @@ public class OccupationalData extends DomainResource {
     @Block()
     public static class OccupationalDataEmploymentStatusComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A code that represents a person’s current economic relationship to a job.
+         * A code that represents a person's current economic relationship to a job.
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Employment status code", formalDefinition="A code that represents a person’s current economic relationship to a job." )
+        @Description(shortDefinition="Employment status code", formalDefinition="A code that represents a person's current economic relationship to a job." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/employment-status-odh")
         protected CodeableConcept code;
 
@@ -86,7 +86,7 @@ public class OccupationalData extends DomainResource {
       }
 
         /**
-         * @return {@link #code} (A code that represents a person’s current economic relationship to a job.)
+         * @return {@link #code} (A code that represents a person's current economic relationship to a job.)
          */
         public CodeableConcept getCode() { 
           if (this.code == null)
@@ -102,7 +102,7 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @param value {@link #code} (A code that represents a person’s current economic relationship to a job.)
+         * @param value {@link #code} (A code that represents a person's current economic relationship to a job.)
          */
         public OccupationalDataEmploymentStatusComponent setCode(CodeableConcept value) { 
           this.code = value;
@@ -135,14 +135,14 @@ public class OccupationalData extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("code", "CodeableConcept", "A code that represents a person’s current economic relationship to a job.", 0, 1, code));
+          children.add(new Property("code", "CodeableConcept", "A code that represents a person's current economic relationship to a job.", 0, 1, code));
           children.add(new Property("effective", "Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that represents a person’s current economic relationship to a job.", 0, 1, code);
+          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that represents a person's current economic relationship to a job.", 0, 1, code);
           case -1468651097: /*effective*/  return new Property("effective", "Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -589,15 +589,15 @@ public class OccupationalData extends DomainResource {
          * A code that represents the type of work done by a person at one job.
          */
         @Child(name = "occupation", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job occupation", formalDefinition="A code that represents the type of work done by a person at one job." )
+        @Description(shortDefinition="Past or Present Job occupation", formalDefinition="A code that represents the type of work done by a person at one job." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/occupation-cdc-census-2010")
         protected CodeableConcept occupation;
 
         /**
-         * A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.
+         * A code that represents the type of business associated with a person's Past or Present Job; i.e., for one job. A change in industry indicates a change in job.
          */
         @Child(name = "industry", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job industry", formalDefinition="A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job." )
+        @Description(shortDefinition="Past or Present Job industry", formalDefinition="A code that represents the type of business associated with a person's Past or Present Job; i.e., for one job. A change in industry indicates a change in job." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/industry-cdc-census-2010")
         protected CodeableConcept industry;
 
@@ -605,14 +605,14 @@ public class OccupationalData extends DomainResource {
          * The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.
          */
         @Child(name = "effective", type = {Period.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job effective time period", formalDefinition="The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job." )
+        @Description(shortDefinition="Past or Present Job effective time period", formalDefinition="The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job." )
         protected Period effective;
 
         /**
          * The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.
          */
         @Child(name = "employer", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job employer", formalDefinition="The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job." )
+        @Description(shortDefinition="Past or Present Job employer", formalDefinition="The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job." )
         protected Reference employer;
 
         /**
@@ -624,7 +624,7 @@ public class OccupationalData extends DomainResource {
          * The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).
          */
         @Child(name = "workClassification", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job work classification", formalDefinition="The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status)." )
+        @Description(shortDefinition="Past or Present Job work classification", formalDefinition="The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/work-classification-odh")
         protected CodeableConcept workClassification;
 
@@ -632,7 +632,7 @@ public class OccupationalData extends DomainResource {
          * Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.
          */
         @Child(name = "supervisoryLevel", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job supervisory level", formalDefinition="Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job." )
+        @Description(shortDefinition="Past or Present Job supervisory level", formalDefinition="Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/supervisory-level-odh-us")
         protected CodeableConcept supervisoryLevel;
 
@@ -640,21 +640,21 @@ public class OccupationalData extends DomainResource {
          * A regular action performed at a single job.
          */
         @Child(name = "jobDuty", type = {StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job job duty", formalDefinition="A regular action performed at a single job." )
+        @Description(shortDefinition="Past or Present Job job duty", formalDefinition="A regular action performed at a single job." )
         protected List<StringType> jobDuty;
 
         /**
          * A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).
          */
         @Child(name = "occupationalHazard", type = {StringType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job occupational hazard", formalDefinition="A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological)." )
+        @Description(shortDefinition="Past or Present Job occupational hazard", formalDefinition="A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological)." )
         protected List<StringType> occupationalHazard;
 
         /**
          * Describes a person's typical arrangement of working hours for one job.
          */
         @Child(name = "workSchedule", type = {}, order=9, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job work schedule", formalDefinition="Describes a person's typical arrangement of working hours for one job." )
+        @Description(shortDefinition="Past or Present Job work schedule", formalDefinition="Describes a person's typical arrangement of working hours for one job." )
         protected OccupationalDataPastOrPresentJobWorkScheduleComponent workSchedule;
 
         private static final long serialVersionUID = 354602497L;
@@ -700,7 +700,7 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @return {@link #industry} (A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.)
+         * @return {@link #industry} (A code that represents the type of business associated with a person's Past or Present Job; i.e., for one job. A change in industry indicates a change in job.)
          */
         public CodeableConcept getIndustry() { 
           if (this.industry == null)
@@ -716,7 +716,7 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @param value {@link #industry} (A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.)
+         * @param value {@link #industry} (A code that represents the type of business associated with a person's Past or Present Job; i.e., for one job. A change in industry indicates a change in job.)
          */
         public OccupationalDataPastOrPresentJobComponent setIndustry(CodeableConcept value) { 
           this.industry = value;
@@ -988,7 +988,7 @@ public class OccupationalData extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("occupation", "CodeableConcept", "A code that represents the type of work done by a person at one job.", 0, 1, occupation));
-          children.add(new Property("industry", "CodeableConcept", "A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.", 0, 1, industry));
+          children.add(new Property("industry", "CodeableConcept", "A code that represents the type of business associated with a person's Past or Present Job; i.e., for one job. A change in industry indicates a change in job.", 0, 1, industry));
           children.add(new Property("effective", "Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective));
           children.add(new Property("employer", "Reference(Organization)", "The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.", 0, 1, employer));
           children.add(new Property("workClassification", "CodeableConcept", "The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).", 0, 1, workClassification));
@@ -1002,7 +1002,7 @@ public class OccupationalData extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 1615358283: /*occupation*/  return new Property("occupation", "CodeableConcept", "A code that represents the type of work done by a person at one job.", 0, 1, occupation);
-          case 127156702: /*industry*/  return new Property("industry", "CodeableConcept", "A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.", 0, 1, industry);
+          case 127156702: /*industry*/  return new Property("industry", "CodeableConcept", "A code that represents the type of business associated with a person's Past or Present Job; i.e., for one job. A change in industry indicates a change in job.", 0, 1, industry);
           case -1468651097: /*effective*/  return new Property("effective", "Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective);
           case 1193469627: /*employer*/  return new Property("employer", "Reference(Organization)", "The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.", 0, 1, employer);
           case 909284695: /*workClassification*/  return new Property("workClassification", "CodeableConcept", "The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).", 0, 1, workClassification);
@@ -1233,7 +1233,7 @@ public class OccupationalData extends DomainResource {
          * A code that represents a person's typical arrangement of working hours for one job.
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job work schedule code", formalDefinition="A code that represents a person's typical arrangement of working hours for one job." )
+        @Description(shortDefinition="Past or Present Job work schedule code", formalDefinition="A code that represents a person's typical arrangement of working hours for one job." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/work-schedule-odh")
         protected CodeableConcept code;
 
@@ -1241,14 +1241,14 @@ public class OccupationalData extends DomainResource {
          * The typical number of days worked in a week by a person at one job.
          */
         @Child(name = "weeklyWorkDays", type = {DecimalType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job work schedule weekly work days", formalDefinition="The typical number of days worked in a week by a person at one job." )
+        @Description(shortDefinition="Past or Present Job work schedule weekly work days", formalDefinition="The typical number of days worked in a week by a person at one job." )
         protected DecimalType weeklyWorkDays;
 
         /**
          * The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
          */
         @Child(name = "dailyWorkHours", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Past Or Present Job work schedule daily work hours", formalDefinition="The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift." )
+        @Description(shortDefinition="Past or Present Job work schedule daily work hours", formalDefinition="The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift." )
         protected DecimalType dailyWorkHours;
 
         private static final long serialVersionUID = -253812674L;
@@ -1574,10 +1574,10 @@ public class OccupationalData extends DomainResource {
     protected Identifier identifier;
 
     /**
-     * The status of this {{title}}. Enables tracking the life-cycle of the content.
+     * The status of this ODH. Enables tracking the life-cycle of the content.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | retired | unknown", formalDefinition="The status of this {{title}}. Enables tracking the life-cycle of the content." )
+    @Description(shortDefinition="draft | active | retired | unknown", formalDefinition="The status of this ODH. Enables tracking the life-cycle of the content." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/publication-status")
     protected Enumeration<PublicationStatus> status;
 
@@ -1625,10 +1625,10 @@ public class OccupationalData extends DomainResource {
 
 
     /**
-     * A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.
+     * A person's current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.
      */
     @Child(name = "employmentStatus", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Employment status", formalDefinition="A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work." )
+    @Description(shortDefinition="Employment status", formalDefinition="A person's current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work." )
     protected List<OccupationalDataEmploymentStatusComponent> employmentStatus;
 
     /**
@@ -1656,7 +1656,7 @@ public class OccupationalData extends DomainResource {
      * The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.
      */
     @Child(name = "pastOrPresentJob", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Past Or Present Job", formalDefinition="The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job." )
+    @Description(shortDefinition="Past or Present Job", formalDefinition="The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job." )
     protected List<OccupationalDataPastOrPresentJobComponent> pastOrPresentJob;
 
     private static final long serialVersionUID = -1765327023L;
@@ -1701,7 +1701,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The status of this {{title}}. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this ODH. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -1721,7 +1721,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this {{title}}. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this ODH. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public OccupationalData setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
@@ -1729,14 +1729,14 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return The status of this {{title}}. Enables tracking the life-cycle of the content.
+     * @return The status of this ODH. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this {{title}}. Enables tracking the life-cycle of the content.
+     * @param value The status of this ODH. Enables tracking the life-cycle of the content.
      */
     public OccupationalData setStatus(PublicationStatus value) { 
         if (this.status == null)
@@ -1960,7 +1960,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return {@link #employmentStatus} (A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.)
+     * @return {@link #employmentStatus} (A person's current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.)
      */
     public List<OccupationalDataEmploymentStatusComponent> getEmploymentStatus() { 
       if (this.employmentStatus == null)
@@ -2206,12 +2206,12 @@ public class OccupationalData extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifier assigned to the occupational data record.", 0, 1, identifier));
-        children.add(new Property("status", "code", "The status of this {{title}}. Enables tracking the life-cycle of the content.", 0, 1, status));
+        children.add(new Property("status", "code", "The status of this ODH. Enables tracking the life-cycle of the content.", 0, 1, status));
         children.add(new Property("subject", "Reference(Patient|RelatedPerson)", "The occupational data record is about this person (e.g., the patient, a parent of a minor child).", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date of creation or updating of the occupational data record.", 0, 1, date));
         children.add(new Property("recorder", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "The person who created or last updated the occupational data record.", 0, java.lang.Integer.MAX_VALUE, recorder));
         children.add(new Property("informant", "Reference(Patient|RelatedPerson)", "The person who provided the subject's health-related occupational data.", 0, java.lang.Integer.MAX_VALUE, informant));
-        children.add(new Property("employmentStatus", "", "A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.", 0, java.lang.Integer.MAX_VALUE, employmentStatus));
+        children.add(new Property("employmentStatus", "", "A person's current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.", 0, java.lang.Integer.MAX_VALUE, employmentStatus));
         children.add(new Property("retirementDate", "dateTime", "A person's self-identified retirement date.  A person may retire multiple times.", 0, java.lang.Integer.MAX_VALUE, retirementDate));
         children.add(new Property("combatZonePeriod", "Period", "The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.", 0, java.lang.Integer.MAX_VALUE, combatZonePeriod));
         children.add(new Property("usualWork", "", "The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.", 0, 1, usualWork));
@@ -2222,12 +2222,12 @@ public class OccupationalData extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifier assigned to the occupational data record.", 0, 1, identifier);
-        case -892481550: /*status*/  return new Property("status", "code", "The status of this {{title}}. Enables tracking the life-cycle of the content.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of this ODH. Enables tracking the life-cycle of the content.", 0, 1, status);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|RelatedPerson)", "The occupational data record is about this person (e.g., the patient, a parent of a minor child).", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date of creation or updating of the occupational data record.", 0, 1, date);
         case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "The person who created or last updated the occupational data record.", 0, java.lang.Integer.MAX_VALUE, recorder);
         case 1248974302: /*informant*/  return new Property("informant", "Reference(Patient|RelatedPerson)", "The person who provided the subject's health-related occupational data.", 0, java.lang.Integer.MAX_VALUE, informant);
-        case 418561790: /*employmentStatus*/  return new Property("employmentStatus", "", "A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.", 0, java.lang.Integer.MAX_VALUE, employmentStatus);
+        case 418561790: /*employmentStatus*/  return new Property("employmentStatus", "", "A person's current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.", 0, java.lang.Integer.MAX_VALUE, employmentStatus);
         case 1617125191: /*retirementDate*/  return new Property("retirementDate", "dateTime", "A person's self-identified retirement date.  A person may retire multiple times.", 0, java.lang.Integer.MAX_VALUE, retirementDate);
         case 1215352481: /*combatZonePeriod*/  return new Property("combatZonePeriod", "Period", "The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.", 0, java.lang.Integer.MAX_VALUE, combatZonePeriod);
         case 1179136563: /*usualWork*/  return new Property("usualWork", "", "The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.", 0, 1, usualWork);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -708,21 +708,21 @@ public class SupplyRequest extends DomainResource {
 
 
     /**
-     * Why the supply item was requested.
+     * The reason why the supply item was requested.
      */
     @Child(name = "reasonCode", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Why the supply item was requested", formalDefinition="Why the supply item was requested." )
+    @Description(shortDefinition="The reason why the supply item was requested", formalDefinition="The reason why the supply item was requested." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/supplyrequest-reason")
     protected List<CodeableConcept> reasonCode;
 
     /**
-     * Why the supply item was requested.
+     * The reason why the supply item was requested.
      */
     @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class, DocumentReference.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Why the supply item was requested", formalDefinition="Why the supply item was requested." )
+    @Description(shortDefinition="The reason why the supply item was requested", formalDefinition="The reason why the supply item was requested." )
     protected List<Reference> reasonReference;
     /**
-     * The actual objects that are the target of the reference (Why the supply item was requested.)
+     * The actual objects that are the target of the reference (The reason why the supply item was requested.)
      */
     protected List<Resource> reasonReferenceTarget;
 
@@ -1261,7 +1261,7 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonCode} (Why the supply item was requested.)
+     * @return {@link #reasonCode} (The reason why the supply item was requested.)
      */
     public List<CodeableConcept> getReasonCode() { 
       if (this.reasonCode == null)
@@ -1314,7 +1314,7 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonReference} (Why the supply item was requested.)
+     * @return {@link #reasonReference} (The reason why the supply item was requested.)
      */
     public List<Reference> getReasonReference() { 
       if (this.reasonReference == null)
@@ -1467,8 +1467,8 @@ public class SupplyRequest extends DomainResource {
         children.add(new Property("authoredOn", "dateTime", "When the request was made.", 0, 1, authoredOn));
         children.add(new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, 1, requester));
         children.add(new Property("supplier", "Reference(Organization|HealthcareService)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier));
-        children.add(new Property("reasonCode", "CodeableConcept", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
-        children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
+        children.add(new Property("reasonCode", "CodeableConcept", "The reason why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "The reason why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         children.add(new Property("deliverFrom", "Reference(Organization|Location)", "Where the supply is expected to come from.", 0, 1, deliverFrom));
         children.add(new Property("deliverTo", "Reference(Organization|Location|Patient)", "Where the supply is destined to go.", 0, 1, deliverTo));
       }
@@ -1494,8 +1494,8 @@ public class SupplyRequest extends DomainResource {
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "When the request was made.", 0, 1, authoredOn);
         case 693933948: /*requester*/  return new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, 1, requester);
         case -1663305268: /*supplier*/  return new Property("supplier", "Reference(Organization|HealthcareService)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier);
-        case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
-        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
+        case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "The reason why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
+        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "The reason why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
         case -949323153: /*deliverFrom*/  return new Property("deliverFrom", "Reference(Organization|Location)", "Where the supply is expected to come from.", 0, 1, deliverFrom);
         case -242327936: /*deliverTo*/  return new Property("deliverTo", "Reference(Organization|Location|Patient)", "Where the supply is destined to go.", 0, 1, deliverTo);
         default: return super.getNamedProperty(_hash, _name, _checkValid);

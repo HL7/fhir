@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -964,10 +964,10 @@ public class Condition extends DomainResource {
   }
 
     /**
-     * This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     * Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="External Ids for this condition", formalDefinition="This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    @Description(shortDefinition="External Ids for this condition", formalDefinition="Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server." )
     protected List<Identifier> identifier;
 
     /**
@@ -1057,10 +1057,10 @@ public class Condition extends DomainResource {
     protected Type abatement;
 
     /**
-     * The date on which the existance of the Condition was first asserted or acknowledged.
+     * The date on which the existence of the Condition was first asserted or acknowledged.
      */
     @Child(name = "assertedDate", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date record was believed accurate", formalDefinition="The date on which the existance of the Condition was first asserted or acknowledged." )
+    @Description(shortDefinition="Date record was believed accurate", formalDefinition="The date on which the existence of the Condition was first asserted or acknowledged." )
     protected DateTimeType assertedDate;
 
     /**
@@ -1126,7 +1126,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1701,7 +1701,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #assertedDate} (The date on which the existance of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
+     * @return {@link #assertedDate} (The date on which the existence of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
      */
     public DateTimeType getAssertedDateElement() { 
       if (this.assertedDate == null)
@@ -1721,7 +1721,7 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @param value {@link #assertedDate} (The date on which the existance of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
+     * @param value {@link #assertedDate} (The date on which the existence of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
      */
     public Condition setAssertedDateElement(DateTimeType value) { 
       this.assertedDate = value;
@@ -1729,14 +1729,14 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return The date on which the existance of the Condition was first asserted or acknowledged.
+     * @return The date on which the existence of the Condition was first asserted or acknowledged.
      */
     public Date getAssertedDate() { 
       return this.assertedDate == null ? null : this.assertedDate.getValue();
     }
 
     /**
-     * @param value The date on which the existance of the Condition was first asserted or acknowledged.
+     * @param value The date on which the existence of the Condition was first asserted or acknowledged.
      */
     public Condition setAssertedDate(Date value) { 
       if (value == null)
@@ -1988,7 +1988,7 @@ public class Condition extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, 1, clinicalStatus));
         children.add(new Property("verificationStatus", "code", "The verification status to support the clinical status of the condition.", 0, 1, verificationStatus));
         children.add(new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category));
@@ -1999,7 +1999,7 @@ public class Condition extends DomainResource {
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter during which the condition was first asserted.", 0, 1, context));
         children.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, 1, onset));
         children.add(new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement));
-        children.add(new Property("assertedDate", "dateTime", "The date on which the existance of the Condition was first asserted or acknowledged.", 0, 1, assertedDate));
+        children.add(new Property("assertedDate", "dateTime", "The date on which the existence of the Condition was first asserted or acknowledged.", 0, 1, assertedDate));
         children.add(new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder));
         children.add(new Property("asserter", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "Individual who is making the condition statement.", 0, 1, asserter));
         children.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
@@ -2010,7 +2010,7 @@ public class Condition extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "This records identifiers associated with this condition that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -462853915: /*clinicalStatus*/  return new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, 1, clinicalStatus);
         case -842509843: /*verificationStatus*/  return new Property("verificationStatus", "code", "The verification status to support the clinical status of the condition.", 0, 1, verificationStatus);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category);
@@ -2033,7 +2033,7 @@ public class Condition extends DomainResource {
         case -922036656: /*abatementPeriod*/  return new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement);
         case 1218906830: /*abatementRange*/  return new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement);
         case -822296416: /*abatementString*/  return new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement);
-        case -174231629: /*assertedDate*/  return new Property("assertedDate", "dateTime", "The date on which the existance of the Condition was first asserted or acknowledged.", 0, 1, assertedDate);
+        case -174231629: /*assertedDate*/  return new Property("assertedDate", "dateTime", "The date on which the existence of the Condition was first asserted or acknowledged.", 0, 1, assertedDate);
         case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder);
         case -373242253: /*asserter*/  return new Property("asserter", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "Individual who is making the condition statement.", 0, 1, asserter);
         case 109757182: /*stage*/  return new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage);

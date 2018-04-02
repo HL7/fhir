@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -341,7 +341,7 @@ public class MedicinalProductPackaged extends DomainResource {
          * Dimensions, color etc.
          */
         @Child(name = "physicalCharacteristics", type = {ProdCharacteristic.class}, order=11, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Dimensions, color etc", formalDefinition="Dimensions, color etc." )
+        @Description(shortDefinition="Dimensions, color etc.", formalDefinition="Dimensions, color etc." )
         protected ProdCharacteristic physicalCharacteristics;
 
         /**
@@ -1321,7 +1321,7 @@ public class MedicinalProductPackaged extends DomainResource {
          * Dimensions, color etc.
          */
         @Child(name = "physicalCharacteristics", type = {ProdCharacteristic.class}, order=6, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Dimensions, color etc", formalDefinition="Dimensions, color etc." )
+        @Description(shortDefinition="Dimensions, color etc.", formalDefinition="Dimensions, color etc." )
         protected ProdCharacteristic physicalCharacteristics;
 
         private static final long serialVersionUID = 54400069L;

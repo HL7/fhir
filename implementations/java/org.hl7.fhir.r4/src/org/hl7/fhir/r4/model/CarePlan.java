@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -1210,10 +1210,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         protected UriType instantiates;
 
         /**
-         * Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.
+         * Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Detail type of activity", formalDefinition="Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter." )
+        @Description(shortDefinition="Detail type of activity", formalDefinition="Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
         protected CodeableConcept code;
 
@@ -1447,7 +1447,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @return {@link #code} (Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.)
+         * @return {@link #code} (Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.)
          */
         public CodeableConcept getCode() { 
           if (this.code == null)
@@ -1463,7 +1463,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @param value {@link #code} (Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.)
+         * @param value {@link #code} (Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.)
          */
         public CarePlanActivityDetailComponent setCode(CodeableConcept value) { 
           this.code = value;
@@ -2125,7 +2125,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           super.listChildren(children);
           children.add(new Property("kind", "code", "A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.", 0, 1, kind));
           children.add(new Property("instantiates", "uri", "Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.", 0, 1, instantiates));
-          children.add(new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.", 0, 1, code));
+          children.add(new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.", 0, 1, code));
           children.add(new Property("reasonCode", "CodeableConcept", "Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
           children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource, such as the health condition(s), whose existence justifies this request and drove the inclusion of this particular activity as part of the plan.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
           children.add(new Property("goal", "Reference(Goal)", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
@@ -2146,7 +2146,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           switch (_hash) {
           case 3292052: /*kind*/  return new Property("kind", "code", "A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.", 0, 1, kind);
           case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.", 0, 1, instantiates);
-          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.", 0, 1, code);
+          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.", 0, 1, code);
           case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
           case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource, such as the health condition(s), whose existence justifies this request and drove the inclusion of this particular activity as part of the plan.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
           case 3178259: /*goal*/  return new Property("goal", "Reference(Goal)", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal);
@@ -2497,10 +2497,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
   }
 
     /**
-     * This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     * Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="External Ids for this plan", formalDefinition="This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    @Description(shortDefinition="External Ids for this plan", formalDefinition="Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server." )
     protected List<Identifier> identifier;
 
     /**
@@ -2514,7 +2514,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * A care plan that is fulfilled in whole or in part by this care plan.
      */
     @Child(name = "basedOn", type = {CarePlan.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Fulfills care plan", formalDefinition="A care plan that is fulfilled in whole or in part by this care plan." )
+    @Description(shortDefinition="Fulfills CarePlan", formalDefinition="A care plan that is fulfilled in whole or in part by this care plan." )
     protected List<Reference> basedOn;
     /**
      * The actual objects that are the target of the reference (A care plan that is fulfilled in whole or in part by this care plan.)
@@ -2571,10 +2571,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<CodeableConcept> category;
 
     /**
-     * Human-friendly name for the CarePlan.
+     * Human-friendly name for the care plan.
      */
     @Child(name = "title", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Human-friendly name for the CarePlan", formalDefinition="Human-friendly name for the CarePlan." )
+    @Description(shortDefinition="Human-friendly name for the care plan", formalDefinition="Human-friendly name for the care plan." )
     protected StringType title;
 
     /**
@@ -2588,7 +2588,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * Identifies the patient or group whose intended care is described by the plan.
      */
     @Child(name = "subject", type = {Patient.class, Group.class}, order=10, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who care plan is for", formalDefinition="Identifies the patient or group whose intended care is described by the plan." )
+    @Description(shortDefinition="Who the care plan is for", formalDefinition="Identifies the patient or group whose intended care is described by the plan." )
     protected Reference subject;
 
     /**
@@ -2597,14 +2597,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected Resource subjectTarget;
 
     /**
-     * Identifies the original context in which this particular CarePlan was created.
+     * Identifies the original context in which this particular care plan was created.
      */
     @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Created in context of", formalDefinition="Identifies the original context in which this particular CarePlan was created." )
+    @Description(shortDefinition="Created in context of", formalDefinition="Identifies the original context in which this particular care plan was created." )
     protected Reference context;
 
     /**
-     * The actual object that is the target of the reference (Identifies the original context in which this particular CarePlan was created.)
+     * The actual object that is the target of the reference (Identifies the original context in which this particular care plan was created.)
      */
     protected Resource contextTarget;
 
@@ -2616,13 +2616,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected Period period;
 
     /**
-     * Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
+     * Identifies the individual(s) or organization who is responsible for the content of the care plan.
      */
     @Child(name = "author", type = {Patient.class, Practitioner.class, PractitionerRole.class, Device.class, RelatedPerson.class, Organization.class, CareTeam.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Who is responsible for contents of the plan", formalDefinition="Identifies the individual(s) or ogranization who is responsible for the content of the care plan." )
+    @Description(shortDefinition="Who is responsible for contents of the plan", formalDefinition="Identifies the individual(s) or organization who is responsible for the content of the care plan." )
     protected List<Reference> author;
     /**
-     * The actual objects that are the target of the reference (Identifies the individual(s) or ogranization who is responsible for the content of the care plan.)
+     * The actual objects that are the target of the reference (Identifies the individual(s) or organization who is responsible for the content of the care plan.)
      */
     protected List<Resource> authorTarget;
 
@@ -2652,13 +2652,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
 
     /**
-     * Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.
+     * Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc.
      */
     @Child(name = "supportingInfo", type = {Reference.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Information considered as part of plan", formalDefinition="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc." )
+    @Description(shortDefinition="Information considered as part of plan", formalDefinition="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc." )
     protected List<Reference> supportingInfo;
     /**
-     * The actual objects that are the target of the reference (Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.)
+     * The actual objects that are the target of the reference (Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc.)
      */
     protected List<Resource> supportingInfoTarget;
 
@@ -2709,7 +2709,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -3191,7 +3191,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #title} (Human-friendly name for the CarePlan.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @return {@link #title} (Human-friendly name for the care plan.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StringType getTitleElement() { 
       if (this.title == null)
@@ -3211,7 +3211,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #title} (Human-friendly name for the CarePlan.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @param value {@link #title} (Human-friendly name for the care plan.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public CarePlan setTitleElement(StringType value) { 
       this.title = value;
@@ -3219,14 +3219,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return Human-friendly name for the CarePlan.
+     * @return Human-friendly name for the care plan.
      */
     public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
-     * @param value Human-friendly name for the CarePlan.
+     * @param value Human-friendly name for the care plan.
      */
     public CarePlan setTitle(String value) { 
       if (Utilities.noString(value))
@@ -3328,7 +3328,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #context} (Identifies the original context in which this particular CarePlan was created.)
+     * @return {@link #context} (Identifies the original context in which this particular care plan was created.)
      */
     public Reference getContext() { 
       if (this.context == null)
@@ -3344,7 +3344,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #context} (Identifies the original context in which this particular CarePlan was created.)
+     * @param value {@link #context} (Identifies the original context in which this particular care plan was created.)
      */
     public CarePlan setContext(Reference value) { 
       this.context = value;
@@ -3352,14 +3352,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the original context in which this particular CarePlan was created.)
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the original context in which this particular care plan was created.)
      */
     public Resource getContextTarget() { 
       return this.contextTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the original context in which this particular CarePlan was created.)
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the original context in which this particular care plan was created.)
      */
     public CarePlan setContextTarget(Resource value) { 
       this.contextTarget = value;
@@ -3391,7 +3391,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #author} (Identifies the individual(s) or ogranization who is responsible for the content of the care plan.)
+     * @return {@link #author} (Identifies the individual(s) or organization who is responsible for the content of the care plan.)
      */
     public List<Reference> getAuthor() { 
       if (this.author == null)
@@ -3604,7 +3604,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #supportingInfo} (Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.)
+     * @return {@link #supportingInfo} (Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc.)
      */
     public List<Reference> getSupportingInfo() { 
       if (this.supportingInfo == null)
@@ -3849,7 +3849,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("instantiates", "uri", "Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.", 0, java.lang.Integer.MAX_VALUE, instantiates));
         children.add(new Property("basedOn", "Reference(CarePlan)", "A care plan that is fulfilled in whole or in part by this care plan.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("replaces", "Reference(CarePlan)", "Completed or terminated care plan whose function is taken by this new care plan.", 0, java.lang.Integer.MAX_VALUE, replaces));
@@ -3857,15 +3857,15 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         children.add(new Property("status", "code", "Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.", 0, 1, status));
         children.add(new Property("intent", "code", "Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.", 0, 1, intent));
         children.add(new Property("category", "CodeableConcept", "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.", 0, java.lang.Integer.MAX_VALUE, category));
-        children.add(new Property("title", "string", "Human-friendly name for the CarePlan.", 0, 1, title));
+        children.add(new Property("title", "string", "Human-friendly name for the care plan.", 0, 1, title));
         children.add(new Property("description", "string", "A description of the scope and nature of the plan.", 0, 1, description));
         children.add(new Property("subject", "Reference(Patient|Group)", "Identifies the patient or group whose intended care is described by the plan.", 0, 1, subject));
-        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Identifies the original context in which this particular CarePlan was created.", 0, 1, context));
+        children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Identifies the original context in which this particular care plan was created.", 0, 1, context));
         children.add(new Property("period", "Period", "Indicates when the plan did (or is intended to) come into effect and end.", 0, 1, period));
-        children.add(new Property("author", "Reference(Patient|Practitioner|PractitionerRole|Device|RelatedPerson|Organization|CareTeam)", "Identifies the individual(s) or ogranization who is responsible for the content of the care plan.", 0, java.lang.Integer.MAX_VALUE, author));
+        children.add(new Property("author", "Reference(Patient|Practitioner|PractitionerRole|Device|RelatedPerson|Organization|CareTeam)", "Identifies the individual(s) or organization who is responsible for the content of the care plan.", 0, java.lang.Integer.MAX_VALUE, author));
         children.add(new Property("careTeam", "Reference(CareTeam)", "Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.", 0, java.lang.Integer.MAX_VALUE, careTeam));
         children.add(new Property("addresses", "Reference(Condition)", "Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.", 0, java.lang.Integer.MAX_VALUE, addresses));
-        children.add(new Property("supportingInfo", "Reference(Any)", "Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
+        children.add(new Property("supportingInfo", "Reference(Any)", "Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         children.add(new Property("goal", "Reference(Goal)", "Describes the intended objective(s) of carrying out the care plan.", 0, java.lang.Integer.MAX_VALUE, goal));
         children.add(new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity));
         children.add(new Property("note", "Annotation", "General notes about the care plan not covered elsewhere.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -3874,7 +3874,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.", 0, java.lang.Integer.MAX_VALUE, instantiates);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan)", "A care plan that is fulfilled in whole or in part by this care plan.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -430332865: /*replaces*/  return new Property("replaces", "Reference(CarePlan)", "Completed or terminated care plan whose function is taken by this new care plan.", 0, java.lang.Integer.MAX_VALUE, replaces);
@@ -3882,15 +3882,15 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -892481550: /*status*/  return new Property("status", "code", "Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.", 0, 1, status);
         case -1183762788: /*intent*/  return new Property("intent", "code", "Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain.", 0, 1, intent);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.", 0, java.lang.Integer.MAX_VALUE, category);
-        case 110371416: /*title*/  return new Property("title", "string", "Human-friendly name for the CarePlan.", 0, 1, title);
+        case 110371416: /*title*/  return new Property("title", "string", "Human-friendly name for the care plan.", 0, 1, title);
         case -1724546052: /*description*/  return new Property("description", "string", "A description of the scope and nature of the plan.", 0, 1, description);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "Identifies the patient or group whose intended care is described by the plan.", 0, 1, subject);
-        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "Identifies the original context in which this particular CarePlan was created.", 0, 1, context);
+        case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "Identifies the original context in which this particular care plan was created.", 0, 1, context);
         case -991726143: /*period*/  return new Property("period", "Period", "Indicates when the plan did (or is intended to) come into effect and end.", 0, 1, period);
-        case -1406328437: /*author*/  return new Property("author", "Reference(Patient|Practitioner|PractitionerRole|Device|RelatedPerson|Organization|CareTeam)", "Identifies the individual(s) or ogranization who is responsible for the content of the care plan.", 0, java.lang.Integer.MAX_VALUE, author);
+        case -1406328437: /*author*/  return new Property("author", "Reference(Patient|Practitioner|PractitionerRole|Device|RelatedPerson|Organization|CareTeam)", "Identifies the individual(s) or organization who is responsible for the content of the care plan.", 0, java.lang.Integer.MAX_VALUE, author);
         case -7323378: /*careTeam*/  return new Property("careTeam", "Reference(CareTeam)", "Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.", 0, java.lang.Integer.MAX_VALUE, careTeam);
         case 874544034: /*addresses*/  return new Property("addresses", "Reference(Condition)", "Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.", 0, java.lang.Integer.MAX_VALUE, addresses);
-        case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
+        case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
         case 3178259: /*goal*/  return new Property("goal", "Reference(Goal)", "Describes the intended objective(s) of carrying out the care plan.", 0, java.lang.Integer.MAX_VALUE, goal);
         case -1655966961: /*activity*/  return new Property("activity", "", "Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.", 0, java.lang.Integer.MAX_VALUE, activity);
         case 3387378: /*note*/  return new Property("note", "Annotation", "General notes about the care plan not covered elsewhere.", 0, java.lang.Integer.MAX_VALUE, note);
@@ -4439,17 +4439,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
  /**
    * Search parameter: <b>subject</b>
    * <p>
-   * Description: <b>Who care plan is for</b><br>
+   * Description: <b>Who the care plan is for</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CarePlan.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="CarePlan.subject", description="Who care plan is for", type="reference", target={Group.class, Patient.class } )
+  @SearchParamDefinition(name="subject", path="CarePlan.subject", description="Who the care plan is for", type="reference", target={Group.class, Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
-   * Description: <b>Who care plan is for</b><br>
+   * Description: <b>Who the care plan is for</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CarePlan.subject</b><br>
    * </p>
@@ -4615,17 +4615,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
  /**
    * Search parameter: <b>based-on</b>
    * <p>
-   * Description: <b>Fulfills care plan</b><br>
+   * Description: <b>Fulfills CarePlan</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CarePlan.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="CarePlan.basedOn", description="Fulfills care plan", type="reference", target={CarePlan.class } )
+  @SearchParamDefinition(name="based-on", path="CarePlan.basedOn", description="Fulfills CarePlan", type="reference", target={CarePlan.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
    * <p>
-   * Description: <b>Fulfills care plan</b><br>
+   * Description: <b>Fulfills CarePlan</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CarePlan.basedOn</b><br>
    * </p>
@@ -4641,17 +4641,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
  /**
    * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Who care plan is for</b><br>
+   * Description: <b>Who the care plan is for</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CarePlan.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who care plan is for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who the care plan is for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Who care plan is for</b><br>
+   * Description: <b>Who the care plan is for</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>CarePlan.subject</b><br>
    * </p>

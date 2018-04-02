@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -1159,10 +1159,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         protected Enumeration<DiscriminatorType> type;
 
         /**
-         * A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.
+         * A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.
          */
         @Child(name = "path", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Path to element value", formalDefinition="A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based." )
+        @Description(shortDefinition="Path to element value", formalDefinition="A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based." )
         protected StringType path;
 
         private static final long serialVersionUID = 1151159293L;
@@ -1229,7 +1229,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return {@link #path} (A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         * @return {@link #path} (A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public StringType getPathElement() { 
           if (this.path == null)
@@ -1249,7 +1249,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @param value {@link #path} (A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         * @param value {@link #path} (A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public ElementDefinitionSlicingDiscriminatorComponent setPathElement(StringType value) { 
           this.path = value;
@@ -1257,14 +1257,14 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.
+         * @return A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.
          */
         public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
-         * @param value A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.
+         * @param value A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.
          */
         public ElementDefinitionSlicingDiscriminatorComponent setPath(String value) { 
             if (this.path == null)
@@ -1276,14 +1276,14 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("type", "code", "How the element value is interpreted when discrimination is evaluated.", 0, 1, type));
-          children.add(new Property("path", "string", "A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.", 0, 1, path));
+          children.add(new Property("path", "string", "A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.", 0, 1, path));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3575610: /*type*/  return new Property("type", "code", "How the element value is interpreted when discrimination is evaluated.", 0, 1, type);
-          case 3433509: /*path*/  return new Property("path", "string", "A FHIRPath expression, using [the simple subset of FHIRPath](simplefhirpath.html), that is used to identify the element on which discrimination is based.", 0, 1, path);
+          case 3433509: /*path*/  return new Property("path", "string", "A FHIRPath expression, using [the simple subset of FHIRPath](fhirpath.html#simple), that is used to identify the element on which discrimination is based.", 0, 1, path);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2716,10 +2716,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         protected StringType human;
 
         /**
-         * A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.
+         * A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.
          */
         @Child(name = "expression", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="FHIRPath expression of constraint", formalDefinition="A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met." )
+        @Description(shortDefinition="FHIRPath expression of constraint", formalDefinition="A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met." )
         protected StringType expression;
 
         /**
@@ -2941,7 +2941,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return {@link #expression} (A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @return {@link #expression} (A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public StringType getExpressionElement() { 
           if (this.expression == null)
@@ -2961,7 +2961,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @param value {@link #expression} (A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
         public ElementDefinitionConstraintComponent setExpressionElement(StringType value) { 
           this.expression = value;
@@ -2969,14 +2969,14 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.
+         * @return A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.
          */
         public String getExpression() { 
           return this.expression == null ? null : this.expression.getValue();
         }
 
         /**
-         * @param value A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.
+         * @param value A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.
          */
         public ElementDefinitionConstraintComponent setExpression(String value) { 
             if (this.expression == null)
@@ -3089,7 +3089,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           children.add(new Property("requirements", "string", "Description of why this constraint is necessary or appropriate.", 0, 1, requirements));
           children.add(new Property("severity", "code", "Identifies the impact constraint violation has on the conformance of the instance.", 0, 1, severity));
           children.add(new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, 1, human));
-          children.add(new Property("expression", "string", "A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.", 0, 1, expression));
+          children.add(new Property("expression", "string", "A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.", 0, 1, expression));
           children.add(new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, 1, xpath));
           children.add(new Property("source", "canonical(StructureDefinition)", "A reference to the original source of the constraint, for traceability purposes.", 0, 1, source));
         }
@@ -3101,7 +3101,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           case -1619874672: /*requirements*/  return new Property("requirements", "string", "Description of why this constraint is necessary or appropriate.", 0, 1, requirements);
           case 1478300413: /*severity*/  return new Property("severity", "code", "Identifies the impact constraint violation has on the conformance of the instance.", 0, 1, severity);
           case 99639597: /*human*/  return new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, 1, human);
-          case -1795452264: /*expression*/  return new Property("expression", "string", "A [FHIRPath](http://hl7.org/fhirpath) expression of constraint that can be executed to see if this constraint is met.", 0, 1, expression);
+          case -1795452264: /*expression*/  return new Property("expression", "string", "A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met.", 0, 1, expression);
           case 114256029: /*xpath*/  return new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, 1, xpath);
           case -896505829: /*source*/  return new Property("source", "canonical(StructureDefinition)", "A reference to the original source of the constraint, for traceability purposes.", 0, 1, source);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -3300,10 +3300,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         protected StringType description;
 
         /**
-         * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.
+         * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.
          */
         @Child(name = "valueSet", type = {UriType.class, CanonicalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri." )
+        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri." )
         protected Type valueSet;
 
         private static final long serialVersionUID = 1355538460L;
@@ -3418,14 +3418,14 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
         public Type getValueSet() { 
           return this.valueSet;
         }
 
         /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
         public UriType getValueSetUriType() throws FHIRException { 
           if (this.valueSet == null)
@@ -3440,7 +3440,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
         public CanonicalType getValueSetCanonicalType() throws FHIRException { 
           if (this.valueSet == null)
@@ -3459,7 +3459,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
         public ElementDefinitionBindingComponent setValueSet(Type value) { 
           if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
@@ -3472,7 +3472,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           super.listChildren(children);
           children.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength));
           children.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, 1, description));
-          children.add(new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet));
+          children.add(new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet));
         }
 
         @Override
@@ -3480,10 +3480,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           switch (_hash) {
           case 1791316033: /*strength*/  return new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength);
           case -1724546052: /*description*/  return new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, 1, description);
-          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case 2048727747: /*valueSetCanonical*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case 2048727747: /*valueSetCanonical*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 

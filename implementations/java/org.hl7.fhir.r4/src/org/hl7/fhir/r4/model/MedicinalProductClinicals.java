@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * The clinical particulars - indications, contraindications etc of a medicinal product, including for regulatory purposes.
+ * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
  */
 @ResourceDef(name="MedicinalProductClinicals", profile="http://hl7.org/fhir/Profile/MedicinalProductClinicals")
 public class MedicinalProductClinicals extends DomainResource {

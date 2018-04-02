@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -247,17 +247,17 @@ public class RiskAssessment extends DomainResource {
         protected CodeableConcept outcome;
 
         /**
-         * How likely is the outcome (in the specified timeframe).
+         * Indicates how likely the outcome is (in the specified timeframe).
          */
         @Child(name = "probability", type = {DecimalType.class, Range.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Likelihood of specified outcome", formalDefinition="How likely is the outcome (in the specified timeframe)." )
+        @Description(shortDefinition="Likelihood of specified outcome", formalDefinition="Indicates how likely the outcome is (in the specified timeframe)." )
         protected Type probability;
 
         /**
-         * How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).
+         * Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high).
          */
         @Child(name = "qualitativeRisk", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Likelihood of specified outcome as a qualitative value", formalDefinition="How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high)." )
+        @Description(shortDefinition="Likelihood of specified outcome as a qualitative value", formalDefinition="Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/risk-probability")
         protected CodeableConcept qualitativeRisk;
 
@@ -316,14 +316,14 @@ public class RiskAssessment extends DomainResource {
         }
 
         /**
-         * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
+         * @return {@link #probability} (Indicates how likely the outcome is (in the specified timeframe).)
          */
         public Type getProbability() { 
           return this.probability;
         }
 
         /**
-         * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
+         * @return {@link #probability} (Indicates how likely the outcome is (in the specified timeframe).)
          */
         public DecimalType getProbabilityDecimalType() throws FHIRException { 
           if (this.probability == null)
@@ -338,7 +338,7 @@ public class RiskAssessment extends DomainResource {
         }
 
         /**
-         * @return {@link #probability} (How likely is the outcome (in the specified timeframe).)
+         * @return {@link #probability} (Indicates how likely the outcome is (in the specified timeframe).)
          */
         public Range getProbabilityRange() throws FHIRException { 
           if (this.probability == null)
@@ -357,7 +357,7 @@ public class RiskAssessment extends DomainResource {
         }
 
         /**
-         * @param value {@link #probability} (How likely is the outcome (in the specified timeframe).)
+         * @param value {@link #probability} (Indicates how likely the outcome is (in the specified timeframe).)
          */
         public RiskAssessmentPredictionComponent setProbability(Type value) { 
           if (value != null && !(value instanceof DecimalType || value instanceof Range))
@@ -367,7 +367,7 @@ public class RiskAssessment extends DomainResource {
         }
 
         /**
-         * @return {@link #qualitativeRisk} (How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).)
+         * @return {@link #qualitativeRisk} (Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high).)
          */
         public CodeableConcept getQualitativeRisk() { 
           if (this.qualitativeRisk == null)
@@ -383,7 +383,7 @@ public class RiskAssessment extends DomainResource {
         }
 
         /**
-         * @param value {@link #qualitativeRisk} (How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).)
+         * @param value {@link #qualitativeRisk} (Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high).)
          */
         public RiskAssessmentPredictionComponent setQualitativeRisk(CodeableConcept value) { 
           this.qualitativeRisk = value;
@@ -560,8 +560,8 @@ public class RiskAssessment extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, 1, outcome));
-          children.add(new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability));
-          children.add(new Property("qualitativeRisk", "CodeableConcept", "How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).", 0, 1, qualitativeRisk));
+          children.add(new Property("probability[x]", "decimal|Range", "Indicates how likely the outcome is (in the specified timeframe).", 0, 1, probability));
+          children.add(new Property("qualitativeRisk", "CodeableConcept", "Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high).", 0, 1, qualitativeRisk));
           children.add(new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, 1, relativeRisk));
           children.add(new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when));
           children.add(new Property("rationale", "string", "Additional information explaining the basis for the prediction.", 0, 1, rationale));
@@ -571,11 +571,11 @@ public class RiskAssessment extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case -1106507950: /*outcome*/  return new Property("outcome", "CodeableConcept", "One of the potential outcomes for the patient (e.g. remission, death,  a particular condition).", 0, 1, outcome);
-          case 1430185003: /*probability[x]*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
-          case -1290561483: /*probability*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
-          case 888495452: /*probabilityDecimal*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
-          case 9275912: /*probabilityRange*/  return new Property("probability[x]", "decimal|Range", "How likely is the outcome (in the specified timeframe).", 0, 1, probability);
-          case 123308730: /*qualitativeRisk*/  return new Property("qualitativeRisk", "CodeableConcept", "How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).", 0, 1, qualitativeRisk);
+          case 1430185003: /*probability[x]*/  return new Property("probability[x]", "decimal|Range", "Indicates how likely the outcome is (in the specified timeframe).", 0, 1, probability);
+          case -1290561483: /*probability*/  return new Property("probability[x]", "decimal|Range", "Indicates how likely the outcome is (in the specified timeframe).", 0, 1, probability);
+          case 888495452: /*probabilityDecimal*/  return new Property("probability[x]", "decimal|Range", "Indicates how likely the outcome is (in the specified timeframe).", 0, 1, probability);
+          case 9275912: /*probabilityRange*/  return new Property("probability[x]", "decimal|Range", "Indicates how likely the outcome is (in the specified timeframe).", 0, 1, probability);
+          case 123308730: /*qualitativeRisk*/  return new Property("qualitativeRisk", "CodeableConcept", "Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high).", 0, 1, qualitativeRisk);
           case -70741061: /*relativeRisk*/  return new Property("relativeRisk", "decimal", "Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).", 0, 1, relativeRisk);
           case 1312831238: /*when[x]*/  return new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when);
           case 3648314: /*when*/  return new Property("when[x]", "Period|Range", "Indicates the period of time or age range of the subject to which the specified probability applies.", 0, 1, when);
@@ -887,13 +887,13 @@ public class RiskAssessment extends DomainResource {
 
 
     /**
-     * Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).
+     * Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).
      */
     @Child(name = "basis", type = {Reference.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Information used in assessment", formalDefinition="Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.)." )
+    @Description(shortDefinition="Information used in assessment", formalDefinition="Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.)." )
     protected List<Reference> basis;
     /**
-     * The actual objects that are the target of the reference (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
+     * The actual objects that are the target of the reference (Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
     protected List<Resource> basisTarget;
 
@@ -1490,7 +1490,7 @@ public class RiskAssessment extends DomainResource {
     }
 
     /**
-     * @return {@link #basis} (Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).)
+     * @return {@link #basis} (Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).)
      */
     public List<Reference> getBasis() { 
       if (this.basis == null)
@@ -1722,7 +1722,7 @@ public class RiskAssessment extends DomainResource {
         children.add(new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, 1, performer));
         children.add(new Property("reasonCode", "CodeableConcept", "The reason the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Resources supporting the reason the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        children.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
+        children.add(new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis));
         children.add(new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction));
         children.add(new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, 1, mitigation));
         children.add(new Property("note", "Annotation", "Additional comments about the risk assessment.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -1747,7 +1747,7 @@ public class RiskAssessment extends DomainResource {
         case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|Device)", "The provider or software application that performed the assessment.", 0, 1, performer);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "The reason the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Resources supporting the reason the risk assessment was performed.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
-        case 93508670: /*basis*/  return new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis);
+        case 93508670: /*basis*/  return new Property("basis", "Reference(Any)", "Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.).", 0, java.lang.Integer.MAX_VALUE, basis);
         case 1161234575: /*prediction*/  return new Property("prediction", "", "Describes the expected outcome for the subject.", 0, java.lang.Integer.MAX_VALUE, prediction);
         case 1293793087: /*mitigation*/  return new Property("mitigation", "string", "A description of the steps that might be taken to reduce the identified risk(s).", 0, 1, mitigation);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Additional comments about the risk assessment.", 0, java.lang.Integer.MAX_VALUE, note);

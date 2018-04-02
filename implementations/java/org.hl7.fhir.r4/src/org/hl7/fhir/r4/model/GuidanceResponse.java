@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -219,10 +219,10 @@ public class GuidanceResponse extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * An identifier, codeableconcept or canonical reference to the guidance that was requested.
+     * An identifier, CodeableConcept or canonical reference to the guidance that was requested.
      */
     @Child(name = "module", type = {UriType.class, CanonicalType.class, CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="What guidance was requested", formalDefinition="An identifier, codeableconcept or canonical reference to the guidance that was requested." )
+    @Description(shortDefinition="What guidance was requested", formalDefinition="An identifier, CodeableConcept or canonical reference to the guidance that was requested." )
     protected Type module;
 
     /**
@@ -466,14 +466,14 @@ public class GuidanceResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #module} (An identifier, codeableconcept or canonical reference to the guidance that was requested.)
+     * @return {@link #module} (An identifier, CodeableConcept or canonical reference to the guidance that was requested.)
      */
     public Type getModule() { 
       return this.module;
     }
 
     /**
-     * @return {@link #module} (An identifier, codeableconcept or canonical reference to the guidance that was requested.)
+     * @return {@link #module} (An identifier, CodeableConcept or canonical reference to the guidance that was requested.)
      */
     public UriType getModuleUriType() throws FHIRException { 
       if (this.module == null)
@@ -488,7 +488,7 @@ public class GuidanceResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #module} (An identifier, codeableconcept or canonical reference to the guidance that was requested.)
+     * @return {@link #module} (An identifier, CodeableConcept or canonical reference to the guidance that was requested.)
      */
     public CanonicalType getModuleCanonicalType() throws FHIRException { 
       if (this.module == null)
@@ -503,7 +503,7 @@ public class GuidanceResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #module} (An identifier, codeableconcept or canonical reference to the guidance that was requested.)
+     * @return {@link #module} (An identifier, CodeableConcept or canonical reference to the guidance that was requested.)
      */
     public CodeableConcept getModuleCodeableConcept() throws FHIRException { 
       if (this.module == null)
@@ -522,7 +522,7 @@ public class GuidanceResponse extends DomainResource {
     }
 
     /**
-     * @param value {@link #module} (An identifier, codeableconcept or canonical reference to the guidance that was requested.)
+     * @param value {@link #module} (An identifier, CodeableConcept or canonical reference to the guidance that was requested.)
      */
     public GuidanceResponse setModule(Type value) { 
       if (value != null && !(value instanceof UriType || value instanceof CanonicalType || value instanceof CodeableConcept))
@@ -1131,7 +1131,7 @@ public class GuidanceResponse extends DomainResource {
         super.listChildren(children);
         children.add(new Property("requestId", "id", "The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.", 0, 1, requestId));
         children.add(new Property("identifier", "Identifier", "Allows a service to provide  unique, business identifiers for the response.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, codeableconcept or canonical reference to the guidance that was requested.", 0, 1, module));
+        children.add(new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, CodeableConcept or canonical reference to the guidance that was requested.", 0, 1, module));
         children.add(new Property("status", "code", "The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.", 0, 1, status));
         children.add(new Property("subject", "Reference(Patient|Group)", "The patient for which the request was processed.", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.", 0, 1, context));
@@ -1151,11 +1151,11 @@ public class GuidanceResponse extends DomainResource {
         switch (_hash) {
         case 693933066: /*requestId*/  return new Property("requestId", "id", "The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario.", 0, 1, requestId);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Allows a service to provide  unique, business identifiers for the response.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -1552083308: /*module[x]*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, codeableconcept or canonical reference to the guidance that was requested.", 0, 1, module);
-        case -1068784020: /*module*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, codeableconcept or canonical reference to the guidance that was requested.", 0, 1, module);
-        case -1552089248: /*moduleUri*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, codeableconcept or canonical reference to the guidance that was requested.", 0, 1, module);
-        case -1153656856: /*moduleCanonical*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, codeableconcept or canonical reference to the guidance that was requested.", 0, 1, module);
-        case -1157899371: /*moduleCodeableConcept*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, codeableconcept or canonical reference to the guidance that was requested.", 0, 1, module);
+        case -1552083308: /*module[x]*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, CodeableConcept or canonical reference to the guidance that was requested.", 0, 1, module);
+        case -1068784020: /*module*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, CodeableConcept or canonical reference to the guidance that was requested.", 0, 1, module);
+        case -1552089248: /*moduleUri*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, CodeableConcept or canonical reference to the guidance that was requested.", 0, 1, module);
+        case -1153656856: /*moduleCanonical*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, CodeableConcept or canonical reference to the guidance that was requested.", 0, 1, module);
+        case -1157899371: /*moduleCodeableConcept*/  return new Property("module[x]", "uri|canonical|CodeableConcept", "An identifier, CodeableConcept or canonical reference to the guidance that was requested.", 0, 1, module);
         case -892481550: /*status*/  return new Property("status", "code", "The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information.", 0, 1, status);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient for which the request was processed.", 0, 1, subject);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable.", 0, 1, context);

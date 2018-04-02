@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -658,13 +658,13 @@ public class ChargeItem extends DomainResource {
     protected List<Annotation> note;
 
     /**
-     * Further information supporting the this charge.
+     * Further information supporting this charge.
      */
     @Child(name = "supportingInformation", type = {Reference.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Further information supporting the this charge", formalDefinition="Further information supporting the this charge." )
+    @Description(shortDefinition="Further information supporting this charge", formalDefinition="Further information supporting this charge." )
     protected List<Reference> supportingInformation;
     /**
-     * The actual objects that are the target of the reference (Further information supporting the this charge.)
+     * The actual objects that are the target of the reference (Further information supporting this charge.)
      */
     protected List<Resource> supportingInformationTarget;
 
@@ -1820,7 +1820,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @return {@link #supportingInformation} (Further information supporting the this charge.)
+     * @return {@link #supportingInformation} (Further information supporting this charge.)
      */
     public List<Reference> getSupportingInformation() { 
       if (this.supportingInformation == null)
@@ -1907,7 +1907,7 @@ public class ChargeItem extends DomainResource {
         children.add(new Property("service", "Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)", "Indicated the rendered service that caused this charge.", 0, java.lang.Integer.MAX_VALUE, service));
         children.add(new Property("account", "Reference(Account)", "Account into which this ChargeItems belongs.", 0, java.lang.Integer.MAX_VALUE, account));
         children.add(new Property("note", "Annotation", "Comments made about the event by the performer, subject or other participants.", 0, java.lang.Integer.MAX_VALUE, note));
-        children.add(new Property("supportingInformation", "Reference(Any)", "Further information supporting the this charge.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        children.add(new Property("supportingInformation", "Reference(Any)", "Further information supporting this charge.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
       }
 
       @Override
@@ -1940,7 +1940,7 @@ public class ChargeItem extends DomainResource {
         case 1984153269: /*service*/  return new Property("service", "Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)", "Indicated the rendered service that caused this charge.", 0, java.lang.Integer.MAX_VALUE, service);
         case -1177318867: /*account*/  return new Property("account", "Reference(Account)", "Account into which this ChargeItems belongs.", 0, java.lang.Integer.MAX_VALUE, account);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Comments made about the event by the performer, subject or other participants.", 0, java.lang.Integer.MAX_VALUE, note);
-        case -1248768647: /*supportingInformation*/  return new Property("supportingInformation", "Reference(Any)", "Further information supporting the this charge.", 0, java.lang.Integer.MAX_VALUE, supportingInformation);
+        case -1248768647: /*supportingInformation*/  return new Property("supportingInformation", "Reference(Any)", "Further information supporting this charge.", 0, java.lang.Integer.MAX_VALUE, supportingInformation);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 

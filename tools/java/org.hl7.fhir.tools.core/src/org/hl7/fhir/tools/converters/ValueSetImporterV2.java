@@ -62,7 +62,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   }
   private static final String HTTP_separator = "/";
-  private static final String MAX_VER = "2.8.2";
+  private static final String MAX_VER = "2.9";
 
   public class TableRegistration {
     private List<String> versionPoints = new ArrayList<String>(); 

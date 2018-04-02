@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -1286,10 +1286,10 @@ public class AllergyIntolerance extends DomainResource {
   }
 
     /**
-     * This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+     * Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="External ids for this item", formalDefinition="This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)." )
+    @Description(shortDefinition="External ids for this item", formalDefinition="Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server." )
     protected List<Identifier> identifier;
 
     /**
@@ -1372,10 +1372,10 @@ public class AllergyIntolerance extends DomainResource {
     protected Type onset;
 
     /**
-     * The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.
+     * The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.
      */
     @Child(name = "assertedDate", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Date record was believed accurate", formalDefinition="The date on which the existance of the AllergyIntolerance was first asserted or acknowledged." )
+    @Description(shortDefinition="Date record was believed accurate", formalDefinition="The date on which the existence of the AllergyIntolerance was first asserted or acknowledged." )
     protected DateTimeType assertedDate;
 
     /**
@@ -1441,7 +1441,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
+     * @return {@link #identifier} (Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1959,7 +1959,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #assertedDate} (The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
+     * @return {@link #assertedDate} (The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
      */
     public DateTimeType getAssertedDateElement() { 
       if (this.assertedDate == null)
@@ -1979,7 +1979,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @param value {@link #assertedDate} (The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
+     * @param value {@link #assertedDate} (The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
      */
     public AllergyIntolerance setAssertedDateElement(DateTimeType value) { 
       this.assertedDate = value;
@@ -1987,14 +1987,14 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.
+     * @return The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.
      */
     public Date getAssertedDate() { 
       return this.assertedDate == null ? null : this.assertedDate.getValue();
     }
 
     /**
-     * @param value The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.
+     * @param value The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.
      */
     public AllergyIntolerance setAssertedDate(Date value) { 
       if (value == null)
@@ -2242,7 +2242,7 @@ public class AllergyIntolerance extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("clinicalStatus", "code", "The clinical status of the allergy or intolerance.", 0, 1, clinicalStatus));
         children.add(new Property("verificationStatus", "code", "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).", 0, 1, verificationStatus));
         children.add(new Property("type", "code", "Identification of the underlying physiological mechanism for the reaction risk.", 0, 1, type));
@@ -2252,7 +2252,7 @@ public class AllergyIntolerance extends DomainResource {
         children.add(new Property("patient", "Reference(Patient)", "The patient who has the allergy or intolerance.", 0, 1, patient));
         children.add(new Property("encounter", "Reference(Encounter)", "The encounter when the allergy or intolerance was asserted.", 0, 1, encounter));
         children.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset));
-        children.add(new Property("assertedDate", "dateTime", "The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.", 0, 1, assertedDate));
+        children.add(new Property("assertedDate", "dateTime", "The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.", 0, 1, assertedDate));
         children.add(new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder));
         children.add(new Property("asserter", "Reference(Patient|RelatedPerson|Practitioner)", "The source of the information about the allergy that is recorded.", 0, 1, asserter));
         children.add(new Property("lastOccurrence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, 1, lastOccurrence));
@@ -2263,7 +2263,7 @@ public class AllergyIntolerance extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -462853915: /*clinicalStatus*/  return new Property("clinicalStatus", "code", "The clinical status of the allergy or intolerance.", 0, 1, clinicalStatus);
         case -842509843: /*verificationStatus*/  return new Property("verificationStatus", "code", "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).", 0, 1, verificationStatus);
         case 3575610: /*type*/  return new Property("type", "code", "Identification of the underlying physiological mechanism for the reaction risk.", 0, 1, type);
@@ -2279,7 +2279,7 @@ public class AllergyIntolerance extends DomainResource {
         case -1545082428: /*onsetPeriod*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset);
         case -186664742: /*onsetRange*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset);
         case -1445342188: /*onsetString*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset);
-        case -174231629: /*assertedDate*/  return new Property("assertedDate", "dateTime", "The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.", 0, 1, assertedDate);
+        case -174231629: /*assertedDate*/  return new Property("assertedDate", "dateTime", "The date on which the existence of the AllergyIntolerance was first asserted or acknowledged.", 0, 1, assertedDate);
         case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder);
         case -373242253: /*asserter*/  return new Property("asserter", "Reference(Patient|RelatedPerson|Practitioner)", "The source of the information about the allergy that is recorded.", 0, 1, asserter);
         case 1896977671: /*lastOccurrence*/  return new Property("lastOccurrence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, 1, lastOccurrence);

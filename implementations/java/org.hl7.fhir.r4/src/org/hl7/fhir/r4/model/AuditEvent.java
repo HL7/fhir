@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -2642,10 +2642,10 @@ public class AuditEvent extends DomainResource {
         protected StringType type;
 
         /**
-         * The details value.
+         * The  value of the extra detail.
          */
         @Child(name = "value", type = {StringType.class, Base64BinaryType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Property value", formalDefinition="The details value." )
+        @Description(shortDefinition="Property value", formalDefinition="The  value of the extra detail." )
         protected Type value;
 
         private static final long serialVersionUID = -1035059584L;
@@ -2712,14 +2712,14 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (The details value.)
+         * @return {@link #value} (The  value of the extra detail.)
          */
         public Type getValue() { 
           return this.value;
         }
 
         /**
-         * @return {@link #value} (The details value.)
+         * @return {@link #value} (The  value of the extra detail.)
          */
         public StringType getValueStringType() throws FHIRException { 
           if (this.value == null)
@@ -2734,7 +2734,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #value} (The details value.)
+         * @return {@link #value} (The  value of the extra detail.)
          */
         public Base64BinaryType getValueBase64BinaryType() throws FHIRException { 
           if (this.value == null)
@@ -2753,7 +2753,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @param value {@link #value} (The details value.)
+         * @param value {@link #value} (The  value of the extra detail.)
          */
         public AuditEventEntityDetailComponent setValue(Type value) { 
           if (value != null && !(value instanceof StringType || value instanceof Base64BinaryType))
@@ -2765,17 +2765,17 @@ public class AuditEvent extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("type", "string", "The type of extra detail provided in the value.", 0, 1, type));
-          children.add(new Property("value[x]", "string|base64Binary", "The details value.", 0, 1, value));
+          children.add(new Property("value[x]", "string|base64Binary", "The  value of the extra detail.", 0, 1, value));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3575610: /*type*/  return new Property("type", "string", "The type of extra detail provided in the value.", 0, 1, type);
-          case -1410166417: /*value[x]*/  return new Property("value[x]", "string|base64Binary", "The details value.", 0, 1, value);
-          case 111972721: /*value*/  return new Property("value[x]", "string|base64Binary", "The details value.", 0, 1, value);
-          case -1424603934: /*valueString*/  return new Property("value[x]", "string|base64Binary", "The details value.", 0, 1, value);
-          case -1535024575: /*valueBase64Binary*/  return new Property("value[x]", "string|base64Binary", "The details value.", 0, 1, value);
+          case -1410166417: /*value[x]*/  return new Property("value[x]", "string|base64Binary", "The  value of the extra detail.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value[x]", "string|base64Binary", "The  value of the extra detail.", 0, 1, value);
+          case -1424603934: /*valueString*/  return new Property("value[x]", "string|base64Binary", "The  value of the extra detail.", 0, 1, value);
+          case -1535024575: /*valueBase64Binary*/  return new Property("value[x]", "string|base64Binary", "The  value of the extra detail.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -340,7 +340,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
          * The media type of the language for the expression.
          */
         @Child(name = "language", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="text/cql | text/fhirpath | etc", formalDefinition="The media type of the language for the expression." )
+        @Description(shortDefinition="text/cql | text/fhirpath | etc.", formalDefinition="The media type of the language for the expression." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/expression-language")
         protected Enumeration<ExpressionLanguage> language;
 

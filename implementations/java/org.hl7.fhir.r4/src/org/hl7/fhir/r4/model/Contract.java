@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
 
 import java.util.*;
 
@@ -1695,10 +1695,10 @@ public class Contract extends DomainResource {
     @Block()
     public static class ContractAssetComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Resource Type, Profile, or CDA etc.
+         * Categorization of the type of asset.
          */
         @Child(name = "class", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Resource Type, Profile, or CDA etc", formalDefinition="Resource Type, Profile, or CDA etc." )
+        @Description(shortDefinition="Resource Type, Profile, or CDA etc.", formalDefinition="Categorization of the type of asset." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/consent-content-class")
         protected Coding class_;
 
@@ -1756,7 +1756,7 @@ public class Contract extends DomainResource {
       }
 
         /**
-         * @return {@link #class_} (Resource Type, Profile, or CDA etc.)
+         * @return {@link #class_} (Categorization of the type of asset.)
          */
         public Coding getClass_() { 
           if (this.class_ == null)
@@ -1772,7 +1772,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @param value {@link #class_} (Resource Type, Profile, or CDA etc.)
+         * @param value {@link #class_} (Categorization of the type of asset.)
          */
         public ContractAssetComponent setClass_(Coding value) { 
           this.class_ = value;
@@ -2012,7 +2012,7 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("class", "Coding", "Resource Type, Profile, or CDA etc.", 0, 1, class_));
+          children.add(new Property("class", "Coding", "Categorization of the type of asset.", 0, 1, class_));
           children.add(new Property("code", "Coding", "Code in the content.", 0, 1, code));
           children.add(new Property("period", "Period", "Time period of the asset.", 0, 1, period));
           children.add(new Property("dataPeriod", "Period", "Time period of the data for the asset.", 0, 1, dataPeriod));
@@ -2024,7 +2024,7 @@ public class Contract extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 94742904: /*class*/  return new Property("class", "Coding", "Resource Type, Profile, or CDA etc.", 0, 1, class_);
+          case 94742904: /*class*/  return new Property("class", "Coding", "Categorization of the type of asset.", 0, 1, class_);
           case 3059181: /*code*/  return new Property("code", "Coding", "Code in the content.", 0, 1, code);
           case -991726143: /*period*/  return new Property("period", "Period", "Time period of the asset.", 0, 1, period);
           case 1177250315: /*dataPeriod*/  return new Property("dataPeriod", "Period", "Time period of the data for the asset.", 0, 1, dataPeriod);
