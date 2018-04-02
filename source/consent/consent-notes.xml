@@ -1,9 +1,9 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <h2>Policies</h2>
 <p>
 The Consent resource has a reference to a single <code>policyRule</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
-In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies, and presents a single policy for patient
+In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patient
 consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, the <code>policy</code> may be used.
 </p>
 <h2>General Model</h2>
@@ -14,13 +14,13 @@ The following is the general model of Privacy Consent Directives.
 There are context setting parameters:
 </p>
 <ol>
-<li>Who - The <td><b>patient</b></td></li>
-<li>What - The <td><b>data</b></td> - specific resources are listed, empty list means all data covered by the consent.</li>
-<li>Where - The <td><b>domain</b></td> and <td><b>authority</b></td> - what is the location boundary and authority boundary of this consent</li>
-<li>When - The <td><b>issued</b></td> or captured</li>
-<li>When - The timeframe for which the Consent <td><b>applies</b></td> </li>
-<li>How - The <td><b>actions</b></td> covered. (such as purposes of use that are covered)</li>
-<li>Whom - The <td><b>recipient</b></td> are grantees by the consent. </li>
+<li>Who - The <b>patient</b></li>
+<li>What - The <b>data</b> - specific resources are listed, empty list means all data covered by the consent.</li>
+<li>Where - The <b>domain</b> and <b>authority</b> - what is the location boundary and authority boundary of this consent</li>
+<li>When - The <b>issued</b> or captured</li>
+<li>When - The timeframe for which the Consent <b>applies</b></li>
+<li>How - The <b>actions</b> covered. (such as purposes of use that are covered)</li>
+<li>Whom - The <b>recipient</b> are grantees by the consent. </li>
 </ol>
 <p>
 A Privacy Consent may transition through many states including: that no consent has been sought, consent has been proposed, 
@@ -35,14 +35,14 @@ consent has been rejected, and consent approved.
 	  <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions (See the Canadian examples).</li>
 	  </ol>
       <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
-	  These exceptions are explicitly recorded in the <td><b>except</b></td> element. 
+	  These exceptions are explicitly recorded in the <b>except</b> element. 
       </p>	
 <h2>Realm specifics</h2>
- <h3>US Realm sample Use-Cases</h3>
+ <h3>US Realm Sample Use-Cases</h3>
 	  <p>
 		Five categories of Privacy Consent Directives are described in the Office of the National Coordinator for 
 		Health Information (ONC) Consent Directives Document released March 31, 2010, and include the following 
-		US-specific “Core consent options” for electronic exchange:
+		US-specific "Core consent options" for electronic exchange:
 	  </p>
 	  <ol>
 	  <li>No consent: Health information of patients is automatically included—patients cannot opt out;</li>
@@ -54,7 +54,7 @@ consent has been rejected, and consent approved.
 	  <p>
 	  A common exception is to explicitly exclude or explicitly include <a href="consent-example-notTime.html">a period of time</a>.
 	  </p>
- <h3>Canada Realm sample Use-Cases</h3>
+ <h3>Canada Realm Sample Use-Cases</h3>
 	  <p>
 	  The following scenarios are based on existing jurisdictional policy and are realized in existing systems in 
 	  Canada. The default policy is one of implied consent for the provision of care, so these scenarios all deal 
@@ -70,7 +70,7 @@ consent has been rejected, and consent approved.
 		<li>Withhold or withdraw <a href="consent-example-notAuthor.html">consent for disclosure of records that were authored by a specific organization</a> (or service delivery location). </li>
 		<li>Combinations of the above </li>
 	  </ol>
- <h3>Non Treatment Use-Cases</h3>
+ <h3>Non-Treatment Use-Cases</h3>
 	  <p>
 	  Also shown is an example where a <a href="consent-example-grantor.html">Patient has authorized disclosure to a specific individual for purposes directed by the patient</a> (possibly not a treatment case).
 	  </p>
