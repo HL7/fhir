@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+<!-- NOTE: This example will soon be revised and moved to the Genomics Reporting implementation guide - current version at http://hl7.org/fhir/uv/genomics-reporting -->
+<ServiceRequest xmlns="http://hl7.org/fhir">
 	<id value="example-pgx"/>
 	<status value="active"/>
 	<intent value="original-order"/>

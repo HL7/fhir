@@ -1,4 +1,9 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<blockquote class="stu-note">
+  <p>
+This profile is slated for deprecation.  It is included in this ballot for comparison purposes but is not expected to be included in the FHIR R4 published specification.  This material is being refactored into an Implementation Guide (IG) for clinical genomics reporting, which can be found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>.
+  </p>
+</blockquote>
 
 <!-- content goes here -->
 <h3>Overview</h3>
