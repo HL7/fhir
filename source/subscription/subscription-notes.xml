@@ -12,7 +12,7 @@ sensitive and/or protected under law. Servers are responsible
 for ensuring appropriate security is employed for each channel. 
 The subscription resource does not address these concerns 
 directly - it is assumed that these are administered by other 
-configuration. For instance, a server might maintain a whitelist 
+configuration processes. For instance, a server might maintain a whitelist 
 of acceptable servers for the rest-create/rest-update methods.
 </p>
 <p>
@@ -48,10 +48,10 @@ subscription from the server.
 <p>
 The server may retry the notification a fixed number of times and/or
 refer errors to its own alert logs. If the notification fails, the 
-server should set the status to 'error', and mark the error in the 
+server should set the status to 'error' and mark the error in the 
 resource. If the notification succeeds, the server should update
 the status to "active again. If a subscription fails consistently 
-a server may choose set the subscription status to off, and stop
+a server may choose set the subscription status to off and stop
 trying to send notifications.
 </p>
 <p>
@@ -155,7 +155,7 @@ in the FHIR server's Capability statement (subscriptions/webSocketUrl (todo)). A
 protocol is used to listen for notifications:
 </p>
 <ul>
- <li>Client connects a secure Web Socket to the servers's webSocketUrl (see <a href="extension-capabilitystatement-websocket.html">websocket extension</a> in the server's <a href="capabilitystatement.html">CapabilityStatement</a>).</li>
+ <li>Client connects a secure Web Socket to the server's webSocketUrl (see <a href="extension-capabilitystatement-websocket.html">websocket extension</a> in the server's <a href="capabilitystatement.html">CapabilityStatement</a>).</li>
  <li>Client authenticates to server using a server-specified Web socket protocol (e.g. OAuth bearer token presentation).</li>
  <li>Client sends a bind :id message over the socket (using the logical id of the subscription). For example, the client might issue: bind 123).</li>
  <li>Server responds with a "bound :id" message to acknowledge.</li>
