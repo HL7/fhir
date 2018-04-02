@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 The <i>StructureMap</i> resource defines a detailed set of rules that describe 
-how one <a href="structuredefinition.html">Structure</a> is related to another,
+how one <a href="structuredefinition.html">Structure</a> is related to another
 and provides sufficient detail to allow for automated conversion of instances. 
 </p>
 <p>
@@ -16,7 +16,7 @@ then many different systems - both testing and production clinical systems - can
 leverage that to automatically transform from one format to the other. 
 </p>
 <p>
-Maps are uni-directional: they map from the source structure to the 
+Maps are unidirectional: they map from the source structure to the 
 target structure, and no reverse map is implied. Even if the mapping
 is simple, and loss-less, it cannot be assumed that there are no conditions 
 that might additionally apply in the reverse direction. 
@@ -52,7 +52,7 @@ However, there is no direct relationship between the mapping language contained
 in the StructureMap resource, and the existence of the appropriate structure 
 definitions, so that this mapping language could be used to define a map from 
 an HL7 v2 message to a CDA document. Note, that various implementation 
-contexts may introduce a direct relationship (e.g. see xxxxxxx op to defined). 
+contexts may introduce a direct relationship (e.g. see [op to defined]). <!-- TODO - define the operation -->
 </p>
 <p>
 It's possible to apply the mapping language to structures that do not even 

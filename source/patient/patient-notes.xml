@@ -17,7 +17,7 @@ See below for further discussion</li>
 
 <a name="ids"></a>
 <h2>Patient id's and Patient resource id's</h2>
-<p>A Patient record's Resource Id can never change. For this reason the identifiers with 
+<p>A Patient record's Resource Id can never change. For this reason, the identifiers with 
 which humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not 
 be used for the resource's id, since MRN's may change, i.e. as a result of having duplicate records of
 the same patient. Instead they should be represented in the <i>Patient.identifier</i> 
@@ -25,7 +25,7 @@ list where they can be managed. This is also useful for the case of institutions
 multiple numbers because of mergers of patient record systems over time.
 </p>
 <p>
-Where there is a need to implement an automated MRN Identifier created for a patient record, this could be achieved by providing an identifier in the patient with an appropriate assigner, MRN Type and/or system but with <i>no value</i> assigned. Internal business rules can then detect this and replace/populate this identifier with 1 or more identifiers (as required)i
+Where there is a need to implement an automated MRN Identifier created for a patient record, this could be achieved by providing an identifier in the patient with an appropriate assigner, MRN Type and/or system but with <i>no value</i> assigned. Internal business rules can then detect this and replace/populate this identifier with 1 or more identifiers (as required).
 </p>
 
 
@@ -36,7 +36,7 @@ Where there is a need to implement an automated MRN Identifier created for a pat
 to support the following scenarios where multiple patient records exist:</p>
 
 <h3>Duplicate Patient records</h3>
-<p>Managing Patient registration is a well known difficult problem. Around 2% of registrations are in error, 
+<p>Managing Patient registration is a well-known difficult problem. Around 2% of registrations are in error, 
 mostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much 
 data is accumulated. In other cases, substantial amounts of data may accumulate. By using a link of type 'replaced-by',
 the record containing such a link is marked as a duplicate and the link points forward to a record that should
@@ -46,7 +46,7 @@ to yet another Patient resource. Records that replace another record <i>may</i> 
 
 <h3>Patient record in a Patient index</h3>
 <p>A Patient record may be present in a system that acts as a Patient Index: it maintains a (summary of) patient data and
-a list of one or more servers that are known to hold a more comprehensive and/or authorative record of the same patient.
+a list of one or more servers that are known to hold a more comprehensive and/or authoritative record of the same patient.
 The link type 'refer' is used to denote such a link. Note that linked records may contain contradictory information. The
 record referred to does not point back to the referring record.</p>
 
@@ -54,7 +54,7 @@ record referred to does not point back to the referring record.</p>
 <p>In a distributed architecture, multiple systems keep separate patient records concerning the same patient. These
 records are not considered duplicates, but contain a distributed, potentially overlapping view of the patient's data.
 Each such record may have its own focus or maintaining organization and there need not be a sense of one record
-being more complete or more authorative than another. In such cases, links of type 'see also' can be used to point to
+being more complete or more authoritative than another. In such cases, links of type 'see also' can be used to point to
 other patient records. It is not a requirement that such links are bilateral. 
 </p>
 
@@ -101,7 +101,7 @@ the Patient.generalPractitioner field.</p>
 <h2>Patient Gender and Sex</h2>
 
 <p>
-Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient’s gender and sex with a single value. However there are many considerations around sex and gender documentation and interoperability.  Listed below are the various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can communicated.
+Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient's gender and sex with a single value. However, there are many considerations around sex and gender documentation and interoperability.  Listed below are the various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can be communicated.
 </p>
 <ul>
  <li><b>Administrative Gender</b> - in order to interoperate with systems that use a single generic property, the basic <a href="patient-definitions.html#Patient.gender">Patient.gender</a> property attempts to represent an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms, for example.</li>
@@ -237,7 +237,7 @@ A specific profile (with the required fields/invariants) can be used to define w
   [parameters body with patient resource inside]
 </pre>
 <p>
-The response from an "mpi" $match operation is a set of patient records, ordered from most
+The response from an MPI $match operation is a set of patient records, ordered from most
 likely to least likely. If there are not patient matches, the MPI SHALL return 
 an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with 
 further advice. All patient records should have a score from 0 to 1, where
@@ -266,7 +266,7 @@ The match-grade extension has one of the <a href="valueset-match-grade.html">fol
 <p>
   The purpose of using an MPI search versus a regular search is that the MPI search is really intended to target and 
   find a specific single patient for recording information about reducing errors through incorrectly selecting the
-  wrong patient. Often MPIs won't return data if there is insuffient search parameter data, such as a partial surname.<br/>
+  wrong patient. Often MPIs won't return data if there is insufficient search parameter data, such as a partial surname.<br/>
   This compares to a regular search which can be used for finding lists of patients, such as to locate a group of patients
   that share a property in common, such as live in a specific location, or fit within an age range for performing population analysis.
 </p>
