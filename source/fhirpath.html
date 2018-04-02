@@ -1,0 +1,272 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+[%settitle FHIRPath%]
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<h2>FHIRPath</h2>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+
+<p>
+FHIRPath is a separate specification published at <a href="http://hl7.org/fhirpath">http://hl7.org/fhirpath</a> in order to support wider re-use across multiple specifications.
+</p>
+<p>
+FHIRPath is a path based navigation and extraction language, somewhat like XPath. Operations
+are expressed in terms of the logical content of hierarchical data models, and support traversal, 
+selection and filtering of data.
+</p>
+<p>
+FHIRPath is used in several places in the FHIR and related specifications:
+</p>
+<ul>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g. value.empty() or code!=component.code)</li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g. Observation.category)</li>
+<li><a href="searchparameter-definitions.html#SearchParameter.expression">search parameter paths</a> - used to define what contents the parameter refers to (e.g. Observation.dataAbsentReason)</li>
+<li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">error message locations in OperationOutcome</a></li>
+<li><a href="fhirpatch.html">FHIRPath based Patch</a></li>
+<li><a href="testscript-definitions.html#TestScript.setup.action.assert.expression">Invariants in the TestScript resource</a></li>
+</ul>
+<p>
+In addition, FHIRPath is used in <a href="http://cds-hooks.hl7.org/ballots/2018May/specification/1.0/#prefetch-template">pre-fetch templates in Smart on FHIR’s cds-hooks</a>.
+</p>
+
+<a name="rules"></a>
+<h3>Using FHIRPath with Resources</h3>
+
+<p>
+FHIRPath uses a tree model that abstracts away the actual underlying datamodel of the 
+data being queried. For FHIR, this means that the contents of the resources and data 
+types as described in the Logical views (or the UML diagrams) are used as the model, 
+rather than the JSON and XML formats, so specific xml or json features are not 
+visible to the FHIRPath language (such as comments and the split representation 
+of primitives).
+</p>
+<p>More specifically:</p>
+<ul>
+ <li>A FHIRPath may optionally start with a full resource name</li>
+ <li>Elements of datatypes and resources are used as the name of the nodes which can be navigated over, except for choice elements (ending with '[x]'), see below.</li>
+ <li>The <code>contained</code> element node does not have the name of the Resource as its first and only child (instead it directly contains the contained resource&#8217;s children)</li>
+ <li>There is no difference between an attribute and an element</li>
+ <li>Repeating elements turn into multiple nodes with the same name</li>
+</ul>
+
+<a name="polymorphism"></a>
+<h4>Polymorphism in FHIR</h4>
+
+<p>
+For <a href="formats.html#choice">choice elements</a>, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>. 
+In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>. 
+In FHIRPath, choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly treated 
+as a specific type using the <code>as</code> operation:</p>
+
+<pre class="fhirpath">
+(Observation.value as Quantity).unit
+</pre>
+
+<a name="types"></a>
+<h4>Using FHIR types in expressions</h4>
+<p>
+The evaluation engine will automatically convert the value of FHIR types representing primitives to FHIRPath types when they are used in expressions according to the following mapping:</p>
+
+<table class="grid">
+<tr>
+<th>FHIR primitive type</th>
+<th>FHIRPath type</th>
+</tr>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>string, uri, code, oid, id, uuid, sid, markdown, base64Binary</td>
+<td>String</td>
+</tr>
+<tr>
+<td>integer, unsignedInt, positiveInt</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>Decimal</td>
+</tr>
+<tr>
+<td>date, dateTime, instant</td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Time</td>
+</tr>
+</table>
+
+<p>Note that FHIR primitives may contain extensions, so that the following expressions are <em>not</em> mutually exclusive:</p>
+
+<pre class="fhirpath">
+Patient.name.given = 'Ewout'         // value of Patient.name.given as a string
+Patient.name.given.extension.first().value = true   // extension of the primitive value
+</pre>
+
+<a name="functions"></a>
+<h4>Additional functions</h4>
+<p>FHIR adds (compatible) functionality to the common set of functions:</p>
+
+<p><b>extension(url : string) : collection</b></p>
+<p>Will filter the input collection for items named "extension" with the given url. This is a syntactical shortcut for <code>.extension.where(url = string)</code>, but is simpler to write. Will return an empty collection if the input collection is empty or the url is empty.</p>
+
+<p><b>hasValue() : Boolean</b></p>
+<p>Returns true if the input collection contains a single value which is a FHIR primitive, and it has a primitive value (e.g. as opposed to not having a value and just having extensions).</p>
+
+<blockquote>
+<p><strong>Note to implementers</strong>: The FHIR conceptual model talks about "primitives" as subclasses of the type Element that also have id and extensions. What this actually means is that a FHIR primitive is not a primitive in an implementation language. The introduction (section 2 above) describes the navigation tree as if the the FHIR model applies - primitives are both primitives and elements with children.</p>
+
+<p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendents()</code>.</p>
+</blockquote>
+
+<p><b>trace(name : string) : collection</b></p>
+
+<p>When FHIRPath statements are used in an invariant, the log contents should be added to the error message constructed when the invariant is violated. For example:</p>
+
+<pre class="fhirpath">
+"SHALL have a local reference if the resource is provided inline (url: height; ids: length,weight)"
+
+  from
+
+"reference.startsWith('#').not() or 
+  ($context.reference.substring(1).trace('url') in $resource.contained.id.trace('ids'))"
+</pre>
+
+<p><b>resolve() : collection</b></p>
+<p>For each item in the collection, if it is a string that is a URI or (canonical or URL), locate the target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, the item is ignored and nothing is added to the output collection.</p>
+<p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved.</p>
+
+<p><b>ofType(type : identifier) : collection</b></p>
+<p>In FHIR, only concrete core types are allowed as an argument. All primitives are considered to be independent types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
+
+<p><b>elementDefinition() : collection</b></p>
+<p>Returns the FHIR element definition information for each element in the input collection.</p>
+
+<p><b>slice(structure : string, name : string) : collection</b></p>
+<p>Returns the given slice as defined in the given structure definition. The structure argument is a uri that resolves to the structure definition, and the name must be the name of a slice within that structure definition. If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, an error is thrown.</p>
+<p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the result is an empty collection (<code>{ }</code>).</p>
+
+<p><b>checkModifiers([{modifier : string}]) : collection</b></p>
+
+<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument. If the check passes, the input collection is returned. Otherwise, an error is thrown.</p>
+
+<p><b>conformsTo(structure : string) : Boolean</b></p>
+<p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, and false otherwise. If the structure cannot be resolved to a valid profile, an error is thrown. If the input contains more than one element, an error is thrown. If the input is empty, the result is empty.</p>
+
+<p><b>memberOf(valueset : string) : Boolean</b></p>
+
+<p>When invoked on a code-valued element, returns true if the code is a member of the given valueset.
+When invoked on a concept-valued element, returns true if any code in the concept is a member of the given valueset.
+When invoked on a string, returns true if the string is equal to a code in the valueset, so long as the valueset only contains one codesystem. If the valueset in this case contains more than one codesystem, an error is thrown.</p>
+
+<p>If the valueset cannot be resolved as a uri to a value set, an error is thrown.</p>
+<p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
+
+<p>For example:</p>
+
+<pre class="fhirpath">
+Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observation-vitalsignresult'))
+</pre>
+
+<p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
+
+<p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></p>
+
+<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
+<p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
+<p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
+<p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
+
+<p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></p>
+
+<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
+<p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
+<p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumed by the given code.</p>
+<p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
+
+<a name="changes"></a>
+<h4>Changes to operators</h4>
+
+<p><b>~ (Equivalence)</b></p>
+<p>Equivalence works in exactly the same manner, but with the addition that for complex types, equality requires all child properties to be equal, <strong>except for "id" elements</strong>.</p>
+<p>In addition, for Coding values, equivalence is defined based on the code and system elements only. The version, display, and userSelected elements are ignored for the purposes of determining Coding equivalence.</p>
+<p>For CodeableConcept values, equivalence is defined as a non-empty intersection of Coding elements, using equivalence. In other words, two CodeableConcepts are considered equivalent if any Coding in one is equivalent to any Coding in the other.</p>
+
+<a name="vars"></a>
+<h4>Environment variables</h4>
+<p>The FHIR specification adds support for additional environment variables:</p>
+<p>The following environmental values are set for all contexts:</p>
+<pre class="fhirpath">
+%sct        // (string) url for snomed ct
+%loinc      // (string) url for loinc
+%"vs-[name]" // (string) full url for the provided HL7 value set with id [name]
+%"ext-[name]" // (string) full url for the provided HL7 extension with id [name]
+%resource	// The original resource current context is part of. When evaluating a datatype, this would be the resource the element is part of. Do not go past a root resource into a bundle, if it is contained in a bundle.
+
+// Note that the names of the `vs-` and `ext-` constants are quoted (just like paths) to allow "-" in the name.
+</pre>
+<p>For example:</p>
+<pre class="fhirpath">
+Observation.component.where(code.memberOf(%"vs-observation-vitalsignresult"))
+</pre>
+<p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
+<blockquote>
+<p>Note: Implementation Guides are allowed to define their own externals, and implementers should provide some appropriate configuration framework to allow these constants to be provided to the evaluation engine at run-time. E.g.:</p>
+</blockquote>
+
+<pre class="fhirpath">
+%"us-zip" = '[0-9]{5}(-[0-9]{4}){0,1}'
+</pre>
+
+<p>Authors of Implementation Guides should be aware that adding specific environment variables restricts the use of the FHIRPath to their particular context.</p>
+
+<p>Note that these tokens are not restricted to simple types, and they may have fixed values that are not known before evaluation at run-time, though there is no way to define these kind of values in implementation guides.</p>
+
+
+<a name="simple"></a>
+<h3>Restricted Subset ("Simple")</h3>
+
+<p>
+This page documents a restricted subset of the <a href="http://hl7.org/fhirpath">FHIRPath language</a> that 
+is used in a few contexts in this specification. When the restricted
+FHIRPath language subset is in use, the following rules apply:
+</p>
+<ul>
+ <li>All statements SHALL start with the name of the context element (e.g. on a Patient resource, Patient.contact.name.)</li>
+ <li>Operators SHALL not be used</li>
+ <li>Only the following functions may be used:
+   <ul>
+    <li>.resolve()</li>
+    <li>.extension("url")</li>
+    <li>.ofType(type)</li>
+   </ul>
+   All other functions SHALL NOT be used
+ </li>
+</ul>
+<p>
+These rules exist to keep processing the path simple to support use of the path by processors that are not backed by a full FHIRPath implementation.
+</p>
+<p>
+The following locations use this restricted FHIRPath language:
+</p>
+<ul>
+ <li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">ElementDefinition.slicing.discriminator.path</a></li>
+ <li><a href="metadatatypes-definitions.html#DataRequirement.dateFilter.path">DataRequirement.dateFilter.path</a></li>
+ <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">OperationOutcome.issue.expression</a></li>
+</ul>
+
+</div>
+
+
+[%file newfooter%]
+</body>
+</html>

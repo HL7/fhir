@@ -368,6 +368,14 @@ pre.json             {
 	width: 650px;
 }
 
+pre.fhirpath             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+  background: #ffeafb ; 
+	padding: 5px;
+	width: 650px;
+}
+
 pre.graphql             {
 	border: 1px solid #dcdcdc;
  	font-size: 11px;

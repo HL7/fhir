@@ -156,7 +156,7 @@ Primitive fields SHALL not have any arguments at all. Complex fields may have on
 help select a subset of a repeating element:
 </p>
 <ul>
- <li><code>fhirpath</code> - a <a href="http://hl7.org/fhirpath">FHIRPath</a> statement selecting which of the subnodes is to be included</li>
+ <li><code>fhirpath</code> - a <a href="fhirpath.html">FHIRPath</a> statement selecting which of the subnodes is to be included</li>
  <li><code>[field]</code> - the name of a sub-property with a specified value that must be matched for the field to be included</li>
  <li><code>_offset</code> - specify the offset to start at for a repeating element (see below)</li>
  <li><code>_count</code> - specify how many to elements to return from a repeating list</li>
@@ -164,7 +164,7 @@ help select a subset of a repeating element:
  
 <p><b>FHIRPath:</b></p> 
 <p>
-Use a <a href="http://hl7.org/fhirpath">FHIRPath</a> statement selecting which of the set of notes in a list is to be included:
+Use a <a href="fhirpath.html">FHIRPath</a> statement selecting which of the set of notes in a list is to be included:
 </p>
 <pre class="graphql">
  { 

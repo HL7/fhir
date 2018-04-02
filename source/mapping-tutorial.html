@@ -357,7 +357,7 @@ value of another element.
   <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of m: if m &lt; 2, then i maps to j, else it maps to k</td></tr>
 </table>
 <p>
-This is managed using <a href="http://hl7.org/fhirpath">FHIRPath</a> conditions on the mapping statements:
+This is managed using <a href="fhirpath.html">FHIRPath</a> conditions on the mapping statements:
 </p>
 <pre>
 rule_i1 : for source.i as i where m &lt; 2 make target.j = i
