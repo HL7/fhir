@@ -77,7 +77,7 @@ todo
 Capability Statements provide for a degree of automatic configuration and adaptation.
 However, capturing absolutely every variation that could impact the interoperability of
 two systems, let alone keeping that detailed information up-to-date as systems evolve 
-through maintenance and upgrades is rarely practical. Therefore, capability statements 
+through maintenance and upgrades, is rarely practical. Therefore, capability statements 
 should be seen as an interim step.  They provide a degree of automation.  However, they 
 also provide a great deal of human-readable content that can minimize the need for direct 
 communication between the operators of the systems being configured to interoperate.
