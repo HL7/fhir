@@ -83,6 +83,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
     private String hint;
     private String style;
     private Map<String, String> attributes;
+    private List<XhtmlNode> children;
     
     public Piece(String tag) {
       super();
@@ -148,6 +149,15 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       else
         this.hint += (this.hint.endsWith(".") || this.hint.endsWith("?") ? " " : ". ")+text;
     }
+    
+    public boolean hasChildren() {
+      return children != null && !children.isEmpty();
+    }
+
+    public List<XhtmlNode> getChildren() {
+      return children;
+    }
+    
   }
   
   public class Cell {
@@ -212,15 +222,20 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       else if (c.getNodeType() == NodeType.Element) {
         if (c.getName().equals("a")) {
           list.add(new Piece(c.getAttribute("href"), c.allText(), c.getAttribute("title")));                    
-        } else if (c.getName().equals("b") || c.getName().equals("em")) {
+        } else if (c.getName().equals("b") || c.getName().equals("em") || c.getName().equals("strong")) {
           list.add(new Piece(null, c.allText(), null).setStyle("font-face: bold"));                    
         } else if (c.getName().equals("code")) {
           list.add(new Piece(null, c.allText(), null).setStyle("padding: 2px 4px; color: #005c00; background-color: #f9f2f4; white-space: nowrap; border-radius: 4px"));                    
         } else if (c.getName().equals("i")) {
           list.add(new Piece(null, c.allText(), null).setStyle("font-style: italic"));                    
+        } else if (c.getName().equals("ul") || c.getName().equals("ol")) {
+          Piece p = new Piece(c.getName());
+          list.add(p);
+          p.getChildren().addAll(c.getChildNodes());
+        } else if (c.getName().equals("i")) {
+          list.add(new Piece(null, c.allText(), null).setStyle("font-style: italic"));                    
         } else 
           throw new Error("Not handled yet: "+c.getName());
-
       } else
         throw new Error("Unhandled type "+c.getNodeType().toString());
 
@@ -525,6 +540,8 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
         if (p.getHint() != null)
           tag.setAttribute("title", p.getHint());
         addStyle(tag, p);
+        if (p.hasChildren())
+          tag.getChildNodes().addAll(p.getChildren());
       } else if (!Utilities.noString(p.getReference())) {
         XhtmlNode a = addStyle(tc.addTag("a"), p);
         a.setAttribute("href", p.getReference());
