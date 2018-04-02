@@ -54,6 +54,6 @@
   <concept>
     <code value="9"/>
     <display value="Other"/>
-    <definition value="other kind of device (defined by DICOM, but some other code/system can be used)."/>
+    <definition value="Other kind of device (defined by DICOM, but some other code/system can be used)."/>
   </concept>
 </CodeSystem>

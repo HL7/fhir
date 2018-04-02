@@ -9861,7 +9861,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s169"/>
     <Cell ss:StyleID="s169"><Data ss:Type="String">Doctor</Data></Cell>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">Typically a licensed person who is providing or performing care related to the event, generally a physician.   The key distinction between doctor and practitioner is with regards to their role, not the licensing.  The doctor is the human who actually performed the work.  The practitioner is the human or organization that is responsible for the work.</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Typically, a licensed person who is providing or performing care related to the event, generally a physician.   The key distinction between doctor and practitioner is with regards to their role, not the licensing.  The doctor is the human who actually performed the work.  The practitioner is the human or organization that is responsible for the work.</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s147"/>
