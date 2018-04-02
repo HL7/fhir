@@ -6390,7 +6390,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The class of encounter (inpatient, outpatient, etc)</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The class of encounter (inpatient, outpatient, etc.)</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s108"/>
@@ -12068,7 +12068,7 @@
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Workflow Setting</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">The settings in which the artifact is intended for use.  For example, admission, pre-op, etc</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">The settings in which the artifact is intended for use.  For example, admission, pre-op, etc.</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s160"/>

@@ -1209,7 +1209,7 @@
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Extension{#References}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">References</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Additional bibliographic reference information about genetics, medications, clinical trials, etc associated with knowledge-based information on genetics/genetic condition.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Additional bibliographic reference information about genetics, medications, clinical trials, etc. associated with knowledge-based information on genetics/genetic condition.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Index="10">
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4908,7 +4908,7 @@
     <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Additional bibliographic reference information</Data></Cell>
-    <Cell><Data ss:Type="String">Additional bibliographic reference information about genetics, medications, clinical trials, etc associated with knowledge-based information on genetics/genetic condition.</Data></Cell>
+    <Cell><Data ss:Type="String">Additional bibliographic reference information about genetics, medications, clinical trials, etc. associated with knowledge-based information on genetics/genetic condition.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">References.description</Data></Cell>

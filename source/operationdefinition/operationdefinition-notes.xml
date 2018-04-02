@@ -16,7 +16,7 @@ an operation:
 </ul>
 <p>
 The parameters is a simple list of possible parameters, along with cardinalities and types.
-The profiles allow a rich set of validation rules etc to be provided. OperationDefinitions SHALL
+The profiles allow a rich set of validation rules etc. to be provided. OperationDefinitions SHALL
 always define the parameters using <code>OperationDefinition.parameter</code> in the resource,
 and MAY also provide profiles for the parameters. If present, the profiles SHALL NOT disagree
 with the parameters defined for the operation.

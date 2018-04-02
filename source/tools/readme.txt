@@ -32,7 +32,7 @@ To Use:
       The validation engine does not cache igpack.zip. the user must manage that if desired 
 
     validator.connectToTSServer(txServer);
-      - this is optional; in the absence of a terminology service, snomed, loinc etc will not be validated
+      - this is optional; in the absence of a terminology service, snomed, loinc etc. will not be validated
       
     validator.loadIg(src);
       - call this any number of times for the Implementation Guide(s) of interest. This is a reference

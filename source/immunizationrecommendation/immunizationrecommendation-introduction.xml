@@ -9,7 +9,7 @@
 	</p>
     <ol>
         <li>ImmunizationRecommendation.recommendation is allowed to repeat, meaning that multiple recommendations for a given patient can be contained in a single resouce. This ensures that if the recommendations are interrelated, they are available in the same resource (for example, multiple doses of the same vaccine are recommended at different points in the future). Is the preference to allow repetitions of the recommendation backbone element or should the core resource constrain the cardinality to 1..1?</li>
-		<li>The ImmunizationRecommendation resource can be thought of as a specialization of a generic recommendation (for a medication or a procedure, etc). Is it better to have a single generic recommendation resource that is then profiled for use in specific domains (immunization recommendation, imaging recommendation, etc) or individual, specific resources for each domain which require less profiling and may be easier for domain implementers to understand?</li>
+		<li>The ImmunizationRecommendation resource can be thought of as a specialization of a generic recommendation (for a medication or a procedure, etc.). Is it better to have a single generic recommendation resource that is then profiled for use in specific domains (immunization recommendation, imaging recommendation, etc.) or individual, specific resources for each domain which require less profiling and may be easier for domain implementers to understand?</li>
 		<li>Should the ImmunizationEvaluation resource be harmonized with the CDS Hooks project?</li>
 		</ol>
 </blockquote>

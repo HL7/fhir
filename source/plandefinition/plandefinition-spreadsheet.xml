@@ -1577,7 +1577,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">What the plan is trying to accomplish</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5682,7 +5682,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Setting</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The current setting of the request (inpatient, outpatient, etc)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The current setting of the request (inpatient, outpatient, etc.)</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7476,7 +7476,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"><Data ss:Type="String">SubjectType</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc)</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:HRef="http://hl7.org/fhir/ValueSet/subject-type" ss:StyleID="s152"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/subject-type</Data></Cell>

@@ -182,7 +182,7 @@ basic property URIs are defined:
  <tr><td>http://hl7.org/fhir/concept-properties#parent</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child</td><td>An immediate child of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in
-   the normal use of the code system (though may be used for filters etc). This is also known as 'Abstract'</td></tr>
+   the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
 </table>
 
 <a name="hierarchy"></a>

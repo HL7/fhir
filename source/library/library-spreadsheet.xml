@@ -1447,7 +1447,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">E.g. Education, Treatment, Assessment, etc</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">E.g. Education, Treatment, Assessment, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Repositories must be able to determine how to categorize the library so that it can be found by topical searches</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6231,7 +6231,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s147"><Data ss:Type="String">SubjectType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc)</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc.)</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:HRef="http://hl7.org/fhir/ValueSet/subject-type" ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/subject-type</Data></Cell>

@@ -8654,7 +8654,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Workflow Setting</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The settings in which the artifact is intended for use.  For example, admission, pre-op, etc</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The settings in which the artifact is intended for use.  For example, admission, pre-op, etc.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>

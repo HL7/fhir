@@ -6698,7 +6698,7 @@
   <concept>
     <code value="111792"/>
     <display value="Surface contour mapping"/>
-    <definition value="Mapping from 2D image pixels to 3D Cartesian coordinates based on measurements of the retinal surface; e.g. of the retina, derived via a measurement technology such as Optical Coherence Tomography, Ultrasound etc"/>
+    <definition value="Mapping from 2D image pixels to 3D Cartesian coordinates based on measurements of the retinal surface; e.g. of the retina, derived via a measurement technology such as Optical Coherence Tomography, Ultrasound etc."/>
   </concept>
   <concept>
     <code value="111800"/>
@@ -7138,7 +7138,7 @@
   <concept>
     <code value="111930"/>
     <display value="Absolute ophthalmic thickness"/>
-    <definition value="Thickness of a component of the posterior segment of the eye; e.g. thickness of retina, choroid, etc"/>
+    <definition value="Thickness of a component of the posterior segment of the eye; e.g. thickness of retina, choroid, etc."/>
   </concept>
   <concept>
     <code value="111931"/>
@@ -15782,7 +15782,7 @@
   <concept>
     <code value="123101"/>
     <display value="Neighborhood Analysis"/>
-    <definition value="Surface processing utilizing predefined weighting factors (i.e., kernels) applied to different data values depending on their location relative to other data values within the data domain. Includes Low Pass, High Pass, Gaussian, Laplacian, etc"/>
+    <definition value="Surface processing utilizing predefined weighting factors (i.e., kernels) applied to different data values depending on their location relative to other data values within the data domain. Includes Low Pass, High Pass, Gaussian, Laplacian, etc."/>
   </concept>
   <concept>
     <code value="123102"/>
@@ -15797,12 +15797,12 @@
   <concept>
     <code value="123104"/>
     <display value="Morphological Operations"/>
-    <definition value="Surface processing based on the connectivity of values based on the shape or structure of the data values within their domain. Includes erode, dilate, etc"/>
+    <definition value="Surface processing based on the connectivity of values based on the shape or structure of the data values within their domain. Includes erode, dilate, etc."/>
   </concept>
   <concept>
     <code value="123105"/>
     <display value="Histogram Analysis"/>
-    <definition value="Surface processing applied to the distribution of the data values. Includes thresholding, Bayesian Classification, etc"/>
+    <definition value="Surface processing applied to the distribution of the data values. Includes thresholding, Bayesian Classification, etc."/>
   </concept>
   <concept>
     <code value="123106"/>
@@ -15812,12 +15812,12 @@
   <concept>
     <code value="123107"/>
     <display value="Cluster Analysis"/>
-    <definition value="Surface processing accomplished by combining data values based on their relative location within their domain or value distribution. Includes K- and C-means, Fuzzy Analysis, Watershed, Seed Growing, etc"/>
+    <definition value="Surface processing accomplished by combining data values based on their relative location within their domain or value distribution. Includes K- and C-means, Fuzzy Analysis, Watershed, Seed Growing, etc."/>
   </concept>
   <concept>
     <code value="123108"/>
     <display value="Multispectral Processing"/>
-    <definition value="Surface processing accomplished through the weighted combination of multiple data sets. Includes Principle Component Analysis, linear and non-linear weighed combinations, etc"/>
+    <definition value="Surface processing accomplished through the weighted combination of multiple data sets. Includes Principle Component Analysis, linear and non-linear weighed combinations, etc."/>
   </concept>
   <concept>
     <code value="123109"/>
@@ -15827,12 +15827,12 @@
   <concept>
     <code value="123110"/>
     <display value="Artificial Intelligence"/>
-    <definition value="Surface processing using Artificial Intelligence techniques, such as Machine Learning, Neural Networks, etc"/>
+    <definition value="Surface processing using Artificial Intelligence techniques, such as Machine Learning, Neural Networks, etc."/>
   </concept>
   <concept>
     <code value="123111"/>
     <display value="Deformable Models"/>
-    <definition value="Surface processing using Deformable Model techniques, such as Point Distribution Models, Level Sets, Simplex Meshes, etc"/>
+    <definition value="Surface processing using Deformable Model techniques, such as Point Distribution Models, Level Sets, Simplex Meshes, etc."/>
   </concept>
   <concept>
     <code value="125000"/>
@@ -16844,7 +16844,7 @@
   <concept>
     <code value="126400"/>
     <display value="Standardized Uptake Value"/>
-    <definition value="A ratio of locally measured radioactivity concentration versus the injected radioactivity distributed evenly throughout the whole body. This general concept encompasses all specific methods of calculating the whole body volume of distribution, such as using body weight, lean body mass, body surface area, etc"/>
+    <definition value="A ratio of locally measured radioactivity concentration versus the injected radioactivity distributed evenly throughout the whole body. This general concept encompasses all specific methods of calculating the whole body volume of distribution, such as using body weight, lean body mass, body surface area, etc."/>
   </concept>
   <concept>
     <code value="126401"/>

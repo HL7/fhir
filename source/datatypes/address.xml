@@ -6578,7 +6578,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Billing</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">An address to be used to send bills, invoices, receipts etc</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">An address to be used to send bills, invoices, receipts etc.</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">~0190.BI</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s140"/>

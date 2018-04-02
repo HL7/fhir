@@ -6924,7 +6924,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Community</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s145"/>

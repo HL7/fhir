@@ -7559,7 +7559,7 @@
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s160"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">Acquirer</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">A workflow participant that acquires resources (specimens, images, etc) necessary to perform the task.</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">A workflow participant that acquires resources (specimens, images, etc.) necessary to perform the task.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s151"/>

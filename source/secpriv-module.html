@@ -325,7 +325,7 @@ For details, see
 </p><p>
 Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
 When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
-the server is expected to update relevant elements that it manages (id, lastupdated, etc). 
+the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
 These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
 One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
 created/updated Resource is as expected, then the Digital Signature is formed.

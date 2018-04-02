@@ -20,7 +20,7 @@
   <concept>
     <code value="research"/>
     <display value="Research"/>
-    <definition value="An organization providing research-related services such as conducting research, recruiting research participants, analyzing data, etc"/>
+    <definition value="An organization providing research-related services such as conducting research, recruiting research participants, analyzing data, etc."/>
   </concept>
   <concept>
     <code value="payer"/>

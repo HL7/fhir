@@ -34,7 +34,7 @@ additional designations and properties.
 The CodeSystem resource is not intended to support the process of maintaining a 
 code system. Instead, the focus is on publishing the properties and optionally 
 the content of a code system for use throughout the FHIR eco-system, such as to support value set expansion and validation. Note that 
-the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc) 
+the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc.) 
 all have their own distribution formats, and there is no intent that the CodeSystem
 resource be used for distributing these kinds of terminologies. Instead, it is 
 intended to be used for distributing the smaller ad-hoc code systems that are 

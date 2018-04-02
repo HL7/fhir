@@ -8,7 +8,7 @@
         <b>STU Note:</b> The Public Health work group wants to draw the attention of reviewers and implementers to the following issues for feedback:
 	</p>
     <ol>
-		<li>The ImmunizationEvaluation resource can be thought of as a specialization of a generic evaluation against a set of standardized recommendations (for a medication or a procedure, etc). Is it better to have a single generic evaluation resource that is then profiled for use in specific domains (immunization evaluation, medication evaluation, etc) or individual, specific resources for each domain which require less profiling and may be easier for domain implementers to understand?</li>
+		<li>The ImmunizationEvaluation resource can be thought of as a specialization of a generic evaluation against a set of standardized recommendations (for a medication or a procedure, etc.). Is it better to have a single generic evaluation resource that is then profiled for use in specific domains (immunization evaluation, medication evaluation, etc.) or individual, specific resources for each domain which require less profiling and may be easier for domain implementers to understand?</li>
 		<li>Should the ImmunizationEvaluation resource be harmonized with the CDS Hooks project?</li>
 	</ol>
 </blockquote>
