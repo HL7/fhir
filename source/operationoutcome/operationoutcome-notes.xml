@@ -38,17 +38,17 @@ one of the issues should have a severity of "error", indicating the reason for t
 <p>
 Each issue in an operation outcome may have a location reported. 
 Systems that create operation outcomes SHOULD populate the 
-location of an error. A correctly propulated location can 
+location of an error. A correctly populated location can 
 allow client systems to:
 </p>
 <ul>
  <li>Connect return errors with the appropriate UI widget</li>
- <li>Route errors to the corect application or system log</li>
+ <li>Route errors to the correct application or system log</li>
  <li>Develop more intelligent testing applications</li>
 </ul>
 
 <p>
-In order to support these kinds of usages, this applications
+In order to support these kinds of usages, these applications
 need to use the location element consistently. Applications
 can use the location element to refer to a location inside
 a resource, or some location in the HTTP request (when appropriate). 
