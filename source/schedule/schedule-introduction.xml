@@ -6,7 +6,7 @@
 		<p>
 			Schedule resources provide a container for time-slots that can be booked using an appointment.
 			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.<br/>
-			The schedule does not provide any information about actual appointments. This separation also greatly assists where
+			The schedule does not provide any information about actual appointments. This separation greatly assists where
 			access to the appointments would not be permitted for security or privacy reasons, while still being able
 			to determine if an appointment might be available.
 		</p>
@@ -79,7 +79,7 @@
 			<br/>
 		</p>
 		<p>
-			If all slots are busy, the caller may attempt to book an appointment into a already booked slot, but the server business rules
+			If all slots are busy, the caller may attempt to book an appointment into an already-booked slot, but the server business rules
 			will dictate whether overbooking is allowed, or whether the appointment may be given a higher precedence and allocated 
 			the overbooked slot.
 		</p>

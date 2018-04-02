@@ -78,8 +78,8 @@ Mobile Services (kind)
 <a name="positional"></a>
     <h3>Positional Searching</h3>
     <p>
-        Searching for locations often require that a facility is within a specified distance of a particular point.
-        For example, to locate healthcare facilities within 2kms of a clients home, or the current geo-coded
+        Searching for locations often require that a facility is within a specified distance of a specified point.
+        For example, to locate healthcare facilities within 2 kms of a client's home, or the current geo-coded
         position of a practitioner travelling between patients (read from a mobile phone or device).
     </p>
 <pre>
@@ -87,7 +87,7 @@ Mobile Services (kind)
 </pre>
     <p>
         Note: The near search parameters are not able to be used with multiples thus the multiple 
-        seperator <code> , </code> should not be used with near or near-distance.
+        separator <code> , </code> should not be used with near or near-distance.
     </p>
     <p>
         The distance between the location and the provided point is often used as one of the 
