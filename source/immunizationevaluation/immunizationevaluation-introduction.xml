@@ -30,7 +30,7 @@ The ImmunizationEvaluation resource communicates the results of an evaluation of
 <h2>Background and Context</h2>
 <p>
 Through FHIR Release 3, the Immunization resource contained a 
-"protocol" backbone element which functioned as an evaluation of the vaccine administration event. Begining in Release 4, this new resource replaces the Immunization.protocal element.
+"protocol" backbone element which functioned as an evaluation of the vaccine administration event. Beginning in Release 4, this new resource replaces the Immunization.protocol element.
 </p>
 </div>
 
