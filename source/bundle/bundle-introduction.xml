@@ -52,7 +52,7 @@ defining a test subject pool) and similar purposes.
 The <a href="composition.html">Composition</a> resource – Defines a set of healthcare-related information that is assembled 
 together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
 that has clinical attestation with regard to who is making the statement. The composition resource provides the basic structure 
-of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a bundle.  Compositions will 
+of a FHIR <a href="documents.html">document</a>.  The full content of the document is expressed using a Bundle.  Compositions will 
 often reference Lists as the focus of particular sections.
 </li>
 </ul>

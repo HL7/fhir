@@ -5,7 +5,7 @@
   <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
   <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
   <li>Although there are no extensions on the Bundle itself, <code>link</code>, <code>entry</code>, and <code>search</code>/<code>request</code>/<code>response</code> can all have extensions. See <a href="patient.html#match">Patient</a> and <a href="location.html#positional">Location</a> for examples on search</li>
-  <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
+  <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
     Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
     This specification defines some specific uses of Bundle.link for <a href="search.html#conformance">searching</a> and <a href="http.html#paging">paging</a>, but no specific uses for Bundle.entry.link, and no defined function in a transaction - meaning is implementation specific</li>
   <li>Bundles have both .id and .identifier - see <a href="resource.html#id">Resource Identities</a> for further information</li>  
@@ -24,7 +24,7 @@ Note that all bundle types use resource identity resolution as described below.
 <h4>Document</h4>
 
 <p>
-A document bundle (type = "document") consists of a series of 
+A document Bundle (type = "document") consists of a series of 
 entries, the first of which is a <a href="composition.html">Composition</a>. 
 Each entry element SHALL contain a resource. See <a href="documents.html">Documents</a>
 for further information.
@@ -36,7 +36,7 @@ for further information.
 <h4>Message</h4>
 
 <p>
-A message bundle (type = "message") consists of a series of 
+A message Bundle (type = "message") consists of a series of 
 entries, the first of which is a <a href="messageheader.html">MessageHeader</a>. 
 Each entry element SHALL contain a resource. See <a href="messaging.html">Messaging</a>
 for further information.
@@ -72,7 +72,7 @@ information:
 <h4>History</h4>
 
 <p>
-An change history (type = "history") consists of a series of 
+A change history (type = "history") consists of a series of 
 0 or more entries. Each entry element SHALL contain a request element that describes the change
 that was made, and, if the method is a POST or PUT, a resource that represents the state of the 
 resource at the conclusion of the operation. 
@@ -102,7 +102,7 @@ infer whether this is a create or an update from the resource identity supplied.
 <p><a href="bundle-transaction.html">Example</a></p>
 
 <a name="transaction-response"></a>
-<h4>Transaction/batch Response</h4>
+<h4>Transaction/Batch Response</h4>
 
 <p>
 A transaction response (type = "transaction-response") or batch response (type="batch-response") 
@@ -118,7 +118,7 @@ the outcome of the HTTP operation that the server performed for the entry.
 
 <p>
 A collection (type = "collection") consists of a series of 
-0 or more entries. No particular use with respect to the FHIR specification is associated with this bundle.
+0 or more entries. No particular use with respect to the FHIR specification is associated with this Bundle.
 Each entry element SHALL contain a resource.
 </p>
 
@@ -128,10 +128,10 @@ Each entry element SHALL contain a resource.
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
-Except for transactions and batches, Each entry in a <code>Bundle</code> must have a <code>fullUrl</code> 
+Except for transactions and batches, each entry in a <code>Bundle</code> must have a <code>fullUrl</code> 
 which is the identity of the resource in the entry. Note that this is not a versioned reference to the resource, but its 
 identity. Where a resource is not assigned a persistent identity that can be used
-in the bundle, a UUID should be used (urn:uuid:...).
+in the Bundle, a UUID should be used (urn:uuid:...).
 </p>
 <p>
 For transactions and batches, entries SHALL not have fullURLs when the entry.request.method = POST, 
@@ -139,7 +139,7 @@ and the resource has no identity. Note that even in this case, there may still b
 transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
-In some bundles, a given resource can only appear once:
+In some Bundles, a given resource can only appear once:
 </p>
 <table class="grid">
  <tr>
@@ -194,8 +194,8 @@ In some bundles, a given resource can only appear once:
 The <code>Bundle</code> resource is a packaging construct that has one of more entries that 
 are other kinds of resources. Those resources themselves have references to other resources - e.g. 
 an Observation that refers to a Patient. The referenced resources may also be found
-in the bundle. For example, the system that constructed the bundle may have included both
-the observation and the patient. The content of the references between resources doesn't 
+in the Bundle. For example, the system that constructed the Bundle may have included both
+the Observation and the Patient. The content of the references between resources doesn't 
 change because of the bundle.
 </p>
 <p>
@@ -204,11 +204,11 @@ that this method does not define any new semantics; resolution is based on the w
 resource identity and resource references work.
 </p>
 <p>
-Applications reading a bundle should always <a href="references.html#bundle-refs">look for a resource</a> 
+Applications reading a Bundle should always <a href="references.html#bundle-refs">look for a resource</a> 
 by its identity in the bundle first before trying to access it by its URL.
 </p>
 <p>
-How to resolve a reference in a bundle:
+How to resolve a reference in a Bundle:
 </p>
 <ol>
  <li>If the reference is not an absolute reference, convert it
