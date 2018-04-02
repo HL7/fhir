@@ -25,7 +25,7 @@ on existing knowledge and previous experience.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Risk assessments are a specialized type of observation.  We use a specialized resource to provide a simpler mechanism to capture of a series of risks and to associate those risks with time-ranges, probabilities, etc.  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk MAY be done using the <a href="observation.html">Observation</a> class, particularly in circumstances where it's treated as a generic observation, but for consistency, all risk assessments and prognosis SHOULD be captured using <b>RiskAssessment</b>.
+Risk assessments are a specialized type of observation.  A specialized resource is used to provide a simpler mechanism to capture of a series of risks and to associate those risks with time-ranges, probabilities, etc.  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk MAY be done using the <a href="observation.html">Observation</a> class, particularly in circumstances where it's treated as a generic observation, but for consistency, all risk assessments and prognosis SHOULD be captured using <b>RiskAssessment</b>.
 </p>
 <p>
 Risk assessments may be based on a variety of factors, including:
