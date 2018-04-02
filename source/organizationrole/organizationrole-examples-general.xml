@@ -11,7 +11,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Marc Versteegh<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Marc Versteegh<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -98,7 +98,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Adam Careful<br /><span style="color: gray;">organisation:</span> Good Health Clinic
+            <span style="color: gray;">practitioner:</span> Adam Careful<br /><span style="color: gray;">organization:</span> Good Health Clinic
           </div>
         </text>
         <period>
@@ -124,7 +124,7 @@
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
             <span style="color: gray;">practitioner:</span> Adam Careful<br />
-            <span style="color: gray;">organisation:</span> Good Health Clinic<br/>
+            <span style="color: gray;">organization:</span> Good Health Clinic<br/>
             <span style="color: gray;">role:</span> On call physcologist
           </div>
         </text>
@@ -165,7 +165,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Simone Heps<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Simone Heps<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -203,7 +203,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Ronald Briet<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Ronald Briet<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -241,7 +241,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Sherry Dopplemeyer<br /><span style="color: gray;">organisation:</span> Cleveland Clinic<br /><span style="color: gray;">role:</span> Primary Surgon
+            <span style="color: gray;">practitioner:</span> Sherry Dopplemeyer<br /><span style="color: gray;">organization:</span> Cleveland Clinic<br /><span style="color: gray;">role:</span> Primary Surgon
           </div>
         </text>
         <practitioner>
@@ -268,7 +268,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Luigi Maas<br /><span style="color: gray;">organisation:</span> AUMC<br /><span style="color: gray;">role:</span> Electronic laboratory reporting
+            <span style="color: gray;">practitioner:</span> Luigi Maas<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Electronic laboratory reporting
           </div>
         </text>
         <practitioner>
@@ -304,7 +304,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Dokter Bronsig<br /><span style="color: gray;">organisation:</span> AUMC<br /><span style="color: gray;">role:</span> Implementation of planned interventions
+            <span style="color: gray;">practitioner:</span> Dokter Bronsig<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Implementation of planned interventions
           </div>
         </text>
         <practitioner>
@@ -340,7 +340,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Juri van Gelder<br /><span style="color: gray;">organisation:</span> AUMC<br /><span style="color: gray;">role:</span> Physical therapist
+            <span style="color: gray;">practitioner:</span> Juri van Gelder<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Physical therapist
           </div>
         </text>
         <practitioner>
@@ -376,7 +376,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Langeveld Anne<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Langeveld Anne<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -414,7 +414,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Rob van den Berk<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Rob van den Berk<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -452,7 +452,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Eric van den broek<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Eric van den broek<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -490,7 +490,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Pieter Voigt<br /><span style="color: gray;">organisation:</span> BMC<br /><span style="color: gray;">role:</span> Care role
+            <span style="color: gray;">practitioner:</span> Pieter Voigt<br /><span style="color: gray;">organization:</span> BMC<br /><span style="color: gray;">role:</span> Care role
           </div>
         </text>
         <practitioner>
@@ -528,7 +528,7 @@
         <text>
           <status value="generated" />
           <div xmlns="http://www.w3.org/1999/xhtml">
-            <span style="color: gray;">practitioner:</span> Carla Espinosa<br /><span style="color: gray;">organisation:</span> AUMC<br /><span style="color: gray;">role:</span> Renal nurse
+            <span style="color: gray;">practitioner:</span> Carla Espinosa<br /><span style="color: gray;">organization:</span> AUMC<br /><span style="color: gray;">role:</span> Renal nurse
           </div>
         </text>
         <practitioner>

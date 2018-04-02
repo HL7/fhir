@@ -11,7 +11,7 @@
   <!-- this was an actual adverse event, not just a potential one -->
   <actuality value="actual"/>
 
-  <!-- high level categorision. The "event" below will say more -->
+  <!-- high level categorizion. The "event" below will say more -->
   <!--category value="ProductUseError"/-->
   
   <!-- more precise details of the event -->

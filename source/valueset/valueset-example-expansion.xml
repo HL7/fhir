@@ -125,7 +125,7 @@
 		<!--   and the actual expansion   -->
 		<!--   
 		  this expansion is made as a hierarchy - a preferred code, followed by two 
-			sets of codes categorised by a label. This is to help a human user 
+			sets of codes categorized by a label. This is to help a human user 
 			navigate the list (e.g. in a picklist)
 			
 			Note that the hierarchy might not have anything to do with the

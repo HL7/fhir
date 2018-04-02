@@ -16,7 +16,7 @@ may lead to variations in meaning of concepts, but there is only one identifier 
 <p>
 For this reason, a code system MAY provide a version identifier which can be specified in <code>CodeSystem.version</code>. The version specific identifier SHOULD be
 provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
-There is no particular format requirement for the version identifier, though HL7 recommends a date based approach.
+There is no particular format requirement for the version identifier, though HL7 recommends a date-based approach.
 </p>
 <p>
 When the <code>CodeSystem.versionNeeded</code> is 'true', then the version identifier SHALL be used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system.
@@ -29,7 +29,7 @@ Where the terminology does not clearly define what string should be used to iden
 
 <p>
 The simple case for a code system is that the entire code system - all the concepts and their codes, designations and properties 
-are distributed in a single <code>CodeSystem</code> resource. However for a variety of reasons, code systems may be distributed 
+are distributed in a single <code>CodeSystem</code> resource. However, for a variety of reasons, code systems may be distributed 
 by the code system authority in a set of fragments, and other authorities may issue additional designations and properties
 in supplements.
 </p>
@@ -71,11 +71,11 @@ describes a code system supplement. The following rules apply to code system sup
  <li>The <code>CodeSystem.url</code> for a supplement SHALL never appear in a <a href="datatypes.html#Coding">Coding.system</a></li>
  <li>The <code>CodeSystem.url</code> for a supplement must be under the control of the authority creating or publishing the supplement 
    (e.g. not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
- <li> A codesystem supplement can not define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must be a code from the "supplemented" code system</li>
+ <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must be a code from the "supplemented" code system</li>
 </ul>
 <p>
 If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
-Code System, and use the <code>Coding</code> type for the property values.
+Code System and use the <code>Coding</code> type for the property values.
 </p> 
 
 
@@ -150,7 +150,7 @@ by the FHIR specification.
 <h2>Concept Status</h2>
 
 <p>
-Many Code Systems have a 'status' associated with the concept. This may categorise the concept
+Many Code Systems have a 'status' associated with the concept. This may categorize the concept
 as:
 </p>
 <ul>
@@ -188,10 +188,10 @@ basic property URIs are defined:
 <a name="hierarchy"></a>
 <h3>Concept Hierarchy</h3>
 <p>
-Typically, Code systems are presented hierachically, using nested <code>concept</code> properties, where the 
-hierachy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
+Typically, Code systems are presented hierarchically, using nested <code>concept</code> properties, where the 
+hierarchy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
 The code system hierarchy is a single tree, where concepts have only one parents. Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
-These code systems are not usually presented in a hierachical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
+These code systems are not usually presented in a hierarchical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
 then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
 </p>
 <p>
