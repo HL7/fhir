@@ -7,7 +7,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <url value="http://hl7.org/fhir/StructureDefinition/consentdirective"/>
-  <name value="Consent Directive"/>
+  <name value="ConsentDirective"/>
+  <title value="Consent Directive"/>
   <status value="draft"/>
   <publisher value="Health Level Seven International (Community Based Collaborative Care)"/>
   <contact>
