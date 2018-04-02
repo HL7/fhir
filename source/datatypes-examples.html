@@ -55,7 +55,7 @@
 	<p>A negative integer value:</p><pre class="xml" fragment="integer">&lt;score value="-14" /&gt;</pre>
 	<p>A high-precision decimal value:</p><pre class="xml" fragment="decimal">&lt;pi value="3.14159265358979323846264338327950288419716939937510" /&gt;</pre>
 	<p>A stream of bytes, base64 encoded:</p><pre class="xml" fragment="base64Binary">&lt;data value="/9j/4...KAP//Z" /&gt; &lt;!-- covers many lines --&gt;</pre>
-	<p>A unicode string:</p><pre class="xml" fragment="string">&lt;caption value="Noodles are called ?? in Chinese" /&gt;</pre>
+	<p>A Unicode string:</p><pre class="xml" fragment="string">&lt;caption value="Noodles are called ?? in Chinese" /&gt;</pre>
 	<p>A URI that points to a website:</p><pre class="xml" fragment="uri">&lt;reference value="http://hl7.org/fhir" /&gt;</pre>
 	<p>A URI that is a urn:</p><pre class="xml" fragment="uri">&lt;id value="urn:isbn:0451450523" /&gt;</pre>
 	<p>A date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06-04" /&gt;</pre>
@@ -623,7 +623,7 @@ Some people may also have a nickname that needs to be recorded:
 <p>
 Note that there is some ambiguity in real life as to whether a non-official name is the patient's <code>usual</code> name, or whether it's their
 <code>nickname</code>. In principle, nick names are used occasionally and informally, whereas the usual name is used consistently, and in 
-formal contexts. However there is no formal criteria for the differentiating these usages, and even within a culture, people may vary in 
+formal contexts. However, there is no formal criteria for the differentiating these usages, and even within a culture, people may vary in 
 their cases. 
 </p>
 </div>
@@ -720,7 +720,7 @@ extension.
 </div>
 
 <div class="example">
-<p>Russian example in the two forms: cyrillic, and latin:</p>
+<p>Russian example in the two forms: Cyrillic and Latin:</p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;family value="ЕМЕЛИН" /&gt;
@@ -763,7 +763,7 @@ Scandinavian example: Erikson is the family name. Jan Erik are the given names, 
 This example makes use of the ISO 21090 extension to carry the culture specific ISO 21090 qualifier attribute "MID" for the Mellannamn.
 </p>
 <p>
-Then Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communications of the new born
+Then Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communication of the new born
 name is "Margrete Jente" (Margrete's Girl) and the mother's family name, not the given name (Karin). The
 father's Family name is  not used at all. This is a known temporary name assigned directly after the birth of
 the child.

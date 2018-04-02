@@ -85,7 +85,7 @@ is assembled. Specifically, this means the following resource references:
 <p>
 Other resources that these referenced resources refer to may also be included in the
 bundle if the document construction system chooses to do so. Including these additional resources will
-make the document bigger, but will save applications from needing to retrieve the linked resources
+make the document bigger but will save applications from needing to retrieve the linked resources
 if they need them while processing the document. Thus, whether these linked resources should be included or
 not depends on the implementation environment.
 </p>
@@ -112,7 +112,7 @@ The document has several dates in it:
  <li>The document date (mandatory). This is found in <i>Bundle.meta.lastUpdated</i> and identifies when the document bundle was assembled from the underlying resources</li>
  <li>The Composition date (mandatory). This is found in <i>Composition.date</i>, which is when the author wrote the document logically</li>
  <li>The Attestation dates (optional). This is found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li>
- <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition, and is the last date of change of the composition. This must be &gt;= the composition date</li>
+ <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition and is the last date of change of the composition. This must be &gt;= the composition date</li>
 </ul>
 <p>
 Document Bundles may be signed using digital signatures following the rules laid out in
@@ -124,7 +124,7 @@ element</a> that contains a KeyName element whose value is a URI that matches th
 <p>
 Once assembled into a bundle, the document is immutable - its content can never be changed,
 and the document id can never be reused. Note that the document may be represented in either
-XML or JSON, and interconverted between these or have its character encoding changed, all
+XML or JSON and interconverted between these or have its character encoding changed, all
 the while remaining the same document. However, the directly referenced content within the
 document and the presentation of the document cannot change substantially (such that it changes the clinical meaning of the content). Any additional
 documents derived from the same composition SHALL have a different document id.
@@ -248,8 +248,7 @@ They also have the following responsibilities:
 
 <h3>Processor Obligations</h3>
 <p>
-A document processor is an application and/or human user that receives documents and extracts data from them,
-or makes decisions because of them. The documents may be received directly from a document constructor, accessed
+A document processor is an application and/or human user that receives documents and extracts data from them or makes decisions because of them. The documents may be received directly from a document constructor, accessed
 via a document management system or forwarded by a third party. The document processor is responsible for
 ensuring that received documents are processed and/or rendered in accordance to this specification. A
 document processor has the obligation to assure that the following rules are followed:
