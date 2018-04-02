@@ -26,7 +26,7 @@ One way to represent this is to profile each of the resources, creating
 hundreds of profiles, and then leave it to the user to infer the overall pattern
 of the report from the detailed profiles for each observation in the report. 
 But it's not easy to see the forest for the trees. A GraphDefinition can 
-summarise the overall picture and present a summary to the user. 
+summarize the overall picture and present a summary to the user. 
 </p>
 <p>
 Here's <a href="http://fhir.hl7.org.au/fhir/rcpa/pprofiles.html">an example</a> of 
@@ -229,7 +229,7 @@ remain identical:
 </pre>
 
 <p>
-Another useful approach is to walk any link * (e.g wildcard support):
+Another useful approach is to walk any link * (e.g. wildcard support):
 </p>
 <pre class="xml">
   &lt;link&gt;
@@ -299,7 +299,7 @@ This technique is useful, for example, when including provenance resources in a 
 For convenience, a graph definition may be represented using a text short hand form, loosely based
 on the <a href="graphql.html">graphQL language</a>. A graph definition is introduced by the 
 name of the Resource (<code>GraphDefinition.start</code>, followed by an optional profile
-in parantheses (<code>GraphDefinition.profile</code>, then a group of links, surrounded 
+in parentheses (<code>GraphDefinition.profile</code>, then a group of links, surrounded 
 by <code>{</code> and <code>}</code>:
 </p>
 <pre>
@@ -308,7 +308,7 @@ Patient(http://hl7.org/fhir/us/core/Patient) {
 </pre>
 <p>
 Between the brackets are one or more links (<code>GraphDefinition.link</code>), separated by commas. 
-Links statements can either be path based look ups, or a search to preform a reverse lookup:
+Links statements can either be path-based look ups, or a search to perform a reverse lookup:
 </p>
 <pre>
 Patient { 
@@ -318,7 +318,7 @@ Patient {
 }
 </pre>
 <p>
-The format for a path based look up is:
+The format for a path-based look up is:
 </p>
 <pre>
   [path] cardinality [min]..[max] '[description]' : [ResoureType rules]
@@ -367,7 +367,7 @@ where:
  <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
 </ul>
 <p>
-In this format, the amount of whitespace, and it's form, is irrelevant. For the purposes
+In this format, the amount of whitespace, and its form, is irrelevant. For the purposes
 of clarity, the examples here are laid out on different lines, but this is not required.
 When a GraphDefinition is used as a parameter in a url, no whitespace is used.
 </p>

@@ -33,7 +33,7 @@ be consistent. Note, though, that a graph definition may contain a subset or a s
 explicitly described in the profiles it refers to.
 </p>
 <p>
-It is possible that in some circumstances, a GraphRelationship makes incompatible rules with 
+It is possible that in some circumstances, a graph definition makes incompatible rules with 
 the Profiles it refers to - in this case, no graph if resources will meet the constraints expressed. 
 Applications should - but are not required - detect when such incompatibilities arise.
 </p>
