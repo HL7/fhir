@@ -6871,8 +6871,8 @@
     <Cell ss:StyleID="s132"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Transducer Diconnected</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The device transducer is diconnected.</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Transducer Disconnected</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The device transducer is disconnected.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>

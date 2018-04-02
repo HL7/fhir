@@ -2415,7 +2415,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Token</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, display, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s110"><Data ss:Type="String"> </Data></Cell>

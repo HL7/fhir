@@ -159,12 +159,12 @@
   <concept>
     <code value="transduc-discon"/>
     <display value="transduc-discon"/>
-    <definition value="The device transducer is diconnected"/>
+    <definition value="The device transducer is disconnected"/>
   </concept>
   <concept>
     <code value="hw-discon"/>
     <display value="hw-discon"/>
-    <definition value="The hardware is diconnected"/>
+    <definition value="The hardware is disconnected"/>
   </concept>
  
 </CodeSystem>

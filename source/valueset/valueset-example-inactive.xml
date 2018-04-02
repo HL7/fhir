@@ -5,7 +5,7 @@
 	<name value="Example-inactive"/>
 	<title value="Example with inactive codes"/>
 	<status value="draft"/>
-	<description value="HL7 v3 ActMood Prdicate codes, including inactive codes"/>
+	<description value="HL7 v3 ActMood Predicate codes, including inactive codes"/>
 	<compose>
     <inactive value="true"/>
 		<include>
