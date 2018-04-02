@@ -129,15 +129,17 @@ as:
 </pre>
 or, with the + and * characters included:
 <pre>
-    &lt;coding&gt;
+  &lt;coding&gt;
     &lt;system value=&quot;http://hl7.org/fhir/sid/icd-10&quot;/&gt;
     &lt;code value=&quot;J21.8+ B95.6*&quot;/&gt;
-    &lt;/coding&gt;
+  &lt;/coding&gt;
 </pre>
 </p>
 
 <h4>Three or More Codes</h4>
 <p>Some jurisdictions (e.g. Germany) have additional coding requirements that go beyond the dual coding “dagger and asterisk” coding approach (syntax).  The coding may require three or sometimes more codes for a complete respresentation of the intended meaning.  An example from the German <i>Deutsche Kodierrichtlinien</i> manual uses 4 codes, described as:
+</p>
+<p>
 Primary diagnosis
 <ul>
 <li>S62.32 - Fracture of shaft of metacarpal bone</li>
@@ -150,7 +152,13 @@ Secondary diagnoses
 </ul>
 </p>
 <p>
-The ! character is used to indicate a secondary diagnosis.  A proper interpretation of this example is: "A patient is admitted to hospital due to a fracture of the metacarpal shaft. Since she is six weeks pregnant, the pregnancy and the monitoring of the pregnancy are coded as secondary diagnoses."  The recommended syntax for representing this combination of codes in FHIR (in Coding.code) is to include the additional (+*!) characters when present and to separate each code group with a space, as "S62.32 Z33! O09.1! Z34" for the example above.
+The ! character is used to indicate a secondary diagnosis.  A proper interpretation of this example is: "A patient is admitted to hospital due to a fracture of the metacarpal shaft. Since she is six weeks pregnant, the pregnancy and the monitoring of the pregnancy are coded as secondary diagnoses."  The recommended syntax for representing this combination of codes in FHIR (in Coding.code) is to include the additional (+*!) characters when present and to separate each code group with a space, for the example above as:
+<pre>
+  &lt;coding&gt;
+    &lt;system value=&quot;http://hl7.org/fhir/sid/icd-10-gm&quot;/&gt;
+    &lt;code value=&quot;S62.32 Z33! O09.1! Z34&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
 
 Other jurisdictions may have similar needs for multiple coding but with different specific coding requirements.  In those cases local coding manuals and authorities should be consulted to determine the recommended or expected syntax to use in a FHIR Coding instance. 
 </p>
