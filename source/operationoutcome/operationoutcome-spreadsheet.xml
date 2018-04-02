@@ -6443,7 +6443,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Warning</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The issue is not important enough to cause the action to fail, but may cause it to be performed suboptimally or in a way that is not as desired.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or in a way that is not as desired.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>

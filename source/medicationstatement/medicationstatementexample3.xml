@@ -22,7 +22,7 @@
     <reference value="Observation/blood-pressure"></reference>
   </reasonReference>
   <note>
-    <text value="Patient can not remember the name of the tablet, but takes it every day in the morning for water retention"/>
+    <text value="Patient cannot remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>
   <dosage>
     <sequence value="1"/>

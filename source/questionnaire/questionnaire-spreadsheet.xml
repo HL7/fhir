@@ -7128,7 +7128,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">An item that defines a specific answer to be captured, and may have child items. (the answer provided in the QuestionnaireResponse should be of the defined datatype)</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">An item that defines a specific answer to be captured, and which may have child items. (the answer provided in the QuestionnaireResponse should be of the defined datatype)</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s151"/>
@@ -7833,7 +7833,7 @@
     <Cell ss:StyleID="s138"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Greator or Equals</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Greater or Equals</Data></Cell>
     <Cell ss:StyleID="s158"><Data ss:Type="String">True if whether at least no answer has a value that is greater or equal to the enableWhen answer </Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>

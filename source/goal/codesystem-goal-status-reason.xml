@@ -32,26 +32,26 @@
   <concept>
     <code value="temp-not-attainable"/>
     <display value="Goal Not Attainable Temporarily"/>
-    <definition value="Goal can not be reached temporarily."/>
+    <definition value="Goal cannot be reached temporarily."/>
   </concept>
   <concept>
     <code value="permanent-not-attainable"/>
     <display value="Goal Not Attainable Permanently"/>
-    <definition value="Goal can not be reached permanently."/>
+    <definition value="Goal cannot be reached permanently."/>
   </concept>
   <concept>
     <code value="financial-barrier"/>
     <display value="Financial Reason"/>
-    <definition value="Goal can not be reached due to financial barrier or reason."/>
+    <definition value="Goal cannot be reached due to financial barrier or reason."/>
   </concept>
   <concept>
     <code value="lack-of-transportation"/>
     <display value="Lack Of Transportation"/>
-    <definition value="Goal can not be reached due to a lack of transportation."/>
+    <definition value="Goal cannot be reached due to a lack of transportation."/>
   </concept>
   <concept>
     <code value="lack-of-social-support"/>
     <display value="Lack Of Social Support"/>
-    <definition value="Goal can not be reached due to a lack of social support."/>
+    <definition value="Goal cannot be reached due to a lack of social support."/>
   </concept>
 </CodeSystem>

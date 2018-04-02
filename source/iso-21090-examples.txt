@@ -2466,7 +2466,7 @@ inv "Full Date": value.size = 8
 7.8.16  TS.DATETIME
 7.8.16.1  Description
 A flavour that constrains TS
-TS.DATETIME constrains a TS so that its precision can not be more precise than seconds.
+TS.DATETIME constrains a TS so that its precision cannot be more precise than seconds.
 7.8.16.2  Invariants
 milliseconds shall be blank.
 OCL for Invariants

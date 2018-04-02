@@ -12,7 +12,7 @@
   <concept>
     <code value="instructions"/>
     <display value="Instructions"/>
-    <definition value="The text provides guidances on how to populate or use a portion of the questionnaire (or the questionnaire as a whole)."/>
+    <definition value="The text provides guidance on how to populate or use a portion of the questionnaire (or the questionnaire as a whole)."/>
   </concept>
   <concept>
     <code value="security"/>

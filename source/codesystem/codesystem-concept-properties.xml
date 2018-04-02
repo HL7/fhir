@@ -6,7 +6,7 @@
   <name value="FHIR Defined Concept Properties"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
-  <description value="A set of common concept properties for use on coded systems through out the FHIR eco-system."/>
+  <description value="A set of common concept properties for use on coded systems throughout the FHIR eco-system."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/concept-properties"/>
   <caseSensitive value="true"/>
   <content value="complete"/>

@@ -95,6 +95,6 @@
 
 
   <note>
-    <text value="Patient can not take acetaminophen as per Dr instructions" />
+    <text value="Patient cannot take acetaminophen as per Dr instructions" />
   </note>  
 </MedicationStatement>

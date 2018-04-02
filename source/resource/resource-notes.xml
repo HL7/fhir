@@ -248,7 +248,7 @@ data in a generally exchangeable sense.
 </p>
 <p>
 Note that resources are almost always constructed following some custom agreement.
-Best practice - which is recommended through out the conformance resources - is that 
+Best practice - which is recommended throughout the conformance resources - is that 
 such agreements make all knowledge about the content of the resource explicit in 
 the content of the resource; if custom agreements follow this advice, and declare 
 their extensions as required, then it is not necessary to understand the agreement 

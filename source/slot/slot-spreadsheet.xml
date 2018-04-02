@@ -6486,7 +6486,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Busy (Unavailable)</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Indicates that the time interval is busy and that the interval can not be scheduled.</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Indicates that the time interval is busy and that the interval cannot be scheduled.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>

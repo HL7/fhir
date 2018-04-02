@@ -12,7 +12,7 @@
   <concept>
     <code value="UDI"/>
     <display value="Universal Device Identifier"/>
-    <definition value="A identifier assigned to a device using the Universal Device Identifier framework as defined by FDA (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)."/>
+    <definition value="An identifier assigned to a device using the Universal Device Identifier framework as defined by FDA (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)."/>
   </concept>
   <concept>
     <code value="SNO"/>

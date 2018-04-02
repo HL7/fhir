@@ -6,7 +6,7 @@
   <name value="Canonical Status Codes for FHIR Resources"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
-  <description value="The master set of status codes used through out FHIR. All status codes are mapped to one of these codes."/>
+  <description value="The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/resource-status"/>
   <hierarchyMeaning value="is-a"/>
   <caseSensitive value="true"/>

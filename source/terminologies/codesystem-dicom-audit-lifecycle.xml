@@ -4,7 +4,7 @@
   <id value="dicom-audit-lifecycle"/>
     <url value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
 <!--
-  <url value="http://nema.org/dicom/ParticipantObjectDataLifecyle"/>
+  <url value="http://nema.org/dicom/ParticipantObjectDataLifecycle"/>
 -->
   
   <version value="20100826"/>

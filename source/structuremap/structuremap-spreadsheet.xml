@@ -6512,7 +6512,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">First </Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">when the target list is being assembled, the items for this rule go first. If more that one rule defines a first item (for a given instance of mapping) then this is an error</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">when the target list is being assembled, the items for this rule go first. If more than one rule defines a first item (for a given instance of mapping) then this is an error</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s135"/>
@@ -6534,7 +6534,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">Last</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">when the target list is being assembled, the items for this rule go last. If more that one rule defines a last item (for a given instance of mapping) then this is an error</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">when the target list is being assembled, the items for this rule go last. If more than one rule defines a last item (for a given instance of mapping) then this is an error</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s135"/>

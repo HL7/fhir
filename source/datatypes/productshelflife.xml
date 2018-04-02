@@ -655,8 +655,8 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">The shelf-life and storage information for a medicinal product item or container can be described using the this class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">The shelf-life and storage information for a medicinal product item or container can be described using the this class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">The shelf-life and storage information for a medicinal product item or container can be described using this class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">The shelf-life and storage information for a medicinal product item or container can be described using this class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s71"><Data ss:Type="String">0;200</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">

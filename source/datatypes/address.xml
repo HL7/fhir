@@ -6567,7 +6567,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Old / Incorrect</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">This address is no longer in use (or was never correct, but retained for records).</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">This address is no longer in use (or was never correct but retained for records).</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">&gt;0190.BA (unclear about old addresses)</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">&gt;AddressUse.OLD(Bad or Old),&gt;AddressUse.BAD(Bad or Old)</Data></Cell>
     <Cell ss:StyleID="s140"/>
