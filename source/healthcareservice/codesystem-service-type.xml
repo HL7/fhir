@@ -1300,13 +1300,13 @@
 	</concept>
 	<concept>
 		<code value="259"/>
-		<display value="Behaviour"/>
-		<definition value="Behaviour"/>
+		<display value="Behavior"/>
+		<definition value="Behavior"/>
 	</concept>
 	<concept>
 		<code value="260"/>
-		<display value="Behaviour Interventi"/>
-		<definition value="Behaviour Intervention"/>
+		<display value="Behavior Interventi"/>
+		<definition value="Behavior Intervention"/>
 	</concept>
 	<concept>
 		<code value="261"/>
@@ -2890,8 +2890,8 @@
 	</concept>
 	<concept>
 		<code value="610"/>
-		<display value="Behaviour Support"/>
-		<definition value="Behaviour Support"/>
+		<display value="Behavior Support"/>
+		<definition value="Behavior Support"/>
 	</concept>
 	<concept>
 		<code value="611"/>
