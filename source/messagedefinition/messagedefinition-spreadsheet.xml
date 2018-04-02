@@ -4127,7 +4127,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">MessageDefinition.event[x]</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">The event that triggers the message or link to the event definiton.</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">The event that triggers the message or link to the event definition.</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s114"/>
    </Row>
    <Row ss:AutoFitHeight="0">
