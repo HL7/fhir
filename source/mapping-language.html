@@ -16,7 +16,7 @@
 <p>
 The FHIR Specification includes a mapping language. The mapping language has a concrete syntax, defined
 and described in this page, and an abstract syntax, which is found in the <a href="structuremap.html">StructureMap</a>
-resource (and there is an <a href="mapping.g4">antlr grammar for the concrete syntax</a>). See also the <a href="mapping-tutorial.html">Tutorial</a>.
+resource (and there is an <a href="mapping.g4">ANTLR grammar for the concrete syntax</a>). See also the <a href="mapping-tutorial.html">Tutorial</a>.
 </p>
 <p>
 The mapping language describes how one set of Directed Acyclic Graphs (an instance) is transformed to another set of
@@ -83,8 +83,8 @@ order to manage the map execution process.
 <a name="syntax"></a>
 <h3>General Syntax Notes</h3>
 <p>
-Mapping files are always plain text in unicode. Whitespace is any unicode whitespace, and the particular whitespace used
-is not significant, except that unicode end of line characters terminate a
+Mapping files are always plain text in Unicode. Whitespace is any Unicode whitespace, and the particular whitespace used
+is not significant, except that Unicode end of line characters terminate a
 comment. Comments are started by the characters "//".
 </p>
 <p>
@@ -211,7 +211,7 @@ Maps may have additional input or output inputs, where that's necessary.
 </p>
 <p>
 Groups may extend other groups, which means that the rules in the other group
-also apply (typically, this is used with specialising classes in an OO context).
+also apply (typically, this is used with specializing classes in an OO context).
 When a group extends another group, it SHALL have the same input parameters (by name, type and mode)
 though their order may differ, and it MAY have additional parameters.
 </p>

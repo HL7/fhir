@@ -35,13 +35,13 @@ This page and the RDF forms are jointly maintained by the HL7 FHIR project and t
 </div>
 
 <p>
-FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF graph</a>serialised in the
+FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF graph</a> serialized in the
 <a href="https://www.w3.org/TR/turtle/">Turtle format</a>.
 The RDF format is defined to assist the process of bridging between operational data exchange and formal
 knowledge processing systems. While the RDF form offers a fully functional representation of FHIR
 resources, it has different operational characteristics to the <a href="json.html">JSON</a> and
 <a href="xml.html">XML</a> representations, and would be implemented for different reasons.
-Systems focused on operational exchange of data would not generally use choose to use RDF.
+Systems focused on operational exchange of data would not generally choose to use RDF.
 </p>
 <p>
 This page describes:
@@ -173,7 +173,7 @@ Using this format:
  <li>Content within a resource is always represented with anonymous nodes - only resources can be identified</li>
  <li>Nodes are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>The <span style="color: brown"><b>R!</b></span> denotes that a relationship is mandatory - it must be present (or in an array, at least one item must be present)</li>
- <li>Note that this specification produces turtle that is nicely formatted and well laid out, but this is not required nor expected</li>
+ <li>Note that this specification produces Turtle that is nicely formatted and well laid out, but this is not required nor expected</li>
  <li>The MIME-type for this format is <code>text/turtle</code>. Other MIME types: <code>text/shex</code> for the SHEX (RDF schemas)</li>
 </ul>
 
@@ -183,14 +183,14 @@ Using this format:
 <p>
 Each resource is represented as a set of RDF triples represented using the Turtle syntax.
 When a resource has a persistent identity (e.g. it can be found at a particular URL - usually a FHIR RESTful server),
-then that URL is its identity. Resources with no persistent identity (e.g. bundles from search results) have the identity of the root document -   "&lt;&gt;" in turtle syntax.
+then that URL is its identity. Resources with no persistent identity (e.g. bundles from search results) have the identity of the root document -   "&lt;&gt;" in Turtle syntax.
 </p>
 <p>
 Some resources can contain other resources. Given that the relationships can appear in any order, it
 cannot be assumed that the first encountered element represents the resource of interest that is being
-represented by the set of turtle statements. The focal resource - where to start when parsing - is the
+represented by the set of Turtle statements. The focal resource - where to start when parsing - is the
 resource with the relationship <code>fhir:nodeRole</code> to <code>fhir:treeRoot</code>. if there is
-more than one node labeled as a 'treeRoot' in a set of turtle statements, it cannot be determined how
+more than one node labeled as a 'treeRoot' in a set of Turtle statements, it cannot be determined how
 to parse them as a single resource.
 </p>
 
@@ -247,7 +247,7 @@ The fhir:value property can never be empty. Either the relationship is absent, o
 <a name="reference"></a>
 <h4>Representing References</h4>
 <p>
-A <a href="references.html#Reference">Reference</a> element is representing using the same
+A <a href="references.html#Reference">Reference</a> element is represented using the same
 rules as above:
 </p>
 <pre class="rdf">
@@ -285,7 +285,7 @@ convert the raw references into RDF-suitable references.
 <h4>Representing Concepts</h4>
 <p>
 The same logic applies to the <a href="datatypes.html#Coding">Coding</a> data type.
-These are represented directly in turtle by serialising their properties
+These are represented directly in Turtle by serializing their properties
 as specified above:
 </p>
 <pre class="rdf">
@@ -306,7 +306,7 @@ as specified above:
 </pre>
 <p>
 For reasoners using the RDF graph, it's very useful to make the implicit
-concept references in these Codings explicit using a rdf:type assertion ("a" in turtle):
+concept references in these Codings explicit using a rdf:type assertion ("a" in Turtle):
 </p>
 <pre class="rdf">
   fhir:Observation.code [
@@ -332,14 +332,14 @@ knows how to convert from the code system to the correct
 ontological representation on the RDF context. Note that a few
 code systems have standard ontological representations,
 but many don't. Again, these assertions can be made by
-the serialiser, or injected by a post-processor.
+the serializer, or injected by a post-processor.
 </p>
 
 <a name="schema"></a>
 <h4>Schema</h4>
 
 <p>
-FHIR uses ShEx for representing the turtle schema.
+FHIR uses ShEx for representing the Turtle schema.
 See <a href="fhir.shex">fhir.shex</a> for definitions.
 </p>
 
@@ -347,7 +347,7 @@ See <a href="fhir.shex">fhir.shex</a> for definitions.
 <h3>RDF Representation of FHIR</h3>
 <p>
 In addition to the basic representation of FHIR resources in
-turtle format, a Turtle representation of the FHIR infrastructure
+Turtle format, a Turtle representation of the FHIR infrastructure
 and definitions is also published, for the following purposes:
 </p>
 <ul>
@@ -357,7 +357,7 @@ and definitions is also published, for the following purposes:
  <li>Supporting reasoning across the information/terminology model boundary</li>
 </ul>
 <p>
-The RDF definitions are published as a series of turtle files: <a href="rim.ttl">RIM</a> and <a href="fhir.ttl">FHIR</a>. Note: these are out of sync with the serialization above; this will be fixed in the lead up to the Montreal connectathon.
+The RDF definitions are published as a series of Turtle files: <a href="rim.ttl">RIM</a> and <a href="fhir.ttl">FHIR</a>. 
 </p>
 
 <a name="api"></a>

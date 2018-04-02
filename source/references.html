@@ -91,7 +91,7 @@ the reference (using the approaches described below), and examining the content
 returned to determine the type; for this reason specifying the type is almost always 
 duplication of information. However resolving references may be a very slow 
 operation, or impossible in practice due to various practical concerns. For this 
-reason, the reference may indicate directly what the type of the  target resource is:
+reason, the reference may indicate directly the target resource type:
 </p>
 <pre class="json">
  "subject": {
@@ -121,7 +121,7 @@ value is simply a code that is the type of resource - e.g. "Patient".
 
 <p>
 The <code>reference</code> is the key element - resources are identified and addressed by their URL. It
-contains a url that is either
+contains a URL that is either
 </p>
 <ul>
   <li>an absolute URL</li>
@@ -138,7 +138,7 @@ Notes:
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="managing.html">"Managing Resource Identity"</a> for further discussion)</li>
  <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification.
-   <br/>Note: This regex is true if the reference to a resource is consistent with a FHIR API:
+   <br/>Note that This regex is true if the reference to a resource is consistent with a FHIR API:
    <pre>
    ((http|https)://([A-Za-z0-9\\\.\:\%\$]*\/)*)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?
    </pre>
@@ -170,7 +170,7 @@ replaces the logical URL with what is the correct literal URL at the completion 
 </p>
 
 <p>
-<a name="versions"></a>References are allowed to be version specific - that is, a reference may point to a specific version of a resource. e.g. 
+<a name="versions"></a>References are allowed to be version specific - that is, a reference may point to a specific version of a resource. e.g. :
 </p>
 <pre class="xml" fragment="Reference">
   &lt;target&gt;
@@ -285,7 +285,7 @@ being referenced, not to more fully describe it.
 <p>
 Many resource types have a defined element "url" which is the canonical URI that always identifies the
 resource. These include all the <a href="terminology-module.html">terminology</a>, <a href="conformance-module.html">conformance</a> and <a href="clinicalreasoning-module.html">knowledge resources</a> (most of the resources
-not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>). Note: the
+not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>). Note that the
 element actually contains a URI, but is named <code>url</code> for legacy reasons.
 </p>
 <p>
@@ -329,7 +329,7 @@ Systems resolving canonical references SHOULD first try to resolve the reference
 the canonical URL (e.g. search on a known registry of terminology, conformance, or knowledge
 resources as appropriate), and then fall back to direct resolution using the URL as 
 a literal reference if a local version of the canonical resource cannot be found. 
-This approach is safe because the all the approaches must refer to the same 
+This approach is safe because the approaches must refer to the same 
 artifact, though implementations will need to make appropriate arrangements regarding 
 the version and/or currency of their local copy of the artifact.
 </p>
@@ -478,12 +478,13 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </p>
 </blockquote>
 
+<!--
 <a name="ids"></a>
 <h3>Internal references using ids</h3>
 <p>
 Todo: document this.
 </p>
-
+-->
 
 <a name="circular"></a>
 <h3>Circular Resource References</h3>
@@ -492,7 +493,7 @@ Some references are circular - that is, the reference points to another resource
 There are several reasons why a resource may refer to other resources of the same type:
 </p>
 <ul>
- <li>part-of: the resources describe a complex hierarchy compose of parts e.g. an organization structure</li>
+ <li>part-of: the resources describe a complex hierarchy composed of parts e.g. an organization structure</li>
  <li>builds-on: resources may add additional content to another resource by deriving from it e.g. extending type declarations</li>
  <li>replaces: one resource may be replaced by another due to changes over time e.g. replacing a prescription or to support patient merging </li>
  <li>uses/re-uses: a resource may use another resource in some kind of modular arrangement e.g. library references or value sets including other value sets</li>

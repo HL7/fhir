@@ -171,7 +171,7 @@ they might be quite complex (e.g. all codes with a particular property from an u
 a code system).
 </p>
 <p>
-A FHIR enabled application can simply ask a terminology server to figure out all the details, and return it a list
+A FHIR-enabled application can simply ask a terminology server to figure out all the details, and return a list
 of the current codes in the value set. This is known as <a href="valueset-operation-expand.html">"expanding" the valueset</a>.
 As a summary, the client passes the server the following information:
 </p>
@@ -422,7 +422,7 @@ provides <a href="valueset-operation-validate-code.html">a "validate-code" opera
 </p>
 <ul>
  <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
- <li> the code value (either a code + system, a Coding data type, or a CodeableConcept</li>
+ <li> the code value (either a code + system, a Coding data type, or a CodeableConcept)</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, and by default, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
 <p>
@@ -701,7 +701,7 @@ server returns an error. Some servers may require a concept map to use for the t
 <p><b>Example</b></p>
 <p>
 Translate from FHIR Composition status to <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> Act Status (based on
-<a href="cm-composition-status-v3.html">this defined concept map</a>:
+<a href="cm-composition-status-v3.html">this defined concept map</a>):
 </p>
 <pre class="http">
 GET [base]/ConceptMap/$translate?system=http://hl7.org/fhir/composition-status
@@ -901,7 +901,7 @@ whether the concept is post-coordinated or not. Here's a description of how the 
     <li> the server can indicate that entries should be removed from the table by providing a (code&nbsp;: system -&gt; code&nbsp;: system) with equivalence "unmatched" (though it's not known why that would be needed)</li>
    </ul>
  </li>
- <li> the client makes these entries into its closure table </li>
+ <li> the client copies these entries into its closure table </li>
  <li> to facilitate the initialization process, a client can call $closure with multiple Coding values</li>
 </ol>
 <p>
@@ -1077,7 +1077,7 @@ Return a 422 Unprocessable Entity with
 </pre>
 </div>
 <p>
-The server should only send this when it’s underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it’s only choice is to initialise the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of ‘all the codes’ so it can rebuild the table again).
+The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it’s only choice is to initialise the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of ‘all the codes’ so it can rebuild the table again).
 If the concept(s) submitted are processed ok, but there’s no new concepts, or no new entries in the table, return a 200 OK with :
 </p>
 <div class="example">

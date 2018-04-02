@@ -161,8 +161,8 @@ and there is no patient for MRN 123456, the server would return <a href="bundle-
 <p><b>Unknown and unsupported parameters</b></p>
 
 <p>
-Servers may receive parameters from the client that they do not recognise, or may
-receive parameters they recognise but do not support (either in general, or for
+Servers may receive parameters from the client that they do not recognize, or may
+receive parameters they recognize but do not support (either in general, or for
 a specific search). In general, servers SHOULD ignore unknown or unsupported parameters
 for the following reasons:
 </p>
@@ -395,7 +395,7 @@ For each prefix above, two interpretations are provided - the simple intent of t
 interpretation of the parameter when applied to ranges. The range interpretation is provided
 for decimals and dates.  Searches are always performed on values that are implicitly
 or explicitly a range. For instance, the number 2.0 has an implicit range of
-1.95 to 2.05, and the date 2015-08-12 has an implicit range of the all the time during that day.
+1.95 to 2.05, and the date 2015-08-12 has an implicit range of all the time during that day.
 If the target value is a <a href="datatypes.html#range">Range</a>, a <a href="datatypes.html#period">Period</a>,
 or a <a href="datatypes.html#timing">Timing</a>, then the target is explicitly a range. Three ranges
 are identified:
@@ -1063,15 +1063,6 @@ GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=MyUserId
 Fetch all the patients that have an Observation where the observation has an audit event from a specific user.
 </p>
 
-<a name="ref-above-below"></a>
-<h4>Support for PartOf References</h4>
-<p>
-In several places, resources can be used to build a tree of relationships:
-</p>
-<ul>
- <li>todo</li>
-</ul>
-
 
 <a name="composite"></a>
 <a name="combining"></a>
@@ -1170,7 +1161,7 @@ GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:missing
 </pre>
 <p>
 There is no way to use the :missing modifier and mix with a value using the
-comma syntax documented above for for composite search parameters.
+comma syntax documented above for composite search parameters.
 </p>
 <p>
 An alternative approach is to use the <a href="#filter"><code>_filter</code></a> parameter,
@@ -1230,7 +1221,7 @@ The special text search parameters, <code>_text</code> and <code>_content</code>
 on the narrative of the resource, and the entire content of the resource respectively.
 These parameters SHOULD support a sophisticated search functionality of the type
 offered by typical text indexing services.
-The value of the parameter is a text based search, which may involve searching
+The value of the parameter is a text-based search, which may involve searching
 multiple words with thesaurus and proximity considerations, and logical operations
 such as AND, OR etc. For example:
 </p>
@@ -1300,7 +1291,7 @@ but may choose to do so.
 <p>
 The search mechanism described above is flexible, and easy to implement
 for simple cases, but is limited in its ability to express combination
-queries. To complement this mechanism, a the "_filter" search expression
+queries. To complement this mechanism, the "_filter" search expression
 parameter can be used.
 </p>
 <p>
@@ -1443,7 +1434,7 @@ This way, the last matching resource will be returned.
 
 <p>
 if <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
-server resturns a bundle that reports the total number of resources that match in Bundle.total,
+server returns a bundle that reports the total number of resources that match in Bundle.total,
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
 <a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
@@ -1755,7 +1746,7 @@ the <code>_elements</code> parameter:
    GET [base]/Patient?_elements=identifier,active,link
 </pre>
 <p>
-The <code>_elements</code> parameter consists of a comma separated list of base element
+The <code>_elements</code> parameter consists of a comma-separated list of base element
 names such as, elements defined at the root level in the resource. Only
 elements that are listed are to be returned. Clients SHOULD list all mandatory and modifier
 elements in a resource as part of the list of elements. The list of elements

@@ -129,11 +129,11 @@ Some examples of the uses for these kind of profiles:
 These profiles represent different use cases leading to handling resources of the type indicated by the CapabilityStatement.rest.resource.type differently. For instance:
 </p>
 <ul>
- <li>An decision support service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
+ <li>A decision support service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
 </ul>
 <p>
 For a producer system and a consumer system to exchange data successfully based on
-one of these supported profiles, it's not enough to know that the
+one of these supported profiles, it is not enough to know that the
 systems happen to have profiles that overlap for the use case
 of interest; the consumer must be able to filter the total set of resources
 made available by the producer system and deal only with the ones relevant
@@ -153,7 +153,7 @@ profile or not, and then decide whether to process it. Checking whether
 a resource conforms to a particular profile or not is a straight
 forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
 but this is very inefficient way - the decision support system has to receive
-and process 100 times many resources as it uses. To help a consumer
+and process 100 times as many resources as it uses. To help a consumer
 find the correct set of reports for a use-case, a producer of
 resources also SHALL, for any profile declared in Conformance.profile:
 </p>
@@ -169,7 +169,7 @@ to conform to the declared profiles SHOULD be published in this form.
 <blockquote class="stu-note">
 <a name="dstu"></a>
 <p>
-<b>STU Note:</b> there are many uninvestigated issues associated with this use of profiles.
+<b>STU Note:</b> There are many uninvestigated issues associated with this use of profiles.
 HL7 is actively seeking feedback from users who experiment in this area, and users
 should be prepared for changes to features and obligations in this area in the future.
 </p>
@@ -194,8 +194,8 @@ by appending a custom operation name prefixed with '$' to an existing FHIR URL, 
 framework</a> does. The Conformance resource supports defining what OperationDefinitions make use of particular
 names on an end-point.  If services are defined that are not declared using OperationDefinition, it may be
 appropriate to use longer names, reducing the chance of collision (and confusion) with services declared by
-other interfaces.  The base specification will never define operation names with a "." in them, so
-implementers are recommended to use some appropriate prefix for their names (such as "ihe.someService")
+other interfaces.  The base specification will never define operation names with a "." (period) in them, so
+implementers are recommended to use some appropriate prefix in their names (such as "ihe.someService")
 to reduce the likelihood of name conflicts.
 </p>
 <p>
@@ -241,11 +241,11 @@ principles still apply: the constraining profile can only allow what the base pr
 
 <h3>Limitations of Use</h3>
 <p>
-What Structure Definitions can do when they are constraining existing resources and datatypes is limited in some respects:
+What StructureDefinitions can do when they are constraining existing resources and datatypes is limited in some respects:
 </p>
 <ul>
  <li>Profiles cannot break the rules established in the base specification (e.g. cardinality as described above)</li>
- <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note: data types and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
+ <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that data types and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
  <li>Profiles cannot give more specific names to elements defined in the base specification, or add new elements</li>
  <li>It must be safe to process a resource without knowing the profile</li>
 </ul>
@@ -268,9 +268,9 @@ see <a href="resource.html#implicitRules">Restricted Understanding of Resources<
 </p>
 
 
-<h3>Using Structure Definitions</h3>
+<h3>Using StructureDefinitions</h3>
 <p>
-A "constraint" Structure Definition specifies a set of restrictions on the content of a FHIR resource or data type,
+A "constraint" StructureDefinition specifies a set of restrictions on the content of a FHIR resource or data type,
 or an additional set of constraints on an existing profile.
 A given structure definition is identified by its canonical URL, which SHOULD be the URL at which it
 is published. The following kinds of statements can be made about how an element is used, using a
@@ -332,7 +332,7 @@ is easier with a flat structure.
 <h3>Differential vs Snapshot</h3>
 
 <p>
-Structure Definitions may contain a differential statement, a snapshot
+StructureDefinitions may contain a differential statement, a snapshot
 statement or both.
 </p>
 <p>Differential statements describe only the differences that they make
@@ -340,7 +340,7 @@ relative to another structure definition (which is most often the base FHIR reso
 For example, a profile may make a single element mandatory (cardinality 1..1).
 In the example of a differential structure, it will contain a single element
 with the path of the element being made mandatory, and a cardinality statement.
-Nothing else is stated - all the rest of the structural information is implied (note:
+Nothing else is stated - all the rest of the structural information is implied (note that
 this means that a differential profile can be sparse and only
 mention the elements that are changed, without having to list the
 full structure. This rule includes the root element - it is not needed in
@@ -376,10 +376,10 @@ systems should always have the snapshot view populated.
 <a name="slicing"></a>
 <h3>Slicing</h3>
 <p>
-One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list),
-and split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated
+One common feature of constraining StructureDefinitions is to take an element that may occur more than once (e.g. in a list),
+and then split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated
 additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to
-"slice" a list into sub-lists each containing just one element, effectively putting constraints on each element in the list.
+"slice" a list into sub-lists with each containing just one element, effectively putting constraints on each element in the list.
 This technique can also be used on elements that do not repeat, but that have a choice of data types.
 </p>
 <p>
@@ -394,7 +394,7 @@ measurement - it contains 2 values, one for systolic, and one for diastolic (<a 
 </p>
 <p>
 This diagram shows the conceptual process of 'slicing' the component list into
-systolic and diastolic slices (note: to avoid clutter, the "name" attribute of Observation
+systolic and diastolic slices (note that to avoid clutter, the "name" attribute of Observation
 is shown as just a code not a full CodeableConcept).
 </p>
 <p>
@@ -425,7 +425,7 @@ instance looks like this:
 </pre>
 <p>
 In order to determine that the first related item corresponds to "Systolic" in
-the structure definition, so that it can determine to which additional constraints for a sub-list the item conforms,
+the structure definition, so that it can then determine to which additional constraints for a sub-list the item conforms,
 the system checks the values of the elements. In this case, the "code" element
 in the target resource can be used to determine which slice that target refers to.
 This element is called the "discriminator".
@@ -443,8 +443,7 @@ applied in the slice and to do so speculatively in a depth-first
 fashion. Both of these requirements are inappropriately difficult for an operational system,
 and particularly for generated code (e.g. software that is automatically produced based on
 the StructureDefinition). Thus, to provide a better way to distinguish
-slices, a sliced element can designate a field or set of fields that act as a "discriminator" - they
-are used to tell the slices apart.
+slices, a sliced element can designate a field or set of fields that act as a "discriminator" used to tell the slices apart.
 </p>
 <p>
 When a discriminator is provided, the composite of the values of
@@ -533,7 +532,7 @@ These entries together form a "slice group" that is:
 		slice group whose path was <i>Observation.name</i> </li>
 </ol>
 <p>
-Some examples of descriminators:
+Some examples of discriminators:
 </p>
 <table class="grid">
  <tr>  <td><b>Context</b></td> <td><b>Discriminator Type</b></td> <td><b>Discriminator Path</b></td> <td><b>Interpretation</b></td> </tr>
@@ -561,7 +560,7 @@ Note that extensions are always sliced by the <code>url</code> element, though t
 <h3>Default Slice</h3>
 <p>
 There is a special slice, called the default slice. This allows
-a profile to describe a set of specific slices, and then make a set of rules that apply to all the remaining
+a profile to describe a set of specific slices, and then make a set of rules that apply to all of the remaining
 content that is not in one of the defined slices. Some rules about the default slice:
 </p>
 <ul>
@@ -582,7 +581,7 @@ but fixes the cardinality of type to 1..1 in the @default slice.
 <a name="reslicing"></a>
 <h3>Re-profiling and Re-slicing</h3>
 <p>
-Profiles can be based on other profiles, and apply further constraints to those already
+Profiles can be based on other profiles, and can apply further constraints to those already
 specified. This is a useful technique, but implementers should be wary of over-use - humans
 have trouble understanding the implications of deep stacks of constraining profiles.
 </p>
@@ -624,7 +623,7 @@ Then, profile C derives from profile B. Profile C can do the following:
   <li>some combination of the above options</li>
 </ol>
 <p>
-Note: it is possible for Profile C to make rules that are incompatible with profile B, in which case there is no set of instances that can be valid against profile C
+Note that it is possible for Profile C to make rules that are incompatible with profile B, in which case there is no set of instances that can be valid against profile C
 </p>
 <p>
 In addition to the above, there are times when Profile C will need to further slice a slice defined in B.  In this case, there's a need to reference both the ElementDefinition.sliceName of the original
@@ -644,7 +643,7 @@ in a resource.
 The extension definition also defines the context where the extension can be used (usually
 a particular path or a data type) and then defines the extension element using the same details used to
 profile the structural elements that are part of resources. This means that a single extension
-can be defined once and used on different Resource and/or datatypes, e.g. one would only have to
+can be defined once and used on different resources and/or datatypes, e.g. one would only have to
 define an extension for "hair color" once, and then specify that it can be used on both Patient and Practitioner.
 </p>
 <p>
@@ -676,7 +675,7 @@ of an extension should usually be 0.
 
 <p>
 Coded elements have bindings that link from the element to a definition of the
-set of possible codes the element may contain. The binding identifies the
+set of possible codes that the element may contain. The binding identifies the
 definition of the set of possible codes and controls how tightly the set of the possible codes is interpreted.
 </p>
 <p>
@@ -745,7 +744,7 @@ to support the element.
 <p>
 The meaning of "support" is not defined by the base FHIR specification, but can be set to
 true in a profile. When a profile does this, it SHALL also make clear
-exactly what kind of "support" is required. Examples might include:
+exactly what kind of "support" is required. Examples include:
 </p>
 <ul>
   <li>The system must be able to store and retrieve the element</li>
@@ -756,7 +755,7 @@ exactly what kind of "support" is required. Examples might include:
 </ul>
 <p>
 The specific meaning of "Must Support" for the purposes of a particular profile SHALL be described in the <code>ElementDefinition.definition</code>,
-the general <code>StructureDefinition.description</code> or in other documentation for the implementation guide the profile is part of.
+the general <code>StructureDefinition.description</code> or in other documentation for the implementation guide that includes the profile.
 </p>
 <p>
 If creating a profile based on another profile, Must Support can be changed from false to true, but cannot be changed from true to false.
@@ -768,7 +767,7 @@ of these things are more likely to be true for IsModifier elements than for othe
 <a name="search"></a>
 <h3>Search Criteria</h3>
 <p>
-The final thing implementations can do is to define search criteria in addition to those defined in the specification itself.
+Implementations can define search criteria in addition to those defined in the specification itself.
 Search criteria fall into one of four categories:
 </p>
 <ol>
@@ -840,10 +839,10 @@ Accordingly, profiles can relate to each other in four different ways.
 Each profile can be thought of in terms of the set of instances that conform to the profile:
 </p>
 <ol>
- <li>non-overlapping: there no instances that conform to profiles A &amp; B (technically, the intersection of profiles A &amp; B is an empty set)</li>
- <li>partly overlapping: some instances conform to both A &amp; B, but others only conform to A or B</li>
- <li>one set contained in the other: all resources that conform to A conform to B, but only some of the ones that conform to B conform to A (or vice versa)</li>
- <li>identical sets: all resources that conform to A also conform to B and any resources that don't conform to B, don't conform to A</li>
+ <li>Non-overlapping: there no instances that conform to profiles A &amp; B (technically, the intersection of profiles A &amp; B is an empty set)</li>
+ <li>Partly overlapping: some instances conform to both A &amp; B, but others only conform to A or B</li>
+ <li>One set contained in the other: all resources that conform to A conform to B, but only some of the ones that conform to B conform to A (or vice versa)</li>
+ <li>Identical sets: all resources that conform to A also conform to B and any resources that don't conform to B, don't conform to A</li>
 </ol>
 <p>
 Profiles can be compared to determine their compatibility.

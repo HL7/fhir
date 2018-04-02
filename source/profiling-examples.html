@@ -160,7 +160,7 @@ In a StructureDefinition, this will look like:
   &lt;/element&gt;
 </pre>  
 <p>
-Note: lots of definition detail has been left out, and only the parts relevant to the pattern are shown.
+Note: much of the definition detail has been left out, and only the parts relevant to the pattern are shown.
 Also, providing a fixed value makes the minimum cardinality irrelevant, but it is shown here for completeness.
 </p>
   
@@ -239,7 +239,7 @@ An example of an Observation resource that meets these rules:
 To do this, the profile that implements these rules needs to do the following:
 </p>
 <ul>
- <li>On the base Observation.component element: define that slicing is discriminated by code. Order is left unfixed, and rules left open.</li>
+ <li>On the base Observation.component element: define that slicing is discriminated by code. Order is left unfixed, and rules are left open.</li>
  <li>Then define 2 slices:
   <ol>
    <li>systolic: fixed values for code, cardinality 1..1, value is a Quantity</li>
@@ -313,7 +313,7 @@ In a StructureDefinition, this will look like:
   &lt;/element&gt;
 </pre>  
 <p>
-Note: lots of definition detail has been left out, and only the parts relevant to the pattern are shown.
+Note: much of the definition detail has been left out, and only the parts relevant to the pattern are shown.
 E.g. A real blood pressure profile would fix unit, an overall Observation code etc.
 </p>
 
@@ -385,7 +385,7 @@ Here are the relevant parts of the Profile on patient:
 </pre>
 </div>
 <p>
-Here's a patient example that conforms to this profile:
+Here is a patient example that conforms to this profile:
 </p>
 <div class="xml">
 <pre>
@@ -407,11 +407,11 @@ Here's a patient example that conforms to this profile:
 <a name="lipids"></a>
 <h3>Diagnostic Report &amp; Observation</h3>
 <p>
-In this example, a profile on an diagnostic report says that it must have
-4 observations, each with a different LOINC code (e.g. a classic lab panel).
+In this example, a profile on a diagnostic report says that it must have
+four observations, each with a different LOINC code (e.g. a classic lab panel).
 In this case (taken from the <a href="lipid-report.html">Example
 Lipid Profile</a>), the structure that applies to DiagnosticReport will say that
-there are 4 slices on DiagnosticReport.result, each conforming to a different structure,
+there are four slices on DiagnosticReport.result, each conforming to a different structure,
 which are also contained in the same profile. Each of those structures will constrain
 the LOINC code in the observation.
 </p>
@@ -706,7 +706,7 @@ Here is an instance that meets the rules for this profile:
 </div>
 
 <p>
-Note that this version isn't valid, because the slices are not in the correct order:
+Note that this version is not valid, because the slices are not in the correct order:
 </p>
 <div class="xml">
 <pre>

@@ -627,7 +627,7 @@ status codes when no <code>If-Match</code> header is found.
 <h3>patch</h3>
 <p>
 As an alternative to updating an entire resource, clients can perform a patch operation.
-This can be useful when a client is seeking to minimise its bandwidth utilization, or
+This can be useful when a client is seeking to minimize its bandwidth utilization, or
 in scenarios where a client has only partial access or support for a resource. The <code>patch</code>
 interaction is performed by an HTTP <code>PATCH</code> command as shown:
 </p>
@@ -1233,7 +1233,7 @@ servers processing history bundles must have some strategy to manage this.
 For other Bundle types, should the server choose to accept them, there will be
 no <code>request</code> element (note that every entry will have a resource).
 In this case, the server treats the entry as either a create or an update interaction,
-depending on whether it recognises the identity of the resource - if the identity
+depending on whether it recognizes the identity of the resource - if the identity
 of the resource refers to a valid location on the server, it should treat it
 as an update to that location. Note: this option allows a client to delegate
 the matching process to the server.

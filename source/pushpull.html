@@ -31,23 +31,23 @@ or consumer.
 
 <h2>Managing Push and Pull</h2>
 <p>
-The primary focus of FHIR is exchanging healthcare data between systems. Whenever one system has information that 
+The primary focus of FHIR is the exchange of healthcare data between systems. Whenever one system has information that 
 another needs or wants, one question that automatically arises is whether the source system will push the data, or 
 whether the destination system will pull the data.
 </p>
 <table class="grid">
-  <tr> <td>Push</td> <td>As new information becomes available, or whenever it deems appropriate, the source system sends the information to the 
+  <tr> <td>Push</td> <td>As new information becomes available, or whenever is deemed appropriate, the source system sends the information to the 
     destination. It expects the destination system to maintain and index the information on receipt. 
     The source system must trust the destination system to manage access/security appropriately</td> </tr>
   <tr> <td>Pull</td> <td>The source system maintains and indexes data. When the destination system
-    wants or needs the information, it must retrieve it form the source system. Either the 
+    wants or needs the information, it must retrieve it from the source system. Either the 
     source or the destination (or both) manages access/security</td> </tr>
 </table>
 <p>
 Note that it is possible to mix these modes by adding an interface repository into the mix. 
 For example, to connect a push-based source with a pull-based destination, simply have the 
-source push information at the repository, and the destination can pull data from it as 
-required. If the source is pull based, the interface repository can query it for new data 
+source push information to the repository, and the destination can pull data from it as 
+required. If the source is pull-based, the interface repository can query it for new data 
 on a regular basis, and when it finds any, it can pull it into the repository and/or push it to the destination.
 </p>
 <p>
