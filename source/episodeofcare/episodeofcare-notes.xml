@@ -18,7 +18,7 @@
 			With long term care there is often a concept of the provision of care being suspended for various reasons.
 			Many systems have extensive Leave Management/Tracking solutions which consider the complexities of this space,
 			however this EpisodeOfCare resource is NOT intended to provide this level of tracking.<br/>
-		  Extension(s) may be used on the status/status history to track the on hold reason, which can facilitate the processing.
+		  Extension(s) may be used on the status/status history to track the on-hold reason, which can facilitate the processing.
 		</p>
 		<p>A more complete Leave Management solution may have to deal with:</p>
 		<ul>
@@ -74,7 +74,7 @@
 
 		<h3>EpisodeOfCare Outcomes Review</h3>
 		<p>
-			An Organization may perform analytics on their Episodes Of Care to have an understanding of how their business is performing.<br/>
+			An Organization may perform analytics on their EpisodeOfCare resources to have an understanding of how their business is performing.<br/>
 			Observing that there was a 60/40 split of episodes being finished/cancelled is not very informative. The organization would
 			prefer to know the reason why the episodes are completing so that they can plan their business effectively.<br/>
 			They’d be more interested in knowing whether it was due to services hitting their mandatory end date, client passing away,

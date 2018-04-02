@@ -7,7 +7,7 @@
     are shared with. This is intentional and highlights the loose coupling of the resources.
   </p>
   <p>
-    Not many systems actually implement a shared Person record, and as such the values DO become out of
+    Not many systems implement a shared Person record, and as such the values DO become out of
     sync with each other. The inclusion of this resource does permit a capability for systems to identify
     other instances of this actual person's data via a centralized registry that can assist in keeping things
     up to date.
@@ -22,7 +22,7 @@
   This element supports two primary scenarios where other resources refer to the same person resource.
   </p>
   <p>
-    The <i>link</i> element cannot be used to link to RelatedPerson entries. So we can utilize a Person
+    The <i>link</i> element cannot be used to link to RelatedPerson entries, so we can use a Person
     resource to relate these elements together identifying them as the same individual.
   </p>
 

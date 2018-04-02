@@ -24,7 +24,7 @@
       task completion, updating the status of the task as it proceeds through its various stages of
       completion. These agents can be coordinated, following well choreographed business logic to
       ensure that tasks are completed. Task management may also be centrally controlled using some
-      form of workflow engine, in which case, the workflow engine itself may update and maintain the
+      form of a workflow engine, in which case, the workflow engine itself may update and maintain the
       task resources in the server, and through its orchestration activities ensure that tasks are
       completed. The task resource enables either model of task management, yet provides a
       consistent view of the status of tasks being executed in support of healthcare workflows. </p>

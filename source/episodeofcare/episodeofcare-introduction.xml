@@ -21,8 +21,8 @@
     <p></p>
     <h3>Multiple Organizations and Transfer of Care</h3>
     <p>
-      Many organizations can be involved in an EpisodeOfCare, however each organization will have their own EpisodeOfCare
-      which tracks their responsibility with the patient.
+      Many organizations can be involved in an episode of care, however each organization will have its own EpisodeOfCare resource instance
+      that tracks its responsibility with the patient.
     </p>
     <p>
       When an Organization completes their involvement with the patient and transfers care to another Organization.
@@ -59,7 +59,7 @@
     <p>
       Systems collect a coherent group of activities (such as encounters) related to a patient's health condition or problem often referred to as a Care Episode.
       Information about an episode is often shared across systems, and in some cases organizational and disciplinary boundaries.
-      An Episode Of Care contains details about the purpose of the care and can exist without any activities.<br/>
+      An EpisodeOfCare contains details about the purpose of the care and can exist without any activities.<br/>
 
       The minimal information that would be required in an episode of care would be a patient, organization and a reason for the ongoing association.
       Other reasons for creating an EpisodeOfCare could be for tracking the details required for government reporting or billing.

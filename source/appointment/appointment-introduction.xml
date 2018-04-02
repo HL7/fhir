@@ -27,7 +27,7 @@
 				<b>Discovery/Addressing</b>
 				<p>
 					Before an appointment can be made, the address/endpoint details of the resource that we want 
-					to schedule an appointment with must be determined. This is often based on the healthcare Service Type
+					to schedule an appointment with must be determined. This is often based on the healthcare service type
 					and any formatting information which indicates how to make the request.
 					This is typically handled via the Schedule resource.
 				</p>
@@ -36,7 +36,7 @@
 				<b>Checking Availability on the Schedule (optional)</b>
 				<p>
 					This optional step permits the checking of any existing available times 
-					(<a href="slot.html">slot</a> resources associated with a selected <a href="schedule.html">schedule</a>) that can be booked against.
+					(<a href="slot.html">Slot</a> resources associated with a selected <a href="schedule.html">Schedule</a>) that can be booked against.
 					Just because a time is indicated as available doesn't guarantee that an appointment can be made.
 					The booking system that is going to process the request may make other qualifying decisions to
 					determine if the appointment can be made, such as permissions, assessments, availability of other
@@ -159,11 +159,11 @@
     </p>
     <p>
       The Appointment request pattern used is different from the order-response pattern used elsewhere in FHIR.<br/>
-      This is due to the close relationship to the iCAL standard. Many non-clinical systems use generic
+      This is due to the close relationship to the iCal standard. Many non-clinical systems use generic
       non-health appointment systems which implement this standard, and the desire to integrate
       with the consumer who has no access to health based software is highly desirable.<br/>
-      The mappings to the iCAL standard have been provided to guide implementation of gateways between
-      FHIR servers and iCAL systems.
+      The mappings to the iCal standard have been provided to guide implementation of gateways between
+      FHIR servers and iCal systems.
     </p>
 <a name="location"></a>
 		<h3>Appointment Locations and Participation</h3>
