@@ -120,10 +120,10 @@
           <code value="access"/>
         </coding>
       </action>
-      <!-- any data with and tag SOC (see security labels). todo: SOC is not defined yet -->
+      <!-- any data with and tag SPI (see security labels). SPI is nearest? -->
       <securityLabel>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="SOC"/>
+        <code value="SPI"/>
       </securityLabel>
     </provision>
     <!-- other teams follow the same pattern -->
@@ -193,7 +193,7 @@
       </action>
       <securityLabel>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="SOC"/>
+        <code value="SPI"/>
       </securityLabel>
     </provision>
     <provision>
@@ -285,7 +285,7 @@
       </action>
       <securityLabel>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="SOC"/>
+        <code value="SPI"/>
       </securityLabel>
     </provision>
     <provision>
