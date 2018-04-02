@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.SearchParameter;
+import org.hl7.fhir.utilities.Utilities;
 
 /*
 Copyright (c) 2011+, HL7, Inc
@@ -114,7 +115,7 @@ public class SearchParameterDefn {
   public SearchParameterDefn(SearchParameterDefn source, String oldName, String newName, String title) {
     super();
     code = source.code;
-    description = source.description.replace("{{title}}", title);
+    description = source.description.replace("{{title}}", title).replace("{{titles}}", Utilities.pluralize(title, 2));
     type = source.type;
     xPathUsage = source.xPathUsage;
     for (String s : source.paths)

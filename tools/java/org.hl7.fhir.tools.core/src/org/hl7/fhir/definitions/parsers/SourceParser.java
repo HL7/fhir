@@ -412,18 +412,19 @@ public class SourceParser {
   }
 
   private void closeTemplate(ElementDefn element, String title, int level) throws Exception {
+    String titles = Utilities.pluralize(title, 2);
     if (element.getShortDefn() != null)
-      element.setShortDefn(element.getShortDefn().replace("{{title}}", title));
+      element.setShortDefn(element.getShortDefn().replace("{{title}}", title).replace("{{titles}}", titles));
     if (element.getDefinition() != null)
-      element.setDefinition(element.getDefinition().replace("{{title}}", title));
+      element.setDefinition(element.getDefinition().replace("{{title}}", title).replace("{{titles}}", titles));
     if (element.getComments() != null)
-      element.setComments(element.getComments().replace("{{title}}", title));
+      element.setComments(element.getComments().replace("{{title}}", title).replace("{{titles}}", titles));
     if (element.getCommitteeNotes() != null)
-      element.setCommitteeNotes(element.getCommitteeNotes().replace("{{title}}", title));
+      element.setCommitteeNotes(element.getCommitteeNotes().replace("{{title}}", title).replace("{{titles}}", titles));
     if (element.getRequirements() != null)
-      element.setRequirements(element.getRequirements().replace("{{title}}", title));
+      element.setRequirements(element.getRequirements().replace("{{title}}", title).replace("{{titles}}", titles));
     if (element.getTodo() != null)
-      element.setTodo(element.getTodo().replace("{{title}}", title));
+      element.setTodo(element.getTodo().replace("{{title}}", title).replace("{{titles}}", titles));
     if (level == 0) {
       // we're preparing this for code generation now; we want to ditch any labelled as 'no-gen'
       List<ElementDefn> delete = new ArrayList<ElementDefn>();

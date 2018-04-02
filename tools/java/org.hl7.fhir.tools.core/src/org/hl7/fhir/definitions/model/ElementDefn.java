@@ -893,6 +893,7 @@ public class ElementDefn {
   }
 
   public void copyFrom(ElementDefn other, String rootName, String title) {
+    String titles = Utilities.pluralize(title, 2);
     types.clear();
     types.addAll(other.types);
     minCardinality = other.minCardinality;
@@ -912,15 +913,15 @@ public class ElementDefn {
     svgLeft = other.svgLeft;
     svgTop = other.svgTop;
     svgWidth = other.svgWidth;
-    name = other.name == null ? null : other.name.replace("{{title}}", title);
-    shortDefn = other.shortDefn == null ? null : other.shortDefn.replace("{{title}}", title);
-    definition = other.definition == null ? null : other.definition.replace("{{title}}", title);
-    requirements = other.requirements == null ? null : other.requirements.replace("{{title}}", title);
-    comments = other.comments == null ? null : other.comments.replace("{{title}}", title);
+    name = other.name == null ? null : other.name.replace("{{title}}", title).replace("{{titles}}", titles);
+    shortDefn = other.shortDefn == null ? null : other.shortDefn.replace("{{title}}", title).replace("{{titles}}", titles);
+    definition = other.definition == null ? null : other.definition.replace("{{title}}", title).replace("{{titles}}", titles);
+    requirements = other.requirements == null ? null : other.requirements.replace("{{title}}", title).replace("{{titles}}", titles);
+    comments = other.comments == null ? null : other.comments.replace("{{title}}", title).replace("{{titles}}", titles);
     todo = other.todo;
     aliases.clear();
     aliases.addAll(other.aliases);
-    committeeNotes = other.committeeNotes == null ? null : other.committeeNotes.replace("{{title}}", title);
+    committeeNotes = other.committeeNotes == null ? null : other.committeeNotes.replace("{{title}}", title).replace("{{titles}}", titles);
     condition = other.condition;
     maxLength = other.maxLength;
     profileName = other.profileName;
@@ -930,7 +931,7 @@ public class ElementDefn {
     otherExamples.clear();
     otherExamples.putAll(other.otherExamples);
 //    defaultValue = other.defaultValue;
-    meaningWhenMissing = other.meaningWhenMissing == null ? null : other.meaningWhenMissing.replace("{{title}}", title);
+    meaningWhenMissing = other.meaningWhenMissing == null ? null : other.meaningWhenMissing.replace("{{title}}", title).replace("{{titles}}", titles);
     fixed = other.fixed;
     pattern = other.pattern;
     derivation = other.derivation;
