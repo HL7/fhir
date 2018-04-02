@@ -98,7 +98,7 @@ item has actually been deleted SHALL have the deleted element set to true.
 <p>
 Note that there is no implication about the status of a resource that has been deleted.
 The only statement that is made is that the resource has been dropped from the list. 
-However applications should ensure that the implication of adding or deleting items
+However, applications should ensure that the implication of adding or deleting items
 from the list is consistent with the logical status of the resource and its contents.
 </p>
 <p>
