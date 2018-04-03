@@ -1895,7 +1895,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
           } else {
 //            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], "<" + parts[1] + ">", t.getCode())));
-            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().get(0).getValue().startsWith(corePath)? corePath: "")+parts[0], parts[1], t.getCode())));
+            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().get(0).getValue().startsWith(corePath+"StructureDefinition")? corePath: "")+parts[0], parts[1], t.getCode())));
           }
         } else
           c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().get(0).getValue().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
