@@ -155,6 +155,8 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
     }
 
     public List<XhtmlNode> getChildren() {
+      if (children == null)
+        children = new ArrayList<XhtmlNode>();
       return children;
     }
     
