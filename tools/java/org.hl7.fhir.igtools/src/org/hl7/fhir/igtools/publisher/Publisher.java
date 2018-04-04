@@ -2514,7 +2514,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (r != null) {
         String path = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
         res.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/implementationguide-page").setValue(new UriType(path));
-        inspector.addLinkToCheck("Implementation Guide", path);
+        inspector.addLinkToCheck("Implementation Guide", path, "??");
       }
     }
 

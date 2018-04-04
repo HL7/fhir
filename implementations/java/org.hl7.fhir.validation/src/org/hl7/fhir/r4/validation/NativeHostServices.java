@@ -107,7 +107,8 @@ public class NativeHostServices {
   private int convertCount = 0;
   private int unConvertCount = 0;
   private int exceptionCount = 0;
-  private String lastException = null;
+  private String lastException = null;  
+  private Object lock = new Object();
 
   private VersionConvertorAdvisor40 conv_10_40_advisor = new NH_10_40_Advisor();
 
@@ -162,7 +163,14 @@ public class NativeHostServices {
     json.addProperty("convert-count", convertCount);
     json.addProperty("unconvert-count", unConvertCount);
     json.addProperty("exception-count", exceptionCount);
-    json.addProperty("last-exception", lastException);
+    synchronized (lock) {
+      json.addProperty("last-exception", lastException);      
+    }
+
+    json.addProperty("mem-max", Runtime.getRuntime().maxMemory() / (1024*1024));
+    json.addProperty("mem-total", Runtime.getRuntime().totalMemory() / (1024*1024));
+    json.addProperty("mem-free", Runtime.getRuntime().freeMemory() / (1024*1024));
+    json.addProperty("mem-used", (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / (1024*1024));
 
     Gson gson = new GsonBuilder().create();
     return gson.toJson(json);
@@ -190,7 +198,10 @@ public class NativeHostServices {
       resourceCount++;
     } catch (Exception e) {
       exceptionCount++;
-      lastException = e.getMessage();
+
+      synchronized (lock) {
+        lastException = e.getMessage();
+      }
       throw e;
     }
   }
@@ -209,7 +220,9 @@ public class NativeHostServices {
       resourceCount--;
     } catch (Exception e) {
       exceptionCount++;
-      lastException = e.getMessage();
+      synchronized (lock) {
+        lastException = e.getMessage();
+      }
       throw e;
     }
   }
@@ -240,46 +253,54 @@ public class NativeHostServices {
    * @throws Exception
    */
   public byte[] validateResource(String location, byte[] source, String cntType, String options) throws Exception {
-    IdStatus resourceIdRule = IdStatus.OPTIONAL;
-    boolean anyExtensionsAllowed = false;
-    BestPracticeWarningLevel bpWarnings = BestPracticeWarningLevel.Ignore;
-    CheckDisplayOption displayOption = CheckDisplayOption.Ignore;
-    for (String s : options.split(" ")) {
-      if ("id-optional".equalsIgnoreCase(s))
-        resourceIdRule = IdStatus.OPTIONAL;
-      else if ("id-required".equalsIgnoreCase(s))
-        resourceIdRule = IdStatus.REQUIRED;
-      else if ("id-prohibited".equalsIgnoreCase(s))
-        resourceIdRule = IdStatus.PROHIBITED;
-      else if ("any-extensions".equalsIgnoreCase(s))
-        anyExtensionsAllowed = true;
-      else if ("bp-ignore".equalsIgnoreCase(s))
-        bpWarnings = BestPracticeWarningLevel.Ignore;
-      else if ("bp-hint".equalsIgnoreCase(s))
-        bpWarnings = BestPracticeWarningLevel.Hint;
-      else if ("bp-warning".equalsIgnoreCase(s))
-        bpWarnings = BestPracticeWarningLevel.Warning;
-      else if ("bp-error".equalsIgnoreCase(s))
-        bpWarnings = BestPracticeWarningLevel.Error;
-      else if ("display-ignore".equalsIgnoreCase(s))
-        displayOption = CheckDisplayOption.Ignore;
-      else if ("display-check".equalsIgnoreCase(s))
-        displayOption = CheckDisplayOption.Check;
-      else if ("display-case-space".equalsIgnoreCase(s))
-        displayOption = CheckDisplayOption.CheckCaseAndSpace;
-      else if ("display-case".equalsIgnoreCase(s))
-        displayOption = CheckDisplayOption.CheckCase;
-      else if ("display-space".equalsIgnoreCase(s))
-        displayOption = CheckDisplayOption.CheckSpace;
-      else if (!Utilities.noString(s))
-        throw new Exception("Unknown option "+s);
+    try {
+      IdStatus resourceIdRule = IdStatus.OPTIONAL;
+      boolean anyExtensionsAllowed = false;
+      BestPracticeWarningLevel bpWarnings = BestPracticeWarningLevel.Ignore;
+      CheckDisplayOption displayOption = CheckDisplayOption.Ignore;
+      for (String s : options.split(" ")) {
+        if ("id-optional".equalsIgnoreCase(s))
+          resourceIdRule = IdStatus.OPTIONAL;
+        else if ("id-required".equalsIgnoreCase(s))
+          resourceIdRule = IdStatus.REQUIRED;
+        else if ("id-prohibited".equalsIgnoreCase(s))
+          resourceIdRule = IdStatus.PROHIBITED;
+        else if ("any-extensions".equalsIgnoreCase(s))
+          anyExtensionsAllowed = true;
+        else if ("bp-ignore".equalsIgnoreCase(s))
+          bpWarnings = BestPracticeWarningLevel.Ignore;
+        else if ("bp-hint".equalsIgnoreCase(s))
+          bpWarnings = BestPracticeWarningLevel.Hint;
+        else if ("bp-warning".equalsIgnoreCase(s))
+          bpWarnings = BestPracticeWarningLevel.Warning;
+        else if ("bp-error".equalsIgnoreCase(s))
+          bpWarnings = BestPracticeWarningLevel.Error;
+        else if ("display-ignore".equalsIgnoreCase(s))
+          displayOption = CheckDisplayOption.Ignore;
+        else if ("display-check".equalsIgnoreCase(s))
+          displayOption = CheckDisplayOption.Check;
+        else if ("display-case-space".equalsIgnoreCase(s))
+          displayOption = CheckDisplayOption.CheckCaseAndSpace;
+        else if ("display-case".equalsIgnoreCase(s))
+          displayOption = CheckDisplayOption.CheckCase;
+        else if ("display-space".equalsIgnoreCase(s))
+          displayOption = CheckDisplayOption.CheckSpace;
+        else if (!Utilities.noString(s))
+          throw new Exception("Unknown option "+s);
+      }
+
+      OperationOutcome oo = validator.validate(location, source, FhirFormat.valueOf(cntType), null, resourceIdRule, anyExtensionsAllowed, bpWarnings, displayOption);
+      ByteArrayOutputStream bs = new ByteArrayOutputStream();
+      new XmlParser().compose(bs, oo);
+      validationCount++;
+      return bs.toByteArray();
+    } catch (Exception e) {
+      exceptionCount++;
+      synchronized (lock) {
+        lastException = e.getMessage();
+      }
+      throw e;
     }
-        
-    OperationOutcome oo = validator.validate(location, source, FhirFormat.valueOf(cntType), null, resourceIdRule, anyExtensionsAllowed, bpWarnings, displayOption);
-    ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    new XmlParser().compose(bs, oo);
-    validationCount++;
-    return bs.toByteArray();
   }
 
   /**
@@ -293,30 +314,38 @@ public class NativeHostServices {
    * @throws IOException
    */
   public byte[] convertResource(byte[] r, String fmt, String version) throws FHIRException, IOException  {
-    if ("3.0".equals(version) || "3.0.1".equals(version) || "r3".equals(version)) {
-      org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);
-      org.hl7.fhir.dstu3.model.Resource res3 = p3.parse(r);
-      Resource res4 = VersionConvertor_30_40.convertResource(res3);
-      org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
-      convertCount++;
-      return p4.composeBytes(res4);
-    } else if ("1.0".equals(version) || "1.0.2".equals(version) || "r2".equals(version)) {
-      org.hl7.fhir.dstu2.formats.ParserBase p2 = org.hl7.fhir.dstu2.formats.FormatUtilities.makeParser(fmt);
-      org.hl7.fhir.dstu2.model.Resource res2 = p2.parse(r);
-      VersionConvertor_10_40 conv = new VersionConvertor_10_40(conv_10_40_advisor );
-      Resource res4 = conv.convertResource(res2);
-      org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
-      convertCount++;
-      return p4.composeBytes(res4);
-    } else if ("1.4".equals(version) || "1.4.0".equals(version)) {
-      org.hl7.fhir.dstu2016may.formats.ParserBase p2 = org.hl7.fhir.dstu2016may.formats.FormatUtilities.makeParser(fmt);
-      org.hl7.fhir.dstu2016may.model.Resource res2 = p2.parse(r);
-      Resource res4 = VersionConvertor_14_40.convertResource(res2);
-      org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
-      convertCount++;
-      return p4.composeBytes(res4);
-    } else
-      throw new FHIRException("Unsupported version "+version);
+    try {
+      if ("3.0".equals(version) || "3.0.1".equals(version) || "r3".equals(version)) {
+        org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);
+        org.hl7.fhir.dstu3.model.Resource res3 = p3.parse(r);
+        Resource res4 = VersionConvertor_30_40.convertResource(res3);
+        org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
+        convertCount++;
+        return p4.composeBytes(res4);
+      } else if ("1.0".equals(version) || "1.0.2".equals(version) || "r2".equals(version)) {
+        org.hl7.fhir.dstu2.formats.ParserBase p2 = org.hl7.fhir.dstu2.formats.FormatUtilities.makeParser(fmt);
+        org.hl7.fhir.dstu2.model.Resource res2 = p2.parse(r);
+        VersionConvertor_10_40 conv = new VersionConvertor_10_40(conv_10_40_advisor );
+        Resource res4 = conv.convertResource(res2);
+        org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
+        convertCount++;
+        return p4.composeBytes(res4);
+      } else if ("1.4".equals(version) || "1.4.0".equals(version)) {
+        org.hl7.fhir.dstu2016may.formats.ParserBase p2 = org.hl7.fhir.dstu2016may.formats.FormatUtilities.makeParser(fmt);
+        org.hl7.fhir.dstu2016may.model.Resource res2 = p2.parse(r);
+        Resource res4 = VersionConvertor_14_40.convertResource(res2);
+        org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
+        convertCount++;
+        return p4.composeBytes(res4);
+      } else
+        throw new FHIRException("Unsupported version "+version);
+    } catch (Exception e) {
+      exceptionCount++;
+      synchronized (lock) {
+        lastException = e.getMessage();
+      }
+      throw e;
+    }
   }
 
   /**
@@ -330,31 +359,39 @@ public class NativeHostServices {
    * @throws IOException
    */
   public byte[] unConvertResource(byte[] r, String fmt, String version) throws FHIRException, IOException  {
-    if ("3.0".equals(version) || "3.0.1".equals(version) || "r3".equals(version)) {
-      org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
-      org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
-      org.hl7.fhir.dstu3.model.Resource res3 = VersionConvertor_30_40.convertResource(res4);
-      org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);
-      unConvertCount++;
-      return p3.composeBytes(res3);
-    } else if ("1.0".equals(version) || "1.0.2".equals(version) || "r2".equals(version)) {
-      org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
-      org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
-      VersionConvertor_10_40 conv = new VersionConvertor_10_40(conv_10_40_advisor );
-      org.hl7.fhir.dstu2.model.Resource res2 = conv.convertResource(res4);
-      org.hl7.fhir.dstu2.formats.ParserBase p2 = org.hl7.fhir.dstu2.formats.FormatUtilities.makeParser(fmt);
-      unConvertCount++;
-      return p2.composeBytes(res2);
-    } else if ("1.4".equals(version) || "1.4.0".equals(version)) {
-      org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
-      org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
-      org.hl7.fhir.dstu2016may.model.Resource res2 = VersionConvertor_14_40.convertResource(res4);
-      org.hl7.fhir.dstu2016may.formats.ParserBase p2 = org.hl7.fhir.dstu2016may.formats.FormatUtilities.makeParser(fmt);
-      unConvertCount++;
-      return p2.composeBytes(res2);
-    } else
-      throw new FHIRException("Unsupported version "+version);
+    try {
+      if ("3.0".equals(version) || "3.0.1".equals(version) || "r3".equals(version)) {
+        org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
+        org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
+        org.hl7.fhir.dstu3.model.Resource res3 = VersionConvertor_30_40.convertResource(res4);
+        org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);
+        unConvertCount++;
+        return p3.composeBytes(res3);
+      } else if ("1.0".equals(version) || "1.0.2".equals(version) || "r2".equals(version)) {
+        org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
+        org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
+        VersionConvertor_10_40 conv = new VersionConvertor_10_40(conv_10_40_advisor );
+        org.hl7.fhir.dstu2.model.Resource res2 = conv.convertResource(res4);
+        org.hl7.fhir.dstu2.formats.ParserBase p2 = org.hl7.fhir.dstu2.formats.FormatUtilities.makeParser(fmt);
+        unConvertCount++;
+        return p2.composeBytes(res2);
+      } else if ("1.4".equals(version) || "1.4.0".equals(version)) {
+        org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
+        org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
+        org.hl7.fhir.dstu2016may.model.Resource res2 = VersionConvertor_14_40.convertResource(res4);
+        org.hl7.fhir.dstu2016may.formats.ParserBase p2 = org.hl7.fhir.dstu2016may.formats.FormatUtilities.makeParser(fmt);
+        unConvertCount++;
+        return p2.composeBytes(res2);
+      } else
+        throw new FHIRException("Unsupported version "+version);
+    } catch (Exception e) {
+      exceptionCount++;
+      synchronized (lock) {
+        lastException = e.getMessage();
+      }
+      throw e;
+    }
   }
 
-  
+
 }   

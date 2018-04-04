@@ -71,10 +71,12 @@ public class HTLMLInspector {
   public class StringPair {
     private String source;
     private String link;
-    public StringPair(String source, String link) {
+    private String text;
+    public StringPair(String source, String link, String text) {
       super();
       this.source = source;
       this.link = link;
+      this.text = text;
     }
   }
 
@@ -166,8 +168,7 @@ public class HTLMLInspector {
     log.logDebugMessage(LogCategory.HTML, "Checking Other Links");
     // check other links:
     for (StringPair sp : otherlinks) {
-      sp = sp;
-      checkResolveLink(sp.source, null, null, sp.link, messages, null);
+      checkResolveLink(sp.source, null, null, sp.link, sp.text, messages, null);
     }
     
     log.logDebugMessage(LogCategory.HTML, "Done checking");
@@ -277,7 +278,7 @@ public class HTLMLInspector {
     if ("title".equals(x.getName()) && Utilities.noString(x.allText()))
       x.addText("??");
     if ("a".equals(x.getName()) && x.hasAttribute("href"))
-      changed = checkResolveLink(s, x.getLocation(), path, x.getAttribute("href"), messages, uuid);
+      changed = checkResolveLink(s, x.getLocation(), path, x.getAttribute("href"), x.allText(), messages, uuid);
     if ("img".equals(x.getName()) && x.hasAttribute("src"))
       changed = checkResolveImageLink(s, x.getLocation(), path, x.getAttribute("src"), messages, uuid) || changed;
     if ("link".equals(x.getName()))
@@ -323,7 +324,7 @@ public class HTLMLInspector {
       return false;
   }
 
-  private boolean checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages, String uuid) throws IOException {
+  private boolean checkResolveLink(String filename, Location loc, String path, String ref, String text, List<ValidationMessage> messages, String uuid) throws IOException {
     links++;
     String rref = ref;
     if ((rref.startsWith("http:") || rref.startsWith("https:") ) && (rref.endsWith(".sch") || rref.endsWith(".xsd") || rref.endsWith(".shex"))) { // work around for the fact that spec.internals does not track all these minor things 
@@ -376,7 +377,7 @@ public class HTLMLInspector {
     if (resolved) {
       return false;
     } else {
-      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' cannot be resolved"+tgtList, IssueSeverity.ERROR).setLocationLink(uuid == null ? null : filename+"#"+uuid));
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, filename+(path == null ? "" : "#"+path+(loc == null ? "" : " at "+loc.toString())), "The link '"+ref+"' for \""+text+"\" cannot be resolved"+tgtList, IssueSeverity.ERROR).setLocationLink(uuid == null ? null : filename+"#"+uuid));
       return true;
     } 
   }
@@ -416,8 +417,8 @@ public class HTLMLInspector {
     } 
   }
 
-  public void addLinkToCheck(String source, String link) {
-    otherlinks.add(new StringPair(source, link));
+  public void addLinkToCheck(String source, String link, String text) {
+    otherlinks.add(new StringPair(source, link, text));
     
   }
 
