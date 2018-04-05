@@ -46,11 +46,12 @@ import javax.imageio.ImageIO;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.TranslatingUtilities;
 import org.hl7.fhir.utilities.Utilities;
-
-import com.github.rjeschke.txtmark.Processor;
 
 
 public class HierarchicalTableGenerator extends TranslatingUtilities {
@@ -185,7 +186,10 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
     }
     public Cell addMarkdown(String md) {
       try {
-        String html = Processor.process("[$PROFILE$]: extended\n" + md);
+        Parser parser = Parser.builder().build();
+        Node document = parser.parse(md);
+        HtmlRenderer renderer = HtmlRenderer.builder().escapeHtml(true).build();
+        String html = renderer.render(document);  
         pieces.addAll(htmlToParagraphPieces(html));
       } catch (Exception e) {
         e.printStackTrace();
