@@ -229,7 +229,11 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
         } else if (c.getName().equals("code")) {
           list.add(new Piece(null, c.allText(), null).setStyle("padding: 2px 4px; color: #005c00; background-color: #f9f2f4; white-space: nowrap; border-radius: 4px"));                    
         } else if (c.getName().equals("i")) {
-          list.add(new Piece(null, c.allText(), null).setStyle("font-style: italic"));                    
+          list.add(new Piece(null, c.allText(), null).setStyle("font-style: italic"));
+        } else if (c.getName().equals("pre")) {
+          Piece p = new Piece(c.getName()).setStyle("white-space: pre; font-family: courier");
+          list.add(p);
+          p.getChildren().addAll(c.getChildNodes());
         } else if (c.getName().equals("ul") || c.getName().equals("ol")) {
           Piece p = new Piece(c.getName());
           list.add(p);
