@@ -19,6 +19,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.fhir.ucum.UcumService;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService.LogCategory;
@@ -90,6 +91,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private String revision;
   private String date;
   private IValidatorFactory validatorFactory;
+  private UcumService ucumService;
   
   public SimpleWorkerContext() {
     super();
@@ -519,6 +521,14 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       }
     }
     super.seeMetadataResource(r, map, addId);
+  }
+
+  public UcumService getUcumService() {
+    return ucumService;
+  }
+
+  public void setUcumService(UcumService ucumService) {
+    this.ucumService = ucumService;
   }
 
 

@@ -2,21 +2,16 @@
 <tests>
 	<!-- Some tests thrown in by Brian -->
 	<group name="Patient tests">
-		<test
-			name="extract birthDate"
-			inputfile="patient-example.xml" predicate="false">
+    <test name="extract birthDate" inputfile="patient-example.xml" predicate="false">
 			<expression>birthDate</expression>
 			<output type="date">1974-12-25</output>
 		</test>
 		<test
-			name="patient has a birthDate"
-			inputfile="patient-example.xml" predicate="true">
+      name="patient has a birthDate" inputfile="patient-example.xml" predicate="true">
 			<expression>birthDate</expression>
 			<output type="boolean">true</output>
 		</test>
-		<test
-			name="patient telecom types"
-			inputfile="patient-example.xml">
+    <test name="patient telecom types" inputfile="patient-example.xml">
 			<expression>telecom.use</expression>
 			<output type="code">home</output>
 			<output type="code">work</output>
@@ -28,8 +23,7 @@
 	<!-- Tests ported from the Java Unit Tests -->
 	<group name="Basics">
 		<!-- test(patient(), "name.given", 3, "string"); -->
-		<test name="testSimple"
-			inputfile="patient-example.xml">
+    <test name="testSimple" inputfile="patient-example.xml">
 			<expression>name.given</expression>
 			<output type="string">Peter</output>
 			<output type="string">James</output>
@@ -39,14 +33,12 @@
 		</test>
 
 		<!-- test(patient(), "name.period", 0); -->
-		<test name="testSimpleNone"
-			inputfile="patient-example.xml">
+    <test name="testSimpleNone" inputfile="patient-example.xml">
 			<expression>name.suffix</expression>
 		</test>
 
 		<!-- test(patient(), "name.\"given\"", 3, "string"); -->
-		<test name="testSimpleDoubleQuotes"
-			inputfile="patient-example.xml">
+    <test name="testSimpleDoubleQuotes" inputfile="patient-example.xml">
 			<expression>name."given"</expression>
 			<output type="string">Peter</output>
 			<output type="string">James</output>
@@ -56,14 +48,12 @@
 		</test>
 
 		<!-- testWrong(patient(), "name.given1"); -->
-		<test name="testSimpleFail"
-			inputfile="patient-example.xml">
+    <test name="testSimpleFail" inputfile="patient-example.xml">
 			<expression invalid="true">name.given1</expression>
 		</test>
 
 		<!-- test(patient(), "Patient.name.given", 3, "string"); -->
-		<test name="testSimpleWithContext"
-			inputfile="patient-example.xml">
+    <test name="testSimpleWithContext" inputfile="patient-example.xml">
 			<expression>Patient.name.given</expression>
 			<output type="string">Peter</output>
 			<output type="string">James</output>
@@ -73,90 +63,77 @@
 		</test>
 
 		<!-- testWrong(patient(), "Encounter.name.given"); -->
-		<test name="testSimpleWithWrongContext"
-			inputfile="patient-example.xml">
+    <test name="testSimpleWithWrongContext" inputfile="patient-example.xml">
 			<expression invalid="true">Encounter.name.given</expression>
 		</test>
 	</group>
 
 	<group name="Observations">
 		<!-- test(observation(), "Observation.value.unit", 1, "string"); -->
-		<test name="testPolymorphismA"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismA" inputfile="observation-example.xml">
 			<expression>Observation.value.unit</expression>
 			<output type="string"></output>
 		</test>
 
 		<!-- testWrong(observation(), "Observation.valueQuantity.unit"); -->
-		<test name="testPolymorphismB"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismB" inputfile="observation-example.xml">
 			<expression invalid="true">Observation.valueQuantity.unit</expression>
 		</test>
 
 		<!-- testBoolean(observation(), "Observation.value.is(Quantity)", true); -->
-		<test name="testPolymorphismIsA"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismIsA" inputfile="observation-example.xml">
 			<expression>Observation.value.is(Quantity)</expression>
 			<output type="boolean">true</output>
 		</test>
 		<!-- testBoolean(observation(), "Observation.value is Quantity", true); -->
-		<test name="testPolymorphismIsA"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismIsA" inputfile="observation-example.xml">
 			<expression>Observation.value is Quantity</expression>
 			<output type="boolean">true</output>
 		</test>
 
 		<!-- testBoolean(observation(), "Observation.value.is(Period).not()", true); -->
-		<test name="testPolymorphismIsB"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismIsB" inputfile="observation-example.xml">
 			<expression>Observation.value.is(Period).not()</expression>
 			<output type="boolean">true</output>
 		</test>
 
 		<!-- testBoolean(observation(), "Observation.value.as(Quantity).unit", true); -->
-		<test name="testPolymorphismAsA"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismAsA" inputfile="observation-example.xml">
 			<expression>Observation.value.as(Quantity).unit</expression>
 			<output type="string">lbs</output>
 		</test>
 		<!-- testBoolean(observation(), "(Observation.value as Quantity).unit", true); -->
-		<test name="testPolymorphismAsA"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismAsA" inputfile="observation-example.xml">
 			<expression>(Observation.value as Quantity).unit</expression>
 			<output type="string">lbs</output>
 		</test>
 
 		<!-- testWrong(observation(), "(Observation.value as Period).unit"); -->
-		<test name="testPolymorphismAsB"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismAsB" inputfile="observation-example.xml">
 			<expression invalid="true">(Observation.value as Period).unit</expression>
 		</test>
 
 		<!-- test(observation(), "Observation.value.as(Period).start", 0); -->
-		<test name="testPolymorphismAsC"
-			inputfile="observation-example.xml">
+    <test name="testPolymorphismAsC" inputfile="observation-example.xml">
 			<expression>Observation.value.as(Period).start</expression>
 		</test>
 	</group>
 
 	<group name="Dollar">
 		<!-- test(patient(), "Patient.name.given.where(substring($this.length()-3) = 'out')", 0); -->
-		<test name="testDollarThis1"
-			inputfile="patient-example.xml">
+    <test name="testDollarThis1" inputfile="patient-example.xml">
 			<expression>Patient.name.given.where(substring($this.length()-3) = 'out')</expression>
 		</test>
 
 		<!-- test(patient(), "Patient.name.given.where(substring($this.length()-3) = 'ter')", 1, "string"); -->
-		<test name="testDollarThis2"
-			inputfile="patient-example.xml">
+    <test name="testDollarThis2" inputfile="patient-example.xml">
 			<expression>Patient.name.given.where(substring($this.length()-3) = 'ter')</expression>
 			<output type="string">Peter</output>
 			<output type="string">Peter</output>
 		</test>
 
 		<!-- test(patient(), "Patient.name.skip(1).given", 1, "string"); -->
-		<test name="testDollarOrderAllowed"
-			inputfile="patient-example.xml">
+    <test name="testDollarOrderAllowed" inputfile="patient-example.xml">
 			<expression>Patient.name.skip(1).given</expression>
 			<output type="string">Jim</output>
 			<output type="string">Peter</output>
@@ -164,39 +141,68 @@
 		</test>
 
 		<!-- test(patient(), "Patient.name.skip(3).given", 0); -->
-		<test name="testDollarOrderAllowedA"
-			inputfile="patient-example.xml">
+    <test name="testDollarOrderAllowedA" inputfile="patient-example.xml">
 			<expression>Patient.name.skip(3).given</expression>
 		</test>
 
 		<!-- testWrong(patient(), "Patient.children().skip(1)"); -->
-		<test name="testDollarOrderNotAllowed"
-			inputfile="patient-example.xml">
+    <test name="testDollarOrderNotAllowed" inputfile="patient-example.xml">
 			<expression invalid="true">Patient.children().skip(1)</expression>
 		</test>
 	</group>
 
 	<group name="Literals">
 		<!-- testBoolean(patient(), "Patient.name.exists() = true", true); -->
-		<test name="testLiteralTrue"
-			inputfile="patient-example.xml">
+    <test name="testLiteralTrue" inputfile="patient-example.xml">
 			<expression>Patient.name.exists() = true</expression>
 			<output type="boolean">true</output>
 		</test>
 
 		<!-- testBoolean(patient(), "Patient.name.empty() = false", true); -->
-		<test name="testLiteralFalse"
-			inputfile="patient-example.xml">
+    <test name="testLiteralFalse" inputfile="patient-example.xml">
 			<expression>Patient.name.empty() = false</expression>
 			<output type="boolean">true</output>
 		</test>
 
 		<!-- testBoolean(patient(), "Patient.name.given.first() = 'Peter'", true); -->
-		<test name="testLiteralString"
-			inputfile="patient-example.xml">
+    <test name="testLiteralString" inputfile="patient-example.xml">
 			<expression>Patient.name.given.first() = 'Peter'</expression>
 			<output type="boolean">true</output>
 		</test>
+
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>1.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>0.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-1.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-1.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralInteger" inputfile="patient-example.xml"><expression>2147483647.isInteger()</expression><output type="boolean">true</output></test>
+
+    <test name="testLiteralString" inputfile="patient-example.xml"><expression>'test'.isString()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralString" inputfile="patient-example.xml"><expression>'\\\/\f\r\n\t\"\"\'\u002a'.isString()</expression><output type="boolean">true</output></test>
+
+    <test name="testLiteralBoolean" inputfile="patient-example.xml"><expression>true.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralBoolean" inputfile="patient-example.xml"><expression>false.isBoolean()</expression><output type="boolean">true</output></test>
+
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>1.0.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.1.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.0.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>-0.1.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>1234567890987654321.0.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDecimal" inputfile="patient-example.xml"><expression>0.000000000000000000000000000001.isDecimal()</expression><output type="boolean">true</output></test>
+    
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04.isDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28.isDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28.123.isDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28Z.isDateTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>@2015-02-04T14:34:28+10:00.isDateTime()</expression><output type="boolean">true</output></test>
+
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28.isTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28.123.isTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28Z.isTime()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralTime" inputfile="patient-example.xml"><expression>@T14:34:28+10:00.isTime()</expression><output type="boolean">true</output></test>
+
+    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>10.1 'mg'.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>10 'mg'.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralQuantity" inputfile="patient-example.xml"><expression>4 days.isQuantity()</expression><output type="boolean">true</output></test>
 
 		<test name="testLiteralInteger" inputfile="patient-example.xml"><expression>-3 != 3</expression><output type="boolean">true</output></test>
 		<test name="testLiteralInteger" inputfile="patient-example.xml"><expression>Patient.name.given.count() = 5</expression><output type="boolean">true</output></test>
@@ -220,6 +226,8 @@
 		<test name="testLiteralDate" inputfile="patient-example.xml"><expression>Patient.birthDate != @1974-12-25T12:34:00Z</expression><output type="boolean">true</output></test>
 		<test name="testLiteralDate" inputfile="patient-example.xml"><expression>Patient.birthDate != @T12:14:15</expression><output type="boolean">true</output></test>
 		<test name="testLiteralDate" inputfile="patient-example.xml"><expression>Patient.birthDate != @T12:14</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>Patient.birthDate &lt; today()</expression><output type="boolean">true</output></test>
+    <test name="testLiteralDate" inputfile="patient-example.xml"><expression>now() &gt; Patient.birthDate</expression><output type="boolean">true</output></test>
 
 		<test name="testLiteralUnicode" inputfile="patient-example.xml"><expression>Patient.name.given.first() = 'P\u0065ter'</expression><output type="boolean">true</output></test>
 
@@ -244,6 +252,97 @@
 		<test name="testLiteralDate" inputfile="patient-example.xml"><expression>(1|2).not() = false</expression><output type="boolean">true</output></test>
 	</group>
 
+  <group name="testTypes">
+    <test name="test" inputfile="patient-example.xml"><expression>1.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.is(Integer)</expression><output type="boolean">true</output></test>
+<!--    <test name="test" inputfile="patient-example.xml"><expression>1.is(System.Integer)</expression><output type="boolean">true</output></test> -->
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'a'.isInteger().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.isInteger().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.is(Integer).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.isInteger()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.is(Integer).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>@2013-04-05.is(Integer).not()</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.toInteger() = 1</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.toInteger() = 1</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.1'.toInteger() = {}</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.toInteger() = 1</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.is(Decimal).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.is(Decimal)</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.is(Decimal).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.a'.isDecimal().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.is(Decimal).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.isDecimal()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.is(Decimal).not()</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.toDecimal() != 1.0</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.toDecimal() ~ 1.0</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.toDecimal() = 1.0</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.1'.toDecimal() = 1.1</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.toDecimal() = 1</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.is(Quantity).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.isQuantity()</expression><output type="boolean">true</output></test>
+<!--    <test name="test" inputfile="patient-example.xml"><expression>1.0.is(System.Quantity)</expression><output type="boolean">true</output></test> -->
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.isQuantity()</expression><output type="boolean">true</output></test>
+<!--    <test name="test" inputfile="patient-example.xml"><expression>'1'.is(System.Quantity).not()</expression><output type="boolean">true</output></test> -->
+    <test name="test" inputfile="patient-example.xml"><expression>'1 day'.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 \'wk\''.isQuantity()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 wk'.isQuantity().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.a'.isQuantity().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.isQuantity()</expression><output type="boolean">true</output></test>
+<!--    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.is(System.Quantity).not()</expression><output type="boolean">true</output></test> -->
+    <test name="test" inputfile="patient-example.xml"><expression>true.isQuantity()</expression><output type="boolean">false</output></test>
+<!--    <test name="test" inputfile="patient-example.xml"><expression>true.is(System.Quantity).not()</expression><output type="boolean">true</output></test> -->
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.toQuantity() = 1 '1'</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.toQuantity() = 1.0 '1'</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1'.toQuantity()</expression><output type="Quantity">1 '1'</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 day'.toQuantity() = 1 day</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 day'.toQuantity() = 1 'd'</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1 \'wk\''.toQuantity() = 1 week</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'1.0'.toQuantity() ~ 1 '1'</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>2.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>-1.isBoolean().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>0.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.isBoolean().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'true'.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'false'.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'False'.isBoolean().not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.isBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>false.isBoolean()</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.toBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>2.toBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>0.toBoolean()</expression><output type="boolean">false</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'true'.toBoolean()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'false'.toBoolean()</expression><output type="boolean">false</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.is(String).not()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>-1.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'true'.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.isString()</expression><output type="boolean">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1 'wk'.isString()</expression><output type="boolean">true</output></test>
+
+    <test name="test" inputfile="patient-example.xml"><expression>1.toString()</expression><output type="string">1</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>-1.toString()</expression><output type="string">-1</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1.0.toString()</expression><output type="string">1.0</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>'true'.toString()</expression><output type="string">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>true.toString()</expression><output type="string">true</output></test>
+    <test name="test" inputfile="patient-example.xml"><expression>1 'wk'.toString()</expression><output type="string">1 week</output></test>
+  </group>
+  
 	<group name="testAll">
 		<test inputfile="patient-example.xml"><expression>Patient.name.select(given.exists()).all()</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression>Patient.name.select(family.exists()).all()</expression><output type="boolean">false</output></test>
@@ -259,6 +358,28 @@
 		<test inputfile="patient-example.xml"><expression>Patient.name.supersetOf($this.name.first())</expression><output type="boolean">true</output></test>
 	</group>
 
+  <group name="testQuantity">
+    <test inputfile="patient-example.xml"><expression>4.0000 'g' = 4000.0 'mg'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>4 'g' ~ 4000 'mg'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>4 'g' != 4040 'mg'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>4 'g' ~ 4040 'mg'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>7 days = 1 week</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>7 days = 1 'wk'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>6 days &lt; 1 week</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>8 days &gt; 1 week</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>2.0 'cm' * 2.0 'm' = 0.040 'm2'</expression><output type="boolean">true</output></test>
+<!--    <test inputfile="patient-example.xml"><expression>4.0 'g' / 2.0 'm' = 2 'g/m'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1.0 'm' / 1.0 'm' = 1 '1'</expression><output type="boolean">true</output></test> -->
+  </group>
+
+  <group name="testCollectionBoolean">
+    <test inputfile="patient-example.xml"><expression>iif(1 | 2 | 3, true, false)</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>iif({}, true, false)</expression><output type="boolean">false</output></test>
+    <test inputfile="patient-example.xml"><expression>iif(true, true, false)</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>iif({} | true, true, false)</expression><output type="boolean">true</output></test>
+  </group>
+
+  
 	<group name="testDistinct">
 		<test inputfile="patient-example.xml"><expression>(1 | 2 | 3).isDistinct()</expression><output type="boolean">true</output></test>
 		<test inputfile="questionnaire-example.xml"><expression>Questionnaire.descendants().linkId.isDistinct()</expression><output type="boolean">true</output></test>
@@ -318,6 +439,13 @@
 		<test inputfile="questionnaire-example.xml"><expression>Questionnaire.children().code.count() = 2</expression><output type="boolean">true</output></test>
 	</group>
 
+  <group name="testAggregate">
+    <test inputfile="patient-example.xml"><expression>(1|2|3|4|5|6|7|8|9).aggregate($this+$total, 0) = 45</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1|2|3|4|5|6|7|8|9).aggregate($this+$total, 2) = 47</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1|2|3|4|5|6|7|8|9).aggregate(iif($total.empty(), $this, iif($this &lt; $total, $this, $total))) = 1</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1|2|3|4|5|6|7|8|9).aggregate(iif($total.empty(), $this, iif($this &gt; $total, $this, $total))) = 9</expression><output type="boolean">true</output></test>
+  </group>
+  
 	<group name="testIndexer">
 		<test inputfile="patient-example.xml"><expression>Patient.name[0].given = 'Peter' | 'James'</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression>Patient.name[1].given = 'Jim'</expression><output type="boolean">true</output></test>
@@ -383,6 +511,17 @@
 		<test inputfile="patient-example.xml"><expression>0.0.toString() = '0.0'</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression>@2014-12-14.toString() = '2014-12-14'</expression><output type="boolean">true</output></test>
 	</group>
+
+  <group name="testCase">
+    <test inputfile="patient-example.xml"><expression>'t'.upper() = 'T'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>'t'.lower() = 't'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>'T'.upper() = 'T'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>'T'.lower() = 't'</expression><output type="boolean">true</output></test>
+  </group>
+
+  <group name="testToChars">
+    <test inputfile="patient-example.xml"><expression>'t2'.toChars() = 't' | '2'</expression><output type="boolean">true</output></test>
+  </group>
 
 	<group name="testSubstring">
 		<test inputfile="patient-example.xml"><expression>'12345'.substring(2) = '345'</expression><output type="boolean">true</output></test>
@@ -630,6 +769,26 @@
 	<group name="testUnion">
 		<test inputfile="patient-example.xml"><expression>(1 | 2 | 3).count() = 3</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression>(1 | 2 | 2).count() = 2</expression><output type="boolean">true</output></test> <!-- merge duplicates -->
+    <test inputfile="patient-example.xml"><expression>(1|1).count() = 1</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1.union(2).union(3).count() = 3</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1.union(2.union(3)).count() = 3</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1 | 2).combine(2).count() = 3</expression><output type="boolean">true</output></test> <!-- do not merge duplicates -->
+    <test inputfile="patient-example.xml"><expression>1.combine(1).count() = 2</expression><output type="boolean">true</output></test> <!-- do not merge duplicates -->
+    <test inputfile="patient-example.xml"><expression>1.combine(1).union(2).count() = 2</expression><output type="boolean">true</output></test> <!-- do not merge duplicates -->
+  </group>
+
+  <group name="testIntersect">
+    <test inputfile="patient-example.xml"><expression>(1 | 2 | 3).intersect(2 | 4) = 2</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1 | 2).intersect(4) = {}</expression><output type="boolean">true</output></test> 
+    <test inputfile="patient-example.xml"><expression>(1 | 2).intersect({}) = {}</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1.combine(1).intersect(1).count() = 1</expression><output type="boolean">true</output></test> <!-- do not merge duplicates -->
+  </group>
+
+  <group name="testExclude">
+    <test inputfile="patient-example.xml"><expression>(1 | 2 | 3).exclude(2 | 4) = 1 | 3</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>(1 | 2).exclude(4) = 1 | 2</expression><output type="boolean">true</output></test> 
+    <test inputfile="patient-example.xml"><expression>(1 | 2).exclude({}) = 1 | 2</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1.combine(1).exclude(2).count() = 1</expression><output type="boolean">true</output></test> <!-- do not merge duplicates -->
 	</group>
 
 	<group name="testIn">
@@ -741,6 +900,7 @@
 	<group name="testDiv">
 		<test inputfile="patient-example.xml"><expression>1 div 1 = 1</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression>4 div 2 = 2</expression><output type="boolean">true</output></test>
+
 		<test inputfile="patient-example.xml"><expression>5 div 2 = 2</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression>2.2 div 1.8 = 1</expression><output type="boolean">true</output></test>
 	</group>
@@ -754,6 +914,8 @@
 
 	<group name="testPrecedence">
 		<test inputfile="patient-example.xml"><expression>1+2*3+4 = 11</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1 > 2 is Boolean</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1 | 1 is Integer</expression><output type="boolean">true</output></test>
 	</group>
 
 	<group name="testVariables">
@@ -769,9 +931,25 @@
 		<test inputfile="patient-example.xml"><expression>Patient.birthDate.extension('http://hl7.org/fhir/StructureDefinition/patient-birthTime1').empty()</expression><output type="boolean">true</output></test>
 	</group>
 
-	<group name="testDomainResource">
-		<test inputfile="questionnaire-example-gcs.xml"><expression>contained.all(('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists())</expression><output type="boolean">true</output></test>
+  <group name="testType">
+    <test inputfile="patient-example.xml"><expression>1.type().namespace = 'System'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>1.type().name = 'Integer'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>true.type().namespace = 'System'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>true.type().name = 'Boolean'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>true.is(Boolean)</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>true.is(System.Boolean)</expression><output type="boolean">true</output></test> 
+    <test inputfile="patient-example.xml"><expression>Patient.active.type().namespace = 'FHIR'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.active.type().name = 'boolean'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.active.is(boolean)</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.active.is(Boolean).not()</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.active.is(FHIR.boolean)</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.active.is(System.Boolean).not()</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.type().namespace = 'FHIR'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.type().name = 'Patient'</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.is(Patient)</expression><output type="boolean">true</output></test>
+    <test inputfile="patient-example.xml"><expression>Patient.is(FHIR.Patient)</expression><output type="boolean">true</output></test>
 	</group>
+  
   
 <!--
   <group name="testDollarResource">
@@ -779,246 +957,6 @@
 		testBoolean(patient(), patient(), "Patient", "contained.select(('#'+id in %resource.descendants().reference).not()).empty()</expression><output type="boolean">true</output></test>
 		<test inputfile="patient-example.xml"><expression  invalid="true">contained.select(('#'+id in %resource.descendants().reference).not()).empty()");
 	</group>
-
-<!-.-
-
-
-
-	@Test
-	public void testDecimalRA()
-		RiskAssessment r = new RiskAssessment();
-		SimpleQuantity sq = new SimpleQuantity();
-		sq.setValue(0.2);
-		sq.setUnit("%");
-		sq.setCode("%");
-		sq.setSystem("http://unitsofmeasure.org");
-		SimpleQuantity sq1 = new SimpleQuantity();
-		sq1.setValue(0.4);
-		sq1.setUnit("%");
-		sq1.setCode("%");
-		sq1.setSystem("http://unitsofmeasure.org");
-		r.addPrediction().setProbability(new Range().setLow(sq).setHigh(sq1));
-		testBoolean(r, r.getPrediction().get(0).getProbability(), "RiskAssessment.prediction.probabilityRange",
-		"(low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))</expression><output type="boolean">true</output></test>
-		testBoolean(r, r.getPrediction().get(0), "RiskAssessment.prediction", "probability is decimal implies probability.as(decimal) <= 100</expression><output type="boolean">true</output></test>
-		r.getPrediction().get(0).setProbability(new DecimalType(80));
-		testBoolean(r, r.getPrediction().get(0), "RiskAssessment.prediction", "probability.as(decimal) <= 100</expression><output type="boolean">true</output></test>
-	</group>
-
-
-	@Test
-	<group name="testAppointment">
-		testBoolean(appointment(), "(start and end) or status = 'proposed' or status = 'cancelled'</expression><output type="boolean">true</output></test>
-		testBoolean(appointment(), "start.empty() xor end.exists()</expression><output type="boolean">true</output></test>
-	</group>
-
-
-
-
-		@Test
-		public void testQuestionnaire()
-		Questionnaire q = (Questionnaire) new JsonParser().parse(new FileInputStream("questionnaire-example-gcs.json"));
-		for (QuestionnaireItemComponent qi : q.getItem()) {
-		testQItem(qi);
-		}
-		}
-
-		private void testQItem(QuestionnaireItemComponent qi)
-		testBoolean(null, qi, "Questionnaire.item", "(type = 'choice' or type = 'open-choice') or (options.empty() and option.empty())</expression><output type="boolean">true</output></test>
-		}
-
-		@Test
-		public void testExtensionDefinitions()
-		Bundle b = (Bundle) new JsonParser().parse(new FileInputStream("extension-definitions.json"));
-		for (BundleEntryComponent be : b.getEntry()) {
-		testStructureDefinition((StructureDefinition) be.getResource());
-		}
-		}
-
-		private void testStructureDefinition(StructureDefinition sd)
-		testBoolean(sd, sd, "StructureDefinition", "snapshot.element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.')) and differential.element.tail().all(path.startsWith(%resource.differential.element.first().path&'.'))</expression><output type="boolean">true</output></test>
-		}
-
-		@Test
-		public void testDoubleEntryPoint()
-		<test inputfile="patient-example.xml"><expression>(Patient.name | Patient.address).count() = 3</expression><output type="boolean">true</output></test>
-		}
-
-		//
-		//testParameersConstraint()
-		//    Parameters p = parameters();
-		//    Order o = (Order) parameters.getParameter().get(0).getResource();
-		//
-		//    testBoolean(o, o.getSubject(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))</expression><output type="boolean">true</output></test>
-		//  }
-
-		@Test
-		public void testCareplan() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
-		testBoolean(careplan(), "contained.select(('#'+id in %resource.descendants().reference).not()).empty()</expression><output type="boolean">false</output></test>
-		testBoolean(careplanE(), "contained.select(('#'+id in %resource.descendants().reference).not()).empty()</expression><output type="boolean">false</output></test>
-		}
-
-		}
-
-		-->
-
-<!--
-private Patient patient() throws FHIRFormatError, FileNotFoundException, IOException {
-if (patient == null)
-patient = (Patient) new JsonParser().parse(new FileInputStream("patient-example.json"));
-return patient;
-}
-
-private Appointment appointment() throws FHIRFormatError, FileNotFoundException, IOException {
-if (appointment == null)
-appointment = (Appointment) new JsonParser().parse(new FileInputStream("appointment-example-request.json"));
-return appointment;
-}
-
-private Questionnaire questionnaire() throws FHIRFormatError, FileNotFoundException, IOException {
-if (questionnaire == null)
-questionnaire = (Questionnaire) new JsonParser().parse(new FileInputStream("questionnaire-example.json"));
-return questionnaire;
-}
-
-private ValueSet valueset() throws FHIRFormatError, FileNotFoundException, IOException {
-if (valueset == null)
-valueset = (ValueSet) new JsonParser().parse(new FileInputStream("valueset-example-expansion.json"));
-return valueset;
-}
-
-private Observation observation() throws FHIRFormatError, FileNotFoundException, IOException {
-if (observation == null)
-observation = (Observation) new JsonParser().parse(new FileInputStream("observation-example.json"));
-return observation;
-}
-
-private Parameters parameters() throws FHIRFormatError, FileNotFoundException, IOException {
-if (parameters == null)
-parameters = (Parameters) new JsonParser().parse(new FileInputStream("gao/example-gao-request-parameters-CT-head.json"));
-return parameters;
-}
-
-private CarePlan careplan() throws FHIRFormatError, FileNotFoundException, IOException {
-if (careplan == null)
-careplan = (CarePlan) new XmlParser().parse(new FileInputStream("careplan-example.xml"));
-return careplan;
-}
-
-private org.hl7.fhir.dstu3.elementmodel.Element careplanE() throws FHIRFormatError, FileNotFoundException, IOException, DefinitionException, org.hl7.fhir.exceptions.FHIRException {
-return new org.hl7.fhir.dstu3.elementmodel.XmlParser(TestingUtilities.context).parse(new FileInputStream("careplan-example.xml"));
-
-  @Test
-  public void testPrecedence() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
-    testBoolean(patient(), "1+2*3+4 = 11", true);
-  }
-  
-  @Test
-  public void testVariables() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
-    testBoolean(patient(), "%sct = 'http://snomed.info/sct'", true);
-    testBoolean(patient(), "%loinc = 'http://loinc.org'", true);
-    testBoolean(patient(), "%ucum = 'http://unitsofmeasure.org'", true);
-    testBoolean(patient(), "%\"vs-administrative-gender\" = 'http://hl7.org/fhir/ValueSet/administrative-gender'", true);
-  }
-  
-  @Test
-  public void testExtension() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
-    testBoolean(patient(), "Patient.birthDate.extension('http://hl7.org/fhir/StructureDefinition/patient-birthTime').exists()", true);
-    testBoolean(patient(), "Patient.birthDate.extension(%\"ext-patient-birthTime\").exists()", true);
-    testBoolean(patient(), "Patient.birthDate.extension('http://hl7.org/fhir/StructureDefinition/patient-birthTime1').empty()", true);
-  }
-  
-  @Test
-  public void testDollarResource() throws FileNotFoundException, FHIRFormatError, IOException, FHIRException {
-    testBoolean(patient(), patient().getManagingOrganization(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))", true);
-    testBoolean(patient(), patient(), "Patient", "contained.select(('#'+id in %resource.descendants().reference).not()).empty()", true);
-    testWrong(patient(), "contained.select(('#'+id in %resource.descendants().reference).not()).empty()");
-  }
-  
-  @Test
-  public void testTyping() throws FileNotFoundException, IOException, FHIRException {
-    ElementDefinition ed = new ElementDefinition();
-    ed.getBinding().setValueSet(new UriType("http://test.org"));
-    testBoolean(null, ed.getBinding().getValueSet(), "ElementDefinition.binding.valueSetUri", "startsWith('http:') or startsWith('https') or startsWith('urn:')", true);
-  }
-  
-  @Test
-  public void testDecimalRA() throws FileNotFoundException, IOException, FHIRException {
-    RiskAssessment r = new RiskAssessment();
-    SimpleQuantity sq = new SimpleQuantity();
-    sq.setValue(0.2);
-    sq.setUnit("%");
-    sq.setCode("%");
-    sq.setSystem("http://unitsofmeasure.org");
-    SimpleQuantity sq1 = new SimpleQuantity();
-    sq1.setValue(0.4);
-    sq1.setUnit("%");
-    sq1.setCode("%");
-    sq1.setSystem("http://unitsofmeasure.org");
-    r.addPrediction().setProbability(new Range().setLow(sq).setHigh(sq1));
-    testBoolean(r, r.getPrediction().get(0).getProbability(), "RiskAssessment.prediction.probabilityRange", 
-        "(low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))", true);
-    testBoolean(r, r.getPrediction().get(0), "RiskAssessment.prediction", "probability is decimal implies probability.as(decimal) <= 100", true);
-    r.getPrediction().get(0).setProbability(new DecimalType(80));
-    testBoolean(r, r.getPrediction().get(0), "RiskAssessment.prediction", "probability.as(decimal) <= 100", true);
-  }
-  
-  
-  @Test
-  public void testAppointment() throws FileNotFoundException, IOException, FHIRException {
-    testBoolean(appointment(), "(start and end) or status = 'proposed' or status = 'cancelled'", true);
-    testBoolean(appointment(), "start.empty() xor end.exists()", true);
-  }
-  
-  @Test
-  public void testQuestionnaire() throws FileNotFoundException, IOException, FHIRException {
-    Questionnaire q = (Questionnaire) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/questionnaire-example-gcs.json"));
-    for (QuestionnaireItemComponent qi : q.getItem()) {
-      testQItem(qi);
-    }
-  }
-
-  private void testQItem(QuestionnaireItemComponent qi) throws FileNotFoundException, IOException, FHIRException {
-    testBoolean(null, qi, "Questionnaire.item", "(type = 'choice' or type = 'open-choice') or (options.empty() and option.empty())", true);
-  }
-   
-  @Test
-  public void testExtensionDefinitions() throws FileNotFoundException, IOException, FHIRException {
-    Bundle b = (Bundle) new JsonParser().parse(new FileInputStream("C:/work/org.hl7.fhir/build/publish/extension-definitions.json"));
-    for (BundleEntryComponent be : b.getEntry()) {
-      testStructureDefinition((StructureDefinition) be.getResource());
-    }
-  }
-
-  private void testStructureDefinition(StructureDefinition sd) throws FileNotFoundException, IOException, FHIRException {
-    testBoolean(sd, sd, "StructureDefinition", "snapshot.element.tail().all(path.startsWith(%resource.snapshot.element.first().path&'.')) and differential.element.tail().all(path.startsWith(%resource.differential.element.first().path&'.'))", true); 
-  }
-
-  @Test
-  public void testDoubleEntryPoint() throws FileNotFoundException, IOException, FHIRException {
-    testBoolean(patient(), "(Patient.name | Patient.address).count() = 3", true);
-  }
-
-//  @Test
-//  public void testParameersConstraint() throws FileNotFoundException, IOException, FHIRException {
-//    Parameters p = parameters();
-//    Order o = (Order) parameters.getParameter().get(0).getResource();
-//    
-//    testBoolean(o, o.getSubject(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))", true);
-//  }
-
-  @Test
-  public void testCareplan() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
-    testBoolean(careplan(), "contained.where(('#'+id in %resource.descendants().reference).not()).empty()", true);
-    testBoolean(careplan(), "contained.where(('#'+id in %resource.descendants().reference)).empty().not()", true);
-    testBoolean(careplanE(), "contained.where(('#'+id in %resource.descendants().reference).not()).empty()", true);
-  }
-
-  public void testCodeSystem() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
-    testBoolean(codesystem(), "descendants().code.isDistinct()", true);
-    testBoolean(codesystemE(), "descendants().code.isDistinct()", true);
-  }
-}
 -->
 </tests>
 

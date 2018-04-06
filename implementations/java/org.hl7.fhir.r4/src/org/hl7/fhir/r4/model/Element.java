@@ -337,6 +337,8 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
   }
 // added from java-adornments.txt:
   public void addExtension(String url, Type value) {
+    if (disallowExtensions)
+      throw new Error("Extensions are not allowed in this context");
     Extension ex = new Extension();
     ex.setUrl(url);
     ex.setValue(value);
@@ -361,6 +363,25 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
    }
   
 
+   /**
+    * This is used in the FHIRPath engine to record that no extensions are allowed for this item in the context in which it is used.
+    * todo: enforce this....
+    */
+  private boolean disallowExtensions;
+
+  public boolean isDisallowExtensions() {
+    return disallowExtensions;
+  }
+
+  public Element setDisallowExtensions(boolean disallowExtensions) {
+    this.disallowExtensions = disallowExtensions;
+    return this;
+  }
+   
+  public Element noExtensions() {
+    this.disallowExtensions = true;
+    return this;
+  }
 // end addition
 
 }

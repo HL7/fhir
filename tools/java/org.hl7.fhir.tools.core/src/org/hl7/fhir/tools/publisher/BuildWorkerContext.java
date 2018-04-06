@@ -970,6 +970,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return res;
   }
 
+  @Override
+  public UcumService getUcumService() {
+    return ucum;
+  }
 
 
 }

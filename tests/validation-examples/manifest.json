@@ -108,7 +108,6 @@
 				"errors": ["/List/text/div (line 7, col4) Error parsing XHTML: Malformed XHTML: Found a DocType declaration, and these are not allowed (XXE security vulnerability protection) "]
 			},
 			"synthea.json": {
-        "version" : "3.0.1",
 				"errorCount": 1
 			}
 		},

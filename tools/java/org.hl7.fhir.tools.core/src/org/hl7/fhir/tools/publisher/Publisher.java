@@ -189,7 +189,7 @@ import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
-import org.hl7.fhir.r4.test.FluentPathTests;
+import org.hl7.fhir.r4.test.FHIRPathTests;
 import org.hl7.fhir.r4.test.GraphQLEngineTests;
 import org.hl7.fhir.r4.test.GraphQLParserTests;
 import org.hl7.fhir.r4.test.NarrativeGeneratorTests;
@@ -2851,10 +2851,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-ttl.zip");
       zip.addFilesFiltered(page.getFolders().dstDir, "", ".ttl", new String[0]);
-      zip.close();
-
-      zip = new ZipGenerator(page.getFolders().dstDir + "examples-jsonld.zip");
-      zip.addFilesFiltered(page.getFolders().dstDir, "", ".jsonld", new String[0]);
       zip.close();
 
       page.log(" ...final zip", LogMessageType.Process);
@@ -5565,6 +5561,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       String sv = v;
       if (!st.isIg() && !registered.value) {
         TocEntry t = new TocEntry(v, node.allText(), link, st.isIg());
+        if (t.getText() == null)
+          t.setText("(No Title?)");
         if (!page.getToc().containsKey(v)) {
 //          throw new Exception("Duplicate TOC Entry "+v);
           page.getToc().put(v, t);
@@ -5742,7 +5740,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     
 //    runJUnitClass(InstanceValidatorTests.class);
 //    runJUnitClass(ValidationEngineTests.class);
-    runJUnitClass(FluentPathTests.class);
+    runJUnitClass(FHIRPathTests.class);
     runJUnitClass(NarrativeGeneratorTests.class);
 //    runJUnitClass(TurtleTests.class);
     runJUnitClass(SnomedExpressionsTests.class);
