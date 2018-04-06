@@ -156,7 +156,9 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -164,9 +166,6 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.w3c.dom.Element;
-
-import com.github.rjeschke.txtmark.Processor;
-import com.sun.webkit.BackForwardList;
 
 public class NarrativeGenerator implements INarrativeGenerator {
 
@@ -3754,7 +3753,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	    }
 
 	    // 2. markdown
-	    String s = Processor.process(Utilities.escapeXml(text));
+	    String s =  new MarkDownProcessor(Dialect.DARING_FIREBALL).process(Utilities.escapeXml(text), "NarrativeGenerator");
 	    XhtmlParser p = new XhtmlParser();
 	    XhtmlNode m;
 		try {
