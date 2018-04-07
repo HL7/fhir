@@ -244,8 +244,14 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
           p.getChildren().addAll(c.getChildNodes());
         } else if (c.getName().equals("i")) {
           list.add(new Piece(null, c.allText(), null).setStyle("font-style: italic"));                    
-        } else 
+        } else if (c.getName().equals("h1")||c.getName().equals("h2")||c.getName().equals("h3")||c.getName().equals("h4")) {
+          Piece p = new Piece(c.getName());
+          list.add(p);
+          p.getChildren().addAll(c.getChildNodes());
+        } else {
+          
           throw new Error("Not handled yet: "+c.getName());
+        }
       } else
         throw new Error("Unhandled type "+c.getNodeType().toString());
 

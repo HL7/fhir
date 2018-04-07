@@ -2772,12 +2772,18 @@ public class ProfileUtilities extends TranslatingUtilities {
     private ElementDefinition self;
     private int baseIndex = 0;
     private List<ElementDefinitionHolder> children;
+    private boolean placeHolder = false;
 
-    public ElementDefinitionHolder(ElementDefinition self) {
+    public ElementDefinitionHolder(ElementDefinition self, boolean isPlaceholder) {
       super();
       this.self = self;
       this.name = self.getPath();
-      children = new ArrayList<ElementDefinitionHolder>();
+      this.placeHolder = isPlaceholder;
+      children = new ArrayList<ElementDefinitionHolder>();      
+    }
+
+    public ElementDefinitionHolder(ElementDefinition self) {
+      this(self, false);
     }
 
     public ElementDefinition getSelf() {
@@ -2794,6 +2800,10 @@ public class ProfileUtilities extends TranslatingUtilities {
 
     public void setBaseIndex(int baseIndex) {
       this.baseIndex = baseIndex;
+    }
+
+    public boolean isPlaceHolder() {
+      return this.placeHolder;
     }
 
     @Override
@@ -2919,9 +2929,18 @@ public class ProfileUtilities extends TranslatingUtilities {
     String path = edh.getSelf().getPath();
     final String prefix = path + ".";
     while (i < list.size() && list.get(i).getPath().startsWith(prefix)) {
-      ElementDefinitionHolder child = new ElementDefinitionHolder(list.get(i));
-      edh.getChildren().add(child);
-      i = processElementsIntoTree(child, i+1, list);
+      if (list.get(i).getPath().substring(prefix.length()+1).contains(".")) {
+        String newPath = prefix + list.get(i).getPath().substring(prefix.length()).split("\\.")[0];
+        ElementDefinition e = new ElementDefinition(new StringType(newPath));
+        ElementDefinitionHolder child = new ElementDefinitionHolder(e, true);
+        edh.getChildren().add(child);
+        i = processElementsIntoTree(child, i, list);
+        
+      } else {
+        ElementDefinitionHolder child = new ElementDefinitionHolder(list.get(i));
+        edh.getChildren().add(child);
+        i = processElementsIntoTree(child, i+1, list);
+      }
     }
     return i;
   }
@@ -3006,7 +3025,8 @@ public class ProfileUtilities extends TranslatingUtilities {
 
 
   private void writeElements(ElementDefinitionHolder edh, List<ElementDefinition> list) {
-    list.add(edh.getSelf());
+    if (!edh.isPlaceHolder())
+      list.add(edh.getSelf());
     for (ElementDefinitionHolder child : edh.getChildren()) {
       writeElements(child, list);
     }
