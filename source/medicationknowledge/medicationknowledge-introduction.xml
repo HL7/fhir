@@ -3,10 +3,8 @@
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
-    <blockquote class="stu-note">
-        <a name="dstu"/>
-        <strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
-    </blockquote>
+    <p>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</p>
+
 <p>
 This resource supports use cases for creation of and querying for drug information including attributes such as drug classifications, images of medications, drug costs and/or coverages, etc.  This resource can ve used to return drug information as part of a formulary or a catalogue.
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
