@@ -7325,8 +7325,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     others.put("definition", definition);
     cnt = processPageIncludes(filename, cnt, "notes", others, null, tabs, "--", ig, r, wg).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
-      if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2))
+      if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2)) {
+        for (int i=0; i<HTML_PREFIX1.length(); i++) {
+          System.out.println("Found '" + cnt.substring(i,1) + "'(" + cnt.charAt(i) + ") - expecting '" + HTML_PREFIX1.substring(i, 1) + "'(" + HTML_PREFIX1.charAt(i) + ")");
+        }
         throw new Exception("unable to process start xhtml content "+filename+" : \r\n"+cnt.substring(0, HTML_PREFIX1.length())+" - should be \r\n'"+HTML_PREFIX1+"' or \r\n'"+HTML_PREFIX2+"'");
+      }
       else if (!cnt.endsWith(HTML_SUFFIX))
         throw new Exception("unable to process end xhtml content "+filename+" : "+cnt.substring(cnt.length()-HTML_SUFFIX.length()));
       else if (cnt.startsWith(HTML_PREFIX2))
