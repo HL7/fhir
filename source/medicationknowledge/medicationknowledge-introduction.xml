@@ -1,0 +1,32 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+    <blockquote class="stu-note">
+        <a name="dstu"/>
+        <strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
+    </blockquote>
+<p>
+This resource supports use cases for creation of and querying for drug information including attributes such as drug classifications, images of medications, drug costs and/or coverages, etc.  This resource can ve used to return drug information as part of a formulary or a catalogue.
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>The MedicationKnowledge resource is used to create and/or query for medication information e.g. drug classifications, images of medications, drug costs, drug interations. Medication information may be returned when reviewing more detailed information for a selected medication on a medication list or as part of a drug formulary or catalogue.  </p>
+</div>
+-->
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

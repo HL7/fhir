@@ -22,12 +22,13 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"></a>
 <h3>Introduction</h3>
 <p>
-This module is concerned with resources and functionality in 2 main domains:
+This module is concerned with resources and functionality in 3 main domains:
 </p>
 
 <ul>
 	<li>The ordering, dispensing, administration of medications and recording statements of medication use.</li>
 	<li>Recording of Immunizations given (or not given), evaluation of given immunizations and recommendations for an individual patient at a point in time.</li>
+	<li>The creation or querying for medications as part of drug information or drug knowledge.</li>
 </ul>
 
     <a name="index"></a>
@@ -45,6 +46,7 @@ This module is concerned with resources and functionality in 2 main domains:
                 <ul>
                     <li><a href="medicationstatement.html">MedicationStatement</a></li>
                     <li><a href="medication.html">Medication</a></li>
+                	<li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
                 </ul>
             </td>
             <td>
@@ -107,6 +109,9 @@ This module is concerned with resources and functionality in 2 main domains:
 		it may be desired to indicate more details than the simple drug (such as the packaging, whether it is a generic medication
 			or the active and inactive ingredients)
 		and so the Medication resource can be used for this.</td></tr>
+	<tr bgcolor="#EFEFEF">
+		<td><a href="medicationknowledge.html">MedicationKnowledge</a></td>
+		<td>todo</td></tr>
 </table>
     <a name="imm"></a>
     <h4>Immunizations</h4>
@@ -158,7 +163,7 @@ This module is concerned with resources and functionality in 2 main domains:
 	</li>
 	<li>Dispensing a medication based on a Medication Request (aka Prescription or Order).  The MedicationDispense resource represents the details of the dispensing event including the actual product provided to the patient and the dosage to be administered or consumed.</li>
 	<li>Retrieving the planned medication therapy for specific patient at a point in time.  The intended medication therapy may be represented by an individual <a href="careplan.html">Care Plan</a>. </li>
-
+	<li>Retrieving information about a medication either as a stand alone request or as while reviewing a patients' medication list</li>
 
 </ul>
 

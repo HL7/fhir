@@ -140,7 +140,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>canonical<a name="uri"></a></td>
-   <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, and in that it may have a version appended, separated y a vertical bar (|)</td>
+   <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, and in that it may have a version appended, separated by a vertical bar (|)</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a canonical URI</td>
  </tr>
@@ -169,7 +169,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>instant<a name="instant"></a></td>
-   <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL be known at least to the second and SHALL includes a time zone. Note: This is intended for precisely observed times (typically system logs etc.), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
+   <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL be known at least to the second and SHALL include a time zone. Note: This is intended for precisely observed times (typically system logs etc.), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
    <td>xs:dateTime</td>
    <td>A JSON string - an xs:dateTime</td>
  </tr>
@@ -368,7 +368,7 @@ The full representation, with id, extensions and value, showing the id and exten
 </pre>
 <p><b>RDF</b></p>
 <p>
-The value is represented in RDF as an relationship with the URI "http://h;7.org/fhir/value". Using the normal prefix, this becomes:
+The value is represented in RDF as a relationship with the URI "http://h;7.org/fhir/value". Using the normal prefix, this becomes:
 </p>
 <pre class="rdf">
   fhir:Type.count [ fhir:value "2"^^xsd:integer ]
@@ -641,7 +641,7 @@ CodeableConcept
 See also <a href="datatypes-examples.html#CodeableConcept">Examples</a>, <a href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a href="datatypes-extras.html#CodeableConcept">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#CodeableConcept">R2 Conversions</a>.
 </p>
 <p>
-A CodeableConcept represents a value that is usually supplied by providing a reference to one or more terminologies or ontologies, but may also be defined by the
+A CodeableConcept represents a value that is usually supplied by providing a reference to one or more terminologies or ontologies but may also be defined by the
 provision of text. This is a common pattern in healthcare data.
 </p>
 <p>
@@ -719,8 +719,7 @@ Quantity
 </h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="datatypes-examples.html#Quantity">Examples</a>, <a href="datatypes-definitions.html#Quantity">Detailed Descriptions</a> and
-<a href="datatypes-mappings.html#Quantity">Mappings</a>, <a href="datatypes-extras.html#Quantity">Profiles &amp; Extensions</a> and
-and <a href="datatypes-version-maps.html#Quantity">R2 Conversions</a>.
+<a href="datatypes-mappings.html#Quantity">Mappings</a>, <a href="datatypes-extras.html#Quantity">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Quantity">R2 Conversions</a>.
 </p>
 <p>
 A measured amount (or an amount that can potentially be measured).
@@ -823,7 +822,7 @@ of the Quantity data type:
    <td colspan="2">
     Implementation Note: If the duration value is specified as a whole number (e.g. 1 month), then 
     when the duration is added or subtracted to a given date(time), the outcome should be rounded 
-    to the nearest natural calender division - e.g. Feb. 1 + 1 mo = March 1, not March 2 or 3 
+    to the nearest natural calendar division - e.g. Feb. 1 + 1 mo = March 1, not March 2 or 3 
     (since 1 month in is defined in UCUM as 30 days). 
    </td>
  </tr>
@@ -890,7 +889,7 @@ The <code>comparator</code> flag on the <code>low</code> or <code>high</code> el
 used to represent out of range measurements: A quantity type with the comparator element should be used instead.
 </p>
 <p>
-The low and the high values are inclusive, and are assumed to have arbitrarily high precision; e.g. the range 1.5 to 2.5
+The low and the high values are inclusive and are assumed to have arbitrarily high precision; e.g. the range 1.5 to 2.5
 includes 1.50, and 2.50 but not 1.49 or 2.51.
 </p>
 <div class="use">
@@ -921,7 +920,7 @@ of Ratio.
 [%dt Ratio 6%]
 <p>
 Examples where a Quantity is typically used are rates, densities, concentrations.  
-Examples where a Ratio is used are: titres (e.g. 1:128); concentration ratios where 
+Examples where a Ratio is used are: titers (e.g. 1:128); concentration ratios where 
 the denominator is significant (e.g. 5mg/10mL); observed frequencies (e.g. 2 repetitions/8 hr),
 and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc.).
 </p>
@@ -1032,7 +1031,7 @@ See also <a href="datatypes-examples.html#Identifier">Examples</a>, <a href="dat
 <p>
 A numeric or alphanumeric string that is associated with a single object or entity within a given system.
 Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
-Identifiers are associated with objects, and may be changed or retired due to human or system process and
+Identifiers are associated with objects and may be changed or retired due to human or system process and
 errors.
 </p>
 
@@ -1166,8 +1165,8 @@ assembly order is not fixed by the culture.
 <p>
 The given name parts may contain whitespace, though generally they don't. Initials may be used in place of
 the full name if that is all that is recorded. Systems that operate across cultures should
-generally rely on the text form for presentation, and use the parts for index/search functionality.
-For this reasons, applications SHOULD populate the text element for future robustness.
+generally rely on the text form for presentation and use the parts for index/search functionality.
+For this reason, applications SHOULD populate the text element for future robustness.
 </p>
 <p>
 In some cultures (e.g. German, Dutch, Spanish, Portuguese), family names are complex and composed of
@@ -1283,7 +1282,7 @@ See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatyp
 </p>
 <p>
 Describes the occurrence of an event that may occur multiple times. Timing schedules are used for 
-specifying when events are expected or requested to occur, and may also be used to represent the 
+specifying when events are expected or requested to occur and may also be used to represent the 
 summary of a past or ongoing event.  For simplicity, the definitions of Timing components are 
 expressed as 'future' events, but such components can also be used to describe historic or 
 ongoing events.
@@ -1298,7 +1297,7 @@ of the information in the repeat structure.
 [%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per
-the specified duration or in relation to some repeating real world event. If no end condition is specified,
+the specified duration or in relation to some repeating real-world event. If no end condition is specified,
 the schedule will terminate on some criteria that are expressed elsewhere.
 </p>
 <p>
@@ -1426,7 +1425,7 @@ When the signature is an XML Digital Signature (contentType = application/signat
  <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
- <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature SHOULD use the hashing algorithm SHA-256. Signature validation policy will apply to the signature and determine acceptability</li>
  <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
 </ul>
 <p>
@@ -1438,7 +1437,7 @@ There are three levels of signature verification:
 </ol>
 </p>
 <p>
-Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the XML-Signature block.
+Deviations from these guidelines would need to be expressed in site policy and would be enumerated in the XML-Signature block.
 For example, some environments may choose a different XAdES profile, hashing algorithm, policy identifier, or signature purpose vocabulary.
 </p>
 <h3>JSON Signature rules</h3>
@@ -1449,7 +1448,7 @@ When the signature is an JSON Digital Signature (contentType = application/jose)
  <li>The Signature.blob is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
- <li>The Signature SHOULD use the hashing algorithm sha256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature SHOULD use the hashing algorithm SHA256. Signature validation policy will apply to the signature and determine acceptability</li>
  <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
 </ul>
 <p>
@@ -1461,7 +1460,7 @@ There are three levels of signature verification:
 </ol>
 </p>
 <p>
-Deviations from these guidelines would need to be expressed in site policy, and would be enumerated in the JWS-Signature block.
+Deviations from these guidelines would need to be expressed in site policy and would be enumerated in the JWS-Signature block.
 For example, some environments may choose a different hashing algorithm, policy identifier, or signature purpose vocabulary.
 </p>
 <p>

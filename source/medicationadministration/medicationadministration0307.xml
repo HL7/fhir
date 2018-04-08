@@ -61,7 +61,13 @@
    <end value="2015-01-15T14:30:00+01:00"/>
 </effectivePeriod>
   <performer>
-    <function></function>
+    <function>
+      <coding>
+        <system value="http://hl7.org/fhir/med-admin-perform-function"/>
+        <code value="performer"/>
+        <display value="Performer"/>
+      </coding>
+    </function>
     <actor>
       <reference value="Practitioner/f007"/>
       <display value="Patrick Pump"/>

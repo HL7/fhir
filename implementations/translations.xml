@@ -553,6 +553,9 @@
 		<translation lang="fr">ÉtatMédication</translation>
 		<translation lang="es">ResumenMedicación /ResumenMedicamento</translation>
 	</item>
+	<item id="MedicationKnowledge">
+		<translation lang="en">MedicationKnowledge</translation>
+	</item>
 	<item id="MedicinalProduct">
 		<translation lang="en">MedicinalProduct</translation>
 		<translation lang="it">ProdottoMedicinale</translation>

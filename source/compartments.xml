@@ -120,7 +120,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="141" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="142" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -770,6 +770,9 @@
     <Cell><Data ss:Type="String">ItemInstance</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -787,7 +790,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>111</TopRowBottomPane>
+   <TopRowBottomPane>125</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
