@@ -7326,8 +7326,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     cnt = processPageIncludes(filename, cnt, "notes", others, null, tabs, "--", ig, r, wg).trim()+"\r\n";
     if (cnt.startsWith("<div")) {
       if (!cnt.startsWith(HTML_PREFIX1) && !cnt.startsWith(HTML_PREFIX2)) {
-        for (int i=0; i<HTML_PREFIX1.length(); i++) {
-          System.out.println("Found '" + cnt.substring(i,1) + "'(" + cnt.charAt(i) + ") - expecting '" + HTML_PREFIX1.substring(i, 1) + "'(" + HTML_PREFIX1.charAt(i) + ")");
+        System.out.println("Prefix length: " + HTML_PREFIX1.length() + "; actual length: " + cnt.length());
+        for (int i=0; i<HTML_PREFIX1.length() && i<cnt.length(); i++) {
+          System.out.println("At " + i + ", found '" + cnt.substring(i,1) + "'(" + cnt.charAt(i) + ") - expecting '" + HTML_PREFIX1.substring(i, 1) + "'(" + HTML_PREFIX1.charAt(i) + ")");
         }
         throw new Exception("unable to process start xhtml content "+filename+" : \r\n"+cnt.substring(0, HTML_PREFIX1.length())+" - should be \r\n'"+HTML_PREFIX1+"' or \r\n'"+HTML_PREFIX2+"'");
       }
