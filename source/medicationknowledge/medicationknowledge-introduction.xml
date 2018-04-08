@@ -1,12 +1,14 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-    
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd"
+    xmlns="http://www.w3.org/1999/xhtml">
     <div>
-        <a name="scope"></a>
+        <a name="scope"/>
         <h2>Scope and Usage</h2>
-        <p>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</p>
-        <p>This resource supports use cases for creation of and querying for drug information including attributes such as drug classifications, images of medications, drug costs and/or coverages, etc.  This resource can ve used to return drug information as part of a formulary or a catalogue.</p>
+        <p>Note that this content is preliminary has not undergone proper review by the appropriate
+            Workgroups.</p>
+        <p>This resource supports use cases for creation of and querying for drug information
+            including attributes such as drug classifications, images of medications, drug costs
+            and/or coverages, etc. This resource can ve used to return drug information as part of a
+            formulary or a catalogue.</p>
     </div>
- 
-    
 </div>
-
