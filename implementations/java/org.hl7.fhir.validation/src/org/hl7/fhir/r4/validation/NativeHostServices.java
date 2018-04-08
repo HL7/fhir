@@ -245,7 +245,7 @@ public class NativeHostServices {
    *   - display-case : check Coding.display but allow case variation
    *   - display-space : check Coding.display but allow whitespace variation
    *    
-   * @param location - a text description of the context of validation (for human consumres to help locate the problem - echoed into error messages)
+   * @param location - a text description of the context of validation (for human consumers to help locate the problem - echoed into error messages)
    * @param source - the bytes to validate
    * @param cntType - the format of the content. one of XML, JSON, TURTLE
    * @param options - a list of space separated options 

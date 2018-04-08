@@ -2483,9 +2483,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // specific known special validations
       if (element.getType().equals("Bundle"))
         validateBundle(errors, element, stack);
-      if (element.getType().equals("Observation"))
+      else if (element.getType().equals("Observation"))
         validateObservation(errors, element, stack);
-      if (element.getType().equals("QuestionnaireResponse"))
+      else if (element.getType().equals("QuestionnaireResponse"))
         validateQuestionannaireResponse(errors, element, stack);
     }
     for (ProfileUsage profileUsage : resourceProfiles.uncheckedProfiles()) {

@@ -248,6 +248,8 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
           Piece p = new Piece(c.getName());
           list.add(p);
           p.getChildren().addAll(c.getChildNodes());
+        } else if (c.getName().equals("br")) {
+          list.add(new Piece(c.getName()));
         } else {
           
           throw new Error("Not handled yet: "+c.getName());

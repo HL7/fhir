@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -137,6 +138,8 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.r4.utils.formats.Turtle;
 import org.hl7.fhir.r4.validation.InstanceValidator;
+import org.hl7.fhir.r4.validation.ProfileValidator;
+import org.hl7.fhir.r4.validation.InstanceValidator.NodeStack;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
@@ -284,7 +287,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   }
 
-   public class TypeParserR3 implements ITypeParser {
+  public class TypeParserR3 implements ITypeParser {
 
     @Override
     public Base parseType(String xml, String type) throws IOException, FHIRException {
@@ -362,6 +365,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private IFetchFile fetcher = new SimpleFetcher(this);
   private SimpleWorkerContext context; // 
   private InstanceValidator validator;
+  private ProfileValidator pvalidator;
   private IGKnowledgeProvider igpkp;
   private List<SpecMapManager> specMaps = new ArrayList<SpecMapManager>();
   private boolean first;
@@ -423,7 +427,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private String npmName;
   
-
   private class PreProcessInfo {
     private String xsltName;
     private byte[] xslt;
@@ -1025,6 +1028,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validator.setNoBindingMsgSuppressed(true);
     validator.setNoExtensibleWarnings(true);
     
+    pvalidator = new ProfileValidator();
+    pvalidator.setContext(context);
+    pvalidator.setCheckAggregation(true);
+    pvalidator.setCheckMustSupport(true);
+
     if (paths.get("extension-domains") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("extension-domains"))
         validator.getExtensionDomains().add(((JsonPrimitive) e).getAsString());
@@ -2176,12 +2184,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             } catch (Exception e) {
               throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
             }
+            if (bc instanceof StructureDefinition) {
+              f.getErrors().addAll(pvalidator.validate((StructureDefinition)bc, false));
+            }
           }
         }
       }
     }
   }
-
+  
   private void dlog(LogCategory category, String s) {
     logger.logDebugMessage(category, Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
   }

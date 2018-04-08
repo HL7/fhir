@@ -1,13 +1,17 @@
 package org.hl7.fhir.r4.validation;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.validation.InstanceValidator.NodeStack;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -15,9 +19,27 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 public class ProfileValidator extends BaseValidator {
 
   IWorkerContext context;
+  private boolean checkAggregation = false;
+  private boolean checkMustSupport = false;
 
   public void setContext(IWorkerContext context) {
     this.context = context;    
+  }
+
+  public boolean isCheckAggregation() {
+    return checkAggregation;
+  }
+
+  public boolean isCheckMustSupport() {
+    return checkMustSupport;
+  }
+
+  public void setCheckAggregation(boolean checkAggregation) {
+    this.checkAggregation = checkAggregation;
+  }
+
+  public void setCheckMustSupport(boolean checkMustSupport) {
+    this.checkMustSupport = checkMustSupport;
   }
 
   protected boolean rule(List<ValidationMessage> errors, IssueType type, String path, boolean b, String msg) {
@@ -36,7 +58,9 @@ public class ProfileValidator extends BaseValidator {
       checkExtensions(profile, errors, "snapshot", ec);
 
     if (rule(errors, IssueType.STRUCTURE, profile.getId(), profile.hasSnapshot(), "A snapshot is required")) {
+      Hashtable<String, ElementDefinition> snapshotElements = new Hashtable<String, ElementDefinition>();
       for (ElementDefinition ed : profile.getSnapshot().getElement()) {
+        snapshotElements.put(ed.getId(), ed);
         checkExtensions(profile, errors, "snapshot", ed);
         for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
           if (forBuild) {
@@ -48,6 +72,17 @@ public class ProfileValidator extends BaseValidator {
 //                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
                 }
               } 
+            }
+          }
+        }
+      }
+      for (ElementDefinition diffElement : profile.getDifferential().getElement()) {
+        ElementDefinition snapElement = snapshotElements.get(diffElement.getId());
+        if (snapElement!=null) { // Happens with profiles in the main build - should be able to fix once snapshot generation is fixed - Lloyd
+          warning(errors, IssueType.BUSINESSRULE, diffElement.getId(), snapElement.hasMustSupport(), "Elements included in the differential should declare mustSupport");
+          for (TypeRefComponent type : snapElement.getType()) {
+            if (type.getCode().equals("http://hl7.org/fhir/Reference") || type.getCode().equals("http://hl7.org/fhir/canonical")) {
+              warning(errors, IssueType.BUSINESSRULE, diffElement.getId(), type.hasAggregation(), "Elements with type Reference or canonical should declare aggregation");
             }
           }
         }
@@ -69,4 +104,31 @@ public class ProfileValidator extends BaseValidator {
     }
   }
   
+  /*    Hashtable snapshotElements = new Hashtable();
+  for (ElementDefinition e : sd.getSnapshot().getElement()) {
+    snapshotElements.put(e, e.getId());
+  }
+  for (ElementDefinition diffElement : sd.getDifferential().getElement()) {
+    ElementDefinition snapElement = (ElementDefinition)snapshotElements.get(diffElement.getId);
+  }*/
+  private void validateStructureDefinition(List<ValidationMessage> errors, Element element, NodeStack stack) {
+    if ((isCheckAggregation() || isCheckMustSupport()) && element.hasChild("snapshot") && element.hasChild("differential")) {
+      Hashtable snapshotElements = new Hashtable();
+      for (Element e : element.getNamedChild("snapshot").getChildren("element")) {
+        snapshotElements.put(e, e.getChildValue("id"));
+      }
+      for (Element diffElement : element.getNamedChild("differential").getChildren("element")) {
+        Element snapElement = (Element)snapshotElements.get(diffElement.getChildValue("id"));
+        warning(errors, IssueType.BUSINESSRULE, element.line(), element.col(), stack.getLiteralPath(), snapElement.hasChild("mustSupport"), "Elements included in the differential should declare mustSupport");
+        for (Element type : snapElement.getChildren("type")) {
+          String code = type.getChildValue("code"); 
+          if (code.equals("http://hl7.org/fhir/Reference") || code.equals("http://hl7.org/fhir/canonical")) {
+            warning(errors, IssueType.BUSINESSRULE, element.line(), element.col(), stack.getLiteralPath(), type.hasChild("aggregation"), "Elements included in the differential should declare mustSupport");
+          }
+        }
+      }
+      
+    }
+  }
+
 }
