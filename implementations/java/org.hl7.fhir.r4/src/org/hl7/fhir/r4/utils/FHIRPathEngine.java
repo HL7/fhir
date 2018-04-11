@@ -1333,7 +1333,10 @@ public class FHIRPathEngine {
       result.add(new BooleanType(false).noExtensions());
     else {
       String tn = convertToString(right);
-      result.add(new BooleanType(left.get(0).hasType(tn)).noExtensions());
+      if (!(left.get(0) instanceof Element) || ((Element) left.get(0)).isDisallowExtensions())
+        result.add(new BooleanType(Utilities.capitalize(left.get(0).fhirType()).equals(tn)).noExtensions());
+      else
+        result.add(new BooleanType(left.get(0).hasType(tn)).noExtensions());
     }
     return result;
   }
@@ -2703,7 +2706,7 @@ public class FHIRPathEngine {
       }
     }
     return result;
-}
+  }
 
   private List<Base> funcToDateTime(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
 //  List<Base> result = new ArrayList<Base>();
