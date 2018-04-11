@@ -229,6 +229,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.NDJsonWriter;
 import org.hl7.fhir.utilities.PackageGenerator;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
@@ -2846,8 +2847,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-json.zip");
-      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json"});
+      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json", "package.json"});
       zip.close();
+      
+      NDJsonWriter ndjson = new NDJsonWriter(page.getFolders().dstDir + "examples-ndjson.zip", page.getFolders().tmpDir);
+      ndjson.addFilesFiltered(page.getFolders().dstDir, ".json", new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json", "package.json"});
+      ndjson.close();
+      
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-ttl.zip");
       zip.addFilesFiltered(page.getFolders().dstDir, "", ".ttl", new String[0]);

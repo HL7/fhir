@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -286,6 +286,8 @@ public class ResourceFactory extends Factory {
             return new ProductPlan();
         if ("MedicinalProductIngredient".equals(name))
             return new MedicinalProductIngredient();
+        if ("MedicationKnowledge".equals(name))
+            return new MedicationKnowledge();
         if ("Patient".equals(name))
             return new Patient();
         if ("Coverage".equals(name))
@@ -532,6 +534,7 @@ public class ResourceFactory extends Factory {
         case -302536977: return new Medication();
         case -342579923: return new MedicationAdministration();
         case -408244884: return new MedicationDispense();
+        case 1537687119: return new MedicationKnowledge();
         case 1627523232: return new MedicationRequest();
         case -2097348800: return new MedicationStatement();
         case -1349298375: return new MedicinalProduct();

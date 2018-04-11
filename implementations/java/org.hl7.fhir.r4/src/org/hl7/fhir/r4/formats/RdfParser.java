@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -9067,6 +9067,206 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "MedicationDispense", "responsibleParty", element.getResponsibleParty().get(i), i);
   }
 
+  protected void composeMedicationKnowledge(Complex parent, String parentType, String name, MedicationKnowledge element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicationKnowledge", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "MedicationKnowledge", "code", element.getCode(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "MedicationKnowledge", "status", element.getStatusElement(), -1);
+    if (element.hasManufacturer())
+      composeReference(t, "MedicationKnowledge", "manufacturer", element.getManufacturer(), -1);
+    if (element.hasForm())
+      composeCodeableConcept(t, "MedicationKnowledge", "form", element.getForm(), -1);
+    if (element.hasAmount())
+      composeQuantity(t, "MedicationKnowledge", "amount", element.getAmount(), -1);
+    for (int i = 0; i < element.getName().size(); i++)
+      composeString(t, "MedicationKnowledge", "name", element.getName().get(i), i);
+    for (int i = 0; i < element.getDescription().size(); i++)
+      composeString(t, "MedicationKnowledge", "description", element.getDescription().get(i), i);
+    for (int i = 0; i < element.getGeneralizedMedicine().size(); i++)
+      composeReference(t, "MedicationKnowledge", "generalizedMedicine", element.getGeneralizedMedicine().get(i), i);
+    for (int i = 0; i < element.getType().size(); i++)
+      composeCodeableConcept(t, "MedicationKnowledge", "type", element.getType().get(i), i);
+    for (int i = 0; i < element.getMonograph().size(); i++)
+      composeReference(t, "MedicationKnowledge", "monograph", element.getMonograph().get(i), i);
+    if (element.hasHalfLifePeriod())
+      composeDuration(t, "MedicationKnowledge", "halfLifePeriod", element.getHalfLifePeriod(), -1);
+    for (int i = 0; i < element.getIngredient().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeIngredientComponent(t, "MedicationKnowledge", "ingredient", element.getIngredient().get(i), i);
+    for (int i = 0; i < element.getCost().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeCostComponent(t, "MedicationKnowledge", "cost", element.getCost().get(i), i);
+    for (int i = 0; i < element.getMonitoringProgram().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponent(t, "MedicationKnowledge", "monitoringProgram", element.getMonitoringProgram().get(i), i);
+    for (int i = 0; i < element.getAdministrationGuidelines().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponent(t, "MedicationKnowledge", "administrationGuidelines", element.getAdministrationGuidelines().get(i), i);
+    for (int i = 0; i < element.getMedicineClassification().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponent(t, "MedicationKnowledge", "medicineClassification", element.getMedicineClassification().get(i), i);
+    if (element.hasBatch())
+      composeMedicationKnowledgeMedicationKnowledgeBatchComponent(t, "MedicationKnowledge", "batch", element.getBatch(), -1);
+    if (element.hasPackaging())
+      composeMedicationKnowledgeMedicationKnowledgePackagingComponent(t, "MedicationKnowledge", "packaging", element.getPackaging(), -1);
+    for (int i = 0; i < element.getDrugCharacteristic().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponent(t, "MedicationKnowledge", "drugCharacteristic", element.getDrugCharacteristic().get(i), i);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeIngredientComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeIngredientComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "ingredient", name, element, index);
+    if (element.hasItem())
+      composeType(t, "MedicationKnowledge", "item", element.getItem(), -1);
+    if (element.hasIsActiveElement())
+      composeBoolean(t, "MedicationKnowledge", "isActive", element.getIsActiveElement(), -1);
+    if (element.hasAmount())
+      composeRatio(t, "MedicationKnowledge", "amount", element.getAmount(), -1);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeCostComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeCostComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "cost", name, element, index);
+    if (element.hasFormularyElement())
+      composeString(t, "MedicationKnowledge", "formulary", element.getFormularyElement(), -1);
+    if (element.hasCost())
+      composeMoney(t, "MedicationKnowledge", "cost", element.getCost(), -1);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "monitoringProgram", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicationKnowledge", "type", element.getType(), -1);
+    if (element.hasNameElement())
+      composeString(t, "MedicationKnowledge", "name", element.getNameElement(), -1);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "administrationGuidelines", name, element, index);
+    for (int i = 0; i < element.getDosage().size(); i++)
+      composeDosage(t, "MedicationKnowledge", "dosage", element.getDosage().get(i), i);
+    for (int i = 0; i < element.getIndication().size(); i++)
+      composeCodeableConcept(t, "MedicationKnowledge", "indication", element.getIndication().get(i), i);
+    for (int i = 0; i < element.getPatientCharacteristics().size(); i++)
+      composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent(t, "MedicationKnowledge", "patientCharacteristics", element.getPatientCharacteristics().get(i), i);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "patientCharacteristics", name, element, index);
+    if (element.hasCharacteristic())
+      composeCodeableConcept(t, "MedicationKnowledge", "characteristic", element.getCharacteristic(), -1);
+    for (int i = 0; i < element.getValue().size(); i++)
+      composeString(t, "MedicationKnowledge", "value", element.getValue().get(i), i);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "medicineClassification", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicationKnowledge", "type", element.getType(), -1);
+    for (int i = 0; i < element.getClassification().size(); i++)
+      composeString(t, "MedicationKnowledge", "classification", element.getClassification().get(i), i);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeBatchComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeBatchComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "batch", name, element, index);
+    if (element.hasLotNumberElement())
+      composeString(t, "MedicationKnowledge", "lotNumber", element.getLotNumberElement(), -1);
+    if (element.hasExpirationDateElement())
+      composeDateTime(t, "MedicationKnowledge", "expirationDate", element.getExpirationDateElement(), -1);
+    if (element.hasSerialNumberElement())
+      composeString(t, "MedicationKnowledge", "serialNumber", element.getSerialNumberElement(), -1);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgePackagingComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgePackagingComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "packaging", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicationKnowledge", "type", element.getType(), -1);
+    if (element.hasQuantity())
+      composeQuantity(t, "MedicationKnowledge", "quantity", element.getQuantity(), -1);
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponent(Complex parent, String parentType, String name, MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "drugCharacteristic", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicationKnowledge", "type", element.getType(), -1);
+    if (element.hasValueElement())
+      composeString(t, "MedicationKnowledge", "value", element.getValueElement(), -1);
+  }
+
   protected void composeMedicationRequest(Complex parent, String parentType, String name, MedicationRequest element, int index) {
     if (element == null) 
       return;
@@ -15995,6 +16195,8 @@ public class RdfParser extends RdfParserBase {
       composeMedicationAdministration(parent, null, "MedicationAdministration", (MedicationAdministration)resource, -1);
     else if (resource instanceof MedicationDispense)
       composeMedicationDispense(parent, null, "MedicationDispense", (MedicationDispense)resource, -1);
+    else if (resource instanceof MedicationKnowledge)
+      composeMedicationKnowledge(parent, null, "MedicationKnowledge", (MedicationKnowledge)resource, -1);
     else if (resource instanceof MedicationRequest)
       composeMedicationRequest(parent, null, "MedicationRequest", (MedicationRequest)resource, -1);
     else if (resource instanceof MedicationStatement)

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.3.0
+// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -13635,6 +13635,303 @@ public class JsonParser extends JsonParserBase {
     };
   }
 
+  protected MedicationKnowledge parseMedicationKnowledge(JsonObject json) throws IOException, FHIRFormatError {
+    MedicationKnowledge res = new MedicationKnowledge();
+    parseMedicationKnowledgeProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeProperties(JsonObject json, MedicationKnowledge res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), MedicationKnowledge.MedicationKnowledgeStatus.NULL, new MedicationKnowledge.MedicationKnowledgeStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("manufacturer"))
+      res.setManufacturer(parseReference(json.getAsJsonObject("manufacturer")));
+    if (json.has("form"))
+      res.setForm(parseCodeableConcept(json.getAsJsonObject("form")));
+    if (json.has("amount"))
+      res.setAmount(parseSimpleQuantity(json.getAsJsonObject("amount")));
+    if (json.has("name")) {
+      JsonArray array = json.getAsJsonArray("name");
+      for (int i = 0; i < array.size(); i++) {
+        res.getName().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_name")) {
+      JsonArray array = json.getAsJsonArray("_name");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getName().size())
+          res.getName().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getName().get(i));
+      }
+    };
+    if (json.has("description")) {
+      JsonArray array = json.getAsJsonArray("description");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDescription().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_description")) {
+      JsonArray array = json.getAsJsonArray("_description");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getDescription().size())
+          res.getDescription().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getDescription().get(i));
+      }
+    };
+    if (json.has("generalizedMedicine")) {
+      JsonArray array = json.getAsJsonArray("generalizedMedicine");
+      for (int i = 0; i < array.size(); i++) {
+        res.getGeneralizedMedicine().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("type")) {
+      JsonArray array = json.getAsJsonArray("type");
+      for (int i = 0; i < array.size(); i++) {
+        res.getType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("monograph")) {
+      JsonArray array = json.getAsJsonArray("monograph");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMonograph().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("halfLifePeriod"))
+      res.setHalfLifePeriod(parseDuration(json.getAsJsonObject("halfLifePeriod")));
+    if (json.has("ingredient")) {
+      JsonArray array = json.getAsJsonArray("ingredient");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIngredient().add(parseMedicationKnowledgeMedicationKnowledgeIngredientComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("cost")) {
+      JsonArray array = json.getAsJsonArray("cost");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCost().add(parseMedicationKnowledgeMedicationKnowledgeCostComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("monitoringProgram")) {
+      JsonArray array = json.getAsJsonArray("monitoringProgram");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMonitoringProgram().add(parseMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("administrationGuidelines")) {
+      JsonArray array = json.getAsJsonArray("administrationGuidelines");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAdministrationGuidelines().add(parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("medicineClassification")) {
+      JsonArray array = json.getAsJsonArray("medicineClassification");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMedicineClassification().add(parseMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("batch"))
+      res.setBatch(parseMedicationKnowledgeMedicationKnowledgeBatchComponent(json.getAsJsonObject("batch"), res));
+    if (json.has("packaging"))
+      res.setPackaging(parseMedicationKnowledgeMedicationKnowledgePackagingComponent(json.getAsJsonObject("packaging"), res));
+    if (json.has("drugCharacteristic")) {
+      JsonArray array = json.getAsJsonArray("drugCharacteristic");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDrugCharacteristic().add(parseMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeIngredientComponent parseMedicationKnowledgeMedicationKnowledgeIngredientComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeIngredientComponent res = new MedicationKnowledge.MedicationKnowledgeIngredientComponent();
+    parseMedicationKnowledgeMedicationKnowledgeIngredientComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeIngredientComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeIngredientComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    Type item = parseType("item", json);
+    if (item != null)
+      res.setItem(item);
+    if (json.has("isActive"))
+      res.setIsActiveElement(parseBoolean(json.get("isActive").getAsBoolean()));
+    if (json.has("_isActive"))
+      parseElementProperties(json.getAsJsonObject("_isActive"), res.getIsActiveElement());
+    if (json.has("amount"))
+      res.setAmount(parseRatio(json.getAsJsonObject("amount")));
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeCostComponent parseMedicationKnowledgeMedicationKnowledgeCostComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeCostComponent res = new MedicationKnowledge.MedicationKnowledgeCostComponent();
+    parseMedicationKnowledgeMedicationKnowledgeCostComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeCostComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeCostComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("formulary"))
+      res.setFormularyElement(parseString(json.get("formulary").getAsString()));
+    if (json.has("_formulary"))
+      parseElementProperties(json.getAsJsonObject("_formulary"), res.getFormularyElement());
+    if (json.has("cost"))
+      res.setCost(parseMoney(json.getAsJsonObject("cost")));
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent parseMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent res = new MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent();
+    parseMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent res = new MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent();
+    parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("dosage")) {
+      JsonArray array = json.getAsJsonArray("dosage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDosage().add(parseDosage(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("indication")) {
+      JsonArray array = json.getAsJsonArray("indication");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIndication().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("patientCharacteristics")) {
+      JsonArray array = json.getAsJsonArray("patientCharacteristics");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPatientCharacteristics().add(parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent res = new MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent();
+    parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("characteristic"))
+      res.setCharacteristic(parseCodeableConcept(json.getAsJsonObject("characteristic")));
+    if (json.has("value")) {
+      JsonArray array = json.getAsJsonArray("value");
+      for (int i = 0; i < array.size(); i++) {
+        res.getValue().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_value")) {
+      JsonArray array = json.getAsJsonArray("_value");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getValue().size())
+          res.getValue().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getValue().get(i));
+      }
+    };
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent parseMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent res = new MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent();
+    parseMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("classification")) {
+      JsonArray array = json.getAsJsonArray("classification");
+      for (int i = 0; i < array.size(); i++) {
+        res.getClassification().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_classification")) {
+      JsonArray array = json.getAsJsonArray("_classification");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getClassification().size())
+          res.getClassification().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getClassification().get(i));
+      }
+    };
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeBatchComponent parseMedicationKnowledgeMedicationKnowledgeBatchComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeBatchComponent res = new MedicationKnowledge.MedicationKnowledgeBatchComponent();
+    parseMedicationKnowledgeMedicationKnowledgeBatchComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeBatchComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeBatchComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("lotNumber"))
+      res.setLotNumberElement(parseString(json.get("lotNumber").getAsString()));
+    if (json.has("_lotNumber"))
+      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumberElement());
+    if (json.has("expirationDate"))
+      res.setExpirationDateElement(parseDateTime(json.get("expirationDate").getAsString()));
+    if (json.has("_expirationDate"))
+      parseElementProperties(json.getAsJsonObject("_expirationDate"), res.getExpirationDateElement());
+    if (json.has("serialNumber"))
+      res.setSerialNumberElement(parseString(json.get("serialNumber").getAsString()));
+    if (json.has("_serialNumber"))
+      parseElementProperties(json.getAsJsonObject("_serialNumber"), res.getSerialNumberElement());
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgePackagingComponent parseMedicationKnowledgeMedicationKnowledgePackagingComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgePackagingComponent res = new MedicationKnowledge.MedicationKnowledgePackagingComponent();
+    parseMedicationKnowledgeMedicationKnowledgePackagingComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgePackagingComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgePackagingComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("quantity"))
+      res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
+  }
+
+  protected MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent parseMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponent(JsonObject json, MedicationKnowledge owner) throws IOException, FHIRFormatError {
+    MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent res = new MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent();
+    parseMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponentProperties(JsonObject json, MedicationKnowledge owner, MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("value"))
+      res.setValueElement(parseString(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
+  }
+
   protected MedicationRequest parseMedicationRequest(JsonObject json) throws IOException, FHIRFormatError {
     MedicationRequest res = new MedicationRequest();
     parseMedicationRequestProperties(json, res);
@@ -24157,6 +24454,8 @@ public class JsonParser extends JsonParserBase {
       return parseMedicationAdministration(json);
     else if (t.equals("MedicationDispense"))
       return parseMedicationDispense(json);
+    else if (t.equals("MedicationKnowledge"))
+      return parseMedicationKnowledge(json);
     else if (t.equals("MedicationRequest"))
       return parseMedicationRequest(json);
     else if (t.equals("MedicationStatement"))
@@ -24758,6 +25057,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"MedicationAdministration"))
       return true;
     if (json.has(prefix+"MedicationDispense"))
+      return true;
+    if (json.has(prefix+"MedicationKnowledge"))
       return true;
     if (json.has(prefix+"MedicationRequest"))
       return true;
@@ -39858,6 +40159,325 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
+  protected void composeMedicationKnowledge(String name, MedicationKnowledge element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicationKnowledgeInner(element);
+    }
+  }
+
+  protected void composeMedicationKnowledgeInner(MedicationKnowledge element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new MedicationKnowledge.MedicationKnowledgeStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new MedicationKnowledge.MedicationKnowledgeStatusEnumFactory(), false);
+      }
+      if (element.hasManufacturer()) {
+        composeReference("manufacturer", element.getManufacturer());
+      }
+      if (element.hasForm()) {
+        composeCodeableConcept("form", element.getForm());
+      }
+      if (element.hasAmount()) {
+        composeSimpleQuantity("amount", element.getAmount());
+      }
+      if (element.hasName()) {
+        openArray("name");
+        for (StringType e : element.getName()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getName())) {
+          openArray("_name");
+          for (StringType e : element.getName()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasDescription()) {
+        openArray("description");
+        for (StringType e : element.getDescription()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getDescription())) {
+          openArray("_description");
+          for (StringType e : element.getDescription()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasGeneralizedMedicine()) {
+        openArray("generalizedMedicine");
+        for (Reference e : element.getGeneralizedMedicine()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasType()) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasMonograph()) {
+        openArray("monograph");
+        for (Reference e : element.getMonograph()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasHalfLifePeriod()) {
+        composeDuration("halfLifePeriod", element.getHalfLifePeriod());
+      }
+      if (element.hasIngredient()) {
+        openArray("ingredient");
+        for (MedicationKnowledge.MedicationKnowledgeIngredientComponent e : element.getIngredient()) 
+          composeMedicationKnowledgeMedicationKnowledgeIngredientComponent(null, e);
+        closeArray();
+      };
+      if (element.hasCost()) {
+        openArray("cost");
+        for (MedicationKnowledge.MedicationKnowledgeCostComponent e : element.getCost()) 
+          composeMedicationKnowledgeMedicationKnowledgeCostComponent(null, e);
+        closeArray();
+      };
+      if (element.hasMonitoringProgram()) {
+        openArray("monitoringProgram");
+        for (MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent e : element.getMonitoringProgram()) 
+          composeMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponent(null, e);
+        closeArray();
+      };
+      if (element.hasAdministrationGuidelines()) {
+        openArray("administrationGuidelines");
+        for (MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent e : element.getAdministrationGuidelines()) 
+          composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponent(null, e);
+        closeArray();
+      };
+      if (element.hasMedicineClassification()) {
+        openArray("medicineClassification");
+        for (MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent e : element.getMedicineClassification()) 
+          composeMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasBatch()) {
+        composeMedicationKnowledgeMedicationKnowledgeBatchComponent("batch", element.getBatch());
+      }
+      if (element.hasPackaging()) {
+        composeMedicationKnowledgeMedicationKnowledgePackagingComponent("packaging", element.getPackaging());
+      }
+      if (element.hasDrugCharacteristic()) {
+        openArray("drugCharacteristic");
+        for (MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent e : element.getDrugCharacteristic()) 
+          composeMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeIngredientComponent(String name, MedicationKnowledge.MedicationKnowledgeIngredientComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeIngredientComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeIngredientComponentInner(MedicationKnowledge.MedicationKnowledgeIngredientComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasItem()) {
+        composeType("item", element.getItem());
+      }
+      if (element.hasIsActiveElement()) {
+        composeBooleanCore("isActive", element.getIsActiveElement(), false);
+        composeBooleanExtras("isActive", element.getIsActiveElement(), false);
+      }
+      if (element.hasAmount()) {
+        composeRatio("amount", element.getAmount());
+      }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeCostComponent(String name, MedicationKnowledge.MedicationKnowledgeCostComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeCostComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeCostComponentInner(MedicationKnowledge.MedicationKnowledgeCostComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasFormularyElement()) {
+        composeStringCore("formulary", element.getFormularyElement(), false);
+        composeStringExtras("formulary", element.getFormularyElement(), false);
+      }
+      if (element.hasCost()) {
+        composeMoney("cost", element.getCost());
+      }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponent(String name, MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeMonitoringProgramComponentInner(MedicationKnowledge.MedicationKnowledgeMonitoringProgramComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponent(String name, MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesComponentInner(MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDosage()) {
+        openArray("dosage");
+        for (Dosage e : element.getDosage()) 
+          composeDosage(null, e);
+        closeArray();
+      };
+      if (element.hasIndication()) {
+        openArray("indication");
+        for (CodeableConcept e : element.getIndication()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasPatientCharacteristics()) {
+        openArray("patientCharacteristics");
+        for (MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent e : element.getPatientCharacteristics()) 
+          composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent(String name, MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponentInner(MedicationKnowledge.MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCharacteristic()) {
+        composeCodeableConcept("characteristic", element.getCharacteristic());
+      }
+      if (element.hasValue()) {
+        openArray("value");
+        for (StringType e : element.getValue()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getValue())) {
+          openArray("_value");
+          for (StringType e : element.getValue()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponent(String name, MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeMedicineClassificationComponentInner(MedicationKnowledge.MedicationKnowledgeMedicineClassificationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasClassification()) {
+        openArray("classification");
+        for (StringType e : element.getClassification()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getClassification())) {
+          openArray("_classification");
+          for (StringType e : element.getClassification()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeBatchComponent(String name, MedicationKnowledge.MedicationKnowledgeBatchComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeBatchComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeBatchComponentInner(MedicationKnowledge.MedicationKnowledgeBatchComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasLotNumberElement()) {
+        composeStringCore("lotNumber", element.getLotNumberElement(), false);
+        composeStringExtras("lotNumber", element.getLotNumberElement(), false);
+      }
+      if (element.hasExpirationDateElement()) {
+        composeDateTimeCore("expirationDate", element.getExpirationDateElement(), false);
+        composeDateTimeExtras("expirationDate", element.getExpirationDateElement(), false);
+      }
+      if (element.hasSerialNumberElement()) {
+        composeStringCore("serialNumber", element.getSerialNumberElement(), false);
+        composeStringExtras("serialNumber", element.getSerialNumberElement(), false);
+      }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgePackagingComponent(String name, MedicationKnowledge.MedicationKnowledgePackagingComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgePackagingComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgePackagingComponentInner(MedicationKnowledge.MedicationKnowledgePackagingComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasQuantity()) {
+        composeSimpleQuantity("quantity", element.getQuantity());
+      }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponent(String name, MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationKnowledgeMedicationKnowledgeDrugCharacteristicComponentInner(MedicationKnowledge.MedicationKnowledgeDrugCharacteristicComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasValueElement()) {
+        composeStringCore("value", element.getValueElement(), false);
+        composeStringExtras("value", element.getValueElement(), false);
+      }
+  }
+
   protected void composeMedicationRequest(String name, MedicationRequest element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -51176,6 +51796,8 @@ public class JsonParser extends JsonParserBase {
       composeMedicationAdministration("MedicationAdministration", (MedicationAdministration)resource);
     else if (resource instanceof MedicationDispense)
       composeMedicationDispense("MedicationDispense", (MedicationDispense)resource);
+    else if (resource instanceof MedicationKnowledge)
+      composeMedicationKnowledge("MedicationKnowledge", (MedicationKnowledge)resource);
     else if (resource instanceof MedicationRequest)
       composeMedicationRequest("MedicationRequest", (MedicationRequest)resource);
     else if (resource instanceof MedicationStatement)
@@ -51459,6 +52081,8 @@ public class JsonParser extends JsonParserBase {
       composeMedicationAdministration(name, (MedicationAdministration)resource);
     else if (resource instanceof MedicationDispense)
       composeMedicationDispense(name, (MedicationDispense)resource);
+    else if (resource instanceof MedicationKnowledge)
+      composeMedicationKnowledge(name, (MedicationKnowledge)resource);
     else if (resource instanceof MedicationRequest)
       composeMedicationRequest(name, (MedicationRequest)resource);
     else if (resource instanceof MedicationStatement)

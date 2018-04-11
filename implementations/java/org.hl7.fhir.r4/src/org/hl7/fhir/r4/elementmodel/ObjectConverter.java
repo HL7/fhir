@@ -13,6 +13,7 @@ import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.utilities.TextFile;
 
 
 public class ObjectConverter  {
@@ -85,6 +86,7 @@ public class ObjectConverter  {
     ByteArrayOutputStream bo = new ByteArrayOutputStream();
     try {
       new JsonParser(context).compose(element, bo, OutputStyle.NORMAL, null);
+      TextFile.bytesToFile(bo.toByteArray(), "c:\\temp\\json.json");
       return new org.hl7.fhir.r4.formats.JsonParser().parse(bo.toByteArray());
     } catch (IOException e) {
       // won't happen

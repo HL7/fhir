@@ -831,11 +831,6 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private boolean isNumericConstant(String constant) {
-    return Utilities.isDecimal(constant);
-  }
-
-
   private ExpressionNode organisePrecedence(FHIRLexer lexer, ExpressionNode node) {
     node = gatherPrecedence(lexer, node, EnumSet.of(Operation.Times, Operation.DivideBy, Operation.Div, Operation.Mod)); 
     node = gatherPrecedence(lexer, node, EnumSet.of(Operation.Plus, Operation.Minus, Operation.Concatenate)); 
@@ -1490,7 +1485,7 @@ public class FHIRPathEngine {
   }
 
   private Base pairToQty(Pair p) {
-    return new Quantity().setValue(new BigDecimal(p.getValue().toString())).setSystem("http://unitsofmeasure.org").setCode(p.getCode());
+    return new Quantity().setValue(new BigDecimal(p.getValue().toString())).setSystem("http://unitsofmeasure.org").setCode(p.getCode()).noExtensions();
   }
 
 
@@ -2225,7 +2220,7 @@ public class FHIRPathEngine {
       return types;
     }
     case Lower : {
-      checkContextString(focus, "sublower");
+      checkContextString(focus, "lower");
       return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_String); 
     }
     case Upper : {
