@@ -734,6 +734,14 @@ public class Quantity extends Type implements ICompositeType, ICoding {
         return false;
       }
 
+    public static Quantity fromUcum(String v, String code) {
+      Quantity res = new Quantity();
+      res.setValue(new BigDecimal(v));
+      res.setSystem("http://unitsofmeasure.org");
+      res.setCode(code);
+      return res;
+    }
+
 
 
 // end addition
