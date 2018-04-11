@@ -1,10 +1,9 @@
 package org.hl7.fhir.r4.utils;
 
 //import ca.uhn.fhir.model.api.TemporalPrecisionEnum;
-import ca.uhn.fhir.rest.server.exceptions.InternalErrorException;
 import ca.uhn.fhir.util.ElementUtil;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.http.protocol.ExecutionContext;
 import org.fhir.ucum.Decimal;
 import org.fhir.ucum.Pair;
@@ -2710,14 +2709,14 @@ public class FHIRPathEngine {
 //  List<Base> result = new ArrayList<Base>();
 //  result.add(new BooleanType(convertToBoolean(focus)));
 //  return result;
-  throw new NotImplementedException();
+  throw new NotImplementedException("funcToDateTime is not implemented");
 }
 
   private List<Base> funcToTime(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
 //  List<Base> result = new ArrayList<Base>();
 //  result.add(new BooleanType(convertToBoolean(focus)));
 //  return result;
-  throw new NotImplementedException();
+  throw new NotImplementedException("funcToTime is not implemented");
 }
 
 
@@ -3277,23 +3276,23 @@ public class FHIRPathEngine {
       if (!Utilities.isDecimal(v))
         return null;
       if (s.startsWith("'") && s.endsWith("'"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode(s.substring(1, s.length()-1));
+        return Quantity.fromUcum(v, s.substring(1, s.length()-1));
       if (s.equals("year") || s.equals("years"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("a");
+        return Quantity.fromUcum(v, "a");
       else if (s.equals("month") || s.equals("month"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("mo");
+        return Quantity.fromUcum(v, "mo");
       else if (s.equals("week") || s.equals("weeks"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("wk");
+        return Quantity.fromUcum(v, "wk");
       else if (s.equals("day") || s.equals("days"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("d");
+        return Quantity.fromUcum(v, "d");
       else if (s.equals("hour") || s.equals("hours"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("h");
+        return Quantity.fromUcum(v, "h");
       else if (s.equals("minute") || s.equals("minutes"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("min");
+        return Quantity.fromUcum(v, "min");
       else if (s.equals("second") || s.equals("seconds"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("s");
+        return Quantity.fromUcum(v, "s");
       else if (s.equals("millisecond") || s.equals("milliseconds"))
-        return new Quantity().setValue(new BigDecimal(v)).setSystem("http://unitsofmeasure.org").setCode("ms");
+        return Quantity.fromUcum(v, "ms");
       else
         return null;      
     } else {
