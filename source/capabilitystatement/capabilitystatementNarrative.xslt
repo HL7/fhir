@@ -189,7 +189,7 @@
                     <tr>
                       <th>
                         <xsl:value-of select="type/@value"/>
-                        <xsl:for-each select="profile/reference/@value">
+                        <xsl:for-each select="profile/reference/@value|profile/@value">
                           <xsl:text> (</xsl:text>
                             <a href="{.}.html">Profile</a>
                           <xsl:text>)</xsl:text>
@@ -253,7 +253,7 @@
               <ul>
                 <xsl:for-each select="operation">
                   <li>
-                    <a href="{lower-case(definition/reference/@value)}">
+                    <a href="{lower-case(definition/reference/@value)}{lower-case(definition/@value)}">
                       <xsl:value-of select="name/@value"/>
                     </a>
                     <xsl:for-each select="definition/display/@value">
