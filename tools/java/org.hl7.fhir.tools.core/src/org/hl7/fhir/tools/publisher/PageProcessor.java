@@ -324,12 +324,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Document v2src;
   private Document v3src;
   private final QaTracker qa = new QaTracker();
-  private final Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
-  private final Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
-  private final Map<String, Resource> igResources = new HashMap<String, Resource>();
-  private final Map<String, String> svgs = new HashMap<String, String>();
+  private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
+  private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
+  private Map<String, Resource> igResources = new HashMap<String, Resource>();
+  private Map<String, String> svgs = new HashMap<String, String>();
   private Translations translations = new Translations();
-  private final BreadCrumbManager breadCrumbManager = new BreadCrumbManager(translations);
+  private BreadCrumbManager breadCrumbManager = new BreadCrumbManager(translations);
   private String publicationType = "Local Build ("+System.getenv("COMPUTERNAME")+")";
   private String publicationNotice = "";
   private OIDRegistry registry;
@@ -9378,6 +9378,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     htmlchecker = null;
     searchTypeUsage = null;
     vsValidator = null;
+    suppressedMessages.clear();
+    definitions.clean();
+    referenceImplementations.clear();
+    
+    conceptMaps = null;
+    profiles = null;
+    igResources = null;
+    breadCrumbManager = null;
+    searchTypeUsage = null;
+    diffEngine = null;
+    typeBundle = null;
+    resourceBundle = null;
+    r2r3Outcomes = null;
+    normativePackages = null;
+    processor = null;
+
+    
     System.gc();
   }
 

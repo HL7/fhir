@@ -778,4 +778,50 @@ public class Definitions {
     return res;
   }
 
+  public void clean() {
+
+    commonBindings = null;
+    boundValueSets = null;
+    unresolvedBindings = null;
+    allBindings = null;
+    primitives = null;
+    constraints = null;
+    infrastructure = null;
+    baseResources = null;
+    resourceTemplates = null;
+
+    packList = null;
+    packMap = null;
+    dictionaries = null;
+    knownResources = null;
+    knownTypes = null;
+    statusCodes = null;
+    valuesets = null;
+    conceptMaps = null;
+    codeSystems = null;
+    extraValuesets = null;
+    styleExemptions = null;
+
+    deletedResources = null;
+    shared = null;
+    aggregationEndpoints = null;
+    events = null;
+    diagrams = null;
+    compartments = null;
+    pastVersions = null;
+    TLAs = null;
+    w5s = null;
+    w5list = null;
+    typePages = null;
+    pageTitles = null;
+    searchRules = null;
+    commonSearchParameters = null;
+    redirectList = null;
+    vsFixups = null;
+    namingSystems = null;
+    structuralPages = null;
+    profileIds = null;
+       
+  }
+
 }

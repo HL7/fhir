@@ -104,7 +104,6 @@ public class FHIRPathTests {
 
     List<Base> outcome = new ArrayList<Base>();
 
-    System.out.println(name+" : "+expression);
     ExpressionNode node = fp.parse(expression);
     try {
       if (Utilities.noString(input))
