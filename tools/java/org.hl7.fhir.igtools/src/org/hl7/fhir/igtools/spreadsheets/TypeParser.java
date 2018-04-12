@@ -144,7 +144,7 @@ public class TypeParser {
     List<TypeRefComponent> list = new ArrayList<TypeRefComponent>();
     for (TypeRef t : types) {
       // Expand any Resource(A|B|C) references
-      if(t.hasParams() && !"Reference".equals(t.getName())) {
+      if(t.hasParams() && !("Reference".equals(t.getName()) || "canonical".equals(t.getName()))) {
         throw new Exception("Only resource references can specify parameters.  Path " + path);
       }
       if (t.getParams().size() > 0) {
