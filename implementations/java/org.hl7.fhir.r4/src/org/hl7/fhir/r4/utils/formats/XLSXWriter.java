@@ -335,7 +335,7 @@ public class XLSXWriter  extends TextStreamWriter  {
     sheet.createFreezePane(2,1);
     
     SheetConditionalFormatting sheetCF = sheet.getSheetConditionalFormatting();
-    String address = "A2:AI" + Integer.valueOf(sheet.getLastRowNum());
+    String address = "A2:AI" + Math.max(Integer.valueOf(sheet.getLastRowNum()), 2);
     CellRangeAddress[] regions = {
         CellRangeAddress.valueOf(address)
     };
