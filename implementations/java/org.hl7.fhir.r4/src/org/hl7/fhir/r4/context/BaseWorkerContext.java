@@ -221,15 +221,15 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (StringUtils.isNumeric(newVersion) && StringUtils.isNumeric(oldVersion))
       return Double.parseDouble(newVersion) > Double.parseDouble(oldVersion);
     else if (hasDelimiter(newVersion, oldVersion, "."))
-      return laterDelimitedVersion(newVersion, oldVersion, ".");
+      return laterDelimitedVersion(newVersion, oldVersion, "\\.");
     else if (hasDelimiter(newVersion, oldVersion, "-"))
-      return laterDelimitedVersion(newVersion, oldVersion, "-");
+      return laterDelimitedVersion(newVersion, oldVersion, "\\-");
     else if (hasDelimiter(newVersion, oldVersion, "_"))
-      return laterDelimitedVersion(newVersion, oldVersion, "_");
+      return laterDelimitedVersion(newVersion, oldVersion, "\\_");
     else if (hasDelimiter(newVersion, oldVersion, ":"))
-      return laterDelimitedVersion(newVersion, oldVersion, ":");
+      return laterDelimitedVersion(newVersion, oldVersion, "\\:");
     else if (hasDelimiter(newVersion, oldVersion, " "))
-      return laterDelimitedVersion(newVersion, oldVersion, " ");
+      return laterDelimitedVersion(newVersion, oldVersion, "\\ ");
     else {
       return newVersion.compareTo(oldVersion) > 0;
     }
@@ -250,7 +250,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return laterVersion(newParts[i], oldParts[i]);
     }
     // This should never happen
-    throw new Error("delimited versions have exact match");
+    throw new Error("Delimited versions have exact match for delimiter '"+delimiter+"' : "+newParts+" vs "+oldParts);
   }
   
   protected <T extends MetadataResource> void seeMetadataResource(T r, Map<String, T> map, boolean addId) throws FHIRException {

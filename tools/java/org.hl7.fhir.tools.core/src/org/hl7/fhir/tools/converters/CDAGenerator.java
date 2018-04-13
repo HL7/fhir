@@ -18,6 +18,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -61,7 +62,7 @@ public class CDAGenerator {
   }
 
   public static void main(String[] args) throws Exception {
-    int lp = new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\guides\\ccda2\\mapping\\mif", "C:\\work\\org.hl7.fhir\\build\\guides\\ccda2\\mapping\\logical");
+    int lp = new CDAGenerator().execute("D:\\mif", "d:\\logical");
     System.out.println("Done. Longest path = "+Integer.toString(lp));
   }
 
@@ -268,10 +269,10 @@ public class CDAGenerator {
     ed.setMin(1);
     ed.setMax("*");
     ed.addRepresentation(PropertyRepresentation.TYPEATTR);
-    ed.addType().setCode("IVL_TS");
-    ed.addType().setCode("EIVL_TS");
-    ed.addType().setCode("PIVL_TS");
-    ed.addType().setCode("SXPR_TS");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/IVL_TS");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/EIVL_TS");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/PIVL_TS");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/SXPR_TS");
     sd.getDifferential().getElement().add(ed);
     
     structures.add(sd);
@@ -311,7 +312,7 @@ public class CDAGenerator {
     ed.setMin(0);
     ed.setMax("*");
     ed.setDefinition("When valued in an instance, this attribute signals the imposition of realm-specific constraints. The value of this attribute identifies the realm in question");
-    ed.addType().setCode("CS");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/CS");
     sd.getDifferential().getElement().add(ed);
     
     ed = new ElementDefinition();
@@ -320,7 +321,7 @@ public class CDAGenerator {
     ed.setMin(0);
     ed.setMax("1");
     ed.setDefinition("When valued in an instance, this attribute signals the imposition of constraints defined in an HL7-specified message type. This might be a common type (also known as CMET in the messaging communication environment), or content included within a wrapper. The value of this attribute provides a unique identifier for the type in question.");
-    ed.addType().setCode("II");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/II");
     sd.getDifferential().getElement().add(ed);
     
     ed = new ElementDefinition();
@@ -329,7 +330,7 @@ public class CDAGenerator {
     ed.setMin(0);
     ed.setMax("*");
     ed.setDefinition("When valued in an instance, this attribute signals the imposition of a set of template-defined constraints. The value of this attribute provides a unique identifier for the templates in question");
-    ed.addType().setCode("II");
+    ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/II");
     sd.getDifferential().getElement().add(ed);
     
     structures.add(sd);
@@ -501,7 +502,7 @@ public class CDAGenerator {
       seePath(ed);
       ed.setMin(0);
       ed.setMax("*");
-      ed.addType().setCode("ST");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/ST");
       list.add(ed);
     }
   }
@@ -563,31 +564,31 @@ public class CDAGenerator {
     else if (Utilities.existsInList(t, "UID"))
       ed.addType().setCode("string");
     else if (t.equals("T") && param != null)
-      ed.addType().setCode(param);
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/"+param);
     else if (t.equals("N") && param != null)
-      ed.addType().setCode(param);
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/"+param);
     else if (t.equals("D") && param != null)
-      ed.addType().setCode(param);
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/"+param);
     else if (t.equals("QTY") && param != null)
-      ed.addType().setCode("PQ");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/PQ");
     else if (t.equals("IVL_T"))
-      ed.addType().setCode("IVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/IVL_TS");
     else if ("GTS".equals(t)) {
       ed.setMax("*");
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
-      ed.addType().setCode("IVL_TS");
-      ed.addType().setCode("EIVL_TS");
-      ed.addType().setCode("PIVL_TS");
-      ed.addType().setCode("SXPR_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/IVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/EIVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/PIVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/SXPR_TS");
       ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype").setValue(new StringType("SXPR_TS"));
     } else
-      ed.addType().setCode(t);
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/"+t);
     if (p == PropStatus.ATTRIBUTE)
       ed.addRepresentation(PropertyRepresentation.XMLATTR);
     // special stuff
     String vs = getValueSet(dtn, n);
     if (vs != null) {
-      ed.setBinding(new ElementDefinitionBindingComponent().setStrength(BindingStrength.REQUIRED).setValueSet(new Reference().setReference("http://hl7.org/fhir/ValueSet/v3-"+vs)));
+      ed.setBinding(new ElementDefinitionBindingComponent().setStrength(BindingStrength.REQUIRED).setValueSet(new CanonicalType("http://hl7.org/fhir/ValueSet/v3-"+vs)));
       v3vs.add(vs);
     }
     list.add(ed);
@@ -814,7 +815,7 @@ public class CDAGenerator {
         return;
     }
     if (id.equals("PN") || id.equals("ON"))
-      t.setCode("EN");
+      t.setCode("http://hl7.org/fhir/cda/StructureDefinition/EN");
     else if (id.equals("NARRATIVE"))
       t.setCode("xhtml");
     else
@@ -939,34 +940,34 @@ public class CDAGenerator {
     if ("GTS".equals(type)) {
       ed.setMax("*");
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
-      ed.addType().setCode("IVL_TS");
-      ed.addType().setCode("EIVL_TS");
-      ed.addType().setCode("PIVL_TS");
-      ed.addType().setCode("SXPR_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/IVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/EIVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/PIVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/SXPR_TS");
       ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype").setValue(new StringType("SXPR_TS"));
     } else if ("ANY".equals(type)) {
       ed.addRepresentation(PropertyRepresentation.TYPEATTR);
-      ed.addType().setCode("BL");
-      ed.addType().setCode("ED");
-      ed.addType().setCode("ST");
-      ed.addType().setCode("CD");
-      ed.addType().setCode("CV");
-      ed.addType().setCode("CE");
-      ed.addType().setCode("SC");
-      ed.addType().setCode("II");
-      ed.addType().setCode("TEL");
-      ed.addType().setCode("AD");
-      ed.addType().setCode("EN");
-      ed.addType().setCode("INT");
-      ed.addType().setCode("REAL");
-      ed.addType().setCode("PQ");
-      ed.addType().setCode("MO");
-      ed.addType().setCode("TS");
-      ed.addType().setCode("IVL_PQ");
-      ed.addType().setCode("IVL_TS");
-      ed.addType().setCode("PIVL_TS");
-      ed.addType().setCode("EIVL_TS");
-      ed.addType().setCode("SXPR_TS");      
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/BL");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/ED");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/ST");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/CD");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/CV");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/CE");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/SC");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/II");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/TEL");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/AD");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/EN");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/INT");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/REAL");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/PQ");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/MO");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/IVL_PQ");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/IVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/PIVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/EIVL_TS");
+      ed.addType().setCode("http://hl7.org/fhir/cda/StructureDefinition/SXPR_TS");      
     } else 
       ed.addType().setCode(type);
     if ("R".equals(attr.getAttribute("conformance"))) 
@@ -987,7 +988,7 @@ public class CDAGenerator {
       String cd = XMLUtil.getNamedChildAttribute(vocab, "conceptDomain", "name");
       ElementDefinitionBindingComponent bd = ed.getBinding();
       bd.setStrength(cs.equals("CNE") ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE);
-      bd.setValueSet(new Reference("http://hl7.org/fhir/ValueSet/v3-"+cd));
+      bd.setValueSet(new CanonicalType("http://hl7.org/fhir/ValueSet/v3-"+cd));
       v3vs.add(cd);
     }
     diff.add(ed);    

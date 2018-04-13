@@ -9399,12 +9399,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   public void clean2() {
-    definitions.getCodeSystems().clear();
-    definitions.getValuesets().clear();
-    conceptMaps.clear();
-    profiles.clear();
+    if (definitions.getCodeSystems() != null) 
+      definitions.getCodeSystems().clear();
+    if (definitions.getValuesets() != null) 
+      definitions.getValuesets().clear();
     System.gc();
-
   }
 
   private String genNSList() throws Exception {
