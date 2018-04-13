@@ -242,7 +242,7 @@
 			  "errorCount": 0,
         "profile" : {
           "source" : "slice-by-polymorphic-type-profile.xml", 
-          "errorCount": 1          
+          "errorCount": 1
         }
 			},
       "code-correct.xml" : {

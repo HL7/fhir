@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12510</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>7920</WindowHeight>
+  <WindowWidth>10410</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>613</TabRatio>
@@ -4942,7 +4942,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">Questionnaire.item.enableWhen</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">If the operator is 'exists', the value must be a boolean</Data></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">operator = 'exists' implies (answer is boolean)</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">operator = 'exists' implies (answer is Boolean)</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">f:operator/@value != 'exists' or exists(f:answerBoolean)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">

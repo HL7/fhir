@@ -79,10 +79,12 @@ public class ProfileValidator extends BaseValidator {
       for (ElementDefinition diffElement : profile.getDifferential().getElement()) {
         ElementDefinition snapElement = snapshotElements.get(diffElement.getId());
         if (snapElement!=null) { // Happens with profiles in the main build - should be able to fix once snapshot generation is fixed - Lloyd
-          warning(errors, IssueType.BUSINESSRULE, diffElement.getId(), snapElement.hasMustSupport(), "Elements included in the differential should declare mustSupport");
-          for (TypeRefComponent type : snapElement.getType()) {
-            if (type.getCode().equals("http://hl7.org/fhir/Reference") || type.getCode().equals("http://hl7.org/fhir/canonical")) {
-              warning(errors, IssueType.BUSINESSRULE, diffElement.getId(), type.hasAggregation(), "Elements with type Reference or canonical should declare aggregation");
+          warning(errors, IssueType.BUSINESSRULE, diffElement.getId(), !checkMustSupport || snapElement.hasMustSupport(), "Elements included in the differential should declare mustSupport");
+          if (checkAggregation) {
+            for (TypeRefComponent type : snapElement.getType()) {
+              if (type.getCode().equals("http://hl7.org/fhir/Reference") || type.getCode().equals("http://hl7.org/fhir/canonical")) {
+                warning(errors, IssueType.BUSINESSRULE, diffElement.getId(), type.hasAggregation(), "Elements with type Reference or canonical should declare aggregation");
+              }
             }
           }
         }
@@ -103,32 +105,4 @@ public class ProfileValidator extends BaseValidator {
       rule(errors, IssueType.BUSINESSRULE, profile.getId(), defn != null, "Unable to find Extension '"+url+"' referenced at "+profile.getUrl()+" "+kind+" "+ec.getPath()+" ("+ec.getSliceName()+")");
     }
   }
-  
-  /*    Hashtable snapshotElements = new Hashtable();
-  for (ElementDefinition e : sd.getSnapshot().getElement()) {
-    snapshotElements.put(e, e.getId());
-  }
-  for (ElementDefinition diffElement : sd.getDifferential().getElement()) {
-    ElementDefinition snapElement = (ElementDefinition)snapshotElements.get(diffElement.getId);
-  }*/
-  private void validateStructureDefinition(List<ValidationMessage> errors, Element element, NodeStack stack) {
-    if ((isCheckAggregation() || isCheckMustSupport()) && element.hasChild("snapshot") && element.hasChild("differential")) {
-      Hashtable snapshotElements = new Hashtable();
-      for (Element e : element.getNamedChild("snapshot").getChildren("element")) {
-        snapshotElements.put(e, e.getChildValue("id"));
-      }
-      for (Element diffElement : element.getNamedChild("differential").getChildren("element")) {
-        Element snapElement = (Element)snapshotElements.get(diffElement.getChildValue("id"));
-        warning(errors, IssueType.BUSINESSRULE, element.line(), element.col(), stack.getLiteralPath(), snapElement.hasChild("mustSupport"), "Elements included in the differential should declare mustSupport");
-        for (Element type : snapElement.getChildren("type")) {
-          String code = type.getChildValue("code"); 
-          if (code.equals("http://hl7.org/fhir/Reference") || code.equals("http://hl7.org/fhir/canonical")) {
-            warning(errors, IssueType.BUSINESSRULE, element.line(), element.col(), stack.getLiteralPath(), type.hasChild("aggregation"), "Elements included in the differential should declare mustSupport");
-          }
-        }
-      }
-      
-    }
-  }
-
 }
