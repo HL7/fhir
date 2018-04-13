@@ -1030,8 +1030,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     pvalidator = new ProfileValidator();
     pvalidator.setContext(context);
-    pvalidator.setCheckAggregation(true);
-    pvalidator.setCheckMustSupport(true);
+    if (configuration.has("check-aggregation") && configuration.get("check-aggregation").getAsBoolean())
+      pvalidator.setCheckAggregation(true);
+    if (configuration.has("check-mustSupport") && configuration.get("check-mustSupport").getAsBoolean())
+      pvalidator.setCheckMustSupport(true);
 
     if (paths.get("extension-domains") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("extension-domains"))
