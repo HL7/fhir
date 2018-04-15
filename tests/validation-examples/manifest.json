@@ -286,7 +286,14 @@
         "errorCount": 0,
         "profile" : {
           "source" : "string-extensions-and-constraints-profile.xml", 
-          "errorCount": 4          
+          "errorCount": 4
+        }
+      },
+      "slicing-types-by-string.xml" : {
+        "errorCount": 0,
+        "profile" : {
+          "source" : "slicing-types-by-string-profile.xml", 
+          "errorCount": 1
         }
       },
       "uk-nhs-pat.xml" : {
