@@ -420,60 +420,66 @@ public class ValidationEngine {
     
     for (Entry<String, byte[]> t : source.entrySet()) {
       String fn = t.getKey();
-      Resource r = null;
-      try { 
-        if (version.equals("3.0.1") || version.equals("3.0.0")) {
-          org.hl7.fhir.dstu3.model.Resource res;
-          if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
-           res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(new ByteArrayInputStream(t.getValue()));
-          else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
-            res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
-          else
-            throw new Exception("Unsupported format for "+fn);
-          r = VersionConvertor_30_40.convertResource(res);
-        } else if (version.equals("1.4.0")) {
-          org.hl7.fhir.dstu2016may.model.Resource res;
-          if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
-            res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new ByteArrayInputStream(t.getValue()));
-          else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
-            res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
-          else
-            throw new Exception("Unsupported format for "+fn);
-          r = VersionConvertor_14_40.convertResource(res);
-        } else if (version.equals("1.0.2")) {
-          org.hl7.fhir.dstu2.model.Resource res;
-          if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
-            res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
-          else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
-            res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
-          else
-            throw new Exception("Unsupported format for "+fn);
-          VersionConvertorAdvisor40 advisor = new org.hl7.fhir.convertors.IGR2ConvertorAdvisor();
-          r = new VersionConvertor_10_40(advisor ).convertResource(res);
-        } else if (version.equals(Constants.VERSION)) {
-          if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
-            r = new XmlParser().parse(new ByteArrayInputStream(t.getValue()));
-          else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
-            r = new JsonParser().parse(new ByteArrayInputStream(t.getValue()));
-          else if (fn.endsWith(".txt"))
-            r = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()));
-          else
-            throw new Exception("Unsupported format for "+fn);
-        } else
-          throw new Exception("Unsupported version "+version);
-        
-      } catch (Exception e) {
-        throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
-      }
-      if (r != null) {
-        context.cacheResource(r);
-        if (r instanceof ImplementationGuide)
-          canonical = ((ImplementationGuide) r).getUrl();
+      if (!exemptFile(fn)) {
+        Resource r = null;
+        try { 
+          if (version.equals("3.0.1") || version.equals("3.0.0")) {
+            org.hl7.fhir.dstu3.model.Resource res;
+            if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
+              res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(new ByteArrayInputStream(t.getValue()));
+            else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
+              res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
+            else
+              throw new Exception("Unsupported format for "+fn);
+            r = VersionConvertor_30_40.convertResource(res);
+          } else if (version.equals("1.4.0")) {
+            org.hl7.fhir.dstu2016may.model.Resource res;
+            if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
+              res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new ByteArrayInputStream(t.getValue()));
+            else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
+              res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
+            else
+              throw new Exception("Unsupported format for "+fn);
+            r = VersionConvertor_14_40.convertResource(res);
+          } else if (version.equals("1.0.2")) {
+            org.hl7.fhir.dstu2.model.Resource res;
+            if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
+              res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
+            else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
+              res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
+            else
+              throw new Exception("Unsupported format for "+fn);
+            VersionConvertorAdvisor40 advisor = new org.hl7.fhir.convertors.IGR2ConvertorAdvisor();
+            r = new VersionConvertor_10_40(advisor ).convertResource(res);
+          } else if (version.equals(Constants.VERSION)) {
+            if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))
+              r = new XmlParser().parse(new ByteArrayInputStream(t.getValue()));
+            else if (fn.endsWith(".json") && !fn.endsWith("template.json"))
+              r = new JsonParser().parse(new ByteArrayInputStream(t.getValue()));
+            else if (fn.endsWith(".txt"))
+              r = new StructureMapUtilities(context, null, null).parse(TextFile.bytesToString(t.getValue()));
+            else
+              throw new Exception("Unsupported format for "+fn);
+          } else
+            throw new Exception("Unsupported version "+version);
+
+        } catch (Exception e) {
+          throw new Exception("Error parsing "+fn+": "+e.getMessage(), e);
+        }
+        if (r != null) {
+          context.cacheResource(r);
+          if (r instanceof ImplementationGuide)
+            canonical = ((ImplementationGuide) r).getUrl();
+        }
       }
 		}
     if (canonical != null)
       grabNatives(source, canonical);
 	}
+
+  private boolean exemptFile(String fn) {
+    return Utilities.existsInList(fn, "spec.internals", "version.info", "schematron.zip");
+  }
 
   private String readInfoVersion(byte[] bs) throws IOException {
     String is = TextFile.bytesToString(bs);
