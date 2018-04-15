@@ -54,6 +54,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.SystemUtils;
+import org.hl7.fhir.convertors.IGR2ConvertorAdvisor;
 import org.hl7.fhir.convertors.R2016MayToR4Loader;
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;

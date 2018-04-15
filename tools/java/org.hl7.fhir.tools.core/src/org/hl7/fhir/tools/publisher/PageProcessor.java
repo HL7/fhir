@@ -9385,7 +9385,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     conceptMaps = null;
     profiles = null;
     igResources = null;
-    breadCrumbManager = null;
     searchTypeUsage = null;
     diffEngine = null;
     typeBundle = null;

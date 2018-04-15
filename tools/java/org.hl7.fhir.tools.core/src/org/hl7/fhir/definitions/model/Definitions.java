@@ -392,6 +392,7 @@ public class Definitions {
   private Map<String, PageInformation> pageInfo = new HashMap<String, Definitions.PageInformation>();
   private Map<String, ConstraintStructure> profileIds = new HashMap<String, ConstraintStructure>();
   private boolean loaded;
+  private int valueSetCount;
   
   public List<String> sortedResourceNames() {
     if (sortedNames == null) {
@@ -784,18 +785,16 @@ public class Definitions {
     boundValueSets = null;
     unresolvedBindings = null;
     allBindings = null;
-    primitives = null;
     constraints = null;
-    infrastructure = null;
     baseResources = null;
     resourceTemplates = null;
 
-    packList = null;
     packMap = null;
     dictionaries = null;
     knownResources = null;
     knownTypes = null;
     statusCodes = null;
+    valueSetCount = valuesets.size();
     valuesets = null;
     conceptMaps = null;
     codeSystems = null;
@@ -803,7 +802,6 @@ public class Definitions {
     styleExemptions = null;
 
     deletedResources = null;
-    shared = null;
     aggregationEndpoints = null;
     events = null;
     diagrams = null;
@@ -822,6 +820,10 @@ public class Definitions {
     structuralPages = null;
     profileIds = null;
        
+  }
+
+  public int getValueSetCount() {
+    return valueSetCount;
   }
 
 }

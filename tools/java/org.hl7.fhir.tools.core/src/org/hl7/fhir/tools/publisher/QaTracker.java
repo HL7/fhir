@@ -52,7 +52,7 @@ public class QaTracker {
     for (ElementDefn e : definitions.getInfrastructure().values())
       countPaths(e);
     
-    current.valuesets = definitions.getValuesets().size();
+    current.valuesets = definitions.getValueSetCount();
   }
 
   private void countPaths(ElementDefn e) {
