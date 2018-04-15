@@ -3673,7 +3673,7 @@ public class FHIRPathEngine {
         focus = sd.getSnapshot().getElementFirstRep();
       } else if ("extension".equals(expr.getName())) {
         String targetUrl = expr.getParameters().get(0).getConstant().primitiveValue();
-        targetUrl = targetUrl.substring(1,targetUrl.length()-1);
+//        targetUrl = targetUrl.substring(1,targetUrl.length()-1);
         List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(sd, element);
         for (ElementDefinition t : childDefinitions) {
           if (t.getPath().endsWith(".extension") && t.hasSliceName()) {
