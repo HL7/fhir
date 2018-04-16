@@ -3924,6 +3924,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return element.line();
     }
 
+    @Override
+    public String toString() {
+      return path;
+    }
   }
 
   public String reportTimes() {

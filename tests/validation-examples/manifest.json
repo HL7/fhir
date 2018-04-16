@@ -242,7 +242,7 @@
 			  "errorCount": 0,
         "profile" : {
           "source" : "slice-by-polymorphic-type-profile.xml", 
-          "errorCount": 1
+          "errorCount": 0
         }
 			},
       "code-correct.xml" : {
@@ -293,7 +293,7 @@
         "errorCount": 0,
         "profile" : {
           "source" : "slicing-types-by-string-profile.xml", 
-          "errorCount": 1
+          "errorCount": 0
         }
       },
       "uk-nhs-pat.xml" : {

@@ -1333,7 +1333,9 @@ public class FHIRPathEngine {
       result.add(new BooleanType(false).noExtensions());
     else {
       String tn = convertToString(right);
-      if (!(left.get(0) instanceof Element) || ((Element) left.get(0)).isDisallowExtensions())
+      if (left.get(0) instanceof org.hl7.fhir.r4.elementmodel.Element)
+        result.add(new BooleanType(left.get(0).hasType(tn)).noExtensions());
+      else if ((left.get(0) instanceof Element) || ((Element) left.get(0)).isDisallowExtensions())
         result.add(new BooleanType(Utilities.capitalize(left.get(0).fhirType()).equals(tn)).noExtensions());
       else
         result.add(new BooleanType(left.get(0).hasType(tn)).noExtensions());
