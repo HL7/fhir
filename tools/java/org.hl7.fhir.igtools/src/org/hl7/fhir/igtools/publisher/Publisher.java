@@ -2513,6 +2513,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     zip.addFileSource("index.html", REDIRECT_SOURCE, false);
     zip.close();
     Utilities.copyFile(Utilities.path(tempDir, "full-ig.zip"), Utilities.path(outputDir, "full-ig.zip"));
+    log("Final .zip built");
   }
 
   private void updateImplementationGuide() throws Exception {
