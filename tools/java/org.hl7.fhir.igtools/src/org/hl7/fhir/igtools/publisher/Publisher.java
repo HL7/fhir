@@ -3685,8 +3685,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
         map.put("sd.Type", sd.getType());
         map.put("sd.Type-plural", Utilities.pluralize(sd.getType(), 2));
-        map.put("sd.type", sd.getType().toLowerCase());
-        map.put("sd.type-plural", Utilities.pluralize(sd.getType(), 2).toLowerCase());
+        map.put("sd.type", !sd.hasType() ? "" : sd.getType().toLowerCase());
+        map.put("sd.type-plural", !sd.hasType() ? "" : Utilities.pluralize(sd.getType(), 2).toLowerCase());
         return map;
       default: return null;
       }

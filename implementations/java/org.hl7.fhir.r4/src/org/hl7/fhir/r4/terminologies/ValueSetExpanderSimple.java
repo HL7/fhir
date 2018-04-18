@@ -202,14 +202,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     excludeKeys.add(s);
   }
 
-  private void excludeCodes(ConceptSetComponent exc, List<ValueSetExpansionParameterComponent> params) throws FHIRException {
+  private void excludeCodes(ConceptSetComponent exc, List<ValueSetExpansionParameterComponent> params, String ctxt) throws FHIRException {
     exc.checkNoModifiers("Compose.exclude", "expanding");
     if (exc.hasSystem() && exc.getConcept().size() == 0 && exc.getFilter().size() == 0) {
       excludeSystems.add(exc.getSystem());
     }
 
     if (exc.hasValueSet())
-      throw new Error("Processing Value set references in exclude is not yet done");
+      throw new Error("Processing Value set references in exclude is not yet done in "+ctxt);
     // importValueSet(imp.getValue(), params, profile);
 
     CodeSystem cs = context.fetchCodeSystem(exc.getSystem());
@@ -255,7 +255,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         focus.getExpansion().addParameter().setName("profile").setValue(new UriType(profile.getUrl()));
 
       if (source.hasCompose())
-        handleCompose(source.getCompose(), focus.getExpansion().getParameter(), profile);
+        handleCompose(source.getCompose(), focus.getExpansion().getParameter(), profile, source.getUrl());
 
       if (canBeHeirarchy) {
         for (ValueSetExpansionContainsComponent c : roots) {
@@ -322,12 +322,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     return null;
   }
 
-  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile)
+  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile, String ctxt)
       throws ETooCostly, FileNotFoundException, IOException, FHIRException {
     compose.checkNoModifiers("ValueSet.compose", "expanding");
     // Exclude comes first because we build up a map of things to exclude
     for (ConceptSetComponent inc : compose.getExclude())
-      excludeCodes(inc, params);
+      excludeCodes(inc, params, ctxt);
     canBeHeirarchy = !profile.getExcludeNested() && excludeKeys.isEmpty() && excludeSystems.isEmpty();
     boolean first = true;
     for (ConceptSetComponent inc : compose.getInclude()) {
