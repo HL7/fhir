@@ -1885,6 +1885,18 @@ public class ProfileUtilities extends TranslatingUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+u.getValue().substring(1).toLowerCase()+".html", u.getValue(), null)));
         }
         c.getPieces().add(gen.new Piece(null, ")", null));
+        if (t.getAggregation().size() > 0) {
+          c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", " {", null));
+          boolean firstA = true;
+          for (Enumeration<AggregationMode> a : t.getAggregation()) {
+            if (firstA = true)
+              firstA = false;
+            else
+              c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", ", ", null));
+            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", codeForAggregation(a.getValue()), hintForAggregation(a.getValue()))));
+          }
+          c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", "}", null));
+        }
       } else if (t.hasProfile() && (!t.getCode().equals("Extension") || isProfiledType(t.getProfile()))) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
@@ -1922,8 +1934,15 @@ public class ProfileUtilities extends TranslatingUtilities {
     case BUNDLED : return "b";
     case CONTAINED : return "c";
     case REFERENCED: return "r";
-	 default: return "?";
+    default: return "?";
     }
+  }
+
+  private String hintForAggregation(AggregationMode a) {
+    if (a != null)
+      a.getDefinition();
+    else 
+      return null;
   }
 
 
