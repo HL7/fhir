@@ -1940,7 +1940,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
   private String hintForAggregation(AggregationMode a) {
     if (a != null)
-      a.getDefinition();
+      return a.getDefinition();
     else 
       return null;
   }
