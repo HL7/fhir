@@ -406,7 +406,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
         else
           vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
-        vsn = gt(vs.getNameElement());
+        StringType title = vs.hasTitleElement() ? vs.getTitleElement() : vs.getNameElement();
+        if (title != null)
+          vsn = gt(title);
       }
       }
     }
