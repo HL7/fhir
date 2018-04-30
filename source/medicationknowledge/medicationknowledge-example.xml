@@ -29,5 +29,5 @@
     <value value="50"></value>
     <unit value="mg/ml"/>
   </amount>
-  <name value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"></name>
+  <synonym value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"></synonym>
 </MedicationKnowledge>
