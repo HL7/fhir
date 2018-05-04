@@ -26,7 +26,7 @@ public class MappingServices implements ITransformerServices {
   }
 
   @Override
-  public Base createResource(Object appInfo, Base res) {
+  public Base createResource(Object appInfo, Base res, boolean atRoot) {
     if (!(res instanceof Resource))
       return res;
     

@@ -204,8 +204,9 @@ public class FHIRPathEngine {
      * Implementation of resolve() function. Passed a string, return matching resource, if one is known - else null
      * @param url
      * @return
+     * @throws FHIRException 
      */
-    public Base resolveReference(Object appContext, String url);
+    public Base resolveReference(Object appContext, String url) throws FHIRException;
     
   }
 
@@ -2976,7 +2977,7 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcResolve(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
+  private List<Base> funcResolve(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     for (Base item : focus) {
       if (hostServices != null) {

@@ -13,7 +13,7 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
-
+import org.hl7.fhir.utilities.Utilities;
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -220,6 +220,7 @@ public class Property {
     ElementDefinition ed = definition;
     StructureDefinition sd = structure;
     List<ElementDefinition> children = ProfileUtilities.getChildMap(sd, ed);
+    String url = null;
     if (children.isEmpty() || isElementWithOnlyExtension(ed, children)) {
       // ok, find the right definitions
       String t = null;
@@ -243,9 +244,19 @@ public class Property {
             if (t == null && ToolingExtensions.hasExtension(ed, "http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype"))
               t = ToolingExtensions.readStringExtension(ed, "http://hl7.org/fhir/StructureDefinition/elementdefinition-defaulttype");
             boolean ok = false;
-            for (TypeRefComponent tr : ed.getType()) 
+            for (TypeRefComponent tr : ed.getType()) { 
               if (tr.getCode().equals(t)) 
                 ok = true;
+              if (Utilities.isAbsoluteUrl(tr.getCode())) {
+                StructureDefinition sdt = context.fetchResource(StructureDefinition.class, tr.getCode());
+                if (sdt != null && sdt.getType().equals(t)) {
+                  url = tr.getCode();
+                  ok = true;
+                }
+              }
+              if (ok)
+                break;
+            }
              if (!ok)
                throw new DefinitionException("Type '"+t+"' is not an acceptable type for '"+elementName+"' on property "+definition.getPath());
             
@@ -257,7 +268,6 @@ public class Property {
         }
       }
       if (!"xhtml".equals(t)) {
-        String url = null;
         for (TypeRefComponent aType: ed.getType()) {
           if (aType.getCode().equals(t)) {
             if (aType.hasProfile()) {

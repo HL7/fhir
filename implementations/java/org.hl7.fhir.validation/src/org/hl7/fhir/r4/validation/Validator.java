@@ -150,7 +150,7 @@ public class Validator {
       System.out.println("");
       System.out.println("Any other dependency maps have to be loaded through an -ig reference ");
       System.out.println("");
-      System.out.println("-transform requires the parameters -defn, -txserver, -folder (at least one with the map files), and -output");
+      System.out.println("-transform uses the parameters -defn, -txserver, -ig (at least one with the map files), and -output");
       System.out.println("");
       System.out.println("Alternatively, you can use the validator to generate narrative for a resource.");
       System.out.println("To do this, you must provide a specific parameter:");
@@ -167,13 +167,13 @@ public class Validator {
       System.out.println("-snapshot requires the parameters -defn, -txserver, -source, and -output. ig may be used to provide necessary base profiles");
     } else { 
       String definitions = "http://build.fhir.org/";
+      String map = null;
       List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
       String txServer = "http://tx.fhir.org/r4";
       boolean doNative = false;
       List<String> profiles = new ArrayList<String>();
       EngineMode mode = EngineMode.VALIDATION;
-      String map = null;
       String output = null;
       List<String> sources= new ArrayList<String>();
       Map<String, String> locations = new HashMap<String, String>();
@@ -212,9 +212,10 @@ public class Validator {
             questionnaires.add(args[++i]);
         else if (args[i].equals("-native"))
             doNative = true;
-        else if (args[i].equals("-transform"))
+        else if (args[i].equals("-transform")) {
+          map = args[++i];
           mode = EngineMode.TRANSFORM;
-        else if (args[i].equals("-narrative"))
+        } else if (args[i].equals("-narrative"))
           mode = EngineMode.NARRATIVE;
         else if (args[i].equals("-snapshot"))
           mode = EngineMode.SNAPSHOT;
@@ -255,6 +256,7 @@ public class Validator {
       validator.setQuestionnaires(questionnaires);
       validator.setNative(doNative);
 
+      XmlParser x = new XmlParser();
       if (mode == EngineMode.TRANSFORM) {
         if  (sources.size() > 1)
           throw new Exception("Can only have one source when doing a transform (found "+sources+")");
@@ -267,7 +269,8 @@ public class Validator {
           System.out.println(" ...success");
           if (output != null) {
             FileOutputStream s = new FileOutputStream(output);
-            new XmlParser().compose(s, r, true);
+            x.setOutputStyle(OutputStyle.PRETTY);
+            x.compose(s, r, true);
             s.close();
           }
         } catch (Exception e) {
@@ -306,7 +309,7 @@ public class Validator {
             displayOO((OperationOutcome)r);
         } else {
           FileOutputStream s = new FileOutputStream(output);
-          new XmlParser().compose(s, r, true);
+          x.compose(s, r, true);
           s.close();
         }
       }

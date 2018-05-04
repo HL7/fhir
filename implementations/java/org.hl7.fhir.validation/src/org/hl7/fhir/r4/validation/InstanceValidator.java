@@ -129,7 +129,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
 
     @Override
-    public Base resolveReference(Object appContext, String url) {
+    public Base resolveReference(Object appContext, String url) throws FHIRException {
       ValidatorHostContext c = (ValidatorHostContext) appContext;
       if (c.container != null || externalHostServices == null)
         throw new Error("Not done yet - resolve "+url+" locally");

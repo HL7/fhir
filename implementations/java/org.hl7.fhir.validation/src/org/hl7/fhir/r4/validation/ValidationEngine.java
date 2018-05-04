@@ -59,7 +59,9 @@ import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.RdfParser;
 import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ExpansionProfile;
@@ -79,6 +81,8 @@ import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
+import org.hl7.fhir.r4.utils.StructureMapUtilities.ITransformerServices;
+import org.hl7.fhir.r4.validation.ValidationEngine.TransformSupportServices;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.ValidationProfileSet;
 import org.hl7.fhir.convertors.R2ToR3Loader;
@@ -146,7 +150,49 @@ import org.xml.sax.SAXException;
  */
 public class ValidationEngine {
 
-	private SimpleWorkerContext context;
+	public class TransformSupportServices implements ITransformerServices {
+
+    private List<Resource> outputs;
+
+    public TransformSupportServices(List<Resource> outputs) {
+      this.outputs = outputs;
+    }
+
+    @Override
+    public void log(String message) {
+      System.out.println(message);
+    }
+
+    @Override
+    public Base createType(Object appInfo, String name) throws FHIRException {
+      return ResourceFactory.createResourceOrType(name);
+    }
+
+    @Override
+    public Base createResource(Object appInfo, Base res, boolean atRootofTransform) {
+      if (atRootofTransform)
+        outputs.add((Resource) res);
+      return res;
+    }
+
+    @Override
+    public Coding translate(Object appInfo, Coding source, String conceptMapUrl) throws FHIRException {
+      throw new FHIRException("translation is not supported yet");
+    }
+
+    @Override
+    public Base resolveReference(Object appContext, String url) throws FHIRException {
+      throw new FHIRException("resolveReference is not supported yet");
+    }
+
+    @Override
+    public List<Base> performSearch(Object appContext, String url) throws FHIRException {
+      throw new FHIRException("performSearch is not supported yet");
+    }
+
+  }
+
+  private SimpleWorkerContext context;
 //  private FHIRPathEngine fpe;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean doNative;
@@ -700,16 +746,21 @@ public class ValidationEngine {
   }
   
   public Resource transform(byte[] source, FhirFormat cntType, String mapUri) throws Exception {
-    StructureMapUtilities scu = new StructureMapUtilities(context);
+    List<Resource> outputs = new ArrayList<Resource>();
+    
+    StructureMapUtilities scu = new StructureMapUtilities(context, new TransformSupportServices(outputs));
 
     org.hl7.fhir.r4.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
     StructureMap map = context.getTransform(mapUri);
     if (map == null)
       throw new Error("Unable to find map "+mapUri);
     
-    Resource dst = ResourceFactory.createResource("Bundle");
-    scu.transform(null, src, map, dst);
-    return dst;
+    scu.transform(null, src, map, null);
+    if (outputs.size() == 0)
+      throw new Exception("This transform did not produce an output");
+    if (outputs.size() > 1)
+      throw new Exception("This transform did produced multiple outputs which is not supported in this context");
+    return outputs.get(0);
   }
 
   public DomainResource generate(String source) throws Exception {
