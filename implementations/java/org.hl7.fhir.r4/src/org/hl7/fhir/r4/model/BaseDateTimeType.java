@@ -704,6 +704,8 @@ public abstract class BaseDateTimeType extends PrimitiveType<Date> {
 				b.append(nextChar);
 			}
 
+      if (b.length() == 13)
+        b.append(":00"); // schema rule, must have minutes
 			if (b.length() == 16)
 				b.append(":00"); // schema rule, must have seconds
 			if (timeZone != null && b.length() > 10) {
