@@ -30,7 +30,6 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,19 +40,14 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.conformance.XmlSchemaGenerator.ElementToGenerate;
-import org.hl7.fhir.r4.conformance.XmlSchemaGenerator.QName;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-
-import com.sun.xml.internal.ws.api.model.wsdl.editable.EditableWSDLBoundFault;
 
 
 public class XmlSchemaGenerator  {
