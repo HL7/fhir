@@ -7881,6 +7881,10 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "ImplementationGuide", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasCopyrightElement())
       composeMarkdown(t, "ImplementationGuide", "copyright", element.getCopyrightElement(), -1);
+    if (element.hasPackageIdElement())
+      composeId(t, "ImplementationGuide", "packageId", element.getPackageIdElement(), -1);
+    if (element.hasLicenseElement())
+      composeEnum(t, "ImplementationGuide", "license", element.getLicenseElement(), -1);
     if (element.hasFhirVersionElement())
       composeId(t, "ImplementationGuide", "fhirVersion", element.getFhirVersionElement(), -1);
     for (int i = 0; i < element.getDependsOn().size(); i++)
@@ -7905,6 +7909,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "dependsOn", name, element, index);
     if (element.hasUriElement())
       composeCanonical(t, "ImplementationGuide", "uri", element.getUriElement(), -1);
+    if (element.hasPackageIdElement())
+      composeId(t, "ImplementationGuide", "packageId", element.getPackageIdElement(), -1);
     if (element.hasVersionElement())
       composeString(t, "ImplementationGuide", "version", element.getVersionElement(), -1);
   }

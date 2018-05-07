@@ -11847,6 +11847,14 @@ public class JsonParser extends JsonParserBase {
       res.setCopyrightElement(parseMarkdown(json.get("copyright").getAsString()));
     if (json.has("_copyright"))
       parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightElement());
+    if (json.has("packageId"))
+      res.setPackageIdElement(parseId(json.get("packageId").getAsString()));
+    if (json.has("_packageId"))
+      parseElementProperties(json.getAsJsonObject("_packageId"), res.getPackageIdElement());
+    if (json.has("license"))
+      res.setLicenseElement(parseEnumeration(json.get("license").getAsString(), ImplementationGuide.SPDXLicense.NULL, new ImplementationGuide.SPDXLicenseEnumFactory()));
+    if (json.has("_license"))
+      parseElementProperties(json.getAsJsonObject("_license"), res.getLicenseElement());
     if (json.has("fhirVersion"))
       res.setFhirVersionElement(parseId(json.get("fhirVersion").getAsString()));
     if (json.has("_fhirVersion"))
@@ -11881,6 +11889,10 @@ public class JsonParser extends JsonParserBase {
       res.setUriElement(parseCanonical(json.get("uri").getAsString()));
     if (json.has("_uri"))
       parseElementProperties(json.getAsJsonObject("_uri"), res.getUriElement());
+    if (json.has("packageId"))
+      res.setPackageIdElement(parseId(json.get("packageId").getAsString()));
+    if (json.has("_packageId"))
+      parseElementProperties(json.getAsJsonObject("_packageId"), res.getPackageIdElement());
     if (json.has("version"))
       res.setVersionElement(parseString(json.get("version").getAsString()));
     if (json.has("_version"))
@@ -38222,6 +38234,14 @@ public class JsonParser extends JsonParserBase {
         composeMarkdownCore("copyright", element.getCopyrightElement(), false);
         composeMarkdownExtras("copyright", element.getCopyrightElement(), false);
       }
+      if (element.hasPackageIdElement()) {
+        composeIdCore("packageId", element.getPackageIdElement(), false);
+        composeIdExtras("packageId", element.getPackageIdElement(), false);
+      }
+      if (element.hasLicenseElement()) {
+        composeEnumerationCore("license", element.getLicenseElement(), new ImplementationGuide.SPDXLicenseEnumFactory(), false);
+        composeEnumerationExtras("license", element.getLicenseElement(), new ImplementationGuide.SPDXLicenseEnumFactory(), false);
+      }
       if (element.hasFhirVersionElement()) {
         composeIdCore("fhirVersion", element.getFhirVersionElement(), false);
         composeIdExtras("fhirVersion", element.getFhirVersionElement(), false);
@@ -38259,6 +38279,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasUriElement()) {
         composeCanonicalCore("uri", element.getUriElement(), false);
         composeCanonicalExtras("uri", element.getUriElement(), false);
+      }
+      if (element.hasPackageIdElement()) {
+        composeIdCore("packageId", element.getPackageIdElement(), false);
+        composeIdExtras("packageId", element.getPackageIdElement(), false);
       }
       if (element.hasVersionElement()) {
         composeStringCore("version", element.getVersionElement(), false);

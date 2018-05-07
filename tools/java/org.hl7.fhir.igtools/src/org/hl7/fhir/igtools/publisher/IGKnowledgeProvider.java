@@ -142,7 +142,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     s = s.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
     if (vars != null) {
       for (String n : vars.keySet())
-        s = s.replace("{{["+n+"]}}", vars.get(n));
+        s = s == null ? "" : s.replace("{{["+n+"]}}", vars.get(n));
     }
     return s;
   }

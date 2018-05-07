@@ -9,6 +9,7 @@
     "txCache" : "txCache",
     "specification" : "../../../publish"
   },
+  "template" : "https://github.com/FHIR/test-template",
   "license" : "CCD-0",
 	"canonicalBase": "http://hl7.org/fhir/test",
   "version" : "3.0.1",

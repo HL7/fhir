@@ -106,6 +106,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.PrimitiveType;
@@ -149,6 +150,7 @@ import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
 import org.hl7.fhir.igtools.openapi.Writer;
 import org.hl7.fhir.igtools.publisher.FetchedFile.FetchedBundleType;
 import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
+import org.hl7.fhir.igtools.publisher.NPMPackageGenerator.Category;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
 import org.hl7.fhir.igtools.publisher.Publisher.IGPublisherHostServices;
@@ -348,6 +350,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 //  private static String txServer = "http://local.fhir.org:964/r4";
   private String igPack = "";
   private boolean watch;
+  private boolean debug;
 
   private GenerationTool tool;
 
@@ -427,6 +430,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private List<ValueSet> expansions = new ArrayList<>();
 
   private String npmName;
+
+  private NPMPackageGenerator npm;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -880,7 +885,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     
 	 qaDir = Utilities.path(root, str(paths, "qa"));
-    vsCache = ostr(paths, "txCache");
+   vsCache = ostr(paths, "txCache");
     
 	 if (mode == IGBuildMode.WEBSERVER) 
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
@@ -1010,9 +1015,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else 
       checkTSVersion(vsCache, context.connectToTSServer(webTxServer));
     
-    if (copyTemplate)
-      copyTemplate();
-    
+    // commented out GDG - talk to me if you want this back
+//    if (copyTemplate)
+//      copyTemplate();
+//    
     loadSpecDetails(context.getBinaries().get("spec.internals"), context.getBinaries().get("version.info"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors, version.equals("1.0.2"));
     igpkp.loadSpecPaths(specMaps.get(0));
@@ -1084,6 +1090,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
 
+    if (configuration.has("template"))
+      loadTemplate(str(configuration, "template"));
+    
     log("Initialization complete");
     // now, do regeneration
     JsonArray regenlist = configuration.getAsJsonArray("regenerate");
@@ -1091,6 +1100,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (JsonElement regen : regenlist)
         regenList.add(((JsonPrimitive) regen).getAsString());
   }
+
 
   void handlePreProcess(JsonObject pp, String root) throws Exception {
     String path = Utilities.path(root, str(pp, "folder"));
@@ -1525,7 +1535,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
 
     publishedIg = sourceIg.copy();
-
+    if (!publishedIg.hasLicense())
+      publishedIg.setLicense(licenseAsEnum());
+    if (!publishedIg.hasPackageId() && configuration.has("npm-name"))
+      publishedIg.setPackageId(configuration.get("npm-name").getAsString());
+    if (!publishedIg.hasFhirVersion())
+      publishedIg.setFhirVersion(version);
+    if (!publishedIg.hasVersion() && businessVersion != null)
+      publishedIg.setVersion(businessVersion);
+    
     // load any bundles
     if (sourceDir != null || igpkp.isAutoPath())
       needToBuild = loadResources(needToBuild, igf);
@@ -1568,10 +1586,38 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         resources.put(igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null), r);
       }
     }
-
+    
+    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }
+
+  private void loadTemplate(String src) {
+//    Map<String, byte[]> template = new HashMap<String, byte[]>();
+//    fetchTemplate(template, src)
+//!    
+  }
+
+
+  private void templateBeforeGenerate() throws IOException {
+   //
+   // load it into temp
+   // if it as an initial any file, let it run 
+   // load template configuration for templates / defaults
+   if (debug)
+     waitForInput("before-generate");
+  }
+
+  private void templateAfterGenerate() throws IOException {
+    if (debug)
+      waitForInput("before-generate");
+  }
+  
+  private void waitForInput(String string) throws IOException {
+    System.out.print("At point '"+string+"' - press enter to continue: ");
+    while (System.in.read() != 10) {};
+  }
+
 
   private void loadIgPages(ImplementationGuideDefinitionPageComponent page, HashMap<String, ImplementationGuideDefinitionPageComponent> map) throws FHIRException {
     map.put(page.getNameUrlType().getValue(), page);
@@ -2470,15 +2516,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       regenerate(rg);
 
     updateImplementationGuide();
+    
+    for (FetchedFile f : changeList)
+      generateNativeOutputs(f, false);
+    
+    templateBeforeGenerate();
 
     for (FetchedFile f : changeList)
-      generateOutputs(f, false);
+      generateHtmlOutputs(f, false);
 
     ValidationPresenter.filterMessages(errors, suppressedMessages, false);
     if (!changeList.isEmpty())
       generateSummaryOutputs();
 
+    npm.finish();
+    otherFilesRun.add(Utilities.path(tempDir, "package.tgz"));
     cleanOutput(tempDir);
+    templateAfterGenerate();
 
     if (runTool())
       if (!changeList.isEmpty())
@@ -2516,6 +2570,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("Final .zip built");
   }
 
+
+
   private void updateImplementationGuide() throws Exception {
     for (ImplementationGuideDefinitionResourceComponent res : publishedIg.getDefinition().getResource()) {
       FetchedResource r = null;
@@ -2538,6 +2594,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       publishedIg.setText(((ImplementationGuide)r.getResource()).getText());
     r.setResource(publishedIg);
     r.setElement(convertToElement(publishedIg));
+    
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, publishedIg);
+    npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
   }
 
   private String checkPlural(String word, int c) {
@@ -2565,7 +2625,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     r.setElement(convertToElement(bc));
     igpkp.findConfiguration(f, r);
     bc.setUserData("config", r.getConfig());
-    generateOutputs(f, true);
+    generateNativeOutputs(f, true);
+    generateHtmlOutputs(f, true);
   }
 
   private Element convertToElement(Resource res) throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError, DefinitionException {
@@ -2960,7 +3021,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateResourceReferences();
 
     generateDataFile();
-    generateNPMPackage();
     
     // now, list the profiles - all the profiles
     JsonObject data = new JsonObject();
@@ -3032,50 +3092,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  private void generateNPMPackage() throws Exception {
-    if (!configuration.has("npm-name"))
-      return;
-    String license = license();
-    
-    PackageGenerator npm = null;
-    if (configuration.has("npm-template")) 
-      npm = new PackageGenerator(new FileOutputStream(Utilities.path(tempDir, "package.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("npm-template").getAsString())));
-    else
-      npm = new PackageGenerator(new FileOutputStream(Utilities.path(tempDir, "package.json")));
-    
-    npm.name(configuration.get("npm-name").getAsString());
-    if (Utilities.noString(publishedIg.getVersion()))
-      npm.version(version);
-    else
-      npm.version(publishedIg.getVersion());
-    StringBuilder b = new StringBuilder();
-    if (publishedIg.hasTitle())
-      b.append(publishedIg.getTitle());
-    else
-      b.append(publishedIg.getName());
-    if (publishedIg.hasDescription())
-      b.append(": "+publishedIg.getDescription());
-    npm.description(b.toString());
-    npm.license(license);
-    npm.author(publishedIg.getPublisher(), null, null);
-    for (ContactDetail t : publishedIg.getContact()) {
-      npm.contributor(t.getName(), email(t.getTelecom()), url(t.getTelecom()));
-    }
-    npm.file("validation.pack");
-    for (SpecMapManager m : specMaps) {
-      npm.dependency("@fhir/"+m.getNpmName(), m.getVersion());
-    }
-    npm.commit();
-    otherFilesRun.add(Utilities.path(tempDir, "package.json"));
-  }
-
-
   public String license() throws Exception {
     String license = ostr(configuration, "license");
     if (Utilities.noString(license))
       throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"Not Open Source\"");
     return license;
   }
+
+  public SPDXLicense licenseAsEnum() throws Exception {
+    return SPDXLicense.fromCode(license());
+  }
+
 
 
   private String url(List<ContactPoint> telecom) {
@@ -3578,8 +3605,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       logger.logMessage(s);
   }
 
-  private void generateOutputs(FetchedFile f, boolean regen) throws TransformerException {
-
+  private void generateNativeOutputs(FetchedFile f, boolean regen) throws IOException, FHIRException {
+    for (FetchedResource r : f.getResources()) {
+        dlog(LogCategory.PROGRESS, "Produce resources for "+r.getElement().fhirType()+"/"+r.getId());
+        saveNativeResourceOutputs(f, r);
+    }    
+  }
+  private void generateHtmlOutputs(FetchedFile f, boolean regen) throws TransformerException, IOException {
     if (f.getProcessMode() == FetchedFile.PROCESS_NONE) {
       String dst = tempDir;
       if (f.getRelativePath().startsWith(File.separator))
@@ -3700,9 +3732,38 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
    * then the narrative as html
    *
    * @param r
+   * @throws IOException 
+   * @throws FHIRException 
    * @throws FileNotFoundException
    * @throws Exception
    */
+  private void saveNativeResourceOutputs(FetchedFile f, FetchedResource r) throws FHIRException, IOException {
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new org.hl7.fhir.r4.elementmodel.JsonParser(context).compose(r.getElement(), bs, OutputStyle.NORMAL, igpkp.getCanonical());
+    npm.addFile(Category.RESOURCE, r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray());
+    if (igpkp.wantGen(r, "xml")) {
+      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
+      f.getOutputNames().add(path);
+      FileOutputStream stream = new FileOutputStream(path);
+      new org.hl7.fhir.r4.elementmodel.XmlParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
+      stream.close();
+    }
+    if (igpkp.wantGen(r, "json")) {
+      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
+      f.getOutputNames().add(path);
+      FileOutputStream stream = new FileOutputStream(path);
+      new org.hl7.fhir.r4.elementmodel.JsonParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
+      stream.close();
+    } 
+    if (igpkp.wantGen(r, "ttl")) {
+      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
+      f.getOutputNames().add(path);
+      FileOutputStream stream = new FileOutputStream(path);
+      new org.hl7.fhir.r4.elementmodel.TurtleParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
+      stream.close();
+    }    
+  }
+
   private void saveDirectResourceOutputs(FetchedFile f, FetchedResource r, Map<String, String> vars) throws FileNotFoundException, Exception {
     String baseName = igpkp.getProperty(r, "base");
     if (r.getResource() != null && r.getResource() instanceof StructureDefinition) {
@@ -3733,29 +3794,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     String template = igpkp.getProperty(r, "template-format");
     if (igpkp.wantGen(r, "xml")) {
-      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".xml");
-      f.getOutputNames().add(path);
-      FileOutputStream stream = new FileOutputStream(path);
-      new org.hl7.fhir.r4.elementmodel.XmlParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
-      stream.close();
       if (tool == GenerationTool.Jekyll)
         genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "xml", "");
     }
     if (igpkp.wantGen(r, "json")) {
-      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".json");
-      f.getOutputNames().add(path);
-      FileOutputStream stream = new FileOutputStream(path);
-      new org.hl7.fhir.r4.elementmodel.JsonParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
-      stream.close();
       if (tool == GenerationTool.Jekyll)
         genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "json", "");
-    }
+    } 
+
     if (igpkp.wantGen(r, "ttl")) {
-      String path = Utilities.path(tempDir, r.getElement().fhirType()+"-"+r.getId()+".ttl");
-      f.getOutputNames().add(path);
-      FileOutputStream stream = new FileOutputStream(path);
-      new org.hl7.fhir.r4.elementmodel.TurtleParser(context).compose(r.getElement(), stream, OutputStyle.PRETTY, igpkp.getCanonical());
-      stream.close();
       if (tool == GenerationTool.Jekyll)
         genWrapper(null, r, template, igpkp.getProperty(r, "format"), f.getOutputNames(), vars, "ttl", "");
     }
@@ -3932,6 +3979,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       new OpenApiGenerator(cpbs, oa).generate(license());
       oa.commit();
       otherFilesRun.add(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json"));
+      npm.addFile(Category.OPENAPI, cpbs.getId()+ ".openapi.json", IOUtils.toByteArray(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));
     }
   }
 
@@ -4015,6 +4063,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String path = Utilities.path(tempDir, r.getId()+".sch");
       f.getOutputNames().add(path);
       new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);
+      npm.addFile(Category.SCHEMATRON, r.getId()+".sch", IOUtils.toByteArray(Utilities.path(tempDir, r.getId()+".sch")));
     }
     if (igpkp.wantGen(r, "sch"))
       fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
@@ -4383,6 +4432,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (hasNamedParam(args, "-auto-ig-build"))
       self.setMode(IGBuildMode.AUTOBUILD);
       self.watch = hasParam(args, "-watch");
+      self.debug = hasParam(args, "-debug");
       if (hasParam(args, "-resetTx"))
         self.setCacheOption(CacheOption.CLEAR_ALL);
       else if (hasParam(args, "-resetTxErrors"))

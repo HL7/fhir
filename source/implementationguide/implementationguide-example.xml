@@ -31,6 +31,7 @@
     </coding>
   </jurisdiction>
   <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
+  <license value="CC0-1.0"/>
   <fhirVersion value="1.0.0"/>
   <dependsOn> 
     <uri value="http://hl7.org/fhir/ImplementationGuide/uscore"/>

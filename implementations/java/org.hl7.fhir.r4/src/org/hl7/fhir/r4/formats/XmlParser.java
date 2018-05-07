@@ -10708,6 +10708,10 @@ public class XmlParser extends XmlParserBase {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("copyright")) {
         res.setCopyrightElement(parseMarkdown(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("packageId")) {
+        res.setPackageIdElement(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("license")) {
+        res.setLicenseElement(parseEnumeration(xpp, ImplementationGuide.SPDXLicense.NULL, new ImplementationGuide.SPDXLicenseEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("fhirVersion")) {
         res.setFhirVersionElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dependsOn")) {
@@ -10741,6 +10745,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseImplementationGuideImplementationGuideDependsOnComponentContent(int eventType, XmlPullParser xpp, ImplementationGuide owner, ImplementationGuide.ImplementationGuideDependsOnComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("uri")) {
         res.setUriElement(parseCanonical(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("packageId")) {
+        res.setPackageIdElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("version")) {
         res.setVersionElement(parseString(xpp));
       } else if (!parseBackboneElementContent(eventType, xpp, res))
@@ -34020,6 +34026,11 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCopyrightElement()) {
         composeMarkdown("copyright", element.getCopyrightElement());
       }
+      if (element.hasPackageIdElement()) {
+        composeId("packageId", element.getPackageIdElement());
+      }
+      if (element.hasLicenseElement())
+        composeEnumeration("license", element.getLicenseElement(), new ImplementationGuide.SPDXLicenseEnumFactory());
       if (element.hasFhirVersionElement()) {
         composeId("fhirVersion", element.getFhirVersionElement());
       }
@@ -34053,6 +34064,9 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElementElements(element);
       if (element.hasUriElement()) {
         composeCanonical("uri", element.getUriElement());
+      }
+      if (element.hasPackageIdElement()) {
+        composeId("packageId", element.getPackageIdElement());
       }
       if (element.hasVersionElement()) {
         composeString("version", element.getVersionElement());
