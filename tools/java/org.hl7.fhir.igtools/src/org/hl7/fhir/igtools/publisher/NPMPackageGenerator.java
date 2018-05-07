@@ -171,4 +171,8 @@ public class NPMPackageGenerator {
     tar.finish();
     tar.close();
   }
+
+  public String filename() {
+    return destFile;
+  }
 }

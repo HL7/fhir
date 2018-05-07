@@ -46,6 +46,7 @@ public class ConstraintJavaGenerator {
     
     dest.write("}\r\n");
     dest.flush();
+    dest.close();
     return destFile.getAbsolutePath();
   }
   

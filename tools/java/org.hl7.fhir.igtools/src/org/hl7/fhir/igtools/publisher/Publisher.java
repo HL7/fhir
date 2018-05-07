@@ -432,6 +432,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String npmName;
 
   private NPMPackageGenerator npm;
+
+  private PackageCacheManager pcm;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -523,6 +525,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (sourceIg != null) {
         b.append("  \"url\" : \""+Utilities.escapeJson(sourceIg.getUrl())+"\",\r\n");
         b.append("  \"name\" : \""+Utilities.escapeJson(sourceIg.getName())+"\",\r\n");
+      }
+      if (publishedIg != null && publishedIg.hasPackageId()) {
+        b.append("  \"package-id\" : \""+publishedIg.getPackageId()+"\",\r\n");
       }
       b.append("  \"date\" : \""+Utilities.escapeJson(new SimpleDateFormat("EEE, dd MMM, yyyy HH:mm:ss Z", new Locale("en", "US")).format(execTime.getTime()))+"\",\r\n");
       if (val != null) {
@@ -813,6 +818,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public void initialize() throws Exception {
+    pcm = new PackageCacheManager();
     fetcher.setResourceDirs(resourceDirs);
     first = true;
     boolean copyTemplate = false;
@@ -1543,6 +1549,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       publishedIg.setFhirVersion(version);
     if (!publishedIg.hasVersion() && businessVersion != null)
       publishedIg.setVersion(businessVersion);
+    if (publishedIg.hasPackageId())
+      pcm.recordMap(igpkp.getCanonical(), publishedIg.getPackageId());
     
     // load any bundles
     if (sourceDir != null || igpkp.isAutoPath())
@@ -2530,6 +2538,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       generateSummaryOutputs();
 
     npm.finish();
+    pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));
+    
     otherFilesRun.add(Utilities.path(tempDir, "package.tgz"));
     cleanOutput(tempDir);
     templateAfterGenerate();

@@ -1046,7 +1046,7 @@ public class Utilities {
   }
 
 
-  private static boolean isWindows() {
+  public static boolean isWindows() {
     return System.getProperty("os.name").startsWith("Windows");
   }
 

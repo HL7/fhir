@@ -33,12 +33,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -49,10 +51,13 @@ changes for James
   
 */
 public class JavaEnumerationsGenerator extends JavaBaseGenerator {
-
-	public JavaEnumerationsGenerator(OutputStream out, Definitions definitions) throws UnsupportedEncodingException {
+  private Map<String, String> enumInfo;
+  
+  
+	public JavaEnumerationsGenerator(OutputStream out, Definitions definitions, Map<String, String> enumInfo) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
+    this.enumInfo = enumInfo;
 	}
 
 	public void generate(Date genDate, String version) throws Exception {		
@@ -92,7 +97,9 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 	private void generateEnum(BindingSpecification cd) throws Exception {
     String tns = cd.getValueSet().getName();
     cd.getValueSet().setUserData("java-generated", true);
-	  
+    String url = cd.getValueSet().getUrl();
+    CommaSeparatedStringBuilder el = new CommaSeparatedStringBuilder();
+
 		write("    public enum "+tns+" {\r\n");
 		int l = cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true).size();
 		int i = 0;
@@ -100,6 +107,8 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 				i++;
 				String cc = Utilities.camelCase(c.getCode());
 	      cc = makeConst(cc);
+	      el.append(cc);
+
 	      write("        /**\r\n");
 	      write("         * "+c.getDefinition()+"\r\n");
 	      write("         */\r\n");      
@@ -109,6 +118,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("         * added to help the parsers\r\n");
     write("         */\r\n");      
     write("        NULL;\r\n");
+    el.append("NULL");
 
 
 		write("        public static "+tns+" fromCode(String codeString) throws FHIRException {\r\n");
@@ -216,6 +226,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 
     write("    }\r\n"); 
     write("\r\n");
+    enumInfo.put("org.hl7.fhir.r4.model.Enumerations."+tns, url+"|"+el.toString());
 	}
 
 }

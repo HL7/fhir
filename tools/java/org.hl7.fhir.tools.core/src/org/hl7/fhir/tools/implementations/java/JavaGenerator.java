@@ -41,6 +41,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.jar.Attributes;
 import java.util.jar.JarEntry;
 import java.util.jar.JarOutputStream;
@@ -92,6 +93,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private Definitions definitions;
   private Map<String, String> hashes = new HashMap<String, String>();
   private Map<String, String> adornments = new HashMap<String, String>();
+  private Map<String, String> enumInfo = new HashMap<String, String>();
   
   public JavaGenerator(FolderManager folders) throws FileNotFoundException, IOException {
     super();
@@ -152,12 +154,12 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     JavaFactoryGenerator jFactoryGen = new JavaFactoryGenerator(new FileOutputStream(javaDir+"ResourceFactory.java"));
 
     generateResourceTypeEnum(version, svnRevision, genDate);
-    JavaEnumerationsGenerator jEnums = new JavaEnumerationsGenerator(new FileOutputStream(javaDir+"Enumerations.java"), definitions);
+    JavaEnumerationsGenerator jEnums = new JavaEnumerationsGenerator(new FileOutputStream(javaDir+"Enumerations.java"), definitions, enumInfo);
     jEnums.generate(genDate, version);
 
     for (String n : definitions.getBaseResources().keySet()) {
       ResourceDefn root = definitions.getBaseResources().get(n);
-      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
       jrg.generate(root.getRoot(), javaClassName(root.getName()), JavaGenClass.Resource, null, genDate, version, root.isAbstract(), null, null);
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
@@ -169,7 +171,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String n : definitions.getResources().keySet()) {
       ResourceDefn root = definitions.getResourceByName(n);
-      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jrg = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
       jrg.generate(root.getRoot(), javaClassName(root.getName()), JavaGenClass.Resource, null, genDate, version, false, root.getSearchParams(), root.getTemplate());
       jrg.close();
       hashes.put(n, Long.toString(jrg.getHashSum()));
@@ -178,7 +180,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String n : definitions.getInfrastructure().keySet()) {
       ElementDefn root = definitions.getInfrastructure().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Structure, null, genDate, version, false, null, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
@@ -187,7 +189,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     for (String n : definitions.getTypes().keySet()) {
       ElementDefn root = definitions.getTypes().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Type, null, genDate, version, false, null, null);
       jgen.close();
       hashes.put(n, Long.toString(jgen.getHashSum()));
@@ -204,7 +206,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     }
     for (ProfiledType cd : definitions.getConstraints().values()) {
       ElementDefn root = definitions.getTypes().get(cd.getBaseType());
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(cd.getName())+".java"), definitions, adornments, enumInfo);
       jgen.setInheritedHash(hashes.get(cd.getBaseType()));
       jgen.generate(root, javaClassName(cd.getName()), JavaGenClass.Constraint, cd, genDate, version, false, null, null);
       jFactoryGen.registerType(cd.getName(), cd.getName());
@@ -214,7 +216,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String n : definitions.getStructures().keySet()) {
       ElementDefn root = definitions.getStructures().get(n);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
       jgen.generate(root, javaClassName(root.getName()), JavaGenClass.Type, null, genDate, version, false, null, null);
       jFactoryGen.registerType(n,  root.getName());
       jgen.close();
@@ -222,7 +224,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     for (String r : definitions.getResourceTemplates().keySet()) {
       ResourceDefn root = definitions.getResourceTemplates().get(r);
-      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments);
+      JavaResourceGenerator jgen = new JavaResourceGenerator(new FileOutputStream(javaDir+javaClassName(root.getName())+".java"), definitions, adornments, enumInfo);
       jgen.generate(root.getRoot(), root.getName(), JavaGenClass.Resource, null, genDate, version, true, null, null);
       jgen.close();
     }
@@ -291,9 +293,20 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jParserGenJ.close();
     jParserGenR.close();
     jFactoryGen.close();
+    saveEnumInfo();
   }
 
-
+  private static final String CACHEFILE = "c:\\temp\\java.enums.r4.cache";
+  
+  private void saveEnumInfo() throws IOException {
+    if (new File("C:\\temp").exists()) {
+      StringBuilder b = new StringBuilder();
+      for (Entry<String, String> e : enumInfo.entrySet()) {
+        b.append(e.getKey()+"="+e.getValue()+"\r\n");
+      }
+      TextFile.stringToFile(b.toString(), new File(CACHEFILE), false);
+    }
+  }
 
   private String tokenize(String id) {
     StringBuilder b = new StringBuilder();
@@ -704,6 +717,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "gson-2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-collections4-4.1.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-compress-1.16.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-io-1.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);

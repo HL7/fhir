@@ -83,11 +83,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   public enum JavaGenClass { Structure, Type, Resource, BackboneElement, Constraint }
 	private JavaGenClass clss;
   private Map<String, String> adornments;
+  private Map<String, String> enumInfo;
 	
-	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, String> adornments) throws UnsupportedEncodingException {
+	public JavaResourceGenerator(OutputStream out, Definitions definitions, Map<String, String> adornments, Map<String, String> enumInfo) throws UnsupportedEncodingException {
 		super(out);
 		this.definitions = definitions;
 		this.adornments = adornments; 
+		this.enumInfo = enumInfo;
 	}
 
 	private Map<ElementDefn, String> typeNames = new HashMap<ElementDefn, String>();
@@ -266,7 +268,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   			scanNestedTypes(root, root.getName(), e);
 			}
 			for (ElementDefn e : enums) {
-				generateEnum(e);
+				generateEnum(e, upFirst(name));
 			}
 			for (ElementDefn e : strucs) {
 				generateType(e, clss == JavaGenClass.Resource ? JavaGenClass.BackboneElement : JavaGenClass.Structure);
@@ -1363,7 +1365,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     return false;
   }
 
-	private void generateEnum(ElementDefn e) throws Exception {
+	private void generateEnum(ElementDefn e, String name) throws Exception {
 		String tn = typeNames.get(e);
 		String tns = tn.substring(tn.indexOf("<")+1);
 		tns = tns.substring(0, tns.length()-1);
@@ -1372,7 +1374,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  return;
 		cd.getValueSet().setUserData("java-generated", true);
 		List<DefinedCode> codes = cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true);
-		
+
+    String url = cd.getValueSet().getUrl();
+    CommaSeparatedStringBuilder el = new CommaSeparatedStringBuilder();
+
 		write("    public enum "+tns+" {\r\n");
 		int l = codes.size();
 		int i = 0;
@@ -1380,6 +1385,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 			i++;
 			String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
+      el.append(cc);
       write("        /**\r\n");
       write("         * "+c.getDefinition()+"\r\n");
       write("         */\r\n");      
@@ -1389,6 +1395,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("         * added to help the parsers with the generic types\r\n");
     write("         */\r\n");      
     write("        NULL;\r\n");
+    el.append("NULL");
 
 
 		write("        public static "+tns+" fromCode(String codeString) throws FHIRException {\r\n");
@@ -1499,6 +1506,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("      }\r\n"); 
     write("    }\r\n"); 
     write("\r\n");
+    enumInfo.put("org.hl7.fhir.r4.model."+name+"."+tns, url+"|"+el.toString());
 	}
 
   private void generateType(ElementDefn e, JavaGenClass clss) throws Exception {
