@@ -89,7 +89,8 @@ public class NPMPackageGenerator {
     JsonObject npm = new JsonObject();
     npm.addProperty("name", ig.getPackageId());
     npm.addProperty("version", ig.getVersion());
-    npm.addProperty("license", ig.getLicense().toCode());
+    if (ig.hasLicense())
+      npm.addProperty("license", ig.getLicense().toCode());
     npm.addProperty("canonical", ig.getUrl());
     if (ig.hasTitle())
       npm.addProperty("title", ig.getTitle());

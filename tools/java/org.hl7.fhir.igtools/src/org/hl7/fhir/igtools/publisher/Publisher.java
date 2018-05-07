@@ -3110,7 +3110,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public SPDXLicense licenseAsEnum() throws Exception {
-    return SPDXLicense.fromCode(license());
+    if (!license().toLowerCase().equals("not open source"))
+      return SPDXLicense.fromCode(license());
+    else
+      return null;
   }
 
 
