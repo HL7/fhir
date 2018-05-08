@@ -2538,7 +2538,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       generateSummaryOutputs();
 
     npm.finish();
-    pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));
+    if (mode == IGBuildMode.MANUAL)
+      pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));
     
     otherFilesRun.add(Utilities.path(tempDir, "package.tgz"));
     cleanOutput(tempDir);

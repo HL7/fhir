@@ -215,6 +215,7 @@ import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
 import org.hl7.fhir.tools.converters.DSTU2ValidationConvertor;
+import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.tools.converters.ValueSetImporterV3;
 import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
@@ -2658,6 +2659,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
       s.close();
+
+      SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
+      self.generate(page.getFolders().dstDir);
 
       Bundle expansionFeed = new Bundle();
       expansionFeed.setId("valueset-expansions");
