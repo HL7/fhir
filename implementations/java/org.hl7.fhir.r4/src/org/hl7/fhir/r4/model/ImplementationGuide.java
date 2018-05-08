@@ -52,1383 +52,1387 @@ public class ImplementationGuide extends MetadataResource {
 
     public enum SPDXLicense {
         /**
-         * null
+         * Not an open source license
+         */
+        NOTOPENSOURCE, 
+        /**
+         * BSD Zero Clause License
          */
         _0BSD, 
         /**
-         * null
+         * Attribution Assurance License
          */
         AAL, 
         /**
-         * null
+         * Abstyles License
          */
         ABSTYLES, 
         /**
-         * null
+         * Adobe Systems Incorporated Source Code License Agreement
          */
         ADOBE2006, 
         /**
-         * null
+         * Adobe Glyph List License
          */
         ADOBEGLYPH, 
         /**
-         * null
+         * Amazon Digital Services License
          */
         ADSL, 
         /**
-         * null
+         * Academic Free License v1.1
          */
         AFL1_1, 
         /**
-         * null
+         * Academic Free License v1.2
          */
         AFL1_2, 
         /**
-         * null
+         * Academic Free License v2.0
          */
         AFL2_0, 
         /**
-         * null
+         * Academic Free License v2.1
          */
         AFL2_1, 
         /**
-         * null
+         * Academic Free License v3.0
          */
         AFL3_0, 
         /**
-         * null
+         * Afmparse License
          */
         AFMPARSE, 
         /**
-         * null
+         * Affero General Public License v1.0 only
          */
         AGPL1_0ONLY, 
         /**
-         * null
+         * Affero General Public License v1.0 or later
          */
         AGPL1_0ORLATER, 
         /**
-         * null
+         * GNU Affero General Public License v3.0 only
          */
         AGPL3_0ONLY, 
         /**
-         * null
+         * GNU Affero General Public License v3.0 or later
          */
         AGPL3_0ORLATER, 
         /**
-         * null
+         * Aladdin Free Public License
          */
         ALADDIN, 
         /**
-         * null
+         * AMD's plpa_map.c License
          */
         AMDPLPA, 
         /**
-         * null
+         * Apple MIT License
          */
         AML, 
         /**
-         * null
+         * Academy of Motion Picture Arts and Sciences BSD
          */
         AMPAS, 
         /**
-         * null
+         * ANTLR Software Rights Notice
          */
         ANTLRPD, 
         /**
-         * null
+         * Apache License 1.0
          */
         APACHE1_0, 
         /**
-         * null
+         * Apache License 1.1
          */
         APACHE1_1, 
         /**
-         * null
+         * Apache License 2.0
          */
         APACHE2_0, 
         /**
-         * null
+         * Adobe Postscript AFM License
          */
         APAFML, 
         /**
-         * null
+         * Adaptive Public License 1.0
          */
         APL1_0, 
         /**
-         * null
+         * Apple Public Source License 1.0
          */
         APSL1_0, 
         /**
-         * null
+         * Apple Public Source License 1.1
          */
         APSL1_1, 
         /**
-         * null
+         * Apple Public Source License 1.2
          */
         APSL1_2, 
         /**
-         * null
+         * Apple Public Source License 2.0
          */
         APSL2_0, 
         /**
-         * null
+         * Artistic License 1.0 w/clause 8
          */
         ARTISTIC1_0CL8, 
         /**
-         * null
+         * Artistic License 1.0 (Perl)
          */
         ARTISTIC1_0PERL, 
         /**
-         * null
+         * Artistic License 1.0
          */
         ARTISTIC1_0, 
         /**
-         * null
+         * Artistic License 2.0
          */
         ARTISTIC2_0, 
         /**
-         * null
+         * Bahyph License
          */
         BAHYPH, 
         /**
-         * null
+         * Barr License
          */
         BARR, 
         /**
-         * null
+         * Beerware License
          */
         BEERWARE, 
         /**
-         * null
+         * BitTorrent Open Source License v1.0
          */
         BITTORRENT1_0, 
         /**
-         * null
+         * BitTorrent Open Source License v1.1
          */
         BITTORRENT1_1, 
         /**
-         * null
+         * Borceux license
          */
         BORCEUX, 
         /**
-         * null
+         * BSD 1-Clause License
          */
         BSD1CLAUSE, 
         /**
-         * null
+         * BSD 2-Clause FreeBSD License
          */
         BSD2CLAUSEFREEBSD, 
         /**
-         * null
+         * BSD 2-Clause NetBSD License
          */
         BSD2CLAUSENETBSD, 
         /**
-         * null
+         * BSD-2-Clause Plus Patent License
          */
         BSD2CLAUSEPATENT, 
         /**
-         * null
+         * BSD 2-Clause "Simplified" License
          */
         BSD2CLAUSE, 
         /**
-         * null
+         * BSD with attribution
          */
         BSD3CLAUSEATTRIBUTION, 
         /**
-         * null
+         * BSD 3-Clause Clear License
          */
         BSD3CLAUSECLEAR, 
         /**
-         * null
+         * Lawrence Berkeley National Labs BSD variant license
          */
         BSD3CLAUSELBNL, 
         /**
-         * null
+         * BSD 3-Clause No Nuclear License 2014
          */
         BSD3CLAUSENONUCLEARLICENSE2014, 
         /**
-         * null
+         * BSD 3-Clause No Nuclear License
          */
         BSD3CLAUSENONUCLEARLICENSE, 
         /**
-         * null
+         * BSD 3-Clause No Nuclear Warranty
          */
         BSD3CLAUSENONUCLEARWARRANTY, 
         /**
-         * null
+         * BSD 3-Clause "New" or "Revised" License
          */
         BSD3CLAUSE, 
         /**
-         * null
+         * BSD-4-Clause (University of California-Specific)
          */
         BSD4CLAUSEUC, 
         /**
-         * null
+         * BSD 4-Clause "Original" or "Old" License
          */
         BSD4CLAUSE, 
         /**
-         * null
+         * BSD Protection License
          */
         BSDPROTECTION, 
         /**
-         * null
+         * BSD Source Code Attribution
          */
         BSDSOURCECODE, 
         /**
-         * null
+         * Boost Software License 1.0
          */
         BSL1_0, 
         /**
-         * null
+         * bzip2 and libbzip2 License v1.0.5
          */
         BZIP21_0_5, 
         /**
-         * null
+         * bzip2 and libbzip2 License v1.0.6
          */
         BZIP21_0_6, 
         /**
-         * null
+         * Caldera License
          */
         CALDERA, 
         /**
-         * null
+         * Computer Associates Trusted Open Source License 1.1
          */
         CATOSL1_1, 
         /**
-         * null
+         * Creative Commons Attribution 1.0 Generic
          */
         CCBY1_0, 
         /**
-         * null
+         * Creative Commons Attribution 2.0 Generic
          */
         CCBY2_0, 
         /**
-         * null
+         * Creative Commons Attribution 2.5 Generic
          */
         CCBY2_5, 
         /**
-         * null
+         * Creative Commons Attribution 3.0 Unported
          */
         CCBY3_0, 
         /**
-         * null
+         * Creative Commons Attribution 4.0 International
          */
         CCBY4_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial 1.0 Generic
          */
         CCBYNC1_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial 2.0 Generic
          */
         CCBYNC2_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial 2.5 Generic
          */
         CCBYNC2_5, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial 3.0 Unported
          */
         CCBYNC3_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial 4.0 International
          */
         CCBYNC4_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
          */
         CCBYNCND1_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
          */
         CCBYNCND2_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
          */
         CCBYNCND2_5, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
          */
         CCBYNCND3_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial No Derivatives 4.0 International
          */
         CCBYNCND4_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
          */
         CCBYNCSA1_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
          */
         CCBYNCSA2_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
          */
         CCBYNCSA2_5, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
          */
         CCBYNCSA3_0, 
         /**
-         * null
+         * Creative Commons Attribution Non Commercial Share Alike 4.0 International
          */
         CCBYNCSA4_0, 
         /**
-         * null
+         * Creative Commons Attribution No Derivatives 1.0 Generic
          */
         CCBYND1_0, 
         /**
-         * null
+         * Creative Commons Attribution No Derivatives 2.0 Generic
          */
         CCBYND2_0, 
         /**
-         * null
+         * Creative Commons Attribution No Derivatives 2.5 Generic
          */
         CCBYND2_5, 
         /**
-         * null
+         * Creative Commons Attribution No Derivatives 3.0 Unported
          */
         CCBYND3_0, 
         /**
-         * null
+         * Creative Commons Attribution No Derivatives 4.0 International
          */
         CCBYND4_0, 
         /**
-         * null
+         * Creative Commons Attribution Share Alike 1.0 Generic
          */
         CCBYSA1_0, 
         /**
-         * null
+         * Creative Commons Attribution Share Alike 2.0 Generic
          */
         CCBYSA2_0, 
         /**
-         * null
+         * Creative Commons Attribution Share Alike 2.5 Generic
          */
         CCBYSA2_5, 
         /**
-         * null
+         * Creative Commons Attribution Share Alike 3.0 Unported
          */
         CCBYSA3_0, 
         /**
-         * null
+         * Creative Commons Attribution Share Alike 4.0 International
          */
         CCBYSA4_0, 
         /**
-         * null
+         * Creative Commons Zero v1.0 Universal
          */
         CC01_0, 
         /**
-         * null
+         * Common Development and Distribution License 1.0
          */
         CDDL1_0, 
         /**
-         * null
+         * Common Development and Distribution License 1.1
          */
         CDDL1_1, 
         /**
-         * null
+         * Community Data License Agreement Permissive 1.0
          */
         CDLAPERMISSIVE1_0, 
         /**
-         * null
+         * Community Data License Agreement Sharing 1.0
          */
         CDLASHARING1_0, 
         /**
-         * null
+         * CeCILL Free Software License Agreement v1.0
          */
         CECILL1_0, 
         /**
-         * null
+         * CeCILL Free Software License Agreement v1.1
          */
         CECILL1_1, 
         /**
-         * null
+         * CeCILL Free Software License Agreement v2.0
          */
         CECILL2_0, 
         /**
-         * null
+         * CeCILL Free Software License Agreement v2.1
          */
         CECILL2_1, 
         /**
-         * null
+         * CeCILL-B Free Software License Agreement
          */
         CECILLB, 
         /**
-         * null
+         * CeCILL-C Free Software License Agreement
          */
         CECILLC, 
         /**
-         * null
+         * Clarified Artistic License
          */
         CLARTISTIC, 
         /**
-         * null
+         * CNRI Jython License
          */
         CNRIJYTHON, 
         /**
-         * null
+         * CNRI Python Open Source GPL Compatible License Agreement
          */
         CNRIPYTHONGPLCOMPATIBLE, 
         /**
-         * null
+         * CNRI Python License
          */
         CNRIPYTHON, 
         /**
-         * null
+         * Condor Public License v1.1
          */
         CONDOR1_1, 
         /**
-         * null
+         * Common Public Attribution License 1.0
          */
         CPAL1_0, 
         /**
-         * null
+         * Common Public License 1.0
          */
         CPL1_0, 
         /**
-         * null
+         * Code Project Open License 1.02
          */
         CPOL1_02, 
         /**
-         * null
+         * Crossword License
          */
         CROSSWORD, 
         /**
-         * null
+         * CrystalStacker License
          */
         CRYSTALSTACKER, 
         /**
-         * null
+         * CUA Office Public License v1.0
          */
         CUAOPL1_0, 
         /**
-         * null
+         * Cube License
          */
         CUBE, 
         /**
-         * null
+         * curl License
          */
         CURL, 
         /**
-         * null
+         * Deutsche Freie Software Lizenz
          */
         DFSL1_0, 
         /**
-         * null
+         * diffmark license
          */
         DIFFMARK, 
         /**
-         * null
+         * DOC License
          */
         DOC, 
         /**
-         * null
+         * Dotseqn License
          */
         DOTSEQN, 
         /**
-         * null
+         * DSDP License
          */
         DSDP, 
         /**
-         * null
+         * dvipdfm License
          */
         DVIPDFM, 
         /**
-         * null
+         * Educational Community License v1.0
          */
         ECL1_0, 
         /**
-         * null
+         * Educational Community License v2.0
          */
         ECL2_0, 
         /**
-         * null
+         * Eiffel Forum License v1.0
          */
         EFL1_0, 
         /**
-         * null
+         * Eiffel Forum License v2.0
          */
         EFL2_0, 
         /**
-         * null
+         * eGenix.com Public License 1.1.0
          */
         EGENIX, 
         /**
-         * null
+         * Entessa Public License v1.0
          */
         ENTESSA, 
         /**
-         * null
+         * Eclipse Public License 1.0
          */
         EPL1_0, 
         /**
-         * null
+         * Eclipse Public License 2.0
          */
         EPL2_0, 
         /**
-         * null
+         * Erlang Public License v1.1
          */
         ERLPL1_1, 
         /**
-         * null
+         * EU DataGrid Software License
          */
         EUDATAGRID, 
         /**
-         * null
+         * European Union Public License 1.0
          */
         EUPL1_0, 
         /**
-         * null
+         * European Union Public License 1.1
          */
         EUPL1_1, 
         /**
-         * null
+         * European Union Public License 1.2
          */
         EUPL1_2, 
         /**
-         * null
+         * Eurosym License
          */
         EUROSYM, 
         /**
-         * null
+         * Fair License
          */
         FAIR, 
         /**
-         * null
+         * Frameworx Open License 1.0
          */
         FRAMEWORX1_0, 
         /**
-         * null
+         * FreeImage Public License v1.0
          */
         FREEIMAGE, 
         /**
-         * null
+         * FSF All Permissive License
          */
         FSFAP, 
         /**
-         * null
+         * FSF Unlimited License
          */
         FSFUL, 
         /**
-         * null
+         * FSF Unlimited License (with License Retention)
          */
         FSFULLR, 
         /**
-         * null
+         * Freetype Project License
          */
         FTL, 
         /**
-         * null
+         * GNU Free Documentation License v1.1 only
          */
         GFDL1_1ONLY, 
         /**
-         * null
+         * GNU Free Documentation License v1.1 or later
          */
         GFDL1_1ORLATER, 
         /**
-         * null
+         * GNU Free Documentation License v1.2 only
          */
         GFDL1_2ONLY, 
         /**
-         * null
+         * GNU Free Documentation License v1.2 or later
          */
         GFDL1_2ORLATER, 
         /**
-         * null
+         * GNU Free Documentation License v1.3 only
          */
         GFDL1_3ONLY, 
         /**
-         * null
+         * GNU Free Documentation License v1.3 or later
          */
         GFDL1_3ORLATER, 
         /**
-         * null
+         * Giftware License
          */
         GIFTWARE, 
         /**
-         * null
+         * GL2PS License
          */
         GL2PS, 
         /**
-         * null
+         * 3dfx Glide License
          */
         GLIDE, 
         /**
-         * null
+         * Glulxe License
          */
         GLULXE, 
         /**
-         * null
+         * gnuplot License
          */
         GNUPLOT, 
         /**
-         * null
+         * GNU General Public License v1.0 only
          */
         GPL1_0ONLY, 
         /**
-         * null
+         * GNU General Public License v1.0 or later
          */
         GPL1_0ORLATER, 
         /**
-         * null
+         * GNU General Public License v2.0 only
          */
         GPL2_0ONLY, 
         /**
-         * null
+         * GNU General Public License v2.0 or later
          */
         GPL2_0ORLATER, 
         /**
-         * null
+         * GNU General Public License v3.0 only
          */
         GPL3_0ONLY, 
         /**
-         * null
+         * GNU General Public License v3.0 or later
          */
         GPL3_0ORLATER, 
         /**
-         * null
+         * gSOAP Public License v1.3b
          */
         GSOAP1_3B, 
         /**
-         * null
+         * Haskell Language Report License
          */
         HASKELLREPORT, 
         /**
-         * null
+         * Historical Permission Notice and Disclaimer
          */
         HPND, 
         /**
-         * null
+         * IBM PowerPC Initialization and Boot Software
          */
         IBMPIBS, 
         /**
-         * null
+         * ICU License
          */
         ICU, 
         /**
-         * null
+         * Independent JPEG Group License
          */
         IJG, 
         /**
-         * null
+         * ImageMagick License
          */
         IMAGEMAGICK, 
         /**
-         * null
+         * iMatix Standard Function Library Agreement
          */
         IMATIX, 
         /**
-         * null
+         * Imlib2 License
          */
         IMLIB2, 
         /**
-         * null
+         * Info-ZIP License
          */
         INFOZIP, 
         /**
-         * null
+         * Intel ACPI Software License Agreement
          */
         INTELACPI, 
         /**
-         * null
+         * Intel Open Source License
          */
         INTEL, 
         /**
-         * null
+         * Interbase Public License v1.0
          */
         INTERBASE1_0, 
         /**
-         * null
+         * IPA Font License
          */
         IPA, 
         /**
-         * null
+         * IBM Public License v1.0
          */
         IPL1_0, 
         /**
-         * null
+         * ISC License
          */
         ISC, 
         /**
-         * null
+         * JasPer License
          */
         JASPER2_0, 
         /**
-         * null
+         * JSON License
          */
         JSON, 
         /**
-         * null
+         * Licence Art Libre 1.2
          */
         LAL1_2, 
         /**
-         * null
+         * Licence Art Libre 1.3
          */
         LAL1_3, 
         /**
-         * null
+         * Latex2e License
          */
         LATEX2E, 
         /**
-         * null
+         * Leptonica License
          */
         LEPTONICA, 
         /**
-         * null
+         * GNU Library General Public License v2 only
          */
         LGPL2_0ONLY, 
         /**
-         * null
+         * GNU Library General Public License v2 or later
          */
         LGPL2_0ORLATER, 
         /**
-         * null
+         * GNU Lesser General Public License v2.1 only
          */
         LGPL2_1ONLY, 
         /**
-         * null
+         * GNU Lesser General Public License v2.1 or later
          */
         LGPL2_1ORLATER, 
         /**
-         * null
+         * GNU Lesser General Public License v3.0 only
          */
         LGPL3_0ONLY, 
         /**
-         * null
+         * GNU Lesser General Public License v3.0 or later
          */
         LGPL3_0ORLATER, 
         /**
-         * null
+         * Lesser General Public License For Linguistic Resources
          */
         LGPLLR, 
         /**
-         * null
+         * libpng License
          */
         LIBPNG, 
         /**
-         * null
+         * libtiff License
          */
         LIBTIFF, 
         /**
-         * null
+         * Licence Libre du Québec – Permissive version 1.1
          */
         LILIQP1_1, 
         /**
-         * null
+         * Licence Libre du Québec – Réciprocité version 1.1
          */
         LILIQR1_1, 
         /**
-         * null
+         * Licence Libre du Québec – Réciprocité forte version 1.1
          */
         LILIQRPLUS1_1, 
         /**
-         * null
+         * Linux Kernel Variant of OpenIB.org license
          */
         LINUXOPENIB, 
         /**
-         * null
+         * Lucent Public License Version 1.0
          */
         LPL1_0, 
         /**
-         * null
+         * Lucent Public License v1.02
          */
         LPL1_02, 
         /**
-         * null
+         * LaTeX Project Public License v1.0
          */
         LPPL1_0, 
         /**
-         * null
+         * LaTeX Project Public License v1.1
          */
         LPPL1_1, 
         /**
-         * null
+         * LaTeX Project Public License v1.2
          */
         LPPL1_2, 
         /**
-         * null
+         * LaTeX Project Public License v1.3a
          */
         LPPL1_3A, 
         /**
-         * null
+         * LaTeX Project Public License v1.3c
          */
         LPPL1_3C, 
         /**
-         * null
+         * MakeIndex License
          */
         MAKEINDEX, 
         /**
-         * null
+         * MirOS License
          */
         MIROS, 
         /**
-         * null
+         * MIT No Attribution
          */
         MIT0, 
         /**
-         * null
+         * Enlightenment License (e16)
          */
         MITADVERTISING, 
         /**
-         * null
+         * CMU License
          */
         MITCMU, 
         /**
-         * null
+         * enna License
          */
         MITENNA, 
         /**
-         * null
+         * feh License
          */
         MITFEH, 
         /**
-         * null
+         * MIT License
          */
         MIT, 
         /**
-         * null
+         * MIT +no-false-attribs license
          */
         MITNFA, 
         /**
-         * null
+         * Motosoto License
          */
         MOTOSOTO, 
         /**
-         * null
+         * mpich2 License
          */
         MPICH2, 
         /**
-         * null
+         * Mozilla Public License 1.0
          */
         MPL1_0, 
         /**
-         * null
+         * Mozilla Public License 1.1
          */
         MPL1_1, 
         /**
-         * null
+         * Mozilla Public License 2.0 (no copyleft exception)
          */
         MPL2_0NOCOPYLEFTEXCEPTION, 
         /**
-         * null
+         * Mozilla Public License 2.0
          */
         MPL2_0, 
         /**
-         * null
+         * Microsoft Public License
          */
         MSPL, 
         /**
-         * null
+         * Microsoft Reciprocal License
          */
         MSRL, 
         /**
-         * null
+         * Matrix Template Library License
          */
         MTLL, 
         /**
-         * null
+         * Multics License
          */
         MULTICS, 
         /**
-         * null
+         * Mup License
          */
         MUP, 
         /**
-         * null
+         * NASA Open Source Agreement 1.3
          */
         NASA1_3, 
         /**
-         * null
+         * Naumen Public License
          */
         NAUMEN, 
         /**
-         * null
+         * Net Boolean Public License v1
          */
         NBPL1_0, 
         /**
-         * null
+         * University of Illinois/NCSA Open Source License
          */
         NCSA, 
         /**
-         * null
+         * Net-SNMP License
          */
         NETSNMP, 
         /**
-         * null
+         * NetCDF license
          */
         NETCDF, 
         /**
-         * null
+         * Newsletr License
          */
         NEWSLETR, 
         /**
-         * null
+         * Nethack General Public License
          */
         NGPL, 
         /**
-         * null
+         * Norwegian Licence for Open Government Data
          */
         NLOD1_0, 
         /**
-         * null
+         * No Limit Public License
          */
         NLPL, 
         /**
-         * null
+         * Nokia Open Source License
          */
         NOKIA, 
         /**
-         * null
+         * Netizen Open Source License
          */
         NOSL, 
         /**
-         * null
+         * Noweb License
          */
         NOWEB, 
         /**
-         * null
+         * Netscape Public License v1.0
          */
         NPL1_0, 
         /**
-         * null
+         * Netscape Public License v1.1
          */
         NPL1_1, 
         /**
-         * null
+         * Non-Profit Open Software License 3.0
          */
         NPOSL3_0, 
         /**
-         * null
+         * NRL License
          */
         NRL, 
         /**
-         * null
+         * NTP License
          */
         NTP, 
         /**
-         * null
+         * Open CASCADE Technology Public License
          */
         OCCTPL, 
         /**
-         * null
+         * OCLC Research Public License 2.0
          */
         OCLC2_0, 
         /**
-         * null
+         * ODC Open Database License v1.0
          */
         ODBL1_0, 
         /**
-         * null
+         * SIL Open Font License 1.0
          */
         OFL1_0, 
         /**
-         * null
+         * SIL Open Font License 1.1
          */
         OFL1_1, 
         /**
-         * null
+         * Open Group Test Suite License
          */
         OGTSL, 
         /**
-         * null
+         * Open LDAP Public License v1.1
          */
         OLDAP1_1, 
         /**
-         * null
+         * Open LDAP Public License v1.2
          */
         OLDAP1_2, 
         /**
-         * null
+         * Open LDAP Public License v1.3
          */
         OLDAP1_3, 
         /**
-         * null
+         * Open LDAP Public License v1.4
          */
         OLDAP1_4, 
         /**
-         * null
+         * Open LDAP Public License v2.0.1
          */
         OLDAP2_0_1, 
         /**
-         * null
+         * Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
          */
         OLDAP2_0, 
         /**
-         * null
+         * Open LDAP Public License v2.1
          */
         OLDAP2_1, 
         /**
-         * null
+         * Open LDAP Public License v2.2.1
          */
         OLDAP2_2_1, 
         /**
-         * null
+         * Open LDAP Public License 2.2.2
          */
         OLDAP2_2_2, 
         /**
-         * null
+         * Open LDAP Public License v2.2
          */
         OLDAP2_2, 
         /**
-         * null
+         * Open LDAP Public License v2.3
          */
         OLDAP2_3, 
         /**
-         * null
+         * Open LDAP Public License v2.4
          */
         OLDAP2_4, 
         /**
-         * null
+         * Open LDAP Public License v2.5
          */
         OLDAP2_5, 
         /**
-         * null
+         * Open LDAP Public License v2.6
          */
         OLDAP2_6, 
         /**
-         * null
+         * Open LDAP Public License v2.7
          */
         OLDAP2_7, 
         /**
-         * null
+         * Open LDAP Public License v2.8
          */
         OLDAP2_8, 
         /**
-         * null
+         * Open Market License
          */
         OML, 
         /**
-         * null
+         * OpenSSL License
          */
         OPENSSL, 
         /**
-         * null
+         * Open Public License v1.0
          */
         OPL1_0, 
         /**
-         * null
+         * OSET Public License version 2.1
          */
         OSETPL2_1, 
         /**
-         * null
+         * Open Software License 1.0
          */
         OSL1_0, 
         /**
-         * null
+         * Open Software License 1.1
          */
         OSL1_1, 
         /**
-         * null
+         * Open Software License 2.0
          */
         OSL2_0, 
         /**
-         * null
+         * Open Software License 2.1
          */
         OSL2_1, 
         /**
-         * null
+         * Open Software License 3.0
          */
         OSL3_0, 
         /**
-         * null
+         * ODC Public Domain Dedication & License 1.0
          */
         PDDL1_0, 
         /**
-         * null
+         * PHP License v3.0
          */
         PHP3_0, 
         /**
-         * null
+         * PHP License v3.01
          */
         PHP3_01, 
         /**
-         * null
+         * Plexus Classworlds License
          */
         PLEXUS, 
         /**
-         * null
+         * PostgreSQL License
          */
         POSTGRESQL, 
         /**
-         * null
+         * psfrag License
          */
         PSFRAG, 
         /**
-         * null
+         * psutils License
          */
         PSUTILS, 
         /**
-         * null
+         * Python License 2.0
          */
         PYTHON2_0, 
         /**
-         * null
+         * Qhull License
          */
         QHULL, 
         /**
-         * null
+         * Q Public License 1.0
          */
         QPL1_0, 
         /**
-         * null
+         * Rdisc License
          */
         RDISC, 
         /**
-         * null
+         * Red Hat eCos Public License v1.1
          */
         RHECOS1_1, 
         /**
-         * null
+         * Reciprocal Public License 1.1
          */
         RPL1_1, 
         /**
-         * null
+         * Reciprocal Public License 1.5
          */
         RPL1_5, 
         /**
-         * null
+         * RealNetworks Public Source License v1.0
          */
         RPSL1_0, 
         /**
-         * null
+         * RSA Message-Digest License
          */
         RSAMD, 
         /**
-         * null
+         * Ricoh Source Code Public License
          */
         RSCPL, 
         /**
-         * null
+         * Ruby License
          */
         RUBY, 
         /**
-         * null
+         * Sax Public Domain Notice
          */
         SAXPD, 
         /**
-         * null
+         * Saxpath License
          */
         SAXPATH, 
         /**
-         * null
+         * SCEA Shared Source License
          */
         SCEA, 
         /**
-         * null
+         * Sendmail License
          */
         SENDMAIL, 
         /**
-         * null
+         * SGI Free Software License B v1.0
          */
         SGIB1_0, 
         /**
-         * null
+         * SGI Free Software License B v1.1
          */
         SGIB1_1, 
         /**
-         * null
+         * SGI Free Software License B v2.0
          */
         SGIB2_0, 
         /**
-         * null
+         * Simple Public License 2.0
          */
         SIMPL2_0, 
         /**
-         * null
+         * Sun Industry Standards Source License v1.2
          */
         SISSL1_2, 
         /**
-         * null
+         * Sun Industry Standards Source License v1.1
          */
         SISSL, 
         /**
-         * null
+         * Sleepycat License
          */
         SLEEPYCAT, 
         /**
-         * null
+         * Standard ML of New Jersey License
          */
         SMLNJ, 
         /**
-         * null
+         * Secure Messaging Protocol Public License
          */
         SMPPL, 
         /**
-         * null
+         * SNIA Public License 1.1
          */
         SNIA, 
         /**
-         * null
+         * Spencer License 86
          */
         SPENCER86, 
         /**
-         * null
+         * Spencer License 94
          */
         SPENCER94, 
         /**
-         * null
+         * Spencer License 99
          */
         SPENCER99, 
         /**
-         * null
+         * Sun Public License v1.0
          */
         SPL1_0, 
         /**
-         * null
+         * SugarCRM Public License v1.1.3
          */
         SUGARCRM1_1_3, 
         /**
-         * null
+         * Scheme Widget Library (SWL) Software License Agreement
          */
         SWL, 
         /**
-         * null
+         * TCL/TK License
          */
         TCL, 
         /**
-         * null
+         * TCP Wrappers License
          */
         TCPWRAPPERS, 
         /**
-         * null
+         * TMate Open Source License
          */
         TMATE, 
         /**
-         * null
+         * TORQUE v2.5+ Software License v1.1
          */
         TORQUE1_1, 
         /**
-         * null
+         * Trusster Open Source License
          */
         TOSL, 
         /**
-         * null
+         * Unicode License Agreement - Data Files and Software (2015)
          */
         UNICODEDFS2015, 
         /**
-         * null
+         * Unicode License Agreement - Data Files and Software (2016)
          */
         UNICODEDFS2016, 
         /**
-         * null
+         * Unicode Terms of Use
          */
         UNICODETOU, 
         /**
-         * null
+         * The Unlicense
          */
         UNLICENSE, 
         /**
-         * null
+         * Universal Permissive License v1.0
          */
         UPL1_0, 
         /**
-         * null
+         * Vim License
          */
         VIM, 
         /**
-         * null
+         * VOSTROM Public License for Open Source
          */
         VOSTROM, 
         /**
-         * null
+         * Vovida Software License v1.0
          */
         VSL1_0, 
         /**
-         * null
+         * W3C Software Notice and License (1998-07-20)
          */
         W3C19980720, 
         /**
-         * null
+         * W3C Software Notice and Document License (2015-05-13)
          */
         W3C20150513, 
         /**
-         * null
+         * W3C Software Notice and License (2002-12-31)
          */
         W3C, 
         /**
-         * null
+         * Sybase Open Watcom Public License 1.0
          */
         WATCOM1_0, 
         /**
-         * null
+         * Wsuipa License
          */
         WSUIPA, 
         /**
-         * null
+         * Do What The F*ck You Want To Public License
          */
         WTFPL, 
         /**
-         * null
+         * X11 License
          */
         X11, 
         /**
-         * null
+         * Xerox License
          */
         XEROX, 
         /**
-         * null
+         * XFree86 License 1.1
          */
         XFREE861_1, 
         /**
-         * null
+         * xinetd License
          */
         XINETD, 
         /**
-         * null
+         * X.Net License
          */
         XNET, 
         /**
-         * null
+         * XPP License
          */
         XPP, 
         /**
-         * null
+         * XSkat License
          */
         XSKAT, 
         /**
-         * null
+         * Yahoo! Public License v1.0
          */
         YPL1_0, 
         /**
-         * null
+         * Yahoo! Public License v1.1
          */
         YPL1_1, 
         /**
-         * null
+         * Zed License
          */
         ZED, 
         /**
-         * null
+         * Zend License v2.0
          */
         ZEND2_0, 
         /**
-         * null
+         * Zimbra Public License v1.3
          */
         ZIMBRA1_3, 
         /**
-         * null
+         * Zimbra Public License v1.4
          */
         ZIMBRA1_4, 
         /**
-         * null
+         * zlib/libpng License with Acknowledgement
          */
         ZLIBACKNOWLEDGEMENT, 
         /**
-         * null
+         * zlib License
          */
         ZLIB, 
         /**
-         * null
+         * Zope Public License 1.1
          */
         ZPL1_1, 
         /**
-         * null
+         * Zope Public License 2.0
          */
         ZPL2_0, 
         /**
-         * null
+         * Zope Public License 2.1
          */
         ZPL2_1, 
         /**
@@ -1438,6 +1442,8 @@ public class ImplementationGuide extends MetadataResource {
         public static SPDXLicense fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("not-open-source".equals(codeString))
+          return NOTOPENSOURCE;
         if ("0BSD".equals(codeString))
           return _0BSD;
         if ("AAL".equals(codeString))
@@ -2135,6 +2141,7 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String toCode() {
           switch (this) {
+            case NOTOPENSOURCE: return "not-open-source";
             case _0BSD: return "0BSD";
             case AAL: return "AAL";
             case ABSTYLES: return "Abstyles";
@@ -2485,6 +2492,7 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getSystem() {
           switch (this) {
+            case NOTOPENSOURCE: return "http://hl7.org/fhir/spdx-license";
             case _0BSD: return "http://hl7.org/fhir/spdx-license";
             case AAL: return "http://hl7.org/fhir/spdx-license";
             case ABSTYLES: return "http://hl7.org/fhir/spdx-license";
@@ -2835,356 +2843,358 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case _0BSD: return "";
-            case AAL: return "";
-            case ABSTYLES: return "";
-            case ADOBE2006: return "";
-            case ADOBEGLYPH: return "";
-            case ADSL: return "";
-            case AFL1_1: return "";
-            case AFL1_2: return "";
-            case AFL2_0: return "";
-            case AFL2_1: return "";
-            case AFL3_0: return "";
-            case AFMPARSE: return "";
-            case AGPL1_0ONLY: return "";
-            case AGPL1_0ORLATER: return "";
-            case AGPL3_0ONLY: return "";
-            case AGPL3_0ORLATER: return "";
-            case ALADDIN: return "";
-            case AMDPLPA: return "";
-            case AML: return "";
-            case AMPAS: return "";
-            case ANTLRPD: return "";
-            case APACHE1_0: return "";
-            case APACHE1_1: return "";
-            case APACHE2_0: return "";
-            case APAFML: return "";
-            case APL1_0: return "";
-            case APSL1_0: return "";
-            case APSL1_1: return "";
-            case APSL1_2: return "";
-            case APSL2_0: return "";
-            case ARTISTIC1_0CL8: return "";
-            case ARTISTIC1_0PERL: return "";
-            case ARTISTIC1_0: return "";
-            case ARTISTIC2_0: return "";
-            case BAHYPH: return "";
-            case BARR: return "";
-            case BEERWARE: return "";
-            case BITTORRENT1_0: return "";
-            case BITTORRENT1_1: return "";
-            case BORCEUX: return "";
-            case BSD1CLAUSE: return "";
-            case BSD2CLAUSEFREEBSD: return "";
-            case BSD2CLAUSENETBSD: return "";
-            case BSD2CLAUSEPATENT: return "";
-            case BSD2CLAUSE: return "";
-            case BSD3CLAUSEATTRIBUTION: return "";
-            case BSD3CLAUSECLEAR: return "";
-            case BSD3CLAUSELBNL: return "";
-            case BSD3CLAUSENONUCLEARLICENSE2014: return "";
-            case BSD3CLAUSENONUCLEARLICENSE: return "";
-            case BSD3CLAUSENONUCLEARWARRANTY: return "";
-            case BSD3CLAUSE: return "";
-            case BSD4CLAUSEUC: return "";
-            case BSD4CLAUSE: return "";
-            case BSDPROTECTION: return "";
-            case BSDSOURCECODE: return "";
-            case BSL1_0: return "";
-            case BZIP21_0_5: return "";
-            case BZIP21_0_6: return "";
-            case CALDERA: return "";
-            case CATOSL1_1: return "";
-            case CCBY1_0: return "";
-            case CCBY2_0: return "";
-            case CCBY2_5: return "";
-            case CCBY3_0: return "";
-            case CCBY4_0: return "";
-            case CCBYNC1_0: return "";
-            case CCBYNC2_0: return "";
-            case CCBYNC2_5: return "";
-            case CCBYNC3_0: return "";
-            case CCBYNC4_0: return "";
-            case CCBYNCND1_0: return "";
-            case CCBYNCND2_0: return "";
-            case CCBYNCND2_5: return "";
-            case CCBYNCND3_0: return "";
-            case CCBYNCND4_0: return "";
-            case CCBYNCSA1_0: return "";
-            case CCBYNCSA2_0: return "";
-            case CCBYNCSA2_5: return "";
-            case CCBYNCSA3_0: return "";
-            case CCBYNCSA4_0: return "";
-            case CCBYND1_0: return "";
-            case CCBYND2_0: return "";
-            case CCBYND2_5: return "";
-            case CCBYND3_0: return "";
-            case CCBYND4_0: return "";
-            case CCBYSA1_0: return "";
-            case CCBYSA2_0: return "";
-            case CCBYSA2_5: return "";
-            case CCBYSA3_0: return "";
-            case CCBYSA4_0: return "";
-            case CC01_0: return "";
-            case CDDL1_0: return "";
-            case CDDL1_1: return "";
-            case CDLAPERMISSIVE1_0: return "";
-            case CDLASHARING1_0: return "";
-            case CECILL1_0: return "";
-            case CECILL1_1: return "";
-            case CECILL2_0: return "";
-            case CECILL2_1: return "";
-            case CECILLB: return "";
-            case CECILLC: return "";
-            case CLARTISTIC: return "";
-            case CNRIJYTHON: return "";
-            case CNRIPYTHONGPLCOMPATIBLE: return "";
-            case CNRIPYTHON: return "";
-            case CONDOR1_1: return "";
-            case CPAL1_0: return "";
-            case CPL1_0: return "";
-            case CPOL1_02: return "";
-            case CROSSWORD: return "";
-            case CRYSTALSTACKER: return "";
-            case CUAOPL1_0: return "";
-            case CUBE: return "";
-            case CURL: return "";
-            case DFSL1_0: return "";
-            case DIFFMARK: return "";
-            case DOC: return "";
-            case DOTSEQN: return "";
-            case DSDP: return "";
-            case DVIPDFM: return "";
-            case ECL1_0: return "";
-            case ECL2_0: return "";
-            case EFL1_0: return "";
-            case EFL2_0: return "";
-            case EGENIX: return "";
-            case ENTESSA: return "";
-            case EPL1_0: return "";
-            case EPL2_0: return "";
-            case ERLPL1_1: return "";
-            case EUDATAGRID: return "";
-            case EUPL1_0: return "";
-            case EUPL1_1: return "";
-            case EUPL1_2: return "";
-            case EUROSYM: return "";
-            case FAIR: return "";
-            case FRAMEWORX1_0: return "";
-            case FREEIMAGE: return "";
-            case FSFAP: return "";
-            case FSFUL: return "";
-            case FSFULLR: return "";
-            case FTL: return "";
-            case GFDL1_1ONLY: return "";
-            case GFDL1_1ORLATER: return "";
-            case GFDL1_2ONLY: return "";
-            case GFDL1_2ORLATER: return "";
-            case GFDL1_3ONLY: return "";
-            case GFDL1_3ORLATER: return "";
-            case GIFTWARE: return "";
-            case GL2PS: return "";
-            case GLIDE: return "";
-            case GLULXE: return "";
-            case GNUPLOT: return "";
-            case GPL1_0ONLY: return "";
-            case GPL1_0ORLATER: return "";
-            case GPL2_0ONLY: return "";
-            case GPL2_0ORLATER: return "";
-            case GPL3_0ONLY: return "";
-            case GPL3_0ORLATER: return "";
-            case GSOAP1_3B: return "";
-            case HASKELLREPORT: return "";
-            case HPND: return "";
-            case IBMPIBS: return "";
-            case ICU: return "";
-            case IJG: return "";
-            case IMAGEMAGICK: return "";
-            case IMATIX: return "";
-            case IMLIB2: return "";
-            case INFOZIP: return "";
-            case INTELACPI: return "";
-            case INTEL: return "";
-            case INTERBASE1_0: return "";
-            case IPA: return "";
-            case IPL1_0: return "";
-            case ISC: return "";
-            case JASPER2_0: return "";
-            case JSON: return "";
-            case LAL1_2: return "";
-            case LAL1_3: return "";
-            case LATEX2E: return "";
-            case LEPTONICA: return "";
-            case LGPL2_0ONLY: return "";
-            case LGPL2_0ORLATER: return "";
-            case LGPL2_1ONLY: return "";
-            case LGPL2_1ORLATER: return "";
-            case LGPL3_0ONLY: return "";
-            case LGPL3_0ORLATER: return "";
-            case LGPLLR: return "";
-            case LIBPNG: return "";
-            case LIBTIFF: return "";
-            case LILIQP1_1: return "";
-            case LILIQR1_1: return "";
-            case LILIQRPLUS1_1: return "";
-            case LINUXOPENIB: return "";
-            case LPL1_0: return "";
-            case LPL1_02: return "";
-            case LPPL1_0: return "";
-            case LPPL1_1: return "";
-            case LPPL1_2: return "";
-            case LPPL1_3A: return "";
-            case LPPL1_3C: return "";
-            case MAKEINDEX: return "";
-            case MIROS: return "";
-            case MIT0: return "";
-            case MITADVERTISING: return "";
-            case MITCMU: return "";
-            case MITENNA: return "";
-            case MITFEH: return "";
-            case MIT: return "";
-            case MITNFA: return "";
-            case MOTOSOTO: return "";
-            case MPICH2: return "";
-            case MPL1_0: return "";
-            case MPL1_1: return "";
-            case MPL2_0NOCOPYLEFTEXCEPTION: return "";
-            case MPL2_0: return "";
-            case MSPL: return "";
-            case MSRL: return "";
-            case MTLL: return "";
-            case MULTICS: return "";
-            case MUP: return "";
-            case NASA1_3: return "";
-            case NAUMEN: return "";
-            case NBPL1_0: return "";
-            case NCSA: return "";
-            case NETSNMP: return "";
-            case NETCDF: return "";
-            case NEWSLETR: return "";
-            case NGPL: return "";
-            case NLOD1_0: return "";
-            case NLPL: return "";
-            case NOKIA: return "";
-            case NOSL: return "";
-            case NOWEB: return "";
-            case NPL1_0: return "";
-            case NPL1_1: return "";
-            case NPOSL3_0: return "";
-            case NRL: return "";
-            case NTP: return "";
-            case OCCTPL: return "";
-            case OCLC2_0: return "";
-            case ODBL1_0: return "";
-            case OFL1_0: return "";
-            case OFL1_1: return "";
-            case OGTSL: return "";
-            case OLDAP1_1: return "";
-            case OLDAP1_2: return "";
-            case OLDAP1_3: return "";
-            case OLDAP1_4: return "";
-            case OLDAP2_0_1: return "";
-            case OLDAP2_0: return "";
-            case OLDAP2_1: return "";
-            case OLDAP2_2_1: return "";
-            case OLDAP2_2_2: return "";
-            case OLDAP2_2: return "";
-            case OLDAP2_3: return "";
-            case OLDAP2_4: return "";
-            case OLDAP2_5: return "";
-            case OLDAP2_6: return "";
-            case OLDAP2_7: return "";
-            case OLDAP2_8: return "";
-            case OML: return "";
-            case OPENSSL: return "";
-            case OPL1_0: return "";
-            case OSETPL2_1: return "";
-            case OSL1_0: return "";
-            case OSL1_1: return "";
-            case OSL2_0: return "";
-            case OSL2_1: return "";
-            case OSL3_0: return "";
-            case PDDL1_0: return "";
-            case PHP3_0: return "";
-            case PHP3_01: return "";
-            case PLEXUS: return "";
-            case POSTGRESQL: return "";
-            case PSFRAG: return "";
-            case PSUTILS: return "";
-            case PYTHON2_0: return "";
-            case QHULL: return "";
-            case QPL1_0: return "";
-            case RDISC: return "";
-            case RHECOS1_1: return "";
-            case RPL1_1: return "";
-            case RPL1_5: return "";
-            case RPSL1_0: return "";
-            case RSAMD: return "";
-            case RSCPL: return "";
-            case RUBY: return "";
-            case SAXPD: return "";
-            case SAXPATH: return "";
-            case SCEA: return "";
-            case SENDMAIL: return "";
-            case SGIB1_0: return "";
-            case SGIB1_1: return "";
-            case SGIB2_0: return "";
-            case SIMPL2_0: return "";
-            case SISSL1_2: return "";
-            case SISSL: return "";
-            case SLEEPYCAT: return "";
-            case SMLNJ: return "";
-            case SMPPL: return "";
-            case SNIA: return "";
-            case SPENCER86: return "";
-            case SPENCER94: return "";
-            case SPENCER99: return "";
-            case SPL1_0: return "";
-            case SUGARCRM1_1_3: return "";
-            case SWL: return "";
-            case TCL: return "";
-            case TCPWRAPPERS: return "";
-            case TMATE: return "";
-            case TORQUE1_1: return "";
-            case TOSL: return "";
-            case UNICODEDFS2015: return "";
-            case UNICODEDFS2016: return "";
-            case UNICODETOU: return "";
-            case UNLICENSE: return "";
-            case UPL1_0: return "";
-            case VIM: return "";
-            case VOSTROM: return "";
-            case VSL1_0: return "";
-            case W3C19980720: return "";
-            case W3C20150513: return "";
-            case W3C: return "";
-            case WATCOM1_0: return "";
-            case WSUIPA: return "";
-            case WTFPL: return "";
-            case X11: return "";
-            case XEROX: return "";
-            case XFREE861_1: return "";
-            case XINETD: return "";
-            case XNET: return "";
-            case XPP: return "";
-            case XSKAT: return "";
-            case YPL1_0: return "";
-            case YPL1_1: return "";
-            case ZED: return "";
-            case ZEND2_0: return "";
-            case ZIMBRA1_3: return "";
-            case ZIMBRA1_4: return "";
-            case ZLIBACKNOWLEDGEMENT: return "";
-            case ZLIB: return "";
-            case ZPL1_1: return "";
-            case ZPL2_0: return "";
-            case ZPL2_1: return "";
+            case NOTOPENSOURCE: return "Not an open source license";
+            case _0BSD: return "BSD Zero Clause License";
+            case AAL: return "Attribution Assurance License";
+            case ABSTYLES: return "Abstyles License";
+            case ADOBE2006: return "Adobe Systems Incorporated Source Code License Agreement";
+            case ADOBEGLYPH: return "Adobe Glyph List License";
+            case ADSL: return "Amazon Digital Services License";
+            case AFL1_1: return "Academic Free License v1.1";
+            case AFL1_2: return "Academic Free License v1.2";
+            case AFL2_0: return "Academic Free License v2.0";
+            case AFL2_1: return "Academic Free License v2.1";
+            case AFL3_0: return "Academic Free License v3.0";
+            case AFMPARSE: return "Afmparse License";
+            case AGPL1_0ONLY: return "Affero General Public License v1.0 only";
+            case AGPL1_0ORLATER: return "Affero General Public License v1.0 or later";
+            case AGPL3_0ONLY: return "GNU Affero General Public License v3.0 only";
+            case AGPL3_0ORLATER: return "GNU Affero General Public License v3.0 or later";
+            case ALADDIN: return "Aladdin Free Public License";
+            case AMDPLPA: return "AMD's plpa_map.c License";
+            case AML: return "Apple MIT License";
+            case AMPAS: return "Academy of Motion Picture Arts and Sciences BSD";
+            case ANTLRPD: return "ANTLR Software Rights Notice";
+            case APACHE1_0: return "Apache License 1.0";
+            case APACHE1_1: return "Apache License 1.1";
+            case APACHE2_0: return "Apache License 2.0";
+            case APAFML: return "Adobe Postscript AFM License";
+            case APL1_0: return "Adaptive Public License 1.0";
+            case APSL1_0: return "Apple Public Source License 1.0";
+            case APSL1_1: return "Apple Public Source License 1.1";
+            case APSL1_2: return "Apple Public Source License 1.2";
+            case APSL2_0: return "Apple Public Source License 2.0";
+            case ARTISTIC1_0CL8: return "Artistic License 1.0 w/clause 8";
+            case ARTISTIC1_0PERL: return "Artistic License 1.0 (Perl)";
+            case ARTISTIC1_0: return "Artistic License 1.0";
+            case ARTISTIC2_0: return "Artistic License 2.0";
+            case BAHYPH: return "Bahyph License";
+            case BARR: return "Barr License";
+            case BEERWARE: return "Beerware License";
+            case BITTORRENT1_0: return "BitTorrent Open Source License v1.0";
+            case BITTORRENT1_1: return "BitTorrent Open Source License v1.1";
+            case BORCEUX: return "Borceux license";
+            case BSD1CLAUSE: return "BSD 1-Clause License";
+            case BSD2CLAUSEFREEBSD: return "BSD 2-Clause FreeBSD License";
+            case BSD2CLAUSENETBSD: return "BSD 2-Clause NetBSD License";
+            case BSD2CLAUSEPATENT: return "BSD-2-Clause Plus Patent License";
+            case BSD2CLAUSE: return "BSD 2-Clause \"Simplified\" License";
+            case BSD3CLAUSEATTRIBUTION: return "BSD with attribution";
+            case BSD3CLAUSECLEAR: return "BSD 3-Clause Clear License";
+            case BSD3CLAUSELBNL: return "Lawrence Berkeley National Labs BSD variant license";
+            case BSD3CLAUSENONUCLEARLICENSE2014: return "BSD 3-Clause No Nuclear License 2014";
+            case BSD3CLAUSENONUCLEARLICENSE: return "BSD 3-Clause No Nuclear License";
+            case BSD3CLAUSENONUCLEARWARRANTY: return "BSD 3-Clause No Nuclear Warranty";
+            case BSD3CLAUSE: return "BSD 3-Clause \"New\" or \"Revised\" License";
+            case BSD4CLAUSEUC: return "BSD-4-Clause (University of California-Specific)";
+            case BSD4CLAUSE: return "BSD 4-Clause \"Original\" or \"Old\" License";
+            case BSDPROTECTION: return "BSD Protection License";
+            case BSDSOURCECODE: return "BSD Source Code Attribution";
+            case BSL1_0: return "Boost Software License 1.0";
+            case BZIP21_0_5: return "bzip2 and libbzip2 License v1.0.5";
+            case BZIP21_0_6: return "bzip2 and libbzip2 License v1.0.6";
+            case CALDERA: return "Caldera License";
+            case CATOSL1_1: return "Computer Associates Trusted Open Source License 1.1";
+            case CCBY1_0: return "Creative Commons Attribution 1.0 Generic";
+            case CCBY2_0: return "Creative Commons Attribution 2.0 Generic";
+            case CCBY2_5: return "Creative Commons Attribution 2.5 Generic";
+            case CCBY3_0: return "Creative Commons Attribution 3.0 Unported";
+            case CCBY4_0: return "Creative Commons Attribution 4.0 International";
+            case CCBYNC1_0: return "Creative Commons Attribution Non Commercial 1.0 Generic";
+            case CCBYNC2_0: return "Creative Commons Attribution Non Commercial 2.0 Generic";
+            case CCBYNC2_5: return "Creative Commons Attribution Non Commercial 2.5 Generic";
+            case CCBYNC3_0: return "Creative Commons Attribution Non Commercial 3.0 Unported";
+            case CCBYNC4_0: return "Creative Commons Attribution Non Commercial 4.0 International";
+            case CCBYNCND1_0: return "Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic";
+            case CCBYNCND2_0: return "Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic";
+            case CCBYNCND2_5: return "Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic";
+            case CCBYNCND3_0: return "Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported";
+            case CCBYNCND4_0: return "Creative Commons Attribution Non Commercial No Derivatives 4.0 International";
+            case CCBYNCSA1_0: return "Creative Commons Attribution Non Commercial Share Alike 1.0 Generic";
+            case CCBYNCSA2_0: return "Creative Commons Attribution Non Commercial Share Alike 2.0 Generic";
+            case CCBYNCSA2_5: return "Creative Commons Attribution Non Commercial Share Alike 2.5 Generic";
+            case CCBYNCSA3_0: return "Creative Commons Attribution Non Commercial Share Alike 3.0 Unported";
+            case CCBYNCSA4_0: return "Creative Commons Attribution Non Commercial Share Alike 4.0 International";
+            case CCBYND1_0: return "Creative Commons Attribution No Derivatives 1.0 Generic";
+            case CCBYND2_0: return "Creative Commons Attribution No Derivatives 2.0 Generic";
+            case CCBYND2_5: return "Creative Commons Attribution No Derivatives 2.5 Generic";
+            case CCBYND3_0: return "Creative Commons Attribution No Derivatives 3.0 Unported";
+            case CCBYND4_0: return "Creative Commons Attribution No Derivatives 4.0 International";
+            case CCBYSA1_0: return "Creative Commons Attribution Share Alike 1.0 Generic";
+            case CCBYSA2_0: return "Creative Commons Attribution Share Alike 2.0 Generic";
+            case CCBYSA2_5: return "Creative Commons Attribution Share Alike 2.5 Generic";
+            case CCBYSA3_0: return "Creative Commons Attribution Share Alike 3.0 Unported";
+            case CCBYSA4_0: return "Creative Commons Attribution Share Alike 4.0 International";
+            case CC01_0: return "Creative Commons Zero v1.0 Universal";
+            case CDDL1_0: return "Common Development and Distribution License 1.0";
+            case CDDL1_1: return "Common Development and Distribution License 1.1";
+            case CDLAPERMISSIVE1_0: return "Community Data License Agreement Permissive 1.0";
+            case CDLASHARING1_0: return "Community Data License Agreement Sharing 1.0";
+            case CECILL1_0: return "CeCILL Free Software License Agreement v1.0";
+            case CECILL1_1: return "CeCILL Free Software License Agreement v1.1";
+            case CECILL2_0: return "CeCILL Free Software License Agreement v2.0";
+            case CECILL2_1: return "CeCILL Free Software License Agreement v2.1";
+            case CECILLB: return "CeCILL-B Free Software License Agreement";
+            case CECILLC: return "CeCILL-C Free Software License Agreement";
+            case CLARTISTIC: return "Clarified Artistic License";
+            case CNRIJYTHON: return "CNRI Jython License";
+            case CNRIPYTHONGPLCOMPATIBLE: return "CNRI Python Open Source GPL Compatible License Agreement";
+            case CNRIPYTHON: return "CNRI Python License";
+            case CONDOR1_1: return "Condor Public License v1.1";
+            case CPAL1_0: return "Common Public Attribution License 1.0";
+            case CPL1_0: return "Common Public License 1.0";
+            case CPOL1_02: return "Code Project Open License 1.02";
+            case CROSSWORD: return "Crossword License";
+            case CRYSTALSTACKER: return "CrystalStacker License";
+            case CUAOPL1_0: return "CUA Office Public License v1.0";
+            case CUBE: return "Cube License";
+            case CURL: return "curl License";
+            case DFSL1_0: return "Deutsche Freie Software Lizenz";
+            case DIFFMARK: return "diffmark license";
+            case DOC: return "DOC License";
+            case DOTSEQN: return "Dotseqn License";
+            case DSDP: return "DSDP License";
+            case DVIPDFM: return "dvipdfm License";
+            case ECL1_0: return "Educational Community License v1.0";
+            case ECL2_0: return "Educational Community License v2.0";
+            case EFL1_0: return "Eiffel Forum License v1.0";
+            case EFL2_0: return "Eiffel Forum License v2.0";
+            case EGENIX: return "eGenix.com Public License 1.1.0";
+            case ENTESSA: return "Entessa Public License v1.0";
+            case EPL1_0: return "Eclipse Public License 1.0";
+            case EPL2_0: return "Eclipse Public License 2.0";
+            case ERLPL1_1: return "Erlang Public License v1.1";
+            case EUDATAGRID: return "EU DataGrid Software License";
+            case EUPL1_0: return "European Union Public License 1.0";
+            case EUPL1_1: return "European Union Public License 1.1";
+            case EUPL1_2: return "European Union Public License 1.2";
+            case EUROSYM: return "Eurosym License";
+            case FAIR: return "Fair License";
+            case FRAMEWORX1_0: return "Frameworx Open License 1.0";
+            case FREEIMAGE: return "FreeImage Public License v1.0";
+            case FSFAP: return "FSF All Permissive License";
+            case FSFUL: return "FSF Unlimited License";
+            case FSFULLR: return "FSF Unlimited License (with License Retention)";
+            case FTL: return "Freetype Project License";
+            case GFDL1_1ONLY: return "GNU Free Documentation License v1.1 only";
+            case GFDL1_1ORLATER: return "GNU Free Documentation License v1.1 or later";
+            case GFDL1_2ONLY: return "GNU Free Documentation License v1.2 only";
+            case GFDL1_2ORLATER: return "GNU Free Documentation License v1.2 or later";
+            case GFDL1_3ONLY: return "GNU Free Documentation License v1.3 only";
+            case GFDL1_3ORLATER: return "GNU Free Documentation License v1.3 or later";
+            case GIFTWARE: return "Giftware License";
+            case GL2PS: return "GL2PS License";
+            case GLIDE: return "3dfx Glide License";
+            case GLULXE: return "Glulxe License";
+            case GNUPLOT: return "gnuplot License";
+            case GPL1_0ONLY: return "GNU General Public License v1.0 only";
+            case GPL1_0ORLATER: return "GNU General Public License v1.0 or later";
+            case GPL2_0ONLY: return "GNU General Public License v2.0 only";
+            case GPL2_0ORLATER: return "GNU General Public License v2.0 or later";
+            case GPL3_0ONLY: return "GNU General Public License v3.0 only";
+            case GPL3_0ORLATER: return "GNU General Public License v3.0 or later";
+            case GSOAP1_3B: return "gSOAP Public License v1.3b";
+            case HASKELLREPORT: return "Haskell Language Report License";
+            case HPND: return "Historical Permission Notice and Disclaimer";
+            case IBMPIBS: return "IBM PowerPC Initialization and Boot Software";
+            case ICU: return "ICU License";
+            case IJG: return "Independent JPEG Group License";
+            case IMAGEMAGICK: return "ImageMagick License";
+            case IMATIX: return "iMatix Standard Function Library Agreement";
+            case IMLIB2: return "Imlib2 License";
+            case INFOZIP: return "Info-ZIP License";
+            case INTELACPI: return "Intel ACPI Software License Agreement";
+            case INTEL: return "Intel Open Source License";
+            case INTERBASE1_0: return "Interbase Public License v1.0";
+            case IPA: return "IPA Font License";
+            case IPL1_0: return "IBM Public License v1.0";
+            case ISC: return "ISC License";
+            case JASPER2_0: return "JasPer License";
+            case JSON: return "JSON License";
+            case LAL1_2: return "Licence Art Libre 1.2";
+            case LAL1_3: return "Licence Art Libre 1.3";
+            case LATEX2E: return "Latex2e License";
+            case LEPTONICA: return "Leptonica License";
+            case LGPL2_0ONLY: return "GNU Library General Public License v2 only";
+            case LGPL2_0ORLATER: return "GNU Library General Public License v2 or later";
+            case LGPL2_1ONLY: return "GNU Lesser General Public License v2.1 only";
+            case LGPL2_1ORLATER: return "GNU Lesser General Public License v2.1 or later";
+            case LGPL3_0ONLY: return "GNU Lesser General Public License v3.0 only";
+            case LGPL3_0ORLATER: return "GNU Lesser General Public License v3.0 or later";
+            case LGPLLR: return "Lesser General Public License For Linguistic Resources";
+            case LIBPNG: return "libpng License";
+            case LIBTIFF: return "libtiff License";
+            case LILIQP1_1: return "Licence Libre du Québec – Permissive version 1.1";
+            case LILIQR1_1: return "Licence Libre du Québec – Réciprocité version 1.1";
+            case LILIQRPLUS1_1: return "Licence Libre du Québec – Réciprocité forte version 1.1";
+            case LINUXOPENIB: return "Linux Kernel Variant of OpenIB.org license";
+            case LPL1_0: return "Lucent Public License Version 1.0";
+            case LPL1_02: return "Lucent Public License v1.02";
+            case LPPL1_0: return "LaTeX Project Public License v1.0";
+            case LPPL1_1: return "LaTeX Project Public License v1.1";
+            case LPPL1_2: return "LaTeX Project Public License v1.2";
+            case LPPL1_3A: return "LaTeX Project Public License v1.3a";
+            case LPPL1_3C: return "LaTeX Project Public License v1.3c";
+            case MAKEINDEX: return "MakeIndex License";
+            case MIROS: return "MirOS License";
+            case MIT0: return "MIT No Attribution";
+            case MITADVERTISING: return "Enlightenment License (e16)";
+            case MITCMU: return "CMU License";
+            case MITENNA: return "enna License";
+            case MITFEH: return "feh License";
+            case MIT: return "MIT License";
+            case MITNFA: return "MIT +no-false-attribs license";
+            case MOTOSOTO: return "Motosoto License";
+            case MPICH2: return "mpich2 License";
+            case MPL1_0: return "Mozilla Public License 1.0";
+            case MPL1_1: return "Mozilla Public License 1.1";
+            case MPL2_0NOCOPYLEFTEXCEPTION: return "Mozilla Public License 2.0 (no copyleft exception)";
+            case MPL2_0: return "Mozilla Public License 2.0";
+            case MSPL: return "Microsoft Public License";
+            case MSRL: return "Microsoft Reciprocal License";
+            case MTLL: return "Matrix Template Library License";
+            case MULTICS: return "Multics License";
+            case MUP: return "Mup License";
+            case NASA1_3: return "NASA Open Source Agreement 1.3";
+            case NAUMEN: return "Naumen Public License";
+            case NBPL1_0: return "Net Boolean Public License v1";
+            case NCSA: return "University of Illinois/NCSA Open Source License";
+            case NETSNMP: return "Net-SNMP License";
+            case NETCDF: return "NetCDF license";
+            case NEWSLETR: return "Newsletr License";
+            case NGPL: return "Nethack General Public License";
+            case NLOD1_0: return "Norwegian Licence for Open Government Data";
+            case NLPL: return "No Limit Public License";
+            case NOKIA: return "Nokia Open Source License";
+            case NOSL: return "Netizen Open Source License";
+            case NOWEB: return "Noweb License";
+            case NPL1_0: return "Netscape Public License v1.0";
+            case NPL1_1: return "Netscape Public License v1.1";
+            case NPOSL3_0: return "Non-Profit Open Software License 3.0";
+            case NRL: return "NRL License";
+            case NTP: return "NTP License";
+            case OCCTPL: return "Open CASCADE Technology Public License";
+            case OCLC2_0: return "OCLC Research Public License 2.0";
+            case ODBL1_0: return "ODC Open Database License v1.0";
+            case OFL1_0: return "SIL Open Font License 1.0";
+            case OFL1_1: return "SIL Open Font License 1.1";
+            case OGTSL: return "Open Group Test Suite License";
+            case OLDAP1_1: return "Open LDAP Public License v1.1";
+            case OLDAP1_2: return "Open LDAP Public License v1.2";
+            case OLDAP1_3: return "Open LDAP Public License v1.3";
+            case OLDAP1_4: return "Open LDAP Public License v1.4";
+            case OLDAP2_0_1: return "Open LDAP Public License v2.0.1";
+            case OLDAP2_0: return "Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)";
+            case OLDAP2_1: return "Open LDAP Public License v2.1";
+            case OLDAP2_2_1: return "Open LDAP Public License v2.2.1";
+            case OLDAP2_2_2: return "Open LDAP Public License 2.2.2";
+            case OLDAP2_2: return "Open LDAP Public License v2.2";
+            case OLDAP2_3: return "Open LDAP Public License v2.3";
+            case OLDAP2_4: return "Open LDAP Public License v2.4";
+            case OLDAP2_5: return "Open LDAP Public License v2.5";
+            case OLDAP2_6: return "Open LDAP Public License v2.6";
+            case OLDAP2_7: return "Open LDAP Public License v2.7";
+            case OLDAP2_8: return "Open LDAP Public License v2.8";
+            case OML: return "Open Market License";
+            case OPENSSL: return "OpenSSL License";
+            case OPL1_0: return "Open Public License v1.0";
+            case OSETPL2_1: return "OSET Public License version 2.1";
+            case OSL1_0: return "Open Software License 1.0";
+            case OSL1_1: return "Open Software License 1.1";
+            case OSL2_0: return "Open Software License 2.0";
+            case OSL2_1: return "Open Software License 2.1";
+            case OSL3_0: return "Open Software License 3.0";
+            case PDDL1_0: return "ODC Public Domain Dedication & License 1.0";
+            case PHP3_0: return "PHP License v3.0";
+            case PHP3_01: return "PHP License v3.01";
+            case PLEXUS: return "Plexus Classworlds License";
+            case POSTGRESQL: return "PostgreSQL License";
+            case PSFRAG: return "psfrag License";
+            case PSUTILS: return "psutils License";
+            case PYTHON2_0: return "Python License 2.0";
+            case QHULL: return "Qhull License";
+            case QPL1_0: return "Q Public License 1.0";
+            case RDISC: return "Rdisc License";
+            case RHECOS1_1: return "Red Hat eCos Public License v1.1";
+            case RPL1_1: return "Reciprocal Public License 1.1";
+            case RPL1_5: return "Reciprocal Public License 1.5";
+            case RPSL1_0: return "RealNetworks Public Source License v1.0";
+            case RSAMD: return "RSA Message-Digest License";
+            case RSCPL: return "Ricoh Source Code Public License";
+            case RUBY: return "Ruby License";
+            case SAXPD: return "Sax Public Domain Notice";
+            case SAXPATH: return "Saxpath License";
+            case SCEA: return "SCEA Shared Source License";
+            case SENDMAIL: return "Sendmail License";
+            case SGIB1_0: return "SGI Free Software License B v1.0";
+            case SGIB1_1: return "SGI Free Software License B v1.1";
+            case SGIB2_0: return "SGI Free Software License B v2.0";
+            case SIMPL2_0: return "Simple Public License 2.0";
+            case SISSL1_2: return "Sun Industry Standards Source License v1.2";
+            case SISSL: return "Sun Industry Standards Source License v1.1";
+            case SLEEPYCAT: return "Sleepycat License";
+            case SMLNJ: return "Standard ML of New Jersey License";
+            case SMPPL: return "Secure Messaging Protocol Public License";
+            case SNIA: return "SNIA Public License 1.1";
+            case SPENCER86: return "Spencer License 86";
+            case SPENCER94: return "Spencer License 94";
+            case SPENCER99: return "Spencer License 99";
+            case SPL1_0: return "Sun Public License v1.0";
+            case SUGARCRM1_1_3: return "SugarCRM Public License v1.1.3";
+            case SWL: return "Scheme Widget Library (SWL) Software License Agreement";
+            case TCL: return "TCL/TK License";
+            case TCPWRAPPERS: return "TCP Wrappers License";
+            case TMATE: return "TMate Open Source License";
+            case TORQUE1_1: return "TORQUE v2.5+ Software License v1.1";
+            case TOSL: return "Trusster Open Source License";
+            case UNICODEDFS2015: return "Unicode License Agreement - Data Files and Software (2015)";
+            case UNICODEDFS2016: return "Unicode License Agreement - Data Files and Software (2016)";
+            case UNICODETOU: return "Unicode Terms of Use";
+            case UNLICENSE: return "The Unlicense";
+            case UPL1_0: return "Universal Permissive License v1.0";
+            case VIM: return "Vim License";
+            case VOSTROM: return "VOSTROM Public License for Open Source";
+            case VSL1_0: return "Vovida Software License v1.0";
+            case W3C19980720: return "W3C Software Notice and License (1998-07-20)";
+            case W3C20150513: return "W3C Software Notice and Document License (2015-05-13)";
+            case W3C: return "W3C Software Notice and License (2002-12-31)";
+            case WATCOM1_0: return "Sybase Open Watcom Public License 1.0";
+            case WSUIPA: return "Wsuipa License";
+            case WTFPL: return "Do What The F*ck You Want To Public License";
+            case X11: return "X11 License";
+            case XEROX: return "Xerox License";
+            case XFREE861_1: return "XFree86 License 1.1";
+            case XINETD: return "xinetd License";
+            case XNET: return "X.Net License";
+            case XPP: return "XPP License";
+            case XSKAT: return "XSkat License";
+            case YPL1_0: return "Yahoo! Public License v1.0";
+            case YPL1_1: return "Yahoo! Public License v1.1";
+            case ZED: return "Zed License";
+            case ZEND2_0: return "Zend License v2.0";
+            case ZIMBRA1_3: return "Zimbra Public License v1.3";
+            case ZIMBRA1_4: return "Zimbra Public License v1.4";
+            case ZLIBACKNOWLEDGEMENT: return "zlib/libpng License with Acknowledgement";
+            case ZLIB: return "zlib License";
+            case ZPL1_1: return "Zope Public License 1.1";
+            case ZPL2_0: return "Zope Public License 2.0";
+            case ZPL2_1: return "Zope Public License 2.1";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
+            case NOTOPENSOURCE: return "Not open source";
             case _0BSD: return "BSD Zero Clause License";
             case AAL: return "Attribution Assurance License";
             case ABSTYLES: return "Abstyles License";
@@ -3540,6 +3550,8 @@ public class ImplementationGuide extends MetadataResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("not-open-source".equals(codeString))
+          return SPDXLicense.NOTOPENSOURCE;
         if ("0BSD".equals(codeString))
           return SPDXLicense._0BSD;
         if ("AAL".equals(codeString))
@@ -4240,6 +4252,8 @@ public class ImplementationGuide extends MetadataResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("not-open-source".equals(codeString))
+          return new Enumeration<SPDXLicense>(this, SPDXLicense.NOTOPENSOURCE);
         if ("0BSD".equals(codeString))
           return new Enumeration<SPDXLicense>(this, SPDXLicense._0BSD);
         if ("AAL".equals(codeString))
@@ -4933,6 +4947,8 @@ public class ImplementationGuide extends MetadataResource {
         throw new FHIRException("Unknown SPDXLicense code '"+codeString+"'");
         }
     public String toCode(SPDXLicense code) {
+      if (code == SPDXLicense.NOTOPENSOURCE)
+        return "not-open-source";
       if (code == SPDXLicense._0BSD)
         return "0BSD";
       if (code == SPDXLicense.AAL)
@@ -9914,10 +9930,10 @@ public class ImplementationGuide extends MetadataResource {
     protected IdType packageId;
 
     /**
-     * The license that applies to this Implementation Guide, using an SPDX license code.
+     * The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.
      */
     @Child(name = "license", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="SPDX license code for this IG", formalDefinition="The license that applies to this Implementation Guide, using an SPDX license code." )
+    @Description(shortDefinition="SPDX license code for this IG (or not-open-source)", formalDefinition="The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/spdx-license")
     protected Enumeration<SPDXLicense> license;
 
@@ -10610,7 +10626,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #license} (The license that applies to this Implementation Guide, using an SPDX license code.). This is the underlying object with id, value and extensions. The accessor "getLicense" gives direct access to the value
+     * @return {@link #license} (The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.). This is the underlying object with id, value and extensions. The accessor "getLicense" gives direct access to the value
      */
     public Enumeration<SPDXLicense> getLicenseElement() { 
       if (this.license == null)
@@ -10630,7 +10646,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #license} (The license that applies to this Implementation Guide, using an SPDX license code.). This is the underlying object with id, value and extensions. The accessor "getLicense" gives direct access to the value
+     * @param value {@link #license} (The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.). This is the underlying object with id, value and extensions. The accessor "getLicense" gives direct access to the value
      */
     public ImplementationGuide setLicenseElement(Enumeration<SPDXLicense> value) { 
       this.license = value;
@@ -10638,14 +10654,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return The license that applies to this Implementation Guide, using an SPDX license code.
+     * @return The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.
      */
     public SPDXLicense getLicense() { 
       return this.license == null ? null : this.license.getValue();
     }
 
     /**
-     * @param value The license that applies to this Implementation Guide, using an SPDX license code.
+     * @param value The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.
      */
     public ImplementationGuide setLicense(SPDXLicense value) { 
       if (value == null)
@@ -10876,7 +10892,7 @@ public class ImplementationGuide extends MetadataResource {
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the implementation guide is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.", 0, 1, copyright));
         children.add(new Property("packageId", "id", "The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.", 0, 1, packageId));
-        children.add(new Property("license", "code", "The license that applies to this Implementation Guide, using an SPDX license code.", 0, 1, license));
+        children.add(new Property("license", "code", "The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.", 0, 1, license));
         children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.", 0, 1, fhirVersion));
         children.add(new Property("dependsOn", "", "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.", 0, java.lang.Integer.MAX_VALUE, dependsOn));
         children.add(new Property("global", "", "A set of profiles that all resources covered by this implementation guide must conform to.", 0, java.lang.Integer.MAX_VALUE, global));
@@ -10900,7 +10916,7 @@ public class ImplementationGuide extends MetadataResource {
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the implementation guide is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.", 0, 1, copyright);
         case 1802060801: /*packageId*/  return new Property("packageId", "id", "The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.", 0, 1, packageId);
-        case 166757441: /*license*/  return new Property("license", "code", "The license that applies to this Implementation Guide, using an SPDX license code.", 0, 1, license);
+        case 166757441: /*license*/  return new Property("license", "code", "The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.", 0, 1, license);
         case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.", 0, 1, fhirVersion);
         case -1109214266: /*dependsOn*/  return new Property("dependsOn", "", "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.", 0, java.lang.Integer.MAX_VALUE, dependsOn);
         case -1243020381: /*global*/  return new Property("global", "", "A set of profiles that all resources covered by this implementation guide must conform to.", 0, java.lang.Integer.MAX_VALUE, global);

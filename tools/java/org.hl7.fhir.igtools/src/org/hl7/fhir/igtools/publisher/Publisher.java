@@ -3105,15 +3105,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   public String license() throws Exception {
     String license = ostr(configuration, "license");
     if (Utilities.noString(license))
-      throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"Not Open Source\"");
+      throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"not-open-source\"");
     return license;
   }
 
   public SPDXLicense licenseAsEnum() throws Exception {
-    if (!license().toLowerCase().equals("not open source"))
-      return SPDXLicense.fromCode(license());
-    else
-      return null;
+    return SPDXLicense.fromCode(license());
   }
 
 
