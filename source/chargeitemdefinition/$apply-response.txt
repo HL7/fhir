@@ -1,0 +1,5 @@
+// Returned on successful application
+HTTP/1.1 200 OK
+
+$include apply-operation-response-example.xml
+

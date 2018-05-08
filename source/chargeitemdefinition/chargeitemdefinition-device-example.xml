@@ -1,0 +1,78 @@
+<ChargeItemDefinition xmlns="http://hl7.org/fhir"> 
+	<id value="device"/>
+	<url value="http://sap.org/ChargeItemDefinition/device-123"/>
+	<status value="active"/> 
+	<description value="Financial details for  custom made device"/>
+	<instance>
+		<reference value="Device/12345"/>
+	</instance>
+	<!-- definition only applicable if the ChargeItem pertains to the device this  -->	
+	<applicability>
+		<description value="ChargeItem pertains to Device"/>
+		<language value="text/fhirpath"/>
+		<!-- syntax of expression may be incorrect, but you get the idea-->
+		<expression value="service.suppliedItem='Device/12345'"/>
+	</applicability>
+	<!-- the base price for this device is constant, so no additional rules apply-->
+	<propertyGroup>
+		<priceComponent>
+			<type value="base"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/billing-attributes"/>
+					<code value="VK"/>
+					<display value="Verkaufspreis (netto)"/>
+				</coding>
+			</code>
+			<amount>
+				<value value="67.44"/>
+				<unit value="Euro"/>
+				<system value="urn:iso:std:iso:4217"/>
+
+				<code value="EUR"/>
+			</amount>
+		</priceComponent>
+	</propertyGroup>
+	<!-- the tax applicable to this device changes after 2018-04-01-->
+	<propertyGroup>
+		<applicability>
+			<description value="Gültigkeit Steuersatz"/>
+			<language value="text/fhirpath"/>
+			<!-- syntax of expression may be incorrect, but you get the idea-->
+			<expression value="%context.occurenceDateTime &gt; &apos;2018-04-01&apos;"/>
+		</applicability>
+		<priceComponent>
+			<type value="tax"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/billing-attributes"/>
+					<code value="MWST"/>
+					<display value="Mehrwersteuersatz"/>
+				</coding>
+			</code>
+			<factor value="1.19"/>
+		</priceComponent>
+	</propertyGroup>
+	<propertyGroup>
+		<applicability>
+			<description value="Gültigkeit Steuersatz"/>
+			<language value="text/fhirpath"/>
+			<!-- syntax of expression may be incorrect, but you get the idea-->
+			<expression value="%context.occurenceDateTime &lt;= &apos;2018-04-01&apos;"/>
+		</applicability>
+		<priceComponent>
+			<type value="tax"/>
+			<code>
+				<coding>
+					<system value="http://fhir.de/CodeSystem/billing-attributes"/>
+					<code value="MWST"/>
+					<display value="Mehrwersteuersatz"/>
+				</coding>
+			</code>
+			<factor value="1.07"/>
+		</priceComponent>
+	</propertyGroup>
+
+
+
+</ChargeItemDefinition>

@@ -147,6 +147,9 @@
 		<translation lang="es">CargoDeItem</translation>
 		<translation lang="zh">收费项目</translation>
 	</item>
+	<item id="ChargeItemDefinition">
+		<translation lang="en">ChargeItemDefinition</translation>
+	</item>
 	<item id="Claim">
 		<translation lang="en">Claim</translation>
 		<translation lang="es">Reclamación / Factura</translation>

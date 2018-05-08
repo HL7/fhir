@@ -1,0 +1,4 @@
+// Apply a ChargeItemDefinitionDefinition to an account
+GET [base]/ChargeItemDefinition/ebm-1100/$apply?account=1234567
+
+
