@@ -1045,6 +1045,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             return (T) maps.get(uri);
           if (transforms.containsKey(uri))
             return (T) transforms.get(uri);
+          if (questionnaires.containsKey(uri))
+            return (T) questionnaires.get(uri);
           return null;      
         } else if (class_ == StructureDefinition.class) {
           return (T) structures.get(uri);
@@ -1069,7 +1071,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         }
       }
       if (class_ == Questionnaire.class)
-        return null;
+        return (T) questionnaires.get(uri);
       if (class_ == null) {
         if (uri.matches(Constants.URI_REGEX) && !uri.contains("ValueSet"))
           return null;

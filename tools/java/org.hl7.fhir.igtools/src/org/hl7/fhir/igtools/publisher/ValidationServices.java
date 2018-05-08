@@ -10,6 +10,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.OperationDefinition;
+import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -101,6 +102,8 @@ public class ValidationServices implements IValidatorResourceFetcher {
       return CodeSystem.class;
     if (url.contains("/OperationDefinition/"))
       return OperationDefinition.class;
+    if (url.contains("/Questionnaire/"))
+      return Questionnaire.class;
     return null;
   }
 
