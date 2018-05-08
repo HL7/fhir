@@ -10,7 +10,7 @@
     <severity value="error"/> 
     <code value="business-rule"/> 
     <details> 
-      <text value="Billing Code may not be charged for in-patient encounters"/> 
+      <text value="Billing Code SHALL not be charged for in-patient encounters"/> 
     </details>  
   </issue> 
 </OperationOutcome> 
