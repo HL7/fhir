@@ -6,7 +6,14 @@
 		<p>
 Tracking Financial information is vital in Patient Administration and Finance systems in most Healthcare Organizations.
 
-An invoice is a financial document issued by a Healthcare provider to a patient or a payer indicating the goods and services (ChargeItems) performed with their quantities and prices. 
+An invoice is a financial document issued by a healthcare provider to a patient or a payer indicating the goods and services (ChargeItems) performed with their quantities and prices. 
+ </p>
+ <p>Example implementations:
+ <ul>
+ <li>Any solution that tracks billing information and needs to issue invoices</li>
+<li>Private Insurance Providers who want to deliver structured information to patients to increase cost transparency</li>
+<li>Patient apps that want to include information on the amount and reason of the charged costs for the healthcare services a patient received</li>
+</ul>
  </p>
 
 	</div>
@@ -16,10 +23,14 @@ An invoice is a financial document issued by a Healthcare provider to a patient 
 		<h2>Boundaries and Relationships</h2>
 		<p>
 The existing Claim resource is constricted to use cases where Claims are sent to insurances for reimbursement, in a message-like style. It neither references ChargeItems nor Accounts.
+</p><p>
+Competing invoicing standards such as EDIFACT or X12 are aiming at inter-organisational exchange and do not offer human readable representations or traceable links to services rendered which is a requirement for invoicing towards patients.
 
 This resource is used where existing ChargeItems in an Account are collected to create an Invoice to be sent out to Individuals or Organizations in a structured way.
 
 The invoice is the hospital’s view, whereas the Claim is the payer’s view on the performed services.</p>
+<p>
+Since the indiviual ChargeItem resources that make the line items of the Invoice do not carry any pricing information, ChargeItemDefinitions will have to be applied to the ChargeItems in order to calculate the price components for the Invoice depending on the context of the ChargeItem</p>
 	
 </div>
 	<!-- (optional):
