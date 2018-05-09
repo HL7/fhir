@@ -29,30 +29,30 @@
 		<start value ="2017-01-25T08:00:00+01:00"/>
 		<end value ="2017-01-25T12:35:00+01:00"/>
 	</occurrencePeriod>
-	<participant>
-		<role>
+	<performer>
+		<function>
 			<coding>
 				<system value= "http://snomed.info/sct"/>
 				<code value= "17561000"/>
 				<display value="Cardiologist"/>	
 			</coding>
-		</role>
+		</function>
 		<actor>
 			<reference value="Practitioner/example"/>
 		</actor>
-	</participant>
-	<participant>
-		<role>
+	</performer>
+	<performer>
+		<function>
 			<coding>
 				<system value= "http://snomed.info/sct"/>
 				<code value= "224542009"/>
 				<display value="Coronary Care Nurse"/>	
 			</coding>
-		</role>
+		</function>
 		<actor>
 			<reference value="Practitioner/example"/>
 		</actor>
-	</participant>
+	</performer>
 	<performingOrganization>
 		<identifier>
 			<system value= "http://myhospital/NamingSystem/departments"/>
