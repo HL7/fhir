@@ -2910,7 +2910,17 @@ public class ProfileUtilities extends TranslatingUtilities {
     // first, we move the differential elements into a tree
     if (diffList.isEmpty())
       return;
-    ElementDefinitionHolder edh = new ElementDefinitionHolder(diffList.get(0));
+    
+    ElementDefinitionHolder edh = null;
+    int i = 0;
+    if (diffList.get(0).getPath().contains(".")) {
+      String newPath = diffList.get(0).getPath().split("\\.")[0];
+      ElementDefinition e = new ElementDefinition(new StringType(newPath));
+      edh = new ElementDefinitionHolder(e, true);
+    } else {
+      edh = new ElementDefinitionHolder(diffList.get(0));
+      i = 1;
+    }
 
     boolean hasSlicing = false;
     List<String> paths = new ArrayList<String>(); // in a differential, slicing may not be stated explicitly
@@ -2927,7 +2937,6 @@ public class ProfileUtilities extends TranslatingUtilities {
       Collections.sort(diffList, new ElementNameCompare());
     }
 
-    int i = 1;
     processElementsIntoTree(edh, i, diff.getDifferential().getElement());
 
     // now, we sort the siblings throughout the tree
