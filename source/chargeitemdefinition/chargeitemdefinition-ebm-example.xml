@@ -16,14 +16,14 @@
 		</coding>
 	</code>
 	<applicability>
-		<description value="Abrechnungsausschluss: 13250"/>
-		<language value="text/fhirpath"/>
-		<expression value="ChargeItem.where(code='http://fhir.de/CodingSystem/kbv/ebm|13250' and account=%context.account).count = 0"/>
+		<description value="Excludes billing code 13250 for same Encounter"/>
+		<language value="text/cql"/>
+		<expression value="[some CQL expression]"/>
 	</applicability>
 	<applicability>
-		<description value="Nur 3enmal pro Behandlungsfall abrechenbar"/>
-		<language value="text/fhirpath"/>
-		<expression value="%context.quantity.value='1' and ChargeItem.where(code='http://fhir.de/CodingSystem/kbv/ebm|30110') and account=%context.account).count = 1"/>
+		<description value="Applies only once per Encounter"/>
+		<language value="text/CQL"/>
+		<expression value="[some CQL expression]"/>
 	</applicability>
 	<!-- a group of static properties (no additional rules apply)-->
 	<propertyGroup>

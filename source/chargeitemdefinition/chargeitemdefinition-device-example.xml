@@ -8,10 +8,10 @@
 	</instance>
 	<!-- definition only applicable if the ChargeItem pertains to the device this  -->	
 	<applicability>
-		<description value="ChargeItem pertains to Device"/>
+		<description value="Verify ChargeItem pertains to Device 12345"/>
 		<language value="text/fhirpath"/>
 		<!-- syntax of expression may be incorrect, but you get the idea-->
-		<expression value="service.suppliedItem='Device/12345'"/>
+		<expression value="%context.service.suppliedItem='Device/12345'"/>
 	</applicability>
 	<!-- the base price for this device is constant, so no additional rules apply-->
 	<propertyGroup>
