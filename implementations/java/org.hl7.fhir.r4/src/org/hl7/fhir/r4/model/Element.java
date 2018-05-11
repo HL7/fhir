@@ -362,7 +362,13 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
      }
    }
   
-
+   public void removeExtension(String theUrl) {
+     for (int i = getExtension().size()-1; i >= 0; i--) {
+       if (theUrl.equals(getExtension().get(i).getUrl()))
+         getExtension().remove(i);
+     }
+   }
+   
    /**
     * This is used in the FHIRPath engine to record that no extensions are allowed for this item in the context in which it is used.
     * todo: enforce this....

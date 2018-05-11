@@ -2077,8 +2077,9 @@ public class FHIRPathEngine {
         result.add(item);
     } else 
       getChildrenByName(item, exp.getName(), result);
-    // todo: GG 1st April 201 - why do this? 
     if (result.size() == 0 && atEntry && context.appInfo != null) {
+      // well, we didn't get a match on the name - we'll see if the name matches a constant known by the context.
+      // (if the name does match, and the user wants to get the constant value, they'll have to try harder...
       Base temp = hostServices.resolveConstant(context.appInfo, exp.getName());
       if (temp != null) {
         result.add(temp);

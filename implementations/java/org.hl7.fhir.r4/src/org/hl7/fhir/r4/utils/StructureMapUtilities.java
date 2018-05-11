@@ -1635,8 +1635,16 @@ public class StructureMapUtilities {
 	          tn = determineTypeFromSourceType(map, group, vars.get(VariableMode.INPUT, srcVar), types);
 	        } else
 	          throw new Error("Cannot determine type implicitly because there is no single input variable");
-	      } else
+	      } else {
 	        tn = getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString());
+	        // ok, now we resolve the type name against the import statements 
+	        for (StructureMapStructureComponent uses : map.getStructure()) {
+	          if (uses.getMode() == StructureMapModelMode.TARGET && uses.hasAlias() && tn.equals(uses.getAlias())) {
+	            tn = uses.getUrl();
+	            break;
+	          }
+	        }
+	      }
 	      Base res = services != null ? services.createType(context.getAppInfo(), tn) : ResourceFactory.createResourceOrType(tn);
 	      if (res.isResource() && !res.fhirType().equals("Parameters")) {
 //	        res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());

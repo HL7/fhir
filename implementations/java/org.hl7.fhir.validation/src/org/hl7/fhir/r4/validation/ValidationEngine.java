@@ -69,6 +69,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.ResourceFactory;
@@ -165,7 +166,14 @@ public class ValidationEngine {
 
     @Override
     public Base createType(Object appInfo, String name) throws FHIRException {
-      return ResourceFactory.createResourceOrType(name);
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, name);
+      if (sd != null && sd.getKind() == StructureDefinitionKind.LOGICAL) {
+        return Manager.build(context, sd); 
+      } else {
+        if (name.startsWith("http://hl7.org/fhir/StructureDefinition/"))
+          name = name.substring("http://hl7.org/fhir/StructureDefinition/".length());
+        return ResourceFactory.createResourceOrType(name);
+      }
     }
 
     @Override
@@ -458,6 +466,12 @@ public class ValidationEngine {
   }
   
   public void loadIg(String src) throws IOException, FHIRException, Exception {
+    // src can be one of the following:
+    // - a canonical url for an ig - this will be converted to a package id and loaded into the cache
+    // - a package id for an ig - this will be loaded into the cache
+    // - a direct reference to a package ("package.tgz") - this will be extracted by the cache manager, but not put in the cache
+    // - a folder containing resources - these will be loaded directly
+    
     String canonical = null;
     Map<String, byte[]> source = loadIgSource(src, "validator.pack");
     String version = Constants.VERSION;
