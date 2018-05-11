@@ -1054,6 +1054,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           return (T) valueSets.get(uri);
         } else if (class_ == CodeSystem.class) {
           return (T) codeSystems.get(uri);
+        } else if (class_ == ConceptMap.class) {
+          return (T) maps.get(uri);
         } else if (class_ == OperationDefinition.class) {
           OperationDefinition od = operations.get(uri);
           return (T) od;
