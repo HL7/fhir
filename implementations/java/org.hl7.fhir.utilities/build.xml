@@ -24,6 +24,7 @@
         <pathelement location="../../../tools/java/imports/xpp3-1.1.4c.jar"/>
         <pathelement location="../../../tools/java/imports/commons-io-1.2.jar"/>
         <pathelement location="../../../tools/java/imports/commons-codec-1.9.jar"/>
+        <pathelement location="../../../tools/java/imports/commons-compress-1.16.1.jar"/>
         <pathelement location="../../../tools/java/imports/Saxon-HE-9.5.1-5.jar"/>
         <pathelement location="../../../tools/java/imports/txtmark-0.11.jar"/>
         <pathelement location="../../../tools/java/imports/commonmark-0.9.0.jar"/>
