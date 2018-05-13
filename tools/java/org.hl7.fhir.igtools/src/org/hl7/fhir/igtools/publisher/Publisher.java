@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.Date;
@@ -41,6 +43,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.UIManager;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -129,7 +133,9 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
@@ -150,7 +156,6 @@ import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
 import org.hl7.fhir.igtools.openapi.Writer;
 import org.hl7.fhir.igtools.publisher.FetchedFile.FetchedBundleType;
 import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
-import org.hl7.fhir.igtools.publisher.NPMPackageGenerator.Category;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
 import org.hl7.fhir.igtools.publisher.Publisher.IGPublisherHostServices;
@@ -174,7 +179,9 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
-import org.hl7.fhir.utilities.PackageGenerator;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
+import org.hl7.fhir.utilities.cache.PackageGenerator;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -186,6 +193,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
+import org.w3c.dom.Document;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -351,6 +359,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String igPack = "";
   private boolean watch;
   private boolean debug;
+  private boolean cacheVersion;
 
   private GenerationTool tool;
 
@@ -434,6 +443,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private NPMPackageGenerator npm;
 
   private PackageCacheManager pcm;
+
+  private JsonArray buildInfo;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -818,7 +829,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public void initialize() throws Exception {
-    pcm = new PackageCacheManager();
+    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL);
+    log("Package Cache: "+pcm.getFolder());
     fetcher.setResourceDirs(resourceDirs);
     first = true;
     boolean copyTemplate = false;
@@ -956,52 +968,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     SpecificationPackage spec = null; 
 
-    if (specifications != null) { // web server mode: use one of the preloaded versions...
+    loadFromBuildServer();
+    if (specifications != null) { 
+      // web server mode: use one of the preloaded versions...
       String sver = version;
       if (sver.lastIndexOf(".") > sver.indexOf("."))
         sver = sver.substring(0, sver.lastIndexOf("."));
       spec = specifications.get(sver);
       if (spec == null)
         throw new FHIRException("Unable to find specification for version "+sver);
-    } else if (!igPack.isEmpty()) {
-      if (igPack.startsWith("http:")) {
-        throw new Error("cannot specify a web location for -spec at the moment"); /// gg to do this
-      } else {
-        File igPackFile = new File(igPack);
-        log("Loading ig pack from specified path " + igPackFile.getCanonicalPath());
-        spec = loadPack(igPackFile.getCanonicalPath());
-      }
-    } else if (version.equals(Constants.VERSION)) {
-      try {
-        log("Load Validation Pack (internal)");
-        spec = SpecificationPackage.fromClassPath("igpack.zip");
-      } catch (NullPointerException npe) {
-        log("Unable to find igpack.zip in the jar. Attempting to use local igpack.zip");
-
-      	File igPackFile = null;
-
-      	if (System.getProperty("igpack") != null) {
-      		igPackFile = new File(System.getProperty("igpack"));
-      	}
-
-      	if (igPackFile == null || !igPackFile.exists()) {
-      		igPackFile = new File("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
-      	}
-
-      	if (igPackFile != null && igPackFile.exists()) {
-      		log("Found local ig pack at " + igPackFile.getCanonicalPath());
-      		spec = SpecificationPackage.fromPath(igPackFile.getCanonicalPath());
-      	}
-      	else {
-      		log("No local igpack.zip found");
-      	}
-      }
     } else
-      spec = loadValidationPack();
-
+      spec = loadCorePackage();
+    
     context = spec.makeContext();
     context.setLogger(logger);
-    log("Definitions "+context.getVersion());
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
     context.setExpansionProfile(makeExpProfile());
@@ -1021,14 +1001,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else 
       checkTSVersion(vsCache, context.connectToTSServer(webTxServer));
     
-    // commented out GDG - talk to me if you want this back
+// commented out GDG - talk to me if you want this back
 //    if (copyTemplate)
 //      copyTemplate();
 //    
-    loadSpecDetails(context.getBinaries().get("spec.internals"), context.getBinaries().get("version.info"));
+    loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors, version.equals("1.0.2"));
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
+
     JsonArray deps = configuration.getAsJsonArray("dependencyList");
     if (deps != null) {
       for (JsonElement dep : deps) {
@@ -1105,6 +1086,29 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (regenlist != null)
       for (JsonElement regen : regenlist)
         regenList.add(((JsonPrimitive) regen).getAsString());
+  }
+
+
+  private void loadFromBuildServer() {
+    log("Contacting Build Server...");
+    try {
+      URL url = new URL("https://build.fhir.org/ig/qas.json");
+      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+      connection.setRequestMethod("GET");
+      InputStream json = connection.getInputStream();
+      buildInfo = (JsonArray) new com.google.gson.JsonParser().parse(TextFile.streamToString(json));
+    
+      for (JsonElement n : buildInfo) {
+        JsonObject o = (JsonObject) n;
+        if (o.has("url") && o.has("package-id") && o.get("package-id").getAsString().contains(".")) {
+           pcm.recordMap(o.get("url").getAsString(), o.get("package-id").getAsString());
+        }
+      }
+      log(" ... done");
+    } catch (Throwable e) {
+      buildInfo = null;
+      log(" ... Running without information from build");
+    }
   }
 
 
@@ -1250,59 +1254,63 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     Utilities.createDirectory(Utilities.path(adHocTmpDir, "pages"));
   }
 
-  private SpecificationPackage loadValidationPack() throws FileNotFoundException, IOException, FHIRException {
-    String source;
-    if (version.equals("3.0.1"))
-      source = "http://hl7.org/fhir/STU3/igpack.zip";
-    else if (version.equals("1.4.0"))
-      source = "http://hl7.org/fhir/2016May/igpack.zip";
-    else if (version.equals("1.0.2"))
-      source = "http://hl7.org/fhir/DSTU2/igpack.zip";
+  private SpecificationPackage loadCorePackage() throws Exception {
+    PackageInfo pi = null;
+    
+    if (Utilities.noString(igPack))
+      pi = pcm.loadPackageCache("hl7.fhir.core", version);
     else
-      throw new FHIRException("Unsupported FHIR version "+version);
-
-    String fn = "";
-    if (new File("c:\\temp\\igpack\\igpack.zip").exists())
-      fn = "c:\\temp\\igpack\\igpack.zip";
-    else {
-      log("Fetch Validation Pack from "+source);
-      fn = grabToLocalCache(source);
-      }
-    log("Local Validation Pack from cache location " + fn+" using version "+version);
-    return loadPack(fn);
+      pi = pcm.extractLocally(igPack);
+    if (pi == null) {
+      String url = getMasterSource();
+      InputStream src = fetchFromSource("hl7.fhir.core-"+version, url);
+      if (!version.equals(Constants.VERSION)) 
+        pi = pcm.addPackageToCache("hl7.fhir.core", version, src);
+      else
+        pi = pcm.extractLocally(src);
+    }
+    log("Load hl7.fhir.core-"+version+" package from "+pi.description());
+    return loadPack(pi);
   }
 
-  private SpecificationPackage loadPack(String fn) throws FHIRException, IOException {
+  private String getMasterSource() {
+    if ("1.0.2".equals(version)) return "http://hl7.org/fhir/DSTU2/package.tgz";
+    if ("1.4.0".equals(version)) return "http://hl7.org/fhir/2016May/package.tgz";
+    if ("3.0.1".equals(version)) return "http://hl7.org/fhir/STU3/package.tgz";
+    if (Constants.VERSION.equals(version)) return "http:/build.fhir.org/package.tgz";
+    throw new Error("unknown version");
+  }
+
+  private InputStream fetchFromSource(String id, String source) throws IOException {
+    log("Fetch "+id+" package from "+source);
+    URL url = new URL(source);
+    URLConnection c = url.openConnection();
+    return c.getInputStream();
+  }
+
+
+  private SpecificationPackage loadPack(PackageInfo pi) throws Exception {    
     SpecificationPackage sp = null;
     if ("1.0.2".equals(version)) {
-      sp = SpecificationPackage.fromPath(fn, new R2ToR4Loader());
+      sp = SpecificationPackage.fromPackage(pi, new R2ToR4Loader());
     } else if ("1.4.0".equals(version)) {
-      sp = SpecificationPackage.fromPath(fn, new R2016MayToR4Loader());
+      sp = SpecificationPackage.fromPackage(pi, new R2016MayToR4Loader());
     } else if ("3.0.1".equals(version)) {
-      sp = SpecificationPackage.fromPath(fn, new R3ToR4Loader());
+      sp = SpecificationPackage.fromPackage(pi, new R3ToR4Loader());
     } else 
-      return SpecificationPackage.fromPath(fn);
+      sp = SpecificationPackage.fromPackage(pi);
+    sp.loadOtherContent(pi);
     
-    // If it wasn't a 4.0 source, we need to set the ids because they might not have been set in the source
-    ProfileUtilities utils = new ProfileUtilities(context, new ArrayList<ValidationMessage>(), igpkp);
-    for (StructureDefinition sd : sp.makeContext().allStructures()) {
-      utils.setIds(sd, true);
+    if (!version.equals(Constants.VERSION)) {
+      // If it wasn't a 4.0 source, we need to set the ids because they might not have been set in the source
+      ProfileUtilities utils = new ProfileUtilities(context, new ArrayList<ValidationMessage>(), igpkp);
+      for (StructureDefinition sd : sp.makeContext().allStructures()) {
+        utils.setIds(sd, true);
+      }
     }
     return sp;
   }
   
-  private String grabToLocalCache(String source) throws IOException {
-    String fn = Utilities.path(vsCache, "validation-"+version+".zip");
-    File f = new File(fn);
-    if (!f.exists()) {
-      URL url = new URL(source);
-      URLConnection c = url.openConnection();
-      byte[] cnt = IOUtils.toByteArray(c.getInputStream());
-      TextFile.bytesToFile(cnt, fn);
-    }
-    return fn;
-  }
-
   private ExpansionProfile makeExpProfile() {
     ExpansionProfile ep  = new ExpansionProfile();
     ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
@@ -1315,90 +1323,91 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     String name = str(dep, "name");
     if (!Utilities.isToken(name))
       throw new Exception("IG Name must be a valid token ("+name+")");
-    String location = str(dep, "location");
-    String source = ostr(dep, "source");
-    if (Utilities.noString(source))
-      source = location;
-    log("Load "+name+" ("+location+") from "+source);
-    Map<String, byte[]> files = fetchDefinitions(source, name);
-    SpecMapManager igm = new SpecMapManager(files.get("spec.internals"), files.get("version.info"));
+    String canonical = str(dep, "location");
+    String igver = ostr(dep, "version");
+    if (Utilities.noString(igver))
+      throw new Exception("You must specify a version for the IG "+name+" ("+canonical+")");
+    String packageId = ostr(dep, "package");
+    if (Utilities.noString(packageId))
+      packageId = pcm.getPackageId(canonical);
+    if (Utilities.noString(packageId))
+      throw new Exception("Package Id for canonical guide is unknown (contact FHIR Product Director");
+    PackageInfo pi = pcm.loadPackageCache(packageId, igver);
+    if (pi == null) {
+      pi = resolveDependency(canonical, igver);
+      if (pi == null) 
+        throw new Exception("Unknown Package "+packageId+"-"+version);
+    }
+    log("Load "+name+" ("+canonical+") from "+packageId+"-"+version);
+    
+
+    SpecMapManager igm = new SpecMapManager(TextFile.streamToBytes(pi.load("other", "spec.internals")), pi.getNpm().getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString());
     igm.setName(name);
-    igm.setBase(location);
+    igm.setBase(canonical);
     specMaps.add(igm);
     if (!version.equals(igm.getVersion())) {
       log("Version mismatch. This IG is version "+version+", while the IG '"+name+"' is from version "+igm.getVersion()+" (will try to run anyway)");
-      deleteFromCache(source, name);
     }
-
-    for (String fn : files.keySet()) {
-      if (fn.endsWith(".json")) {
+    
+    for (String fn : pi.list("package")) {
+      if (fn.endsWith(".json") && fn.contains("-")) {
         Resource r;
-        try {
-          if (igm.getVersion().equals("3.0.1") || igm.getVersion().equals("3.0.0")) {
-            org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
-            r = VersionConvertor_30_40.convertResource(res);
-          } else if (igm.getVersion().equals("1.4.0")) {
-            org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
-            r = VersionConvertor_14_40.convertResource(res);
-          } else if (igm.getVersion().equals("1.0.2")) {
-            org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
-            VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
-            r = new VersionConvertor_10_40(advisor ).convertResource(res);
-          } else if (igm.getVersion().equals(Constants.VERSION)) {
-            r = new JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
-          } else
-            throw new Exception("Unsupported version "+igm.getVersion());
-        } catch (Exception e) {
-          throw new Exception("Unable to parse "+fn+" from IG "+name, e);
-        }
+        if (igm.getVersion().equals("3.0.1") || igm.getVersion().equals("3.0.0")) {
+          org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(pi.load("package", fn));
+          r = VersionConvertor_30_40.convertResource(res);
+        } else if (igm.getVersion().equals("1.4.0")) {
+          org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(pi.load("package", fn));
+          r = VersionConvertor_14_40.convertResource(res);
+        } else if (igm.getVersion().equals("1.0.2")) {
+          org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(pi.load("package", fn));
+          VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
+          r = new VersionConvertor_10_40(advisor ).convertResource(res);
+        } else if (igm.getVersion().equals(Constants.VERSION)) {
+          r = new JsonParser().parse(pi.load("package", fn));
+        } else
+          throw new Exception("Unsupported version "+igm.getVersion());
         if (r instanceof MetadataResource) {
           String u = ((MetadataResource) r).getUrl();
           if (u != null) {
             String p = igm.getPath(u);
             if (p == null)
               throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
-            r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
+            r.setUserData("path", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
             String v = ((MetadataResource) r).getVersion();
             if (v!=null) {
               u = u + "|" + v;
               p = igm.getPath(u);
               if (p == null)
                 System.out.println("In IG "+name+" map: No identity found for "+u);
-              r.setUserData("versionpath", location+"/"+ igpkp.doReplacements(p, r, null, null));
+              r.setUserData("versionpath", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
             }
           }
           context.cacheResource(r);
         }
-      } else if (fn.endsWith(".xml")) {
-        Resource r;
-        try {
-          org.hl7.fhir.r4.formats.XmlParser xp = new org.hl7.fhir.r4.formats.XmlParser();
-          r = xp.parse(new ByteArrayInputStream(files.get(fn)));
-        } catch (Exception e) {
-          throw new Exception("Unable to parse "+fn+" from IG "+name, e);
-        }
-        if (r instanceof MetadataResource) {
-          String u = ((MetadataResource) r).getUrl();
-          if (u != null) {
-            String p = igm.getPath(u);
-            if (p == null)
-              throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
-            r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
-          }
-          context.cacheResource(r);
-        }        
-      }
+      } 
     }
   }
 
-  private void deleteFromCache(String source, String name) throws IOException {
-    if (source.startsWith("http:") || source.startsWith("https:")) {
-      String filename = Utilities.path(vsCache, name+".cache");
-      File f = new File(filename);
-      if (f.exists())
-        f.delete();
+  private PackageInfo resolveDependency(String canonical, String igver) throws Exception {
+    JsonObject pl = fetchJson(Utilities.pathURL(canonical, "package-list.json"));
+    if (!canonical.equals(pl.get("canonical").getAsString()))
+        throw new Exception("Canonical mismatch fetching package list for "+igver);
+    for (JsonElement e : pl.getAsJsonArray("list")) {
+      JsonObject o = (JsonObject) e;
+      if (igver.equals(o.get("version").getAsString())) {
+        InputStream src = fetchFromSource(pl.get("package-id").getAsString()+"-"+igver, Utilities.pathURL(o.get("path").getAsString(), "package.tgz"));
+        return pcm.addPackageToCache(pl.get("package-id").getAsString(), igver, src);
+      }
     }
+    return null;
   }
+
+  private JsonObject fetchJson(String source) throws IOException {
+    URL url = new URL(source);
+    URLConnection c = url.openConnection();
+    return (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(c.getInputStream()));
+  }
+
 
   private Map<String, byte[]> fetchDefinitions(String source, String name) throws Exception {
     // todo: if filename is a URL
@@ -1515,8 +1524,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return false;
   }
 
-  public void loadSpecDetails(byte[] bs, byte[] vi) throws IOException {
-    SpecMapManager map = new SpecMapManager(bs, vi);
+  public void loadSpecDetails(byte[] bs) throws IOException {
+    SpecMapManager map = new SpecMapManager(bs, version);
     map.setBase(specPath);
     specMaps.add(map);
   }
@@ -1595,7 +1604,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     
-    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), publishedIg);
+    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), igpkp.getCanonical(), publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }
@@ -2539,8 +2548,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       generateSummaryOutputs();
 
     npm.finish();
-    if (mode == IGBuildMode.MANUAL)
-      pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));
+    if (mode == null || mode == IGBuildMode.MANUAL) {
+      if (cacheVersion)
+        pcm.addPackageToCache(publishedIg.getPackageId(), publishedIg.getVersion(), new FileInputStream(npm.filename()));
+      else
+        pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));        
+    }
     
     otherFilesRun.add(Utilities.path(tempDir, "package.tgz"));
     cleanOutput(tempDir);
@@ -2730,7 +2743,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     FileUtils.copyFile(new File(Utilities.path(outputDir, "validator.pack")),new File(Utilities.path(outputDir, "validator-" + sourceIg.getId() + ".pack")));
     generateCsvZip();
     generateExcelZip();
-    generateRegistryUploadZip(df.getCanonicalPath());
+//    generateRegistryUploadZip(df.getCanonicalPath());
   }
 
   private boolean supportsTurtle() {
@@ -2824,37 +2837,37 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateZipByExtension(Utilities.path(outputDir, "csvs.zip"), ".csv");
   }
 
-  private void generateRegistryUploadZip(String specFile)  throws Exception {
-    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "registry.fhir.org.zip"));
-    zip.addFileName("spec.internals", specFile, false);
-    zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
-    StringBuilder ri = new StringBuilder();
-    ri.append("[registry]\r\n");
-    ri.append("toolversion="+getToolingVersion()+"\r\n");
-    ri.append("fhirversion="+version+"\r\n");
-    int i = 0;
-    for (FetchedFile f : fileList) {
-      for (FetchedResource r : f.getResources()) {
-        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
-          ByteArrayOutputStream bs = new ByteArrayOutputStream();
-          new JsonParser().compose(bs, r.getResource());
-          zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
-          i++;
-        }
-      }
-    }
-    ri.append("resourcecount="+Integer.toString(i)+"\r\n");
-    zip.addBytes("registry.info", ri.toString().getBytes(Charsets.UTF_8), false);
-    zip.close();
-  }
-
+//  private void generateRegistryUploadZip(String specFile)  throws Exception {
+//    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "registry.fhir.org.zip"));
+//    zip.addFileName("spec.internals", specFile, false);
+//    zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
+//    StringBuilder ri = new StringBuilder();
+//    ri.append("[registry]\r\n");
+//    ri.append("toolversion="+getToolingVersion()+"\r\n");
+//    ri.append("fhirversion="+version+"\r\n");
+//    int i = 0;
+//    for (FetchedFile f : fileList) {
+//      for (FetchedResource r : f.getResources()) {
+//        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
+//          ByteArrayOutputStream bs = new ByteArrayOutputStream();
+//          new JsonParser().compose(bs, r.getResource());
+//          zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
+//          i++;
+//        }
+//      }
+//    }
+//    ri.append("resourcecount="+Integer.toString(i)+"\r\n");
+//    zip.addBytes("registry.info", ri.toString().getBytes(Charsets.UTF_8), false);
+//    zip.close();
+//  }
+//
   private void generateValidationPack(String specFile)  throws Exception {
     String sch = makeTempZip(".sch");
     String js = makeTempZip(".schema.json");
     String shex = makeTempZip(".shex");
 
     ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "validator.pack"));
-    zip.addBytes("version.info", makeNewVersionInfo(context.getBinaries().get("version.info")), false);
+    zip.addBytes("version.info", makeNewVersionInfo(version), false);
     zip.addFileName("spec.internals", specFile, false);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
@@ -2884,9 +2897,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     zip.close();
   }
 
-  private byte[] makeNewVersionInfo(byte[] bs) throws IOException {
-    String is = TextFile.bytesToString(bs);
-    is = is.trim();
+  private byte[] makeNewVersionInfo(String version) throws IOException {
+    String is = "[FHIR]\r\nversion="+version+"\r\n";
     IniFile ini = new IniFile(new ByteArrayInputStream(TextFile.stringToBytes(is, false)));
     ini.setStringProperty("IG", "version", version, null);
     ini.setStringProperty("IG", "date",  new SimpleDateFormat("yyyyMMddhhmmssZ").format(execTime.getTime()), null);
@@ -4445,6 +4457,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       self.setMode(IGBuildMode.AUTOBUILD);
       self.watch = hasParam(args, "-watch");
       self.debug = hasParam(args, "-debug");
+      self.cacheVersion = hasParam(args, "-cacheVersion");
       if (hasParam(args, "-resetTx"))
         self.setCacheOption(CacheOption.CLEAR_ALL);
       else if (hasParam(args, "-resetTxErrors"))

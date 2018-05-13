@@ -1,14 +1,17 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -31,7 +34,7 @@ public class SpecMapManager {
   private String name;
   private Set<String> targetSet = new HashSet<String>();
   private Set<String> imageSet = new HashSet<String>();
-  private IniFile ini;
+  private String version;
 
   public SpecMapManager(String npmName, String igVersion, String toolVersion, String toolRevision, Calendar genDate, String webUrl) {
     spec = new JsonObject();
@@ -53,7 +56,8 @@ public class SpecMapManager {
     spec.add("images", images);
   }
 
-  public SpecMapManager(byte[] bytes, byte[] versionInfo) throws JsonSyntaxException, IOException {
+  public SpecMapManager(byte[] bytes, String version) throws JsonSyntaxException, IOException {
+    this.version = version;
     spec = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(bytes));
     paths = spec.getAsJsonObject("paths");
     pages = spec.getAsJsonObject("pages");
@@ -67,9 +71,6 @@ public class SpecMapManager {
       for (JsonElement e : images) {
         imageSet.add(((JsonPrimitive) e).getAsString());
     }
-    String is = TextFile.bytesToString(versionInfo);
-    is = is.trim();
-    ini = new IniFile(new ByteArrayInputStream(TextFile.stringToBytes(is, false)));
   }
 
   public void path(String url, String path) {
@@ -86,7 +87,7 @@ public class SpecMapManager {
     if (spec.has("tool-version")) 
       return str(spec, "ig-version");
     else
-      return ini.getStringProperty("FHIR", "version");
+      return version;
   }
 
   public String getNpmName() throws FHIRException {
@@ -113,6 +114,13 @@ public class SpecMapManager {
 
   public String getPath(String url) throws Exception {
     return strOpt(paths, url);
+  }
+
+  public List<String> getPathUrls() {
+    List<String> res = new ArrayList<String>();
+    for (Entry<String, JsonElement> e : paths.entrySet()) 
+      res.add(e.getKey());
+    return res;
   }
 
   public String getPage(String title) throws Exception {
@@ -215,5 +223,21 @@ public class SpecMapManager {
   public void setName(String name) {
     this.name = name;
   }
+
+  public Set<String> getTargets() {
+    return targetSet;
+  }
+
+  public Set<String> getImages() {
+    return imageSet;
+  }
+
+  public List<String> getPages() {
+    List<String> res = new ArrayList<String>();
+    for (Entry<String, JsonElement> e : pages.entrySet()) 
+      res.add(e.getKey());
+    return res;
+  }
+
 
 }

@@ -71,19 +71,12 @@ public class NPMPackageGenerator {
       b.append("fhirVersion");
     if (!ig.hasLicense())
       b.append("license");
-    boolean pok = true;
-    boolean vok = true;
     for (ImplementationGuideDependsOnComponent d : ig.getDependsOn()) {
-      if (pok && !d.hasPackageId()) {
-        b.append("dependsOn.packageId");
-        pok = false;
-      }
-      if (vok && !d.hasVersion()) {
-        b.append("dependsOn.version");
-        vok = false;
+      if (!d.hasVersion()) {
+        b.append("dependsOn("+d.getUri()+").version");
       }
     }
-    if (b.length() > 0 && !NO_ERRORS)
+    if (b.length() > 0)
       throw new FHIRException("In order to be published, an Implementation Guide must have values for the elements: "+b.toString());
     
     JsonObject npm = new JsonObject();

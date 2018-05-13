@@ -98,11 +98,15 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.xml.sax.SAXException;
+
+import com.google.gson.JsonObject;
 
 /**
  * This is just a wrapper around the InstanceValidator class for convenient use 
@@ -199,13 +203,14 @@ public class ValidationEngine {
     }
 
   }
-
+	
   private SimpleWorkerContext context;
 //  private FHIRPathEngine fpe;
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean doNative;
   private boolean noInvariantChecks;
   private String version;
+  private PackageCacheManager pcm;
 
   private class AsteriskFilter implements FilenameFilter {
     String dir;
@@ -254,7 +259,7 @@ public class ValidationEngine {
   }
   
   private void loadDefinitions(String src) throws Exception {
-    Map<String, byte[]> source = loadIgSource(src, "igpack.zip");   
+    Map<String, byte[]> source = loadIgSource(src);   
     if (version == null)
       version = getVersionFromPack(source);
     context = SimpleWorkerContext.fromDefinitions(source, loaderForVersion());
@@ -328,61 +333,154 @@ public class ValidationEngine {
     return TextFile.fileToBytes(src);
   }
 
-  private Map<String, byte[]> loadIgSource(String src, String defname) throws Exception {
-    if (Utilities.noString(src)) {
-      throw new FHIRException("Definitions Source '" + src + "' could not be processed");
-    } else if (src.startsWith("https:") || src.startsWith("http:")) {
-      return loadIgFromUrl(src, defname);
-    } else if (new File(src).exists()) {
-      return loadIgFromFile(src, defname);      
-    } else {
-      throw new FHIRException("Definitions Source '"+src+"' could not be processed");
+  private Map<String, byte[]> loadIgSource(String src) throws Exception {
+    // src can be one of the following:
+    // - a canonical url for an ig - this will be converted to a package id and loaded into the cache
+    // - a package id for an ig - this will be loaded into the cache
+    // - a direct reference to a package ("package.tgz") - this will be extracted by the cache manager, but not put in the cache
+    // - a folder containing resources - these will be loaded directly
+    if (src.startsWith("https:") || src.startsWith("http:")) {
+      String pid = pcm.getPackageId(src);
+      if (!Utilities.noString(pid))
+        return fetchByPackage(pid);
+      return fetchFromUrl(src);
     }
-  }
-
-  private Map<String, byte[]> loadIgFromUrl(String src, String defname) throws Exception {
-    if (Utilities.noString(defname))
-      defname = "validator.pack";
-    if (!src.endsWith(defname))
-      src = Utilities.pathURL(src, defname);
-
-		try {
-      URL url = new URL(src);
-      URLConnection c = url.openConnection();
-      byte[] cnt = IOUtils.toByteArray(c.getInputStream());
-      return readZip(new ByteArrayInputStream(cnt));
-		} catch (Exception e) {
-      throw new Exception("Unable to find definitions at URL '"+src+"': "+e.getMessage(), e);
-	}
+    if (src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) {
+      return fetchByPackage(src);
     }
-
-  private Map<String, byte[]> loadIgFromFile(String src, String defname) throws FileNotFoundException, IOException {
+    
     File f = new File(src);
-    if (f.isDirectory()) {
-      if (defname == null)
-        throw new IOException("You must provide a file name, not a directory name");
-      if (new File(Utilities.path(src, defname)).exists())
-        return readZip(new FileInputStream(Utilities.path(src, defname)));
-      else {
+    if (f.exists()) {
+      if (f.isDirectory() && new File(Utilities.path(src, "package.tgz")).exists())
+        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")));
+      if (f.isDirectory() && new File(Utilities.path(src, "igpack.zip")).exists())
+        return readZip(new FileInputStream(Utilities.path(src, "igpack.zip")));
+      if (f.isDirectory() && new File(Utilities.path(src, "validator.pack")).exists())
+        return readZip(new FileInputStream(Utilities.path(src, "validator.pack")));
+      if (f.isDirectory())
+        return scanDirectory(f);
+      if (src.endsWith("package.tgz"))
+        return loadPackage(new FileInputStream(src));
+      if (src.endsWith("validator.pack"))
+        return readZip(new FileInputStream(src));
+      if (src.endsWith("igpack.zip"))
+        return readZip(new FileInputStream(src));
+      FhirFormat fmt = checkIsResource(src);
+      if (fmt != null) {
         Map<String, byte[]> res = new HashMap<String, byte[]>();
-        for (File ff : f.listFiles()) {
-          FhirFormat fmt = checkIsResource(ff.getAbsolutePath());
-          if (fmt != null) {
-            res.put(Utilities.changeFileExt(ff.getName(), "."+fmt.getExtension()), TextFile.fileToBytes(ff.getAbsolutePath()));
-        }
-    }
+        res.put(Utilities.changeFileExt(src, "."+fmt.getExtension()), TextFile.fileToBytes(src));
         return res;
-    }
-      } else {
-        if (src.endsWith(".zip") || src.endsWith(".pack") || (defname != null && src.endsWith(defname)))
-          return readZip(new FileInputStream(src));
-        else {
-          Map<String, byte[]> res = new HashMap<String, byte[]>();
-          res.put(f.getName(), TextFile.fileToBytes(src));
-          return res;
       }
     }
+    throw new Exception("Unable to find/resolve/read -ig "+src);
   }
+
+  
+  private Map<String, byte[]> fetchFromUrl(String src) throws Exception {
+    if (src.endsWith("package.tgz"))
+      return loadPackage(fetchFromUrlSpecific(src, false));
+    if (src.endsWith("validator.pack"))
+      return readZip(fetchFromUrlSpecific(src, false));
+    if (src.endsWith("igpack.zip"))
+      return readZip(fetchFromUrlSpecific(src, false));
+
+    InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(src, "package.tgz"), true);
+    if (stream != null)
+      return loadPackage(stream);
+    stream = fetchFromUrlSpecific(Utilities.pathURL(src, "igpack.zip"), true);
+    if (stream != null)
+      return readZip(stream);
+    stream = fetchFromUrlSpecific(Utilities.pathURL(src, "validator.pack"), true);
+    if (stream != null)
+      return readZip(stream);
+    stream = fetchFromUrlSpecific(Utilities.pathURL(src, "validator.pack"), true);
+    FhirFormat fmt = checkIsResource(stream);
+    if (fmt != null) {
+      Map<String, byte[]> res = new HashMap<String, byte[]>();
+      res.put(Utilities.changeFileExt(src, "."+fmt.getExtension()), TextFile.fileToBytes(src));
+      return res;
+    }
+    throw new Exception("Unable to find/resolve/read -ig "+src);
+  }
+
+  private InputStream fetchFromUrlSpecific(String source, boolean optional) throws Exception {
+    try {
+      URL url = new URL(source);
+      URLConnection c = url.openConnection();
+      return c.getInputStream();
+    } catch (Exception e) {
+      if (optional)
+        return null;
+      else
+        throw e;
+    }
+  }
+
+  private Map<String, byte[]> scanDirectory(File f) throws FileNotFoundException, IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    for (File ff : f.listFiles()) {
+      FhirFormat fmt = checkIsResource(ff.getAbsolutePath());
+      if (fmt != null) {
+        res.put(Utilities.changeFileExt(ff.getName(), "."+fmt.getExtension()), TextFile.fileToBytes(ff.getAbsolutePath()));
+      }
+    }
+    return res;
+  }
+
+  private Map<String, byte[]> loadPackage(InputStream stream) throws FileNotFoundException, IOException {
+    PackageInfo pi = pcm.extractLocally(stream);
+    return loadPackage(pi);
+  }
+
+  public Map<String, byte[]> loadPackage(PackageInfo pi) throws IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    for (String s : pi.list("package")) {
+      if (s.startsWith("CodeSystem-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
+        res.put(s, TextFile.streamToBytes(pi.load("package", s)));
+    }
+    String ini = "[FHIR]\r\nversion="+pi.fhirVersion()+"\r\n";
+    res.put("version.info", ini.getBytes());
+    return res;
+  }
+
+  private Map<String, byte[]> readZip(InputStream stream) throws IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    ZipInputStream zip = new ZipInputStream(stream);
+    ZipEntry ze;
+    while ((ze = zip.getNextEntry()) != null) {
+        String name = ze.getName();
+        InputStream in = zip;
+        ByteArrayOutputStream b = new ByteArrayOutputStream();
+        int n;
+        byte[] buf = new byte[1024];
+        while ((n = in.read(buf, 0, 1024)) > -1) {
+          b.write(buf, 0, n);
+        }        
+      res.put(name, b.toByteArray());
+      zip.closeEntry();
+    }
+    zip.close();    
+    return res;
+  }
+
+  private Map<String, byte[]> fetchByPackage(String src) throws IOException, FHIRException {
+    String id = src;
+    String version = null;
+    if (src.contains(":")) {
+      id = src.substring(0, src.indexOf(":"));
+      version = src.substring(src.indexOf(":")+1);
+    }
+    PackageInfo pi = null;
+    if (version == null)
+      pi = pcm.loadPackageCacheLatest(id);
+    else
+      pi = pcm.loadPackageCache(id, version);
+    if (pi == null)
+      throw new FHIRException("Unable to resolve PackageId "+src);
+    else
+      return loadPackage(pi);
+  }
+
 
   public SimpleWorkerContext getContext() {
     return context;
@@ -397,7 +495,31 @@ public class ValidationEngine {
     this.noInvariantChecks = value;
   }
 
-  private FhirFormat checkIsResource(String path) {
+  private FhirFormat checkIsResource(InputStream stream) {
+    try {
+      Manager.parse(context, stream, FhirFormat.XML);
+      return FhirFormat.XML;
+    } catch (Exception e) {
+    }
+    try {
+      Manager.parse(context, stream, FhirFormat.JSON);
+      return FhirFormat.JSON;
+    } catch (Exception e) {
+    }
+    try {
+      Manager.parse(context, stream, FhirFormat.TURTLE);
+      return FhirFormat.TURTLE;
+    } catch (Exception e) {
+    }
+    try {
+      new StructureMapUtilities(context, null, null).parse(TextFile.streamToString(stream));
+      return FhirFormat.TEXT;
+    } catch (Exception e) {
+    }
+    return null;    
+  }
+
+  private FhirFormat checkIsResource(String path) throws FileNotFoundException {
     String ext = Utilities.getFileExtension(path);
     if (Utilities.existsInList(ext, "xml")) 
       return FhirFormat.XML;
@@ -408,47 +530,7 @@ public class ValidationEngine {
     if (Utilities.existsInList(ext, "map")) 
       return FhirFormat.TEXT;
 
-    try {
-      Manager.parse(context, new FileInputStream(path), FhirFormat.XML);
-      return FhirFormat.XML;
-    } catch (Exception e) {
-  }
-    try {
-      Manager.parse(context, new FileInputStream(path), FhirFormat.JSON);
-      return FhirFormat.JSON;
-    } catch (Exception e) {
-  }
-    try {
-      Manager.parse(context, new FileInputStream(path), FhirFormat.TURTLE);
-      return FhirFormat.TURTLE;
-    } catch (Exception e) {
-  }
-      try {
-      new StructureMapUtilities(context, null, null).parse(TextFile.fileToString(path));
-        return FhirFormat.TEXT;
-      } catch (Exception e) {
-      }
-    return null;
-	}
-
-  private Map<String, byte[]> readZip(InputStream stream) throws IOException {
-    Map<String, byte[]> res = new HashMap<String, byte[]>();
-    ZipInputStream zip = new ZipInputStream(stream);
-		ZipEntry ze;
-		while ((ze = zip.getNextEntry()) != null) {
-				String name = ze.getName();
-				InputStream in = zip;
-				ByteArrayOutputStream b = new ByteArrayOutputStream();
-				int n;
-				byte[] buf = new byte[1024];
-				while ((n = in.read(buf, 0, 1024)) > -1) {
-					b.write(buf, 0, n);
-				}        
-      res.put(name, b.toByteArray());
-			zip.closeEntry();
-		}
-		zip.close();    
-    return res;
+    return checkIsResource(new FileInputStream(path));
 	}
 
   public void connectToTSServer(String url) throws URISyntaxException {
@@ -466,14 +548,8 @@ public class ValidationEngine {
   }
   
   public void loadIg(String src) throws IOException, FHIRException, Exception {
-    // src can be one of the following:
-    // - a canonical url for an ig - this will be converted to a package id and loaded into the cache
-    // - a package id for an ig - this will be loaded into the cache
-    // - a direct reference to a package ("package.tgz") - this will be extracted by the cache manager, but not put in the cache
-    // - a folder containing resources - these will be loaded directly
-    
     String canonical = null;
-    Map<String, byte[]> source = loadIgSource(src, "validator.pack");
+    Map<String, byte[]> source = loadIgSource(src);
     String version = Constants.VERSION;
     if (source.containsKey("version.info"))
       version = readInfoVersion(source.get("version.info"));
@@ -568,7 +644,7 @@ public class ValidationEngine {
   }
   
   public Content loadContent(String source, String opName) throws Exception {
-    Map<String, byte[]> s = loadIgSource(source, null);
+    Map<String, byte[]> s = loadIgSource(source);
     Content res = new Content();
     if (s.size() != 1)
       throw new Exception("Unable to find resource " + source + " to "+opName);

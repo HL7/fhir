@@ -1,101 +1,394 @@
 package org.hl7.fhir.tools.converters;
 
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import org.hl7.fhir.r4.formats.JsonParser;
+import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.convertors.VersionConvertor_10_40;
+import org.hl7.fhir.convertors.VersionConvertor_14_40;
+import org.hl7.fhir.convertors.VersionConvertor_30_40;
+import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.igtools.publisher.NPMPackageGenerator;
-import org.hl7.fhir.igtools.publisher.NPMPackageGenerator.Category;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.ImplementationGuide;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestPageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
+import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator.ResourceEntry;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class SpecNPMPackageGenerator {
 
-  public static void main(String[] args) throws FileNotFoundException, IOException, FHIRException {
-//    generateForVersion("C:\\work\\org.hl7.fhir\\build\\publish", );
-//    generateForVersion("F:\\fhir\\web\\DSTU2", new org.hl7.fhir.dstu2.formats.JsonParser());
-//    generateForVersion("F:\\fhir\\web\\2016May", new org.hl7.fhir.dstu2016may.formats.JsonParser());
-  generateForVersion("F:\\fhir\\web\\STU3");
-
+  public class ResourceEntry {
+    String type;
+    String id;
+    String canonical;
+    boolean conf;
+    byte[] json;
   }
 
-  private static void generateForVersion(String folder) throws FileNotFoundException, IOException, FHIRException {
+  public static void main(String[] args) throws Exception {
+    generateForVersion("F:\\fhir\\web\\DSTU2", "http://hl7.org/fhir/DSTU2");
+    generateForVersion("F:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May");
+    generateForVersion("F:\\fhir\\web\\STU3", "http://hl7.org/fhir/2016STU3");
+    System.out.println("Done");
+  }
+
+  private static void generateForVersion(String folder, String url) throws Exception {
     SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-    self.generate(folder);
+    self.generate(folder, url);
   }
-
-  public void generate(String folder) throws FileNotFoundException, IOException, FHIRException {
+  
+  public void generate(String folder, String url) throws Exception {
     System.out.println("Generate Package for "+folder);
+    
+    Map<String, byte[]> files = loadZip(new FileInputStream(Utilities.path(folder, "igpack.zip")));
+    String version = determineVersion(files);    
+    
+    System.out.println(" .. Loading v"+version);
+    SpecMapManager spm = new SpecMapManager(files.get("spec.internals"), version);    
+    System.out.println(" .. Conformance Resources");
+    List<ResourceEntry> reslist = makeResourceList(files, version);
+    System.out.println(" .. Other Resources");
+    addToResList(folder, reslist, version);
+    
+    System.out.println(" .. building IG");
     ImplementationGuide ig = new ImplementationGuide();
-    ig.setUrl("http://hl7.org/fhir");
-    ig.setVersion(readVersion(folder));
-    ig.setFhirVersion(ig.getVersion());
+    ig.setId("fhir");
+    ig.setUrl("http://hl7.org/fhir/ImplementationGuide/fhir");
+    ig.setVersion(version);
+    ig.setFhirVersion(version);
     ig.setLicense(SPDXLicense.CC01_0);
     ig.setTitle("FHIR Core package");
     ig.setDescription("FHIR Core package - the NPM package that contains all the definitions for the base FHIR specification");
     ig.setPublisher("HL7 Inc");
     ig.getContactFirstRep().getTelecomFirstRep().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
     ig.setPackageId("hl7.fhir.core");
-    
-    JsonParser p = new org.hl7.fhir.r4.formats.JsonParser();
-    Set<String> resources = new HashSet<>();
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), ig);
-    for (String fn : new File(folder).list()) {
-      if (fn.endsWith(".json") && !fn.endsWith("canonical.json")) {
-        byte[] b = TextFile.fileToBytes(Utilities.path(folder, fn));
-        if (isResource(b)) {
-          try {
-            Resource r = p.parse(b);
-            if (r instanceof Bundle && ((Bundle) r).getType() == BundleType.COLLECTION) {
-              for (BundleEntryComponent e : ((Bundle) r).getEntry()) {
-                if (e.hasResource()) {
-                  String id = e.getResource().fhirType()+"-"+e.getResource().getId();
-                  if (!resources.contains(id)) {
-                    resources.add(id);
-                    System.out.println("Add resource "+e.getResource().getId()+" from "+fn);
-                    npm.addFile(Category.RESOURCE, id+".json", p.composeBytes(e.getResource()));
-                  }              
-                }
-              }
-            } else {
-              String id = r.fhirType()+"-"+r.getId();
-              if (!resources.contains(id) && isIncludedResource(r.fhirType())) {
-                resources.add(id);
-                System.out.println("Add resource "+fn);
-                npm.addFile(Category.RESOURCE, id+".json", b);
-              }
-            }
-          } catch (Throwable e) {
-            System.out.println("Error parsing "+fn+": "+e.getMessage());
-          }
-        }
+    ig.getManifest().setRendering(url);
+    for (ResourceEntry e : reslist) {
+      ImplementationGuideManifestResourceComponent r = ig.getManifest().addResource();
+      r.setReference(new Reference(e.type+"/"+e.id));
+      if (e.conf)
+        r.setExample(new BooleanType(true));
+      r.setRelativePath(spm.getPath(e.canonical));  
+    }
+    for (String k : files.keySet()) {
+      if (k.endsWith(".png") || k.endsWith(".gif"))
+        ig.getManifest().addImage(k);
+      else if (k.endsWith(".css"))
+        ig.getManifest().addOther(k);
+    }
+    Map<String, ImplementationGuideManifestPageComponent> map = new HashMap<String, ImplementationGuideManifestPageComponent>();
+    for (String k : spm.getPages()) {
+      ImplementationGuideManifestPageComponent pp = ig.getManifest().addPage();
+      pp.setName(k).setTitle(spm.getPage(k));
+      map.put(pp.getName(), pp);      
+    }
+    for (String k : spm.getTargets()) {
+      String n = null;
+      String f = null;
+      if (k.contains("#")) {
+        n = k.substring(0, k.indexOf("#"));
+        f = k.substring(k.indexOf("#")+1);
+      } else
+        n = k;
+      ImplementationGuideManifestPageComponent p = map.get(n);
+      if (p == null) {
+        p = ig.getManifest().addPage();
+        p.setName(n);
+        map.put(p.getName(), p);      
       }
+      if (f != null)
+        p.addAnchor(f);
+    }
+    // ok ig is full loaded...
+    
+    System.out.println(" .. Building NPM Package");
+
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), "http://hl7.org/fhir", ig);
+    
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
+    npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
+    addConvertedIg(npm, ig, version);
+    for (ResourceEntry e : reslist) {
+      npm.addFile(Category.RESOURCE, e.type+"-"+e.id+".json", e.json);
+    }
+    for (String k : files.keySet()) {
+      if (k.endsWith(".png") || k.endsWith(".css") || k.endsWith(".template") || k.endsWith(".zip") || k.endsWith(".gif") 
+          || k.equals("spec.internals") || k.equals("mappingSpaces.details"))
+        npm.addFile(Category.OTHER, k, files.get(k));
+    }
+    
+    for (String fn : new File(folder).list()) {
       if (fn.endsWith(".schema.json") || fn.endsWith(".openapi.json") ) {
         byte[] b = TextFile.fileToBytes(Utilities.path(folder, fn));
-        System.out.println("Add resource "+fn);
         npm.addFile(Category.OPENAPI, fn, b);
       }
       if (fn.endsWith(".xsd") || fn.endsWith(".sch") ) {
         byte[] b = TextFile.fileToBytes(Utilities.path(folder, fn));
-        System.out.println("Add resource "+fn);
         npm.addFile(Category.SCHEMATRON, fn, b);
       }
     }
     npm.finish();
-        
-    System.out.println("Done");
+    System.out.println(" .. Built");
+  }
+
+  private void addConvertedIg(NPMPackageGenerator npm, ImplementationGuide ig, String version) throws IOException, FHIRException {
+    if (version.equals(Constants.VERSION))
+      addConvertedIg4(npm, ig);
+    else if (version.equals("3.0.1"))
+      addConvertedIg3(npm, ig);
+    else if (version.equals("1.4.0"))
+      addConvertedIg14(npm, ig);
+    else if (version.equals("1.0.2"))
+      addConvertedIg10(npm, ig);
+  }
+
+  private void addConvertedIg4(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException {
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new JsonParser().composeBytes(ig));
+  }
+
+  private void addConvertedIg3(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
+    org.hl7.fhir.dstu3.model.Resource res = VersionConvertor_30_40.convertResource(ig);
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new org.hl7.fhir.dstu3.formats.JsonParser().composeBytes(res));
+  }
+
+  private void addConvertedIg14(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
+    org.hl7.fhir.dstu2016may.model.Resource res = VersionConvertor_14_40.convertResource(ig);
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new org.hl7.fhir.dstu2016may.formats.JsonParser().composeBytes(res));
+  }
+
+  private void addConvertedIg10(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
+    org.hl7.fhir.dstu2.model.Resource res = new VersionConvertor_10_40(null).convertResource(ig);
+    npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(res));
+  }
+
+  private void addToResList(String folder, List<ResourceEntry> reslist, String version) {
+    for (File f : new File(folder).listFiles()) {
+      if (f.getName().endsWith(".json")) {
+        try {
+          byte[] b = TextFile.fileToBytes(f.getAbsolutePath());
+          if (version.equals(Constants.VERSION))
+            loadFile4(reslist, b);
+          else if (version.equals("3.0.1"))
+            loadFile3(reslist, b);
+          else if (version.equals("1.4.0"))
+            loadFile14(reslist, b);
+          else if (version.equals("1.0.2"))
+            loadFile10(reslist, b);
+        } catch (Exception e) {
+          // nothing - we'll just ignore the file
+        }
+      }
+    }    
+  }
+
+  private void loadFile4(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
+    org.hl7.fhir.r4.model.Resource res = new org.hl7.fhir.r4.formats.JsonParser().parse(b);
+    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
+      ResourceEntry e = new ResourceEntry();
+      e.type = res.fhirType();
+      e.id = res.getId();
+      e.json = b;
+      e.conf = false;
+      reslist.add(e);
+    }
+  }
+
+  private void loadFile3(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
+    org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(b);
+    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
+      ResourceEntry e = new ResourceEntry();
+      e.type = res.fhirType();
+      e.id = res.getId();
+      e.json = b;
+      e.conf = false;
+      reslist.add(e);
+    }
+  }
+
+  private void loadFile14(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
+    org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(b);
+    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
+      ResourceEntry e = new ResourceEntry();
+      e.type = res.fhirType();
+      e.id = res.getId();
+      e.json = b;
+      e.conf = false;
+      reslist.add(e);
+    }
+  }
+
+  private void loadFile10(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
+    org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(b);
+    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
+      ResourceEntry e = new ResourceEntry();
+      e.type = res.fhirType();
+      e.id = res.getId();
+      e.json = b;
+      e.conf = false;
+      reslist.add(e);
+    }
+  }
+
+  private boolean hasEntry(List<ResourceEntry> reslist, String fhirType, String id) {
+    for (ResourceEntry e : reslist) {
+      if (e.type.equals(fhirType) && e.id.equals(id)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private List<ResourceEntry> makeResourceList(Map<String, byte[]> files, String version) throws FHIRFormatError, IOException {
+    List<ResourceEntry> res = new ArrayList<SpecNPMPackageGenerator.ResourceEntry>();
+    if (version.equals(Constants.VERSION))
+      makeResourceList4(files, version, res);
+    else if (version.equals("3.0.1"))
+      makeResourceList3(files, version, res);
+    else if (version.equals("1.4.0"))
+      makeResourceList14(files, version, res);
+    else if (version.equals("1.0.2"))
+      makeResourceList10(files, version, res);
+    return res;
+  }
+
+  private List<ResourceEntry> makeResourceList4(Map<String, byte[]> files, String version, List<ResourceEntry> res) throws FHIRFormatError, IOException {
+    for (String k : files.keySet()) {
+      if (k.endsWith(".xml")) {
+        Bundle b = (Bundle) new org.hl7.fhir.r4.formats.XmlParser().parse(files.get(k));
+        for (org.hl7.fhir.r4.model.Bundle.BundleEntryComponent be : b.getEntry()) {
+          if (be.hasResource()) {
+            ResourceEntry e = new ResourceEntry();
+            e.type = be.getResource().fhirType();
+            e.id = be.getResource().getId();
+            e.json = new org.hl7.fhir.r4.formats.JsonParser().composeBytes(be.getResource());
+            e.conf = true;
+            if (be.getResource() instanceof org.hl7.fhir.r4.model.MetadataResource)
+              e.canonical = ((org.hl7.fhir.r4.model.MetadataResource) be.getResource()).getUrl();
+            res.add(e);
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  private List<ResourceEntry> makeResourceList3(Map<String, byte[]> files, String version, List<ResourceEntry> res) throws FHIRFormatError, IOException {
+    for (String k : files.keySet()) {
+      if (k.endsWith(".xml")) {
+        org.hl7.fhir.dstu3.model.Bundle b = (org.hl7.fhir.dstu3.model.Bundle) new org.hl7.fhir.dstu3.formats.XmlParser().parse(files.get(k));
+        for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent be : b.getEntry()) {
+          if (be.hasResource()) {
+            ResourceEntry e = new ResourceEntry();
+            e.type = be.getResource().fhirType();
+            e.id = be.getResource().getId();
+            e.json = new org.hl7.fhir.dstu3.formats.JsonParser().composeBytes(be.getResource());
+            e.conf = true;
+            if (be.getResource() instanceof org.hl7.fhir.dstu3.model.MetadataResource)
+              e.canonical = ((org.hl7.fhir.dstu3.model.MetadataResource) be.getResource()).getUrl();
+            res.add(e);
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  private List<ResourceEntry> makeResourceList14(Map<String, byte[]> files, String version, List<ResourceEntry> res) throws FHIRFormatError, IOException {
+    for (String k : files.keySet()) {
+      if (k.endsWith(".xml")) {
+        org.hl7.fhir.dstu2016may.model.Bundle b = (org.hl7.fhir.dstu2016may.model.Bundle) new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(files.get(k));
+        for (org.hl7.fhir.dstu2016may.model.Bundle.BundleEntryComponent be : b.getEntry()) {
+          if (be.hasResource()) {
+            ResourceEntry e = new ResourceEntry();
+            e.type = be.getResource().fhirType();
+            e.id = be.getResource().getId();
+            e.json = new org.hl7.fhir.dstu2016may.formats.JsonParser().composeBytes(be.getResource());
+            e.conf = true;
+            if (be.getResource() instanceof org.hl7.fhir.dstu2016may.model.ValueSet)
+              e.canonical = ((org.hl7.fhir.dstu2016may.model.ValueSet) be.getResource()).getUrl();
+            if (be.getResource() instanceof org.hl7.fhir.dstu2016may.model.StructureDefinition)
+              e.canonical = ((org.hl7.fhir.dstu2016may.model.StructureDefinition) be.getResource()).getUrl();
+            if (be.getResource() instanceof org.hl7.fhir.dstu2016may.model.ConceptMap)
+              e.canonical = ((org.hl7.fhir.dstu2016may.model.ConceptMap) be.getResource()).getUrl();
+            if (be.getResource() instanceof org.hl7.fhir.dstu2016may.model.CodeSystem)
+              e.canonical = ((org.hl7.fhir.dstu2016may.model.CodeSystem) be.getResource()).getUrl();
+            res.add(e);
+          }
+        }
+      }
+    }
+    return null;
+  }
+
+  private List<ResourceEntry> makeResourceList10(Map<String, byte[]> files, String version, List<ResourceEntry> res) throws FHIRFormatError, IOException {
+    for (String k : files.keySet()) {
+      if (k.endsWith(".xml")) {
+        org.hl7.fhir.dstu2.model.Resource r = new org.hl7.fhir.dstu2.formats.XmlParser().parse(files.get(k));
+        if (r instanceof StructureDefinition) {
+          ResourceEntry e = new ResourceEntry();
+          e.type = r.fhirType();
+          e.id = r.getId();
+          e.json = new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(r);
+          e.conf = true;
+          if (r instanceof org.hl7.fhir.dstu2.model.StructureDefinition)
+            e.canonical = ((org.hl7.fhir.dstu2.model.StructureDefinition) r).getUrl();
+          res.add(e);
+        } else {
+          org.hl7.fhir.dstu2.model.Bundle b = (org.hl7.fhir.dstu2.model.Bundle) r;
+          for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : b.getEntry()) {
+            if (be.hasResource()) {
+              ResourceEntry e = new ResourceEntry();
+              e.type = be.getResource().fhirType();
+              e.id = be.getResource().getId();
+              e.json = new org.hl7.fhir.dstu2.formats.JsonParser().composeBytes(be.getResource());
+              e.conf = true;
+              if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet)
+                e.canonical = ((org.hl7.fhir.dstu2.model.ValueSet) be.getResource()).getUrl();
+              if (be.getResource() instanceof org.hl7.fhir.dstu2.model.StructureDefinition)
+                e.canonical = ((org.hl7.fhir.dstu2.model.StructureDefinition) be.getResource()).getUrl();
+              if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ConceptMap)
+                e.canonical = ((org.hl7.fhir.dstu2.model.ConceptMap) be.getResource()).getUrl();
+              res.add(e);
+            }
+          }
+        }
+      }
+    }
+    return null;
   }
 
   private boolean isResource(byte[] b) {
@@ -113,5 +406,54 @@ public class SpecNPMPackageGenerator {
     IniFile ini = new IniFile(Utilities.path(folder, "version.info"));
     return ini.getStringProperty("FHIR", "version");
   }
+
+  private Map<String, byte[]> loadZip(InputStream stream) throws IOException {
+    Map<String, byte[]> res = new HashMap<String, byte[]>();
+    ZipInputStream zip = new ZipInputStream(stream);
+    ZipEntry ze;
+    while ((ze = zip.getNextEntry()) != null) {
+      int size;
+      byte[] buffer = new byte[2048];
+
+      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+      BufferedOutputStream bos = new BufferedOutputStream(bytes, buffer.length);
+
+      while ((size = zip.read(buffer, 0, buffer.length)) != -1) {
+        bos.write(buffer, 0, size);
+      }
+      bos.flush();
+      bos.close();
+      res.put(ze.getName(), bytes.toByteArray());
+
+      zip.closeEntry();
+    }
+    zip.close();
+    return res;
+  }
+
+  private String determineVersion(Map<String, byte[]> files) {
+    byte[] b = files.get("version.info");
+    if (b == null)
+      return "n/a";
+    String s = new String(b);
+    s = Utilities.stripBOM(s).trim();
+    while (s.charAt(0) != '[')
+      s = s.substring(1);
+    byte[] bytes = {};
+    try {
+      bytes = s.getBytes("UTF-8");
+    } catch (UnsupportedEncodingException e) {
+
+    }
+    ByteArrayInputStream bs = new ByteArrayInputStream(bytes);
+    IniFile ini = new IniFile(bs);
+    String v = ini.getStringProperty("FHIR", "version");
+    if (v == null)
+      throw new Error("unable to determine version from "+new String(bytes));
+    if ("3.0.0".equals(v))
+      v = "3.0.1";
+    return v;
+  }
+
 
 }

@@ -61,6 +61,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
@@ -127,6 +128,26 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public static SimpleWorkerContext fromPack(String path) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
     res.loadFromPack(path, null);
+    return res;
+  }
+
+  public static SimpleWorkerContext fromPackage(PackageInfo pi, boolean allowDuplicates) throws FileNotFoundException, IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    res.setAllowLoadingDuplicates(allowDuplicates);
+    res.loadFromPackage(pi, null);
+    return res;
+  }
+
+  public static SimpleWorkerContext fromPackage(PackageInfo pi) throws FileNotFoundException, IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    res.loadFromPackage(pi, null);
+    return res;
+  }
+
+  public static SimpleWorkerContext fromPackage(PackageInfo pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+    SimpleWorkerContext res = new SimpleWorkerContext();
+    res.setAllowLoadingDuplicates(true);
+    res.loadFromPackage(pi, loader);
     return res;
   }
 
@@ -236,16 +257,24 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
     }
     for (BundleEntryComponent e : f.getEntry()) {
-
-      if (e.getFullUrl() == null) {
-        logger.logDebugMessage(LogCategory.CONTEXT, "unidentified resource in " + name+" (no fullUrl)");
-      }
       cacheResource(e.getResource());
     }
   }
 
 	private void loadFromPack(String path, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
 		loadFromStream(new CSFileInputStream(path), loader);
+	}
+  
+	private void loadFromPackage(PackageInfo pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+	  for (String s : pi.list("package")) {
+	    if (s.contains("-") && s.endsWith(".json")) {
+	      String t = s.substring(0, s.indexOf("-"));
+	      if (Utilities.existsInList(t, "StructureDefinition", "ValueSet", "CodeSystem", "SearchParameter",
+	            "OperationDefinition", "Questionnaire","ConceptMap","StructureMap", "NamingSystem")) {
+	        loadDefinitionItem(s, pi.load("package", s), loader);
+	      }
+	    }
+	  }
 	}
 
   public void loadFromFile(String file, IContextResourceLoader loader) throws IOException, FHIRException {
@@ -423,6 +452,18 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return result;
   }
 
+  public void loadBinariesFromFolder(String folder) throws FileNotFoundException, Exception {
+    for (String n : new File(folder).list()) {
+      loadBytes(n, new FileInputStream(Utilities.path(folder, n)));
+    }
+  }
+  
+  public void loadBinariesFromFolder(PackageInfo pi) throws FileNotFoundException, Exception {
+    for (String n : pi.list("other")) {
+      loadBytes(n, pi.load("other", n));
+    }
+  }
+  
   public void loadFromFolder(String folder) throws FileNotFoundException, Exception {
     for (String n : new File(folder).list()) {
       if (n.endsWith(".json")) 

@@ -231,8 +231,8 @@ import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.NDJsonWriter;
-import org.hl7.fhir.utilities.PackageGenerator;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
+import org.hl7.fhir.utilities.cache.PackageGenerator;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -2660,9 +2660,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
       s.close();
 
-      SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-      self.generate(page.getFolders().dstDir);
-
       Bundle expansionFeed = new Bundle();
       expansionFeed.setId("valueset-expansions");
       expansionFeed.setType(BundleType.COLLECTION);
@@ -2845,6 +2842,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
       page.log("....IG Builder (2)", LogMessageType.Process);
       javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
+
+      SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
+      self.generate(page.getFolders().dstDir, page.getBaseURL());
+
 
       page.log(" ...zips", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "examples.zip");
