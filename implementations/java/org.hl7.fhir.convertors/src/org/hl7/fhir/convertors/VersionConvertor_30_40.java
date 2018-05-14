@@ -5650,168 +5650,6 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.r4.model.ChargeItem convertChargeItem(org.hl7.fhir.dstu3.model.ChargeItem src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ChargeItem tgt = new org.hl7.fhir.r4.model.ChargeItem();
-    copyDomainResource(src, tgt);
-    if (src.hasIdentifier())
-      tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
-    for (org.hl7.fhir.dstu3.model.UriType t : src.getDefinition())
-      tgt.addDefinition(t.getValue());
-    if (src.hasStatus())
-      tgt.setStatus(convertChargeItemStatus(src.getStatus()));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getPartOf())
-      tgt.addPartOf(convertReference(t));
-    if (src.hasCode())
-      tgt.setCode(convertCodeableConcept(src.getCode()));
-    if (src.hasSubject())
-      tgt.setSubject(convertReference(src.getSubject()));
-    if (src.hasContext())
-      tgt.setContext(convertReference(src.getContext()));
-    if (src.hasOccurrence())
-      tgt.setOccurrence(convertType(src.getOccurrence()));
-    for (org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemParticipantComponent t : src.getParticipant())
-      tgt.addParticipant(convertChargeItemParticipantComponent(t));
-    if (src.hasPerformingOrganization())
-      tgt.setPerformingOrganization(convertReference(src.getPerformingOrganization()));
-    if (src.hasRequestingOrganization())
-      tgt.setRequestingOrganization(convertReference(src.getRequestingOrganization()));
-    if (src.hasQuantity())
-      tgt.setQuantity(convertQuantity(src.getQuantity()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getBodysite())
-      tgt.addBodysite(convertCodeableConcept(t));
-    if (src.hasFactorOverride())
-      tgt.setFactorOverride(src.getFactorOverride());
-    if (src.hasPriceOverride())
-      tgt.setPriceOverride(convertMoney(src.getPriceOverride()));
-    if (src.hasOverrideReason())
-      tgt.setOverrideReason(src.getOverrideReason());
-    if (src.hasEnterer())
-      tgt.setEnterer(convertReference(src.getEnterer()));
-    if (src.hasEnteredDate())
-      tgt.setEnteredDate(src.getEnteredDate());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getService())
-      tgt.addService(convertReference(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getAccount())
-      tgt.addAccount(convertReference(t));
-    for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
-      tgt.addNote(convertAnnotation(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getSupportingInformation())
-      tgt.addSupportingInformation(convertReference(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ChargeItem convertChargeItem(org.hl7.fhir.r4.model.ChargeItem src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ChargeItem tgt = new org.hl7.fhir.dstu3.model.ChargeItem();
-    copyDomainResource(src, tgt);
-    if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier().get(0)));
-    for (org.hl7.fhir.r4.model.UriType t : src.getDefinition())
-      tgt.addDefinition(t.getValue());
-    if (src.hasStatus())
-      tgt.setStatus(convertChargeItemStatus(src.getStatus()));
-    for (org.hl7.fhir.r4.model.Reference t : src.getPartOf())
-      tgt.addPartOf(convertReference(t));
-    if (src.hasCode())
-      tgt.setCode(convertCodeableConcept(src.getCode()));
-    if (src.hasSubject())
-      tgt.setSubject(convertReference(src.getSubject()));
-    if (src.hasContext())
-      tgt.setContext(convertReference(src.getContext()));
-    if (src.hasOccurrence())
-      tgt.setOccurrence(convertType(src.getOccurrence()));
-    for (org.hl7.fhir.r4.model.ChargeItem.ChargeItemParticipantComponent t : src.getParticipant())
-      tgt.addParticipant(convertChargeItemParticipantComponent(t));
-    if (src.hasPerformingOrganization())
-      tgt.setPerformingOrganization(convertReference(src.getPerformingOrganization()));
-    if (src.hasRequestingOrganization())
-      tgt.setRequestingOrganization(convertReference(src.getRequestingOrganization()));
-    if (src.hasQuantity())
-      tgt.setQuantity(convertQuantity(src.getQuantity()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getBodysite())
-      tgt.addBodysite(convertCodeableConcept(t));
-    if (src.hasFactorOverride())
-      tgt.setFactorOverride(src.getFactorOverride());
-    if (src.hasPriceOverride())
-      tgt.setPriceOverride(convertMoney(src.getPriceOverride()));
-    if (src.hasOverrideReason())
-      tgt.setOverrideReason(src.getOverrideReason());
-    if (src.hasEnterer())
-      tgt.setEnterer(convertReference(src.getEnterer()));
-    if (src.hasEnteredDate())
-      tgt.setEnteredDate(src.getEnteredDate());
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getService())
-      tgt.addService(convertReference(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getAccount())
-      tgt.addAccount(convertReference(t));
-    for (org.hl7.fhir.r4.model.Annotation t : src.getNote())
-      tgt.addNote(convertAnnotation(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getSupportingInformation())
-      tgt.addSupportingInformation(convertReference(t));
-    return tgt;
-  }
-
-  private static org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus convertChargeItemStatus(org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case PLANNED: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.PLANNED;
-    case BILLABLE: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.BILLABLE;
-    case NOTBILLABLE: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.NOTBILLABLE;
-    case ABORTED: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.ABORTED;
-    case BILLED: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.BILLED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.ENTEREDINERROR;
-    case UNKNOWN: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.UNKNOWN;
-    default: return org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus.NULL;
-  }
-}
-
-  private static org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus convertChargeItemStatus(org.hl7.fhir.r4.model.ChargeItem.ChargeItemStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case PLANNED: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.PLANNED;
-    case BILLABLE: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.BILLABLE;
-    case NOTBILLABLE: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.NOTBILLABLE;
-    case ABORTED: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.ABORTED;
-    case BILLED: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.BILLED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.ENTEREDINERROR;
-    case UNKNOWN: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.UNKNOWN;
-    default: return org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemStatus.NULL;
-  }
-}
-
-  public static org.hl7.fhir.r4.model.ChargeItem.ChargeItemParticipantComponent convertChargeItemParticipantComponent(org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemParticipantComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ChargeItem.ChargeItemParticipantComponent tgt = new org.hl7.fhir.r4.model.ChargeItem.ChargeItemParticipantComponent();
-    copyElement(src, tgt);
-    if (src.hasRole())
-      tgt.setRole(convertCodeableConcept(src.getRole()));
-    if (src.hasActor())
-      tgt.setActor(convertReference(src.getActor()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemParticipantComponent convertChargeItemParticipantComponent(org.hl7.fhir.r4.model.ChargeItem.ChargeItemParticipantComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemParticipantComponent tgt = new org.hl7.fhir.dstu3.model.ChargeItem.ChargeItemParticipantComponent();
-    copyElement(src, tgt);
-    if (src.hasRole())
-      tgt.setRole(convertCodeableConcept(src.getRole()));
-    if (src.hasActor())
-      tgt.setActor(convertReference(src.getActor()));
-    return tgt;
-  }
-
   public static org.hl7.fhir.r4.model.Claim convertClaim(org.hl7.fhir.dstu3.model.Claim src) throws FHIRException {
     if (src == null)
       return null;
@@ -22063,8 +21901,6 @@ public class VersionConvertor_30_40 {
       return convertCapabilityStatement((org.hl7.fhir.dstu3.model.CapabilityStatement) src);
     if (src instanceof org.hl7.fhir.dstu3.model.CareTeam)
       return convertCareTeam((org.hl7.fhir.dstu3.model.CareTeam) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.ChargeItem)
-      return convertChargeItem((org.hl7.fhir.dstu3.model.ChargeItem) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Claim)
       return convertClaim((org.hl7.fhir.dstu3.model.Claim) src);
     if (src instanceof org.hl7.fhir.dstu3.model.ClinicalImpression)
@@ -22239,8 +22075,6 @@ public class VersionConvertor_30_40 {
       return convertCapabilityStatement((org.hl7.fhir.r4.model.CapabilityStatement) src);
     if (src instanceof org.hl7.fhir.r4.model.CareTeam)
       return convertCareTeam((org.hl7.fhir.r4.model.CareTeam) src);
-    if (src instanceof org.hl7.fhir.r4.model.ChargeItem)
-      return convertChargeItem((org.hl7.fhir.r4.model.ChargeItem) src);
     if (src instanceof org.hl7.fhir.r4.model.Claim)
       return convertClaim((org.hl7.fhir.r4.model.Claim) src);
     if (src instanceof org.hl7.fhir.r4.model.ClinicalImpression)

@@ -174,6 +174,8 @@ public class ResourceFactory extends Factory {
             return new StructureDefinition();
         if ("EpisodeOfCare".equals(name))
             return new EpisodeOfCare();
+        if ("ChargeItemDefinition".equals(name))
+            return new ChargeItemDefinition();
         if ("MedicinalProductDeviceSpec".equals(name))
             return new MedicinalProductDeviceSpec();
         if ("OperationOutcome".equals(name))
@@ -461,6 +463,7 @@ public class ResourceFactory extends Factory {
         case 57208314: return new CarePlan();
         case 57320750: return new CareTeam();
         case -883723257: return new ChargeItem();
+        case -315725638: return new ChargeItemDefinition();
         case 65189916: return new Claim();
         case 1488475261: return new ClaimResponse();
         case -1268501092: return new ClinicalImpression();

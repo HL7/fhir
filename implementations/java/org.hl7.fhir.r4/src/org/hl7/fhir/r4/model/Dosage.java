@@ -137,16 +137,16 @@ public class Dosage extends BackboneType implements ICompositeType {
         /**
          * @return {@link #dose} (Amount of medication per dose.)
          */
-        public SimpleQuantity getDoseSimpleQuantity() throws FHIRException { 
+        public Quantity getDoseQuantity() throws FHIRException { 
           if (this.dose == null)
             return null;
-          if (!(this.dose instanceof SimpleQuantity))
+          if (!(this.dose instanceof Quantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.dose.getClass().getName()+" was encountered");
-          return (SimpleQuantity) this.dose;
+          return (Quantity) this.dose;
         }
 
-        public boolean hasDoseSimpleQuantity() { 
-          return this != null && this.dose instanceof SimpleQuantity;
+        public boolean hasDoseQuantity() { 
+          return this != null && this.dose instanceof Quantity;
         }
 
         public boolean hasDose() { 

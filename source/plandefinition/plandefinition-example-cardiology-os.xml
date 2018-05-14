@@ -702,9 +702,11 @@
   <library value="#cardiology-chestPain-logic" />
   <!--  Actions  -->
   <action>
+    <!--  
     <action>
-      <!--  Patient disposition and triage group  -->
+      Patient disposition and triage group
     </action>
+      -->
     <action>
       <title value="Consults and Referrals" />
       <groupingBehavior value="logical-group" />
@@ -753,15 +755,21 @@
         <definition value="#CardiologyConsultationGoal" />
       </action>
     </action>
+    <!--  
     <action>
-      <!--  Imaging and ECG group  -->
+      Imaging and ECG group  
     </action>
+    -->
+    <!--  
     <action>
-      <!--  Laboratory Tests  -->
+      Laboratory Tests 
     </action>
+     -->
+     <!--  
     <action>
-      <!--  Cardiac Risk Stratification  -->
+      Cardiac Risk Stratification 
     </action>
+     -->
     <action>
       <title value="Medications" />
       <description value="Consider the following medications for stable patients to be initiated prior to the cardiology consultation." />

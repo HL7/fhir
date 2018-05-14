@@ -197,11 +197,11 @@ public class SpecNPMPackageGenerator {
 
   private void addToResList(String folder, List<ResourceEntry> reslist, String version) {
     for (File f : new File(folder).listFiles()) {
-      if (f.getName().endsWith(".json")) {
+      if (f.getName().endsWith(".json") && !f.getName().endsWith(".diff.json") && !f.getName().endsWith(".schema.json") && !f.getName().equals("package.json")) {
         try {
           byte[] b = TextFile.fileToBytes(f.getAbsolutePath());
           if (version.equals(Constants.VERSION))
-            loadFile4(reslist, b);
+            loadFile4(reslist, b, f.getName());
           else if (version.equals("3.0.1"))
             loadFile3(reslist, b);
           else if (version.equals("1.4.0"))
@@ -215,15 +215,19 @@ public class SpecNPMPackageGenerator {
     }    
   }
 
-  private void loadFile4(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
-    org.hl7.fhir.r4.model.Resource res = new org.hl7.fhir.r4.formats.JsonParser().parse(b);
-    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
-      ResourceEntry e = new ResourceEntry();
-      e.type = res.fhirType();
-      e.id = res.getId();
-      e.json = b;
-      e.conf = false;
-      reslist.add(e);
+  private void loadFile4(List<ResourceEntry> reslist, byte[] b, String sourceName) throws FHIRFormatError, IOException {
+    try {
+      org.hl7.fhir.r4.model.Resource res = new org.hl7.fhir.r4.formats.JsonParser().parse(b);
+      if (res.hasId() && !hasEntry(reslist, res.fhirType(), res.getId())) {
+        ResourceEntry e = new ResourceEntry();
+        e.type = res.fhirType();
+        e.id = res.getId();
+        e.json = b;
+        e.conf = false;
+        reslist.add(e);
+      }
+    } catch (Throwable e) {
+      throw new Error("Exception parsing "+sourceName+": "+e.getMessage(), e);
     }
   }
 

@@ -21,6 +21,7 @@ public enum ResourceType {
     CarePlan,
     CareTeam,
     ChargeItem,
+    ChargeItemDefinition,
     Claim,
     ClaimResponse,
     ClinicalImpression,
@@ -180,6 +181,8 @@ public enum ResourceType {
       return "careteam";
     case ChargeItem:
       return "chargeitem";
+    case ChargeItemDefinition:
+      return "chargeitemdefinition";
     case Claim:
       return "claim";
     case ClaimResponse:
@@ -464,6 +467,8 @@ public enum ResourceType {
       return CareTeam;
     if ("ChargeItem".equals(code))
       return ChargeItem;
+    if ("ChargeItemDefinition".equals(code))
+      return ChargeItemDefinition;
     if ("Claim".equals(code))
       return Claim;
     if ("ClaimResponse".equals(code))

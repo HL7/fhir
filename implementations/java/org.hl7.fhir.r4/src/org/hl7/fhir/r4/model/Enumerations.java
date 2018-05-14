@@ -2504,6 +2504,10 @@ into another (possibly the same) biological entity.
          */
         CHARGEITEM, 
         /**
+         * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
+         */
+        CHARGEITEMDEFINITION, 
+        /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
         CLAIM, 
@@ -2748,9 +2752,7 @@ into another (possibly the same) biological entity.
          */
         MEDICATIONREQUEST, 
         /**
-         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. 
-
-The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
         MEDICATIONSTATEMENT, 
         /**
@@ -3174,6 +3176,8 @@ The primary difference between a medication statement and a medication administr
           return CARETEAM;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -3509,6 +3513,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -3718,6 +3723,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEMDEFINITION: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -3927,6 +3933,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
+            case CHARGEITEMDEFINITION: return "The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -4136,6 +4143,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -4427,6 +4435,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRAllTypes.CARETEAM;
         if ("ChargeItem".equals(codeString))
           return FHIRAllTypes.CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return FHIRAllTypes.CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return FHIRAllTypes.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -4845,6 +4855,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CARETEAM);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CHARGEITEM);
+        if ("ChargeItemDefinition".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CHARGEITEMDEFINITION);
         if ("Claim".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -5256,6 +5268,8 @@ The primary difference between a medication statement and a medication administr
         return "CareTeam";
       if (code == FHIRAllTypes.CHARGEITEM)
         return "ChargeItem";
+      if (code == FHIRAllTypes.CHARGEITEMDEFINITION)
+        return "ChargeItemDefinition";
       if (code == FHIRAllTypes.CLAIM)
         return "Claim";
       if (code == FHIRAllTypes.CLAIMRESPONSE)
@@ -5828,6 +5842,10 @@ into another (possibly the same) biological entity.
          */
         CHARGEITEM, 
         /**
+         * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
+         */
+        CHARGEITEMDEFINITION, 
+        /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
         CLAIM, 
@@ -6072,9 +6090,7 @@ into another (possibly the same) biological entity.
          */
         MEDICATIONREQUEST, 
         /**
-         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. 
-
-The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
         MEDICATIONSTATEMENT, 
         /**
@@ -6490,6 +6506,8 @@ The primary difference between a medication statement and a medication administr
           return CARETEAM;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -6821,6 +6839,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -7028,6 +7047,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEMDEFINITION: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -7235,6 +7255,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
+            case CHARGEITEMDEFINITION: return "The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -7442,6 +7463,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -7731,6 +7753,8 @@ The primary difference between a medication statement and a medication administr
           return FHIRDefinedType.CARETEAM;
         if ("ChargeItem".equals(codeString))
           return FHIRDefinedType.CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return FHIRDefinedType.CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return FHIRDefinedType.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -8145,6 +8169,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CARETEAM);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CHARGEITEM);
+        if ("ChargeItemDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CHARGEITEMDEFINITION);
         if ("Claim".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -8552,6 +8578,8 @@ The primary difference between a medication statement and a medication administr
         return "CareTeam";
       if (code == FHIRDefinedType.CHARGEITEM)
         return "ChargeItem";
+      if (code == FHIRDefinedType.CHARGEITEMDEFINITION)
+        return "ChargeItemDefinition";
       if (code == FHIRDefinedType.CLAIM)
         return "Claim";
       if (code == FHIRDefinedType.CLAIMRESPONSE)
@@ -9280,6 +9308,10 @@ into another (possibly the same) biological entity.
          */
         CHARGEITEM, 
         /**
+         * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
+         */
+        CHARGEITEMDEFINITION, 
+        /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
         CLAIM, 
@@ -9524,9 +9556,7 @@ into another (possibly the same) biological entity.
          */
         MEDICATIONREQUEST, 
         /**
-         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. 
-
-The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
         MEDICATIONSTATEMENT, 
         /**
@@ -9820,6 +9850,8 @@ The primary difference between a medication statement and a medication administr
           return CARETEAM;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -10090,6 +10122,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -10236,6 +10269,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEMDEFINITION: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -10382,6 +10416,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
+            case CHARGEITEMDEFINITION: return "The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -10528,6 +10563,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -10695,6 +10731,8 @@ The primary difference between a medication statement and a medication administr
           return ResourceType.CARETEAM;
         if ("ChargeItem".equals(codeString))
           return ResourceType.CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return ResourceType.CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return ResourceType.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -10987,6 +11025,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<ResourceType>(this, ResourceType.CARETEAM);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CHARGEITEM);
+        if ("ChargeItemDefinition".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.CHARGEITEMDEFINITION);
         if ("Claim".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -11272,6 +11312,8 @@ The primary difference between a medication statement and a medication administr
         return "CareTeam";
       if (code == ResourceType.CHARGEITEM)
         return "ChargeItem";
+      if (code == ResourceType.CHARGEITEMDEFINITION)
+        return "ChargeItemDefinition";
       if (code == ResourceType.CLAIM)
         return "Claim";
       if (code == ResourceType.CLAIMRESPONSE)

@@ -2520,13 +2520,13 @@ public class NutritionOrder extends DomainResource {
         public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
           if (this.rate == null)
             return null;
-          if (!(this.rate instanceof SimpleQuantity))
+          if (!(this.rate instanceof Quantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.rate;
         }
 
         public boolean hasRateSimpleQuantity() { 
-          return this != null && this.rate instanceof SimpleQuantity;
+          return this != null && this.rate instanceof Quantity;
         }
 
         /**
@@ -2552,7 +2552,7 @@ public class NutritionOrder extends DomainResource {
          * @param value {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
         public NutritionOrderEnteralFormulaAdministrationComponent setRate(Type value) { 
-          if (value != null && !(value instanceof SimpleQuantity || value instanceof Ratio))
+          if (value != null && !(value instanceof Quantity || value instanceof Ratio))
             throw new Error("Not the right type for NutritionOrder.enteralFormula.administration.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;

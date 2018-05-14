@@ -117,6 +117,10 @@ into another (possibly the same) biological entity.
          */
         CHARGEITEM,
         /**
+         * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
+         */
+        CHARGEITEMDEFINITION, 
+        /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
         CLAIM,
@@ -657,6 +661,8 @@ The primary difference between a medication statement and a medication administr
           return CARETEAM;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -930,6 +936,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -1076,6 +1083,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEMDEFINITION: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -1222,6 +1230,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
+            case CHARGEITEMDEFINITION: return "The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -1368,6 +1377,7 @@ The primary difference between a medication statement and a medication administr
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CHARGEITEM: return "ChargeItem";
+            case CHARGEITEMDEFINITION: return "ChargeItemDefinition";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -1535,6 +1545,8 @@ The primary difference between a medication statement and a medication administr
           return ActivityDefinitionKind.CARETEAM;
         if ("ChargeItem".equals(codeString))
           return ActivityDefinitionKind.CHARGEITEM;
+        if ("ChargeItemDefinition".equals(codeString))
+          return ActivityDefinitionKind.CHARGEITEMDEFINITION;
         if ("Claim".equals(codeString))
           return ActivityDefinitionKind.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -1827,6 +1839,8 @@ The primary difference between a medication statement and a medication administr
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.CARETEAM);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.CHARGEITEM);
+        if ("ChargeItemDefinition".equals(codeString))
+          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.CHARGEITEMDEFINITION);
         if ("Claim".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -2112,6 +2126,8 @@ The primary difference between a medication statement and a medication administr
         return "CareTeam";
       if (code == ActivityDefinitionKind.CHARGEITEM)
         return "ChargeItem";
+      if (code == ActivityDefinitionKind.CHARGEITEMDEFINITION)
+        return "ChargeItemDefinition";
       if (code == ActivityDefinitionKind.CLAIM)
         return "Claim";
       if (code == ActivityDefinitionKind.CLAIMRESPONSE)
