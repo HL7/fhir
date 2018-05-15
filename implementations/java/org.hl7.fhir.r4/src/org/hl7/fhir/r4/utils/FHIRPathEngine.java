@@ -736,7 +736,7 @@ public class FHIRPathEngine {
           String s = lexer.take();
           if (s.equals("year") || s.equals("years"))
             ucum = "a";
-          else if (s.equals("month") || s.equals("month"))
+          else if (s.equals("month") || s.equals("months"))
             ucum = "mo";
           else if (s.equals("week") || s.equals("weeks"))
             ucum = "wk";
@@ -3286,7 +3286,7 @@ public class FHIRPathEngine {
         return Quantity.fromUcum(v, s.substring(1, s.length()-1));
       if (s.equals("year") || s.equals("years"))
         return Quantity.fromUcum(v, "a");
-      else if (s.equals("month") || s.equals("month"))
+      else if (s.equals("month") || s.equals("months"))
         return Quantity.fromUcum(v, "mo");
       else if (s.equals("week") || s.equals("weeks"))
         return Quantity.fromUcum(v, "wk");
