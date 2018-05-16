@@ -1324,19 +1324,24 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!Utilities.isToken(name))
       throw new Exception("IG Name must be a valid token ("+name+")");
     String canonical = str(dep, "location");
+    if (Utilities.noString(canonical))
+      throw new Exception("You must specify a canonical URL for the IG "+name);
     String igver = ostr(dep, "version");
     if (Utilities.noString(igver))
       throw new Exception("You must specify a version for the IG "+name+" ("+canonical+")");
     String packageId = ostr(dep, "package");
     if (Utilities.noString(packageId))
       packageId = pcm.getPackageId(canonical);
-    if (Utilities.noString(packageId))
-      throw new Exception("Package Id for canonical guide is unknown (contact FHIR Product Director");
-    PackageInfo pi = pcm.loadPackageCache(packageId, igver);
+    
+    PackageInfo pi = packageId == null ? null : pcm.loadPackageCache(packageId, igver);
     if (pi == null) {
       pi = resolveDependency(canonical, igver);
-      if (pi == null) 
-        throw new Exception("Unknown Package "+packageId+"-"+version);
+      if (pi == null) {
+        if (Utilities.noString(packageId))
+          throw new Exception("Package Id for guide at "+canonical+" is unknown (contact FHIR Product Director");
+        else
+          throw new Exception("Unknown Package "+packageId+"-"+version);
+      }
     }
     log("Load "+name+" ("+canonical+") from "+packageId+"-"+version);
     
@@ -1388,18 +1393,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private PackageInfo resolveDependency(String canonical, String igver) throws Exception {
-    JsonObject pl = fetchJson(Utilities.pathURL(canonical, "package-list.json"));
-    if (!canonical.equals(pl.get("canonical").getAsString()))
+
+  private PackageInfo resolveDependency(String canonical, String igver) {
+    JsonObject pl;
+    try {
+      pl = fetchJson(Utilities.pathURL(canonical, "package-list.json"));
+      if (!canonical.equals(pl.get("canonical").getAsString()))
         throw new Exception("Canonical mismatch fetching package list for "+igver);
-    for (JsonElement e : pl.getAsJsonArray("list")) {
-      JsonObject o = (JsonObject) e;
-      if (igver.equals(o.get("version").getAsString())) {
-        InputStream src = fetchFromSource(pl.get("package-id").getAsString()+"-"+igver, Utilities.pathURL(o.get("path").getAsString(), "package.tgz"));
-        return pcm.addPackageToCache(pl.get("package-id").getAsString(), igver, src);
+      for (JsonElement e : pl.getAsJsonArray("list")) {
+        JsonObject o = (JsonObject) e;
+        if (igver.equals(o.get("version").getAsString())) {
+          InputStream src = fetchFromSource(pl.get("package-id").getAsString()+"-"+igver, Utilities.pathURL(o.get("path").getAsString(), "package.tgz"));
+          return pcm.addPackageToCache(pl.get("package-id").getAsString(), igver, src);
+        }
       }
+      return null;
+    } catch (Exception e1) {
+      e1.printStackTrace();
+      return null;
     }
-    return null;
   }
 
   private JsonObject fetchJson(String source) throws IOException {
