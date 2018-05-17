@@ -472,6 +472,10 @@ public class ValidationEngine {
       id = src.substring(0, src.indexOf(":"));
       version = src.substring(src.indexOf(":")+1);
     }
+    if (pcm == null) {
+      System.out.println("Creating Package manager?");
+      pcm = new PackageCacheManager(true);
+    }
     PackageInfo pi = null;
     if (version == null)
       pi = pcm.loadPackageCacheLatest(id);
