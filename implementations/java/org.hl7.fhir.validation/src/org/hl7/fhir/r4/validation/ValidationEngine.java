@@ -252,10 +252,12 @@ public class ValidationEngine {
   public ValidationEngine(String src, String txsrvr) throws Exception {
     loadDefinitions(src);
     connectToTSServer(txsrvr);
+    pcm = new PackageCacheManager(true);
   }
   
   public ValidationEngine(String src) throws Exception {
     loadDefinitions(src);
+    pcm = new PackageCacheManager(true);
   }
   
   private void loadDefinitions(String src) throws Exception {
