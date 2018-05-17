@@ -1397,6 +1397,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private PackageInfo resolveDependency(String canonical, String igver) {
     JsonObject pl;
     try {
+      System.out.println("Fetch Package history from "+Utilities.pathURL(canonical, "package-list.json"));
       pl = fetchJson(Utilities.pathURL(canonical, "package-list.json"));
       if (!canonical.equals(pl.get("canonical").getAsString()))
         throw new Exception("Canonical mismatch fetching package list for "+igver);

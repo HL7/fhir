@@ -1,10 +1,13 @@
 package org.hl7.fhir.utilities.cache;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -161,12 +164,53 @@ public class PackageCacheManager {
     if (!(new File(Utilities.path(cacheFolder, "packages.ini")).exists()))
       TextFile.stringToFile("[urls]\r\n\r\n[local]\r\n\r\n", Utilities.path(cacheFolder, "packages.ini"));  
     IniFile ini = new IniFile(Utilities.path(cacheFolder, "packages.ini"));
-    if (!CACHE_VERSION.equals(ini.getStringProperty("cache", "version")))
+    boolean save = false;
+    if (!CACHE_VERSION.equals(ini.getStringProperty("cache", "version"))) {
       clearCache();
-    ini.setStringProperty("cache", "version", CACHE_VERSION, null);
-    ini.save();
+      ini.setStringProperty("cache", "version", CACHE_VERSION, null);
+      save = true;
+    }
+    save = checkIniHasMapping("fhir.argonaut.ehr", "http://fhir.org/guides/argonaut", ini) || save;
+    save = checkIniHasMapping("fhir.argonaut.pd", "http://fhir.org/guides/argonaut-pd", ini) || save;
+    save = checkIniHasMapping("fhir.argonaut.scheduling", "http://fhir.org/guides/argonaut-scheduling", ini) || save;
+    save = checkIniHasMapping("fhir.hspc.acog", "http://hl7.org/fhir/fpar", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.au.argonaut", "http://hl7.org.au/fhir/argonaut", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.au.base", "http://hl7.org.au/fhir", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.au.pd", "http://hl7.org.au/fhir", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.smart", "http://hl7.org/fhir/smart-app-launch", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.snomed", "http://hl7.org/fhir/ig/snomed", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.test.v10", "http://hl7.org/fhir/test-ig-10", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.test.v30", "http://hl7.org/fhir/test", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.breastcancer", "http://hl7.org/fhir/us/breastcancer", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.ccda", "http://hl7.org/fhir/us/ccda", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.cds.opioids", "http://hl7.org/fhir/ig/opioid-cds", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.core", "http://hl7.org/fhir/us/core", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.dafresearch", "http://hl7.org/fhir/us/daf-research", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.ecr", "http://fhir.hl7.org/us/ecr", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.hai", "http://hl7.org/fhir/us/hai", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.hedis", "http://hl7.org/fhir/us/hedis", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.meds", "http://hl7.org/fhir/us/meds", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.qicore", "http://hl7.org/fhir/us/qicore", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.sdc", "http://hl7.org/fhir/us/sdc", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.us.sdcde", "http://hl7.org/fhir/us/sdcde", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.uv.genomicsreporting", "http://hl7.org/fhir/uv/genomics-reporting", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.uv.immds", "http://hl7.org/fhir/uv/cdsi", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.uv.ips", "http://hl7.org/fhir/uv/ips", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.uv.phd", "http://hl7.org/fhir/devices", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.uv.vhdir", "http://hl7.org/fhir/ig/vhdir", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.vn.base", "http://hl7.org/fhir/ig/vietnam", ini) || save;
+    save = checkIniHasMapping("hl7.fhir.vocabpoc", "http://hl7.org/fhir/ig/vocab-poc", ini) || save;
+    ini.save();    
   }
   
+
+  private boolean checkIniHasMapping(String pid, String curl, IniFile ini) {
+    if (curl.equals(ini.getStringProperty("urls", pid)))
+      return false;
+    ini.setStringProperty("urls", pid, curl, null);
+    return true;
+  }
+
 
   private void clearCache() throws IOException {
     for (File f : new File(cacheFolder).listFiles()) {
