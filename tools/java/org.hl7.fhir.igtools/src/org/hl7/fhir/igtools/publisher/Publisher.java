@@ -136,6 +136,7 @@ import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.PackageType;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
@@ -1617,7 +1618,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     
-    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), igpkp.getCanonical(), publishedIg);
+    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }

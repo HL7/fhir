@@ -31,7 +31,7 @@ import com.google.gson.JsonPrimitive;
 public class NPMPackageGenerator {
 
   public enum Category {
-    RESOURCE, OPENAPI, SCHEMATRON, RDF, OTHER;
+    RESOURCE, OPENAPI, SCHEMATRON, RDF, OTHER, TOOL;
     
     private String getDirectory() {
       switch (this) {
@@ -40,28 +40,41 @@ public class NPMPackageGenerator {
       case SCHEMATRON: return "/xml/";
       case RDF: return "/rdf/";      
       case OTHER: return "/other/";      
+      case TOOL: return "/bin/";      
       }
       return "/";
     }
   }
 
-  private static final boolean NO_ERRORS = false;
+  public enum PackageType {
+    CORE, IG, TOOL;
+
+    public String getCode() {
+      switch (this) {
+      case CORE: return "fhir.core";
+      case IG: return "fhir.ig";
+      case TOOL: return "fhir.tool";
+        
+      }
+      throw new Error("Unknown Type");
+    }
+  }
 
   private String destFile;
   private ImplementationGuide ig;
   private Set<String> created = new HashSet<String>();
   private TarArchiveOutputStream tar;
   
-  public NPMPackageGenerator(String destFile, String canonical, ImplementationGuide ig) throws FHIRException, IOException {
+  public NPMPackageGenerator(String destFile, String canonical, PackageType kind, ImplementationGuide ig) throws FHIRException, IOException {
     super();
     this.destFile = destFile;
     this.ig = ig;
     start();
-    buildPackageJson(canonical);
+    buildPackageJson(canonical, kind);
   }
   
   
-  private void buildPackageJson(String canonical) throws FHIRException, IOException {
+  private void buildPackageJson(String canonical, PackageType kind) throws FHIRException, IOException {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     if (!ig.hasPackageId())
       b.append("packageId");
@@ -76,12 +89,11 @@ public class NPMPackageGenerator {
         b.append("dependsOn.version("+d.getUri()+")");
       }
     }
-    if (b.length() > 0 && !NO_ERRORS)
-      throw new FHIRException("In order to be published, an Implementation Guide must have values for the elements: "+b.toString());
-    
+
     JsonObject npm = new JsonObject();
     npm.addProperty("name", ig.getPackageId());
     npm.addProperty("version", ig.getVersion());
+    npm.addProperty("type", kind.getCode());
     if (ig.hasLicense())
       npm.addProperty("license", ig.getLicense().toCode());
     npm.addProperty("canonical", canonical);

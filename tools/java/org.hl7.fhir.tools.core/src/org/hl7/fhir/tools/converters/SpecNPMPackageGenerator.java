@@ -43,6 +43,7 @@ import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.PackageType;
 import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator.ResourceEntry;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
@@ -136,7 +137,7 @@ public class SpecNPMPackageGenerator {
     
     System.out.println(" .. Building NPM Package");
 
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), "http://hl7.org/fhir", ig);
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), "http://hl7.org/fhir", PackageType.CORE, ig);
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);

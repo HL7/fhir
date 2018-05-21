@@ -42,5 +42,14 @@ public abstract class BaseGenerator implements PlatformGenerator {
     return true;
   }
 
- 
+  protected String svnRevision;
+
+  public String getSvnRevision() {
+    return svnRevision;
+  }
+
+  public void setSvnRevision(String svnRevision) {
+    this.svnRevision = svnRevision;
+  }
+
 }

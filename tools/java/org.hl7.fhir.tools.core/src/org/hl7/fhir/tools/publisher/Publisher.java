@@ -2181,6 +2181,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         if (gen.doesCompile()) {
           page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
+          gen.setSvnRevision(page.getSvnRevision());
           if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors())) {
             // Must always be able to compile Java to go on. Also, if we're
             // building

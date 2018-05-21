@@ -35,6 +35,7 @@ import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.PackageType;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
@@ -113,7 +114,7 @@ public class IGPack2NpmConvertor {
 
         if (files.containsKey("spec.internals"))
           loadSpecInternals(ig, files.get("spec.internals"), version, canonical, files);
-        NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, ig);
+        NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, PackageType.IG, ig);
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
         npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());

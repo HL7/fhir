@@ -54,8 +54,15 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.test.ToolsHelper;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator.PackageType;
 import org.hl7.fhir.r4.utils.Version;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
@@ -433,6 +440,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 //    return r == 0;
 //  }
 
+
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     logger.log(" .... build validator", LogMessageType.Process);
@@ -478,6 +486,22 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     manifest.getMainAttributes().put(Attributes.Name.MANIFEST_VERSION, "1.0");
     manifest.getMainAttributes().put(Attributes.Name.CLASS_PATH, ".");
     manifest.getMainAttributes().put(Attributes.Name.MAIN_CLASS, "org.hl7.fhir.r4.test.ToolsHelper");
+    
+    logger.log(" .... build validator package", LogMessageType.Process);
+    ImplementationGuide ig = new ImplementationGuide();
+    ig.setUrl("http://hl7.org/fhir/validator");
+    ig.setVersion(svnRevision);
+    ig.setName("FHIRValidator");
+    ig.setTitle("FHIR Validator");
+    ig.setStatus(PublicationStatus.ACTIVE);
+    ig.setLicense(SPDXLicense.CC01_0);
+    ig.setPackageId("hl7.fhir.tools.validator");
+    ig.setPublisher("http://hl7.org/fhir");
+    ig.setFhirVersion(Constants.VERSION);
+        
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folders.dstDir, "validator.tgz"), ig.getUrl(), PackageType.TOOL, ig );
+    npm.addFile(Category.TOOL, "org.hl7.fhir.validator.jar", TextFile.fileToBytes(Utilities.path(folders.dstDir, "org.hl7.fhir.validator.jar")));
+    npm.finish();
     return true;
   }
 

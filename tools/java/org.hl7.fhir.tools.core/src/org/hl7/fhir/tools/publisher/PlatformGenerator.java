@@ -73,5 +73,10 @@ public interface PlatformGenerator {
    * @return
    */
   public boolean wantListAsDownload();
-  
+
+
+  public String getSvnRevision();
+
+  public void setSvnRevision(String svnRevision);
+
 }
