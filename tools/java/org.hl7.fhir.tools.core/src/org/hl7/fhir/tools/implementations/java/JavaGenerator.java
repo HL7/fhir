@@ -466,6 +466,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-api-1.1.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-compress-1.16.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
