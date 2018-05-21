@@ -320,6 +320,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       else
         errorCount++;
     }
+    Runtime.getRuntime().gc();
   }
  
   private Element validateLogical(String f, StructureDefinition profile, FhirFormat fmt) throws Exception {
