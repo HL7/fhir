@@ -166,7 +166,7 @@ public class Validator {
       System.out.println("");
       System.out.println("-snapshot requires the parameters -defn, -txserver, -source, and -output. ig may be used to provide necessary base profiles");
     } else { 
-      String definitions = "http://build.fhir.org/";
+      String definitions = "hl7.fhir.core-"+Constants.VERSION;
       String map = null;
       List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
@@ -227,8 +227,13 @@ public class Validator {
         else if (args[i].equals("-ig"))
           if (i+1 == args.length)
             throw new Error("Specified -ig without indicating ig file");
-          else
-            igs.add(args[++i]);
+          else {
+            String s = args[++i];
+            if (s.startsWith("hl7.fhir.core-"))
+              definitions = s;
+            else
+              igs.add(s);
+          }
         else if (args[i].equals("-map"))
           if (map == null)
             if (i+1 == args.length)
@@ -299,7 +304,7 @@ public class Validator {
             validator.loadProfile(locations.getOrDefault(s, s));
           }
         }
-        System.out.println("  .. validate");
+        System.out.println("  .. validate "+sources);
         Resource r = validator.validate(sources, profiles);
         if (output == null) {
           if (r instanceof Bundle)

@@ -480,9 +480,9 @@ public class ValidationEngine {
   private Map<String, byte[]> fetchByPackage(String src) throws IOException, FHIRException {
     String id = src;
     String version = null;
-    if (src.contains(":")) {
-      id = src.substring(0, src.indexOf(":"));
-      version = src.substring(src.indexOf(":")+1);
+    if (src.contains("-")) {
+      id = src.substring(0, src.indexOf("-"));
+      version = src.substring(src.indexOf("-")+1);
     }
     if (pcm == null) {
       System.out.println("Creating Package manager?");

@@ -2,16 +2,24 @@ package org.hl7.fhir.utilities.cache;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +33,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 /**
@@ -56,9 +65,10 @@ public class PackageCacheManager {
   public class PackageInfo {
 
     private String path;
-    public List<String> folders = new ArrayList<String>();
-    public Map<String, byte[]> content = new HashMap<String, byte[]>();
-    public JsonObject npm;
+    private List<String> folders = new ArrayList<String>();
+    private Map<String, byte[]> content = new HashMap<String, byte[]>();
+    private JsonObject npm;
+    private IniFile cache;
 
     public PackageInfo(String path) {
       this.path = path;
@@ -146,11 +156,12 @@ public class PackageCacheManager {
    
   }
 
-  public static final String PACKAGE_REGEX = "^[a-z][a-z0-9\\-]*(\\.[a-z0-9\\-]+)+[a-z0-9\\-]$";
-  public static final String PACKAGE_VERSION_REGEX = "^[a-z][a-z0-9\\-]*(\\.[a-z0-9\\-]+)+[a-z0-9\\-]:[a-z0-9\\-]+(\\.[a-z0-9\\-]+)*$";
+  public static final String PACKAGE_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+$";
+  public static final String PACKAGE_VERSION_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+\\-[a-z0-9\\-]+(\\.[a-z0-9\\-]+)*$";
 
   private static final int BUFFER_SIZE = 1024;
   private static final String CACHE_VERSION = "1"; // first version
+  private static final int ANALYSIS_VERSION = 2;
 
   private String cacheFolder;
   
@@ -283,6 +294,7 @@ public class PackageCacheManager {
       }
     }
     pi.npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(path, "package", "package.json")));
+    pi.cache = new IniFile(Utilities.path(path, "cache.ini"));
     return pi;
   }
 
@@ -291,6 +303,7 @@ public class PackageCacheManager {
     Utilities.createDirectory(packRoot);
     Utilities.clearDirectory(packRoot);
     
+    long size = 0;
     GzipCompressorInputStream gzipIn = new GzipCompressorInputStream(tgz);
     try (TarArchiveInputStream tarIn = new TarArchiveInputStream(gzipIn)) {
       TarArchiveEntry entry;
@@ -314,11 +327,50 @@ public class PackageCacheManager {
               dest.write(data, 0, count);
             }
           }
+          fos.close();
+          size = size + new File(fn).length();
         }
       }
     }  
+    JsonObject npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(packRoot, "package", "package.json")));
+    Map<String, String> profiles = new HashMap<String, String>(); 
+    Map<String, String> canonicals = new HashMap<String, String>(); 
+    analysePackage(packRoot, npm.getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString(), profiles, canonicals);
+    IniFile ini = new IniFile(Utilities.path(packRoot, "cache.ini"));
+    ini.setTimeStampFormat("dd/MM/yyyy h:mm:ss a");
+    ini.setLongProperty("Package", "size", size, null);
+    ini.setTimestampProperty("Package", "install", Timestamp.from(Instant.now()), null);
+    for (String p : profiles.keySet()) 
+      ini.setStringProperty("Profiles", p, profiles.get(p), null);
+    for (String p : canonicals.keySet()) 
+      ini.setStringProperty("Canonicals", p, canonicals.get(p), null);
+    ini.setIntegerProperty("Packages", "analysis", ANALYSIS_VERSION, null);
     return loadPackageInfo(packRoot);
   }
+
+  private void analysePackage(String dir, String v, Map<String, String> profiles, Map<String, String> canonicals) throws IOException {
+    for (File f : new File(Utilities.path(dir, "package")).listFiles()) {
+      try {
+        JsonObject j = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f));
+        if (!Utilities.noString(j.get("url").getAsString()) && !Utilities.noString(j.get("resourceType").getAsString())) 
+          canonicals.put(j.get("url").getAsString(), f.getName());
+        if ("StructureDefinition".equals(j.get("resourceType").getAsString()) && "resource".equals(j.get("kind").getAsString())) {
+          String bd = null;
+          if ("1.0.2".equals(v)) 
+            bd = j.get("constrainedType").getAsString();
+          else
+            bd = j.get("type").getAsString();
+        if (Utilities.noString(bd))
+            bd = j.get("name").getAsString();
+        if (!"Extension".equals(bd))
+          profiles.put(j.get("url").getAsString(), bd);
+        }
+      } catch (Exception e) {
+        // nothing
+      }
+    }
+  }
+
 
   public PackageInfo addPackageToCache(InputStream tgz) throws IOException {
     PackageInfo pi = addPackageToCache("temp", "temp", tgz);
