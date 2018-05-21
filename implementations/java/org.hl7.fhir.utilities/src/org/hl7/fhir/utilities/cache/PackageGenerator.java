@@ -20,6 +20,20 @@ import com.google.gson.JsonSyntaxException;
 
 public class PackageGenerator {
 
+  public enum PackageType {
+    CORE, IG, TOOL, TEMPLATE;
+
+    public String getCode() {
+      switch (this) {
+      case CORE: return "fhir.core";
+      case IG: return "fhir.ig";
+      case TOOL: return "fhir.tool";
+      case TEMPLATE: return "fhir.template";
+        
+      }
+      throw new Error("Unknown Type");
+    }
+  }
   private OutputStream stream;
   private JsonObject object;
 
@@ -122,6 +136,11 @@ public class PackageGenerator {
     }
     files.add(new JsonPrimitive(name));
     return this;
+  }
+
+  public PackageGenerator kind(PackageType kind) {
+    object.addProperty("type", kind.getCode());
+    return this;     
   }
   
   

@@ -20,6 +20,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
 
 import com.google.gson.Gson;
@@ -46,19 +47,7 @@ public class NPMPackageGenerator {
     }
   }
 
-  public enum PackageType {
-    CORE, IG, TOOL;
-
-    public String getCode() {
-      switch (this) {
-      case CORE: return "fhir.core";
-      case IG: return "fhir.ig";
-      case TOOL: return "fhir.tool";
-        
-      }
-      throw new Error("Unknown Type");
-    }
-  }
+ 
 
   private String destFile;
   private ImplementationGuide ig;
@@ -126,7 +115,7 @@ public class NPMPackageGenerator {
     if (m.size() > 0)
       npm.add("maintainers", m);
     if (ig.getManifest().hasRendering())
-      npm.addProperty("url", ig.getManifest().getRendering());
+      npm.addProperty("homepage", ig.getManifest().getRendering());
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(npm);
     try {
