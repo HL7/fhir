@@ -249,10 +249,22 @@ public class ValidationEngine {
     }
   }
   
+  public ValidationEngine() throws IOException {
+    pcm = new PackageCacheManager(true);  
+  }
+  
+  public void loadInitialDefinitions(String src) throws Exception {
+    loadDefinitions(src);   
+  }
+  
+  public void setTerminologyServer(String src) throws Exception {
+    connectToTSServer(src);   
+  }
+  
   public ValidationEngine(String src, String txsrvr) throws Exception {
-    loadDefinitions(src);
-    connectToTSServer(txsrvr);
     pcm = new PackageCacheManager(true);
+    loadInitialDefinitions(src);
+    setTerminologyServer(txsrvr);
   }
   
   public ValidationEngine(String src) throws Exception {
