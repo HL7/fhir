@@ -84,15 +84,13 @@ public class Validator {
 
 
   public static void main(String[] args) throws Exception {
-    if (args.length == 0) {
-      runGUI();
-    } else if (hasParam(args, "-tests")) {
+     if (hasParam(args, "-tests")) {
       try {
       ValidationEngineTests.execute();
       } catch (Exception e) {
         e.printStackTrace();
       }
-    } else if (hasParam(args, "help") || hasParam(args, "?") || hasParam(args, "-?") || hasParam(args, "/?") ) {
+    } else if (args.length == 0 || hasParam(args, "help") || hasParam(args, "?") || hasParam(args, "-?") || hasParam(args, "/?") ) {
       System.out.println("FHIR Validation tool v"+Constants.VERSION+"-"+Constants.REVISION);
       System.out.println("");
       System.out.println("The FHIR validation tool validates a FHIR resource or bundle.");
@@ -115,19 +113,23 @@ public class Validator {
       System.out.println("    used, results will be provided as a Bundle.");
       System.out.println("    Patterns are limited to a directory followed by a filename with an embedded");
       System.out.println("    asterisk.  E.g. foo*-examples.xml or someresource.*, etc.");
-      System.out.println("-defn [file|url]: where to find the FHIR specification igpack.zip");
-      System.out.println("      default value is http://hl7.org/fhir. This parameter can only appear once");
-      System.out.println("-ig [file|url]: an IG or profile definition to load. Can be the URL of an ");
-      System.out.println("     implementation guide or a package id for a built");
-      System.out.println("     implementation guide or a local folder that contains a set of conformance resources.");
-      System.out.println("     no default value. This parameter can appear any number of times");
+      System.out.println("-defn [package|file|url]: where to find the FHIR specification igpack.zip");
+      System.out.println("      default value is hl7.fhir.core-"+Constants.VERSION+". This parameter can only appear once");
+      System.out.println("-ig [package|file|url]: an IG or profile definition to load. Can be ");
+      System.out.println("     the URL of an implementation guide or a package ([id]-[ver]) for");
+      System.out.println("     a built implementation guide or a local folder that contains a");
+      System.out.println("     set of conformance resources.");
+      System.out.println("     No default value. This parameter can appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
-      System.out.println("     Default value is http://tx.fhir.org/r4");
+      System.out.println("     Default value is http://tx.fhir.org/r4. This parameter can appear once");
       System.out.println("     To run without terminology value, specific n/a as the URL");
-      System.out.println("-profile [url]: a canonical URL to validate against (same as if it was specified in Resource.meta.profile)");
-      System.out.println("     no default value. This parameter can appear any number of times.");
-      System.out.println("     A profile may be followed by a @ [location] that specifies where the profile can be retrieved ");
-      System.out.println("     from if the validator should not use the canonical URL as the actual location");
+      System.out.println("-profile [url]: the canonical URL to validate against (same as if it was ");
+      System.out.println("     specified in Resource.meta.profile). If no profile is specified, the ");
+      System.out.println("     resource is validated against the base specification. This parameter ");
+      System.out.println("     can appear any number of times.");
+      System.out.println("     Note: the profile (and it's dependencies) have to be made available ");
+      System.out.println("     through one of the -ig parameters. Note that package dependencies will ");
+      System.out.println("     automatically be resolved");
       System.out.println("-questionnaire [file|url}: the location of a questionnaire. If provided, then the validator will validate");
       System.out.println("     any QuestionnaireResponse that claims to match the Questionnaire against it");
       System.out.println("     no default value. This parameter can appear any number of times");
@@ -383,20 +385,7 @@ public class Validator {
   private static String getIssueSummary(OperationOutcomeIssueComponent issue) {
     return "  " + issue.getSeverity().getDisplay() + " @ " + issue.getLocation().get(0).asStringValue() + " : " + issue.getDetails().getText();
   }
-  
-  private static void runGUI() {
-    EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        try {
-          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-          GraphicalValidator window = new GraphicalValidator();
-          window.frame.setVisible(true);
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-    }
-    });
-  }
+ 
 
   private static boolean hasParam(String[] args, String param) {
     for (String a : args)
