@@ -146,7 +146,7 @@ public class Validator {
       System.out.println("Alternatively, you can use the validator to execute a transformation as described by a structure map.");
       System.out.println("To do this, you must provide some additional parameters:");
       System.out.println("");
-      System.out.println(" -transform -map [map-file]");
+      System.out.println(" -transform [map]");
       System.out.println("");
       System.out.println("* [map] the URI of the map that the transform starts with");
       System.out.println("");

@@ -53,6 +53,9 @@ public class NPMPackageGenerator {
   private ImplementationGuide ig;
   private Set<String> created = new HashSet<String>();
   private TarArchiveOutputStream tar;
+  private FileOutputStream fileOutputStream;
+  private BufferedOutputStream bufferedOutputStream;
+  private GzipCompressorOutputStream gzipOutputStream;
   
   public NPMPackageGenerator(String destFile, String canonical, PackageType kind, ImplementationGuide ig) throws FHIRException, IOException {
     super();
@@ -143,9 +146,9 @@ public class NPMPackageGenerator {
   }
 
   private void start() throws IOException {
-    FileOutputStream fileOutputStream = new FileOutputStream(destFile);
-    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
-    GzipCompressorOutputStream gzipOutputStream = new GzipCompressorOutputStream(bufferedOutputStream);
+    fileOutputStream = new FileOutputStream(destFile);
+    bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+    gzipOutputStream = new GzipCompressorOutputStream(bufferedOutputStream);
     tar = new TarArchiveOutputStream(gzipOutputStream);
   }
 
@@ -167,6 +170,9 @@ public class NPMPackageGenerator {
   public void finish() throws IOException {
     tar.finish();
     tar.close();
+    gzipOutputStream.close();
+    bufferedOutputStream.close();
+    fileOutputStream.close();
   }
 
   public String filename() {
