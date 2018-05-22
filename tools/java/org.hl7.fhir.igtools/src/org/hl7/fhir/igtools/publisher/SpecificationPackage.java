@@ -7,7 +7,7 @@ import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
-import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
+import org.hl7.fhir.utilities.cache.NpmPackage;
 
 public class SpecificationPackage {
 
@@ -35,18 +35,18 @@ public class SpecificationPackage {
     return new SimpleWorkerContext(context);
   }
 
-  public void loadOtherContent(PackageInfo pi) throws FileNotFoundException, Exception {
+  public void loadOtherContent(NpmPackage pi) throws FileNotFoundException, Exception {
     context.loadBinariesFromFolder(pi);
 
   }
 
-  public static SpecificationPackage fromPackage(PackageInfo pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+  public static SpecificationPackage fromPackage(NpmPackage pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
     SpecificationPackage self = new SpecificationPackage();
     self.context = SimpleWorkerContext.fromPackage(pi, loader);
     return self;
   }
 
-  public static SpecificationPackage fromPackage(PackageInfo pi) throws FileNotFoundException, IOException, FHIRException {
+  public static SpecificationPackage fromPackage(NpmPackage pi) throws FileNotFoundException, IOException, FHIRException {
     SpecificationPackage self = new SpecificationPackage();
     self.context = SimpleWorkerContext.fromPackage(pi, null);
     return self;

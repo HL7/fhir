@@ -217,7 +217,7 @@ public class SimpleFetcher implements IFetchFile {
         if (!f.isDirectory()) {
           String fn = f.getCanonicalPath();
           String ext = Utilities.getFileExtension(fn);
-          if (!Utilities.existsInList(ext, "md", "txt")) {
+          if (!Utilities.existsInList(ext, "md", "txt") && !fn.endsWith(".gitignore")) {
             boolean ok = false;
             if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
               try {

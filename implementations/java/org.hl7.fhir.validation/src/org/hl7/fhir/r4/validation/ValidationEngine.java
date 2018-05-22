@@ -99,7 +99,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
-import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
+import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -442,11 +442,11 @@ public class ValidationEngine {
   }
 
   private Map<String, byte[]> loadPackage(InputStream stream) throws FileNotFoundException, IOException {
-    PackageInfo pi = pcm.extractLocally(stream);
+    NpmPackage pi = pcm.extractLocally(stream);
     return loadPackage(pi);
   }
 
-  public Map<String, byte[]> loadPackage(PackageInfo pi) throws IOException {
+  public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
     Map<String, byte[]> res = new HashMap<String, byte[]>();
     for (String s : pi.list("package")) {
       if (s.startsWith("CodeSystem-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
@@ -488,7 +488,7 @@ public class ValidationEngine {
       System.out.println("Creating Package manager?");
       pcm = new PackageCacheManager(true);
     }
-    PackageInfo pi = null;
+    NpmPackage pi = null;
     if (version == null)
       pi = pcm.loadPackageCacheLatest(id);
     else

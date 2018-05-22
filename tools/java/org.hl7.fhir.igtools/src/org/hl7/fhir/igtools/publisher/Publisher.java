@@ -172,17 +172,20 @@ import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
+import org.hl7.fhir.igtools.templates.Template;
+import org.hl7.fhir.igtools.templates.TemplateManager;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.JsonMerger;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
-import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
 import org.hl7.fhir.utilities.cache.PackageGenerator;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
+import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -446,6 +449,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private PackageCacheManager pcm;
 
   private JsonArray buildInfo;
+
+  private TemplateManager templateManager;
+
+  private String rootDir;
+
+  private boolean templateLoaded ;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -503,6 +512,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else
       log("Done");
+    if (templateLoaded && new File(rootDir).exists())
+      Utilities.clearDirectory(Utilities.path(rootDir, "template"));
   }
 
 
@@ -831,6 +842,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   public void initialize() throws Exception {
     pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL);
+    templateManager = new TemplateManager(pcm);
     log("Package Cache: "+pcm.getFolder());
     fetcher.setResourceDirs(resourceDirs);
     first = true;
@@ -870,15 +882,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (configuration.has("paths") && !(configuration.get("paths") instanceof JsonObject))
       throw new Exception("Error: if configuration file has a \"paths\", it must be an object");
     JsonObject paths = configuration.getAsJsonObject("paths");
-    String root;
     if (fetcher instanceof ZipFetcher) {
-      root = configFileRootPath;
+      rootDir = configFileRootPath;
     } else {
-      root = Utilities.getDirectoryForFile(configFile);
-      if (Utilities.noString(root))
-        root = getCurentDirectory();
+      rootDir = Utilities.getDirectoryForFile(configFile);
+      if (Utilities.noString(rootDir))
+        rootDir = getCurentDirectory();
       // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
-      root = new File(root).getCanonicalPath();
+      rootDir = new File(rootDir).getCanonicalPath();
     }
       
     if (Utilities.existsInList(version.substring(0,  3), "1.0", "1.4", "1.6", "3.0"))
@@ -886,30 +897,30 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     else
       markdownEngine = new MarkDownProcessor(Dialect.COMMON_MARK);
     
-    log("Root directory: "+root);
+    log("Root directory: "+rootDir);
     if (paths != null && paths.get("resources") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("resources"))
-        resourceDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));
+        resourceDirs.add(Utilities.path(rootDir, ((JsonPrimitive) e).getAsString()));
     } else
-      resourceDirs.add(Utilities.path(root, str(paths, "resources", "resources")));
+      resourceDirs.add(Utilities.path(rootDir, str(paths, "resources", "resources")));
     if (paths != null && paths.get("pages") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("pages"))
-        pagesDirs.add(Utilities.path(root, ((JsonPrimitive) e).getAsString()));
+        pagesDirs.add(Utilities.path(rootDir, ((JsonPrimitive) e).getAsString()));
     } else
-      pagesDirs.add(Utilities.path(root, str(paths, "pages", "pages")));
+      pagesDirs.add(Utilities.path(rootDir, str(paths, "pages", "pages")));
     
     if (mode != IGBuildMode.WEBSERVER){
-      tempDir = Utilities.path(root, str(paths, "temp", "temp"));
-      outputDir = Utilities.path(root, str(paths, "output", "output"));
+      tempDir = Utilities.path(rootDir, str(paths, "temp", "temp"));
+      outputDir = Utilities.path(rootDir, str(paths, "output", "output"));
     }
     
-	 qaDir = Utilities.path(root, str(paths, "qa"));
+	 qaDir = Utilities.path(rootDir, str(paths, "qa"));
    vsCache = ostr(paths, "txCache");
     
 	 if (mode == IGBuildMode.WEBSERVER) 
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
     else if (vsCache != null)
-      vsCache = Utilities.path(root, vsCache);
+      vsCache = Utilities.path(rootDir, vsCache);
     else if (mode == IGBuildMode.AUTOBUILD)
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
     else
@@ -919,10 +930,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (configuration.has("pre-process")) {
       if (configuration.get("pre-process") instanceof JsonArray) {
         for (JsonElement e : (JsonArray) configuration.get("pre-process")) {
-          handlePreProcess((JsonObject)e, root);
+          handlePreProcess((JsonObject)e, rootDir);
         }
       } else
-        handlePreProcess(configuration.getAsJsonObject("pre-process"), root);
+        handlePreProcess(configuration.getAsJsonObject("pre-process"), rootDir);
     }
 
     igName = Utilities.path(resourceDirs.get(0), str(configuration, "source", "ig.xml"));
@@ -1017,6 +1028,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         loadIg((JsonObject) dep);
       }
     }
+    if (configuration.has("template"))
+      loadTemplate(str(configuration, "template"));
+
     // ;
     validator = new InstanceValidator(context, new IGPublisherHostServices()); // todo: host services for reference resolution....
     validator.setAllowXsiLocation(true);
@@ -1056,7 +1070,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (configuration.has("suppressedWarningFile")) {
       String suppressPath = configuration.getAsJsonPrimitive("suppressedWarningFile").getAsString();
       if (!suppressPath.isEmpty())
-        loadSuppressedMessages(Utilities.path(root, suppressPath));
+        loadSuppressedMessages(Utilities.path(rootDir, suppressPath));
     }
     validator.setFetcher(new ValidationServices(context, igpkp, fileList));
     for (String s : context.getBinaries().keySet())
@@ -1077,9 +1091,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         listedURLExemptions.add(url.getAsString());
       }
     }
-
-    if (configuration.has("template"))
-      loadTemplate(str(configuration, "template"));
     
     log("Initialization complete");
     // now, do regeneration
@@ -1256,7 +1267,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private SpecificationPackage loadCorePackage() throws Exception {
-    PackageInfo pi = null;
+    NpmPackage pi = null;
     
     if (Utilities.noString(igPack))
       pi = pcm.loadPackageCache("hl7.fhir.core", version);
@@ -1290,7 +1301,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  private SpecificationPackage loadPack(PackageInfo pi) throws Exception {    
+  private SpecificationPackage loadPack(NpmPackage pi) throws Exception {    
     SpecificationPackage sp = null;
     if ("1.0.2".equals(version)) {
       sp = SpecificationPackage.fromPackage(pi, new R2ToR4Loader());
@@ -1334,7 +1345,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (Utilities.noString(packageId))
       packageId = pcm.getPackageId(canonical);
     
-    PackageInfo pi = packageId == null ? null : pcm.loadPackageCache(packageId, igver);
+    NpmPackage pi = packageId == null ? null : pcm.loadPackageCache(packageId, igver);
     if (pi == null) {
       pi = resolveDependency(canonical, igver);
       if (pi == null) {
@@ -1395,7 +1406,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  private PackageInfo resolveDependency(String canonical, String igver) {
+  private NpmPackage resolveDependency(String canonical, String igver) {
     JsonObject pl;
     try {
       System.out.println("Fetch Package history from "+Utilities.pathURL(canonical, "package-list.json"));
@@ -1623,10 +1634,35 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return needToBuild;
   }
 
-  private void loadTemplate(String src) {
-//    Map<String, byte[]> template = new HashMap<String, byte[]>();
-//    fetchTemplate(template, src)
-//!    
+  private void loadTemplate(String src) throws Exception {
+    log("Fetch Template: "+src);
+    NpmPackage template = templateManager.fetch(src);
+    if (!template.isType(PackageType.TEMPLATE))
+      throw new Exception("The referenced package '"+src+"' does not have the correct type - is "+template.type()+" but should be a template");
+    String templateDir = Utilities.path(rootDir, "template");
+    Utilities.createDirectory(templateDir);
+    Utilities.clearDirectory(templateDir);
+    template.copyTo("template", templateDir);
+    List<String> files = new ArrayList<String>();
+    copyFiles(Utilities.path(templateDir, "jekyll"), Utilities.path(templateDir, "jekyll"), tempDir, files); 
+    for (String s : files)
+      otherFilesStartup.add(Utilities.path(tempDir, s)); 
+    JsonObject tc = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(template.load("template", "config.json")));
+    new JsonMerger().merge(configuration, tc);
+    templateLoaded = true;
+  }
+
+
+  private void copyFiles(String base, String folder, String dest, List<String> files) throws IOException {
+    for (File f : new File(folder).listFiles()) {
+      if (f.isDirectory()) {
+        copyFiles(base, f.getAbsolutePath(),  Utilities.path(dest, f.getName()), files);
+      } else {
+        String dst = Utilities.path(dest, f.getName());
+        FileUtils.copyFile(f, new File(dst), true);
+        files.add(f.getAbsolutePath().substring(base.length()+1));
+      }
+    } 
   }
 
 
@@ -3377,6 +3413,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("igId", sourceIg.getId());
     data.addProperty("igName", sourceIg.getName());
+    data.addProperty("igVer", businessVersion);
     data.addProperty("errorCount", getErrorCount());
     data.addProperty("version", specMaps.get(0).getVersion());
     data.addProperty("revision", specMaps.get(0).getBuild());
@@ -3547,7 +3584,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         ref = ref+"."+prefixType;
     PrimitiveType desc = new StringType(r.getTitle());
     if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
-      name = ((MetadataResource) r.getResource()).getName();
+      name = ((MetadataResource) r.getResource()).getTitle();
       desc = getDesc((MetadataResource) r.getResource(), desc);
     }
     list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc.asStringValue())+"</li>\r\n");

@@ -61,7 +61,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageInfo;
+import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
@@ -131,20 +131,20 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return res;
   }
 
-  public static SimpleWorkerContext fromPackage(PackageInfo pi, boolean allowDuplicates) throws FileNotFoundException, IOException, FHIRException {
+  public static SimpleWorkerContext fromPackage(NpmPackage pi, boolean allowDuplicates) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
     res.setAllowLoadingDuplicates(allowDuplicates);
     res.loadFromPackage(pi, null);
     return res;
   }
 
-  public static SimpleWorkerContext fromPackage(PackageInfo pi) throws FileNotFoundException, IOException, FHIRException {
+  public static SimpleWorkerContext fromPackage(NpmPackage pi) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
     res.loadFromPackage(pi, null);
     return res;
   }
 
-  public static SimpleWorkerContext fromPackage(PackageInfo pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+  public static SimpleWorkerContext fromPackage(NpmPackage pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
     SimpleWorkerContext res = new SimpleWorkerContext();
     res.setAllowLoadingDuplicates(true);
     res.loadFromPackage(pi, loader);
@@ -265,7 +265,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		loadFromStream(new CSFileInputStream(path), loader);
 	}
   
-	private void loadFromPackage(PackageInfo pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
+	private void loadFromPackage(NpmPackage pi, IContextResourceLoader loader) throws FileNotFoundException, IOException, FHIRException {
 	  for (String s : pi.list("package")) {
 	    if (s.contains("-") && s.endsWith(".json")) {
 	      String t = s.substring(0, s.indexOf("-"));
@@ -458,7 +458,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
   }
   
-  public void loadBinariesFromFolder(PackageInfo pi) throws FileNotFoundException, Exception {
+  public void loadBinariesFromFolder(NpmPackage pi) throws FileNotFoundException, Exception {
     for (String n : pi.list("other")) {
       loadBytes(n, pi.load("other", n));
     }

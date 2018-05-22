@@ -3,9 +3,7 @@ package org.hl7.fhir.utilities.cache;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -51,110 +49,6 @@ import com.google.gson.JsonObject;
  *
  */
 public class PackageCacheManager {
-
-  /**
-   * info and loader for a package 
-   * 
-   * Packages may exist on disk in the cache, or purely in memory when they are loaded on the fly
-   * 
-   * Packages are contained in subfolders (see the package spec). The FHIR resources will be in "package"
-   * 
-   * @author Grahame Grieve
-   *
-   */
-  public class PackageInfo {
-
-    private String path;
-    private List<String> folders = new ArrayList<String>();
-    private Map<String, byte[]> content = new HashMap<String, byte[]>();
-    private JsonObject npm;
-    private IniFile cache;
-
-    public PackageInfo(String path) {
-      this.path = path;
-    }
-    
-    /**
-     * Accessing the contents of the package - get a list of files in a subfolder of the package 
-     *
-     * @param folder
-     * @return
-     * @throws IOException 
-     */
-    public List<String> list(String folder) throws IOException {
-      List<String> res = new ArrayList<String>();
-      if (path != null) {
-        for (String s : new File(Utilities.path(path, folder)).list())
-          res.add(s);
-      } else {
-        for (String s : content.keySet()) {
-          if (s.startsWith(folder+"/"))
-            res.add(s.substring(folder.length()+1));
-        }
-      }
-      return res;
-    }
-
-    /**
-     * get a stream that contains the contents of one of the files in a folder
-     * 
-     * @param folder
-     * @param file
-     * @return
-     * @throws IOException
-     */
-    public InputStream load(String folder, String file) throws IOException {
-      if (content.containsKey(folder+"/"+file))
-        return new ByteArrayInputStream(content.get(folder+"/"+file));
-      else {
-        File f = new File(Utilities.path(path, folder, file));
-        if (f.exists())
-          return new FileInputStream(f);
-        throw new IOException("Unable to find the file "+folder+"/"+file+" in the package "+name());
-      }
-    }
-
-    /**
-     * Handle to the package json file
-     * 
-     * @return
-     */
-    public JsonObject getNpm() {
-      return npm;
-    }
-    
-    /**
-     * convenience method for getting the package name
-     * @return
-     */
-    public String name() {
-      return npm.get("name").getAsString();
-    }
-
-    /**
-     * convenience method for getting the package version
-     * @return
-     */
-    public String version() {
-      return npm.get("version").getAsString();
-    }
-
-    /**
-     * convenience method for getting the package fhir version
-     * @return
-     */
-    public String fhirVersion() {
-      return npm.getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString();
-    }
-
-    public String description() {
-      if (path != null)
-        return path;
-      else
-        return "memory";
-    }
-   
-  }
 
   public static final String PACKAGE_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+$";
   public static final String PACKAGE_VERSION_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+\\-[a-z0-9\\-]+(\\.[a-z0-9\\-]+)*$";
@@ -264,7 +158,7 @@ public class PackageCacheManager {
     return names;
   }
 
-  public PackageInfo loadPackageCacheLatest(String id) throws IOException {
+  public NpmPackage loadPackageCacheLatest(String id) throws IOException {
     String match = null;
     List<String> l = sorted(new File(cacheFolder).list());
     for (int i = l.size()-1; i >= 0; i--) {
@@ -276,7 +170,7 @@ public class PackageCacheManager {
     return null;    
   }
   
-  public PackageInfo loadPackageCache(String id, String version) throws IOException {    
+  public NpmPackage loadPackageCache(String id, String version) throws IOException {    
     String match = null;
     for (String f : sorted(new File(cacheFolder).list())) {
       if (f.equals(id+"-"+version)) {
@@ -286,19 +180,12 @@ public class PackageCacheManager {
     return null;
   }
   
-  private PackageInfo loadPackageInfo(String path) throws IOException {
-    PackageInfo pi = new PackageInfo(path);
-    for (String f : sorted(new File(path).list())) {
-      if (new File(Utilities.path(path, f)).isDirectory()) {
-        pi.folders.add(f); 
-      }
-    }
-    pi.npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(path, "package", "package.json")));
-    pi.cache = new IniFile(Utilities.path(path, "cache.ini"));
+  private NpmPackage loadPackageInfo(String path) throws IOException {
+    NpmPackage pi = new NpmPackage(path);
     return pi;
   }
 
-  public PackageInfo addPackageToCache(String id, String version, InputStream tgz) throws IOException {
+  public NpmPackage addPackageToCache(String id, String version, InputStream tgz) throws IOException {
     String packRoot = Utilities.path(cacheFolder, id+"-"+version);
     Utilities.createDirectory(packRoot);
     Utilities.clearDirectory(packRoot);
@@ -372,30 +259,30 @@ public class PackageCacheManager {
   }
 
 
-  public PackageInfo addPackageToCache(InputStream tgz) throws IOException {
-    PackageInfo pi = addPackageToCache("temp", "temp", tgz);
+  public NpmPackage addPackageToCache(InputStream tgz) throws IOException {
+    NpmPackage pi = addPackageToCache("temp", "temp", tgz);
     String actual = Utilities.path(cacheFolder, pi.getNpm().get("name").getAsString()+"-"+pi.getNpm().get("version").getAsString());
     File dst = new File(actual);
     int i = 0;
-    while (!(new File(pi.path).renameTo(dst))) {
+    while (!(new File(pi.getPath()).renameTo(dst))) {
       try {
         Thread.sleep(1000);
       } catch (InterruptedException e) {
       }
       i++;
       if (i == 10)
-        throw new IOException("Unable to rename from "+pi.path+" to "+actual);        
+        throw new IOException("Unable to rename from "+pi.getPath()+" to "+actual);        
     }
-    pi.path = actual;
+    pi.setPath(actual);
     return pi;
   }
 
 
-  public PackageInfo extractLocally(String filename) {
+  public NpmPackage extractLocally(String filename) {
     throw new Error("Not done yet");
   }
 
-  public PackageInfo extractLocally(InputStream src) {
+  public NpmPackage extractLocally(InputStream src) {
     throw new Error("Not done yet");
   }
 
