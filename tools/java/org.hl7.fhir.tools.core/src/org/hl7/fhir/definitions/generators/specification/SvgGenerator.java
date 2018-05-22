@@ -47,6 +47,8 @@ public class SvgGenerator extends BaseGenerator {
   private static final double WRAP_INDENT = 20;
   private static final int LINE_MAX = 70;
 
+  private int nc = 0;
+  
   private class Point {
     private PointKind kind;
     public Point(double x, double y, PointKind kind) {
@@ -169,6 +171,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.start();
     xml.setDefaultNamespace(NS_SVG);
     xml.namespace(NS_XLINK, "xlink");
+    xml.attribute("id", "n"+(++nc));
     xml.attribute("version", "1.1");
     xml.attribute("width", Utilities.noString(ini.getStringProperty("size", "width")) ? Double.toString(size.x) : ini.getStringProperty("size", "width"));
     xml.attribute("height", Utilities.noString(ini.getStringProperty("size", "height")) ? Double.toString(size.y) : ini.getStringProperty("size", "height"));
@@ -217,6 +220,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.start();
     xml.setDefaultNamespace(NS_SVG);
     xml.namespace(NS_XLINK, "xlink");
+    xml.attribute("id", "n"+(++nc));
     xml.attribute("version", "1.1");
     xml.attribute("width", Double.toString(size.x));
     xml.attribute("height", Double.toString(size.y));
@@ -423,18 +427,21 @@ public class SvgGenerator extends BaseGenerator {
       p1 = new Point(l.source.right() + SELF_LINK_WIDTH, l.source.centerV() - SELF_LINK_HEIGHT, PointKind.unknown);
       p2 = new Point(l.source.right() + SELF_LINK_WIDTH, l.source.centerV() + SELF_LINK_HEIGHT, PointKind.unknown);
 
+      xml.attribute("id", "n"+(++nc));
       xml.attribute("x1", Double.toString(start.x));
       xml.attribute("y1", Double.toString(start.y));
       xml.attribute("x2", Double.toString(p1.x));
       xml.attribute("y2", Double.toString(p1.y));
       xml.attribute("style", "stroke:navy;stroke-width:1");
       xml.element("line", null);    
+      xml.attribute("id", "n"+(++nc));
       xml.attribute("x1", Double.toString(p1.x));
       xml.attribute("y1", Double.toString(p1.y));
       xml.attribute("x2", Double.toString(p2.x));
       xml.attribute("y2", Double.toString(p2.y));
       xml.attribute("style", "stroke:navy;stroke-width:1");
       xml.element("line", null);    
+      xml.attribute("id", "n"+(++nc));
       xml.attribute("x1", Double.toString(p2.x));
       xml.attribute("y1", Double.toString(p2.y));
       xml.attribute("x2", Double.toString(end.x));
@@ -467,6 +474,7 @@ public class SvgGenerator extends BaseGenerator {
           xml.attribute("style", "stroke:orange;stroke-width:1");
         else
           xml.attribute("style", "stroke:navy;stroke-width:1");
+        xml.attribute("id", "n"+(++nc));
         xml.element("line", null);    
       }
     }
@@ -478,6 +486,7 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("points", start.toPoint() +" " +pd1.toPoint() +" " +pd2.toPoint() +" " +start.toPoint());
         xml.attribute("style", "fill:white;stroke:navy;stroke-width:1");
         xml.attribute("transform", "rotate("+getAngle(start, p1)+" "+Double.toString(start.x)+" "+Double.toString(start.y)+")");
+        xml.attribute("id", "n"+(++nc));
         xml.element("polygon", null);
       } else {
         // draw the diamond
@@ -487,6 +496,7 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("points", start.toPoint() +" " +pd1.toPoint() +" " +pd2.toPoint() +" " +pd3.toPoint()+" "+start.toPoint());
         xml.attribute("style", "fill:navy;stroke:navy;stroke-width:1");
         xml.attribute("transform", "rotate("+getAngle(start, p1)+" "+Double.toString(start.x)+" "+Double.toString(start.y)+")");
+        xml.attribute("id", "n"+(++nc));
         xml.element("polygon", null);
 
         // draw the name half way along
@@ -498,13 +508,16 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("width", Double.toString(w));
         xml.attribute("height", Double.toString(LINE_HEIGHT + GAP_HEIGHT));
         xml.attribute("style", "fill:white;stroke:black;stroke-width:0");
+        xml.attribute("id", "n"+(++nc));
         xml.element("rect", null);    
         xml.attribute("x", Double.toString(x));
         xml.attribute("y", Double.toString(y - GAP_HEIGHT));
         xml.attribute("fill", "black");
         xml.attribute("class", "diagram-class-linkage");
+        xml.attribute("id", "n"+(++nc));
         xml.enter("text");
         xml.attribute("xlink:href", l.path);
+        xml.attribute("id", "n"+(++nc));
         xml.enter("a");
         xml.element("title", l.description);
         xml.text(l.name);
@@ -529,6 +542,7 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("y", Double.toString(y));
         xml.attribute("fill", "black");
         xml.attribute("class", "diagram-class-linkage");
+        xml.attribute("id", "n"+(++nc));
         xml.element("text", "["+l.cardinality+"]");
       }
     }
@@ -636,6 +650,7 @@ public class SvgGenerator extends BaseGenerator {
   private ClassItem drawElement(XMLWriter xml, String[] classNames) throws Exception {
     boolean onlyElement = classNames.length == 1 && classNames[0].equals("Element");
     
+    xml.attribute("id", "n"+(++nc));
     xml.enter("g");
     ClassItem item = classes.get(null);
     boolean be = !definitions.hasPrimitiveType(classNames[0]) && definitions.getElementDefn(classNames[0]).typeCode().equals("BackboneElement");
@@ -648,11 +663,13 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("height", Double.toString(be ? item.height + LINE_HEIGHT : item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
     xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:black;stroke-width:1");
+    xml.attribute("id", "n"+(++nc));
     xml.element("rect", null);    
 
     xml.attribute("x", Double.toString(item.left + item.width / 2));
     xml.attribute("y", Double.toString(item.top+HEADER_HEIGHT));
     xml.attribute("fill", "black");
+    xml.attribute("id", "n"+(++nc));
     xml.attribute("class", "diagram-class-title");
     xml.element("text", tn);
     
@@ -662,6 +679,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("x2", Double.toString(item.left+item.width));
       xml.attribute("y2", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
       xml.attribute("style", "stroke:dimgrey;stroke-width:1");
+      xml.attribute("id", "n"+(++nc));
       xml.element("line", null);    
       addExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
       if (be)
@@ -704,6 +722,7 @@ public class SvgGenerator extends BaseGenerator {
       tn = Utilities.capitalize(tn);
     ResourceDefn r = definitions.hasResource(tn) ? definitions.getResourceByName(tn) : null;
 
+    xml.attribute("id", "n"+(++nc));
     xml.enter("g");
     xml.attribute("x", Double.toString(item.left));
     xml.attribute("y", Double.toString(item.top));
@@ -721,6 +740,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = e.getStandardsStatus();
     }
+    xml.attribute("id", "n"+(++nc));
     xml.element("rect", null);    
 
     xml.attribute("x1", Double.toString(item.left));
@@ -728,6 +748,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("x2", Double.toString(item.left+item.width));
     xml.attribute("y2", Double.toString(item.top+HEADER_HEIGHT + GAP_HEIGHT*2));
     xml.attribute("style", "stroke:dimgrey;stroke-width:1");
+    xml.attribute("id", "n"+(++nc));
     xml.element("line", null);    
 
     xml.attribute("x", Double.toString(item.left + item.width / 2));
@@ -738,13 +759,16 @@ public class SvgGenerator extends BaseGenerator {
     else 
       xml.attribute("class", "diagram-class-title");
     if (link) {
+      xml.attribute("id", "n"+(++nc));
       xml.enter("text");
       xml.attribute("xlink:href", definitions.getSrcFile(tn)+".html#"+tn);
+      xml.attribute("id", "n"+(++nc));
       xml.enter("a");
       xml.text(tn);
       xml.exit("a");
       xml.exit("text");
     } else if (isRoot) {
+      xml.attribute("id", "n"+(++nc));
       xml.enter("text");
       xml.text(tn);
       if (Utilities.noString(e.typeCode())) {
@@ -758,15 +782,19 @@ public class SvgGenerator extends BaseGenerator {
         else
           xml.attribute("xlink:href", prefix+e.typeCode().toLowerCase()+".html");
         xml.attribute("class", "diagram-class-reference");
+        xml.attribute("id", "n"+(++nc));
         xml.element("a", e.typeCode());
         xml.text(")");
         xml.exit("tspan");
       }
       xml.exit("text");
     } else if (e.hasStatedType()) {
+      xml.attribute("id", "n"+(++nc));
       xml.element("text", e.getStatedType());      
-    } else
+    } else {
+      xml.attribute("id", "n"+(++nc));
       xml.element("text", tn);
+    }
 
     if (attributes) {
       if (primitive != null) {
@@ -928,10 +956,12 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("y", Double.toString(top + LINE_HEIGHT * line));
         xml.attribute("fill", "black");
         xml.attribute("class", "diagram-class-detail");
+        xml.attribute("id", "n"+(++nc));
         xml.enter("text");
         xml.text(see("      "));
         if (link != null) {
           xml.attribute("xlink:href", link);
+          xml.attribute("id", "n"+(++nc));
           xml.enter("a");
         }
       }
@@ -946,6 +976,7 @@ public class SvgGenerator extends BaseGenerator {
     if (e.getStandardsStatus() != null) {
       xml.attribute("x", Double.toString(left+1));
       xml.attribute("y", Double.toString(top-height+GAP_HEIGHT));
+      xml.attribute("id", "n"+(++nc));
       xml.attribute("width", Double.toString(width-2));
       xml.attribute("height", Double.toString(height));
       xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:0");
@@ -955,9 +986,11 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("y", Double.toString(top + LINE_HEIGHT * ls.line));
     xml.attribute("fill", "black");
     xml.attribute("class", "diagram-class-detail");
+    xml.attribute("id", "n"+(++nc));
     xml.enter("text");
 
     xml.attribute("xlink:href", baseUrl(path)+path+"."+e.getName().replace("[", "_").replace("]", "_"));
+    xml.attribute("id", "n"+(++nc));
     xml.enter("a");
     xml.element("title", e.getEnhancedDefinition());
     xml.text(ls.see(e.getName()));
@@ -1023,7 +1056,9 @@ public class SvgGenerator extends BaseGenerator {
         String link = getBindingLink(prefix, e);
         if (b.getStrength() == BindingStrength.EXAMPLE) {
           xml.attribute("xlink:href", link);
+          xml.attribute("id", "n"+(++nc));
           xml.enter("a");
+          xml.attribute("id", "n"+(++nc));
           xml.element("title", b.getDefinition()+" (Strength=Example)");
           for (String p : parts(name)) {
             ls.check(xml, left, top, p.length(), link);
@@ -1033,6 +1068,7 @@ public class SvgGenerator extends BaseGenerator {
           xml.text("??");
         } else if (b.getStrength() == BindingStrength.PREFERRED) {
           xml.attribute("xlink:href", link);
+          xml.attribute("id", "n"+(++nc));
           xml.enter("a");
           xml.element("title", b.getDefinition()+" (Strength=Preferred)");
           for (String p : parts(name)) {
@@ -1046,7 +1082,9 @@ public class SvgGenerator extends BaseGenerator {
             // what do in this case...
 
           xml.attribute("xlink:href", link);
+          xml.attribute("id", "n"+(++nc));
           xml.enter("a");
+          xml.attribute("id", "n"+(++nc));
           xml.element("title", b.getDefinition()+" (Strength=Extensible)");
           for (String p : parts(name)) {
             ls.check(xml, left, top, p.length(), link);
@@ -1056,7 +1094,9 @@ public class SvgGenerator extends BaseGenerator {
           xml.text("+");
         } else if (b.getStrength() == BindingStrength.REQUIRED) {
           xml.attribute("xlink:href", link);
+          xml.attribute("id", "n"+(++nc));
           xml.enter("a");
+          xml.attribute("id", "n"+(++nc));
           xml.element("title", b.getDefinition()+" (Strength=Required)");
           //xml.open("b");
           for (String p : parts(name)) {
@@ -1067,8 +1107,10 @@ public class SvgGenerator extends BaseGenerator {
           xml.exit("a");
           xml.text("!");
         } else {
+          xml.attribute("id", "n"+(++nc));
           xml.attribute("xlink:href", link);
           xml.enter("a");
+          xml.attribute("id", "n"+(++nc));
           xml.element("title", b.getDefinition()+" (??)");
           for (String p : parts(name)) {
             ls.check(xml, left, top, p.length(), link);
@@ -1103,12 +1145,15 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("class", "diagram-class-detail");
     xml.enter("text");
     xml.attribute("xlink:href", prefix+"extensibility.html");
+    xml.attribute("id", "n"+(++nc));
     xml.enter("a");
+    xml.attribute("id", "n"+(++nc));
     xml.element("title", "Extensions - as described for all elements: additional information that is not part of the basic definition of the resource / type");
     xml.text("extension");
     xml.exit("a");
     xml.text(" : ");
     xml.attribute("xlink:href", prefix+"extensibility.html");
+    xml.attribute("id", "n"+(++nc));
     xml.element("a", "Extension");
     xml.text(" 0..*");
     xml.exit("text");
@@ -1119,14 +1164,18 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("y", Double.toString(top+ LINE_HEIGHT));
     xml.attribute("fill", "black");
     xml.attribute("class", "diagram-class-detail");
+    xml.attribute("id", "n"+(++nc));
     xml.enter("text");
     xml.attribute("xlink:href", prefix+"extensibility.html");
+    xml.attribute("id", "n"+(++nc));
     xml.enter("a");
+    xml.attribute("id", "n"+(++nc));
     xml.element("title", "Modifier Extensions - as described for some elements: additional information that is not part of the basic definition of the resource / type that modifies the interpretation of the containing element");
     xml.text("modifierExtension");
     xml.exit("a");
     xml.text(" : ");
     xml.attribute("xlink:href", prefix+"extensibility.html");
+    xml.attribute("id", "n"+(++nc));
     xml.element("a", "Extension");
     xml.text(" 0..*");
     xml.exit("text");
@@ -1137,8 +1186,11 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("y", Double.toString(top));
     xml.attribute("fill", "black");
     xml.attribute("class", "diagram-class-detail");
+    xml.attribute("id", "n"+(++nc));
     xml.enter("text");
+    xml.attribute("id", "n"+(++nc));
     xml.enter("tspan");
+    xml.attribute("id", "n"+(++nc));
     xml.element("title", "Actual value attribute of the data type");
     xml.text("value");
     xml.exit("tspan");
@@ -1159,19 +1211,23 @@ public class SvgGenerator extends BaseGenerator {
   private int encodeType(XMLWriter xml, LineStatus ls, String tc)  throws Exception {
     if (tc.equals("*")) {
       xml.attribute("xlink:href", prefix+"datatypes.html#open");
+      xml.attribute("id", "n"+(++nc));
       xml.element("a", ls.see(tc));
       return tc.length();
     } else if (tc.equals("Type")) {
         xml.attribute("xlink:href", prefix+"formats.html#umlchoice");
+        xml.attribute("id", "n"+(++nc));
         xml.element("a", ls.see(tc));
         return tc.length();
     } else if (tc.startsWith("@")) { 
       xml.attribute("title", "@"+tc.substring(1));
+      xml.attribute("id", "n"+(++nc));
       xml.element("a", ls.see(tc));
       return tc.length();
     } else if (definitions.getConstraints().containsKey(tc)) {
       ProfiledType pt = definitions.getConstraints().get(tc);
       xml.attribute("xlink:href", prefix+definitions.getSrcFile(pt.getBaseType()) + ".html#" + pt.getBaseType());
+      xml.attribute("id", "n"+(++nc));
       xml.element("a", ls.see(pt.getBaseType()));
       xml.text(ls.see("("));
       xml.attribute("xlink:href", prefix+definitions.getSrcFile(tc) + ".html#" + tc);
@@ -1180,6 +1236,7 @@ public class SvgGenerator extends BaseGenerator {
       return tc.length()+2+pt.getBaseType().length();
     } else {
       xml.attribute("xlink:href", prefix+definitions.getSrcFile(tc) + ".html#" + tc);
+      xml.attribute("id", "n"+(++nc));
       xml.element("a", ls.see(tc));
       return tc.length();
     }
