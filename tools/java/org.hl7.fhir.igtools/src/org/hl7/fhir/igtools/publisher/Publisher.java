@@ -172,7 +172,6 @@ import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
-import org.hl7.fhir.igtools.templates.Template;
 import org.hl7.fhir.igtools.templates.TemplateManager;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.instance.model.api.IBaseResource;
