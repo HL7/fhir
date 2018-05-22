@@ -366,7 +366,7 @@ public class ValidationEngine {
     File f = new File(src);
     if (f.exists()) {
       if (f.isDirectory() && new File(Utilities.path(src, "package.tgz")).exists())
-        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")));
+        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")), null);
       if (f.isDirectory() && new File(Utilities.path(src, "igpack.zip")).exists())
         return readZip(new FileInputStream(Utilities.path(src, "igpack.zip")));
       if (f.isDirectory() && new File(Utilities.path(src, "validator.pack")).exists())
@@ -374,7 +374,7 @@ public class ValidationEngine {
       if (f.isDirectory())
         return scanDirectory(f);
       if (src.endsWith("package.tgz"))
-        return loadPackage(new FileInputStream(src));
+        return loadPackage(new FileInputStream(src), null);
       if (src.endsWith("validator.pack"))
         return readZip(new FileInputStream(src));
       if (src.endsWith("igpack.zip"))
@@ -392,7 +392,7 @@ public class ValidationEngine {
   
   private Map<String, byte[]> fetchFromUrl(String src) throws Exception {
     if (src.endsWith("package.tgz"))
-      return loadPackage(fetchFromUrlSpecific(src, false));
+      return loadPackage(fetchFromUrlSpecific(src, false), null);
     if (src.endsWith("validator.pack"))
       return readZip(fetchFromUrlSpecific(src, false));
     if (src.endsWith("igpack.zip"))
@@ -400,7 +400,7 @@ public class ValidationEngine {
 
     InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(src, "package.tgz"), true);
     if (stream != null)
-      return loadPackage(stream);
+      return loadPackage(stream, null);
     stream = fetchFromUrlSpecific(Utilities.pathURL(src, "igpack.zip"), true);
     if (stream != null)
       return readZip(stream);
@@ -441,9 +441,12 @@ public class ValidationEngine {
     return res;
   }
 
-  private Map<String, byte[]> loadPackage(InputStream stream) throws FileNotFoundException, IOException {
-    NpmPackage pi = pcm.extractLocally(stream);
-    return loadPackage(pi);
+  private Map<String, byte[]> loadPackage(InputStream stream, String packageId) throws FileNotFoundException, IOException {
+    if (packageId != null) {
+      System.out.println("Installing package "+packageId);
+      return loadPackage(pcm.addPackageToCache(stream));      
+    } else 
+      return loadPackage(pcm.extractLocally(stream));
   }
 
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
@@ -477,7 +480,7 @@ public class ValidationEngine {
     return res;
   }
 
-  private Map<String, byte[]> fetchByPackage(String src) throws IOException, FHIRException {
+  private Map<String, byte[]> fetchByPackage(String src) throws Exception {
     String id = src;
     String version = null;
     if (src.contains("-")) {
@@ -493,12 +496,36 @@ public class ValidationEngine {
       pi = pcm.loadPackageCacheLatest(id);
     else
       pi = pcm.loadPackageCache(id, version);
-    if (pi == null)
-      throw new FHIRException("Unable to resolve PackageId "+src);
-    else
+    if (pi == null) {
+      return resolvePackage(id, version);
+    } else
       return loadPackage(pi);
   }
 
+
+  private Map<String, byte[]> resolvePackage(String id, String v) throws Exception {
+    if (!pcm.isBuildLoaded()) {
+      try {
+        pcm.loadFromBuildServer();
+      } catch (IOException e) {
+        System.out.println("Unable to connect to build.fhir.org to check on packages");
+      }
+    }
+    String url = pcm.getPackageUrl(id);
+    if (url == null)
+      throw new Exception("Unable to resolve the package '"+id+"'");
+    if (v == null) {
+      InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(url, "package.tgz"), true);
+      if (stream == null && pcm.isBuildLoaded()) { 
+        stream = fetchFromUrlSpecific(Utilities.pathURL(pcm.buildPath(url), "package.tgz"), true);
+      }
+      if (stream != null)
+        return loadPackage(stream, id);
+      throw new Exception("Unable to find the package source for '"+id+"' at "+url);
+    } else {
+      throw new Exception("Version specific package resolution not done yet");
+    }
+  }
 
   public SimpleWorkerContext getContext() {
     return context;

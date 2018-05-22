@@ -10,6 +10,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,6 +35,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -58,6 +63,8 @@ public class PackageCacheManager {
   private static final int ANALYSIS_VERSION = 2;
 
   private String cacheFolder;
+  private boolean buildLoaded;
+  private JsonArray buildInfo;
   
   public PackageCacheManager(boolean userMode) throws IOException {
     if (userMode)
@@ -288,6 +295,40 @@ public class PackageCacheManager {
 
   public String getFolder() {
     return cacheFolder;
+  }
+
+
+  public JsonArray loadFromBuildServer() throws IOException {
+    buildLoaded = true; // whether it succeeds or not
+    URL url = new URL("https://build.fhir.org/ig/qas.json");
+    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    InputStream json = connection.getInputStream();
+    buildInfo = (JsonArray) new com.google.gson.JsonParser().parse(TextFile.streamToString(json));
+  
+    for (JsonElement n : buildInfo) {
+      JsonObject o = (JsonObject) n;
+      if (o.has("url") && o.has("package-id") && o.get("package-id").getAsString().contains(".")) {
+         recordMap(o.get("url").getAsString(), o.get("package-id").getAsString());
+      }
+    }
+    return buildInfo;
+  }
+
+
+  public boolean isBuildLoaded() {
+    return buildLoaded;
+  }
+
+
+  public String buildPath(String url) {
+    for (JsonElement e : buildInfo) {
+      JsonObject j = (JsonObject) e;
+      if (url.equals(j.get("url").getAsString())) {
+        return "https://build.fhir.org/ig/"+j.get("repo").getAsString();
+      }
+    }
+    return null;
   }
   
 }

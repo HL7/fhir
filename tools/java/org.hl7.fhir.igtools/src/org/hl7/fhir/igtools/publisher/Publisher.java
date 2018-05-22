@@ -1080,22 +1080,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void loadFromBuildServer() {
     log("Contacting Build Server...");
     try {
-      URL url = new URL("https://build.fhir.org/ig/qas.json");
-      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-      connection.setRequestMethod("GET");
-      InputStream json = connection.getInputStream();
-      buildInfo = (JsonArray) new com.google.gson.JsonParser().parse(TextFile.streamToString(json));
-    
-      for (JsonElement n : buildInfo) {
-        JsonObject o = (JsonObject) n;
-        if (o.has("url") && o.has("package-id") && o.get("package-id").getAsString().contains(".")) {
-           pcm.recordMap(o.get("url").getAsString(), o.get("package-id").getAsString());
-        }
-      }
+      buildInfo = pcm.loadFromBuildServer();
       log(" ... done");
     } catch (Throwable e) {
       buildInfo = null;
-      log(" ... Running without information from build");
+      log(" ... Running without information from build ("+e.getMessage()+")");
     }
   }
 
