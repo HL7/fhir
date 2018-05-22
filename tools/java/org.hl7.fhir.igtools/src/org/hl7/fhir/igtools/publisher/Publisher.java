@@ -9,20 +9,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -30,7 +26,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -43,8 +38,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.swing.UIManager;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
@@ -60,17 +53,32 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.IGR2ConvertorAdvisor;
 import org.hl7.fhir.convertors.R2016MayToR4Loader;
-import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.convertors.R3ToR4Loader;
-import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
-import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
-import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.PathEngineException;
+import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
+import org.hl7.fhir.igtools.openapi.Writer;
+import org.hl7.fhir.igtools.publisher.FetchedFile.FetchedBundleType;
+import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
+import org.hl7.fhir.igtools.renderers.BaseRenderer;
+import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
+import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
+import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
+import org.hl7.fhir.igtools.renderers.StructureMapRenderer;
+import org.hl7.fhir.igtools.renderers.ValidationPresenter;
+import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
+import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
+import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
+import org.hl7.fhir.igtools.templates.TemplateManager;
+import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.r4.conformance.ConstraintJavaGenerator;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
@@ -93,7 +101,6 @@ import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
-import org.hl7.fhir.r4.model.Composition;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
@@ -109,9 +116,9 @@ import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Reference;
@@ -133,13 +140,12 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
-import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
-import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities.StructureMapAnalysis;
@@ -147,56 +153,23 @@ import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.r4.utils.formats.Turtle;
 import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.r4.validation.ProfileValidator;
-import org.hl7.fhir.r4.validation.InstanceValidator.NodeStack;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.exceptions.PathEngineException;
-import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
-import org.hl7.fhir.igtools.openapi.Writer;
-import org.hl7.fhir.igtools.publisher.FetchedFile.FetchedBundleType;
-import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
-import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
-import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
-import org.hl7.fhir.igtools.publisher.Publisher.IGPublisherHostServices;
-import org.hl7.fhir.igtools.publisher.Publisher.LinkTargetType;
-import org.hl7.fhir.igtools.publisher.Publisher.TypeParserR3;
-import org.hl7.fhir.igtools.renderers.BaseRenderer;
-import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
-import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
-import org.hl7.fhir.igtools.renderers.StructureDefinitionRenderer;
-import org.hl7.fhir.igtools.renderers.StructureMapRenderer;
-import org.hl7.fhir.igtools.renderers.SwaggerGenerator;
-import org.hl7.fhir.igtools.renderers.ValidationPresenter;
-import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
-import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
-import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
-import org.hl7.fhir.igtools.templates.TemplateManager;
-import org.hl7.fhir.igtools.ui.GraphicalPublisher;
-import org.hl7.fhir.instance.model.api.IBaseResource;
-import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.JsonMerger;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
-import org.hl7.fhir.utilities.cache.PackageCacheManager;
-import org.hl7.fhir.utilities.cache.PackageGenerator;
-import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
-import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
+import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
-import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
-import org.w3c.dom.Document;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -452,7 +425,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private TemplateManager templateManager;
 
   private String rootDir;
-
+  private String templatePck;
+  
   private boolean templateLoaded ;
   
   private class PreProcessInfo {
@@ -542,27 +516,30 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void recordOutcome(Exception ex, ValidationPresenter val) {
     try {
-      StringBuilder b = new StringBuilder();
-      b.append("{\r\n");
+      JsonObject j = new JsonObject();
       if (sourceIg != null) {
-        b.append("  \"url\" : \""+Utilities.escapeJson(sourceIg.getUrl())+"\",\r\n");
-        b.append("  \"name\" : \""+Utilities.escapeJson(sourceIg.getName())+"\",\r\n");
+        j.addProperty("url", sourceIg.getUrl());
+        j.addProperty("name", sourceIg.getName());
       }
       if (publishedIg != null && publishedIg.hasPackageId()) {
-        b.append("  \"package-id\" : \""+publishedIg.getPackageId()+"\",\r\n");
+        j.addProperty("package-id", publishedIg.getPackageId());
+        j.addProperty("ig-ver", publishedIg.getVersion());
       }
-      b.append("  \"date\" : \""+Utilities.escapeJson(new SimpleDateFormat("EEE, dd MMM, yyyy HH:mm:ss Z", new Locale("en", "US")).format(execTime.getTime()))+"\",\r\n");
+      j.addProperty("date", new SimpleDateFormat("EEE, dd MMM, yyyy HH:mm:ss Z", new Locale("en", "US")).format(execTime.getTime()));
       if (val != null) {
-        b.append("  \"errs\" : \""+val.getErr()+"\",\r\n");
-        b.append("  \"warnings\" : \""+val.getWarn()+"\",\r\n");
-        b.append("  \"hints\" : \""+val.getInfo()+"\",\r\n");
+        j.addProperty("errs", val.getErr());
+        j.addProperty("warnings", val.getWarn());
+        j.addProperty("hints", val.getInfo());
       }
       if (ex != null)
-        b.append("  \"exception\" : \""+Utilities.escapeJson(ex.getMessage())+"\",\r\n");
-      b.append("  \"version\" : \""+version+"\",\r\n");
-      b.append("  \"tool\" : \""+Constants.VERSION+"-"+Constants.REVISION+"\"\r\n");
-      b.append("}\r\n");
-      TextFile.stringToFile(b.toString(), Utilities.path(destDir != null ? destDir : outputDir, "qa.json"));
+        j.addProperty("exception", ex.getMessage());
+      j.addProperty("version", version);
+      if (templatePck != null)
+        j.addProperty("template", templatePck);
+      j.addProperty("tool", Constants.VERSION+"-"+Constants.REVISION);
+      Gson gson = new GsonBuilder().setPrettyPrinting().create();
+      String json = gson.toJson(j);
+      TextFile.stringToFile(json, Utilities.path(destDir != null ? destDir : outputDir, "qa.json"));
     } catch (Exception e) {
       // nothing at all
     }
@@ -1649,6 +1626,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     JsonObject tc = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(template.load("template", "config.json")));
     new JsonMerger().merge(configuration, tc);
     templateLoaded = true;
+    templatePck = template.name();
   }
 
 
