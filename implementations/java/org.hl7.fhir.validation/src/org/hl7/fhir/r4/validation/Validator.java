@@ -98,13 +98,15 @@ public class Validator {
       System.out.println("profiles declared in the resource (Resource.meta.profile) or specified on the ");
       System.out.println("command line");
       System.out.println("");
-      System.out.println("The following resource formats are supported: XML, JSON, Turtle");
-      System.out.println("The following verions are supported: 1.4.0, 1.6.0, and current");
+      System.out.println("The FHIR validation tool validates a FHIR resource or bundle.");
+      System.out.println("Schema and schematron checking is performed, then some additional checks are performed. ");
+      System.out.println("* XML & Json (FHIR versions 1.0, 1.4, 3.0, 3.4)");
+      System.out.println("* Turtle (FHIR versions 3.0, 3.4)");
       System.out.println("");
       System.out.println("If requested, instances will also be verified against the appropriate schema");
       System.out.println("W3C XML Schema, JSON schema or ShEx, as appropriate");
       System.out.println("");
-      System.out.println("Usage: org.hl7.fhir.validator.jar (parameters)");
+      System.out.println("Usage: org.hl7.fhir.r4.validation.ValidationEngine (parameters)");
       System.out.println("");
       System.out.println("The following parameters are supported:");
       System.out.println("[source]: a file, url, directory or pattern for resources to validate.  At");
