@@ -1,0 +1,222 @@
+<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
+
+	<id value="UR3503"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A sample unsolicited pre-authorization response which authorizes basic dental services to be performed for a patient.</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.SocialBenefitsInc.com/fhir/ClaimResponse"/>
+		<value value="UR3503"/>
+	</identifier>
+
+	<status value="active"/>
+
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/claim-type"/>
+			<code value="oral"/>
+		</coding>
+	</type>
+
+	<use value="proposed"/> <!-- this is unsolicited therefore no reference to the pre-auth request exists -->
+
+	<patient>
+		<reference value="Patient/1"/>
+	</patient>
+
+	<created value="2014-08-16"/>
+
+	<insurer>
+		<identifier>
+			<system value="http://www.jurisdiction.org/insurers"/>
+			<value value="444123"/> <!-- Social Benefits Inc. -->
+		</identifier>
+	</insurer>
+
+	<requestProvider>
+		<reference value="Organization/1"/>
+	</requestProvider>
+
+	<outcome value="complete" />
+
+	<disposition value="The enclosed services are authorized for your provision within 30 days of this notice."/>
+
+	<payeeType>	<!-- advise that assignment of benefit is allowed -->
+		<coding>
+			<system value="http://hl7.org/fhir/payeetype"/>
+			<code value="provider"/>
+		</coding>
+	</payeeType>
+
+	<!-- Authorization details -->
+
+	<!-- Authorization to receive an exam and an Xray panel -->
+	<addItem> <!-- Exam -->
+		<itemSequence value="1"/> 
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="1101"/>
+			</coding>
+		</service>
+		<modifier>
+			<coding>
+				<system value="http://example.org/fhir/modifiers"/>
+				<code value="x"/>
+				<display value="None"/>
+			</coding>
+		</modifier>
+		<fee>
+			<value value="250.00"/> <!-- fee set to same value as the eligible amount. Providers will only be reimbursed to the fee/eligible amount less the co-pay. -->
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</fee>
+		<noteNumber value="101"/>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="250.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="copay"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="10.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>  
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="100.00"/>
+		</adjudication>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="240.00"/> <!-- insurer will pay up to this amount. -->
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+
+	</addItem>
+
+	<addItem> <!-- Xray Panel -->
+		<itemSequence value="1"/> 
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="2101"/>
+				<display value="Radiograph, series (12)"/>
+			</coding>
+		</service>
+		<fee>
+			<value value="800.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</fee>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligible"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="800.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>
+		</adjudication>
+
+		<adjudication>
+			<category>
+				<coding>
+					<code value="eligpercent"/>
+				</coding>
+			</category>
+			<value value="100.00"/>
+		</adjudication>
+		<adjudication>
+			<category>
+				<coding>
+					<code value="benefit"/>
+				</coding>
+			</category>
+			<amount>
+				<value value="800.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/>
+			</amount>	
+		</adjudication>
+	</addItem>
+
+	<total>
+		<category>
+			<coding>
+				<code value="submitted"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="1050.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+
+	<total>
+		<category>
+			<coding>
+				<code value="benefit"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="1040.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+
+	<processNote>
+		<number value="101"/>
+		<type value="print" />
+		<text value="Please submit a Pre-Authorization request if a more extensive examination or urgent services are required."/>
+		<language>
+			<coding>
+				<system value="urn:ietf:bcp:47" />
+				<code value="en-CA" />
+			</coding>
+		</language>
+	</processNote>	
+
+	<insurance>
+		<sequence value="1"/>
+		<focal value="true"/>
+		<coverage>
+			<reference value="Coverage/9876B1SS"/>
+		</coverage>
+		<preAuthRef value="18SS12345" />
+	</insurance>
+</ClaimResponse>
