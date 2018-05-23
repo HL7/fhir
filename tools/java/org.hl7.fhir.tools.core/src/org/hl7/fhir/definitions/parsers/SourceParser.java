@@ -1119,7 +1119,7 @@ public class SourceParser {
           if (s.startsWith("translate(")) {
             String[] sp = s.substring(10, s.length()-1).split("\\,");
             double tx = Double.valueOf(sp[0]);
-            double ty = Double.valueOf(sp[1]);
+            double ty = sp.length > 1 ? Double.valueOf(sp[1]) : 0;
             x = x + tx;
             y = y + ty;
           }
