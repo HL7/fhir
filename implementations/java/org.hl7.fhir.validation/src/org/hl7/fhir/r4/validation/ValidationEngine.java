@@ -106,6 +106,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.xml.sax.SAXException;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 /**
@@ -366,7 +367,7 @@ public class ValidationEngine {
     File f = new File(src);
     if (f.exists()) {
       if (f.isDirectory() && new File(Utilities.path(src, "package.tgz")).exists())
-        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")), null);
+        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")));
       if (f.isDirectory() && new File(Utilities.path(src, "igpack.zip")).exists())
         return readZip(new FileInputStream(Utilities.path(src, "igpack.zip")));
       if (f.isDirectory() && new File(Utilities.path(src, "validator.pack")).exists())
@@ -374,7 +375,7 @@ public class ValidationEngine {
       if (f.isDirectory())
         return scanDirectory(f);
       if (src.endsWith("package.tgz"))
-        return loadPackage(new FileInputStream(src), null);
+        return loadPackage(new FileInputStream(src));
       if (src.endsWith("validator.pack"))
         return readZip(new FileInputStream(src));
       if (src.endsWith("igpack.zip"))
@@ -392,7 +393,7 @@ public class ValidationEngine {
   
   private Map<String, byte[]> fetchFromUrl(String src) throws Exception {
     if (src.endsWith("package.tgz"))
-      return loadPackage(fetchFromUrlSpecific(src, false), null);
+      return loadPackage(fetchFromUrlSpecific(src, false));
     if (src.endsWith("validator.pack"))
       return readZip(fetchFromUrlSpecific(src, false));
     if (src.endsWith("igpack.zip"))
@@ -400,7 +401,7 @@ public class ValidationEngine {
 
     InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(src, "package.tgz"), true);
     if (stream != null)
-      return loadPackage(stream, null);
+      return loadPackage(stream);
     stream = fetchFromUrlSpecific(Utilities.pathURL(src, "igpack.zip"), true);
     if (stream != null)
       return readZip(stream);
@@ -441,12 +442,9 @@ public class ValidationEngine {
     return res;
   }
 
-  private Map<String, byte[]> loadPackage(InputStream stream, String packageId) throws FileNotFoundException, IOException {
-    if (packageId != null) {
-      System.out.println("Installing package "+packageId);
-      return loadPackage(pcm.addPackageToCache(stream));      
-    } else 
-      return loadPackage(pcm.extractLocally(stream));
+
+  private Map<String, byte[]> loadPackage(InputStream stream) throws FileNotFoundException, IOException {
+    return loadPackage(pcm.extractLocally(stream));
   }
 
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
@@ -502,29 +500,13 @@ public class ValidationEngine {
       return loadPackage(pi);
   }
 
-
   private Map<String, byte[]> resolvePackage(String id, String v) throws Exception {
-    if (!pcm.isBuildLoaded()) {
-      try {
-        pcm.loadFromBuildServer();
-      } catch (IOException e) {
-        System.out.println("Unable to connect to build.fhir.org to check on packages");
-      }
+    try {
+      pcm.checkBuildLoaded();
+    } catch (IOException e) {
+      System.out.println("Unable to connect to build.fhir.org to check on packages");
     }
-    String url = pcm.getPackageUrl(id);
-    if (url == null)
-      throw new Exception("Unable to resolve the package '"+id+"'");
-    if (v == null) {
-      InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(url, "package.tgz"), true);
-      if (stream == null && pcm.isBuildLoaded()) { 
-        stream = fetchFromUrlSpecific(Utilities.pathURL(pcm.buildPath(url), "package.tgz"), true);
-      }
-      if (stream != null)
-        return loadPackage(stream, id);
-      throw new Exception("Unable to find the package source for '"+id+"' at "+url);
-    } else {
-      throw new Exception("Version specific package resolution not done yet");
-    }
+    return loadPackage(pcm.resolvePackage(id, v));
   }
 
   public SimpleWorkerContext getContext() {

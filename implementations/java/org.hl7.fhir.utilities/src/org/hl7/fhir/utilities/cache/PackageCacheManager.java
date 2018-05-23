@@ -3,6 +3,7 @@ package org.hl7.fhir.utilities.cache;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,6 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,9 +33,11 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.apache.commons.io.FileUtils;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageEntry;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -55,6 +59,21 @@ import com.google.gson.JsonObject;
  */
 public class PackageCacheManager {
 
+  public class PackageEntry {
+
+    private byte[] bytes;
+    private String name;
+
+    public PackageEntry(String name) {
+      this.name = name;
+    }
+
+    public PackageEntry(String name, byte[] bytes) {
+      this.name = name;
+      this.bytes = bytes;
+    }
+  }
+
   public static final String PACKAGE_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+$";
   public static final String PACKAGE_VERSION_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+\\-[a-z0-9\\-]+(\\.[a-z0-9\\-]+)*$";
 
@@ -65,6 +84,7 @@ public class PackageCacheManager {
   private String cacheFolder;
   private boolean buildLoaded;
   private JsonArray buildInfo;
+  private boolean progress = true;
   
   public PackageCacheManager(boolean userMode) throws IOException {
     if (userMode)
@@ -82,6 +102,7 @@ public class PackageCacheManager {
       ini.setStringProperty("cache", "version", CACHE_VERSION, null);
       save = true;
     }
+    save = checkIniHasMapping("hl7.fhir.core", "http://hl7.org/fhir", ini) || save;
     save = checkIniHasMapping("fhir.argonaut.ehr", "http://fhir.org/guides/argonaut", ini) || save;
     save = checkIniHasMapping("fhir.argonaut.pd", "http://fhir.org/guides/argonaut-pd", ini) || save;
     save = checkIniHasMapping("fhir.argonaut.scheduling", "http://fhir.org/guides/argonaut-scheduling", ini) || save;
@@ -193,40 +214,82 @@ public class PackageCacheManager {
   }
 
   public NpmPackage addPackageToCache(String id, String version, InputStream tgz) throws IOException {
-    String packRoot = Utilities.path(cacheFolder, id+"-"+version);
-    Utilities.createDirectory(packRoot);
-    Utilities.clearDirectory(packRoot);
+    if (progress ) {
+      System.out.println("Installing "+id+"-"+(version == null ? "?" : version)+" to the package cache");
+      System.out.print("  Downloading:");
+    }
+    List<PackageEntry> files = new ArrayList<PackageEntry>();
+    byte[] npmb = null;
     
     long size = 0;
     GzipCompressorInputStream gzipIn = new GzipCompressorInputStream(tgz);
     try (TarArchiveInputStream tarIn = new TarArchiveInputStream(gzipIn)) {
       TarArchiveEntry entry;
 
+      int i = 0;
+      int c = 14;
       while ((entry = (TarArchiveEntry) tarIn.getNextEntry()) != null) {
+        i++;
+        if (progress && i % 20 == 0) {
+          c++;
+          System.out.print(".");
+          if (c == 120) {
+            System.out.println("");
+            System.out.print("  ");
+            c = 2;
+          }
+        }
         if (entry.isDirectory()) {
-          File f = new File(Utilities.path(packRoot, entry.getName()));
-          if (!f.mkdir()) 
-            throw new IOException("Unable to create directory '%s', during extraction of archive contents: "+ f.getAbsolutePath());
+          files.add(new PackageEntry(entry.getName()));
         } else {
           int count;
           byte data[] = new byte[BUFFER_SIZE];
-          String fn = Utilities.path(packRoot, entry.getName());
-          String dir = Utilities.getDirectoryForFile(fn);
-          if (!(new File(dir).exists()))
-            Utilities.createDirectory(dir);
           
-          FileOutputStream fos = new FileOutputStream(fn, false);
+          ByteArrayOutputStream fos = new ByteArrayOutputStream();
           try (BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFER_SIZE)) {
             while ((count = tarIn.read(data, 0, BUFFER_SIZE)) != -1) {
               dest.write(data, 0, count);
             }
           }
           fos.close();
-          size = size + new File(fn).length();
+          files.add(new PackageEntry(entry.getName(), fos.toByteArray()));
+          size = size + fos.size();
+          if (entry.getName().equals("package/package.json"))
+            npmb = fos.toByteArray();
         }
       }
     }  
-    JsonObject npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(packRoot, "package", "package.json")));
+
+    if (progress )
+      System.out.print("|");
+    JsonObject npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(npmb));
+    if (!id.equals(npm.get("name").getAsString()))
+      throw new IOException("Attempt to import a mis-identified package");
+    if (version == null)
+      version = npm.get("version").getAsString();
+    
+    String packRoot = Utilities.path(cacheFolder, id+"-"+version);
+    Utilities.createDirectory(packRoot);
+    Utilities.clearDirectory(packRoot);
+      
+    for (PackageEntry e : files) {
+      if (e.bytes == null) {
+        File f = new File(Utilities.path(packRoot, e.name));
+        if (!f.mkdir()) 
+          throw new IOException("Unable to create directory '%s', during extraction of archive contents: "+ f.getAbsolutePath());
+      } else {
+        String fn = Utilities.path(packRoot, e.name);
+        String dir = Utilities.getDirectoryForFile(fn);
+        if (!(new File(dir).exists()))
+          Utilities.createDirectory(dir);
+        TextFile.bytesToFile(e.bytes, fn);
+      }
+    }
+    if (progress) {
+      System.out.println("");
+      System.out.print("  Analysing");
+    }      
+    
     Map<String, String> profiles = new HashMap<String, String>(); 
     Map<String, String> canonicals = new HashMap<String, String>(); 
     analysePackage(packRoot, npm.getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString(), profiles, canonicals);
@@ -239,11 +302,26 @@ public class PackageCacheManager {
     for (String p : canonicals.keySet()) 
       ini.setStringProperty("Canonicals", p, canonicals.get(p), null);
     ini.setIntegerProperty("Packages", "analysis", ANALYSIS_VERSION, null);
+    ini.save();
+    if (progress )
+      System.out.print(" done.");
     return loadPackageInfo(packRoot);
   }
 
   private void analysePackage(String dir, String v, Map<String, String> profiles, Map<String, String> canonicals) throws IOException {
+    int i = 0;
+    int c = 11;
     for (File f : new File(Utilities.path(dir, "package")).listFiles()) {
+      i++;
+      if (progress && i % 20 == 0) {
+        c++;
+        System.out.print(".");
+        if (c == 120) {
+          System.out.println("");
+          System.out.print("  ");
+          c = 2;
+        }
+      }      
       try {
         JsonObject j = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f));
         if (!Utilities.noString(j.get("url").getAsString()) && !Utilities.noString(j.get("resourceType").getAsString())) 
@@ -263,25 +341,6 @@ public class PackageCacheManager {
         // nothing
       }
     }
-  }
-
-
-  public NpmPackage addPackageToCache(InputStream tgz) throws IOException {
-    NpmPackage pi = addPackageToCache("temp", "temp", tgz);
-    String actual = Utilities.path(cacheFolder, pi.getNpm().get("name").getAsString()+"-"+pi.getNpm().get("version").getAsString());
-    File dst = new File(actual);
-    int i = 0;
-    while (!(new File(pi.getPath()).renameTo(dst))) {
-      try {
-        Thread.sleep(1000);
-      } catch (InterruptedException e) {
-      }
-      i++;
-      if (i == 10)
-        throw new IOException("Unable to rename from "+pi.getPath()+" to "+actual);        
-    }
-    pi.setPath(actual);
-    return pi;
   }
 
 
@@ -309,7 +368,10 @@ public class PackageCacheManager {
     for (JsonElement n : buildInfo) {
       JsonObject o = (JsonObject) n;
       if (o.has("url") && o.has("package-id") && o.get("package-id").getAsString().contains(".")) {
-         recordMap(o.get("url").getAsString(), o.get("package-id").getAsString());
+        String u = o.get("url").getAsString();
+        if (u.contains("/ImplementationGuide/"))
+          u = u.substring(0, u.indexOf("/ImplementationGuide/"));
+        recordMap(u, o.get("package-id").getAsString());
       }
     }
     return buildInfo;
@@ -330,5 +392,77 @@ public class PackageCacheManager {
     }
     return null;
   }
+ 
+  public boolean checkBuildLoaded() throws IOException {
+    if (isBuildLoaded())
+      return true;
+    loadFromBuildServer();
+    return false;
+  }
   
+  public NpmPackage resolvePackage(String id, String v) throws FHIRException, IOException {
+    String url = getPackageUrl(id);
+    if (url == null)
+      throw new FHIRException("Unable to resolve the package '"+id+"'");
+    if (v == null) {
+      InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(url, "package.tgz"), true);
+      if (stream == null && isBuildLoaded()) { 
+        stream = fetchFromUrlSpecific(Utilities.pathURL(buildPath(url), "package.tgz"), true);
+      }
+      if (stream != null)
+        return addPackageToCache(id, null,  stream);
+      throw new FHIRException("Unable to find the package source for '"+id+"' at "+url);
+    } else {
+      String pu = Utilities.pathURL(url, "package-list.json");
+      JsonObject json;
+      try {
+        json = fetchJson(pu);
+      } catch (Exception e) {
+        throw new FHIRException("Error fetching package list for "+id+" from "+pu+": "+e.getMessage(), e);
+      }
+      if (!id.equals(json.get("package-id").getAsString()))
+        throw new FHIRException("Package ids do not match in "+pu+": "+id+" vs "+json.get("package-id").getAsString());
+      for (JsonElement e : json.getAsJsonArray("list")) {
+        JsonObject vo = (JsonObject) e;
+        if (v.equals(vo.get("version").getAsString())) {
+          InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"), true);
+          if (stream == null && isBuildLoaded() && !id.equals("hl7.fhir.core")) { 
+            stream = fetchFromUrlSpecific(Utilities.pathURL(buildPath(url), "package.tgz"), true);
+          }
+          if (stream != null)
+            return addPackageToCache(id, v, stream);
+          throw new FHIRException("Unable to find the package source for '"+id+"' at "+url);
+        }
+      }
+      throw new FHIRException("Unable to resolve version "+v+" for package "+id);
+    }
+  }
+
+
+//  !!!
+//  if (packageId != null) {
+//    return loadPackage();      
+//  } else 
+//    return loadPackage(pcm.extractLocally(stream));
+
+
+  private JsonObject fetchJson(String source) throws IOException {
+    URL url = new URL(source);
+    URLConnection c = url.openConnection();
+    return (JsonObject) new com.google.gson.JsonParser().parse(TextFile.streamToString(c.getInputStream()));
+  }
+  
+  private InputStream fetchFromUrlSpecific(String source, boolean optional) throws FHIRException {
+    try {
+      URL url = new URL(source);
+      URLConnection c = url.openConnection();
+      return c.getInputStream();
+    } catch (Exception e) {
+      if (optional)
+        return null;
+      else
+        throw new FHIRException(e.getMessage(), e);
+    }
+  }
+
 }
