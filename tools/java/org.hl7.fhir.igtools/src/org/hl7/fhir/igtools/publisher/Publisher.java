@@ -3551,6 +3551,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     PrimitiveType desc = new StringType(r.getTitle());
     if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
       name = ((MetadataResource) r.getResource()).getTitle();
+      if (Utilities.noString(name))
+        name = ((MetadataResource) r.getResource()).getName();
       desc = getDesc((MetadataResource) r.getResource(), desc);
     }
     list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc.asStringValue())+"</li>\r\n");

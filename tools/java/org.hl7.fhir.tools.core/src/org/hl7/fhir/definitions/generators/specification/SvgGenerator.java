@@ -98,8 +98,6 @@ public class SvgGenerator extends BaseGenerator {
       this.height = height;          
       this.id = id;
       if (layout != null && layout.containsKey(id)) {
-        System.out.println("override '"+id+" from "+left+" to "+layout.get(id).getX());
-        System.out.println("override '"+id+" from "+top+" to "+layout.get(id).getY());
         this.left = layout.get(id).getX();
         this.top = layout.get(id).getY();
       }
