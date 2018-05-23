@@ -431,6 +431,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean noSound;
 
+  private boolean doValidate;
+
 
   public static void main(String[] args) throws Exception {
     //
@@ -438,6 +440,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Publisher pub = new Publisher();
     pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
+    pub.doValidate = !(args.length > 1 && hasParam(args, "-nocheck"));  
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.page.setForPublication(pub.web);
@@ -631,7 +634,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         checkAllOk();
       } 
 
-      validationProcess();
+      if (doValidate)
+        validationProcess();
       processWarnings(false);
       if (isGenerate && buildFlags.get("all"))
         produceQA();

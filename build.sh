@@ -5,7 +5,7 @@ NAME="Continuous Integration Build"
 SVNREV=$(git log -1 | grep svn.fhir. | sed -r 's/^.*?@([0-9]+).*$/\1/')
 
 antBuild (){
-  ./publish.sh -svn $SVNREV -name \'$NAME\' -url http://build.fhir.org/
+  ./publish.sh -svn $SVNREV -name \'$NAME\' -url http://build.fhir.org/ -nocheck
   checkStatus
 }
 
