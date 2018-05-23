@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
+import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -90,16 +91,24 @@ public class SvgGenerator extends BaseGenerator {
     }
    }
   private class ClassItem {
-    public ClassItem(double left, double top, double width, double height) {
+    public ClassItem(double left, double top, double width, double height, String id) {
       this.left = left;
       this.top = top;
       this.width = width;
       this.height = height;          
+      this.id = id;
+      if (layout != null && layout.containsKey(id)) {
+        System.out.println("override '"+id+" from "+left+" to "+layout.get(id).getX());
+        System.out.println("override '"+id+" from "+top+" to "+layout.get(id).getY());
+        this.left = layout.get(id).getX();
+        this.top = layout.get(id).getY();
+      }
     }
     private double left;
     private double top;
     private double width;
     private double height;
+    private String id;
     public double right() {
       return left + width;
     }
@@ -111,6 +120,9 @@ public class SvgGenerator extends BaseGenerator {
     }
     public double bottom() {
       return top + height;
+    }
+    public String getId() {
+      return id;
     }
   }
   private enum LinkType {SPECIALIZATION, CONSTRAINT, COMPOSITION};
@@ -146,11 +158,13 @@ public class SvgGenerator extends BaseGenerator {
   IniFile ini;
   private String id;
   private String prefix;
+  private Map<String, PointSpec> layout;
 
-  public SvgGenerator(PageProcessor page, String prefix) {
+  public SvgGenerator(PageProcessor page, String prefix, Map<String, PointSpec> layout) {
     this.definitions = page.getDefinitions();
     this.page = page;
     this.prefix = prefix;
+    this.layout = layout;
   }
 
   public String generate(String filename, String id) throws Exception {
@@ -253,7 +267,7 @@ public class SvgGenerator extends BaseGenerator {
     }
 
     Point p = new Point(0, 0, PointKind.unknown);
-    ClassItem item = new ClassItem(p.x, p.y, width, height);
+    ClassItem item = new ClassItem(p.x, p.y, width, height, id);
     classes.put(null, item);
     double x = item.right()+MARGIN_X;
     double y = item.bottom()+MARGIN_Y;
@@ -351,7 +365,7 @@ public class SvgGenerator extends BaseGenerator {
     }
     miny = Math.min(miny, p.y);
     minx = Math.min(minx, p.x);
-    ClassItem item = new ClassItem(p.x, p.y, width, height);
+    ClassItem item = new ClassItem(p.x, p.y, width, height, e.getPath());
     classes.put(e, item);
     double x = item.right()+MARGIN_X;
     double y = item.bottom()+MARGIN_Y;
@@ -663,7 +677,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("height", Double.toString(be ? item.height + LINE_HEIGHT : item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
     xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:black;stroke-width:1");
-    xml.attribute("id", "n"+(++nc));
+    xml.attribute("id", item.getId());
     xml.element("rect", null);    
 
     xml.attribute("x", Double.toString(item.left + item.width / 2));
@@ -685,6 +699,7 @@ public class SvgGenerator extends BaseGenerator {
       if (be)
         addModifierExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
     }
+    xml.exit("g");
 
     for (String cn : classNames) {
       if (definitions.getPrimitives().containsKey(cn)) {
@@ -711,7 +726,6 @@ public class SvgGenerator extends BaseGenerator {
         links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus()), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));
       }
     }
-    xml.exit("g");
     return item;
   }
 
@@ -740,7 +754,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = e.getStandardsStatus();
     }
-    xml.attribute("id", "n"+(++nc));
+    xml.attribute("id", item.getId());
     xml.element("rect", null);    
 
     xml.attribute("x1", Double.toString(item.left));
@@ -811,7 +825,10 @@ public class SvgGenerator extends BaseGenerator {
           }
         }
       }
+    }
+    xml.exit("g");
 
+    if (attributes) {
       for (ElementDefn c : e.getElements()) {  
         if (!isAttribute(c)) {
           if (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@")) {
@@ -823,7 +840,6 @@ public class SvgGenerator extends BaseGenerator {
         }
       }
     }
-    xml.exit("g");
     return item;
   }
 

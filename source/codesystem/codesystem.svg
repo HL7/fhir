@@ -1,0 +1,1291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="n627"
+   version="1.1"
+   width="1003.6"
+   height="530.0"
+   sodipodi:docname="codesystem.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata313">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1222"
+     inkscape:window-height="852"
+     id="namedview311"
+     showgrid="false"
+     inkscape:zoom="1.6007838"
+     inkscape:cx="137.98845"
+     inkscape:cy="265.31235"
+     inkscape:window-x="2672"
+     inkscape:window-y="71"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n627" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="0"
+       y="0"
+       width="200%"
+       height="200%">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n628"
+     transform="translate(265,13)">
+    <rect
+       id="CodeSystem"
+       x="0"
+       y="18"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="358"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n629"
+       x1="0"
+       y1="46"
+       x2="277.20001"
+       y2="46"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n630"
+       x="138.60001"
+       y="38"
+       class="diagram-class-title  diagram-class-resource"
+       style="fill:#000000">CodeSystem<tspan
+   class="diagram-class-title-link"
+   id="tspan16">(<a
+   xlink:href="domainresource.html"
+   class="diagram-class-reference"
+   id="n631">DomainResource</a>
+
+)</tspan>
+</text>
+    <text
+       id="n632"
+       x="6"
+       y="60"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.url"
+   id="n633"><title
+   id="title19">An absolute URI that is used to identify this code system when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this code system is (or will be) published. This is used in [Coding](datatypes.html#Coding).system</title>
+
+
+url</a>
+
+ : <a
+   xlink:href="datatypes.html#uri"
+   id="n634">uri</a>
+
+ [0..1]</text>
+    <text
+       id="n638"
+       x="6"
+       y="74"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.identifier"
+   id="n639"><title
+   id="title24">A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance</title>
+
+
+identifier</a>
+
+ : <a
+   xlink:href="datatypes.html#Identifier"
+   id="n640">Identifier</a>
+
+ [0..1]</text>
+    <text
+       id="n644"
+       x="6"
+       y="88"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.version"
+   id="n645"><title
+   id="title29">The identifier that is used to identify this version of the code system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the code system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. This is used in [Coding](datatypes.html#Coding).version</title>
+
+
+version</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n646">string</a>
+
+ [0..1]</text>
+    <text
+       id="n650"
+       x="6"
+       y="102"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.name"
+   id="n651"><title
+   id="title34">A natural language name identifying the code system. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>
+
+
+name</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n652">string</a>
+
+ [0..1]</text>
+    <text
+       id="n656"
+       x="6"
+       y="116"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.title"
+   id="n657"><title
+   id="title39">A short, descriptive, user-friendly title for the code system</title>
+
+
+title</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n658">string</a>
+
+ [0..1]</text>
+    <text
+       id="n662"
+       x="6"
+       y="130"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.status"
+   id="n663"><title
+   id="title44">The status of this code system. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>
+
+
+status</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n664">code</a>
+
+ [1..1] « <a
+   xlink:href="valueset-publication-status.html"
+   id="n665"><title
+   id="n666">The lifecycle status of an artifact. (Strength=Required)</title>
+
+
+PublicationStatus</a>
+
+! »</text>
+    <text
+       id="n672"
+       x="6"
+       y="144"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.experimental"
+   id="n673"><title
+   id="title51">A Boolean value to indicate that this code system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage (this element modifies the meaning of other elements)</title>
+
+
+experimental</a>
+
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n674">boolean</a>
+
+ [0..1]</text>
+    <text
+       id="n678"
+       x="6"
+       y="158"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.date"
+   id="n679"><title
+   id="title56">The date  (and optionally time) when the code system was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the code system changes</title>
+
+
+date</a>
+
+ : <a
+   xlink:href="datatypes.html#dateTime"
+   id="n680">dateTime</a>
+
+ [0..1]</text>
+    <text
+       id="n684"
+       x="6"
+       y="172"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.publisher"
+   id="n685"><title
+   id="title61">The name of the organization or individual that published the code system</title>
+
+
+publisher</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n686">string</a>
+
+ [0..1]</text>
+    <text
+       id="n690"
+       x="6"
+       y="186"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.contact"
+   id="n691"><title
+   id="title66">Contact details to assist a user in finding and communicating with the publisher</title>
+
+
+contact</a>
+
+ : <a
+   xlink:href="metadatatypes.html#ContactDetail"
+   id="n692">ContactDetail</a>
+
+ [0..*]</text>
+    <text
+       id="n696"
+       x="6"
+       y="200"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.description"
+   id="n697"><title
+   id="title71">A free text natural language description of the code system from a consumer's perspective</title>
+
+
+description</a>
+
+ : <a
+   xlink:href="datatypes.html#markdown"
+   id="n698">markdown</a>
+
+ [0..1]</text>
+    <rect
+       id="n702"
+       x="1"
+       y="204"
+       width="275.20001"
+       height="14"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:0" />
+    <text
+       id="n703"
+       x="6"
+       y="214"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.useContext"
+   id="n704"><title
+   id="title77">The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate code system instances</title>
+
+
+useContext</a>
+
+ : <a
+   xlink:href="metadatatypes.html#UsageContext"
+   id="n705">UsageContext</a>
+
+ [0..*]</text>
+    <text
+       id="n710"
+       x="6"
+       y="228"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.jurisdiction"
+   id="n711"><title
+   id="title82">A legal or geographic region in which the code system is intended to be used</title>
+
+
+jurisdiction</a>
+
+ : <a
+   xlink:href="datatypes.html#CodeableConcept"
+   id="n712">CodeableConcept</a>
+
+ [0..*] « <a
+   xlink:href="valueset-jurisdiction.html"
+   id="n713"><title
+   id="n714">Countries and regions within which this artifact is targeted for use (Strength=Extensible)</title>
+
+
+Jurisdiction ValueSet</a>
+
++ »</text>
+    <text
+       id="n720"
+       x="6"
+       y="242"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.purpose"
+   id="n721"><title
+   id="title89">Explanation of why this code system is needed and why it has been designed as it has</title>
+
+
+purpose</a>
+
+ : <a
+   xlink:href="datatypes.html#markdown"
+   id="n722">markdown</a>
+
+ [0..1]</text>
+    <text
+       id="n726"
+       x="6"
+       y="256"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.copyright"
+   id="n727"><title
+   id="title94">A copyright statement relating to the code system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the code system</title>
+
+
+copyright</a>
+
+ : <a
+   xlink:href="datatypes.html#markdown"
+   id="n728">markdown</a>
+
+ [0..1]</text>
+    <text
+       id="n732"
+       x="6"
+       y="270"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.caseSensitive"
+   id="n733"><title
+   id="title99">If code comparison is case sensitive when codes within this system are compared to each other</title>
+
+
+caseSensitive</a>
+
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n734">boolean</a>
+
+ [0..1]</text>
+    <text
+       id="n738"
+       x="6"
+       y="284"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.valueSet"
+   id="n739"><title
+   id="title104">Canonical URL of value set that contains the entire code system</title>
+
+
+valueSet</a>
+
+ : <a
+   xlink:href="datatypes.html#canonical"
+   id="n740">canonical</a>
+
+ [0..1]</text>
+    <text
+       id="n744"
+       x="6"
+       y="298"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"
+   id="n745"><title
+   id="title109">The meaning of the hierarchy of concepts</title>
+
+
+hierarchyMeaning</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n746">code</a>
+
+ [0..1] « <a
+   xlink:href="valueset-codesystem-hierarchy-meaning.html"
+   id="n747"><title
+   id="n748">The meaning of the hierarchy of concepts in a code system (Strength=Required)</title>
+
+
+CodeSystemHierarchyMeaning</a>
+
+! »</text>
+    <text
+       id="n754"
+       x="6"
+       y="312"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.compositional"
+   id="n755"><title
+   id="title116">True If code system defines a post-composition grammar</title>
+
+
+compositional</a>
+
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n756">boolean</a>
+
+ [0..1]</text>
+    <text
+       id="n760"
+       x="6"
+       y="326"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.versionNeeded"
+   id="n761"><title
+   id="title121">This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system</title>
+
+
+versionNeeded</a>
+
+ : <a
+   xlink:href="datatypes.html#boolean"
+   id="n762">boolean</a>
+
+ [0..1]</text>
+    <text
+       id="n766"
+       x="6"
+       y="340"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.content"
+   id="n767"><title
+   id="title126">How much of the content of the code system - the concepts and codes it defines - are represented in this resource</title>
+
+
+content</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n768">code</a>
+
+ [1..1] « <a
+   xlink:href="valueset-codesystem-content-mode.html"
+   id="n769"><title
+   id="n770">How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource (Strength=Required)</title>
+
+
+CodeSystemContentMode</a>
+
+! »</text>
+    <text
+       id="n776"
+       x="6"
+       y="354"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.supplements"
+   id="n777"><title
+   id="title133">References the code system that this code system supplement is adding designations and properties to</title>
+
+
+supplements</a>
+
+ : <a
+   xlink:href="datatypes.html#canonical"
+   id="n778">canonical</a>
+
+ [0..1]</text>
+    <text
+       id="n782"
+       x="6"
+       y="368"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.count"
+   id="n783"><title
+   id="title138">The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts</title>
+
+
+count</a>
+
+ : <a
+   xlink:href="datatypes.html#unsignedInt"
+   id="n784">unsignedInt</a>
+
+ [0..1]</text>
+  </g>
+  <g
+     id="n788"
+     transform="translate(-163.66982,-338.58414)">
+    <rect
+       id="CodeSystem.filter"
+       x="200"
+       y="418"
+       rx="4"
+       ry="4"
+       width="180.39999"
+       height="92"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n789"
+       x1="200"
+       y1="446"
+       x2="380.39999"
+       y2="446"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n790"
+       x="290.20001"
+       y="438"
+       class="diagram-class-title"
+       style="fill:#000000">Filter</text>
+    <text
+       id="n791"
+       x="206"
+       y="460"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.filter.code"
+   id="n792"><title
+   id="title147">The code that identifies this filter when it is used in the instance</title>
+
+
+code</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n793">code</a>
+ [1..1]</text>
+    <text
+       id="n797"
+       x="206"
+       y="474"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.filter.description"
+   id="n798"><title
+   id="title152">A description of how or why the filter is used</title>
+
+
+description</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n799">string</a>
+ [0..1]</text>
+    <text
+       id="n803"
+       x="206"
+       y="488"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.filter.operator"
+   id="n804"><title
+   id="title157">A list of operators that can be used with the filter</title>
+
+
+operator</a>
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n805">code</a>
+ [1..*] « <a
+   xlink:href="valueset-filter-operator.html"
+   id="n806"><title
+   id="n807">The kind of operation to perform as a part of a property based filter. (Strength=Required)</title>
+
+
+FilterOperator</a>
+! »</text>
+    <text
+       id="n813"
+       x="206"
+       y="502"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.filter.value"
+   id="n814"><title
+   id="title164">A description of what the value for the filter should be</title>
+
+
+value</a>
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n815">string</a>
+ [1..1]</text>
+  </g>
+  <g
+     id="n819"
+     transform="translate(-376.06577,-149.30186)">
+    <rect
+       id="CodeSystem.property"
+       x="400"
+       y="418"
+       rx="4"
+       ry="4"
+       width="154"
+       height="92"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n820"
+       x1="400"
+       y1="446"
+       x2="554"
+       y2="446"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n821"
+       x="477"
+       y="438"
+       class="diagram-class-title"
+       style="fill:#000000">Property</text>
+    <text
+       id="n822"
+       x="406"
+       y="460"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.property.code"
+   id="n823"><title
+   id="title173">A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters</title>
+
+
+code</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n824">code</a>
+
+ [1..1]</text>
+    <text
+       id="n828"
+       x="406"
+       y="474"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.property.uri"
+   id="n829"><title
+   id="title178">Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system</title>
+
+
+uri</a>
+
+ : <a
+   xlink:href="datatypes.html#uri"
+   id="n830">uri</a>
+
+ [0..1]</text>
+    <text
+       id="n834"
+       x="406"
+       y="488"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.property.description"
+   id="n835"><title
+   id="title183">A description of the property- why it is defined, and how its value might be used</title>
+
+
+description</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n836">string</a>
+
+ [0..1]</text>
+    <text
+       id="n840"
+       x="406"
+       y="502"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.property.type"
+   id="n841"><title
+   id="title188">The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system (e.g. a reference to another defined concept)</title>
+
+
+type</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n842">code</a>
+
+ [1..1] « <a
+   xlink:href="valueset-concept-property-type.html"
+   id="n843"><title
+   id="n844">The type of a property value (Strength=Required)</title>
+
+
+PropertyType</a>
+
+! »</text>
+  </g>
+  <g
+     id="n850"
+     transform="translate(282.50409,1.5012241)">
+    <rect
+       id="CodeSystem.concept"
+       x="397.20001"
+       y="158"
+       rx="4"
+       ry="4"
+       width="114.4"
+       height="78"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n851"
+       x1="397.20001"
+       y1="186"
+       x2="511.60001"
+       y2="186"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n852"
+       x="454.39999"
+       y="178"
+       class="diagram-class-title"
+       style="fill:#000000">ConceptDefinition</text>
+    <text
+       id="n853"
+       x="403.20001"
+       y="200"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.code"
+   id="n854"><title
+   id="title199">A code - a text symbol - that uniquely identifies the concept within the code system</title>
+
+
+code</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n855">code</a>
+
+ [1..1]</text>
+    <text
+       id="n859"
+       x="403.20001"
+       y="214"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.display"
+   id="n860"><title
+   id="title204">A human readable string that is the recommended default way to present this concept to a user</title>
+
+
+display</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n861">string</a>
+
+ [0..1]</text>
+    <text
+       id="n865"
+       x="403.20001"
+       y="228"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.definition"
+   id="n866"><title
+   id="title209">The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept</title>
+
+
+definition</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n867">string</a>
+
+ [0..1]</text>
+  </g>
+  <g
+     id="n871"
+     transform="translate(292.98147,31.859392)">
+    <rect
+       id="CodeSystem.concept.designation"
+       x="359.79999"
+       y="0"
+       rx="4"
+       ry="4"
+       width="189.2"
+       height="78"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n872"
+       x1="359.79999"
+       y1="28"
+       x2="549"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n873"
+       x="454.39999"
+       y="20"
+       class="diagram-class-title"
+       style="fill:#000000">Designation</text>
+    <text
+       id="n874"
+       x="365.79999"
+       y="42"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.designation.language"
+   id="n875"><title
+   id="title218">The language this designation is defined for</title>
+
+
+language</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n876">code</a>
+
+ [0..1] « <a
+   xlink:href="valueset-languages.html"
+   id="n877"><title
+   id="n878">A human language. (Strength=Extensible)</title>
+
+
+Common Languages</a>
+
++ »</text>
+    <text
+       id="n884"
+       x="365.79999"
+       y="56"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.designation.use"
+   id="n885"><title
+   id="title225">A code that details how this designation would be used</title>
+
+
+use</a>
+
+ : <a
+   xlink:href="datatypes.html#Coding"
+   id="n886">Coding</a>
+
+ [0..1] « <a
+   xlink:href="valueset-designation-use.html"
+   id="n887"><title
+   id="n888">Details of how a designation would be used. (Strength=Extensible)</title>
+
+
+Designation Use</a>
+
++ »</text>
+    <text
+       id="n894"
+       x="365.79999"
+       y="70"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.designation.value"
+   id="n895"><title
+   id="title232">The text value for this designation</title>
+
+
+value</a>
+
+ : <a
+   xlink:href="datatypes.html#string"
+   id="n896">string</a>
+
+ [1..1]</text>
+  </g>
+  <g
+     id="n900"
+     transform="translate(214.27003,38.731026)">
+    <rect
+       id="CodeSystem.concept.property"
+       x="400"
+       y="278"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="78"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+    <line
+       id="n901"
+       x1="400"
+       y1="306"
+       x2="703.59998"
+       y2="306"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n902"
+       x="551.79999"
+       y="298"
+       class="diagram-class-title"
+       style="fill:#000000">ConceptProperty</text>
+    <text
+       id="n903"
+       x="406"
+       y="320"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.property.code"
+   id="n904"><title
+   id="title241">A code that is a reference to CodeSystem.property.code</title>
+
+
+code</a>
+
+ : <a
+   xlink:href="datatypes.html#code"
+   id="n905">code</a>
+
+ [1..1]</text>
+    <text
+       id="n909"
+       x="406"
+       y="334"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="codesystem-definitions.html#CodeSystem.concept.property.value_x_"
+   id="n910"><title
+   id="title246">The value of this property</title>
+
+
+value[x]</a>
+
+ : <a
+   xlink:href="formats.html#umlchoice"
+   id="n911">Type</a>
+
+ [1..1] « <a
+   xlink:href="datatypes.html#code"
+   id="n912">code</a>
+
+|<a
+   xlink:href="datatypes.html#Coding"
+   id="n913">Coding</a>
+
+|<a
+   xlink:href="datatypes.html#string"
+   id="n914">string</a>
+
+|<a
+   xlink:href="datatypes.html#integer"
+   id="n915">integer</a>
+
+|<a
+   xlink:href="datatypes.html#boolean"
+   id="n916">boolean</a>
+
+|<a
+   xlink:href="datatypes.html#dateTime"
+   id="n917">dateTime</a>
+
+|</text>
+    <text
+       id="n918"
+       x="426"
+       y="348"
+       class="diagram-class-detail"
+       style="fill:#000000"><a
+   xlink:href="datatypes.html#decimal"
+   id="n919">decimal</a>
+
+ »</text>
+  </g>
+  <line
+     id="n931"
+     x1="240.23445692883894"
+     y1="376.0"
+     x2="264.08164794007484"
+     y2="417.9999999999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n932"
+     points="240.23445692883894,376.0 246.23445692883894,380.0 252.23445692883894,376.0 246.23445692883894,372.0 240.23445692883894,376.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(60.41251157720657 240.23445692883894 376.0)" />
+  <rect
+     id="n933"
+     x="239.0"
+     y="389.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n934"
+     x="252.0"
+     y="399.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="codesystem-definitions.html#CodeSystem.filter"
+       id="n935"><title
+   id="title263">A filter that can be used in a value set compose statement when selecting concepts using a filter</title>
+
+
+filter</a>
+  </text>
+  <text
+     id="n936"
+     x="264.08164794007484"
+     y="413.9999999999999"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n937"
+     x1="277.20000000000005"
+     y1="306.3563829787234"
+     x2="418.69887640449446"
+     y2="418.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n938"
+     points="277.20000000000005,306.3563829787234 283.20000000000005,310.3563829787234 289.20000000000005,306.3563829787234 283.20000000000005,302.3563829787234 277.20000000000005,306.3563829787234"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(38.2736903678125 277.20000000000005 306.3563829787234)" />
+  <rect
+     id="n939"
+     x="329.5"
+     y="355.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n940"
+     x="347.0"
+     y="365.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="codesystem-definitions.html#CodeSystem.property"
+       id="n941"><title
+   id="title271">A property defines an additional slot through which additional information can be provided about a concept</title>
+
+
+property</a>
+  </text>
+  <text
+     id="n942"
+     x="418.69887640449446"
+     y="414.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n943"
+     x1="454.40000000000003"
+     y1="158.0"
+     x2="454.40000000000003"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n944"
+     points="454.40000000000003,158.0 460.40000000000003,162.0 466.40000000000003,158.0 460.40000000000003,154.0 454.40000000000003,158.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-90.0 454.40000000000003 158.0)" />
+  <rect
+     id="n945"
+     x="430.0"
+     y="111.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n946"
+     x="454.0"
+     y="121.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="codesystem-definitions.html#CodeSystem.concept.designation"
+       id="n947"><title
+   id="title279">Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc</title>
+
+
+designation</a>
+  </text>
+  <text
+     id="n948"
+     x="454.40000000000003"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n949"
+     x1="486.055"
+     y1="235.99999999999994"
+     x2="520.1450000000001"
+     y2="278.00000000000006"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n950"
+     points="486.055,235.99999999999994 492.055,239.99999999999994 498.055,235.99999999999994 492.055,231.99999999999994 486.055,235.99999999999994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(50.93491308022433 486.055 235.99999999999994)" />
+  <rect
+     id="n951"
+     x="485.5"
+     y="250.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n952"
+     x="503.0"
+     y="260.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="codesystem-definitions.html#CodeSystem.concept.property"
+       id="n953"><title
+   id="title287">A property value for this concept</title>
+
+
+property</a>
+  </text>
+  <text
+     id="n954"
+     x="520.1450000000001"
+     y="274.00000000000006"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n955"
+     x1="511.6"
+     y1="172.0"
+     x2="571.6"
+     y2="172.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n956"
+     x1="571.6"
+     y1="172.0"
+     x2="571.6"
+     y2="222.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n957"
+     x1="571.6"
+     y1="222.0"
+     x2="511.6"
+     y2="222.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n958"
+     points="511.6,172.0 517.6,176.0 523.6,172.0 517.6,168.0 511.6,172.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 511.6 172.0)" />
+  <rect
+     id="n959"
+     x="556.0"
+     y="190.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n960"
+     x="571.0"
+     y="200.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="codesystem-definitions.html#CodeSystem.concept.concept"
+       id="n961"><title
+   id="title297">Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning</title>
+
+
+concept</a>
+  </text>
+  <text
+     id="n962"
+     x="526.6"
+     y="218.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n963"
+     x1="277.20000000000005"
+     y1="197.0"
+     x2="397.20000000000005"
+     y2="197.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n964"
+     points="277.20000000000005,197.0 283.20000000000005,201.0 289.20000000000005,197.0 283.20000000000005,193.0 277.20000000000005,197.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 277.20000000000005 197.0)" />
+  <rect
+     id="n965"
+     x="322.0"
+     y="190.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n966"
+     x="337.0"
+     y="200.0"
+     fill="black"
+     class="diagram-class-linkage">
+    <a
+       xlink:href="codesystem-definitions.html#CodeSystem.concept"
+       id="n967"><title
+   id="title305">Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are</title>
+
+
+concept</a>
+  </text>
+  <text
+     id="n968"
+     x="377.20000000000005"
+     y="193.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

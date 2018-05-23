@@ -1726,9 +1726,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (!f.exists()) {
       errors.add("Unable to find " + purpose + " file " + file + " in " + dir);
       return false;
-    } else if (category != null && !file.endsWith(".sheet.txt")) {
+    } else if (category != null) {
       long d = f.lastModified();
-      if (!dates.containsKey(category) || d > dates.get(category))
+      if ((!dates.containsKey(category) || d > dates.get(category)) && !file.endsWith(".gen.svg"))
         dates.put(category, d);
       return true;
     } else
@@ -4019,8 +4019,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappingsList = mgen.getMappingsList();
 
     if (!logicalOnly) {
-      SvgGenerator svg = new SvgGenerator(page, "");
+      SvgGenerator svg = new SvgGenerator(page, "", resource.getLayout());
       svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
+      svg.generate(resource, Utilities.path(page.getFolders().srcDir, n, n + ".gen.svg"), "1");
   
       String prefix = page.getBreadCrumbManager().getIndexPrefixForReference(resource.getName());
       SectionTracker st = new SectionTracker(prefix, false);
@@ -5258,7 +5259,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappings = mgen.getMappings();
     String mappingsList = mgen.getMappingsList();
 
-    SvgGenerator svg = new SvgGenerator(page, "");
+    SvgGenerator svg = new SvgGenerator(page, "", lm.getLayout());
     String fn = ig.getPrefix()+n;
     if (lm.hasResource())
       svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");

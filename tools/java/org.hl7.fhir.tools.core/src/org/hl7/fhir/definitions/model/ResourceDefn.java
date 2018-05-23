@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
@@ -39,6 +40,23 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 
 public class ResourceDefn  {
+
+  public static class PointSpec {
+    private double x;
+    private double y;
+     public PointSpec(double x, double y) {
+      super();
+      this.x = x;
+      this.y = y;
+    }
+    public double getX() {
+      return x;
+    }
+    public double getY() {
+      return y;
+    }
+    
+  }
 
   public class StringPair {
     public String name;
@@ -67,6 +85,7 @@ public class ResourceDefn  {
   private String display;
   private ElementDefn template;
   private List<String> hints = new ArrayList<String>();
+  private Map<String, PointSpec> layout = new HashMap<String, PointSpec>();
   
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
 
@@ -321,6 +340,10 @@ public class ResourceDefn  {
 
   public List<String> getHints() {
     return hints;
+  }
+
+  public Map<String, PointSpec> getLayout() {
+    return layout;
   }
   
   

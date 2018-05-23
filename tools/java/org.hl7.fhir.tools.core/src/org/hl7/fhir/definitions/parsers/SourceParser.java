@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URI;
 import java.util.ArrayList;
@@ -75,6 +76,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
@@ -465,6 +467,9 @@ public class SourceParser {
       lm.getResource().setFmmLevel("1");
     lm.getResource().setStatus(StandardsStatus.INFORMATIVE);
     errors.addAll(sparser.getErrors());
+    File f = new File(Utilities.path(srcDir, n, n+".svg"));
+    if (f.exists()) 
+      parseSvgFile(f, lm.getLayout(), f.getName());
     return lm;
   }
 
@@ -1092,8 +1097,57 @@ public class SourceParser {
     }
     if (root.getNormativePackage() != null)
       root.setStatus(StandardsStatus.NORMATIVE);
+    File f = new File(Utilities.path(srcDir, folder, n+".svg"));
+    if (f.exists()) 
+      parseSvgFile(f, root.getLayout(), f.getName());
     return root;
   }
+
+  private void parseSvgFile(File f, Map<String, PointSpec> layout, String name) throws FileNotFoundException, FHIRException {
+    Document svg = parseXml(new FileInputStream(f), name);
+    readElement(svg.getDocumentElement(), null, layout);
+  }
+
+  private void readElement(Element e, Element p, Map<String, PointSpec> layout) {
+    if (e.getNodeName().equals("rect")) {
+      String id = e.getAttribute("id");
+      if (!Utilities.noString(id) && Character.isUpperCase(id.charAt(0))) {
+        double x = Double.valueOf(e.getAttribute("x"));
+        double y = Double.valueOf(e.getAttribute("y"));
+        if (p.hasAttribute("transform")) {
+          String s = p.getAttribute("transform");
+          if (s.startsWith("translate(")) {
+            String[] sp = s.substring(10, s.length()-1).split("\\,");
+            double tx = Double.valueOf(sp[0]);
+            double ty = Double.valueOf(sp[1]);
+            x = x + tx;
+            y = y + ty;
+          }
+        }
+        layout.put(id, new PointSpec(x, y));
+      }
+    }
+    Element c = XMLUtil.getFirstChild(e);
+    while (c != null) {
+      readElement(c, e, layout);
+      c = XMLUtil.getNextSibling(c);
+    }
+  }
+
+
+
+
+  private Document parseXml(InputStream in, String name) throws FHIRException  {
+    try {
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      return builder.parse(in);
+    } catch (Exception e) {
+      throw new FHIRException("Error processing "+name+": "+e.getMessage(), e);
+    }
+  }
+
 
   private void processEvent(EventDefn defn, ElementDefn root)
       throws Exception {
@@ -1121,7 +1175,7 @@ public class SourceParser {
       return false;
     } else  {
       long d = f.lastModified();
-      if (!file.endsWith(".sheet.txt") && (!dates.containsKey(category) || d > dates.get(category)))
+      if (!file.endsWith(".svg.gen") && (!dates.containsKey(category) || d > dates.get(category)))
         dates.put(category, d);
       return true;
     }
