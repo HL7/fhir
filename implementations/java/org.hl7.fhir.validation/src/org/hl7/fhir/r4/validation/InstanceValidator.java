@@ -1575,9 +1575,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     if (pol.checkExists()) {
       if (we == null) {
-        if (fetcher == null)
-          throw new FHIRException("Resource resolution services not provided");
-        we = fetcher.fetch(hostContext.appContext, ref);
+        if (fetcher == null) {
+          if (!refType.equals("contained"))
+            throw new FHIRException("Resource resolution services not provided");
+        } else {
+          we = fetcher.fetch(hostContext.appContext, ref);
+        }
       }
       rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, we != null, "Unable to resolve resource '"+ref+"'");
     }
@@ -3618,7 +3621,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     // all observations should have a subject, a performer, and a time
 
     bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("subject") != null, "All observations should have a subject");
-    bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("performer") != null, "All observations should have a performer");
+	  List<Element> performers = new ArrayList<>();
+	  element.getNamedChildren("performer", performers);
+	  bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), performers.size() > 0, "All observations should have a performer");
     bpCheck(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), element.getNamedChild("effectiveDateTime") != null || element.getNamedChild("effectivePeriod") != null,
         "All observations should have an effectiveDateTime or an effectivePeriod");
   }
