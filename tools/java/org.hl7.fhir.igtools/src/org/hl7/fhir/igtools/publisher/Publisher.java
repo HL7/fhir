@@ -1234,17 +1234,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private SpecificationPackage loadCorePackage() throws Exception {
     NpmPackage pi = null;
     
-    if (Utilities.noString(igPack))
+    if (Utilities.noString(igPack)) {
       pi = pcm.loadPackageCache("hl7.fhir.core", version);
-    else
+      if (pi == null && version.equals(Constants.VERSION))
+          pi = pcm.loadPackageCache("hl7.fhir.core", "current");
+    } else
       pi = pcm.extractLocally(igPack);
     if (pi == null) {
       String url = getMasterSource();
       InputStream src = fetchFromSource("hl7.fhir.core-"+version, url);
-      if (!version.equals(Constants.VERSION)) 
-        pi = pcm.addPackageToCache("hl7.fhir.core", version, src);
+      if (version.equals(Constants.VERSION)) 
+        pi = pcm.addPackageToCache("hl7.fhir.core", "current", src);
       else
-        pi = pcm.extractLocally(src);
+        pi = pcm.addPackageToCache("hl7.fhir.core", version, src);
     }
     log("Load hl7.fhir.core-"+version+" package from "+pi.description());
     return loadPack(pi);
@@ -1320,7 +1322,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           throw new Exception("Unknown Package "+packageId+"-"+version);
       }
     }
-    log("Load "+name+" ("+canonical+") from "+packageId+"-"+version);
+    log("Load "+name+" ("+canonical+") from "+packageId+"-"+igver);
     
 
     SpecMapManager igm = new SpecMapManager(TextFile.streamToBytes(pi.load("other", "spec.internals")), pi.getNpm().getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString());

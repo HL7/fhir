@@ -245,19 +245,24 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	}
 
   private void loadFromFileJson(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
-    Bundle f;
+    Bundle f = null;
     try {
       if (loader != null)
         f = loader.loadBundle(stream, true);
       else {
         JsonParser json = new JsonParser();
-        f = (Bundle) json.parse(stream);
+        Resource r = json.parse(stream);
+        if (r instanceof Bundle)
+          f = (Bundle) r;
+        else
+          cacheResource(r);
       }
     } catch (FHIRFormatError e1) {
       throw new org.hl7.fhir.exceptions.FHIRFormatError(e1.getMessage(), e1);
     }
-    for (BundleEntryComponent e : f.getEntry()) {
-      cacheResource(e.getResource());
+    if (f != null)
+      for (BundleEntryComponent e : f.getEntry()) {
+        cacheResource(e.getResource());
     }
   }
 

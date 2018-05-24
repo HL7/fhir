@@ -307,7 +307,7 @@ public class PackageCacheManager {
     ini.setIntegerProperty("Packages", "analysis", ANALYSIS_VERSION, null);
     ini.save();
     if (progress )
-      System.out.print(" done.");
+      System.out.println(" done.");
     return loadPackageInfo(packRoot);
   }
 
@@ -324,24 +324,26 @@ public class PackageCacheManager {
           System.out.print("  ");
           c = 2;
         }
-      }      
-      try {
-        JsonObject j = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f));
-        if (!Utilities.noString(j.get("url").getAsString()) && !Utilities.noString(j.get("resourceType").getAsString())) 
-          canonicals.put(j.get("url").getAsString(), f.getName());
-        if ("StructureDefinition".equals(j.get("resourceType").getAsString()) && "resource".equals(j.get("kind").getAsString())) {
-          String bd = null;
-          if ("1.0.2".equals(v)) 
-            bd = j.get("constrainedType").getAsString();
-          else
-            bd = j.get("type").getAsString();
-        if (Utilities.noString(bd))
-            bd = j.get("name").getAsString();
-        if (!"Extension".equals(bd))
-          profiles.put(j.get("url").getAsString(), bd);
+      }    
+      if (!f.getName().startsWith("Bundle-")) {
+        try {
+          JsonObject j = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(f));
+          if (!Utilities.noString(j.get("url").getAsString()) && !Utilities.noString(j.get("resourceType").getAsString())) 
+            canonicals.put(j.get("url").getAsString(), f.getName());
+          if ("StructureDefinition".equals(j.get("resourceType").getAsString()) && "resource".equals(j.get("kind").getAsString())) {
+            String bd = null;
+            if ("1.0.2".equals(v)) 
+              bd = j.get("constrainedType").getAsString();
+            else
+              bd = j.get("type").getAsString();
+            if (Utilities.noString(bd))
+              bd = j.get("name").getAsString();
+            if (!"Extension".equals(bd))
+              profiles.put(j.get("url").getAsString(), bd);
+          }
+        } catch (Exception e) {
+          // nothing
         }
-      } catch (Exception e) {
-        // nothing
       }
     }
   }
@@ -389,7 +391,7 @@ public class PackageCacheManager {
   public String buildPath(String url) {
     for (JsonElement e : buildInfo) {
       JsonObject j = (JsonObject) e;
-      if (url.equals(j.get("url").getAsString())) {
+      if (j.has("url") && url.equals(j.get("url").getAsString())) {
         return "https://build.fhir.org/ig/"+j.get("repo").getAsString();
       }
     }
@@ -408,8 +410,12 @@ public class PackageCacheManager {
     if (p != null)
       return p;
 
-    if ("dev".equals(v))
-      return loadPackageCache(id, "current");
+    if ("dev".equals(v)) {
+      p = loadPackageCache(id, "current");
+      if (p != null)
+        return p;
+      v = "current";
+    }
 
     String url = getPackageUrl(id);
     if (url == null)
@@ -436,12 +442,9 @@ public class PackageCacheManager {
         JsonObject vo = (JsonObject) e;
         if (v.equals(vo.get("version").getAsString())) {
           InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"), true);
-          if (stream == null && isBuildLoaded() && !id.equals("hl7.fhir.core")) { 
-            stream = fetchFromUrlSpecific(Utilities.pathURL(buildPath(url), "package.tgz"), true);
-          }
-          if (stream != null)
-            return addPackageToCache(id, v, stream);
-          throw new FHIRException("Unable to find the package source for '"+id+"' at "+url);
+          if (stream == null)
+            throw new FHIRException("Unable to find the package source for '"+id+"-"+v+"' at "+Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"));
+          return addPackageToCache(id, v, stream);
         }
       }
       throw new FHIRException("Unable to resolve version "+v+" for package "+id);
