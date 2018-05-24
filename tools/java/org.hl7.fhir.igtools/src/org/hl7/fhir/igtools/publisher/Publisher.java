@@ -1312,7 +1312,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     NpmPackage pi = packageId == null ? null : pcm.loadPackageCache(packageId, igver);
     if (pi == null) {
-      pi = resolveDependency(canonical, igver);
+      pi = resolveDependency(canonical, packageId, igver);
       if (pi == null) {
         if (Utilities.noString(packageId))
           throw new Exception("Package Id for guide at "+canonical+" is unknown (contact FHIR Product Director");
@@ -1371,25 +1371,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  private NpmPackage resolveDependency(String canonical, String igver) {
+  private NpmPackage resolveDependency(String canonical, String packageId, String igver) throws Exception {
+    if (packageId != null) 
+      return pcm.resolvePackage(packageId, igver);
+    
     JsonObject pl;
-    try {
-      System.out.println("Fetch Package history from "+Utilities.pathURL(canonical, "package-list.json"));
-      pl = fetchJson(Utilities.pathURL(canonical, "package-list.json"));
-      if (!canonical.equals(pl.get("canonical").getAsString()))
-        throw new Exception("Canonical mismatch fetching package list for "+igver);
-      for (JsonElement e : pl.getAsJsonArray("list")) {
-        JsonObject o = (JsonObject) e;
-        if (igver.equals(o.get("version").getAsString())) {
-          InputStream src = fetchFromSource(pl.get("package-id").getAsString()+"-"+igver, Utilities.pathURL(o.get("path").getAsString(), "package.tgz"));
-          return pcm.addPackageToCache(pl.get("package-id").getAsString(), igver, src);
-        }
+    System.out.println("Fetch Package history from "+Utilities.pathURL(canonical, "package-list.json"));
+    pl = fetchJson(Utilities.pathURL(canonical, "package-list.json"));
+    if (!canonical.equals(pl.get("canonical").getAsString()))
+      throw new Exception("Canonical mismatch fetching package list for "+igver);
+    for (JsonElement e : pl.getAsJsonArray("list")) {
+      JsonObject o = (JsonObject) e;
+      if (igver.equals(o.get("version").getAsString())) {
+        InputStream src = fetchFromSource(pl.get("package-id").getAsString()+"-"+igver, Utilities.pathURL(o.get("path").getAsString(), "package.tgz"));
+        return pcm.addPackageToCache(pl.get("package-id").getAsString(), igver, src);
       }
-      return null;
-    } catch (Exception e1) {
-      e1.printStackTrace();
-      return null;
     }
+    return null;
   }
 
   private JsonObject fetchJson(String source) throws IOException {
@@ -1594,7 +1592,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     
-    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
+    npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }
@@ -2546,6 +2544,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     forceDir(Utilities.path(tempDir, "data"));
 
     otherFilesRun.clear();
+    otherFilesRun.add(Utilities.path(outputDir, "package.tgz"));
     for (String rg : regenList)
       regenerate(rg);
 
@@ -2562,24 +2561,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ValidationPresenter.filterMessages(errors, suppressedMessages, false);
     if (!changeList.isEmpty())
       generateSummaryOutputs();
-
-    npm.finish();
-    if (mode == null || mode == IGBuildMode.MANUAL) {
-      if (cacheVersion)
-        pcm.addPackageToCache(publishedIg.getPackageId(), publishedIg.getVersion(), new FileInputStream(npm.filename()));
-      else
-        pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));        
-    }
     
-    otherFilesRun.add(Utilities.path(tempDir, "package.tgz"));
     cleanOutput(tempDir);
-    templateAfterGenerate();
-
-    if (runTool())
-      if (!changeList.isEmpty())
-        generateZips();
-
     
+    templateAfterGenerate();
+    if (runTool()) {
+
+      if (!changeList.isEmpty()) {
+        File df = makeSpecFile();
+        npm.addFile(Category.OTHER, "spec.internals", TextFile.fileToBytes(df.getAbsolutePath()));
+        npm.finish();
+        if (mode == null || mode == IGBuildMode.MANUAL) {
+          if (cacheVersion)
+            pcm.addPackageToCache(publishedIg.getPackageId(), publishedIg.getVersion(), new FileInputStream(npm.filename()));
+          else
+            pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));        
+        }
+        generateZips(df);
+      }
+    }
     log("Checking Output HTML");
     List<ValidationMessage> linkmsgs = inspector.check();
     ValidationPresenter.filterMessages(linkmsgs, suppressedMessages, true);
@@ -2720,7 +2720,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return false;
   }
 
-  private void generateZips() throws Exception {
+  private File makeSpecFile() throws Exception {
     SpecMapManager map = new SpecMapManager(configuration.has("npm-name") ? configuration.get("npm-name").getAsString(): null, version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
@@ -2747,6 +2747,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     File df = File.createTempFile("fhir", "tmp");
     df.deleteOnExit();
     map.save(df.getCanonicalPath());
+    return df;
+  }
+  private void generateZips(File df) throws Exception {
+
     if (generateExampleZip(FhirFormat.XML))
       generateDefinitions(FhirFormat.XML, df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.JSON))

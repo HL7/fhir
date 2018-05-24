@@ -205,7 +205,10 @@ public class PackageCacheManager {
         return loadPackageInfo(Utilities.path(cacheFolder, f)); 
       }
     }
-    return null;
+    if ("dev".equals(version))
+      return loadPackageCache(id, "current");
+    else
+      return null;
   }
   
   private NpmPackage loadPackageInfo(String path) throws IOException {
@@ -216,7 +219,7 @@ public class PackageCacheManager {
   public NpmPackage addPackageToCache(String id, String version, InputStream tgz) throws IOException {
     if (progress ) {
       System.out.println("Installing "+id+"-"+(version == null ? "?" : version)+" to the package cache");
-      System.out.print("  Downloading:");
+      System.out.print("  Fetching:");
     }
     List<PackageEntry> files = new ArrayList<PackageEntry>();
     byte[] npmb = null;
@@ -227,7 +230,7 @@ public class PackageCacheManager {
       TarArchiveEntry entry;
 
       int i = 0;
-      int c = 14;
+      int c = 12;
       while ((entry = (TarArchiveEntry) tarIn.getNextEntry()) != null) {
         i++;
         if (progress && i % 20 == 0) {
@@ -401,6 +404,13 @@ public class PackageCacheManager {
   }
   
   public NpmPackage resolvePackage(String id, String v) throws FHIRException, IOException {
+    NpmPackage p = loadPackageCache(id, v);
+    if (p != null)
+      return p;
+
+    if ("dev".equals(v))
+      return loadPackageCache(id, "current");
+
     String url = getPackageUrl(id);
     if (url == null)
       throw new FHIRException("Unable to resolve the package '"+id+"'");
