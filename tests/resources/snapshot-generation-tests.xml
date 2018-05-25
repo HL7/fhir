@@ -35,6 +35,7 @@
  29. Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)
  30. Profile and derived profile both slice a backbone element
  31. Propagate extensions from differential to snapshot
+ 32. Disappearing slicing
 -->
   <contained>
     <StructureDefinition>
@@ -1526,6 +1527,47 @@
       </differential>
     </StructureDefinition>
   </contained>
+  <contained>
+    <StructureDefinition>
+      <id value="t32"/>
+      <url value="urn:uuid:d4cbb68a-8c76-43a8-b0f1-854d24f881dc"/>
+      <name value="t32"/>
+      <status value="draft"/>
+      <description value="fixture for #32: Test disappearing slice definition"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="Questionnaire"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Questionnaire">
+          <path value="Questionnaire"/>
+        </element>
+        <element id="Questionnaire.item">
+          <path value="Questionnaire.item"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="linkId"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+        <element id="Questionnaire.item.linkId">
+          <path value="Questionnaire.item.linkId"/>
+          <mustSupport value="true"/>
+        </element>
+        <element id="Questionnaire.item:record-type">
+          <path value="Questionnaire.item"/>
+          <sliceName value="record-type"/>
+        </element>
+        <element id="Questionnaire.item:record-type.linkId">
+          <path value="Questionnaire.item.linkId"/>
+          <fixedString value="record-type"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
   <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
   <title value="Snapshot generation test script"/>
@@ -2672,7 +2714,7 @@
       </assert>
     </action>
   </test>
-<!--  <test>
+  <!--  <test>
     <name value="Test20"/>
     <description value="Slicing a backbone element"/>
     <action>
@@ -3092,4 +3134,30 @@
       </assert>
     </action>
   </test>
+<!--  <test>
+    <name value="Test32"/>
+    <description value="Test disappearing slicing"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <encodeRequestUrl value="false"/>
+        <params value="sort=true"/>
+        <responseId value="t32o"/>
+        <sourceId value="t32"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test32"/>
+        <description value="Snapshot Questionnaire.item element has slicing'"/>
+        <direction value="response"/>
+        <expression value="fixture('t32o').snapshot.element.where(id = 'Questionnaire.item').slicing.count().trace('t32o item slicing count')=1"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+  </test>-->
 </TestScript>
