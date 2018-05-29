@@ -511,6 +511,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     clean();
     ValidationPresenter val = new ValidationPresenter(version, igpkp);
     log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+    log("Checking on package: the file "+Utilities.path(outputDir, "package.trgz")+" exists = "+(new File(Utilities.path(outputDir, "package.trgz")).exists()));
     recordOutcome(null, val);
   }
 
@@ -1539,10 +1540,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       altMap.get(IG_NAME).getResources().get(0).setResource(sourceIg);
     }
 
+    if (!configuration.has("npm-name"))
+      throw new Exception("A package name (npm-name) is required to pubish implementation guides. For further information, see http://wiki.hl7.org/index.php?title=FHIR_NPM_Package_Spec#Package_name");
     publishedIg = sourceIg.copy();
     if (!publishedIg.hasLicense())
       publishedIg.setLicense(licenseAsEnum());
-    if (!publishedIg.hasPackageId() && configuration.has("npm-name"))
+    if (!publishedIg.hasPackageId())
       publishedIg.setPackageId(configuration.get("npm-name").getAsString());
     if (!publishedIg.hasFhirVersion())
       publishedIg.setFhirVersion(version);
@@ -4367,7 +4370,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       System.out.println("To use this publisher to publish a FHIR Implementation Guide, run ");
       System.out.println("with the commands");
       System.out.println("");
-      System.out.println("-spec [igpack.zip] -ig [source] -tx [url] -watch");
+      System.out.println("-spec [igpack.zip] -ig [source] -tx [url] -packages [path] -watch");
       System.out.println("");
       System.out.println("-spec: a path or a url where the igpack for the version of the core FHIR");
       System.out.println("  specification used by the ig being published is located.  If not specified");
@@ -4380,6 +4383,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       System.out.println("-watch (optional): if this is present, the publisher will not terminate;");
       System.out.println("  instead, it will stay running, an watch for changes to the IG or its ");
       System.out.println("  contents and re-run when it sees changes ");
+      System.out.println("");
+      System.out.println("-packages: a directory to load packages (*.tgz) from before resolving dependencies");
+      System.out.println("           this parameter can be present multiple times");
       System.out.println("");
       System.out.println("The most important output from the publisher is qa.html");
       System.out.println("");

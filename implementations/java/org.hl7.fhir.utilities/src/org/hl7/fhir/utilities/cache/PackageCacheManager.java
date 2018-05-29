@@ -85,6 +85,7 @@ public class PackageCacheManager {
   private boolean buildLoaded;
   private JsonArray buildInfo;
   private boolean progress = true;
+  private List<NpmPackage> temporaryPackages = new ArrayList<NpmPackage>();
   
   public PackageCacheManager(boolean userMode) throws IOException {
     if (userMode)
@@ -222,52 +223,22 @@ public class PackageCacheManager {
       System.out.print("  Fetching:");
     }
     List<PackageEntry> files = new ArrayList<PackageEntry>();
-    byte[] npmb = null;
     
-    long size = 0;
-    GzipCompressorInputStream gzipIn = new GzipCompressorInputStream(tgz);
-    try (TarArchiveInputStream tarIn = new TarArchiveInputStream(gzipIn)) {
-      TarArchiveEntry entry;
+    long size = unPackage(tgz, files);  
 
-      int i = 0;
-      int c = 12;
-      while ((entry = (TarArchiveEntry) tarIn.getNextEntry()) != null) {
-        i++;
-        if (progress && i % 20 == 0) {
-          c++;
-          System.out.print(".");
-          if (c == 120) {
-            System.out.println("");
-            System.out.print("  ");
-            c = 2;
-          }
-        }
-        if (entry.isDirectory()) {
-          files.add(new PackageEntry(entry.getName()));
-        } else {
-          int count;
-          byte data[] = new byte[BUFFER_SIZE];
-          
-          ByteArrayOutputStream fos = new ByteArrayOutputStream();
-          try (BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFER_SIZE)) {
-            while ((count = tarIn.read(data, 0, BUFFER_SIZE)) != -1) {
-              dest.write(data, 0, count);
-            }
-          }
-          fos.close();
-          files.add(new PackageEntry(entry.getName(), fos.toByteArray()));
-          size = size + fos.size();
-          if (entry.getName().equals("package/package.json"))
-            npmb = fos.toByteArray();
-        }
-      }
-    }  
-
+    byte[] npmb = null;
+    for (PackageEntry e : files) {
+      if (e.name.equals("package/package.json"))
+        npmb = e.bytes;
+    }
+    if (npmb == null)
+      throw new IOException("Unable to find package/package.json in the package file");
+    
     if (progress )
       System.out.print("|");
     JsonObject npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(npmb));
-    if (!id.equals(npm.get("name").getAsString()))
-      throw new IOException("Attempt to import a mis-identified package");
+    if (npm.get("name") == null || id == null || !id.equals(npm.get("name").getAsString()))
+      throw new IOException("Attempt to import a mis-identified package "+id);
     if (version == null)
       version = npm.get("version").getAsString();
     
@@ -309,6 +280,47 @@ public class PackageCacheManager {
     if (progress )
       System.out.println(" done.");
     return loadPackageInfo(packRoot);
+  }
+
+
+  public long unPackage(InputStream tgz, List<PackageEntry> files) throws IOException {
+    long size = 0;
+    GzipCompressorInputStream gzipIn = new GzipCompressorInputStream(tgz);
+    try (TarArchiveInputStream tarIn = new TarArchiveInputStream(gzipIn)) {
+      TarArchiveEntry entry;
+
+      int i = 0;
+      int c = 12;
+      while ((entry = (TarArchiveEntry) tarIn.getNextEntry()) != null) {
+        i++;
+        if (progress && i % 20 == 0) {
+          c++;
+          System.out.print(".");
+          if (c == 120) {
+            System.out.println("");
+            System.out.print("  ");
+            c = 2;
+          }
+        }
+        if (entry.isDirectory()) {
+          files.add(new PackageEntry(entry.getName()));
+        } else {
+          int count;
+          byte data[] = new byte[BUFFER_SIZE];
+          
+          ByteArrayOutputStream fos = new ByteArrayOutputStream();
+          try (BufferedOutputStream dest = new BufferedOutputStream(fos, BUFFER_SIZE)) {
+            while ((count = tarIn.read(data, 0, BUFFER_SIZE)) != -1) {
+              dest.write(data, 0, count);
+            }
+          }
+          fos.close();
+          files.add(new PackageEntry(entry.getName(), fos.toByteArray()));
+          size = size + fos.size();
+        }
+      }
+    }
+    return size;
   }
 
   private void analysePackage(String dir, String v, Map<String, String> profiles, Map<String, String> canonicals) throws IOException {
