@@ -59,6 +59,7 @@ public class NPMPackageGenerator {
   
   public NPMPackageGenerator(String destFile, String canonical, PackageType kind, ImplementationGuide ig) throws FHIRException, IOException {
     super();
+    System.out.println("create package file at "+destFile);
     this.destFile = destFile;
     this.ig = ig;
     start();
