@@ -1,6 +1,7 @@
 package org.hl7.fhir.r4.utils;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,6 +21,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
 
@@ -53,7 +55,7 @@ public class NPMPackageGenerator {
   private ImplementationGuide ig;
   private Set<String> created = new HashSet<String>();
   private TarArchiveOutputStream tar;
-  private FileOutputStream fileOutputStream;
+  private ByteArrayOutputStream OutputStream;
   private BufferedOutputStream bufferedOutputStream;
   private GzipCompressorOutputStream gzipOutputStream;
   
@@ -147,8 +149,8 @@ public class NPMPackageGenerator {
   }
 
   private void start() throws IOException {
-    fileOutputStream = new FileOutputStream(destFile);
-    bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
+    OutputStream = new ByteArrayOutputStream();
+    bufferedOutputStream = new BufferedOutputStream(OutputStream);
     gzipOutputStream = new GzipCompressorOutputStream(bufferedOutputStream);
     tar = new TarArchiveOutputStream(gzipOutputStream);
   }
@@ -173,7 +175,8 @@ public class NPMPackageGenerator {
     tar.close();
     gzipOutputStream.close();
     bufferedOutputStream.close();
-    fileOutputStream.close();
+    OutputStream.close();
+    TextFile.bytesToFile(OutputStream.toByteArray(), destFile);
   }
 
   public String filename() {

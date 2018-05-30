@@ -492,19 +492,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   public void createIg() throws Exception, IOException, EOperationOutcome, FHIRException {
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     load();
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
 
     long startTime = System.nanoTime();
     log("Processing Conformance Resources");
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     loadConformance();
     log("Generating Narratives");
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     generateNarratives();
     log("Validating Resources");
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     try {
       validate();
     } catch (Exception ex){
@@ -1603,8 +1598,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     
-    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(tempDir, "package.tgz")).exists()));
+    npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }
@@ -2551,7 +2545,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generate() throws Exception {
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
     forceDir(Utilities.path(tempDir, "data"));
@@ -2575,31 +2568,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!changeList.isEmpty())
       generateSummaryOutputs();
     
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     cleanOutput(tempDir);
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     
     templateAfterGenerate();
-    log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
     if (runTool()) {
-      log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
 
       if (!changeList.isEmpty()) {
         File df = makeSpecFile();
         npm.addFile(Category.OTHER, "spec.internals", TextFile.fileToBytes(df.getAbsolutePath()));
-        log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
         npm.finish();
-        log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "tempDir.tgz")).exists()));
-        File src = new File(npm.filename());
-        File tgt = new File(Utilities.path(outputDir, "package.tgz"));
-        log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(tempDir, "package.tgz")).exists()));
-        log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
-        tgt.delete();
-        log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(tempDir, "package.tgz")).exists()));
-        log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
-        FileUtils.copyFile(src, tgt);
-        log("Checking on package: the file "+Utilities.path(tempDir, "package.tgz")+" exists = "+(new File(Utilities.path(tempDir, "package.tgz")).exists()));
-        log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
 
         if (mode == null || mode == IGBuildMode.MANUAL) {
           if (cacheVersion)
