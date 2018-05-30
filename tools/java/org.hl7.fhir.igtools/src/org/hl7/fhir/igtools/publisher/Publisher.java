@@ -17,6 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Files;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -1597,7 +1598,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     
-    npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
+    npm = new NPMPackageGenerator(Utilities.path(tempDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }
@@ -2576,6 +2577,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         File df = makeSpecFile();
         npm.addFile(Category.OTHER, "spec.internals", TextFile.fileToBytes(df.getAbsolutePath()));
         npm.finish();
+        File src = new File(npm.filename());
+        File tgt = new File(Utilities.path(outputDir, "package.tgz"));
+        tgt.delete();
+        FileUtils.copyFile(src, tgt);
+
         if (mode == null || mode == IGBuildMode.MANUAL) {
           if (cacheVersion)
             pcm.addPackageToCache(publishedIg.getPackageId(), publishedIg.getVersion(), new FileInputStream(npm.filename()));
