@@ -3241,24 +3241,17 @@ public class ProfileUtilities extends TranslatingUtilities {
       return;
     
     Map<String, String> idMap = new HashMap<String, String>();
-    List<String> idList = new ArrayList<String>();
+    Map<String, String> idList = new HashMap<String, String>();
     
-    List<String> paths = new ArrayList<String>();
     // first pass, update the element ids
     for (ElementDefinition ed : list) {
+      List<String> paths = new ArrayList<String>();
       if (!ed.hasPath())
         throw new DefinitionException("No path on element Definition "+Integer.toString(list.indexOf(ed))+" in "+name);
-      int depth = charCount(ed.getPath(), '.');
       String tail = tail(ed.getPath());
-
-      if (depth > paths.size()) {
-        // this means that we've jumped into a sparse thing. 
-        String[] pl = ed.getPath().split("\\.");
-        for (int i = paths.size(); i < pl.length-1; i++) // -1 because the last path is in focus
-          paths.add(pl[i]);
-      }
-      while (depth < paths.size() && paths.size() > 0)
-        paths.remove(paths.size() - 1);
+      String[] pl = ed.getPath().split("\\.");
+      for (int i = paths.size(); i < pl.length-1; i++) // -1 because the last path is in focus
+        paths.add(pl[i]);
       
       String t = ed.hasSliceName() ? tail+":"+checkName(ed.getSliceName()) : /* why do this? name != null ? tail + ":"+checkName(name) : */ tail;
 //      if (isExtension(ed))
@@ -3273,9 +3266,9 @@ public class ProfileUtilities extends TranslatingUtilities {
       String bs = b.toString();
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
       ed.setId(bs);
-      if (idList.contains(bs))
-        throw new DefinitionException("Same id on multiple elements "+bs+" in "+name);
-      idList.add(bs);
+      if (idList.containsKey(bs))
+        throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
+      idList.put(bs, ed.getPath());
       paths.add(t);
       if (ed.hasContentReference()) {
         String s = ed.getContentReference().substring(1);
