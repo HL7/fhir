@@ -318,7 +318,7 @@ public class NativeHostServices {
       if ("3.0".equals(version) || "3.0.1".equals(version) || "r3".equals(version)) {
         org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);
         org.hl7.fhir.dstu3.model.Resource res3 = p3.parse(r);
-        Resource res4 = VersionConvertor_30_40.convertResource(res3);
+        Resource res4 = VersionConvertor_30_40.convertResource(res3, false);
         org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
         convertCount++;
         return p4.composeBytes(res4);
@@ -363,7 +363,7 @@ public class NativeHostServices {
       if ("3.0".equals(version) || "3.0.1".equals(version) || "r3".equals(version)) {
         org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
         org.hl7.fhir.r4.model.Resource res4 = p4.parse(r);
-        org.hl7.fhir.dstu3.model.Resource res3 = VersionConvertor_30_40.convertResource(res4);
+        org.hl7.fhir.dstu3.model.Resource res3 = VersionConvertor_30_40.convertResource(res4, false);
         org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);
         unConvertCount++;
         return p3.composeBytes(res3);

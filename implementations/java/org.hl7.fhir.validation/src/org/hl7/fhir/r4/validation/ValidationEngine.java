@@ -367,7 +367,7 @@ public class ValidationEngine {
     File f = new File(src);
     if (f.exists()) {
       if (f.isDirectory() && new File(Utilities.path(src, "package.tgz")).exists())
-        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")));
+        return loadPackage(new FileInputStream(Utilities.path(src, "package.tgz")), Utilities.path(src, "package.tgz"));
       if (f.isDirectory() && new File(Utilities.path(src, "igpack.zip")).exists())
         return readZip(new FileInputStream(Utilities.path(src, "igpack.zip")));
       if (f.isDirectory() && new File(Utilities.path(src, "validator.pack")).exists())
@@ -375,7 +375,7 @@ public class ValidationEngine {
       if (f.isDirectory())
         return scanDirectory(f);
       if (src.endsWith("package.tgz"))
-        return loadPackage(new FileInputStream(src));
+        return loadPackage(new FileInputStream(src), src);
       if (src.endsWith("validator.pack"))
         return readZip(new FileInputStream(src));
       if (src.endsWith("igpack.zip"))
@@ -393,7 +393,7 @@ public class ValidationEngine {
   
   private Map<String, byte[]> fetchFromUrl(String src) throws Exception {
     if (src.endsWith("package.tgz"))
-      return loadPackage(fetchFromUrlSpecific(src, false));
+      return loadPackage(fetchFromUrlSpecific(src, false), src);
     if (src.endsWith("validator.pack"))
       return readZip(fetchFromUrlSpecific(src, false));
     if (src.endsWith("igpack.zip"))
@@ -401,7 +401,7 @@ public class ValidationEngine {
 
     InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(src, "package.tgz"), true);
     if (stream != null)
-      return loadPackage(stream);
+      return loadPackage(stream, Utilities.pathURL(src, "package.tgz"));
     stream = fetchFromUrlSpecific(Utilities.pathURL(src, "igpack.zip"), true);
     if (stream != null)
       return readZip(stream);
@@ -443,8 +443,8 @@ public class ValidationEngine {
   }
 
 
-  private Map<String, byte[]> loadPackage(InputStream stream) throws FileNotFoundException, IOException {
-    return loadPackage(pcm.extractLocally(stream));
+  private Map<String, byte[]> loadPackage(InputStream stream, String name) throws FileNotFoundException, IOException {
+    return loadPackage(pcm.extractLocally(stream, name));
   }
 
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
@@ -594,7 +594,7 @@ public class ValidationEngine {
               res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(new ByteArrayInputStream(t.getValue()));
             else
               throw new Exception("Unsupported format for "+fn);
-            r = VersionConvertor_30_40.convertResource(res);
+            r = VersionConvertor_30_40.convertResource(res, false);
           } else if (version.equals("1.4.0")) {
             org.hl7.fhir.dstu2016may.model.Resource res;
             if (fn.endsWith(".xml") && !fn.endsWith("template.xml"))

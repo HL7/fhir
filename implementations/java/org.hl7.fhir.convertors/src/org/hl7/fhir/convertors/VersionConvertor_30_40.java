@@ -2839,7 +2839,7 @@ public class VersionConvertor_30_40 {
     if (src.hasText())
       tgt.setText(convertNarrative(src.getText()));
     for (org.hl7.fhir.dstu3.model.Resource t1 : src.getContained())
-      tgt.addContained(convertResource(t1));
+      tgt.addContained(convertResource(t1, false));
     for (org.hl7.fhir.dstu3.model.Extension t2 : src.getExtension())
       tgt.addExtension(convertExtension(t2));
     for (org.hl7.fhir.dstu3.model.Extension t3 : src.getModifierExtension())
@@ -2850,7 +2850,7 @@ public class VersionConvertor_30_40 {
     if (src.hasText())
       tgt.setText(convertNarrative(src.getText()));
     for (org.hl7.fhir.r4.model.Resource t1 : src.getContained())
-      tgt.addContained(convertResource(t1));
+      tgt.addContained(convertResource(t1, false));
     for (org.hl7.fhir.r4.model.Extension t2 : src.getExtension())
       tgt.addExtension(convertExtension(t2));
     for (org.hl7.fhir.r4.model.Extension t3 : src.getModifierExtension())
@@ -2886,7 +2886,7 @@ public class VersionConvertor_30_40 {
     if (src.hasValue())
       tgt.setValue(convertType(src.getValue()));
     if (src.hasResource())
-      tgt.setResource(convertResource(src.getResource()));
+      tgt.setResource(convertResource(src.getResource(), false));
     for (org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent t : src.getPart())
       tgt.addPart(convertParametersParameterComponent(t));
     return tgt;
@@ -2902,7 +2902,7 @@ public class VersionConvertor_30_40 {
     if (src.hasValue())
       tgt.setValue(convertType(src.getValue()));
     if (src.hasResource())
-      tgt.setResource(convertResource(src.getResource()));
+      tgt.setResource(convertResource(src.getResource(), false));
     for (org.hl7.fhir.r4.model.Parameters.ParametersParameterComponent t : src.getPart())
       tgt.addPart(convertParametersParameterComponent(t));
     return tgt;
@@ -4505,7 +4505,7 @@ public class VersionConvertor_30_40 {
     if (src.hasFullUrl())
       tgt.setFullUrl(src.getFullUrl());
     if (src.hasResource())
-      tgt.setResource(convertResource(src.getResource()));
+      tgt.setResource(convertResource(src.getResource(), false));
     if (src.hasSearch())
       tgt.setSearch(convertBundleEntrySearchComponent(src.getSearch()));
     if (src.hasRequest())
@@ -4525,7 +4525,7 @@ public class VersionConvertor_30_40 {
     if (src.hasFullUrl())
       tgt.setFullUrl(src.getFullUrl());
     if (src.hasResource())
-      tgt.setResource(convertResource(src.getResource()));
+      tgt.setResource(convertResource(src.getResource(), false));
     if (src.hasSearch())
       tgt.setSearch(convertBundleEntrySearchComponent(src.getSearch()));
     if (src.hasRequest())
@@ -4659,7 +4659,7 @@ public class VersionConvertor_30_40 {
     if (src.hasLastModified())
       tgt.setLastModified(src.getLastModified());
     if (src.hasOutcome())
-      tgt.setOutcome(convertResource(src.getOutcome()));
+      tgt.setOutcome(convertResource(src.getOutcome(), false));
     return tgt;
   }
 
@@ -4677,7 +4677,7 @@ public class VersionConvertor_30_40 {
     if (src.hasLastModified())
       tgt.setLastModified(src.getLastModified());
     if (src.hasOutcome())
-      tgt.setOutcome(convertResource(src.getOutcome()));
+      tgt.setOutcome(convertResource(src.getOutcome(), false));
     return tgt;
   }
 
@@ -21874,7 +21874,7 @@ public class VersionConvertor_30_40 {
 
 
 
-  public static org.hl7.fhir.r4.model.Resource convertResource(org.hl7.fhir.dstu3.model.Resource src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.Resource convertResource(org.hl7.fhir.dstu3.model.Resource src, boolean nullOk) throws FHIRException {
     if (src == null)
       return null;
     if (src instanceof org.hl7.fhir.dstu3.model.Parameters)
@@ -22045,10 +22045,13 @@ public class VersionConvertor_30_40 {
       return convertValueSet((org.hl7.fhir.dstu3.model.ValueSet) src);
 //    if (src instanceof org.hl7.fhir.dstu3.model.VisionPrescription)
 //      return convertVisionPrescription((org.hl7.fhir.dstu3.model.VisionPrescription) src);
-    throw new Error("Unknown resource "+src.fhirType());
+    if (!nullOk) 
+      throw new Error("Unknown resource "+src.fhirType());
+    else
+      return null;
   }
 
-  public static org.hl7.fhir.dstu3.model.Resource convertResource(org.hl7.fhir.r4.model.Resource src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.Resource convertResource(org.hl7.fhir.r4.model.Resource src, boolean nullOk) throws FHIRException {
     if (src == null)
       return null;
     if (src instanceof org.hl7.fhir.r4.model.Parameters)
@@ -22219,7 +22222,10 @@ public class VersionConvertor_30_40 {
       return convertValueSet((org.hl7.fhir.r4.model.ValueSet) src);
 //    if (src instanceof org.hl7.fhir.r4.model.VisionPrescription)
 //      return convertVisionPrescription((org.hl7.fhir.r4.model.VisionPrescription) src);
-    throw new Error("Unknown resource "+src.fhirType());
+    if (!nullOk) 
+      throw new Error("Unknown resource "+src.fhirType());
+    else
+     return null;
   }
 
 

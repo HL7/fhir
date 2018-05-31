@@ -115,7 +115,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       if (Constants.VERSION.equals(v))
         sd = (StructureDefinition) new XmlParser().parse(new FileInputStream(filename));
       else if (org.hl7.fhir.dstu3.model.Constants.VERSION.equals(v))
-        sd = (StructureDefinition) VersionConvertor_30_40.convertResource(new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(filename)));
+        sd = (StructureDefinition) VersionConvertor_30_40.convertResource(new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(filename)), false);
       else if (org.hl7.fhir.dstu2016may.model.Constants.VERSION.equals(v))
         sd = (StructureDefinition) VersionConvertor_14_40.convertResource(new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(new FileInputStream(filename)));
       else if (org.hl7.fhir.dstu2.model.Constants.VERSION.equals(v))

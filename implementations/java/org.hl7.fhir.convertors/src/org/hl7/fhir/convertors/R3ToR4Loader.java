@@ -34,7 +34,8 @@ public class R3ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
       r3 = new JsonParser().parse(stream);
     else
       r3 = new XmlParser().parse(stream);
-    org.hl7.fhir.r4.model.Resource r4 = VersionConvertor_30_40.convertResource(r3);
+    org.hl7.fhir.r4.model.Resource r4 = VersionConvertor_30_40.convertResource(r3, false);
+    
     Bundle b;
     if (r4 instanceof Bundle)
       b = (Bundle) r4;

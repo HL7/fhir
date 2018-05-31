@@ -42,7 +42,14 @@ import com.google.gson.JsonObject;
     private JsonObject npm;
     private IniFile cache;
 
-    public  NpmPackage(String path) throws IOException {
+    public NpmPackage(JsonObject npm, Map<String, byte[]> content, List<String> folders) {
+      this.path = null;
+      this.content = content;
+      this.npm = npm;
+      this.folders = folders;
+    }
+    
+    public NpmPackage(String path) throws IOException {
       this.path = path;
       if (path != null) {
         for (String f : sorted(new File(path).list())) {
@@ -187,6 +194,10 @@ import com.google.gson.JsonObject;
      */
     public String name() {
       return npm.get("name").getAsString();
+    }
+
+    public String canonical() {
+      return npm.get("canonical").getAsString();
     }
 
     /**

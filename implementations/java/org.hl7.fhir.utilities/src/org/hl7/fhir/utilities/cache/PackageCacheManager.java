@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -199,7 +200,11 @@ public class PackageCacheManager {
     return null;    
   }
   
-  public NpmPackage loadPackageCache(String id, String version) throws IOException {    
+  public NpmPackage loadPackageCache(String id, String version) throws IOException {
+    for (NpmPackage p : temporaryPackages) {
+      if (p.name().equals(id) && ("current".equals(version) || p.version().equals(version)))
+        return p;
+    }
     String match = null;
     for (String f : sorted(new File(cacheFolder).list())) {
       if (f.equals(id+"-"+version)) {
@@ -360,13 +365,43 @@ public class PackageCacheManager {
     }
   }
 
-
-  public NpmPackage extractLocally(String filename) {
-    throw new Error("Not done yet");
+  public NpmPackage extractLocally(String filename) throws IOException {
+    return extractLocally(new FileInputStream(filename), filename);
   }
 
-  public NpmPackage extractLocally(InputStream src) {
-    throw new Error("Not done yet");
+  public NpmPackage extractLocally(InputStream tgz, String name) throws IOException {
+    if (progress ) {
+      System.out.println("Loading "+name+" to the package cache");
+      System.out.print("  Fetching:");
+    }
+    List<PackageEntry> files = new ArrayList<PackageEntry>();
+    
+    unPackage(tgz, files);
+    
+    byte[] npmb = null;
+    for (PackageEntry e : files) {
+      if (e.name.equals("package/package.json"))
+        npmb = e.bytes;
+    }
+    if (npmb == null)
+      throw new IOException("Unable to find package/package.json in the package file");
+    
+    JsonObject npm = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(npmb));
+
+    Map<String, byte[]> content = new HashMap<String, byte[]>();
+    List<String> folders = new ArrayList<String>();
+    
+    for (PackageEntry e : files) {
+      if (e.bytes == null) {
+        folders.add(e.name);
+      } else {
+        content.put(e.name, e.bytes);
+      }
+    }
+    System.out.println(" done.");
+    NpmPackage p = new NpmPackage(npm, content, folders);
+    recordMap(p.canonical(), p.name());
+    return p;
   }
 
   public String getFolder() {
@@ -487,6 +522,15 @@ public class PackageCacheManager {
         return null;
       else
         throw new FHIRException(e.getMessage(), e);
+    }
+  }
+
+
+  public void loadFromFolder(String packagesFolder) throws IOException {
+    for (File f : new File(packagesFolder).listFiles()) {
+      if (f.getName().endsWith(".tgz")) {
+        temporaryPackages.add(extractLocally(new FileInputStream(f), f.getName()));
+      }
     }
   }
 

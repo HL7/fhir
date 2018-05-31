@@ -182,7 +182,7 @@ public class SpecNPMPackageGenerator {
   }
 
   private void addConvertedIg3(NPMPackageGenerator npm, ImplementationGuide ig) throws IOException, FHIRException {
-    org.hl7.fhir.dstu3.model.Resource res = VersionConvertor_30_40.convertResource(ig);
+    org.hl7.fhir.dstu3.model.Resource res = VersionConvertor_30_40.convertResource(ig, false);
     npm.addFile(Category.RESOURCE, "ImplementationGuide-"+ig.getId()+".json", new org.hl7.fhir.dstu3.formats.JsonParser().composeBytes(res));
   }
 

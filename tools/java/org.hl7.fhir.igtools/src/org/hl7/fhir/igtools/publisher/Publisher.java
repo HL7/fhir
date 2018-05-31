@@ -119,6 +119,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.PrimitiveType;
@@ -429,6 +430,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String templatePck;
   
   private boolean templateLoaded ;
+
+  private String packagesFolder;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -822,6 +825,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL);
     templateManager = new TemplateManager(pcm);
     log("Package Cache: "+pcm.getFolder());
+    if (packagesFolder != null) {
+      log("Loading Packages from "+packagesFolder);
+      pcm.loadFromFolder(packagesFolder);
+    }
     fetcher.setResourceDirs(resourceDirs);
     first = true;
     boolean copyTemplate = false;
@@ -1325,7 +1332,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     log("Load "+name+" ("+canonical+") from "+packageId+"-"+igver);
-    
+    if (ostr(dep, "package") == null && packageId != null)
+      dep.addProperty("package", packageId);
 
     SpecMapManager igm = new SpecMapManager(TextFile.streamToBytes(pi.load("other", "spec.internals")), pi.getNpm().getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString());
     igm.setName(name);
@@ -1340,7 +1348,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         Resource r;
         if (igm.getVersion().equals("3.0.1") || igm.getVersion().equals("3.0.0")) {
           org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(pi.load("package", fn));
-          r = VersionConvertor_30_40.convertResource(res);
+          r = VersionConvertor_30_40.convertResource(res, true);
         } else if (igm.getVersion().equals("1.4.0")) {
           org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(pi.load("package", fn));
           r = VersionConvertor_14_40.convertResource(res);
@@ -1352,23 +1360,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           r = new JsonParser().parse(pi.load("package", fn));
         } else
           throw new Exception("Unsupported version "+igm.getVersion());
-        if (r instanceof MetadataResource) {
-          String u = ((MetadataResource) r).getUrl();
-          if (u != null) {
-            String p = igm.getPath(u);
-            if (p == null)
-              throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
-            r.setUserData("path", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
-            String v = ((MetadataResource) r).getVersion();
-            if (v!=null) {
-              u = u + "|" + v;
-              p = igm.getPath(u);
+        if (r != null) {
+          if (r instanceof MetadataResource) {
+            String u = ((MetadataResource) r).getUrl();
+            if (u != null) {
+              String p = igm.getPath(u);
               if (p == null)
-                System.out.println("In IG "+name+" map: No identity found for "+u);
-              r.setUserData("versionpath", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
+                throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
+              r.setUserData("path", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
+              String v = ((MetadataResource) r).getVersion();
+              if (v!=null) {
+                u = u + "|" + v;
+                p = igm.getPath(u);
+                if (p == null)
+                  System.out.println("In IG "+name+" map: No identity found for "+u);
+                r.setUserData("versionpath", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
+              }
             }
+            context.cacheResource(r);
           }
-          context.cacheResource(r);
         }
       } 
     }
@@ -1598,6 +1608,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     
+    for (ImplementationGuideDependsOnComponent dep : publishedIg.getDependsOn()) {
+      if (!dep.hasPackageId()) {
+        dep.setPackageId(pcm.getPackageId(dep.getUri()));
+      }
+      if (!dep.hasPackageId()) 
+        throw new FHIRException("Unknown package id for "+dep.getUri());
+    }
     npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
@@ -2192,7 +2209,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       new org.hl7.fhir.dstu2016may.formats.XmlParser().compose(dst, r14);
     } else if ("3.0.1".equals(srcV) && Constants.VERSION.equals(dstV)) {
       org.hl7.fhir.dstu3.model.Resource r3 = new org.hl7.fhir.dstu3.formats.XmlParser().parse(src);
-      org.hl7.fhir.r4.model.Resource r4 = VersionConvertor_30_40.convertResource(r3);
+      org.hl7.fhir.r4.model.Resource r4 = VersionConvertor_30_40.convertResource(r3, false);
       new org.hl7.fhir.r4.formats.XmlParser().compose(dst, r4);
     } else 
       throw new Exception("Conversion from "+srcV+" to "+dstV+" is not supported yet"); // because the only know reason to do this is 3.0.1 --> 1.40
@@ -2454,7 +2471,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(source);
       else
         throw new Exception("Unable to determine file type for "+name);
-      return VersionConvertor_30_40.convertResource(res);
+      return VersionConvertor_30_40.convertResource(res, false);
     } else if (parseVersion.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource res;
       if (contentType.contains("json"))
@@ -2681,7 +2698,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     if (version.equals("3.0.1")) {
       org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
-      jp.compose(bs, VersionConvertor_30_40.convertResource(res));
+      jp.compose(bs, VersionConvertor_30_40.convertResource(res, false));
     } else if (version.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
       jp.compose(bs, VersionConvertor_14_40.convertResource(res));
@@ -2817,7 +2834,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (FetchedResource r : files) {
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         if (version.equals("3.0.1")) {
-          org.hl7.fhir.dstu3.model.Resource r3 = VersionConvertor_30_40.convertResource(r.getResource());
+          org.hl7.fhir.dstu3.model.Resource r3 = VersionConvertor_30_40.convertResource(r.getResource(), false);
           if (fmt.equals(FhirFormat.JSON))
             new org.hl7.fhir.dstu3.formats.JsonParser().compose(bs, r3);
           else if (fmt.equals(FhirFormat.XML))
@@ -2901,7 +2918,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           ByteArrayOutputStream bs = new ByteArrayOutputStream();
           if (version.equals("3.0.1") || version.equals("3.0.0")) {
-            new org.hl7.fhir.dstu3.formats.JsonParser().compose(bs, VersionConvertor_30_40.convertResource(r.getResource()));
+            new org.hl7.fhir.dstu3.formats.JsonParser().compose(bs, VersionConvertor_30_40.convertResource(r.getResource(), false));
           } else if (version.equals("1.4.0")) {
             new org.hl7.fhir.dstu2016may.formats.JsonParser().compose(bs, VersionConvertor_14_40.convertResource(r.getResource()));
           } else if (version.equals("1.0.2")) {
@@ -4486,6 +4503,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       self.setJekyllCommand(getNamedParam(args, "-jekyll"));
       self.setIgPack(getNamedParam(args, "-spec"));
       self.setTxServer(getNamedParam(args, "-tx"));
+      self.setPackagesFolder(getNamedParam(args, "-packages"));
       if (hasNamedParam(args, "-auto-ig-build"))
       self.setMode(IGBuildMode.AUTOBUILD);
       self.watch = hasParam(args, "-watch");
@@ -4519,6 +4537,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     System.exit(exitCode);
   }
+
+  private void setPackagesFolder(String value) {
+    packagesFolder = value;    
+  }
+
 
   public void setJekyllCommand(String theJekyllCommand) {
     if (!Utilities.noString(theJekyllCommand)) {
