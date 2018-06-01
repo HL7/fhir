@@ -3295,11 +3295,11 @@ public class ProfileUtilities extends TranslatingUtilities {
         b.append(".");
         String s = paths.get(i);
         String p = slices[i];
-        if (p != null) {
-          b.append(p);
-          b.append(":");
-        }
         b.append(s);
+        if (p != null) {
+          b.append(":");
+          b.append(p);
+        }
       }
       String bs = b.toString();
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
