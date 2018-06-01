@@ -1557,7 +1557,7 @@
           <path value="Questionnaire.item.linkId"/>
           <mustSupport value="true"/>
         </element>
-        <element id="Questionnaire.item:record-type">
+        <element id="Questionnaire.item">
           <path value="Questionnaire.item"/>
           <sliceName value="record-type"/>
         </element>
@@ -3134,7 +3134,7 @@
       </assert>
     </action>
   </test>
-<!--  <test>
+  <test>
     <name value="Test32"/>
     <description value="Test disappearing slicing"/>
     <action>
@@ -3159,5 +3159,5 @@
         <warningOnly value="true"/>
       </assert>
     </action>
-  </test>-->
+  </test>
 </TestScript>
