@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.r4.conformance.ProfileUtilities.SliceList;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ValidationResult;
@@ -3235,6 +3237,37 @@ public class ProfileUtilities extends TranslatingUtilities {
     return false;
   }
 
+  public class SliceList {
+
+    private Map<String, String> slices = new HashMap<>();
+    
+    public void seeElement(ElementDefinition ed) {
+      Iterator<Map.Entry<String,String>> iter = slices.entrySet().iterator();
+      while (iter.hasNext()) {
+        Map.Entry<String,String> entry = iter.next();
+        if (entry.getKey().length() > ed.getPath().length() || entry.getKey().equals(ed.getPath()))
+          iter.remove();
+      }
+      
+      if (ed.hasSliceName()) 
+        slices.put(ed.getPath(), ed.getSliceName());
+    }
+
+    public String[] analyse(List<String> paths) {
+      String s = paths.get(0);
+      String[] res = new String[paths.size()];
+      res[0] = null;
+      for (int i = 1; i < paths.size(); i++) {
+        s = s + "."+paths.get(i);
+        if (slices.containsKey(s)) 
+          res[i] = slices.get(s);
+        else
+          res[i] = null;
+      }
+      return res;
+    }
+
+  }
 
   private void generateIds(List<ElementDefinition> list, String name) throws DefinitionException  {
     if (list.isEmpty())
@@ -3243,33 +3276,37 @@ public class ProfileUtilities extends TranslatingUtilities {
     Map<String, String> idMap = new HashMap<String, String>();
     Map<String, String> idList = new HashMap<String, String>();
     
+    SliceList sliceInfo = new SliceList();
     // first pass, update the element ids
     for (ElementDefinition ed : list) {
       List<String> paths = new ArrayList<String>();
       if (!ed.hasPath())
         throw new DefinitionException("No path on element Definition "+Integer.toString(list.indexOf(ed))+" in "+name);
-      String tail = tail(ed.getPath());
+      sliceInfo.seeElement(ed);
       String[] pl = ed.getPath().split("\\.");
-      for (int i = paths.size(); i < pl.length-1; i++) // -1 because the last path is in focus
+      for (int i = paths.size(); i < pl.length; i++) // -1 because the last path is in focus
         paths.add(pl[i]);
+      String slices[] = sliceInfo.analyse(paths);
       
-      String t = ed.hasSliceName() ? tail+":"+checkName(ed.getSliceName()) : /* why do this? name != null ? tail + ":"+checkName(name) : */ tail;
-//      if (isExtension(ed))
-//        t = t + describeExtension(ed);
       name = null;
       StringBuilder b = new StringBuilder();
-      for (String s : paths) {
-        b.append(s);
+      b.append(paths.get(0));
+      for (int i = 1; i < paths.size(); i++) {
         b.append(".");
+        String s = paths.get(i);
+        String p = slices[i];
+        if (p != null) {
+          b.append(p);
+          b.append(":");
+        }
+        b.append(s);
       }
-      b.append(t);
       String bs = b.toString();
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
       ed.setId(bs);
       if (idList.containsKey(bs))
         throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
       idList.put(bs, ed.getPath());
-      paths.add(t);
       if (ed.hasContentReference()) {
         String s = ed.getContentReference().substring(1);
         if (idMap.containsKey(s))
