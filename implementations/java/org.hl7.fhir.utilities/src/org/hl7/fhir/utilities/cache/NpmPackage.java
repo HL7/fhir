@@ -110,8 +110,10 @@ import com.google.gson.JsonObject;
     public List<String> list(String folder) throws IOException {
       List<String> res = new ArrayList<String>();
       if (path != null) {
-        for (String s : new File(Utilities.path(path, folder)).list())
-          res.add(s);
+        File f = new File(Utilities.path(path, folder));
+        if (f.exists() && f.isDirectory())
+          for (String s : f.list())
+            res.add(s);
       } else {
         for (String s : content.keySet()) {
           if (s.startsWith(folder+"/") && !s.substring(folder.length()+2).contains("/"))

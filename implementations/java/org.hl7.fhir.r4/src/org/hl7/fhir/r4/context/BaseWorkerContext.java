@@ -302,8 +302,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             if (canRunWithoutTerminology) {
               noTerminologyServer = true;
               log("==============!! Running without terminology server !! ==============");
-              log("txServer = "+txServer.getAddress());
-              log("Error = "+e.getMessage()+"");
+              if (txServer!=null) {
+                log("txServer = "+txServer.getAddress());
+                log("Error = "+e.getMessage()+"");
+              }
               log("=====================================================================");
               return false;
             } else
@@ -599,7 +601,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   private ValidationResult serverValidateCode(Parameters pin, boolean doCache) throws Exception {
     if (noTerminologyServer)
-      return new ValidationResult(null, null, TerminologyServiceErrorClass.NOSERVICE);
+      return new ValidationResult(null, "Terminology service not available", TerminologyServiceErrorClass.NOSERVICE);
     String cacheName = doCache ? generateCacheName(pin) : null;
     ValidationResult res = loadFromCache(cacheName);
     if (res != null)
