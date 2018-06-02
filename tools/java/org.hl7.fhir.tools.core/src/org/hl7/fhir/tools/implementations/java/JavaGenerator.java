@@ -293,7 +293,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFileName("imports/commons-logging-api-1.1.jar", importsDir+sl+"commons-logging-api-1.1.jar", false);
     zip.addFileName("imports/httpclient-4.2.3.jar", importsDir+sl+"httpclient-4.2.3.jar", false);
     zip.addFileName("imports/httpcore-4.2.2.jar", importsDir+sl+"httpcore-4.2.2.jar", false);
-    zip.addFileName("imports/hapi-fhir-base-1.6.jar", importsDir+sl+"hapi-fhir-base-1.6.jar", false);
+    zip.addFileName("imports/hapi-fhir-base-3.4.0.jar", importsDir+sl+"hapi-fhir-base-3.4.0.jar", false);
 
     zip.close();
     jParserGenX.close();
@@ -469,7 +469,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "commons-compress-1.16.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.4.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ucum-1.0-SNAPSHOT.jar"), names);
 
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
@@ -750,7 +750,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "commons-exec-1.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
-    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-3.4.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "poi-3.17.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "poi-ooxml-3.17.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ooxml-schemas-1.3.jar"), names);

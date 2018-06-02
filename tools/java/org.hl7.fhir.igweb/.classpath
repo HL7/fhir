@@ -19,7 +19,7 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/trilead-ssh2-1.0.0-build217.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-exec-1.3.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-3.4.0.jar"/>
   <classpathentry kind="lib" path="../../../tools/java/imports/commons-cli-1.4.jar"/>
   <classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.22.jar"/>
   <classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.22.jar"/>

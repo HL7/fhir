@@ -162,7 +162,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   public static final String IS_DERIVED = "derived.fact";
   public static final String UD_ERROR_STATUS = "error-status";
   private static final String GENERATED_IN_SNAPSHOT = "profileutilities.snapshot.processed";
-  private static final boolean DEBUG = true;
+  private static final boolean DEBUG = false;
 
   // note that ProfileUtilities are used re-entrantly internally, so nothing with process state can be here
   private final IWorkerContext context;

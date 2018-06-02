@@ -9,7 +9,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/gson-2.3.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-1.6.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/hapi-fhir-base-3.4.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/commons-io-1.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3_xpath-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xpp3-1.1.4c.jar"/>

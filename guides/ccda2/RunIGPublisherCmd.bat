@@ -1,1 +1,0 @@
-java -jar org.hl7.fhir.igpublisher.jar -ig %~dp0C-CDA_on_FHIR.json

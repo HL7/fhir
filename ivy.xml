@@ -2,7 +2,7 @@
 	<info organisation="org.hl7.fhir" module="tools"/>
 	<dependencies>
 		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
-		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="1.6"/>
+		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="3.4.0"/>
 		<dependency org="com.google.code.gson" name="gson" rev="2.3"/>
 		<dependency org="commons-codec" name="commons-codec" rev="1.9"/>
 		<dependency org="commons-discovery" name="commons-discovery" rev="0.2"/>

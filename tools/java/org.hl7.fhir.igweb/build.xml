@@ -9,7 +9,7 @@
     <pathelement location="../imports/commons-lang3-3.3.2.jar" />
     <pathelement location="../imports/commons-cli-1.4.jar" />
     <pathelement location="../imports/slf4j-api-1.7.22.jar" />
-    <pathelement location="../imports/hapi-fhir-base-1.6.jar" />
+    <pathelement location="../imports/hapi-fhir-base-3.4.0.jar" />
     <pathelement location="../imports/commons-codec-1.9.jar" />
     <pathelement location="../imports/commons-io-1.2.jar" />
     <pathelement location="../imports/commons-lang3-3.3.2.jar" />
@@ -42,7 +42,7 @@
           <include name="tools/java/imports/commons-lang3-3.3.2.jar" />
           <include name="tools/java/imports/commons-cli-1.4.jar" />
           <include name="tools/java/imports/slf4j-api-1.7.22.jar" />
-          <include name="tools/java/imports/hapi-fhir-base-1.6.jar" />
+          <include name="tools/java/imports/hapi-fhir-base-3.4.0.jar" />
           <include name="tools/java/imports/commons-codec-1.9.jar" />
           <include name="tools/java/imports/commons-io-1.2.jar" />
           <include name="tools/java/imports/commons-lang3-3.3.2.jar" />
