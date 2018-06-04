@@ -270,32 +270,29 @@ Here is an example windows batch file that demonstrates the process (using the c
 @ECHO OFF
 
  ECHO get the validator and unzip it 
- wget <%baseURLn%>validator.zip
+ wget http://build.fhir.org/validator.zip
  7z.exe x validator.zip
-
- ECHO Get the validation source file (dictionary)
- wget <%baseURLn%>definitions.xml.zip
 
  ECHO 1. First example shows how to validate against the base spec:
  ECHO   a. get an example to validate
  wget <%baseURLn%>patient-example.xml -O pat-ex.xml
 
- ECHO   b. validate it
- java -jar org.hl7.fhir.validator.jar pat-ex.xml -defn definitions.xml.zip 
+ ECHO   b. validate it against FHIR R3 
+ java -jar org.hl7.fhir.validator.jar pat-ex.xml -version 3.0
 
  ECHO 2. Second example shows how to validate against a profile in the spec:
  ECHO   a. get an example to validate
  wget <%baseURLn%>observation-example-heart-rate.xml -O obs-ex.xml
 
  ECHO   b. validate it
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn definitions.xml.zip -profile http://hl7.org/fhir/StructureDefinition/heartrate
+ java -jar org.hl7.fhir.validator.jar obs-ex.xml -version <%version%> -profile http://hl7.org/fhir/StructureDefinition/heartrate
 
  ECHO 3. Third example shows how to validate against a profile in an implementation guide:
  ECHO   a. get an example to validate
  wget <%baseURLn%>observation-example-heart-rate.xml -O obs-ex.xml
 
  ECHO   b. validate it. note that you have to tell the validator where to get the implementation guide information
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -defn definitions.xml.zip -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+ java -jar org.hl7.fhir.validator.jar obs-ex.xml -version 3.0 -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 
  ECHO Press Any Key to Close
  pause
@@ -304,12 +301,11 @@ Here is an example windows batch file that demonstrates the process (using the c
 Note that it is not necessary to download the resource first; the http address can be supplied directly:
 </p>
 <pre>
- java -jar org.hl7.fhir.validator.jar <%baseURLn%>/patient-example.html -defn validation-min.xml.zip -profile http://hl7.org/fhir/StructureDefinition/Patient
+ java -jar org.hl7.fhir.validator.jar <%baseURLn%>/patient-example.html -profile http://hl7.org/fhir/StructureDefinition/Patient
 </pre>
 <p>
-The validator requires an underlying terminology server. By default, this is http://fhir3.healthintersections.com.au. Use the parameter -tx to specify another
-server. For a full list of parameters and options, including the parameters available to restrict the validator to minimal run-time validation, just 
-run the validator.jar without any parameters.
+The validator requires an underlying terminology server. By default, this is http://fhir3.healthintersections.com.au. 
+For further details of the parameters supported by the validator, see <a href="http://wiki.hl7.org/index.php?title=Using_the_FHIR_Validator">Using the FHIR Validator</a>
 </p>
 
 <a name="op"></a>
