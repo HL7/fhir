@@ -262,8 +262,9 @@ public class Validator {
         }
       if  (sources.isEmpty())
         throw new Exception("Must provide at least one source file");
-        
-      System.out.println("  .. FHIR Version "+definitions.substring(14));
+      
+      // Comment this out because definitions filename doesn't necessarily contain version (and many not even be 14 characters long).  Version gets spit out a couple of lines later after we've loaded the context
+//      System.out.println("  .. FHIR Version "+definitions.substring(14));
       System.out.println("  .. connect to tx server @ "+txServer);
       ValidationEngine validator = new ValidationEngine(definitions, txServer);
       System.out.println("    (v"+validator.getContext().getVersion()+")");
