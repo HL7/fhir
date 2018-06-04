@@ -366,7 +366,7 @@ public class ValidationEngine {
       else
         return fetchFromUrl(src+(v == null ? "" : "|"+v));
     }
-    if (src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) {
+    if ((src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) && !src.endsWith(".zip")) {
       return fetchByPackage(src);
     }
     
