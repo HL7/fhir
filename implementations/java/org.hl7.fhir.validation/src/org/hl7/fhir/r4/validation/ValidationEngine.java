@@ -355,10 +355,16 @@ public class ValidationEngine {
     // - a direct reference to a package ("package.tgz") - this will be extracted by the cache manager, but not put in the cache
     // - a folder containing resources - these will be loaded directly
     if (src.startsWith("https:") || src.startsWith("http:")) {
+      String v = null;
+      if (src.contains("|")) {
+        v = src.substring(src.indexOf("|")+1);
+        src = src.substring(0, src.indexOf("|"));
+      }
       String pid = pcm.getPackageId(src);
       if (!Utilities.noString(pid))
-        return fetchByPackage(pid);
-      return fetchFromUrl(src);
+        return fetchByPackage(pid+(v == null ? "" : "-"+v));
+      else
+        return fetchFromUrl(src+(v == null ? "" : "|"+v));
     }
     if (src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) {
       return fetchByPackage(src);
@@ -450,7 +456,7 @@ public class ValidationEngine {
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
     Map<String, byte[]> res = new HashMap<String, byte[]>();
     for (String s : pi.list("package")) {
-      if (s.startsWith("CodeSystem-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
+      if (s.startsWith("CodeSystem-") || s.startsWith("ImplementationGuide-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
         res.put(s, TextFile.streamToBytes(pi.load("package", s)));
     }
     String ini = "[FHIR]\r\nversion="+pi.fhirVersion()+"\r\n";
@@ -478,6 +484,10 @@ public class ValidationEngine {
     return res;
   }
 
+  public void log(String message) {
+    System.out.println(message);
+  }
+
   private Map<String, byte[]> fetchByPackage(String src) throws Exception {
     String id = src;
     String version = null;
@@ -486,13 +496,14 @@ public class ValidationEngine {
       version = src.substring(src.indexOf("-")+1);
     }
     if (pcm == null) {
-      System.out.println("Creating Package manager?");
+      log("Creating Package manager?");
       pcm = new PackageCacheManager(true);
     }
     NpmPackage pi = null;
-    if (version == null)
+    if (version == null) {
       pi = pcm.loadPackageCacheLatest(id);
-    else
+      log("   ... Using version "+pi.version());
+    } else
       pi = pcm.loadPackageCache(id, version);
     if (pi == null) {
       return resolvePackage(id, version);
@@ -504,7 +515,7 @@ public class ValidationEngine {
     try {
       pcm.checkBuildLoaded();
     } catch (IOException e) {
-      System.out.println("Unable to connect to build.fhir.org to check on packages");
+      log("Unable to connect to build.fhir.org to check on packages");
     }
     return loadPackage(pcm.resolvePackage(id, v));
   }
@@ -568,6 +579,11 @@ public class ValidationEngine {
 	}
 
   public void loadProfile(String src) throws Exception {
+    if (context.hasResource(StructureDefinition.class, src))
+      return;
+    if (context.hasResource(ImplementationGuide.class, src))
+      return;
+    
     byte[] source = loadProfileSource(src);
     FhirFormat fmt = FormatUtilities.determineFormat(source);
     Resource r = FormatUtilities.makeParser(fmt).parse(source);
@@ -631,8 +647,14 @@ public class ValidationEngine {
         }
         if (r != null) {
           context.cacheResource(r);
-          if (r instanceof ImplementationGuide)
+          if (r instanceof ImplementationGuide) {
             canonical = ((ImplementationGuide) r).getUrl();
+            if (canonical.contains("/ImplementationGuide/")) {
+              Resource r2 = r.copy();
+              ((ImplementationGuide) r2).setUrl(canonical.substring(0, canonical.indexOf("/ImplementationGuide/")));
+              context.cacheResource(r2);
+            }
+          }
         }
       }
 		}

@@ -49,6 +49,11 @@ public class IGPack2NpmConvertor {
   private List<String> paths;
 
   private IniFile tini;
+  private String packageId;
+  private String versionIg;
+  private String source;
+  private String dest;
+  private String license;
   
   public static void main(String[] args) throws FileNotFoundException, IOException, FHIRException {
     IGPack2NpmConvertor self = new IGPack2NpmConvertor();
@@ -63,6 +68,67 @@ public class IGPack2NpmConvertor {
     System.out.println("Paths:");
     for (String s : self.paths)
       System.out.println(s);
+  }
+
+  
+  public String getPackageId() {
+    return packageId;
+  }
+
+
+  public void setPackageId(String packageId) {
+    this.packageId = packageId;
+  }
+
+
+  public String getSource() {
+    return source;
+  }
+
+
+  public void setSource(String source) {
+    this.source = source;
+  }
+
+
+  public String getDest() {
+    return dest;
+  }
+
+
+  public void setDest(String dest) {
+    this.dest = dest;
+  }
+
+  public String getVersionIg() {
+    return versionIg;
+  }
+
+
+  public void setVersionIg(String version) {
+    this.versionIg = version;
+  }
+
+
+  public String getLicense() {
+    return license;
+  }
+
+
+  public void setLicense(String license) {
+    this.license = license;
+  }
+
+
+  public void execute() throws IOException {
+    if (source == null)
+      throw new IOException("A -source parameter is required");
+    if (dest == null)
+      throw new IOException("A -dest parameter is required");
+    if (packageId == null)
+      throw new IOException("A -packageId parameter is required");
+    init();
+    processValidatorPack(new File(source));
   }
 
   private void init() throws IOException {
@@ -95,7 +161,7 @@ public class IGPack2NpmConvertor {
         checkVersions(ig, version, f.getAbsolutePath());
         checkLicense(ig);
 
-        System.out.println("  url = "+canonical+", version = "+ig.getVersion()+", fhir-version = "+ig.getFhirVersion()+", id = "+ig.getPackageId());
+        System.out.println("  url = "+canonical+", version = "+ig.getVersion()+", fhir-version = "+ig.getFhirVersion()+", id = "+ig.getPackageId()+", license = "+ig.getLicense());
 
         for (String k : files.keySet()) {
           if (k.endsWith(".json"))
@@ -114,7 +180,7 @@ public class IGPack2NpmConvertor {
 
         if (files.containsKey("spec.internals"))
           loadSpecInternals(ig, files.get("spec.internals"), version, canonical, files);
-        NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, PackageType.IG, ig);
+        NPMPackageGenerator npm = new NPMPackageGenerator(dest != null ? dest : Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, PackageType.IG, ig);
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
         npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
@@ -161,8 +227,14 @@ public class IGPack2NpmConvertor {
       throw new FHIRException("Unsupported version "+version);
   }
 
-  private void checkLicense(ImplementationGuide ig) {
-    if (!ig.hasLicense())
+  private void checkLicense(ImplementationGuide ig) throws IOException, FHIRException {
+    if (!ig.hasLicense()) {
+      if (source != null) {
+        if (license == null)
+          throw new IOException("A -license parameter is required, with a valid SPDX license code, or not-open-source"); 
+        ig.setLicense(SPDXLicense.fromCode(license));
+      }
+    } else
       ig.setLicense(SPDXLicense.CC01_0);
     
   }
@@ -209,14 +281,20 @@ public class IGPack2NpmConvertor {
       throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
     
     if (!ig.hasVersion()) {
-      String s = tini.getStringProperty("versions", ig.getUrl());
-      while (Utilities.noString(s)) {
-        System.out.print("Enter version for "+ig.getUrl()+": ");
-        s = scanner.nextLine();
-        s = s.trim();
+      if (packageId != null) {
+        if (versionIg == null)
+          throw new IOException("A -version parameter is required");
+        ig.setVersion(versionIg);
+      } else {
+        String s = tini.getStringProperty("versions", ig.getUrl());
+        while (Utilities.noString(s)) {
+          System.out.print("Enter version for "+ig.getUrl()+": ");
+          s = scanner.nextLine();
+          s = s.trim();
+        }
+        tini.setStringProperty("versions", ig.getUrl(), s, null);
+        ig.setVersion(s);
       }
-      tini.setStringProperty("versions", ig.getUrl(), s, null);
-      ig.setVersion(s);
     }
     
     for (ImplementationGuideDependsOnComponent d : ig.getDependsOn()) {
@@ -240,6 +318,11 @@ public class IGPack2NpmConvertor {
   }
 
   private void determinePackageId(ImplementationGuide ig, String canonical, String filename) throws IOException, FHIRException {
+    if (packageId != null) {
+      ig.setPackageId(packageId);
+      return;
+    }
+    
     String pid = pcm.getPackageId(canonical);
     if (ig.hasPackageId()) {
       if (Utilities.noString(pid))

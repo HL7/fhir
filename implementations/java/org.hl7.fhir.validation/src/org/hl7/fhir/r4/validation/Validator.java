@@ -53,6 +53,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
+import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.r4.model.Resource;
@@ -115,8 +116,9 @@ public class Validator {
       System.out.println("    used, results will be provided as a Bundle.");
       System.out.println("    Patterns are limited to a directory followed by a filename with an embedded");
       System.out.println("    asterisk.  E.g. foo*-examples.xml or someresource.*, etc.");
-      System.out.println("-defn [package|file|url]: where to find the FHIR specification igpack.zip");
-      System.out.println("      default value is hl7.fhir.core-"+Constants.VERSION+". This parameter can only appear once");
+      System.out.println("-version [ver]: The FHIR version to use. This can only appear once. ");
+      System.out.println("    valid values 1.0 | 1.4 | 3.0 | "+Constants.VERSION.substring(0, 3)+" or 1.0.2 | 1.4.0 | 3.0.1 | "+Constants.VERSION);
+      System.out.println("    Default value is  "+Constants.VERSION.substring(0, 3));
       System.out.println("-ig [package|file|url]: an IG or profile definition to load. Can be ");
       System.out.println("     the URL of an implementation guide or a package ([id]-[ver]) for");
       System.out.println("     a built implementation guide or a local folder that contains a");
@@ -189,7 +191,14 @@ public class Validator {
             throw new Error("Specified -defn without indicating definition file");
           else
             definitions = args[++i];
-        else if (args[i].equals("-output"))
+        else if (args[i].equals("-version"))  {
+          String v = args[++i];
+          if ("1.0".equals(v)) v = "1.0.2";
+          if ("1.4".equals(v)) v = "1.4.0";
+          if ("3.0".equals(v)) v = "3.0.1";
+          if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
+          definitions = "hl7.fhir.core-"+v;
+        } else if (args[i].equals("-output"))
           if (i+1 == args.length)
             throw new Error("Specified -output without indicating output file");
           else
@@ -254,7 +263,7 @@ public class Validator {
       if  (sources.isEmpty())
         throw new Exception("Must provide at least one source file");
         
-      System.out.println("  .. load FHIR from "+definitions);
+      System.out.println("  .. FHIR Version "+definitions.substring(14));
       System.out.println("  .. connect to tx server @ "+txServer);
       ValidationEngine validator = new ValidationEngine(definitions, txServer);
       System.out.println("    (v"+validator.getContext().getVersion()+")");
@@ -303,12 +312,15 @@ public class Validator {
         if  (definitions == null)
           throw new Exception("Must provide a defn when doing validation");
         for (String s : profiles) {
-          if (validator.getContext().fetchResource(StructureDefinition.class, s) == null) {
+          if (!validator.getContext().hasResource(StructureDefinition.class, s) && !validator.getContext().hasResource(ImplementationGuide.class, s)) {
             System.out.println("Fetch Profile from "+s);
             validator.loadProfile(locations.getOrDefault(s, s));
           }
         }
-        System.out.println("  .. validate "+sources);
+        if (profiles.size() > 0)
+          System.out.println("  .. validate "+sources+" against "+profiles.toString());
+        else
+          System.out.println("  .. validate "+sources);
         Resource r = validator.validate(sources, profiles);
         if (output == null) {
           if (r instanceof Bundle)

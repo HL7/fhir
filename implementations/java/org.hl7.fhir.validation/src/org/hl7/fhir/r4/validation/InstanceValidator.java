@@ -28,6 +28,7 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.*;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideGlobalComponent;
 import org.hl7.fhir.r4.model.Questionnaire.*;
 import org.hl7.fhir.r4.model.StructureDefinition.*;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
@@ -248,6 +249,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (sd == null)
           sd = context.fetchResource(StructureDefinition.class, profile.getProfile());
         if (sd == null) {
+          ImplementationGuide ig = context.fetchResource(ImplementationGuide.class, profile.getProfile());
+          if (ig != null) {
+            for (ImplementationGuideGlobalComponent t : ig.getGlobal()) {
+              if (t.getType().equals(element.fhirType())) {
+                sd = context.fetchResource(StructureDefinition.class, t.getProfile());
+                if (sd != null)
+                  break;
+              }
+            }
+          }
+        }
+        if (sd == null) {          
           errors.add(new ValidationMessage(Source.InstanceValidator, IssueType.UNKNOWN, path, "Unable to locate profile "+profile.getProfile(), external ? IssueSeverity.ERROR : IssueSeverity.WARNING));
         } else if (!sd.getType().equals(element.fhirType())) {
           boolean ok = false;

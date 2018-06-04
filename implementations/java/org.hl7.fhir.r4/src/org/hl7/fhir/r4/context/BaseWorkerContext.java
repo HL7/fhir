@@ -38,6 +38,7 @@ import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ExpansionProfile;
+import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.OperationDefinition;
@@ -99,6 +100,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private Map<String, StructureMap> transforms = new HashMap<String, StructureMap>();
 //  private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
   private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
+  private Map<String, ImplementationGuide> guides = new HashMap<String, ImplementationGuide>();
 //  private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
   private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   private Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
@@ -131,12 +133,13 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     super();
   }
 
-  public BaseWorkerContext(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps,  Map<String, StructureDefinition> profiles) {
+  public BaseWorkerContext(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides) {
     super();
     this.codeSystems = codeSystems;
     this.valueSets = valueSets;
     this.maps = maps;
     this.structures = profiles;
+    this.guides = guides;
   }
 
   protected void copy(BaseWorkerContext other) {
@@ -153,6 +156,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       questionnaires.putAll(other.questionnaires);
       operations.putAll(other.operations);
       systems.addAll(other.systems);
+      guides.putAll(other.guides);
 
       allowLoadingDuplicates = other.allowLoadingDuplicates;
       cacheValidation = other.cacheValidation;
@@ -186,10 +190,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           throw new DefinitionException("Duplicate Resource " + url);
         if (r instanceof StructureDefinition)
           seeMetadataResource((StructureDefinition) m, structures, false);
-        else if (r instanceof ValueSet)
-          seeMetadataResource((ValueSet) m, valueSets, false);
         else if (r instanceof CodeSystem)
           seeMetadataResource((CodeSystem) m, codeSystems, false);
+        else if (r instanceof ImplementationGuide)
+          seeMetadataResource((ImplementationGuide) m, guides, false);
         else if (r instanceof SearchParameter)
           seeMetadataResource((SearchParameter) m, searchParameters, false);
         else if (r instanceof OperationDefinition)
@@ -1035,6 +1039,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         if (class_ == Resource.class || class_ == null) {
           if (structures.containsKey(uri))
             return (T) structures.get(uri);
+          if (guides.containsKey(uri))
+            return (T) guides.get(uri);
           if (valueSets.containsKey(uri))
             return (T) valueSets.get(uri);
           if (codeSystems.containsKey(uri))
@@ -1050,6 +1056,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           if (questionnaires.containsKey(uri))
             return (T) questionnaires.get(uri);
           return null;      
+        } else if (class_ == ImplementationGuide.class) {
+          return (T) guides.get(uri);
         } else if (class_ == StructureDefinition.class) {
           return (T) structures.get(uri);
         } else if (class_ == ValueSet.class) {
@@ -1224,6 +1232,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       json.addProperty("conceptmap-count", maps.size());
       json.addProperty("transforms-count", transforms.size());
       json.addProperty("structures-count", structures.size());
+      json.addProperty("guides-count", guides.size());
     }
   }
 
@@ -1245,6 +1254,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
       if (fhirType.equals("StructureDefinition"))
         dropMetadataResource(structures, id);
+      else if (fhirType.equals("ImplementationGuide"))
+        dropMetadataResource(guides, id);
       else if (fhirType.equals("ValueSet"))
         dropMetadataResource(valueSets, id);
       else if (fhirType.equals("CodeSystem"))
@@ -1282,6 +1293,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     synchronized (lock) {
       List<MetadataResource> result = new ArrayList<MetadataResource>();
       result.addAll(structures.values());
+      result.addAll(guides.values());
       result.addAll(codeSystems.values());
       result.addAll(valueSets.values());
       result.addAll(maps.values());

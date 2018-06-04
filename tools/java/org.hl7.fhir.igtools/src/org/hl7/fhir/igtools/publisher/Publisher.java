@@ -4417,6 +4417,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       System.out.println("-destination: where to put the output (including qa.html)");
       System.out.println("");
       System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
+    } else if (hasParam(args, "-convert")) {
+      // convert a igpack.zip to a package.tgz
+      IGPack2NpmConvertor conv = new IGPack2NpmConvertor();
+      conv.setSource(getNamedParam(args, "-source"));
+      conv.setDest(getNamedParam(args, "-dest"));
+      conv.setPackageId(getNamedParam(args, "-npm-name"));
+      conv.setVersionIg(getNamedParam(args, "-version"));
+      conv.setLicense(getNamedParam(args, "-license"));
+      conv.execute();
     } else if (hasParam(args, "-multi")) {
       int i = 1;
       for (String ig : TextFile.fileToString(getNamedParam(args, "-multi")).split("\\r?\\n")) {
