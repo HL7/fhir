@@ -4,7 +4,7 @@
   <LastAuthor>Melva Peters</LastAuthor>
   <LastPrinted>2016-01-26T17:36:52Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-03-31T16:35:23Z</LastSaved>
+  <LastSaved>2018-05-30T00:22:59Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -877,8 +877,9 @@
    <Column ss:StyleID="s69" ss:Width="30.0"/>
    <Column ss:StyleID="s69" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="120.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s69" ss:Width="29.0"/>
-   <Column ss:Index="8" ss:StyleID="s69" ss:Width="63.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="29.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="156.0"/>
+   <Column ss:StyleID="s69" ss:Width="63.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="27.0"/>
    <Column ss:StyleID="s69" ss:Width="116.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="107.0"/>
@@ -1829,9 +1830,9 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">boolean</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The inclusion of this element changes the way that the medicationRequest is handled and cannot be ignored</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3811,7 +3812,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>30</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>18</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6321,7 +6322,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">MedicationRequestCategory</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment).</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment.</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">#medication-request-category</Data></Cell>
@@ -6683,7 +6684,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s168"><Data ss:Type="String">Draft</Data></Cell>
-    <Cell ss:StyleID="s168"><Data ss:Type="String">The prescription is not yet 'actionable', i.e. it is a work in progress, requires sign-off or verification, and needs to be run through decision support process.</Data></Cell>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">The prescription is not yet 'actionable', e.g. it is a work in progress, requires sign-off, verification or needs to be run through decision support process.</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"><Data ss:Type="String">ActStatus.new</Data></Cell>
     <Cell ss:StyleID="s151"/>
@@ -7158,6 +7159,10 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7996,7 +8001,7 @@
     <Cell><Data ss:Type="String">plan</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Plan</Data></Cell>
-    <Cell><Data ss:Type="String">The request represents an intension to ensure something occurs without providing an authorization for others to act</Data></Cell>
+    <Cell><Data ss:Type="String">The request represents an intention to ensure something occurs without providing an authorization for others to act</Data></Cell>
     <Cell ss:StyleID="s170"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -8035,6 +8040,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <TabColorIndex>9</TabColorIndex>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
