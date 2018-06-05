@@ -299,6 +299,33 @@ public class ToolingExtensions {
     return true;
   }
 
+  public static Boolean readBooleanExtension(DomainResource c, String uri) {
+    Extension ex = ExtensionHelper.getExtension(c, uri);
+    if (ex == null)
+      return null;
+    if (!(ex.getValue() instanceof BooleanType))
+      return null;
+    return ((BooleanType) ex.getValue()).getValue();
+  }
+
+  public static boolean readBoolExtension(DomainResource c, String uri) {
+    Extension ex = ExtensionHelper.getExtension(c, uri);
+    if (ex == null)
+      return false;
+    if (!(ex.getValue() instanceof BooleanType))
+      return false;
+    return ((BooleanType) ex.getValue()).getValue();
+  }
+
+  public static boolean findBooleanExtension(DomainResource c, String uri) {
+    Extension ex = ExtensionHelper.getExtension(c, uri);
+    if (ex == null)
+      return false;
+    if (!(ex.getValue() instanceof BooleanType))
+      return false;
+    return true;
+  }
+
   public static String getCSComment(ConceptDefinitionComponent c) {
     return readStringExtension(c, EXT_CS_COMMENT);    
   }

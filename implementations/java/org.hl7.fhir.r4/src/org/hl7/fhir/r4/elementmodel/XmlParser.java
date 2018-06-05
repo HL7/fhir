@@ -118,7 +118,7 @@ public class XmlParser extends ParserBase {
   }
 
   private void checkForProcessingInstruction(Document document) throws FHIRFormatError {
-    if (policy == ValidationPolicy.EVERYTHING) {
+    if (policy == ValidationPolicy.EVERYTHING && FormatUtilities.FHIR_NS.equals(document.getDocumentElement().getNamespaceURI())) {
       Node node = document.getFirstChild();
       while (node != null) {
         if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE)
@@ -195,7 +195,7 @@ public class XmlParser extends ParserBase {
   
   private void checkElement(org.w3c.dom.Element element, String path, Property prop) throws FHIRFormatError {
     if (policy == ValidationPolicy.EVERYTHING) {
-      if (empty(element))
+      if (empty(element) && FormatUtilities.FHIR_NS.equals(element.getNamespaceURI())) // this rule only applies to FHIR Content
         logError(line(element), col(element), path, IssueType.INVALID, "Element must have some content", IssueSeverity.ERROR);
       String ns = FormatUtilities.FHIR_NS;
       if (ToolingExtensions.hasExtension(prop.getDefinition(), "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))

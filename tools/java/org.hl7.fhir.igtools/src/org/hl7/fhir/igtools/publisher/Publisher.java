@@ -764,6 +764,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       f.getDependencies().add(fi);
   }
 
+  private boolean bool(JsonObject obj, String name) throws Exception {
+    if (!obj.has(name))
+      return false;
+    if (!(obj.get(name) instanceof JsonPrimitive))
+      return false;
+    JsonPrimitive p = (JsonPrimitive) obj.get(name);
+    if (p.isBoolean())
+      return p.getAsBoolean();
+    return false;
+  }
+  
   private String str(JsonObject obj, String name) throws Exception {
     if (!obj.has(name))
       throw new Exception("Property "+name+" not found");
@@ -1021,6 +1032,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
     validator.setNoExtensibleWarnings(true);
+    validator.setHintAboutNonMustSupport(bool(configuration, "hintAboutNonMustSupport"));
     
     pvalidator = new ProfileValidator();
     pvalidator.setContext(context);

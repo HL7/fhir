@@ -447,7 +447,11 @@ public class JsonParser extends ParserBase {
 		else if (Utilities.existsInList(type, "integer", "unsignedInt", "positiveInt"))
 			json.value(new Integer(item.getValue()));
 		else if (Utilities.existsInList(type, "decimal"))
-			json.value(new BigDecimal(item.getValue()));
+		  try {
+  			json.value(new BigDecimal(item.getValue()));
+		  } catch (Exception e) {
+		    throw new NumberFormatException("error writing number '"+item.getValue()+"' to JSON");
+		  }
 		else
 			json.value(item.getValue());	
 	}

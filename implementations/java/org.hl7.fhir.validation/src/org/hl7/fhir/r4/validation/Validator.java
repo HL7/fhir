@@ -178,6 +178,7 @@ public class Validator {
       List<String> questionnaires = new ArrayList<String>();
       String txServer = "http://tx.fhir.org/r4";
       boolean doNative = false;
+      boolean hintAboutNonMustSupport = false;
       List<String> profiles = new ArrayList<String>();
       EngineMode mode = EngineMode.VALIDATION;
       String output = null;
@@ -225,6 +226,8 @@ public class Validator {
             questionnaires.add(args[++i]);
         else if (args[i].equals("-native"))
             doNative = true;
+        else if (args[i].equals("-hintAboutNonMustSupport"))
+          hintAboutNonMustSupport = true;
         else if (args[i].equals("-transform")) {
           map = args[++i];
           mode = EngineMode.TRANSFORM;
@@ -274,6 +277,7 @@ public class Validator {
       }
       validator.setQuestionnaires(questionnaires);
       validator.setNative(doNative);
+      validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
 
       XmlParser x = new XmlParser();
       if (mode == EngineMode.TRANSFORM) {

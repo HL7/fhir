@@ -150,6 +150,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private boolean errorForUnknownProfiles;
   private boolean noInvariantChecks;
   private boolean noTerminologyChecks;
+  private boolean hintAboutNonMustSupport;
   private BestPracticeWarningLevel bpWarnings;
 
   private List<String> extensionDomains = new ArrayList<String>();
@@ -159,8 +160,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   // used during the build process to keep the overall volume of messages down
   private boolean suppressLoincSnomedMessages;
-
-  private Bundle logical;
 
   // time tracking
   private long overall = 0;
@@ -384,6 +383,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return this;
   }
 
+  
+  public boolean isHintAboutNonMustSupport() {
+    return hintAboutNonMustSupport;
+  }
+
+  public void setHintAboutNonMustSupport(boolean hintAboutNonMustSupport) {
+    this.hintAboutNonMustSupport = hintAboutNonMustSupport;
+  }
+
   private boolean allowUnknownExtension(String url) {
     if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org") || url.startsWith("http://hl7.org/fhir/tools/StructureDefinition/") || url.equals("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"))
       // Added structuredefinition-expression explicitly because it wasn't defined in the version of the spec it needs to be used with
@@ -602,14 +610,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (isRoot) {
       validateRemainder(appContext, errors);
       resourceProfilesMap = null;
-      checkElementUsage(errors, element, new NodeStack(element));
+      if (hintAboutNonMustSupport)
+        checkElementUsage(errors, element, new NodeStack(element));
     }
     overall = System.nanoTime() - t;
   }
 
   private void checkElementUsage(List<ValidationMessage> errors, Element element, NodeStack stack) {
-    String elementUsage = element.getUserString("elementSupported");
-	 hint(errors, IssueType.INFORMATIONAL, element.line(),element.col(), stack.getLiteralPath(), elementUsage==null || elementUsage.equals("Y"), "Instance includes element that is not marked as 'mustSupport' in the corresponding profile and was validated against a profile containing mustSupport=true elements.");
+     String elementUsage = element.getUserString("elementSupported");
+    hint(errors, IssueType.INFORMATIONAL, element.line(),element.col(), stack.getLiteralPath(), elementUsage==null || elementUsage.equals("Y"),
+        String.format("The element %s is not marked as 'mustSupport' in the profile %s. Consider not using the element, or marking the element as must-Support in the profile", element.getName(), element.getProperty().getStructure().getUrl()));	  
+	  
     if (element.hasChildren()) {
       String prevName = "";
       int elementCount = 0;
@@ -1960,18 +1971,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private StructureDefinition getProfileForType(String type) {
-    if (logical != null)
-      for (BundleEntryComponent be : logical.getEntry()) {
-        if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
-          StructureDefinition sd = (StructureDefinition) be.getResource();
-          if (sd.getId().equals(type))
-            return sd;
-        }
-      }
 
+    if (!Utilities.isAbsoluteUrl(type))
+      type = "http://hl7.org/fhir/StructureDefinition/" + type;
+    
     long t = System.nanoTime();
     try {
-      return context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + type);
+      return context.fetchResource(StructureDefinition.class, type);
     } finally {
       sdTime = sdTime + (System.nanoTime() - t);
     }
@@ -2273,14 +2279,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private ElementDefinition resolveType(String type)  {
-    if (logical != null)
-      for (BundleEntryComponent be : logical.getEntry()) {
-        if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
-          StructureDefinition sd = (StructureDefinition) be.getResource();
-          if (sd.getId().equals(type))
-            return sd.getSnapshot().getElement().get(0);
-        }
-      }
     String url = "http://hl7.org/fhir/StructureDefinition/" + type;
     long t = System.nanoTime();
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
@@ -3328,7 +3326,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           }
         }
 
-      rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order");
+      if (!ToolingExtensions.readBoolExtension(profile, "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-no-order"))
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order");
       if (ei.slice != null && ei.index == last && ei.slice.getSlicing().getOrdered())
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order in ordered slice");
       if (ei.definition == null || !isXmlAttr)
@@ -3420,7 +3419,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         } else if (ei.definition.getType().size() > 1) {
 
           String prefix = tail(ei.definition.getPath());
-          assert typesAreAllReference(ei.definition.getType()) || prefix.endsWith("[x]") : prefix;
+          assert typesAreAllReference(ei.definition.getType()) || ei.definition.hasRepresentation(PropertyRepresentation.TYPEATTR) || prefix.endsWith("[x]") : prefix;
 
           prefix = prefix.substring(0, prefix.length() - 3);
           for (TypeRefComponent t : ei.definition.getType())
@@ -3916,14 +3915,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     private void setType(ElementDefinition type) {
       this.type = type;
-    }
-  }
-
-  private void checkForProcessingInstruction(List<ValidationMessage> errors, Document document) {
-    Node node = document.getFirstChild();
-    while (node != null) {
-      rule(errors, IssueType.INVALID, -1, -1, "(document)", node.getNodeType() != Node.PROCESSING_INSTRUCTION_NODE, "No processing instructions allowed in resources");
-      node = node.getNextSibling();
     }
   }
 

@@ -210,6 +210,7 @@ public class ValidationEngine {
   private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
   private boolean doNative;
   private boolean noInvariantChecks;
+  private boolean hintAboutNonMustSupport;
   private String version;
   private PackageCacheManager pcm;
 
@@ -262,6 +263,14 @@ public class ValidationEngine {
     connectToTSServer(src);   
   }
   
+  public boolean isHintAboutNonMustSupport() {
+    return hintAboutNonMustSupport;
+  }
+
+  public void setHintAboutNonMustSupport(boolean hintAboutNonMustSupport) {
+    this.hintAboutNonMustSupport = hintAboutNonMustSupport;
+  }
+
   public ValidationEngine(String src, String txsrvr) throws Exception {
     pcm = new PackageCacheManager(true);
     loadInitialDefinitions(src);
@@ -800,6 +809,7 @@ public class ValidationEngine {
         validateSHEX(location, messages);
     }
     InstanceValidator validator = new InstanceValidator(context, null);
+    validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
     validator.setNoInvariantChecks(isNoInvariantChecks());
     validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
     return messagesToOutcome(messages);
@@ -816,6 +826,7 @@ public class ValidationEngine {
         validateSHEX(location, messages);
     }
     InstanceValidator validator = new InstanceValidator(context, null);
+    validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
     validator.setResourceIdRule(resourceIdRule);
     validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setBestPracticeWarningLevel(bpWarnings);
