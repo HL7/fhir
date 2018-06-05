@@ -190,6 +190,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           throw new DefinitionException("Duplicate Resource " + url);
         if (r instanceof StructureDefinition)
           seeMetadataResource((StructureDefinition) m, structures, false);
+        else if (r instanceof ValueSet)
+          seeMetadataResource((ValueSet) m, valueSets, false);
         else if (r instanceof CodeSystem)
           seeMetadataResource((CodeSystem) m, codeSystems, false);
         else if (r instanceof ImplementationGuide)
