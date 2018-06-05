@@ -391,7 +391,7 @@ public class ValidationEngine {
         return scanDirectory(f);
       if (src.endsWith("package.tgz"))
         return loadPackage(new FileInputStream(src), src);
-      if (src.endsWith("validator.pack"))
+      if (src.endsWith(".pack"))
         return readZip(new FileInputStream(src));
       if (src.endsWith("igpack.zip"))
         return readZip(new FileInputStream(src));
