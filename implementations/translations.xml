@@ -1353,6 +1353,9 @@
 		<translation lang="en">Parameter "%s" modifier is invalid</translation>
 		<translation lang="nl">Modifier van parameter "%s" is ongeldig</translation>
 	</item>
+  <item id="MSG_PARAM_INVALID_TARGETTYPE">
+		<translation lang="en">Parameter "%s" is invalid because the type of resource referenced is not specified</translation>
+  </item>
 	<item id="MSG_RESOURCE_EXAMPLE_PROTECTED" ecode="true">
 		<translation lang="en">Resources with identity "example" cannot be deleted (for testing/training purposes)</translation>
 		<translation lang="nl">Resources met identiteit "voorbeeld" kunnen niet worden verwijderd (ten behoeve van testen/training)</translation>

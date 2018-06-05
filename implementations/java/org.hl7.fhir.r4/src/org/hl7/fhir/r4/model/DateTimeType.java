@@ -193,4 +193,22 @@ public class DateTimeType extends BaseDateTimeType {
 	public String fhirType() {
 		return "dateTime";		
 	}
+
+  public String getAsV3() {
+    String r = getValueAsString();
+    r = stripChar(r, 16, ':');
+    r = stripChar(r, 13, ':');
+    r = stripChar(r, 10, 'T');
+    r = stripChar(r, 7, '-');
+    r = stripChar(r, 4, '-');
+    r = r.replaceAll(":", ""); // might be in the timezone
+    return r;
+  }
+
+  private String stripChar(String r, int i, char c) {
+    if (r.length() <= i || r.charAt(i) != c)
+      return r;
+    return r.substring(0, i)+r.substring(i+1);
+  }
+
 }

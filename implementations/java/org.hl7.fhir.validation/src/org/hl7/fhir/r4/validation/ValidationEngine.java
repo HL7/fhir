@@ -502,7 +502,8 @@ public class ValidationEngine {
     NpmPackage pi = null;
     if (version == null) {
       pi = pcm.loadPackageCacheLatest(id);
-      log("   ... Using version "+pi.version());
+      if (pi != null)
+        log("   ... Using version "+pi.version());
     } else
       pi = pcm.loadPackageCache(id, version);
     if (pi == null) {
@@ -517,7 +518,10 @@ public class ValidationEngine {
     } catch (IOException e) {
       log("Unable to connect to build.fhir.org to check on packages");
     }
-    return loadPackage(pcm.resolvePackage(id, v));
+    NpmPackage pi = pcm.resolvePackage(id, v);
+    if (pi != null && v == null)
+      log("   ... Using version "+pi.version());
+    return loadPackage(pi);
   }
 
   public SimpleWorkerContext getContext() {

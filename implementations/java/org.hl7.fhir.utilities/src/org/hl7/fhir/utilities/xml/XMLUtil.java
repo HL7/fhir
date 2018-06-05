@@ -499,5 +499,12 @@ public class XMLUtil {
     
   }
 
+  public static Node[] children(Element ed) {
+    Node[] res = new Node[ed.getChildNodes().getLength()];
+    for (int i = 0; i < ed.getChildNodes().getLength(); i++)
+      res[i] = ed.getChildNodes().item(i);
+    return res;
+  }
+
  	
 }

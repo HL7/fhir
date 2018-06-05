@@ -1,5 +1,6 @@
 package org.hl7.fhir.r4.elementmodel;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -9,6 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.sql.rowset.spi.XmlWriter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.SAXParser;
@@ -36,6 +38,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
+import org.hl7.fhir.utilities.xhtml.CDANarrativeFormat;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
@@ -218,6 +221,7 @@ public class XmlParser extends ParserBase {
   private void parseChildren(String path, org.w3c.dom.Element node, Element context) throws FHIRFormatError, FHIRException, IOException, DefinitionException {
   	// this parsing routine retains the original order in a the XML file, to support validation
   	reapComments(node, context);
+  	System.out.println(path);
     List<Property> properties = context.getProperty().getChildProperties(context.getName(), XMLUtil.getXsiType(node));
 
   	String text = XMLUtil.getDirectText(node).trim();
@@ -237,7 +241,7 @@ public class XmlParser extends ParserBase {
       	if (property != null) {
 	    	  String av = attr.getNodeValue();
 	    	  if (ToolingExtensions.hasExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"))
-	    	  	av = convertForDateFormat(ToolingExtensions.readStringExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"), av);
+	    	  	av = convertForDateFormatFromExternal(ToolingExtensions.readStringExtension(property.getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"), av);
 	    		if (property.getName().equals("value") && context.isPrimitive())
 	    			context.setValue(av);
 	    		else
@@ -254,7 +258,11 @@ public class XmlParser extends ParserBase {
     		Property property = getElementProp(properties, child.getLocalName());
     		if (property != null) {
     			if (!property.isChoice() && "xhtml".equals(property.getType())) {
-          	XhtmlNode xhtml = new XhtmlParser().setValidatorMode(true).parseHtmlNode((org.w3c.dom.Element) child);
+    			  XhtmlNode xhtml;
+    			  if (property.getDefinition().hasRepresentation(PropertyRepresentation.CDATEXT))
+    			    xhtml = new CDANarrativeFormat().convert((org.w3c.dom.Element) child);
+          	else 
+              xhtml = new XhtmlParser().setValidatorMode(true).parseHtmlNode((org.w3c.dom.Element) child);
 						context.getChildren().add(new Element("div", property, "xhtml", new XhtmlComposer(XhtmlComposer.XML, false).compose(xhtml)).setXhtml(xhtml).markLocation(line(child), col(child)));
     			} else {
     			  String npath = path+"/"+pathPrefix(child.getNamespaceURI())+child.getLocalName();
@@ -328,13 +336,21 @@ public class XmlParser extends ParserBase {
   	return null;
 	}
 
-	private String convertForDateFormat(String fmt, String av) throws FHIRException {
+	private String convertForDateFormatFromExternal(String fmt, String av) throws FHIRException {
   	if ("v3".equals(fmt)) {
   		DateTimeType d = DateTimeType.parseV3(av);
   		return d.asStringValue();
   	} else
   		throw new FHIRException("Unknown Data format '"+fmt+"'");
 	}
+
+  private String convertForDateFormatToExternal(String fmt, String av) throws FHIRException {
+    if ("v3".equals(fmt)) {
+      DateTimeType d = new DateTimeType(av);
+      return d.getAsV3();
+    } else
+      throw new FHIRException("Unknown Data format '"+fmt+"'");
+  }
 
   private void parseResource(String string, org.w3c.dom.Element container, Element parent, Property elementProperty) throws FHIRFormatError, DefinitionException, FHIRException, IOException {
   	org.w3c.dom.Element res = XMLUtil.getFirstChild(container);
@@ -365,14 +381,32 @@ public class XmlParser extends ParserBase {
 		}
 	}
 
-	private boolean isAttr(Property property) {
-		for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
-			if (r.getValue() == PropertyRepresentation.XMLATTR) {
-				return true;
-			}
-		}
-		return false;
-	}
+  private boolean isAttr(Property property) {
+    for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
+      if (r.getValue() == PropertyRepresentation.XMLATTR) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean isCdaText(Property property) {
+    for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
+      if (r.getValue() == PropertyRepresentation.CDATEXT) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private boolean isTypeAttr(Property property) {
+    for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
+      if (r.getValue() == PropertyRepresentation.TYPEATTR) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   private boolean isText(Property property) {
 		for (Enumeration<PropertyRepresentation> r : property.getDefinition().getRepresentation()) {
@@ -384,15 +418,29 @@ public class XmlParser extends ParserBase {
   }
 
 	@Override
-  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException {
+  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException, FHIRException {
     XMLWriter xml = new XMLWriter(stream, "UTF-8");
+    xml.setSortAttributes(false);
     xml.setPretty(style == OutputStyle.PRETTY);
     xml.start();
     xml.setDefaultNamespace(e.getProperty().getNamespace());
+    if (hasTypeAttr(e))
+      xml.namespace("http://www.w3.org/2001/XMLSchema-instance", "xsi");
     composeElement(xml, e, e.getType(), true);
     xml.end();
 
   }
+
+  private boolean hasTypeAttr(Element e) {
+    if (isTypeAttr(e.getProperty()))
+      return true;
+    for (Element c : e.getChildren()) {
+      if (hasTypeAttr(c))
+        return true;
+    }
+    return false;
+  }
+
 
   public void compose(Element e, IXMLWriter xml) throws Exception {
     xml.start();
@@ -401,7 +449,7 @@ public class XmlParser extends ParserBase {
     xml.end();
   }
 
-  private void composeElement(IXMLWriter xml, Element element, String elementName, boolean root) throws IOException {
+  private void composeElement(IXMLWriter xml, Element element, String elementName, boolean root) throws IOException, FHIRException {
     for (String s : element.getComments()) {
       xml.comment(s, true);
     }
@@ -413,12 +461,19 @@ public class XmlParser extends ParserBase {
       xml.exit(elementName);      
     } else if (element.isPrimitive() || (element.hasType() && isPrimitive(element.getType()))) {
       if (element.getType().equals("xhtml")) {
-        xml.escapedText(element.getValue());
+        String rawXhtml = element.getValue();
+        if (isCdaText(element.getProperty())) {
+          new CDANarrativeFormat().convert(xml, element.getXhtml());
+        } else
+          xml.escapedText(rawXhtml);
       } else if (isText(element.getProperty())) {
         if (linkResolver != null)
           xml.link(linkResolver.resolveProperty(element.getProperty()));
         xml.text(element.getValue());
       } else {
+        if (isTypeAttr(element.getProperty()) && !Utilities.noString(element.getType())) {
+          xml.attribute("xsi:type", element.getType());
+        }
         if (element.hasValue()) {
           if (linkResolver != null)
             xml.link(linkResolver.resolveType(element.getType()));
@@ -432,14 +487,20 @@ public class XmlParser extends ParserBase {
 						composeElement(xml, child, child.getName(), false);
 					xml.exit(elementName);
 				} else
-        xml.element(elementName);
+          xml.element(elementName);
       }
     } else {
+      if (isTypeAttr(element.getProperty()) && !Utilities.noString(element.getType())) {
+        xml.attribute("xsi:type", element.getType());
+      }
       for (Element child : element.getChildren()) {
         if (isAttr(child.getProperty())) {
           if (linkResolver != null)
             xml.link(linkResolver.resolveType(child.getType()));
-          xml.attribute(child.getName(), child.getValue());
+          String av = child.getValue();
+          if (ToolingExtensions.hasExtension(child.getProperty().getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"))
+            av = convertForDateFormatToExternal(ToolingExtensions.readStringExtension(child.getProperty().getDefinition(), "http://www.healthintersections.com.au/fhir/StructureDefinition/elementdefinition-dateformat"), av);
+          xml.attribute(child.getName(), av);
       }
       }
       if (linkResolver != null)
