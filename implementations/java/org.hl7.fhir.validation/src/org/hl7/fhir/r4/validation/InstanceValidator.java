@@ -1970,17 +1970,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return match;
   }
 
-  private StructureDefinition getProfileForType(String type) {
-
-    if (!Utilities.isAbsoluteUrl(type))
-      type = "http://hl7.org/fhir/StructureDefinition/" + type;
-    
-    long t = System.nanoTime();
-    try {
-      return context.fetchResource(StructureDefinition.class, type);
-    } finally {
+  private StructureDefinition getProfileForType(String type, List<TypeRefComponent> list) {
+    for (TypeRefComponent tr : list) {
+      String url = tr.getCode();
+      if (!Utilities.isAbsoluteUrl(url))
+        url = "http://hl7.org/fhir/StructureDefinition/" + url;
+      long t = System.nanoTime();
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
       sdTime = sdTime + (System.nanoTime() - t);
+      if (sd != null && (sd.getType().equals(type) || sd.getUrl().equals(type)) && sd.hasSnapshot())
+        return sd;
     }
+    return null;
   }
 
   private Element getValueForDiscriminator(Object appContext, List<ValidationMessage> errors, Element element, String discriminator, ElementDefinition criteria, NodeStack stack) throws FHIRException, IOException  {
@@ -2278,15 +2279,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  private ElementDefinition resolveType(String type)  {
-    String url = "http://hl7.org/fhir/StructureDefinition/" + type;
-    long t = System.nanoTime();
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
-    sdTime = sdTime + (System.nanoTime() - t);
-    if (sd == null || !sd.hasSnapshot())
-      return null;
-    else
-      return sd.getSnapshot().getElement().get(0);
+  private ElementDefinition resolveType(String type, List<TypeRefComponent> list)  {
+    for (TypeRefComponent tr : list) {
+      String url = tr.getCode();
+      if (!Utilities.isAbsoluteUrl(url))
+        url = "http://hl7.org/fhir/StructureDefinition/" + url;
+      long t = System.nanoTime();
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
+      sdTime = sdTime + (System.nanoTime() - t);
+      if (sd != null && (sd.getType().equals(type) || sd.getUrl().equals(type)) && sd.hasSnapshot())
+        return sd.getSnapshot().getElement().get(0);
+    }
+    return null;
   }
 
   public void setAnyExtensionsAllowed(boolean anyExtensionsAllowed) {
@@ -3421,6 +3425,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           String prefix = tail(ei.definition.getPath());
           assert typesAreAllReference(ei.definition.getType()) || ei.definition.hasRepresentation(PropertyRepresentation.TYPEATTR) || prefix.endsWith("[x]") : prefix;
 
+          if (ei.definition.hasRepresentation(PropertyRepresentation.TYPEATTR))
+            type = ei.element.getType();
+          else {
           prefix = prefix.substring(0, prefix.length() - 3);
           for (TypeRefComponent t : ei.definition.getType())
             if ((prefix + Utilities.capitalize(t.getCode())).equals(ei.name)) {
@@ -3429,13 +3436,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               if (t.hasProfile() && !type.equals("Reference"))
                 profiles.add(t.getProfile().get(0).getValue());
             }
+          }
           if (type == null) {
             TypeRefComponent trc = ei.definition.getType().get(0);
             if (trc.getCode().equals("Reference"))
               type = "Reference";
             else
               rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), stack.getLiteralPath(), false,
-                  "The element " + ei.name + " is illegal. Valid types at this point are " + describeTypes(ei.definition.getType()));
+                  "The type of element " + ei.name + " is not known, which is illegal. Valid types at this point are " + describeTypes(ei.definition.getType()));
           }
         } else if (ei.definition.getContentReference() != null) {
           typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getContentReference());
@@ -3447,7 +3455,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             type = null;
           }
         }
-        NodeStack localStack = stack.push(ei.element, ei.count, ei.definition, type == null ? typeDefn : resolveType(type));
+        NodeStack localStack = stack.push(ei.element, ei.count, ei.definition, type == null ? typeDefn : resolveType(type, ei.definition.getType()));
         String localStackLiterapPath = localStack.getLiteralPath();
         String eiPath = ei.path;
         assert(eiPath.equals(localStackLiterapPath)) : "ei.path: " + ei.path + "  -  localStack.getLiteralPath: " + localStackLiterapPath;
@@ -3478,7 +3486,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           StructureDefinition p = null;
           boolean elementValidated = false;
           if (profiles.isEmpty()) {
-            p = getProfileForType(type);
+            p = getProfileForType(type, ei.definition.getType());
 
             // If dealing with a primitive type, then we need to check the current child against
             // the invariants (constraints) on the current element, because otherwise it only gets
