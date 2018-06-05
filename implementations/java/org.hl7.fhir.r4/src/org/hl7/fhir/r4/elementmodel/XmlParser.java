@@ -221,7 +221,6 @@ public class XmlParser extends ParserBase {
   private void parseChildren(String path, org.w3c.dom.Element node, Element context) throws FHIRFormatError, FHIRException, IOException, DefinitionException {
   	// this parsing routine retains the original order in a the XML file, to support validation
   	reapComments(node, context);
-  	System.out.println(path);
     List<Property> properties = context.getProperty().getChildProperties(context.getName(), XMLUtil.getXsiType(node));
 
   	String text = XMLUtil.getDirectText(node).trim();
@@ -246,8 +245,15 @@ public class XmlParser extends ParserBase {
 	    			context.setValue(av);
 	    		else
 	    	    context.getChildren().add(new Element(property.getName(), property, property.getType(), av).markLocation(line(node), col(node)));
-        } else if (!allowXsiLocation || !attr.getNodeName().endsWith(":schemaLocation") ) {
-          logError(line(node), col(node), path, IssueType.STRUCTURE, "Undefined attribute '@"+attr.getNodeName()+"' on "+node.getNodeName()+" for type "+context.fhirType()+" (properties = "+properties+")", IssueSeverity.ERROR);      		
+        } else {
+          boolean ok = false;
+          if (FormatUtilities.FHIR_NS.equals(node.getNamespaceURI()))
+            ok = ok || (allowXsiLocation || !attr.getLocalName().equals("schemaLocation")); 
+          else
+            ok = ok || (attr.getLocalName().equals("schemaLocation")); // xsi:schemalocation allowed for non FHIR content
+          ok = ok || (hasTypeAttr(context) && attr.getLocalName().equals("type") && FormatUtilities.NS_XSI.equals(attr.getNamespaceURI())); // xsi:type allowed if element says so
+          if (!ok)  
+            logError(line(node), col(node), path, IssueType.STRUCTURE, "Undefined attribute '@"+attr.getNodeName()+"' on "+node.getNodeName()+" for type "+context.fhirType()+" (properties = "+properties+")", IssueSeverity.ERROR);         
       	}
     	}
     }
