@@ -49,6 +49,8 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 
+import com.google.gson.JsonObject;
+
 public class SpecNPMPackageGenerator {
 
   public class ResourceEntry {
@@ -201,14 +203,7 @@ public class SpecNPMPackageGenerator {
       if (f.getName().endsWith(".json") && !f.getName().endsWith(".diff.json") && !f.getName().endsWith(".schema.json") && !f.getName().equals("package.json")) {
         try {
           byte[] b = TextFile.fileToBytes(f.getAbsolutePath());
-          if (version.equals(Constants.VERSION))
-            loadFile4(reslist, b, f.getName());
-          else if (version.equals("3.0.1"))
-            loadFile3(reslist, b);
-          else if (version.equals("1.4.0"))
-            loadFile14(reslist, b);
-          else if (version.equals("1.0.2"))
-            loadFile10(reslist, b);
+          loadFile(reslist, b, f.getName());
         } catch (Exception e) {
           // nothing - we'll just ignore the file
         }
@@ -216,56 +211,28 @@ public class SpecNPMPackageGenerator {
     }    
   }
 
-  private void loadFile4(List<ResourceEntry> reslist, byte[] b, String sourceName) throws FHIRFormatError, IOException {
+  private void loadFile(List<ResourceEntry> reslist, byte[] b, String sourceName) throws FHIRFormatError, IOException {
     try {
-      org.hl7.fhir.r4.model.Resource res = new org.hl7.fhir.r4.formats.JsonParser().parse(b);
-      if (res.hasId() && !hasEntry(reslist, res.fhirType(), res.getId())) {
-        ResourceEntry e = new ResourceEntry();
-        e.type = res.fhirType();
-        e.id = res.getId();
-        e.json = b;
-        e.conf = false;
-        reslist.add(e);
+      JsonObject json = parseJson(b);
+      if (json.has("id") && json.has("resourceType")) {
+        String id = json.get("id").getAsString();
+        String type = json.get("resourceType").getAsString(); 
+        if (!Utilities.noString(id) && !hasEntry(reslist, type, id)) {
+          ResourceEntry e = new ResourceEntry();
+          e.type = type;
+          e.id = id;
+          e.json = b;
+          e.conf = false;
+          reslist.add(e);
+        }
       }
     } catch (Throwable e) {
       throw new Error("Exception parsing "+sourceName+": "+e.getMessage(), e);
     }
   }
 
-  private void loadFile3(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
-    org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(b);
-    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
-      ResourceEntry e = new ResourceEntry();
-      e.type = res.fhirType();
-      e.id = res.getId();
-      e.json = b;
-      e.conf = false;
-      reslist.add(e);
-    }
-  }
-
-  private void loadFile14(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
-    org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(b);
-    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
-      ResourceEntry e = new ResourceEntry();
-      e.type = res.fhirType();
-      e.id = res.getId();
-      e.json = b;
-      e.conf = false;
-      reslist.add(e);
-    }
-  }
-
-  private void loadFile10(List<ResourceEntry> reslist, byte[] b) throws FHIRFormatError, IOException {
-    org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(b);
-    if (!hasEntry(reslist, res.fhirType(), res.getId())) {
-      ResourceEntry e = new ResourceEntry();
-      e.type = res.fhirType();
-      e.id = res.getId();
-      e.json = b;
-      e.conf = false;
-      reslist.add(e);
-    }
+  private JsonObject parseJson(byte[] b) {
+    return (JsonObject) new com.google.gson.JsonParser().parse(new String(b));
   }
 
   private boolean hasEntry(List<ResourceEntry> reslist, String fhirType, String id) {
