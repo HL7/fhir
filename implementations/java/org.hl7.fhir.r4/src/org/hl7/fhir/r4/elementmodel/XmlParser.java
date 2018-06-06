@@ -247,9 +247,11 @@ public class XmlParser extends ParserBase {
 	    	    context.getChildren().add(new Element(property.getName(), property, property.getType(), av).markLocation(line(node), col(node)));
         } else {
           boolean ok = false;
-          if (FormatUtilities.FHIR_NS.equals(node.getNamespaceURI()))
-            ok = ok || (allowXsiLocation || !attr.getLocalName().equals("schemaLocation")); 
-          else
+          if (FormatUtilities.FHIR_NS.equals(node.getNamespaceURI())) {
+            if (attr.getLocalName().equals("schemaLocation") && FormatUtilities.NS_XSI.equals(attr.getNamespaceURI())) {
+              ok = ok || allowXsiLocation; 
+            }
+          } else
             ok = ok || (attr.getLocalName().equals("schemaLocation")); // xsi:schemalocation allowed for non FHIR content
           ok = ok || (hasTypeAttr(context) && attr.getLocalName().equals("type") && FormatUtilities.NS_XSI.equals(attr.getNamespaceURI())); // xsi:type allowed if element says so
           if (!ok)  
