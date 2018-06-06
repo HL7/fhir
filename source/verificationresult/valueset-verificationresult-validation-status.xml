@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="validation-status"/>
+
+  <url value="http://hl7.org/fhir/ValueSet/validation-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.894"/>
+  </identifier>
+  <version value="3.4.0"/>
+  <name value="validation-status"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2018-06-05T14:06:02+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Status of the validation of the target against the primary source"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/validation-status"/>
+    </include>
+  </compose>
+</ValueSet>
