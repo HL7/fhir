@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6150</WindowHeight>
-  <WindowWidth>25260</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowHeight>10005</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -876,21 +876,15 @@
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="246.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="75.75"/>
-   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="27.75"/>
-   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="33.75"/>
-   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="129"/>
-   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="27.75"
-    ss:Span="1"/>
-   <Column ss:Index="8" ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
-    ss:Width="27"/>
-   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="105.75"
-    ss:Span="1"/>
-   <Column ss:Index="11" ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
-    ss:Width="81"/>
-   <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="51.75"
-    ss:Span="1"/>
-   <Column ss:Index="14" ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
-    ss:Width="78.75"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27.75"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="33.75"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="129"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27.75" ss:Span="1"/>
+   <Column ss:Index="8" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="105.75" ss:Span="1"/>
+   <Column ss:Index="11" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="81"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="51.75" ss:Span="1"/>
+   <Column ss:Index="14" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="78.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="120.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="387.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="114"/>
@@ -1331,7 +1325,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">ProductPlan.coverageArea</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Location)</Data><NamedCell
@@ -1875,7 +1869,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">ProductPlan.coverage.benefit.limit</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">1..*</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2109,7 +2103,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">ProductPlan.plan.coverageArea</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Location)</Data><NamedCell
@@ -2373,7 +2367,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">ProductPlan.plan.specificCost.category</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
@@ -2468,7 +2462,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ProductPlan.plan.specificCost.benefit.description</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!ProductPlan.plan.specificCost.benefit.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2572,7 +2566,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2639,7 +2633,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Money</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2652,7 +2646,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The actual cost value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The actual cost value</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g. 10% coinsurance)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4861,7 +4855,15 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
+   <TopRowVisible>12</TopRowVisible>
+   <LeftColumnVisible>3</LeftColumnVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>38</ActiveRow>
+     <ActiveCol>12</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -7330,9 +7332,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">BenefitCostApplicability</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Whether the cost applies to in-network or out-of-network providers.</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">#applicability</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">valueset-productplan-applicability</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
@@ -7670,6 +7672,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>5</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
