@@ -1175,7 +1175,7 @@ public class SourceParser {
       return false;
     } else  {
       long d = f.lastModified();
-      if (!file.endsWith(".svg.gen") && (!dates.containsKey(category) || d > dates.get(category)))
+      if (!f.getAbsolutePath().endsWith(".gen.svg") && (!dates.containsKey(category) || d > dates.get(category)))
         dates.put(category, d);
       return true;
     }

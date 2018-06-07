@@ -23,7 +23,7 @@ implementation issues encountered when storing resources natively in persistent
 stores.
 </p>
 <p>
-Note that almost all applications store the information find in resources 
+Note that almost all applications store the information found in resources 
 in some persistent store - usually a database. Most applications store 
 the information found in the resources in some internal format, and only
 use resources natively when exchanging with other applications. This page 
@@ -103,6 +103,36 @@ subset of information in some expressly designed persistent scheme.
 The balance between these is driven by the stability of information requirements 
 for different parts of the system.
 </p>
+
+<a name="versions"></a>
+<h3>Dealing with Multiple FHIR Versions</h3>
+
+<p>
+Very often, applications storing FHIR resources natively must deal with 
+multiple different FHIR versions, since they are receiving information from 
+different systems with different timelines for adopting ongoing FHIR 
+releases.
+</p>
+<p>
+Typically, such systems have functional requirements that include some variation
+of these:
+</p>
+<ul>
+ <li>The system must be able to make resources available in their original form for integritty/audit reasons</li>
+ <li>The system must present some unified view/analysis/process based on a coherent view of the information from resources with different FHIR versions</li>
+</ul>
+<p>
+There is no single pattern to resolve these somewhat inconsistent requirements,
+but application designers can consider several different techniques for dealing
+with these kind of requirements:
+</p>
+<ul>
+ <li>When storing resources, store the version of the resource alongside the resource</li>
+ <li>Maintain forward (and possibly backwards) conversions for the parts of resources that matter to the application (and see the <a href="r2maps.html">FHIR maintained version transforms</a>)</li>
+ <li>Store resources in both received and transformed state</li>
+ <li>Host multiple different end-points for different purposes</li>
+</ul>
+
 
 <a name="choice"></a>
 <h3>Technology Choices</h3>

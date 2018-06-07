@@ -1732,7 +1732,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       return false;
     } else if (category != null) {
       long d = f.lastModified();
-      if ((!dates.containsKey(category) || d > dates.get(category)) && !file.endsWith(".gen.svg"))
+      if ((!dates.containsKey(category) || d > dates.get(category)) && !f.getAbsolutePath().endsWith(".gen.svg"))
         dates.put(category, d);
       return true;
     } else

@@ -864,7 +864,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         searchAdditions = s2.substring(16).trim();
         src = s1+s3;
       } else if (com[0].equals("complinks")) {
-          src = s1+(rd == null ? "" : getCompLinks(rd, com.length > 1 ? com[1] : null))+s3;
+        src = s1+(rd == null ? "" : getCompLinks(rd, com.length > 1 ? com[1] : null))+s3;
+      } else if (com[0].equals("diff")) {
+        src = s1+"<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+com[1]+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+com[1]+"\">diff</a>"+s3;
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("circular-references")) {
@@ -1224,7 +1226,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genExtensionTypeList()+s3;
       else if (com[0].equals("wildcard-type-list"))
         src = s1+genWildcardTypeList()+s3;
-      
+      else if (com[0].startsWith("GF#"))
+        src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
       else if (com[0].equals("operation")) {
         Operation op = (Operation) object;
         src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
@@ -5042,6 +5045,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+s3;
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
+      else if (com[0].equals("diff"))
+        src = s1+"<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+com[1]+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+com[1]+"\">diff</a>"+s3;
       else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("sct-vs-list"))
@@ -5400,6 +5405,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genExtensionTypeList()+s3;
       else if (com[0].equals("wildcard-type-list"))
         src = s1+genWildcardTypeList()+s3;
+      else if (com[0].startsWith("GF#"))
+        src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }

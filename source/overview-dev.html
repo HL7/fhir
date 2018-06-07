@@ -173,6 +173,21 @@ the base resource types.
 <a name="versions"></a>
 <h3>Managing Versions</h3>
 <p>
+Versions, in the context of FHIR, means one of three different things:
+</p>
+<ol>
+ <li>FHIR Version: Which FHIR version is in use?</li>
+ <li>Record Version: for tracking changes to resources, and preventing changes overwriting each other</li>
+ <li>Business Version: So humans know which version of the content they are dealing with (for some kinds of resources)</li>
+</ol>
+<p><b>FHIR Version</b></p>
+<p>
+Usually, the FHIR version is fixed by the context - the <a href="capabilitystatement.html">CapabilityStatement</a> 
+that a client can use to find out about the server, but there are other ways 
+of <a href="versioning.html">managing multiple FHIR versions</a>.
+</p>
+<p><b>Record Version</b></p>
+<p>
 FHIR Servers do not have to support versioning, though they are strongly encouraged to do so.
 There are three different levels of versioning support for FHIR servers:
 </p>
@@ -184,6 +199,13 @@ There are three different levels of versioning support for FHIR servers:
 <p>
 In addition, servers may require that <a href="http.html#concurrency">version</a> aware updates are used, to prevent over-writing changes,
 but this is not described on this page.
+</p>
+<p><b>Business Version</b></p>
+<p>
+Some resources - typically those that represent content that goes through a formal publishing cycle - carry
+a <code>version</code> element that explicitly states what version of the content the resource represents.
+This is changed explicitly by a human, or by some automated process in accordance with applicable business
+rules.
 </p>
 
 <h3>Creating a resource</h3>

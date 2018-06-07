@@ -136,7 +136,8 @@ in particular implementations or contexts of use.
    <td>profile (0..*)</td>
    <td><a href="datatypes.html#uri">uri</a></td>
    <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>). See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
-    Can be changed as profiles and value sets change or the system rechecks conformance</td>
+    Can be changed as profiles and value sets change or the system rechecks conformance. The profile can be used to 
+    <a href="versioning.html#mp-version">indicate which version(s) of FHIR a resource conforms to</a> </td>
   </tr>
 	
   <tr>
@@ -163,7 +164,16 @@ Note that the RESTful API defines some <a href="operations.html">Operations</a> 
 </p>
 
 <a name="versions"></a>
-<h4>Technical vs Business Versions</h4>
+<h4>Record vs Business Versions vs FHIR Versions</h4>
+<p>
+There are 3 different versions of interest for a resource:
+</p>
+<ol>
+  <li>The Record Version: changes each time the resource changes (usually managed by a server)</li>
+  <li>The business verson: changes each time the content in the resources changes (managed by a human author or by businss policy)</li>
+  <li>The FHIR Version: the version of FHIR in which the resource is represented (controlled by the author of the resource)</li>
+</ol>
+<p><b></b></p>
 <p>
 All resources are conceptually versioned, and each resource sits at the head of a linear list of past versions. 
 The past versions are superseded by the current version, and only available for audit/integrity purposes. 
@@ -187,6 +197,7 @@ The current version of the resource is in the <i>Resource.meta.versionId</i>. Fo
 <p>
 That version changes every time the server updates the resource and writes a new version over the top of an existing one. 
 </p>
+<p><b>Business Version</b></p>
 <p>
 Some resources have another version marker in them. For instance, ValueSet has another version in it:
 </p>
@@ -229,6 +240,15 @@ Now, there are two different value sets, both with URL "http://acme.com/valueset
 ValueSet.meta.versionId = 1 and the other has ValueSet.id = x2, ValueSet.version = 2 and ValueSet.meta.versionId = 1.
  </li>
 </ol>
+<p><b>FHIR Version</b></p>
+<p>
+All resources always have a FHIR version against which they were written. In fact, resources may be valid 
+against multiple different FHIR versions, and this becomes pregressively more likely as the <a href="versions.html#maturity">maturity
+of the resource</a> progresses.
+</p>
+<p>
+The version is often not stated explicitly in the resource - it's controlled by the context. See <a href="versioning.html">Managing Multiple FHIR versions</a> for further information.
+</p>
 
 
 <a name="implicitRules"></a>  

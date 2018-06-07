@@ -16,19 +16,21 @@
 <h2>Version Management Policy</h2>
 
 <p>
-This page documents the way version change is handled in FHIR. FHIR
-is a standard, so the way version change
-is handled is a bit different from an application API. This page
-describes:
+This page documents the way version change is handled in FHIR. FHIR is a standard, so the way version change
+is handled is a bit different from an application API. This page describes:
 </p>
 <ul>
  <li><a href="#std-process">The standards development process</a></li>
  <li><a href="#maturity">The FHIR Maturity Model</a></li>
  <li><a href="#versions">How FHIR versions work</a></li>
  <li><a href="#change">The rules for inter-version change once an artifact is Normative</a></li>
- <li><a href="#stu">Strategies for handling change during the development process</a></li>
+ <li><a href="#stu">Managing Change during the development process</a></li>
  <li><a href="#plans">Plans for future releases</a></li>
 </ul>
+<p>
+See also <a href="versioning.html">Managing FHIR Versions</a> for additional implementer advice about 
+dealing with versions.
+</p>
 
 <a name="std-process"></a>
 <h3>The Standards Development Process</h3>
@@ -444,26 +446,23 @@ Additional discussion on inter-versioning issues can be found here:
 
 
 <a name="stu"></a>
-<h3>Strategies for handling Changes to STU content</h3>
+<h3>Managing Change during the development process</h3>
 
 <p>
 Regardless of the degree of prior implementation, all aspects of the FHIR specification are potentially subject to change while an artifact has a 
 status of <i>Draft</i> or <i>Trial Use</i>.  These changes may be minor (clarifications of definitions, etc.) or major (refactoring of 
 resources, changes to serialization rules, eliminating or adding data types, etc.)  There is no commitment to backward or forward compatibility 
-during the STU process.  Changes will not be made without cause, however the interests of long-term implementability will generally trump the 
-impact on early adopters when determining what changes should be made.  This balance will shift more towards early adopters as maturity levels 
-increase.  I.e. Impact on existing implementations will be weighted more highly for an FMM-level 5 artifact than they would for an FMM-level 1 artifact.
+during the trial use process until content is normative.  Changes will not be made without cause, however the interests of long-term 
+implementability will generally trump the impact on early adopters when determining what changes should be made.  This balance will 
+shift more towards early adopters as maturity levels increase.  I.e. Impact on existing implementations will be weighted more highly
+for an FMM-level 5 artifact than they would for an FMM-level 1 artifact.
 </p>
 <p>
 Implementers who are willing to accept the risk of change (perhaps for the benefit of early implementation experience, first mover advantage and 
-the ability to leverage FHIR's intrinsic benefits) are encouraged to implement FHIR in real-world systems.  However, those implementers should 
-be aware that local adaptations may be necessary to meet real-world requirements.  Furthermore, such implementers should architect their 
-solutions to be tolerant of changes to the specification and, where necessary, to manage interoperability with systems that may be using 
-different versions of the specification or different local adaptations.
-</p>
-<p>
-The most common strategy for handling change between versions of FHIR is to use different end-points for different versions. 
-e.g. http://acme.com/fhir/r2 and http://acme.com/fhir/r3, though other approaches are possible. 
+the ability to leverage FHIR's intrinsic benefits) are encouraged to implement those parts of FHIR that are early in the maturity cycle in 
+real-world systems.  However, those implementers should be aware that local adaptations may be necessary to meet real-world requirements.  
+Furthermore, such implementers should architect their solutions to be tolerant of changes to the specification and, where necessary, to 
+manage interoperability with systems that may be using different versions of the specification or different local adaptations.
 </p>
 <p>
 During the <i>Trial Use</i> period, requests for change may be submitted using the HL7 gForge tracker which can be found  
@@ -478,14 +477,11 @@ SDOs and regulatory bodies that are interested in making use of the FHIR specifi
 that the specification will evolve and change prior to becoming <i>Normative</i>. 
 </p>
 <p>
-A key objective of the <i>Trial Use</i> process is gaining feedback from implementers making use of the specification.  As well, HL7 has a need to
-monitor which portions of FHIR are being implemented in what sorts of environments so as to make an informed decision on when the specification is ready to
-proceed to <i>Normative</i> status.  For this reason, all FHIR implementers are encouraged to register their usage <a href="http://fhir.org/implementations/usage">here</a>.
-</p>
-<p>
-This survey will capture contact and other information that will allow the FMG to perform appropriate monitoring of FHIR STU usage.  Survey information will
-be kept confidential unless the participant authorizes inclusion of their project in an HL7-maintained wiki page of early implementers.  Confidential submissions
-will be reported in aggregate only.
+A key aspeect of the FHIR specification development process is gaining feedback from implementers making 
+use of the specification. As well, the process is conditional on real world implementation in order to 
+move through the maturity cycle. For this reason, all FHIR implementers are encouraged to register their 
+usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information 
+that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
 </p>
 
 <a name="plans"></a>

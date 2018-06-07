@@ -293,8 +293,76 @@ Servers SHALL support server-driven content negotiation as described in <a href=
 of the HTTP specification.
 </p>
 <p>
+Implementation Notes:
+</p>
+<ul>
+<li>The content type <code>application/x-www-form-urlencoded</code> is also accepted for posting <code>search</code> requests.</li>
+<li>
+If a client provides a generic mime type in the Accept header
+(application/xml, text/json, or application/json), the server SHOULD respond with
+the requested mime type, using the XML or JSON formats described in this specification
+as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the
+Binary resource</a>).
+</li>
+<li>
 Note: between FHIR DSTU2 and STU3, the correct mime type was changed from <code>application/xml+fhir</code> and <code>application/json+fhir</code> to <code>application/fhir+xml</code> and <code>application/fhir+json</code>.
 Servers MAY also support the older mime types, and are encouraged to do so to smooth the transition process.
+</li>
+</ul>
+<p>
+FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
+defines a default character encoding of ISO-8859-1, requests and responses SHOULD explicitly set
+the character encoding to UTF-8 using the <code>charset</code> MIME-type parameter in the <code>Content-Type</code> header
+for XML and Turtle, and MAY do this for JSON and ND-JSON. Requests MAY also specify this <code>charset</code> parameter in 
+the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
+</p>
+<a name="version-parameter"> </a>
+<h4>FHIR Version Parameter</h4>
+<p>
+This specification defines the MIME-type parameter <code>fhirVersion</code> as a parameter to indicate 
+which version of the FHIR release a resource is based on: 
+</p>
+<pre>
+  Accept: application/fhir+json; fhirVersion=4.0
+</pre>
+<p>
+The value of this parameter is the <a href="versions.html#versions">publication and major version number</a> 
+for the specification:
+</p>
+<table class="grid">
+<tr>
+<td><a href="http://hl7.org/fhir/DSTU1">FHIR R1</a> (DSTU 1)</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td><a href="http://hl7.org/fhir/DSTU2">FHIR R2</a> (DSTU 2)</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
+<td>4.0 (once published)</td>
+</tr>
+</table>
+<p>Intermediate balloted releases may also be encountered occasionally - see <a href="http://hl7.org/fhir/directory.html">publications directory</a>. 
+Versions from before the publication of the <a href="http://hl7.org/fhir/DSTU1/index.html">first DSTU</a> (which is 0.0) are not supported.
+</p>
+<p>
+This parameter can be used anywhere that the FHIR Mime type is used. When used in an HTTP request, the 
+version parameter may be used on either the Content-Type header, or the Accept header, or both, and 
+applies to the entire interaction (the behavior of the interactions as described on ths page, the 
+search parameters and functionality, and the accompanying conformance resources). It is an error for a 
+client to attempt to use two different versions in the same interaction. For further information about 
+specifying FHIR version, see <a href="versioning.html">Managing FHIR Versions</a>.
+</p>
+
+<a name="mime-type"></a>
+<h3>General parameters</h3>
+<p>
+Todo: add verbiage about use of these parameters (see task GF#???)
 </p>
 <p>
 In order to support various implementation limitations, servers SHOULD support the optional <code>_format</code> parameter to
@@ -307,29 +375,12 @@ and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html"
 <code>html</code> and <code>text/html</code> are allowed.
 </p>
 <p>
-FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
-defines a default character encoding of ISO-8859-1, requests and responses SHOULD explicitly set
-the character encoding to UTF-8 using the <code>charset</code> parameter of the MIME-type in the <code>Content-Type</code> header
-for XML and Turtle, and MAY do this for JSON and ND-JSON. Requests MAY also specify this <code>charset</code> parameter in 
-the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
-</p>
-<p>
 Note: the <code>_format</code> parameter does not override the <code>Content-Type</code> header for the 
 type of the body of a POST request.
 </p>
 <p>
-The content type <code>application/x-www-form-urlencoded</code> is also accepted for posting <code>search</code> requests.
-</p>
-<p>
 If neither the accept header nor the _format parameter are specified, the MIME-type
 of the content returned by the server is undefined and may vary.
-</p>
-<p>
-Implementation Note: If a client provides a generic mime type in the Accept header
-(application/xml, text/json, or application/json), the server SHOULD respond with
-the requested mime type, using the XML or JSON formats described in this specification
-as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the
-Binary resource</a>).
 </p>
 <p>
 Clients that wish to request for pretty-printed resources (either in JSON or XML) can
@@ -966,21 +1017,13 @@ The interaction is performed by an HTTP <code>GET</code> command as shown:
   GET [base]/metadata {?_format=[mime-type]}
 </pre>
 <p>
-In addition, there is another method to get the capability statement, using the HTTP <code>OPTIONS</code> command:
-</p>
-<pre class="http">
-  OPTIONS [base] {?_format=[mime-type]}
-</pre>
-<p>
-However as of STU3, this method is deprecated, and will be removed in a future version. Using OPTIONS like this
-is not conformant with HTTP, and creates challenges for <a href="http://enable-cors.org/">cross-origin resource sharing</a> support.
-</p>
-<p>
 Applications SHALL return a <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported
-for the <code>GET</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR is not supported on the
-nominated service url. An <code>ETag</code> header SHOULD be returned with the CapabilityStatement. The value of the header SHALL change if the
-CapabilityStatement itself changes. Additional parameters that are required to be returned with
-the <code>OPTIONS</code> command are defined in the <a href="#hdata">OMG hData RESTful Transport</a> specification.
+for the <code>GET</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR (or the specified version_ is not supported on the
+nominated service url. An <code>ETag</code> header SHOULD be returned with the CapabilityStatement. The value of the ETag header SHALL change if the
+CapabilityStatement itself changes.
+</p>
+<p>
+Servers SHOULD check for the <a href="#version-parameter">fhirVersion MIME-type parameter</a> when processing this request.
 </p>
 <p>
 The Capability statement returned typically has an arbitrary id, and no meta element, though it is not prohibited.
@@ -1555,6 +1598,7 @@ not use this header for any purpose. Its aim is to assist with
 system troubleshooting.
 </p>
 
+<!--
 <a name="hdata"></a>
 <h3>OMG hData RESTful Transport</h3>
 
@@ -1570,6 +1614,7 @@ In this regard, FHIR functions as a Record Format Profile as described in that s
  <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a Capability Statement, which describes what it is capable of doing)</li>
  <li>Note that this specification does support the hData RESTful Transport <code>OPTIONS</code> command on the service URL</li>
 </ul>
+-->
 
 <a name="summary"></a>
 <h3>Summary</h3>
