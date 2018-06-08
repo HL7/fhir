@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1478,10 +1478,10 @@ public class StructureDefinition extends MetadataResource {
     protected Enumeration<TypeDerivationRule> derivation;
 
     /**
-     * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.
+     * A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.
      */
     @Child(name = "snapshot", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition." )
+    @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition." )
     protected StructureDefinitionSnapshotComponent snapshot;
 
     /**
@@ -2751,7 +2751,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.)
+     * @return {@link #snapshot} (A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.)
      */
     public StructureDefinitionSnapshotComponent getSnapshot() { 
       if (this.snapshot == null)
@@ -2767,7 +2767,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.)
+     * @param value {@link #snapshot} (A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.)
      */
     public StructureDefinition setSnapshot(StructureDefinitionSnapshotComponent value) { 
       this.snapshot = value;
@@ -2825,7 +2825,7 @@ public class StructureDefinition extends MetadataResource {
         children.add(new Property("type", "uri", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, 1, type));
         children.add(new Property("baseDefinition", "canonical(StructureDefinition)", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition));
         children.add(new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, 1, derivation));
-        children.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot));
+        children.add(new Property("snapshot", "", "A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot));
         children.add(new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, 1, differential));
       }
 
@@ -2857,7 +2857,7 @@ public class StructureDefinition extends MetadataResource {
         case 3575610: /*type*/  return new Property("type", "uri", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, 1, type);
         case 1139771140: /*baseDefinition*/  return new Property("baseDefinition", "canonical(StructureDefinition)", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition);
         case -1353885513: /*derivation*/  return new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, 1, derivation);
-        case 284874180: /*snapshot*/  return new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot);
+        case 284874180: /*snapshot*/  return new Property("snapshot", "", "A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot);
         case -1196150917: /*differential*/  return new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, 1, differential);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }

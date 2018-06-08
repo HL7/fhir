@@ -127,13 +127,11 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</unitPrice> 
 		<net>
 			<value value="135.57"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 	</item>
 
@@ -149,13 +147,11 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="105.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</unitPrice> 
 		<net>
 			<value value="105.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 		<bodySite>
 			<coding>
@@ -183,13 +179,11 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="1100.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</unitPrice> 
 		<net>
 			<value value="1100.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 		<bodySite>
 			<coding>
@@ -207,14 +201,12 @@
 			</service>
 			<unitPrice>
 				<value value="1000.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</unitPrice> 
 			<factor value="0.75"/>	<!-- Student discount -->
 			<net>
 				<value value="750.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 		<detail>
@@ -227,13 +219,11 @@
 			</service>
 			<unitPrice>
 				<value value="350.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</unitPrice> 
 			<net>
 				<value value="350.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 	</item>

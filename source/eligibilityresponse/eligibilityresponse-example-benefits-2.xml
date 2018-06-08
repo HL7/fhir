@@ -178,14 +178,12 @@
 
 				<allowedMoney>
 					<value value="500000"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</allowedMoney>
 
 				<usedMoney>
 					<value value="3748.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</usedMoney>
 
 			</financial>
@@ -199,8 +197,7 @@
 
 				<allowedMoney>
 					<value value="100"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</allowedMoney>
 			</financial>
 
@@ -261,8 +258,7 @@
 
 				<allowedMoney>
 					<value value="15000"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</allowedMoney>
 			</financial>
 
@@ -313,8 +309,7 @@
 
 				<allowedMoney>
 					<value value="2000"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</allowedMoney>
 			</financial>
 

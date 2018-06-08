@@ -159,13 +159,11 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="235.40"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</unitPrice> 
 		<net>
 			<value value="235.40"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 
 		<detail>
@@ -198,14 +196,12 @@
 			</modifier>
 			<unitPrice>
 				<value value="100.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</unitPrice> 
 			<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 			<net>
 				<value value="110.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 			<udi>
 				<reference value="#device-frame"/>
@@ -245,13 +241,11 @@
 			</quantity>
 			<unitPrice>
 				<value value="55.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</unitPrice> 
 			<net>
 				<value value="110.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 
 			<subDetail>
@@ -293,14 +287,12 @@
 				</quantity>
 				<unitPrice>
 					<value value="30.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</unitPrice> 
 				<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 				<net>
 					<value value="66.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</net> 
 				<udi>
 					<reference value="#device-lens"/>
@@ -340,14 +332,12 @@
 				</quantity>
 				<unitPrice>
 					<value value="15.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</unitPrice> 
 				<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 				<net>
 					<value value="33.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</net> 
 			</subDetail>
 
@@ -384,14 +374,12 @@
 				</quantity>
 				<unitPrice>
 					<value value="5.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</unitPrice> 
 				<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 				<net>
 					<value value="11.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</net> 
 			</subDetail>
 		</detail>
@@ -420,14 +408,12 @@
 			</service>
 			<unitPrice>
 				<value value="220.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</unitPrice> 
 			<factor value="0.07"/>
 			<net>
 				<value value="15.40"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 	</item>

@@ -379,14 +379,17 @@ And where the value set would be something like this:
 </pre>
 </div>
 <a name="Quantity"></a>
-<a name="quantity"></a>
+<a name="Quantity"></a>
 <a name="SimpleQuantity"></a>
-<a name="simplequantity"></a>
+<a name="simpleQuantity"></a>
+<a name="Age"></a>
+<a name="Distance"></a>
+<a name="Duration"></a>
+<a name="Count"></a>
 <a name="age"></a>
 <a name="distance"></a>
 <a name="duration"></a>
 <a name="count"></a>
-<a name="money"></a>
 <h3 style="margin-bottom: 1px">
 Quantity
 </h3>
@@ -424,15 +427,43 @@ See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatyp
     &lt;code value="385049006" /&gt;
   &lt;/dose&gt;
 </pre>
-<p>A price (coded using currency codes defined in ISO 4217):</p>
+</div>
+
+<a name="money"></a>
+<a name="Money"></a>
+<h3 style="margin-bottom: 1px">
+Money
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#Money">Base Definition</a>, <a href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Money">Mappings</a>, <a href="datatypes-extras.html#Money">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Money">R2 Conversions</a>.
+</p>
+
+<div class="example">
+<p><b>Examples</b></p>
+<p>US Dollars:</p>
+<pre class="xml" fragment="Money">
+  &lt;time&gt;
+    &lt;value value="25.00" /&gt;
+    &lt;currency value="USD" /&gt;
+  &lt;/time&gt;
+</pre>
+<p>Vietnamese Dong:</p>
+<pre class="xml" fragment="Money">
+  &lt;result&gt;
+    &lt;value value="410000" /&gt;
+    &lt;currency value="VND" /&gt;
+  &lt;/result&gt;
+</pre>
+<p>A quantity that represents a currency amount - used in Ratio where Money is not used:</p>
 <pre class="xml" fragment="Quantity">
-  &lt;cost&gt;
+  &lt;numerator&gt;
     &lt;value value="25.45" /&gt;
     &lt;unit value="US$" /&gt;
     &lt;system value="urn:iso:std:iso:4217" /&gt;
     &lt;code value="USD" /&gt;
-  &lt;/cost&gt;
+  &lt;/numerator&gt;
 </pre>
+<p>(See full example on <a href="#Ratio">Ratio</a>)</p>
 </div>
 
 <a name="Range"></a>
@@ -480,7 +511,7 @@ See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-
    &lt;/denominator&gt;
   &lt;/result&gt;
 </pre>
-<p>Unit cost (Ratio of Money:Quantity):</p>
+<p>Unit cost (Ratio of Money(as Quantity):Quantity):</p>
 <pre class="xml" fragment="Ratio">
   &lt;charge&gt;
    &lt;numerator&gt;

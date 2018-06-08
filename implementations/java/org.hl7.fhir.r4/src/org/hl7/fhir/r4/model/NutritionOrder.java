@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -2520,13 +2520,13 @@ public class NutritionOrder extends DomainResource {
         public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
           if (this.rate == null)
             return null;
-          if (!(this.rate instanceof Quantity))
+          if (!(this.rate instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.rate;
         }
 
         public boolean hasRateSimpleQuantity() { 
-          return this != null && this.rate instanceof Quantity;
+          return this != null && this.rate instanceof SimpleQuantity;
         }
 
         /**

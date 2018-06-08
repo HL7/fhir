@@ -46,9 +46,7 @@
 				</code>
 				<benefitValue>
 					<value value="450.23" />
-					<!-- This is a money type, hence the value is able to have the currency included -->
-					<system value="urn:iso:std:iso:4217" />
-					<code value="USD" />
+					<currency value="USD" />
 				</benefitValue>
 			</item>
 		</benefit>
@@ -59,9 +57,7 @@
 		</type>
 		<premium>
 			<value value="2000" />
-			<!-- This is a money type, hence the value is able to have the currency included -->
-			<system value="urn:iso:std:iso:4217" />
-			<code value="USD" />
+			<currency value="USD" />
 		</premium>
 	</plan>
 	<endpoint>

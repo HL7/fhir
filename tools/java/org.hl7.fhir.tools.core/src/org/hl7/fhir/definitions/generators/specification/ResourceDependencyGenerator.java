@@ -53,7 +53,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
   }
 
   public XhtmlNode generate(ElementDefn e, String prefix) throws Exception {
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, true);
     RenderMode mode = RenderMode.RESOURCE;
     TableModel model = initTable(gen, prefix, mode == RenderMode.LOGICAL);
 

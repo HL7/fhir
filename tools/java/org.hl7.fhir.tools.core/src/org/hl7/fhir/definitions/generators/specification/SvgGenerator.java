@@ -157,14 +157,17 @@ public class SvgGenerator extends BaseGenerator {
   private String id;
   private String prefix;
   private Map<String, PointSpec> layout;
+  private boolean makeTargets;
 
-  public SvgGenerator(PageProcessor page, String prefix, Map<String, PointSpec> layout) {
+  public SvgGenerator(PageProcessor page, String prefix, Map<String, PointSpec> layout, boolean makeTargets) {
     this.definitions = page.getDefinitions();
     this.page = page;
     this.prefix = prefix;
     this.layout = layout;
+    this.makeTargets = makeTargets;
   }
 
+  
   public String generate(String filename, String id) throws Exception {
     this.id = id;
     ini = new IniFile(filename);
@@ -675,7 +678,10 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("height", Double.toString(be ? item.height + LINE_HEIGHT : item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
     xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:black;stroke-width:1");
-    xml.attribute("id", item.getId());
+    if (!makeTargets)
+      xml.attribute("id", "n"+(++nc));
+    else
+      xml.attribute("id", item.getId());
     xml.element("rect", null);    
 
     xml.attribute("x", Double.toString(item.left + item.width / 2));
@@ -752,7 +758,10 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = e.getStandardsStatus();
     }
-    xml.attribute("id", item.getId());
+    if (!makeTargets)
+      xml.attribute("id", "n"+(++nc));
+    else
+      xml.attribute("id", item.getId());
     xml.element("rect", null);    
 
     xml.attribute("x1", Double.toString(item.left));

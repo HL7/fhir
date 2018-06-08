@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -623,7 +623,15 @@ public class JsonParser extends JsonParserBase {
   }
 
   protected void parseMoneyProperties(JsonObject json, Money res) throws IOException, FHIRFormatError {
-    parseQuantityProperties(json, res);
+    parseTypeProperties(json, res);
+    if (json.has("value"))
+      res.setValueElement(parseDecimal(json.get("value").getAsBigDecimal()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
+    if (json.has("currency"))
+      res.setCurrencyElement(parseCode(json.get("currency").getAsString()));
+    if (json.has("_currency"))
+      parseElementProperties(json.getAsJsonObject("_currency"), res.getCurrencyElement());
   }
 
   protected HumanName parseHumanName(JsonObject json) throws IOException, FHIRFormatError {
@@ -1307,6 +1315,36 @@ public class JsonParser extends JsonParserBase {
       res.setProfileElement(parseCanonical(json.get("profile").getAsString()));
     if (json.has("_profile"))
       parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
+  }
+
+  protected MoneyQuantity parseMoneyQuantity(JsonObject json) throws IOException, FHIRFormatError {
+    MoneyQuantity res = new MoneyQuantity();
+    parseMoneyQuantityProperties(json, res);
+    return res;
+  }
+
+  protected void parseMoneyQuantityProperties(JsonObject json, MoneyQuantity res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("value"))
+      res.setValueElement(parseDecimal(json.get("value").getAsBigDecimal()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
+    if (json.has("comparator"))
+      res.setComparatorElement(parseEnumeration(json.get("comparator").getAsString(), Quantity.QuantityComparator.NULL, new Quantity.QuantityComparatorEnumFactory()));
+    if (json.has("_comparator"))
+      parseElementProperties(json.getAsJsonObject("_comparator"), res.getComparatorElement());
+    if (json.has("unit"))
+      res.setUnitElement(parseString(json.get("unit").getAsString()));
+    if (json.has("_unit"))
+      parseElementProperties(json.getAsJsonObject("_unit"), res.getUnitElement());
+    if (json.has("system"))
+      res.setSystemElement(parseUri(json.get("system").getAsString()));
+    if (json.has("_system"))
+      parseElementProperties(json.getAsJsonObject("_system"), res.getSystemElement());
+    if (json.has("code"))
+      res.setCodeElement(parseCode(json.get("code").getAsString()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
   }
 
   protected SimpleQuantity parseSimpleQuantity(JsonObject json) throws IOException, FHIRFormatError {
@@ -4432,6 +4470,8 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getReplaces().get(i));
       }
     };
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
     if (json.has("_status"))
       parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("experimental"))
@@ -14178,6 +14218,10 @@ public class JsonParser extends JsonParserBase {
       res.setPriorityElement(parseEnumeration(json.get("priority").getAsString(), MedicationRequest.MedicationRequestPriority.NULL, new MedicationRequest.MedicationRequestPriorityEnumFactory()));
     if (json.has("_priority"))
       parseElementProperties(json.getAsJsonObject("_priority"), res.getPriorityElement());
+    if (json.has("doNotPerform"))
+      res.setDoNotPerformElement(parseBoolean(json.get("doNotPerform").getAsBoolean()));
+    if (json.has("_doNotPerform"))
+      parseElementProperties(json.getAsJsonObject("_doNotPerform"), res.getDoNotPerformElement());
     Type medication = parseType("medication", json);
     if (medication != null)
       res.setMedication(medication);
@@ -14286,6 +14330,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseMedicationRequestMedicationRequestDispenseRequestComponentProperties(JsonObject json, MedicationRequest owner, MedicationRequest.MedicationRequestDispenseRequestComponent res) throws IOException, FHIRFormatError {
     parseBackboneElementProperties(json, res);
+    if (json.has("initialFill"))
+      res.setInitialFill(parseMedicationRequestMedicationRequestDispenseRequestInitialFillComponent(json.getAsJsonObject("initialFill"), owner));
+    if (json.has("dispenseInterval"))
+      res.setDispenseInterval(parseDuration(json.getAsJsonObject("dispenseInterval")));
     if (json.has("validityPeriod"))
       res.setValidityPeriod(parsePeriod(json.getAsJsonObject("validityPeriod")));
     if (json.has("numberOfRepeatsAllowed"))
@@ -14298,6 +14346,20 @@ public class JsonParser extends JsonParserBase {
       res.setExpectedSupplyDuration(parseDuration(json.getAsJsonObject("expectedSupplyDuration")));
     if (json.has("performer"))
       res.setPerformer(parseReference(json.getAsJsonObject("performer")));
+  }
+
+  protected MedicationRequest.MedicationRequestDispenseRequestInitialFillComponent parseMedicationRequestMedicationRequestDispenseRequestInitialFillComponent(JsonObject json, MedicationRequest owner) throws IOException, FHIRFormatError {
+    MedicationRequest.MedicationRequestDispenseRequestInitialFillComponent res = new MedicationRequest.MedicationRequestDispenseRequestInitialFillComponent();
+    parseMedicationRequestMedicationRequestDispenseRequestInitialFillComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicationRequestMedicationRequestDispenseRequestInitialFillComponentProperties(JsonObject json, MedicationRequest owner, MedicationRequest.MedicationRequestDispenseRequestInitialFillComponent res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    if (json.has("quantity"))
+      res.setQuantity(parseSimpleQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("duration"))
+      res.setDuration(parseDuration(json.getAsJsonObject("duration")));
   }
 
   protected MedicationRequest.MedicationRequestSubstitutionComponent parseMedicationRequestMedicationRequestSubstitutionComponent(JsonObject json, MedicationRequest owner) throws IOException, FHIRFormatError {
@@ -18310,8 +18372,12 @@ public class JsonParser extends JsonParserBase {
       res.setOwnedBy(parseReference(json.getAsJsonObject("ownedBy")));
     if (json.has("administeredBy"))
       res.setAdministeredBy(parseReference(json.getAsJsonObject("administeredBy")));
-    if (json.has("coverageArea"))
-      res.setCoverageArea(parseReference(json.getAsJsonObject("coverageArea")));
+    if (json.has("coverageArea")) {
+      JsonArray array = json.getAsJsonArray("coverageArea");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCoverageArea().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("contact")) {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
@@ -18442,8 +18508,12 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("coverageArea"))
-      res.setCoverageArea(parseReference(json.getAsJsonObject("coverageArea")));
+    if (json.has("coverageArea")) {
+      JsonArray array = json.getAsJsonArray("coverageArea");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCoverageArea().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("network")) {
       JsonArray array = json.getAsJsonArray("network");
       for (int i = 0; i < array.size(); i++) {
@@ -18514,10 +18584,6 @@ public class JsonParser extends JsonParserBase {
     parseBackboneElementProperties(json, res);
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
     if (json.has("cost")) {
       JsonArray array = json.getAsJsonArray("cost");
       for (int i = 0; i < array.size(); i++) {
@@ -18537,9 +18603,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("type"))
       res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
     if (json.has("applicability"))
-      res.setApplicabilityElement(parseEnumeration(json.get("applicability").getAsString(), ProductPlan.BenefitCostApplicability.NULL, new ProductPlan.BenefitCostApplicabilityEnumFactory()));
-    if (json.has("_applicability"))
-      parseElementProperties(json.getAsJsonObject("_applicability"), res.getApplicabilityElement());
+      res.setApplicability(parseCodeableConcept(json.getAsJsonObject("applicability")));
     if (json.has("qualifiers")) {
       JsonArray array = json.getAsJsonArray("qualifiers");
       for (int i = 0; i < array.size(); i++) {
@@ -18547,7 +18611,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("value"))
-      res.setValue(parseMoney(json.getAsJsonObject("value")));
+      res.setValue(parseQuantity(json.getAsJsonObject("value")));
   }
 
   protected Provenance parseProvenance(JsonObject json) throws IOException, FHIRFormatError {
@@ -24275,9 +24339,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("need"))
-      res.setNeedElement(parseEnumeration(json.get("need").getAsString(), VerificationResult.Need.NULL, new VerificationResult.NeedEnumFactory()));
-    if (json.has("_need"))
-      parseElementProperties(json.getAsJsonObject("_need"), res.getNeedElement());
+      res.setNeed(parseCodeableConcept(json.getAsJsonObject("need")));
     if (json.has("status"))
       res.setStatusElement(parseEnumeration(json.get("status").getAsString(), VerificationResult.Status.NULL, new VerificationResult.StatusEnumFactory()));
     if (json.has("_status"))
@@ -24287,9 +24349,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_statusDate"))
       parseElementProperties(json.getAsJsonObject("_statusDate"), res.getStatusDateElement());
     if (json.has("validationType"))
-      res.setValidationTypeElement(parseEnumeration(json.get("validationType").getAsString(), VerificationResult.ValidationType.NULL, new VerificationResult.ValidationTypeEnumFactory()));
-    if (json.has("_validationType"))
-      parseElementProperties(json.getAsJsonObject("_validationType"), res.getValidationTypeElement());
+      res.setValidationType(parseCodeableConcept(json.getAsJsonObject("validationType")));
     if (json.has("validationProcess")) {
       JsonArray array = json.getAsJsonArray("validationProcess");
       for (int i = 0; i < array.size(); i++) {
@@ -24307,9 +24367,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_nextScheduled"))
       parseElementProperties(json.getAsJsonObject("_nextScheduled"), res.getNextScheduledElement());
     if (json.has("failureAction"))
-      res.setFailureActionElement(parseEnumeration(json.get("failureAction").getAsString(), VerificationResult.FailureAction.NULL, new VerificationResult.FailureActionEnumFactory()));
-    if (json.has("_failureAction"))
-      parseElementProperties(json.getAsJsonObject("_failureAction"), res.getFailureActionElement());
+      res.setFailureAction(parseCodeableConcept(json.getAsJsonObject("failureAction")));
     if (json.has("primarySource")) {
       JsonArray array = json.getAsJsonArray("primarySource");
       for (int i = 0; i < array.size(); i++) {
@@ -24334,8 +24392,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseVerificationResultVerificationResultPrimarySourceComponentProperties(JsonObject json, VerificationResult owner, VerificationResult.VerificationResultPrimarySourceComponent res) throws IOException, FHIRFormatError {
     parseBackboneElementProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("organization"))
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     if (json.has("type")) {
@@ -24351,30 +24407,17 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("validationStatus"))
-      res.setValidationStatusElement(parseEnumeration(json.get("validationStatus").getAsString(), VerificationResult.ValidationStatus.NULL, new VerificationResult.ValidationStatusEnumFactory()));
-    if (json.has("_validationStatus"))
-      parseElementProperties(json.getAsJsonObject("_validationStatus"), res.getValidationStatusElement());
+      res.setValidationStatus(parseCodeableConcept(json.getAsJsonObject("validationStatus")));
     if (json.has("validationDate"))
       res.setValidationDateElement(parseDateTime(json.get("validationDate").getAsString()));
     if (json.has("_validationDate"))
       parseElementProperties(json.getAsJsonObject("_validationDate"), res.getValidationDateElement());
     if (json.has("canPushUpdates"))
-      res.setCanPushUpdatesElement(parseEnumeration(json.get("canPushUpdates").getAsString(), VerificationResult.CanPushUpdates.NULL, new VerificationResult.CanPushUpdatesEnumFactory()));
-    if (json.has("_canPushUpdates"))
-      parseElementProperties(json.getAsJsonObject("_canPushUpdates"), res.getCanPushUpdatesElement());
+      res.setCanPushUpdates(parseCodeableConcept(json.getAsJsonObject("canPushUpdates")));
     if (json.has("pushTypeAvailable")) {
       JsonArray array = json.getAsJsonArray("pushTypeAvailable");
       for (int i = 0; i < array.size(); i++) {
-        res.getPushTypeAvailable().add(parseEnumeration(array.get(i).getAsString(), VerificationResult.PushTypeAvailable.NULL, new VerificationResult.PushTypeAvailableEnumFactory()));
-      }
-    };
-    if (json.has("_pushTypeAvailable")) {
-      JsonArray array = json.getAsJsonArray("_pushTypeAvailable");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getPushTypeAvailable().size())
-          res.getPushTypeAvailable().add(parseEnumeration(null, VerificationResult.PushTypeAvailable.NULL, new VerificationResult.PushTypeAvailableEnumFactory()));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getPushTypeAvailable().get(i));
+        res.getPushTypeAvailable().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
   }
@@ -24405,6 +24448,12 @@ public class JsonParser extends JsonParserBase {
       res.setProxyIdentityCertificateElement(parseString(json.get("proxyIdentityCertificate").getAsString()));
     if (json.has("_proxyIdentityCertificate"))
       parseElementProperties(json.getAsJsonObject("_proxyIdentityCertificate"), res.getProxyIdentityCertificateElement());
+    Type signedProxyRight = parseType("signedProxyRight", json);
+    if (signedProxyRight != null)
+      res.setSignedProxyRight(signedProxyRight);
+    Type signedSourceAttestation = parseType("signedSourceAttestation", json);
+    if (signedSourceAttestation != null)
+      res.setSignedSourceAttestation(signedSourceAttestation);
   }
 
   protected VerificationResult.VerificationResultValidatorComponent parseVerificationResultVerificationResultValidatorComponent(JsonObject json, VerificationResult owner) throws IOException, FHIRFormatError {
@@ -24415,18 +24464,15 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseVerificationResultVerificationResultValidatorComponentProperties(JsonObject json, VerificationResult owner, VerificationResult.VerificationResultValidatorComponent res) throws IOException, FHIRFormatError {
     parseBackboneElementProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
     if (json.has("organization"))
       res.setOrganization(parseReference(json.getAsJsonObject("organization")));
     if (json.has("identityCertificate"))
       res.setIdentityCertificateElement(parseString(json.get("identityCertificate").getAsString()));
     if (json.has("_identityCertificate"))
       parseElementProperties(json.getAsJsonObject("_identityCertificate"), res.getIdentityCertificateElement());
-    if (json.has("dateValidated"))
-      res.setDateValidatedElement(parseDate(json.get("dateValidated").getAsString()));
-    if (json.has("_dateValidated"))
-      parseElementProperties(json.getAsJsonObject("_dateValidated"), res.getDateValidatedElement());
+    Type signedValidatorAttestation = parseType("signedValidatorAttestation", json);
+    if (signedValidatorAttestation != null)
+      res.setSignedValidatorAttestation(signedValidatorAttestation);
   }
 
   protected VisionPrescription parseVisionPrescription(JsonObject json) throws IOException, FHIRFormatError {
@@ -24911,6 +24957,8 @@ public class JsonParser extends JsonParserBase {
       return parseCodeableConcept(json.getAsJsonObject(prefix+"CodeableConcept"));
     else if (json.has(prefix+"ParameterDefinition"))
       return parseParameterDefinition(json.getAsJsonObject(prefix+"ParameterDefinition"));
+    else if (json.has(prefix+"MoneyQuantity"))
+      return parseMoneyQuantity(json.getAsJsonObject(prefix+"MoneyQuantity"));
     else if (json.has(prefix+"SimpleQuantity"))
       return parseSimpleQuantity(json.getAsJsonObject(prefix+"SimpleQuantity"));
     else if (json.has(prefix+"Date") || json.has("_"+prefix+"Date")) {
@@ -25095,6 +25143,8 @@ public class JsonParser extends JsonParserBase {
       return parseCodeableConcept(json);
     else if (type.equals("ParameterDefinition"))
       return parseParameterDefinition(json);
+    else if (type.equals("MoneyQuantity"))
+      return parseMoneyQuantity(json);
     else if (type.equals("SimpleQuantity"))
       return parseSimpleQuantity(json);
     throw new FHIRFormatError("Unknown Type "+type);
@@ -25164,6 +25214,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"CodeableConcept"))
       return true;
     if (json.has(prefix+"ParameterDefinition"))
+      return true;
+    if (json.has(prefix+"MoneyQuantity"))
       return true;
     if (json.has(prefix+"SimpleQuantity"))
       return true;
@@ -25942,18 +25994,6 @@ public class JsonParser extends JsonParserBase {
       composeQuantityInner(element);
   }
 
-  protected void composeMoney(String name, Money element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMoneyInner(element);
-      close();
-    }
-  }
-
-  protected void composeMoneyInner(Money element) throws IOException {
-      composeQuantityInner(element);
-  }
-
   protected void composeDistance(String name, Distance element) throws IOException {
     if (element != null) {
       open(name);
@@ -26374,6 +26414,26 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasRate()) {
         composeType("rate", element.getRate());
+      }
+  }
+
+  protected void composeMoney(String name, Money element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMoneyInner(element);
+      close();
+    }
+  }
+
+  protected void composeMoneyInner(Money element) throws IOException {
+      composeElement(element);
+      if (element.hasValueElement()) {
+        composeDecimalCore("value", element.getValueElement(), false);
+        composeDecimalExtras("value", element.getValueElement(), false);
+      }
+      if (element.hasCurrencyElement()) {
+        composeCodeCore("currency", element.getCurrencyElement(), false);
+        composeCodeExtras("currency", element.getCurrencyElement(), false);
       }
   }
 
@@ -27065,6 +27125,38 @@ public class JsonParser extends JsonParserBase {
       if (element.hasProfileElement()) {
         composeCanonicalCore("profile", element.getProfileElement(), false);
         composeCanonicalExtras("profile", element.getProfileElement(), false);
+      }
+  }
+
+  protected void composeMoneyQuantity(String name, MoneyQuantity element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMoneyQuantityInner(element);
+      close();
+    }
+  }
+
+  protected void composeMoneyQuantityInner(MoneyQuantity element) throws IOException {
+      composeElement(element);
+      if (element.hasValueElement()) {
+        composeDecimalCore("value", element.getValueElement(), false);
+        composeDecimalExtras("value", element.getValueElement(), false);
+      }
+      if (element.hasComparatorElement()) {
+        composeEnumerationCore("comparator", element.getComparatorElement(), new MoneyQuantity.QuantityComparatorEnumFactory(), false);
+        composeEnumerationExtras("comparator", element.getComparatorElement(), new MoneyQuantity.QuantityComparatorEnumFactory(), false);
+      }
+      if (element.hasUnitElement()) {
+        composeStringCore("unit", element.getUnitElement(), false);
+        composeStringExtras("unit", element.getUnitElement(), false);
+      }
+      if (element.hasSystemElement()) {
+        composeUriCore("system", element.getSystemElement(), false);
+        composeUriExtras("system", element.getSystemElement(), false);
+      }
+      if (element.hasCodeElement()) {
+        composeCodeCore("code", element.getCodeElement(), false);
+        composeCodeExtras("code", element.getCodeElement(), false);
       }
   }
 
@@ -40992,6 +41084,10 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("priority", element.getPriorityElement(), new MedicationRequest.MedicationRequestPriorityEnumFactory(), false);
         composeEnumerationExtras("priority", element.getPriorityElement(), new MedicationRequest.MedicationRequestPriorityEnumFactory(), false);
       }
+      if (element.hasDoNotPerformElement()) {
+        composeBooleanCore("doNotPerform", element.getDoNotPerformElement(), false);
+        composeBooleanExtras("doNotPerform", element.getDoNotPerformElement(), false);
+      }
       if (element.hasMedication()) {
         composeType("medication", element.getMedication());
       }
@@ -41110,6 +41206,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeMedicationRequestMedicationRequestDispenseRequestComponentInner(MedicationRequest.MedicationRequestDispenseRequestComponent element) throws IOException {
       composeBackbone(element);
+      if (element.hasInitialFill()) {
+        composeMedicationRequestMedicationRequestDispenseRequestInitialFillComponent("initialFill", element.getInitialFill());
+      }
+      if (element.hasDispenseInterval()) {
+        composeDuration("dispenseInterval", element.getDispenseInterval());
+      }
       if (element.hasValidityPeriod()) {
         composePeriod("validityPeriod", element.getValidityPeriod());
       }
@@ -41125,6 +41227,24 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasPerformer()) {
         composeReference("performer", element.getPerformer());
+      }
+  }
+
+  protected void composeMedicationRequestMedicationRequestDispenseRequestInitialFillComponent(String name, MedicationRequest.MedicationRequestDispenseRequestInitialFillComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicationRequestMedicationRequestDispenseRequestInitialFillComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicationRequestMedicationRequestDispenseRequestInitialFillComponentInner(MedicationRequest.MedicationRequestDispenseRequestInitialFillComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasQuantity()) {
+        composeSimpleQuantity("quantity", element.getQuantity());
+      }
+      if (element.hasDuration()) {
+        composeDuration("duration", element.getDuration());
       }
   }
 
@@ -45486,8 +45606,11 @@ public class JsonParser extends JsonParserBase {
         composeReference("administeredBy", element.getAdministeredBy());
       }
       if (element.hasCoverageArea()) {
-        composeReference("coverageArea", element.getCoverageArea());
-      }
+        openArray("coverageArea");
+        for (Reference e : element.getCoverageArea()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasContact()) {
         openArray("contact");
         for (ProductPlan.ProductPlanContactComponent e : element.getContact()) 
@@ -45637,8 +45760,11 @@ public class JsonParser extends JsonParserBase {
         composeCodeableConcept("type", element.getType());
       }
       if (element.hasCoverageArea()) {
-        composeReference("coverageArea", element.getCoverageArea());
-      }
+        openArray("coverageArea");
+        for (Reference e : element.getCoverageArea()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasNetwork()) {
         openArray("network");
         for (Reference e : element.getNetwork()) 
@@ -45719,10 +45845,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
-      }
       if (element.hasCost()) {
         openArray("cost");
         for (ProductPlan.ProductPlanPlanSpecificCostBenefitCostComponent e : element.getCost()) 
@@ -45744,9 +45866,8 @@ public class JsonParser extends JsonParserBase {
       if (element.hasType()) {
         composeCodeableConcept("type", element.getType());
       }
-      if (element.hasApplicabilityElement()) {
-        composeEnumerationCore("applicability", element.getApplicabilityElement(), new ProductPlan.BenefitCostApplicabilityEnumFactory(), false);
-        composeEnumerationExtras("applicability", element.getApplicabilityElement(), new ProductPlan.BenefitCostApplicabilityEnumFactory(), false);
+      if (element.hasApplicability()) {
+        composeCodeableConcept("applicability", element.getApplicability());
       }
       if (element.hasQualifiers()) {
         openArray("qualifiers");
@@ -45755,7 +45876,7 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasValue()) {
-        composeMoney("value", element.getValue());
+        composeQuantity("value", element.getValue());
       }
   }
 
@@ -51871,9 +51992,8 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
-      if (element.hasNeedElement()) {
-        composeEnumerationCore("need", element.getNeedElement(), new VerificationResult.NeedEnumFactory(), false);
-        composeEnumerationExtras("need", element.getNeedElement(), new VerificationResult.NeedEnumFactory(), false);
+      if (element.hasNeed()) {
+        composeCodeableConcept("need", element.getNeed());
       }
       if (element.hasStatusElement()) {
         composeEnumerationCore("status", element.getStatusElement(), new VerificationResult.StatusEnumFactory(), false);
@@ -51883,9 +52003,8 @@ public class JsonParser extends JsonParserBase {
         composeDateTimeCore("statusDate", element.getStatusDateElement(), false);
         composeDateTimeExtras("statusDate", element.getStatusDateElement(), false);
       }
-      if (element.hasValidationTypeElement()) {
-        composeEnumerationCore("validationType", element.getValidationTypeElement(), new VerificationResult.ValidationTypeEnumFactory(), false);
-        composeEnumerationExtras("validationType", element.getValidationTypeElement(), new VerificationResult.ValidationTypeEnumFactory(), false);
+      if (element.hasValidationType()) {
+        composeCodeableConcept("validationType", element.getValidationType());
       }
       if (element.hasValidationProcess()) {
         openArray("validationProcess");
@@ -51904,9 +52023,8 @@ public class JsonParser extends JsonParserBase {
         composeDateCore("nextScheduled", element.getNextScheduledElement(), false);
         composeDateExtras("nextScheduled", element.getNextScheduledElement(), false);
       }
-      if (element.hasFailureActionElement()) {
-        composeEnumerationCore("failureAction", element.getFailureActionElement(), new VerificationResult.FailureActionEnumFactory(), false);
-        composeEnumerationExtras("failureAction", element.getFailureActionElement(), new VerificationResult.FailureActionEnumFactory(), false);
+      if (element.hasFailureAction()) {
+        composeCodeableConcept("failureAction", element.getFailureAction());
       }
       if (element.hasPrimarySource()) {
         openArray("primarySource");
@@ -51935,9 +52053,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeVerificationResultVerificationResultPrimarySourceComponentInner(VerificationResult.VerificationResultPrimarySourceComponent element) throws IOException {
       composeBackbone(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
@@ -51953,29 +52068,21 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasValidationStatusElement()) {
-        composeEnumerationCore("validationStatus", element.getValidationStatusElement(), new VerificationResult.ValidationStatusEnumFactory(), false);
-        composeEnumerationExtras("validationStatus", element.getValidationStatusElement(), new VerificationResult.ValidationStatusEnumFactory(), false);
+      if (element.hasValidationStatus()) {
+        composeCodeableConcept("validationStatus", element.getValidationStatus());
       }
       if (element.hasValidationDateElement()) {
         composeDateTimeCore("validationDate", element.getValidationDateElement(), false);
         composeDateTimeExtras("validationDate", element.getValidationDateElement(), false);
       }
-      if (element.hasCanPushUpdatesElement()) {
-        composeEnumerationCore("canPushUpdates", element.getCanPushUpdatesElement(), new VerificationResult.CanPushUpdatesEnumFactory(), false);
-        composeEnumerationExtras("canPushUpdates", element.getCanPushUpdatesElement(), new VerificationResult.CanPushUpdatesEnumFactory(), false);
+      if (element.hasCanPushUpdates()) {
+        composeCodeableConcept("canPushUpdates", element.getCanPushUpdates());
       }
       if (element.hasPushTypeAvailable()) {
         openArray("pushTypeAvailable");
-        for (Enumeration<VerificationResult.PushTypeAvailable> e : element.getPushTypeAvailable()) 
-          composeEnumerationCore(null, e, new VerificationResult.PushTypeAvailableEnumFactory(), true);
-        closeArray();
-        if (anyHasExtras(element.getPushTypeAvailable())) {
-          openArray("_pushTypeAvailable");
-          for (Enumeration<VerificationResult.PushTypeAvailable> e : element.getPushTypeAvailable()) 
-            composeEnumerationExtras(null, e, new VerificationResult.PushTypeAvailableEnumFactory(), true);
+        for (CodeableConcept e : element.getPushTypeAvailable()) 
+          composeCodeableConcept(null, e);
           closeArray();
-        }
       };
   }
 
@@ -52010,6 +52117,12 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("proxyIdentityCertificate", element.getProxyIdentityCertificateElement(), false);
         composeStringExtras("proxyIdentityCertificate", element.getProxyIdentityCertificateElement(), false);
       }
+      if (element.hasSignedProxyRight()) {
+        composeType("signedProxyRight", element.getSignedProxyRight());
+      }
+      if (element.hasSignedSourceAttestation()) {
+        composeType("signedSourceAttestation", element.getSignedSourceAttestation());
+      }
   }
 
   protected void composeVerificationResultVerificationResultValidatorComponent(String name, VerificationResult.VerificationResultValidatorComponent element) throws IOException {
@@ -52022,9 +52135,6 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeVerificationResultVerificationResultValidatorComponentInner(VerificationResult.VerificationResultValidatorComponent element) throws IOException {
       composeBackbone(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
       if (element.hasOrganization()) {
         composeReference("organization", element.getOrganization());
       }
@@ -52032,9 +52142,8 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("identityCertificate", element.getIdentityCertificateElement(), false);
         composeStringExtras("identityCertificate", element.getIdentityCertificateElement(), false);
       }
-      if (element.hasDateValidatedElement()) {
-        composeDateCore("dateValidated", element.getDateValidatedElement(), false);
-        composeDateExtras("dateValidated", element.getDateValidatedElement(), false);
+      if (element.hasSignedValidatorAttestation()) {
+        composeType("signedValidatorAttestation", element.getSignedValidatorAttestation());
       }
   }
 
@@ -52749,6 +52858,8 @@ public class JsonParser extends JsonParserBase {
   protected void composeType(String prefix, Type type) throws IOException {
     if (type == null)
       ;
+    else if (type instanceof MoneyQuantity)
+       composeMoneyQuantity(prefix+"MoneyQuantity", (MoneyQuantity) type);
     else if (type instanceof SimpleQuantity)
        composeSimpleQuantity(prefix+"SimpleQuantity", (SimpleQuantity) type);
     else if (type instanceof Extension)
@@ -52757,8 +52868,6 @@ public class JsonParser extends JsonParserBase {
        composeNarrative(prefix+"Narrative", (Narrative) type);
     else if (type instanceof Count)
        composeCount(prefix+"Count", (Count) type);
-    else if (type instanceof Money)
-       composeMoney(prefix+"Money", (Money) type);
     else if (type instanceof Distance)
        composeDistance(prefix+"Distance", (Distance) type);
     else if (type instanceof Age)
@@ -52777,6 +52886,8 @@ public class JsonParser extends JsonParserBase {
        composeDataRequirement(prefix+"DataRequirement", (DataRequirement) type);
     else if (type instanceof Dosage)
        composeDosage(prefix+"Dosage", (Dosage) type);
+    else if (type instanceof Money)
+       composeMoney(prefix+"Money", (Money) type);
     else if (type instanceof HumanName)
        composeHumanName(prefix+"HumanName", (HumanName) type);
     else if (type instanceof ContactPoint)
@@ -52904,8 +53015,6 @@ public class JsonParser extends JsonParserBase {
        composeNarrativeInner((Narrative) type);
     else if (type instanceof Count)
        composeCountInner((Count) type);
-    else if (type instanceof Money)
-       composeMoneyInner((Money) type);
     else if (type instanceof Distance)
        composeDistanceInner((Distance) type);
     else if (type instanceof Age)
@@ -52924,6 +53033,8 @@ public class JsonParser extends JsonParserBase {
        composeDataRequirementInner((DataRequirement) type);
     else if (type instanceof Dosage)
        composeDosageInner((Dosage) type);
+    else if (type instanceof Money)
+       composeMoneyInner((Money) type);
     else if (type instanceof HumanName)
        composeHumanNameInner((HumanName) type);
     else if (type instanceof ContactPoint)
@@ -52962,6 +53073,8 @@ public class JsonParser extends JsonParserBase {
        composeCodeableConceptInner((CodeableConcept) type);
     else if (type instanceof ParameterDefinition)
        composeParameterDefinitionInner((ParameterDefinition) type);
+    else if (type instanceof MoneyQuantity)
+       composeMoneyQuantityInner((MoneyQuantity) type);
     else if (type instanceof SimpleQuantity)
        composeSimpleQuantityInner((SimpleQuantity) type);
     else

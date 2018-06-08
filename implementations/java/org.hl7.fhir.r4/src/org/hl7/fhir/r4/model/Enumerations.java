@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1149,6 +1149,10 @@ public class Enumerations {
          */
         MONEY, 
         /**
+         * null
+         */
+        MONEYQUANTITY, 
+        /**
          * A human-readable formatted text, including images.
          */
         NARRATIVE, 
@@ -1353,6 +1357,8 @@ public class Enumerations {
           return META;
         if ("Money".equals(codeString))
           return MONEY;
+        if ("MoneyQuantity".equals(codeString))
+          return MONEYQUANTITY;
         if ("Narrative".equals(codeString))
           return NARRATIVE;
         if ("ParameterDefinition".equals(codeString))
@@ -1456,6 +1462,7 @@ public class Enumerations {
             case MARKETINGSTATUS: return "MarketingStatus";
             case META: return "Meta";
             case MONEY: return "Money";
+            case MONEYQUANTITY: return "MoneyQuantity";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
@@ -1522,6 +1529,7 @@ public class Enumerations {
             case MARKETINGSTATUS: return "http://hl7.org/fhir/data-types";
             case META: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
+            case MONEYQUANTITY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
@@ -1588,6 +1596,7 @@ public class Enumerations {
             case MARKETINGSTATUS: return "The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.";
             case MONEY: return "An amount of economic utility in some recognized currency.";
+            case MONEYQUANTITY: return "";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
@@ -1654,6 +1663,7 @@ public class Enumerations {
             case MARKETINGSTATUS: return "MarketingStatus";
             case META: return "Meta";
             case MONEY: return "Money";
+            case MONEYQUANTITY: return "MoneyQuantity";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
@@ -1748,6 +1758,8 @@ public class Enumerations {
           return DataType.META;
         if ("Money".equals(codeString))
           return DataType.MONEY;
+        if ("MoneyQuantity".equals(codeString))
+          return DataType.MONEYQUANTITY;
         if ("Narrative".equals(codeString))
           return DataType.NARRATIVE;
         if ("ParameterDefinition".equals(codeString))
@@ -1880,6 +1892,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.META);
         if ("Money".equals(codeString))
           return new Enumeration<DataType>(this, DataType.MONEY);
+        if ("MoneyQuantity".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.MONEYQUANTITY);
         if ("Narrative".equals(codeString))
           return new Enumeration<DataType>(this, DataType.NARRATIVE);
         if ("ParameterDefinition".equals(codeString))
@@ -2005,6 +2019,8 @@ public class Enumerations {
         return "Meta";
       if (code == DataType.MONEY)
         return "Money";
+      if (code == DataType.MONEYQUANTITY)
+        return "MoneyQuantity";
       if (code == DataType.NARRATIVE)
         return "Narrative";
       if (code == DataType.PARAMETERDEFINITION)
@@ -2286,6 +2302,10 @@ public class Enumerations {
          * An amount of economic utility in some recognized currency.
          */
         MONEY, 
+        /**
+         * null
+         */
+        MONEYQUANTITY, 
         /**
          * A human-readable formatted text, including images.
          */
@@ -2824,7 +2844,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATION, 
         /**
-         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         * Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.
          */
         ORGANIZATIONROLE, 
         /**
@@ -3068,6 +3088,8 @@ into another (possibly the same) biological entity.
           return META;
         if ("Money".equals(codeString))
           return MONEY;
+        if ("MoneyQuantity".equals(codeString))
+          return MONEYQUANTITY;
         if ("Narrative".equals(codeString))
           return NARRATIVE;
         if ("ParameterDefinition".equals(codeString))
@@ -3459,6 +3481,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "MarketingStatus";
             case META: return "Meta";
             case MONEY: return "Money";
+            case MONEYQUANTITY: return "MoneyQuantity";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
@@ -3669,6 +3692,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "http://hl7.org/fhir/data-types";
             case META: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
+            case MONEYQUANTITY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
@@ -3879,6 +3903,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.";
             case MONEY: return "An amount of economic utility in some recognized currency.";
+            case MONEYQUANTITY: return "";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
@@ -4013,7 +4038,7 @@ into another (possibly the same) biological entity.
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
-            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
+            case ORGANIZATIONROLE: return "Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
@@ -4089,6 +4114,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "MarketingStatus";
             case META: return "Meta";
             case MONEY: return "Money";
+            case MONEYQUANTITY: return "MoneyQuantity";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
@@ -4327,6 +4353,8 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.META;
         if ("Money".equals(codeString))
           return FHIRAllTypes.MONEY;
+        if ("MoneyQuantity".equals(codeString))
+          return FHIRAllTypes.MONEYQUANTITY;
         if ("Narrative".equals(codeString))
           return FHIRAllTypes.NARRATIVE;
         if ("ParameterDefinition".equals(codeString))
@@ -4747,6 +4775,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.META);
         if ("Money".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MONEY);
+        if ("MoneyQuantity".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MONEYQUANTITY);
         if ("Narrative".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.NARRATIVE);
         if ("ParameterDefinition".equals(codeString))
@@ -5160,6 +5190,8 @@ into another (possibly the same) biological entity.
         return "Meta";
       if (code == FHIRAllTypes.MONEY)
         return "Money";
+      if (code == FHIRAllTypes.MONEYQUANTITY)
+        return "MoneyQuantity";
       if (code == FHIRAllTypes.NARRATIVE)
         return "Narrative";
       if (code == FHIRAllTypes.PARAMETERDEFINITION)
@@ -5625,6 +5657,10 @@ into another (possibly the same) biological entity.
          */
         MONEY, 
         /**
+         * null
+         */
+        MONEYQUANTITY, 
+        /**
          * A human-readable formatted text, including images.
          */
         NARRATIVE, 
@@ -6162,7 +6198,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATION, 
         /**
-         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         * Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.
          */
         ORGANIZATIONROLE, 
         /**
@@ -6398,6 +6434,8 @@ into another (possibly the same) biological entity.
           return META;
         if ("Money".equals(codeString))
           return MONEY;
+        if ("MoneyQuantity".equals(codeString))
+          return MONEYQUANTITY;
         if ("Narrative".equals(codeString))
           return NARRATIVE;
         if ("ParameterDefinition".equals(codeString))
@@ -6785,6 +6823,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "MarketingStatus";
             case META: return "Meta";
             case MONEY: return "Money";
+            case MONEYQUANTITY: return "MoneyQuantity";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
@@ -6993,6 +7032,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "http://hl7.org/fhir/data-types";
             case META: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
+            case MONEYQUANTITY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
@@ -7201,6 +7241,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.";
             case META: return "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.";
             case MONEY: return "An amount of economic utility in some recognized currency.";
+            case MONEYQUANTITY: return "";
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
@@ -7335,7 +7376,7 @@ into another (possibly the same) biological entity.
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
-            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
+            case ORGANIZATIONROLE: return "Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
@@ -7409,6 +7450,7 @@ into another (possibly the same) biological entity.
             case MARKETINGSTATUS: return "MarketingStatus";
             case META: return "Meta";
             case MONEY: return "Money";
+            case MONEYQUANTITY: return "MoneyQuantity";
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
@@ -7645,6 +7687,8 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.META;
         if ("Money".equals(codeString))
           return FHIRDefinedType.MONEY;
+        if ("MoneyQuantity".equals(codeString))
+          return FHIRDefinedType.MONEYQUANTITY;
         if ("Narrative".equals(codeString))
           return FHIRDefinedType.NARRATIVE;
         if ("ParameterDefinition".equals(codeString))
@@ -8061,6 +8105,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.META);
         if ("Money".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MONEY);
+        if ("MoneyQuantity".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MONEYQUANTITY);
         if ("Narrative".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.NARRATIVE);
         if ("ParameterDefinition".equals(codeString))
@@ -8470,6 +8516,8 @@ into another (possibly the same) biological entity.
         return "Meta";
       if (code == FHIRDefinedType.MONEY)
         return "Money";
+      if (code == FHIRDefinedType.MONEYQUANTITY)
+        return "MoneyQuantity";
       if (code == FHIRDefinedType.NARRATIVE)
         return "Narrative";
       if (code == FHIRDefinedType.PARAMETERDEFINITION)
@@ -9628,7 +9676,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATION, 
         /**
-         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         * Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.
          */
         ORGANIZATIONROLE, 
         /**
@@ -10496,7 +10544,7 @@ into another (possibly the same) biological entity.
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
-            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
+            case ORGANIZATIONROLE: return "Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";

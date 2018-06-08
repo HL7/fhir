@@ -44,7 +44,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
     if (com[0].equals("lmheader"))
       return lmHeader(name, definition.getId(), com.length > 1 ? com[1] : null, true);
     else if (com[0].equals("svg"))
-      return new SvgGenerator(page, genlevel(), null).generate(definition, com[1], "");        
+      return new SvgGenerator(page, genlevel(), null, true).generate(definition, com[1], "");        
     else if (com[0].equals("draft-note"))
       return page.getDraftNote(definition);
     else if (com[0].equals("definition"))

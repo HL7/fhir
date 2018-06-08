@@ -60,8 +60,7 @@
 			</category>
 			<amount>
 				<value value="235.40"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>
 		</adjudication>
 
@@ -73,8 +72,7 @@
 			</category>
 			<amount>
 				<value value="20.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>  
 		</adjudication>
 
@@ -95,8 +93,7 @@
 			</category>
 			<amount>
 				<value value="172.32"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>	
 		</adjudication>
 
@@ -112,8 +109,7 @@
 				</category>
 				<amount>
 					<value value="100.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>
 			</adjudication>
 
@@ -125,8 +121,7 @@
 				</category>
 				<amount>
 					<value value="20.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>  
 			</adjudication>
 
@@ -147,8 +142,7 @@
 				</category>
 				<amount>
 					<value value="80.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>	
 			</adjudication>
 		</detail>
@@ -164,8 +158,7 @@
 				</category>
 				<amount>
 					<value value="110.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>
 			</adjudication>
 
@@ -186,8 +179,7 @@
 				</category>
 				<amount>
 					<value value="88.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>	
 			</adjudication>
 
@@ -203,8 +195,7 @@
 					</category>
 					<amount>
 						<value value="60.00"/>
-						<system value="urn:iso:std:iso:4217"/>
-						<code value="USD"/>
+						<currency value="USD"/>
 					</amount>
 				</adjudication>
 
@@ -225,8 +216,7 @@
 					</category>
 					<amount>
 						<value value="48.00"/>
-						<system value="urn:iso:std:iso:4217"/>
-						<code value="USD"/>
+						<currency value="USD"/>
 					</amount>	
 				</adjudication>
 
@@ -242,8 +232,7 @@
 					</category>
 					<amount>
 						<value value="30.00"/>
-						<system value="urn:iso:std:iso:4217"/>
-						<code value="USD"/>
+						<currency value="USD"/>
 					</amount>
 				</adjudication>
 
@@ -264,8 +253,7 @@
 					</category>
 					<amount>
 						<value value="24.00"/>
-						<system value="urn:iso:std:iso:4217"/>
-						<code value="USD"/>
+						<currency value="USD"/>
 					</amount>	
 				</adjudication>
 
@@ -282,8 +270,7 @@
 					</category>
 					<amount>
 						<value value="10.00"/>
-						<system value="urn:iso:std:iso:4217"/>
-						<code value="USD"/>
+						<currency value="USD"/>
 					</amount>
 				</adjudication>
 
@@ -304,8 +291,7 @@
 					</category>
 					<amount>
 						<value value="8.00"/>
-						<system value="urn:iso:std:iso:4217"/>
-						<code value="USD"/>
+						<currency value="USD"/>
 					</amount>	
 				</adjudication>
 
@@ -323,8 +309,7 @@
 				</category>
 				<amount>
 					<value value="200.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>
 			</adjudication>
 
@@ -345,8 +330,7 @@
 				</category>
 				<amount>
 					<value value="14.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/>
+					<currency value="USD"/>
 				</amount>	
 			</adjudication>
 		</detail>
@@ -361,8 +345,7 @@
 		</category>
 		<amount>
 			<value value="235.40"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 	
@@ -374,8 +357,7 @@
 		</category>
 		<amount>
 			<value value="182.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 
@@ -390,8 +372,7 @@
 
 		<adjustment>
 			<value value="75.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/>
+			<currency value="USD"/>
 		</adjustment>
 
 		<adjustmentReason>
@@ -406,8 +387,7 @@
 
 		<amount>
 			<value value="107.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/>
+			<currency value="USD"/>
 		</amount>	
 
 		<identifier>

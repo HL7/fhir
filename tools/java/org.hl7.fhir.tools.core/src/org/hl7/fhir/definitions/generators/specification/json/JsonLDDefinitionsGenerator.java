@@ -55,7 +55,7 @@ public class JsonLDDefinitionsGenerator {
 
     // elements defined in FHIR:
 	  for (TypeRef tr : definitions.getKnownTypes()) {
-	    if (!definitions.hasPrimitiveType(tr.getName()) && !tr.getName().equals("SimpleQuantity")) {
+	    if (!definitions.hasPrimitiveType(tr.getName()) && !tr.getName().equals("SimpleQuantity") && !tr.getName().equals("MoneyQuantity")) {
 	      TypeDefn root = definitions.getElementDefn(tr.getName());
 	      new JsonLDGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(context, root, version, genDate);
 	    }

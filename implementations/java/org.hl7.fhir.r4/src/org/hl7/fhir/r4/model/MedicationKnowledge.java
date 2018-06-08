@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1609,13 +1609,13 @@ public class MedicationKnowledge extends DomainResource {
         public SimpleQuantity getCharacteristicSimpleQuantity() throws FHIRException { 
           if (this.characteristic == null)
             return null;
-          if (!(this.characteristic instanceof Quantity))
+          if (!(this.characteristic instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.characteristic.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.characteristic;
         }
 
         public boolean hasCharacteristicSimpleQuantity() { 
-          return this != null && this.characteristic instanceof Quantity;
+          return this != null && this.characteristic instanceof SimpleQuantity;
         }
 
         public boolean hasCharacteristic() { 
@@ -2353,15 +2353,15 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #value} (Description of the characteristic.)
          */
-        public Quantity getValueQuantity() throws FHIRException { 
+        public SimpleQuantity getValueSimpleQuantity() throws FHIRException { 
           if (this.value == null)
             return null;
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (Quantity) this.value;
+          return (SimpleQuantity) this.value;
         }
 
-        public boolean hasValueQuantity() { 
+        public boolean hasValueSimpleQuantity() { 
           return this != null && this.value instanceof Quantity;
         }
 
@@ -2547,7 +2547,7 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * A code to indicate if the medication is in active use.
      */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medicationKnowledge-status")
     protected Enumeration<MedicationKnowledgeStatus> status;

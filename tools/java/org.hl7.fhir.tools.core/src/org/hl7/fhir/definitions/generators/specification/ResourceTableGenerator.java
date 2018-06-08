@@ -14,7 +14,7 @@ public class ResourceTableGenerator extends TableGenerator {
   }
 
   public XhtmlNode generate(ResourceDefn r, String prefix) throws Exception {
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics, true);
     ElementDefn e = r.getRoot();
     RenderMode mode = e.typeCode().equals("Logical") && hasLogicalMapping(e) ? RenderMode.LOGICAL : RenderMode.RESOURCE;
     TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL);

@@ -713,7 +713,11 @@ public class VersionConvertor_30_40 {
     if (src == null)
       return null;
     org.hl7.fhir.r4.model.Money tgt = new org.hl7.fhir.r4.model.Money();
-    copyQuantity(src, tgt);
+    copyElement(src, tgt);
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    if (src.hasCode())
+      tgt.setCurrency(src.getCode());
     return tgt;
   }
 
@@ -721,7 +725,11 @@ public class VersionConvertor_30_40 {
     if (src == null)
       return null;
     org.hl7.fhir.dstu3.model.Money tgt = new org.hl7.fhir.dstu3.model.Money();
-    copyQuantity(src, tgt);
+    copyElement(src, tgt);
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    if (src.hasCurrency())
+      tgt.setCode(src.getCurrency());
     return tgt;
   }
 

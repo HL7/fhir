@@ -93,13 +93,11 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</unitPrice> 
 		<net>
 			<value value="135.57"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 		<encounter>
 			<reference value="Encounter/example"/>
@@ -112,8 +110,7 @@
 			</category>
 			<amount>
 				<value value="120.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</amount> 
 		</adjudication>
 		<adjudication>
@@ -132,8 +129,7 @@
 			</category>
 			<amount>
 				<value value="96.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</amount> 
 		</adjudication>
 	</item>
@@ -146,8 +142,7 @@
 		</category>
 		<amount>
 			<value value="135.57"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 	
@@ -159,8 +154,7 @@
 		</category>
 		<amount>
 			<value value="96.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 

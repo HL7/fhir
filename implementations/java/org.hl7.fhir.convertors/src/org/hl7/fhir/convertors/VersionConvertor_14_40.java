@@ -745,13 +745,8 @@ public class VersionConvertor_14_40 {
     copyElement(src, tgt);
     if (src.hasValue())
       tgt.setValue(src.getValue());
-    tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    if (src.hasUnit())
-      tgt.setUnit(src.getUnit());
-    if (src.hasSystem())
-      tgt.setSystem(src.getSystem());
     if (src.hasCode())
-      tgt.setCode(src.getCode());
+      tgt.setCurrency(src.getCode());
     return tgt;
   }
 
@@ -762,13 +757,8 @@ public class VersionConvertor_14_40 {
     copyElement(src, tgt);
     if (src.hasValue())
       tgt.setValue(src.getValue());
-    tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    if (src.hasUnit())
-      tgt.setUnit(src.getUnit());
-    if (src.hasSystem())
-      tgt.setSystem(src.getSystem());
-    if (src.hasCode())
-      tgt.setCode(src.getCode());
+    if (src.hasCurrency())
+      tgt.setCode(src.getCurrency());
     return tgt;
   }
 

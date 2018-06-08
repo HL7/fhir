@@ -42,15 +42,13 @@
             </quantity>
             <unitPrice>
                <value value="200.00"/>
-               <system value="urn:iso:std:iso:4217"/>
-               <code value="CAD"/>
+               <currency value="CAD"/>
             </unitPrice>
             <factor value="1.0"/>
             <points value="1.0"/>
             <net>
                <value value="200.00"/>
-               <system value="urn:iso:std:iso:4217"/>
-               <code value="CAD"/>
+               <currency value="CAD"/>
             </net>
          </valuedItem>
       </asset>

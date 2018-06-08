@@ -76,8 +76,7 @@
 
 				<allowedMoney>
 					<value value="500000"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<currency value="SAR"/> 
 				</allowedMoney>
 			</financial>
 
@@ -90,8 +89,7 @@
 
 				<allowedMoney>
 					<value value="100"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<currency value="SAR"/> 
 				</allowedMoney>
 			</financial>
 
@@ -152,8 +150,7 @@
 
 				<allowedMoney>
 					<value value="15000"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<currency value="SAR"/> 
 				</allowedMoney>
 			</financial>
 
@@ -204,8 +201,7 @@
 
 				<allowedMoney>
 					<value value="2000"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<currency value="SAR"/> 
 				</allowedMoney>
 			</financial>
 
@@ -256,8 +252,7 @@
 
 				<allowedMoney>
 					<value value="400"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<currency value="SAR"/> 
 				</allowedMoney>
 			</financial>
 
@@ -317,8 +312,7 @@
 
 				<allowedMoney>
 					<value value="600"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<currency value="SAR"/> 
 				</allowedMoney>
 			</financial>
 

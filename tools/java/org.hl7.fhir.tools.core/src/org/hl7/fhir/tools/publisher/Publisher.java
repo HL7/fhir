@@ -4023,7 +4023,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappingsList = mgen.getMappingsList();
 
     if (!logicalOnly) {
-      SvgGenerator svg = new SvgGenerator(page, "", resource.getLayout());
+      SvgGenerator svg = new SvgGenerator(page, "", resource.getLayout(), true);
       svg.generate(resource, page.getFolders().dstDir + n + ".svg", "1");
       svg.generate(resource, Utilities.path(page.getFolders().srcDir, n, n + ".gen.svg"), "1");
   
@@ -5263,7 +5263,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String mappings = mgen.getMappings();
     String mappingsList = mgen.getMappingsList();
 
-    SvgGenerator svg = new SvgGenerator(page, "", lm.getLayout());
+    SvgGenerator svg = new SvgGenerator(page, "", lm.getLayout(), true);
     String fn = ig.getPrefix()+n;
     if (lm.hasResource())
       svg.generate(lm.getResource(), page.getFolders().dstDir + fn+".svg", "2");

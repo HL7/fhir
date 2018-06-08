@@ -151,8 +151,7 @@
 		</category>
 		<amount>
 			<value value="2478.57"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 
@@ -164,22 +163,19 @@
 		</category>
 		<amount>
 			<value value="0.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 
 	<!--	
 	<totalCost>
 		<value value="2478.57"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/> 
+		<currency value="USD"/> 
 	</totalCost>
 
 	<totalBenefit>
 		<value value="0.00"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/> 
+		<currency value="USD"/> 
 	</totalBenefit> -->
 
 	<form>

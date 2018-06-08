@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -159,10 +159,10 @@ public class Medication extends DomainResource {
     @Block()
     public static class MedicationIngredientComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The actual ingredient - either a substance (simple ingredient) or another medication.
+         * The actual ingredient - either a substance (simple ingredient) or another medication of a medication.
          */
         @Child(name = "item", type = {CodeableConcept.class, Substance.class, Medication.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The product contained", formalDefinition="The actual ingredient - either a substance (simple ingredient) or another medication." )
+        @Description(shortDefinition="The actual ingredient or content", formalDefinition="The actual ingredient - either a substance (simple ingredient) or another medication of a medication." )
         protected Type item;
 
         /**
@@ -197,14 +197,14 @@ public class Medication extends DomainResource {
       }
 
         /**
-         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication of a medication.)
          */
         public Type getItem() { 
           return this.item;
         }
 
         /**
-         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication of a medication.)
          */
         public CodeableConcept getItemCodeableConcept() throws FHIRException { 
           if (this.item == null)
@@ -219,7 +219,7 @@ public class Medication extends DomainResource {
         }
 
         /**
-         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         * @return {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication of a medication.)
          */
         public Reference getItemReference() throws FHIRException { 
           if (this.item == null)
@@ -238,7 +238,7 @@ public class Medication extends DomainResource {
         }
 
         /**
-         * @param value {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
+         * @param value {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication of a medication.)
          */
         public MedicationIngredientComponent setItem(Type value) { 
           if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
@@ -318,7 +318,7 @@ public class Medication extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item));
+          children.add(new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication of a medication.", 0, 1, item));
           children.add(new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, 1, isActive));
           children.add(new Property("amount", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.", 0, 1, amount));
         }
@@ -326,10 +326,10 @@ public class Medication extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 2116201613: /*item[x]*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
-          case 3242771: /*item*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
-          case 106644494: /*itemCodeableConcept*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
-          case 1376364920: /*itemReference*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
+          case 2116201613: /*item[x]*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication of a medication.", 0, 1, item);
+          case 3242771: /*item*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication of a medication.", 0, 1, item);
+          case 106644494: /*itemCodeableConcept*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication of a medication.", 0, 1, item);
+          case 1376364920: /*itemReference*/  return new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication of a medication.", 0, 1, item);
           case -748916528: /*isActive*/  return new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, 1, isActive);
           case -1413853096: /*amount*/  return new Property("amount", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.", 0, 1, amount);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -792,7 +792,7 @@ public class Medication extends DomainResource {
     /**
      * A code to indicate if the medication is in active use.
      */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-status")
     protected Enumeration<MedicationStatus> status;
@@ -820,7 +820,7 @@ public class Medication extends DomainResource {
     /**
      * Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).
      */
-    @Child(name = "amount", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "amount", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Amount of drug in package", formalDefinition="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." )
     protected SimpleQuantity amount;
 
@@ -1305,17 +1305,17 @@ public class Medication extends DomainResource {
  /**
    * Search parameter: <b>ingredient-code</b>
    * <p>
-   * Description: <b>The product contained</b><br>
+   * Description: <b>The actual ingredient or content</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Medication.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient-code", path="Medication.ingredient.item.as(CodeableConcept)", description="The product contained", type="token" )
+  @SearchParamDefinition(name="ingredient-code", path="Medication.ingredient.item.as(CodeableConcept)", description="The actual ingredient or content", type="token" )
   public static final String SP_INGREDIENT_CODE = "ingredient-code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>
    * <p>
-   * Description: <b>The product contained</b><br>
+   * Description: <b>The actual ingredient or content</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Medication.ingredient.itemCodeableConcept</b><br>
    * </p>
@@ -1345,17 +1345,17 @@ public class Medication extends DomainResource {
  /**
    * Search parameter: <b>ingredient</b>
    * <p>
-   * Description: <b>The product contained</b><br>
+   * Description: <b>The actual ingredient or content</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Medication.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient", path="Medication.ingredient.item.as(Reference)", description="The product contained", type="reference", target={Medication.class, Substance.class } )
+  @SearchParamDefinition(name="ingredient", path="Medication.ingredient.item.as(Reference)", description="The actual ingredient or content", type="reference", target={Medication.class, Substance.class } )
   public static final String SP_INGREDIENT = "ingredient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
    * <p>
-   * Description: <b>The product contained</b><br>
+   * Description: <b>The actual ingredient or content</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Medication.ingredient.itemReference</b><br>
    * </p>

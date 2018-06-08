@@ -71,8 +71,7 @@
 		</modifier>
 		<fee>
 			<value value="250.00"/> <!-- fee set to same value as the eligible amount. Providers will only be reimbursed to the fee/eligible amount less the co-pay. -->
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/>
+			<currency value="USD"/>
 		</fee>
 		<noteNumber value="101"/>
 		<adjudication>
@@ -83,8 +82,7 @@
 			</category>
 			<amount>
 				<value value="250.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>
 		</adjudication>
 
@@ -96,8 +94,7 @@
 			</category>
 			<amount>
 				<value value="10.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>  
 		</adjudication>
 
@@ -117,8 +114,7 @@
 			</category>
 			<amount>
 				<value value="240.00"/> <!-- insurer will pay up to this amount. -->
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>	
 		</adjudication>
 
@@ -135,8 +131,7 @@
 		</service>
 		<fee>
 			<value value="800.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/>
+			<currency value="USD"/>
 		</fee>
 		<adjudication>
 			<category>
@@ -146,8 +141,7 @@
 			</category>
 			<amount>
 				<value value="800.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>
 		</adjudication>
 
@@ -167,8 +161,7 @@
 			</category>
 			<amount>
 				<value value="800.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/>
+				<currency value="USD"/>
 			</amount>	
 		</adjudication>
 	</addItem>
@@ -181,8 +174,7 @@
 		</category>
 		<amount>
 			<value value="1050.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 
@@ -194,8 +186,7 @@
 		</category>
 		<amount>
 			<value value="1040.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</amount> 
 	</total>
 

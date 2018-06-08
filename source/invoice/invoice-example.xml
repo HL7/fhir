@@ -45,15 +45,11 @@
 	
 	<totalNet>
 	    <value value="40"/>
-        <unit value="EUR"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="EUR"/>
+        <currency value="EUR"/>
 	</totalNet>
 		<totalGross>
 	    <value value="48"/>
-        <unit value="EUR"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="EUR"/>
+        <currency value="EUR"/>
 	</totalGross>
 	
 	

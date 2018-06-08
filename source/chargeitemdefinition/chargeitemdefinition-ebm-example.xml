@@ -38,11 +38,7 @@
 			</code>
 			<amount>
 				<value value="67.44"/>
-				<unit value="Euro"/>
-				<system value="urn:iso:std:iso:4217"/>
-
-				<code value="EUR"/>
-
+				<currency value="EUR"/>
 			</amount>
 		</priceComponent>
 		<priceComponent>

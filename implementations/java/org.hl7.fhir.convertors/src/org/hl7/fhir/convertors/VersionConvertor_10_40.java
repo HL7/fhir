@@ -1737,10 +1737,7 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.r4.model.Money tgt = new org.hl7.fhir.r4.model.Money();
     copyElement(src, tgt);
     tgt.setValue(src.getValue());
-    tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    tgt.setCurrency(src.getCode());
     return tgt;
   }
 
@@ -1750,10 +1747,7 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.dstu2.model.Money tgt = new org.hl7.fhir.dstu2.model.Money();
     copyElement(src, tgt);
     tgt.setValue(src.getValue());
-    tgt.setComparator(convertQuantityComparator(src.getComparator()));
-    tgt.setUnit(src.getUnit());
-    tgt.setSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    tgt.setCode(src.getCurrency());
     return tgt;
   }
 

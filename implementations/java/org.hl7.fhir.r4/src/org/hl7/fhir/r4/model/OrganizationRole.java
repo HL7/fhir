@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+ * Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.
  */
 @ResourceDef(name="OrganizationRole", profile="http://hl7.org/fhir/Profile/OrganizationRole")
 public class OrganizationRole extends DomainResource {
@@ -234,7 +234,7 @@ public class OrganizationRole extends DomainResource {
          * Is this always available? (hence times are irrelevant) e.g. 24-hour service.
          */
         @Child(name = "allDay", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Always available? e.g. 24-hour service", formalDefinition="Is this always available? (hence times are irrelevant) e.g. 24-hour service." )
+        @Description(shortDefinition="Always available? e.g. 24 hour service", formalDefinition="Is this always available? (hence times are irrelevant) e.g. 24-hour service." )
         protected BooleanType allDay;
 
         /**
@@ -849,107 +849,107 @@ public class OrganizationRole extends DomainResource {
   }
 
     /**
-     * Business Identifiers that are specific to a role/location.
+     * Business identifiers that are specific to this role.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Business Identifiers that are specific to a role/location", formalDefinition="Business Identifiers that are specific to a role/location." )
+    @Description(shortDefinition="Business identifiers that are specific to this role", formalDefinition="Business identifiers that are specific to this role." )
     protected List<Identifier> identifier;
 
     /**
-     * Whether this practitioner role record is in active use.
+     * Whether this organization role record is in active use.
      */
     @Child(name = "active", type = {BooleanType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Whether this practitioner role record is in active use", formalDefinition="Whether this practitioner role record is in active use." )
+    @Description(shortDefinition="Whether this organization role record is in active use", formalDefinition="Whether this organization role record is in active use." )
     protected BooleanType active;
 
     /**
-     * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
+     * The period during which the participatingOrganization praticipates in  these role(s).
      */
     @Child(name = "period", type = {Period.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The period during which the practitioner is authorized to perform in these role(s)", formalDefinition="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." )
+    @Description(shortDefinition="The period during which the participatingOrganization praticipates in  these role(s)", formalDefinition="The period during which the participatingOrganization praticipates in  these role(s)." )
     protected Period period;
 
     /**
-     * The organization where the Practitioner performs the roles associated.
+     * Organization where the role is available.
      */
     @Child(name = "organization", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Organization where the roles are available", formalDefinition="The organization where the Practitioner performs the roles associated." )
+    @Description(shortDefinition="Organization where the role is available", formalDefinition="Organization where the role is available." )
     protected Reference organization;
 
     /**
-     * The actual object that is the target of the reference (The organization where the Practitioner performs the roles associated.)
+     * The actual object that is the target of the reference (Organization where the role is available.)
      */
     protected Organization organizationTarget;
 
     /**
-     * Practitioner that is able to provide the defined services for the organization.
+     * Organization that is filling the role (e.g. providing services or is a member).
      */
     @Child(name = "participatingOrganization", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Practitioner that is able to provide the defined services for the organization", formalDefinition="Practitioner that is able to provide the defined services for the organization." )
+    @Description(shortDefinition="Organization that is filling the role (e.g. providing services or is a member)", formalDefinition="Organization that is filling the role (e.g. providing services or is a member)." )
     protected Reference participatingOrganization;
 
     /**
-     * The actual object that is the target of the reference (Practitioner that is able to provide the defined services for the organization.)
+     * The actual object that is the target of the reference (Organization that is filling the role (e.g. providing services or is a member).)
      */
     protected Organization participatingOrganizationTarget;
 
     /**
-     * The network(s) this association applies to (if any).
+     * Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined).
      */
     @Child(name = "network", type = {Organization.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="The network(s) this association applies to", formalDefinition="The network(s) this association applies to (if any)." )
+    @Description(shortDefinition="Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)", formalDefinition="Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)." )
     protected List<Reference> network;
     /**
-     * The actual objects that are the target of the reference (The network(s) this association applies to (if any).)
+     * The actual objects that are the target of the reference (Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined).)
      */
     protected List<Organization> networkTarget;
 
 
     /**
-     * Roles which this practitioner is authorized to perform for the organization.
+     * Definition of the role the participatingOrganization plays.
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Roles which this practitioner may perform", formalDefinition="Roles which this practitioner is authorized to perform for the organization." )
+    @Description(shortDefinition="Definition of the role the participatingOrganization plays", formalDefinition="Definition of the role the participatingOrganization plays." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/organization-role")
     protected List<CodeableConcept> code;
 
     /**
-     * Specific specialty of the practitioner.
+     * Specific specialty of the participatingOrganization in the context of the role.
      */
     @Child(name = "specialty", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Specific specialty of the practitioner", formalDefinition="Specific specialty of the practitioner." )
+    @Description(shortDefinition="Specific specialty of the participatingOrganization in the context of the role", formalDefinition="Specific specialty of the participatingOrganization in the context of the role." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-practice-codes")
     protected List<CodeableConcept> specialty;
 
     /**
-     * The location(s) at which this practitioner provides care.
+     * The location(s) at which the role occurs.
      */
     @Child(name = "location", type = {Location.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="The location(s) at which this practitioner provides care", formalDefinition="The location(s) at which this practitioner provides care." )
+    @Description(shortDefinition="The location(s) at which the role occurs", formalDefinition="The location(s) at which the role occurs." )
     protected List<Reference> location;
     /**
-     * The actual objects that are the target of the reference (The location(s) at which this practitioner provides care.)
+     * The actual objects that are the target of the reference (The location(s) at which the role occurs.)
      */
     protected List<Location> locationTarget;
 
 
     /**
-     * The list of healthcare services that this worker provides for this role's Organization/Location(s).
+     * Healthcare services provided through the role.
      */
     @Child(name = "healthcareService", type = {HealthcareService.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)", formalDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)." )
+    @Description(shortDefinition="Healthcare services provided through the role", formalDefinition="Healthcare services provided through the role." )
     protected List<Reference> healthcareService;
     /**
-     * The actual objects that are the target of the reference (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
+     * The actual objects that are the target of the reference (Healthcare services provided through the role.)
      */
     protected List<HealthcareService> healthcareServiceTarget;
 
 
     /**
-     * Contact details that are specific to the role/location/service.
+     * Contact details that are specific to the role.
      */
     @Child(name = "telecom", type = {ContactPoint.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Contact details that are specific to the role/location/service", formalDefinition="Contact details that are specific to the role/location/service." )
+    @Description(shortDefinition="Contact details that are specific to the role", formalDefinition="Contact details that are specific to the role." )
     protected List<ContactPoint> telecom;
 
     /**
@@ -974,13 +974,13 @@ public class OrganizationRole extends DomainResource {
     protected StringType availabilityExceptions;
 
     /**
-     * Technical endpoints providing access to services operated for the practitioner with this role.
+     * Technical endpoints providing access to services operated for this role.
      */
     @Child(name = "endpoint", type = {Endpoint.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Technical endpoints providing access to services operated for the practitioner with this role", formalDefinition="Technical endpoints providing access to services operated for the practitioner with this role." )
+    @Description(shortDefinition="Technical endpoints providing access to services operated for this role", formalDefinition="Technical endpoints providing access to services operated for this role." )
     protected List<Reference> endpoint;
     /**
-     * The actual objects that are the target of the reference (Technical endpoints providing access to services operated for the practitioner with this role.)
+     * The actual objects that are the target of the reference (Technical endpoints providing access to services operated for this role.)
      */
     protected List<Endpoint> endpointTarget;
 
@@ -995,7 +995,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Business Identifiers that are specific to a role/location.)
+     * @return {@link #identifier} (Business identifiers that are specific to this role.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1048,7 +1048,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #active} (Whether this practitioner role record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     * @return {@link #active} (Whether this organization role record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public BooleanType getActiveElement() { 
       if (this.active == null)
@@ -1068,7 +1068,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @param value {@link #active} (Whether this practitioner role record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     * @param value {@link #active} (Whether this organization role record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public OrganizationRole setActiveElement(BooleanType value) { 
       this.active = value;
@@ -1076,14 +1076,14 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return Whether this practitioner role record is in active use.
+     * @return Whether this organization role record is in active use.
      */
     public boolean getActive() { 
       return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
     }
 
     /**
-     * @param value Whether this practitioner role record is in active use.
+     * @param value Whether this organization role record is in active use.
      */
     public OrganizationRole setActive(boolean value) { 
         if (this.active == null)
@@ -1093,7 +1093,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
+     * @return {@link #period} (The period during which the participatingOrganization praticipates in  these role(s).)
      */
     public Period getPeriod() { 
       if (this.period == null)
@@ -1109,7 +1109,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
+     * @param value {@link #period} (The period during which the participatingOrganization praticipates in  these role(s).)
      */
     public OrganizationRole setPeriod(Period value) { 
       this.period = value;
@@ -1117,7 +1117,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #organization} (The organization where the Practitioner performs the roles associated.)
+     * @return {@link #organization} (Organization where the role is available.)
      */
     public Reference getOrganization() { 
       if (this.organization == null)
@@ -1133,7 +1133,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @param value {@link #organization} (The organization where the Practitioner performs the roles associated.)
+     * @param value {@link #organization} (Organization where the role is available.)
      */
     public OrganizationRole setOrganization(Reference value) { 
       this.organization = value;
@@ -1141,7 +1141,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
+     * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization where the role is available.)
      */
     public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
@@ -1153,7 +1153,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
+     * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization where the role is available.)
      */
     public OrganizationRole setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
@@ -1161,7 +1161,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #participatingOrganization} (Practitioner that is able to provide the defined services for the organization.)
+     * @return {@link #participatingOrganization} (Organization that is filling the role (e.g. providing services or is a member).)
      */
     public Reference getParticipatingOrganization() { 
       if (this.participatingOrganization == null)
@@ -1177,7 +1177,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @param value {@link #participatingOrganization} (Practitioner that is able to provide the defined services for the organization.)
+     * @param value {@link #participatingOrganization} (Organization that is filling the role (e.g. providing services or is a member).)
      */
     public OrganizationRole setParticipatingOrganization(Reference value) { 
       this.participatingOrganization = value;
@@ -1185,7 +1185,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #participatingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Practitioner that is able to provide the defined services for the organization.)
+     * @return {@link #participatingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that is filling the role (e.g. providing services or is a member).)
      */
     public Organization getParticipatingOrganizationTarget() { 
       if (this.participatingOrganizationTarget == null)
@@ -1197,7 +1197,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @param value {@link #participatingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Practitioner that is able to provide the defined services for the organization.)
+     * @param value {@link #participatingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that is filling the role (e.g. providing services or is a member).)
      */
     public OrganizationRole setParticipatingOrganizationTarget(Organization value) { 
       this.participatingOrganizationTarget = value;
@@ -1205,7 +1205,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #network} (The network(s) this association applies to (if any).)
+     * @return {@link #network} (Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined).)
      */
     public List<Reference> getNetwork() { 
       if (this.network == null)
@@ -1280,7 +1280,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #code} (Roles which this practitioner is authorized to perform for the organization.)
+     * @return {@link #code} (Definition of the role the participatingOrganization plays.)
      */
     public List<CodeableConcept> getCode() { 
       if (this.code == null)
@@ -1333,7 +1333,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #specialty} (Specific specialty of the practitioner.)
+     * @return {@link #specialty} (Specific specialty of the participatingOrganization in the context of the role.)
      */
     public List<CodeableConcept> getSpecialty() { 
       if (this.specialty == null)
@@ -1386,7 +1386,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #location} (The location(s) at which this practitioner provides care.)
+     * @return {@link #location} (The location(s) at which the role occurs.)
      */
     public List<Reference> getLocation() { 
       if (this.location == null)
@@ -1461,7 +1461,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #healthcareService} (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
+     * @return {@link #healthcareService} (Healthcare services provided through the role.)
      */
     public List<Reference> getHealthcareService() { 
       if (this.healthcareService == null)
@@ -1536,7 +1536,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #telecom} (Contact details that are specific to the role/location/service.)
+     * @return {@link #telecom} (Contact details that are specific to the role.)
      */
     public List<ContactPoint> getTelecom() { 
       if (this.telecom == null)
@@ -1744,7 +1744,7 @@ public class OrganizationRole extends DomainResource {
     }
 
     /**
-     * @return {@link #endpoint} (Technical endpoints providing access to services operated for the practitioner with this role.)
+     * @return {@link #endpoint} (Technical endpoints providing access to services operated for this role.)
      */
     public List<Reference> getEndpoint() { 
       if (this.endpoint == null)
@@ -1820,41 +1820,41 @@ public class OrganizationRole extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("active", "boolean", "Whether this practitioner role record is in active use.", 0, 1, active));
-        children.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, 1, period));
-        children.add(new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, 1, organization));
-        children.add(new Property("participatingOrganization", "Reference(Organization)", "Practitioner that is able to provide the defined services for the organization.", 0, 1, participatingOrganization));
-        children.add(new Property("network", "Reference(Organization)", "The network(s) this association applies to (if any).", 0, java.lang.Integer.MAX_VALUE, network));
-        children.add(new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code));
-        children.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
-        children.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
-        children.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
-        children.add(new Property("telecom", "ContactPoint", "Contact details that are specific to the role/location/service.", 0, java.lang.Integer.MAX_VALUE, telecom));
+        children.add(new Property("identifier", "Identifier", "Business identifiers that are specific to this role.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("active", "boolean", "Whether this organization role record is in active use.", 0, 1, active));
+        children.add(new Property("period", "Period", "The period during which the participatingOrganization praticipates in  these role(s).", 0, 1, period));
+        children.add(new Property("organization", "Reference(Organization)", "Organization where the role is available.", 0, 1, organization));
+        children.add(new Property("participatingOrganization", "Reference(Organization)", "Organization that is filling the role (e.g. providing services or is a member).", 0, 1, participatingOrganization));
+        children.add(new Property("network", "Reference(Organization)", "Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined).", 0, java.lang.Integer.MAX_VALUE, network));
+        children.add(new Property("code", "CodeableConcept", "Definition of the role the participatingOrganization plays.", 0, java.lang.Integer.MAX_VALUE, code));
+        children.add(new Property("specialty", "CodeableConcept", "Specific specialty of the participatingOrganization in the context of the role.", 0, java.lang.Integer.MAX_VALUE, specialty));
+        children.add(new Property("location", "Reference(Location)", "The location(s) at which the role occurs.", 0, java.lang.Integer.MAX_VALUE, location));
+        children.add(new Property("healthcareService", "Reference(HealthcareService)", "Healthcare services provided through the role.", 0, java.lang.Integer.MAX_VALUE, healthcareService));
+        children.add(new Property("telecom", "ContactPoint", "Contact details that are specific to the role.", 0, java.lang.Integer.MAX_VALUE, telecom));
         children.add(new Property("availableTime", "", "A collection of times that the Service Site is available.", 0, java.lang.Integer.MAX_VALUE, availableTime));
         children.add(new Property("notAvailable", "", "The HealthcareService is not available during this period of time due to the provided reason.", 0, java.lang.Integer.MAX_VALUE, notAvailable));
         children.add(new Property("availabilityExceptions", "string", "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.", 0, 1, availabilityExceptions));
-        children.add(new Property("endpoint", "Reference(Endpoint)", "Technical endpoints providing access to services operated for the practitioner with this role.", 0, java.lang.Integer.MAX_VALUE, endpoint));
+        children.add(new Property("endpoint", "Reference(Endpoint)", "Technical endpoints providing access to services operated for this role.", 0, java.lang.Integer.MAX_VALUE, endpoint));
       }
 
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -1422950650: /*active*/  return new Property("active", "boolean", "Whether this practitioner role record is in active use.", 0, 1, active);
-        case -991726143: /*period*/  return new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, 1, period);
-        case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, 1, organization);
-        case 1593310702: /*participatingOrganization*/  return new Property("participatingOrganization", "Reference(Organization)", "Practitioner that is able to provide the defined services for the organization.", 0, 1, participatingOrganization);
-        case 1843485230: /*network*/  return new Property("network", "Reference(Organization)", "The network(s) this association applies to (if any).", 0, java.lang.Integer.MAX_VALUE, network);
-        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code);
-        case -1694759682: /*specialty*/  return new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty);
-        case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location);
-        case 1289661064: /*healthcareService*/  return new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService);
-        case -1429363305: /*telecom*/  return new Property("telecom", "ContactPoint", "Contact details that are specific to the role/location/service.", 0, java.lang.Integer.MAX_VALUE, telecom);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers that are specific to this role.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1422950650: /*active*/  return new Property("active", "boolean", "Whether this organization role record is in active use.", 0, 1, active);
+        case -991726143: /*period*/  return new Property("period", "Period", "The period during which the participatingOrganization praticipates in  these role(s).", 0, 1, period);
+        case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "Organization where the role is available.", 0, 1, organization);
+        case 1593310702: /*participatingOrganization*/  return new Property("participatingOrganization", "Reference(Organization)", "Organization that is filling the role (e.g. providing services or is a member).", 0, 1, participatingOrganization);
+        case 1843485230: /*network*/  return new Property("network", "Reference(Organization)", "Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined).", 0, java.lang.Integer.MAX_VALUE, network);
+        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Definition of the role the participatingOrganization plays.", 0, java.lang.Integer.MAX_VALUE, code);
+        case -1694759682: /*specialty*/  return new Property("specialty", "CodeableConcept", "Specific specialty of the participatingOrganization in the context of the role.", 0, java.lang.Integer.MAX_VALUE, specialty);
+        case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The location(s) at which the role occurs.", 0, java.lang.Integer.MAX_VALUE, location);
+        case 1289661064: /*healthcareService*/  return new Property("healthcareService", "Reference(HealthcareService)", "Healthcare services provided through the role.", 0, java.lang.Integer.MAX_VALUE, healthcareService);
+        case -1429363305: /*telecom*/  return new Property("telecom", "ContactPoint", "Contact details that are specific to the role.", 0, java.lang.Integer.MAX_VALUE, telecom);
         case 1873069366: /*availableTime*/  return new Property("availableTime", "", "A collection of times that the Service Site is available.", 0, java.lang.Integer.MAX_VALUE, availableTime);
         case -629572298: /*notAvailable*/  return new Property("notAvailable", "", "The HealthcareService is not available during this period of time due to the provided reason.", 0, java.lang.Integer.MAX_VALUE, notAvailable);
         case -1149143617: /*availabilityExceptions*/  return new Property("availabilityExceptions", "string", "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.", 0, 1, availabilityExceptions);
-        case 1741102485: /*endpoint*/  return new Property("endpoint", "Reference(Endpoint)", "Technical endpoints providing access to services operated for the practitioner with this role.", 0, java.lang.Integer.MAX_VALUE, endpoint);
+        case 1741102485: /*endpoint*/  return new Property("endpoint", "Reference(Endpoint)", "Technical endpoints providing access to services operated for this role.", 0, java.lang.Integer.MAX_VALUE, endpoint);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -2184,17 +2184,17 @@ public class OrganizationRole extends DomainResource {
  /**
    * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>The period during which the practitioner is authorized to perform in these role(s)</b><br>
+   * Description: <b>The period during which the participatingOrganization praticipates in  these role(s)</b><br>
    * Type: <b>date</b><br>
    * Path: <b>OrganizationRole.period</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="OrganizationRole.period", description="The period during which the practitioner is authorized to perform in these role(s)", type="date" )
+  @SearchParamDefinition(name="date", path="OrganizationRole.period", description="The period during which the participatingOrganization praticipates in  these role(s)", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>The period during which the practitioner is authorized to perform in these role(s)</b><br>
+   * Description: <b>The period during which the participatingOrganization praticipates in  these role(s)</b><br>
    * Type: <b>date</b><br>
    * Path: <b>OrganizationRole.period</b><br>
    * </p>
@@ -2264,17 +2264,17 @@ public class OrganizationRole extends DomainResource {
  /**
    * Search parameter: <b>active</b>
    * <p>
-   * Description: <b>Whether this practitioner role record is in active use</b><br>
+   * Description: <b>Whether this organization role record is in active use</b><br>
    * Type: <b>token</b><br>
    * Path: <b>OrganizationRole.active</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="active", path="OrganizationRole.active", description="Whether this practitioner role record is in active use", type="token" )
+  @SearchParamDefinition(name="active", path="OrganizationRole.active", description="Whether this organization role record is in active use", type="token" )
   public static final String SP_ACTIVE = "active";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>active</b>
    * <p>
-   * Description: <b>Whether this practitioner role record is in active use</b><br>
+   * Description: <b>Whether this organization role record is in active use</b><br>
    * Type: <b>token</b><br>
    * Path: <b>OrganizationRole.active</b><br>
    * </p>
@@ -2336,17 +2336,17 @@ public class OrganizationRole extends DomainResource {
  /**
    * Search parameter: <b>endpoint</b>
    * <p>
-   * Description: <b>Technical endpoints providing access to services operated for the practitioner with this role</b><br>
+   * Description: <b>Technical endpoints providing access to services operated for this role</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OrganizationRole.endpoint</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="endpoint", path="OrganizationRole.endpoint", description="Technical endpoints providing access to services operated for the practitioner with this role", type="reference", target={Endpoint.class } )
+  @SearchParamDefinition(name="endpoint", path="OrganizationRole.endpoint", description="Technical endpoints providing access to services operated for this role", type="reference", target={Endpoint.class } )
   public static final String SP_ENDPOINT = "endpoint";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>endpoint</b>
    * <p>
-   * Description: <b>Technical endpoints providing access to services operated for the practitioner with this role</b><br>
+   * Description: <b>Technical endpoints providing access to services operated for this role</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OrganizationRole.endpoint</b><br>
    * </p>
@@ -2382,17 +2382,17 @@ public class OrganizationRole extends DomainResource {
  /**
    * Search parameter: <b>service</b>
    * <p>
-   * Description: <b>The list of healthcare services that this worker provides for this role's Organization/Location(s)</b><br>
+   * Description: <b>Healthcare services provided through the role</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OrganizationRole.healthcareService</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="service", path="OrganizationRole.healthcareService", description="The list of healthcare services that this worker provides for this role's Organization/Location(s)", type="reference", target={HealthcareService.class } )
+  @SearchParamDefinition(name="service", path="OrganizationRole.healthcareService", description="Healthcare services provided through the role", type="reference", target={HealthcareService.class } )
   public static final String SP_SERVICE = "service";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>service</b>
    * <p>
-   * Description: <b>The list of healthcare services that this worker provides for this role's Organization/Location(s)</b><br>
+   * Description: <b>Healthcare services provided through the role</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OrganizationRole.healthcareService</b><br>
    * </p>
@@ -2408,17 +2408,17 @@ public class OrganizationRole extends DomainResource {
  /**
    * Search parameter: <b>participating-organization</b>
    * <p>
-   * Description: <b>Practitioner that is able to provide the defined services for the organization</b><br>
+   * Description: <b>Organization that is filling the role (e.g. providing services or is a member)</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OrganizationRole.participatingOrganization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participating-organization", path="OrganizationRole.participatingOrganization", description="Practitioner that is able to provide the defined services for the organization", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="participating-organization", path="OrganizationRole.participatingOrganization", description="Organization that is filling the role (e.g. providing services or is a member)", type="reference", target={Organization.class } )
   public static final String SP_PARTICIPATING_ORGANIZATION = "participating-organization";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participating-organization</b>
    * <p>
-   * Description: <b>Practitioner that is able to provide the defined services for the organization</b><br>
+   * Description: <b>Organization that is filling the role (e.g. providing services or is a member)</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OrganizationRole.participatingOrganization</b><br>
    * </p>

@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3511,7 +3511,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4089,8 +4088,16 @@
     <Cell><Data ss:Type="String">not(exists(f:comparator))</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">comparator.max=0;comparator.defn=Not allowed to be used in this context</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:Span="1"/>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:Index="5"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s100">
+    <Cell ss:StyleID="s105"><Data ss:Type="String">MoneyQuantity</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = "urn:iso:std:iso:4217" - currency).</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')</Data></Cell>
+    <Cell ss:StyleID="s112"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30"/>
+   <Row ss:AutoFitHeight="0" ss:Height="45"/>
    <Row ss:AutoFitHeight="0" ss:Height="75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30"/>
    <Row ss:AutoFitHeight="0" ss:Height="45"/>
@@ -4102,6 +4109,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <TabColorIndex>9</TabColorIndex>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

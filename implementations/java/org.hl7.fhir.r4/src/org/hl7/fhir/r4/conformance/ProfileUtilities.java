@@ -1707,7 +1707,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
   public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath, Set<String> outputTracker) throws IOException, FHIRException {
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics, true);
     gen.setTranslator(getTranslator());
     TableModel model = gen.initNormalTable(corePath, false);
 
@@ -2048,7 +2048,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
   public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, String imagePath, boolean logicalModel, boolean allInvariants, Set<String> outputTracker) throws IOException, FHIRException {
     assert(diff != snapshot);// check it's ok to get rid of one of these
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics, true);
     gen.setTranslator(getTranslator());
     TableModel model = gen.initNormalTable(corePath, false);
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
@@ -2066,7 +2066,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
 
   public XhtmlNode generateGrid(String defFile, StructureDefinition profile, String imageFolder, boolean inlineGraphics, String profileBaseFileName, String corePath, String imagePath, Set<String> outputTracker) throws IOException, FHIRException {
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics, true);
     gen.setTranslator(getTranslator());
     TableModel model = gen.initGridTable(corePath);
     List<ElementDefinition> list = profile.getSnapshot().getElement();
@@ -3660,7 +3660,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
   public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints, String constraintPrefix, Set<String> outputTracker) throws IOException, FHIRException {
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, false);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, false, true);
     gen.setTranslator(getTranslator());
     TableModel model = initSpanningTable(gen, "", false);
     Set<String> processed = new HashSet<String>();

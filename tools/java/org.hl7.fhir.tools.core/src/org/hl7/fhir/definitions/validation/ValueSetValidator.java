@@ -342,6 +342,7 @@ public class ValueSetValidator extends BaseValidator {
         system.equals("urn:ietf:bcp:47") ||
         system.equals("urn:ietf:bcp:13") ||
         system.equals("urn:ietf:rfc:3986") ||
+        system.equals("urn:iso:std:iso:4217") ||
         system.equals("urn:iso:std:iso:11073:10101") ||
         system.equals("urn:iso-astm:E1762-95:2013") ||
         system.equals("urn:iso:std:iso:3166") ||

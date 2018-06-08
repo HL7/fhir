@@ -750,7 +750,11 @@ public class ShExGenerator {
   // TODO: find a utility that implements this
   private ValueSet resolveBindingReference(DomainResource ctxt, Type reference) {
     if (reference instanceof UriType) {
-      return context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
+      try {
+        return context.fetchResource(ValueSet.class, ((UriType) reference).getValue().toString());
+      } catch (Throwable e) {
+        return null;
+      }
     }
     else if (reference instanceof Reference) {
       String s = ((Reference) reference).getReference();

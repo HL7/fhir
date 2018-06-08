@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -137,16 +137,16 @@ public class Dosage extends BackboneType implements ICompositeType {
         /**
          * @return {@link #dose} (Amount of medication per dose.)
          */
-        public Quantity getDoseQuantity() throws FHIRException { 
+        public SimpleQuantity getDoseSimpleQuantity() throws FHIRException { 
           if (this.dose == null)
             return null;
-          if (!(this.dose instanceof Quantity))
+          if (!(this.dose instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.dose.getClass().getName()+" was encountered");
-          return (Quantity) this.dose;
+          return (SimpleQuantity) this.dose;
         }
 
-        public boolean hasDoseQuantity() { 
-          return this != null && this.dose instanceof Quantity;
+        public boolean hasDoseSimpleQuantity() { 
+          return this != null && this.dose instanceof SimpleQuantity;
         }
 
         public boolean hasDose() { 

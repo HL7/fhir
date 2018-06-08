@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Apr 3, 2018 06:39+1000 for FHIR v3.4.0
+// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -529,7 +529,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATION, 
         /**
-         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         * Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.
          */
         ORGANIZATIONROLE, 
         /**
@@ -1400,7 +1400,7 @@ into another (possibly the same) biological entity.
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
-            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
+            case ORGANIZATIONROLE: return "Details about the role a participatingOrganization plays in relation to another organization and/or health insurance provider network.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";

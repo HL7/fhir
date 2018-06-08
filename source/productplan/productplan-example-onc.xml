@@ -59,8 +59,7 @@
 		</type>
 		<premium>
 			<value value="2000" />
-			<system value="urn:iso:std:iso:4217" />
-			<code value="USD" />
+			<currency value="USD" />
 		</premium>
         <category>
             <code>
@@ -79,8 +78,7 @@
                     </applicability>
                     <value> 
                         <value value="25" />
-                        <system value="urn:iso:std:iso:4217" />
-                        <code value="USD" />
+                        <currency value="USD" />
                     </value>
                 </cost>    
                 <cost>
@@ -121,8 +119,7 @@
                     </applicability>
                     <value> 
                         <value value="35" />
-                        <system value="urn:iso:std:iso:4217" />
-                        <code value="USD" />
+                        <currency value="USD" />
                     </value>
                 </cost>    
                 <cost>

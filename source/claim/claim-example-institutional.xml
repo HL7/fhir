@@ -108,13 +108,11 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="125.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</unitPrice> 
 		<net>
 			<value value="125.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 		<encounter>
 			<reference value="Encounter/example"/>
@@ -123,7 +121,6 @@
 
 	<total>
 		<value value="125.00"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/>  
+		<currency value="USD"/>  
 	</total>
 </Claim>

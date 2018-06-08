@@ -157,8 +157,7 @@
 		</quantity>
 		<net>
 			<value value="90.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 		<detail>
 			<sequence value="1"/>
@@ -171,8 +170,7 @@
 			</service>
 			<net>
 				<value value="45.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 		<detail>
@@ -186,8 +184,7 @@
 			</service>
 			<net>
 				<value value="9.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 		<detail>
@@ -201,14 +198,12 @@
 			</service>
 			<net>
 				<value value="36.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 	</item>
 	<total>
 		<value value="90.00"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/> 
+		<currency value="USD"/> 
 	</total>
 </Claim>

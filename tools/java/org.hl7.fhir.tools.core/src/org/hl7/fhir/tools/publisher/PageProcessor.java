@@ -711,7 +711,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(this, genlevel(level), null).generate(folders.srcDir+ com[1], com[2])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), null, false).generate(folders.srcDir+ com[1], com[2])+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("v2xref"))
@@ -2068,7 +2068,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           "classes="+dt+"\r\n"+
           "element-attributes=true\r\n";
       TextFile.stringToFileNoPrefix(s, tmp.getAbsolutePath());
-      return new SvgGenerator(this, "", null).generate(tmp.getAbsolutePath(), id);
+      return new SvgGenerator(this, "", null, false).generate(tmp.getAbsolutePath(), id);
     } finally {
       tmp.delete();
     }
@@ -3154,7 +3154,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
   private String genIgToc(ImplementationGuideDefn ig) throws Exception {
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false, true);
     return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(ig.genToc(gen), "../", 0, null));
   }
 
@@ -3164,7 +3164,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     entries.addAll(toc.keySet());
     Collections.sort(entries, new SectionSorter());
     Set<String> pages = new HashSet<String>();
-    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
+    HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false, true);
     TableModel model = gen.new TableModel();
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table of Contents", "Table of Contents", null, 0));
     Deque<TocItem> stack = new ArrayDeque<TocItem>();
@@ -5099,7 +5099,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(this, genlevel(level), null).generate(folders.srcDir+ com[1], com[2])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), null, false).generate(folders.srcDir+ com[1], com[2])+s3;
       else if (com[0].equals("file"))
         src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".html")+*/s3;
       else if (com[0].equals("settitle")) {
@@ -5736,7 +5736,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("svg"))
-        src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout()).generate(resource, com[1])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout(), true).generate(resource, com[1])+s3;
       else if (com[0].equals("normative")) {
         String np = null;
         if (com[1].equals("%check") || com[1].equals("%check-op")) {

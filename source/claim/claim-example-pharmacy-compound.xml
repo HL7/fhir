@@ -165,8 +165,7 @@
 		</quantity>
 		<net>
 			<value value="155.00"/>
-			<system value="urn:iso:std:iso:4217"/>
-			<code value="USD"/> 
+			<currency value="USD"/> 
 		</net> 
 		<detail>
 			<sequence value="1"/>
@@ -184,8 +183,7 @@
 			</quantity>
 			<net>
 				<value value="20.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 	
 			<subDetail>
 				<sequence value="1"/>
@@ -198,8 +196,7 @@
 				</service>
 				<net>
 					<value value="20.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</net> 
 			</subDetail>
 		</detail>
@@ -219,8 +216,7 @@
 			</quantity>
 			<net>
 				<value value="25.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 	
 			<subDetail>
 				<sequence value="1"/>
@@ -233,8 +229,7 @@
 				</service>
 				<net>
 					<value value="25.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</net> 
 			</subDetail>
 		</detail>
@@ -254,8 +249,7 @@
 			</quantity>
 			<net>
 				<value value="28.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 	
 			<subDetail>
 				<sequence value="1"/>
@@ -268,8 +262,7 @@
 				</service>
 				<net>
 					<value value="28.00"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="USD"/> 
+					<currency value="USD"/> 
 				</net> 
 			</subDetail>
 		</detail>
@@ -284,8 +277,7 @@
 			</service>
 			<net>
 				<value value="22.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 		<detail>
@@ -299,14 +291,12 @@
 			</service>
 			<net>
 				<value value="60.00"/>
-				<system value="urn:iso:std:iso:4217"/>
-				<code value="USD"/> 
+				<currency value="USD"/> 
 			</net> 
 		</detail>
 	</item>
 	<total>
 		<value value="155.00"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/> 
+		<currency value="USD"/> 
 	</total>
 </Claim>
