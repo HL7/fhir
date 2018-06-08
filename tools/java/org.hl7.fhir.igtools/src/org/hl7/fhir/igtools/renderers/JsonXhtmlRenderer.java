@@ -116,6 +116,12 @@ public class JsonXhtmlRenderer extends TranslatingUtilities implements JsonCreat
   }
 
   @Override
+  public void valueNum(String value) throws IOException {
+    checkInArray();
+    b.append(value);
+  }
+
+  @Override
   public void value(Integer value) throws IOException {
     checkInArray();
     b.append(value.toString());

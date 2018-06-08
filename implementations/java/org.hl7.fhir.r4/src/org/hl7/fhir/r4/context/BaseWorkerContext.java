@@ -381,6 +381,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     } catch (NoTerminologyServiceException e) {
       return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.NOSERVICE);
     } catch (Exception e) {
+      e.printStackTrace();
       return new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
     }
   }

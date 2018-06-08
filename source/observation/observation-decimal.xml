@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ This rather unusual observation exists to explore the corners of the decimal data type for parser testing
+ -->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+	<id value="decimal"/>
+	<status value="final"/>
+	<code>
+    <text value="Decimal Testing Observation"/>
+	</code>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="1.0"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="1.00"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="1.0e0"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="0.0000000000000000000001"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="1000000000000000000"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="1.000000000000000000e-245"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <text value="Component"/>
+    </code>
+    <valueQuantity>
+      <value value="-1.000000000000000000e245"/>
+      <unit value="g"/>
+    </valueQuantity>
+  </component>
+</Observation>

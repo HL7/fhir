@@ -14,7 +14,6 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -109,9 +108,9 @@
     <Cell><Data ss:Type="String">decimal</Data></Cell>
     <Cell><Data ss:Type="String">A rational number with implicit precision</Data></Cell>
     <Cell><Data ss:Type="String">Do not use a IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)</Data></Cell>
-    <Cell><Data ss:Type="String">decimal</Data></Cell>
+    <Cell><Data ss:Type="String">xs:decimal, xs:double</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
-    <Cell><Data ss:Type="String">-?([0]|([1-9][0-9]*))(\.[0-9]+)?</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-?(?:0|[1-9]0-9*)(?:\.\0-9+)?(?:[eE][+-]?\0-9+)?</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">REAL</Data></Cell>
     <Cell><Data ss:Type="String">~NM</Data></Cell>
    </Row>
@@ -197,6 +196,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -317,8 +317,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

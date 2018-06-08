@@ -40,6 +40,7 @@ import org.hl7.fhir.r4.model.OidType;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.UuidType;
+import org.hl7.fhir.r4.utils.formats.JsonTrackingParser.PresentedBigDecimal;
 import org.hl7.fhir.r4.model.UrlType;
 import org.hl7.fhir.r4.model.InstantType;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -197,6 +198,8 @@ public class JsonParser extends JsonParserBase {
 
   protected DecimalType parseDecimal(java.math.BigDecimal v) throws IOException, FHIRFormatError {
     DecimalType res = new DecimalType(v);
+    if (v instanceof PresentedBigDecimal)
+      res.setRepresentation(((PresentedBigDecimal) v).getPresentation());
     return res;
   }
 
@@ -25869,7 +25872,7 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeDecimalCore(String name, DecimalType value, boolean inArray) throws IOException {
     if (value != null && value.hasValue()) {
-        prop(name, value.getValue());
+        propNum(name, value.getValueAsString());
     }    
     else if (inArray) 
       writeNull(name); 

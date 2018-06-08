@@ -1421,7 +1421,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (type.equals("decimal")) {
       if (e.primitiveValue() != null) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isDecimal(e.primitiveValue()), "The value '" + e.primitiveValue() + "' is not a valid decimal");
-        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().toLowerCase().contains("e") , "The value '" + e.primitiveValue() + "' is not a valid decimal (no exponents)");
         if (e.primitiveValue().contains(".")) {
           String head = e.primitiveValue().substring(0, e.primitiveValue().indexOf("."));
           if (head.startsWith("-"))

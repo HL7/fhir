@@ -80,7 +80,7 @@ public class JsonParser extends ParserBase {
 		  assert (map.containsKey(obj));
 			return parse(obj);	
 		} else {
-			JsonObject obj = (JsonObject) new com.google.gson.JsonParser().parse(source);
+			JsonObject obj = JsonTrackingParser.parse(source, null); // (JsonObject) new com.google.gson.JsonParser().parse(source);
 //			assert (map.containsKey(obj));
 			return parse(obj);	
 		} 
