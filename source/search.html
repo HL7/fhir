@@ -430,18 +430,28 @@ The proper use of these ranges is discussed further below.
 Searching on a simple numerical value in a resource. Examples:
 </p>
 <table class="grid">
- <tr><td><code>[parameter]=100</code></td><td>Values that equal 100, to 3 significant figures precision, so range [99.5 ... 100.5)</td></tr>
- <tr><td><code>[parameter]=100.00</code></td><td>Values that equal 100, to 5 significant figures precision, so range [99.995 ... 100.005). Whole numbers also equal 100.00, but not 100.01</td></tr>
- <tr><td><code>[parameter]=lt100</code></td><td>Values that are less than 100</td></tr>
- <tr><td><code>[parameter]=le100</code></td><td>Values that are less or equal to 100</td></tr>
- <tr><td><code>[parameter]=gt100</code></td><td>Values that are greater than 100</td></tr>
- <tr><td><code>[parameter]=ge100</code></td><td>Values that are greater or equal to 100</td></tr>
- <tr><td><code>[parameter]=ne100</code></td><td>Values that are not equal to 100</td></tr>
+ <tr><td><code>[parameter]=100</code></td><td>Values that equal 100, to 3 significant figures precision, so this is actually searching for values in the range [99.5 ... 100.5)</td></tr>
+ <tr><td><code>[parameter]=100.00</code></td><td>Values that equal 100, to 5 significant figures precision, so this is actually searching for values in the range [99.995 ... 100.005)</td></tr>
+ <tr><td><code>[parameter]=1e2</code></td><td>Values that equal 100, to 1 significant figures precision, so this is actually searching for values in the range [95 ... 105)</td></tr>
+ <tr><td><code>[parameter]=lt100</code></td><td>Values that are less than exactly 100</td></tr>
+ <tr><td><code>[parameter]=le100</code></td><td>Values that are less or equal to exactly 100</td></tr>
+ <tr><td><code>[parameter]=gt100</code></td><td>Values that are greater than exactly 100</td></tr>
+ <tr><td><code>[parameter]=ge100</code></td><td>Values that are greater or equal to exactly 100</td></tr>
+ <tr><td><code>[parameter]=ne100</code></td><td>Values that are not equal to 100 (actually, in the range 99.5 to 100.5)</td></tr>
 </table>
 <p>
-Note: Uncertainty does not factor in evaluations.  The precision of the numbers is considered arbitrarily high. (The
-way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense).
+Notes about searching on Numbers:
 </p>
+<ul>
+ <li>When a number search is used against a resource element that stores a simple integer (e.g. 
+ <a href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.recommendation.doseNumber_x_">ImmunizationRecommendation.recommendation.doseNumber</a>), and the search parameter
+    is not expressed using the exponential forms, and does not include any non-zero digits after a decimal point, 
+    the signficance issues cancel out and searching is based on exact matches.  Note that if there are non-zero digits after a decimal point,
+    there cannot be any matches</li>
+ <li>When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the 
+     implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
+ <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
+</ul>
 
 <p>
 Here are some example searches:
@@ -828,15 +838,18 @@ The syntax for the value follows the form:
  <li><b>[parameter]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
 </ul>
 <p>
-The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how precision and comparator/range operators are interpreted. Example searches:
+The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how 
+precision and comparator/range operators are interpreted. Like a number parameter, the 
+number part of the search value can be a decimal in exponential format. Example searches:
 </p>
 
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
- <tr><td><pre> GET [base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
- <tr><td><pre> GET [base]/Observation?value-quantity=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the unit - either the code (<code>code</code>) or the stated human unit (<code>unit</code>) are "mg"</td></tr>
- <tr><td><pre> GET [base]/Observation?value-quantity=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
- <tr><td><pre> GET [base]/Observation?value-quantity=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4(+/-0.05) mg where mg is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=5.40e-3|http://unitsofmeasure.org|g</pre></td><td>Search for all the observations with a value of 0.0054(+/-0.000005) g where g is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4(+/-0.05) mg where the unit - either the code (<code>code</code>) or the stated human unit (<code>unit</code>) are "mg"</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg exactly where mg is understood as a UCUM unit</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit (typically, within 10% of the value - see above)</td></tr>
 </table>
 <p>
 Specifying a system and a code for the search implies that the search is based on a particular code system - usually <a href="http://unitsofmeasure.org">UCUM</a>, and 
