@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/Quantity3to2" = "R3 to R2 Conversion for Quantity"
+
+uses "http://hl7.org/fhir/StructureDefinition/Quantity" alias Quantity as source
+uses "http://hl7.org/fhir/StructureDefinition/Duration" alias Duration as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Quantity" alias QuantityR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
+
+group for type+types  Quantity extends Element
+  input src : Quantity as source
+  input tgt : QuantityR2 as target
+
+  "Quantity-value" : for src.value make tgt.value
+  "Quantity-comparator" : for src.comparator make tgt.comparator
+  "Quantity-unit" : for src.unit make tgt.unit
+  "Quantity-system" : for src.system make tgt.system
+  "Quantity-code" : for src.code make tgt.code
+
+endgroup
+
+group DurationToQuantity extends Element
+  input src : Duration as source
+  input tgt : QuantityR2 as target
+
+  "Duration-value" : for src.value make tgt.value
+  "Duration-comparator" : for src.comparator make tgt.comparator
+  "Duration-unit" : for src.unit make tgt.unit
+  "Duration-system" : for src.system make tgt.system
+  "Duration-code" : for src.code make tgt.code
+endgroup
