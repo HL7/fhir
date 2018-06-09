@@ -106,7 +106,7 @@ public class BindingsParser {
       if (Character.isLowerCase(cd.getName().charAt(0)))
         throw new Exception("binding name "+cd.getName()+" is illegal - must start with a capital letter");
       cd.setDefinition(sheet.getColumn(row, "Definition"));
-      cd.setBindingMethod(readBinding(sheet.getColumn(row, "Binding")));
+      cd.setBindingMethod(readBinding(sheet.getColumn(row, "Binding"), cd.getName()+" in "+filename));
       String ref = sheet.getColumn(row, "Reference");
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
         throw new Exception("binding "+cd.getName()+" is missing a reference");
@@ -147,8 +147,6 @@ public class BindingsParser {
         cd.getValueSet().setName(cd.getName());
         
         // do nothing more: this will get filled out once all the resources are loaded
-      } else if (cd.getBinding() == BindingMethod.Reference) { 
-        cd.setReference(sheet.getColumn(row, "Reference"));
       }
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
 
@@ -228,7 +226,7 @@ public class BindingsParser {
     }
   }
 
-  public static BindingSpecification.BindingMethod readBinding(String s) throws Exception {
+  public static BindingSpecification.BindingMethod readBinding(String s, String context) throws Exception {
     s = s.toLowerCase();
     if (s == null || "".equals(s) || "unbound".equals(s))
       return BindingSpecification.BindingMethod.Unbound;
@@ -236,11 +234,9 @@ public class BindingsParser {
       return BindingSpecification.BindingMethod.CodeList;
     if (s.equals("special"))
       return BindingSpecification.BindingMethod.Special;
-    if (s.equals("reference"))
-      return BindingSpecification.BindingMethod.Reference;
     if (s.equals("value set"))
       return BindingSpecification.BindingMethod.ValueSet;
-    throw new Exception("Unknown Binding: "+s);
+    throw new Exception("Unknown Binding: "+s+" 2 "+context);
   }
 
   public static BindingStrength readBindingStrength(String s) throws Exception {

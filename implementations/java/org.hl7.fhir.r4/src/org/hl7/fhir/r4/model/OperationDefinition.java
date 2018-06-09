@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Sat, Jun 9, 2018 09:29+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1060,11 +1060,11 @@ public class OperationDefinition extends MetadataResource {
         /**
          * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
          */
-        @Child(name = "valueSet", type = {UriType.class, CanonicalType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "valueSet", type = {CanonicalType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used." )
-        protected Type valueSet;
+        protected CanonicalType valueSet;
 
-        private static final long serialVersionUID = 857140521L;
+        private static final long serialVersionUID = -2048653907L;
 
     /**
      * Constructor
@@ -1076,7 +1076,7 @@ public class OperationDefinition extends MetadataResource {
     /**
      * Constructor
      */
-      public OperationDefinitionParameterBindingComponent(Enumeration<BindingStrength> strength, Type valueSet) {
+      public OperationDefinitionParameterBindingComponent(Enumeration<BindingStrength> strength, CanonicalType valueSet) {
         super();
         this.strength = strength;
         this.valueSet = valueSet;
@@ -1128,40 +1128,19 @@ public class OperationDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
+         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.). This is the underlying object with id, value and extensions. The accessor "getValueSet" gives direct access to the value
          */
-        public Type getValueSet() { 
+        public CanonicalType getValueSetElement() { 
+          if (this.valueSet == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterBindingComponent.valueSet");
+            else if (Configuration.doAutoCreate())
+              this.valueSet = new CanonicalType(); // bb
           return this.valueSet;
         }
 
-        /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
-         */
-        public UriType getValueSetUriType() throws FHIRException { 
-          if (this.valueSet == null)
-            return null;
-          if (!(this.valueSet instanceof UriType))
-            throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (UriType) this.valueSet;
-        }
-
-        public boolean hasValueSetUriType() { 
-          return this != null && this.valueSet instanceof UriType;
-        }
-
-        /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
-         */
-        public CanonicalType getValueSetCanonicalType() throws FHIRException { 
-          if (this.valueSet == null)
-            return null;
-          if (!(this.valueSet instanceof CanonicalType))
-            throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (CanonicalType) this.valueSet;
-        }
-
-        public boolean hasValueSetCanonicalType() { 
-          return this != null && this.valueSet instanceof CanonicalType;
+        public boolean hasValueSetElement() { 
+          return this.valueSet != null && !this.valueSet.isEmpty();
         }
 
         public boolean hasValueSet() { 
@@ -1169,29 +1148,41 @@ public class OperationDefinition extends MetadataResource {
         }
 
         /**
-         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
+         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.). This is the underlying object with id, value and extensions. The accessor "getValueSet" gives direct access to the value
          */
-        public OperationDefinitionParameterBindingComponent setValueSet(Type value) { 
-          if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
-            throw new Error("Not the right type for OperationDefinition.parameter.binding.valueSet[x]: "+value.fhirType());
+        public OperationDefinitionParameterBindingComponent setValueSetElement(CanonicalType value) { 
           this.valueSet = value;
+          return this;
+        }
+
+        /**
+         * @return Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
+         */
+        public String getValueSet() { 
+          return this.valueSet == null ? null : this.valueSet.getValue();
+        }
+
+        /**
+         * @param value Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.
+         */
+        public OperationDefinitionParameterBindingComponent setValueSet(String value) { 
+            if (this.valueSet == null)
+              this.valueSet = new CanonicalType();
+            this.valueSet.setValue(value);
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength));
-          children.add(new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet));
+          children.add(new Property("valueSet", "canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 1791316033: /*strength*/  return new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength);
-          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet);
-          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet);
-          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet);
-          case 2048727747: /*valueSetCanonical*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet);
+          case -1410174671: /*valueSet*/  return new Property("valueSet", "canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.", 0, 1, valueSet);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1201,7 +1192,7 @@ public class OperationDefinition extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 1791316033: /*strength*/ return this.strength == null ? new Base[0] : new Base[] {this.strength}; // Enumeration<BindingStrength>
-        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
+        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1215,7 +1206,7 @@ public class OperationDefinition extends MetadataResource {
           this.strength = (Enumeration) value; // Enumeration<BindingStrength>
           return value;
         case -1410174671: // valueSet
-          this.valueSet = castToType(value); // Type
+          this.valueSet = castToCanonical(value); // CanonicalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1227,8 +1218,8 @@ public class OperationDefinition extends MetadataResource {
         if (name.equals("strength")) {
           value = new BindingStrengthEnumFactory().fromType(castToCode(value));
           this.strength = (Enumeration) value; // Enumeration<BindingStrength>
-        } else if (name.equals("valueSet[x]")) {
-          this.valueSet = castToType(value); // Type
+        } else if (name.equals("valueSet")) {
+          this.valueSet = castToCanonical(value); // CanonicalType
         } else
           return super.setProperty(name, value);
         return value;
@@ -1238,8 +1229,7 @@ public class OperationDefinition extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1791316033:  return getStrengthElement();
-        case -1438410321:  return getValueSet(); 
-        case -1410174671:  return getValueSet(); 
+        case -1410174671:  return getValueSetElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1249,7 +1239,7 @@ public class OperationDefinition extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1791316033: /*strength*/ return new String[] {"code"};
-        case -1410174671: /*valueSet*/ return new String[] {"uri", "canonical"};
+        case -1410174671: /*valueSet*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1260,13 +1250,8 @@ public class OperationDefinition extends MetadataResource {
         if (name.equals("strength")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.strength");
         }
-        else if (name.equals("valueSetUri")) {
-          this.valueSet = new UriType();
-          return this.valueSet;
-        }
-        else if (name.equals("valueSetCanonical")) {
-          this.valueSet = new CanonicalType();
-          return this.valueSet;
+        else if (name.equals("valueSet")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.valueSet");
         }
         else
           return super.addChild(name);

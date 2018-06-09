@@ -60,7 +60,6 @@ public class BindingSpecification {
     Unbound,
     CodeList, 
     ValueSet,
-    Reference,
     Special
   }
   

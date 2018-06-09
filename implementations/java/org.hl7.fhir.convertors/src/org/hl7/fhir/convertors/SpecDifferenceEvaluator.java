@@ -693,30 +693,23 @@ public class SpecDifferenceEvaluator {
     binding.setAttribute("strength", orig.getBinding().getStrength().toCode());
   }
 
-  private String describeReference(Type ref) {
-    return ref.primitiveValue();
+  private String describeReference(String ref) {
+    return ref;
   }
 
-  private ValueSet getValueSet(Type ref, Map<String, ValueSet> expansions) {
-    if (ref instanceof CanonicalType) {
-      String id = ref.primitiveValue();
-      if (Utilities.isAbsoluteUrl(id)) {
+  private ValueSet getValueSet(String ref, Map<String, ValueSet> expansions) {
+    if (ref != null) {
+      if (Utilities.isAbsoluteUrl(ref)) {
         for (ValueSet ve : expansions.values()) {
-          if (ve.getUrl().equals(id))
+          if (ve.getUrl().equals(ref))
             return ve;
         }
-      } else if (id.startsWith("ValueSet/")) {
-        id = id.substring(9);
+      } else if (ref.startsWith("ValueSet/")) {
+        ref = ref.substring(9);
         for (ValueSet ve : expansions.values()) {
-          if (ve.getId().equals(id))
+          if (ve.getId().equals(ref))
             return ve;
         }
-      }
-    } else if (ref instanceof UriType) {
-      String url = ((UriType) ref).asStringValue();
-      for (ValueSet ve : expansions.values()) {
-        if (ve.getUrl().equals(url))
-          return ve;
       }
     } 
     return null;

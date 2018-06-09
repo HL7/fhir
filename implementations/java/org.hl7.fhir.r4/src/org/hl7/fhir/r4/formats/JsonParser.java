@@ -501,9 +501,10 @@ public class JsonParser extends JsonParserBase {
       res.setPathElement(parseString(json.get("path").getAsString()));
     if (json.has("_path"))
       parseElementProperties(json.getAsJsonObject("_path"), res.getPathElement());
-    Type valueSet = parseType("valueSet", json);
-    if (valueSet != null)
-      res.setValueSet(valueSet);
+    if (json.has("valueSet"))
+      res.setValueSetElement(parseCanonical(json.get("valueSet").getAsString()));
+    if (json.has("_valueSet"))
+      parseElementProperties(json.getAsJsonObject("_valueSet"), res.getValueSetElement());
     if (json.has("code")) {
       JsonArray array = json.getAsJsonArray("code");
       for (int i = 0; i < array.size(); i++) {
@@ -1810,9 +1811,10 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    Type valueSet = parseType("valueSet", json);
-    if (valueSet != null)
-      res.setValueSet(valueSet);
+    if (json.has("valueSet"))
+      res.setValueSetElement(parseCanonical(json.get("valueSet").getAsString()));
+    if (json.has("_valueSet"))
+      parseElementProperties(json.getAsJsonObject("_valueSet"), res.getValueSetElement());
   }
 
   protected ElementDefinition.ElementDefinitionMappingComponent parseElementDefinitionElementDefinitionMappingComponent(JsonObject json, ElementDefinition owner) throws IOException, FHIRFormatError {
@@ -16640,9 +16642,10 @@ public class JsonParser extends JsonParserBase {
       res.setStrengthElement(parseEnumeration(json.get("strength").getAsString(), Enumerations.BindingStrength.NULL, new Enumerations.BindingStrengthEnumFactory()));
     if (json.has("_strength"))
       parseElementProperties(json.getAsJsonObject("_strength"), res.getStrengthElement());
-    Type valueSet = parseType("valueSet", json);
-    if (valueSet != null)
-      res.setValueSet(valueSet);
+    if (json.has("valueSet"))
+      res.setValueSetElement(parseCanonical(json.get("valueSet").getAsString()));
+    if (json.has("_valueSet"))
+      parseElementProperties(json.getAsJsonObject("_valueSet"), res.getValueSetElement());
   }
 
   protected OperationDefinition.OperationDefinitionOverloadComponent parseOperationDefinitionOperationDefinitionOverloadComponent(JsonObject json, OperationDefinition owner) throws IOException, FHIRFormatError {
@@ -26286,8 +26289,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("path", element.getPathElement(), false);
         composeStringExtras("path", element.getPathElement(), false);
       }
-      if (element.hasValueSet()) {
-        composeType("valueSet", element.getValueSet());
+      if (element.hasValueSetElement()) {
+        composeCanonicalCore("valueSet", element.getValueSetElement(), false);
+        composeCanonicalExtras("valueSet", element.getValueSetElement(), false);
       }
       if (element.hasCode()) {
         openArray("code");
@@ -27640,8 +27644,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
-      if (element.hasValueSet()) {
-        composeType("valueSet", element.getValueSet());
+      if (element.hasValueSetElement()) {
+        composeCanonicalCore("valueSet", element.getValueSetElement(), false);
+        composeCanonicalExtras("valueSet", element.getValueSetElement(), false);
       }
   }
 
@@ -43765,8 +43770,9 @@ public class JsonParser extends JsonParserBase {
         composeEnumerationCore("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory(), false);
         composeEnumerationExtras("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory(), false);
       }
-      if (element.hasValueSet()) {
-        composeType("valueSet", element.getValueSet());
+      if (element.hasValueSetElement()) {
+        composeCanonicalCore("valueSet", element.getValueSetElement(), false);
+        composeCanonicalExtras("valueSet", element.getValueSetElement(), false);
       }
   }
 

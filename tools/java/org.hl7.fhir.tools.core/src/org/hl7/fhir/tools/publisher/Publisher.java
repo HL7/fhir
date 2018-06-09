@@ -1531,7 +1531,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
     cpbs.setKind(CapabilityStatementKind.CAPABILITY);
     cpbs.setSoftware(new CapabilityStatementSoftwareComponent());
-    cpbs.getSoftware().setName("Insert your softwware name here...");
+    cpbs.getSoftware().setName("Insert your software name here...");
     cpbs.setFhirVersion(page.getVersion());
     cpbs.getFormat().add(Factory.newCode("xml"));
     cpbs.getFormat().add(Factory.newCode("json"));

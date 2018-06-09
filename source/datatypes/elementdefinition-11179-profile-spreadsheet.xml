@@ -4203,7 +4203,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell ss:StyleID="s128"><Data ss:Type="String">permitted-value-valueset</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetCanonical;StructureDefinition.differential.element.binding.valueSetCanonical;Questionnaire.item.options</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSet;StructureDefinition.differential.element.binding.valueSet;Questionnaire.item.options</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4218,7 +4218,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Allows expressing the value set that must be stored internally by the system (as distinct from the base value set which defines values for exchange)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Allows representing the ISO 21090 notion of "permitted values" as distinct from the typical value set's "value meaning"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">The permitted value set must have a 1..1 set of codes for each code in the value meaning value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSetReference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSet</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">N/A</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">N/A</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Data_Element.data_element_domain.member</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4229,7 +4229,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell ss:StyleID="s128"><Data ss:Type="String">permitted-value-conceptmap</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSetCanonical;StructureDefinition.differential.element.binding.valueSetCanonical;Questionnaire.item.options</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSet;StructureDefinition.differential.element.binding.valueSet;Questionnaire.item.options</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Permitted Values link</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4244,7 +4244,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">Expresses the linkage between the internal codes used for storage and the codes used for exchange.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Allows representing the ISO 21090 notion of "permitted values" as distinct from the typical value set's "value meaning"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">The permitted value set must have a 1..1 set of codes for each code in the value meaning value set.  The source for the concept map is the value set the extension appears on.  The target is the permitted-value-valueset</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSetReference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Context should be ElementDefinition.binding.valueSet</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">N/A</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">N/A</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Data_Element.data_element_domain.member.meaning</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

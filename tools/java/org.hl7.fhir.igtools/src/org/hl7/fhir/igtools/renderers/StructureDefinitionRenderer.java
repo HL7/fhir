@@ -268,21 +268,6 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return "<li><a href=\""+ed.getUserString("path")+"\">"+url+"</a></li>\r\n";    
   }
 
-  private String describeReference(ElementDefinitionBindingComponent binding) {
-    if (binding.getValueSet() instanceof CanonicalType) {
-      Reference ref = (Reference) binding.getValueSet();
-      String disp = gt(ref.getDisplayElement());
-      ValueSet vs = context.fetchResource(ValueSet.class, ref.getReference());
-      if (disp == null && vs != null)
-        disp = vs.getName();
-      return "<a href=\""+(vs == null ? ref.getReference() : vs.getUserData("filename"))+"\">"+disp+"</a>";
-    }
-    else if (binding.getValueSet() instanceof UriType) {
-      UriType uri = (UriType) binding.getValueSet();
-      return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
-    } else 
-      return "??";
-  }
 
   private String summariseValue(Type fixed) throws Exception {
     if (fixed instanceof org.hl7.fhir.r4.model.PrimitiveType)
@@ -383,7 +368,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     String vss = "";
     String vsn = "?ext";
     if (tx.hasValueSet()) {
-      String uri = tx.getValueSet().primitiveValue();
+      String uri = tx.getValueSet();
       String name = getSpecialValueSetName(uri);
       if (name != null) {
         vss = "<a href=\""+uri+"\">"+Utilities.escapeXml(name)+"</a>";
@@ -414,7 +399,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
     if (vsn.equals("?ext"))
       if (tx.getValueSet() != null)
-        System.out.println("No value set at "+path+" (url = '"+tx.getValueSet().primitiveValue()+"')");
+        System.out.println("No value set at "+path+" (url = '"+tx.getValueSet()+"')");
       else
         System.out.println("No value set at "+path+" (no url)");
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
@@ -832,7 +817,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       ElementDefinitionBindingComponent def = d.getBinding();
       if (!def.hasValueSet()) 
         return def.getDescription();
-      String ref = def.getValueSet() instanceof UriType ? ((UriType) def.getValueSet()).asStringValue() : ((Reference) def.getValueSet()).getReference();
+      String ref = def.getValueSet();
       ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(ref));
       String defDesc = def.getDescription()==null ? "" : def.getDescription() + "<br/>";
       if (vs != null) {
@@ -1253,13 +1238,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     // 4. doco
     if (!elem.hasFixed()) {
       if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
-        ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
+        ValueSet vs = context.fetchResource(ValueSet.class, elem.getBinding().getValueSet());
         if (vs != null)
           b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
-        else if (elem.getBinding().getValueSet() instanceof UriType)
-          b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         else
-          b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+((Reference)elem.getBinding().getValueSet()).getReference()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+          b.append(" <span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getValueSet()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
       } else
         b.append(" <span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</span>");
     }
@@ -1493,10 +1476,6 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 
-  private ValueSet resolveValueSet(Type valueSet) {
-    // TODO Auto-generated method stub
-    return null;
-  }
 
   private String upFirst(String s) {
     return s.substring(0, 1).toUpperCase() + s.substring(1);

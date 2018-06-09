@@ -1624,8 +1624,12 @@ public class VersionConvertor_14_40 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     if (src.hasValueSet()) {
-      org.hl7.fhir.r4.model.Type vs = convertType(src.getValueSet());
-      tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) vs).getReference()) : vs);      
+      org.hl7.fhir.r4.model.Type t = convertType(src.getValueSet());
+      if (t instanceof org.hl7.fhir.r4.model.Reference)
+        tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+      else
+        tgt.setValueSet(t.primitiveValue());    
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
     }
     return tgt;
   }
@@ -1638,7 +1642,13 @@ public class VersionConvertor_14_40 {
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    tgt.setValueSet(src.hasValueSetCanonicalType() ? new org.hl7.fhir.dstu2016may.model.Reference(src.getValueSetCanonicalType().getValue()) : convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      String vsr = VersionConvertorConstants.vsToRef(src.getValueSet());
+      if (vsr != null)
+        tgt.setValueSet(new org.hl7.fhir.dstu2016may.model.UriType(vsr));
+      else
+        tgt.setValueSet(new org.hl7.fhir.dstu2016may.model.Reference(src.getValueSet()));
+    }
     return tgt;
   }
 
@@ -4778,7 +4788,12 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterBindingComponent tgt = new org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    tgt.setValueSet(src.getValueSet() instanceof Reference ? convertReferenceToCanonical((Reference)src.getValueSet()): convertType(src.getValueSet()));
+    Type t = convertType(src.getValueSet());
+    if (t instanceof org.hl7.fhir.r4.model.Reference)
+      tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+    else
+      tgt.setValueSet(t.primitiveValue());    
+    tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
     return tgt;
   }
 
@@ -4788,7 +4803,13 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionParameterBindingComponent tgt = new org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionParameterBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    tgt.setValueSet(src.getValueSet() instanceof CanonicalType ? convertCanonicalToReference((CanonicalType)src.getValueSet()): convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      String vsr = VersionConvertorConstants.vsToRef(src.getValueSet());
+      if (vsr != null)
+        tgt.setValueSet(new org.hl7.fhir.dstu2016may.model.UriType(vsr));
+      else
+        tgt.setValueSet(new org.hl7.fhir.dstu2016may.model.Reference(src.getValueSet()));
+    }
     return tgt;
   }
 

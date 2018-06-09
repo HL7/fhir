@@ -36,7 +36,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetUri": "http://example.org/valueset/pregnancy"
+          "valueSet": "http://example.org/valueset/pregnancy"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetUri": "http://example.org/valueset/zika-exposure-assessment"
+          "valueSet": "http://example.org/valueset/zika-exposure-assessment"
         },
         {
           "path": "status",
@@ -81,7 +81,7 @@
         },
         {
           "path": "code",
-          "valueSetUri": "urn:oid:2.16.840.1.114222.4.11.7459"
+          "valueSet": "urn:oid:2.16.840.1.114222.4.11.7459"
         }
       ]
     }

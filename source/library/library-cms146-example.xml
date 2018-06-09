@@ -508,7 +508,7 @@
     </codeFilter>
     <codeFilter>
       <path value="code"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"/>
     </codeFilter>
   </dataRequirement>
 
@@ -528,7 +528,7 @@
     </codeFilter>
     <codeFilter>
       <path value="code"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"/>
     </codeFilter>
   </dataRequirement>
 
@@ -548,7 +548,7 @@
     </codeFilter>
     <codeFilter>
       <path value="type"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"/>
     </codeFilter>
   </dataRequirement>
 
@@ -556,7 +556,7 @@
     <type value="DiagnosticReport"/>
     <codeFilter>
       <path value="diagnosis"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"/>
     </codeFilter>
   </dataRequirement>
 
@@ -564,7 +564,7 @@
     <type value="Medication"/>
     <codeFilter>
       <path value="code"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
     </codeFilter>
   </dataRequirement>
 
@@ -578,7 +578,7 @@
     </codeFilter>
     <codeFilter>
       <path value="medication.code"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
     </codeFilter>
   </dataRequirement>
 
@@ -592,7 +592,7 @@
     </codeFilter>
     <codeFilter>
       <path value="medication.code"/>
-      <valueSetUri value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"/>
     </codeFilter>
   </dataRequirement>
 

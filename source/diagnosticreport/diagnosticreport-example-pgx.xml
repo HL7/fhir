@@ -27,7 +27,7 @@
 		<reference value="Observation/example-phenotype"/>
 	</result>
 	<presentedForm>
-		<contentType value="PDF"/>
+		<contentType value="application/pdf"/>
 		<language value="en"/>
 		<data value="cGRmSW5CYXNlNjRCaW5hcnk="/>
 		<hash value="571ef9c5655840f324e679072ed62b1b95eef8a0"/>

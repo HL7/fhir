@@ -73,6 +73,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.NoTerminologyServiceException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.MimeType;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.TranslationServices;
@@ -578,6 +579,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   private ValidationResult verifyCodeExternal(ValueSet vs, Coding coding, boolean tryCache) throws Exception {
+    if ("urn:ietf:bcp:13".equals(coding.getSystem()) && "http://hl7.org/fhir/ValueSet/mimetypes".equals(vs.getUrl()))
+      return validateMimeType(coding.getCode());
+    
     ValidationResult res = vs == null ? null : handleByCache(vs, coding, tryCache);
     if (res != null)
       return res;
@@ -593,6 +597,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return res;
   }
 
+  private ValidationResult validateMimeType(String code) {
+    MimeType mt = new MimeType(code);
+    if (mt.isValid())
+      return new ValidationResult(new ConceptDefinitionComponent().setDisplay(mt.display()));
+    else
+      return new ValidationResult(IssueSeverity.ERROR, "Invalid Mime Type", TerminologyServiceErrorClass.UNKNOWN);
+  }
+  
   private ValidationResult verifyCodeExternal(ValueSet vs, CodeableConcept cc, boolean tryCache) throws Exception {
     ValidationResult res = handleByCache(vs, cc, tryCache);
     if (res != null)
@@ -884,14 +896,21 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-  private ValidationResult verifyCodeInternal(ValueSet vs, String code) throws FileNotFoundException, ETooCostly, IOException, FHIRException {
+  private ValidationResult verifyCodeInternal(ValueSet vs, String code) throws Exception {
     if (vs.hasExpansion())
       return verifyCodeInExpansion(vs, code);
     else {
       ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, null);
       if (vse.getValueset() == null)
         return new ValidationResult(IssueSeverity.ERROR, vse.getError(), vse.getErrorClass());
-      else
+      else if (vse.getValueset().getExpansion().hasExtension("http://hl7.org/fhir/StructureDefinition/valueset-toocostly") && 
+          vs.getCompose().getInclude().size() == 1 && vs.getCompose().getExclude().size() == 0 && vs.getCompose().getIncludeFirstRep().hasSystem() && 
+          !vs.getCompose().getIncludeFirstRep().hasFilter() && !vs.getCompose().getIncludeFirstRep().hasConcept()) {
+        Coding c = new Coding();
+        c.setSystem(vs.getCompose().getIncludeFirstRep().getSystem());
+        c.setCode(code);
+        return verifyCodeExternal(vs, c, true);
+      } else
         return verifyCodeInExpansion(vse.getValueset(), code);
     }
   }
@@ -1166,15 +1185,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValueSetExpansionOutcome expandVS(ElementDefinitionBindingComponent binding, boolean cacheOk, boolean heirarchical) throws FHIRException {
     ValueSet vs = null;
-    if (binding.hasValueSetCanonicalType()) {
-      vs = fetchResource(ValueSet.class, binding.getValueSetCanonicalType().getValue());
-      if (vs == null)
-        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetCanonicalType().getValue());
-    } else {
-      vs = fetchResource(ValueSet.class, binding.getValueSetUriType().asStringValue());
-      if (vs == null)
-        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetUriType().asStringValue());
-    }
+    vs = fetchResource(ValueSet.class, binding.getValueSet());
+    if (vs == null)
+      throw new FHIRException("Unable to resolve value Set "+binding.getValueSet());
     return expandVS(vs, cacheOk, heirarchical);
   }
   

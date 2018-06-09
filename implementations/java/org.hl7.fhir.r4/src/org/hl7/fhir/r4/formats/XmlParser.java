@@ -644,8 +644,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseDataRequirementDataRequirementCodeFilterComponentContent(int eventType, XmlPullParser xpp, DataRequirement owner, DataRequirement.DataRequirementCodeFilterComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("path")) {
         res.setPathElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "valueSet")) {
-        res.setValueSet(parseType("valueSet", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("valueSet")) {
+        res.setValueSetElement(parseCanonical(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.getCode().add(parseCoding(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
@@ -1932,8 +1932,8 @@ public class XmlParser extends XmlParserBase {
         res.setStrengthElement(parseEnumeration(xpp, Enumerations.BindingStrength.NULL, new Enumerations.BindingStrengthEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "valueSet")) {
-        res.setValueSet(parseType("valueSet", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("valueSet")) {
+        res.setValueSetElement(parseCanonical(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
         return false;
     return true;
@@ -15032,8 +15032,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseOperationDefinitionOperationDefinitionParameterBindingComponentContent(int eventType, XmlPullParser xpp, OperationDefinition owner, OperationDefinition.OperationDefinitionParameterBindingComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("strength")) {
         res.setStrengthElement(parseEnumeration(xpp, Enumerations.BindingStrength.NULL, new Enumerations.BindingStrengthEnumFactory()));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "valueSet")) {
-        res.setValueSet(parseType("valueSet", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("valueSet")) {
+        res.setValueSetElement(parseCanonical(xpp));
       } else if (!parseBackboneElementContent(eventType, xpp, res))
         return false;
     return true;
@@ -23930,9 +23930,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPathElement()) {
         composeString("path", element.getPathElement());
       }
-      if (element.hasValueSet()) {
-        composeType("valueSet", element.getValueSet());
-      }      if (element.hasCode()) { 
+      if (element.hasValueSetElement()) {
+        composeCanonical("valueSet", element.getValueSetElement());
+      }
+      if (element.hasCode()) { 
         for (Coding e : element.getCode()) 
           composeCoding("code", e);
       }
@@ -25069,9 +25070,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
-      if (element.hasValueSet()) {
-        composeType("valueSet", element.getValueSet());
-      }  }
+      if (element.hasValueSetElement()) {
+        composeCanonical("valueSet", element.getValueSetElement());
+      }
+  }
 
   protected void composeElementDefinitionElementDefinitionMappingComponent(String name, ElementDefinition.ElementDefinitionMappingComponent element) throws IOException {
     if (element != null) {
@@ -38797,9 +38799,10 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElementElements(element);
       if (element.hasStrengthElement())
         composeEnumeration("strength", element.getStrengthElement(), new Enumerations.BindingStrengthEnumFactory());
-      if (element.hasValueSet()) {
-        composeType("valueSet", element.getValueSet());
-      }  }
+      if (element.hasValueSetElement()) {
+        composeCanonical("valueSet", element.getValueSetElement());
+      }
+  }
 
   protected void composeOperationDefinitionOperationDefinitionOverloadComponent(String name, OperationDefinition.OperationDefinitionOverloadComponent element) throws IOException {
     if (element != null) {

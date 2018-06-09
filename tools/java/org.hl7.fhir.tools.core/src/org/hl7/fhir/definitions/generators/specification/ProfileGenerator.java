@@ -1190,31 +1190,30 @@ public class ProfileGenerator {
     return dst;
   }
 
-  private Type buildValueSetReference(BindingSpecification src) throws Exception {
+  private String buildValueSetReference(BindingSpecification src) throws Exception {
     switch (src.getBinding()) {
     case Unbound: return null;
     case CodeList:
       if (src.getValueSet()!= null)
-        return Factory.newCanonical(src.getValueSet().getUrl());
+        return src.getValueSet().getUrl();
       else if (src.getReference().startsWith("#"))
-        return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
+        return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1);
       else
         throw new Exception("not done yet");
     case ValueSet: 
       if (!Utilities.noString(src.getReference()))
         if (src.getReference().startsWith("http"))
-          return Factory.newCanonical(src.getReference());
+          return src.getReference();
         else if (src.getValueSet()!= null)
-          return Factory.newCanonical(src.getValueSet().getUrl());
+          return src.getValueSet().getUrl();
         else if (src.getReference().startsWith("valueset-"))
-          return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9));
+          return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9);
         else
-          return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference());
+          return "http://hl7.org/fhir/ValueSet/"+src.getReference();
       else
         return null; // throw new Exception("not done yet");
-    case Reference: return Factory.newUri(src.getReference());
     case Special: 
-      return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
+      return "http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1);
     default: 
       throw new Exception("not done yet");
     }

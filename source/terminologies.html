@@ -180,7 +180,7 @@ A binding is always represented using an <a href="elementdefinition-definitions.
 There are a number of places in the specification where value sets are referenced in order to bind a coded value to a value set:
 </p>
 <table class="grid">
- <tr><td><a href="elementdefinition.html">ElementDefinition</a>.binding.valueSet[x]</td><td>Used to bind a defined element to a value set</td></tr>
+ <tr><td><a href="elementdefinition.html">ElementDefinition</a>.binding.valueSet</td><td>Used to bind a defined element to a value set</td></tr>
  <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>Used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
  <tr><td><a href="questionnaire.html">Questionnaire</a>.group.question.options</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.import</td><td>The content of a value set includes the content in the imported value set too</td></tr>
@@ -249,7 +249,7 @@ Example:
     ...
     &lt;binding&gt;
       ...
-      &lt;valueSetUri value=&quot;http://hl7.org/fhir/ValueSet/clinical-findings&quot;/&gt;
+      &lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/clinical-findings&quot;/&gt;
     &lt;/binding&gt;
     ...
   &lt;/element&gt;
@@ -300,7 +300,7 @@ To be precise about which version of a value set is being referred to in
 a value set reference, append the version to the canonical url with a '|' like this:
 </p>
 <pre>
-&lt;valueSetUri value=&quot;http://hl7.org/fhir/ValueSet/clinical-findings|0.8&quot;/&gt;
+&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/clinical-findings|0.8&quot;/&gt;
 </pre>
 <p>
 This is a version specific reference to a value set. Searching

@@ -93,7 +93,7 @@
   
   
   
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4171,7 +4171,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot.element</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">provide either a binding reference or a description (or both)</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">binding.empty() or binding.valueSet.exists() or binding.description.exists()</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:binding)) or (exists(f:binding/f:valueSetUri) or exists(f:binding/f:valueSetReference)) or exists(f:binding/f:description)</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">21</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4411,7 +4411,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4454,7 +4453,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">valueset</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSet[x]</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">StructureDefinition.snapshot.element.binding.valueSet</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">A vocabulary binding reference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4604,6 +4603,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

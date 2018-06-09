@@ -88,7 +88,7 @@
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="opioids-indicating-end-of-life"/>
+         <valueSet value="http://example.org/fhir/ValueSet/opioids-indicating-end-of-life"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
@@ -107,7 +107,7 @@
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="opioids-abused-in-ambulatory-care"/>
+         <valueSet value="http://example.org/fhir/ValueSet/opioids-abused-in-ambulatory-care"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>

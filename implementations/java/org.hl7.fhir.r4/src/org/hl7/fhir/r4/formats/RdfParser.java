@@ -436,8 +436,8 @@ public class RdfParser extends RdfParserBase {
     composeElement(t, "codeFilter", name, element, index);
     if (element.hasPathElement())
       composeString(t, "DataRequirement", "path", element.getPathElement(), -1);
-    if (element.hasValueSet())
-      composeType(t, "DataRequirement", "valueSet", element.getValueSet(), -1);
+    if (element.hasValueSetElement())
+      composeCanonical(t, "DataRequirement", "valueSet", element.getValueSetElement(), -1);
     for (int i = 0; i < element.getCode().size(); i++)
       composeCoding(t, "DataRequirement", "code", element.getCode().get(i), i);
   }
@@ -1304,8 +1304,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "ElementDefinition", "strength", element.getStrengthElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "ElementDefinition", "description", element.getDescriptionElement(), -1);
-    if (element.hasValueSet())
-      composeType(t, "ElementDefinition", "valueSet", element.getValueSet(), -1);
+    if (element.hasValueSetElement())
+      composeCanonical(t, "ElementDefinition", "valueSet", element.getValueSetElement(), -1);
   }
 
   protected void composeElementDefinitionElementDefinitionMappingComponent(Complex parent, String parentType, String name, ElementDefinition.ElementDefinitionMappingComponent element, int index) {
@@ -11067,8 +11067,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "binding", name, element, index);
     if (element.hasStrengthElement())
       composeEnum(t, "OperationDefinition", "strength", element.getStrengthElement(), -1);
-    if (element.hasValueSet())
-      composeType(t, "OperationDefinition", "valueSet", element.getValueSet(), -1);
+    if (element.hasValueSetElement())
+      composeCanonical(t, "OperationDefinition", "valueSet", element.getValueSetElement(), -1);
   }
 
   protected void composeOperationDefinitionOperationDefinitionOverloadComponent(Complex parent, String parentType, String name, OperationDefinition.OperationDefinitionOverloadComponent element, int index) {

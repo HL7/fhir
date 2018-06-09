@@ -3300,13 +3300,13 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         protected StringType description;
 
         /**
-         * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.
+         * Refers to the value set that identifies the set of codes the binding refers to.
          */
-        @Child(name = "valueSet", type = {UriType.class, CanonicalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri." )
-        protected Type valueSet;
+        @Child(name = "valueSet", type = {CanonicalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Source of value set", formalDefinition="Refers to the value set that identifies the set of codes the binding refers to." )
+        protected CanonicalType valueSet;
 
-        private static final long serialVersionUID = 1355538460L;
+        private static final long serialVersionUID = -514477030L;
 
     /**
      * Constructor
@@ -3418,40 +3418,19 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @return {@link #valueSet} (Refers to the value set that identifies the set of codes the binding refers to.). This is the underlying object with id, value and extensions. The accessor "getValueSet" gives direct access to the value
          */
-        public Type getValueSet() { 
+        public CanonicalType getValueSetElement() { 
+          if (this.valueSet == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionBindingComponent.valueSet");
+            else if (Configuration.doAutoCreate())
+              this.valueSet = new CanonicalType(); // bb
           return this.valueSet;
         }
 
-        /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
-         */
-        public UriType getValueSetUriType() throws FHIRException { 
-          if (this.valueSet == null)
-            return null;
-          if (!(this.valueSet instanceof UriType))
-            throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (UriType) this.valueSet;
-        }
-
-        public boolean hasValueSetUriType() { 
-          return this != null && this.valueSet instanceof UriType;
-        }
-
-        /**
-         * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
-         */
-        public CanonicalType getValueSetCanonicalType() throws FHIRException { 
-          if (this.valueSet == null)
-            return null;
-          if (!(this.valueSet instanceof CanonicalType))
-            throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (CanonicalType) this.valueSet;
-        }
-
-        public boolean hasValueSetCanonicalType() { 
-          return this != null && this.valueSet instanceof CanonicalType;
+        public boolean hasValueSetElement() { 
+          return this.valueSet != null && !this.valueSet.isEmpty();
         }
 
         public boolean hasValueSet() { 
@@ -3459,12 +3438,31 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
 
         /**
-         * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @param value {@link #valueSet} (Refers to the value set that identifies the set of codes the binding refers to.). This is the underlying object with id, value and extensions. The accessor "getValueSet" gives direct access to the value
          */
-        public ElementDefinitionBindingComponent setValueSet(Type value) { 
-          if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
-            throw new Error("Not the right type for ElementDefinition.binding.valueSet[x]: "+value.fhirType());
+        public ElementDefinitionBindingComponent setValueSetElement(CanonicalType value) { 
           this.valueSet = value;
+          return this;
+        }
+
+        /**
+         * @return Refers to the value set that identifies the set of codes the binding refers to.
+         */
+        public String getValueSet() { 
+          return this.valueSet == null ? null : this.valueSet.getValue();
+        }
+
+        /**
+         * @param value Refers to the value set that identifies the set of codes the binding refers to.
+         */
+        public ElementDefinitionBindingComponent setValueSet(String value) { 
+          if (Utilities.noString(value))
+            this.valueSet = null;
+          else {
+            if (this.valueSet == null)
+              this.valueSet = new CanonicalType();
+            this.valueSet.setValue(value);
+          }
           return this;
         }
 
@@ -3472,7 +3470,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           super.listChildren(children);
           children.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength));
           children.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, 1, description));
-          children.add(new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet));
+          children.add(new Property("valueSet", "canonical(ValueSet)", "Refers to the value set that identifies the set of codes the binding refers to.", 0, 1, valueSet));
         }
 
         @Override
@@ -3480,10 +3478,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           switch (_hash) {
           case 1791316033: /*strength*/  return new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength);
           case -1724546052: /*description*/  return new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, 1, description);
-          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case 2048727747: /*valueSetCanonical*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a canonical(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1410174671: /*valueSet*/  return new Property("valueSet", "canonical(ValueSet)", "Refers to the value set that identifies the set of codes the binding refers to.", 0, 1, valueSet);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -3494,7 +3489,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         switch (hash) {
         case 1791316033: /*strength*/ return this.strength == null ? new Base[0] : new Base[] {this.strength}; // Enumeration<BindingStrength>
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
+        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3511,7 +3506,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           this.description = castToString(value); // StringType
           return value;
         case -1410174671: // valueSet
-          this.valueSet = castToType(value); // Type
+          this.valueSet = castToCanonical(value); // CanonicalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3525,8 +3520,8 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           this.strength = (Enumeration) value; // Enumeration<BindingStrength>
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        } else if (name.equals("valueSet[x]")) {
-          this.valueSet = castToType(value); // Type
+        } else if (name.equals("valueSet")) {
+          this.valueSet = castToCanonical(value); // CanonicalType
         } else
           return super.setProperty(name, value);
         return value;
@@ -3537,8 +3532,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         switch (hash) {
         case 1791316033:  return getStrengthElement();
         case -1724546052:  return getDescriptionElement();
-        case -1438410321:  return getValueSet(); 
-        case -1410174671:  return getValueSet(); 
+        case -1410174671:  return getValueSetElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3549,7 +3543,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         switch (hash) {
         case 1791316033: /*strength*/ return new String[] {"code"};
         case -1724546052: /*description*/ return new String[] {"string"};
-        case -1410174671: /*valueSet*/ return new String[] {"uri", "canonical"};
+        case -1410174671: /*valueSet*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3563,13 +3557,8 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.description");
         }
-        else if (name.equals("valueSetUri")) {
-          this.valueSet = new UriType();
-          return this.valueSet;
-        }
-        else if (name.equals("valueSetCanonical")) {
-          this.valueSet = new CanonicalType();
-          return this.valueSet;
+        else if (name.equals("valueSet")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.valueSet");
         }
         else
           return super.addChild(name);

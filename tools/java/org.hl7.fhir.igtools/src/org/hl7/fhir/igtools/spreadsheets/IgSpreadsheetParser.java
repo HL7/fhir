@@ -499,7 +499,7 @@ public class IgSpreadsheetParser {
         ValueSet vs = ValueSetUtilities.makeShareable(new ValueSet());
         vs.setId(ref.substring(1));
         vs.setUrl(base+"/ValueSet/"+ref.substring(1));
-        bs.setValueSet(new CanonicalType("ValueSet/"+ref.substring(1)));
+        bs.setValueSet(vs.getUrl());
         bundle.addEntry().setResource(vs).setFullUrl(vs.getUrl());
         vs.setName(bindingName);
         String oid = sheet.getColumn(row, "Oid");
@@ -524,7 +524,7 @@ public class IgSpreadsheetParser {
       } else if (type.equals("special")) {
         throw new Error("Binding type Special is not allowed in implementation guides"+ getLocation(row));
       } else if (type.equals("reference")) {
-        bs.setValueSet(new Reference(sheet.getColumn(row, "Reference")));
+        throw new Exception("The binding type 'reference' is no longer supported");
       } else if (type.equals("value set")) {
         String ref = sheet.getColumn(row, "Reference");
         String id = ref.startsWith("valueset-") ? ref.substring(9) : ref;
@@ -532,7 +532,7 @@ public class IgSpreadsheetParser {
           valuesetsToLoad.put(id, ref);
           ref = Utilities.pathURL(base, "ValueSet", id);
         }
-        bs.setValueSet(new CanonicalType(ref));
+        bs.setValueSet(ref);
       } else {
         throw new Exception("Unknown Binding: "+type+ getLocation(row));
       }

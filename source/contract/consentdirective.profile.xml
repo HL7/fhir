@@ -154,7 +154,7 @@
       <binding>
         <strength value="example"/>
         <description value="List of overall contract codes."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -229,7 +229,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes within the above."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-subtype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-subtype"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -296,7 +296,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes for the types of contract provisions."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-term-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-type"/>
       </binding>
     </element>
     <element>
@@ -312,7 +312,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes for the subtypes of contract provisions."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-term-subtype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-subtype"/>
       </binding>
     </element>
     <element>
@@ -550,7 +550,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes for the contract actor role."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-actorrole"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-actorrole"/>
       </binding>
     </element>
     <element>
@@ -566,7 +566,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes for the contract action."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-action"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-action"/>
       </binding>
     </element>
     <element>
@@ -582,7 +582,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes for the contract action reason."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
       </binding>
     </element>
     <element>
@@ -618,7 +618,7 @@
       <binding>
         <strength value="preferred"/>
         <description value="List of parties who may be signing."/>
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contract-signer-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-signer-type"/>
       </binding>
     </element>
     <element>

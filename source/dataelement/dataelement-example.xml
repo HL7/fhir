@@ -239,7 +239,7 @@
 		<maxLength value="13"/>
 		<binding>
 			<strength value="required"/>
-			<valueSetCanonical value="#2179414">
+			<valueSet value="#2179414">
 				<extension url="http://hl7.org/fhir/StructureDefinition/11179-permitted-value-valueset">
 					<valueReference>
 						<reference value="#2179414-permitted"/>
@@ -250,7 +250,7 @@
 						<reference value="#2179414-cm"/>
 					</valueReference>
 				</extension>
-			</valueSetCanonical>
+			</valueSet>
 		</binding>
 		<mapping>
       <identity value="fhir"/>

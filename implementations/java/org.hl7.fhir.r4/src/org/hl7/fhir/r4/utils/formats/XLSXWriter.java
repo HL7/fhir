@@ -199,10 +199,8 @@ public class XLSXWriter  extends TextStreamWriter  {
       addCell(row, i++, ed.getBinding().getDescription());
       if (ed.getBinding().getValueSet()==null)
         addCell(row, i++, "");
-      else if (ed.getBinding().getValueSet() instanceof CanonicalType)
-        addCell(row, i++, ed.getBinding().getValueSetCanonicalType().getValue());
       else
-        addCell(row, i++, ed.getBinding().getValueSetUriType().getValue());
+        addCell(row, i++, ed.getBinding().getValueSet());
     } else {
       addCell(row, i++, "");
       addCell(row, i++, "");

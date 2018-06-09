@@ -469,7 +469,7 @@
           <binding>
             <strength value="required"/>
             <description value="FIPS codes for US counties and county equivalent entities."/>
-            <valueSetCanonical value="http://hl7.org/fhir/ValueSet/fips-county"/>
+            <valueSet value="http://hl7.org/fhir/ValueSet/fips-county"/>
           </binding>
         </element>
       </differential>

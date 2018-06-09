@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Currencies"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - FHIR-Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Currency codes from ISO 4217 (see https://www.iso.org/iso-4217-currency-codes.html)"/>
+  <compose>
+    <include>
+      <system value="urn:iso:std:iso:4217"/>
+    </include>
+  </compose>
+</ValueSet>

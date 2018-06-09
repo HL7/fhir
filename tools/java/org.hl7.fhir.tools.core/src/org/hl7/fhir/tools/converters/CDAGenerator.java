@@ -649,7 +649,7 @@ public class CDAGenerator {
     // special stuff
     String vs = getValueSet(dtn, n);
     if (vs != null) {
-      ed.setBinding(new ElementDefinitionBindingComponent().setStrength(BindingStrength.REQUIRED).setValueSet(new CanonicalType("http://hl7.org/fhir/ValueSet/v3-"+vs)));
+      ed.setBinding(new ElementDefinitionBindingComponent().setStrength(BindingStrength.REQUIRED).setValueSet("http://hl7.org/fhir/ValueSet/v3-"+vs));
       v3vs.add(vs);
     }
     list.add(ed);
@@ -1064,7 +1064,7 @@ public class CDAGenerator {
       String cd = XMLUtil.getNamedChildAttribute(vocab, "conceptDomain", "name");
       ElementDefinitionBindingComponent bd = ed.getBinding();
       bd.setStrength(cs.equals("CNE") ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE);
-      bd.setValueSet(new CanonicalType("http://hl7.org/fhir/ValueSet/v3-"+cd));
+      bd.setValueSet("http://hl7.org/fhir/ValueSet/v3-"+cd);
       v3vs.add(cd);
     }
     diff.add(ed);    

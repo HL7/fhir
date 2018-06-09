@@ -308,49 +308,22 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private boolean isKnownCodeSystem(String system) {
-    if (system.equals("http://cancer.sanger.ac.uk/cancergenome/projects/cosmic") ||
-        system.equals("http://clinicaltrials.gov") ||
-        system.equals("http://fdasis.nlm.nih.gov") ||
-    		system.equals("http://hl7.org/fhir/ndfrt") ||
-    		system.equals("http://hl7.org/fhir/sid/icd-9") |
-    		system.equals("http://hl7.org/fhir/sid/icd-10") ||
-    		system.equals("http://hl7.org/fhir/sid/icpc2") ||
-    		system.equals("http://hl7.org/fhir/sid/ndc") ||
-    		system.equals("http://loinc.org") ||
-    		system.equals("https://precision.fda.gov/") ||
-    		system.equals("http://www.lrg-sequence.org") ||
-        system.equals("http://ncimeta.nci.nih.gov") ||
-        system.equals("http://sequenceontology.org") ||
-        system.equals("http://snomed.info/sct") ||
-        system.equals("http://unitsofmeasure.org") ||
-        system.equals("http://www.ama-assn.org/go/cpt") ||
-        system.equals("http://www.ensembl.org") ||
-    		system.equals("http://www.genenames.org") ||
-    		system.equals("http://www.hgvs.org/mutnomen") ||
-        system.equals("http://www.icd10data.com/icd10pcs") ||
-        system.equals("http://www.ncbi.nlm.nih.gov/nuccore") ||
-        system.equals("http://www.ncbi.nlm.nih.gov/projects/SNP") ||
-        system.equals("http://www.ncbi.nlm.nih.gov/pubmed") ||
-        system.equals("http://www.ncbi.nlm.nih.gov/clinvar") ||
-        system.equals("http://www.nlm.nih.gov/research/umls/rxnorm") ||
-        system.equals("http://www.nubc.org/patient-discharge") ||
-        system.equals("http://www.omim.org") ||
-        system.equals("http://www.pharmgkb.org") ||
-        system.equals("http://www.radlex.org") ||
-        system.equals("http://www.whocc.no/atc") ||
-        system.equals("http://hl7.org/fhir/sid/cvx") ||
-        system.equals("urn:ietf:bcp:47") ||
-        system.equals("urn:ietf:bcp:13") ||
-        system.equals("urn:ietf:rfc:3986") ||
-        system.equals("urn:iso:std:iso:4217") ||
-        system.equals("urn:iso:std:iso:11073:10101") ||
-        system.equals("urn:iso-astm:E1762-95:2013") ||
-        system.equals("urn:iso:std:iso:3166") ||
-        system.equals("http://nucc.org/provider-taxonomy") ||
-        system.startsWith("http://example.com") ||
-        system.startsWith("http://example.org") ||
-        system.startsWith("https://precision.fda.gov")
-    	 )
+    if (Utilities.existsInList(system, "http://cancer.sanger.ac.uk/cancergenome/projects/cosmic",
+        "http://clinicaltrials.gov",  "http://fdasis.nlm.nih.gov",  "http://hl7.org/fhir/ndfrt", 
+        "http://hl7.org/fhir/sid/icd-9",  "http://hl7.org/fhir/sid/icd-10",  "http://hl7.org/fhir/sid/icpc2", 
+        "http://hl7.org/fhir/sid/ndc",  "http://loinc.org",  "https://precision.fda.gov/apps/", 
+        "http://www.lrg-sequence.org",  "http://ncimeta.nci.nih.gov",  "http://www.sequenceontology.org", 
+        "http://snomed.info/sct",  "http://unitsofmeasure.org",  "http://www.ama-assn.org/go/cpt", 
+        "http://www.ensembl.org",  "http://www.genenames.org",  "http://www.hgvs.org/mutnomen", 
+        "http://www.icd10data.com/icd10pcs",  "http://www.ncbi.nlm.nih.gov/nuccore",  "http://www.ncbi.nlm.nih.gov/projects/SNP", 
+        "http://www.ncbi.nlm.nih.gov/pubmed",  "http://www.ncbi.nlm.nih.gov/clinvar",  "http://www.nlm.nih.gov/research/umls/rxnorm", 
+        "http://www.nubc.org/patient-discharge",  "http://www.omim.org",  "http://www.pharmgkb.org", 
+        "http://www.radlex.org",  "http://www.whocc.no/atc",  "http://hl7.org/fhir/sid/cvx", 
+        "urn:ietf:bcp:47",  "urn:ietf:bcp:13",  "urn:ietf:rfc:3986", 
+        "urn:iso:std:iso:4217",  "urn:iso:std:iso:11073:10101",  "urn:iso-astm:E1762-95:2013", 
+        "urn:iso:std:iso:3166",  "http://nucc.org/provider-taxonomy",  "http://example.com", 
+        "http://example.org", "https://precision.fda.gov/files/", "http://www.ebi.ac.uk/ipd/imgt/hla", 
+        "https://www.iana.org/time-zones", "https://precision.fda.gov/jobs/"))
       return true;
     
     // todo: why do these need to be listed here?

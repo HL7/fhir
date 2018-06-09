@@ -626,7 +626,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
         }
         typeNames.put(e,  rootOf(path)+"."+tn);
       }
-      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED) {
+      if (cd != null && isEnum(cd)) {
         tn = getCodeListType(cd.getName());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
@@ -964,7 +964,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       BindingSpecification cd = e.getBinding();
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList)
         tname = "Enum"; 
-      if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED)
+      if (e.typeCode().equals("code") && cd != null && isEnum(cd))
         tname = "Enum"; 
       gname = "get"+upFirst(checkJavaReservedWord(name))+"Element()";
     }

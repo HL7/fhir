@@ -560,7 +560,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
             if (vs != null)
               write("<span style=\"color: navy\"><a href=\""+prefix+vs.getUserData("path")+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--A--></span>");
             else 
-              write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSet().primitiveValue()+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--B--></span>");          
+              write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSet()+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--B--></span>");          
           } else
             write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShort()) + "</span>");
           if (elem.hasMax() && elem.getMax().equals("0")) 
@@ -640,8 +640,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
     return " sliced by "+csv.toString()+" "+s;
   }
 
-  private ValueSet resolveValueSet(Type reference) {
-    return page.getValueSets().get(reference.primitiveValue());
+  private ValueSet resolveValueSet(String reference) {
+    return page.getValueSets().get(reference);
   }
 
   private String tail(String path) {

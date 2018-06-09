@@ -1710,7 +1710,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 					enums.add(e);
 				}
 				typeNames.put(e,  "Enumeration<"+tn+">");
-			} else if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED)) {
+			} else if (isEnum(cd)) {
         tn = getCodeListType(cd.getName());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);

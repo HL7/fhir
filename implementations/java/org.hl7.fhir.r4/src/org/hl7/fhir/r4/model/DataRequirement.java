@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Sat, Jun 9, 2018 09:29+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -152,9 +152,9 @@ public class DataRequirement extends Type implements ICompositeType {
         /**
          * The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
          */
-        @Child(name = "valueSet", type = {UriType.class, CanonicalType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "valueSet", type = {CanonicalType.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Valueset for the filter", formalDefinition="The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset." )
-        protected Type valueSet;
+        protected CanonicalType valueSet;
 
         /**
          * The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes.
@@ -163,7 +163,7 @@ public class DataRequirement extends Type implements ICompositeType {
         @Description(shortDefinition="What code is expected", formalDefinition="The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes." )
         protected List<Coding> code;
 
-        private static final long serialVersionUID = -1836756746L;
+        private static final long serialVersionUID = 873633478L;
 
     /**
      * Constructor
@@ -226,40 +226,19 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
+         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.). This is the underlying object with id, value and extensions. The accessor "getValueSet" gives direct access to the value
          */
-        public Type getValueSet() { 
+        public CanonicalType getValueSetElement() { 
+          if (this.valueSet == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DataRequirementCodeFilterComponent.valueSet");
+            else if (Configuration.doAutoCreate())
+              this.valueSet = new CanonicalType(); // bb
           return this.valueSet;
         }
 
-        /**
-         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
-         */
-        public UriType getValueSetUriType() throws FHIRException { 
-          if (this.valueSet == null)
-            return null;
-          if (!(this.valueSet instanceof UriType))
-            throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (UriType) this.valueSet;
-        }
-
-        public boolean hasValueSetUriType() { 
-          return this != null && this.valueSet instanceof UriType;
-        }
-
-        /**
-         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
-         */
-        public CanonicalType getValueSetCanonicalType() throws FHIRException { 
-          if (this.valueSet == null)
-            return null;
-          if (!(this.valueSet instanceof CanonicalType))
-            throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (CanonicalType) this.valueSet;
-        }
-
-        public boolean hasValueSetCanonicalType() { 
-          return this != null && this.valueSet instanceof CanonicalType;
+        public boolean hasValueSetElement() { 
+          return this.valueSet != null && !this.valueSet.isEmpty();
         }
 
         public boolean hasValueSet() { 
@@ -267,12 +246,31 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
+         * @param value {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.). This is the underlying object with id, value and extensions. The accessor "getValueSet" gives direct access to the value
          */
-        public DataRequirementCodeFilterComponent setValueSet(Type value) { 
-          if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
-            throw new Error("Not the right type for DataRequirement.codeFilter.valueSet[x]: "+value.fhirType());
+        public DataRequirementCodeFilterComponent setValueSetElement(CanonicalType value) { 
           this.valueSet = value;
+          return this;
+        }
+
+        /**
+         * @return The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
+         */
+        public String getValueSet() { 
+          return this.valueSet == null ? null : this.valueSet.getValue();
+        }
+
+        /**
+         * @param value The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
+         */
+        public DataRequirementCodeFilterComponent setValueSet(String value) { 
+          if (Utilities.noString(value))
+            this.valueSet = null;
+          else {
+            if (this.valueSet == null)
+              this.valueSet = new CanonicalType();
+            this.valueSet.setValue(value);
+          }
           return this;
         }
 
@@ -332,7 +330,7 @@ public class DataRequirement extends Type implements ICompositeType {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("path", "string", "The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.", 0, 1, path));
-          children.add(new Property("valueSet[x]", "uri|canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet));
+          children.add(new Property("valueSet", "canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet));
           children.add(new Property("code", "Coding", "The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
@@ -340,10 +338,7 @@ public class DataRequirement extends Type implements ICompositeType {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3433509: /*path*/  return new Property("path", "string", "The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.", 0, 1, path);
-          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet);
-          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet);
-          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet);
-          case 2048727747: /*valueSetCanonical*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet);
+          case -1410174671: /*valueSet*/  return new Property("valueSet", "canonical(ValueSet)", "The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, 1, valueSet);
           case 3059181: /*code*/  return new Property("code", "Coding", "The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes.", 0, java.lang.Integer.MAX_VALUE, code);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -354,7 +349,7 @@ public class DataRequirement extends Type implements ICompositeType {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
-        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // Type
+        case -1410174671: /*valueSet*/ return this.valueSet == null ? new Base[0] : new Base[] {this.valueSet}; // CanonicalType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -368,7 +363,7 @@ public class DataRequirement extends Type implements ICompositeType {
           this.path = castToString(value); // StringType
           return value;
         case -1410174671: // valueSet
-          this.valueSet = castToType(value); // Type
+          this.valueSet = castToCanonical(value); // CanonicalType
           return value;
         case 3059181: // code
           this.getCode().add(castToCoding(value)); // Coding
@@ -382,8 +377,8 @@ public class DataRequirement extends Type implements ICompositeType {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        } else if (name.equals("valueSet[x]")) {
-          this.valueSet = castToType(value); // Type
+        } else if (name.equals("valueSet")) {
+          this.valueSet = castToCanonical(value); // CanonicalType
         } else if (name.equals("code")) {
           this.getCode().add(castToCoding(value));
         } else
@@ -395,8 +390,7 @@ public class DataRequirement extends Type implements ICompositeType {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3433509:  return getPathElement();
-        case -1438410321:  return getValueSet(); 
-        case -1410174671:  return getValueSet(); 
+        case -1410174671:  return getValueSetElement();
         case 3059181:  return addCode(); 
         default: return super.makeProperty(hash, name);
         }
@@ -407,7 +401,7 @@ public class DataRequirement extends Type implements ICompositeType {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3433509: /*path*/ return new String[] {"string"};
-        case -1410174671: /*valueSet*/ return new String[] {"uri", "canonical"};
+        case -1410174671: /*valueSet*/ return new String[] {"canonical"};
         case 3059181: /*code*/ return new String[] {"Coding"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -419,13 +413,8 @@ public class DataRequirement extends Type implements ICompositeType {
         if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type DataRequirement.path");
         }
-        else if (name.equals("valueSetUri")) {
-          this.valueSet = new UriType();
-          return this.valueSet;
-        }
-        else if (name.equals("valueSetCanonical")) {
-          this.valueSet = new CanonicalType();
-          return this.valueSet;
+        else if (name.equals("valueSet")) {
+          throw new FHIRException("Cannot call addChild on a primitive type DataRequirement.valueSet");
         }
         else if (name.equals("code")) {
           return addCode();

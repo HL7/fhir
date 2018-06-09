@@ -250,9 +250,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             write("<a href=\""+prefix+"valueset-"+cd.getReference()+".html\">http://hl7.org/fhir/"+cd.getReference()+"</a><!-- e -->");            
         } else if (cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
           write("<a href=\""+prefix+"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a><!-- f -->");            
-        } else if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
-          write("<a href=\""+prefix+cd.getReference()+"\">"+cd.getDescription()+"</a><!-- g -->");
-        }
+        } 
 
         write("</td>");
       }
@@ -264,7 +262,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   public static String describeBinding(String prefix, ElementDefinitionBindingComponent def, PageProcessor page) throws Exception {
     if (!def.hasValueSet()) 
       return def.getDescription();
-    String ref = def.getValueSet().primitiveValue();
+    String ref = def.getValueSet();
     ValueSet vs = page.getValueSets().get(ref);
     if (vs != null) {
       String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
@@ -336,9 +334,6 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         return bs+": "+cd.getDescription()+" ("+cd.getDefinition()+mx+")";
       else
         return bs+": <a href=\""+prefix+"valueset-"+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a> ("+cd.getDefinition()+mx+")";
-    }
-    if (cd.getBinding() == BindingSpecification.BindingMethod.Reference) {
-      return bs+": <a href=\""+prefix+cd.getReference()+"\">"+cd.getDescription()+"</a> ("+cd.getDefinition()+")"+mx;
     }
     return "??";
   }

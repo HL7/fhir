@@ -41,7 +41,7 @@
             </type>
             <binding>
                 <strength value="required"/>
-                <valueSetCanonical value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
+                <valueSet value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
             </binding>
         </element>
         <element id="7055-02">

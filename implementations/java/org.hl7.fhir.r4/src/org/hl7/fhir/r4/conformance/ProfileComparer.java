@@ -629,8 +629,8 @@ public class ProfileComparer {
             return false;          
           }
         }
-        subBinding.setValueSet(new Reference().setReference("#"+addValueSet(cvs)));
-        superBinding.setValueSet(new Reference().setReference("#"+addValueSet(unite(superset, outcome, path, lvs, rvs))));
+        subBinding.setValueSet("#"+addValueSet(cvs));
+        superBinding.setValueSet("#"+addValueSet(unite(superset, outcome, path, lvs, rvs)));
       }
     }
     return false;
@@ -649,11 +649,11 @@ public class ProfileComparer {
       ValueSet lvs = resolveVS(outcome.left, left.getValueSet());
       ValueSet rvs = resolveVS(outcome.left, right.getValueSet());
       if (lvs != null && rvs != null)
-        union.setValueSet(new Reference().setReference("#"+addValueSet(unite(ed, outcome, path, lvs, rvs))));
+        union.setValueSet("#"+addValueSet(unite(ed, outcome, path, lvs, rvs)));
       else if (lvs != null)
-        union.setValueSet(new Reference().setReference("#"+addValueSet(lvs)));
+        union.setValueSet("#"+addValueSet(lvs));
       else if (rvs != null)
-        union.setValueSet(new Reference().setReference("#"+addValueSet(rvs)));
+        union.setValueSet("#"+addValueSet(rvs));
     }
     return union;
   }
@@ -710,17 +710,10 @@ public class ProfileComparer {
     return false;
   }
 
-  private ValueSet resolveVS(StructureDefinition ctxtLeft, Type vsRef) {
+  private ValueSet resolveVS(StructureDefinition ctxtLeft, String vsRef) {
     if (vsRef == null)
       return null;
-    if (vsRef instanceof UriType)
-      return null;
-    else {
-      Reference ref = (Reference) vsRef;
-      if (!ref.hasReference())
-        return null;
-      return context.fetchResource(ValueSet.class, ref.getReference());
-    }
+    return context.fetchResource(ValueSet.class, vsRef);
   }
 
   private ValueSet intersectByDefinition(ValueSet lvs, ValueSet rvs) {

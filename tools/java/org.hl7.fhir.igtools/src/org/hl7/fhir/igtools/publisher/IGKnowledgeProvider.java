@@ -327,14 +327,30 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     if (!binding.hasValueSet()) {
       br.url = specPath("terminologies.html#unbound");
       br.display = "(unbound)";
-    } else if (binding.getValueSet() instanceof CanonicalType) {
-      String ref = ((CanonicalType) binding.getValueSet()).asStringValue();
-      if (ref.startsWith("ValueSet/")) {
+    } else {
+      String ref = binding.getValueSet();
+      if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
+        br.url = specPath("v3/"+ref.substring(26)+"/index.html");
+        br.display = ref.substring(26);
+      } else if (ref.startsWith("ValueSet/")) {
         ValueSet vs = context.fetchResource(ValueSet.class, makeCanonical(ref));
         if (vs == null) {
-          br.url = ref.substring(9)+".html"; // broken link, 
-          br.display = ref.substring(9);
-          brokenLinkWarning(path, ref);
+          br.url = ref;  
+          if (ref.equals("http://tools.ietf.org/html/bcp47"))
+            br.display = "IETF BCP-47";
+          else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
+            br.display = "IETF BCP-13";
+          else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
+            br.display = "NucCore";
+          else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
+            br.display = "Rosetta";
+          else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
+            br.display = "ISO Country Codes";
+          else {
+            br.url = ref.substring(9)+".html"; // broken link, 
+            br.display = ref.substring(9);
+            brokenLinkWarning(path, ref);
+          }
         } else {
           br.url = vs.getUserString("path");
           br.display = vs.getName(); 
@@ -383,32 +399,6 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
             br.url = vs.getUserString("path");
             br.display = vs.getName(); 
           }
-        }
-      }
-    } else if (binding.getValueSet() instanceof UriType) {
-      String ref = ((UriType) binding.getValueSet()).getValue();
-      if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-        br.url = specPath("v3/"+ref.substring(26)+"/index.html");
-        br.display = ref.substring(26);
-      } else {
-        ValueSet vs = context.fetchResource(ValueSet.class, ref);
-        if (vs != null) {
-          br.url = vs.getUserString("path");
-          br.display = vs.getName();
-        } else {
-          br.url = ref;
-          if (ref.equals("http://tools.ietf.org/html/bcp47"))
-            br.display = "IETF BCP-47";
-          else if (ref.equals("http://www.rfc-editor.org/bcp/bcp13.txt"))
-            br.display = "IETF BCP-13";
-          else if (ref.equals("http://www.ncbi.nlm.nih.gov/nuccore?db=nuccore"))
-            br.display = "NucCore";
-          else if (ref.equals("https://rtmms.nist.gov/rtmms/index.htm#!rosetta"))
-            br.display = "Rosetta";
-          else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
-            br.display = "ISO Country Codes";
-          else
-            br.display = ref;
         }
       }
     }

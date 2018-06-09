@@ -1071,7 +1071,7 @@ public class SpreadsheetParser {
 
 			cd.setDefinition(sheet.getColumn(row, "Definition"));
 
-			cd.setBindingMethod(BindingsParser.readBinding(sheet.getColumn(row, "Binding")));
+			cd.setBindingMethod(BindingsParser.readBinding(sheet.getColumn(row, "Binding"), cd.getName()+" in "+folder));
       String ref = sheet.getColumn(row, "Reference");
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref))
         throw new Exception("binding "+cd.getName()+" is missing a reference");
@@ -1114,8 +1114,6 @@ public class SpreadsheetParser {
           new ValueSetGenerator(definitions, version, genDate, context.translator()).loadOperationOutcomeValueSet(cd);
         else
           throw new Exception("Special bindings are only allowed in bindings.xml");
-      } else if (cd.getBinding() == BindingMethod.Reference) {
-        cd.setReference(sheet.getColumn(row, "Reference"));
       }
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
 
@@ -1282,6 +1280,7 @@ public class SpreadsheetParser {
 	public void parseConformancePackage(Profile ap, Definitions definitions, String folder, String usage, List<ValidationMessage> issues, WorkGroup wg) throws Exception {
 	  try {
 	    isProfile = true;
+	    this.folder = folder;
 	    checkMappings(ap);
 	    Sheet sheet = loadSheet("Bindings");
 	    if (sheet != null)

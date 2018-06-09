@@ -3978,10 +3978,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       tr.td().addText(p.hasType() ? p.getType() : "");
       XhtmlNode td = tr.td();
       if (p.hasBinding() && p.getBinding().hasValueSet()) {
-        if (p.getBinding().getValueSet() instanceof CanonicalType)
-          AddVsRef(rcontext, p.getBinding().getValueSetCanonicalType().getValue(), td);
-        else
-          td.ah(p.getBinding().getValueSetUriType().getValue()).tx("External Reference");
+        AddVsRef(rcontext, p.getBinding().getValueSet(), td);
         td.tx(" ("+p.getBinding().getStrength().getDisplay()+")");
       }
       addMarkdown(tr.td(), p.getDocumentation());

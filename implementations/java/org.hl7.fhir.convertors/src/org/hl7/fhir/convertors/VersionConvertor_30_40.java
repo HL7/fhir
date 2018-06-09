@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -1867,8 +1868,12 @@ public class VersionConvertor_30_40 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     if (src.hasValueSet()) {
-      org.hl7.fhir.r4.model.Type vs = convertType(src.getValueSet());
-      tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? new org.hl7.fhir.r4.model.CanonicalType(((org.hl7.fhir.r4.model.Reference) vs).getReference()) : vs);      
+      Type t = convertType(src.getValueSet());
+      if (t instanceof org.hl7.fhir.r4.model.Reference)
+        tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+      else
+        tgt.setValueSet(t.primitiveValue());
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
     }
     return tgt;
   }
@@ -1882,8 +1887,13 @@ public class VersionConvertor_30_40 {
       tgt.setStrength(convertBindingStrength(src.getStrength()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    if (src.hasValueSet())
-      tgt.setValueSet(src.hasValueSetCanonicalType() ? new org.hl7.fhir.dstu3.model.Reference(src.getValueSetCanonicalType().getValue()) : convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      String vsr = VersionConvertorConstants.vsToRef(src.getValueSet());
+      if (vsr != null)
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.UriType(vsr));
+      else
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.Reference(src.getValueSet()));
+    }
     return tgt;
   }
 
@@ -2544,11 +2554,12 @@ public class VersionConvertor_30_40 {
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.hasValueSet()) {
-      org.hl7.fhir.r4.model.Type t = convertType(src.getValueSet());
-      if (t instanceof org.hl7.fhir.r4.model.StringType)
-        tgt.setValueSet(new org.hl7.fhir.r4.model.UriType(t.primitiveValue()));
+      Type t = convertType(src.getValueSet());
       if (t instanceof org.hl7.fhir.r4.model.Reference)
-        tgt.setValueSet(new org.hl7.fhir.r4.model.CanonicalType(((org.hl7.fhir.r4.model.Reference)t).getReference()));
+        tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+      else
+        tgt.setValueSet(t.primitiveValue());
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
     }
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getValueCode())
       tgt.addCode(convertCoding(t));
@@ -2567,10 +2578,11 @@ public class VersionConvertor_30_40 {
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.hasValueSet()) {
-      if (src.getValueSet() instanceof org.hl7.fhir.r4.model.UriType)
-        tgt.setValueSet(new org.hl7.fhir.dstu3.model.StringType(src.getValueSetUriType().primitiveValue()));
-      else if (src.getValueSet() instanceof org.hl7.fhir.r4.model.CanonicalType)
-        tgt.setValueSet(new org.hl7.fhir.dstu3.model.Reference(src.getValueSetCanonicalType().primitiveValue()));
+      String vsr = VersionConvertorConstants.vsToRef(src.getValueSet());
+      if (vsr != null)
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.UriType(vsr));
+      else
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.Reference(src.getValueSet()));
     }
     for (org.hl7.fhir.r4.model.Coding t : src.getCode()) {
       tgt.addValueCoding(convertCoding(t));
@@ -15304,8 +15316,12 @@ public class VersionConvertor_30_40 {
     if (src.hasStrength())
       tgt.setStrength(convertBindingStrength(src.getStrength()));
     if (src.hasValueSet()) {
-      org.hl7.fhir.r4.model.Type t = convertType(src.getValueSet());
-      tgt.setValueSet(t instanceof org.hl7.fhir.r4.model.Reference ? new org.hl7.fhir.r4.model.CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()) : t);
+      Type t = convertType(src.getValueSet());
+      if (t instanceof org.hl7.fhir.r4.model.Reference)
+        tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+      else
+        tgt.setValueSet(t.primitiveValue());    
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
     }
     return tgt;
   }
@@ -15317,8 +15333,13 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasStrength())
       tgt.setStrength(convertBindingStrength(src.getStrength()));
-    if (src.hasValueSet())
-      tgt.setValueSet(convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      String vsr = VersionConvertorConstants.vsToRef(src.getValueSet());
+      if (vsr != null)
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.UriType(vsr));
+      else
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.Reference(src.getValueSet()));
+    }
     return tgt;
   }
 

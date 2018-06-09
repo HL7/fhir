@@ -3380,12 +3380,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private boolean isValueSetMatch(Type ref, ValueSet vs) {
+  private boolean isValueSetMatch(String ref, ValueSet vs) {
     if (ref == null)
       return false;
-    if (ref instanceof CanonicalType)
-      return ((CanonicalType) ref).getValue().endsWith("/"+vs.getId());
-    return ((UriType) ref).getValue().equals(vs.getUrl());
+    return ref.endsWith("/"+vs.getId());
   }
 
   private String getBindingTypeDesc(ElementDefinitionBindingComponent binding, String prefix) {
@@ -7901,13 +7899,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) throws FHIRException {
-    if (binding.hasValueSetCanonicalType()) {
-      ValueSet vs = workerContext.fetchResource(ValueSet.class, binding.getValueSetCanonicalType().asStringValue());
+    if (binding.hasValueSet()) {
+      ValueSet vs = workerContext.fetchResource(ValueSet.class, binding.getValueSet());
       String disp = vs != null ?  vs.getName() : "??";
-      return "<a href=\""+(vs == null ? binding.getValueSetCanonicalType().getValue() : vs.getUserData("filename"))+"\">"+disp+"</a>";
-    } else if (binding.hasValueSetUriType()) {
-      UriType uri = binding.getValueSetUriType();
-      return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
+      return "<a href=\""+(vs == null ? binding.getValueSet() : vs.getUserData("filename"))+"\">"+disp+"</a>";
     } else 
       return "??";
   }
@@ -8155,8 +8150,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     String vss = "";
     String vsn = "?ext";
     if (tx.hasValueSet()) {
-      if (tx.hasValueSetCanonicalType()) {
-        String uri = tx.getValueSetCanonicalType().getValue();
+      if (tx.hasValueSet()) {
+        String uri = tx.getValueSet();
         ValueSet vs = definitions.getValuesets().get(uri);
         if (vs == null) {
           if (uri.startsWith("http://hl7.org/fhir/ValueSet/")) {
@@ -8168,11 +8163,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           vss = "<a href=\""+genlevel(level)+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.getName())+"</a><!-- d -->";
           vsn = vs.getName();
         }
-      } else {
-        vss = "<a href=\""+tx.getValueSetUriType().asStringValue()+"\">"+Utilities.escapeXml(tx.getValueSetUriType().asStringValue())+"</a><!-- a -->";
       }
     }
-    if (vsn.equals("?ext") && !tx.hasValueSetUriType())
+    if (vsn.equals("?ext"))
       System.out.println("No value set at "+path);
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
               append(genlevel(level)).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
@@ -8673,15 +8666,51 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (!binding.hasValueSet()) {
       br.url = "terminologies.html#unbound";
       br.display = "(unbound)";
-    } else if (!binding.hasValueSetCanonicalType()) {
-      String ref = binding.getValueSetUriType().getValue();
+    } else {
+      String ref = binding.getValueSet();
       if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-        br.url = "v3/"+ref.substring(26)+"/index.html";
-        br.display = ref.substring(26);
+        br.url = "v3/"+ref.substring(32)+"/vs.html";
+        br.display = ref.substring(32);
       } else if (definitions.getValuesets().containsKey(ref)) {
         ValueSet vs = definitions.getValuesets().get(ref);
         br.url = vs.getUserString("path");
         br.display = vs.getName();
+      } else if (ref.startsWith("ValueSet/")) {
+        ValueSet vs = definitions.getValuesets().get(ref.substring(8));
+        if (vs == null) {
+          br.url = ref.substring(9)+".html";
+          br.display = ref.substring(9);
+        } else {
+          br.url = vs.getUserString("path");
+          br.display = vs.getName();
+        }
+      } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
+        ValueSet vs = definitions.getValuesets().get(ref);
+        if (vs == null)
+          vs = definitions.getExtraValuesets().get(ref);
+        if (vs != null) {
+          br.url = vs.getUserString("path");
+          if (Utilities.noString(br.url))
+            br.url = ref.substring(23)+".html";
+          br.display = vs.getName();
+        } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
+          br.url = "valueset-"+ref.substring(23)+".html";
+          br.display = "Context of Use ValueSet";
+        } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
+          br.url = "v3/"+ref.substring(26)+"/index.html";
+          br.display = ref.substring(26);
+        }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
+          br.url = "v2/"+ref.substring(26)+"/index.html";
+          br.display = ref.substring(26);
+        }  else if (ref.startsWith("#")) {
+          br.url = null;
+          br.display = ref;
+        } else {
+          br.url = ref;
+          br.display = "????";
+          getValidationErrors().add(
+              new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
+        }
       } else {
         br.url = ref;
         if (ref.equals("http://tools.ietf.org/html/bcp47"))
@@ -8700,56 +8729,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           br.display = binding.getDescription();
         else
           br.display = "????";
-      }
-    } else {
-      String ref = binding.getValueSetCanonicalType().getValue();
-      if (ref.startsWith("ValueSet/")) {
-        ValueSet vs = definitions.getValuesets().get(ref.substring(8));
-        if (vs == null) {
-          br.url = ref.substring(9)+".html";
-          br.display = ref.substring(9);
-        } else {
-          br.url = vs.getUserString("path");
-          br.display = vs.getName();
-        }
-      } else {
-        if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
-          ValueSet vs = definitions.getValuesets().get(ref);
-          if (vs == null)
-            vs = definitions.getExtraValuesets().get(ref);
-          if (vs != null) {
-            br.url = (String) vs.getUserData("path");
-            if (Utilities.noString(br.url))
-              br.url = ref.substring(23)+".html";
-            br.display = vs.getName();
-          } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
-            br.url = "valueset-"+ref.substring(23)+".html";
-            br.display = "Context of Use ValueSet";
-          } else {
-            br.display = ref.substring(29);
-            br.url = ref.substring(29)+".html";
-          }
-        }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-          br.url = "v3/"+ref.substring(26)+"/index.html";
-          br.display = ref.substring(26);
-        }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
-          br.url = "v2/"+ref.substring(26)+"/index.html";
-          br.display = ref.substring(26);
-        }  else if (ref.startsWith("#")) {
-          br.url = null;
-          br.display = ref;
-        } else {
-          ValueSet vs = definitions.getValuesets().get(ref);
-          if (vs == null) {
-            br.url = ref;
-            br.display = "????";
-            getValidationErrors().add(
-              new ValidationMessage(Source.Publisher, IssueType.NOTFOUND, -1, -1, path, "Unresolved Value set "+ref, IssueSeverity.WARNING));
-          } else {
-            br.url = vs.getUserString("path");
-            br.display = vs.getName();
-          }
-        }
       }
     }
     return br;

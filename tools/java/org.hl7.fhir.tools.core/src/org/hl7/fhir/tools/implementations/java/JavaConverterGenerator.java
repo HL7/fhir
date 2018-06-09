@@ -47,6 +47,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 public class JavaConverterGenerator extends JavaBaseGenerator {
@@ -457,10 +458,6 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
       }
     }
     return es;
-  }
-
-  private boolean isEnum(BindingSpecification cd) {
-    return cd.getBinding() == (BindingSpecification.BindingMethod.CodeList) || (cd.getStrength() == BindingStrength.REQUIRED && cd.getBinding() == BindingMethod.ValueSet);
   }
 
   private String root(String s) {

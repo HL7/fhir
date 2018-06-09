@@ -37,6 +37,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.CodeableConcept;
@@ -236,6 +237,8 @@ public class ToolingExtensions {
       return null;
     if (ex.getValue() instanceof UriType)
       return ((UriType) ex.getValue()).getValue();
+    if (ex.getValue() instanceof CanonicalType)
+      return ((CanonicalType) ex.getValue()).getValue();
     if (ex.getValue() instanceof CodeType)
       return ((CodeType) ex.getValue()).getValue();
     if (ex.getValue() instanceof IntegerType)

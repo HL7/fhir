@@ -606,10 +606,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
         if (vs != null)
           write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("path")+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
-        else if (elem.getBinding().getValueSet() instanceof CanonicalType)
-          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getValueSetCanonicalType().getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         else
-          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getValueSet()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
       } else
         write("<span style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShort()) + "</span>");
     }
@@ -633,8 +631,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     }
   }
 
-  private ValueSet resolveValueSet(Type reference) {
-    return page.getValueSets().get(reference.primitiveValue());
+  private ValueSet resolveValueSet(String reference) {
+    return page.getValueSets().get(reference);
   }
 
   private String tail(String path) {

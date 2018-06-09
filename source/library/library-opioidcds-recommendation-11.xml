@@ -88,14 +88,14 @@
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="benzodiazepines"/>
+         <valueSet value="http://example.org/fhir/ValueSet/benzodiazepines"/>
       </codeFilter>
    </dataRequirement>
    <dataRequirement>
       <type value="MedicationRequest"/>
       <codeFilter>
          <path value="medicationCodeableConcept"/>
-         <valueSetUri value="opioids-abused-in-ambulatory-care"/>
+         <valueSet value="http://example.org/fhir/ValueSet/opioids-abused-in-ambulatory-care"/>
       </codeFilter>
    </dataRequirement>
    <content>

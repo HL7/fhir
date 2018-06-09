@@ -222,7 +222,7 @@
       <binding>
         <strength value="required" />
         <description value="A human language." />
-        <valueSetUri value="http://tools.ietf.org/html/bcp47" />
+        <valueSet value="http://tools.ietf.org/html/bcp47" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -524,7 +524,7 @@
       <binding>
         <strength value="required" />
         <description value="The residential status of the patient" />
-        <valueSetUri value="https://fhir.hl7.org.uk/ValueSet/CareConnect-ResidentialStatus-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-ResidentialStatus-1" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -568,7 +568,7 @@
       <binding>
         <strength value="required" />
         <description value="The treatment category of the patient" />
-        <valueSetUri value="https://fhir.hl7.org.uk/ValueSet/CareConnect-TreatmentCategory-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-TreatmentCategory-1" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -816,7 +816,7 @@
       <binding>
         <strength value="required" />
         <description value="Identifies the purpose for this identifier, if known ." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -861,7 +861,7 @@
       <binding>
         <strength value="extensible" />
         <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -2028,7 +2028,7 @@
       <binding>
         <strength value="required" />
         <description value="Identifies the purpose for this identifier, if known ." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -2073,7 +2073,7 @@
       <binding>
         <strength value="extensible" />
         <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
-        <valueSetUri value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -3199,7 +3199,7 @@
       <binding>
         <strength value="required" />
         <description value="Identifies the purpose for this identifier, if known ." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/identifier-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -3244,7 +3244,7 @@
       <binding>
         <strength value="extensible" />
         <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -4418,7 +4418,7 @@
       <binding>
         <strength value="required" />
         <description value="The use of a human name" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/name-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/name-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -5011,7 +5011,7 @@
       <binding>
         <strength value="required" />
         <description value="The use of a human name" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/name-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/name-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -5603,7 +5603,7 @@
       <binding>
         <strength value="required" />
         <description value="The use of a human name" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/name-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/name-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -6202,7 +6202,7 @@
       <binding>
         <strength value="required" />
         <description value="Telecommunications form for contact point" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/contact-point-system" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -6296,7 +6296,7 @@
       <binding>
         <strength value="required" />
         <description value="Use of contact point" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/contact-point-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -6587,7 +6587,7 @@
       <binding>
         <strength value="required" />
         <description value="The gender of a person used for administrative purposes." />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -6990,7 +6990,7 @@
       <binding>
         <strength value="required" />
         <description value="The use of an address" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/address-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/address-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -7039,7 +7039,7 @@
       <binding>
         <strength value="required" />
         <description value="The type of an address (physical / postal)" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/address-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/address-type" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -7630,7 +7630,7 @@
       <binding>
         <strength value="required" />
         <description value="The domestic partnership status of a person." />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-MaritalStatus-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-MaritalStatus-1" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -8316,7 +8316,7 @@
       <binding>
         <strength value="required" />
         <description value="The mime type of an attachment. Any valid mime type is allowed." />
-        <valueSetUri value="http://www.rfc-editor.org/bcp/bcp13.txt" />
+        <valueSet value="http://www.rfc-editor.org/bcp/bcp13.txt" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -8362,7 +8362,7 @@
       <binding>
         <strength value="required" />
         <description value="A human language." />
-        <valueSetUri value="http://tools.ietf.org/html/bcp47" />
+        <valueSet value="http://tools.ietf.org/html/bcp47" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -8783,7 +8783,7 @@
       <binding>
         <strength value="extensible" />
         <description value="The nature of the relationship between a patient and a contact person for that patient." />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-PersonRelationshipType-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-PersonRelationshipType-1" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -9419,7 +9419,7 @@
       <binding>
         <strength value="required" />
         <description value="The use of a human name" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/name-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/name-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -10018,7 +10018,7 @@
       <binding>
         <strength value="required" />
         <description value="Telecommunications form for contact point" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contact-point-system" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/contact-point-system" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -10112,7 +10112,7 @@
       <binding>
         <strength value="required" />
         <description value="Use of contact point" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/contact-point-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/contact-point-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -10527,7 +10527,7 @@
       <binding>
         <strength value="required" />
         <description value="The use of an address" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/address-use" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/address-use" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -10576,7 +10576,7 @@
       <binding>
         <strength value="required" />
         <description value="The type of an address (physical / postal)" />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/address-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/address-type" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -11166,7 +11166,7 @@
       <binding>
         <strength value="required" />
         <description value="The gender of a person used for administrative purposes." />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -11761,7 +11761,7 @@
       <binding>
         <strength value="example" />
         <description value="The species of an animal." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/animal-species" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-species" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -12273,7 +12273,7 @@
       <binding>
         <strength value="example" />
         <description value="The breed of an animal." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/animal-breeds" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-breeds" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -12785,7 +12785,7 @@
       <binding>
         <strength value="example" />
         <description value="The state of the animal's reproductive organs." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/animal-genderstatus" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-genderstatus" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -13440,7 +13440,7 @@
       <binding>
         <strength value="required" />
         <description value="A human language." />
-        <valueSetUri value="http://tools.ietf.org/html/bcp47" />
+        <valueSet value="http://tools.ietf.org/html/bcp47" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -14584,7 +14584,7 @@
       <binding>
         <strength value="required" />
         <description value="The type of link between this patient resource and another patient resource." />
-        <valueSetCanonical value="http://hl7.org/fhir/ValueSet/link-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/link-type" />
       </binding>
       <mapping>
         <identity value="rim" />
@@ -14715,7 +14715,7 @@
       <max value="0" />
       <binding>
         <strength value="extensible" />
-        <valueSetUri value="http://hl7.org/fhir/ValueSet/identifier-type" />
+        <valueSet value="http://hl7.org/fhir/ValueSet/identifier-type" />
       </binding>
     </element>
     <element>
@@ -14837,7 +14837,7 @@
       <min value="1" />
       <binding>
         <strength value="required" />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
       </binding>
     </element>
     <element>
@@ -14899,7 +14899,7 @@
       <path value="Patient.maritalStatus" />
       <binding>
         <strength value="required" />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-MaritalStatus-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-MaritalStatus-1" />
       </binding>
     </element>
     <element>
@@ -14940,7 +14940,7 @@
       <path value="Patient.contact.relationship" />
       <binding>
         <strength value="extensible" />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-PersonRelationshipType-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-PersonRelationshipType-1" />
       </binding>
     </element>
     <element>
@@ -15040,7 +15040,7 @@
       <path value="Patient.contact.gender" />
       <binding>
         <strength value="required" />
-        <valueSetCanonical value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
+        <valueSet value="https://fhir.hl7.org.uk/ValueSet/CareConnect-AdministrativeGender-1" />
       </binding>
     </element>
     <element>

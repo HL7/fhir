@@ -475,7 +475,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
           en = "Enumerations."+e.getBinding().getValueSet().getName();
         prsr = "parseEnumeration(xpp, "+en+".NULL, new "+en.substring(0, en.indexOf("."))+"."+en.substring(en.indexOf(".")+1)+"EnumFactory())"; // en+".fromCode(parseString(xpp))";
         // parseEnumeration(xpp, Narrative.NarrativeStatus.additional, new Narrative.NarrativeStatusEnumFactory())
-      } else if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED) {
+      } else if (e.typeCode().equals("code") && cd != null && isEnum(cd)) {
         String en = typeNames.get(e); // getCodeListType(cd.getBinding());
         if (e.getBinding().isShared())
           en = "Enumerations."+e.getBinding().getName();
@@ -607,7 +607,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         }
         typeNames.put(e,  rootOf(path)+"."+upFirst(tn));
       }
-      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED) {
+      if (cd != null && isEnum(cd)) {
         tn = getCodeListType(cd.getName());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
@@ -671,7 +671,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         }
         typeNames.put(e,  rootOf(path)+"."+tn);
       }
-      if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED) {
+      if (cd != null && isEnum(cd)) {
         tn = getCodeListType(cd.getName());
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
@@ -1076,7 +1076,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
         en = typeNames.get(e); // getCodeListType(cd.getBinding());
         comp = null;
-      } if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.ValueSet && cd.getStrength() == BindingStrength.REQUIRED) {
+      } if (e.typeCode().equals("code") && cd != null && isEnum(cd)) {
           en = typeNames.get(e); // getCodeListType(cd.getBinding());
           comp = null;
       } else {   

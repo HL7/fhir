@@ -18,6 +18,7 @@ import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -273,7 +274,7 @@ public class V2ProfileGenerator {
       ed.addType().addProfile("http://hl7.org/fhir/v2/StructureDefinition/"+(comp.profile == null ? comp.type : comp.profile));
       if (comp.tbl > 0) {
         ed.getBinding().setStrength("CNE".equals(comp.type) || "ID".equals(comp.type)  ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE); 
-        ed.getBinding().setValueSet(new UriType("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(comp.tbl), '0', 4)));
+        ed.getBinding().setValueSet("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(comp.tbl), '0', 4));
       }
       if (comp.maxLength != null && comp.maxLength > 0)
         ed.setMaxLength(comp.maxLength);
@@ -347,7 +348,7 @@ public class V2ProfileGenerator {
       ed.addType().addProfile("http://hl7.org/fhir/v2/StructureDefinition/"+sde.element.type);
       if (sde.element.tbl > 0) {
         ed.getBinding().setStrength("CNE".equals(sde.element.type) || "ID".equals(sde.element.type)  ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE); 
-        ed.getBinding().setValueSet(new UriType("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(sde.element.tbl), '0', 4)));
+        ed.getBinding().setValueSet("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(sde.element.tbl), '0', 4));
       }
       if (sde.element != null) { 
         if (sde.element.maxLength != null && sde.element.maxLength > 0)

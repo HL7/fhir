@@ -8,7 +8,7 @@
   <xpath value="(exists(f:low) or exists(f:high)or exists(f:text))"/>
   <xpath value="(exists(f:participantType) or exists(f:actor))"/>
   <xpath value="(exists(f:type) or exists(f:actor))"/>
-  <xpath value="(exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)"/>
+  <xpath value="(exists(f:valueSet) or exists(f:valueSetReference)) or exists(f:description)"/>
   <xpath value="(f:abstract/@value=true()) or exists(f:baseDefinition)"/>
   <xpath value="(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value=&#39;http://unitsofmeasure.org&#39; and f:code/@value=&#39;1&#39;)) and not(contains(f:value/@value, &#39;.&#39;))"/>
   <xpath value="(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value=&#39;http://unitsofmeasure.org&#39;) and (not(f:value/@value) or f:value/@value &gt;=0)"/>
@@ -138,7 +138,7 @@
   <xpath value="not(exists(f:strand)) or count(f:strand[@value=-1 and @value=1]) = 1"/>
   <xpath value="not(exists(f:timeOfDay)) or not(exists(f:when))"/>
   <xpath value="not(exists(f:value)) or exists(f:system)"/>
-  <xpath value="not(exists(f:valueSetUri)) or (starts-with(string(f:valueSetUri/@value), &#39;http:&#39;) or starts-with(string(f:valueSetUri/@value), &#39;https:&#39;) or starts-with(string(f:valueSetUri/@value), &#39;urn:&#39;))"/>
+  <xpath value="not(exists(f:valueSet)) or (starts-with(string(f:valueSet/@value), &#39;http:&#39;) or starts-with(string(f:valueSet/@value), &#39;https:&#39;) or starts-with(string(f:valueSet/@value), &#39;urn:&#39;))"/>
   <xpath value="not(exists(f:whenHandedOver/@value)) or not(exists(f:whenPrepared/@value)) or ( f:whenHandedOver/@value &gt;= f:whenPrepared/@value)"/>
   <xpath value="not(exists(f:xpath)) or exists(f:xpathUsage)"/>
   <xpath value="not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(&#39;#&#39;, $id))]))"/>
