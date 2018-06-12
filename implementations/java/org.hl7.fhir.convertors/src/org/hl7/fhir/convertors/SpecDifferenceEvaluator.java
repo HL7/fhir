@@ -13,7 +13,9 @@ import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Bundle;
@@ -814,25 +816,28 @@ public class SpecDifferenceEvaluator {
     }
   }
 
-  public void saveR2AsR3(ZipGenerator zip) throws IOException {
+  public void saveR2AsR3(ZipGenerator zip, FhirFormat fmt) throws IOException {
     for (StructureDefinition t : original.types.values()) 
-      saveResource(zip, t);
+      saveResource(zip, t, fmt);
     for (StructureDefinition t : original.resources.values()) 
-      saveResource(zip, t);
+      saveResource(zip, t, fmt);
     for (StructureDefinition t : original.profiles.values()) 
-      saveResource(zip, t);
+      saveResource(zip, t, fmt);
     for (StructureDefinition t : original.extensions.values()) 
-      saveResource(zip, t);
+      saveResource(zip, t, fmt);
     for (ValueSet t : original.valuesets.values()) 
-      saveResource(zip, t);
+      saveResource(zip, t, fmt);
     for (ValueSet t : original.expansions.values()) 
-      saveResource(zip, t);
+      saveResource(zip, t, fmt);
   }
 
-  private void saveResource(ZipGenerator zip, Resource t) throws IOException {
+  private void saveResource(ZipGenerator zip, Resource t, FhirFormat fmt) throws IOException {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, t);
-    zip.addBytes(t.fhirType()+"-"+t.getId()+".xml", bs.toByteArray(), true);
+    if (fmt == FhirFormat.JSON)
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, t);
+    else
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, t);
+    zip.addBytes(t.fhirType()+"-"+t.getId()+"."+fmt.getExtension(), bs.toByteArray(), true);
   }
 
   private void compareJson(JsonObject type, StructureDefinition orig, StructureDefinition rev) {
