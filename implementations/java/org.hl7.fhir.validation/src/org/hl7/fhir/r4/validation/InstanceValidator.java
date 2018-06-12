@@ -1946,14 +1946,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     bundle.getNamedChildren("entry", entries);
     Element match = null;
     for (Element we : entries) {
-      if (we.getChildValue("fullUrl").equals(targetUrl)) {
+      if (targetUrl.equals(we.getChildValue("fullUrl"))) {
         Element r = we.getNamedChild("resource");
         if (version.isEmpty()) {
           rule(errors, IssueType.FORBIDDEN, -1, -1, path, match==null, "Multiple matches in bundle for reference " + ref);
           match = r;
         } else {
           try {
-            if (r.getChildren("meta").get(0).getChildValue("versionId").equals(version)) {
+            if (version.equals(r.getChildren("meta").get(0).getChildValue("versionId"))) {
               rule(errors, IssueType.FORBIDDEN, -1, -1, path, match==null, "Multiple matches in bundle for reference " + ref);
               match = r;
             }
