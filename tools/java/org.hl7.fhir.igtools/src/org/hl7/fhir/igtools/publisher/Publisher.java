@@ -4428,6 +4428,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       System.out.println("-source: a local to scan for resources (e.g. logical models)");
       System.out.println("-destination: where to put the output (including qa.html)");
       System.out.println("");
+      System.out.println("the publisher also supports the param -proxy=[address]:[port] for if you use a proxy (stupid java won't pick up the system settings)");
+      System.out.println("");
       System.out.println("For additional information, see http://wiki.hl7.org/index.php?title=Proposed_new_FHIR_IG_build_Process");
     } else if (hasParam(args, "-convert")) {
       // convert a igpack.zip to a package.tgz
@@ -4523,6 +4525,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       self.setJekyllCommand(getNamedParam(args, "-jekyll"));
       self.setIgPack(getNamedParam(args, "-spec"));
+      String proxy = getNamedParam(args, "-proxy");
+      if (!Utilities.noString(proxy)) {
+        String[] p = proxy.split("\\:");
+        System.setProperty("http.proxyHost", p[0]);
+        System.setProperty("http.proxyPort", p[1]);
+      }
       self.setTxServer(getNamedParam(args, "-tx"));
       self.setPackagesFolder(getNamedParam(args, "-packages"));
       if (hasNamedParam(args, "-auto-ig-build"))
