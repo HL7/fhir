@@ -2834,6 +2834,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFileName("conceptmaps.json", page.getFolders().tmpDir + "conceptmaps-r3.json", false);
       zip.addFileName("dataelements.json", page.getFolders().tmpDir + "dataelements-r3.json", false);
       zip.close();
+      System.gc();
 
       page.log("....dstu2 in dstu3 format", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions-r2asr3.xml.zip");
