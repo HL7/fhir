@@ -1201,7 +1201,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("r2maps-summary"))
         src = s1 + genR2MapsSummary() + s3;
       else if (com[0].equals("wg")) {
-        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group) ("+wg+" (1))" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
       else if (com[0].equals("res-list-maturity"))
@@ -7625,8 +7625,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].startsWith("!"))
         src = s1 + s3;
       else if (com[0].equals("wg")) {
-        String wg = pack.getWg();
-        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+        String wg = profile.getWg().getCode();
+        if (Utilities.noString(wg))
+          pack.getWg();
+        if (Utilities.noString(wg) && profile.getDefn() != null)
+          wg = profile.getDefn().getWg().getCode();
+        if (wg == null || !definitions.getWorkgroups().containsKey(wg))
+          src = s1+"(No assigned work group) ("+wg+") (4)"+s3;
+        else
+          src = s1+ "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group"+s3;
       } else if (com[0].equals("fmm-style")) {
         String fmm = profile.getFmm();
         if (Utilities.noString(fmm))
@@ -8083,7 +8090,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + s3;
       else if (com[0].equals("wg")) {
         String wg = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_WORKGROUP);
-        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group) ("+wg+") (3)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("fmm-style"))  {
         String fmm = ed == null ? "N/A" :  ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
         StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS));
@@ -8905,7 +8912,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + s3;
       else if (com[0].equals("wg")) {
         String wg = pack.getWg();
-        src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
+        if (Utilities.noString(wg) && definitions.hasResource(resourceName))
+          wg = definitions.getResourceByName(resourceName).getWg().getCode();
+        if (wg == null || !definitions.getWorkgroups().containsKey(wg))
+          src = s1+"(No assigned work group) ("+wg+") (4)"+s3;
+        else
+          src = s1+ "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group"+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing profile "+pack.getId());
     }

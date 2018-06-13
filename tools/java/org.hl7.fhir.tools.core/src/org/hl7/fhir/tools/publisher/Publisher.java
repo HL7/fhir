@@ -1733,7 +1733,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       return false;
     } else if (category != null) {
       long d = f.lastModified();
-      if ((!dates.containsKey(category) || d > dates.get(category)) && !f.getAbsolutePath().endsWith(".gen.svg"))
+      if ((!dates.containsKey(category) || d > dates.get(category)) && !f.getAbsolutePath().endsWith(".gen.svg") && !f.getName().contains("please-close-this-in-excel-and-return-the-build-prior-to-committing") )
         dates.put(category, d);
       return true;
     } else

@@ -890,6 +890,10 @@ public class SourceParser {
       ap.putMetadata("title", sd.getTitle());
       ap.putMetadata("status", sd.getStatus().toCode());
       ap.putMetadata("description", new XhtmlComposer(XhtmlComposer.HTML).compose(sd.getText().getDiv()));
+      if (ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg")) {
+        wg = definitions.getWorkgroups().get(ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"));
+        ap.putMetadata("workgroup", wg.getCode());
+      }
       ap.setTitle(sd.getTitle());
       new ProfileUtilities(page.getWorkerContext(), null, null).setIds(sd, false);
       ap.getProfiles().add(new ConstraintStructure(sd, definitions.getUsageIG(ap.getCategory(), "Parsing "+ap.getSource()), wg == null ? wg(sd) : wg, fmm(sd), sd.getExperimental()));
@@ -1175,7 +1179,7 @@ public class SourceParser {
       return false;
     } else  {
       long d = f.lastModified();
-      if (!f.getAbsolutePath().endsWith(".gen.svg") && (!dates.containsKey(category) || d > dates.get(category)))
+      if (!f.getAbsolutePath().endsWith(".gen.svg") && !f.getName().contains("please-close-this-in-excel-and-return-the-build-prior-to-committing") && (!dates.containsKey(category) || d > dates.get(category)))
         dates.put(category, d);
       return true;
     }
