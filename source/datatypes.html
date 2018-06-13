@@ -133,6 +133,15 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td>A JSON string - a URI</td>
  </tr>
  <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: \S* (This regex is very permissive, but URIs must be valid implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
+       This data type can be <a href="terminologies.html#uri">bound to a value set</a></td>
+ </tr>
+ <tr>
    <td>url<a name="uri"></a></td>
    <td>A Uniform Resource Locator (<a href="http://tools.ietf.org/html/rfc1738">RFC 1738</a>). Note URLs are accessed directly using the specified protocol. Common URL protocols are <code>http(s):</code>, <code>ftp:</code>, <code>mailto:</code> and <code>mllp:</code>, though many others are defined</td>
     <td>xs:anyURI</td>
@@ -140,18 +149,10 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>canonical<a name="uri"></a></td>
-   <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, and in that it may have a version appended, separated by a vertical bar (|)</td>
+   <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
+    and in that it may have a version appended, separated by a vertical bar (|)</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a canonical URI</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: \S*</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
-       This data type can be <a href="terminologies.html#uri">bound to a value set</a></td>
  </tr>
  <tr>
    <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
