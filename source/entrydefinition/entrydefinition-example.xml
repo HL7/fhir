@@ -8,7 +8,8 @@
 
   <!-- insert contents here -->
 
-<purpose><text value="NoPurpose"/></purpose>
+<orderable value="true"/>
+
 <referencedItem><reference value="device001.123"/></referencedItem>
   
 </EntryDefinition>
