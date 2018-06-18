@@ -74,7 +74,7 @@
 	<note>
 		<text value="Notes on adminstration of vaccine"/>
 	</note>
-	<isPotent value="false"/>
+	<isSubpotent value="false"/>
 	<subpotentReason>
 		<coding>
 			<system value="http://hl7.org/fhir/immunization-subpotent-reason"/>

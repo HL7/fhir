@@ -80,7 +80,7 @@
 			<code value="429060002"/>
 		</coding>
 	</reasonCode>
-	<isPotent value="true"/>
+	<isSubpotent value="true"/>
 	<education>
 		<documentType value="253088698300010311120702"/>
 		<publicationDate value="2012-07-02"/>
