@@ -20,7 +20,7 @@
 	<encounter>
 		<reference value="Encounter/example"/>
 	</encounter>
-	<date value="2015-01-15"/>
+	<occurrenceDateTime value="2015-01-15"/>
 	<primarySource value="true"/>
 	<location>
 		<reference value="Location/1"/>

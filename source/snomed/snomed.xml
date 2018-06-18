@@ -15458,6 +15458,15 @@
     <display value="Pyloric antrum structure"/>
     <display value="Pyloric antrum structure (body structure)"/>
   </concept>
+  <concept id="66071002" display="Type B viral hepatitis">
+    <display value="Type B viral hepatitis"/>
+    <display value="Serum hepatitis"/>
+    <display value="Hepatitis B"/>
+    <display value="SH - Serum hepatitis"/>
+    <display value="Hepatitis B infection"/>
+    <display value="Viral hepatitis type B"/>
+    <display value="Viral hepatitis type B (disorder)"/>
+  </concept>
   <concept id="66168008" display="Hanoverian horse">
     <display value="Hanoverian horse"/>
     <display value="Hanoverian horse (organism)"/>

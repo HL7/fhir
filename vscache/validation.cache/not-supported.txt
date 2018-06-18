@@ -5,6 +5,8 @@ https://www.iana.org/time-zones
 urn:ietf:bcp:47
 http://hl7.org/fhir/sid/icd-10
 http://www.sequenceontology.org
+http://hl7.org/fhir/vaccination-protocol-dose-status-reason
+http://hl7.org/fhir/immunization-recommendation-date-criterion
 http://www.ncbi.nlm.nih.gov/clinvar
 http://hl7.org/fhir/sid/cvx
 urn:iso:std:iso:11073:10101
@@ -12,6 +14,7 @@ http://unstats.un.org/unsd/methods/m49/m49.htm
 urn:ietf:rfc:3986
 http://www.ncbi.nlm.nih.gov/projects/SNP
 https://precision.fda.gov/files/
+http://hl7.org/fhir/sid/ndc
 http://www.ncbi.nlm.nih.gov/nuccore
 http://www.genenames.org
 urn:iso:std:iso:3166
@@ -21,5 +24,6 @@ http://www.hgvs.org/mutnomen
 http://example.com
 urn:iso:std:iso:4217
 http://nucc.org/provider-taxonomy
+http://hl7.org/fhir/vaccination-protocol-dose-status
 http://www.ebi.ac.uk/ipd/imgt/hla
 https://precision.fda.gov/apps/

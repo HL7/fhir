@@ -28,5 +28,9 @@
     <display value="School Record"/>
     <definition value="The data for the immunization event originated with a school record for the patient."/>
   </concept>
-
+  <concept>
+    <code value="jurisdiction"/>
+    <display value="Jurisdictional IIS"/>
+    <definition value="The data for the immunization event originated with an immunization information system (IIS) or registry operating within the jurisdiction."/>
+  </concept>
 </CodeSystem>

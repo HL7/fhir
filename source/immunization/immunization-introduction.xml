@@ -2,15 +2,6 @@
 
 <div>
 <a name="dstu"></a>
-<blockquote class="stu-note">
-    <p>
-        <b>STU Note:</b> The Public Health work group wants to draw the attention of reviewers and implementers to the following issues for feedback:
-	</p>
-    <ol>
-        <li>The R3 Immunization resource contained a protocol backbone element which contained, among other elements, the doseSequence which indicates the dose number within the series. In R4, the protocol backbone element has been moved to the ImmunizationEvalation resource to allow independent evaluations of the immunization event. The removal of doseSequence is likely to be problematic for providers in Australian and New Zealand where they are required to report the dose sequence as part of the immunization event. We seek feedback on whether other jurisdictions also require the dose sequence. Options include adding doseSequence as part of the core resource or as an extension.</li>
-		<li>The isPotent, subpotentReason, education, programEligibility and fundingSource are new elements and we would like feedback on the definition of these elements.</li>
-	</ol>
-</blockquote>
 
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

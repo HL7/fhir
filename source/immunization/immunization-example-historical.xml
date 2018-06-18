@@ -17,7 +17,7 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
-	<date value="2012-01-15"/>
+	<occurrenceString value="January 2012"/>
 	<primarySource value="false"/>
 	<reportOrigin>
 		<coding>
