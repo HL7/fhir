@@ -6,10 +6,10 @@
 <p>Procedure is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
 
 <p>
-This resource is used to record the details of current and historical procedures performed on a patient. A procedure is an activity 
-that is performed with or on a patient as part of the provision of care. Examples include surgical 
-procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, exercise, etc.
-Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient
+This resource is used to record the details of current and historical procedures performed on or for a patient. A procedure is an activity 
+that is performed on, with, or for a patient as part of the provision of care. Examples include surgical 
+procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, etc.
+Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient
 themselves.
 </p>
 <p>

@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -683,9 +683,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <TopRowVisible>1</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -759,7 +757,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -1131,23 +1128,23 @@
     <Cell ss:StyleID="s97"><Data ss:Type="String">GF#13783</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">assertedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Condition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">assertedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">dateTime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Date the condition was first asserted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">The date on which the existence of the Condition was first asserted or acknowledged</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">The assertedDate is in the context of the recording practitioner and might not be the same as the recordedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1413,19 +1410,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -1628,13 +1625,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2209,7 +2204,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2715,7 +2709,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3295,7 +3288,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3311,4 +3303,4 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<!--canonicalized--></Workbook>

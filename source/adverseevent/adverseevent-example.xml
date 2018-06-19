@@ -15,7 +15,7 @@
   <category> 
     <coding> 
       <system value="http://hl7.org/fhir/adverse-event-category"/> 
-      <code value="ProductUseError"/> 
+      <code value="product-use-error"/> 
       <display value="Product Use Error"/> 
     </coding> 
   </category> 
@@ -53,7 +53,7 @@
   <severity>
     <coding>
       <system value="http://hl7.org/fhir/adverse-event-severity"/>
-      <code value="Mild"/>
+      <code value="mild"/>
       <display value="Mild"/>
     </coding>
   </severity>

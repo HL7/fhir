@@ -733,7 +733,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan.activity.detail.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3" ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s77"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">not-started</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3652,7 +3652,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>42</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

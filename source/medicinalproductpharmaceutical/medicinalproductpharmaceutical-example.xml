@@ -46,7 +46,7 @@
   <severity>
     <coding>
       <system value="http://hl7.org/fhir/adverse-event-severity"/>
-      <code value="Mild"/>
+      <code value="mild"/>
       <display value="Mild"/>
     </coding>
   </severity>

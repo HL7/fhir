@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+	<id value="HCBS"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b> Personal care services provided at person's home</b>
+			</p>
+			<p>
+				<b> Based On</b> : Peter's Long Term Services and Supports (LTSS) care plan</p>
+			<p>
+				<b> Status</b> : completed</p>
+			<p>
+				<b> Beneficiary</b> : Peter James</p>
+			<p>
+				<b> Service Name/Code</b> : Personal care services <span> (Details : {HCPCS code 'T1019' = 'Personal care services, per 15 minutes'})</span>
+			</p>
+			<p>
+				<b> Service Date</b> : Apr 5, 2018</p>
+			<p>
+				<b> Service Provider</b> : Adam Careful</p>
+			<p>
+				<b> Service Delivery Address</b> : Peter's home</p>
+			<p>
+				<b> Service Comment</b> : Assisted with bathing and dressing, doing laundry, and meal preparation</p>
+		</div>
+	</text>
+	<basedOn>
+		<!-- <reference value="CarePlan/example-HCBS"/>   -->
+		<display value="Peter's Long Term Service and Supports (LTSS) Care Plan"/>
+	</basedOn>
+	<status value="completed"/>
+	<code>
+		<coding>
+			<system value="https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets/Alpha-Numeric-HCPCS.html"/>
+			<code value="T1019"/>
+			<display value="Personal care services, per 15 minutes, not for an inpatient or resident of a hospital, nursing facility, icf/mr or imd, part of the individualized plan of treatment."/>
+		</coding>
+		<text value="Personal care services"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James"/>
+	</subject>
+	<performedDateTime value="2018-04-05"/>
+	<performer>
+		<actor>
+			<reference value="Practitioner/example"/>
+			<display value="Adam Careful"/>
+		</actor>
+	</performer>
+	<location>
+		<reference value="Location/ph"/>
+		<display value="Peter's Home"/>
+	</location>
+	<note>
+		<text value="Assisted with bathing and dressing, doing laundry, and meal preparation"/>
+	</note>
+</Procedure>

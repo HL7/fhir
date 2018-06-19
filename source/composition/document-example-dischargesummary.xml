@@ -490,7 +490,7 @@
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </patient>
-        <assertedDate value="2012-09-17"/>
+        <recordedDate value="2012-09-17"/>
         <reaction>
           <manifestation>
             <coding>

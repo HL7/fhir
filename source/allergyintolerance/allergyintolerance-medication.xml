@@ -24,7 +24,7 @@
   </patient>
 
   <!-- the date that this entry was recorded -->  
-  <assertedDate value="2010-03-01"/>
+  <recordedDate value="2010-03-01"/>
   
   <!-- who made the record / last updated it -->
   <recorder>

@@ -15,9 +15,7 @@
   
   
   <TabRatio>826</TabRatio>
-  <ActiveSheet>10</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -792,9 +790,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <TopRowVisible>1</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -868,7 +864,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3028,7 +3023,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3509,7 +3503,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3537,7 +3530,7 @@
   <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="27" ss:StyleID="s85" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s86" ss:Width="227.0"/>
    <Column ss:StyleID="s85" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s85" ss:Width="142.0"/>
+   <Column ss:StyleID="s85" ss:Width="160.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s85" ss:Width="166.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s85" ss:Width="77.0"/>
    <Column ss:StyleID="s85" ss:Width="29.0"/>
@@ -3758,29 +3751,29 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">assertedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">AllergyIntolerance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">assertedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">dateTime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Date the allergy or intolerance was first asserted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">The date on which the existence of the AllergyIntolerance was first asserted or acknowledged</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">The assertedDate is in the context of the recording practitioner and might not be the same as the recordedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">GF#17285</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4215,19 +4208,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>93</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4271,8 +4264,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4498,7 +4489,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5078,7 +5068,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5581,7 +5570,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6161,7 +6149,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6747,8 +6734,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6763,4 +6748,4 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<!--canonicalized--></Workbook>

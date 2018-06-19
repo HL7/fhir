@@ -39,6 +39,10 @@
       <concept>
         <code value="46947000"/>
       </concept>
+	<!--   Social service procedure (procedure)   -->
+      <concept>
+        <code value="410606002"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

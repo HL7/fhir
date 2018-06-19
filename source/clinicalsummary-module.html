@@ -5,7 +5,7 @@ These elements SHALL always appear in this order. These basic elements shared by
 in order to support consistent definitions for schema and UML derived code.
 -->
 
-[%settitle Clinical Summary Module%]
+[%settitle Clinical Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -17,12 +17,12 @@ in order to support consistent definitions for schema and UML derived code.
 <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg pc%]">[%wgt pc%]</a> </td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
-<h2>Clinical Summary Module</h2>
+<h2>Clinical Module</h2>
 
 <a name="intro"></a>
 <h3>Introduction</h3>
 <p>
-This Clinical Summary Module focuses on the FHIR Resources that represent core clinical
+This Clinical Module focuses on the FHIR Resources that represent core clinical
 information for a patient. The information contained in these Resources are those
 frequently documented, created or retrieved by healthcare providers during the course
 of clinical care. Resources generated during the course of diagnostic studies can be
@@ -40,7 +40,7 @@ Overview section of the <a href="foundation-module.html">Foundation Module</a>.
 <a name="index"></a>
 <h3>Index</h3>
 <p>
-The Clinical Summary Module covers the following resources:
+The Clinical Module covers the following resources:
 </p>
 <table class="none"><tr>
  <td><ul>
@@ -75,7 +75,7 @@ complexity Resource such as <a href="careplan.html">CarePlan</a>.
 <a name="secpriv"></a>
 <h3>Security and Privacy</h3>
 <p>
-The diagnostic resources often represent patient-related data, and as such are
+The clinical resources often represent patient-related data, and as such are
 susceptible to data breaching. Necessary privacy and security provision must be
 in place for searching and fetching this information. For more general considerations,
 see the <a href="secpriv-module.html">Security and Privacy module</a>.
@@ -91,7 +91,7 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
   to include problems, diagnoses and health concerns.
  </li>
  <li>
-	<b>Retrieving a list of the patient's Problem List</b>
+	<b>Retrieving the patient's problems</b>
  </li>
  <li>
   <b>Documenting and retrieving the patient's allergies</b> -  The <a href="allergyintolerance.html">AllergyIntolerance</a> Resource
@@ -117,8 +117,8 @@ see the <a href="secpriv-module.html">Security and Privacy module</a>.
 Over the next 18 months, we will continue to advance the resources through the <a href="versions.html#maturity">Maturity Levels</a>
 through the process of development and testing of the Resources. We anticipate more widespread implementation of core Resources such as Condition.
 Complex Resources such as CarePlan are dependent on the maturation of its referred Resources and are expected to mature more gradually.
-The clinical community will need to develop use cases to test and further mature the and
-<a href="servicerequest.html">ServiceRequest</a> Resources at opportunities such as the
+The clinical community will need to develop use cases to test and further mature the
+<a href="servicerequest.html">ServiceRequest</a> Resource at opportunities such as the
 <a href="http://wiki.hl7.org/index.php?title=Clinicians_on_FHIR">Clinicians on FHIR sessions</a> at the HL7 Working Group Meetings.
 </p>
 
