@@ -68,9 +68,7 @@
     </coding>
     <text value="written"/>
   </medium>
-  <recipient>
-      <reference value="#provider"/>
-  </recipient>
+  
   <context>
     <reference value="Encounter/example"/>
   </context>
@@ -82,6 +80,9 @@
   <requester>
 		<reference value="#requester"/>
    </requester>
+   <recipient>
+      <reference value="#provider"/>
+  </recipient>
    <sender>
      <reference value="#payor"/>
    </sender>

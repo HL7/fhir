@@ -8,7 +8,7 @@
   <identifier>
 	<value value="12345"/>
   </identifier>
-  <instantiates value="http://example.org/fhir/Questionnaire/family-member-history"/>
+  <instantiatesUri value="http://example.org/family-member-history-questionnaire"/>
   <status value="completed"/>
   <patient>
     <reference value="Patient/example"/>

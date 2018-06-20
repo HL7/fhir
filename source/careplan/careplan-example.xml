@@ -24,7 +24,7 @@
 	<identifier>
 		<value value="12345" />
 	</identifier>
-	<instantiates value="http://example.org/fhir/PlanDefinition/protocol-for-obesity"/> 
+	<instantiatesUri value="http://example.org/protocol-for-obesity"/> 
 	<basedOn>
 		<display value="Management of Type 2 Diabetes" />
 	</basedOn>
@@ -92,7 +92,9 @@
 			</coding>
 		</code>
 		<status value="completed"/>
-		<statusReason value="Achieved weight loss to mitigate diabetes risk." />
+		<statusReason>
+			<text value="Achieved weight loss to mitigate diabetes risk." />
+		</statusReason>
 		<doNotPerform value="false"/>
 		<scheduledTiming>
 			<repeat>

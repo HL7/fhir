@@ -8,7 +8,7 @@
   <identifier>
        <value value="12345"/>
   </identifier>
-  <instantiates value="http://example.org/fhir/PlanDefinition/protocol-for-hypertension-during-pregnancy"/>
+  <instantiatesUri value="http://example.org/protocol-for-hypertension-during-pregnancy"/>
   
   <basedOn>
     <reference value="CarePlan/preg"/>

@@ -77,13 +77,7 @@
   <subject>
     <reference value="Patient/1"/>
   </subject>
-  <recipient>
-    <!-- reference value="#payor"/ -->
-      <identifier>
-        <system value="http://www.jurisdiction.com/insurer"/>
-        <value value="123456"/>
-      </identifier>
-  </recipient>
+  
   <!-- Example using about 0..* Resource(Any) to provide focal resources -->
   <about>
     <!-- reference value="#claim"/ -->
@@ -101,6 +95,13 @@
   </about>
   
   <sent value="2016-06-12T18:01:10-08:00"/>
+  <recipient>
+    <!-- reference value="#payor"/ -->
+      <identifier>
+        <system value="http://www.jurisdiction.com/insurer"/>
+        <value value="123456"/>
+      </identifier>
+  </recipient>
   <sender>
     <!-- reference value="#provider"/ -->
       <identifier>
