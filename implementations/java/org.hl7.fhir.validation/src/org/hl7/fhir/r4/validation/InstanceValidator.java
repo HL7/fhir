@@ -3238,8 +3238,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         slicingPath = null;
       // where are we with slicing
       if (ed.hasSlicing()) {
-        if (slicer != null && slicer.getPath().equals(ed.getPath()))
-          throw new DefinitionException("Slice encountered midway through path on " + slicer.getPath());
+        if (slicer != null && slicer.getPath().equals(ed.getPath())) {
+          String errorContext = "profile " + profile.getUrl();
+          if (!resource.getChildValue("id").isEmpty())
+              errorContext += "; instance " + resource.getChildValue("id");
+          throw new DefinitionException("Slice encountered midway through path on " + slicer.getPath() + "; " + errorContext);
+        }
         slicer = ed;
         process = false;
         sliceOffset = i;
