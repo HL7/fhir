@@ -2981,36 +2981,35 @@ public class FHIRPathEngine {
   private List<Base> funcResolve(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> result = new ArrayList<Base>();
     for (Base item : focus) {
-      if (hostServices != null) {
-        String s = convertToString(item);
-        if (item.fhirType().equals("Reference")) {
-          Property p = item.getChildByName("reference");
-          if (p != null && p.hasValues())
-            s = convertToString(p.getValues().get(0));
-          else
-            s = null; // a reference without any valid actual reference (just identifier or display, but we can't resolve it)
-        }
-        if (item.fhirType().equals("canonical")) {
-          s = item.primitiveValue();
-        }
-        if (s != null) {
-          Base res = null;
-          if (s.startsWith("#")) {
-            String id = s.substring(1);
-            Property p = context.resource.getChildByName("contained");
-            for (Base c : p.getValues()) {
-              if (id.equals(c.getIdBase())) {
-                res = c;
-                break;
-              }
+      String s = convertToString(item);
+      if (item.fhirType().equals("Reference")) {
+        Property p = item.getChildByName("reference");
+        if (p != null && p.hasValues())
+          s = convertToString(p.getValues().get(0));
+        else
+          s = null; // a reference without any valid actual reference (just identifier or display, but we can't resolve it)
+      }
+      if (item.fhirType().equals("canonical")) {
+        s = item.primitiveValue();
+      }
+      if (s != null) {
+        Base res = null;
+        if (s.startsWith("#")) {
+          Property p = context.resource.getChildByName("contained");
+          for (Base c : p.getValues()) {
+            if (s.equals(c.getIdBase())) {
+              res = c;
+              break;
             }
-          } else
-            res = hostServices.resolveReference(context.appInfo, s);
-          if (res != null)
-            result.add(res);
+          }
+        } else if (hostServices != null) {
+          res = hostServices.resolveReference(context.appInfo, s);
         }
+        if (res != null)
+          result.add(res);
       }
     }
+
     return result;
   }
 
