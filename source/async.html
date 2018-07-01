@@ -10,6 +10,8 @@
 
 <div class="col-12">
 <h2 id="asynchronous-request-pattern">Asynchronous Request Pattern</h2>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+
 <p>Note: the FHIR Asynchronous API and the $export Operation are under active development:</p>
 <ul>
 <li>Visit the <a href="https://github.com/smart-on-fhir/fhir-bulk-data-docs">Draft FHIR Bulk Data Repository</a> for the most recent draft documentation and open issues</li>
@@ -19,7 +21,7 @@
 <p>All of the interactions defined in the <a href="http.html">RESTful API</a> are described as synchronous operations - that is, the client makes a query and waits for the server to respond with the outcome in the HTTP response. This pattern is not suitable once significant server side processing becomes necessary or when substantial amounts of data must be returned.</p>
 <p>A good example of this is the <a href="https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md">$export operation</a>, where simple searches may result in large amounts of data. </p>
 <p>The asynchronous request pattern, based on <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>, caters to this use case and is applicable for all the <a href="http.html">Defined Interactions</a> and for <a href="operations.html">Operations</a>, although for many of these uses it brings no benefit. Servers may choose which interactions the pattern should be supported on (if at all), and servers may choose to only support some of the operations using the asynchronous pattern.</p>
-<hr>
+<hr/>
 <h3 id="kick-off-request">Kick Off Request</h3>
 <p>The request will have whatever URL and other parameters would normally apply, but must include the headers described below.</p>
 <p><code>GET [FHIR API Request]</code></p>
@@ -46,7 +48,7 @@
 <li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
 <li>Optionally a FHIR OperationOutcome in the body</li>
 </ul>
-<hr>
+<hr/>
 <h3 id="bulk-data-delete-request">Bulk Data Delete Request:</h3>
 <p>After a bulk data request has been kicked-off, clients can send a delete request to the url provided in the <code>Content-Location</code> header to cancel the request.</p>
 <h5 id="endpoint">Endpoint</h5>
@@ -61,7 +63,7 @@
 <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
 <li>Optionally a FHIR OperationOutcome in the body</li>
 </ul>
-<hr>
+<hr/>
 <h3 id="bulk-data-status-request">Bulk Data Status Request:</h3>
 <p>After a bulk data request has been kicked-off, clients can poll the url provided in the <code>Content-Location</code> header to obtain the status of the request. </p>
 <p>Note: Clients should follow an <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> approach when polling for status. Servers may supply a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After">Retry-After header</a> with a http date or a delay time in seconds. When provided, clients should use this information to inform the timing of future polling requests.</p>
@@ -117,7 +119,7 @@
   }]
 }</code></pre></li>
 </ul>
-<hr>
+<hr/>
 <h3 id="file-requests">File Requests:</h3>
 <p>Using the urls supplied in the completed status request body, clients can download the generated bulk data files (one or more per resource type). Note: These files may be served by a file server rather than a FHIR specific server. Also, if the <code>requiresAccessToken</code> field in the status body is set to <code>true</code> the request must include a valid access token in the <code>Authorization</code> header in these requests (i.e., <code>Authorization: Bearer {{token}}</code>).</p>
 <h5 id="endpoint-2">Endpoint</h5>
