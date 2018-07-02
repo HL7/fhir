@@ -36,6 +36,7 @@ about knowledge resources (mainly for
  <tr>
   <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
   <td style="background-color: #ffe6e6"><a href="#TriggerDefinition">TriggerDefinition</a></td>
+  <td style="background-color: #ffe6e6"><a href="#Expression">Expression</a></td>
   <td style="background-color: #ffe6e6"><a href="#UsageContext">UsageContext</a></td>
  </tr>
 </table>
@@ -280,6 +281,39 @@ TriggerDefinition is used in the following places: [%dtusage TriggerDefinition%]
 <p>
 &nbsp;
 </p>
+<a name="Expression"></a>
+<a name="expression"></a>
+<h3 style="margin-bottom: 1px">Expression</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#Expression">Examples</a>, <a href="metadatatypes-definitions.html#Expression">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Expression">Mappings</a>.
+</p>
+
+
+<p>The Expression structure defines an expression that generates a value.
+The expression is provided in a specifed language (by mime type)</p>
+
+<p>
+The context of use of the expression must specify the context in which the 
+expression is evaluated, and how the result of the expression is used.
+</p>
+
+[%dt Expression 1%]
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints Expression%]
+[%tx Expression%]
+</div>
+
+<p>
+Expression is used in the following places: [%dtusage Expression%]
+</p>
+
+
+<p>
+&nbsp;
+</p>
 <a name="UsageContext"></a>
 <a name="usagecontext"></a>
 <h3 style="margin-bottom: 1px">UsageContext</h3>
@@ -330,6 +364,7 @@ $( '#tabs-DataRequirement' ).tabs({ active: currentTabIndex, activate: function(
 $( '#tabs-ParameterDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-RelatedArtifact' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-TriggerDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Expression' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
@@ -344,6 +379,7 @@ function store(currentTab) {
   $( '#tabs-ParameterDefinition' ).tabs('option', 'active', currentTab);
   $( '#tabs-RelatedArtifact' ).tabs('option', 'active', currentTab);
   $( '#tabs-TriggerDefinition' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Expression' ).tabs('option', 'active', currentTab);
   $( '#tabs-UsageContext' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
 }     
