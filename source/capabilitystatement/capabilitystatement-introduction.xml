@@ -17,7 +17,13 @@ testing, see <a href="conformance-rules.html">Conformance Rules</a> and
 <p>
 Specifically, capability statements are used in one of three ways:
 </p>
-<h3>Describe an actual implementation</h3>
+<table class="grid">
+ <tr><td><a href="#instance">Instance</a></td><td><code>implementation</code> must be present and <code>software</code> may be present</td></tr>
+ <tr><td><a href="#capability">Capability</a></td><td><code>implementation</code> must be absent, <code>software</code> must be present</td></tr>
+ <tr><td><a href="#requirements">Requirements</a></td><td><code>implementation</code> and <code>software</code> must be absent</td></tr>
+</table>
+<a name="instance"></a>
+<h3>Instance: Describe an actual implementation</h3>
 <p>
 In this scenario, the capability statement describes the capabilities of a deployed 
 and configured solution available at a particular access point or set of access points.  
@@ -31,7 +37,8 @@ statement that FHIR restful solutions are expected to make available on invocati
 the testing, certification or commissioning of specific software installations.
 </p>
 
-<h3>Describe software solution capabilities</h3>
+<a name="capability"></a>
+<h3>Capability: Describe software solution capabilities</h3>
 <p>
 In this scenario, the capability statement describes generic capabilities of a 
 software application or component solution.  The solution might be available for
@@ -46,7 +53,8 @@ developers to formally describe their capabilities.  It can also be used as the 
 for conformance testing of software solutions independent of a particular installation.
 </p>
 
-<h3>Describe a desired solution</h3>
+<a name="requirements"></a>
+<h3>Requirements: Describe a desired solution</h3>
 <p>
 In this scenario, the capability statement describes the capabilities of a desired
 system.  It might be used as part of an architectural design process to document
