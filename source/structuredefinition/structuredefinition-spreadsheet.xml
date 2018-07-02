@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>lloyd</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-04-15T16:10:36Z</LastSaved>
+  <LastSaved>2018-07-02T03:20:56Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -93,9 +93,8 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -838,7 +837,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R47C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
@@ -1373,14 +1372,14 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Coding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">StructureDefinitionCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">StructureDefinitionKeyword</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Assist with indexing and finding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Assist in searching for appropriate StructureDefinitions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3944,7 +3943,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>32</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3959,7 +3958,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="49" ss:StyleID="s102" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="48" ss:StyleID="s102" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s102" ss:Width="70.0"/>
    <Column ss:StyleID="s102" ss:Width="55.0"/>
    <Column ss:StyleID="s102" ss:Width="165.0"/>
@@ -4030,15 +4029,6 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">exists(f:snapshot) or exists(f:differential)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
-    <Cell ss:StyleID="s108"><Data ss:Type="Number">7</Data><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure describes a base Resource or Type, the URL has to start with "http://hl7.org/fhir/StructureDefinition/" and the tail must match the id</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(derivation = 'constraint') or (kind = 'logical') or (url = 'http://hl7.org/fhir/StructureDefinition/'+id)</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">(f:derivation/@value = 'constraint') or (f:kind/@value = 'logical') or (f:url/@value=concat('http://hl7.org/fhir/StructureDefinition/', f:id/@value))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">8</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4073,6 +4063,15 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot or differential, no label, code or requirements on an element without a "." in the path (e.g. the first element)</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:snapshot/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)]))</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">10</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">binding is required</Data></Cell>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot.element</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">provide either a binding reference or a description (or both)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">binding.empty() or binding.valueSet.exists() or binding.description.exists()</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="86">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">11</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4151,9 +4150,9 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">custom types only in logical models</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Custom types can only be used in logical models</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">kind = 'logical' or (differential.element.type.code.all(hasValue() implies matches('^[a-zA-Z0-9]+$')) and snapshot.element.type.code.all(hasValue() implies matches('^[a-zA-Z0-9]+$')))</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">f:kind/@value = 'logical' or count(f:differential/f:element/f:type/f:code[@value and not(matches(string(@value), '^[a-zA-Z0-9]+$'))]|f:snapshot/f:element/f:type/f:code[@value and not(matches(string(@value), '^[a-zA-Z0-9]+$'))]) =0</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">FHIR Specification models only use FHIR defined types</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (differential.element.type.code.all(hasValue() implies matches('^[a-zA-Z0-9]+$')) and snapshot.element.type.code.all(hasValue() implies matches('^[a-zA-Z0-9]+$')))</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">not(starts-with(f:url/@value, 'http://hl7.org/fhir/StructureDefinition')) or count(f:differential/f:element/f:type/f:code[@value and not(matches(string(@value), '^[a-zA-Z0-9]+$'))]|f:snapshot/f:element/f:type/f:code[@value and not(matches(string(@value), '^[a-zA-Z0-9]+$'))]) =0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">20</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4165,31 +4164,22 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:element[1]/f:slicing)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="Number">10</Data><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">binding is required</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot.element</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">provide either a binding reference or a description (or both)</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">binding.empty() or binding.valueSet.exists() or binding.description.exists()</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">21</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">no default values on data types or resources</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Default values can only be specified on logical models</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">(snapshot.element.defaultValue.exists() or differential.element.defaultValue.exists()) implies ((kind = 'logical') and (derivation = 'specialization'))</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">(not(exists(f:snapshot/f:element/*[starts-with(local-name(), 'defaultValue')])) and not(exists(f:differential/f:element/*[starts-with(local-name(), 'defaultValue')]))) or ((f:kind/@value = 'logical') and (f:derivation/@value = 'specialization'))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Default values can only be specified on specializations</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.element.defaultValue.exists() implies (derivation = 'specialization')</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:differential/f:element/*[starts-with(local-name(), 'defaultValue')])) or (f:derivation/@value = 'specialization')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">22</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">no default values on data types or resources</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">FHIR Specification models never have default values</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (snapshot.element.defaultValue.empty() and differential.element.defaultValue.empty())</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(starts-with(f:url/@value, 'http://hl7.org/fhir/StructureDefinition')) or (not(exists(f:snapshot/f:element/*[starts-with(local-name(), 'defaultValue')])) and not(exists(f:differential/f:element/*[starts-with(local-name(), 'defaultValue')])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4411,12 +4401,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4603,7 +4594,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6283,11 +6273,11 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">StructureDefinitionCode</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">StructureDefinitionKeyword</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for the meaning of the defined structure (SNOMED CT and LOINC codes, as an example).</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">valueset-profile-code</Data></Cell>
+    <Cell><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">valueset-definition-use</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -6721,7 +6711,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Primitive Data Type</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">A primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only the base specification can define primitive types.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A primitive type that has a value and an extension. These can be used throughout complex datatype, Resource and extension definitions. Only the base specification can define primitive types.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -6732,7 +6722,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Complex Data Type</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">A  complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A  complex structure that defines a set of data elements that is suitable for use in 'resources'. The base specification defines a number of complex types, and other specifications can define additional types. These structures do not have a maintained identity</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -6743,18 +6733,18 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">A resource defined by the FHIR specification.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">A 'resource' - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other 'resources' can be defined in additional specifications (though these will not be recognised as 'resources' by the FHIR specification (i.e. they do not get end-points etc, or act as the targets of references in FHIR defined resources - though other specificatiosn can treat them this way)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">logical</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Logical Model</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A conceptual package of data that will be mapped to resources for implementation.</Data></Cell>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
