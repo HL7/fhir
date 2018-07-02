@@ -1507,48 +1507,54 @@ cannot be retrieved (e.g. on a different server), then the resource is omitted, 
 error is returned.
 </p>
 <p>
-The inclusion process can be recursive, if the modifier <code>:recurse</code> is included.
-  For example, this search returns all <a href="medicationrequest.html">Medication
+The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
+For example, this search returns all <a href="medicationrequest.html">Medication
 Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
 for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
 </p>
 <pre>
-GET [base]/MedicationDispense?_include=MedicationDispense:authorizingPrescription
-    &amp;_include:recurse=MedicationRequest:prescriber&amp;criteria...
+GET [base]/MedicationDispense?_include=MedicationDispense:prescription
+    &amp;_include:iterate=MedicationRequest:performer&amp;criteria...
 </pre>
 <p>
 This technique applies to circular relationships as well. For example,
 the first of these two searches includes any related observations to the
 target relationships, but only those directly related. The second search
 asks for the <code>_include</code> based on <code>related</code> parameter to be executed
-recursively, so it will retrieve observations that are directly related, and
+iteratively, so it will retrieve observations that are directly related, and
 also any related observations to any other included observation.
 </p>
 <pre>
 GET [base]/Observation?_include=Observation:related-target&amp;criteria...
-GET [base]/Observation?_include:recurse=Observation:related-target&amp;criteria...
+GET [base]/Observation?_include:iterate=Observation:related-target&amp;criteria...
 </pre>
 <p>
 Both <code>_include</code> and <code>_revinclude</code> use the wild card "*" for the search parameter
 name, indicating that any search parameter of type=reference be included.  Though
 both clients and servers need to take care not to request or return too many resources
-when doing this. Most notably, using recursive inclusions might lead to the retrieval of the
-full patient's record, or even more: resources are organized into an interlinked network
+when doing this. Most notably, using iterative wildcards inclusions might lead to the retrieval of the
+full patient's record, or even more than that: resources are organized into an interlinked network
 and broad <code>_include</code> paths may eventually traverse all possible paths on the server. For
-servers, these recursive and wildcard <code>_include</code>s are demanding and may slow the search
+servers, these iterative and wildcard <code>_include</code>s are demanding and may slow the search
 response time significantly.
 </p>
 <p>
-It is at the server's discretion how deep to recursively evaluate the inclusions.
+It is at the server's discretion how deep to iteratively evaluate the inclusions.
 Servers are expected to limit the number of iterations done to an appropriate level
 and are not obliged to honor requests to include additional resources in the search results.
+Because iterative search is generally resource intensive, it is not the default behavior.
 </p>
 <p>
 When search results are paged, each page of search results should include
 the matching includes for the resources in each page, so that each page stands
 alone as a coherent package.
 </p>
-
+<p>
+Note: when considering using _include and _revinclude, implementers
+should also consider whether using <a href="graphql.html">GraphQL</a> and/or 
+<a href="graphdefinition.html">GraphDefinition</a> are more appropriate 
+approaches in their context.
+</p>
 
 <a name="contained"></a>
 <a name="containedType"></a>
