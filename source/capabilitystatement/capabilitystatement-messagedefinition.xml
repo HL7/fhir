@@ -13,10 +13,14 @@
 		</telecom>
 	</contact>
 	<description value="Sample capability statement showing new MessageDefinition structure"/>
-	<kind value="capability"/>
+	<kind value="instance"/>
 	<software>
 		<name value="EHR"/>
 	</software>
+  <implementation>
+    <description value="Acme Message endpoint"/>
+    <description value="http://acem.com/fhir/message-drop"/>
+  </implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required. Note that this may be rescinded later?  -->
 	<fhirVersion value="1.0.0"/>

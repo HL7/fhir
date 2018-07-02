@@ -57,7 +57,7 @@
 			<display value="Dorothy Dietition"/>
 		</member>
 		<onBehalfOf>
-			<reference value="Organization/f001"/>
+			<reference value="Practitioner/example"/>
 		</onBehalfOf>
 		<period>
 			<end value="2013-01-01"/>
