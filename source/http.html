@@ -667,11 +667,12 @@ If-Match: W/"23"
 </pre>
 <p>
 If the version id given in the <code>If-Match</code> header does not match, the server returns a
-<code>409 Conflict</code> status code instead of updating the resource.
+<code>412 Conflict</code> status code instead of updating the resource.
 </p>
 <p>
-Servers can require that clients provide an <code>If-Match</code> header by returning <code>412 Pre-condition failed</code>
-status codes when no <code>If-Match</code> header is found.
+Servers can require that clients provide an <code>If-Match</code> header by returning <code>400 Client Error</code>
+status codes when no <code>If-Match</code> header is found. Note that a 409 Conflict can be returned when the 
+server detects the update cannot be done (e.g. due to server side pessimistic locking).
 </p>
 
 <a name="patch"></a>
