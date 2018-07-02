@@ -828,7 +828,7 @@ public class ProfileGenerator {
     if (logical)
       p.setKind(StructureDefinitionKind.LOGICAL);
     else
-      p.setKind(StructureDefinitionKind.RESOURCE);
+    p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
     assert !Utilities.noString(r.getRoot().typeCode());
     if (!Utilities.noString(r.getRoot().typeCode())) {

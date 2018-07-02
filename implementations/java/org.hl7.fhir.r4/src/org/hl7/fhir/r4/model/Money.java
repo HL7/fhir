@@ -29,12 +29,13 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
 import ca.uhn.fhir.model.api.annotation.Description;
@@ -60,6 +61,7 @@ public class Money extends Type implements ICompositeType {
      */
     @Child(name = "currency", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="ISO 4217 Currency Code", formalDefinition="ISO 4217 Currency Code." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/currencies")
     protected CodeType currency;
 
     private static final long serialVersionUID = -484637938L;

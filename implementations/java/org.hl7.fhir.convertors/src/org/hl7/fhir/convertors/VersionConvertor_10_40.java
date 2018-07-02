@@ -31,6 +31,7 @@ import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscrimin
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Immunization.ImmunizationPerformerComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
+import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.Timing.EventTiming;
@@ -3970,7 +3971,7 @@ public class VersionConvertor_10_40 {
     tgt.setContext(convertReference(src.getEncounter()));
     tgt.setAsserter(convertReference(src.getAsserter()));
     if (src.hasDateRecorded())
-      tgt.setAssertedDate(src.getDateRecorded());
+      tgt.setRecordedDate(src.getDateRecorded());
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.addCategory(convertCodeableConcept(src.getCategory()));
     try {
@@ -4001,8 +4002,8 @@ public class VersionConvertor_10_40 {
     tgt.setPatient(convertReference(src.getSubject()));
     tgt.setEncounter(convertReference(src.getContext()));
     tgt.setAsserter(convertReference(src.getAsserter()));
-    if (src.hasAssertedDate())
-      tgt.setDateRecorded(src.getAssertedDate());
+    if (src.hasRecordedDate())
+      tgt.setDateRecorded(src.getRecordedDate());
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getCategory())
       tgt.setCategory(convertCodeableConcept(t));
@@ -5054,7 +5055,7 @@ public class VersionConvertor_10_40 {
         slicePaths.add(t.getPath());
       tgt.getSnapshot().addElement(convertElementDefinition(t, slicePaths, src.getElement(), src.getElement().indexOf(t)));
     }
-    tgt.setKind(StructureDefinitionKind.LOGICAL);
+    tgt.setKind(StructureDefinitionKind.COMPLEXTYPE);
     tgt.setAbstract(false);
     tgt.setType(tgt.getName());
     tgt.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
@@ -9675,9 +9676,9 @@ public class VersionConvertor_10_40 {
     tgt.setType(convertQuestionnaireQuestionType(src.getType()));
     tgt.setRequired(src.getRequired());
     tgt.setRepeats(src.getRepeats());
-    tgt.setOptionsElement(convertReferenceToCanonical(src.getOptions()));
+    tgt.setAnswerValueSetElement(convertReferenceToCanonical(src.getOptions()));
     for (org.hl7.fhir.dstu2.model.Coding t : src.getOption())
-      tgt.addOption().setValue(convertCoding(t));
+      tgt.addAnswerOption().setValue(convertCoding(t));
     for (org.hl7.fhir.dstu2.model.Questionnaire.GroupComponent t : src.getGroup())
       tgt.addItem(convertQuestionnaireGroupComponent(t));
     return tgt;
@@ -9733,8 +9734,8 @@ public class VersionConvertor_10_40 {
     tgt.setType(convertQuestionnaireItemType(src.getType()));
     tgt.setRequired(src.getRequired());
     tgt.setRepeats(src.getRepeats());
-    tgt.setOptions(convertCanonicalToReference(src.getOptionsElement()));
-    for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
+    tgt.setOptions(convertCanonicalToReference(src.getAnswerValueSetElement()));
+    for (QuestionnaireItemAnswerOptionComponent t : src.getAnswerOption())
       if (t.hasValueCoding())
         try {
           tgt.addOption(convertCoding(t.getValueCoding()));

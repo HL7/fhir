@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -274,6 +274,7 @@ public class Endpoint extends DomainResource {
      */
     @Child(name = "payloadMimeType", type = {CodeType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Mimetype to send. If not specified, the content could be anything (including no payload, if the connectionType defined this)", formalDefinition="The mime type to send the payload in - e.g. application/fhir+xml, application/fhir+json. If the mime type is not specified, then the sender could send any content (including no content depending on the connectionType)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected List<CodeType> payloadMimeType;
 
     /**

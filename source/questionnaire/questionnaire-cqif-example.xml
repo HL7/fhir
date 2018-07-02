@@ -33,7 +33,7 @@
     <text value="Little interest or pleasure in doing things"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="FeelingDown"/>
@@ -44,7 +44,7 @@
     <text value="Feeling down, depressed, or hopeless"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="TroubleSleeping"/>
@@ -55,7 +55,7 @@
     <text value="Trouble falling or staying asleep"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="FeelingTired"/>
@@ -66,7 +66,7 @@
     <text value="Feeling tired or having little energy"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="BadAppetite"/>
@@ -77,7 +77,7 @@
     <text value="Poor appetite or overeating"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="FeelingBadAboutSelf"/>
@@ -88,7 +88,7 @@
     <text value="Feeling bad about yourself - or that you are a failure or have let yourself or your family down"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="TroubleConcentrating"/>
@@ -99,7 +99,7 @@
     <text value="Trouble concentrating on things, such as reading the newspaper or watching television"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <linkId value="MovingSpeaking"/>
@@ -110,7 +110,7 @@
     <text value="Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
   <item>
     <extension url="http://hl7.org/fhir/StructureDefinition/cqif-calculatedValue">
@@ -134,6 +134,6 @@
     <text value="If you checked off any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people"/>
     <type value="choice"/>
     <required value="true"/>
-    <options value="http://loinc.org/vs/LL358-3"/>
+    <answerValueSet value="http://loinc.org/vs/LL358-3"/>
   </item>
 </Questionnaire>

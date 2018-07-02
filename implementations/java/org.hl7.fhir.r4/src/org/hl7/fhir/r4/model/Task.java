@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1965,16 +1965,28 @@ public class Task extends DomainResource {
     protected Resource ownerTarget;
 
     /**
+     * The principal physical location where the this task is performed.
+     */
+    @Child(name = "location", type = {Location.class}, order=21, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Where task occurs", formalDefinition="The principal physical location where the this task is performed." )
+    protected Reference location;
+
+    /**
+     * The actual object that is the target of the reference (The principal physical location where the this task is performed.)
+     */
+    protected Location locationTarget;
+
+    /**
      * A description or code indicating why this task needs to be performed.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=21, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=22, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why task is needed", formalDefinition="A description or code indicating why this task needs to be performed." )
     protected CodeableConcept reasonCode;
 
     /**
      * A resource reference indicating why this task needs to be performed.
      */
-    @Child(name = "reasonReference", type = {Reference.class}, order=22, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Reference.class}, order=23, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why task is needed", formalDefinition="A resource reference indicating why this task needs to be performed." )
     protected Reference reasonReference;
 
@@ -1986,14 +1998,14 @@ public class Task extends DomainResource {
     /**
      * Free-text information captured about the task as it progresses.
      */
-    @Child(name = "note", type = {Annotation.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the task", formalDefinition="Free-text information captured about the task as it progresses." )
     protected List<Annotation> note;
 
     /**
      * Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Key events in history of the Task", formalDefinition="Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task." )
     protected List<Reference> relevantHistory;
     /**
@@ -2005,25 +2017,25 @@ public class Task extends DomainResource {
     /**
      * If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.
      */
-    @Child(name = "restriction", type = {}, order=25, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "restriction", type = {}, order=26, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Constraints on fulfillment tasks", formalDefinition="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned." )
     protected TaskRestrictionComponent restriction;
 
     /**
      * Additional information that may be needed in the execution of the task.
      */
-    @Child(name = "input", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "input", type = {}, order=27, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information used to perform task", formalDefinition="Additional information that may be needed in the execution of the task." )
     protected List<ParameterComponent> input;
 
     /**
      * Outputs produced by the Task.
      */
-    @Child(name = "output", type = {}, order=27, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "output", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information produced as part of task", formalDefinition="Outputs produced by the Task." )
     protected List<TaskOutputComponent> output;
 
-    private static final long serialVersionUID = -124529191L;
+    private static final long serialVersionUID = 1667305460L;
 
   /**
    * Constructor
@@ -2938,6 +2950,50 @@ public class Task extends DomainResource {
     }
 
     /**
+     * @return {@link #location} (The principal physical location where the this task is performed.)
+     */
+    public Reference getLocation() { 
+      if (this.location == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.location");
+        else if (Configuration.doAutoCreate())
+          this.location = new Reference(); // cc
+      return this.location;
+    }
+
+    public boolean hasLocation() { 
+      return this.location != null && !this.location.isEmpty();
+    }
+
+    /**
+     * @param value {@link #location} (The principal physical location where the this task is performed.)
+     */
+    public Task setLocation(Reference value) { 
+      this.location = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The principal physical location where the this task is performed.)
+     */
+    public Location getLocationTarget() { 
+      if (this.locationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.location");
+        else if (Configuration.doAutoCreate())
+          this.locationTarget = new Location(); // aa
+      return this.locationTarget;
+    }
+
+    /**
+     * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The principal physical location where the this task is performed.)
+     */
+    public Task setLocationTarget(Location value) { 
+      this.locationTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #reasonCode} (A description or code indicating why this task needs to be performed.)
      */
     public CodeableConcept getReasonCode() { 
@@ -3281,6 +3337,7 @@ public class Task extends DomainResource {
         children.add(new Property("requester", "Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson)", "The creator of the task.", 0, 1, requester));
         children.add(new Property("performerType", "CodeableConcept", "The type of participant that can execute the task.", 0, java.lang.Integer.MAX_VALUE, performerType));
         children.add(new Property("owner", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)", "Individual organization or Device currently responsible for task execution.", 0, 1, owner));
+        children.add(new Property("location", "Reference(Location)", "The principal physical location where the this task is performed.", 0, 1, location));
         children.add(new Property("reasonCode", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, 1, reasonCode));
         children.add(new Property("reasonReference", "Reference(Any)", "A resource reference indicating why this task needs to be performed.", 0, 1, reasonReference));
         children.add(new Property("note", "Annotation", "Free-text information captured about the task as it progresses.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -3317,6 +3374,7 @@ public class Task extends DomainResource {
         case 693933948: /*requester*/  return new Property("requester", "Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson)", "The creator of the task.", 0, 1, requester);
         case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "The type of participant that can execute the task.", 0, java.lang.Integer.MAX_VALUE, performerType);
         case 106164915: /*owner*/  return new Property("owner", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)", "Individual organization or Device currently responsible for task execution.", 0, 1, owner);
+        case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The principal physical location where the this task is performed.", 0, 1, location);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, 1, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Any)", "A resource reference indicating why this task needs to be performed.", 0, 1, reasonReference);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Free-text information captured about the task as it progresses.", 0, java.lang.Integer.MAX_VALUE, note);
@@ -3353,6 +3411,7 @@ public class Task extends DomainResource {
         case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
         case -901444568: /*performerType*/ return this.performerType == null ? new Base[0] : this.performerType.toArray(new Base[this.performerType.size()]); // CodeableConcept
         case 106164915: /*owner*/ return this.owner == null ? new Base[0] : new Base[] {this.owner}; // Reference
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : new Base[] {this.reasonCode}; // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : new Base[] {this.reasonReference}; // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
@@ -3434,6 +3493,9 @@ public class Task extends DomainResource {
         case 106164915: // owner
           this.owner = castToReference(value); // Reference
           return value;
+        case 1901043637: // location
+          this.location = castToReference(value); // Reference
+          return value;
         case 722137681: // reasonCode
           this.reasonCode = castToCodeableConcept(value); // CodeableConcept
           return value;
@@ -3507,6 +3569,8 @@ public class Task extends DomainResource {
           this.getPerformerType().add(castToCodeableConcept(value));
         } else if (name.equals("owner")) {
           this.owner = castToReference(value); // Reference
+        } else if (name.equals("location")) {
+          this.location = castToReference(value); // Reference
         } else if (name.equals("reasonCode")) {
           this.reasonCode = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("reasonReference")) {
@@ -3551,6 +3615,7 @@ public class Task extends DomainResource {
         case 693933948:  return getRequester(); 
         case -901444568:  return addPerformerType(); 
         case 106164915:  return getOwner(); 
+        case 1901043637:  return getLocation(); 
         case 722137681:  return getReasonCode(); 
         case -1146218137:  return getReasonReference(); 
         case 3387378:  return addNote(); 
@@ -3587,6 +3652,7 @@ public class Task extends DomainResource {
         case 693933948: /*requester*/ return new String[] {"Reference"};
         case -901444568: /*performerType*/ return new String[] {"CodeableConcept"};
         case 106164915: /*owner*/ return new String[] {"Reference"};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
@@ -3679,6 +3745,10 @@ public class Task extends DomainResource {
           this.owner = new Reference();
           return this.owner;
         }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
         else if (name.equals("reasonCode")) {
           this.reasonCode = new CodeableConcept();
           return this.reasonCode;
@@ -3752,6 +3822,7 @@ public class Task extends DomainResource {
             dst.performerType.add(i.copy());
         };
         dst.owner = owner == null ? null : owner.copy();
+        dst.location = location == null ? null : location.copy();
         dst.reasonCode = reasonCode == null ? null : reasonCode.copy();
         dst.reasonReference = reasonReference == null ? null : reasonReference.copy();
         if (note != null) {
@@ -3797,9 +3868,10 @@ public class Task extends DomainResource {
            && compareDeep(for_, o.for_, true) && compareDeep(context, o.context, true) && compareDeep(executionPeriod, o.executionPeriod, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(lastModified, o.lastModified, true)
            && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
-           && compareDeep(owner, o.owner, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true) && compareDeep(restriction, o.restriction, true)
-           && compareDeep(input, o.input, true) && compareDeep(output, o.output, true);
+           && compareDeep(owner, o.owner, true) && compareDeep(location, o.location, true) && compareDeep(reasonCode, o.reasonCode, true)
+           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true)
+           && compareDeep(restriction, o.restriction, true) && compareDeep(input, o.input, true) && compareDeep(output, o.output, true)
+          ;
       }
 
       @Override
@@ -3818,8 +3890,8 @@ public class Task extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, basedOn
           , groupIdentifier, partOf, status, statusReason, businessStatus, intent, priority
           , code, description, focus, for_, context, executionPeriod, authoredOn, lastModified
-          , requester, performerType, owner, reasonCode, reasonReference, note, relevantHistory
-          , restriction, input, output);
+          , requester, performerType, owner, location, reasonCode, reasonReference, note
+          , relevantHistory, restriction, input, output);
       }
 
   @Override

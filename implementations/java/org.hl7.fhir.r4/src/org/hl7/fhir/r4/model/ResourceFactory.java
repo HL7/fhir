@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -325,6 +325,8 @@ public class ResourceFactory extends Factory {
             return new DateType();
         if ("Meta".equals(name))
             return new Meta();
+        if ("MoneyQuantity".equals(name))
+            return new MoneyQuantity();
         if ("Address".equals(name))
             return new Address();
         if ("Attachment".equals(name))
@@ -431,6 +433,8 @@ public class ResourceFactory extends Factory {
             return new ContactDetail();
         if ("boolean".equals(name))
             return new BooleanType();
+        if ("Expression".equals(name))
+            return new Expression();
         if ("Signature".equals(name))
             return new Signature();
         if ("unsignedInt".equals(name))
@@ -509,6 +513,7 @@ public class ResourceFactory extends Factory {
         case 1175230202: return new ExampleScenario();
         case -1136815094: return new ExpansionProfile();
         case -1001676601: return new ExplanationOfBenefit();
+        case 198012600: return new Expression();
         case 1391410207: return new Extension();
         case 1260711798: return new FamilyMemberHistory();
         case 2192268: return new Flag();
@@ -551,6 +556,7 @@ public class ResourceFactory extends Factory {
         case -1087398572: return new MessageHeader();
         case 2394661: return new Meta();
         case 74526880: return new Money();
+        case 977885515: return new MoneyQuantity();
         case 369315063: return new NamingSystem();
         case -540546990: return new Narrative();
         case 1247831734: return new NutritionOrder();

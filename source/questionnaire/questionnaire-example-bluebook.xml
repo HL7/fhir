@@ -50,16 +50,16 @@
         <linkId value="sex"/>
         <text value="Sex"/>
         <type value="choice"/>
-        <option>
+        <answerOption>
           <valueCoding>
             <code value="F"/>
           </valueCoding>
-        </option>
-        <option>
+        </answerOption>
+        <answerOption>
           <valueCoding>
             <code value="M"/>
           </valueCoding>
-        </option>
+        </answerOption>
       </item>
     </item>
     <item>
@@ -80,21 +80,21 @@
         <linkId value="vitaminKgiven"/>
         <text value="Vitamin K given"/>
         <type value="choice"/>
-        <option>
+        <answerOption>
           <valueCoding>
             <code value="INJECTION"/>
           </valueCoding>
-        </option>
-        <option>
+        </answerOption>
+        <answerOption>
           <valueCoding>
             <code value="INTRAVENOUS"/>
           </valueCoding>
-        </option>
-        <option>
+        </answerOption>
+        <answerOption>
           <valueCoding>
             <code value="ORAL"/>
           </valueCoding>
-        </option>
+        </answerOption>
         <item>
           <linkId value="vitaminKgivenDoses"/>
           <type value="group"/>

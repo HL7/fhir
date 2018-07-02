@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -3621,6 +3621,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
          */
         @Child(name = "language", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Computable language of mapping", formalDefinition="Identifies the computable language in which mapping.map is expressed." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
         protected CodeType language;
 
         /**
@@ -4097,10 +4098,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
     protected ElementDefinitionBaseComponent base;
 
     /**
-     * Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.
+     * Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.
      */
     @Child(name = "contentReference", type = {UriType.class}, order=14, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reference to definition of content for the element", formalDefinition="Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element." )
+    @Description(shortDefinition="Reference to definition of content for the element", formalDefinition="Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc." )
     protected UriType contentReference;
 
     /**
@@ -4903,7 +4904,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
     }
 
     /**
-     * @return {@link #contentReference} (Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.). This is the underlying object with id, value and extensions. The accessor "getContentReference" gives direct access to the value
+     * @return {@link #contentReference} (Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.). This is the underlying object with id, value and extensions. The accessor "getContentReference" gives direct access to the value
      */
     public UriType getContentReferenceElement() { 
       if (this.contentReference == null)
@@ -4923,7 +4924,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
     }
 
     /**
-     * @param value {@link #contentReference} (Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.). This is the underlying object with id, value and extensions. The accessor "getContentReference" gives direct access to the value
+     * @param value {@link #contentReference} (Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.). This is the underlying object with id, value and extensions. The accessor "getContentReference" gives direct access to the value
      */
     public ElementDefinition setContentReferenceElement(UriType value) { 
       this.contentReference = value;
@@ -4931,14 +4932,14 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
     }
 
     /**
-     * @return Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.
+     * @return Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.
      */
     public String getContentReference() { 
       return this.contentReference == null ? null : this.contentReference.getValue();
     }
 
     /**
-     * @param value Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.
+     * @param value Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.
      */
     public ElementDefinition setContentReference(String value) { 
       if (Utilities.noString(value))
@@ -5960,7 +5961,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         children.add(new Property("min", "unsignedInt", "The minimum number of times this element SHALL appear in the instance.", 0, 1, min));
         children.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, 1, max));
         children.add(new Property("base", "", "Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. When the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot - then the information in provided in the element definition may be different to the base definition. On the original definition of the element, it will be same.", 0, 1, base));
-        children.add(new Property("contentReference", "uri", "Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.", 0, 1, contentReference));
+        children.add(new Property("contentReference", "uri", "Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.", 0, 1, contentReference));
         children.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
         children.add(new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue));
         children.add(new Property("meaningWhenMissing", "markdown", "The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing'.", 0, 1, meaningWhenMissing));
@@ -5998,7 +5999,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         case 108114: /*min*/  return new Property("min", "unsignedInt", "The minimum number of times this element SHALL appear in the instance.", 0, 1, min);
         case 107876: /*max*/  return new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, 1, max);
         case 3016401: /*base*/  return new Property("base", "", "Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. When the element definition is not the original definition of an element - i.g. either in a constraint on another type, or for elements from a super type in a snap shot - then the information in provided in the element definition may be different to the base definition. On the original definition of the element, it will be same.", 0, 1, base);
-        case 1193747154: /*contentReference*/  return new Property("contentReference", "uri", "Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element.", 0, 1, contentReference);
+        case 1193747154: /*contentReference*/  return new Property("contentReference", "uri", "Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc.", 0, 1, contentReference);
         case 3575610: /*type*/  return new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type);
         case 587922128: /*defaultValue[x]*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
         case -659125328: /*defaultValue*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);

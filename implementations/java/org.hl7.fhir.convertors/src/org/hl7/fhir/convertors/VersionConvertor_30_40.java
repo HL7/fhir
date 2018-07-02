@@ -133,6 +133,18 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
+  public static org.hl7.fhir.r4.model.DateTimeType convertDateToDateTime(org.hl7.fhir.dstu3.model.DateType src) throws FHIRException {
+    org.hl7.fhir.r4.model.DateTimeType tgt = new org.hl7.fhir.r4.model.DateTimeType(src.getValueAsString());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.DateType convertDateTimeToDate(org.hl7.fhir.r4.model.DateTimeType src) throws FHIRException {
+    org.hl7.fhir.dstu3.model.DateType  tgt = new org.hl7.fhir.dstu3.model.DateType (src.getValueAsString());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
   public static org.hl7.fhir.dstu3.model.DateType convertDate(org.hl7.fhir.r4.model.DateType src) throws FHIRException {
     org.hl7.fhir.dstu3.model.DateType tgt = new org.hl7.fhir.dstu3.model.DateType(src.getValueAsString());
     copyElement(src, tgt);
@@ -3475,7 +3487,7 @@ public class VersionConvertor_30_40 {
     if (src.hasOnset())
       tgt.setOnset(convertType(src.getOnset()));
     if (src.hasAssertedDate())
-      tgt.setAssertedDate(src.getAssertedDate());
+      tgt.setRecordedDate(src.getAssertedDate());
     if (src.hasRecorder())
       tgt.setRecorder(convertReference(src.getRecorder()));
     if (src.hasAsserter())
@@ -3512,8 +3524,8 @@ public class VersionConvertor_30_40 {
       tgt.setPatient(convertReference(src.getPatient()));
     if (src.hasOnset())
       tgt.setOnset(convertType(src.getOnset()));
-    if (src.hasAssertedDate())
-      tgt.setAssertedDate(src.getAssertedDate());
+    if (src.hasRecordedDate())
+      tgt.setAssertedDate(src.getRecordedDate());
     if (src.hasRecorder())
       tgt.setRecorder(convertReference(src.getRecorder()));
     if (src.hasAsserter())
@@ -6434,7 +6446,7 @@ public class VersionConvertor_30_40 {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.r4.model.ClinicalImpression.ClinicalImpressionStatus.DRAFT;
+    case DRAFT: return org.hl7.fhir.r4.model.ClinicalImpression.ClinicalImpressionStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.r4.model.ClinicalImpression.ClinicalImpressionStatus.COMPLETED;
     case ENTEREDINERROR: return org.hl7.fhir.r4.model.ClinicalImpression.ClinicalImpressionStatus.ENTEREDINERROR;
     default: return org.hl7.fhir.r4.model.ClinicalImpression.ClinicalImpressionStatus.NULL;
@@ -6445,7 +6457,7 @@ public class VersionConvertor_30_40 {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.DRAFT;
+    case INPROGRESS: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.DRAFT;
     case COMPLETED: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.COMPLETED;
     case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.ENTEREDINERROR;
     default: return org.hl7.fhir.dstu3.model.ClinicalImpression.ClinicalImpressionStatus.NULL;
@@ -6894,7 +6906,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getDefinition())
-      tgt.addInstantiates(t.getReference());
+      tgt.addInstantiatesCanonical(t.getReference());
     for (org.hl7.fhir.dstu3.model.Reference t : src.getBasedOn())
       tgt.addBasedOn(convertReference(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getPartOf())
@@ -6939,7 +6951,7 @@ public class VersionConvertor_30_40 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    for (org.hl7.fhir.r4.model.UriType t : src.getInstantiates())
+    for (org.hl7.fhir.r4.model.UriType t : src.getInstantiatesCanonical())
       tgt.addDefinition(new org.hl7.fhir.dstu3.model.Reference(t.getValue()));
     for (org.hl7.fhir.r4.model.Reference t : src.getBasedOn())
       tgt.addBasedOn(convertReference(t));
@@ -7835,7 +7847,7 @@ public class VersionConvertor_30_40 {
     if (src.hasAbatement())
       tgt.setAbatement(convertType(src.getAbatement()));
     if (src.hasAssertedDate())
-      tgt.setAssertedDate(src.getAssertedDate());
+      tgt.setRecordedDate(src.getAssertedDate());
     if (src.hasAsserter())
       tgt.setAsserter(convertReference(src.getAsserter()));
     if (src.hasStage())
@@ -7874,8 +7886,8 @@ public class VersionConvertor_30_40 {
       tgt.setOnset(convertType(src.getOnset()));
     if (src.hasAbatement())
       tgt.setAbatement(convertType(src.getAbatement()));
-    if (src.hasAssertedDate())
-      tgt.setAssertedDate(src.getAssertedDate());
+    if (src.hasRecordedDate())
+      tgt.setAssertedDate(src.getRecordedDate());
     if (src.hasAsserter())
       tgt.setAsserter(convertReference(src.getAsserter()));
     if (src.hasStage())
@@ -8936,7 +8948,7 @@ public class VersionConvertor_30_40 {
       tgt.addMapping(convertDataElementMappingComponent(t));
     for (org.hl7.fhir.dstu3.model.ElementDefinition t : src.getElement())
       tgt.getSnapshot().addElement(convertElementDefinition(t));
-    tgt.setKind(org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.LOGICAL);
+    tgt.setKind(org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE);
     tgt.setAbstract(false);
     tgt.setType(tgt.getName());
     tgt.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
@@ -11434,7 +11446,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getDefinition())
-      tgt.addInstantiates(t.getReference());
+      tgt.addInstantiatesCanonical(t.getReference());
     if (src.hasStatus())
       tgt.setStatus(convertFamilyHistoryStatus(src.getStatus()));
     if (src.hasNotDoneReason())
@@ -11475,7 +11487,7 @@ public class VersionConvertor_30_40 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    for (org.hl7.fhir.r4.model.UriType t : src.getInstantiates())
+    for (org.hl7.fhir.r4.model.UriType t : src.getInstantiatesCanonical())
       tgt.addDefinition(new org.hl7.fhir.dstu3.model.Reference(t.getValue()));
     if (src.hasStatus())
       tgt.setStatus(convertFamilyHistoryStatus(src.getStatus()));
@@ -12391,7 +12403,7 @@ public class VersionConvertor_30_40 {
     if (src.hasEncounter())
       tgt.setEncounter(convertReference(src.getEncounter()));
     if (src.hasDate())
-      tgt.setDate(src.getDate());
+      tgt.setOccurrence(convertDateTime(src.getDateElement()));
     if (src.hasPrimarySource())
       tgt.setPrimarySource(src.getPrimarySource());
     if (src.hasReportOrigin())
@@ -12436,8 +12448,8 @@ public class VersionConvertor_30_40 {
       tgt.setPatient(convertReference(src.getPatient()));
     if (src.hasEncounter())
       tgt.setEncounter(convertReference(src.getEncounter()));
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
+    if (src.hasOccurrenceDateTimeType())
+      tgt.setDateElement(convertDateTime(src.getOccurrenceDateTimeType()));
     if (src.hasPrimarySource())
       tgt.setPrimarySource(src.getPrimarySource());
     if (src.hasReportOrigin())
@@ -16684,9 +16696,9 @@ public class VersionConvertor_30_40 {
     if (src.hasMaxLength())
       tgt.setMaxLength(src.getMaxLength());
     if (src.hasOptions())
-      tgt.setOptionsElement(convertReferenceToCanonical(src.getOptions()));
+      tgt.setAnswerValueSetElement(convertReferenceToCanonical(src.getOptions()));
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
-      tgt.addOption(convertQuestionnaireItemOptionComponent(t));
+      tgt.addAnswerOption(convertQuestionnaireItemOptionComponent(t));
     if (src.hasInitial())
       tgt.addInitial().setValue(convertType(src.getInitial()));
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())
@@ -16721,9 +16733,9 @@ public class VersionConvertor_30_40 {
       tgt.setReadOnly(src.getReadOnly());
     if (src.hasMaxLength())
       tgt.setMaxLength(src.getMaxLength());
-    if (src.hasOptions())
-      tgt.setOptions(convertCanonicalToReference(src.getOptionsElement()));
-    for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
+    if (src.hasAnswerValueSet())
+      tgt.setOptions(convertCanonicalToReference(src.getAnswerValueSetElement()));
+    for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent t : src.getAnswerOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
     if (src.hasInitial())
       tgt.setInitial(convertType(src.getInitialFirstRep().getValue()));
@@ -16812,17 +16824,17 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent convertQuestionnaireItemOptionComponent(org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent convertQuestionnaireItemOptionComponent(org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent src) throws FHIRException {
     if (src == null)
       return null;
-    org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent tgt = new org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent();
+    org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent tgt = new org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent();
     copyElement(src, tgt);
     if (src.hasValue())
       tgt.setValue(convertType(src.getValue()));
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent convertQuestionnaireItemOptionComponent(org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent convertQuestionnaireItemOptionComponent(org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent src) throws FHIRException {
     if (src == null)
       return null;
     org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent tgt = new org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent();

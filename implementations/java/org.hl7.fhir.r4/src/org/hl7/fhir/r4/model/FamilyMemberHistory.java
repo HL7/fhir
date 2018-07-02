@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -589,16 +589,23 @@ public class FamilyMemberHistory extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * A protocol or questionnaire that was adhered to in whole or in part by this event.
+     * The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.
      */
-    @Child(name = "instantiates", type = {UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="A protocol or questionnaire that was adhered to in whole or in part by this event." )
-    protected List<UriType> instantiates;
+    @Child(name = "instantiatesCanonical", type = {CanonicalType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Instantiates FHIR protocol or definition", formalDefinition="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory." )
+    protected List<CanonicalType> instantiatesCanonical;
+
+    /**
+     * The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.
+     */
+    @Child(name = "instantiatesUri", type = {UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Instantiates external protocol or definition", formalDefinition="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory." )
+    protected List<UriType> instantiatesUri;
 
     /**
      * A code specifying the status of the record of the family history of a specific family member.
      */
-    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="partial | completed | entered-in-error | health-unknown", formalDefinition="A code specifying the status of the record of the family history of a specific family member." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-status")
     protected Enumeration<FamilyHistoryStatus> status;
@@ -606,7 +613,7 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * Describes why the family member's history is not available.
      */
-    @Child(name = "dataAbsentReason", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "dataAbsentReason", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="subject-unknown | withheld | unable-to-obtain | deferred", formalDefinition="Describes why the family member's history is not available." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-absent-reason")
     protected CodeableConcept dataAbsentReason;
@@ -614,7 +621,7 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * The person who this history concerns.
      */
-    @Child(name = "patient", type = {Patient.class}, order=4, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient history is about", formalDefinition="The person who this history concerns." )
     protected Reference patient;
 
@@ -626,21 +633,21 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * The date (and possibly time) when the family member history was recorded or last updated.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "date", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When history was recorded or last updated", formalDefinition="The date (and possibly time) when the family member history was recorded or last updated." )
     protected DateTimeType date;
 
     /**
      * This will either be a name or a description; e.g. "Aunt Susan", "my cousin with the red hair".
      */
-    @Child(name = "name", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "name", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The family member described", formalDefinition="This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\"." )
     protected StringType name;
 
     /**
      * The type of relationship this person has to the patient (father, mother, brother etc.).
      */
-    @Child(name = "relationship", type = {CodeableConcept.class}, order=7, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "relationship", type = {CodeableConcept.class}, order=8, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Relationship to the subject", formalDefinition="The type of relationship this person has to the patient (father, mother, brother etc.)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-FamilyMember")
     protected CodeableConcept relationship;
@@ -648,7 +655,7 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
      */
-    @Child(name = "gender", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "gender", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/administrative-gender")
     protected Enumeration<AdministrativeGender> gender;
@@ -656,35 +663,35 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * The actual or approximate date of birth of the relative.
      */
-    @Child(name = "born", type = {Period.class, DateType.class, StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "born", type = {Period.class, DateType.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="(approximate) date of birth", formalDefinition="The actual or approximate date of birth of the relative." )
     protected Type born;
 
     /**
      * The age of the relative at the time the family member history is recorded.
      */
-    @Child(name = "age", type = {Age.class, Range.class, StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "age", type = {Age.class, Range.class, StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="(approximate) age", formalDefinition="The age of the relative at the time the family member history is recorded." )
     protected Type age;
 
     /**
      * If true, indicates that the age value specified is an estimated value.
      */
-    @Child(name = "estimatedAge", type = {BooleanType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "estimatedAge", type = {BooleanType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Age is estimated?", formalDefinition="If true, indicates that the age value specified is an estimated value." )
     protected BooleanType estimatedAge;
 
     /**
      * Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.
      */
-    @Child(name = "deceased", type = {BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "deceased", type = {BooleanType.class, Age.class, Range.class, DateType.class, StringType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Dead? How old/when?", formalDefinition="Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record." )
     protected Type deceased;
 
     /**
      * Describes why the family member history occurred in coded or textual form.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was family member history performed?", formalDefinition="Describes why the family member history occurred in coded or textual form." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
     protected List<CodeableConcept> reasonCode;
@@ -692,7 +699,7 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class, AllergyIntolerance.class, QuestionnaireResponse.class, DiagnosticReport.class, DocumentReference.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, AllergyIntolerance.class, QuestionnaireResponse.class, DiagnosticReport.class, DocumentReference.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was family member history performed?", formalDefinition="Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event." )
     protected List<Reference> reasonReference;
     /**
@@ -704,18 +711,18 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
      */
-    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="General note about related person", formalDefinition="This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible." )
     protected List<Annotation> note;
 
     /**
      * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
      */
-    @Child(name = "condition", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "condition", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = 1058161761L;
+    private static final long serialVersionUID = -1047805854L;
 
   /**
    * Constructor
@@ -788,61 +795,122 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #instantiates} (A protocol or questionnaire that was adhered to in whole or in part by this event.)
+     * @return {@link #instantiatesCanonical} (The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
      */
-    public List<UriType> getInstantiates() { 
-      if (this.instantiates == null)
-        this.instantiates = new ArrayList<UriType>();
-      return this.instantiates;
+    public List<CanonicalType> getInstantiatesCanonical() { 
+      if (this.instantiatesCanonical == null)
+        this.instantiatesCanonical = new ArrayList<CanonicalType>();
+      return this.instantiatesCanonical;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public FamilyMemberHistory setInstantiates(List<UriType> theInstantiates) { 
-      this.instantiates = theInstantiates;
+    public FamilyMemberHistory setInstantiatesCanonical(List<CanonicalType> theInstantiatesCanonical) { 
+      this.instantiatesCanonical = theInstantiatesCanonical;
       return this;
     }
 
-    public boolean hasInstantiates() { 
-      if (this.instantiates == null)
+    public boolean hasInstantiatesCanonical() { 
+      if (this.instantiatesCanonical == null)
         return false;
-      for (UriType item : this.instantiates)
+      for (CanonicalType item : this.instantiatesCanonical)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #instantiates} (A protocol or questionnaire that was adhered to in whole or in part by this event.)
+     * @return {@link #instantiatesCanonical} (The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
      */
-    public UriType addInstantiatesElement() {//2 
-      UriType t = new UriType();
-      if (this.instantiates == null)
-        this.instantiates = new ArrayList<UriType>();
-      this.instantiates.add(t);
+    public CanonicalType addInstantiatesCanonicalElement() {//2 
+      CanonicalType t = new CanonicalType();
+      if (this.instantiatesCanonical == null)
+        this.instantiatesCanonical = new ArrayList<CanonicalType>();
+      this.instantiatesCanonical.add(t);
       return t;
     }
 
     /**
-     * @param value {@link #instantiates} (A protocol or questionnaire that was adhered to in whole or in part by this event.)
+     * @param value {@link #instantiatesCanonical} (The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
      */
-    public FamilyMemberHistory addInstantiates(String value) { //1
-      UriType t = new UriType();
+    public FamilyMemberHistory addInstantiatesCanonical(String value) { //1
+      CanonicalType t = new CanonicalType();
       t.setValue(value);
-      if (this.instantiates == null)
-        this.instantiates = new ArrayList<UriType>();
-      this.instantiates.add(t);
+      if (this.instantiatesCanonical == null)
+        this.instantiatesCanonical = new ArrayList<CanonicalType>();
+      this.instantiatesCanonical.add(t);
       return this;
     }
 
     /**
-     * @param value {@link #instantiates} (A protocol or questionnaire that was adhered to in whole or in part by this event.)
+     * @param value {@link #instantiatesCanonical} (The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
      */
-    public boolean hasInstantiates(String value) { 
-      if (this.instantiates == null)
+    public boolean hasInstantiatesCanonical(String value) { 
+      if (this.instantiatesCanonical == null)
         return false;
-      for (UriType v : this.instantiates)
+      for (CanonicalType v : this.instantiatesCanonical)
+        if (v.getValue().equals(value)) // canonical(PlanDefinition|Questionnaire)
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #instantiatesUri} (The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
+     */
+    public List<UriType> getInstantiatesUri() { 
+      if (this.instantiatesUri == null)
+        this.instantiatesUri = new ArrayList<UriType>();
+      return this.instantiatesUri;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public FamilyMemberHistory setInstantiatesUri(List<UriType> theInstantiatesUri) { 
+      this.instantiatesUri = theInstantiatesUri;
+      return this;
+    }
+
+    public boolean hasInstantiatesUri() { 
+      if (this.instantiatesUri == null)
+        return false;
+      for (UriType item : this.instantiatesUri)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #instantiatesUri} (The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
+     */
+    public UriType addInstantiatesUriElement() {//2 
+      UriType t = new UriType();
+      if (this.instantiatesUri == null)
+        this.instantiatesUri = new ArrayList<UriType>();
+      this.instantiatesUri.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #instantiatesUri} (The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
+     */
+    public FamilyMemberHistory addInstantiatesUri(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
+      if (this.instantiatesUri == null)
+        this.instantiatesUri = new ArrayList<UriType>();
+      this.instantiatesUri.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #instantiatesUri} (The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.)
+     */
+    public boolean hasInstantiatesUri(String value) { 
+      if (this.instantiatesUri == null)
+        return false;
+      for (UriType v : this.instantiatesUri)
         if (v.getValue().equals(value)) // uri
           return true;
       return false;
@@ -1630,7 +1698,8 @@ public class FamilyMemberHistory extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("instantiates", "uri", "A protocol or questionnaire that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("instantiatesCanonical", "canonical(PlanDefinition|Questionnaire)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
+        children.add(new Property("instantiatesUri", "uri", "The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri));
         children.add(new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, 1, status));
         children.add(new Property("dataAbsentReason", "CodeableConcept", "Describes why the family member's history is not available.", 0, 1, dataAbsentReason));
         children.add(new Property("patient", "Reference(Patient)", "The person who this history concerns.", 0, 1, patient));
@@ -1652,7 +1721,8 @@ public class FamilyMemberHistory extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "A protocol or questionnaire that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical(PlanDefinition|Questionnaire)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
+        case -1926393373: /*instantiatesUri*/  return new Property("instantiatesUri", "uri", "The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri);
         case -892481550: /*status*/  return new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, 1, status);
         case 1034315687: /*dataAbsentReason*/  return new Property("dataAbsentReason", "CodeableConcept", "Describes why the family member's history is not available.", 0, 1, dataAbsentReason);
         case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The person who this history concerns.", 0, 1, patient);
@@ -1691,7 +1761,8 @@ public class FamilyMemberHistory extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // UriType
+        case 8911915: /*instantiatesCanonical*/ return this.instantiatesCanonical == null ? new Base[0] : this.instantiatesCanonical.toArray(new Base[this.instantiatesCanonical.size()]); // CanonicalType
+        case -1926393373: /*instantiatesUri*/ return this.instantiatesUri == null ? new Base[0] : this.instantiatesUri.toArray(new Base[this.instantiatesUri.size()]); // UriType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FamilyHistoryStatus>
         case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
@@ -1718,8 +1789,11 @@ public class FamilyMemberHistory extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
-        case -246883639: // instantiates
-          this.getInstantiates().add(castToUri(value)); // UriType
+        case 8911915: // instantiatesCanonical
+          this.getInstantiatesCanonical().add(castToCanonical(value)); // CanonicalType
+          return value;
+        case -1926393373: // instantiatesUri
+          this.getInstantiatesUri().add(castToUri(value)); // UriType
           return value;
         case -892481550: // status
           value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
@@ -1777,8 +1851,10 @@ public class FamilyMemberHistory extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("instantiates")) {
-          this.getInstantiates().add(castToUri(value));
+        } else if (name.equals("instantiatesCanonical")) {
+          this.getInstantiatesCanonical().add(castToCanonical(value));
+        } else if (name.equals("instantiatesUri")) {
+          this.getInstantiatesUri().add(castToUri(value));
         } else if (name.equals("status")) {
           value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
@@ -1820,7 +1896,8 @@ public class FamilyMemberHistory extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -246883639:  return addInstantiatesElement();
+        case 8911915:  return addInstantiatesCanonicalElement();
+        case -1926393373:  return addInstantiatesUriElement();
         case -892481550:  return getStatusElement();
         case 1034315687:  return getDataAbsentReason(); 
         case -791418107:  return getPatient(); 
@@ -1848,7 +1925,8 @@ public class FamilyMemberHistory extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -246883639: /*instantiates*/ return new String[] {"uri"};
+        case 8911915: /*instantiatesCanonical*/ return new String[] {"canonical"};
+        case -1926393373: /*instantiatesUri*/ return new String[] {"uri"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 1034315687: /*dataAbsentReason*/ return new String[] {"CodeableConcept"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
@@ -1874,8 +1952,11 @@ public class FamilyMemberHistory extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("instantiates")) {
-          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.instantiates");
+        else if (name.equals("instantiatesCanonical")) {
+          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.instantiatesCanonical");
+        }
+        else if (name.equals("instantiatesUri")) {
+          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.instantiatesUri");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.status");
@@ -1977,10 +2058,15 @@ public class FamilyMemberHistory extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        if (instantiates != null) {
-          dst.instantiates = new ArrayList<UriType>();
-          for (UriType i : instantiates)
-            dst.instantiates.add(i.copy());
+        if (instantiatesCanonical != null) {
+          dst.instantiatesCanonical = new ArrayList<CanonicalType>();
+          for (CanonicalType i : instantiatesCanonical)
+            dst.instantiatesCanonical.add(i.copy());
+        };
+        if (instantiatesUri != null) {
+          dst.instantiatesUri = new ArrayList<UriType>();
+          for (UriType i : instantiatesUri)
+            dst.instantiatesUri.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
         dst.dataAbsentReason = dataAbsentReason == null ? null : dataAbsentReason.copy();
@@ -2027,13 +2113,14 @@ public class FamilyMemberHistory extends DomainResource {
         if (!(other_ instanceof FamilyMemberHistory))
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other_;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
-           && compareDeep(status, o.status, true) && compareDeep(dataAbsentReason, o.dataAbsentReason, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true) && compareDeep(name, o.name, true)
-           && compareDeep(relationship, o.relationship, true) && compareDeep(gender, o.gender, true) && compareDeep(born, o.born, true)
-           && compareDeep(age, o.age, true) && compareDeep(estimatedAge, o.estimatedAge, true) && compareDeep(deceased, o.deceased, true)
-           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(note, o.note, true) && compareDeep(condition, o.condition, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(instantiatesCanonical, o.instantiatesCanonical, true)
+           && compareDeep(instantiatesUri, o.instantiatesUri, true) && compareDeep(status, o.status, true)
+           && compareDeep(dataAbsentReason, o.dataAbsentReason, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(date, o.date, true) && compareDeep(name, o.name, true) && compareDeep(relationship, o.relationship, true)
+           && compareDeep(gender, o.gender, true) && compareDeep(born, o.born, true) && compareDeep(age, o.age, true)
+           && compareDeep(estimatedAge, o.estimatedAge, true) && compareDeep(deceased, o.deceased, true) && compareDeep(reasonCode, o.reasonCode, true)
+           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(note, o.note, true) && compareDeep(condition, o.condition, true)
+          ;
       }
 
       @Override
@@ -2043,15 +2130,16 @@ public class FamilyMemberHistory extends DomainResource {
         if (!(other_ instanceof FamilyMemberHistory))
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other_;
-        return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(date, o.date, true)
-           && compareValues(name, o.name, true) && compareValues(gender, o.gender, true) && compareValues(estimatedAge, o.estimatedAge, true)
-          ;
+        return compareValues(instantiatesUri, o.instantiatesUri, true) && compareValues(status, o.status, true)
+           && compareValues(date, o.date, true) && compareValues(name, o.name, true) && compareValues(gender, o.gender, true)
+           && compareValues(estimatedAge, o.estimatedAge, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, status
-          , dataAbsentReason, patient, date, name, relationship, gender, born, age, estimatedAge
-          , deceased, reasonCode, reasonReference, note, condition);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiatesCanonical
+          , instantiatesUri, status, dataAbsentReason, patient, date, name, relationship
+          , gender, born, age, estimatedAge, deceased, reasonCode, reasonReference, note
+          , condition);
       }
 
   @Override
@@ -2098,26 +2186,6 @@ public class FamilyMemberHistory extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>instantiates</b>
-   * <p>
-   * Description: <b>Instantiates protocol or definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>FamilyMemberHistory.instantiates</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="instantiates", path="FamilyMemberHistory.instantiates", description="Instantiates protocol or definition", type="uri" )
-  public static final String SP_INSTANTIATES = "instantiates";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>instantiates</b>
-   * <p>
-   * Description: <b>Instantiates protocol or definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>FamilyMemberHistory.instantiates</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam INSTANTIATES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_INSTANTIATES);
 
  /**
    * Search parameter: <b>code</b>
@@ -2184,6 +2252,52 @@ public class FamilyMemberHistory extends DomainResource {
    * the path value of "<b>FamilyMemberHistory:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("FamilyMemberHistory:patient").toLocked();
+
+ /**
+   * Search parameter: <b>instantiates-canonical</b>
+   * <p>
+   * Description: <b>Instantiates FHIR protocol or definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>FamilyMemberHistory.instantiatesCanonical</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="instantiates-canonical", path="FamilyMemberHistory.instantiatesCanonical", description="Instantiates FHIR protocol or definition", type="reference", target={PlanDefinition.class, Questionnaire.class } )
+  public static final String SP_INSTANTIATES_CANONICAL = "instantiates-canonical";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>instantiates-canonical</b>
+   * <p>
+   * Description: <b>Instantiates FHIR protocol or definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>FamilyMemberHistory.instantiatesCanonical</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INSTANTIATES_CANONICAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INSTANTIATES_CANONICAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>FamilyMemberHistory:instantiates-canonical</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSTANTIATES_CANONICAL = new ca.uhn.fhir.model.api.Include("FamilyMemberHistory:instantiates-canonical").toLocked();
+
+ /**
+   * Search parameter: <b>instantiates-uri</b>
+   * <p>
+   * Description: <b>Instantiates external protocol or definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>FamilyMemberHistory.instantiatesUri</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="instantiates-uri", path="FamilyMemberHistory.instantiatesUri", description="Instantiates external protocol or definition", type="uri" )
+  public static final String SP_INSTANTIATES_URI = "instantiates-uri";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>instantiates-uri</b>
+   * <p>
+   * Description: <b>Instantiates external protocol or definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>FamilyMemberHistory.instantiatesUri</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam INSTANTIATES_URI = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_INSTANTIATES_URI);
 
  /**
    * Search parameter: <b>relationship</b>

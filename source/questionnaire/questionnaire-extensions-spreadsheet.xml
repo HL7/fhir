@@ -4621,7 +4621,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s126"><Data ss:Type="String">optionPrefix</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item.option</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item.answerOption</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4649,7 +4649,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s126"><Data ss:Type="String">optionExclusive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item.option</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item.answerOption</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4664,7 +4664,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Option is exclusive</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">If true, indicates that if this option is selected, no other options may be selected, even if the item is a repeating question.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">If true, indicates that if this answerOption is selected, no other possible answers may be selected, even if the item is a repeating question.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4677,7 +4677,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s126"><Data ss:Type="String">ordinalValue</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item.option.valueCoding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Questionnaire.item.answerOption.valueCoding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6517,7 +6517,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s106"><Data ss:Type="String">ChoiceListOrientation</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Direction in which lists of question options should be displayed</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Direction in which lists of possible answers should be displayed</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s139"/>

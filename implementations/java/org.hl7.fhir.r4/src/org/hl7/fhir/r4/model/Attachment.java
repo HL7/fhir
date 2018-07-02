@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -53,6 +53,7 @@ public class Attachment extends Type implements ICompositeType {
      */
     @Child(name = "contentType", type = {CodeType.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Mime type of the content, with charset etc.", formalDefinition="Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected CodeType contentType;
 
     /**

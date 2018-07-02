@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class StructureDefinition extends MetadataResource {
 
     public enum StructureDefinitionKind {
         /**
-         * A primitive type that has a value and an extension. These can be used throughout Resource and extension definitions. Only the base specification can define primitive types.
+         * A primitive type that has a value and an extension. These can be used throughout complex datatype, Resource and extension definitions. Only the base specification can define primitive types.
          */
         PRIMITIVETYPE, 
         /**
-         * A  complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions, and in logical models.
+         * A  complex structure that defines a set of data elements that is suitable for use in 'resources'. The base specification defines a number of complex types, and other specifications can define additional types. These structures do not have a maintained identity
          */
         COMPLEXTYPE, 
         /**
-         * A resource defined by the FHIR specification.
+         * A 'resource' - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other 'resources' can be defined in additional specifications (though these will not be recognised as 'resources' by the FHIR specification (i.e. they do not get end-points etc, or act as the targets of references in FHIR defined resources - though other specificatiosn can treat them this way)
          */
         RESOURCE, 
         /**
@@ -1403,11 +1403,11 @@ public class StructureDefinition extends MetadataResource {
     protected MarkdownType copyright;
 
     /**
-     * A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.
+     * A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.
      */
     @Child(name = "keyword", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/profile-code")
+    @Description(shortDefinition="Assist with indexing and finding", formalDefinition="A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/definition-use")
     protected List<Coding> keyword;
 
     /**
@@ -2249,7 +2249,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #keyword} (A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.)
+     * @return {@link #keyword} (A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.)
      */
     public List<Coding> getKeyword() { 
       if (this.keyword == null)
@@ -2815,7 +2815,7 @@ public class StructureDefinition extends MetadataResource {
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the structure definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("purpose", "markdown", "Explanation of why this structure definition is needed and why it has been designed as it has.", 0, 1, purpose));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure definition.", 0, 1, copyright));
-        children.add(new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.", 0, java.lang.Integer.MAX_VALUE, keyword));
+        children.add(new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.", 0, java.lang.Integer.MAX_VALUE, keyword));
         children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.", 0, 1, fhirVersion));
         children.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         children.add(new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, 1, kind));
@@ -2847,7 +2847,7 @@ public class StructureDefinition extends MetadataResource {
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the structure definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explanation of why this structure definition is needed and why it has been designed as it has.", 0, 1, purpose);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure definition.", 0, 1, copyright);
-        case -814408215: /*keyword*/  return new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates.", 0, java.lang.Integer.MAX_VALUE, keyword);
+        case -814408215: /*keyword*/  return new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.", 0, java.lang.Integer.MAX_VALUE, keyword);
         case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.", 0, 1, fhirVersion);
         case 837556430: /*mapping*/  return new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping);
         case 3292052: /*kind*/  return new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, 1, kind);
@@ -3371,7 +3371,7 @@ public class StructureDefinition extends MetadataResource {
    * <p>
    * Description: <b>A vocabulary binding reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>StructureDefinition.snapshot.element.binding.valueSet[x]</b><br>
+   * Path: <b>StructureDefinition.snapshot.element.binding.valueSet</b><br>
    * </p>
    */
   @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.valueSet", description="A vocabulary binding reference", type="reference", target={ValueSet.class } )
@@ -3381,7 +3381,7 @@ public class StructureDefinition extends MetadataResource {
    * <p>
    * Description: <b>A vocabulary binding reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>StructureDefinition.snapshot.element.binding.valueSet[x]</b><br>
+   * Path: <b>StructureDefinition.snapshot.element.binding.valueSet</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam VALUESET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_VALUESET);

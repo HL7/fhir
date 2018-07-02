@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1057,11 +1057,11 @@ public class Condition extends DomainResource {
     protected Type abatement;
 
     /**
-     * The date on which the existence of the Condition was first asserted or acknowledged.
+     * The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.
      */
-    @Child(name = "assertedDate", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Date record was believed accurate", formalDefinition="The date on which the existence of the Condition was first asserted or acknowledged." )
-    protected DateTimeType assertedDate;
+    @Child(name = "recordedDate", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Date record was first recorded", formalDefinition="The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date." )
+    protected DateTimeType recordedDate;
 
     /**
      * Individual who recorded the record and takes responsibility for its content.
@@ -1108,7 +1108,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 874829326L;
+    private static final long serialVersionUID = -1283965149L;
 
   /**
    * Constructor
@@ -1701,50 +1701,50 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #assertedDate} (The date on which the existence of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
+     * @return {@link #recordedDate} (The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public DateTimeType getAssertedDateElement() { 
-      if (this.assertedDate == null)
+    public DateTimeType getRecordedDateElement() { 
+      if (this.recordedDate == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Condition.assertedDate");
+          throw new Error("Attempt to auto-create Condition.recordedDate");
         else if (Configuration.doAutoCreate())
-          this.assertedDate = new DateTimeType(); // bb
-      return this.assertedDate;
+          this.recordedDate = new DateTimeType(); // bb
+      return this.recordedDate;
     }
 
-    public boolean hasAssertedDateElement() { 
-      return this.assertedDate != null && !this.assertedDate.isEmpty();
+    public boolean hasRecordedDateElement() { 
+      return this.recordedDate != null && !this.recordedDate.isEmpty();
     }
 
-    public boolean hasAssertedDate() { 
-      return this.assertedDate != null && !this.assertedDate.isEmpty();
+    public boolean hasRecordedDate() { 
+      return this.recordedDate != null && !this.recordedDate.isEmpty();
     }
 
     /**
-     * @param value {@link #assertedDate} (The date on which the existence of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
+     * @param value {@link #recordedDate} (The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public Condition setAssertedDateElement(DateTimeType value) { 
-      this.assertedDate = value;
+    public Condition setRecordedDateElement(DateTimeType value) { 
+      this.recordedDate = value;
       return this;
     }
 
     /**
-     * @return The date on which the existence of the Condition was first asserted or acknowledged.
+     * @return The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.
      */
-    public Date getAssertedDate() { 
-      return this.assertedDate == null ? null : this.assertedDate.getValue();
+    public Date getRecordedDate() { 
+      return this.recordedDate == null ? null : this.recordedDate.getValue();
     }
 
     /**
-     * @param value The date on which the existence of the Condition was first asserted or acknowledged.
+     * @param value The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.
      */
-    public Condition setAssertedDate(Date value) { 
+    public Condition setRecordedDate(Date value) { 
       if (value == null)
-        this.assertedDate = null;
+        this.recordedDate = null;
       else {
-        if (this.assertedDate == null)
-          this.assertedDate = new DateTimeType();
-        this.assertedDate.setValue(value);
+        if (this.recordedDate == null)
+          this.recordedDate = new DateTimeType();
+        this.recordedDate.setValue(value);
       }
       return this;
     }
@@ -1999,7 +1999,7 @@ public class Condition extends DomainResource {
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter during which the condition was first asserted.", 0, 1, context));
         children.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, 1, onset));
         children.add(new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement));
-        children.add(new Property("assertedDate", "dateTime", "The date on which the existence of the Condition was first asserted or acknowledged.", 0, 1, assertedDate));
+        children.add(new Property("recordedDate", "dateTime", "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.", 0, 1, recordedDate));
         children.add(new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder));
         children.add(new Property("asserter", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "Individual who is making the condition statement.", 0, 1, asserter));
         children.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
@@ -2033,7 +2033,7 @@ public class Condition extends DomainResource {
         case -922036656: /*abatementPeriod*/  return new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement);
         case 1218906830: /*abatementRange*/  return new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement);
         case -822296416: /*abatementString*/  return new Property("abatement[x]", "dateTime|Age|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, 1, abatement);
-        case -174231629: /*assertedDate*/  return new Property("assertedDate", "dateTime", "The date on which the existence of the Condition was first asserted or acknowledged.", 0, 1, assertedDate);
+        case -1952893826: /*recordedDate*/  return new Property("recordedDate", "dateTime", "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date.", 0, 1, recordedDate);
         case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder);
         case -373242253: /*asserter*/  return new Property("asserter", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "Individual who is making the condition statement.", 0, 1, asserter);
         case 109757182: /*stage*/  return new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage);
@@ -2058,7 +2058,7 @@ public class Condition extends DomainResource {
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
         case -921554001: /*abatement*/ return this.abatement == null ? new Base[0] : new Base[] {this.abatement}; // Type
-        case -174231629: /*assertedDate*/ return this.assertedDate == null ? new Base[0] : new Base[] {this.assertedDate}; // DateTimeType
+        case -1952893826: /*recordedDate*/ return this.recordedDate == null ? new Base[0] : new Base[] {this.recordedDate}; // DateTimeType
         case -799233858: /*recorder*/ return this.recorder == null ? new Base[0] : new Base[] {this.recorder}; // Reference
         case -373242253: /*asserter*/ return this.asserter == null ? new Base[0] : new Base[] {this.asserter}; // Reference
         case 109757182: /*stage*/ return this.stage == null ? new Base[0] : this.stage.toArray(new Base[this.stage.size()]); // ConditionStageComponent
@@ -2107,8 +2107,8 @@ public class Condition extends DomainResource {
         case -921554001: // abatement
           this.abatement = castToType(value); // Type
           return value;
-        case -174231629: // assertedDate
-          this.assertedDate = castToDateTime(value); // DateTimeType
+        case -1952893826: // recordedDate
+          this.recordedDate = castToDateTime(value); // DateTimeType
           return value;
         case -799233858: // recorder
           this.recorder = castToReference(value); // Reference
@@ -2156,8 +2156,8 @@ public class Condition extends DomainResource {
           this.onset = castToType(value); // Type
         } else if (name.equals("abatement[x]")) {
           this.abatement = castToType(value); // Type
-        } else if (name.equals("assertedDate")) {
-          this.assertedDate = castToDateTime(value); // DateTimeType
+        } else if (name.equals("recordedDate")) {
+          this.recordedDate = castToDateTime(value); // DateTimeType
         } else if (name.equals("recorder")) {
           this.recorder = castToReference(value); // Reference
         } else if (name.equals("asserter")) {
@@ -2189,7 +2189,7 @@ public class Condition extends DomainResource {
         case 105901603:  return getOnset(); 
         case -584196495:  return getAbatement(); 
         case -921554001:  return getAbatement(); 
-        case -174231629:  return getAssertedDateElement();
+        case -1952893826:  return getRecordedDateElement();
         case -799233858:  return getRecorder(); 
         case -373242253:  return getAsserter(); 
         case 109757182:  return addStage(); 
@@ -2214,7 +2214,7 @@ public class Condition extends DomainResource {
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 105901603: /*onset*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
         case -921554001: /*abatement*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
-        case -174231629: /*assertedDate*/ return new String[] {"dateTime"};
+        case -1952893826: /*recordedDate*/ return new String[] {"dateTime"};
         case -799233858: /*recorder*/ return new String[] {"Reference"};
         case -373242253: /*asserter*/ return new String[] {"Reference"};
         case 109757182: /*stage*/ return new String[] {};
@@ -2298,8 +2298,8 @@ public class Condition extends DomainResource {
           this.abatement = new StringType();
           return this.abatement;
         }
-        else if (name.equals("assertedDate")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Condition.assertedDate");
+        else if (name.equals("recordedDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Condition.recordedDate");
         }
         else if (name.equals("recorder")) {
           this.recorder = new Reference();
@@ -2353,7 +2353,7 @@ public class Condition extends DomainResource {
         dst.context = context == null ? null : context.copy();
         dst.onset = onset == null ? null : onset.copy();
         dst.abatement = abatement == null ? null : abatement.copy();
-        dst.assertedDate = assertedDate == null ? null : assertedDate.copy();
+        dst.recordedDate = recordedDate == null ? null : recordedDate.copy();
         dst.recorder = recorder == null ? null : recorder.copy();
         dst.asserter = asserter == null ? null : asserter.copy();
         if (stage != null) {
@@ -2389,7 +2389,7 @@ public class Condition extends DomainResource {
            && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(category, o.category, true)
            && compareDeep(severity, o.severity, true) && compareDeep(code, o.code, true) && compareDeep(bodySite, o.bodySite, true)
            && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(onset, o.onset, true)
-           && compareDeep(abatement, o.abatement, true) && compareDeep(assertedDate, o.assertedDate, true)
+           && compareDeep(abatement, o.abatement, true) && compareDeep(recordedDate, o.recordedDate, true)
            && compareDeep(recorder, o.recorder, true) && compareDeep(asserter, o.asserter, true) && compareDeep(stage, o.stage, true)
            && compareDeep(evidence, o.evidence, true) && compareDeep(note, o.note, true);
       }
@@ -2402,13 +2402,13 @@ public class Condition extends DomainResource {
           return false;
         Condition o = (Condition) other_;
         return compareValues(clinicalStatus, o.clinicalStatus, true) && compareValues(verificationStatus, o.verificationStatus, true)
-           && compareValues(assertedDate, o.assertedDate, true);
+           && compareValues(recordedDate, o.recordedDate, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, clinicalStatus
           , verificationStatus, category, severity, code, bodySite, subject, context, onset
-          , abatement, assertedDate, recorder, asserter, stage, evidence, note);
+          , abatement, recordedDate, recorder, asserter, stage, evidence, note);
       }
 
   @Override
@@ -2501,6 +2501,26 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ONSET_INFO = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ONSET_INFO);
+
+ /**
+   * Search parameter: <b>recorded-date</b>
+   * <p>
+   * Description: <b>Date record was first recorded</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Condition.recordedDate</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="recorded-date", path="Condition.recordedDate", description="Date record was first recorded", type="date" )
+  public static final String SP_RECORDED_DATE = "recorded-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>recorded-date</b>
+   * <p>
+   * Description: <b>Date record was first recorded</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Condition.recordedDate</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam RECORDED_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_RECORDED_DATE);
 
  /**
    * Search parameter: <b>code</b>
@@ -2820,7 +2840,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.abatement[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="abatement-age", path="Condition.abatement.as(Age) | Condition.abatement.as(Range) | Condition.abatement.as(Age)", description="Abatement as age or age range", type="quantity" )
+  @SearchParamDefinition(name="abatement-age", path="Condition.abatement.as(Age) | Condition.abatement.as(Range)", description="Abatement as age or age range", type="quantity" )
   public static final String SP_ABATEMENT_AGE = "abatement-age";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>abatement-age</b>
@@ -2831,26 +2851,6 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.QuantityClientParam ABATEMENT_AGE = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_ABATEMENT_AGE);
-
- /**
-   * Search parameter: <b>asserted-date</b>
-   * <p>
-   * Description: <b>Date record was believed accurate</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Condition.assertedDate</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="asserted-date", path="Condition.assertedDate", description="Date record was believed accurate", type="date" )
-  public static final String SP_ASSERTED_DATE = "asserted-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>asserted-date</b>
-   * <p>
-   * Description: <b>Date record was believed accurate</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Condition.assertedDate</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ASSERTED_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ASSERTED_DATE);
 
  /**
    * Search parameter: <b>category</b>

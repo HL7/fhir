@@ -536,7 +536,7 @@ public class QuestionnaireBuilder {
     QuestionnaireItemComponent result = group.addItem();
     if (vs != null) {
       if (vs.getExpansion() == null) {
-        result.setOptions(vs.getUrl());
+        result.setAnswerValueSet(vs.getUrl());
         ToolingExtensions.addControl(result, "lookup"); 
       } else {
         if (Utilities.noString(vs.getId())) {
@@ -549,7 +549,7 @@ public class QuestionnaireBuilder {
           vs.setPublisherElement(null);
           vs.setCopyrightElement(null);
         }
-        result.setOptions("#"+vs.getId());
+        result.setAnswerValueSet("#"+vs.getId());
       }
     }
   

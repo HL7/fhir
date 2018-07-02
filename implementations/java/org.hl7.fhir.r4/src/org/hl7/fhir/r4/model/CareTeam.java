@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -201,7 +201,7 @@ public class CareTeam extends DomainResource {
         /**
          * The specific person or organization who is participating/expected to participate in the care team.
          */
-        @Child(name = "member", type = {Practitioner.class, RelatedPerson.class, Patient.class, Organization.class, CareTeam.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "member", type = {Practitioner.class, PractitionerRole.class, RelatedPerson.class, Patient.class, Organization.class, CareTeam.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Who is involved", formalDefinition="The specific person or organization who is participating/expected to participate in the care team." )
         protected Reference member;
 
@@ -372,7 +372,7 @@ public class CareTeam extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care team, such as \"Primary care physician\", \"Trained social worker counselor\", \"Caregiver\", etc.", 0, 1, role));
-          children.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization|CareTeam)", "The specific person or organization who is participating/expected to participate in the care team.", 0, 1, member));
+          children.add(new Property("member", "Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Organization|CareTeam)", "The specific person or organization who is participating/expected to participate in the care team.", 0, 1, member));
           children.add(new Property("onBehalfOf", "Reference(Organization)", "The organization of the practitioner.", 0, 1, onBehalfOf));
           children.add(new Property("period", "Period", "Indicates when the specific member or organization did (or is intended to) come into effect and end.", 0, 1, period));
         }
@@ -381,7 +381,7 @@ public class CareTeam extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3506294: /*role*/  return new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care team, such as \"Primary care physician\", \"Trained social worker counselor\", \"Caregiver\", etc.", 0, 1, role);
-          case -1077769574: /*member*/  return new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization|CareTeam)", "The specific person or organization who is participating/expected to participate in the care team.", 0, 1, member);
+          case -1077769574: /*member*/  return new Property("member", "Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Organization|CareTeam)", "The specific person or organization who is participating/expected to participate in the care team.", 0, 1, member);
           case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Organization)", "The organization of the practitioner.", 0, 1, onBehalfOf);
           case -991726143: /*period*/  return new Property("period", "Period", "Indicates when the specific member or organization did (or is intended to) come into effect and end.", 0, 1, period);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -1814,7 +1814,7 @@ public class CareTeam extends DomainResource {
    * Path: <b>CareTeam.participant.member</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={CareTeam.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={CareTeam.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>

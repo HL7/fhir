@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -54,6 +54,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
      */
     @Child(name = "contentType", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="MimeType of the binary content", formalDefinition="MimeType of the binary content represented as a standard MimeType (BCP 13)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected CodeType contentType;
 
     /**

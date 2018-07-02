@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -82,6 +82,7 @@ public class Signature extends Type implements ICompositeType {
      */
     @Child(name = "targetFormat", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The technical format of the signed resources", formalDefinition="A mime type that indicates the technical format of the target resources signed by the signature." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected CodeType targetFormat;
 
     /**
@@ -89,6 +90,7 @@ public class Signature extends Type implements ICompositeType {
      */
     @Child(name = "sigFormat", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The technical format of the signature", formalDefinition="A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected CodeType sigFormat;
 
     /**

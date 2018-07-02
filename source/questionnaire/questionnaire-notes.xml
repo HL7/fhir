@@ -103,7 +103,7 @@ which provides details for the item. If a definition is provided, then the follo
 <li>required (from ElementDefinition.min)</li>
 <li>repeats (from ElementDefinition.max)</li>
 <li>maxLength (from ElementDefinition.maxLength)</li>
-<li>options (from ElementDefinition.binding)</li>
+<li>answerValueSet (from ElementDefinition.binding.valueSet)</li>
 </ul>
 <p>
 Any information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc. 
@@ -161,15 +161,15 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
 <a name="choices"></a>
 <h3>Permitted values for questions</h3>
 <p>
-Many questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the <code>item.options</code> or the
-<code>item.option</code> element.
+Many questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the <code>item.answerValueSet</code> or the
+<code>item.answerOption</code> element.
 </p>
 <p>
-The "option" mechanism is simplest - all options are listed in-line with the question using the <code>item.option</code> element.  Maintenance of the set of permitted question answers involves maintenance of
+The "answerOption" mechanism is simplest - all possible answers are listed in-line with the question using the <code>item.answerOption</code> element.  Maintenance of the set of permitted question answers involves maintenance of
 the questionnaire itself.
 </p>
 <p>
-The "options" mechanism is more sophisticated.  Rather than listing the options directly, the <code>item.options</code> element points to a <a href="valueset.html">ValueSet</a> resource.  This approach adds complexity for
+The "answerValueSet" mechanism is more sophisticated.  Rather than listing the possible answers directly, the <code>item.answerValueSet</code> element refers to a <a href="valueset.html">ValueSet</a> resource.  This approach adds complexity for
 questionnaires having a simple list of strings as choices for a question, but provides several benefits, including:
 </p>
 <ul>
@@ -182,7 +182,7 @@ questionnaires having a simple list of strings as choices for a question, but pr
 <p>
 In many cases, the set of code choices will be specific to a given questionnaire and should be maintained as part of the questionnaire.  In this case, the referenced
 ValueSet can be included as a <a href="references.html#contained">contained</a> resource.  All contained ValueSets are listed together and then are referenced by the
-individual questions as necessary.  Alternatively, the <code>item.options</code> element can reference the value set in a version-specific manner.  This ensures that the Questionnaire
+individual questions as necessary.  Alternatively, the <code>item.answerValueSet</code> element can reference the value set in a version-specific manner.  This ensures that the Questionnaire
 will not adopt a new version of the referenced value set without revising the Questionnaire to point to that new version - putting the author of the Questionnaire
 in control of any changes.
 </p>

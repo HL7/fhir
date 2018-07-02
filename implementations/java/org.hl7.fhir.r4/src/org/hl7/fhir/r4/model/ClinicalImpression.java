@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,15 +50,15 @@ public class ClinicalImpression extends DomainResource {
 
     public enum ClinicalImpressionStatus {
         /**
-         * The assessment is still on-going and results are not yet final.
+         * null
          */
-        DRAFT, 
+        INPROGRESS, 
         /**
-         * The assessment is done and the results are final.
+         * null
          */
         COMPLETED, 
         /**
-         * This assessment was never actually done and the record is erroneous (e.g. Wrong patient).
+         * null
          */
         ENTEREDINERROR, 
         /**
@@ -68,8 +68,8 @@ public class ClinicalImpression extends DomainResource {
         public static ClinicalImpressionStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
+        if ("in-progress".equals(codeString))
+          return INPROGRESS;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
@@ -81,7 +81,7 @@ public class ClinicalImpression extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case DRAFT: return "draft";
+            case INPROGRESS: return "in-progress";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
@@ -89,25 +89,25 @@ public class ClinicalImpression extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/clinical-impression-status";
-            case COMPLETED: return "http://hl7.org/fhir/clinical-impression-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/clinical-impression-status";
+            case INPROGRESS: return "http://hl7.org/fhir/event-status";
+            case COMPLETED: return "http://hl7.org/fhir/event-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/event-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case DRAFT: return "The assessment is still on-going and results are not yet final.";
-            case COMPLETED: return "The assessment is done and the results are final.";
-            case ENTEREDINERROR: return "This assessment was never actually done and the record is erroneous (e.g. Wrong patient).";
+            case INPROGRESS: return "";
+            case COMPLETED: return "";
+            case ENTEREDINERROR: return "";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case DRAFT: return "In progress";
-            case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered in Error";
+            case INPROGRESS: return "in-progress";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -118,8 +118,8 @@ public class ClinicalImpression extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("draft".equals(codeString))
-          return ClinicalImpressionStatus.DRAFT;
+        if ("in-progress".equals(codeString))
+          return ClinicalImpressionStatus.INPROGRESS;
         if ("completed".equals(codeString))
           return ClinicalImpressionStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
@@ -134,8 +134,8 @@ public class ClinicalImpression extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("draft".equals(codeString))
-          return new Enumeration<ClinicalImpressionStatus>(this, ClinicalImpressionStatus.DRAFT);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<ClinicalImpressionStatus>(this, ClinicalImpressionStatus.INPROGRESS);
         if ("completed".equals(codeString))
           return new Enumeration<ClinicalImpressionStatus>(this, ClinicalImpressionStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
@@ -143,8 +143,8 @@ public class ClinicalImpression extends DomainResource {
         throw new FHIRException("Unknown ClinicalImpressionStatus code '"+codeString+"'");
         }
     public String toCode(ClinicalImpressionStatus code) {
-      if (code == ClinicalImpressionStatus.DRAFT)
-        return "draft";
+      if (code == ClinicalImpressionStatus.INPROGRESS)
+        return "in-progress";
       if (code == ClinicalImpressionStatus.COMPLETED)
         return "completed";
       if (code == ClinicalImpressionStatus.ENTEREDINERROR)
@@ -711,27 +711,34 @@ public class ClinicalImpression extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | completed | entered-in-error", formalDefinition="Identifies the workflow status of the assessment." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-impression-status")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinicalimpression-status")
     protected Enumeration<ClinicalImpressionStatus> status;
+
+    /**
+     * Captures the reason for the current state of the ClinicalImpression.
+     */
+    @Child(name = "statusReason", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Reason for current status", formalDefinition="Captures the reason for the current state of the ClinicalImpression." )
+    protected CodeableConcept statusReason;
 
     /**
      * Categorizes the type of clinical assessment performed.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Kind of assessment performed", formalDefinition="Categorizes the type of clinical assessment performed." )
     protected CodeableConcept code;
 
     /**
      * A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.
      */
-    @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Why/how the assessment was performed", formalDefinition="A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it." )
     protected StringType description;
 
     /**
      * The patient or group of individuals assessed as part of this record.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=4, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=5, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient or group assessed", formalDefinition="The patient or group of individuals assessed as part of this record." )
     protected Reference subject;
 
@@ -743,7 +750,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * The encounter or episode of care this impression was created as part of.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter or Episode created from", formalDefinition="The encounter or episode of care this impression was created as part of." )
     protected Reference context;
 
@@ -755,21 +762,21 @@ public class ClinicalImpression extends DomainResource {
     /**
      * The point in time or period over which the subject was assessed.
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Time of assessment", formalDefinition="The point in time or period over which the subject was assessed." )
     protected Type effective;
 
     /**
      * Indicates when the documentation of the assessment was complete.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "date", type = {DateTimeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the assessment was documented", formalDefinition="Indicates when the documentation of the assessment was complete." )
     protected DateTimeType date;
 
     /**
      * The clinician performing the assessment.
      */
-    @Child(name = "assessor", type = {Practitioner.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "assessor", type = {Practitioner.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The clinician performing the assessment", formalDefinition="The clinician performing the assessment." )
     protected Reference assessor;
 
@@ -781,7 +788,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.
      */
-    @Child(name = "previous", type = {ClinicalImpression.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "previous", type = {ClinicalImpression.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Reference to last assessment", formalDefinition="A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes." )
     protected Reference previous;
 
@@ -793,7 +800,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * This a list of the relevant problems/conditions for a patient.
      */
-    @Child(name = "problem", type = {Condition.class, AllergyIntolerance.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "problem", type = {Condition.class, AllergyIntolerance.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Relevant impressions of patient state", formalDefinition="This a list of the relevant problems/conditions for a patient." )
     protected List<Reference> problem;
     /**
@@ -805,35 +812,35 @@ public class ClinicalImpression extends DomainResource {
     /**
      * One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.
      */
-    @Child(name = "investigation", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "investigation", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="One or more sets of investigations (signs, symptoms, etc.)", formalDefinition="One or more sets of investigations (signs, symptoms, etc.). The actual grouping of investigations varies greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes." )
     protected List<ClinicalImpressionInvestigationComponent> investigation;
 
     /**
      * Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.
      */
-    @Child(name = "protocol", type = {UriType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "protocol", type = {UriType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Clinical Protocol followed", formalDefinition="Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis." )
     protected List<UriType> protocol;
 
     /**
      * A text summary of the investigations and the diagnosis.
      */
-    @Child(name = "summary", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "summary", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Summary of the assessment", formalDefinition="A text summary of the investigations and the diagnosis." )
     protected StringType summary;
 
     /**
      * Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.
      */
-    @Child(name = "finding", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "finding", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Possible or likely findings and diagnoses", formalDefinition="Specific findings or diagnoses that was considered likely or relevant to ongoing treatment." )
     protected List<ClinicalImpressionFindingComponent> finding;
 
     /**
      * Estimate of likely outcome.
      */
-    @Child(name = "prognosisCodeableConcept", type = {CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "prognosisCodeableConcept", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Estimate of likely outcome", formalDefinition="Estimate of likely outcome." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinicalimpression-prognosis")
     protected List<CodeableConcept> prognosisCodeableConcept;
@@ -841,7 +848,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * RiskAssessment expressing likely outcome.
      */
-    @Child(name = "prognosisReference", type = {RiskAssessment.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "prognosisReference", type = {RiskAssessment.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="RiskAssessment expressing likely outcome", formalDefinition="RiskAssessment expressing likely outcome." )
     protected List<Reference> prognosisReference;
     /**
@@ -853,7 +860,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * Action taken as part of assessment procedure.
      */
-    @Child(name = "action", type = {ServiceRequest.class, Procedure.class, MedicationRequest.class, Appointment.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "action", type = {ServiceRequest.class, Procedure.class, MedicationRequest.class, Appointment.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Action taken as part of assessment procedure", formalDefinition="Action taken as part of assessment procedure." )
     protected List<Reference> action;
     /**
@@ -865,11 +872,11 @@ public class ClinicalImpression extends DomainResource {
     /**
      * Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.
      */
-    @Child(name = "note", type = {Annotation.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the ClinicalImpression", formalDefinition="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -1626670747L;
+    private static final long serialVersionUID = 1125002658L;
 
   /**
    * Constructor
@@ -982,6 +989,30 @@ public class ClinicalImpression extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ClinicalImpressionStatus>(new ClinicalImpressionStatusEnumFactory());
         this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #statusReason} (Captures the reason for the current state of the ClinicalImpression.)
+     */
+    public CodeableConcept getStatusReason() { 
+      if (this.statusReason == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ClinicalImpression.statusReason");
+        else if (Configuration.doAutoCreate())
+          this.statusReason = new CodeableConcept(); // cc
+      return this.statusReason;
+    }
+
+    public boolean hasStatusReason() { 
+      return this.statusReason != null && !this.statusReason.isEmpty();
+    }
+
+    /**
+     * @param value {@link #statusReason} (Captures the reason for the current state of the ClinicalImpression.)
+     */
+    public ClinicalImpression setStatusReason(CodeableConcept value) { 
+      this.statusReason = value;
       return this;
     }
 
@@ -1851,6 +1882,7 @@ public class ClinicalImpression extends DomainResource {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "Identifies the workflow status of the assessment.", 0, 1, status));
+        children.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the ClinicalImpression.", 0, 1, statusReason));
         children.add(new Property("code", "CodeableConcept", "Categorizes the type of clinical assessment performed.", 0, 1, code));
         children.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.", 0, 1, description));
         children.add(new Property("subject", "Reference(Patient|Group)", "The patient or group of individuals assessed as part of this record.", 0, 1, subject));
@@ -1875,6 +1907,7 @@ public class ClinicalImpression extends DomainResource {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this clinical impression by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "Identifies the workflow status of the assessment.", 0, 1, status);
+        case 2051346646: /*statusReason*/  return new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the ClinicalImpression.", 0, 1, statusReason);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Categorizes the type of clinical assessment performed.", 0, 1, code);
         case -1724546052: /*description*/  return new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it performed, and what patient events/status prompted it.", 0, 1, description);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient or group of individuals assessed as part of this record.", 0, 1, subject);
@@ -1905,6 +1938,7 @@ public class ClinicalImpression extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ClinicalImpressionStatus>
+        case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
@@ -1936,6 +1970,9 @@ public class ClinicalImpression extends DomainResource {
         case -892481550: // status
           value = new ClinicalImpressionStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ClinicalImpressionStatus>
+          return value;
+        case 2051346646: // statusReason
+          this.statusReason = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -2000,6 +2037,8 @@ public class ClinicalImpression extends DomainResource {
         } else if (name.equals("status")) {
           value = new ClinicalImpressionStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ClinicalImpressionStatus>
+        } else if (name.equals("statusReason")) {
+          this.statusReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("description")) {
@@ -2044,6 +2083,7 @@ public class ClinicalImpression extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -892481550:  return getStatusElement();
+        case 2051346646:  return getStatusReason(); 
         case 3059181:  return getCode(); 
         case -1724546052:  return getDescriptionElement();
         case -1867885268:  return getSubject(); 
@@ -2072,6 +2112,7 @@ public class ClinicalImpression extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
@@ -2101,6 +2142,10 @@ public class ClinicalImpression extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type ClinicalImpression.status");
+        }
+        else if (name.equals("statusReason")) {
+          this.statusReason = new CodeableConcept();
+          return this.statusReason;
         }
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
@@ -2181,6 +2226,7 @@ public class ClinicalImpression extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
+        dst.statusReason = statusReason == null ? null : statusReason.copy();
         dst.code = code == null ? null : code.copy();
         dst.description = description == null ? null : description.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -2244,13 +2290,14 @@ public class ClinicalImpression extends DomainResource {
         if (!(other_ instanceof ClinicalImpression))
           return false;
         ClinicalImpression o = (ClinicalImpression) other_;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(code, o.code, true)
-           && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
-           && compareDeep(effective, o.effective, true) && compareDeep(date, o.date, true) && compareDeep(assessor, o.assessor, true)
-           && compareDeep(previous, o.previous, true) && compareDeep(problem, o.problem, true) && compareDeep(investigation, o.investigation, true)
-           && compareDeep(protocol, o.protocol, true) && compareDeep(summary, o.summary, true) && compareDeep(finding, o.finding, true)
-           && compareDeep(prognosisCodeableConcept, o.prognosisCodeableConcept, true) && compareDeep(prognosisReference, o.prognosisReference, true)
-           && compareDeep(action, o.action, true) && compareDeep(note, o.note, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
+           && compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(context, o.context, true) && compareDeep(effective, o.effective, true) && compareDeep(date, o.date, true)
+           && compareDeep(assessor, o.assessor, true) && compareDeep(previous, o.previous, true) && compareDeep(problem, o.problem, true)
+           && compareDeep(investigation, o.investigation, true) && compareDeep(protocol, o.protocol, true)
+           && compareDeep(summary, o.summary, true) && compareDeep(finding, o.finding, true) && compareDeep(prognosisCodeableConcept, o.prognosisCodeableConcept, true)
+           && compareDeep(prognosisReference, o.prognosisReference, true) && compareDeep(action, o.action, true)
+           && compareDeep(note, o.note, true);
       }
 
       @Override
@@ -2265,8 +2312,8 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, code
-          , description, subject, context, effective, date, assessor, previous, problem
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, statusReason
+          , code, description, subject, context, effective, date, assessor, previous, problem
           , investigation, protocol, summary, finding, prognosisCodeableConcept, prognosisReference
           , action, note);
       }

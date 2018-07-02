@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -5053,6 +5053,7 @@ public class TestScript extends MetadataResource {
          */
         @Child(name = "accept", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Mime type to accept in the payload of the response, with charset etc.", formalDefinition="The mime-type to use for RESTful operation in the 'Accept' header." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
         protected CodeType accept;
 
         /**
@@ -5060,6 +5061,7 @@ public class TestScript extends MetadataResource {
          */
         @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Mime type of the request payload contents, with charset etc.", formalDefinition="The mime-type to use for RESTful operation in the 'Content-Type' header." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
         protected CodeType contentType;
 
         /**
@@ -6531,6 +6533,7 @@ public class TestScript extends MetadataResource {
          */
         @Child(name = "contentType", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Mime type to compare against the 'Content-Type' header", formalDefinition="The mime-type contents to compare against the request or response message 'Content-Type' header." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
         protected CodeType contentType;
 
         /**

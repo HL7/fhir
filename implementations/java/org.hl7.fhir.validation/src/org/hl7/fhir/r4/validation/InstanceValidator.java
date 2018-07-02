@@ -2777,11 +2777,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private void validateAnswerCode( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean theOpenChoice) {
     Element v = answer.getNamedChild("valueCoding");
     NodeStack ns = stack.push(v, -1, null, null);
-    if (qItem.getOption().size() > 0)
+    if (qItem.getAnswerOption().size() > 0)
       checkCodingOption(errors, answer, stack, qSrc, qItem, theOpenChoice);
     //	    validateAnswerCode(errors, v, stack, qItem.getOption());
-    else if (qItem.hasOptions())
-      validateAnswerCode(errors, v, stack, qSrc, qItem.getOptions(), theOpenChoice);
+    else if (qItem.hasAnswerValueSet())
+      validateAnswerCode(errors, v, stack, qSrc, qItem.getAnswerValueSet(), theOpenChoice);
     else
       hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate options because no option or options are provided");
   }
@@ -2801,9 +2801,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private void checkIntegerOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
     Element v = answer.getNamedChild("valueInteger");
     NodeStack ns = stack.push(v, -1, null, null);
-    if (qItem.getOption().size() > 0) {
+    if (qItem.getAnswerOption().size() > 0) {
       List<IntegerType> list = new ArrayList<IntegerType>();
-      for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+      for (QuestionnaireItemAnswerOptionComponent components : qItem.getAnswerOption())  {
         try {
           list.add(components.getValueIntegerType());
         } catch (FHIRException e) {
@@ -2831,9 +2831,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private void checkDateOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
     Element v = answer.getNamedChild("valueDate");
     NodeStack ns = stack.push(v, -1, null, null);
-    if (qItem.getOption().size() > 0) {
+    if (qItem.getAnswerOption().size() > 0) {
       List<DateType> list = new ArrayList<DateType>();
-      for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+      for (QuestionnaireItemAnswerOptionComponent components : qItem.getAnswerOption())  {
         try {
           list.add(components.getValueDateType());
         } catch (FHIRException e) {
@@ -2861,9 +2861,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private void checkTimeOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
     Element v = answer.getNamedChild("valueTime");
     NodeStack ns = stack.push(v, -1, null, null);
-    if (qItem.getOption().size() > 0) {
+    if (qItem.getAnswerOption().size() > 0) {
       List<TimeType> list = new ArrayList<TimeType>();
-      for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+      for (QuestionnaireItemAnswerOptionComponent components : qItem.getAnswerOption())  {
         try {
           list.add(components.getValueTimeType());
         } catch (FHIRException e) {
@@ -2891,9 +2891,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private void checkStringOption( List<ValidationMessage> errors, Element answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
     Element v = answer.getNamedChild("valueString");
     NodeStack ns = stack.push(v, -1, null, null);
-    if (qItem.getOption().size() > 0) {
+    if (qItem.getAnswerOption().size() > 0) {
       List<StringType> list = new ArrayList<StringType>();
-      for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+      for (QuestionnaireItemAnswerOptionComponent components : qItem.getAnswerOption())  {
         try {
           if (components.getValue() != null) {
             list.add(components.getValueStringType());
@@ -2926,9 +2926,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String system = v.getNamedChildValue("system");
     String code = v.getNamedChildValue("code");
     NodeStack ns = stack.push(v, -1, null, null);
-    if (qItem.getOption().size() > 0) {
+    if (qItem.getAnswerOption().size() > 0) {
       List<Coding> list = new ArrayList<Coding>();
-      for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+      for (QuestionnaireItemAnswerOptionComponent components : qItem.getAnswerOption())  {
         try {
           if (components.getValue() != null) {
             list.add(components.getValueCoding());

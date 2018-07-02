@@ -359,7 +359,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<text value="Gender"/>
 							<type value="choice"/>
 							<required value="true"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL1-9"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL1-9"/>
 							<item>
 								<linkId value="1.1.2.1.1"/>
 								<text value="Please specify"/>
@@ -378,7 +378,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<definition value="http://loinc.org/fhir/DataElement/54132-6"/>
 							<text value="Were you born a twin?"/>
 							<type value="choice"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
 							<initial>
                 <valueCoding>
                   <system value="http://loinc.org"/>
@@ -392,14 +392,14 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<definition value="http://loinc.org/fhir/DataElement/54128-4"/>
 							<text value="Were you adopted?"/>
 							<type value="choice"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
 						</item>
 						<item>
 							<linkId value="1.1.6"/>
 							<definition value="http://loinc.org/fhir/DataElement/54135-9"/>
 							<text value="Are your parents related to each other in any way other than marriage?"/>
 							<type value="choice"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
 						</item>
 						<item>
 							<linkId value="1.1.7"/>
@@ -411,7 +411,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<linkId value="1.1.7.1.1"/>
 								<text value="Units"/>
 								<type value="choice"/>
-								<options value="#length"/>
+								<answerValueSet value="#length"/>
 							</item>
 						</item>
 						<item>
@@ -423,7 +423,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<linkId value="1.1.8.1.1"/>
 								<text value="Units"/>
 								<type value="choice"/>
-								<options value="#weight"/>
+								<answerValueSet value="#weight"/>
 							</item>
 						</item>
 						<item>
@@ -440,7 +440,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<text value="Race"/>
 							<type value="choice"/>
 							<required value="true"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL629-7"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL629-7"/>
 						</item>
 						<item>
 							<linkId value="1.1.11"/>
@@ -448,7 +448,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<text value="Ethnicity"/>
 							<type value="choice"/>
 							<repeats value="true"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL628-9"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL628-9"/>
 						</item>
 					</item>
 					<item>
@@ -462,14 +462,14 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<definition value="http://loinc.org/fhir/DataElement/54140-9"/>
 							<text value="Disease or Condition"/>
 							<type value="choice"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL626-3"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL626-3"/>
 						</item>
 						<item>
 							<linkId value="1.2.2"/>
 							<definition value="http://loinc.org/fhir/DataElement/54130-0"/>
 							<text value="Age at Diagnosis"/>
 							<type value="choice"/>
-							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"/>
+							<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"/>
 						</item>
 					</item>
 				</item>
@@ -490,7 +490,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<definition value="http://loinc.org/fhir/DataElement/54136-7"/>
 								<text value="Relationship to you"/>
 								<type value="choice"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL621-4"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL621-4"/>
 							</item>
 							<item>
 								<linkId value="2.1.1.2"/>
@@ -503,7 +503,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<definition value="http://loinc.org/fhir/DataElement/54123-5"/>
 								<text value="Gender"/>
 								<type value="choice"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL1-9"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL1-9"/>
 								<item>
 									<linkId value="2.1.1.3.1.1"/>
 									<text value="Please specify"/>
@@ -516,7 +516,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<definition value="http://loinc.org/fhir/DataElement/54139-1"/>
 								<text value="Living?"/>
 								<type value="choice"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL361-7"/>
 								<item>
 									<linkId value="2.1.1.4.1"/>
 									<type value="group"/>
@@ -525,7 +525,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 										<definition value="http://loinc.org/fhir/DataElement/54112-8"/>
 										<text value="Cause of Death"/>
 										<type value="choice"/>
-										<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL627-1"/>
+										<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL627-1"/>
 										<item>
 											<linkId value="2.1.1.4.1.1.1"/>
 											<text value="Please specify"/>
@@ -537,7 +537,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 										<definition value="http://loinc.org/fhir/DataElement/54113-6"/>
 										<text value="Age at Death"/>
 										<type value="choice"/>
-										<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"/>
+										<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"/>
 									</item>
 								</item>
 								<item>
@@ -562,14 +562,14 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<definition value="http://loinc.org/fhir/DataElement/54121-9"/>
 								<text value="Was this person born a twin?"/>
 								<type value="choice"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
 							</item>
 							<item>
 								<linkId value="2.1.1.6"/>
 								<definition value="http://loinc.org/fhir/DataElement/54122-7"/>
 								<text value="Was this person adopted?"/>
 								<type value="choice"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
 							</item>
 							<item>
 								<linkId value="2.1.1.7"/>
@@ -577,7 +577,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<text value="Race"/>
 								<type value="choice"/>
 								<repeats value="true"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL629-7"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL629-7"/>
 							</item>
 							<item>
 								<linkId value="2.1.1.8"/>
@@ -585,7 +585,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<text value="Ethnicity"/>
 								<type value="choice"/>
 								<repeats value="true"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL628-9"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL628-9"/>
 							</item>
 						</item>
 						<item>
@@ -600,14 +600,14 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 								<text value="Disease or Condition"/>
 								<type value="choice"/>
 								<required value="true"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL626-3"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL626-3"/>
 							</item>
 							<item>
 								<linkId value="2.1.2.2"/>
 								<definition value="http://loinc.org/fhir/DataElement/54115-1"/>
 								<text value="Age at Diagnosis"/>
 								<type value="choice"/>
-								<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"/>
+								<answerValueSet value="http://hl7.org/fhir/us/sdc/ValueSet/LL619-8"/>
 							</item>
 							<item>
 								<linkId value="2.1.2.3"/>

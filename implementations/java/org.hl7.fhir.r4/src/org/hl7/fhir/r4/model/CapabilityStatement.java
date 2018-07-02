@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -6701,6 +6701,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
      */
     @Child(name = "format", type = {CodeType.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="formats supported (xml | json | ttl | mime type)", formalDefinition="A list of the formats supported by this implementation using their content types." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected List<CodeType> format;
 
     /**
@@ -6708,6 +6709,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
      */
     @Child(name = "patchFormat", type = {CodeType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Patch formats supported", formalDefinition="A list of the patch formats supported by this implementation using their content types." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected List<CodeType> patchFormat;
 
     /**

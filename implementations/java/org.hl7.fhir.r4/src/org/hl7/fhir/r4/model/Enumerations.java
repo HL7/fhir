@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Jun 8, 2018 20:37+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1125,6 +1125,10 @@ public class Enumerations {
          */
         ELEMENTDEFINITION, 
         /**
+         * A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
+         */
+        EXPRESSION, 
+        /**
          * Optional Extension Element - found in all resources.
          */
         EXTENSION, 
@@ -1345,6 +1349,8 @@ public class Enumerations {
           return ELEMENT;
         if ("ElementDefinition".equals(codeString))
           return ELEMENTDEFINITION;
+        if ("Expression".equals(codeString))
+          return EXPRESSION;
         if ("Extension".equals(codeString))
           return EXTENSION;
         if ("HumanName".equals(codeString))
@@ -1456,6 +1462,7 @@ public class Enumerations {
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
+            case EXPRESSION: return "Expression";
             case EXTENSION: return "Extension";
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
@@ -1523,6 +1530,7 @@ public class Enumerations {
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
+            case EXPRESSION: return "http://hl7.org/fhir/data-types";
             case EXTENSION: return "http://hl7.org/fhir/data-types";
             case HUMANNAME: return "http://hl7.org/fhir/data-types";
             case IDENTIFIER: return "http://hl7.org/fhir/data-types";
@@ -1590,6 +1598,7 @@ public class Enumerations {
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
+            case EXPRESSION: return "A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.";
             case EXTENSION: return "Optional Extension Element - found in all resources.";
             case HUMANNAME: return "A human's name with the ability to identify parts and usage.";
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
@@ -1657,6 +1666,7 @@ public class Enumerations {
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
+            case EXPRESSION: return "Expression";
             case EXTENSION: return "Extension";
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
@@ -1746,6 +1756,8 @@ public class Enumerations {
           return DataType.ELEMENT;
         if ("ElementDefinition".equals(codeString))
           return DataType.ELEMENTDEFINITION;
+        if ("Expression".equals(codeString))
+          return DataType.EXPRESSION;
         if ("Extension".equals(codeString))
           return DataType.EXTENSION;
         if ("HumanName".equals(codeString))
@@ -1880,6 +1892,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.ELEMENT);
         if ("ElementDefinition".equals(codeString))
           return new Enumeration<DataType>(this, DataType.ELEMENTDEFINITION);
+        if ("Expression".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.EXPRESSION);
         if ("Extension".equals(codeString))
           return new Enumeration<DataType>(this, DataType.EXTENSION);
         if ("HumanName".equals(codeString))
@@ -2007,6 +2021,8 @@ public class Enumerations {
         return "Element";
       if (code == DataType.ELEMENTDEFINITION)
         return "ElementDefinition";
+      if (code == DataType.EXPRESSION)
+        return "Expression";
       if (code == DataType.EXTENSION)
         return "Extension";
       if (code == DataType.HUMANNAME)
@@ -2278,6 +2294,10 @@ public class Enumerations {
          * Captures constraints on each element within the resource, profile, or extension.
          */
         ELEMENTDEFINITION, 
+        /**
+         * A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
+         */
+        EXPRESSION, 
         /**
          * Optional Extension Element - found in all resources.
          */
@@ -2880,7 +2900,7 @@ into another (possibly the same) biological entity.
          */
         PRACTITIONERROLE, 
         /**
-         * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
+         * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
          */
         PROCEDURE, 
         /**
@@ -3076,6 +3096,8 @@ into another (possibly the same) biological entity.
           return ELEMENT;
         if ("ElementDefinition".equals(codeString))
           return ELEMENTDEFINITION;
+        if ("Expression".equals(codeString))
+          return EXPRESSION;
         if ("Extension".equals(codeString))
           return EXTENSION;
         if ("HumanName".equals(codeString))
@@ -3475,6 +3497,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
+            case EXPRESSION: return "Expression";
             case EXTENSION: return "Extension";
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
@@ -3686,6 +3709,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
+            case EXPRESSION: return "http://hl7.org/fhir/data-types";
             case EXTENSION: return "http://hl7.org/fhir/data-types";
             case HUMANNAME: return "http://hl7.org/fhir/data-types";
             case IDENTIFIER: return "http://hl7.org/fhir/data-types";
@@ -3897,6 +3921,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
+            case EXPRESSION: return "A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.";
             case EXTENSION: return "Optional Extension Element - found in all resources.";
             case HUMANNAME: return "A human's name with the ability to identify parts and usage.";
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
@@ -4047,7 +4072,7 @@ into another (possibly the same) biological entity.
             case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
-            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
+            case PROCEDURE: return "An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
@@ -4108,6 +4133,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
+            case EXPRESSION: return "Expression";
             case EXTENSION: return "Extension";
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
@@ -4341,6 +4367,8 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.ELEMENT;
         if ("ElementDefinition".equals(codeString))
           return FHIRAllTypes.ELEMENTDEFINITION;
+        if ("Expression".equals(codeString))
+          return FHIRAllTypes.EXPRESSION;
         if ("Extension".equals(codeString))
           return FHIRAllTypes.EXTENSION;
         if ("HumanName".equals(codeString))
@@ -4763,6 +4791,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ELEMENT);
         if ("ElementDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ELEMENTDEFINITION);
+        if ("Expression".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.EXPRESSION);
         if ("Extension".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.EXTENSION);
         if ("HumanName".equals(codeString))
@@ -5178,6 +5208,8 @@ into another (possibly the same) biological entity.
         return "Element";
       if (code == FHIRAllTypes.ELEMENTDEFINITION)
         return "ElementDefinition";
+      if (code == FHIRAllTypes.EXPRESSION)
+        return "Expression";
       if (code == FHIRAllTypes.EXTENSION)
         return "Extension";
       if (code == FHIRAllTypes.HUMANNAME)
@@ -5633,6 +5665,10 @@ into another (possibly the same) biological entity.
          */
         ELEMENTDEFINITION, 
         /**
+         * A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
+         */
+        EXPRESSION, 
+        /**
          * Optional Extension Element - found in all resources.
          */
         EXTENSION, 
@@ -6234,7 +6270,7 @@ into another (possibly the same) biological entity.
          */
         PRACTITIONERROLE, 
         /**
-         * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
+         * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
          */
         PROCEDURE, 
         /**
@@ -6422,6 +6458,8 @@ into another (possibly the same) biological entity.
           return ELEMENT;
         if ("ElementDefinition".equals(codeString))
           return ELEMENTDEFINITION;
+        if ("Expression".equals(codeString))
+          return EXPRESSION;
         if ("Extension".equals(codeString))
           return EXTENSION;
         if ("HumanName".equals(codeString))
@@ -6817,6 +6855,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
+            case EXPRESSION: return "Expression";
             case EXTENSION: return "Extension";
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
@@ -7026,6 +7065,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
+            case EXPRESSION: return "http://hl7.org/fhir/data-types";
             case EXTENSION: return "http://hl7.org/fhir/data-types";
             case HUMANNAME: return "http://hl7.org/fhir/data-types";
             case IDENTIFIER: return "http://hl7.org/fhir/data-types";
@@ -7235,6 +7275,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
+            case EXPRESSION: return "A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.";
             case EXTENSION: return "Optional Extension Element - found in all resources.";
             case HUMANNAME: return "A human's name with the ability to identify parts and usage.";
             case IDENTIFIER: return "A technical identifier - identifies some entity uniquely and unambiguously.";
@@ -7385,7 +7426,7 @@ into another (possibly the same) biological entity.
             case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
-            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
+            case PROCEDURE: return "An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
@@ -7444,6 +7485,7 @@ into another (possibly the same) biological entity.
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
+            case EXPRESSION: return "Expression";
             case EXTENSION: return "Extension";
             case HUMANNAME: return "HumanName";
             case IDENTIFIER: return "Identifier";
@@ -7675,6 +7717,8 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.ELEMENT;
         if ("ElementDefinition".equals(codeString))
           return FHIRDefinedType.ELEMENTDEFINITION;
+        if ("Expression".equals(codeString))
+          return FHIRDefinedType.EXPRESSION;
         if ("Extension".equals(codeString))
           return FHIRDefinedType.EXTENSION;
         if ("HumanName".equals(codeString))
@@ -8093,6 +8137,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ELEMENT);
         if ("ElementDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ELEMENTDEFINITION);
+        if ("Expression".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.EXPRESSION);
         if ("Extension".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.EXTENSION);
         if ("HumanName".equals(codeString))
@@ -8504,6 +8550,8 @@ into another (possibly the same) biological entity.
         return "Element";
       if (code == FHIRDefinedType.ELEMENTDEFINITION)
         return "ElementDefinition";
+      if (code == FHIRDefinedType.EXPRESSION)
+        return "Expression";
       if (code == FHIRDefinedType.EXTENSION)
         return "Extension";
       if (code == FHIRDefinedType.HUMANNAME)
@@ -9712,7 +9760,7 @@ into another (possibly the same) biological entity.
          */
         PRACTITIONERROLE, 
         /**
-         * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
+         * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
          */
         PROCEDURE, 
         /**
@@ -10553,7 +10601,7 @@ into another (possibly the same) biological entity.
             case PLANDEFINITION: return "This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.";
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
-            case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
+            case PROCEDURE: return "An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
