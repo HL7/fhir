@@ -272,6 +272,7 @@ public class ResourceValidator extends BaseValidator {
         spgroups.put(spgn, spg);
       }
       spgroups.get(spgn).resources.add(rd.getName());
+      rule(errors, IssueType.FORBIDDEN, rd.getName(), checkNamingPattern(rd.getName(), p.getCode()), "Search Parameter name is not valid - must use lowercase letters with '_' between words");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equals("filter"), "Search Parameter Name cannot be 'filter')");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().contains("."), "Search Parameter Names cannot contain a '.' (\""+p.getCode()+"\")");
       rule(errors, IssueType.STRUCTURE, rd.getName(), !p.getCode().equalsIgnoreCase("id"), "Search Parameter Names cannot be named 'id' (\""+p.getCode()+"\")");
@@ -371,6 +372,13 @@ public class ResourceValidator extends BaseValidator {
     ok = hints == 0 || Integer.parseInt(rd.getFmmLevel()) < 3;
     rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >2 ("+rd.getFmmLevel()+") if it has informational hints");
 	}
+
+  private boolean checkNamingPattern(String rn, String pn) {
+    if (Utilities.existsInList(pn, "_lastUpdated", "_revinclude", "_containedType"))
+      return true;
+    
+    return pn.toLowerCase().equals(pn);
+  }
 
   private void buildW5Mappings(ElementDefn ed, boolean root) {
     if (!root && !Utilities.noString(ed.getW5())) {

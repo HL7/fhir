@@ -61,6 +61,9 @@ In addition, there is a special search parameters <a href="#query"><code>_query<
 </p>
 <p>
 Also, there is a single page that lists <a href="searchparameter-registry.html">all the search parameters</a>.
+Note that search parameter names are case sensitive, though this specification never defines different
+parameters with names that differ only in case. Clients SHOULD use correct case, and servers SHALL
+not define additional parameters with different meanings with names that only differ in case.
 </p>
 
 <h3>Introduction</h3>
