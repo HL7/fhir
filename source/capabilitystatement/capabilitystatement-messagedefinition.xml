@@ -13,7 +13,7 @@
 		</telecom>
 	</contact>
 	<description value="Sample capability statement showing new MessageDefinition structure"/>
-	<kind value="instance"/>
+	<kind value="capability"/>
 	<software>
 		<name value="EHR"/>
 	</software>
