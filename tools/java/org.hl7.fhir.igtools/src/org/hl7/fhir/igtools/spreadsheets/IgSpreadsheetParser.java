@@ -924,14 +924,14 @@ public class IgSpreadsheetParser {
       try {
         return json.parseType(source, type);
       } catch (Exception e2) {
-        throw new Exception("Unable to parse json string: " + source); 
+        throw new Exception("Unable to parse json string: " + source+" as "+type+" because "+e2.getMessage(), e2); 
       }
     } else if (source.startsWith("<")) {
       XmlParser xml = new XmlParser();
       try {
         return xml.parseType(source, type);
       } catch (Exception e2) {
-        throw new Exception("Unable to parse xml string: " + source); 
+        throw new Exception("Unable to parse xml string: " + source+" as "+type+" because "+e2.getMessage(), e2); 
       }
     } else {
       source = source.trim();
