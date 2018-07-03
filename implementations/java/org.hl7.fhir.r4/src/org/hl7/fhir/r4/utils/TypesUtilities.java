@@ -95,6 +95,7 @@ public class TypesUtilities {
     res.add(new WildcardInformation("ContactDetail"));
     res.add(new WildcardInformation("Contributor"));
     res.add(new WildcardInformation("TriggerDefinition"));
+    res.add(new WildcardInformation("Expression"));
     res.add(new WildcardInformation("UsageContext"));
     
     // special cases
