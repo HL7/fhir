@@ -21,14 +21,14 @@
         <end value="2013-03-08T09:30:10+01:00"/>
     </performedPeriod>
 	<performer>
-        <role>
+        <function>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
                 <code value="01.000"/>
                 <display value="Arts"/>
             </coding>
             <text value="Care role"/>
-        </role>
+        </function>
 		<actor>
             <reference value="Practitioner/f003"/>
             <display value="M.I.M. Versteegh"/>
