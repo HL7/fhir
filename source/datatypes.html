@@ -150,7 +150,8 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  <tr>
    <td>canonical<a name="uri"></a></td>
    <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
-    and in that it may have a version appended, separated by a vertical bar (|)</td>
+    and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URls that are the target
+    of these references, but for the URLs that refer to them, and may have the version suffix in them.</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a canonical URI</td>
  </tr>

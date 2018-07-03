@@ -509,6 +509,8 @@ Some notes about use and interpretation of contained resources:
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain any narrative.</li>
+  <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
+  <li>Contained resources MAY contain <code>meta.tag</code>, though there are many tags that do not make sense on a contained resources.</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
 </ul>
 

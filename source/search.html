@@ -265,7 +265,8 @@ restricts the search to only DiagnosticReport resources that are tagged as confo
 The second reference is relative, and refers a local profile on the same server.
 </p>
 <p>
-<a href="resource.html#simple-tags">_tag</a>, <a href="resource.html#profile-tags">_profile</a> and <a href="resource.html#security-labels">_security</a> parameters are all token types (see <a href="#token">below</a>).
+<a href="resource.html#simple-tags">_tag</a>, and <a href="resource.html#security-labels">_security</a> parameters are token types (see <a href="#token">below</a>),
+and <a href="resource.html#profile-tags">_profile</a> is a <a href="#reference">reference</a> search parameter.
 </p>
 
 
@@ -656,8 +657,8 @@ A server defined search (link to search page) that may consider matching any of 
 <a name="uri"></a>
 <h4>uri</h4>
 <p>
-The uri parameter refers to a URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>) element.
-Matches are precise (e.g. case, accent, and escape) sensitive, and the entire URI must match.
+The uri parameter refers to an element that contains a URI (<a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>).
+By default, matches are precise (e.g. case, accent, and escape) sensitive, and the entire URI must match.
 The modifier <code>:above</code> or <code>:below</code> can be used to indicate
 that partial matching is used. For example:
 </p>
@@ -675,9 +676,14 @@ that partial matching is used. For example:
  <li>The fourth line shows an example of searching by an OID. Note that the :above and :below modifiers only apply to URLs, and not URNS such as OIDs</li>
 </ul>
 <p>
-Note that for <code>uri</code> parameters that refer to <a href="references.html#canonical">Canonical URLs</a>, servers SHOULD support searching by
-Canonical URL, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
-Canonical URL, and interpreting that portion as a search on the version.
+The search type <code>uri</code> is used with elements of type <a href="datatypes.html#uri">uri</a> and <a href="datatypes.html#url">url</a>.
+The type <a href="#reference">reference</a> is used for the types <a href="references.html#Reference">Reference</a> and 
+<a href="datatypes.html#canonical">canonical</a>. Note that for <code>uri</code> parameters that refer to 
+the <a href="references.html#canonical">Canonical URLs</a> of the conformance and knowledge resources (e.g. 
+<a href="structuredefinition.html">StructureDefinition</a>, <a href="valueset.html">ValueSet</a>, 
+<a href="plandefinition.html">PlanDefinition</a> etc), servers SHOULD support searching by
+Canonical URLs, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
+search parameter, and interpreting that portion as a search on the version.
 </p>
 
 <a name="token"></a>
@@ -959,15 +965,41 @@ one resource is directly nested within another - see the <a href="bundle.html#se
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
 
+<a name="versions"></a>
+<h4>References and Versions</h4>
+
 <p>
-Implementation note: <a href="references.html#versions">References are allowed to be version specific</a>. 
-When searching on version specific references, the following rules apply:
+Elements of type <a href="references.html#Reference">Reference</a> may contain a <a href="references.html#versions">versioned</a> reference:
+</p>
+<div class="xml">
+<pre>
+  &nbsp;&lt;evidence&gt;
+   &nbsp;&nbsp;&nbsp;&lt;reference value=&quot;Observation/123/_history/234234&quot;/&gt;
+ &nbsp;&lt;/evidence&gt;
+</pre>
+</div>
+<p>
+When searching on versioned references, the following rules apply:
 </p>
 <ul>
- <li>If a resource has a reference that is version-specific and chaining is performed, the criteria should ideally be evaluated against the version referenced, but most systems will not be capable of this because search is only defined to function against the current version of a resource</li>
+ <li>If a resource has a reference that is versioned and chaining is performed, the criteria should ideally be evaluated against the version referenced, but most systems will not be capable of this because search is only defined to function against the current version of a resource</li>
  <li>Where a search does not act on the referenced version, search results SHOULD contain a OperationOutcome with a warning that indicates the discrepancy</li>
- <li>If a resource has a reference that is version-specific and _include is performed, the specified version SHOULD be provided.</li>
+ <li>If a resource has a reference that is versioned and _include is performed, the specified version SHOULD be provided.</li>
 </ul>
+
+<p>
+Elements of type <a href="references.html#canonical">canonical</a> may contain a <a href="references.html#versions">version specific</a> reference,
+but this version is different in both meaning and format to version specific references that might be found in a <a href="references.html#Reference">Reference</a>:
+</p>
+<pre>
+  &nbsp;&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/example|3.0&quot;/&gt;
+</pre>
+<p>
+This version is a reference to the business version of the resource. For canonical
+references, servers SHOULD support searching by Canonical URLs, and SHOULD support 
+automatically detecting a |[version] portion as part of the search parameter, and 
+interpreting that portion as a search on the business version of the target resource.
+</p>
 
 <a name="recursive"></a>
 <h4>Searching Hierarchies</h4>

@@ -326,6 +326,18 @@ public class ResourceValidator extends BaseValidator {
             }
           }
         }
+        if (p.getType() == SearchType.uri) {
+          for (String path : p.getPaths()) {
+            ElementDefn e;
+            String pp = trimIndexes(path);
+            e = rd.getRoot().getElementForPath(pp, definitions, "Resolving Search Parameter Path", true, false);
+            for (TypeRef t : e.getTypes()) {
+              if (t.getName().equals("Reference") || t.getName().equals("canonical") ) {
+                rule(errors, IssueType.STRUCTURE, rd.getName(), false, "Parameters of type uri cannot refer to the types Reference or canonical ("+p.getCode()+")");
+              }
+            }
+          }
+        }
       } catch (Exception e1) {
         rule(errors, IssueType.STRUCTURE, rd.getName(), false, e1.getMessage());
       }
