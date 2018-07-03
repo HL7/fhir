@@ -139,51 +139,20 @@ and the resource has no identity. Note that even in this case, there may still b
 transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
-In some Bundles, a given resource can only appear once:
+A given version of a resource SHALL only appear once in each Bundle. There might, however, 
+be multiple versions of a single resource present in a single bundle. This would be expected
+in Bundles of type <code>history</code>, and also might be necessitated by closely tracking
+Provenance. 
 </p>
-<table class="grid">
- <tr>
-  <td><b>Type</b></td>
-  <td><b>Rules</b></td>
- </tr>
- <tr>
-  <td>document</td>
-  <td>no duplicates</td>
- </tr>
- <tr>
-  <td>message</td>
-  <td>no duplicates (generally not, unless noted explicitly in the event definition e.g. for messaging deltas?)</td>
- </tr>
- <tr>
-  <td>transaction</td>
-  <td>no duplicates allowed</td>
- </tr>
- <tr>
-  <td>transaction-response</td>
-  <td>no duplicates allowed</td>
- </tr>
- <tr>
-  <td>batch</td>
-  <td>no duplicates allowed</td>
- </tr>
- <tr>
-  <td>batch-response</td>
-  <td>no duplicates allowed</td>
- </tr>
- <tr>
-  <td>history</td>
-  <td>yes, duplicates are allowed</td>
- </tr>
- <tr>
-  <td>searchset</td>
-  <td>no duplicates allowed</td>
- </tr>
- <tr>
-  <td>collection</td>
-  <td>yes, duplicates are allowed, though generally would not be a good idea</td>
- </tr>
-</table>
-
+<p>
+Note that the meaning of an unversioned reference to a resource that appears multiple times 
+is potentially ambiguous, though processors may have additional informaton to help resolve 
+this (e.g. change order in a history bundle).
+</p>
+<p>
+When processing batches and transactions, it is at server discretion how to behave if multiple
+versions of a single resource are present.
+</p>
 
 
 <a name="resolving"></a>
