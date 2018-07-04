@@ -37,8 +37,6 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.r4.model.ExpansionProfile;
-import org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
@@ -139,13 +137,13 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
   }
 
-  private ExpansionProfile buildExpansionProfile() {
-    ExpansionProfile res = new ExpansionProfile();
-    res.setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
-    res.setExcludeNested(false);
-    res.setIncludeDesignations(true);
-    // res.setActiveOnly(true);
-    res.addFixedVersion().setSystem("http://snomed.info/sct").setVersion("http://snomed.info/sct/"+SNOMED_EDITION).setMode(SystemVersionProcessingMode.DEFAULT); // value sets are allowed to override this. for now
+  private Parameters buildExpansionProfile() {
+    Parameters res = new Parameters();
+    res.addParameter("profile-url", "urn:uuid:"+UUID.randomUUID().toString().toLowerCase());
+    res.addParameter("excludeNested", false);
+    res.addParameter("includeDesignations", true);
+    // res.addParameter("activeOnly", true);
+    res.addParameter("system-version", "http://snomed.info/sct|http://snomed.info/sct/"+SNOMED_EDITION); // value sets are allowed to override this. for now
     return res;
   }
 
@@ -636,7 +634,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
         params.put("_incomplete", "true");
         System.out.println("Use Tx Server from BWS for value set "+(vs.hasUrl() ? vs.getUrl() : "??")+" on "+systems(vs));
-        ValueSet result = txServer.expandValueset(vs, expProfile.setIncludeDefinition(false), params);
+        ValueSet result = txServer.expandValueset(vs, expParameters.setParameter("includeDefinition", false), params);
         serverOk = true;
         FileOutputStream s = new FileOutputStream(cacheFn);
         parser.compose(s, result);

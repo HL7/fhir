@@ -102,7 +102,7 @@ This specification also defines filters for various published code systems:
 <p>
 A value set can be "expanded", where the definition of the value set is 
 used to create a simple collection of codes suitable for use for data 
-entry or validation. There is a <a href="valueset-operations.html">defined operation $expand</a> to ask a server to perform this expansion.
+entry or validation. There is a <a href="valueset-operation-expand.html">defined operation $expand</a> to ask a server to perform this expansion.
 Expansions are most useful when a value set includes 
 all the codes in a code system, or a set of codes by filter. 
 </p>
@@ -123,8 +123,15 @@ When a request for an expansion is received (e.g., for the <a href="valueset-ope
 the following process should be followed:
 </p>
 <ul>
- <li>If the value set already has an expansion (e.g., a stored expansion), simply take the existing expansion as it is. If not, then:</li>
- <li>For each <i>compose.include</i>:
+ <li>If the value set already has an expansion (e.g., a stored expansion):
+   <ul>
+    <li>Check that the parameters associated with the $expand operation are consistent with the parameters recorded in the expansion</li>
+    <li>If the parameters are inconsistent, then either generate a new composition, or, if there is no definition (<code>.compose</code>), return an error</li>
+    <li>Additional parameters may be applied to an existing expansion if the server has validated that the result will be the same as if the expansion 
+    was generated directly from the value set definition (e.g. text filter, designations included).</li>
+   </ul>
+ </li>
+ <li>Otherwise: For each <i>compose.include</i>:
   <ol>
    <li>If there is a system, identify the correct version of the code system, and then:
      <ul>
@@ -171,8 +178,9 @@ produced must be clearly identified so that there is no confusion. The following
 The expansion contains a set of parameters that record what controlled the expansion process. 
 These parameters may be used by users of expanded value sets to check whether the expansion 
 is suitable for a particular purpose, or to pick the correct expansion. The server decides which 
-parameters to include here, but at a minimum, the list SHOULD include the date, filter, and profile 
-parameters passed to the $expand operation (if any). If the codeSystem on the server has a specified 
+parameters to include here, but at a minimum, the list SHOULD include all of the parameters that 
+affect the $expand operation. If the expansion will be persisted all of these parameters SHALL 
+be included. If the codeSystem on the server has a specified 
 version then this version SHALL be provided as a parameter in the expansion (note that not all 
 code systems have a version). 
 </p>
@@ -195,7 +203,7 @@ server specific) work.
 The search parameters defined on ValueSet include the <code>code</code> parameter. This is intended
 to allow a consumer to find all the value sets that include a particular code. However, fully
 evaluating this search parameter is extremely onerous for a server. Further, whether a code is 
-in a value set depends on the context in which expansions are performed (see <a href="expansionprofile.html">ExpansionProfile</a>).
+in a value set depends on the context in which expansions are performed (see the <a href="valueset-operation-expand.html">$expand</a> operation).
 For this reason, the degree to which the search parameter is supported can be declared in the <a href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSearch">Terminology Capability</a>
 statement. 
 </p>

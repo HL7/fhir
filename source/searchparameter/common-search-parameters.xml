@@ -268,7 +268,7 @@
       <SearchParameter>
         <id value="conformance-url"/>
         <code value="url"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -277,7 +277,7 @@
       <SearchParameter>
         <id value="conformance-version"/>
         <code value="version"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
       <SearchParameter>
         <id value="conformance-name"/>
         <code value="name"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -295,7 +295,7 @@
       <SearchParameter>
         <id value="conformance-status"/>
         <code value="status"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -304,7 +304,7 @@
       <SearchParameter>
         <id value="conformance-date"/>
         <code value="date"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -313,7 +313,7 @@
       <SearchParameter>
         <id value="conformance-context-type"/>
         <code value="context-type"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -322,7 +322,7 @@
       <SearchParameter>
         <id value="conformance-context"/>
         <code value="context"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -331,7 +331,7 @@
       <SearchParameter>
         <id value="conformance-context-quantity"/>
         <code value="context-quantity"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -340,7 +340,7 @@
       <SearchParameter>
         <id value="conformance-context-type-value"/>
         <code value="context-type-value"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -349,7 +349,7 @@
       <SearchParameter>
         <id value="conformance-context-type-quantity"/>
         <code value="context-type-quantity"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -358,7 +358,7 @@
       <SearchParameter>
         <id value="conformance-identifier"/>
         <code value="identifier"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -367,7 +367,7 @@
       <SearchParameter>
         <id value="conformance-title"/>
         <code value="title"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -376,7 +376,7 @@
       <SearchParameter>
         <id value="conformance-description"/>
         <code value="description"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -385,7 +385,7 @@
       <SearchParameter>
         <id value="conformance-publisher"/>
         <code value="publisher"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -394,7 +394,7 @@
       <SearchParameter>
         <id value="conformance-jurisdiction"/>
         <code value="jurisdiction"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -403,7 +403,7 @@
       <SearchParameter>
         <id value="conformance-effective"/>
         <code value="effective"/>
-        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="ExpansionProfile"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
+        <base value="CapabilityStatement"/><base value="StructureDefinition"/><base value="ImplementationGuide"/><base value="SearchParameter"/><base value="MessageDefinition"/><base value="OperationDefinition"/><base value="CompartmentDefinition"/><base value="StructureMap"/><base value="GraphDefinition"/><base value="CodeSystem"/><base value="ValueSet"/><base value="ConceptMap"/><base value="NamingSystem"/><base value="TerminologyCapabilities"/>
       </SearchParameter>
     </resource>
   </entry>

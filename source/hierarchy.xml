@@ -179,7 +179,6 @@ signatures.html
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ConceptMap"/>
       <page type="resource" resource="NamingSystem"/>
-      <page type="resource" resource="ExpansionProfile"/>
       <page type="resource" resource="TerminologyCapabilities"/>
     </page>
 

@@ -51,8 +51,9 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.DateTimeType;
-import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.Factory;
+import org.hl7.fhir.r4.model.Parameters;
+import org.hl7.fhir.r4.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
@@ -98,8 +99,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     maxExpansionSize = theMaxExpansionSize;
   }
 
-  private ValueSetExpansionContainsComponent addCode(String system, String code, String display, ValueSetExpansionContainsComponent parent, List<ConceptDefinitionDesignationComponent> designations,
-      ExpansionProfile profile, boolean isAbstract, boolean inactive, List<ValueSet> filters) {
+  private ValueSetExpansionContainsComponent addCode(String system, String code, String display, ValueSetExpansionContainsComponent parent, List<ConceptDefinitionDesignationComponent> designations, Parameters expParams, boolean isAbstract, boolean inactive, List<ValueSet> filters) {
  
     if (filters != null && !filters.isEmpty() && !filterContainsCode(filters, system, code))
       return null;
@@ -111,12 +111,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     if (inactive)
       n.setInactive(true);
 
-    if (profile.getIncludeDesignations() && designations != null) {
+    if (expParams.getParameterBool("includeDesignations") && designations != null) {
       for (ConceptDefinitionDesignationComponent t : designations) {
         ToolingExtensions.addLanguageTranslation(n, t.getLanguage(), t.getValue());
       }
     }
-    ConceptDefinitionDesignationComponent t = profile.hasLanguage() ? getMatchingLang(designations, profile.getLanguage()) : null;
+    ConceptDefinitionDesignationComponent t = expParams.hasLanguage() ? getMatchingLang(designations, expParams.getLanguage()) : null;
     if (t == null)
       n.setDisplay(display);
     else
@@ -165,7 +165,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     return null;
   }
 
-  private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, ExpansionProfile profile, List<ValueSet> filters)
+  private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, Parameters expParams, List<ValueSet> filters)
       throws FHIRException {
     def.checkNoModifiers("Code in Code System", "expanding");
     if (!CodeSystemUtilities.isDeprecated(cs, def)) {
@@ -173,17 +173,17 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       boolean abs = CodeSystemUtilities.isNotSelectable(cs, def);
       boolean inc = CodeSystemUtilities.isInactive(cs, def);
       if (canBeHeirarchy || !abs)
-        np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), profile, abs, inc, filters);
+        np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), expParams, abs, inc, filters);
       for (ConceptDefinitionComponent c : def.getConcept())
-        addCodeAndDescendents(cs, system, c, np, profile, filters);
+        addCodeAndDescendents(cs, system, c, np, expParams, filters);
     } else {
       for (ConceptDefinitionComponent c : def.getConcept())
-        addCodeAndDescendents(cs, system, c, null, profile, filters);
+        addCodeAndDescendents(cs, system, c, null, expParams, filters);
     }
 
   }
 
-  private void addCodes(ValueSetExpansionComponent expand, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile, List<ValueSet> filters) throws ETooCostly, FHIRException {
+  private void addCodes(ValueSetExpansionComponent expand, List<ValueSetExpansionParameterComponent> params, Parameters expParams, List<ValueSet> filters) throws ETooCostly, FHIRException {
     if (expand.getContains().size() > maxExpansionSize)
       throw new ETooCostly("Too many codes to display (>" + Integer.toString(expand.getContains().size()) + ")");
     for (ValueSetExpansionParameterComponent p : expand.getParameter()) {
@@ -191,7 +191,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         params.add(p);
     }
 
-    copyImportContains(expand.getContains(), null, profile, filters);
+    copyImportContains(expand.getContains(), null, expParams, filters);
   }
 
   private void excludeCode(String theSystem, String theCode) {
@@ -210,7 +210,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
     if (exc.hasValueSet())
       throw new Error("Processing Value set references in exclude is not yet done in "+ctxt);
-    // importValueSet(imp.getValue(), params, profile);
+    // importValueSet(imp.getValue(), params, expParams);
 
     CodeSystem cs = context.fetchCodeSystem(exc.getSystem());
     if ((cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) && context.supportsSystem(exc.getSystem())) {
@@ -241,21 +241,23 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
   @Override
-  public ValueSetExpansionOutcome expand(ValueSet source, ExpansionProfile profile) {
+  public ValueSetExpansionOutcome expand(ValueSet source, Parameters expParams) {
 
-    if (profile == null)
-      profile = makeDefaultExpansion();
+    if (expParams == null)
+      expParams = makeDefaultExpansion();
     try {
       source.checkNoModifiers("ValueSet", "expanding");
       focus = source.copy();
       focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
       focus.getExpansion().setTimestampElement(DateTimeType.now());
       focus.getExpansion().setIdentifier(Factory.createUUID());
-      if (!profile.getUrl().startsWith("urn:uuid:"))
-        focus.getExpansion().addParameter().setName("profile").setValue(new UriType(profile.getUrl()));
+      for (ParametersParameterComponent p : expParams.getParameter()) {
+        if (Utilities.existsInList(p.getName(), "includeDesignations", "excludeNested"))
+          focus.getExpansion().addParameter().setName(p.getName()).setValue(p.getValue());
+      }
 
       if (source.hasCompose())
-        handleCompose(source.getCompose(), focus.getExpansion().getParameter(), profile, source.getUrl());
+        handleCompose(source.getCompose(), focus.getExpansion().getParameter(), expParams, source.getUrl());
 
       if (canBeHeirarchy) {
         for (ValueSetExpansionContainsComponent c : roots) {
@@ -290,11 +292,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     }
   }
 
-  private ExpansionProfile makeDefaultExpansion() {
-    ExpansionProfile res = new ExpansionProfile();
-    res.setUrl("urn:uuid:" + UUID.randomUUID().toString().toLowerCase());
-    res.setExcludeNested(true);
-    res.setIncludeDesignations(false);
+  private Parameters makeDefaultExpansion() {
+    Parameters res = new Parameters();
+    res.addParameter("excludeNested", true);
+    res.addParameter("includeDesignations", false);
     return res;
   }
 
@@ -322,32 +323,32 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     return null;
   }
 
-  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile, String ctxt)
+  private void handleCompose(ValueSetComposeComponent compose, List<ValueSetExpansionParameterComponent> params, Parameters expParams, String ctxt)
       throws ETooCostly, FileNotFoundException, IOException, FHIRException {
     compose.checkNoModifiers("ValueSet.compose", "expanding");
     // Exclude comes first because we build up a map of things to exclude
     for (ConceptSetComponent inc : compose.getExclude())
       excludeCodes(inc, params, ctxt);
-    canBeHeirarchy = !profile.getExcludeNested() && excludeKeys.isEmpty() && excludeSystems.isEmpty();
+    canBeHeirarchy = !expParams.getParameterBool("excludeNested") && excludeKeys.isEmpty() && excludeSystems.isEmpty();
     boolean first = true;
     for (ConceptSetComponent inc : compose.getInclude()) {
       if (first == true)
         first = false;
       else
         canBeHeirarchy = false;
-      includeCodes(inc, params, profile);
+      includeCodes(inc, params, expParams);
     }
 
   }
 
-  private ValueSet importValueSet(String value, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile)
+  private ValueSet importValueSet(String value, List<ValueSetExpansionParameterComponent> params, Parameters expParams)
       throws ETooCostly, TerminologyServiceException, FileNotFoundException, IOException, FHIRFormatError {
     if (value == null)
       throw new TerminologyServiceException("unable to find value set with no identity");
     ValueSet vs = context.fetchResource(ValueSet.class, value);
     if (vs == null)
       throw new TerminologyServiceException("Unable to find imported value set " + value);
-    ValueSetExpansionOutcome vso = factory.getExpander().expand(vs, profile);
+    ValueSetExpansionOutcome vso = factory.getExpander().expand(vs, expParams);
     if (vso.getError() != null)
       throw new TerminologyServiceException("Unable to expand imported value set: " + vso.getError());
     if (vso.getService() != null)
@@ -363,19 +364,19 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     return vso.getValueset();
   }
 
-  private void copyImportContains(List<ValueSetExpansionContainsComponent> list, ValueSetExpansionContainsComponent parent, ExpansionProfile profile, List<ValueSet> filter) throws FHIRException {
+  private void copyImportContains(List<ValueSetExpansionContainsComponent> list, ValueSetExpansionContainsComponent parent, Parameters expParams, List<ValueSet> filter) throws FHIRException {
     for (ValueSetExpansionContainsComponent c : list) {
       c.checkNoModifiers("Imported Expansion in Code System", "expanding");
-      ValueSetExpansionContainsComponent np = addCode(c.getSystem(), c.getCode(), c.getDisplay(), parent, null, profile, c.getAbstract(), c.getInactive(), filter);
-      copyImportContains(c.getContains(), np, profile, filter);
+      ValueSetExpansionContainsComponent np = addCode(c.getSystem(), c.getCode(), c.getDisplay(), parent, null, expParams, c.getAbstract(), c.getInactive(), filter);
+      copyImportContains(c.getContains(), np, expParams, filter);
     }
   }
 
-  private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params, ExpansionProfile profile) throws ETooCostly, FileNotFoundException, IOException, FHIRException {
+  private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params, Parameters expParams) throws ETooCostly, FileNotFoundException, IOException, FHIRException {
     inc.checkNoModifiers("Compose.include", "expanding");
     List<ValueSet> imports = new ArrayList<ValueSet>();
     for (UriType imp : inc.getValueSet()) {
-      imports.add(importValueSet(imp.getValue(), params, profile));
+      imports.add(importValueSet(imp.getValue(), params, expParams));
     }
 
     if (!inc.hasSystem()) {
@@ -384,11 +385,11 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       ValueSet base = imports.get(0);
       imports.remove(0);
       base.checkNoModifiers("Imported ValueSet", "expanding");
-      copyImportContains(base.getExpansion().getContains(), null, profile, imports);
+      copyImportContains(base.getExpansion().getContains(), null, expParams, imports);
     } else {
       CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
       if ((cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) && context.supportsSystem(inc.getSystem())) {
-        addCodes(context.expandVS(inc, canBeHeirarchy), params, profile, imports);
+        addCodes(context.expandVS(inc, canBeHeirarchy), params, expParams, imports);
         return;
       }
 
@@ -408,7 +409,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
         // special case - add all the code system
         for (ConceptDefinitionComponent def : cs.getConcept()) {
-          addCodeAndDescendents(cs, inc.getSystem(), def, null, profile, imports);
+          addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
         }
       }
 
@@ -416,7 +417,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         canBeHeirarchy = false;
         for (ConceptReferenceComponent c : inc.getConcept()) {
           c.checkNoModifiers("Code in Code System", "expanding");
-          addCode(inc.getSystem(), c.getCode(), Utilities.noString(c.getDisplay()) ? getCodeDisplay(cs, c.getCode()) : c.getDisplay(), null, convertDesignations(c.getDesignation()), profile, false,
+          addCode(inc.getSystem(), c.getCode(), Utilities.noString(c.getDisplay()) ? getCodeDisplay(cs, c.getCode()) : c.getDisplay(), null, convertDesignations(c.getDesignation()), expParams, false,
               CodeSystemUtilities.isInactive(cs, c.getCode()), imports);
         }
       }
@@ -431,14 +432,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
           if (def == null)
             throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
-          addCodeAndDescendents(cs, inc.getSystem(), def, null, profile, imports);
+          addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
         } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDENTOF) {
           // special: all codes in the target code system under the value
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
           if (def == null)
             throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
           for (ConceptDefinitionComponent c : def.getConcept())
-            addCodeAndDescendents(cs, inc.getSystem(), c, null, profile, imports);
+            addCodeAndDescendents(cs, inc.getSystem(), c, null, expParams, imports);
         } else if ("display".equals(fc.getProperty()) && fc.getOp() == FilterOperator.EQUAL) {
           // gg; note: wtf is this: if the filter is display=v, look up the code 'v', and see if it's diplsay is 'v'?
           canBeHeirarchy = false;
@@ -446,7 +447,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           if (def != null) {
             if (isNotBlank(def.getDisplay()) && isNotBlank(fc.getValue())) {
               if (def.getDisplay().contains(fc.getValue())) {
-                addCode(inc.getSystem(), def.getCode(), def.getDisplay(), null, def.getDesignation(), profile, CodeSystemUtilities.isNotSelectable(cs, def), CodeSystemUtilities.isInactive(cs, def),
+                addCode(inc.getSystem(), def.getCode(), def.getDisplay(), null, def.getDesignation(), expParams, CodeSystemUtilities.isNotSelectable(cs, def), CodeSystemUtilities.isInactive(cs, def),
                     imports);
               }
             }

@@ -370,10 +370,6 @@
     <Cell ss:Index="5" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ExpansionProfile</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s67"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | payee</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>

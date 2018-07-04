@@ -11,8 +11,8 @@ import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureMap;
@@ -194,8 +194,8 @@ public interface IWorkerContext {
   
   // -- Terminology services ------------------------------------------------------
 
-  public ExpansionProfile getExpansionProfile();
-  public void setExpansionProfile(ExpansionProfile expProfile);
+  public Parameters getExpansionParameters();
+  public void setExpansionProfile(Parameters expParameters);
 
   // these are the terminology services used internally by the tools
   /**

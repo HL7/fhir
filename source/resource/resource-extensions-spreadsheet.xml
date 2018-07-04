@@ -807,7 +807,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s91"><Data ss:Type="String">approvalDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition;StructureMap;CapabilityStatement;OperationDefinition;SearchParameter;CompartmentDefinition;ImplementationGuide;CodeSystem;ValueSet;ConceptMap;ExpansionProfile;NamingSystem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition;StructureMap;CapabilityStatement;OperationDefinition;SearchParameter;CompartmentDefinition;ImplementationGuide;CodeSystem;ValueSet;ConceptMap;NamingSystem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Approval Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -831,7 +831,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s99"><Data ss:Type="String">lastReviewDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition;StructureMap;CapabilityStatement;OperationDefinition;SearchParameter;CompartmentDefinition;ImplementationGuide;CodeSystem;ValueSet;ConceptMap;ExpansionProfile;NamingSystem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition;StructureMap;CapabilityStatement;OperationDefinition;SearchParameter;CompartmentDefinition;ImplementationGuide;CodeSystem;ValueSet;ConceptMap;NamingSystem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Last Review Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -855,7 +855,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s102"><Data ss:Type="String">effectivePeriod</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition;StructureMap;CapabilityStatement;OperationDefinition;SearchParameter;CompartmentDefinition;ImplementationGuide;CodeSystem;ValueSet;ConceptMap;ExpansionProfile;NamingSystem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">StructureDefinition;StructureMap;CapabilityStatement;OperationDefinition;SearchParameter;CompartmentDefinition;ImplementationGuide;CodeSystem;ValueSet;ConceptMap;NamingSystem</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Effective Period</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

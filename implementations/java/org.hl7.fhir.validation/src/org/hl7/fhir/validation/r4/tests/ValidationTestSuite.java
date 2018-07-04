@@ -26,7 +26,6 @@ import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
@@ -158,10 +157,9 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
     }
   }
 
-  private ExpansionProfile makeExpProfile() {
-    ExpansionProfile ep  = new ExpansionProfile();
-    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
-    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+  private org.hl7.fhir.r4.model.Parameters makeExpProfile() {
+    org.hl7.fhir.r4.model.Parameters ep  = new org.hl7.fhir.r4.model.Parameters();
+    ep.addParameter("profile-url", "http://hl7.org/fhir/ExpansionProfile/dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
     // all defaults....
     return ep;
   }

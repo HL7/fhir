@@ -94,8 +94,6 @@ public class ResourceFactory extends Factory {
             return new Practitioner();
         if ("VerificationResult".equals(name))
             return new VerificationResult();
-        if ("ExpansionProfile".equals(name))
-            return new ExpansionProfile();
         if ("BodyStructure".equals(name))
             return new BodyStructure();
         if ("Slot".equals(name))
@@ -511,7 +509,6 @@ public class ResourceFactory extends Factory {
         case -1093178557: return new EpisodeOfCare();
         case 1851868013: return new EventDefinition();
         case 1175230202: return new ExampleScenario();
-        case -1136815094: return new ExpansionProfile();
         case -1001676601: return new ExplanationOfBenefit();
         case 198012600: return new Expression();
         case 1391410207: return new Extension();

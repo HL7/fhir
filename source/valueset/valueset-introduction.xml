@@ -20,7 +20,7 @@ Value sets have 2 aspects:
 <p>
 The <code>ValueSet</code> resource can carry either the <code>.compose</code> or the <code>.expansion</code>,
 or both. There is an <a href="valueset-operation-expand.html">"$expand" operation</a> which can be used to ask a server to generate
-an expansion given the composition rules. 
+an expansion given the composition rules, in a particular context. 
 </p>
 </div>
 
@@ -60,6 +60,7 @@ A value set has 3 identifiers:
  <li><code>ValueSet.identifier</code>: A system/value pair that is used to identify the value set in other contexts (such as an OID in an <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specification)</li>
 </ul>
 <p>
+In addition, any expansion for the value set also has <code>ValueSet.expansion.identifier</code> which uniquely identifies each expansion.
 For further information regarding resource identification, see <a href="resource.html#id">Resource Identity</a>.
 </p>
 

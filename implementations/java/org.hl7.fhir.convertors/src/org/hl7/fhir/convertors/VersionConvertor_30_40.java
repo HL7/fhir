@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent;
+import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.utilities.Utilities;
@@ -11144,297 +11147,109 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.r4.model.ExpansionProfile convertExpansionProfile(org.hl7.fhir.dstu3.model.ExpansionProfile src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.Parameters convertExpansionProfile(org.hl7.fhir.dstu3.model.ExpansionProfile src) throws FHIRException {
     if (src == null)
       return null;
-    org.hl7.fhir.r4.model.ExpansionProfile tgt = new org.hl7.fhir.r4.model.ExpansionProfile();
-    copyDomainResource(src, tgt);
+    org.hl7.fhir.r4.model.Parameters tgt = new org.hl7.fhir.r4.model.Parameters();
     if (src.hasUrl())
-      tgt.setUrl(src.getUrl());
-    if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+      tgt.addParameter("profile-url", src.getUrl());
     if (src.hasVersion())
-      tgt.setVersion(src.getVersion());
+      tgt.addParameter("profile-version", src.getVersion());
     if (src.hasName())
-      tgt.setName(src.getName());
+      tgt.addParameter("profile-name", src.getName());
     if (src.hasStatus())
-      tgt.setStatus(convertPublicationStatus(src.getStatus()));
-    if (src.hasExperimental())
-      tgt.setExperimental(src.getExperimental());
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    if (src.hasPublisher())
-      tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
-      tgt.addContact(convertContactDetail(t));
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
-      tgt.addUseContext(convertUsageContext(t));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
-      tgt.addJurisdiction(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileFixedVersionComponent t : src.getFixedVersion())
-      tgt.addFixedVersion(convertExpansionProfileFixedVersionComponent(t));
-    if (src.hasExcludedSystem())
-      tgt.setExcludedSystem(convertExpansionProfileExcludedSystemComponent(src.getExcludedSystem()));
+      tgt.addParameter("profile-status", src.getStatus().toCode());
+
+    for (org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileFixedVersionComponent t : src.getFixedVersion()) {
+      if (t.getMode() == SystemVersionProcessingMode.DEFAULT)
+        tgt.addParameter("system-version", t.getSystem()+"|"+t.getVersion());
+      else if (t.getMode() == SystemVersionProcessingMode.CHECK)
+        tgt.addParameter("check-system-version", t.getSystem()+"|"+t.getVersion());
+      else if (t.getMode() == SystemVersionProcessingMode.OVERRIDE)
+        tgt.addParameter("force-system-version", t.getSystem()+"|"+t.getVersion());
+    }
+      
+    if (src.hasExcludedSystem()) {      
+      tgt.addParameter("exclude-system", src.getExcludedSystem().getSystem()+"|"+src.getExcludedSystem().getVersion());
+    }
     if (src.hasIncludeDesignations())
-      tgt.setIncludeDesignations(src.getIncludeDesignations());
-    if (src.hasDesignation())
-      tgt.setDesignation(convertExpansionProfileDesignationComponent(src.getDesignation()));
+      tgt.addParameter("includeDesignations", src.getIncludeDesignations());
+    
+    for (DesignationIncludeDesignationComponent t : src.getDesignation().getInclude().getDesignation()) {
+      if (t.hasLanguage())
+        tgt.addParameter("designation", "urn:ietf:bcp:47|"+t.getLanguage());
+      if (t.hasUse())
+        tgt.addParameter("designation", t.getUse().getSystem()+"|"+t.getUse().getCode());      
+    }
     if (src.hasIncludeDefinition())
-      tgt.setIncludeDefinition(src.getIncludeDefinition());
+      tgt.addParameter("includeDefinition", src.getIncludeDefinition());
     if (src.hasActiveOnly())
-      tgt.setActiveOnly(src.getActiveOnly());
+      tgt.addParameter("activeOnly", src.getActiveOnly());
     if (src.hasExcludeNested())
-      tgt.setExcludeNested(src.getExcludeNested());
+      tgt.addParameter("excludeNested", src.getExcludeNested());
     if (src.hasExcludeNotForUI())
-      tgt.setExcludeNotForUI(src.getExcludeNotForUI());
+      tgt.addParameter("excludeNotForUI", src.getExcludeNotForUI());
     if (src.hasExcludePostCoordinated())
-      tgt.setExcludePostCoordinated(src.getExcludePostCoordinated());
+      tgt.addParameter("excludePostCoordinated", src.getExcludePostCoordinated());
     if (src.hasDisplayLanguage())
-      tgt.setDisplayLanguage(src.getDisplayLanguage());
+      tgt.addParameter("excludePostCoordinated", src.getDisplayLanguage());
     if (src.hasLimitedExpansion())
-      tgt.setLimitedExpansion(src.getLimitedExpansion());
+      tgt.addParameter("limitedExpansion", src.getLimitedExpansion());
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile convertExpansionProfile(org.hl7.fhir.r4.model.ExpansionProfile src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ExpansionProfile convertExpansionProfile(org.hl7.fhir.r4.model.Parameters src) throws FHIRException {
     if (src == null)
       return null;
     org.hl7.fhir.dstu3.model.ExpansionProfile tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile();
-    copyDomainResource(src, tgt);
-    if (src.hasUrl())
-      tgt.setUrl(src.getUrl());
-    if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    if (src.hasVersion())
-      tgt.setVersion(src.getVersion());
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasStatus())
-      tgt.setStatus(convertPublicationStatus(src.getStatus()));
-    if (src.hasExperimental())
-      tgt.setExperimental(src.getExperimental());
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    if (src.hasPublisher())
-      tgt.setPublisher(src.getPublisher());
-    for (org.hl7.fhir.r4.model.ContactDetail t : src.getContact())
-      tgt.addContact(convertContactDetail(t));
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.r4.model.UsageContext t : src.getUseContext())
-      tgt.addUseContext(convertUsageContext(t));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getJurisdiction())
-      tgt.addJurisdiction(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileFixedVersionComponent t : src.getFixedVersion())
-      tgt.addFixedVersion(convertExpansionProfileFixedVersionComponent(t));
-    if (src.hasExcludedSystem())
-      tgt.setExcludedSystem(convertExpansionProfileExcludedSystemComponent(src.getExcludedSystem()));
-    if (src.hasIncludeDesignations())
-      tgt.setIncludeDesignations(src.getIncludeDesignations());
-    if (src.hasDesignation())
-      tgt.setDesignation(convertExpansionProfileDesignationComponent(src.getDesignation()));
-    if (src.hasIncludeDefinition())
-      tgt.setIncludeDefinition(src.getIncludeDefinition());
-    if (src.hasActiveOnly())
-      tgt.setActiveOnly(src.getActiveOnly());
-    if (src.hasExcludeNested())
-      tgt.setExcludeNested(src.getExcludeNested());
-    if (src.hasExcludeNotForUI())
-      tgt.setExcludeNotForUI(src.getExcludeNotForUI());
-    if (src.hasExcludePostCoordinated())
-      tgt.setExcludePostCoordinated(src.getExcludePostCoordinated());
-    if (src.hasDisplayLanguage())
-      tgt.setDisplayLanguage(src.getDisplayLanguage());
-    if (src.hasLimitedExpansion())
-      tgt.setLimitedExpansion(src.getLimitedExpansion());
-    return tgt;
-  }
+    if (src.hasParameter("profile-url"))
+      tgt.setUrl(src.getParameter("profile-url").primitiveValue());
+    if (src.hasParameter("profile-version"))
+      tgt.setVersion(src.getParameter("profile-version").primitiveValue());
+    if (src.hasParameter("profile-name"))
+      tgt.setName(src.getParameter("profile-name").primitiveValue());
+    if (src.hasParameter("profile-status"))
+      tgt.setStatus(PublicationStatus.fromCode(src.getParameter("profile-status").primitiveValue()));
 
-  public static org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileFixedVersionComponent convertExpansionProfileFixedVersionComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileFixedVersionComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileFixedVersionComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileFixedVersionComponent();
-    copyElement(src, tgt);
-    if (src.hasSystem())
-      tgt.setSystem(src.getSystem());
-    if (src.hasVersion())
-      tgt.setVersion(src.getVersion());
-    if (src.hasMode())
-      tgt.setMode(convertSystemVersionProcessingMode(src.getMode()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileFixedVersionComponent convertExpansionProfileFixedVersionComponent(org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileFixedVersionComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileFixedVersionComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileFixedVersionComponent();
-    copyElement(src, tgt);
-    if (src.hasSystem())
-      tgt.setSystem(src.getSystem());
-    if (src.hasVersion())
-      tgt.setVersion(src.getVersion());
-    if (src.hasMode())
-      tgt.setMode(convertSystemVersionProcessingMode(src.getMode()));
-    return tgt;
-  }
-
-  private static org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode convertSystemVersionProcessingMode(org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case DEFAULT: return org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode.DEFAULT;
-    case CHECK: return org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode.CHECK;
-    case OVERRIDE: return org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode.OVERRIDE;
-    default: return org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode.NULL;
-  }
-}
-
-  private static org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode convertSystemVersionProcessingMode(org.hl7.fhir.r4.model.ExpansionProfile.SystemVersionProcessingMode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case DEFAULT: return org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode.DEFAULT;
-    case CHECK: return org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode.CHECK;
-    case OVERRIDE: return org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode.OVERRIDE;
-    default: return org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode.NULL;
-  }
-}
-
-  public static org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent convertExpansionProfileExcludedSystemComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent();
-    copyElement(src, tgt);
-    if (src.hasSystem())
-      tgt.setSystem(src.getSystem());
-    if (src.hasVersion())
-      tgt.setVersion(src.getVersion());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent convertExpansionProfileExcludedSystemComponent(org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileExcludedSystemComponent();
-    copyElement(src, tgt);
-    if (src.hasSystem())
-      tgt.setSystem(src.getSystem());
-    if (src.hasVersion())
-      tgt.setVersion(src.getVersion());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileDesignationComponent convertExpansionProfileDesignationComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileDesignationComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileDesignationComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileDesignationComponent();
-    copyElement(src, tgt);
-    if (src.hasInclude())
-      tgt.setInclude(convertDesignationIncludeComponent(src.getInclude()));
-    if (src.hasExclude())
-      tgt.setExclude(convertDesignationExcludeComponent(src.getExclude()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileDesignationComponent convertExpansionProfileDesignationComponent(org.hl7.fhir.r4.model.ExpansionProfile.ExpansionProfileDesignationComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileDesignationComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.ExpansionProfileDesignationComponent();
-    copyElement(src, tgt);
-    if (src.hasInclude())
-      tgt.setInclude(convertDesignationIncludeComponent(src.getInclude()));
-    if (src.hasExclude())
-      tgt.setExclude(convertDesignationExcludeComponent(src.getExclude()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeComponent convertDesignationIncludeComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeComponent();
-    copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent t : src.getDesignation())
-      tgt.addDesignation(convertDesignationIncludeDesignationComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeComponent convertDesignationIncludeComponent(org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeComponent();
-    copyElement(src, tgt);
-    for (org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeDesignationComponent t : src.getDesignation())
-      tgt.addDesignation(convertDesignationIncludeDesignationComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeDesignationComponent convertDesignationIncludeDesignationComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeDesignationComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeDesignationComponent();
-    copyElement(src, tgt);
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasUse())
-      tgt.setUse(convertCoding(src.getUse()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent convertDesignationIncludeDesignationComponent(org.hl7.fhir.r4.model.ExpansionProfile.DesignationIncludeDesignationComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent();
-    copyElement(src, tgt);
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasUse())
-      tgt.setUse(convertCoding(src.getUse()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeComponent convertDesignationExcludeComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeComponent();
-    copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeDesignationComponent t : src.getDesignation())
-      tgt.addDesignation(convertDesignationExcludeDesignationComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeComponent convertDesignationExcludeComponent(org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeComponent();
-    copyElement(src, tgt);
-    for (org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeDesignationComponent t : src.getDesignation())
-      tgt.addDesignation(convertDesignationExcludeDesignationComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeDesignationComponent convertDesignationExcludeDesignationComponent(org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeDesignationComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeDesignationComponent tgt = new org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeDesignationComponent();
-    copyElement(src, tgt);
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasUse())
-      tgt.setUse(convertCoding(src.getUse()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeDesignationComponent convertDesignationExcludeDesignationComponent(org.hl7.fhir.r4.model.ExpansionProfile.DesignationExcludeDesignationComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeDesignationComponent tgt = new org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationExcludeDesignationComponent();
-    copyElement(src, tgt);
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasUse())
-      tgt.setUse(convertCoding(src.getUse()));
+    for (Type t : src.getParameters("system-version")) {
+      String[] v = t.primitiveValue().split("\\|");
+      tgt.addFixedVersion().setSystem(v[0]).setVersion(v[1]).setMode(SystemVersionProcessingMode.DEFAULT);
+    }
+    for (Type t : src.getParameters("force-system-version")) {
+      String[] v = t.primitiveValue().split("\\|");
+      tgt.addFixedVersion().setSystem(v[0]).setVersion(v[1]).setMode(SystemVersionProcessingMode.OVERRIDE);
+    }
+    for (Type t : src.getParameters("check-system-version")) {
+      String[] v = t.primitiveValue().split("\\|");
+      tgt.addFixedVersion().setSystem(v[0]).setVersion(v[1]).setMode(SystemVersionProcessingMode.CHECK);
+    }
+    for (Type t : src.getParameters("exclude-system")) {
+      String[] v = t.primitiveValue().split("\\|");
+      tgt.getExcludedSystem().setSystem(v[0]).setVersion(v[1]);
+    }
+    if (src.hasParameter("includeDesignations"))
+      tgt.setIncludeDesignations(src.getParameterBool(""));
+    for (Type t : src.getParameters("designation")) {
+      String[] v = t.primitiveValue().split("\\|");
+      if ("urn:ietf:bcp:47".equals(v[0]))
+        tgt.getDesignation().getInclude().addDesignation().setLanguage(v[1]);
+      else
+        tgt.getDesignation().getInclude().addDesignation().getUse().setSystem(v[0]).setCode(v[1]);
+    }
+    if (src.hasParameter("includeDefinition"))
+      tgt.setIncludeDefinition(src.getParameterBool("includeDefinition"));
+    if (src.hasParameter("activeOnly"))
+      tgt.setActiveOnly(src.getParameterBool("activeOnly"));
+    if (src.hasParameter("excludeNested"))
+      tgt.setExcludeNested(src.getParameterBool("excludeNested"));
+    if (src.hasParameter("excludeNotForUI"))
+      tgt.setExcludeNotForUI(src.getParameterBool("excludeNotForUI"));
+    if (src.hasParameter("excludeNotForUI"))
+      tgt.setExcludePostCoordinated(src.getParameterBool("excludeNotForUI"));
+    if (src.hasParameter("displayLanguage"))
+      tgt.setDisplayLanguage(src.getParameter("displayLanguage").primitiveValue());
+    if (src.hasParameter("limitedExpansion"))
+      tgt.setLimitedExpansion(src.getParameterBool("getParameterBool"));
     return tgt;
   }
 
@@ -22095,8 +21910,12 @@ public class VersionConvertor_30_40 {
   public static org.hl7.fhir.dstu3.model.Resource convertResource(org.hl7.fhir.r4.model.Resource src, boolean nullOk) throws FHIRException {
     if (src == null)
       return null;
-    if (src instanceof org.hl7.fhir.r4.model.Parameters)
-      return convertParameters((org.hl7.fhir.r4.model.Parameters) src);
+    if (src instanceof org.hl7.fhir.r4.model.Parameters) {
+      if (((org.hl7.fhir.r4.model.Parameters) src).hasParameter("profile-url"))
+        return convertExpansionProfile((org.hl7.fhir.r4.model.Parameters) src);
+      else
+        return convertParameters((org.hl7.fhir.r4.model.Parameters) src);
+    }
     if (src instanceof org.hl7.fhir.r4.model.ActivityDefinition)
       return convertActivityDefinition((org.hl7.fhir.r4.model.ActivityDefinition) src);
     if (src instanceof org.hl7.fhir.r4.model.AllergyIntolerance)
@@ -22165,8 +21984,6 @@ public class VersionConvertor_30_40 {
       return convertEndpoint((org.hl7.fhir.r4.model.Endpoint) src);
     if (src instanceof org.hl7.fhir.r4.model.EpisodeOfCare)
       return convertEpisodeOfCare((org.hl7.fhir.r4.model.EpisodeOfCare) src);
-    if (src instanceof org.hl7.fhir.r4.model.ExpansionProfile)
-      return convertExpansionProfile((org.hl7.fhir.r4.model.ExpansionProfile) src);
     if (src instanceof org.hl7.fhir.r4.model.FamilyMemberHistory)
       return convertFamilyMemberHistory((org.hl7.fhir.r4.model.FamilyMemberHistory) src);
     if (src instanceof org.hl7.fhir.r4.model.Flag)

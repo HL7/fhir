@@ -4989,7 +4989,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The requested language for display (see ExpansionProfile.displayLanguage)</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">The requested language for display (see $expand.displayLanguage)</Data></Cell>
     <Cell ss:StyleID="s130"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">

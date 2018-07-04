@@ -64,11 +64,11 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
-import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
+import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Resource;
@@ -320,10 +320,9 @@ public class ValidationEngine {
       return bs;
   }
 
-  private ExpansionProfile makeExpProfile() {
-    ExpansionProfile ep  = new ExpansionProfile();
-    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
-    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+  private Parameters makeExpProfile() {
+    Parameters ep  = new Parameters();
+    ep.addParameter("profile-url", "http://hl7.org/fhir/ExpansionProfile/dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
     // all defaults....
     return ep;
   }

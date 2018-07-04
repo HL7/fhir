@@ -37,7 +37,6 @@ import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
@@ -127,7 +126,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected String cache;
   private int expandCodesLimit = 1000;
   protected ILoggingService logger;
-  protected ExpansionProfile expProfile;
+  protected Parameters expParameters;
   private TranslationServices translator = new NullTranslator();
 
   public BaseWorkerContext() {
@@ -171,7 +170,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       cache = other.cache;
       expandCodesLimit = other.expandCodesLimit;
       logger = other.logger;
-      expProfile = other.expProfile;
+      expParameters = other.expParameters;
     }
   }
   
@@ -355,9 +354,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           return loadFromCache(vs.copy(), cacheFn);
       }
       if (cacheOk && vs.hasUrl()) {
-        if (expProfile == null)
-          throw new Exception("No ExpansionProfile provided");
-        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, expProfile.setExcludeNested(!heirarchical));
+        if (expParameters == null)
+          throw new Exception("No Expansion Parameters provided");
+        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, expParameters.addParameter("excludeNested", !heirarchical));
         if (vse.getValueset() != null) {
           if (cache != null) {
             FileOutputStream s = new FileOutputStream(cacheFn);
@@ -457,15 +456,15 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String fn) throws Exception {
     if (noTerminologyServer)
       return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
-    if (expProfile == null)
-      throw new Exception("No ExpansionProfile provided");
+    if (expParameters == null)
+      throw new Exception("No Expansion Parameters provided");
 
     try {
       Map<String, String> params = new HashMap<String, String>();
       params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
       tlog("Terminology Server: $expand on "+getVSSummary(vs));
-      ValueSet result = txServer.expandValueset(vs, expProfile.setIncludeDefinition(false), params);
+      ValueSet result = txServer.expandValueset(vs, expParameters.addParameter("includeDefinition", false), params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
       return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
@@ -629,9 +628,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     for (ParametersParameterComponent pp : pin.getParameter())
       if (pp.getName().equals("profile"))
         throw new Error("Can only specify profile in the context");
-    if (expProfile == null)
+    if (expParameters == null)
       throw new Exception("No ExpansionProfile provided");
-    pin.addParameter().setName("profile").setResource(expProfile);
+    pin.addParameter().setName("profile").setResource(expParameters);
 
     Parameters pout = txServer.operateType(ValueSet.class, "validate-code", pin);
     boolean ok = false;
@@ -1011,12 +1010,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     this.logger = logger;
   }
 
-  public ExpansionProfile getExpansionProfile() {
-    return expProfile;
+  public Parameters getExpansionParameters() {
+    return expParameters;
   }
 
-  public void setExpansionProfile(ExpansionProfile expProfile) {
-    this.expProfile = expProfile;
+  public void setExpansionProfile(Parameters expParameters) {
+    this.expParameters = expParameters;
   }
 
   @Override

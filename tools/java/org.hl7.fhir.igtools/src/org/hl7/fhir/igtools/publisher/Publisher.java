@@ -112,7 +112,6 @@ import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
-import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
@@ -122,6 +121,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionRe
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
@@ -996,8 +996,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("Load Terminology Cache from "+vsCache);
     context.initTS(vsCache);
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
-    context.getExpansionProfile().addFixedVersion().setSystem("http://snomed.info/sct").setVersion(sct);
-    context.getExpansionProfile().setActiveOnly("true".equals(ostr(configuration, "activeOnly")));
+    context.getExpansionParameters().addParameter("system-version", "http://snomed.info/sct|"+sct);
+    context.getExpansionParameters().addParameter("activeOnly", "true".equals(ostr(configuration, "activeOnly")));
     if (mode != IGBuildMode.WEBSERVER) {
       if (txServer == null || !txServer.contains(":")) {
         log("WARNING: Running without terminology server - terminology content will likely not publish correctly");
@@ -1311,10 +1311,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return sp;
   }
   
-  private ExpansionProfile makeExpProfile() {
-    ExpansionProfile ep  = new ExpansionProfile();
-    ep.setId("dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
-    ep.setUrl("http://hl7.org/fhir/ExpansionProfile/"+ep.getId());
+  private Parameters makeExpProfile() {
+    Parameters ep  = new Parameters();
+    ep.addParameter("profile-url", "dc8fd4bc-091a-424a-8a3b-6198ef146891"); // change this to blow the cache
     // all defaults....
     return ep;
   }

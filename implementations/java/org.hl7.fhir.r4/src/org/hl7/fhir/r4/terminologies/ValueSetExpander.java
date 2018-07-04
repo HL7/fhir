@@ -3,7 +3,7 @@ package org.hl7.fhir.r4.terminologies;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.hl7.fhir.r4.model.ExpansionProfile;
+import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.ValueSet;
 
 public interface ValueSetExpander {
@@ -86,5 +86,5 @@ public interface ValueSetExpander {
  * @throws FileNotFoundException
  * @throws IOException
  */
-  public ValueSetExpansionOutcome expand(ValueSet source, ExpansionProfile profile) throws ETooCostly, FileNotFoundException, IOException;
+  public ValueSetExpansionOutcome expand(ValueSet source, Parameters parameters) throws ETooCostly, FileNotFoundException, IOException;
 }
