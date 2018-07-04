@@ -169,7 +169,7 @@ the concepts. In order to assist with consistency between code systems, the foll
 basic property URIs are defined:
 </p>
 <table class="grid">
- <tr><td>http://hl7.org/fhir/concept-properties#status</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
+ <tr><td>http://hl7.org/fhir/concept-properties#status : code</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
      <ul>
       <li>active - the concept is for normal use</li>
       <li>experimental - provided for trial, but may be removed in the future</li>
@@ -177,11 +177,11 @@ basic property URIs are defined:
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
    </td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#retirementDate</td><td>Date Concept was retired</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate</td><td>Date Concept was deprecated</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#parent</td><td>An immediate parent of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#child</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in
+ <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in
    the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
 </table>
 

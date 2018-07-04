@@ -20,6 +20,11 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/dicom-dcim"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="ARCHIVE"/>
     <display value="Archive"/>
@@ -31,12 +36,13 @@
     <definition value="Autorefraction device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="AS"/>
     <display value="Angioscopy"/>
     <definition value="Angioscopy device"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="AU"/>
@@ -69,9 +75,6 @@
     <definition value="Image Capture Device, includes video capture"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -82,11 +85,12 @@
     <code value="CD"/>
     <display value="Color flow Doppler"/>
     <definition value="Color flow Doppler"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -97,6 +101,10 @@
     <code value="CF"/>
     <display value="Cinefluorography"/>
     <definition value="Cinefluorography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="COMP"/>
@@ -104,12 +112,13 @@
     <definition value="Computation Server; includes radiotherapy planning"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="CP"/>
     <display value="Culposcopy"/>
     <definition value="Culposcopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="CR"/>
@@ -117,12 +126,13 @@
     <definition value="Computed Radiography device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="CS"/>
     <display value="Cystoscopy"/>
     <definition value="Cystoscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="CT"/>
@@ -130,9 +140,6 @@
     <definition value="Computed Tomography device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -143,11 +150,12 @@
     <code value="DD"/>
     <display value="Duplex Doppler"/>
     <definition value="Duplex Doppler"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -158,6 +166,10 @@
     <code value="DF"/>
     <display value="Digital fluoroscopy"/>
     <definition value="Digital fluoroscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="DG"/>
@@ -165,12 +177,13 @@
     <definition value="Diaphanography device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="DM"/>
     <display value="Digital microscopy"/>
     <definition value="Digital microscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="DOCD"/>
@@ -178,9 +191,6 @@
     <definition value="Equipment that digitized hardcopy documents and imported them"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -191,6 +201,10 @@
     <code value="DS"/>
     <display value="Digital Subtraction Angiography"/>
     <definition value="Digital Subtraction Angiography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="DSS"/>
@@ -203,9 +217,6 @@
     <definition value="Digital Radiography device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -216,6 +227,10 @@
     <code value="EC"/>
     <display value="Echocardiography"/>
     <definition value="Echocardiography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="ECG"/>
@@ -238,9 +253,6 @@
     <definition value="Female sex"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -251,6 +263,10 @@
     <code value="FA"/>
     <display value="Fluorescein angiography"/>
     <definition value="Fluorescein angiography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="FC"/>
@@ -268,12 +284,13 @@
     <definition value="Female Pseudohermaphrodite"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="FS"/>
     <display value="Fundoscopy"/>
     <definition value="Fundoscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="GM"/>
@@ -331,12 +348,13 @@
     <definition value="Procedure Logging device; includes cath lab logging"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="LP"/>
     <display value="Laparoscopy"/>
     <definition value="Laparoscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="LS"/>
@@ -349,9 +367,6 @@
     <definition value="Male sex"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -362,6 +377,10 @@
     <code value="MA"/>
     <display value="Magnetic resonance angiography"/>
     <definition value="Magnetic resonance angiography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="MC"/>
@@ -394,9 +413,6 @@
     <definition value="Magnetic Resonance device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -407,6 +423,10 @@
     <code value="MS"/>
     <display value="Magnetic resonance spectroscopy"/>
     <definition value="Magnetic resonance spectroscopy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="NEARLINE"/>
@@ -564,9 +584,6 @@
     <definition value="Subjective Refraction device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -577,6 +594,10 @@
     <code value="ST"/>
     <display value="Single-photon emission computed tomography"/>
     <definition value="Single-photon emission computed tomography (SPECT) device"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="TG"/>
@@ -604,9 +625,6 @@
     <definition value="Visual Acuity device"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -617,6 +635,10 @@
     <code value="VF"/>
     <display value="Videofluorography"/>
     <definition value="Videofluorography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="VIDD"/>
@@ -734,9 +756,6 @@
     <definition value="An identified cardiac beat not used in the determination of a measurement"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -747,11 +766,12 @@
     <code value="109020"/>
     <display value="Diastolic pressure, average"/>
     <definition value="The average of several diastolic pressure measurements"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -762,11 +782,12 @@
     <code value="109021"/>
     <display value="Diastolic pressure nadir"/>
     <definition value="The lowest pressure value excluding any undershoot artifact"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -777,6 +798,10 @@
     <code value="109022"/>
     <display value="End diastole"/>
     <definition value="The moment at the end of the diastolic phase of the cardiac cycle"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109023"/>
@@ -799,9 +824,6 @@
     <definition value="The maximum negative rate of change of pressure"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -812,6 +834,10 @@
     <code value="109027"/>
     <display value="Mean blood pressure"/>
     <definition value="The average blood pressure value, generally over 2 or more seconds"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109028"/>
@@ -834,9 +860,6 @@
     <definition value="The first discernible blood temperature change following the injectate during a thermal cardiac output measurement"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -847,11 +870,12 @@
     <code value="109032"/>
     <display value="Systolic pressure, average"/>
     <definition value="The average of several systolic blood pressure measurements"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -862,6 +886,10 @@
     <code value="109033"/>
     <display value="Systolic peak pressure"/>
     <definition value="The highest systolic blood pressure value excluding any overshoot artifact"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109034"/>
@@ -979,9 +1007,6 @@
     <definition value="A series of physiological challenges designed to progressively increase the work of the heart"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -992,6 +1017,10 @@
     <code value="109057"/>
     <display value="Catheterization Procedure Phase"/>
     <definition value="A subpart of a cardiac catheterization procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109058"/>
@@ -1019,9 +1048,6 @@
     <definition value="A means of defining a series of cardiac stimulation pulses"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -1032,6 +1058,10 @@
     <code value="109070"/>
     <display value="End of systole"/>
     <definition value="End of the contraction phase of the cardiac cycle"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109071"/>
@@ -1069,9 +1099,6 @@
     <definition value="There is a constant RR interval, which makes thresholding not required; see Cardiac Synchronization Technique (0018,9037); e.g. Pacemaker"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -1082,6 +1109,10 @@
     <code value="109091"/>
     <display value="Cardiac Stress State"/>
     <definition value="Imaging after injection of tracer during increased cardiac workload or increased myocardial blood flow, achieved by either exercise or pharmacologic means"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109092"/>
@@ -1099,9 +1130,6 @@
     <definition value="Imaging after allowing an extended amount of time for tracer to move from its initial sites of uptake. Example: For Thallium imaging this would correspond to imaging more than 6 hours after injection"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -1112,11 +1140,12 @@
     <code value="109095"/>
     <display value="Peak stress state"/>
     <definition value="Peak cardiac stress state"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -1127,6 +1156,10 @@
     <code value="109096"/>
     <display value="Recovery state"/>
     <definition value="Recovery from cardiac stress"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="109101"/>
@@ -2828,9 +2861,6 @@
     <definition value="Decrease in the number of photons in an X-Ray beam due to interactions with the atoms of a material substance. Attenuation is due primarily to two processes, absorption and scattering"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -2841,6 +2871,10 @@
     <code value="110851"/>
     <display value="X-Ray Attenuation Coefficient"/>
     <definition value="Coefficient that describes the fraction of a beam of X-Rays or gamma rays that is absorbed or scattered per unit thickness of the absorber. This value basically accounts for the number of atoms in a cubic cm volume of material and the probability of a photon being scattered or absorbed from the nucleus or an electron of one of these atoms"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="110852"/>
@@ -3053,9 +3087,6 @@
     <definition value="Assignment of intermediate or overall interpretation results to a general category"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3066,6 +3097,10 @@
     <code value="111006"/>
     <display value="Breast composition"/>
     <definition value="Assessment of annotating tissues in breast; generally including fatty, mixed or dense"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/valueset-comments">
@@ -3466,9 +3501,6 @@
     <definition value="A finding or feature that is identified as a non-anatomic foreign object"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3479,11 +3511,12 @@
     <code value="111103"/>
     <display value="Density"/>
     <definition value="A space-occupying lesion identified in a single image or projection"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3494,11 +3527,12 @@
     <code value="111104"/>
     <display value="Individual Calcification"/>
     <definition value="A single identified calcification"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3509,6 +3543,10 @@
     <code value="111105"/>
     <display value="Calcification Cluster"/>
     <definition value="Multiple calcifications identified as occupying a small area of tissue (less than 2 cc)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111111"/>
@@ -3591,9 +3629,6 @@
     <definition value="A spot or coned down compression of the breast providing a reduction in the thickness and a magnification of the localized area of interest and improved separation of breast tissue"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3604,6 +3639,10 @@
     <code value="111137"/>
     <display value="Ultrasound"/>
     <definition value="Use of sound waves to visualize muscles, tendons, and many internal organs, to capture their size, structure and any pathological lesions with real time tomographic images."/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111138"/>
@@ -3611,9 +3650,6 @@
     <definition value="Obtain previous mammography studies to compare to present study"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3624,6 +3660,10 @@
     <code value="111139"/>
     <display value="Ductography"/>
     <definition value="A medical procedure used for the sampling of mammary duct tissue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111140"/>
@@ -3726,9 +3766,6 @@
     <definition value="The interpreted data set contains images from multiple modalities"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3739,11 +3776,12 @@
     <code value="111168"/>
     <display value="Scar tissue"/>
     <definition value="The fibrous tissue replacing normal tissues destroyed by disease or injury"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3754,11 +3792,12 @@
     <code value="111170"/>
     <display value="J Wire"/>
     <definition value="A medical appliance used for localization of non palpable breast lesions to insure that the proper area is removed in a surgical biopsy"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3769,11 +3808,12 @@
     <code value="111171"/>
     <display value="Pacemaker"/>
     <definition value="A medical appliance used for regulating cardiac rhythms"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3784,11 +3824,12 @@
     <code value="111172"/>
     <display value="Paddle"/>
     <definition value="A compression device used for obtaining mammographic images"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3799,11 +3840,12 @@
     <code value="111173"/>
     <display value="Collimator"/>
     <definition value="A device used for restricting an X-Ray beam"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -3814,6 +3856,10 @@
     <code value="111174"/>
     <display value="ID Plate"/>
     <definition value="An area designated on a radiographic film for facility and patient ID information"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111175"/>
@@ -4139,9 +4185,6 @@
     <definition value="All of the attempted computer-aided detection and/or analysis failed, so there could be no findings"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4152,11 +4195,12 @@
     <code value="111248"/>
     <display value="Adenolipoma"/>
     <definition value="A benign tumor having glandular characteristics but composed of fat, with the presence of normal mammary ducts"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4167,11 +4211,12 @@
     <code value="111249"/>
     <display value="Ductal hyperplasia"/>
     <definition value="Hyperplasia is also known as epithelial hyperplasia or proliferative breast disease. It's an overgrowth of the cells that line the ducts or the lobules. Based on how the cells look under a microscope, the hyperplasia is called either ductal hyperplasia (also called duct epithelial hyperplasia) or lobular hyperplasia. Based on the pattern of the cells, hyperplasia may be called usual or atypical. In usual hyperplasia, the pattern of cells is very close to normal. Atypical hyperplasia (or hyperplasia with atypia) is a term used when the cells are more distorted. FROM: http://www.cancer.org/healthy/findcancerearly/womenshealth/non-cancerousbreastconditions/non-cancerous-breast-conditions-hyperplasia"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4182,6 +4227,10 @@
     <code value="111250"/>
     <display value="Adenomyoepithelioma"/>
     <definition value="Neoplasms composed of myoepithelial cells"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111251"/>
@@ -4199,9 +4248,6 @@
     <definition value="Excessive proliferation of normal tissue arrangement of the axillary node"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4211,6 +4257,10 @@
     </extension>
     <code value="111254"/>
     <display value="Asynchronous involution"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111255"/>
@@ -4223,9 +4273,6 @@
     <definition value="Calcifications having typically benign morphology. They are not of intermediate or high probability of concern for malignancy"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4236,6 +4283,10 @@
     <code value="111257"/>
     <display value="Intracystic papilloma"/>
     <definition value="Growing within a cystic adenoma, filling the cavity with a mass of branching epithelial processes"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111258"/>
@@ -4248,9 +4299,6 @@
     <definition value="The occurrence of fibrous tumor-forming stromal proliferation in patients with diabetes mellitus"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4261,11 +4309,12 @@
     <code value="111260"/>
     <display value="Extra abdominal desmoid"/>
     <definition value="A deep seated firm tumor frequently occurring on the chest consisting of collagenous tissue that infiltrates surround muscle; frequently recurs but does not metastasize"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4276,6 +4325,10 @@
     <code value="111262"/>
     <display value="Epidermal inclusion cyst"/>
     <definition value="A cyst formed of a mass of epithelial cells, as a result of trauma has been pushed beneath the epidermis. The cyst is lined with squamous epithelium and contains concentric layers or keratin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111263"/>
@@ -4288,9 +4341,6 @@
     <definition value="A lipoma with an abundant stroma of fibrous tissue"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4300,11 +4350,12 @@
     </extension>
     <code value="111265"/>
     <display value="Foreign body (reaction)"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4315,11 +4366,12 @@
     <code value="111269"/>
     <display value="Galactocele"/>
     <definition value="Retention cyst caused by occlusion of a lactiferous duct"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4330,11 +4382,12 @@
     <code value="111271"/>
     <display value="Hemangioma - nonparenchymal, subcutaneous"/>
     <definition value="A congenital anomaly that leads to a proliferation of blood vessels leading to a mass that resembles a neoplasm, not located in parenchymal areas but subcutaneous"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4345,6 +4398,10 @@
     <code value="111273"/>
     <display value="Hyperplasia, usual"/>
     <definition value="Hyperplasia is also known as epithelial hyperplasia or proliferative breast disease. It's an overgrowth of the cells that line the ducts or the lobules. Based on how the cells look under a microscope, the hyperplasia is called either ductal hyperplasia (also called duct epithelial hyperplasia) or lobular hyperplasia. FROM: http://www.cancer.org/healthy/findcancerearly/womenshealth/non-cancerousbreastconditions/non-cancerous-breast-conditions-hyperplasia"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111277"/>
@@ -4352,9 +4409,6 @@
     <definition value="A form of fibrocystic disease in young woman with florid and sclerosing adenosis that microscopically may suggest carcinoma"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4365,6 +4419,10 @@
     <code value="111278"/>
     <display value="Lactating adenoma"/>
     <definition value="Enlarging masses during lactation. A circumscribed benign tumor composed primarily of glandular structures with scanty stroma, with prominent secretory changes in the duct"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111279"/>
@@ -4377,9 +4435,6 @@
     <definition value="A papilloma pertaining to large mammary duct"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4390,6 +4445,10 @@
     <code value="111283"/>
     <display value="Myofibroblastoma"/>
     <definition value="Solitary or multiple tumors of muscles and fibrous tissues, or tumors composed of myofibroblasts"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111284"/>
@@ -4412,9 +4471,6 @@
     <definition value="Normal breast tissue"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4425,6 +4481,10 @@
     <code value="111288"/>
     <display value="Neurofibromatosis"/>
     <definition value="Condition in which there are tumors of various sizes on peripheral nerves. They may be neuromas or fibromas"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111290"/>
@@ -4442,9 +4502,6 @@
     <definition value="A benign stromal lesion composed of intermixed stromal and epithelial elements. The lobular and duct structures of the breast parenchyma are separated by an increased amount of stroma, non specific proliferative epithelial changes include hyperplasia of duct and lobular epithelium often with accentuation of myoepithelial cells and aprocine metaplasia with or without cyst formation"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4455,11 +4512,12 @@
     <code value="111293"/>
     <display value="Radial scar"/>
     <definition value="An nonencapsulated stellate lesion consisting of a fibroelastic core and radiating bands of fibrous connective tissue containing lobules manifesting adenosis and ducts with papillary or diffuse intraductal hyperplasia"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4470,6 +4528,10 @@
     <code value="111294"/>
     <display value="Sclerosing adenosis"/>
     <definition value="Prominent interductal fibrosis of the terminal ductules"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111296"/>
@@ -4502,9 +4564,6 @@
     <definition value="Metastatic disease to the axillary node"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4515,6 +4574,10 @@
     <code value="111302"/>
     <display value="Angiosarcoma"/>
     <definition value="A malignant neoplasm occurring most often in breast and skin, believed to originate from endothelial cells of blood vessels, microscopically composed of closely packed round or spindle shaped cells, some of which line small spaces resembling vascular clefts"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111303"/>
@@ -4542,9 +4605,6 @@
     <definition value="A basal cell carcinoma that arises in the nipple of the breast"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4555,6 +4615,10 @@
     <code value="111308"/>
     <display value="Carcinoma with metaplasia"/>
     <definition value="Metaplastic carcinoma is cancer that begins in cells that have changed into another cell type (for example, a squamous cell of the esophagus changing to resemble a cell of the stomach). In some cases, metaplastic changes alone may mean there is an increased chance of cancer developing at the site. Metaplastic carcinoma is a relatively uncommon type of cancer with treatment generally similar to that of invasive ductal carcinoma of no special type.[1] FROM: https://en.wikipedia.org/wiki/Metaplastic_carcinoma"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111309"/>
@@ -4567,9 +4631,6 @@
     <definition value="Carcinoma of the breast presenting during pregnancy or lactation"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4580,6 +4641,10 @@
     <code value="111311"/>
     <display value="Carcinosarcoma"/>
     <definition value="A malignant neoplasm that contains elements of carcinoma and sarcoma, so extensively intermixed as to indicate neoplasia of epithelial and mesenchymal tissue"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111312"/>
@@ -4592,9 +4657,6 @@
     <definition value="A non-invasive carcinoma restricted to the glandular lumen characterized by less aggressive malignant cytologic features and behavior"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4605,6 +4667,10 @@
     <code value="111314"/>
     <display value="Intraductal carcinoma micro-papillary"/>
     <definition value="Papillary and micropapillary Ductal Carcinoma In Situ (DCIS): the cancer cells arrange themselves in a fern-like pattern within the affected breast ducts; micropapillary DCIS cells are smaller than papillary DCIS cells. FROM: http://www.imaginis.com/breast-cancer-diagnosis/ductal-carcinoma-in-situ-dcis-3"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111315"/>
@@ -4617,9 +4683,6 @@
     <definition value="Carcinoma with both characteristics of localized and spreading disease"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4630,6 +4693,10 @@
     <code value="111317"/>
     <display value="Invasive lobular carcinoma"/>
     <definition value="Invasive lobular carcinoma is a type of breast cancer that begins in the milk-producing glands (lobules) of the breast. Invasive cancer means the cancer cells have broken out of the lobule where they began and have the potential to spread to the lymph nodes and other areas of the body. Invasive lobular carcinoma typically doesn't form a lump, which is common in breast cancer. Instead, there is a change in the breast that feels like a thickening or fullness in one part of the breast and is different from the surrounding breast tissue. FROM: http://www.mayoclinic.org/diseases-conditions/invasive-lobular-carcinoma/basics/definition/con-20033968"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111318"/>
@@ -4642,9 +4709,6 @@
     <definition value="Histological changes to the lymphatic system related to an invasive process"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4655,6 +4719,10 @@
     <code value="111321"/>
     <display value="Lymphoma"/>
     <definition value="A heterogeneous group of neoplasms arising in the reticuloendoethelial and lymphatic systems"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111322"/>
@@ -4702,9 +4770,6 @@
     <definition value="A malignant lesion in an axillary node arising from a non-axillary neoplasm"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4715,6 +4780,10 @@
     <code value="111331"/>
     <display value="Malignant fibrous histiocytoma"/>
     <definition value="Pleomorphic undifferentiated sarcoma (abbreviated PUS), also undifferentiated pleomorphic sarcoma and previously malignant fibrous histiocytoma (abbreviated MFH), is a type of soft tissue sarcoma. FROM: https://en.wikipedia.org/wiki/Pleomorphic_undifferentiated_sarcoma"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111332"/>
@@ -4732,9 +4801,6 @@
     <definition value="A malignant melanoma of the skin that arises in the nipple of the breast"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4744,11 +4810,12 @@
     </extension>
     <code value="111335"/>
     <display value="Neoplasm of the mammary skin"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4759,6 +4826,10 @@
     <code value="111336"/>
     <display value="Papillary carcinoma in-situ"/>
     <definition value="Papillary and micropapillary Ductal Carcinoma In Situ (DCIS): the cancer cells arrange themselves in a fern-like pattern within the affected breast ducts; micropapillary DCIS cells are smaller than papillary DCIS cells. FROM: http://www.imaginis.com/breast-cancer-diagnosis/ductal-carcinoma-in-situ-dcis-3"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111338"/>
@@ -4776,9 +4847,6 @@
     <definition value="A non-invasive carcinoma restricted to the glandular lumen characterized by more aggressive malignant cytologic features and behavior"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -4789,6 +4857,10 @@
     <code value="111342"/>
     <display value="Invasive cribriform carcinoma"/>
     <definition value="Invasive tumor with cribriform pattern similar to cribriform DCIS. Low grade, cribriform appearance (well defined spaces formed by arches of cells) similar to cribriform DCIS but with larger cells, more cytoplasm and more vesicular nuclei: Tumor cells are small, often have apical snouts, mild/moderate nuclear pleomorphism; Also stromal invasion by islands of cells, often angulated; May have predominantly solid appearance; Associated with cribriform DCIS; Often mixed with tubular carcinoma. FROM: http://www.pathologyoutlines.com/topic/breastmalignantcribriform.html"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111343"/>
@@ -5256,9 +5328,6 @@
     <definition value="An indicator of whether or not an incision was made in the anatomy during an interventional procedure"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -5269,6 +5338,10 @@
     <code value="111441"/>
     <display value="Microclip placed"/>
     <definition value="An indicator of whether or not a radio opaque microclip was placed in the anatomy during an interventional procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111442"/>
@@ -5616,9 +5689,6 @@
     <definition value="Historical patient health information of interest to the breast health clinician"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -5629,6 +5699,10 @@
     <code value="111512"/>
     <display value="Medication History"/>
     <definition value="Information regarding usage by the patient of certain medications, such as hormones"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111513"/>
@@ -5636,9 +5710,6 @@
     <definition value="Interventional or non-interventional procedures previously performed on the patient, such as breast biopsies"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -5649,6 +5720,10 @@
     <code value="111514"/>
     <display value="Relevant Indicated Problems"/>
     <definition value="Abnormal conditions experienced by the patient that serve as the reason for performing a procedure, such as a breast exam"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111515"/>
@@ -6036,9 +6111,6 @@
     <definition value="Number of births with low birth weight or intrauterine growth restriction"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6049,11 +6121,12 @@
     <code value="111601"/>
     <display value="Green filter"/>
     <definition value="Filter that transmits green light while blocking the other colors, typically centered at 510-540 nm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6064,11 +6137,12 @@
     <code value="111602"/>
     <display value="Red filter"/>
     <definition value="Filter that transmits red light while blocking the other colors, typically centered at 630-680 nm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6079,11 +6153,12 @@
     <code value="111603"/>
     <display value="Blue filter"/>
     <definition value="Filter that transmits blue while blocking the other colors, typically centered at 460-480 nm"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6094,11 +6169,12 @@
     <code value="111604"/>
     <display value="Yellow-green filter"/>
     <definition value="A filter of 560nm that is used for retinal imaging and can provide good contrast and good visibility of the retinal vasculature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6109,11 +6185,12 @@
     <code value="111605"/>
     <display value="Blue-green filter"/>
     <definition value="A filter of 490nm that is used for retinal imaging because of excessive scattering of some retinal structures at very short wavelengths"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6124,11 +6201,12 @@
     <code value="111606"/>
     <display value="Infrared filter"/>
     <definition value="Filter that transmits the infrared spectrum, which is light that lies outside of the visible spectrum, with wavelengths longer than those of red light, while blocking visible light"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -6139,6 +6217,10 @@
     <code value="111607"/>
     <display value="Polarizing filter"/>
     <definition value="A filter that reduces reflections from non-metallic surfaces such as glass or water by blocking light waves that are vibrating at selected angles to the filter"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="111609"/>
@@ -8051,9 +8133,6 @@
     <definition value="Calcifications made up of loosely aggregated particles, resembling wool"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -8064,11 +8143,12 @@
     <code value="112165"/>
     <display value="Difference in border shape"/>
     <definition value="A change in the shape formed by the boundary or edges of a finding or feature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -8079,11 +8159,12 @@
     <code value="112166"/>
     <display value="Difference in border definition"/>
     <definition value="A change in the clarity of the boundary or edges of a finding or feature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -8094,11 +8175,12 @@
     <code value="112167"/>
     <display value="Difference in distribution"/>
     <definition value="A change in the extent of spreading of a finding or feature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -8109,11 +8191,12 @@
     <code value="112168"/>
     <display value="Difference in site involvement"/>
     <definition value="A change in the part(s) of the anatomy affected or encompassed by a finding or feature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -8124,11 +8207,12 @@
     <code value="112169"/>
     <display value="Difference in Type of Content"/>
     <definition value="A change in the matter or substance within a finding or feature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -8139,6 +8223,10 @@
     <code value="112170"/>
     <display value="Difference in Texture"/>
     <definition value="A change in the surface or consistency of a finding or feature"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="112171"/>
@@ -9776,9 +9864,6 @@
     <definition value="X-Ray dose data for a single Irradiation Event"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -9789,11 +9874,12 @@
     <code value="113710"/>
     <display value="Niobium or Niobium compound"/>
     <definition value="Material containing Niobium or a Niobium compound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -9804,6 +9890,10 @@
     <code value="113711"/>
     <display value="Europium or Europium compound"/>
     <definition value="Material containing Europium or a Europium compound"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="113720"/>
@@ -9881,9 +9971,6 @@
     <definition value="Mean value of applied Tube Current"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -9894,6 +9981,10 @@
     <code value="113735"/>
     <display value="Exposure Time"/>
     <definition value="Cumulative time the patient has received X-Ray exposure during the irradiation event"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="113736"/>
@@ -10601,9 +10692,6 @@
     <definition value="Type, amount and route of radioactive substance administered"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -10614,6 +10702,10 @@
     <code value="113923"/>
     <display value="Radiation Exposure and Protection Information"/>
     <definition value="Exposure to ionizing radiation and associated preventive measures used to reduce the exposure of parts of the body like lead apron or eye, thyroid gland or gonad protection"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="113930"/>
@@ -11086,9 +11178,6 @@
     <definition value="Name of mother of fetus that is the subject of observations"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11098,11 +11187,12 @@
     </extension>
     <code value="121037"/>
     <display value="Fetus number"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11112,6 +11202,10 @@
     </extension>
     <code value="121038"/>
     <display value="Number of Fetuses"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121039"/>
@@ -11119,12 +11213,13 @@
     <definition value="Unique Identifier of specimen that is the subject of observations"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="121040"/>
     <display value="Specimen Accession Number"/>
     <definition value="Accession Number of specimen that is the subject of observations"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121041"/>
@@ -11132,9 +11227,6 @@
     <definition value="Identifier of specimen that is the subject of observations"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11145,11 +11237,12 @@
     <code value="121042"/>
     <display value="Specimen Type"/>
     <definition value="Coded category of specimen that is the subject of observations"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -11160,14 +11253,19 @@
     <code value="121043"/>
     <display value="Slide Identifier"/>
     <definition value="Identifier of specimen microscope slide that is the subject of observations"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="121044"/>
     <display value="Slide UID"/>
     <definition value="Unique Identifier of specimen microscope slide that is the subject of observations"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121045"/>
@@ -11210,9 +11308,6 @@
     <definition value="Whether or not the property concept being modified is present or absent"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11222,11 +11317,12 @@
     </extension>
     <code value="121053"/>
     <display value="Present"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11236,6 +11332,10 @@
     </extension>
     <code value="121054"/>
     <display value="Absent"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121055"/>
@@ -11258,9 +11358,6 @@
     <definition value="The imaging procedure whose results are reported"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11271,11 +11368,12 @@
     <code value="121059"/>
     <display value="Presence Undetermined"/>
     <definition value="Presence or absence of a property is undetermined"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11285,11 +11383,12 @@
     </extension>
     <code value="121060"/>
     <display value="History"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11299,11 +11398,12 @@
     </extension>
     <code value="121062"/>
     <display value="Request"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11313,6 +11413,10 @@
     </extension>
     <code value="121064"/>
     <display value="Current Procedure Descriptions"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121065"/>
@@ -11320,9 +11424,6 @@
     <definition value="A description of the imaging procedure"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11332,11 +11433,12 @@
     </extension>
     <code value="121066"/>
     <display value="Prior Procedure Descriptions"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11346,6 +11448,10 @@
     </extension>
     <code value="121068"/>
     <display value="Previous Findings"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121069"/>
@@ -11353,9 +11459,6 @@
     <definition value="An observation found on a prior imaging study"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11365,6 +11468,10 @@
     </extension>
     <code value="121070"/>
     <display value="Findings"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121071"/>
@@ -11372,9 +11479,6 @@
     <definition value="An observation found on an imaging study"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11384,6 +11488,10 @@
     </extension>
     <code value="121072"/>
     <display value="Impressions"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121073"/>
@@ -11391,9 +11499,6 @@
     <definition value="An interpretation in the clinical context of the finding(s) on an imaging study"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11403,6 +11508,10 @@
     </extension>
     <code value="121074"/>
     <display value="Recommendations"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121075"/>
@@ -11410,9 +11519,6 @@
     <definition value="A recommendation for management or investigation based on the findings and impressions of an imaging study"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11422,6 +11528,10 @@
     </extension>
     <code value="121076"/>
     <display value="Conclusions"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121077"/>
@@ -11429,9 +11539,6 @@
     <definition value="An interpretation in the clinical context of the finding(s) on an imaging study"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11441,6 +11548,10 @@
     </extension>
     <code value="121078"/>
     <display value="Addendum"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121079"/>
@@ -11453,9 +11564,6 @@
     <definition value="A selection of composite instances that best illustrates a particular finding; e.g. an image slice at the location of the largest extent of a tumor"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11465,11 +11573,12 @@
     </extension>
     <code value="121081"/>
     <display value="Physician"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11479,11 +11588,12 @@
     </extension>
     <code value="121082"/>
     <display value="Nurse"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11493,11 +11603,12 @@
     </extension>
     <code value="121083"/>
     <display value="Technologist"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11507,18 +11618,20 @@
     </extension>
     <code value="121084"/>
     <display value="Radiographer"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="121085"/>
     <display value="Intern"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11528,11 +11641,12 @@
     </extension>
     <code value="121086"/>
     <display value="Resident"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11542,6 +11656,10 @@
     </extension>
     <code value="121087"/>
     <display value="Registrar"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121088"/>
@@ -11549,9 +11667,6 @@
     <definition value="A medical practitioner undergoing sub-specialty training; e.g. during the period after specialty training (residency)"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11561,11 +11676,12 @@
     </extension>
     <code value="121089"/>
     <display value="Attending [Consultant]"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11575,11 +11691,12 @@
     </extension>
     <code value="121090"/>
     <display value="Scrub nurse"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11589,6 +11706,10 @@
     </extension>
     <code value="121091"/>
     <display value="Surgeon"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121092"/>
@@ -11596,11 +11717,12 @@
     <definition value="A medical practitioner with sub-specialty training in Ultrasound"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="121093"/>
     <display value="Sonographer"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121094"/>
@@ -11608,12 +11730,13 @@
     <definition value="The person responsible for performing the procedure"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="121095"/>
     <display value="Referring"/>
     <definition value="The person responsible for referring the patient for the procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121096"/>
@@ -11636,9 +11759,6 @@
     <definition value="The person responsible for assisting with the procedure"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -11649,6 +11769,10 @@
     <code value="121100"/>
     <display value="Circulating"/>
     <definition value="The person responsible for making preparations for and monitoring the procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121101"/>
@@ -11671,12 +11795,13 @@
     <definition value="Ambiguous sex"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <code value="121105"/>
     <display value="Radiation Physicist"/>
     <definition value="Radiation Physicist"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121106"/>
@@ -11684,9 +11809,6 @@
     <definition value="Comment"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11697,11 +11819,12 @@
     <code value="121109"/>
     <display value="Indications for Procedure"/>
     <definition value="Indications for Procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11712,11 +11835,12 @@
     <code value="121110"/>
     <display value="Patient Presentation"/>
     <definition value="Patient condition at the beginning of a healthcare encounter"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11727,6 +11851,10 @@
     <code value="121111"/>
     <display value="Summary"/>
     <definition value="Summary of a procedure, including most significant findings"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121112"/>
@@ -11734,9 +11862,6 @@
     <definition value="Image or waveform used as source for measurement"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -11747,6 +11872,10 @@
     <code value="121113"/>
     <display value="Complications"/>
     <definition value="Complications from a procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121114"/>
@@ -12024,9 +12153,6 @@
     <definition value="General procedural note"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://loinc.org"/>
@@ -12037,6 +12163,10 @@
     <code value="121180"/>
     <display value="Key Images"/>
     <definition value="List of references to images considered significant"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121181"/>
@@ -12094,9 +12224,6 @@
     <definition value="Illustration of a region of interest"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -12106,11 +12233,12 @@
     </extension>
     <code value="121201"/>
     <display value="Area Outline"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -12120,6 +12248,10 @@
     </extension>
     <code value="121202"/>
     <display value="Area of Defined Region"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121206"/>
@@ -12137,9 +12269,6 @@
     <definition value="Distance between marks on a device of calibrated size; e.g. a ruler"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -12149,6 +12278,10 @@
     </extension>
     <code value="121210"/>
     <display value="Path"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121211"/>
@@ -12156,9 +12289,6 @@
     <definition value="A one dimensional, or linear, numeric measurement along a polyline"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -12168,6 +12298,10 @@
     </extension>
     <code value="121213"/>
     <display value="Perimeter Outline"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121214"/>
@@ -12645,9 +12779,6 @@
     <definition value="Factor (divisor or multiplicand) for normalizing a measurement; e.g. body surface area used for normalizing hemodynamic measurements"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -12658,11 +12789,12 @@
     <code value="121427"/>
     <display value="Estimated"/>
     <definition value="Measurement obtained by observer estimation, rather than with a measurement tool or by calculation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -12673,6 +12805,10 @@
     <code value="121428"/>
     <display value="Calculated"/>
     <definition value="Measurement obtained by calculation"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121430"/>
@@ -12710,9 +12846,6 @@
     <definition value="Type or identifier of a medical device used on, in, or by a patient"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -12723,11 +12856,12 @@
     <code value="121437"/>
     <display value="Pharmacologic and exercise stress test"/>
     <definition value="Cardiac stress test using pharmacologic and exercise stressors"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -12738,11 +12872,12 @@
     <code value="121438"/>
     <display value="Paced stress test"/>
     <definition value="Cardiac stress test using an implanted or external cardiac pacing device"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -12753,6 +12888,10 @@
     <code value="121439"/>
     <display value="Correction of congenital cardiovascular deformity"/>
     <definition value="Procedure for correction of congenital cardiovascular deformity"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="121701"/>
@@ -13115,9 +13254,6 @@
     <definition value="Office of identified personnel or staff was called"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -13128,6 +13264,10 @@
     <code value="122046"/>
     <display value="Equipment failure"/>
     <definition value="Equipment failure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="122047"/>
@@ -13195,9 +13335,6 @@
     <definition value="Percutaneous Coronary Intervention"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -13208,6 +13345,10 @@
     <code value="122062"/>
     <display value="15-Lead ECG"/>
     <definition value="15-Lead electrocardiography"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="122072"/>
@@ -13370,9 +13511,6 @@
     <definition value="Duration of Intervention"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -13383,11 +13521,12 @@
     <code value="122107"/>
     <display value="Baseline Stenosis Measurement"/>
     <definition value="Lesion stenosis measured prior to any interventional procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -13398,6 +13537,10 @@
     <code value="122108"/>
     <display value="Post-Intervention Stenosis Measurement"/>
     <definition value="Lesion stenosis measured after an interventional procedure"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="122109"/>
@@ -15700,9 +15843,6 @@
     <definition value="Group of symptoms heralding angina pectoris that does not include chest pain (dyspnea, diaphoresis, profuse vomiting in a diabetic patient, or arm or jaw pain)"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -15713,6 +15853,10 @@
     <code value="123001"/>
     <display value="Radiopharmaceutical"/>
     <definition value="Active ingredient (molecular) used for radioactive tracing"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="123003"/>
@@ -16188,9 +16332,6 @@
     <definition value="Bullet method of estimating ventricular volume. Volume = 5/6 * L * S L: Left ventricle long axis length S: Left ventricle area, SAX view at level of Mitral Valve"/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -16201,11 +16342,12 @@
     <code value="125230"/>
     <display value="Power Doppler"/>
     <definition value="Color coded ultrasound images of blood flow, which depict the amplitude, or power, of Doppler signals"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-deprecated">
-      <valueBoolean value="true"/>
-    </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-replacedby">
       <valueCoding>
         <system value="http://snomed.info/sct"/>
@@ -16216,6 +16358,10 @@
     <code value="125231"/>
     <display value="3D mode"/>
     <definition value="Volumetric ultrasound imaging"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
   </concept>
   <concept>
     <code value="125233"/>
