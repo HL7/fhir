@@ -896,7 +896,7 @@ public class SvgGenerator extends BaseGenerator {
   private String getTypeCodeForElement(List<TypeRef> tl) {
     if (tl.isEmpty())
       return "??";
-    if (tl.size() == 1 && !tl.get(0).getName().equals("Reference"))
+    if (tl.size() == 1 && !isReference(tl.get(0).getName()))
       return tl.get(0).getName();
     String t = tl.get(0).getName();
     boolean allSame = true;
@@ -905,46 +905,16 @@ public class SvgGenerator extends BaseGenerator {
     }
     if (allSame && t.equals("Reference"))
       return "Reference";
-    else
+    else if (allSame && t.equals("canonical"))
+        return "canonical";
+      else
       return "Type";
   }
 
-  private String getTypeStereotypeForElement(ElementDefn e) {
-    if (e.getTypes().isEmpty())
-      return null;
-    if (e.getTypes().size() == 1 && !e.getTypes().get(0).getName().equals("Reference"))
-      return null;
-    if (e.getTypes().get(0).getName().equals("Reference") && e.getTypes().size() == 1) {
-      CommaSeparatedStringBuilder csv = new CommaSeparatedStringBuilder("|");
-      for (String p : e.getTypes().get(0).getParams())
-        csv.append(p);
-      return csv.toString();
-    } else 
-      return e.typeCode();
+  private boolean isReference(String name) {
+    return name.equals("Reference") || name.equals("canonical");
   }
 
-  private String describeBinding(ElementDefn e) {
-    BindingSpecification b = e.getBinding();
-    if (e.hasBinding() && b.getBinding() != BindingMethod.Unbound) {
-      String name = e.getBinding().getValueSet() != null ? e.getBinding().getValueSet().getName() : e.getBinding().getName();
-      if (name.toLowerCase().endsWith(" codes"))
-        name = name.substring(0, name.length()-5);
-      if (name.length() > 30)
-        name = name.substring(0, 29)+"...";
-      if (b.hasMax())
-        throw new Error("Max binding not handled yet");
-
-      if (b.getStrength() == BindingStrength.EXAMPLE)
-        return name+"??";
-      else if (b.getStrength() == BindingStrength.PREFERRED)
-        return name+"?";
-      else if (b.getStrength() == BindingStrength.EXTENSIBLE)
-        return name+"+";
-      else // if (b.getBindingStrength() == BindingStrength.REQUIRED)
-        return name+"!";
-    } else
-      return "";
-  }
 
   private boolean isAttribute(ElementDefn c) {
     return c.getElements().size() == 0 && !c.typeCode().startsWith("@");
@@ -1024,13 +994,13 @@ public class SvgGenerator extends BaseGenerator {
     xml.text(ls.see(" ["+e.describeCardinality()+"]"));
 
     // now, the stereotypes
-    boolean hasTS = !((e.getTypes().isEmpty()) || (e.getTypes().size() == 1 && !e.getTypes().get(0).getName().equals("Reference")));
+    boolean hasTS = !((e.getTypes().isEmpty()) || (e.getTypes().size() == 1 && !isReference(e.getTypes().get(0).getName())));
     boolean hasBinding = (e.hasBinding() && e.getBinding().getBinding() != BindingMethod.Unbound);
     if (hasTS || hasBinding) {
       xml.text(ls.see(" \u00AB "));
       
       if (hasTS) {
-        if (e.getTypes().get(0).getName().equals("Reference") && e.getTypes().size() == 1) {
+        if (isReference(e.getTypes().get(0).getName()) && e.getTypes().size() == 1) {
           boolean first = true;
           for (String p : e.getTypes().get(0).getParams()) {
             if (first)

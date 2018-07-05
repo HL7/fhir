@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.reflect.TypeUtils;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -25,6 +26,8 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.utils.TypesUtilities;
+import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -257,14 +260,20 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         for (TypeRef t : elem.getTypes())
           generateCoreElemDetails(elem, indent, rootName, pathName, backbone, last, width, en.replace("[x]", nameForType(t.getName())), t, false);
       } else {
-        List<TypeRef> tr = getWildcardTypes();
+        List<WildcardInformation> tr = TypesUtilities.wildcards();
         write("<span style=\"color: Gray\">// "+en+": <span style=\"color: navy; opacity: 0.8\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShortDefn()) + "</span>. One of these "+Integer.toString(tr.size())+":</span>\r\n");
-        for (TypeRef t : tr)
-          generateCoreElemDetails(elem, indent, rootName, pathName, backbone, last, width, en.replace("[x]", upFirst(t.getName())), t, false);	      
+        for (WildcardInformation t : tr)
+          generateCoreElemDetails(elem, indent, rootName, pathName, backbone, last, width, en.replace("[x]", upFirst(t.getTypeName())), toTypeRef(t), false);	      
       }
     } else {
       generateCoreElemDetails(elem, indent, rootName, pathName, backbone, last, width, en, elem.getTypes().isEmpty() ? null : elem.getTypes().get(0), true);
     }
+  }
+
+  private TypeRef toTypeRef(WildcardInformation t) {
+    TypeRef r = new TypeRef();
+    r.setName(t.getTypeName());
+    return r;
   }
 
   private CharSequence nameForType(String type) {
@@ -272,34 +281,6 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       return definitions.getConstraints().get(type).getBaseType();
     else 
       return Utilities.capitalize(type);
-  }
-
-  private List<TypeRef> getWildcardTypes() {
-    List<TypeRef> tr = new ArrayList<TypeRef>();
-    tr.add(new TypeRef().setName("integer"));
-    tr.add(new TypeRef().setName("decimal"));
-    tr.add(new TypeRef().setName("dateTime"));
-    tr.add(new TypeRef().setName("date"));
-    tr.add(new TypeRef().setName("instant"));
-    tr.add(new TypeRef().setName("string"));
-    tr.add(new TypeRef().setName("uri"));
-    tr.add(new TypeRef().setName("boolean"));
-    tr.add(new TypeRef().setName("code"));
-    tr.add(new TypeRef().setName("base64Binary"));
-    tr.add(new TypeRef().setName("Coding"));
-    tr.add(new TypeRef().setName("CodeableConcept"));
-    tr.add(new TypeRef().setName("Attachment"));
-    tr.add(new TypeRef().setName("Identifier"));
-    tr.add(new TypeRef().setName("Quantity"));
-    tr.add(new TypeRef().setName("Range"));
-    tr.add(new TypeRef().setName("Period"));
-    tr.add(new TypeRef().setName("Ratio"));
-    tr.add(new TypeRef().setName("HumanName"));
-    tr.add(new TypeRef().setName("Address"));
-    tr.add(new TypeRef().setName("ContactPoint"));
-    tr.add(new TypeRef().setName("Schedule"));
-    tr.add(new TypeRef().setName("Reference"));
-    return tr;
   }
 
   private void generateCoreElemDetails(ElementDefn elem, int indent, String rootName, String pathName, boolean backbone, boolean last, int width, String en, TypeRef type, boolean doco) throws Exception {
@@ -355,7 +336,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     } else if (type.isXhtml()) {
       // element contains xhtml
       write("\"(Escaped XHTML)\"");
-    } else if (definitions.getPrimitives().containsKey(type.getName())) {
+    } else if (definitions.getPrimitives().containsKey(type.getName()) && !type.hasParams()) {
       if (!(type.getName().equals("integer") || type.getName().equals("boolean") || type.getName().equals("decimal")))
         write("\"");
       write("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getName())+ ".html#" + type.getName()) + "\">" + type.getName()+ "</a></span>&gt;");
@@ -749,7 +730,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
           if (p.equals("Any")) {
             write("<a href=\"" + prefix+"resourcelist.html" + "\">" + p + "</a>");								
           }
-          else if (t.getName().equals("Reference") && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))
+          else if (isReference(t.getName()) && t.getParams().size() == 1 && !Utilities.noString(t.getProfile()))
             write("<a href=\""+prefix+t.getProfile()+"\"><span style=\"color: DarkViolet\">@"+t.getProfile().substring(1)+"</span></a>");     
           else
             write("<a href=\"" + prefix+(dtRoot + definitions.getSrcFile(p)
@@ -765,6 +746,10 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     //}
     write("</span>");
     return w;
+  }
+
+  private boolean isReference(String name) {
+    return name.equals("Reference") || name.equals("canonical") ;
   }
 
     /*
