@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3450,7 +3450,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3492,7 +3491,7 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam.participant</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">onBehalfOf.exists() implies (member.resolve() is Practitioner)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">starts-with(f:member/f:reference/@value, 'Practitioner/') or contains(f:member/f:reference/@value, '/Practitioner/') or not(exists(f:onBehalfOf))</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">starts-with(f:member/f:reference/@value, 'Practitioner/') or contains(f:member/f:reference/@value, '/Practitioner/') or exists(ancestor::*/f:contains/f:Practitioner/f:id[@value=substring-after(current()/f:member/f:reference/@value, '#')]) or not(exists(f:onBehalfOf))</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3939,6 +3938,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
