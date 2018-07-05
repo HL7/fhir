@@ -415,7 +415,7 @@
   <contained>
     <ValueSet>
       <id value="CardiologyReferralReasonValues" />
-      <!--  Identifiers: Terminology Service requests still on going for
+      <!-!-  Identifiers: Terminology Service requests still on going for
          value set and code definitions. Hence skeeleton and placeholders here for example-!->
       <name value="Cardiology Referral Reason value set" />
       <status value="draft" />
@@ -428,7 +428,7 @@
           </concept>
         </include>
       </compose>
-      <!-- <compose>
+      <!-!- <compose>
         <include>
           <system value="TSR" />
           <concept>
@@ -450,8 +450,8 @@
         </include>
       </compose> -!->
     </ValueSet>
-  </contained>
-  -->
+  </contained> -->
+  
   <contained>
     <Questionnaire>
       <id value="CollectReferralReason" />

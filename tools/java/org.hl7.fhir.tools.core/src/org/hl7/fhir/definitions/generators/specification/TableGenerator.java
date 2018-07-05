@@ -92,11 +92,11 @@ public class TableGenerator extends BaseGenerator {
         if (t.startsWith("@")) {
           row.setIcon("icon_reuse.png", HierarchicalTableGenerator.TEXT_ICON_REUSE);
           c = gen.new Cell("see ", "#"+t.substring(1), t.substring(t.lastIndexOf(".")+1), t.substring(1), null);
-        } else if (t.equals("Reference")) {
+        } else if (isReference(t)) {
           row.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
           c = gen.new Cell();
           if (ADD_REFERENCE_TO_TABLE) {
-          c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
+          c.getPieces().add(gen.new Piece(prefix+definitions.getSrcFile(t)+".html#"+t, t, null));
           c.getPieces().add(gen.new Piece(null, "(", null));
           }
           boolean first = true;
@@ -205,8 +205,8 @@ public class TableGenerator extends BaseGenerator {
       for (TypeRef tr : e.getTypes()) {
         Row choicerow = gen.new Row();
         String t = tr.getName();
-        if (t.equals("Reference")) {
-          choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]",  "Reference"), null, null));
+        if (isReference(t)) {
+          choicerow.getCells().add(gen.new Cell(null, null, e.getName().replace("[x]", Utilities.capitalize(t)), null, null));
           choicerow.getCells().add(gen.new Cell());
           choicerow.getCells().add(gen.new Cell(null, null, "", null, null));
           choicerow.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
@@ -255,6 +255,10 @@ public class TableGenerator extends BaseGenerator {
       for (ElementDefn c : e.getElements())
         row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false, null));
     return row;
+  }
+
+  private boolean isReference(String t) {
+    return t.equals("Reference") || t.equals("canonical"); 
   }
 
   private void presentLogicalMapping(HierarchicalTableGenerator gen, Cell c, String logical, String prefix) {
