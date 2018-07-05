@@ -462,7 +462,7 @@
         <type value="choice" />
         <required value="true" />
         <repeats value="true" />
-        <options value="#CardiologyReferralReasonValues" />
+        <answerValueSet value="#CardiologyReferralReasonValues" />
       </item>
     </Questionnaire>
   </contained>
