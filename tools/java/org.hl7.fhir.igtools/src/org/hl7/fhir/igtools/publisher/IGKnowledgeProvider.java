@@ -330,7 +330,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     } else {
       String ref = binding.getValueSet();
       if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-        br.url = specPath("v3/"+ref.substring(32)+"/index.html");
+        br.url = specPath("v3/"+ref.substring(32)+"/vs.html");
         br.display = ref.substring(32);
       } else if (ref.startsWith("ValueSet/")) {
         ValueSet vs = context.fetchResource(ValueSet.class, makeCanonical(ref));
