@@ -28,6 +28,9 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 import java.io.File;
+import java.io.IOException;
+
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * This class gives easy access to the paths used by the publisher to get to
@@ -43,7 +46,7 @@ public class FolderManager {
    */
   private char sl;
   
-  public FolderManager(String root) {
+  public FolderManager(String root, String outputdir) throws IOException {
     super();
     sl = File.separatorChar;
     rootDir = root+sl;
@@ -55,7 +58,10 @@ public class FolderManager {
     xsdDir = root+sl+"schema"+sl;
     tmpResDir = xsdDir+"datatypes"+sl;
     tmpDir = root+sl+"temp"+sl;
-    dstDir = root+sl+"publish"+sl;
+    if (outputdir == null)
+      dstDir = root+sl+"publish"+sl;
+    else
+      dstDir = Utilities.path(outputdir, "publish", "");
     umlDir = root+sl+"uml"+sl;
     javaDir = root+sl+"tools"+sl+"java"+sl+"org.hl7.fhir.tools.core"+sl+"src"+ sl;
     archiveDir = root.substring(0, root.lastIndexOf(File.separator)+1)+"archive"+sl;

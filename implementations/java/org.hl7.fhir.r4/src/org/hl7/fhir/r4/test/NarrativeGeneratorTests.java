@@ -25,7 +25,7 @@ public class NarrativeGeneratorTests {
 	@Before
 	public void setUp() throws FileNotFoundException, IOException, FHIRException {
     if (TestingUtilities.context == null)
-      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.content(), "definitions.xml.zip"));
 		if (gen == null)
   		gen = new NarrativeGenerator("", null, TestingUtilities.context);
 	}

@@ -396,6 +396,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private static final String HTTP_separator = "/";
 
+  private String outputdir;
+
   private SourceParser prsr;
   private PageProcessor page;
   // private BookMaker book;
@@ -470,6 +472,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       pub.page.setPublicationNotice(PageProcessor.CI_PUB_NOTICE);
     }
     String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
+    pub.outputdir = hasParam(args, "-output") ? getNamedParam(args, "-output") : null; 
     pub.execute(dir);
   }
 
@@ -520,9 +523,10 @@ public class Publisher implements URIResolver, SectionNumberer {
    * to actually produce the specification
    *
    * @param folder
+   * @throws IOException 
    * @throws Exception
    */
-  public void execute(String folder) {
+  public void execute(String folder) throws IOException {
     tester = new PublisherTestSuites();
     
     page.log("Publish FHIR in folder " + folder + " @ " + Config.DATE_FORMAT().format(page.getGenDate().getTime()), LogMessageType.Process);
@@ -530,10 +534,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.log("Build final copy for HL7 web site", LogMessageType.Process);
     else
       page.log("Build local copy", LogMessageType.Process);
+    if (outputdir != null) {
+      page.log("Create output in "+outputdir, LogMessageType.Process);
+    }
     page.log("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch"), LogMessageType.Process);
     try {
       tester.initialTests();
-      page.setFolders(new FolderManager(folder));
+      page.setFolders(new FolderManager(folder, outputdir));
 
       registerReferencePlatforms();
 
@@ -5807,6 +5814,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     TestingUtilities.context = page.getWorkerContext();
     TestingUtilities.silent = true;
     TestingUtilities.fixedpath = page.getFolders().rootDir;
+    TestingUtilities.contentpath = page.getFolders().dstDir;
     ValidationEngineTests.inbuild = true;
     
 //    runJUnitClass(InstanceValidatorTests.class);

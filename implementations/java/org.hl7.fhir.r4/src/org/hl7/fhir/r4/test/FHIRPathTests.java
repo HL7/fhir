@@ -91,7 +91,7 @@ public class FHIRPathTests {
   @Test
   public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException, UcumException {
     if (TestingUtilities.context == null) {
-      SimpleWorkerContext wc = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
+      SimpleWorkerContext wc = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.content(), "definitions.xml.zip"));
       wc.setUcumService(new UcumEssenceService(Utilities.path(TestingUtilities.home(), "tests", "ucum-essence.xml")));
       TestingUtilities.context = wc;
     }
@@ -111,7 +111,7 @@ public class FHIRPathTests {
       else {
         res = resources.get(input);
         if (res == null) {
-          res = new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.home(), "publish", input)));
+          res = new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.content(), input)));
           resources.put(input, res);
         }
         fp.check(res, res.getResourceType().toString(), res.getResourceType().toString(), node);

@@ -85,7 +85,7 @@ public class FluentPathTests {
   @Test
   public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (TestingUtilities.context == null)
-      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.content(), "definitions.xml.zip"));
     if (fp == null)
       fp = new FHIRPathEngine(TestingUtilities.context);
     String input = test.getAttribute("inputfile");
@@ -100,7 +100,7 @@ public class FluentPathTests {
       if (Utilities.noString(input))
         fp.check(null, null, node);
       else {
-        res = new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.home(), "publish", input)));
+        res = new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.content(), input)));
         fp.check(res, res.getResourceType().toString(), res.getResourceType().toString(), node);
       }
       outcome = fp.evaluate(res, node);

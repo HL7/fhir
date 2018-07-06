@@ -35,7 +35,8 @@ public class TestingUtilities {
 	static public IWorkerContext context;
 	static public boolean silent;
 
-	static public String fixedpath;
+  static public String fixedpath;
+  static public String contentpath;
 
   public static String home() {
     if (fixedpath != null)
@@ -47,6 +48,13 @@ public class TestingUtilities {
     if (new File(s).exists())
       return s;
     throw new Error("FHIR Home directory not configured");
+  }
+  
+
+  public static String content() throws IOException {
+    if (contentpath != null)
+     return contentpath;
+    return Utilities.path(home(), "publish");
   }
   
   // diretory that contains all the US implementation guides
