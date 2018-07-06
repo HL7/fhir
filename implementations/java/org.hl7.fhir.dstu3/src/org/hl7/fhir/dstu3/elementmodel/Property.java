@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.DefinitionException;
 
+
 public class Property {
 
 	private IWorkerContext context;
@@ -133,8 +134,10 @@ public class Property {
 	 * @param E.g. "integer"
 	 */
 	public boolean isPrimitive(String code) {
-		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
-      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+    return org.hl7.fhir.dstu3.utils.TypesUtilities.isPrimitive(code);
+   // was this... but this can be very inefficient compared to hard coding the list
+//		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+//    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
 	private String lowFirst(String t) {

@@ -13,6 +13,7 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.utilities.Utilities;
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.exceptions.DefinitionException;
@@ -135,8 +136,10 @@ public class Property {
 	 * @param E.g. "integer"
 	 */
 	public boolean isPrimitive(String code) {
-		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
-      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
+	  return TypesUtilities.isPrimitive(code);
+	 // was this... but this can be very inefficient compared to hard coding the list
+//		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+//      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
 	private String lowFirst(String t) {
