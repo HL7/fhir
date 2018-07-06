@@ -136,7 +136,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-C: HLA-C*01:02:01G+HLA-C*03:04:01G"/>
 				</result>
 			</DiagnosticReport>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="DiagnosticReport"/>
 		</request>
@@ -175,7 +177,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTTCACATCCGTGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCCGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGAAGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGACG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -214,7 +218,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGGGTACCGGCAGGACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGATCACCAAGCGCAAGTGGGAGGCGGTCCATGCGGCGGAGCAGCGGAGAGTCTACCTGGAGGGCCGGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -253,7 +259,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTCCACATCCGTGTCCCGGCCCGGCAGTGGAGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGCCAGAAGATGGAGCCGCGGGCGCCGTGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCAGGAGACACGGAATATGAAGGCCCACTCACAGACTGACCGAGCGAACCTGGGGACCCTGCGCGGCTACTACAACCAGAGCGAGGACG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -292,7 +300,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GTTCTCACACCATCCAGATAATGTATGGCTGCGACGTGGGGCCGGACGGGCGCTTCCTCCGCGGGTACCGGCAGGACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGCGCTCTTGGACCGCGGCGGACATGGCAGCTCAGATCACCAAGCGCAAGTGGGAGGCGGTCCATGCGGCGGAGCAGCGGAGAGTCTACCTGGAGGGCCGGTGCGTGGACGGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCACGG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -331,7 +341,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTACACCGCCATGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACCCAGTTCGTGAGGTTCGACAGCGACGCCGCGAGTCCGAGGATGGCGCCCCGGGCGCCATGGATAGAGCAGGAGGGGCCGGAGTATTGGGACCGGGAGACACAGATCTCCAAGACCAACACACAGACTTACCGAGAGAGCCTGCGGAACCTGCGCGGCTACTACAACCAGAGCGAGGCCG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -370,7 +382,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GGTCTCACACCCTCCAGAGGATGTACGGCTGCGACGTGGGGCCGGACGGGCGCCTCCTCCGCGGGCATGACCAGTCCGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGAGCTCCTGGACCGCGGCGGACACGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGAGGCGGAGCAGTGGAGAGCCTACCTGGAGGGCCTGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCGCGG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -409,7 +423,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTACACCGCCATGTCCCGGCCCGGCCGCGGGGAGCCCCGCTTCATCGCAGTGGGCTACGTGGACGACACCCAGTTCGTGAGGTTCGACAGCGACGCCGCGAGTCCGAGGATGGCGCCCCGGGCGCCATGGATAGAGCAGGAGGGGCCGGAGTATTGGGACGGGGAGACACGGAACATGAAGGCCTCCGCGCAGACTTACCGAGAGAACCTGCGGATCGCGCTCCGCTACTACAACCAGAGCGAGGCCG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -448,7 +464,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GGTCTCACATCATCCAGGTGATGTATGGCTGCGACGTGGGGCCGGACGGGCGCCTCCTCCGCGGGCATGACCAGTCCGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGAGCTCCTGGACCGCGGCGGACACGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGTGGCGGAGCAGCTGAGAGCCTACCTGGAGGGCCTGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCGCGG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -487,7 +505,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAAGTATTTCTTCACATCCGTGTCCCGGCCTGGCCGCGGAGAGCCCCGCTTCATCTCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGTCCGAGAGGGGAGCCGCGGGCGCCGTGGGTGGAGCAGGAGGGGCCGGAGTATTGGGACCGGGAGACACAGAAGTACAAGCGCCAGGCACAGACTGACCGAGTGAGCCTGCGGAACCTGCGCGGCTACTACAACCAGAGCGAGGCCG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -526,7 +546,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GGTCTCACACCCTCCAGTGGATGTGTGGCTGCGACCTGGGGCCCGACGGGCGCCTCCTCCGCGGGTATGACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGACCTGCGCTCCTGGACCGCCGCGGACACCGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGAGGCGGAGCAGCGGAGAGCCTACCTGGAGGGCACGTGCGTGGAGTGGCTCCGCAGATACCTGGAGAACGGGAAGGAGACGCTGCAGCGCGCGG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -565,7 +587,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GCTCCCACTCCATGAGGTATTTCTACACCGCTGTGTCCCGGCCCGGCCGCGGGGAGCCCCACTTCATCGCAGTGGGCTACGTGGACGACACGCAGTTCGTGCGGTTCGACAGCGACGCCGCGAGTCCGAGAGGGGAGCCGCGGGCGCCGTGGGTGGAGCAGGAGGGGCCGGAGTATTGGGACCGGGAGACACAGAAGTACAAGCGCCAGGCACAGACTGACCGAGTGAGCCTGCGGAACCTGCGCGGCTACTACAACCAGAGCGAGGCCG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -604,7 +628,9 @@ ServiceRequest/123  (report is based on this request)
 				</referenceSeq>
 				<observedSeq value="GGTCTCACATCATCCAGAGGATGTATGGCTGCGACGTGGGGCCCGACGGGCGCCTCCTCCGCGGGTATGACCAGTACGCCTACGACGGCAAGGATTACATCGCCCTGAACGAGGATCTGCGCTCCTGGACCGCCGCGGACACGGCGGCTCAGATCACCCAGCGCAAGTGGGAGGCGGCCCGTGAGGCGGAGCAGCTGAGAGCCTACCTGGAGGGCCTGTGCGTGGAGTGGCTCCGCAGATACCTGAAGAATGGGAAGGAGACGCTGCAGCGCGCGG"/>
 			</Sequence>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Sequence"/>
 		</request>
@@ -671,7 +697,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-A*01:01:01:01, exon 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -738,7 +766,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-A*01:02, exon 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -797,7 +827,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-A*01:02, exons 2 and 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -864,7 +896,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-B*15:01:01:01, exon 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -931,7 +965,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-B*57:01:01, exon 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -990,7 +1026,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-B*57:01:01G, exons 2 and 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -1057,7 +1095,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-C*01:02:01, exon 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -1124,7 +1164,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-C*03:04:01:01, exon 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>
@@ -1183,7 +1225,9 @@ ServiceRequest/123  (report is based on this request)
 					<display value="HLA-C*03:04:01G, exons 2 and 3"/>
 				</derivedFrom>
 			</Observation>
-		</resource><!--    transaction details    --><request>
+		</resource>
+    <!--    transaction details    -->
+    <request>
 			<method value="POST"/>
 			<url value="Observation"/>
 		</request>

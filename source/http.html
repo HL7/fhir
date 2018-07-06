@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
 [%settitle RESTful API%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -1269,9 +1268,8 @@ A server may choose to accept bundle types other than <code>batch</code> or <cod
 Bundles of type <code>history</code> inherently have the same structure as a <code>transaction</code>, and
 can be treated as either a transaction or batch, so servers SHOULD accept a history Bundle - this makes it
 possible to replicate data from one server to another easily using a pub/sub model. Note, however, that
-the original transaction boundaries might not be represented in a history list, and
-a resource may occur more than once in a history list, so
-servers processing history bundles must have some strategy to manage this.
+the original transaction boundaries might not be represented in a history list, and a resource may occur 
+more than once in a history list, so servers processing history bundles must have some strategy to manage this.
 </p>
 <p>
 For other Bundle types, should the server choose to accept them, there will be
