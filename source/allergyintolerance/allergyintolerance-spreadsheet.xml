@@ -15,7 +15,7 @@
   
   
   <TabRatio>884</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4329,7 +4329,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6920,7 +6919,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Refuted</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion.  This might or might not include testing or rechallenge.</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s139"/>
@@ -7433,6 +7432,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
