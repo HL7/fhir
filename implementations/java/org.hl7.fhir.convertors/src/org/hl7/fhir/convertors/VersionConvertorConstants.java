@@ -58,6 +58,6 @@ public class VersionConvertorConstants {
     else if (url.equals("http://hl7.org/fhir/ValueSet/mimetypes"))
       return "http://www.rfc-editor.org/bcp/bcp13.txt";
     else
-      return "";
+      return null;
   }
 }
