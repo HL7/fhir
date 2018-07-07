@@ -156,7 +156,7 @@ public class IGPack2NpmConvertor {
         System.out.println("  version not supported");
       } else {
         ImplementationGuide ig = loadIg(files, version);
-        String canonical = ig.getUrl().substring(0, ig.getUrl().indexOf("/ImplementationGuide/"));
+        String canonical = ig.getUrl(); /// ig.getUrl().substring(0, ig.getUrl().indexOf("/ImplementationGuide/"));
         determinePackageId(ig, canonical, f.getAbsolutePath());
         checkVersions(ig, version, f.getAbsolutePath());
         checkLicense(ig);
