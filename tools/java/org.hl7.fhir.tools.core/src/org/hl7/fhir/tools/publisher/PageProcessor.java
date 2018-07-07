@@ -3652,7 +3652,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else
         s = "<li>"+presentLevel(inv)+" <b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a> on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)";
       if (!Utilities.noString(inv.getExplanation())) 
-        s = s + ". This is best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExplanation(), prefix)+"</blockquote>";
+        s = s + ". This is (only) a best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExplanation(), prefix)+"</blockquote>";
       invs.put(inv.getId(), s+"</li>");
     }
     for (ElementDefn c : e.getElements()) {
@@ -8275,7 +8275,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append("<tr>"+presentLevel(inv)+" <td>").append(inv.getKey()).append("</td><td>").append(path).append("</td><td>").append(Utilities.escapeXml(inv.getHuman()))
            .append("<br/><a href=\"http://hl7.org/fhirpath\">Expression</a>: ").append(Utilities.escapeXml(inv.getExpression())).append("</td><td>").append(Utilities.escapeXml(inv.getRequirements()));
            if (inv.hasExtension(ToolingExtensions.EXT_BEST_PRACTICE_EXPLANATION)) 
-              b.append(". This is best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExtensionString(ToolingExtensions.EXT_BEST_PRACTICE_EXPLANATION), "")+"</blockquote>");
+              b.append(". This is (only) a best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExtensionString(ToolingExtensions.EXT_BEST_PRACTICE_EXPLANATION), "")+"</blockquote>");
           
           b.append("</td></tr>\r\n");
         }
