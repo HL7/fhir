@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+
+[%settitle FHIR Best Practices%]
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<a name="conformance"></a>
+<h2>Best Practices</h2>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a><!--!ns!--></td></tr></table>
+
+<p>
+The base FHIR specification is used across the world in many different
+contexts, with a great variety of use cases. There are many existing 
+restrictions from common practice and regulation that constrain the 
+agreements that the specification represents. In particular there are 
+large amounts of existing data in legacy record stores that need to 
+represented and exchanged using FHIR resources.
+</p>
+<p>
+The requirements analysis that occurs during the design of the FHIR
+process often leads to a clear understanding of how information should
+be represented, but also can make clear that for a variety of reasons, 
+such best practices cannot be imposed as standards requirements in 
+all contexts. However, it is useful for the FHIR standard to be able to 
+docuemnt what are known best practices. 
+</p>
+<p>
+Committees can document best practice by one of two different ways:
+</p>
+
+<ul>
+<li>defining invariants and marking them as bast practice rules</li>
+<li>adding narrative that defines best practices</li>
+</ul>
+
+<p>
+When using the <a href="validation.html">FHIR validator</a>, implementers
+are able to ask for best practice rules to be enforced if they wish. 
+</p>
+
+<p>
+This page indexes the best practices documented in this specification:
+</p>
+
+<%best-practice-list%>
+
+
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
