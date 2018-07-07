@@ -1007,7 +1007,7 @@ public class FHIRPathEngine {
     case Children: return checkParamCount(lexer, location, exp, 0);
     case Descendants: return checkParamCount(lexer, location, exp, 0);
     case MemberOf: return checkParamCount(lexer, location, exp, 1);
-    case Trace: return checkParamCount(lexer, location, exp, 1);
+    case Trace: return checkParamCount(lexer, location, exp, 1, 2);
     case Today: return checkParamCount(lexer, location, exp, 0);
     case Now: return checkParamCount(lexer, location, exp, 0);
     case Resolve: return checkParamCount(lexer, location, exp, 0);
@@ -3035,8 +3035,11 @@ public class FHIRPathEngine {
 	private List<Base> funcTrace(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     List<Base> nl = execute(context, focus, exp.getParameters().get(0), true);
     String name = nl.get(0).primitiveValue();
-
-    log(name, focus);
+    if (exp.getParameters().size() == 2) {
+      List<Base> n2 = execute(context, focus, exp.getParameters().get(1), true);
+      log(name, n2);
+    } else 
+      log(name, focus);
     return focus;
   }
 

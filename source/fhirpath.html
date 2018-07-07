@@ -128,7 +128,7 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendents()</code>.</p>
 </blockquote>
 
-<p><b>trace(name : string) : collection</b></p>
+<p><b>trace(name : string; selector : expression) : collection</b></p>
 
 <p>When FHIRPath statements are used in an invariant, the log contents should be added to the error message constructed when the invariant is violated. For example:</p>
 
@@ -140,6 +140,20 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
 "reference.startsWith('#').not() or 
   (%context.reference.substring(1).trace('url') in $resource.contained.id.trace('ids'))"
 </pre>
+<p>
+The FHIRPath specification adds an additional parameter to the trace() function, a selection expression that can be used
+to shape what is logged for the collection that is traced. E.g.
+</p>
+<pre class="fhirpath">
+  contained.where(criteria).trace('ids', type().name+"/"+id).process...
+</pre>
+<p>
+This will log the type/name for each contained resource that meets the criteria.
+</p>
+<p>
+Note: the selector parameter is planned to be added to a future version of the base FHIRPath specification.
+</p>
+
 
 <p><b>resolve() : collection</b></p>
 <p>For each item in the collection, if it is a string that is a URI or (canonical or URL), locate the target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, the item is ignored and nothing is added to the output collection.</p>

@@ -54,6 +54,9 @@ public class TestingUtilities {
   public static String content() throws IOException {
     if (contentpath != null)
      return contentpath;
+    String s = "R:\\fhir\\publish";
+    if (new File(s).exists())
+      return s;
     return Utilities.path(home(), "publish");
   }
   

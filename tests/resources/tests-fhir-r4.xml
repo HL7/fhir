@@ -571,6 +571,7 @@
 
 	<group name="testTrace">
 		<test inputfile="patient-example.xml"><expression>name.given.trace('test').count() = 5</expression><output type="boolean">true</output></test>
+		<test inputfile="patient-example.xml"><expression>name.trace('test', given).count() = 3</expression><output type="boolean">true</output></test> 
 	</group>
 
 	<group name="testToday">
