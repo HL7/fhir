@@ -39,6 +39,7 @@ public class Invariant {
   private String turtle;
   private String requirements;
   private String expression;
+  private String explanation;
   
   public String getId()
   {
@@ -121,6 +122,14 @@ public class Invariant {
 
   public void setExpression(String value) {
     this.expression = value;
+  }
+
+  public String getExplanation() {
+    return explanation;
+  }
+
+  public void setExplanation(String explanation) {
+    this.explanation = explanation;
   }
 
   

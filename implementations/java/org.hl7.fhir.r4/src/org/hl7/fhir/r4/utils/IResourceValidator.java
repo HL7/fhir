@@ -88,7 +88,7 @@ public interface IResourceValidator {
    * as defined by various HL7 committees 
    *  
    */
-  BestPracticeWarningLevel getBasePracticeWarningLevel();
+  BestPracticeWarningLevel getBestPracticeWarningLevel();
   IResourceValidator setBestPracticeWarningLevel(BestPracticeWarningLevel value);
 
   IValidatorResourceFetcher getFetcher();

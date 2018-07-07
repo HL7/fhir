@@ -3334,7 +3334,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" ss:StyleID="s100" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="51" ss:StyleID="s100" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s100" ss:Width="115.0"/>
    <Column ss:StyleID="s100" ss:Width="55.0"/>
    <Column ss:StyleID="s100" ss:Width="165.0"/>
@@ -3349,6 +3349,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">English</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">English description of constraint</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Expression</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Explanation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s104"><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3396,13 +3397,14 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:contained/*/f:meta/f:security))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s107"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">6</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Resources should contain narrative</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">best-practice</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">DomainResource</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A resource should have narrative for robust management</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">text.div.exists()</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">exists(f:text/h:div)</Data></Cell>
+    <Cell><Data ss:Type="String">When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a guman readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>

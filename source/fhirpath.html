@@ -138,7 +138,7 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
   from
 
 "reference.startsWith('#').not() or 
-  ($context.reference.substring(1).trace('url') in $resource.contained.id.trace('ids'))"
+  (%context.reference.substring(1).trace('url') in $resource.contained.id.trace('ids'))"
 </pre>
 
 <p><b>resolve() : collection</b></p>

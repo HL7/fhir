@@ -189,8 +189,6 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
-
-
   private boolean parentChainHasOptional(ElementDefinition ed, StructureDefinition profile) {
     if (!ed.getPath().contains("."))
       return false;

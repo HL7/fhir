@@ -269,7 +269,7 @@ Constraints defined on an element have the following properties:
 <table class="grid">
  <tr><td><b>Key</b></td><td>Identifies the constraint uniquely amongst all the constraints in the context - typically, this is used to refer to the constraint in an error message</td></tr>
  <tr><td><b>Requirements</b></td><td>An explanation of why the constraint has been applied - what harmful conditions are being avoided</td></tr>
- <tr><td><b>Severity</b></td><td>Whether the constraint is an error, or a warning. The exact difference in meaning of these depends on context, but an error is associated with "SHALL" and systems rejecting content, whereas a warning might not be</td></tr>
+ <tr><td><b>Severity</b></td><td>The severity of the invariant - see below</td></tr>
  <tr><td><b>Human Description</b></td><td>A human description of the rule intended to be show as the explanation for a message when the constraint is not met</td></tr>
  <tr><td><b>Expression</b></td><td>A <a href="fhirpath.html">FHIRPath</a> expression that must evaluate to true when run on the element</td></tr>
  <tr><td><b>XPath</b></td><td>An XPath expression that must evaluate to true when run on the element in the XML representation</td></tr>
@@ -281,6 +281,17 @@ to resources. Systems are not required to evaluate the constraints, just as they
 are not required to check for conformance, or schema validity. However, systems
 SHOULD always ensure that all resources are valid against all applicable constraints.
 </p>
+<p>
+Constraints have a severity level:
+</p>
+<a name="best-practice"> </a><a name="rule"> </a><a name="warning"> </a>
+<table>
+ <tr> <td><b>Error (rule)</b></td>  <td>A rule that all resources must conform to. Validators should report it as an error if the rule is violated, and applications processing the content can reject it as an invalid resource</td> </tr>
+ <tr> <td><b>Warning</b></td>  <td>Report this as a warning that there may be a problem with the resource, but it is considered valid and can be processed normally</td> </tr>
+ <tr> <td><b>Guideline</b></td>  <td>A warning marked with an extension (<a href="extension-elementdefinition-bestpractice.html">http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice</a>)
+   that indicates that it should be a treated as an error if the implementation context asks a validator to enforce best practice rules. See <a href="best-practices.html">Best Practices</a> for a full list</td> </tr>
+</table>
+
 <p>
 Elements can also be explicitly associated with constraints defined elsewhere. This is
 a notification to implementers that the element is affected by the constraint. It has no meaning when the constraints are evaluated.

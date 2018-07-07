@@ -138,6 +138,7 @@ import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.ElementDefinition.ConstraintSeverity;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -1224,6 +1225,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genStructureList()+s3;
       else if (com[0].equals("extension-type-list"))
         src = s1+genExtensionTypeList()+s3;
+      else if (com[0].equals("best-practice-list"))
+        src = s1+genBestPracticeList()+s3;
       else if (com[0].equals("wildcard-type-list"))
         src = s1+genWildcardTypeList()+s3;
       else if (com[0].startsWith("GF#"))
@@ -1242,6 +1245,55 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genBestPracticeList() throws Exception {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    for (ResourceDefn r : definitions.getBaseResources().values())
+      genBestPracticeList(b, r);
+    for (String s : definitions.sortedResourceNames())
+      genBestPracticeList(b, definitions.getResourceByName(s));
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+
+  private void genBestPracticeList(StringBuilder b, ResourceDefn r) throws Exception {
+    StringBuilder b1 = new StringBuilder();
+    genBestPracticeList(b1, r.getRoot());
+    if (b1.length() > 0) {
+      b.append("<tr>");
+      b.append("<td colspan=\"3\">");
+      b.append("<b><a href=\"");
+      b.append(r.getName().toLowerCase());
+      b.append(".html\">");
+      b.append(r.getName());
+      b.append("</a></b>");
+      b.append("</td>");
+      b.append("</tr>\r\n");
+      b.append(b1.toString());
+    }
+  }
+
+  private void genBestPracticeList(StringBuilder b, ElementDefn e) throws Exception {
+    for (Invariant inv : e.getInvariants().values()) {
+      if ("best-practice".equals(inv.getSeverity())) {
+        b.append("<tr>");
+        b.append("<td>");
+        b.append(inv.getId());
+        b.append("</td>");
+        b.append("<td>");
+        b.append(inv.getEnglish());
+        b.append("</td>");
+        b.append("<td>");
+        b.append(processMarkdown("best-practice-list", inv.getExplanation(), ""));
+        b.append("</td>");
+        b.append("</tr>\r\n");
+      }
+    }
+    for (ElementDefn c : e.getElements()) {
+      genBestPracticeList(b, c);
+    }
   }
 
   private String buildCircularReferenceList(Boolean hierarchy) {
@@ -3592,20 +3644,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "";
   }
 
-  private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base, String prefix) {
+  private void generateConstraints(String path, ElementDefn e, Map<String, String> invs, boolean base, String prefix) throws Exception {
     for (Invariant inv : e.getInvariants().values()) {
+      String s = "";
       if (base)
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
+        s = "<li>"+presentLevel(inv)+" <b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)";
       else
-        invs.put(inv.getId(), "<li><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a> on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)</li>");
+        s = "<li>"+presentLevel(inv)+" <b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b>: On "+path+": "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a> on "+presentPath(path)+": <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>)";
+      if (!Utilities.noString(inv.getExplanation())) 
+        s = s + ". This is best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExplanation(), prefix)+"</blockquote>";
+      invs.put(inv.getId(), s+"</li>");
     }
     for (ElementDefn c : e.getElements()) {
       generateConstraints(path + "." + c.getName(), c, invs, false, prefix);
     }
   }
 
+  private String presentLevel(Invariant inv) {
+    if ("warning".equals(inv.getSeverity()))
+      return "<a href=\"conformance-rules.html#warning\" style=\"color: Chocolate\">Warning</a> ";
+    if ("best-practice".equals(inv.getSeverity()))
+      return "<a href=\"conformance-rules.html#best-practice\" style=\"color: DarkGreen\">Guideline</a> ";
+    return "<a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> ";
+  }
+
   private void generateConstraints(String path, ProfiledType pt, Map<String, String> invs, boolean base, String prefix) {
-    invs.put("sqty-1", "<li><b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
+    invs.put("sqty-1", "<li><a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> <b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
   }
 
   private String presentPath(String path) {
@@ -5399,6 +5463,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildChoiceElementList()+s3;
       else if (com[0].equals("structure-list-index"))
         src = s1+genStructureList()+s3;
+      else if (com[0].equals("best-practice-list"))
+        src = s1+genBestPracticeList()+s3;
       else if (com[0].equals("extension-type-list"))
         src = s1+genExtensionTypeList()+s3;
       else if (com[0].equals("wildcard-type-list"))
@@ -8179,7 +8245,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
               append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
   }
 
-  private String getInvariantList(StructureDefinition profile) {
+  private String getInvariantList(StructureDefinition profile) throws FHIRException, Exception {
     List<String> txlist = new ArrayList<String>();
     Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<ElementDefinitionConstraintComponent>>();
     for (ElementDefinition ed : profile.getSnapshot().getElement()) {
@@ -8206,14 +8272,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (String path : txlist)  {
         List<ElementDefinitionConstraintComponent> invs = txmap.get(path);
         for (ElementDefinitionConstraintComponent inv : invs) {
-          b.append("<tr><td>").append(inv.getKey()).append("</td><td>").append(path).append("</td><td>").append(Utilities.escapeXml(inv.getHuman()))
-           .append("<br/><a href=\"http://hl7.org/fhirpath\">Expression</a>: ").append(Utilities.escapeXml(inv.getExpression())).append("</td><td>").append(Utilities.escapeXml(inv.getRequirements())).append("</td></tr>\r\n");
+          b.append("<tr>"+presentLevel(inv)+" <td>").append(inv.getKey()).append("</td><td>").append(path).append("</td><td>").append(Utilities.escapeXml(inv.getHuman()))
+           .append("<br/><a href=\"http://hl7.org/fhirpath\">Expression</a>: ").append(Utilities.escapeXml(inv.getExpression())).append("</td><td>").append(Utilities.escapeXml(inv.getRequirements()));
+           if (inv.hasExtension(ToolingExtensions.EXT_BEST_PRACTICE_EXPLANATION)) 
+              b.append(". This is best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExtensionString(ToolingExtensions.EXT_BEST_PRACTICE_EXPLANATION), "")+"</blockquote>");
+          
+          b.append("</td></tr>\r\n");
         }
       }
       b.append("</table>\r\n");
       return b.toString();
 
     }
+  }
+
+  private String presentLevel(ElementDefinitionConstraintComponent inv) {
+    if (inv.getSeverity() == ConstraintSeverity.WARNING) {
+      if (inv.hasExtension(ToolingExtensions.EXT_BEST_PRACTICE))
+        return "<a href=\"conformance-rules.html#best-practice\" style=\"color: DarkGreen\">Guideline</a> ";
+      else
+        return "<a href=\"conformance-rules.html#warning\" style=\"color: Chocolate\">Warning</a> ";
+    }
+    if (inv.getSeverity() == ConstraintSeverity.ERROR) 
+      return "<a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> ";
+
+    // not stated as an error or a warning
+    return "<a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> ";
   }
 
   private String profileReviewLink(ConstraintStructure profile) {

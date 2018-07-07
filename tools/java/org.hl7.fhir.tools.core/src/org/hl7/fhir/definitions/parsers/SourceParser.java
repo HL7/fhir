@@ -1025,6 +1025,7 @@ public class SourceParser {
             inv.setOcl(sheet.getColumn(i, "OCL"));
             inv.setXpath(sheet.getColumn(i, "XPath"));
             inv.setExpression(sheet.getColumn(i, "Expression"));
+            inv.setExplanation(sheet.getColumn(i, "Explanation"));
             inv.setTurtle(sheet.getColumn(i, "RDF"));
             ProfiledType pt = new ProfiledType();
             pt.setDefinition(sheet.getColumn(i, "Definition"));

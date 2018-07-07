@@ -92,6 +92,7 @@ import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.InstantType;
 import org.hl7.fhir.r4.model.IntegerType;
+import org.hl7.fhir.r4.model.MarkdownType;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.Narrative;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
@@ -1535,7 +1536,13 @@ public class ProfileGenerator {
       con.setRequirements(inv.getRequirements());
       if (Utilities.noString(inv.getSeverity()))
         con.setSeverity(ConstraintSeverity.ERROR);
-      else
+      else if (inv.getSeverity().equals("best-practice")) {
+        con.setSeverity(ConstraintSeverity.WARNING);
+        ToolingExtensions.addBooleanExtension(con, ToolingExtensions.EXT_BEST_PRACTICE, true);
+        if (Utilities.noString(inv.getExplanation()))
+          throw new FHIRException("Best Practice Invariants need to have an explanation");
+        con.addExtension().setUrl(ToolingExtensions.EXT_BEST_PRACTICE_EXPLANATION).setValue(new MarkdownType(inv.getExplanation()));
+      } else
         con.setSeverity(ConstraintSeverity.fromCode(inv.getSeverity()));
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());

@@ -1808,7 +1808,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return null;
   }
 
-  public BestPracticeWarningLevel getBasePracticeWarningLevel() {
+  public BestPracticeWarningLevel getBestPracticeWarningLevel() {
     return bpWarnings;
   }
 
@@ -3628,6 +3628,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 //      }
       if (!Utilities.noString(msg))
         msg = " ("+msg+")";
+      if (inv.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice") &&
+          ToolingExtensions.readBooleanExtension(inv, "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice")) {
+          if (bpWarnings == BestPracticeWarningLevel.Hint) 
+            hint(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
+          else if (bpWarnings == BestPracticeWarningLevel.Warning) 
+            warning(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
+          else if (bpWarnings == BestPracticeWarningLevel.Error) 
+            rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
+      }
       if (inv.getSeverity() == ConstraintSeverity.ERROR)
         rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
       else if (inv.getSeverity() == ConstraintSeverity.WARNING)

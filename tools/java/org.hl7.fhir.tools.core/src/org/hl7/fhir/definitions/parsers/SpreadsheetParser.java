@@ -709,6 +709,7 @@ public class SpreadsheetParser {
 			  inv.setEnglish(sheet.getColumn(row, "English"));
         inv.setXpath(sheet.getColumn(row, "XPath"));
         inv.setExpression(sheet.getColumn(row, "Expression"));
+        inv.setExplanation(sheet.getColumn(row, "Explanation"));
         if (Utilities.noString(inv.getExpression()))
           throw new Exception("missing expression "+ getLocation(row));
 

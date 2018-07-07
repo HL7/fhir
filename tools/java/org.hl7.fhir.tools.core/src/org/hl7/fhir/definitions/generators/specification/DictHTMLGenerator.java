@@ -65,6 +65,8 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 
+import net.sf.saxon.expr.instruct.ProcessRegexMatchInstruction;
+
 public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private Definitions definitions;
@@ -544,49 +546,59 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       return TerminologyNotesGenerator.describeBinding(prefix, d.getBinding(), page);
   }
 
-  private String invariants(Map<String, Invariant> invariants, List<Invariant> stated) {
+  private String invariants(Map<String, Invariant> invariants, List<Invariant> stated) throws Exception {
     
     List<String> done = new ArrayList<String>();
 	  StringBuilder s = new StringBuilder();
 	  if (invariants.size() > 0) {
-	    s.append("<b>Defined on this element</b><br/>\r\n");
+	    s.append("<b>Defined on this element</b><ul>\r\n");
 	    List<String> ids = new ArrayList<String>();
 	    for (String id : invariants.keySet())
 	      ids.add(id);
 	    Collections.sort(ids);
-	    boolean b = false;
 	    for (String i : ids) {
 	      Invariant inv = invariants.get(i);
 	      done.add(inv.getId());
-	      if (b)
-	        s.append("<br/>");
+	      s.append("<li class+\"dict\">");
 	      if (inv.getExpression().equals("n/a"))
-	        s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+	        s.append(presentLevel(inv)+" <b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
 	      else
-	        s.append("<b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a>: "+Utilities.escapeXml(inv.getExpression())+", xpath: "+Utilities.escapeXml(inv.getXpath())+")");
-	      b = true;
+	        s.append(presentLevel(inv)+" <b title=\"Formal Invariant Identifier\">"+i+"</b>: "+Utilities.escapeXml(inv.getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a>: "+Utilities.escapeXml(inv.getExpression())+", xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+	      if (!Utilities.noString(inv.getExplanation())) 
+	        s.append(". This is best practice guideline because: <blockquote>"+page.processMarkdown("best practice guideline", inv.getExplanation(), prefix)+"</blockquote>");
+        s.append("</li>");
 	    }
+      s.append("</ul>\r\n");
 	  }
     if (stated.size() > 0) {
-      if (s.length() > 0)
-        s.append("<br/>");
-      s.append("<b>Affect this element</b><br/>\r\n");
+      s.append("<b>Affect this element</b><ul>\r\n");
       boolean b = false;
       for (Invariant id : stated) {
         if (!done.contains(id.getId())) {
-          if (b)
-            s.append("<br/>");
+          s.append("<li>");
           if (id.getExpression().equals("n/a"))
-            s.append("<b title=\"Formal Invariant Identifier\">"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
+            s.append(presentLevel(id)+"<b title=\"Formal Invariant Identifier\">"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (xpath: "+Utilities.escapeXml(id.getXpath())+")");
           else
-            s.append("<b title=\"Formal Invariant Identifier\">"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (<a href=\"http://hl7.org/fluentpath\">expression</a>: "+Utilities.escapeXml(id.getExpression())+", xpath: "+Utilities.escapeXml(id.getXpath())+")");
-          b = true;
+            s.append(presentLevel(id)+"<b title=\"Formal Invariant Identifier\">"+id.getId().toString()+"</b>: "+Utilities.escapeXml(id.getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a>: "+Utilities.escapeXml(id.getExpression())+", xpath: "+Utilities.escapeXml(id.getXpath())+")");
+          if (!Utilities.noString(id.getExplanation())) 
+            s.append(". This is best practice guideline because: <blockquote>"+page.processMarkdown("best practice guideline", id.getExplanation(), prefix)+"</blockquote>");
+          s.append("</li>");
         }
       }
+      s.append("</ul>\r\n");
     }
 	  
     return s.toString();
   }
+
+  private String presentLevel(Invariant inv) {
+    if ("warning".equals(inv.getSeverity()))
+      return "<a href=\"conformance-rules.html#warning\" style=\"color: Chocolate\">Warning</a> ";
+    if ("best-practice".equals(inv.getSeverity()))
+      return "<a href=\"conformance-rules.html#best-practice\" style=\"color: DarkGreen\">Guideline</a> ";
+    return "<a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> ";
+  }
+
 
   private String toSeperatedString(List<String> list) {
 	  if (list.size() == 0)
