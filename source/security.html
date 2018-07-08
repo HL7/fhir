@@ -21,28 +21,25 @@ related functionality. However, FHIR does define exchange protocols and content 
 with various security protocols defined elsewhere. This section gathers all information about security
 in one section. A summary:
 </p>
-<ul class="dense">
- <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
- <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
- <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
- <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
- <li>Audit - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
- <li>Digital Signatures - FHIR includes several specifically reserved locations for digital signatures</li>
- <li>Attachments - FHIR allows for binary resources and attachments. These have their own concerns</li>
- <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
- <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
-     Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA for exchange between institutions). 
+<ol>
+ <li><input type="checkbox"/> Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
+ <li><input type="checkbox"/> <a href="#http">Communications Security</a> - all exchange of production data should be secured using TLS (e.g., https).</li>
+ <li><input type="checkbox"/> <a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> where appropriate.</li>
+ <li><input type="checkbox"/> <a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
+ <li><input type="checkbox"/> <a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
+ <li><input type="checkbox"/> <a href="#signatures">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
+ <li><input type="checkbox"/> <a href="#attachments">Attachments</a> - FHIR allows for binary resources and attachments. These have their own concerns</li>
+ <li><input type="checkbox"/> <a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
+ <li><input type="checkbox"/> Data Management Policies - FHIR defines a set of capabilities to support data exchange.
+     Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
- <li>Narrative - Care must be taken when displaying the narrative from FHIR resources</li>
-</ul>
+ <li><input type="checkbox"/> <a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
+ <li><input type="checkbox"/> <a href="#narrative">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+</ol>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
 the <a href="http://wiki.hl7.org/index.php?title=FHIR_email_list_subscription_instructions">FHIR email 
 list</a> for prompt consideration. 
-</p>
-
-<p>
-Implementers should track the developing IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> for additional security considerations.
 </p>
 
 <a name="general"></a>
@@ -119,15 +116,24 @@ Communications
 </h2>
 <p>
 For the <a href="http.html">RESTful API</a>, normal HTTP security rules apply. 
-Please follow the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec15.html"> HTTP specification Security Considerations section 15</a>.  
-The <a href="http.html#root">Service Base URL</a> will specify whether SSL is required. 
+Please follow the <a href="https://tools.ietf.org/html/rfc7231#section-9"> HTTP specification Security Considerations section 9</a>.  
+The <a href="http.html#root">Service Base URL</a> will specify whether TLS is required. 
 Client authentication may be required by the server, possibly including the requirement for 
 client certificates.
+When returning responses to non-authorized clients, ensure that Hypertext Transfer Protocol (HTTP) headers of a web server and API error messages or faults do not disclose detailed information about the underlying web server that could be the source of potential exploitation.
 </p>
 <p>
-TLS/SSL SHOULD be used for all production data exchange. The TLS/SSL communications are established 
-prior to any HTTP command/response, so the whole FHIR interaction is protected by the SSL/TLS 
-communications. The security of the endpoints of the TLS/SSL communications must be risk-managed, 
+Please follow IETF Best Current Practice (<a href="https://tools.ietf.org/html/bcp195">BCP 195</a>) - <a href="https://tools.ietf.org/html/bcp195">"Recommendations for Secure Use of Transport Layer Security (TLS) and Datagram Layer Security (DTLS)"</a>. This recommends TLS 1.2 or higher be used for all production data exchange, limits support for lower versions of TLS, and forbids SSL. 
+Versions of TLS prior to TLS 1.2 should be used only where TLS 1.2 or higher is not available between partners.
+When using TLS, use with strong cipher suites (e.g. AES).
+</p>
+<p>
+Consider using additional methods of security for an API to help authenticate where Domain Name System (DNS) responses are coming from and ensure that they are valid. For example, the use of Domain Name System Security Extensions (DNSSEC), a suite of extensions that add security to the DNS protocol, can ensure that domains associated with API endpoints that transmit health information or information required for API access are secure.  DNSSEC provides origin authority, data integrity, and authenticated denial of existence. With DNSSEC, the DNS protocol is much less susceptible to certain types of attacks, particularly DNS spoofing attacks.
+</p>
+<p>
+The TLS communications are established 
+prior to any HTTP command/response, so the whole FHIR interaction is protected by the TLS 
+communications. The security of the endpoints of the TLS communications must be risk-managed, 
 so as to prevent inappropriate risks (e.g. audit logging of the GET parameters into an unprotected audit log).
 </p>
 <p>
@@ -140,20 +146,22 @@ implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> fo
 <p>
 Other than testing systems, FHIR servers should authenticate the clients. 
 The server may choose to authenticate the client system and trust it, or to authenticate
-the individual user by a variety of techniques. For web-centric use, 
-<a href="http://openid.net/connect/">OpenID Connect</a> may be used to authenticate users and
-<a href="http://oauth.net/">OAuth</a> may be used to authenticate and/or authorize 
-the users. The <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> profile 
-on OAuth is tightly integrated with FHIR and is the preferred method for using OAuth.
+the individual user by a variety of techniques. For web-centric environments it is recommended to use 
+<a href="http://openid.net/connect/">OpenID Connect</a> (or other suitable authentication protocol) to verify identity of the end user, where it is necessary that end-users be identified to the application. 
+It is recommended that <a href="http://oauth.net/">OAuth</a> be used to authenticate and/or authorize 
+the client and user. The <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> profile 
+on OAuth is a recommended method for using OAuth.
 </p>
 <p>
 The <a href="https://openid.net/wg/heart/">HEART Working Group</a> has developed a 
 set of privacy and security specifications that enable an individual to control the 
 authorization of access to RESTful health-related data sharing APIs, and to facilitate 
 the development of interoperable implementations of these specifications by others.
+IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> constrains OAuth token attributes to support Healthcare.
 </p>
-<!-- note about using OAuth and delegating user authority -->
-
+<p>
+All systems are shall protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
+</p>
 <a name="binding"></a>
 <h2>
 Authorization/Access Control
@@ -243,7 +251,7 @@ To balance usability of the returned result vs appropriate protection, the actua
 Typical methods of handling Access Denied used are:
 </p>
 <p>
-<b>Return a Success with Bundle containing zero results</b> – This result is indistinguishable from the case where no data is known. When consistently returned on Access Denied, this will not expose which patients exist, or what data might be blinded. This method is also consistent with cases where some results are authorized while other results are blinded. This can only be used when the returning a Bundle is a valid result.
+<b>Return a Success with Bundle containing zero results</b> – This result is indistinguishable from the case where no data is known. When consistently returned on Access Denied, this will not expose which patients exist, or what data might be blinded. This method is also consistent with cases where some results are authorized while other results are blinded. This can only be used when returning a Bundle is a valid result.
 </p>
 <p>
 <b>Return a 404 “Not Found”</b> – This also protects from data leakage as it is indistinguishable from a query against a resource that doesn’t exist. It does however leak that the user authentication is validated. 
