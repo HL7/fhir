@@ -69,6 +69,22 @@ as a specific type using the <code>as</code> operation:</p>
 (Observation.value as Quantity).unit
 </pre>
 
+<p>
+FHIRPath statements can start with a full resource name:
+</p>
+<pre>
+Patient.name.given
+</pre>
+<p>
+The name can also include super types such as DomainResource:
+</p>
+<pre>
+DomainResource.contained(id = 23).exists()
+</pre>
+<p>
+These statements apply to any resource that specializes <a href="domainresource.html">DomainResource</a>.
+</p>
+
 <a name="types"></a>
 <h4>Using FHIR types in expressions</h4>
 <p>
