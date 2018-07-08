@@ -31,7 +31,7 @@ terminology services in their capability statement:
 </pre>
 </div>
 
-
+<a name="security"></a>
 <h3>Security</h3>
 <p>
 Generally, SSL SHOULD be used for all production health care data exchange.
@@ -49,6 +49,7 @@ This specification does not require any particular approach to security.
 </p>
 
 
+<a name="concepts"></a>
 <h3>Basic Concepts</h3>
 <p>
 A FHIR terminology service is simply a set of functions built on the definitions
@@ -74,6 +75,7 @@ framework</a>. Further useful information about terminologies may be found in:
  <li>SNOMED CT <a href="http://ihtsdo.org/fileadmin/user_upload/doc/">technical documentation</a>. Note: "namespace" is used differently here from the way it is used by IHTSDO (see <a href="terminologies.html">discussion here</a>)</li>
 </ul>
 
+<a name="externals"></a>
 <h4>External Code Systems</h4>
 <p>
 In order to be used with a value set, code systems and their content must be defined somewhere. They can be defined explicitly
@@ -107,6 +109,7 @@ the server's <a href="capabilitystatement.html">Capability Statement</a>.
 This extension is added to the root <a href="capabilitystatement.html">Capability Statement</a>.
 </p>
 
+<a name="impl1"></a>
 <h4>Implementation Note</h4>
 <p>When a terminology server exposes an external code system, it makes a set of services available
 internally that serve the operational interfaces below. The internal server depends on the following
@@ -152,6 +155,7 @@ it includes all versions of all value sets). This URL can only be used as a para
 operations described on this page.
 </p>
 
+<a name="maint"></a>
 <h4>Terminology Maintenance</h4>
 <p>
 The terminology service uses the code systems and value set resources defined on the system - both
@@ -163,6 +167,7 @@ of the terminology services. Typically, servers provide a test and production
 environment, but there is no explicit notion of this in the interface itself.
 </p>
 
+<a name="expand"></a>
 <h3>Value Set Expansion</h3>
 <p>
 A value set describes a set of rules for what codes or concepts are considered to be in the value set.
@@ -267,6 +272,7 @@ HTTP/1.1 200 OK
 </pre>
 </div>
 
+<a name="lookup"></a>
 <h3>Concept Lookup / Decomposition</h3>
 <p>
 A system can ask a terminology server to return a set of information about a particular system/code
@@ -412,6 +418,7 @@ The following properties are defined for all code systems:
 In addition, any property codes defined by the code system (CodeSysem.property.code) can be used (and see the definitions for <a href="snomedct.html#props">SNOMED CT</a>, <a href="loinc.html#props">LOINC</a>, and <a href="rxnorm.html#props">RxNorm</a>).
 </p>
 
+<a name="validation"></a>
 <h3>Value Set Validation</h3>
 <p>
 One way to determine whether a code is in a value set is to expand the value set
@@ -508,6 +515,7 @@ HTTP/1.1 200 OK
 </pre>
 </div>
 
+<a name="subsumes"></a>
 <h3>Subsumption testing</h3>
 <p>
 To test the subsumption relationship between <i>code/Coding A</i> and <i>code/Coding B</i>, perform a $subsumes operation.
@@ -594,6 +602,7 @@ HTTP/1.1 200 OK
 </pre>
 </div>
 
+<a name="batch"></a>
 <h3>Batch Validation</h3>
 
 <p>
@@ -674,6 +683,7 @@ HTTP/1.1 200 OK
 </div>
 
 
+<a name="translate"></a>
 <h3>Translations</h3>
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this
@@ -735,6 +745,7 @@ HTTP/1.1 200 OK
 </div>
 
 
+<a name="batch2"></a>
 <h3>Batch Translation</h3>
 
 <p>

@@ -816,6 +816,11 @@ input.gsc-input,
 	margin-top  : 0px;
 }
 
+div.draft-content {
+  border: 1px grey solid; 
+  background-color: #fff5e6; 
+  padding: 10px; 
+}  
 
 a.normative-flag {
   border: 1px grey solid; 
