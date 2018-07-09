@@ -572,6 +572,7 @@ using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.res
 <h4>Rejecting Updates</h4>
 <p>
 Servers are permitted to reject update interactions because of integrity concerns or other business rules, and return HTTP status codes accordingly (usually a <code>422</code>).
+Note that there are potential security issues relating to how rejections are handled. See the <a href="security.html#AccessDenied">security page</a> for more information.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
