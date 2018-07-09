@@ -1330,7 +1330,8 @@ public class VersionConvertor_10_40 {
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     tgt.setDescription(src.getDescription());
     org.hl7.fhir.r4.model.Type vs = convertType(src.getValueSet());
-    tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? ((org.hl7.fhir.r4.model.Reference) vs).getReference() : vs.primitiveValue());
+    if (vs != null)
+      tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? ((org.hl7.fhir.r4.model.Reference) vs).getReference() : vs.primitiveValue());
     tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
     return tgt;
   }
