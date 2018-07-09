@@ -303,8 +303,6 @@ Unlike this rest of this page, the FHIR Terminology service API is only draft (M
 mature status following the usual <a href="versions.html#maturity">Maturity Model</a> for FHIR.
 </p>
 
-<p>Normative Status Note</p>
-
 <p>
 In order to support terminological reasoning in FHIRPath statements, FHIR defines 
 a general %terminologies object that FHIRPath implementations should make available. 
@@ -328,7 +326,7 @@ Summary:
 %terminologes.expand(valueSet, params) : ValueSet
 </pre>
 <p>
-This calls the <a href="terminology-service.html$expand">Terminology Service $expand</a> operation (<a href="valueset-operation-expand.html">formal definition</a>).
+This calls the <a href="terminology-service.html#expand">Terminology Service $expand</a> operation (<a href="valueset-operation-expand.html">formal definition</a>).
 </p>
 <p>
 Parameters:
@@ -347,7 +345,7 @@ Parameters:
 %terminologies.lookup(coded, params) : Parameters
 </pre>
 <p>
-This calls the <a href="terminology-service.html$lookup">Terminology Service $lookup</a> operation (<a href="codesystem-operation-lookup.html">formal definition</a>).
+This calls the <a href="terminology-service.html#lookup">Terminology Service $lookup</a> operation (<a href="codesystem-operation-lookup.html">formal definition</a>).
 </p>
 <p>
 Parameters:
@@ -366,7 +364,7 @@ Parameters:
 %terminologies.validateVS(valueSet, coded, params) : Parameters
 </pre>
 <p>
-This calls the <a href="terminology-service.html$expand">Terminology Service $validate-code</a> operation on a value set
+This calls the <a href="terminology-service.html#expand">Terminology Service $validate-code</a> operation on a value set
 (<a href="valueset-operation-validate-code.html">formal definition</a>).
 </p>
 <p>
@@ -387,7 +385,7 @@ Parameters:
 %terminologies.validateCS(codeSystem, coded, params) : Parameters
 </pre>
 <p>
-This calls the <a href="terminology-service.html$expand">Terminology Service $validate-code</a> operation on a code system
+This calls the <a href="terminology-service.html#expand">Terminology Service $validate-code</a> operation on a code system
 (<a href="codesystem-operation-validate-code.html">formal definition</a>).
 </p>
 <p>
@@ -408,7 +406,7 @@ Parameters:
 %terminologies.subsumes(system, coded1, coded2, params) : code
 </pre>
 <p>
-This calls the <a href="terminology-service.html$subsumes">Terminology Service $subsumes</a> operation (<a href="codesystem-operation-subsumes.html">formal definition</a>).
+This calls the <a href="terminology-service.html#subsumes">Terminology Service $subsumes</a> operation (<a href="codesystem-operation-subsumes.html">formal definition</a>).
 </p>
 <p>
 Parameters:
@@ -429,7 +427,7 @@ Parameters:
 %terminologies.translate(conceptMap, coded, params) : Parameters
 </pre>
 <p>
-This calls the <a href="terminology-service.html$translate">Terminology Service $translate</a> operation (<a href="conceptmap-operation-translate.html">formal definition</a>).
+This calls the <a href="terminology-service.html#translate">Terminology Service $translate</a> operation (<a href="conceptmap-operation-translate.html">formal definition</a>).
 </p>
 <p>
 Parameters:
