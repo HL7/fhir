@@ -107,7 +107,7 @@
 		</coding>
 	</subType>
 
-	<use value="complete"/>
+	<use value="claim"/>
 
 	<patient>
 		<reference value="#patient-1"/>

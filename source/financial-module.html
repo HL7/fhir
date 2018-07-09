@@ -137,6 +137,7 @@ Protected Health Information and as such must be afforded the same protection an
 <p>
  <table class="grid">
  <tr><td><b>Term</b></td><td><b>Alias</b></td><td><b>Resource Type</b></td><td><b>Description</b></td></tr>
+ <tr><td>Adjudication</td><td></td><td>n/a</td><td>The processing by an insurer of a claim, preauthorization or predetermination to determine under the insurance plan what if any benefits are or would be payable.</td></tr>
  <tr><td>Assignment of Benefit</td><td>Assignment</td><td>n/a</td><td>When a Beneficiary directs that any benefit they receive from the adjudication of a claim may be paid to the service provider who issued the claim.</td></tr>
  <tr><td>Attachment</td><td></td><td>Communication</td><td>A collection of information objects sent to a party to support their understanding or processing of another resource such as a claim.</td></tr>
  <tr><td>Beneficiary</td><td>Patient</td><td>Patient</td><td>The party who's health care expenses may be covered by a policy issued by an Insurer.</td></tr>
@@ -150,8 +151,8 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Payor</td><td>Payer, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
  <tr><td>Policy</td><td></td><td>Contract</td><td>A contract between an Insurer and an individual or other entity such as an employer to reimburse covered parties (Beneficiaries) for some or all of a prescribed suite of health-related goods and services.</td></tr>
  <tr><td>Policy Holder</td><td>Policy owner</td><td>Patient, RelatedPerson, Organization</td><td>The party which owns the policy. It may be the employer for work-related policies or the individual for purchased or public policies.</td></tr>
- <tr><td>Pre-Authorization</td><td>Prior Authorization, Pre-Auth</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied <b><i>proposed future</i></b> charges for health care goods and services under the identified policy and to approve the services and provide the expected benefit amounts and potentially to reserve funds to pay the benefits when Claims for the indicated services are later submitted.</td></tr>
- <tr><td>Pre-Determination</td><td>PreD</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied <b><i>'what if'</i></b> charges for health care goods and services under the identified policy and report back what the Benefit payable would be had the services actually been provided.</td></tr>
+ <tr><td>Preauthorization</td><td>Prior Authorization, Pre-Auth</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied <b><i>proposed future</i></b> charges for health care goods and services under the identified policy and to approve the services and provide the expected benefit amounts and potentially to reserve funds to pay the benefits when Claims for the indicated services are later submitted.</td></tr>
+ <tr><td>Predetermination</td><td>Pre-Determination, PreD</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied <b><i>'what if'</i></b> charges for health care goods and services under the identified policy and report back what the Benefit payable would be had the services actually been provided.</td></tr>
  <tr><td>Solicited Attachment</td><td></td><td>Communication</td><td>An attachment sent to provide supporting information in response to having received a request for additional information.</td></tr>
  <tr><td>Subscriber</td><td></td><td>Patient, RelatedPerson</td><td>The person who signs-up for the coverage. May be an employee or person with dependents.</td></tr>
  <tr><td>Unsolicited Attachment</td><td></td><td>Communication</td><td>An attachment sent to provide supporting information without first having received a request for additional information.</td></tr>
@@ -179,9 +180,9 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
  <tr><td>Eligibility Check</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
  <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
- <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=complete)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Pre-determination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=exploratory)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
- <tr><td>Pre-Authorization</td><td><a href="claim.html">Claim</a> (type={discipline}, use=proposed)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=claim)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Predetermination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=predetermination)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Preauthorization</td><td><a href="claim.html">Claim</a> (type={discipline}, use=preauthorization)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Reversal</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=false)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Nullify</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=true)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Re-adjudication</td><td><a href="processrequest.html">ProcessRequest</a> (action=reprocess)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
@@ -213,11 +214,11 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Provider checks for valid insurance coverage</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td></tr>
  <tr><td>Insurer responds with coverage status and optional plan details</td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
  <tr><td><b>Provider examines Patient and reviews treatment options</b></td></tr>
- <tr><td>Provider submits Pre-determination(s) for treatment options to determine potential reimbursement</td><td><a href="claim.html">Claim</a> {use=exploratory}</td></tr>
+ <tr><td>Provider submits Predetermination(s) for treatment options to determine potential reimbursement</td><td><a href="claim.html">Claim</a> {use=predetermination}</td></tr>
  <tr><td>Insurer responds with potential reimbursement</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td><b>Provider and Patient determine treatment plan</b></td></tr>
- <tr><td>Treatment plan submitted to Insurer to reserve funds</td><td><a href="claim.html">Claim</a> {use=proposed}</td></tr>
- <tr><td>Insurer acknowledges receipt of pre-authorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
+ <tr><td>Treatment plan submitted to Insurer to reserve funds</td><td><a href="claim.html">Claim</a> {use=preauthorization}</td></tr>
+ <tr><td>Insurer acknowledges receipt of preauthorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Insurer requests additional information</td><td><a href="communicationrequest.html">CommunicationRequest</a></td></tr>
  <tr><td>Provider submits supporting information</td><td><a href="communication.html">Communication</a></td></tr>
  <tr><td>Insurer provides adjudicated response to pre-authorization</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
@@ -225,7 +226,7 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Insurer responds indicating adjudication is ready</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
  <tr><td>Provider retrieves pre-authorization adjudication</td><td>READ or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
  <tr><td><b>Provider provides treatment</b></td></tr>
- <tr><td>Provider submits patient's claim for reimbursement</td><td><a href="claim.html">Claim</a> {use=complete}</td></tr>
+ <tr><td>Provider submits patient's claim for reimbursement</td><td><a href="claim.html">Claim</a> {use=claim}</td></tr>
  <tr><td>Insurer responds with claim adjudication</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td><b>Patient leaves treatment setting</b></td></tr>
  <tr><td>Patient requests an Explanation of Benefit for their Personal Health Record application</td><td>READ or <a href="processrequest.html">ProcessRequest</a> {action=poll}</td></tr>
@@ -269,7 +270,7 @@ The Financial Management Work Group (FM) is responsible for two subdomains:
 </p>
 <p>
 Financial Accounts and Billing (FIAB) - resources for accounts, charges (internal costing transactions) and patient billing, and<br/>
-Financial Claims and Reimbursement (FICR) - insurance information, enrollment, eligibility, pre-authorization, claims, patient reporting and payments.
+Financial Claims and Reimbursement (FICR) - insurance information, enrollment, eligibility, predetermination, preauthorization, claims, patient reporting and payments.
 </p>
 <p>
 To date FM has been focusing on the resources required to support the exchange of claims and related information between health care providers and insurers. The first draft of this work

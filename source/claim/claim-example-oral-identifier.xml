@@ -21,7 +21,7 @@
 		</coding>
 	</type>
 
-	<use value="complete"/>
+	<use value="claim"/>
 
 	<patient>
 		<identifier>

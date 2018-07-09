@@ -14,6 +14,15 @@
 
 	<status value="active"/>
 
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/claim-type"/>
+			<code value="vision"/>
+		</coding>
+	</type>
+	
+	<use value="claim"/>
+
 	<patient>
 		<reference value="Patient/1"/>
 	</patient>
@@ -36,7 +45,7 @@
 	</request>
 
 	<outcome value="complete" />
-	
+
 	<disposition value="Claim settled as per contract."/>
 
 	<payeeType>
@@ -348,7 +357,7 @@
 			<currency value="USD"/> 
 		</amount> 
 	</total>
-	
+
 	<total>
 		<category>
 			<coding>

@@ -23,7 +23,7 @@
 			<subject>
 				<reference value="Patient/1"/>
 			</subject>
-			<!-- rest of the resource ommitted for brevity -->
+			<!-- rest of the resource omitted for brevity -->
 		</ServiceRequest>
 	</contained>
 
@@ -41,7 +41,7 @@
 		</coding>
 	</type>
 
-	<use value="complete"/>
+	<use value="claim"/>
 
 	<patient>
 		<reference value="Patient/1"/>

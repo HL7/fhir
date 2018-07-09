@@ -21,7 +21,7 @@
 		</coding>
 	</type>
 
-	<use value="proposed"/>
+	<use value="preauthorization"/>
 
 	<patient>
 		<reference value="Patient/1"/>

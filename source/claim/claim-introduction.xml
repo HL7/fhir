@@ -6,14 +6,14 @@
 <p>
 The Claim is used by providers and payors, insurers, to exchange the financial information, and supporting clinical information, regarding the provision
  of health care services with payors and firms which provide data analytics. The primary uses of this resource is to support eClaims, 
-the exchange of proposed or actual services to benefit payors, insurers and national health programs, for treatment payment planning and reimbursement.
+the exchange of information relating to the proposed or actual provision of healthcare-related goods and services for patients to their benefit payors, insurers and national health programs, for treatment payment planning and reimbursement.
 </p>
 <p>
 The Claim resource may be interpreted differently depending on its intended use (and the Claim.use element contains the code to indicate):
 <ul>
-<li>Claims - where the provision of goods and services is <b>complete</b> and adjudication under a plan and payment is sought.</li>
-<li>Pre-Authorization - where the provision of goods and services is <b>proposed</b> and authorization and/or the reservation of funds is desired.</li>
-<li>Pre-Determination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
+<li>claim - where the provision of goods and services is <b>complete</b> and adjudication under a plan and payment is sought.</li>
+<li>pauthorization - where the provision of goods and services is <b>proposed</b> and authorization and adjudication and/or the reservation of funds is desired.</li>
+<li>prdetermination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
 </ul> 
 </p>
 

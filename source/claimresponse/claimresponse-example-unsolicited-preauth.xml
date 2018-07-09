@@ -21,7 +21,7 @@
 		</coding>
 	</type>
 
-	<use value="proposed"/> <!-- this is unsolicited therefore no reference to the pre-auth request exists -->
+	<use value="preauthorization"/> <!-- this is unsolicited therefore no reference to the preauthorization request exists -->
 
 	<patient>
 		<reference value="Patient/1"/>
