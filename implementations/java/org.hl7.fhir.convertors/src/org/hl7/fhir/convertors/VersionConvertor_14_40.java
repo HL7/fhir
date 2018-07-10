@@ -4789,11 +4789,13 @@ public class VersionConvertor_14_40 {
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     Type t = convertType(src.getValueSet());
-    if (t instanceof org.hl7.fhir.r4.model.Reference)
-      tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
-    else
-      tgt.setValueSet(t.primitiveValue());    
-    tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
+    if (t != null) {
+      if (t instanceof org.hl7.fhir.r4.model.Reference)
+        tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+      else
+        tgt.setValueSet(t.primitiveValue());    
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
+    }
     return tgt;
   }
 

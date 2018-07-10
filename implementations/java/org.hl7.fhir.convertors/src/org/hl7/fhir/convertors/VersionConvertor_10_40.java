@@ -1330,9 +1330,10 @@ public class VersionConvertor_10_40 {
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     tgt.setDescription(src.getDescription());
     org.hl7.fhir.r4.model.Type vs = convertType(src.getValueSet());
-    if (vs != null)
+    if (vs != null) {
       tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? ((org.hl7.fhir.r4.model.Reference) vs).getReference() : vs.primitiveValue());
-    tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
+    }
     return tgt;
   }
 
@@ -8778,11 +8779,13 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     Type t = convertType(src.getValueSet());
-    if (t instanceof org.hl7.fhir.r4.model.Reference)
-      tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
-    else
-      tgt.setValueSet(t.primitiveValue());
-    tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
+    if (t != null) {
+      if (t instanceof org.hl7.fhir.r4.model.Reference)
+        tgt.setValueSet(((org.hl7.fhir.r4.model.Reference) t).getReference());
+      else
+        tgt.setValueSet(t.primitiveValue());
+      tgt.setValueSet(VersionConvertorConstants.refToVS(tgt.getValueSet()));
+    }
     return tgt;
   }
 
