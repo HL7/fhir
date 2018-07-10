@@ -8,6 +8,8 @@ public class VersionConvertorConstants {
   public final static String MODIFIER_REASON_LEGACY = "No Modifier Reason provideed in previous versions of FHIR";
   
   public static String refToVS(String url) {
+    if (url == null)
+      return null;
     if (url.equals("http://www.genenames.org"))
       return "http://hl7.org/fhir/ValueSet/genenames";
     else if (url.equals("http://varnomen.hgvs.org/"))
@@ -35,6 +37,8 @@ public class VersionConvertorConstants {
   }
     
   public static String vsToRef(String url) {
+    if (url == null)
+      return null;
     if (url.equals("http://hl7.org/fhir/ValueSet/genenames"))
       return "http://www.genenames.org";
     else if (url.equals("http://hl7.org/fhir/ValueSet/variants"))
