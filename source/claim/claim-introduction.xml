@@ -1,35 +1,77 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
-<p>
+	<div>
+		<a name="scope"></a>
+		<h2>Scope and Usage</h2>
+		<p>
 The Claim is used by providers and payors, insurers, to exchange the financial information, and supporting clinical information, regarding the provision
- of health care services with payors and firms which provide data analytics. The primary uses of this resource is to support eClaims, 
+ of health care services with payors and for reporting to regulatory bodies and firms which provide data analytics. The primary uses of this resource is to support eClaims, 
 the exchange of information relating to the proposed or actual provision of healthcare-related goods and services for patients to their benefit payors, insurers and national health programs, for treatment payment planning and reimbursement.
-</p>
-<p>
-The Claim resource may be interpreted differently depending on its intended use (and the Claim.use element contains the code to indicate):
-<ul>
-<li>claim - where the provision of goods and services is <b>complete</b> and adjudication under a plan and payment is sought.</li>
-<li>pauthorization - where the provision of goods and services is <b>proposed</b> and authorization and adjudication and/or the reservation of funds is desired.</li>
-<li>prdetermination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
-</ul> 
-</p>
+		</p>
+		<p>The Claim resource is a "request" resource from a FHIR workflow perspective - see <a href="workflow.html#request">Workflow Request.</a></p>
 
-<p>
+		<p>
+The Claim resource may be interpreted differently depending on its intended use (and the Claim.use element contains the code to indicate):
+			<ul>
+				<li>claim - where the provision of goods and services is <b>complete</b> and adjudication under a plan and payment is sought.</li>
+				<li>preauthorization - where the provision of goods and services is <b>proposed</b> and authorization and/or the reservation of funds is desired.</li>
+				<li>predetermination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
+			</ul> 
+		</p>
+
+		<p>
 The Claim also supports:
-<ul>
-<li>Up to a 3 tier hierarchy of Goods, products, and Services, to support simple to complex billing.</li>
-<li>Multiple insurance programs arranged in a Coordination of Benefit sequence to enable exchange with primary, secondary, tertiary etc. insurance coverages.</li>
-<li>Assignment of benefit - the benefit may be requested to be directed to the subscriber, the provider or another party.</li>
-</ul>
-</p>
-<p>
-<b>Mapping to other Claim specifications:</b> Mappings are currently maintained by the Financial Management Work Group to UB04 and CMS1500 and are available 
+			<ul>
+				<li>Up to a 3 tier hierarchy of Goods, products, and Services, to support simple to complex billing.</li>
+				<li>Multiple insurance programs arranged in a Coordination of Benefit sequence to enable exchange with primary, secondary, tertiary etc. insurance coverages.</li>
+				<li>Assignment of benefit - the benefit may be requested to be directed to the subscriber, the provider or another party.</li>
+			</ul>
+		</p>
+		<p>
+			<b>Mapping to other Claim specifications:</b> Mappings are currently maintained by the Financial Management Work Group to UB04 and CMS1500 and are available 
 at <a href="http://wiki.hl7.org/index.php?title=Financial_Management_FHIR_Resource_Development">http://wiki.hl7.org/index.php?title=Financial_Management_FHIR_Resource_Development</a>.
 Mappings to other specifications may be made available where IP restrictions permit.  
-</p>
-</div>
+		</p>
+	</div>
+
+	<div>
+		<a name="bnr"></a>
+		<h2>Boundaries and Relationships</h2>
+		<p>The Claim resource is used to request the adjudication and/or authorization of a set of healthcare-related goods and services for a patient against the patient's insurance coverages, or
+	to request what the adjudication would be for a supplied set of goods or services should they be actually supplied to the patient.</p>
+
+		<p>When requesting whether the patient's coverage is inforce, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements 
+	associated with a coverage <a href="elegibilityrequest.html">EligibilityRequest</a> should be used instead.</p>
+
+		<p>When using the resources for reporting and transferring claims data, which may or may not have originated in the FHIR Claim format, the Claim resource is useful if only the
+	request side of the information exchange is of interest. If, however, both the request and the adjudication information is to be reported then the 
+			<a href="explanationofbenefit.html">ExplanationOfBenefit</a> should be used instead.</p>
+
+		<p>For reporting out to patients or transferring data to patient centered applications, such as patient health Record (PHR) application, the <a href="explanationofbenefit.html">ExplanationOfBenefit</a> 
+	should be used instead of the Claim and ClaimResponse resources as those resources may contain provider and payer specific information which is not appropriate for sharing with 
+	the patient.</p>
+		<p>
+			<b>The eClaim domain includes a number of related resources</b>
+		</p>
+		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+			<tr>
+				<td>Claim</td>
+				<td>A suite of goods and services and insurances coverages under which adjudication or authorization is requested.</td>
+			</tr>
+			<tr>
+				<td><a href="claimresponse.html">ClaimResponse</a></td>
+				<td>A payor's adjudication and/or authorization response to the suite of services provided in a Claim. Typically the ClaimResponse references the Claim but does not duplicate
+		the clinical or financial information provided in the claim.</td>
+			</tr>
+			<tr>
+				<td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td>
+				<td>This resource combines the information from the Claim and the ClaimResponse, stripping out any provider or payor proprietary information, into a unified information model 
+		suitable for use for: patient reporting; transferring information to a Patient Health Record system; and, supporting complete claim and adjudication information exchange
+ with regulatory and analytics organizations.
+				</td>
+			</tr>
+		</table>
+	</div>
+
 
 </div>
