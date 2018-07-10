@@ -25,9 +25,12 @@
     <role>
       <text value="Service User (Logon)"/>
     </role>
-    <userId>
+			<who>
+			<identifier>
 		<value value="Grahame"/>
-	</userId>
+			</identifier>
+		</who>
+
     <requestor value="false"/>
     <network>
       <address value="127.0.0.1"/>
@@ -36,16 +39,21 @@
   </agent>
   <agent> <!-- Source active participant, the software making the . AlternativeUserId - Process ID --> 
     <type> <coding> <system value="http://dicom.nema.org/resources/ontology/DCM"/> <code value="110153"/> <display value="Source Role ID"/> </coding> </type> 
-    <userId> <value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/> </userId> 
+		<who>
+			<identifier>
+				<system value="urn:oid:2.16.840.1.113883.4.2"/> 
+				<value value="2.16.840.1.113883.4.2"/> 
+			</identifier>
+		</who>
     <altId value="6580"/> 
     <requestor value="false"/> 
     <network> <address value="Workstation1.ehr.familyclinic.com"/> <type value="1"/> </network> 
   </agent>
   <source>
     <site value="Development"/>
-	<identifier>
-		<value value="Grahame's Laptop"/>
-	</identifier>
+	<observer>
+		<display value="Grahame's Laptop"/>
+	</observer>
     <type>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="110122"/>
@@ -53,7 +61,7 @@
     </type>
   </source>
   <entity>
-    <identifier>
+    <what><identifier>
       <type>
         <coding>
           <system value="http://hl7.org/fhir/identifier-type"/>
@@ -63,6 +71,7 @@
       </type>
       <value value="ABCDEF"/>
     </identifier>
+	</what>
 	<type>
 		<system value="http://hl7.org/fhir/object-type"/>
 		<code value="4"/>

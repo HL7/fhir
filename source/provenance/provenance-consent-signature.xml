@@ -19,9 +19,9 @@
         <code value="AUT"/>
       </coding>
     </role>
-    <whoReference>
+    <who>
       <reference value="Patient/72"/>
-    </whoReference>
+    </who>
   </agent>
   <signature>
     <type>

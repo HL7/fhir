@@ -44,9 +44,11 @@
 			</coding>
 		</type> 
 
-		<userId>
-			<value value="95"/>
-		</userId>
+		<who>
+			<identifier>
+				<value value="95"/>
+			</identifier>
+		</who>
 		<altId value="601847123"/>
 		<name value="Grahame Grieve"/>
 		<requestor value="true"/>
@@ -60,9 +62,12 @@
 				<display value="Source Role ID"/>
 			</coding>
 		</type> 
-		<userId>
-			<value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/>
-		</userId> 
+		<who>
+	<identifier>
+		<system value="urn:oid:2.16.840.1.113883.4.2"/> 
+		<value value="2.16.840.1.113883.4.2"/> 
+	</identifier>
+</who>
 		<altId value="6580"/> 
 		<requestor value="false"/> 
 		<network>
@@ -72,9 +77,11 @@
 	</agent>
 	<source>
 		<site value="Cloud"/>
-		<identifier>
-			<value value="hl7connect.healthintersections.com.au"/>
-		</identifier>
+		<observer>
+			<identifier>
+				<value value="hl7connect.healthintersections.com.au"/>
+			</identifier>
+		</observer>
 		<type>
 			<system value="http://hl7.org/fhir/security-source-type"/>
 			<code value="3"/>
@@ -96,9 +103,9 @@
 	</entity>
 	<entity>
 		<!-- record the OperationOutcome returned to the client -->
-		<reference>
+		<what>
 			<reference value="#o1"/>
-		</reference>
+		</what>
 		<type>
 			<system value="http://hl7.org/fhir/resource-types"/>
 			<code value="OperationOutcome"/>
