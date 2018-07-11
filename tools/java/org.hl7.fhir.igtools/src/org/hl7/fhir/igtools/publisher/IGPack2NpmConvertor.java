@@ -245,7 +245,7 @@ public class IGPack2NpmConvertor {
     man.setRendering(spm.getWebUrl(""));
     for (String s : spm.getPathUrls()) {
       if (s.startsWith(canonical)) {
-        String r = s.substring(canonical.length()+1);
+        String r = s.equals(canonical) ? "" : s.substring(canonical.length() + 1);
         ImplementationGuideManifestResourceComponent ra = getMatchingResource(r, ig);
         if (ra != null && !ra.hasRelativePath())
           ra.setRelativePath(spm.getPath(s));
