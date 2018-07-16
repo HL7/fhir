@@ -321,7 +321,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         if (bndCodeSystems != null) {
           for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
             CodeSystem cs = (CodeSystem) be.getResource();
-            if (!codeSystems.containsKey(cs.getUrl())) {
+//            if (cs == null)
+//              System.out.println("no resource for "+be.getFullUrl());
+            if (cs != null && !codeSystems.containsKey(cs.getUrl())) {
               codeSystems.put(cs.getUrl(), null);
             }
           }

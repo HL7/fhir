@@ -17,10 +17,10 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 						<code value="AUT"/>
 					</coding>
 				</role>
-				<whoReference>
+				<who>
 					<reference value="Practitioner/f202"/>
 					<display value="Luigi Maas"/>
-				</whoReference>
+				</who>
 			</agent>
 			<signature>
 				<type>

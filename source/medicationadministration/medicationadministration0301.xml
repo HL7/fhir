@@ -29,10 +29,10 @@
             <code value="AUT"/>
           </coding>
         </role>
-        <whoReference>
+        <who>
           <reference value="Practitioner/example"/>
           <display value="Dr Adam Careful"/>
-        </whoReference>
+        </who>
       </agent>
       <signature>
         <type>
