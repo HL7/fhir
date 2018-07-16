@@ -19,6 +19,9 @@
 		</coding>
 	</priority>
 
+	<use value="validation"/>
+	<use value="benefits"/>
+
 	<patient>
 		<reference value="Patient/pat1"/>
 	</patient>
@@ -49,26 +52,22 @@
 		</identifier>
 	</facility>
 
-	<coverage>
-		<reference value="Coverage/9876B1"/>
-	</coverage>
+	<insurance>
+		<coverage>
+			<reference value="Coverage/9876B1"/>
+		</coverage>
 
-	<businessArrangement value="NB8742"/>
+		<businessArrangement value="NB8742"/>
+	</insurance>
 
-	<benefitCategory>
-		<coding>
-			<system value="http://hl7.org/fhir/benefit-category"/>
-			<code value="medical"/>
-		</coding>
-	</benefitCategory>
-
-	<benefitSubCategory>
-		<coding>
-			<system value="http://hl7.org/fhir/benefit-subcategory"/>
-			<code value="69"/>
-			<display value="Maternity"/>
-		</coding>
-	</benefitSubCategory>
-
+	<detail>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+				<code value="69"/>
+				<display value="Maternity"/>
+			</coding>
+		</category>
+	</detail>
 
 </EligibilityRequest>

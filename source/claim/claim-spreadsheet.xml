@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-09T07:11:53Z</LastSaved>
+  <LastSaved>2018-07-16T08:36:00Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -303,14 +304,6 @@
   <Style ss:ID="s105" ss:Parent="s28">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-  </Style>
-  <Style ss:ID="s107">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s108">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
@@ -713,49 +706,9 @@
    <Font ss:Bold="1" ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s159">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s160">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s161">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s162">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s163">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#CCFFCC" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s164">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s165">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s166">
@@ -774,40 +727,6 @@
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
    </Borders>
-  </Style>
-  <Style ss:ID="s170">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Interior ss:Color="#FCF305" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s171">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Interior ss:Color="#FCF305" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s172">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior ss:Color="#FCF305" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s173">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior ss:Color="#FCF305" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s174">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Bold="1" ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#FCF305" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s175">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-   </Borders>
-   <Interior ss:Color="#FCF305" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s176">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
@@ -1142,6 +1061,47 @@
    <Font ss:Bold="1" ss:Color="#FF0000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#CCFFFF" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s259">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s260">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s261">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s262">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s263">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s266">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1176,7 +1136,7 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R149C28"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R138C28"/>
   </Names>
   <Table ss:ExpandedColumnCount="29" ss:ExpandedRowCount="150" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="207.0"/>
@@ -3732,7 +3692,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!Claim.item.careTeamLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Claim.item.careTeamLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3762,7 +3722,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!Claim.item.diagnosisLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Claim.item.diagnosisLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3792,7 +3752,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!Claim.item.procedureLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Claim.item.procedureLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3822,7 +3782,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">!Claim.item.informationLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Claim.item.informationLinkId</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3852,7 +3812,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Claim.item.careTeamSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.careTeamSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3882,7 +3842,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Claim.item.diagnosisSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.diagnosisSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3912,7 +3872,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Claim.item.procedureSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.procedureSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3942,7 +3902,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Claim.item.informationSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.informationSequence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4010,7 +3970,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitSubCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4580,7 +4540,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitSubCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4844,9 +4804,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.udi</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Reference(Device)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Device)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5000,7 +4960,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitSubCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5321,214 +5281,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s88">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">!Oral Health Specific Item Elements</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="15" ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">!Claim.item.prosthesis</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">=Prosthesis</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Prosthetic details</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The materials and placement date of prior fixed prosthesis. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="26"><Data ss:Type="String">0;650</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="28"><Data ss:Type="String">380;750</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">!Claim.item.prosthesis.initial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Is this the initial service</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Indicates whether this is the initial placement of a fixed prosthesis.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">May impact on adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">F15/F18 Only for Denture, Crown, Bridge</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Claim.item.prosthesis.priorDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Initial service Date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Date of the initial placement.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">May impact on adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">F04/F19</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">!Claim.item.prosthesis.priorMaterial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5" ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">OralProsthoMaterial</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Prosthetic Material</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Material of the prior denture or bridge prosthesis. (Oral)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">May impact on adjudication.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">F20/F21</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">!Additional Materials</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">!Oral Health Specific</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s78">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">=MissingTeeth</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Only if type = oral</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">The list of missing teeth may influence the adjudication of services for example with Bridges.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">0;360</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth.tooth</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Tooth</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Tooth Code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The code identifying which tooth is missing.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Provides the tooth number of the missing tooth.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">F23</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth.reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">MissingReason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates whether it was extracted or other reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Missing reason may be: E-extraction, O-other</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Provides the reason for the missing tooth.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">not used</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
-    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth.extractionDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Date tooth was extracted if known</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The date of the extraction either known from records or patient reported estimate.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Some services and adjudications require this information.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">F24</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+   <Row ss:AutoFitHeight="0" ss:Index="150" ss:StyleID="s78">
     <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
@@ -5543,11 +5296,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>136</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5556,7 +5308,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R149C28">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R138C28">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -8023,7 +7775,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="45" ss:StyleID="s121" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="46" ss:StyleID="s121" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s121" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s121" ss:Width="309.0"/>
    <Column ss:Span="1" ss:StyleID="s121" ss:Width="51.0"/>
@@ -8302,20 +8054,20 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s127"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s159">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">UDI</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">The FDA, or other, UDI repository.</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">valueset-udi</Data></Cell>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s162"/>
-    <Cell ss:StyleID="s163"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s263">
+    <Cell ss:StyleID="s259"><Data ss:Type="String">UDI</Data></Cell>
+    <Cell ss:StyleID="s260"><Data ss:Type="String">The FDA, or other, UDI repository.</Data></Cell>
+    <Cell ss:StyleID="s261"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s261"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s261"><Data ss:Type="String">valueset-udi</Data></Cell>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s261"/>
+    <Cell ss:StyleID="s262"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s155"><Data ss:Type="String">Conditions</Data></Cell>
@@ -8393,7 +8145,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">ClaimSubType</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ClaimSubType</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A more granular claim typecode</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8408,7 +8160,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">RelatedClaimRelationship</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">RelatedClaimRelationship</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Relationship of this claim to a related Claim</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8423,7 +8175,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">!OccurrenceCodes</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">!OccurrenceCodes</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Occurrence codes</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8438,7 +8190,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">!OccurrenceSpanCodes</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">!OccurrenceSpanCodes</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Occurrence Span codes</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8453,7 +8205,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">!ValueCodes</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">!ValueCodes</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Value code</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8468,7 +8220,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">ProviderQualification</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ProviderQualification</Data></Cell>
     <Cell><Data ss:Type="String">Provider professional qualifications</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8483,7 +8235,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s164"><Data ss:Type="String">ServiceModifiers</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ServiceModifiers</Data></Cell>
     <Cell><Data ss:Type="String">Factors which may influence adjudication of services</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8498,7 +8250,7 @@
     <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s165"><Data ss:Type="String">ICD10_Procedures</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">ICD10_Procedures</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ICD10 Procedure codes</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
@@ -8633,42 +8385,50 @@
     <Cell ss:Index="14"><Data ss:Type="String">http://hl7.org/fhir/ex-diagnosistype</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitSubCategory</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">!BenefitSubCategory</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Benefit subcategories such as: oral-basic, major, glasses</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/benefit-subcategory</Data></Cell>
     <Cell ss:StyleID="s126"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s170">
-    <Cell ss:StyleID="s171"><Data ss:Type="String">!ClaimStatus</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">A code specifying the state of the resource instance.</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">#claim-status</Data></Cell>
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s175"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s170">
-    <Cell ss:StyleID="s171"><Data ss:Type="String">ClaimStatus</Data></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">A code specifying the state of the resource instance.</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BenefitCategory</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Benefit categories such as: oral-basic, major, glasses</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s266"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/ex-benefitcategory</Data></Cell>
+    <Cell ss:StyleID="s126"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s157">
+    <Cell ss:StyleID="s155"><Data ss:Type="String">!ClaimStatus</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code specifying the state of the resource instance.</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">#claim-status</Data></Cell>
+    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s127"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s157">
+    <Cell ss:StyleID="s155"><Data ss:Type="String">ClaimStatus</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code specifying the state of the resource instance.</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-fm-status</Data></Cell>
-    <Cell ss:StyleID="s174"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s173"/>
-    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s127"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s88"><Data ss:Type="String">RevenueCenter</Data></Cell>
@@ -8689,10 +8449,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -9869,7 +9630,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Removed Elements">
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="43" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="28" ss:ExpandedRowCount="55" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="168.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="63.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="8" ss:Width="117.0"/>
@@ -10904,6 +10665,213 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s93"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Index="45" ss:StyleID="s88">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!Oral Health Specific Item Elements</Data></Cell>
+    <Cell ss:Index="15" ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s93"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">!Claim.item.prosthesis</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">=Prosthesis</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Prosthetic details</Data></Cell>
+    <Cell><Data ss:Type="String">The materials and placement date of prior fixed prosthesis. </Data></Cell>
+    <Cell ss:Index="26"><Data ss:Type="String">0;650</Data></Cell>
+    <Cell ss:Index="28"><Data ss:Type="String">380;750</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">!Claim.item.prosthesis.initial</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Is this the initial service</Data></Cell>
+    <Cell><Data ss:Type="String">Indicates whether this is the initial placement of a fixed prosthesis.</Data></Cell>
+    <Cell><Data ss:Type="String">May impact on adjudication.</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">F15/F18 Only for Denture, Crown, Bridge</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s68">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">!Claim.item.prosthesis.priorDate</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Initial service Date</Data></Cell>
+    <Cell><Data ss:Type="String">Date of the initial placement.</Data></Cell>
+    <Cell><Data ss:Type="String">May impact on adjudication.</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">F04/F19</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s68">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">!Claim.item.prosthesis.priorMaterial</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">OralProsthoMaterial</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Prosthetic Material</Data></Cell>
+    <Cell><Data ss:Type="String">Material of the prior denture or bridge prosthesis. (Oral)</Data></Cell>
+    <Cell><Data ss:Type="String">May impact on adjudication.</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">F20/F21</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">!Additional Materials</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s78">
+    <Cell ss:StyleID="s102"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s93"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60" ss:StyleID="s78">
+    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">=MissingTeeth</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell><Data ss:Type="String">Only if type = oral</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The list of missing teeth may influence the adjudication of services for example with Bridges.</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">0;360</Data></Cell>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s93"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s78">
+    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth.tooth</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Tooth</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Tooth Code</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The code identifying which tooth is missing.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Provides the tooth number of the missing tooth.</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">F23</Data></Cell>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s93"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
+    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth.reason</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">MissingReason</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates whether it was extracted or other reason</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Missing reason may be: E-extraction, O-other</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Provides the reason for the missing tooth.</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">not used</Data></Cell>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s93"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s78">
+    <Cell ss:StyleID="s102"><Data ss:Type="String">!Claim.missingTeeth.extractionDate</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Date tooth was extracted if known</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The date of the extraction either known from records or patient reported estimate.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Some services and adjudications require this information.</Data></Cell>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">F24</Data></Cell>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s93"/>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -10912,7 +10880,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <TabColorIndex>9</TabColorIndex>
-   <TopRowVisible>30</TopRowVisible>
+   <TopRowVisible>39</TopRowVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>

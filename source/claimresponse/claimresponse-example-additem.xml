@@ -247,10 +247,10 @@
 				<display value="None"/>
 			</coding>
 		</modifier>
-		<fee>
+		<net>
 			<value value="135.57"/>
 			<currency value="USD"/>
-		</fee>
+		</net>
 		<noteNumber value="101"/>
 		<adjudication>
 			<category>
@@ -314,10 +314,10 @@
 				<display value="Radiograph, bytewing"/>
 			</coding>
 		</service>
-		<fee>
+		<net>
 			<value value="35.57"/>
 			<currency value="USD"/>
-		</fee>
+		</net>
 		<adjudication>
 			<category>
 				<coding>
@@ -368,10 +368,10 @@
 				<display value="None"/>
 			</coding>
 		</modifier>
-		<fee>
+		<net>
 			<value value="350.00"/>
 			<currency value="USD"/>
-		</fee>
+		</net>
 		<noteNumber value="101"/>
 		<adjudication>
 			<category>

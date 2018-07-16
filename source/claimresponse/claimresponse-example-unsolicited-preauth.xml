@@ -69,10 +69,10 @@
 				<display value="None"/>
 			</coding>
 		</modifier>
-		<fee>
-			<value value="250.00"/> <!-- fee set to same value as the eligible amount. Providers will only be reimbursed to the fee/eligible amount less the co-pay. -->
+		<net>
+			<value value="250.00"/> <!-- net set to same value as the eligible amount. Providers will only be reimbursed to the net/eligible amount less the co-pay. -->
 			<currency value="USD"/>
-		</fee>
+		</net>
 		<noteNumber value="101"/>
 		<adjudication>
 			<category>
@@ -129,10 +129,10 @@
 				<display value="Radiograph, series (12)"/>
 			</coding>
 		</service>
-		<fee>
+		<net>
 			<value value="800.00"/>
 			<currency value="USD"/>
-		</fee>
+		</net>
 		<adjudication>
 			<category>
 				<coding>

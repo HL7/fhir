@@ -13,6 +13,12 @@
 
 	<status value="active"/>
 
+	<use value="validation"/>
+
+	<patient>
+		<reference value="Patient/pat1"/>
+	</patient>
+
 	<created value="2014-08-16"/>
 
 	<request>
@@ -27,6 +33,11 @@
 		<reference value="Organization/2"/>
 	</insurer>
 
-	<inforce value="true"/>
+	<insurance>
+		<coverage>
+			<reference value="Coverage/9876B1"/>
+		</coverage>
+		<inforce value="true"/>
+	</insurance>
 
 </EligibilityResponse>

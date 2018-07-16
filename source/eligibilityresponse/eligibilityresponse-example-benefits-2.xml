@@ -123,8 +123,6 @@
 		<reference value="Organization/2"/>
 	</insurer>
 
-	<inforce value="true"/>
-
 	<insurance>
 		<coverage>
 			<reference value="#coverage-1"/>
@@ -132,21 +130,16 @@
 		<contract>
 			<reference value="http://www.BenefitsInc.com/fhir/contract/NBU22547"/>
 		</contract>
-		<benefitBalance>
+		<inforce value="true"/>
+
+		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-category"/>
-					<code value="medical"/>
-				</coding>
-			</category>
-
-			<subCategory>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
 					<code value="30"/>
 					<display value="Health Benefit Plan Coverage"/>
 				</coding>
-			</subCategory>
+			</category>
 
 			<network>
 				<coding>
@@ -169,7 +162,7 @@
 				</coding>
 			</term>
 
-			<financial>
+			<benefit>
 				<type>
 					<coding>
 						<code value="benefit"/>
@@ -186,9 +179,9 @@
 					<currency value="USD"/> 
 				</usedMoney>
 
-			</financial>
+			</benefit>
 
-			<financial>
+			<benefit>
 				<type>
 					<coding>
 						<code value="copay-maximum"/>
@@ -199,9 +192,9 @@
 					<value value="100"/>
 					<currency value="USD"/> 
 				</allowedMoney>
-			</financial>
+			</benefit>
 
-			<financial>
+			<benefit>
 				<type>
 					<coding>
 						<code value="copay-percent"/>
@@ -209,24 +202,17 @@
 				</type>
 
 				<allowedUnsignedInt value="20"/>
-			</financial>
-		</benefitBalance>
+			</benefit>
+		</detail>
 
-		<benefitBalance>
+		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-category"/>
-					<code value="medical"/>
-				</coding>
-			</category>
-
-			<subCategory>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
 					<code value="69"/>
 					<display value="Maternity"/>
 				</coding>
-			</subCategory>
+			</category>
 
 			<network>
 				<coding>
@@ -249,7 +235,7 @@
 				</coding>
 			</term>
 
-			<financial>
+			<benefit>
 				<type>
 					<coding>
 						<code value="benefit"/>
@@ -260,24 +246,17 @@
 					<value value="15000"/>
 					<currency value="USD"/> 
 				</allowedMoney>
-			</financial>
+			</benefit>
 
-		</benefitBalance>
-		<benefitBalance>
+		</detail>
+		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-category"/>
-					<code value="oral"/>
-				</coding>
-			</category>
-
-			<subCategory>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
 					<code value="F3"/>
 					<display value="Dental Coverage"/>
 				</coding>
-			</subCategory>
+			</category>
 
 			<network>
 				<coding>
@@ -300,7 +279,7 @@
 				</coding>
 			</term>
 
-			<financial>
+			<benefit>
 				<type>
 					<coding>
 						<code value="benefit"/>
@@ -311,30 +290,23 @@
 					<value value="2000"/>
 					<currency value="USD"/> 
 				</allowedMoney>
-			</financial>
+			</benefit>
 
-		</benefitBalance>
-		<benefitBalance>
+		</detail>
+		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-category"/>
-					<code value="vision"/>
-				</coding>
-			</category>
-
-			<subCategory>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
 					<code value="F6"/>
 					<display value="Vision Coverage"/>
 				</coding>
-			</subCategory>
+			</category>
 
-			<excluded value="true"/> <!-- this bentfit catagory is not covered under the plan -->
+			<excluded value="true"/> <!-- this benefit category is not covered under the plan -->
 			<name value="Vision"/>
-			<description value="Vision products and services such as exams, glasses and contatc lenses."/>
+			<description value="Vision products and services such as exams, glasses and contact lenses."/>
 
-		</benefitBalance>
+		</detail>
 	</insurance>
 
 	<form>
