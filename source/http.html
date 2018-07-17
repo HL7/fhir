@@ -929,7 +929,14 @@ Content-Type: application/x-www-form-urlencoded
 param1=value&amp;param2=value
 </pre>
 <p>
-This has exactly the same semantics as the equivalent <code>GET</code> command. All these search interactions take a series of parameters that
+This has exactly the same semantics as the equivalent <code>GET</code> command. Note that in the POST variant,
+parameters may appear in both the URL and the body. Parameters have the same meaning in either place. Since 
+parameters can repeat, putting them in both places is the same as repeating them (which is valid for some 
+parameters and not for others).
+</p>
+
+<p>
+All these search interactions take a series of parameters that
 are a series of <code>name=value</code> pairs encoded in the URL (or as an <code>application/x-www-form-urlencoded</code> submission for a <code>POST</code>).
 (See <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#form-content-type">W3C HTML forms</a>).
 </p>
