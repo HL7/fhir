@@ -8,4 +8,34 @@ end-point and/or persistence, it never has an id, a versionId, or a lastUpdated.
 The other features of Resource (tags, profiles, security labels, language etc.) may
 have use when operations are executed.
 </p>
+
+<a name="ids"> </a>
+<h3>Names and Identifiers</h3>
+<p>
+The following rules apply to name and identifier uniqueness within a Parameters resource:
+</p>
+<table class="grid">
+ <tr>
+  <td>Parameter Names</td>
+  <td>Parameter names can be repeated at any level. The meaning of duplicate parameter names - and whether it is valid to 
+    repeat any given parameter name - depends on the context. Typically, <a href="operationdefinition.html">operation definitions</a>
+	define what parameters can be used, and whether they can repeat. The order of parameters with different names is not considered significant</td>
+ </tr>
+ <tr>
+  <td>Resources</td>
+  <td>Resources in <code>parameter.resource</code> do not need to be unique, though the interpretaton of 
+    non-unique resources, or different versions of the same resource, may be ambiguous in cases where
+	the parameter names do not clearly differentiate the purpose of the parameter. For 
+	additional commentary, see the notes about <a href="bundle.html#bundle-unique">about resource uniquness in Bundles</a>,
+	though be aware that those rules do not apply to the <code>Parameters</code> resource.</td>
+ </tr>
+ <tr>
+  <td>Internal References</td>
+  <td>When internal references are resolved in a resource in a <code>parameter.resource</code>, the 
+    resolution stops at <code>parameter.resource</code>. This allows resources to appear more than
+	once in a Parameters resource, and also means that resources cannot reference content in another 
+	resource using an internal reference (except for <a href="references.html#contained">references inside contained resources</a>)</td>
+ </tr>
+</table>
+
 </div>
