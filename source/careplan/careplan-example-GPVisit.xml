@@ -17,8 +17,19 @@
     <!-- This is the reason for the encounter. It is referenced by the concern -->
     <Condition>
       <id value="p1"/>
-      <clinicalStatus value="active"/>
-	  <verificationStatus value="confirmed"/>
+      <clinicalStatus>
+		<coding>
+		  <system value="http://hl7.org/fhir/condition-clinical"/>
+		  <code value="active"/>
+		</coding>
+	  </clinicalStatus>
+
+	  <verificationStatus>
+		<coding>
+		  <system value="http://hl7.org/fhir/condition-ver-status"/>
+		  <code value="confirmed"/>
+		</coding>
+	  </verificationStatus>
       <code>
         <!-- Could coded if we wanted to...-->
         <text value="Overseas encounter"/>

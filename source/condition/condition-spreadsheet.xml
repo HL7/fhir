@@ -15,7 +15,7 @@
   
   
   <TabRatio>763</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -931,7 +931,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">3,4,5</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This element is labeled as a modifier because the status contains codes that mark the condition as no longer active.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -952,14 +952,14 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Event.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">GF#16193</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Condition.verificationStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">3,5</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This element is labeled as a modifier because the status contains the code refuted and entered-in-error that mark the Condition as not currently valid.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -980,7 +980,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Event.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">GF#11281</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">GF#11281, GF#16193</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Condition.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3603,13 +3603,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>20</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3628,8 +3627,8 @@
    <Column ss:StyleID="s103" ss:Width="55.0"/>
    <Column ss:StyleID="s103" ss:Width="165.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="205.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="199.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="187.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="422.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="337.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s104"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique Number</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique short label</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3672,17 +3671,17 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Condition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">If condition is abated, then clinicalStatus must be either inactive, resolved, or remission </Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">abatement.empty() or clinicalStatus='resolved' or clinicalStatus='remission' or clinicalStatus='inactive'</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'abatement')])) or f:clinicalStatus/@value=('resolved', 'remission', 'inactive')</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">abatement.empty() or clinicalStatus.coding.where(system='http://hl7.org/fhir/condition-clinical' and (code='resolved' or code='remission' or code='inactive')).exists()</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(*[starts-with(local-name(.), 'abatement')])) or exists(f:clinicalStatus/f:coding[f:system/@value='http://hl7.org/fhir/condition-clinical' and f:code/@value=('resolved', 'remission', 'inactive')])</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">5</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">No clinicalStatus when entered in error</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Condition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Condition.clinicalStatus SHALL NOT be present if verification Status is entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">verificationStatus!='entered-in-error' or clinicalStatus.empty()</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">f:verificationStatus/@value!='entered-in-error' or not(exists(f:clinicalStatus))</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">verificationStatus.coding.where(system='http://hl7.org/fhir/condition-ver-status' and code='entered-in-error').empty() or clinicalStatus.empty()</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:verificationStatus/f:coding[f:system/@value='http://hl7.org/fhir/condition-ver-status' and f:code/@value='entered-in-error'])) or not(exists(f:clinicalStatus))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4066,12 +4065,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4311,7 +4311,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

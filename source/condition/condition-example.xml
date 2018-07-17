@@ -5,8 +5,19 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>
   </text>
-  <clinicalStatus value="active"/>
-  <verificationStatus value="confirmed"/>
+  <clinicalStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-clinical"/>
+      <code value="active"/>
+    </coding>
+  </clinicalStatus>
+
+  <verificationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-ver-status"/>
+      <code value="confirmed"/>
+    </coding>
+  </verificationStatus>
   <category>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>

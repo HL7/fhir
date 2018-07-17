@@ -2,8 +2,19 @@
 <!--@version June 2013 @author Melchior Ferdinand Pot-->
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f203"/>
-  <clinicalStatus value="active"/>
-  <verificationStatus value="confirmed"/>
+  <clinicalStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-clinical"/>
+      <code value="active"/>
+    </coding>
+  </clinicalStatus>
+
+  <verificationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-ver-status"/>
+      <code value="confirmed"/>
+    </coding>
+  </verificationStatus>
   <category>
     <!--Bacterial sepsis is certainly a moderate to severe problem-->
     <coding>

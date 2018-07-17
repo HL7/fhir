@@ -8,8 +8,19 @@
       <display value="taboo"/>
     </security>
   </meta>
-  <clinicalStatus value="resolved"/>
-  <verificationStatus value="confirmed"/>
+  <clinicalStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-clinical"/>
+      <code value="resolved"/>
+    </coding>
+  </clinicalStatus>
+
+  <verificationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-ver-status"/>
+      <code value="confirmed"/>
+    </coding>
+  </verificationStatus>
   <category>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>

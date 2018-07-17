@@ -5,7 +5,12 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Family history of cancer of colon</div>
   </text>
-  <clinicalStatus value="active"/>
+  <clinicalStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-clinical"/>
+      <code value="active"/>
+    </coding>
+  </clinicalStatus>
   <category>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>
