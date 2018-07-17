@@ -2424,8 +2424,9 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getRole())
       tgt.addRole(convertCodeableConcept(t));
-    tgt.setReference(convertReference(src.getReference()));
-    tgt.setUserId(convertIdentifier(src.getUserId()));
+    tgt.setWho(convertReference(src.getReference()));
+    if (src.hasUserId()) 
+      tgt.getWho().setIdentifier(convertIdentifier(src.getUserId()));
     tgt.setAltId(src.getAltId());
     tgt.setName(src.getName());
     tgt.setRequestor(src.getRequestor());
@@ -2446,8 +2447,12 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getRole())
       tgt.addRole(convertCodeableConcept(t));
-    tgt.setReference(convertReference(src.getReference()));
-    tgt.setUserId(convertIdentifier(src.getUserId()));
+    if (src.hasWho()) {
+      if (src.getWho().hasIdentifier())
+        tgt.setUserId(convertIdentifier(src.getWho().getIdentifier()));
+      if (src.getWho().hasReference() || src.getWho().hasDisplay()  || src.getWho().hasExtension() || src.getWho().hasId()) 
+        tgt.setReference(convertReference(src.getWho()));
+    }
     tgt.setAltId(src.getAltId());
     tgt.setName(src.getName());
     tgt.setRequestor(src.getRequestor());
@@ -2514,7 +2519,8 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.r4.model.AuditEvent.AuditEventSourceComponent tgt = new org.hl7.fhir.r4.model.AuditEvent.AuditEventSourceComponent();
     copyElement(src, tgt);
     tgt.setSite(src.getSite());
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    if (src.hasIdentifier())
+      tgt.getObserver().setIdentifier(convertIdentifier(src.getIdentifier()));
     for (org.hl7.fhir.dstu2.model.Coding t : src.getType())
       tgt.addType(convertCoding(t));
     return tgt;
@@ -2526,7 +2532,8 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.dstu2.model.AuditEvent.AuditEventSourceComponent tgt = new org.hl7.fhir.dstu2.model.AuditEvent.AuditEventSourceComponent();
     copyElement(src, tgt);
     tgt.setSite(src.getSite());
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    if (src.hasObserver())
+      tgt.setIdentifier(convertIdentifier(src.getObserver().getIdentifier()));
     for (org.hl7.fhir.r4.model.Coding t : src.getType())
       tgt.addType(convertCoding(t));
     return tgt;
@@ -2537,8 +2544,10 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.r4.model.AuditEvent.AuditEventEntityComponent tgt = new org.hl7.fhir.r4.model.AuditEvent.AuditEventEntityComponent();
     copyElement(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setReference(convertReference(src.getReference()));
+    if (src.hasIdentifier())
+      tgt.getWhat().setIdentifier(convertIdentifier(src.getIdentifier()));
+    if (src.hasReference())
+      tgt.setWhat(convertReference(src.getReference()));
     tgt.setType(convertCoding(src.getType()));
     tgt.setRole(convertCoding(src.getRole()));
     tgt.setLifecycle(convertCoding(src.getLifecycle()));
@@ -2557,8 +2566,12 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.dstu2.model.AuditEvent.AuditEventObjectComponent tgt = new org.hl7.fhir.dstu2.model.AuditEvent.AuditEventObjectComponent();
     copyElement(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setReference(convertReference(src.getReference()));
+    if (src.hasWhat()) {
+      if (src.getWhat().hasIdentifier())
+        tgt.setIdentifier(convertIdentifier(src.getWhat().getIdentifier()));
+      if (src.getWhat().hasReference() || src.getWhat().hasDisplay() || src.getWhat().hasExtension() || src.getWhat().hasId())
+        tgt.setReference(convertReference(src.getWhat()));
+    }
     tgt.setType(convertCoding(src.getType()));
     tgt.setRole(convertCoding(src.getRole()));
     tgt.setLifecycle(convertCoding(src.getLifecycle()));
@@ -2900,7 +2913,10 @@ public class VersionConvertor_10_40 {
     tgt.setContext(convertReference(src.getContext()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getAuthor())
-      tgt.addAuthor(convertReference(t));
+      if (!tgt.hasAuthor())
+        tgt.setAuthor(convertReference(t));
+      else
+        tgt.addContributor(convertReference(t));
 //    tgt.setModified(src.getModified());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getCategory())
       tgt.addCategory(convertCodeableConcept(t));
@@ -2932,7 +2948,9 @@ public class VersionConvertor_10_40 {
     tgt.setStatus(convertCarePlanStatus(src.getStatus()));
     tgt.setContext(convertReference(src.getContext()));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
-    for (org.hl7.fhir.r4.model.Reference t : src.getAuthor())
+    if (src.hasAuthor())
+      tgt.addAuthor(convertReference(src.getAuthor()));
+    for (org.hl7.fhir.r4.model.Reference t : src.getContributor())
       tgt.addAuthor(convertReference(t));
 //    tgt.setModified(src.getModified());
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getCategory())

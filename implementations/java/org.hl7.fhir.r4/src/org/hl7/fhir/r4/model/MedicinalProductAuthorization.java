@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -690,14 +690,14 @@ public class MedicinalProductAuthorization extends DomainResource {
         /**
          * The type of the application.
          */
-        @Child(name = "type", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The type of the application", formalDefinition="The type of the application." )
         protected CodeableConcept type;
 
         /**
          * Date that the application was made.
          */
-        @Child(name = "date", type = {DateTimeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "date", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Date that the application was made", formalDefinition="Date that the application was made." )
         protected DateTimeType date;
 
@@ -713,11 +713,9 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * Constructor
      */
-      public MedicinalProductAuthorizationProcedureApplicationComponent(Identifier number, CodeableConcept type, DateTimeType date) {
+      public MedicinalProductAuthorizationProcedureApplicationComponent(Identifier number) {
         super();
         this.number = number;
-        this.type = type;
-        this.date = date;
       }
 
         /**
@@ -807,9 +805,13 @@ public class MedicinalProductAuthorization extends DomainResource {
          * @param value Date that the application was made.
          */
         public MedicinalProductAuthorizationProcedureApplicationComponent setDate(Date value) { 
+          if (value == null)
+            this.date = null;
+          else {
             if (this.date == null)
               this.date = new DateTimeType();
             this.date.setValue(value);
+          }
           return this;
         }
 
@@ -962,14 +964,14 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * The country in which the marketing authorization has been granted.
      */
-    @Child(name = "country", type = {CodeableConcept.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "country", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The country in which the marketing authorization has been granted", formalDefinition="The country in which the marketing authorization has been granted." )
     protected List<CodeableConcept> country;
 
     /**
      * The legal status of supply of the medicinal product as classified by the regulator.
      */
-    @Child(name = "legalStatusOfSupply", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "legalStatusOfSupply", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The legal status of supply of the medicinal product as classified by the regulator", formalDefinition="The legal status of supply of the medicinal product as classified by the regulator." )
     protected CodeableConcept legalStatusOfSupply;
 
@@ -983,7 +985,7 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * The date at which the given status has become applicable.
      */
-    @Child(name = "statusDate", type = {DateTimeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "statusDate", type = {DateTimeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The date at which the given status has become applicable", formalDefinition="The date at which the given status has become applicable." )
     protected DateTimeType statusDate;
 
@@ -1018,7 +1020,7 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * Date of first marketing authorization for a company's new medicinal product in any country in the World.
      */
-    @Child(name = "internationalBirthDate", type = {DateTimeType.class}, order=9, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "internationalBirthDate", type = {DateTimeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Date of first marketing authorization for a company's new medicinal product in any country in the World", formalDefinition="Date of first marketing authorization for a company's new medicinal product in any country in the World." )
     protected DateTimeType internationalBirthDate;
 
@@ -1032,7 +1034,7 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * Marketing Authorization Holder.
      */
-    @Child(name = "holder", type = {Organization.class}, order=11, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "holder", type = {Organization.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Marketing Authorization Holder", formalDefinition="Marketing Authorization Holder." )
     protected Reference holder;
 
@@ -1044,7 +1046,7 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * Medicines Regulatory Agency.
      */
-    @Child(name = "regulator", type = {Organization.class}, order=12, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "regulator", type = {Organization.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Medicines Regulatory Agency", formalDefinition="Medicines Regulatory Agency." )
     protected Reference regulator;
 
@@ -1056,7 +1058,7 @@ public class MedicinalProductAuthorization extends DomainResource {
     /**
      * The regulatory procedure for granting or amending a marketing authorization.
      */
-    @Child(name = "procedure", type = {}, order=13, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "procedure", type = {}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The regulatory procedure for granting or amending a marketing authorization", formalDefinition="The regulatory procedure for granting or amending a marketing authorization." )
     protected MedicinalProductAuthorizationProcedureComponent procedure;
 
@@ -1079,16 +1081,10 @@ public class MedicinalProductAuthorization extends DomainResource {
   /**
    * Constructor
    */
-    public MedicinalProductAuthorization(CodeableConcept legalStatusOfSupply, CodeableConcept status, DateTimeType statusDate, Period validityPeriod, DateTimeType internationalBirthDate, Reference holder, Reference regulator, MedicinalProductAuthorizationProcedureComponent procedure) {
+    public MedicinalProductAuthorization(CodeableConcept status, Period validityPeriod) {
       super();
-      this.legalStatusOfSupply = legalStatusOfSupply;
       this.status = status;
-      this.statusDate = statusDate;
       this.validityPeriod = validityPeriod;
-      this.internationalBirthDate = internationalBirthDate;
-      this.holder = holder;
-      this.regulator = regulator;
-      this.procedure = procedure;
     }
 
     /**
@@ -1255,9 +1251,13 @@ public class MedicinalProductAuthorization extends DomainResource {
      * @param value The date at which the given status has become applicable.
      */
     public MedicinalProductAuthorization setStatusDate(Date value) { 
+      if (value == null)
+        this.statusDate = null;
+      else {
         if (this.statusDate == null)
           this.statusDate = new DateTimeType();
         this.statusDate.setValue(value);
+      }
       return this;
     }
 
@@ -1446,9 +1446,13 @@ public class MedicinalProductAuthorization extends DomainResource {
      * @param value Date of first marketing authorization for a company's new medicinal product in any country in the World.
      */
     public MedicinalProductAuthorization setInternationalBirthDate(Date value) { 
+      if (value == null)
+        this.internationalBirthDate = null;
+      else {
         if (this.internationalBirthDate == null)
           this.internationalBirthDate = new DateTimeType();
         this.internationalBirthDate.setValue(value);
+      }
       return this;
     }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -239,12 +239,12 @@ public class Procedure extends DomainResource {
     @Block()
     public static class ProcedurePerformerComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * For example: surgeon, anaethetist, endoscopist.
+         * Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaethetist, endoscopist.
          */
-        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The role the actor was in", formalDefinition="For example: surgeon, anaethetist, endoscopist." )
+        @Child(name = "function", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Type of performance", formalDefinition="Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaethetist, endoscopist." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
-        protected CodeableConcept role;
+        protected CodeableConcept function;
 
         /**
          * The practitioner who was involved in the procedure.
@@ -270,7 +270,7 @@ public class Procedure extends DomainResource {
          */
         protected Organization onBehalfOfTarget;
 
-        private static final long serialVersionUID = 213950062L;
+        private static final long serialVersionUID = -997772724L;
 
     /**
      * Constructor
@@ -288,26 +288,26 @@ public class Procedure extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (For example: surgeon, anaethetist, endoscopist.)
+         * @return {@link #function} (Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaethetist, endoscopist.)
          */
-        public CodeableConcept getRole() { 
-          if (this.role == null)
+        public CodeableConcept getFunction() { 
+          if (this.function == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProcedurePerformerComponent.role");
+              throw new Error("Attempt to auto-create ProcedurePerformerComponent.function");
             else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept(); // cc
-          return this.role;
+              this.function = new CodeableConcept(); // cc
+          return this.function;
         }
 
-        public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
+        public boolean hasFunction() { 
+          return this.function != null && !this.function.isEmpty();
         }
 
         /**
-         * @param value {@link #role} (For example: surgeon, anaethetist, endoscopist.)
+         * @param value {@link #function} (Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaethetist, endoscopist.)
          */
-        public ProcedurePerformerComponent setRole(CodeableConcept value) { 
-          this.role = value;
+        public ProcedurePerformerComponent setFunction(CodeableConcept value) { 
+          this.function = value;
           return this;
         }
 
@@ -396,7 +396,7 @@ public class Procedure extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("role", "CodeableConcept", "For example: surgeon, anaethetist, endoscopist.", 0, 1, role));
+          children.add(new Property("function", "CodeableConcept", "Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaethetist, endoscopist.", 0, 1, function));
           children.add(new Property("actor", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The practitioner who was involved in the procedure.", 0, 1, actor));
           children.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, 1, onBehalfOf));
         }
@@ -404,7 +404,7 @@ public class Procedure extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3506294: /*role*/  return new Property("role", "CodeableConcept", "For example: surgeon, anaethetist, endoscopist.", 0, 1, role);
+          case 1380938712: /*function*/  return new Property("function", "CodeableConcept", "Distinguishes the type of involvement of the performer in the procedure. For example, surgeon, anaethetist, endoscopist.", 0, 1, function);
           case 92645877: /*actor*/  return new Property("actor", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The practitioner who was involved in the procedure.", 0, 1, actor);
           case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, 1, onBehalfOf);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -415,7 +415,7 @@ public class Procedure extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case 1380938712: /*function*/ return this.function == null ? new Base[0] : new Base[] {this.function}; // CodeableConcept
         case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -426,8 +426,8 @@ public class Procedure extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294: // role
-          this.role = castToCodeableConcept(value); // CodeableConcept
+        case 1380938712: // function
+          this.function = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 92645877: // actor
           this.actor = castToReference(value); // Reference
@@ -442,8 +442,8 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = castToCodeableConcept(value); // CodeableConcept
+        if (name.equals("function")) {
+          this.function = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("actor")) {
           this.actor = castToReference(value); // Reference
         } else if (name.equals("onBehalfOf")) {
@@ -456,7 +456,7 @@ public class Procedure extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); 
+        case 1380938712:  return getFunction(); 
         case 92645877:  return getActor(); 
         case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
@@ -467,7 +467,7 @@ public class Procedure extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case 1380938712: /*function*/ return new String[] {"CodeableConcept"};
         case 92645877: /*actor*/ return new String[] {"Reference"};
         case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
@@ -477,9 +477,9 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = new CodeableConcept();
-          return this.role;
+        if (name.equals("function")) {
+          this.function = new CodeableConcept();
+          return this.function;
         }
         else if (name.equals("actor")) {
           this.actor = new Reference();
@@ -496,7 +496,7 @@ public class Procedure extends DomainResource {
       public ProcedurePerformerComponent copy() {
         ProcedurePerformerComponent dst = new ProcedurePerformerComponent();
         copyValues(dst);
-        dst.role = role == null ? null : role.copy();
+        dst.function = function == null ? null : function.copy();
         dst.actor = actor == null ? null : actor.copy();
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         return dst;
@@ -509,7 +509,7 @@ public class Procedure extends DomainResource {
         if (!(other_ instanceof ProcedurePerformerComponent))
           return false;
         ProcedurePerformerComponent o = (ProcedurePerformerComponent) other_;
-        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+        return compareDeep(function, o.function, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
           ;
       }
 
@@ -524,7 +524,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(function, actor, onBehalfOf
           );
       }
 
@@ -1154,7 +1154,7 @@ public class Procedure extends DomainResource {
       if (this.instantiatesCanonical == null)
         return false;
       for (CanonicalType v : this.instantiatesCanonical)
-        if (v.getValue().equals(value)) // canonical(PlanDefinition|ActivityDefinition|HealthcareService)
+        if (v.getValue().equals(value)) // canonical(PlanDefinition|ActivityDefinition|Measure|OperationDefinition|Questionnaire)
           return true;
       return false;
     }
@@ -2474,7 +2474,7 @@ public class Procedure extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("instantiatesCanonical", "canonical(PlanDefinition|ActivityDefinition|HealthcareService)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Procedure.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
+        children.add(new Property("instantiatesCanonical", "canonical(PlanDefinition|ActivityDefinition|Measure|OperationDefinition|Questionnaire)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Procedure.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
         children.add(new Property("instantiatesUri", "uri", "The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Procedure.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri));
         children.add(new Property("basedOn", "Reference(CarePlan|ServiceRequest)", "A reference to a resource that contains details of the request for this procedure.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("partOf", "Reference(Procedure|Observation|MedicationAdministration)", "A larger event of which this particular procedure is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
@@ -2507,7 +2507,7 @@ public class Procedure extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this procedure by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical(PlanDefinition|ActivityDefinition|HealthcareService)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Procedure.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
+        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical(PlanDefinition|ActivityDefinition|Measure|OperationDefinition|Questionnaire)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Procedure.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
         case -1926393373: /*instantiatesUri*/  return new Property("instantiatesUri", "uri", "The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Procedure.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ServiceRequest)", "A reference to a resource that contains details of the request for this procedure.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -995410646: /*partOf*/  return new Property("partOf", "Reference(Procedure|Observation|MedicationAdministration)", "A larger event of which this particular procedure is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf);
@@ -3203,7 +3203,7 @@ public class Procedure extends DomainResource {
    * Path: <b>Procedure.instantiatesCanonical</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="instantiates-canonical", path="Procedure.instantiatesCanonical", description="Instantiates FHIR protocol or definition", type="reference", target={ActivityDefinition.class, HealthcareService.class, PlanDefinition.class } )
+  @SearchParamDefinition(name="instantiates-canonical", path="Procedure.instantiatesCanonical", description="Instantiates FHIR protocol or definition", type="reference", target={ActivityDefinition.class, Measure.class, OperationDefinition.class, PlanDefinition.class, Questionnaire.class } )
   public static final String SP_INSTANTIATES_CANONICAL = "instantiates-canonical";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>instantiates-canonical</b>

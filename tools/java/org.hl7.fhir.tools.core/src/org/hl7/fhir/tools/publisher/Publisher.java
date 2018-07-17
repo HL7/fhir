@@ -1485,6 +1485,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpd.setStatus(PublicationStatus.DRAFT);
     cpd.setDescription(c.getIdentity()+". "+c.getDescription());
     cpd.setExperimental(true);
+    cpd.setVersion(page.getVersion() + "-" + page.getSvnRevision());
     cpd.setDate(page.getGenDate().getTime());
     cpd.setPublisher("FHIR Project Team");
     cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));

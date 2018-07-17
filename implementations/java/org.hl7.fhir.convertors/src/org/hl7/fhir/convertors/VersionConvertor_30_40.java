@@ -8,7 +8,10 @@ import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent;
 import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r4.model.Identifier;
+import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Type;
+import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -4112,9 +4115,9 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getRole())
       tgt.addRole(convertCodeableConcept(t));
     if (src.hasReference())
-      tgt.setReference(convertReference(src.getReference()));
-    if (src.hasUserId())
-      tgt.setUserId(convertIdentifier(src.getUserId()));
+      tgt.setWho(convertReference(src.getReference()));
+    if (src.hasUserId()) 
+      tgt.getWho().setIdentifier(convertIdentifier(src.getUserId()));
     if (src.hasAltId())
       tgt.setAltId(src.getAltId());
     if (src.hasName())
@@ -4141,10 +4144,12 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getRole())
       tgt.addRole(convertCodeableConcept(t));
-    if (src.hasReference())
-      tgt.setReference(convertReference(src.getReference()));
-    if (src.hasUserId())
-      tgt.setUserId(convertIdentifier(src.getUserId()));
+    if (src.hasWho()) {
+      if (src.getWho().hasIdentifier())
+        tgt.setUserId(convertIdentifier(src.getWho().getIdentifier()));
+      if (src.getWho().hasReference() || src.getWho().hasDisplay()  || src.getWho().hasExtension() || src.getWho().hasId()) 
+        tgt.setReference(convertReference(src.getWho()));
+    }
     if (src.hasAltId())
       tgt.setAltId(src.getAltId());
     if (src.hasName())
@@ -4222,7 +4227,7 @@ public class VersionConvertor_30_40 {
     if (src.hasSite())
       tgt.setSite(src.getSite());
     if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+      tgt.getObserver().setIdentifier(convertIdentifier(src.getIdentifier()));
     for (org.hl7.fhir.dstu3.model.Coding t : src.getType())
       tgt.addType(convertCoding(t));
     return tgt;
@@ -4235,8 +4240,8 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasSite())
       tgt.setSite(src.getSite());
-    if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    if (src.hasObserver())
+      tgt.setIdentifier(convertIdentifier(src.getObserver().getIdentifier()));
     for (org.hl7.fhir.r4.model.Coding t : src.getType())
       tgt.addType(convertCoding(t));
     return tgt;
@@ -4248,9 +4253,9 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.r4.model.AuditEvent.AuditEventEntityComponent tgt = new org.hl7.fhir.r4.model.AuditEvent.AuditEventEntityComponent();
     copyElement(src, tgt);
     if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+      tgt.getWhat().setIdentifier(convertIdentifier(src.getIdentifier()));
     if (src.hasReference())
-      tgt.setReference(convertReference(src.getReference()));
+      tgt.setWhat(convertReference(src.getReference()));
     if (src.hasType())
       tgt.setType(convertCoding(src.getType()));
     if (src.hasRole())
@@ -4275,10 +4280,12 @@ public class VersionConvertor_30_40 {
       return null;
     org.hl7.fhir.dstu3.model.AuditEvent.AuditEventEntityComponent tgt = new org.hl7.fhir.dstu3.model.AuditEvent.AuditEventEntityComponent();
     copyElement(src, tgt);
-    if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    if (src.hasReference())
-      tgt.setReference(convertReference(src.getReference()));
+    if (src.hasWhat()) {
+      if (src.getWhat().hasIdentifier())
+        tgt.setIdentifier(convertIdentifier(src.getWhat().getIdentifier()));
+      if (src.getWhat().hasReference() || src.getWhat().hasDisplay() || src.getWhat().hasExtension() || src.getWhat().hasId())
+        tgt.setReference(convertReference(src.getWhat()));
+    }
     if (src.hasType())
       tgt.setType(convertCoding(src.getType()));
     if (src.hasRole())
@@ -16308,10 +16315,20 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getRole())
       tgt.addRole(convertCodeableConcept(t));
-    if (src.hasWho())
-      tgt.setWho(convertType(src.getWho()));
-    if (src.hasOnBehalfOf())
-      tgt.setOnBehalfOf(convertType(src.getOnBehalfOf()));
+    if (src.hasWho()) {
+      Type t = convertType(src.getWho());
+      if (t instanceof Reference)
+        tgt.setWho((Reference) t);
+      if (t instanceof UriType)
+        tgt.getWho().setReference(t.primitiveValue());
+    }
+    if (src.hasOnBehalfOf()) {
+      Type t = convertType(src.getOnBehalfOf());
+      if (t instanceof Reference)
+        tgt.setOnBehalfOf((Reference) t);
+      if (t instanceof UriType)
+        tgt.getOnBehalfOf().setReference(t.primitiveValue());
+    }
     return tgt;
   }
 
@@ -16336,8 +16353,15 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasRole())
       tgt.setRole(convertProvenanceEntityRole(src.getRole()));
-    if (src.hasWhat())
-      tgt.setWhat(convertType(src.getWhat()));
+    if (src.hasWhat()) {
+      Type t = convertType(src.getWhat());
+      if (t instanceof Reference)
+        tgt.setWhat((Reference) t);
+      else if (t instanceof Identifier)
+        tgt.getWhat().setIdentifier((Identifier) t);
+      else if (t instanceof UriType)
+        tgt.getWhat().setReference(t.primitiveValue());
+    }
     for (org.hl7.fhir.dstu3.model.Provenance.ProvenanceAgentComponent t : src.getAgent())
       tgt.addAgent(convertProvenanceAgentComponent(t));
     return tgt;

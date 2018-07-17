@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1245,27 +1245,20 @@ public class TerminologyCapabilities extends MetadataResource {
         protected BooleanType incomplete;
 
         /**
-         * Supported fields on ExpansionProfile.
+         * Supported expansion parameter.
          */
-        @Child(name = "definition", type = {CanonicalType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Supported fields on ExpansionProfile", formalDefinition="Supported fields on ExpansionProfile." )
-        protected CanonicalType definition;
-
-        /**
-         * Supported expansion profiles.
-         */
-        @Child(name = "profile", type = {CanonicalType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Supported expansion profiles", formalDefinition="Supported expansion profiles." )
-        protected List<CanonicalType> profile;
+        @Child(name = "parameter", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Supported expansion parameter", formalDefinition="Supported expansion parameter." )
+        protected List<TerminologyCapabilitiesExpansionParameterComponent> parameter;
 
         /**
          * Documentation about text searching works.
          */
-        @Child(name = "textFilter", type = {MarkdownType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "textFilter", type = {MarkdownType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Documentation about text searching works", formalDefinition="Documentation about text searching works." )
         protected MarkdownType textFilter;
 
-        private static final long serialVersionUID = 1275156533L;
+        private static final long serialVersionUID = -1011350616L;
 
     /**
      * Constructor
@@ -1410,113 +1403,56 @@ public class TerminologyCapabilities extends MetadataResource {
         }
 
         /**
-         * @return {@link #definition} (Supported fields on ExpansionProfile.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+         * @return {@link #parameter} (Supported expansion parameter.)
          */
-        public CanonicalType getDefinitionElement() { 
-          if (this.definition == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TerminologyCapabilitiesExpansionComponent.definition");
-            else if (Configuration.doAutoCreate())
-              this.definition = new CanonicalType(); // bb
-          return this.definition;
-        }
-
-        public boolean hasDefinitionElement() { 
-          return this.definition != null && !this.definition.isEmpty();
-        }
-
-        public boolean hasDefinition() { 
-          return this.definition != null && !this.definition.isEmpty();
-        }
-
-        /**
-         * @param value {@link #definition} (Supported fields on ExpansionProfile.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
-         */
-        public TerminologyCapabilitiesExpansionComponent setDefinitionElement(CanonicalType value) { 
-          this.definition = value;
-          return this;
-        }
-
-        /**
-         * @return Supported fields on ExpansionProfile.
-         */
-        public String getDefinition() { 
-          return this.definition == null ? null : this.definition.getValue();
-        }
-
-        /**
-         * @param value Supported fields on ExpansionProfile.
-         */
-        public TerminologyCapabilitiesExpansionComponent setDefinition(String value) { 
-          if (Utilities.noString(value))
-            this.definition = null;
-          else {
-            if (this.definition == null)
-              this.definition = new CanonicalType();
-            this.definition.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} (Supported expansion profiles.)
-         */
-        public List<CanonicalType> getProfile() { 
-          if (this.profile == null)
-            this.profile = new ArrayList<CanonicalType>();
-          return this.profile;
+        public List<TerminologyCapabilitiesExpansionParameterComponent> getParameter() { 
+          if (this.parameter == null)
+            this.parameter = new ArrayList<TerminologyCapabilitiesExpansionParameterComponent>();
+          return this.parameter;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public TerminologyCapabilitiesExpansionComponent setProfile(List<CanonicalType> theProfile) { 
-          this.profile = theProfile;
+        public TerminologyCapabilitiesExpansionComponent setParameter(List<TerminologyCapabilitiesExpansionParameterComponent> theParameter) { 
+          this.parameter = theParameter;
           return this;
         }
 
-        public boolean hasProfile() { 
-          if (this.profile == null)
+        public boolean hasParameter() { 
+          if (this.parameter == null)
             return false;
-          for (CanonicalType item : this.profile)
+          for (TerminologyCapabilitiesExpansionParameterComponent item : this.parameter)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        /**
-         * @return {@link #profile} (Supported expansion profiles.)
-         */
-        public CanonicalType addProfileElement() {//2 
-          CanonicalType t = new CanonicalType();
-          if (this.profile == null)
-            this.profile = new ArrayList<CanonicalType>();
-          this.profile.add(t);
+        public TerminologyCapabilitiesExpansionParameterComponent addParameter() { //3
+          TerminologyCapabilitiesExpansionParameterComponent t = new TerminologyCapabilitiesExpansionParameterComponent();
+          if (this.parameter == null)
+            this.parameter = new ArrayList<TerminologyCapabilitiesExpansionParameterComponent>();
+          this.parameter.add(t);
           return t;
         }
 
-        /**
-         * @param value {@link #profile} (Supported expansion profiles.)
-         */
-        public TerminologyCapabilitiesExpansionComponent addProfile(String value) { //1
-          CanonicalType t = new CanonicalType();
-          t.setValue(value);
-          if (this.profile == null)
-            this.profile = new ArrayList<CanonicalType>();
-          this.profile.add(t);
+        public TerminologyCapabilitiesExpansionComponent addParameter(TerminologyCapabilitiesExpansionParameterComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.parameter == null)
+            this.parameter = new ArrayList<TerminologyCapabilitiesExpansionParameterComponent>();
+          this.parameter.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #profile} (Supported expansion profiles.)
+         * @return The first repetition of repeating field {@link #parameter}, creating it if it does not already exist
          */
-        public boolean hasProfile(String value) { 
-          if (this.profile == null)
-            return false;
-          for (CanonicalType v : this.profile)
-            if (v.getValue().equals(value)) // canonical(ExpansionProfile)
-              return true;
-          return false;
+        public TerminologyCapabilitiesExpansionParameterComponent getParameterFirstRep() { 
+          if (getParameter().isEmpty()) {
+            addParameter();
+          }
+          return getParameter().get(0);
         }
 
         /**
@@ -1573,8 +1509,7 @@ public class TerminologyCapabilities extends MetadataResource {
           children.add(new Property("hierarchical", "boolean", "Whether the server can return nested value sets.", 0, 1, hierarchical));
           children.add(new Property("paging", "boolean", "Whether the server supports paging on expansion.", 0, 1, paging));
           children.add(new Property("incomplete", "boolean", "Allow request for incomplete expansions?", 0, 1, incomplete));
-          children.add(new Property("definition", "canonical(StructureDefinition)", "Supported fields on ExpansionProfile.", 0, 1, definition));
-          children.add(new Property("profile", "canonical(ExpansionProfile)", "Supported expansion profiles.", 0, java.lang.Integer.MAX_VALUE, profile));
+          children.add(new Property("parameter", "", "Supported expansion parameter.", 0, java.lang.Integer.MAX_VALUE, parameter));
           children.add(new Property("textFilter", "markdown", "Documentation about text searching works.", 0, 1, textFilter));
         }
 
@@ -1584,8 +1519,7 @@ public class TerminologyCapabilities extends MetadataResource {
           case 857636745: /*hierarchical*/  return new Property("hierarchical", "boolean", "Whether the server can return nested value sets.", 0, 1, hierarchical);
           case -995747956: /*paging*/  return new Property("paging", "boolean", "Whether the server supports paging on expansion.", 0, 1, paging);
           case -1010022050: /*incomplete*/  return new Property("incomplete", "boolean", "Allow request for incomplete expansions?", 0, 1, incomplete);
-          case -1014418093: /*definition*/  return new Property("definition", "canonical(StructureDefinition)", "Supported fields on ExpansionProfile.", 0, 1, definition);
-          case -309425751: /*profile*/  return new Property("profile", "canonical(ExpansionProfile)", "Supported expansion profiles.", 0, java.lang.Integer.MAX_VALUE, profile);
+          case 1954460585: /*parameter*/  return new Property("parameter", "", "Supported expansion parameter.", 0, java.lang.Integer.MAX_VALUE, parameter);
           case 1469359877: /*textFilter*/  return new Property("textFilter", "markdown", "Documentation about text searching works.", 0, 1, textFilter);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -1598,8 +1532,7 @@ public class TerminologyCapabilities extends MetadataResource {
         case 857636745: /*hierarchical*/ return this.hierarchical == null ? new Base[0] : new Base[] {this.hierarchical}; // BooleanType
         case -995747956: /*paging*/ return this.paging == null ? new Base[0] : new Base[] {this.paging}; // BooleanType
         case -1010022050: /*incomplete*/ return this.incomplete == null ? new Base[0] : new Base[] {this.incomplete}; // BooleanType
-        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // CanonicalType
-        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // CanonicalType
+        case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // TerminologyCapabilitiesExpansionParameterComponent
         case 1469359877: /*textFilter*/ return this.textFilter == null ? new Base[0] : new Base[] {this.textFilter}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1618,11 +1551,8 @@ public class TerminologyCapabilities extends MetadataResource {
         case -1010022050: // incomplete
           this.incomplete = castToBoolean(value); // BooleanType
           return value;
-        case -1014418093: // definition
-          this.definition = castToCanonical(value); // CanonicalType
-          return value;
-        case -309425751: // profile
-          this.getProfile().add(castToCanonical(value)); // CanonicalType
+        case 1954460585: // parameter
+          this.getParameter().add((TerminologyCapabilitiesExpansionParameterComponent) value); // TerminologyCapabilitiesExpansionParameterComponent
           return value;
         case 1469359877: // textFilter
           this.textFilter = castToMarkdown(value); // MarkdownType
@@ -1640,10 +1570,8 @@ public class TerminologyCapabilities extends MetadataResource {
           this.paging = castToBoolean(value); // BooleanType
         } else if (name.equals("incomplete")) {
           this.incomplete = castToBoolean(value); // BooleanType
-        } else if (name.equals("definition")) {
-          this.definition = castToCanonical(value); // CanonicalType
-        } else if (name.equals("profile")) {
-          this.getProfile().add(castToCanonical(value));
+        } else if (name.equals("parameter")) {
+          this.getParameter().add((TerminologyCapabilitiesExpansionParameterComponent) value);
         } else if (name.equals("textFilter")) {
           this.textFilter = castToMarkdown(value); // MarkdownType
         } else
@@ -1657,8 +1585,7 @@ public class TerminologyCapabilities extends MetadataResource {
         case 857636745:  return getHierarchicalElement();
         case -995747956:  return getPagingElement();
         case -1010022050:  return getIncompleteElement();
-        case -1014418093:  return getDefinitionElement();
-        case -309425751:  return addProfileElement();
+        case 1954460585:  return addParameter(); 
         case 1469359877:  return getTextFilterElement();
         default: return super.makeProperty(hash, name);
         }
@@ -1671,8 +1598,7 @@ public class TerminologyCapabilities extends MetadataResource {
         case 857636745: /*hierarchical*/ return new String[] {"boolean"};
         case -995747956: /*paging*/ return new String[] {"boolean"};
         case -1010022050: /*incomplete*/ return new String[] {"boolean"};
-        case -1014418093: /*definition*/ return new String[] {"canonical"};
-        case -309425751: /*profile*/ return new String[] {"canonical"};
+        case 1954460585: /*parameter*/ return new String[] {};
         case 1469359877: /*textFilter*/ return new String[] {"markdown"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1690,11 +1616,8 @@ public class TerminologyCapabilities extends MetadataResource {
         else if (name.equals("incomplete")) {
           throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.incomplete");
         }
-        else if (name.equals("definition")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.definition");
-        }
-        else if (name.equals("profile")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.profile");
+        else if (name.equals("parameter")) {
+          return addParameter();
         }
         else if (name.equals("textFilter")) {
           throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.textFilter");
@@ -1709,11 +1632,10 @@ public class TerminologyCapabilities extends MetadataResource {
         dst.hierarchical = hierarchical == null ? null : hierarchical.copy();
         dst.paging = paging == null ? null : paging.copy();
         dst.incomplete = incomplete == null ? null : incomplete.copy();
-        dst.definition = definition == null ? null : definition.copy();
-        if (profile != null) {
-          dst.profile = new ArrayList<CanonicalType>();
-          for (CanonicalType i : profile)
-            dst.profile.add(i.copy());
+        if (parameter != null) {
+          dst.parameter = new ArrayList<TerminologyCapabilitiesExpansionParameterComponent>();
+          for (TerminologyCapabilitiesExpansionParameterComponent i : parameter)
+            dst.parameter.add(i.copy());
         };
         dst.textFilter = textFilter == null ? null : textFilter.copy();
         return dst;
@@ -1727,8 +1649,7 @@ public class TerminologyCapabilities extends MetadataResource {
           return false;
         TerminologyCapabilitiesExpansionComponent o = (TerminologyCapabilitiesExpansionComponent) other_;
         return compareDeep(hierarchical, o.hierarchical, true) && compareDeep(paging, o.paging, true) && compareDeep(incomplete, o.incomplete, true)
-           && compareDeep(definition, o.definition, true) && compareDeep(profile, o.profile, true) && compareDeep(textFilter, o.textFilter, true)
-          ;
+           && compareDeep(parameter, o.parameter, true) && compareDeep(textFilter, o.textFilter, true);
       }
 
       @Override
@@ -1744,11 +1665,260 @@ public class TerminologyCapabilities extends MetadataResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(hierarchical, paging, incomplete
-          , definition, profile, textFilter);
+          , parameter, textFilter);
       }
 
   public String fhirType() {
     return "TerminologyCapabilities.expansion";
+
+  }
+
+  }
+
+    @Block()
+    public static class TerminologyCapabilitiesExpansionParameterComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Expansion Parameter name.
+         */
+        @Child(name = "name", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Expansion Parameter name", formalDefinition="Expansion Parameter name." )
+        protected CodeType name;
+
+        /**
+         * Description of support for parameter.
+         */
+        @Child(name = "documentation", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Description of support for parameter", formalDefinition="Description of support for parameter." )
+        protected StringType documentation;
+
+        private static final long serialVersionUID = -1703372741L;
+
+    /**
+     * Constructor
+     */
+      public TerminologyCapabilitiesExpansionParameterComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TerminologyCapabilitiesExpansionParameterComponent(CodeType name) {
+        super();
+        this.name = name;
+      }
+
+        /**
+         * @return {@link #name} (Expansion Parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public CodeType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TerminologyCapabilitiesExpansionParameterComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new CodeType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (Expansion Parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public TerminologyCapabilitiesExpansionParameterComponent setNameElement(CodeType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return Expansion Parameter name.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value Expansion Parameter name.
+         */
+        public TerminologyCapabilitiesExpansionParameterComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new CodeType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #documentation} (Description of support for parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
+         */
+        public StringType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TerminologyCapabilitiesExpansionParameterComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new StringType(); // bb
+          return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        /**
+         * @param value {@link #documentation} (Description of support for parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
+         */
+        public TerminologyCapabilitiesExpansionParameterComponent setDocumentationElement(StringType value) { 
+          this.documentation = value;
+          return this;
+        }
+
+        /**
+         * @return Description of support for parameter.
+         */
+        public String getDocumentation() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        /**
+         * @param value Description of support for parameter.
+         */
+        public TerminologyCapabilitiesExpansionParameterComponent setDocumentation(String value) { 
+          if (Utilities.noString(value))
+            this.documentation = null;
+          else {
+            if (this.documentation == null)
+              this.documentation = new StringType();
+            this.documentation.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "code", "Expansion Parameter name.", 0, 1, name));
+          children.add(new Property("documentation", "string", "Description of support for parameter.", 0, 1, documentation));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "code", "Expansion Parameter name.", 0, 1, name);
+          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Description of support for parameter.", 0, 1, documentation);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // CodeType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: // name
+          this.name = castToCode(value); // CodeType
+          return value;
+        case 1587405498: // documentation
+          this.documentation = castToString(value); // StringType
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name")) {
+          this.name = castToCode(value); // CodeType
+        } else if (name.equals("documentation")) {
+          this.documentation = castToString(value); // StringType
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707:  return getNameElement();
+        case 1587405498:  return getDocumentationElement();
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"code"};
+        case 1587405498: /*documentation*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.name");
+        }
+        else if (name.equals("documentation")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.documentation");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TerminologyCapabilitiesExpansionParameterComponent copy() {
+        TerminologyCapabilitiesExpansionParameterComponent dst = new TerminologyCapabilitiesExpansionParameterComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
+          return false;
+        if (!(other_ instanceof TerminologyCapabilitiesExpansionParameterComponent))
+          return false;
+        TerminologyCapabilitiesExpansionParameterComponent o = (TerminologyCapabilitiesExpansionParameterComponent) other_;
+        return compareDeep(name, o.name, true) && compareDeep(documentation, o.documentation, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
+          return false;
+        if (!(other_ instanceof TerminologyCapabilitiesExpansionParameterComponent))
+          return false;
+        TerminologyCapabilitiesExpansionParameterComponent o = (TerminologyCapabilitiesExpansionParameterComponent) other_;
+        return compareValues(name, o.name, true) && compareValues(documentation, o.documentation, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, documentation);
+      }
+
+  public String fhirType() {
+    return "TerminologyCapabilities.expansion.parameter";
 
   }
 

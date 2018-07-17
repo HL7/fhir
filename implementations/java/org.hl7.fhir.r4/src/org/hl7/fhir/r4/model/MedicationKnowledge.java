@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -2088,13 +2088,13 @@ public class MedicationKnowledge extends DomainResource {
         public SimpleQuantity getCharacteristicSimpleQuantity() throws FHIRException { 
           if (this.characteristic == null)
             return null;
-          if (!(this.characteristic instanceof Quantity))
+          if (!(this.characteristic instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.characteristic.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.characteristic;
         }
 
         public boolean hasCharacteristicSimpleQuantity() { 
-          return this != null && this.characteristic instanceof Quantity;
+          return this != null && this.characteristic instanceof SimpleQuantity;
         }
 
         public boolean hasCharacteristic() { 
@@ -2105,7 +2105,7 @@ public class MedicationKnowledge extends DomainResource {
          * @param value {@link #characteristic} (Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).)
          */
         public MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent setCharacteristic(Type value) { 
-          if (value != null && !(value instanceof CodeableConcept || value instanceof Quantity))
+          if (value != null && !(value instanceof CodeableConcept || value instanceof SimpleQuantity))
             throw new Error("Not the right type for MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic[x]: "+value.fhirType());
           this.characteristic = value;
           return this;
@@ -2835,13 +2835,13 @@ public class MedicationKnowledge extends DomainResource {
         public SimpleQuantity getValueSimpleQuantity() throws FHIRException { 
           if (this.value == null)
             return null;
-          if (!(this.value instanceof Quantity))
+          if (!(this.value instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.value;
         }
 
         public boolean hasValueSimpleQuantity() { 
-          return this != null && this.value instanceof Quantity;
+          return this != null && this.value instanceof SimpleQuantity;
         }
 
         /**
@@ -2867,7 +2867,7 @@ public class MedicationKnowledge extends DomainResource {
          * @param value {@link #value} (Description of the characteristic.)
          */
         public MedicationKnowledgeDrugCharacteristicComponent setValue(Type value) { 
-          if (value != null && !(value instanceof CodeableConcept || value instanceof StringType || value instanceof Quantity || value instanceof Base64BinaryType))
+          if (value != null && !(value instanceof CodeableConcept || value instanceof StringType || value instanceof SimpleQuantity || value instanceof Base64BinaryType))
             throw new Error("Not the right type for MedicationKnowledge.drugCharacteristic.value[x]: "+value.fhirType());
           this.value = value;
           return this;
