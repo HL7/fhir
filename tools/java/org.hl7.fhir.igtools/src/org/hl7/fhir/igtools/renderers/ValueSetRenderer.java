@@ -37,6 +37,8 @@ public class ValueSetRenderer extends BaseRenderer {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>"+translate("vs.summary", "Defining URL")+":</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
+    if (vs.hasVersion())
+      b.append(" <tr><td>"+translate("cs.summary", "Version")+":</td><td>"+Utilities.escapeXml(vs.getVersion())+"</td></tr>\r\n");
     b.append(" <tr><td>"+translate("vs.summary", "Name")+":</td><td>"+Utilities.escapeXml(gt(vs.getNameElement()))+"</td></tr>\r\n");
     b.append(" <tr><td>"+translate("vs.summary", "Definition")+":</td><td>"+processMarkdown("description", vs.getDescriptionElement())+"</td></tr>\r\n");
     if (vs.hasPublisher())
@@ -46,7 +48,7 @@ public class ValueSetRenderer extends BaseRenderer {
     if (vs.hasCopyright())
       b.append(" <tr><td>"+translate("vs.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(vs.getCopyrightElement()))+"</td></tr>\r\n");
     if (xml || json || ttl) {
-      b.append(" <tr><td>"+translate("vs.summary", "Source Resource")+"</td><td>");
+      b.append(" <tr><td>"+translate("vs.summary", "Source Resource")+":</td><td>");
       boolean first = true;
       String filename = igp.getProperty(r, "format");
       if (filename == null)

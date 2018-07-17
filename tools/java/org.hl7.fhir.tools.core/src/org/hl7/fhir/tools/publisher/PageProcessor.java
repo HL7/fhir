@@ -1016,6 +1016,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + ((CodeSystem) resource).getName() + s3;
         else
           src = s1 + ((ValueSet) resource).getName() + s3;
+      else if (com[0].equals("vsver"))
+        if (resource instanceof CodeSystem)
+          src = s1 + ((CodeSystem) resource).getVersion() + s3;
+        else
+          src = s1 + ((ValueSet) resource).getVersion() + s3;
       else if (com[0].equals("vsref")) {
         src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
       } else if (com[0].equals("txdesc"))
@@ -5338,6 +5343,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + ((CodeSystem) resource).getName() + s3;
         else
           src = s1 + ((ValueSet) resource).getName() + s3;
+      else if (com[0].equals("vsver"))
+        if (resource instanceof CodeSystem)
+          src = s1 + ((CodeSystem) resource).getVersion() + s3;
+        else
+          src = s1 + ((ValueSet) resource).getVersion() + s3;
       else if (com[0].equals("vsref")) {
         src = s1 + Utilities.fileTitle((String) resource.getUserData("filename")) + s3;
       } else if (com[0].equals("txdesc"))

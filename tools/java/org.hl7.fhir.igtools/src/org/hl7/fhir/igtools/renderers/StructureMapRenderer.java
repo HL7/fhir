@@ -37,6 +37,8 @@ public class StructureMapRenderer extends BaseRenderer {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>"+translate("sm.summary", "Defining URL")+":</td><td>"+Utilities.escapeXml(map.getUrl())+"</td></tr>\r\n");
+    if (map.hasVersion())
+      b.append(" <tr><td>"+translate("cs.summary", "Version")+":</td><td>"+Utilities.escapeXml(map.getVersion())+"</td></tr>\r\n");
     b.append(" <tr><td>"+translate("sm.summary", "Name")+":</td><td>"+Utilities.escapeXml(gt(map.getNameElement()))+"</td></tr>\r\n");
     if (map.hasDescription())
       b.append(" <tr><td>"+translate("sm.summary", "Definition")+":</td><td>"+processMarkdown("description", map.getDescriptionElement())+"</td></tr>\r\n");
@@ -45,7 +47,7 @@ public class StructureMapRenderer extends BaseRenderer {
     if (map.hasCopyright())
       b.append(" <tr><td>"+translate("sm.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(map.getCopyrightElement()))+"</td></tr>\r\n");
     if (xml || json || ttl) {
-      b.append(" <tr><td>"+translate("sm.summary", "Source Resource")+"</td><td>");
+      b.append(" <tr><td>"+translate("sm.summary", "Source Resource")+":</td><td>");
       boolean first = true;
       String filename = igp.getProperty(r, "format");
       if (filename == null)

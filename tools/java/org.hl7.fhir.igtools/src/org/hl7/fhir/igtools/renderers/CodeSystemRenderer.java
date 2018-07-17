@@ -38,6 +38,8 @@ public class CodeSystemRenderer extends BaseRenderer {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
     b.append(" <tbody><tr><td>"+translate("cs.summary", "Defining URL")+":</td><td>"+Utilities.escapeXml(cs.getUrl())+"</td></tr>\r\n");
+    if (cs.hasVersion())
+      b.append(" <tr><td>"+translate("cs.summary", "Version")+":</td><td>"+Utilities.escapeXml(cs.getVersion())+"</td></tr>\r\n");
     b.append(" <tr><td>"+translate("cs.summary", "Name")+":</td><td>"+Utilities.escapeXml(gt(cs.getNameElement()))+"</td></tr>\r\n");
     b.append(" <tr><td>"+translate("cs.summary", "Status")+":</td><td>"+describeContent(cs.getContent())+"</td></tr>\r\n");
     b.append(" <tr><td>"+translate("cs.summary", "Definition")+":</td><td>"+processMarkdown("description", cs.getDescriptionElement())+"</td></tr>\r\n");
@@ -48,7 +50,7 @@ public class CodeSystemRenderer extends BaseRenderer {
     if (cs.hasCopyright())
       b.append(" <tr><td>"+translate("cs.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(cs.getCopyrightElement()))+"</td></tr>\r\n");
     if (xml || json || ttl) {
-      b.append(" <tr><td>"+translate("cs.summary", "Source Resource")+"</td><td>");
+      b.append(" <tr><td>"+translate("cs.summary", "Source Resource")+":</td><td>");
       boolean first = true;
       if (xml) {
         first = false;
