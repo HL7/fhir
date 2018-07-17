@@ -1,4 +1,5 @@
 ﻿http://hl7.org/fhir/pharmacy-information
+http://ema.europa.eu/example/routeofadministration
 http://hl7.org/fhir/object-type
 https://precision.fda.gov/jobs/
 http://hl7.org/fhir/provider-qualification
@@ -15,6 +16,7 @@ http://hl7.org/fhir/sid/ndc
 http://hl7.org/fhir/ex-visionservice
 http://pharmakb.org
 http://nehta.gov.au/codes/medications/changetype
+http://ema.europa.eu/example/countryCode
 urn:ietf:bcp:13
 http://hl7.org/fhir/vaccination-protocol-dose-status
 urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd
@@ -24,6 +26,7 @@ http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://ihe.net/connectathon/practiceSettingCodes
 http://hl7.org/fhir/benefit-subcategory
 http://acme.org/tests
+http://ema.europa.eu/example/jurisdictionCode
 https://meshb.nlm.nih.gov
 https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html
 http://ncforms.org/formid
@@ -35,6 +38,7 @@ http://acme.org/messagetypes
 http://acme.org/lab/codes/flags
 urn:ietf:bcp:47
 http://www.radlex.org
+http://ema.europa.eu/example/manufacturingOperationType
 http://hl7.org/fhir/sid/icd-10
 http://fdi.org/fhir/oraltoothcodes
 http://hl7.org/fhir/vaccination-protocol-dose-status-reason
@@ -47,6 +51,7 @@ http://www.ncbi.nlm.nih.gov/nuccore
 http://www.genenames.org
 http://hl7.org/fhir/claim-careteamrole
 http://org.mdhhs.fhir.consent-signer-type
+http://ema.europa.eu/example/administrabledoseform
 http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes
 http://snomed.info.sct
 https://github.com/common-workflow-language/workflows
@@ -62,6 +67,7 @@ http://fhir.de/CodeSystem/billing-attributes
 https://www.usps.com/
 http://ihe.net/xds/connectathon/classCodes
 http://acme.org/lab/codes/panels
+http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem
 http://acme.org/lab/codes/tests
 http://hl7.org/fhir/sid/icd-10-cm
 https://www.acmeonline.com
@@ -91,6 +97,7 @@ http://acmelabs.org
 http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor
 http://fhir.de/CodeSystem/kbv/ebm-attribute
+http://ema.europa.eu/example/unitofpresentation
 https://www.ncbi.nlm.nih.gov/nuccore
 http://hl7.org/fhir/patient-contact-relationship
 https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets/Alpha-Numeric-HCPCS.html
@@ -115,6 +122,7 @@ http://example.com
 http://hl7.org/fhir/service-uscls
 http://www.ama-assn.org/go/cpt
 http://hl7.org/fhir/ValueSet/claiminformationcategory
+http://ema.europa.eu/example/languageCode
 http://snomed.info
 http://hl7.org.fhir/substance-category
 http://acme.org/devices/clinical-codes

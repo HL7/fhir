@@ -1574,7 +1574,7 @@ public class VersionConvertor_14_40 {
     tgt.setSeverity(convertConstraintSeverity(src.getSeverity()));
     tgt.setHuman(src.getHuman());
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.setExpression(convertToR4Expression(src.getExpression()));
     tgt.setXpath(src.getXpath());
     return tgt;
   }
@@ -1590,9 +1590,17 @@ public class VersionConvertor_14_40 {
     tgt.setSeverity(convertConstraintSeverity(src.getSeverity()));
     tgt.setHuman(src.getHuman());
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.setExpression(convertTo2016MayExpression(src.getExpression()));
     tgt.setXpath(src.getXpath());
     return tgt;
+  }
+  
+  public static String convertToR4Expression(String oldExpression) {
+    return oldExpression.replace("$context","%context").replace("$resource", "%resource");
+  }
+
+  public static String convertTo2016MayExpression(String newExpression) {
+    return newExpression.replace("%context","\\$context").replaceAll("%resource",  "\\$resource");
   }
 
   private static org.hl7.fhir.r4.model.ElementDefinition.ConstraintSeverity convertConstraintSeverity(org.hl7.fhir.dstu2016may.model.ElementDefinition.ConstraintSeverity src) throws FHIRException {
@@ -4848,7 +4856,7 @@ public class VersionConvertor_14_40 {
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getLocation())
       tgt.addLocation(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getExpression())
-      tgt.addExpression(t.getValue());
+      tgt.addExpression(convertToR4Expression(t.getValue()));
     return tgt;
   }
 
@@ -4865,7 +4873,7 @@ public class VersionConvertor_14_40 {
     for (org.hl7.fhir.r4.model.StringType t : src.getLocation())
       tgt.addLocation(t.getValue());
     for (org.hl7.fhir.r4.model.StringType t : src.getExpression())
-      tgt.addExpression(t.getValue());
+      tgt.addExpression(convertTo2016MayExpression(t.getValue()));
     return tgt;
   }
 
@@ -5375,7 +5383,7 @@ public class VersionConvertor_14_40 {
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.setExpression(convertToR4Expression(src.getExpression()));
     if (src.hasXpath())
       tgt.setXpath(src.getXpath());
     tgt.setXpathUsage(convertXPathUsageType(src.getXpathUsage()));
@@ -5413,7 +5421,7 @@ public class VersionConvertor_14_40 {
     tgt.setType(convertSearchParamType(src.getType()));
     tgt.setDescription(src.getDescription());
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.setExpression(convertTo2016MayExpression(src.getExpression()));
     if (src.hasXpath())
       tgt.setXpath(src.getXpath());
     tgt.setXpathUsage(convertXPathUsageType(src.getXpathUsage()));
@@ -5517,7 +5525,7 @@ public class VersionConvertor_14_40 {
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getContext()) {
       org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent ec = tgt.addContext();
       ec.setType(convertExtensionContext(src.getContextType()));
-      ec.setExpression(t.getValue());
+      ec.setExpression(convertToR4Expression(t.getValue()));
     }
     if (src.getDerivation() == org.hl7.fhir.dstu2016may.model.StructureDefinition.TypeDerivationRule.CONSTRAINT)
       tgt.setType(src.getBaseType());
@@ -5589,7 +5597,7 @@ public class VersionConvertor_14_40 {
     for (org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent  t : src.getContext()) {
       if (!tgt.hasContextType())
         tgt.setContextType(convertExtensionContext(t.getType()));
-      tgt.addContext(t.getExpression());
+      tgt.addContext(convertTo2016MayExpression(t.getExpression()));
     }
     if (src.hasBaseDefinition())
       tgt.setBaseDefinition(src.getBaseDefinition());
