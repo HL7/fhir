@@ -884,8 +884,12 @@ public class Parameters extends Resource implements IBaseParameters {
   
   public boolean getParameterBool(String name) {
     for (ParametersParameterComponent p : getParameter()) {
-      if (p.getName().equals(name))
-        return Boolean.getBoolean(p.getValue().primitiveValue());
+      if (p.getName().equals(name)) {
+        if (p.getValue() instanceof BooleanType)
+          return ((BooleanType) p.getValue()).booleanValue();
+        boolean ok = Boolean.getBoolean(p.getValue().primitiveValue());
+        return ok;
+      }
     }
     return false;
   }

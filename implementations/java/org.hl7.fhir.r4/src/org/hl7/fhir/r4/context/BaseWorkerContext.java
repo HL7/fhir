@@ -358,7 +358,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       if (cacheOk && vs.hasUrl()) {
         if (expParameters == null)
           throw new Exception("No Expansion Parameters provided");
-        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, expParameters.addParameter("excludeNested", !heirarchical));
+        ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs, expParameters.setParameter("excludeNested", !heirarchical));
         if (vse.getValueset() != null) {
           if (cache != null) {
             FileOutputStream s = new FileOutputStream(cacheFn);
