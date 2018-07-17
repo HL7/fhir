@@ -1194,8 +1194,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genIgToc(ig) + s3;
       else if (com[0].equals("fhir-path"))
         src = s1 + "../" + s3;
-      else if (com[0].equals("backboneelementlist"))
-        src = s1 + genBackboneelementList() + s3;
       else if (com[0].equals("vscommittee"))
         src = s1 + vscommittee(resource) + s3;
       else if (com[0].equals("modifier-list"))
@@ -1768,34 +1766,33 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return wg == null ? "??" : "<a _target=\"blank\" href=\""+wg.getUrl()+"\">"+wg.getName()+"</a> Work Group";
   }
 
-  private String genBackboneelementList() throws Exception {
+  public String genBackboneelementJson() throws Exception {
     List<String> classes = new ArrayList<String>();
     listAllbackboneClasses(classes);
 
     StringBuilder b = new StringBuilder();
-    b.append("<table class=\"none\">\r\n");
-    b.append(" <tr><td><b>Path</b></td></tr>\r\n");
-    b.append(" <tr style=\"background-color: #eeeeee\"><td colspan=\"2\"><a href=\"datatypes.html\">Data Types</a></td></tr>\r\n");
+    b.append("{\r\n");
+    b.append("  \"elements\" : [");
+    boolean first = true;
     for (String tn : sorted(definitions.getAllTypeNames())) {
+      if (first)
+        first = false;
+      else
+        b.append(",");
+      b.append("\r\n");
       ElementDefn ed = definitions.getElementDefn(tn);
-      String pl = "<a href=\""+definitions.getSrcFile(tn)+".html#"+tn+"\">"+tn+"</a>";
-      b.append(" <tr><td>"+pl+"</td></tr>\r\n");      
+      b.append("    { \"class\" : \""+tn+"\", \"source\" : \""+definitions.getSrcFile(tn)+".html#"+tn+"\" }");
     }
     for (String rn : definitions.sortedResourceNames()) {
-      boolean first = true;
       for (String pn : classes) {
         if (pn.startsWith(rn+".")) {
           String path = pn.substring(0, pn.indexOf(":"));
-          String pl = "<a href=\""+rn.toLowerCase()+"-definitions.html#"+path+"\">"+path+"</a>";
-          if (first) {
-            b.append(" <tr style=\"background-color: #eeeeee\"><td colspan=\"2\"><a href=\""+rn.toLowerCase()+".html\">"+rn+"</a></td></tr>\r\n");
-            first = false;
-          }
-           b.append(" <tr><td>"+pl+"</td></tr>\r\n");
+          b.append(",\r\n");
+          b.append("    { \"class\" : \""+path+"\", \"source\" : \""+rn.toLowerCase()+".html\" }");
         }
       }
     }
-    b.append("</table>\r\n");
+    b.append("  ]\r\n}\r\n");
     return b.toString();
   }
 
@@ -5451,8 +5448,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+ig.getBallot()+s3;
       else if (com[0].equals("fhir-path"))
         src = s1 + "../" + s3;
-      else if (com[0].equals("backboneelementlist"))
-        src = s1 + genBackboneelementList() + s3;
       else if (com[0].equals("modifier-list"))
         src = s1 + genModifierList() + s3;
       else if (com[0].equals("missing-element-list"))
