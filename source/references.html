@@ -289,12 +289,6 @@ not found in the <a href="compartmentdefinition-patient.html">Patient Compartmen
 element actually contains a URI, but is named <code>url</code> for legacy reasons.
 </p>
 <p>
-Canonical references use the <a href="datatypes.html#canonical"><code>canonical</code></a>.
-</p>
-<pre>
-&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
-</pre>
-<p>
 The canonical URI remains the same when the resource is copied from server to server, while the logical
 id of the resource - its local identifier - usually changes as the resource is copied. The canonical
 URI serves as a stable logical identifier for the conformance artifact, and <b>is the preferred
@@ -303,6 +297,13 @@ where the master copy of the artifact is found, though it is not always possible
 The canonical URL SHALL NOT contain some other resource (though it may resolve to a different 
 version of the same resource).
 </p>
+<p>
+References to canonical URLs use the <a href="datatypes.html#canonical"><code>canonical</code></a> to refer to 
+the canonical URL (which has the type <a href="datatypes.html#uri">uri</a> not <a href="datatypes.html#canonical">canonical</a>):
+</p>
+<pre>
+&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
+</pre>
 <p>
 Canonical URLs may include a version, in order be precise about which version of the 
 resource is being referred to. To do this, append the version to the canonical url with a '|' like this:
@@ -333,6 +334,51 @@ This approach is safe because the approaches must refer to the same
 artifact, though implementations will need to make appropriate arrangements regarding 
 the version and/or currency of their local copy of the artifact.
 </p>
+<a name="canonical-fragments"></a>
+<h3>Canonical Reference and Fragments</h3>
+<p>
+Canonical URLs may include fragments in two different cases:
+</p>
+<ul>
+ <li>Referencing Contained Resources</li>
+ <li>Referencing particular data elements inside resources</li>
+</ul>
+
+<p><b>Referencing Contained Resources</b></p>
+
+<p>When the target of a canonical reference is a contained resource, the 
+canonical reference will have a fragment as part of the URL:
+</p>
+<pre>
+ &nbsp;&lt;valueSet value=&quot;http://fhir.acme.com/Questionnaire/example|1.0#vs1&quot;/&gt;
+</pre>
+<p>
+This is a reference to the value set with id "vs1" in version 1.0 of the identified questionnaire. 
+The common case for this is internal references:
+</p>
+<pre>
+ &nbsp;&lt;answerValueSet value=&quot;#vs1&quot;/&gt;
+</pre>
+<p>
+Which is the form for references to the contained value set inside the above example questionnaire.
+</p>
+
+<p><b>Referencing particular data elements inside resources</b></p>
+<p>
+Canonical references can have a targetProfile of "<a href="elementdefinition.html">http://hl7.org/fhir/ElementDefinition</a>".
+In this case, the canonical url has general format of a StructureDefinition canonical url followed by a '#' and then the path of an 
+element definition within that StructureDefinition, using the document value for the <a href="elementdefinition.html#id">ElementDefinition.id</a>:
+</p>
+<pre>
+  &lt;definition value=&quot;http://hl7.org/fhir/StructureDefinition/Observation#Observation.dataAbsentReason&quot;/&gt;
+</pre>
+<p>
+If the targetProfile is "<code>http://hl7.org/fhir/ElementDefinition</code>", and the profile is pointing to just a 
+StructureDefinition (no # fragment), then the reference is referring to the root element of the StructureDefinition
+(this is useful for referencing simple <a href="structuredefinition.html#logical">logical models</a>).
+</p>
+
+
 
 <a name="rendering"></a>
 <h3>Rendering References in Resource Narratives</h3>
