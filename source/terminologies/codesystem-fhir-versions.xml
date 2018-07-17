@@ -67,6 +67,7 @@
     <definition value="DSTU 2 (Official version)"/>
   </concept>
   <concept>
+    <code value="1.0.2"/>
     <display value="1.0.2"/>
     <definition value="DSTU 2 (Official version) with 1 technical errata"/>
   </concept>
