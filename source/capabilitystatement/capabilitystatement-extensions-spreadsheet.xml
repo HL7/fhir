@@ -723,8 +723,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="41" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
-   <Column ss:StyleID="s84" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="77.0"/>
    <Column ss:StyleID="s84" ss:Width="29.0"/>
@@ -774,7 +773,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="150">
     <Cell ss:StyleID="s91"><Data ss:Type="String">expectation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.document;CapabilityStatement.rest.interaction;CapabilityStatement.rest.resource.searchInclude ;CapabilityStatement.rest.resource.searchRevInclude;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.document;CapabilityStatement.rest.interaction;CapabilityStatement.rest.resource.searchInclude ;CapabilityStatement.rest.resource.searchRevInclude;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Conformance expectation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -800,7 +799,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s98"><Data ss:Type="String">prohibited</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.document;CapabilityStatement.rest.interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.document;CapabilityStatement.rest.interaction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Conformance prohibition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2062,8 +2061,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s111" ss:Width="125.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="275.0"/>
-   <Column ss:StyleID="s111" ss:Width="51.0"/>
-   <Column ss:StyleID="s111" ss:Width="68.0"/>
+   <Column ss:Index="4" ss:StyleID="s111" ss:Width="68.0"/>
    <Column ss:StyleID="s111" ss:Width="146.0"/>
    <Column ss:StyleID="s111" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="98.0"/>
