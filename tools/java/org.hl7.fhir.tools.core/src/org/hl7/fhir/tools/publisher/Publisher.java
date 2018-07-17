@@ -231,6 +231,7 @@ import org.hl7.fhir.utilities.NDJsonWriter;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.cache.PackageGenerator;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
+import org.hl7.fhir.utilities.json.JSONUtil;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -263,8 +264,12 @@ import org.xml.sax.InputSource;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import com.google.common.base.Charsets;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 /**
  * This is the entry point for the publication method for FHIR The general order
@@ -2920,7 +2925,32 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "examples-json.zip");
-      zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json", "package.json"});
+      gson = new GsonBuilder().setPrettyPrinting().create();
+      File f = new CSFile(page.getFolders().dstDir);
+      File[] files = f.listFiles();
+      String[] noExt = new String[] {".schema.json", ".canonical.json", ".diff.json", "expansions.json", "package.json"};
+      for (int fi = 0; fi < files.length; fi++) {
+        if (files[fi].isFile() && (files[fi].getName().endsWith(".json"))) {
+          boolean ok = true;
+          for (String n : noExt) {
+            ok = ok && !files[fi].getName().endsWith(n);
+          }
+          if (ok) {
+            JsonObject jr = JSONUtil.parse(TextFile.fileToString(files[fi]));
+            if (!jr.has("url")) {
+              JsonObject meta = JSONUtil.forceObject(jr, "meta");
+              JsonArray labels = JSONUtil.forceArray(meta, "label");
+              JsonObject label = JSONUtil.addObj(labels);
+              label.addProperty("system", "http://hl7.org/fhir/v3/ActReason");
+              label.addProperty("code", "HTEST");
+              label.addProperty("display", "test health data");
+                
+            }
+            String jrs = gson.toJson(jr);
+            zip.addBytes(files[fi].getName(), jrs.getBytes(Charsets.UTF_8), true);
+          }
+        }
+      }
       zip.close();
       
       NDJsonWriter ndjson = new NDJsonWriter(page.getFolders().dstDir + "examples-ndjson.zip", page.getFolders().tmpDir);
@@ -4619,11 +4649,29 @@ public class Publisher implements URIResolver, SectionNumberer {
     XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + prefix +n + ".xml.html"), "html");
     XhtmlNode pre = d.getElement("html").getElement("body").getElement("div");
     e.setXhtm(b.toString());
-    if (!Utilities.noString(e.getId()))
-      Utilities.copyFile(file, new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + "(" + e.getId() + ").xml"));
-    else
-      Utilities.copyFile(file, new CSFile(page.getFolders().dstDir + "examples" + File.separator + n + ".xml"));
-
+    
+    Element root = xdoc.getDocumentElement();
+    Element meta = XMLUtil.getNamedChild(root, "meta");
+    if (meta == null) {
+      Element id = XMLUtil.getNamedChild(root, "meta");
+      if (id == null)
+        meta = XMLUtil.insertChild(xdoc, root, "meta", FormatUtilities.FHIR_NS, 2);
+      else 
+        meta = XMLUtil.insertChild(xdoc, root, "meta", FormatUtilities.FHIR_NS, id, 2);
+    }
+    Element tag = XMLUtil.getNamedChild(meta, "tag");
+    Element label = XMLUtil.insertChild(xdoc, meta, "security", FormatUtilities.FHIR_NS, tag, 4);
+    XMLUtil.addTextTag(xdoc, label, "system", FormatUtilities.FHIR_NS, "http://hl7.org/fhir/v3/ActReason", 6);
+    XMLUtil.addTextTag(xdoc, label, "code", FormatUtilities.FHIR_NS, "HTEST", 6);
+    XMLUtil.addTextTag(xdoc, label, "display", FormatUtilities.FHIR_NS, "test health data", 6); 
+    XMLUtil.spacer(xdoc, label, 4); 
+    XMLUtil.spacer(xdoc, meta, 2); 
+    
+    String destf = (!Utilities.noString(e.getId())) ?  page.getFolders().dstDir + "examples" + File.separator + n + "(" + e.getId() + ").xml" : page.getFolders().dstDir + "examples" + File.separator + n + ".xml";
+    FileOutputStream fs = new FileOutputStream(destf);
+    XMLUtil.saveToFile(root, fs); 
+    fs.close();
+    
     // now, we create an html page from the narrative
     narrative = fixExampleReferences(e.getTitle(), narrative);
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative == null ? "" : narrative).replace("<%example-usage%>", genExampleUsage(e, page.genlevel(level)));

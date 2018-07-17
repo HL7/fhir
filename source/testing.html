@@ -67,6 +67,7 @@ systems adhere to the specification.
 
 <a name="execution"></a>
 <h3>Execution</h3>
+<a name="workflow"></a>
 <h4 id="workflow">Workflow</h4>
 <p><b>Pre-Processing</b></p>
 <p>
@@ -98,6 +99,7 @@ systems adhere to the specification.
   After the teardown section is executed, any fixtures that were marked 'autodelete' are removed from the server(s) under test. After this final stage, the execution of the TestScript is complete.
 </p>
 
+<a name="fixtures"></a>
 <h4 id="fixtures">Fixtures</h4>
 <p>
   The fixtures section of the TestScript defines a set of resource instances that will be used as part of the setup, test, and teardown sections during TestScript execution. All defined fixtures are expected to be required in order for the test script to execute. Each fixture defines a resource instance by URI, and must be identified by an ID. The URI can be local or remote (i.e. another server than the one the TestScript resource resides), absolute or relative. The ID on the fixture is considered the "source" identifier of the fixture -- it is not the same thing as the resource ID on the server where it was hosted. The "source" identifier is used to define the fixture instance within the context of the TestScript. Operations reference the ID of a fixture to uniquely identify the fixture instance the operation is using ("sourceId") or acting against ("targetId"). Once a fixture has been instantiated on a server (typically by the use of a create operation), the fixture ID is mapped to the ID of the corresponding resource instance on the server. TestScript execution engines must maintain this relationship between fixture IDs and server resource IDs. The TestScript execution engine is responsible for translating the fixture IDs (whether provided to the operation as "source" or "target") to the ID of the resource on the server during execution.
@@ -106,6 +108,7 @@ systems adhere to the specification.
   Using the optional "autocreate" and "autodelete" elements (missing values default to false), fixtures can be configured to automatically be created during TestScript setup and automatically deleted during TestScript teardown. This means that additional "create" and "delete" operations in the TestScript.setup and TestScript.teardown sections are unnecessary.
 </p>
 
+<a name="profiles"></a>
 <h4 id="profiles">Profiles</h4>
 <p>
   The profiles section of the TestScript defines a set of FHIR profiles (see <a href="structuredefinition.html">StructureDefinition</a> resource) that will be used as part of the setup or test sections during TestScript execution. Each profile defines a StructureDefinition instance by URI, and must be identified by an ID. The URI SHALL reference a known FHIR profile corresponding to the FHIR specification version being tested. As with Fixtures, the ID on the profile is considered the "source" identifier of the profile. Operations reference the ID of a profile to uniquely identify the profile instance the operation is using ("validateProfileId").
@@ -114,6 +117,7 @@ systems adhere to the specification.
   See <a href="#howToUseProfiles">Use Profiles</a> for more information.
 </p>
 
+<a name="variables"></a>
 <h4 id="variables">Variables</h4>
 <p>
   The variables section of the TestScript defines a set of expressions whose evaluations will be used in substitutions. These substitutions are performed in operation request headers and URL paths as well as assertion values.
@@ -128,6 +132,7 @@ systems adhere to the specification.
   See <a href="#howToUseVariables">Use Variables</a> for more information.
 </p>
 
+<a name="op"></a>
 <h4 id="operation-execution">Operation Execution</h4>
 <p>
   The setup, test, and teardown sections of a TestScript can contain operation elements. Operations are intended to be executed in sequence and they represent the logic defined by the TestScript. Operations define a type, sourceId, targetId, destination, responseId, contentType, and other parameters. The type of the operation aligns with a corresponding RESTful API interaction. The sourceId and targetId of an operation define the context of the fixture data the operation is acting against (see <a href="#fixtures">Fixtures</a>). The destination defines the server the operation is executed on and is only required for tests that include multiple servers. The responseId specifies a fixture ID to use to map to the server response. The contentType defines the format (XML or JSON) and the corresponding mime-type (application/fhir+xml and application/fhir+json) to use in the RESTful operation (defaulting to XML). The parameters of an operation allow providing additional data required for execution.
@@ -136,6 +141,7 @@ systems adhere to the specification.
   TestScript execution engines must load the operation details and execute the operation against the server(s) under test. Operations that are expected to result in an error or exception shall immediately be followed by one or more "assertion" operations (that test for those error conditions), otherwise the test fails. This allows for "negative" testing (for example, the test script may perform operations that should return a 4XX or 5XX HTTP response code). Test execution is halted as soon as an operation or assertion fails. If an operation or assertion fails, then the test ends in failure and the test script execution proceeds to the next test. Once all tests have completed execution, the teardown section is executed. Once teardown completes, the suite execution is complete. If any setup or test operation or assertion failed, the test script is marked in failure. Failures in teardown are ignored.
 </p>
 
+<a name="assert"></a>
 <h4 id="assertion-execution">Assertion Execution</h4>
 <p>
 The "assertion" evaluates the results of previous operations to determine if the server under test behaves appropriately. In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the TestScript execution engine.
@@ -163,6 +169,30 @@ The "assertion" evaluates the results of previous operations to determine if the
 </style>
 <a name="howTos"></a>
 <h3>How Tos</h3>
+<a name="mark"></a>
+<h4 id="markAsText">Mark a Resource as a Test</h4>
+<p>
+To mark a resource as a test resource, use the testing tag:
+</p>
+<pre class="xml">
+&lt;Patient xmlns="http://hl7.org/fhir"&gt;
+  &lt;meta&gt;
+    &lt;security&gt;
+      &lt;system value="http://hl7.org/fhir/v3/ActReason"/&gt;
+      &lt;code value="HTEST"/&gt;
+      &lt;display value="test health data"/&gt;
+    &lt;/security&gt;
+  &lt;/meta&gt;
+&lt;/Patient&gt;
+</pre>
+<p>
+Not all testing resources need to explicitly marked as test, but it 
+may be necessary when performing testing on a production system, for 
+instance. Note: This is a security label because different access control rules may apply to test resources.
+</p>
+
+
+<a name="create"></a>
 <h4 id="howToTestCreate">Test create operation</h4>
 <p>To test if <a href="http.html#create">create</a> operation is properly supported on a server, run the operation as part of <a href="testscript-definitions.html#TestScript.test">TestScript.test</a>.</p>
 <p>First, define the <a href="testscript-definitions.html#TestScript.fixture">fixture</a> as a <a href="references.html">reference</a> at the top of the test script. The fixture will hold the body of the POST request:</p>
@@ -213,6 +243,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </ol>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="search"></a>
 <h4 id="howToTestSearch">Test search operation</h4>
 <p>To test if <a href="http.html#search">search</a> operation is properly supported on a server, run the operation as part of <a href="testscript-definitions.html#TestScript.test">TestScript.test</a>.</p>
 
@@ -305,6 +336,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </ol>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="delete"></a>
 <h4 id="howToDeleteResourceInTeardown">Perform delete operation in teardown</h4>
 <p>Test scripts should clean up resources created as part of execution. The <a href="testscript-definitions.html#TestScript.teardown">TestScript.teardown</a> operations will get executed once before the test script execution completes.</p>
 <p>Here are a couple of ways to run delete operation in <a href="testscript-definitions.html#TestScript.teardown">TestScript.teardown</a>:</p>
@@ -361,6 +393,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="deleted-setup"></a>
 <h4 id="howToDeleteResourceInSetup">Perform delete operation in setup</h4>
 <p>Deletion of resources created during test script execution should be done using <a href="http.html#delete">delete</a> operation in <a href="testscript-definitions.html#TestScript.teardown">TestScript.teardown</a>. See <a href="#howToDeleteResourceInTeardown">Perform delete operation in teardown</a> for details.</p>
 <p>There might be left-over resource instances though on the server from prior executions of the script that terminated prematurely through an error. Resources can be deleted in <a href="http.html#setup">TestScript.setup</a> as well to ensure reliable test execution.</p>
@@ -381,6 +414,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>Test engines will append the contents of the params element to url after [type]: "[base]/[type]<span style="color: green;font-weight: bold;">?[search parameters]"</span>. The <a href="testscript-definitions.html#TestScript.setup.action.operation.resource">resource</a> element value ("Patient") will be used to replace [type] in the url.</p>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="delete-op"></a>
 <h4 id="howToTestDeleteOperation">Test conditional delete operation</h4>
 <p>To test if a server supports <a href="http.html#2.1.0.12.1">conditional delete</a> operation, run a create operation prior to the delete using a sourceId that points to a <a href="testscript-definitions.html#TestScript.fixture">fixture</a> defined at the top of the script:</p>
 <div class="xmlCode"><xmp>
@@ -442,6 +476,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="create-cond"></a>
 <h4 id="howToTestDeleteOperation">Test conditional create operation</h4>
 <p>To test if a server supports <a href="http.html#2.1.0.13.1">conditional create</a> operation, use the 'If-None-Exist' request header:</p>
 <div class="xmlCode"><xmp>
@@ -469,6 +504,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="update"></a>
 <h4 id="howToTestUpdateOperation">Test update operation</h4>
 <p><a href="http.html#update">Update</a> operations require a resource id. The id must be present in the fixture (PUT body contents) as well as the URL. The values must match.</p>
 
@@ -583,6 +619,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="cond-update"></a>
 <h4 id="howToTestConditionalUpdateOperation">Test conditional update operation</h4>
 <p>Unlike a regular <a href="http.html#update">update</a> operation, a <a href="http.html#2.1.0.10.1">conditional update</a> operation does not require a resource id in the URL (or the body of the PUT).</p>
 <p>To test conditional update, use <a href="testscript-definitions.html#TestScript.setup.action.operation.params">params</a> element in the operation instead of <a href="testscript-definitions.html#TestScript.setup.action.operation.targetId">targetId</a>. The <a href="testscript-definitions.html#TestScript.setup.action.operation.resource">resource</a> element will be required in this case.</p>
@@ -625,6 +662,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </action>
 </xmp></div>
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="read"></a>
 <h4 id="howToTestReadOperation">Test read operation</h4>
 <p>The <a href="http.html#read">read</a> operation requires the resource id in the URL. Since resource ids are unpredictable on servers, it's best to create the resource within the test script prior to executing the read operation:</p>
 <div class="xmlCode"><xmp>
@@ -658,6 +696,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type and id returned in the POST/PUT response "Location" header to set the [type] and [id] in read operation's URL, respectively. This is the case in the example above.</p>
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="vread"></a>
 <h4 id="howToTestVReadOperation">Test vread operation</h4>
 <p>The <a href="http.html#vread">vread</a> operation requires the resource id as well as the resource version id in the URL. Since resource ids and version ids are unpredictable on servers, it's best to create the resource within the test script prior to executing the vread operation:</p>
 <div class="xmlCode"><xmp>
@@ -691,6 +730,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 <p>For targetId value corresponding to responseId of POST/PUT operations (such as create), test engines will use the resource type, id and version id returned in the POST/PUT response "Location" header to set the [type], [id] and [vid] in vread operation's URL, respectively. This is the case in the example above.</p>
 <p>The targetId value cannot point to a statically defined fixture as the id in the fixture cannot be relied upon.</p>
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="history"></a>
 <h4 id="howToTestHistoryOperation">Test history operation</h4>
 <p>The <a href="http.html#history">history</a> operation can be executed in the following ways:</p>
 <ol>
@@ -752,6 +792,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </ol>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="accept"></a>
 <h4 id="howToSpecifyAcceptHeader">Specify Accept header in request</h4>
 <p>The default "Accept" header that will be set on all GET operations (such as read, vread, search, history, etc.) will be "application/fhir+xml".</p>
 <p>There are two ways to change the default "Accept" header:</p>
@@ -794,6 +835,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </ol>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="contenttype"></a>
 <h4 id="howToSpecifyContentTypeHeader">Specify Content-Type header in request</h4>
 <p>The default "Content-Type" header that will be set on all POST/PUT operations (such as create, update, etc.) will be "application/fhir+xml".</p>
 <p>There are two ways to change the default "Content-Type" header:</p>
@@ -836,6 +878,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </ol>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="ctverify"></a>
 <h4 id="howToVerifyContentTypeHeader">Verify Content-Type header in response</h4>
 <p>There are two ways to verify the "Content-Type" header in response:</p>
 <ol>
@@ -866,6 +909,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </ol>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="profiles"></a>
 <h4 id="howToUseProfiles">Use Profiles</h4>
 <p><a href="#profiles">Profiles</a> are defined against known FHIR profiles (see <a href="structuredefinition.html">StructureDefinition</a> resource) corresponding to the FHIR specification version being tested. They are used in the "assert.validateProfileId" and, when present in an assert, will invoke validation of the FHIR resource payload in either the request or response message.</p>
 
@@ -901,6 +945,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="variables"></a>
 <h4 id="howToUseVariables">Use Variables</h4>
 <p><a href="#variables">Variables</a> can be defined against static fixtures and dynamic operation responses. They can be used in "operation.params", "operation.requestHeader.value", "operation.url", and "assert.value" element values. As such they allow for the data used in operations and assertions to be externally defined. The data could be unique to each client involved in interactions with a server or could be unique to a given server database instance. This allows for multiple clients to execute the same test scripts concurrently against the same server.</p>
 
@@ -1010,6 +1055,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="format"></a>
 <h4 id="howToTestServerSupportsFormat">Test server support for '_format'</h4>
 <p>Servers are required to support "_format" in the request url to determine the response mime-type. See <a href="#http.html#2.1.0.6">Content Type and Encodings</a></p>
 <p>Use the <a href="testscript-definitions.html#TestScript.setup.action.operation.params">params</a> element to specify the _format:</p>
@@ -1038,6 +1084,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
+<a name="metadata"></a>
 <h4 id="howToSpecifiyCapabilities">How to specify metadata capabilities</h4>
 <p>If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test’s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison..</p>
 <p>Here's how to specify that the test script requires the server to support Patient create and delete operations:</p>
