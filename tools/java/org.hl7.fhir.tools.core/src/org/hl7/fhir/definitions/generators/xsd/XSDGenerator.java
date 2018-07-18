@@ -43,11 +43,13 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
+import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
@@ -379,6 +381,19 @@ public class XSDGenerator  {
 		return name.toUpperCase().charAt(0)+name.substring(1);
 	}
 
+
+  protected boolean isEnum(BindingSpecification cd) {
+    boolean ok = cd.getBinding() == (BindingSpecification.BindingMethod.CodeList) || (cd.getStrength() == BindingStrength.REQUIRED && cd.getBinding() == BindingMethod.ValueSet);
+    if (ok) {
+      if (cd.getValueSet() != null && cd.getValueSet().hasCompose() && cd.getValueSet().getCompose().getInclude().size() == 1) {
+        ConceptSetComponent inc = cd.getValueSet().getCompose().getIncludeFirstRep();
+        if (inc.hasSystem() && !inc.hasFilter() && !inc.hasConcept() && !inc.getSystem().startsWith("http://hl7.org/fhir"))
+          ok = false;
+      }
+    }
+    return ok;
+  }
+  
 	private String encodeType(ElementDefn e, TypeRef type, boolean params) throws Exception {
     if (type.isResourceReference())
       return "Reference";
@@ -388,7 +403,7 @@ public class XSDGenerator  {
 			String en = null;
 			if (e.hasBinding()) {
 				BindingSpecification cd = e.getBinding();
-				if (cd != null && cd.getStrength() == BindingStrength.REQUIRED && cd.getValueSet() != null) {
+				if (cd != null && isEnum(cd)) {
 					en = namify(cd.getValueSet().getName());
 					if (!cd.isShared()) {
 					  enums.put(en, cd.getValueSet());
