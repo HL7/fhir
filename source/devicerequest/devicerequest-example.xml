@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DeviceRequest xmlns="http://hl7.org/fhir">
-	<id value="example"/>
-	<!-- insert contents here -->
-	<status value="completed"/>
-	<intent>
-		<coding>
-			<code value="original-order"/>
-		</coding>
-	</intent>
-	<codeReference>
-		<reference value="Device/example"/>
-	</codeReference>
-	<subject>
-		<reference value="Patient/example"/>
-	</subject>
+  <id value="example"/>
+  <!-- insert contents here -->
+  <status value="completed"/>
+  <intent value="original-order"/>
+  <codeReference>
+    <reference value="Device/example"/>
+  </codeReference>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
 </DeviceRequest>

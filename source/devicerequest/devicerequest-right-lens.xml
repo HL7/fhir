@@ -1,81 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
-	<id value="right-lens"/>
-	<identifier>
-		<system value="http://www.happysight.com/prescription"/>
-		<value value="15013R"/>
-	</identifier>
-	<!-- insert contents here -->
-	<groupIdentifier>
-		<system value="http://acme.org"/>
-		<value value="15013"/>
-	</groupIdentifier>
-	<status value="completed"/>
-	<intent>
-		<coding>
-			<code value="original-order"/>
-		</coding>
-	</intent>
-	<codeCodeableConcept>
-		<coding>
-			<system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
-			<code value="lens"/>
-		</coding>
-	</codeCodeableConcept>
-	<parameter>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="28826-6"/>
-				<display value="Sphere distance Glasses prescription.lens - right"/>
-			</coding>
-			<text value="sphere, right lens"/>
-		</code>
-		<valueQuantity>
-			<value value="-2.00"/>
-			<unit value="Diopter"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="[diop]"> </code>
-		</valueQuantity>
-	</parameter>
-	<parameter>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="28829-0"/>
-				<display value="Prism base distance Glasses prescription.lens - right"/>
-			</coding>
-			<text value="prisms, right lens"/>
-		</code>
-		<valueQuantity>
-			<value value="-2.00"/>
-			<unit value="Diopter"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="[diop]"> </code>
-		</valueQuantity>
-	</parameter>
-
-	<parameter>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="28810-0"/>
-				<display value="Add 1 LM glasses lens - right"/>
-			</coding>
-			<text value="add, right lens"/>
-		</code>
-		<valueQuantity>
-			<value value="2.00"/>
-			<unit value="Diopter"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="[diop]"> </code>
-		</valueQuantity>
-	</parameter>
-	<subject>
-		<reference value="Patient/example"/>
-	</subject>
-	<occurrenceDateTime value="2014-06-15"/>
-	<requester>
-		<reference value="Practitioner/example"/>
-	</requester>
+  <id value="right-lens"/>
+  <identifier>
+    <system value="http://www.happysight.com/prescription"/>
+    <value value="15013R"/>
+  </identifier>
+  <!-- insert contents here -->
+  <groupIdentifier>
+    <system value="http://acme.org"/>
+    <value value="15013"/>
+  </groupIdentifier>
+  <status value="completed"/>
+  <intent value="original-order"/>
+  <codeCodeableConcept>
+    <coding>
+      <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
+      <code value="lens"/>
+    </coding>
+  </codeCodeableConcept>
+  <parameter>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="28826-6"/>
+        <display value="Sphere distance Glasses prescription.lens - right"/>
+      </coding>
+      <text value="sphere, right lens"/>
+    </code>
+    <valueQuantity>
+      <value value="-2.00"/>
+      <unit value="Diopter"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="[diop]">
+      </code>
+    </valueQuantity>
+  </parameter>
+  <parameter>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="28829-0"/>
+        <display value="Prism base distance Glasses prescription.lens - right"/>
+      </coding>
+      <text value="prisms, right lens"/>
+    </code>
+    <valueQuantity>
+      <value value="-2.00"/>
+      <unit value="Diopter"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="[diop]">
+      </code>
+    </valueQuantity>
+  </parameter>
+  <parameter>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="28810-0"/>
+        <display value="Add 1 LM glasses lens - right"/>
+      </coding>
+      <text value="add, right lens"/>
+    </code>
+    <valueQuantity>
+      <value value="2.00"/>
+      <unit value="Diopter"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="[diop]">
+      </code>
+    </valueQuantity>
+  </parameter>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <occurrenceDateTime value="2014-06-15"/>
+  <requester>
+    <reference value="Practitioner/example"/>
+  </requester>
 </DeviceRequest>
