@@ -574,6 +574,9 @@
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
 	</item>
+	<item id="MedicinalProductManufactured">
+		<translation lang="en">MedicinalProductManufactured</translation>
+	</item>
 	<item id="MedicinalProductPackaged">
 		<translation lang="en">MedicinalProductPackaged</translation>
 	</item>
