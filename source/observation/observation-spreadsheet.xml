@@ -15,7 +15,7 @@
   
   
   <TabRatio>839</TabRatio>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1585,7 +1585,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="28">
     <Cell ss:StyleID="s88"><Data ss:Type="String">Observation.focus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Any)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4939,12 +4939,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>26</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6602,7 +6603,6 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Zoom>140</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7664,7 +7664,7 @@
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActRelationshipType</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">#7639remove has-component,use has-member, remove derived  and create own element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
