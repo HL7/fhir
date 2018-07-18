@@ -20,7 +20,7 @@ public class ConceptMapEngine {
   public Coding translate(Coding source, String url) throws FHIRException {
     ConceptMap cm = context.fetchResource(ConceptMap.class, url);
     if (cm == null)
-      throw new FHIRException("Ünable to find ConceptMap '"+url+"'");
+      throw new FHIRException("Unable to find ConceptMap '"+url+"'");
     if (source.hasSystem()) 
       return translateBySystem(cm, source.getSystem(), source.getCode());
     else
