@@ -528,7 +528,7 @@ public class ValidationEngine {
     } catch (IOException e) {
       log("Unable to connect to build.fhir.org to check on packages");
     }
-    NpmPackage pi = pcm.resolvePackage(id, v);
+    NpmPackage pi = pcm.resolvePackage(id, v, Constants.VERSION);
     if (pi != null && v == null)
       log("   ... Using version "+pi.version());
     return loadPackage(pi);

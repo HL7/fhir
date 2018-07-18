@@ -438,7 +438,7 @@ public class PackageCacheManager {
   public String buildPath(String url) {
     for (JsonElement e : buildInfo) {
       JsonObject j = (JsonObject) e;
-      if (j.has("url") && url.equals(j.get("url").getAsString())) {
+      if (j.has("url") && (url.equals(j.get("url").getAsString()) || j.get("url").getAsString().startsWith(url+"/ImplementationGuide"))) {
         return "https://build.fhir.org/ig/"+j.get("repo").getAsString();
       }
     }
@@ -452,7 +452,7 @@ public class PackageCacheManager {
     return false;
   }
   
-  public NpmPackage resolvePackage(String id, String v) throws FHIRException, IOException {
+  public NpmPackage resolvePackage(String id, String v, String currentVersion) throws FHIRException, IOException {
     NpmPackage p = loadPackageCache(id, v);
     if (p != null)
       return p;
@@ -493,6 +493,13 @@ public class PackageCacheManager {
             throw new FHIRException("Unable to find the package source for '"+id+"-"+v+"' at "+Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"));
           return addPackageToCache(id, v, stream);
         }
+      }
+      // special case: current version
+      if (id.equals("hl7.fhir.core") && v.equals(currentVersion)) {
+        InputStream stream = fetchFromUrlSpecific(Utilities.pathURL("http://build.fhir.org", "package.tgz"), true);
+        if (stream == null)
+          throw new FHIRException("Unable to find the package source for '"+id+"-"+v+"' at "+Utilities.pathURL("http://build.fhir.org", "package.tgz"));
+        return addPackageToCache(id, v, stream);
       }
       throw new FHIRException("Unable to resolve version "+v+" for package "+id);
     }

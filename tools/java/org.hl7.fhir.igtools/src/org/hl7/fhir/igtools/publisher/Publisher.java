@@ -1398,7 +1398,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private NpmPackage resolveDependency(String canonical, String packageId, String igver) throws Exception {
     if (packageId != null) 
-      return pcm.resolvePackage(packageId, igver);
+      return pcm.resolvePackage(packageId, igver, Constants.VERSION);
     
     JsonObject pl;
     System.out.println("Fetch Package history from "+Utilities.pathURL(canonical, "package-list.json"));
