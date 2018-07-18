@@ -1254,7 +1254,7 @@ public class Location extends DomainResource {
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Type of function performed", formalDefinition="Indicates the type of function performed at the location." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType")
     protected List<CodeableConcept> type;
 
     /**

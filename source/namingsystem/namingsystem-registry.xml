@@ -103,7 +103,7 @@
         </contact>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="PRN"/>
           </coding>
         </type>
@@ -170,7 +170,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -203,7 +203,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -236,7 +236,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -269,7 +269,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -302,7 +302,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -335,7 +335,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -368,7 +368,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -401,7 +401,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -434,7 +434,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -467,7 +467,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -500,7 +500,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -533,7 +533,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -566,7 +566,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -599,7 +599,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -632,7 +632,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -665,7 +665,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -698,7 +698,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -731,7 +731,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -764,7 +764,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -797,7 +797,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -830,7 +830,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -863,7 +863,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -896,7 +896,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -929,7 +929,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -962,7 +962,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -995,7 +995,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1028,7 +1028,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1061,7 +1061,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1094,7 +1094,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1127,7 +1127,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1160,7 +1160,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1193,7 +1193,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1226,7 +1226,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1259,7 +1259,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1292,7 +1292,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1325,7 +1325,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1358,7 +1358,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1391,7 +1391,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1424,7 +1424,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1457,7 +1457,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1490,7 +1490,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1523,7 +1523,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1556,7 +1556,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1589,7 +1589,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1622,7 +1622,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1655,7 +1655,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1688,7 +1688,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1721,7 +1721,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1754,7 +1754,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1787,7 +1787,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>
@@ -1820,7 +1820,7 @@
         <publisher value="HL7 International"/>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/v2/0203"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="DL"/>
           </coding>
         </type>

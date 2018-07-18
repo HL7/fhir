@@ -639,7 +639,7 @@ public class CommunicationRequest extends DomainResource {
      */
     @Child(name = "medium", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A channel of communication", formalDefinition="A channel that was used for this communication (e.g. email, fax)." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ParticipationMode")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ParticipationMode")
     protected List<CodeableConcept> medium;
 
     /**
@@ -740,7 +740,7 @@ public class CommunicationRequest extends DomainResource {
      */
     @Child(name = "reasonCode", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why is communication needed?", formalDefinition="Describes why the request is being made in coded or textual form." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActReason")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActReason")
     protected List<CodeableConcept> reasonCode;
 
     /**

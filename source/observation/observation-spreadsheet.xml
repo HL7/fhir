@@ -7660,7 +7660,7 @@
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActRelationshipType</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">#7639remove has-component,use has-member, remove derived  and create own element</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

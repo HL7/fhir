@@ -6062,7 +6062,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PurposeOfUse</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-PurposeOfUse</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
@@ -6094,7 +6094,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-RoleLinkType</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-RoleLinkType</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>

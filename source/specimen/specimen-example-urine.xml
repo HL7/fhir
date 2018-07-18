@@ -21,7 +21,7 @@
    Note that this practice is so widespread that it's pointless to try and stop it
  -->
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0487"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0487"/>
 			<code value="RANDU"/>
 			<display value="Urine, Random"/>
 		</coding>
@@ -44,7 +44,7 @@
 		<description value="Acidify to pH &lt; 3.0 with 6 N HCl."/>
 		<procedure>
 			<coding>
-				<system value="http://hl7.org/fhir/v2/0373"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0373"/>
 				<code value="ACID"/>
 			</coding>
 		</procedure>

@@ -48,7 +48,7 @@
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
   <policyRule>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="OPTIN"/>
     </coding>
   </policyRule>
@@ -57,7 +57,7 @@
     <actor>
       <role>
         <coding>
-          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
           <code value="PRCP"/>
           <!-- PRCP: recipient of the information -->
         </coding>

@@ -467,7 +467,7 @@
             </concept>
           </include>
           <include>
-            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
             <concept>
               <code value="CHILD"/>
               <display value="child"/>
@@ -2137,7 +2137,7 @@
               <display value="Friend"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="FTH"/>
               <display value="father"/>
           </contains>
@@ -3956,7 +3956,7 @@
 
   <test id="test3-4-a">
     <name value="Validation valueset #4 valid"/>
-    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}CHILD 'child' is in the value set"/>
+    <description value="Check that the code {http://terminology.hl7.org/CodeSystem/v3-RoleCode}CHILD 'child' is in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -3974,7 +3974,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-4"/>
-      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="system=http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <parameter value="code=CHILD"/>
       <parameter value="display=child"/>
     </operation>
@@ -3991,7 +3991,7 @@
   </test>
   <test id="test3-4-b">
     <name value="Validation valueset #4 valid code invalid display"/>
-    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}CHILD 'child' is in the value set, but give the wrong display`"/>
+    <description value="Check that the code {http://terminology.hl7.org/CodeSystem/v3-RoleCode}CHILD 'child' is in the value set, but give the wrong display`"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -4009,7 +4009,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-4"/>
-      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="system=http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <parameter value="code=CHILD"/>
       <parameter value="display=childX"/>
     </operation>
@@ -4025,7 +4025,7 @@
   </test>
   <test id="test3-4-c">
     <name value="Validation valueset #4 invalid system"/>
-    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCodeX}CHILD is not in the value set"/>
+    <description value="Check that the code {http://terminology.hl7.org/CodeSystem/v3-RoleCodeX}CHILD is not in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -4043,7 +4043,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-4"/>
-      <parameter value="system=http://hl7.org/fhir/v3/RoleCodeX"/>
+      <parameter value="system=http://terminology.hl7.org/CodeSystem/v3-RoleCodeX"/>
       <parameter value="code=CHILD"/>
     </operation>
     <operation>
@@ -4058,7 +4058,7 @@
   </test>
   <test id="test3-4-d">
     <name value="Validation valueset #4 invalid code"/>
-    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}child is not in the value set (note: this coding system is case sensitive, so 'CHILD' is valid, but 'child' is not"/>
+    <description value="Check that the code {http://terminology.hl7.org/CodeSystem/v3-RoleCode}child is not in the value set (note: this coding system is case sensitive, so 'CHILD' is valid, but 'child' is not"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -4076,7 +4076,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-4"/>
-      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="system=http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <parameter value="code=child"/>
     </operation>
     <operation>
@@ -4091,7 +4091,7 @@
   </test>
   <test id="test3-4-e">
     <name value="Validation valueset #4 valid code not in valid set"/>
-    <description value="Check that the code {http://hl7.org/fhir/v3/RoleCode}FULLINS is not in the value set"/>
+    <description value="Check that the code {http://terminology.hl7.org/CodeSystem/v3-RoleCode}FULLINS is not in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -4109,7 +4109,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-4"/>
-      <parameter value="system=http://hl7.org/fhir/v3/RoleCode"/>
+      <parameter value="system=http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <parameter value="code=FULLINS"/>
     </operation>
     <operation>

@@ -28,7 +28,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0074"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
 						<code value="HM"/>
 					</coding>
 				</category><!--    first, various administrative/context stuff    --><code>

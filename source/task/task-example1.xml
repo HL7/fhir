@@ -13,7 +13,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 			<agent>
 				<role>
 					<coding>
-						<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
 						<code value="AUT"/>
 					</coding>
 				</role>

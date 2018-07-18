@@ -5390,14 +5390,14 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PurposeOfUse</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-PurposeOfUse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">ConsentDirective</Data></Cell>
     <Cell><Data ss:Type="String">Specifies the type of Consent Directive to which a Consent Directive Act conforms</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActConsentDirective</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActConsentDirective</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">ConsentScope</Data></Cell>

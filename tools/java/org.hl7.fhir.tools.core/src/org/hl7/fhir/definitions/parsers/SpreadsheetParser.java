@@ -1240,8 +1240,8 @@ public class SpreadsheetParser {
 	}
 
 	private String checkV3Mapping(String value) {
-	  if (value.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
-	    return value.substring("http://hl7.org/fhir/ValueSet/v3-".length());
+	  if (value.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
+	    return value.substring("http://terminology.hl7.org/ValueSet/v3-".length());
 	  else
 	    return value;
 	  }

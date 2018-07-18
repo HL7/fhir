@@ -476,7 +476,7 @@ public class MedicationDispense extends DomainResource {
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code signifying whether a different drug was dispensed from what was prescribed", formalDefinition="A code signifying whether a different drug was dispensed from what was prescribed." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode")
         protected CodeableConcept type;
 
         /**
@@ -484,7 +484,7 @@ public class MedicationDispense extends DomainResource {
          */
         @Child(name = "reason", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Why was substitution made", formalDefinition="Indicates the reason for the substitution (or lack of substitution) from what was prescribed." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-SubstanceAdminSubstitutionReason")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason")
         protected List<CodeableConcept> reason;
 
         /**
@@ -989,7 +989,7 @@ public class MedicationDispense extends DomainResource {
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Trial fill, partial fill, emergency fill, etc.", formalDefinition="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType")
     protected CodeableConcept type;
 
     /**

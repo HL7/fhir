@@ -13,7 +13,7 @@
   <description value="This example value set includes values from the HL7 code system ActSubstanceAdminSubstitutionCode. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or          contains concepts to support the medication process, in particular the process and reasons for substitution"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/substanceAdminSubstitution"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution"/>
       <concept>
         <code value="E"/>
       </concept>
@@ -43,7 +43,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
       <concept>
         <code value="UNK"/>
       </concept>

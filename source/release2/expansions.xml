@@ -4337,7 +4337,7 @@ The content type or mime type to be specified in Accept or Content-Type header."
         <description value="Real world event that the relating to the schedule."/>
         <compose>
           <include>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <concept>
               <code value="HS"/>
             </concept>
@@ -4391,75 +4391,75 @@ The content type or mime type to be specified in Accept or Content-Type header."
           </parameter>
           <parameter>
             <name value="version"/>
-            <valueUri value="http://hl7.org/fhir/ValueSet/v3-TimingEvent?version=2015-07-31"/>
+            <valueUri value="http://terminology.hl7.org/ValueSet/v3-TimingEvent?version=2015-07-31"/>
           </parameter>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="HS"/>
             <display value="HS"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="WAKE"/>
             <display value="WAKE"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="C"/>
             <display value="C"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="CM"/>
             <display value="CM"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="CD"/>
             <display value="CD"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="CV"/>
             <display value="CV"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="AC"/>
             <display value="AC"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="ACM"/>
             <display value="ACM"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="ACD"/>
             <display value="ACD"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="ACV"/>
             <display value="ACV"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="PC"/>
             <display value="PC"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="PCM"/>
             <display value="PCM"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="PCD"/>
             <display value="PCD"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/TimingEvent"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-TimingEvent"/>
             <code value="PCV"/>
             <display value="PCV"/>
           </contains>
@@ -9487,10 +9487,10 @@ The content type or mime type to be specified in Accept or Content-Type header."
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/ValueSet/v3-Confidentiality"/>
+    <fullUrl value="http://terminology.hl7.org/ValueSet/v3-Confidentiality"/>
     <resource>
       <ValueSet>
-        <url value="http://hl7.org/fhir/ValueSet/v3-Confidentiality"/>
+        <url value="http://terminology.hl7.org/ValueSet/v3-Confidentiality"/>
         <version value="2015-07-31"/>
         <name value="v3 Code System Confidentiality"/>
         <status value="active"/>
@@ -9505,7 +9505,7 @@ The content type or mime type to be specified in Accept or Content-Type header."
         <date value="2015-07-31"/>
         <description value=" A set of codes specifying the security classification of acts and roles in accordance with the definition for concept domain &quot;Confidentiality&quot;."/>
         <codeSystem>
-          <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
           <caseSensitive value="true"/>
           <concept>
             <code value="_Confidentiality"/>
@@ -9723,40 +9723,40 @@ Information for which the patient seeks heightened confidentiality. Sensitive in
           <timestamp value="2015-10-22T12:25:37+11:00"/>
           <parameter>
             <name value="version"/>
-            <valueUri value="http://hl7.org/fhir/ValueSet/v3-Confidentiality?version=2015-07-31"/>
+            <valueUri value="http://terminology.hl7.org/ValueSet/v3-Confidentiality?version=2015-07-31"/>
           </parameter>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="_Confidentiality"/>
             <display value="Confidentiality"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="L"/>
             <display value="low"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="M"/>
             <display value="moderate"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="N"/>
             <display value="normal"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="R"/>
             <display value="restricted"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="U"/>
             <display value="unrestricted"/>
           </contains>
           <contains>
-            <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
             <code value="V"/>
             <display value="very restricted"/>
           </contains>

@@ -26,7 +26,7 @@
   </category>
   <medium>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ParticipationMode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"/>
       <code value="WRITTEN"/>
       <display value="written"/>
     </coding>

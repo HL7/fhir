@@ -1090,7 +1090,7 @@ public class ResourceValidator extends BaseValidator {
         throw new Error("not handled yet");
       if (!inc.getSystem().startsWith("http://hl7.org/fhir/"))
         return false;
-      if (inc.getSystem().startsWith("http://hl7.org/fhir/v2/") || inc.getSystem().startsWith("http://hl7.org/fhir/v3/"))
+      if (inc.getSystem().startsWith("http://terminology.hl7.org/CodeSystem/v2-") || inc.getSystem().startsWith("http://terminology.hl7.org/CodeSystem/v3-"))
         return false;
     }
     return true;

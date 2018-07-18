@@ -6054,7 +6054,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s112"/>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0190</Data></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0190</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">AddressUse</Data></Cell>
     <Cell ss:StyleID="s113"/>
    </Row>
@@ -6071,7 +6071,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s112"><Data ss:Type="String">AddressUse</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">v2 is http://hl7.org/fhir/ValueSet/v2-0617 - but this is not registered yet</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">v2 is http://terminology.hl7.org/ValueSet/v2-0617 - but this is not registered yet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"/>

@@ -192,7 +192,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
+    vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
     vs.setName("v3 Code System " + id);
     vs.setPublisher("HL7, Inc");
     vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
@@ -235,7 +235,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
     CodeSystem cs = new CodeSystem();
     CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
-    cs.setUrl("http://hl7.org/fhir/v3/" + id);
+    cs.setUrl("http://terminology.hl7.org/CodeSystem/v3-" + id);
     cs.setId("v3-"+FormatUtilities.makeId(id));
     CodeSystemUtilities.setOID(cs, "urn:oid:"+csOid);
     CodeSystemConvertor.populate(cs, vs);
@@ -493,7 +493,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
+    vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
     vs.setName(id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
@@ -522,10 +522,10 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         if (csp.length != 2)
           throw new Exception("unhandled value set specifier "+cs+" in ini file");
         ConceptSetComponent inc = compose.addInclude();
-        inc.setSystem("http://hl7.org/fhir/v3/"+csp[0]);
+        inc.setSystem("http://terminology.hl7.org/CodeSystem/v3-"+csp[0]);
         inc.addFilter().setProperty("concept").setOp(FilterOperator.ISA).setValue(csp[1]);
       } else {
-        compose.addInclude().setSystem("http://hl7.org/fhir/v3/"+cs);
+        compose.addInclude().setSystem("http://terminology.hl7.org/CodeSystem/v3-"+cs);
       }
     }
 
@@ -542,7 +542,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
+    vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
     vs.setName(id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
@@ -584,7 +584,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
         while (part != null) {
           if (part.getNodeName().equals("unionWithContent"))
-            compose.addInclude().addValueSet("http://hl7.org/fhir/ValueSet/v3-" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
+            compose.addInclude().addValueSet("http://terminology.hl7.org/ValueSet/v3-" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
           else
             throw new Exception("unknown value set construction method");
           part = XMLUtil.getNextSibling(part);
@@ -666,7 +666,18 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
             String id = e.getAttribute("name");
             Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
             Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
-            ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
+            String mid = FormatUtilities.makeId(id);
+            ValueSet vs = page.getValueSets().get("http://terminology.hl7.org/ValueSet/v3-"+mid);
+            if (vs == null) {
+              boolean match = false;
+              for (String s : page.getValueSets().keySet()) {
+                if (s.contains(mid)) {
+                  match = true;
+                  System.out.println("found: " +s);
+                }
+              }
+             System.out.println("no match for http://terminology.hl7.org/ValueSet/v3-"+mid);
+            }
             CodeSystem cs = (CodeSystem) vs.getUserData("cs");
 
             String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-cs.html");
@@ -693,7 +704,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
           Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
           String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");
-          ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
+          ValueSet vs = page.getValueSets().get("http://terminology.hl7.org/ValueSet/v3-"+FormatUtilities.makeId(id));
           String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "vs.html", vs, null, "V3 ValueSet", null, null, wg());
           sf = sects.addSectionNumbers(Utilities.path("v3", id, "vs.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 2, null, null);
           TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "vs.html");

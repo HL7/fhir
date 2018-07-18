@@ -77,7 +77,7 @@
         <quantity>
             <value value="100"/>
             <unit value="Tab"/>
-            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
             <code value="Tab"/> 
         </quantity>
         <expectedSupplyDuration>

@@ -360,8 +360,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
-//  public final static String DEF_TS_SERVER = "http://local.fhir.org:964/r4";
+//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
+  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
@@ -722,9 +722,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("res-status-special"))
         src = s1 + vsSpecialStatus((DomainResource) resource) + s3;
       else if (com[0].equals("conceptmaplistv2"))
-        src = s1 + conceptmaplist("http://hl7.org/fhir/ValueSet/v2-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;
+        src = s1 + conceptmaplist("http://terminology.hl7.org/ValueSet/v2-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;
       else if (com[0].equals("conceptmaplistv3"))
-        src = s1 + conceptmaplist("http://hl7.org/fhir/ValueSet/v3-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;
+        src = s1 + conceptmaplist("http://terminology.hl7.org/ValueSet/v3-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;
       else if (com[0].equals("conceptmaplistvs")) {
         ValueSet vs = (ValueSet) resource;
         String ref;
@@ -1923,7 +1923,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         else {
          if (c.getSystem().equals("http://hl7.org/fhir/identifier-type"))
            b.append("  <td><a href=\"valueset-identifier-type.html#"+c.getCode()+"\">"+c.getCode()+"</a>"+country+"</td>\r\n");
-         else if (c.getSystem().equals("http://hl7.org/fhir/v2/0203"))
+         else if (c.getSystem().equals("http://terminology.hl7.org/CodeSystem/v2-0203"))
            b.append("  <td><a href=\"v2/0203/index.html#"+c.getCode()+"\">"+c.getCode()+"</a>"+country+"</td>\r\n");
          else
            throw new Exception("Unknown Identifier Type System");
@@ -2626,9 +2626,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String xreferencesForV2(String name, String level) {
-    if (!definitions.getValuesets().containsKey("http://hl7.org/fhir/ValueSet/v2-"+name))
+    if (!definitions.getValuesets().containsKey("http://terminology.hl7.org/ValueSet/v2-"+name))
       return ". ";
-    String n = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v2-"+name).getName().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
+    String n = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+name).getName().replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
     String pfx = "../../";
     if (level.equals("l3"))
@@ -2636,7 +2636,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     ValueSet ae = findRelatedValueset(n, definitions.getValuesets(), "http://hl7.org/fhir/ValueSet/");
     if (ae != null)
       b.append(". Related FHIR content: <a href=\"").append(pfx).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
-    ae = findRelatedValueset(n, definitions.getValuesets(), "http://hl7.org/fhir/ValueSet/v3-");
+    ae = findRelatedValueset(n, definitions.getValuesets(), "http://terminology.hl7.org/ValueSet/v3-");
     if (ae != null)
       b.append(". Related v3 content: <a href=\"").append(pfx).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
     return b.toString()+". ";
@@ -2645,10 +2645,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String xreferencesForFhir(String name) {
     String n = name.replace("-", "").toLowerCase();
     StringBuilder b = new StringBuilder();
-    ValueSet ae = findRelatedValueset(n, definitions.getValuesets(), "http://hl7.org/fhir/ValueSet/v2-");
+    ValueSet ae = findRelatedValueset(n, definitions.getValuesets(), "http://terminology.hl7.org/ValueSet/v2-");
     if (ae != null)
       b.append(". Related v2 content: <a href=\"").append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
-    ae = findRelatedValueset(n, definitions.getValuesets(), "http://hl7.org/fhir/ValueSet/v3-");
+    ae = findRelatedValueset(n, definitions.getValuesets(), "http://terminology.hl7.org/ValueSet/v3-");
     if (ae != null)
       b.append(". Related v3 content: <a href=\"").append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
     return b.toString()+". ";
@@ -2657,7 +2657,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String xreferencesForV3(String name) {
     String n = name.replace("-", "").replace(" ", "").replace("_", "").toLowerCase();
     StringBuilder b = new StringBuilder();
-    ValueSet ae = findRelatedValueset(n, definitions.getValuesets(), "http://hl7.org/fhir/ValueSet/v2-");
+    ValueSet ae = findRelatedValueset(n, definitions.getValuesets(), "http://terminology.hl7.org/ValueSet/v2-");
     String path = "../../";
     if (ae != null)
       b.append(". Related v2 content: <a href=\"").append(path).append(ae.getUserData("path")).append("\">").append(ae.getName()).append("</a>");
@@ -2761,7 +2761,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genV3CodeSystem(String name) throws Exception {
-    CodeSystem vs = definitions.getCodeSystems().get("http://hl7.org/fhir/v3/"+name);
+    CodeSystem vs = definitions.getCodeSystems().get("http://terminology.hl7.org/CodeSystem/v3-"+name);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.xml"), vs);
     new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.canonical.xml"), vs);
     cloneToXhtml(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.xml", folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.xml.html", vs.getName(), vs.getDescription(), 2, false, "v3:cs:"+name, "CodeSystem", null, null, definitions.getWorkgroups().get("vocab"));
@@ -2777,7 +2777,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genV3ValueSet(String name) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(name));
+    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v3-"+FormatUtilities.makeId(name));
     if (vs == null)
       throw new Exception("unable to find v3 value set "+name);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".xml"), vs);
@@ -2792,7 +2792,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genV2TableVer(String name) throws Exception {
     String[] n = name.split("\\|");
-    ValueSet vs = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v2-"+n[1]+"-"+n[0]);
+    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+n[1]+"-"+n[0]);
     CodeSystem cs = (CodeSystem) vs.getUserData("cs");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.xml"), vs);
     new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".vs.canonical.xml"), vs);
@@ -2817,14 +2817,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genV2Table(String name) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v2-"+name);
+    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+name);
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.xml"), vs);
     new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.canonical.xml"), vs);
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.json"), vs);
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.canonical.json"), vs);
     cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".vs.xml.html", vs.getName(), vs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
     jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".vs.json"), Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".vs.json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
-    CodeSystem cs = definitions.getCodeSystems().get("http://hl7.org/fhir/v2/"+name);
+    CodeSystem cs = definitions.getCodeSystems().get("http://terminology.hl7.org/CodeSystem/v2-"+name);
     if (cs != null) {
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.xml"), cs);
       new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.canonical.xml"), cs);
@@ -2979,7 +2979,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genV3CSIndex() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name (URI = http://hl7.org/fhir/v3/...)</b></td><td><b>Description</b></td><td><b>OID</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name (URI = http://terminology.hl7.org/CodeSystem/v3-...)</b></td><td><b>Description</b></td><td><b>OID</b></td></tr>\r\n");
 
     List<String> names = new ArrayList<String>();
     Map<String, CodeSystem> map = new HashMap<String, CodeSystem>();
@@ -3010,7 +3010,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genV3VSIndex() {
     StringBuilder s = new StringBuilder();
     s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Name (URI = http://hl7.org/fhir/ValueSet/v3-...) </b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
+    s.append(" <tr><td><b>Name (URI = http://terminology.hl7.org/ValueSet/v3-...) </b></td><td><b>Name</b></td><td><b>OID</b></td></tr>\r\n");
 
     List<String> names = new ArrayList<String>();
     Map<String, ValueSet> map = new HashMap<String, ValueSet>();
@@ -4238,7 +4238,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //
     Collections.sort(names);
     for (String n : names) {
-      if (n.startsWith("http://hl7.org") && !n.startsWith("http://hl7.org/fhir/v2") && !n.startsWith("http://hl7.org/fhir/v3")) {
+      if (n.startsWith("http://hl7.org") && !n.startsWith("http://terminology.hl7.org/CodeSystem/v2") && !n.startsWith("http://terminology.hl7.org/CodeSystem/v3")) {
         // BindingSpecification cd = definitions.getBindingByReference("#"+n);
         CodeSystem ae = definitions.getCodeSystems().get(n);
         if (ae == null)
@@ -4305,7 +4305,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ValueSet vs = definitions.getValuesets().get(sn);
       vslist.put(vs.getUrl(), vs);
       String n = getNamespace(sn);
-      if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !sn.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
+      if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
         namespaces.add(n);
     }
     for (String sn : definitions.getExtraValuesets().keySet()) {
@@ -4327,7 +4327,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ImplementationGuideDefn vig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
       if (ig == vig) {
         String n = getNamespace(sn);
-        if (ns.equals(n) && !sn.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !sn.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
+        if (ns.equals(n) && !sn.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !sn.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
           sorts.add(sn);
       }
     }
@@ -4419,8 +4419,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           if ("http://hl7.org/fhir/resource-types".equals(uri)) n = "FHIR";
           if ("http://hl7.org/fhir/restful-interaction".equals(uri)) n = "FHIR";
           if ("http://unitsofmeasure.org".equals(uri)) n = "FHIR";
-          if (uri.startsWith("http://hl7.org/fhir/v3/"))  n = "V3";
-          else if (uri.startsWith("http://hl7.org/fhir/v2/"))  n = "V2";
+          if (uri.startsWith("http://terminology.hl7.org/CodeSystem/v3-"))  n = "V3";
+          else if (uri.startsWith("http://terminology.hl7.org/CodeSystem/v2-"))  n = "V2";
           else if (uri.startsWith("http://hl7.org/fhir"))  n = "Internal";
         }
         if (!done.contains(n))
@@ -4472,7 +4472,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //            s.append("</td><td><a href=\""+cd.getReference().substring(1)+".html\">http://hl7.org/fhir/"+cd.getReference().substring(1)+"</a></td></tr>\r\n");
 //          else if (cd.getBinding() == Binding.ValueSet) {
 //            if (cd.getReferredValueSet() != null) {
-//              if (cd.getReference().startsWith("http://hl7.org/fhir/v3/vs"))
+//              if (cd.getReference().startsWith("http://terminology.hl7.org/CodeSystem/v3-vs"))
 //                s.append("</td><td><a href=\"v3/"+cd.getReference().substring(26)+"/index.html\">"+cd.getReference()+"</a></td></tr>\r\n");
 //              else if (cd.getReference().startsWith("http://hl7.org/fhir"))
 //                s.append("</td><td><a href=\""+cd.getReference().substring(23)+".html\">"+cd.getReference()+"</a></td></tr>\r\n");
@@ -5006,7 +5006,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String expandV3ValueSet(String name) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v3-"+name);
+    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v3-"+name);
     return expandVS(vs, "../../", "v3/"+name);
   }
 
@@ -8764,9 +8764,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       br.display = "(unbound)";
     } else {
       String ref = binding.getValueSet();
-      if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
-        br.url = "v3/"+ref.substring(32)+"/vs.html";
-        br.display = ref.substring(32);
+      if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
+        br.url = "v3/"+ref.substring(39)+"/vs.html";
+        br.display = ref.substring(39);
       } else if (definitions.getValuesets().containsKey(ref)) {
         ValueSet vs = definitions.getValuesets().get(ref);
         br.url = vs.getUserString("path");
@@ -8792,10 +8792,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         } else if (ref.substring(23).equals("use-context")) { // special case because this happens before the value set is created
           br.url = "valueset-"+ref.substring(23)+".html";
           br.display = "Context of Use ValueSet";
-        } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
+        } else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
           br.url = "v3/"+ref.substring(26)+"/index.html";
           br.display = ref.substring(26);
-        }  else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
+        }  else if (ref.startsWith("http://terminology.hl7.org/ValueSet/v2-")) {
           br.url = "v2/"+ref.substring(26)+"/index.html";
           br.display = ref.substring(26);
         }  else if (ref.startsWith("#")) {
@@ -9429,7 +9429,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (String n : names) {
       CodeSystem cs = definitions.getCodeSystems().get(n);
       if (cs != null) {
-        if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://hl7.org/fhir/v2/") && !cs.getUrl().startsWith("http://hl7.org/fhir/v3/")) {
+        if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
@@ -10068,8 +10068,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genV2Expansion(String name, String prefix) throws Exception {
-    ValueSet vs = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v2-"+name);
-    CodeSystem cs = definitions.getCodeSystems().get("http://hl7.org/fhir/v2/"+name);
+    ValueSet vs = definitions.getValuesets().get("http://terminology.hl7.org/ValueSet/v2-"+name);
+    CodeSystem cs = definitions.getCodeSystems().get("http://terminology.hl7.org/CodeSystem/v2-"+name);
     if (cs != null && !hasInactiveCodes(cs)) 
       return "";
     StringBuilder b = new StringBuilder();

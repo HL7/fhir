@@ -67,7 +67,7 @@
     <timing>
       <code>
         <coding>
-          <system value="http://hl7.org/fhir/v3/GTSAbbreviation"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation"/>
           <code value="QD"/>
           <display value="QD"/>
         </coding>
@@ -98,7 +98,7 @@
       <doseQuantity>
         <value value="1"/>
         <unit value="TAB"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
         <code value="TAB"/>
       </doseQuantity>
     </doseAndRate>
@@ -113,7 +113,7 @@
     <quantity>
       <value value="30"/>
       <unit value="TAB"/>
-      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
       <code value="TAB"/>
     </quantity>
     <expectedSupplyDuration>
@@ -127,7 +127,7 @@
     <allowed value="true"/>
     <reason>
       <coding>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <code value="CT"/>
         <display value="continuing therapy"/>
       </coding>

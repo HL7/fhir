@@ -42,13 +42,13 @@
 		</period>
 	</statusHistory>
 	<class>
-		<system value="http://hl7.org/fhir/v3/ActCode"/>
+		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 		<code value="IMP"/>
 		<display value="inpatient encounter"/>
 	</class>
 	<classHistory>
 		<class>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<code value="EMER"/>
 			<display value="emergency"/>
 		</class>
@@ -59,7 +59,7 @@
 	</classHistory>
 	<classHistory>
 		<class>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<code value="IMP"/>
 			<display value="inpatient encounter"/>
 		</class>

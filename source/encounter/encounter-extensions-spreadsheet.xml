@@ -5107,7 +5107,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0430</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0430</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>

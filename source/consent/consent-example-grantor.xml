@@ -22,7 +22,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
         </scope>
 <category>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFAO"/>
     </coding>
   </category>
@@ -44,7 +44,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
   <!-- this is opt-out - e.g. nothing approved unless otherwise stated -->
   <policyRule>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="OPTOUT"/>
     </coding>
   </policyRule>
@@ -52,7 +52,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
     <actor>
       <role>
         <coding>
-          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
           <code value="CST"/>
         </coding>
       </role>
@@ -63,7 +63,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
     <actor>
       <role>
         <coding>
-          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
           <code value="PRCP"/>
         </coding>
       </role>

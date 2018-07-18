@@ -157,7 +157,7 @@
 		<date value="2014-07-09"/>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/v3/ActIncidentCode"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode"/>
 				<code value="SPT"/>
 				<display value="Sporting Accident"/>
 			</coding>

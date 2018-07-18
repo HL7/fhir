@@ -21,7 +21,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -37,7 +37,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -58,7 +58,7 @@
       <name value="Annie"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="ONESELF"/>
           <display value="self"/>
         </coding>
@@ -79,7 +79,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -95,7 +95,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -116,7 +116,7 @@
       <name value="Harriet"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NMTH"/>
           <display value="natural mother"/>
         </coding>
@@ -151,7 +151,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -167,7 +167,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -188,7 +188,7 @@
       <name value="Donald"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NFTH"/>
           <display value="natural father"/>
         </coding>
@@ -214,7 +214,7 @@
       <name value="Gladys"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MGRMTH"/>
           <display value="maternal grandmother"/>
         </coding>
@@ -254,7 +254,7 @@
       <name value="Ian"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MGRFTH"/>
           <display value="maternal grandfather"/>
         </coding>
@@ -279,7 +279,7 @@
       <name value="Claire"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="PGRMTH"/>
           <display value="paternal grandmother"/>
         </coding>
@@ -304,7 +304,7 @@
       <name value="Bob"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="PGRFTH"/>
           <display value="paternal grandfather"/>
         </coding>
@@ -339,7 +339,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -355,7 +355,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -376,7 +376,7 @@
       <name value="Brian"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NBRO"/>
           <display value="natural brother"/>
         </coding>
@@ -412,7 +412,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -428,7 +428,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -449,7 +449,7 @@
       <name value="Janet"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NSIS"/>
           <display value="natural sister"/>
         </coding>
@@ -490,7 +490,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="BROINLAW"/>
           <display value="brother-in-law"/>
         </coding>
@@ -510,7 +510,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -526,7 +526,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -547,7 +547,7 @@
       <name value="Ian"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NEPHEW"/>
           <display value="Nephew"/>
         </coding>
@@ -568,7 +568,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -584,7 +584,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -605,7 +605,7 @@
       <name value="Helen"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NIECE"/>
           <display value="niece"/>
         </coding>
@@ -645,7 +645,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="SIGOTHR"/>
           <display value="significant other"/>
         </coding>
@@ -665,7 +665,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -681,7 +681,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -702,7 +702,7 @@
       <name value="Susan"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="DAU"/>
           <display value="natural daughter"/>
         </coding>
@@ -722,7 +722,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -738,7 +738,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -758,7 +758,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="PUNCLE"/>
           <display value="paternal uncle"/>
         </coding>
@@ -778,7 +778,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -794,7 +794,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -814,7 +814,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="PAUNT"/>
           <display value="paternal aunt"/>
         </coding>
@@ -843,7 +843,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -859,7 +859,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -879,7 +879,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MUNCLE"/>
           <display value="maternal uncle"/>
         </coding>
@@ -899,7 +899,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -915,7 +915,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -935,7 +935,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MAUNT"/>
           <display value="maternal aunt"/>
         </coding>
@@ -959,7 +959,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="EXT"/>
           <display value="extended family member"/>
         </coding>
@@ -973,7 +973,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -989,7 +989,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -1009,7 +1009,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MCOUSN"/>
           <display value="maternal cousin"/>
         </coding>
@@ -1045,7 +1045,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NMTH"/>
               <display value="natural mother"/>
             </coding>
@@ -1061,7 +1061,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="NFTH"/>
               <display value="natural father"/>
             </coding>
@@ -1081,7 +1081,7 @@
       
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MCOUSN"/>
           <display value="maternal cousin"/>
         </coding>

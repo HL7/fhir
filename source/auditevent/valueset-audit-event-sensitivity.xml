@@ -10,7 +10,7 @@
   <description value="The sensitivity of an object in a secuity event resource. May also encompass confidentiality and rudimentary access control"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
     </include>
   </compose>
 </ValueSet>

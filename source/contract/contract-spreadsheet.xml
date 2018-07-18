@@ -6638,7 +6638,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Detailed codes for the contract action reason.</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse" ss:StyleID="s172"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PurposeOfUse</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse" ss:StyleID="s172"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-PurposeOfUse</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
@@ -6684,7 +6684,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of decision made by a grantor with respect to an offer made by a grantee.</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v3-ActConsentDirective" ss:StyleID="s172"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActConsentDirective</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v3-ActConsentDirective" ss:StyleID="s172"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActConsentDirective</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>

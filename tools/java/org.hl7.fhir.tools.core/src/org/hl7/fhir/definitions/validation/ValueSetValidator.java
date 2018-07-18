@@ -91,8 +91,8 @@ public class ValueSetValidator extends BaseValidator {
     codeSystems.add("http://hl7.org/fhir/sid/icpc2");
     codeSystems.add("http://www.icd10data.com/icd10pcs");
     codeSystems.add("http://hl7.org/fhir/sid/icd-9");
-    codeSystems.add("http://hl7.org/fhir/v2/[X](/v)");
-    codeSystems.add("http://hl7.org/fhir/v3/[X]");
+    codeSystems.add("http://terminology.hl7.org/CodeSystem/v2-[X](/v)");
+    codeSystems.add("http://terminology.hl7.org/CodeSystem/v3-[X]");
     codeSystems.add("http://www.whocc.no/atc");
     codeSystems.add("urn:ietf:bcp:47");
     codeSystems.add("urn:ietf:bcp:13");
@@ -143,7 +143,10 @@ public class ValueSetValidator extends BaseValidator {
     if (fixups.contains(cs.getId()))
       fixup(cs);
     
-    if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", !codeSystems.contains(cs.getUrl()), "Duplicate Code System definition for "+cs.getUrl()))
+    boolean isOld = codeSystems.contains(cs.getUrl());
+    if (isOld)
+      System.out.println("duplicate: " +cs.getUrl());
+    if (rule(errors, IssueType.BUSINESSRULE, getWg(cs)+":CodeSystem["+cs.getId()+"].codeSystem", !isOld, "Duplicate Code System definition for "+cs.getUrl()))
       codeSystems.add(cs.getUrl());
     
     String oid = getOid(cs);
@@ -166,9 +169,9 @@ public class ValueSetValidator extends BaseValidator {
           "Value set "+nameForErrors+" ("+cs.getName()+"): All value sets that define codes must mark them as case sensitive",
           "<a href=\""+cs.getUserString("path")+"\">Value set "+nameForErrors+" ("+cs.getName()+")</a>: All value sets that define codes must mark them as case sensitive");
       checkCodeCaseDuplicates(errors, nameForErrors, cs, codes, cs.getConcept());
-      if (!cs.getUrl().startsWith("http://hl7.org/fhir/v2/") && 
+      if (!cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && 
           !cs.getUrl().startsWith("urn:uuid:") && 
-          !cs.getUrl().startsWith("http://hl7.org/fhir/v3/") && 
+          !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-") && 
           !exemptFromCodeRules(cs.getUrl())) {
         checkCodesForDisplayAndDefinition(errors, getWg(cs)+":CodeSystem["+cs.getId()+"].define", cs.getConcept(), cs, nameForErrors);
         checkCodesForSpaces(errors, getWg(cs)+":CodeSystem["+cs.getId()+"].define", cs, cs.getConcept());
@@ -338,7 +341,7 @@ public class ValueSetValidator extends BaseValidator {
         system.equals("https://www.census.gov/geo/reference/") ||
         system.equals("https://www.usps.com/") ||
         system.startsWith("http://cimi.org") ||
-        system.startsWith("http://hl7.org/fhir/ValueSet/v3") ||
+        system.startsWith("http://terminology.hl7.org/ValueSet/v3") ||
         system.startsWith("http://ihc.org") ||
         system.startsWith("urn:oid:")
        )
@@ -481,7 +484,7 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private boolean isInternal(String url) {
-    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !url.startsWith("http://hl7.org/fhir/ValueSet/v3-");
+    return url.startsWith("http://hl7.org/fhir") && !url.startsWith("http://terminology.hl7.org/ValueSet/v2-") && !url.startsWith("http://terminology.hl7.org/ValueSet/v3-");
   }
 
   private boolean areDisjoint(Set<String> set1, Set<String> set2) {

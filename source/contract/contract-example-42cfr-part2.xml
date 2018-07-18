@@ -55,7 +55,7 @@
       </type>
       <decision>
         <coding>
-          <system value="http://hl7.org/fhir/v3/ActCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
           <code value="OPTIN"/>
         </coding>
       </decision>
@@ -74,46 +74,46 @@
         </reference>
       </data>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/Confidentiality"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
         <code value="R"/>
         <display value="Restricted"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="ETH"/>
         <display value="substance abuse information sensitivity"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="42CFRPart2"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <code value="TREAT"/>
         <display value="treatment"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <code value="HPAYMT"/>
         <display value="healthcare payment"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <code value="HOPERAT"/>
         <display value="healthcare operations"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="PERSISTLABEL"/>
         <display value="persist security label"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="PRIVMARK"/>
         <display value="privacy mark"/>
       </securityLabel>
       <securityLabel>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="NORDSCLCD"/>
         <display value="no redisclosure without consent directive"/>
       </securityLabel>
@@ -157,7 +157,7 @@
     
     <actionReason>
       <coding>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <code value="HPRGRP"/>
       </coding>
     </actionReason>

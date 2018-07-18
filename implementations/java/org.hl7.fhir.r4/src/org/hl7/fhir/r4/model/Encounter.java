@@ -613,7 +613,7 @@ public class Encounter extends DomainResource {
          */
         @Child(name = "class", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="inpatient | outpatient | ambulatory | emergency +", formalDefinition="inpatient | outpatient | ambulatory | emergency +." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode")
         protected Coding class_;
 
         /**
@@ -2403,7 +2403,7 @@ public class Encounter extends DomainResource {
      */
     @Child(name = "class", type = {Coding.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Classification of patient encounter", formalDefinition="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode")
     protected Coding class_;
 
     /**
@@ -2434,7 +2434,7 @@ public class Encounter extends DomainResource {
      */
     @Child(name = "priority", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Indicates the urgency of the encounter", formalDefinition="Indicates the urgency of the encounter." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActPriority")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActPriority")
     protected CodeableConcept priority;
 
     /**

@@ -10187,7 +10187,7 @@
               <strength value="example"/>
               <description value="The method that the patient arrived at the facility"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v2-0430"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v2-0430"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -10227,7 +10227,7 @@
               <strength value="example"/>
               <description value="The method that the patient arrived at the facility"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v2-0430"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v2-0430"/>
               </valueSetReference>
             </binding>
           </element>
@@ -46953,7 +46953,7 @@
               </extension>
               <strength value="extensible"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-TimingEvent"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-TimingEvent"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -47277,7 +47277,7 @@
               </extension>
               <strength value="extensible"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-TimingEvent"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-TimingEvent"/>
               </valueSetReference>
             </binding>
           </element>
@@ -50648,7 +50648,7 @@
               <strength value="required"/>
               <description value="A collection of codes specifying why a valid value is not present"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-NullFlavor"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -50697,7 +50697,7 @@
               <strength value="required"/>
               <description value="A collection of codes specifying why a valid value is not present"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-NullFlavor"/>
               </valueSetReference>
             </binding>
           </element>
@@ -76677,7 +76677,7 @@
               </extension>
               <strength value="extensible"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-ReligiousAffiliation"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -76716,7 +76716,7 @@
               </extension>
               <strength value="extensible"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-ReligiousAffiliation"/>
               </valueSetReference>
             </binding>
           </element>

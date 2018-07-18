@@ -5371,7 +5371,7 @@ The absence of the animal element does not imply that the patient is a human. If
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ReligiousAffiliation</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>

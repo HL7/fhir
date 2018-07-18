@@ -6071,7 +6071,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
       if (cs != null && !cs.hasUserData("external.url")) {
-        if (cs.getUserData("example") == null && !cs.getUrl().contains("/v2/") && !cs.getUrl().contains("/v3/"))
+        if (cs.getUserData("example") == null && !cs.getUrl().contains("/v2-") && !cs.getUrl().contains("/v3-"))
           if (!urls.contains(cs.getUrl())) {
             urls.add(cs.getUrl());
             generateCodeSystemPart2(cs);

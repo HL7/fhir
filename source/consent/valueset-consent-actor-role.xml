@@ -17,7 +17,7 @@
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
       <concept>
         <code value="REF"/>
       </concept>

@@ -34,14 +34,14 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="FFC"/>
             <display value="First Fill - Complete"/>
         </coding>
     </type>
     <quantity>
         <value value="6"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
         <code value="TAB"/>
     </quantity>
     <daysSupply>
@@ -97,7 +97,7 @@
             <doseQuantity>
                 <value value="2"/>
                 <unit value="TAB"/>
-                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
                 <code value="TAB"/>
             </doseQuantity>
         </doseAndRate>
@@ -138,7 +138,7 @@
             <doseQuantity>
                 <value value="1"/>
                 <unit value="TAB"/>
-                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
                 <code value="TAB"/>
             </doseQuantity>
         </doseAndRate>

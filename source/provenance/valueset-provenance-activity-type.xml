@@ -30,11 +30,11 @@
 
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion"/>
 			<concept><code value="LA"/></concept>
 		</include>
 		<include>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<concept><code value="ANONY"/></concept>
 			<concept><code value="DEID"/></concept>
 			<concept><code value="MASK"/></concept>
@@ -42,7 +42,7 @@
 			<concept><code value="PSEUD"/></concept>
 		</include>
 		<include>
-			<system value="http://hl7.org/fhir/v3/DataOperation"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
 			<concept><code value="CREATE"/>	</concept>
 			<concept><code value="DELETE"/>	</concept>
 			<concept><code value="UPDATE"/>	</concept>
@@ -51,10 +51,10 @@
 		</include>
 <!-- Reduced set to most likely
 		<include>
-			<system value="http://hl7.org/fhir/v3/ActStatus"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/>
 		</include>
 		<include>
-			<valueSet value="http://hl7.org/fhir/ValueSet/v3-ObligationPolicy"/>
+			<valueSet value="http://terminology.hl7.org/ValueSet/v3-ObligationPolicy"/>
 		</include>
 		<include>
 			<system value="http://hl7.org/fhir/w3c-provenance-activity-type"/>

@@ -17,7 +17,7 @@
 	    <system value="http://hl7.org/fhir/coverage-selfpay"/>
 	  </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCoverageTypeCode"/>
     </include>
   </compose>
 </ValueSet>

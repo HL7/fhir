@@ -66,7 +66,7 @@
         of an observation that has no value if it has "COMP" (component)
         observations --><interpretation>
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 			<code value="L"/>
 			<display value="low"/>
 		</coding>

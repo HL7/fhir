@@ -67,7 +67,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
   </recordTarget>
   <performer typeCode="PRF">
     <assignedPerson classCode="ASSIGNED">
-      <code code="HM" codeSystem="http://hl7.org/fhir/v2/0074"/>
+      <code code="HM" codeSystem="http://terminology.hl7.org/CodeSystem/v2-0074"/>
       <representedOrganization classCode="ORG" determinerCode="INSTANCE">
         <id>
           <item root="1832473e-2fe0-452d-abe9-3cdb9879522f"/>

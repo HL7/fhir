@@ -1,0 +1,49 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/parent-relationship-codes",
+  "outcomes": [
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|FTH|father",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "father"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|MTH|mother",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "mother"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NFTH|natural father",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "natural father"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NMTH|natural mother",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "natural mother"
+      }
+    }
+  ]
+}

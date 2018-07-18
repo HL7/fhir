@@ -234,12 +234,12 @@ public class Composition extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case U: return "http://hl7.org/fhir/v3/Confidentiality";
-            case L: return "http://hl7.org/fhir/v3/Confidentiality";
-            case M: return "http://hl7.org/fhir/v3/Confidentiality";
-            case N: return "http://hl7.org/fhir/v3/Confidentiality";
-            case R: return "http://hl7.org/fhir/v3/Confidentiality";
-            case V: return "http://hl7.org/fhir/v3/Confidentiality";
+            case U: return "http://terminology.hl7.org/CodeSystem/v3-Confidentiality";
+            case L: return "http://terminology.hl7.org/CodeSystem/v3-Confidentiality";
+            case M: return "http://terminology.hl7.org/CodeSystem/v3-Confidentiality";
+            case N: return "http://terminology.hl7.org/CodeSystem/v3-Confidentiality";
+            case R: return "http://terminology.hl7.org/CodeSystem/v3-Confidentiality";
+            case V: return "http://terminology.hl7.org/CodeSystem/v3-Confidentiality";
             default: return "?";
           }
         }
@@ -1274,7 +1274,7 @@ public class Composition extends DomainResource {
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Code(s) that apply to the event being documented", formalDefinition="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a \"History and Physical Report\" in which the procedure being documented is necessarily a \"History and Physical\" act." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActCode")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActCode")
         protected List<CodeableConcept> code;
 
         /**
@@ -2380,7 +2380,7 @@ public class Composition extends DomainResource {
      */
     @Child(name = "confidentiality", type = {CodeType.class}, order=9, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="As defined by affinity domain", formalDefinition="The code specifying the level of confidentiality of the Composition." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ConfidentialityClassification")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification")
     protected Enumeration<DocumentConfidentiality> confidentiality;
 
     /**

@@ -1061,7 +1061,7 @@ public class Consent extends DomainResource {
          */
         @Child(name = "purpose", type = {Coding.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Context of activities covered by this rule", formalDefinition="The context of the activities a user is taking - why the user is accessing the data - that are controlled by this rule." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse")
         protected List<Coding> purpose;
 
         /**

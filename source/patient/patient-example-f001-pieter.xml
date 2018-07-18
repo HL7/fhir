@@ -43,7 +43,7 @@
   </address>
   <maritalStatus>
     <coding>
-      <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"/>
       <code value="M"/>
       <display value="Married"/>
     </coding>
@@ -53,7 +53,7 @@
   <contact>
     <relationship>
       <coding>
-        <system value="http://hl7.org/fhir/v2/0131"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
         <code value="C"/>
       </coding>
     </relationship>

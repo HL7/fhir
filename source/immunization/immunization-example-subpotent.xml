@@ -32,14 +32,14 @@
 	<expirationDate value="2015-02-28"/>
 	<site>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/ActSite"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActSite"/>
 			<code value="LT"/>
 			<display value="left thigh"/>
 		</coding>
 	</site>
 	<route>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 			<code value="IM"/>
 			<display value="Injection, intramuscular"/>
 		</coding>
@@ -52,7 +52,7 @@
 	<performer>
 		<function>
 			<coding>
-				<system value="http://hl7.org/fhir/v2/0443"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0443"/>
 				<code value="OP"/>
 			</coding>
 		</function>
@@ -63,7 +63,7 @@
 	<performer>
 		<function>
 			<coding>
-				<system value="http://hl7.org/fhir/v2/0443"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0443"/>
 				<code value="AP"/>
 			</coding>
 		</function>

@@ -1,0 +1,49 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype",
+  "outcomes": [
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v2-0131|null|C|null",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Emergency Contact"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v2-0131|null|N|null#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|WIFE|null",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "wife"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NMTH|natural mother",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "natural mother"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|SIGOTHR|null",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "significant other"
+      }
+    }
+  ]
+}

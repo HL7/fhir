@@ -224,13 +224,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           else if (cd.getReference().startsWith("valueset-"))
             write("<a href=\""+prefix+cd.getReference()+".html\">http://hl7.org/fhir/ValueSet/"+cd.getReference().substring(9)+"</a><!-- a -->");            
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
-            if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
+            if (cd.getReference().startsWith("http://terminology.hl7.org/ValueSet/v3-")) {
               ValueSet vs = page.getValueSets().get(cd.getReference());
               String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
               if (pp == null)
                 throw new Exception("unknown path on "+cd.getReference());
               write("<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
-            } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
+            } else if (cd.getReference().startsWith("http://terminology.hl7.org/ValueSet/v2-")) {
                 ValueSet vs = page.getValueSets().get(cd.getReference());
                 String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
                 write("<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");

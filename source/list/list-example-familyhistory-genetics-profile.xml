@@ -12,7 +12,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="FTH"/>
               <display value="father"/>
             </coding>
@@ -33,7 +33,7 @@
       <name value="Dave"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="FTH"/>
           <display value="father"/>
         </coding>
@@ -50,7 +50,7 @@
       </patient>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MGRFTH"/>
           <display value="maternal grandfather"/>
         </coding>
@@ -64,7 +64,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="MTH"/>
               <display value="mother"/>
             </coding>
@@ -84,7 +84,7 @@
       </patient>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MTH"/>
           <display value="mother"/>
         </coding>
@@ -101,7 +101,7 @@
       </patient>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="PGRMTH"/>
           <display value="paternal grandmother"/>
         </coding>
@@ -119,14 +119,14 @@
       <name value="Eve"/>
       <!--relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="38048003"/>
           <display value="maternal uncle"/>
         </coding>
       </relationship-->
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="PAUNT"/>
           <display value="paternal aunt"/>
         </coding>
@@ -143,7 +143,7 @@
       </patient> 
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MUNCLE"/>
           <display value="maternal uncle"/>
         </coding>
@@ -160,7 +160,7 @@
       </patient>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="NSIS"/>
           <display value="natural sister"/>
         </coding>
@@ -174,7 +174,7 @@
         <extension url="type">
           <valueCodeableConcept>
             <coding>
-              <system value="http://hl7.org/fhir/v3/RoleCode"/>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
               <code value="MTH"/>
               <display value="mother"/>
             </coding>
@@ -196,7 +196,7 @@
       <name value="Alice"/>
       <relationship>
         <coding>
-          <system value="http://hl7.org/fhir/v3/RoleCode"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
           <code value="MCOUSN"/>
           <display value="maternal cousin"/>
         </coding>

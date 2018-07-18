@@ -5823,7 +5823,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of the specimen. </Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0487</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0487</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -5883,7 +5883,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Substance added to specimen container</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0371</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0371</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>

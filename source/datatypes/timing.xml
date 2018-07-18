@@ -6341,7 +6341,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s139"><Data ss:Type="String">HS</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">event occurs [offset] before the hour of sleep (or trying to)</Data></Cell>
@@ -6352,7 +6352,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">WAKE</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] after waking</Data></Cell>
@@ -6363,7 +6363,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">C</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs at a meal (from the Latin cibus)</Data></Cell>
@@ -6374,7 +6374,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">CM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs at breakfast (from the Latin cibus matutinus)</Data></Cell>
@@ -6385,7 +6385,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">CD</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs at lunch (from the Latin cibus diurnus)</Data></Cell>
@@ -6396,7 +6396,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">CV</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs at dinner (from the Latin ante cibus vespertinus)</Data></Cell>
@@ -6407,7 +6407,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">AC</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] before a meal (from the Latin ante cibus)</Data></Cell>
@@ -6418,7 +6418,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">ACM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] before breakfast (from the Latin ante cibus matutinus)</Data></Cell>
@@ -6429,7 +6429,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">ACD</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] before lunch (from the Latin ante cibus diurnus)</Data></Cell>
@@ -6440,7 +6440,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">ACV</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] before dinner (from the Latin ante cibus vespertinus)</Data></Cell>
@@ -6451,7 +6451,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PC</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] after a meal (from the Latin post cibus)</Data></Cell>
@@ -6462,7 +6462,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PCM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] after breakfast (from the Latin post cibus matutinus)</Data></Cell>
@@ -6473,7 +6473,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PCD</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] after lunch (from the Latin post cibus diurnus)</Data></Cell>
@@ -6484,7 +6484,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PCV</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] after dinner (from the Latin post cibus vespertinus) </Data></Cell>
@@ -7669,7 +7669,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s139"><Data ss:Type="String">BID</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s139"><Data ss:Type="String">BID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Two times a day at institution specified time</Data></Cell>
@@ -7680,7 +7680,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">TID</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">TID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Three times a day at institution specified time</Data></Cell>
@@ -7691,7 +7691,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">QID</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">QID</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Four times a day at institution specified time</Data></Cell>
@@ -7702,7 +7702,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Every morning at institution specified times</Data></Cell>
@@ -7713,7 +7713,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Every afternoon at institution specified times</Data></Cell>
@@ -7724,7 +7724,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">QD</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">QD</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Every Day at institution specified times</Data></Cell>
@@ -7735,7 +7735,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">QOD</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">QOD</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Every Other Day at institution specified times</Data></Cell>
@@ -7746,7 +7746,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">Q4H</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">Q4H</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Every 4 hours at institution specified times</Data></Cell>
@@ -7757,7 +7757,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">Q6H</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">Q6H</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Every 6 Hours  at institution specified times</Data></Cell>

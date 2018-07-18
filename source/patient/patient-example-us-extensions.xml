@@ -28,35 +28,35 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
 		<extension url="ombCategory">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Race"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Race"/>
 				<code value="2106-3"/>
 				<display value="White"/>
 			</valueCoding>
 		</extension>
 		<extension url="ombCategory">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Race"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Race"/>
 				<code value="1002-5"/>
 				<display value="American Indian or Alaska Native"/>
 			</valueCoding>
 		</extension>
 		<extension url="ombCategory">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Race"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Race"/>
 				<code value="2028-9"/>
 				<display value="Asian"/>
 			</valueCoding>
 		</extension>
 		<extension url="detailed">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Race"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Race"/>
 				<code value="1586-7"/>
 				<display value="Shoshone"/>
 			</valueCoding>
 		</extension>
 		<extension url="detailed">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Race"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Race"/>
 				<code value="2036-2"/>
 				<display value="Filipino"/>
 			</valueCoding>
@@ -65,21 +65,21 @@
 	<extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity">
 		<extension url="ombCategory">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Ethnicity"/>
 				<code value="2135-2"/>
 				<display value="Hispanic or Latino"/>
 			</valueCoding>
 		</extension>
 		<extension url="detailed">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Ethnicity"/>
 				<code value="2184-0"/>
 				<display value="Dominican"/>
 			</valueCoding>
 		</extension>
 		<extension url="detailed">
 			<valueCoding>
-				<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-Ethnicity"/>
 				<code value="2148-5"/>
 				<display value="Mexican"/>
 			</valueCoding>

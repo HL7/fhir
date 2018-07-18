@@ -5785,7 +5785,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">This list of codes represents the main clinical acts being documented.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActCode</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActCode</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>

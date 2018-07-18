@@ -16,22 +16,22 @@
   <description value="A single value set for all security labels defined by FHIR."/>
   <compose>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ConfidentialityClassification"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ConfidentialityClassification"/>
     </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-InformationSensitivityPolicy"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-InformationSensitivityPolicy"/>
     </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-Compartment"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-Compartment"/>
     </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-SecurityIntegrityObservationValue"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-SecurityIntegrityObservationValue"/>
     </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-SecurityControlObservationValue"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-SecurityControlObservationValue"/>
     </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActUSPrivacyLaw"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActUSPrivacyLaw"/>
     </include>
   </compose>
 </ValueSet>

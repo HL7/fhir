@@ -13,7 +13,7 @@
   <description value="Specimen type : HL7 v2 table 0487.       An alternate value set could be all SNOMED CT descendants of 123038009 (Specimen)"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v2/0487"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0487"/>
     </include>
   </compose>
 </ValueSet>

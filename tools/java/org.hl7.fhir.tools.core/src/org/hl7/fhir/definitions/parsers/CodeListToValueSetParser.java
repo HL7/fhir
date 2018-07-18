@@ -193,7 +193,7 @@ public class CodeListToValueSetParser {
       String tbl = n[0].substring(1);
       String cd = n[1];
 
-      ConceptMapGroupComponent grp = getGroup(cm, url, "http://hl7.org/fhir/v2/"+tbl);
+      ConceptMapGroupComponent grp = getGroup(cm, url, "http://terminology.hl7.org/CodeSystem/v2-"+tbl);
       SourceElementComponent src = getSource(grp, code);
       TargetElementComponent tgt = src.addTarget();
       tgt.setCode(cd.trim());
@@ -234,8 +234,8 @@ public class CodeListToValueSetParser {
   }
 
   private void generateConceptMapV3(String v3map, ValueSet vs, CodeSystem cs) throws Exception {
-    if (!v3map.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
-      v3map = "http://hl7.org/fhir/ValueSet/v3-"+v3map;
+    if (!v3map.startsWith("http://terminology.hl7.org/ValueSet/v3-"))
+      v3map = "http://terminology.hl7.org/ValueSet/v3-"+v3map;
 
     ConceptMap cm = new ConceptMap();
     cm.setId("cm-"+vs.getId()+"-v3");
@@ -289,7 +289,7 @@ public class CodeListToValueSetParser {
       }
       String cd = n[1];
 
-      ConceptMapGroupComponent grp = getGroup(cm, url, "http://hl7.org/fhir/v3/"+tbl);
+      ConceptMapGroupComponent grp = getGroup(cm, url, "http://terminology.hl7.org/CodeSystem/v3-"+tbl);
       SourceElementComponent src = getSource(grp, code);
       TargetElementComponent tgt = src.addTarget();
       tgt.setCode(cd.trim());

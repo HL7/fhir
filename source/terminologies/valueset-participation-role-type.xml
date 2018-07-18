@@ -89,7 +89,7 @@
 
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/RoleClass"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
       <concept>
         <code value="AFFL"/>
       </concept>
@@ -138,7 +138,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <concept>
         <code value="CLASSIFIER"/>
       </concept>
@@ -202,7 +202,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
 
       <filter>
         <!-- The member of a jurisdiction afforded certain rights and encumbered with certain obligation in accordance with 
@@ -217,7 +217,7 @@
 
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/ParticipationFunction"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction"/>
       <concept>
         <code value="AUCG"/>
       </concept>
@@ -235,7 +235,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
       <concept>
         <code value="AUT"/>
       </concept>

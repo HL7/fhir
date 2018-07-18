@@ -7315,7 +7315,7 @@
     <Cell ss:StyleID="s81"><Data ss:Type="String">The type of insurance: public health, worker compensation; private accident, auto, private health, etc.).</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode" ss:StyleID="s179"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v3-ActCoverageTypeCode" ss:StyleID="s179"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActCoverageTypeCode</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>

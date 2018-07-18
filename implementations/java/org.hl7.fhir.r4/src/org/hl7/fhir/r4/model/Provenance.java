@@ -939,7 +939,7 @@ public class Provenance extends DomainResource {
      */
     @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason the activity is occurring", formalDefinition="The reason that the activity was taking place." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse")
     protected List<CodeableConcept> reason;
 
     /**

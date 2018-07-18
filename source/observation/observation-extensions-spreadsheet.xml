@@ -4858,7 +4858,7 @@
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s147"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-TimingEvent</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-TimingEvent</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>

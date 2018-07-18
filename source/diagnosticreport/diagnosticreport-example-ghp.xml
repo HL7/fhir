@@ -361,7 +361,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -407,7 +407,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -457,7 +457,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -625,7 +625,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="LL"/>
 					</coding>
 				</interpretation>
@@ -705,7 +705,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="L"/>
 					</coding>
 				</interpretation>
@@ -859,7 +859,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="HH"/>
 					</coding>
 				</interpretation>
@@ -1398,7 +1398,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -1609,7 +1609,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>

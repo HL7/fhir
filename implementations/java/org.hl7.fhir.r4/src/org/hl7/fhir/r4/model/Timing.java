@@ -606,20 +606,20 @@ public class Timing extends BackboneType implements ICompositeType {
             case EVE_LATE: return "http://hl7.org/fhir/event-timing";
             case NIGHT: return "http://hl7.org/fhir/event-timing";
             case PHS: return "http://hl7.org/fhir/event-timing";
-            case HS: return "http://hl7.org/fhir/v3/TimingEvent";
-            case WAKE: return "http://hl7.org/fhir/v3/TimingEvent";
-            case C: return "http://hl7.org/fhir/v3/TimingEvent";
-            case CM: return "http://hl7.org/fhir/v3/TimingEvent";
-            case CD: return "http://hl7.org/fhir/v3/TimingEvent";
-            case CV: return "http://hl7.org/fhir/v3/TimingEvent";
-            case AC: return "http://hl7.org/fhir/v3/TimingEvent";
-            case ACM: return "http://hl7.org/fhir/v3/TimingEvent";
-            case ACD: return "http://hl7.org/fhir/v3/TimingEvent";
-            case ACV: return "http://hl7.org/fhir/v3/TimingEvent";
-            case PC: return "http://hl7.org/fhir/v3/TimingEvent";
-            case PCM: return "http://hl7.org/fhir/v3/TimingEvent";
-            case PCD: return "http://hl7.org/fhir/v3/TimingEvent";
-            case PCV: return "http://hl7.org/fhir/v3/TimingEvent";
+            case HS: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case WAKE: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case C: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case CM: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case CD: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case CV: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case AC: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case ACM: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case ACD: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case ACV: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case PC: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case PCM: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case PCD: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
+            case PCV: return "http://terminology.hl7.org/CodeSystem/v3-TimingEvent";
             default: return "?";
           }
         }

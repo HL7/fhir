@@ -66,7 +66,7 @@
       <display value="Legally married"/>
     </coding>
     <coding>
-      <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"/>
       <code value="M"/>
     </coding>
   </maritalStatus>
@@ -85,11 +85,11 @@
         <display value="Wife"/>
       </coding>
       <coding>
-        <system value="http://hl7.org/fhir/v2/0131"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
         <code value="N"/>
       </coding>
       <coding>
-        <system value="http://hl7.org/fhir/v3/RoleCode" />
+        <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode" />
         <code value="WIFE" />
       </coding>    
     </relationship>

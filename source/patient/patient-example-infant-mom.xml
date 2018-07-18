@@ -15,7 +15,7 @@
 	<birthDate value="1995-10-12"/>
 	<maritalStatus>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"/>
 			<code value="M"/>
 			<display value="Married"/>
 		</coding>

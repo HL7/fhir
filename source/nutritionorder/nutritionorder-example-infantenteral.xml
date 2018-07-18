@@ -46,7 +46,7 @@ edited by Eric Haas Health eData Inc
 		</caloricDensity>
 		<routeofAdministration>
 			<coding>
-				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="PO"/>
 				<display value="Swallow, oral"/>
 				<userSelected value="true"/>

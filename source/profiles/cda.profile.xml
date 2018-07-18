@@ -450,7 +450,7 @@
             <binding>
               <strength value="required"/>
               <description value="This list of codes represents the main clinical acts being documented"/>
-              <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActCode"/>
+              <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCode"/>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -1203,7 +1203,7 @@
             <max value="1"/>
             <binding>
               <strength value="extensible"/>
-              <valueSet value="http://hl7.org/fhir/ValueSet/v3-OrganizationIndustryClass"/>
+              <valueSet value="http://terminology.hl7.org/ValueSet/v3-OrganizationIndustryClass"/>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -1694,7 +1694,7 @@
           </type>
           <binding>
             <strength value="extensible"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/v3-LanguageAbilityProficiency"/>
+            <valueSet value="http://terminology.hl7.org/ValueSet/v3-LanguageAbilityProficiency"/>
           </binding>
         </element>
       </differential>
@@ -1748,7 +1748,7 @@
           </type>
           <binding>
             <strength value="extensible"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/v3-LanguageAbilityMode"/>
+            <valueSet value="http://terminology.hl7.org/ValueSet/v3-LanguageAbilityMode"/>
           </binding>
         </element>
       </differential>
@@ -1953,7 +1953,7 @@
           </type>
           <binding>
             <strength value="required"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/v3-RoleStatus"/>
+            <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleStatus"/>
           </binding>
         </element>
       </differential>
@@ -2007,7 +2007,7 @@
           </type>
           <binding>
             <strength value="extensible"/>
-            <valueSet value="http://hl7.org/fhir/ValueSet/v3-RoleCode"/>
+            <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleCode"/>
           </binding>
         </element>
       </differential>

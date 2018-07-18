@@ -8,10 +8,10 @@
       <name value="NHIN / V3 Mapping"/>
       <status value="draft"/>
       <sourceCanonical value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
-      <targetCanonical value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
+      <targetCanonical value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       <group>
         <source value="http://healthit.gov/nhin/purposeofuse"/>
-        <target value="http://hl7.org/fhir/v3/ActReason"/>
+        <target value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <element>
           <code value="TREATMENT"/>
           <target>

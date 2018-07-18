@@ -40,7 +40,7 @@
 						<display value="Laboratory test"/>
 					</coding>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0074"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
 						<code value="LAB"/>
 					</coding>
 				</category>
@@ -92,7 +92,7 @@
 				</patient>
 				<relationship>
 					<coding>
-						<system value="http://hl7.org/fhir/v3/RoleCode"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
 						<code value="MTH"/>
 						<display value="Mother"/>
 					</coding>

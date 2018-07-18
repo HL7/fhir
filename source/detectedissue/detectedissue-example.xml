@@ -17,7 +17,7 @@
   <status value="final"/>
   <category>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="DRG"/>
       <display value="Drug Interaction Alert"/>
     </coding>
@@ -39,7 +39,7 @@
   <mitigation>
     <action>
       <coding>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="13"/>
         <display value="Stopped Concurrent Therapy"/>
       </coding>

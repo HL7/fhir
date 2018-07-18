@@ -67,7 +67,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		</caloricDensity>
 		<routeofAdministration>
 			<coding>
-				<system value="http://hl7.org/fhir/v3/RouteOfAdministration"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="GT"/>
 				<display value="Instillation, gastrostomy tube"/>
 			</coding>

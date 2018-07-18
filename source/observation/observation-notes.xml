@@ -230,7 +230,7 @@
 		</li>
 		<li>See above section on <a href="#usingcodes">Using codes for result values</a>
 		</li>
-		<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from <a href="http://hl7.org/fhir/ValueSet/v2-0136">http://hl7.org/fhir/ValueSet/v2-0136</a> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed")	  </li>
+		<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from <a href="http://terminology.hl7.org/ValueSet/v2-0136">http://terminology.hl7.org/ValueSet/v2-0136</a> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed")	  </li>
 		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However, when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
 
 <pre class="json">

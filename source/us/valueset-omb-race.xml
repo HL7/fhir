@@ -25,7 +25,7 @@
   <description value="The codes for the concepts 'Unknown' and  'Asked but no answer' and the the codes for the five race categories - 'American Indian' or 'Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', and 'White' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards) ."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/Race"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Race"/>
       <concept>
         <code value="1002-5"/>
         <display value="American Indian or Alaska Native"/>
@@ -48,7 +48,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
       <concept>
         <code value="UNK"/>
         <display value="Unknown"/>

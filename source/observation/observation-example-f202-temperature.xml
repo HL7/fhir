@@ -41,7 +41,7 @@
 	</valueQuantity>
 	<interpretation>
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 			<code value="H"/>
 		</coding>
 	</interpretation><!-- In the meantime a new oral temperature is measured --><!-- http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3418963/ --><bodySite>

@@ -649,7 +649,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     @Child(name = "relationship", type = {CodeableConcept.class}, order=8, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Relationship to the subject", formalDefinition="The type of relationship this person has to the patient (father, mother, brother etc.)." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-FamilyMember")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-FamilyMember")
     protected CodeableConcept relationship;
 
     /**

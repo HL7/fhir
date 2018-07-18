@@ -16,14 +16,14 @@
 	<recorded value="2015-08-27T08:39:24+10:00"/>
 	<reason>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/ActReason"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 			<code value="TREAT"/>
 			<display value="treatment"/>
 		</coding>
 	</reason>
 	<activity>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion"/>
 			<code value="AU"/>
 			<display value="authenticated"/>
 		</coding>

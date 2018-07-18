@@ -94,8 +94,8 @@ public class CDASourceGenerator extends BaseGenerator {
 
   private void checkCompose(String string, ConceptSetComponent cmp) {
     if (cmp.hasSystem()) {
-      if (cmp.getSystem().startsWith("http://hl7.org/fhir/v3"))
-        cmp.setSystem(cmp.getSystem().replace("http://hl7.org/fhir/v3/", "http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-"));
+      if (cmp.getSystem().startsWith("http://terminology.hl7.org/CodeSystem/v3"))
+        cmp.setSystem(cmp.getSystem().replace("http://terminology.hl7.org/CodeSystem/v3-", "http://hl7.org/fhir/ig/vocab-poc/CodeSystem/v3-"));
       systems.add(cmp.getSystem());
     }
   }

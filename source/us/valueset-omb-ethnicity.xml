@@ -9,7 +9,7 @@
 	<description value="The codes for the ethnicity categories - 'Hispanic or Latino' and 'Non Hispanic or Latino' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards)."/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/ValueSet/v3-Ethnicity"/>
+			<system value="http://terminology.hl7.org/ValueSet/v3-Ethnicity"/>
 			<concept>
 				<code value="2135-2"/>
 				<display value="Hispanic or Latino"/>

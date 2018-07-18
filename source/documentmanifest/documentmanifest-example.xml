@@ -42,7 +42,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<agent>
     <type>
       <coding>
-        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
         <code value="AUT"/>
         <display value="author (originator)"/>
       </coding>

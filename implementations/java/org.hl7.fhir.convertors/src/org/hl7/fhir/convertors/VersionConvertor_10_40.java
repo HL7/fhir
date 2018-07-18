@@ -6252,14 +6252,14 @@ public class VersionConvertor_10_40 {
     if (src == null)
       return null;
     switch (src) {
-    case INPATIENT: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("IMP");
-    case OUTPATIENT: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB");
-    case AMBULATORY: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("AMB");
-    case EMERGENCY: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("EMER");
-    case HOME: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("HH");
-    case FIELD: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("FLD");
-    case DAYTIME: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("SS");
-    case VIRTUAL: return new org.hl7.fhir.r4.model.Coding().setSystem("http://hl7.org/fhir/v3/ActCode").setCode("VR");
+    case INPATIENT: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("IMP");
+    case OUTPATIENT: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("AMB");
+    case AMBULATORY: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("AMB");
+    case EMERGENCY: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("EMER");
+    case HOME: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("HH");
+    case FIELD: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("FLD");
+    case DAYTIME: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("SS");
+    case VIRTUAL: return new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/v3/ActCode").setCode("VR");
     default: return null;
     }
   }
@@ -6267,7 +6267,7 @@ public class VersionConvertor_10_40 {
   public org.hl7.fhir.dstu2.model.Encounter.EncounterClass convertEncounterClass(org.hl7.fhir.r4.model.Coding src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    if (src.getSystem().equals("http://hl7.org/fhir/v3/ActCode")) {
+    if (src.getSystem().equals("http://terminology.hl7.org/v3/ActCode")) {
     if (src.getCode().equals("IMP")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.INPATIENT;
     if (src.getCode().equals("AMB")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.AMBULATORY;
     if (src.getCode().equals("EMER")) return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.EMERGENCY;

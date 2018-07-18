@@ -543,7 +543,7 @@ public class AuditEvent extends DomainResource {
          */
         @Child(name = "purposeOfUse", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Reason given for this user", formalDefinition="The reason (purpose of use), specific to this agent, that was used during the event being recorded." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse")
         protected List<CodeableConcept> purposeOfUse;
 
         private static final long serialVersionUID = -957410638L;
@@ -2878,7 +2878,7 @@ public class AuditEvent extends DomainResource {
      */
     @Child(name = "purposeOfEvent", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The purposeOfUse of the event", formalDefinition="The purposeOfUse (reason) that was used during the event being recorded." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse")
     protected List<CodeableConcept> purposeOfEvent;
 
     /**

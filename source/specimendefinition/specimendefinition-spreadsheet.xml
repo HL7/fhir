@@ -5616,7 +5616,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">The type of the specimen to be collected.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v2-0487" ss:StyleID="s146"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0487</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v2-0487" ss:StyleID="s146"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0487</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
@@ -5631,7 +5631,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of specimen conditioned in a container for lab testing</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v2-0487" ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0487</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v2-0487" ss:StyleID="s148"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0487</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -5676,7 +5676,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Substance added to specimen container</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v2-0371" ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0371</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v2-0371" ss:StyleID="s148"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0371</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -5706,7 +5706,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Special handling for a kind of specimen</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v2-0376" ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0376</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v2-0376" ss:StyleID="s148"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0376</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>

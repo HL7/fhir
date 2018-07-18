@@ -2914,7 +2914,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The nature of the accident", formalDefinition="Type of accident: work, auto, etc." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActIncidentCode")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActIncidentCode")
         protected CodeableConcept type;
 
         /**

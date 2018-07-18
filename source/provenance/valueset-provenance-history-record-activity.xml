@@ -17,7 +17,7 @@
 	<description value="Codes for Provenance activities that are relevant when capturing event history for resources."/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/DataOperation"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
 			<concept>
 				<code value="CREATE"/>
 				<display value="Created"/>

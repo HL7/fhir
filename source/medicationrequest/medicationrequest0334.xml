@@ -79,7 +79,7 @@
         <allowed value="true"></allowed>
         <reason>
             <coding>
-                <system value="http://hl7.org/fhir/v3/ActReason"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
                 <code value="FP"/>
                 <display value="formulary policy"/>             
             </coding>

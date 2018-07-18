@@ -12,7 +12,7 @@
   </identifier>
   <status value="suspended" />
   <operationalStatus>
-    <system value="http://hl7.org/fhir/v2/0116"/>
+    <system value="http://terminology.hl7.org/CodeSystem/v2-0116"/>
     <code value="H" />
     <display value="Housekeeping" />
   </operationalStatus>
@@ -23,7 +23,7 @@
 	<mode value="instance" />
 	<type>
     <coding>
-      <system value="http://hl7.org/fhir/v3/RoleCode" />
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode" />
       <code value="RNEU" />
       <display value="Neuroradiology unit" />
     </coding>

@@ -17,7 +17,7 @@
 	<end value="2013-12-25T13:30:00Z" />
   <participantType>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
       <code value="ATND"/>
     </coding>
   </participantType>

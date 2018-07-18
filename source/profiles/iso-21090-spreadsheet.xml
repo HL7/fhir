@@ -6065,7 +6065,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">A collection of codes specifying why a valid value is not present</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-NullFlavor</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-NullFlavor</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
@@ -6505,7 +6505,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s155"><Data ss:Type="String">LS</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Legal status</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">For organizations a suffix indicating the legal status, e.g., Inc., "Co.", "AG", "GmbH", "B.V." "S.A.", "Ltd." Etc.</Data></Cell>
@@ -6516,7 +6516,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">AC</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Academic</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates that a prefix like "Dr." or a suffix like "M.D." or "Ph.D." is an academic title.</Data></Cell>
@@ -6527,7 +6527,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">NB</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Nobility</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">In Europe and Asia, there are still people with nobility titles (aristocrats). German "von" is generally a nobility title, not a mere voorvoegsel. Others are "Earl of" or "His Majesty King of..." etc. Rarely used nowadays, but some systems do keep  track of this.</Data></Cell>
@@ -6538,7 +6538,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s159"><Data ss:Type="String">PR</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Professional</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Primarily in the British Imperial culture people tend to have an abbreviation of their professional organization as part of their credential suffices</Data></Cell>
@@ -6549,7 +6549,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">HON</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Honorific</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">An honorific such as "The Right Honourable" or "Weledelgeleerde Heer".</Data></Cell>
@@ -6560,7 +6560,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s159"><Data ss:Type="String">BR</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Birth</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">A name that a person was given at birth or established as a consequence of adoption. NOTE: This is not used for temporary names assigned at birth such as 'Baby of Smith' – which is just a name with a use code of TEMP</Data></Cell>
@@ -6571,7 +6571,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">AD</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Acquired</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">A name part a person acquired. The name part may be acquired by adoption, or the person may have chosen to use the name part for some other reason. NOTE  This differs from an other/psuedonym/alias in that an acquired name part is acquired on a formal basis rather than an informal one (e.g. registered as part of the official name)</Data></Cell>
@@ -6582,7 +6582,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s159"><Data ss:Type="String">SP</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Spouse</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">The name assumed from the partner in a marital relationship. Usually the spouse‘s family name. No inference about gender may be made from the existence of spouse names</Data></Cell>
@@ -6593,7 +6593,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">MID</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Middle Name</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates that the name part is a middle name. In general, the  English  "middle name"  concept is all of the given names after the first. This qualifier may be used to explicitly indicate which given names are considered to be middle names. The middle name qualifier may also be used with family names. This is a Scandinavian use case, matching the concept of "mellomnavn"/"mellannamn". There are specific rules that indicate what names may be taken as a mellannamnin different Scandinavian countries</Data></Cell>
@@ -6604,7 +6604,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s159"><Data ss:Type="String">CL</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Call me</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Callme is used to indicate which of the various name parts is used when interacting with the person</Data></Cell>
@@ -6615,7 +6615,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s159"><Data ss:Type="String">IN</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifierR2</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Initial</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates that a name part is just an initial. Initials do not imply a trailing period since this would not work with non-Latin scripts. Initials may consist of more than one letter, e.g., "Ph." could stand for "Philippe" or "Th." for "Thomas"</Data></Cell>
@@ -6626,7 +6626,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s159"><Data ss:Type="String">VV</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:HRef="http://hl7.org/fhir/v3/EntityNamePartQualifier" ss:StyleID="s162"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNamePartQualifier</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier" ss:StyleID="s162"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Voorvoegsel</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">A Dutch "voorvoegsel" is something like "van" or "de" that might have indicated nobility in the past but no longer so. Similar prefixes exist in other languages such as German, Spanish, French or Portugese</Data></Cell>
@@ -7097,7 +7097,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s155"><Data ss:Type="String">B</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">beta</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">The beta-distribution is used for data that is bounded on both sides and might or might not be skewed (e.g., occurs when probabilities are estimated.) Two parameters a and b are available to adjust the curve. The mean m and variance s2 relate as follows: m = a/ (a + b) and s2 = ab/((a + b)2 (a + b + 1)).</Data></Cell>
@@ -7108,7 +7108,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s159"><Data ss:Type="String">E</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">exponential</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Used for data that describes extinction. The exponential distribution is a special form of g-distribution where a = 1, hence, the relationship to mean m and variance s2 are m = b and s2 = b2.</Data></Cell>
@@ -7119,7 +7119,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">F</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">F</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Used to describe the quotient of two c2 random variables. The F-distribution has two parameters n1 and n2, which are the numbers of degrees of freedom of the numerator and denominator variable respectively. The relationship to mean m and variance s2 are: m = n2 / (n2 - 2) and s2 = (2 n2 (n2 + n1 - 2)) / (n1 (n2 - 2)2 (n2 - 4)).</Data></Cell>
@@ -7130,7 +7130,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">G</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">(gamma)</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">The gamma-distribution used for data that is skewed and bounded to the right, i.e. where the maximum of the distribution curve is located near the origin. The g-distribution has a two parameters a and b. The relationship to mean m and variance s2 is m = a b and s2 = a b2.</Data></Cell>
@@ -7141,7 +7141,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">LN</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">log-normal</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">The logarithmic normal distribution is used to transform skewed random variable X into a normally distributed random variable U = log X. The log-normal distribution can be specified with the properties mean m and standard deviation s. Note however that mean m and standard deviation s are the parameters of the raw value distribution, not the transformed parameters of the lognormal distribution that are conventionally referred to by the same letters. Those log-normal parameters mlog and slog relate to the mean m and standard deviation s of the data value through slog2 = log (s2/m2 + 1) and mlog = log m - slog2/2.</Data></Cell>
@@ -7152,7 +7152,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">N</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">normal (Gaussian)</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">This is the well-known bell-shaped normal distribution. Because of the central limit theorem, the normal distribution is the distribution of choice for an unbounded random variable that is an outcome of a combination of many stochastic processes. Even for values bounded on a single side (i.e. greater than 0) the normal distribution may be accurate enough if the mean is "far away" from the bound of the scale measured in terms of standard deviations.</Data></Cell>
@@ -7163,7 +7163,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s159"><Data ss:Type="String">T</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">T</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Used to describe the quotient of a normal random variable and the square root of a c2 random variable. The t-distribution has one parameter n, the number of degrees of freedom. The relationship to mean m and variance s2 are: m = 0 and s2 = n / (n - 2)</Data></Cell>
@@ -7174,7 +7174,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">U</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">uniform</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">The uniform distribution assigns a constant probability over the entire interval of possible outcomes, while all outcomes outside this interval are assumed to have zero probability. The width of this interval is 2s sqrt(3). Thus, the uniform distribution assigns the probability densities f(x) = sqrt(2 s sqrt(3)) to values m - s sqrt(3) &gt;= x &lt;= m + s sqrt(3) and f(x) = 0 otherwise.</Data></Cell>
@@ -7185,7 +7185,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">X2</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">chi square</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Used to describe the sum of squares of random variables which occurs when a variance is estimated (rather than presumed) from the sample. The only parameter of the c2-distribution is n, so called the number of degrees of freedom (which is the number of independent parts in the sum). The c2-distribution is a special type of g-distribution with parameter a = n /2 and b = 2. Hence, m = n and s2 = 2 n.</Data></Cell>
@@ -7683,7 +7683,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s155"><Data ss:Type="String">BAD</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">bad address</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">A flag indicating that the address is bad, in fact, useless.</Data></Cell>
@@ -7694,7 +7694,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">CONF</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">confidential address</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.</Data></Cell>
@@ -7705,7 +7705,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">HP</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">primary home</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">The primary home, to reach a person after business hours.</Data></Cell>
@@ -7716,7 +7716,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">HV</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">vacation home</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">A vacation home, to reach a person while on vacation.</Data></Cell>
@@ -7727,7 +7727,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s159"><Data ss:Type="String">DIR</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">direct</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'.</Data></Cell>
@@ -7738,7 +7738,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell ss:StyleID="s159"><Data ss:Type="String">PUB</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">public</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.</Data></Cell>
@@ -7749,7 +7749,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">PHYS</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">physical visit address</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Used primarily to visit an address.</Data></Cell>
@@ -7760,7 +7760,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s159"><Data ss:Type="String">PST</Data></Cell>
     <Cell ss:StyleID="s148"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">postal address</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Used to send mail.</Data></Cell>
@@ -8845,7 +8845,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s154">
     <Cell ss:StyleID="s155"><Data ss:Type="String">ABC</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNameUse</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNameUse</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"/>
@@ -8855,11 +8855,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">IDE</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNameUse</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNameUse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SYL</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/v3/EntityNameUse</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNameUse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Index="9">
     <Cell ss:Index="9" ss:StyleID="s169"/>

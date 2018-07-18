@@ -31,7 +31,7 @@
 	<service>
 	  <coding>
 	    <code>HM</code>
-      <system>http://hl7.org/fhir/v2/0074</system>
+      <system>http://terminology.hl7.org/CodeSystem/v2-0074</system>
     </coding>
 	</service>
 	<diagnosticDateTime>2011-03-04T08:30:00+11:00</diagnosticDateTime>

@@ -35,7 +35,7 @@
 		</identifier>
 		<code>
       <coding>
-        <system value="http://hl7.org/fhir/v2/0360/2.7"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0360/2.7"/>
         <code value="BS"/>
         <display value="Bachelor of Science"/>
       </coding>

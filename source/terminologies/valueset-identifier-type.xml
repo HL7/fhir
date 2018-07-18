@@ -21,7 +21,7 @@
   <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v2/0203"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
       <concept>
         <code value="DL"/>
       </concept>

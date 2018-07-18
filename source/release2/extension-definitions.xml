@@ -13597,7 +13597,7 @@ end = Registration_State.until_date"/>
               <strength value="required"/>
               <description value="A code classifying the person into a named category of humans sharing a common real or presumed heritage."/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-Ethnicity"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-Ethnicity"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -13639,7 +13639,7 @@ end = Registration_State.until_date"/>
               <strength value="required"/>
               <description value="A code classifying the person into a named category of humans sharing a common real or presumed heritage."/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-Ethnicity"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-Ethnicity"/>
               </valueSetReference>
             </binding>
           </element>
@@ -31040,7 +31040,7 @@ end = Registration_State.until_date"/>
               <strength value="required"/>
               <description value="A collection of codes specifying why a valid value is not present"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-NullFlavor"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -31091,7 +31091,7 @@ end = Registration_State.until_date"/>
               <strength value="required"/>
               <description value="A collection of codes specifying why a valid value is not present"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-NullFlavor"/>
               </valueSetReference>
             </binding>
           </element>
@@ -41148,7 +41148,7 @@ end = Registration_State.until_date"/>
               <strength value="required"/>
               <description value="A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality."/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-Race"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-Race"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -41190,7 +41190,7 @@ end = Registration_State.until_date"/>
               <strength value="required"/>
               <description value="A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality."/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-Race"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-Race"/>
               </valueSetReference>
             </binding>
           </element>
@@ -66916,7 +66916,7 @@ There can be multiple contacts on an Organizations record with this value set to
               <strength value="required"/>
               <description value="A code classifying a person&#39;s professed religion"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-ReligiousAffiliation"/>
               </valueSetReference>
             </binding>
             <mapping>
@@ -66958,7 +66958,7 @@ There can be multiple contacts on an Organizations record with this value set to
               <strength value="required"/>
               <description value="A code classifying a person&#39;s professed religion"/>
               <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-ReligiousAffiliation"/>
+                <reference value="http://terminology.hl7.org/ValueSet/v3-ReligiousAffiliation"/>
               </valueSetReference>
             </binding>
           </element>

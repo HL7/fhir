@@ -13,7 +13,7 @@
   <description value="Kinds of mitigating actions and observations that can be associated with a detected issue or contraindication, such as &#39;added concurrent therapy&#39;, &#39;prior therapy documented&#39;, etc."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>

@@ -585,7 +585,7 @@
       <binding>
         <strength value="example"/>
         <description value="Detailed codes for the contract action reason."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
     </element>
     <element>

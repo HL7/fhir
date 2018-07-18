@@ -547,7 +547,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "actionReason", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Purpose for the Contract Term Action", formalDefinition="Reason or purpose for the action stipulated by this Contract Provision." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse")
         protected List<CodeableConcept> actionReason;
 
         /**
@@ -1312,7 +1312,7 @@ public class Contract extends DomainResource {
          */
         @Child(name = "decision", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Decision by Grantor", formalDefinition="The type of decision made by a grantor with respect to an offer made by a grantee." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActConsentDirective")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v3-ActConsentDirective")
         protected CodeableConcept decision;
 
         /**

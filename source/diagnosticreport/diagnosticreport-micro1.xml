@@ -15,7 +15,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0074"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
 						<code value="MB"/>
 					</coding>
 				</category>
@@ -100,7 +100,7 @@
 					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
 					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="R"/>
 					</coding>
 				</interpretation>
@@ -128,7 +128,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -156,7 +156,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -184,7 +184,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -212,7 +212,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -240,7 +240,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -268,7 +268,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="R"/>
 					</coding>
 				</interpretation>
@@ -296,7 +296,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -324,7 +324,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -351,7 +351,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -379,7 +379,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -406,7 +406,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -434,7 +434,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="R"/>
 					</coding>
 				</interpretation>
@@ -461,7 +461,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -489,7 +489,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -517,7 +517,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -544,7 +544,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -571,7 +571,7 @@
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>
@@ -614,7 +614,7 @@
 					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
 					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><interpretation>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 						<code value="S"/>
 					</coding>
 				</interpretation>

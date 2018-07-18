@@ -13,7 +13,7 @@
   <description value="The technique that is used to perform the process or preserve the specimen."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v2/0373"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0373"/>
     </include>
   </compose>
 </ValueSet>

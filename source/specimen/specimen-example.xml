@@ -10,7 +10,7 @@
 			<id value="hep"/>
 			<code>
 				<coding>
-					<system value="http://hl7.org/fhir/v3/EntityCode"/>
+					<system value="http://terminology.hl7.org/CodeSystem/v3-EntityCode"/>
 					<code value="HEPL"/>
 				</coding>
 			</code>
@@ -68,7 +68,7 @@
 		<!-- method is usually implied by type -->
 		<method>
 			<coding>
-				<system value="http://hl7.org/fhir/v2/0488"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0488"/>
 				<code value="LNV"/>
 			</coding>
 		</method>

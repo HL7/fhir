@@ -20,7 +20,7 @@
 	<outcomeDesc value="Successful  Disclosure"/>
 	<purposeOfEvent>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/ActReason"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 			<code value="HMARKT"/>
 			<display value="healthcare marketing"/>
 		</coding>
@@ -72,7 +72,7 @@
 		</network>
 		<purposeOfUse>
 			<coding>
-				<system value="http://hl7.org/fhir/v3/ActReason"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 				<code value="HMARKT"/>
 				<display value="healthcare marketing"/>
 			</coding>
@@ -130,17 +130,17 @@
 			<display value="Disclosure"/>
 		</lifecycle>
 		<securityLabel>
-			<system value="http://hl7.org/fhir/v3/Confidentiality"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
 			<code value="V"/>
 			<display value="very restricted"/>
 		</securityLabel>
 		<securityLabel>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<code value="STD"/>
 			<display value="sexually transmitted disease information sensitivity"/>
 		</securityLabel>
 		<securityLabel>
-			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
 			<code value="DELAU"/>
 			<display value="delete after use"/>
 		</securityLabel>

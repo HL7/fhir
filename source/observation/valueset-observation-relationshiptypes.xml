@@ -13,7 +13,7 @@
   <description value="Relationship type between two observations"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/ActRelationshipType"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
     <!--   for these codes, we provide an alternative definition. It is consistent with the  
          underlying act relationship definition, but specific to its use in this case   -->
       <concept>

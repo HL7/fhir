@@ -7808,7 +7808,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">Type of accident: work place, auto, etc.</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActIncidentCode</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActIncidentCode</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
@@ -7816,7 +7816,7 @@
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActIncidentCode</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActIncidentCode</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">valueset-ActIncidentCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -7997,7 +7997,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Service, Product, Rx Dispense, Rx Compound etc.</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -8005,7 +8005,7 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-ActInvoiceGroupCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s157">
@@ -8021,7 +8021,7 @@
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-ActInvoiceGroupCode</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

@@ -25,14 +25,14 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="EM"/>
             <display value="Emergency Supply"/>
         </coding>
     </type>
     <quantity>
         <value value="5"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
         <code value="PATCH"/>
     </quantity>
     <daysSupply>
@@ -63,7 +63,7 @@
             <doseQuantity>
                 <value value="1"/>
                 <unit value="patch"/>
-                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
                 <code value="patch"/>
             </doseQuantity>
         </doseAndRate>

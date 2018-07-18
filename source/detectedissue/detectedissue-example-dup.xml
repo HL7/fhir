@@ -23,7 +23,7 @@
   <status value="final"/>
   <category>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="DUPTHPY"/>
       <display value="Duplicate Therapy Alert"/>
     </coding>

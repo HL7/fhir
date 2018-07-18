@@ -86,7 +86,7 @@ An example XML Patient Resource with a "Restricted" tag associated with it, as r
 &lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;meta&gt;
     &lt;security&gt;
-      &lt;system value=&quot;http://hl7.org/fhir/v3/Confidentiality&quot;/&gt;
+      &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-Confidentiality&quot;/&gt;
       &lt;code value=&quot;R&quot;/&gt;
       &lt;display value=&quot;Restricted&quot;/&gt;
     &lt;/security&gt;
@@ -109,7 +109,7 @@ A JSON search result that includes a resource that the receiving application mus
          "id" : "1",
          "meta" : {
            "security" : [{
-             "system" : "http://hl7.org/fhir/v3/ActCode",
+             "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
              "code" : "DELAU",
              "display" : "delete after use"
            }]
@@ -166,7 +166,7 @@ to the applicable Mutual Trust Framework agreement as described above.
  <tr>
    <td>Purpose Of Use</td>
    <td>
-     These <a href="v3/PurposeOfUse/vs.html">Purpose Of Use</a> (system = http://hl7.org/fhir/v3/PurposeOfUse) is an indication of a reason for performing one or more operations on information.
+     These <a href="v3/PurposeOfUse/vs.html">Purpose Of Use</a> (system = http://terminology.hl7.org/CodeSystem/v3-PurposeOfUse) is an indication of a reason for performing one or more operations on information.
 	which may be permitted by source system's security policy in accordance with one or more privacy policies and consent directives. 
 	Such as collecting personal health information for research or public health purposes.
 	<br/> Notes may be used as:
@@ -183,7 +183,7 @@ to the applicable Mutual Trust Framework agreement as described above.
  <tr>
    <td>Confidentiality codes</td>
    <td>
-     These <a href="v3/ConfidentialityClassification/vs.html">confidentiality class</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource
+     These <a href="v3/ConfidentialityClassification/vs.html">confidentiality class</a> (system = http://terminology.hl7.org/CodeSystem/v3-Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource
      but can be modified subsequently as a matter of operational management. The Confidentiality classifications describe the sensitivity of the information in a resource with regard to
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>

@@ -1,0 +1,60 @@
+﻿{
+  "url": "http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType",
+  "outcomes": [
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|AMB|Ambulance",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Ambulance"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|PHARM|Pharmacy",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Pharmacy"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|PTRES|Patient's Residence",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Patient's Residence"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|RNEU|Neuroradiology unit",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Neuroradiology unit"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|SLEEP|Sleep disorders unit",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Sleep disorders unit"
+      }
+    }
+  ]
+}

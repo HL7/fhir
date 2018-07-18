@@ -6160,7 +6160,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes for communication mediums such as phone, fax, email, in person, etc.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ParticipationMode</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-ParticipationMode</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>

@@ -35,7 +35,7 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="RFP"/>
             <display value="Refill - Part Fill"/>
         </coding>
@@ -89,7 +89,7 @@
             <doseQuantity>
                 <value value="1"/>
                 <unit value="OPDROP"/>
-                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
                 <code value="OPDROP"/> 
             </doseQuantity>
         </doseAndRate>

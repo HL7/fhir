@@ -97,7 +97,7 @@ ServiceRequest/123  (report is based on this request)
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/v2/0074"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0074"/>
 						<code value="GE"/>
 						<display value="Genetics"/>
 					</coding>

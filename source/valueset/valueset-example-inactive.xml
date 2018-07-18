@@ -9,7 +9,7 @@
 	<compose>
     <inactive value="true"/>
 		<include>
-			<system value="http://hl7.org/fhir/v3/ActMood"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
 			<filter>
         <property value="concept"/>
         <op value="descendent-of"/>
@@ -21,28 +21,28 @@
 		<identifier value="urn:uuid:46c00b3f-003a-4f31-9d4b-ea2de58b2a99"/>
 		<timestamp value="2017-02-26T10:00:00Z"/>
 		<contains>
-			<system value="http://hl7.org/fhir/v3/ActMood"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
       <inactive value="true"/>
 			<code value="CRT"/>
 			<display value="criterion"/>
 		</contains>
 		<contains>
-			<system value="http://hl7.org/fhir/v3/ActMood"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
 			<code value="EXPEC"/>
 			<display value="expectation"/>
 			<contains>
-        <system value="http://hl7.org/fhir/v3/ActMood"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
         <code value="GOL"/>
         <display value="goal"/>
 			</contains>
 			<contains>
-        <system value="http://hl7.org/fhir/v3/ActMood"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
         <code value="RSK"/>
         <display value="risk"/>
 			</contains>
 		</contains>
 		<contains>
-			<system value="http://hl7.org/fhir/v3/ActMood"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
 			<code value="OPT"/>
 			<display value="option"/>
 		</contains>

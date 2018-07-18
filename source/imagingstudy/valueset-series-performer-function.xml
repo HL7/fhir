@@ -15,7 +15,7 @@
 	<description value="Performer function of an agent in an imaging study series"/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
 			<concept>
 				<code value="CON"/>
 				<display value="consultant"/>

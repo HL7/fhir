@@ -34,7 +34,7 @@
 	</valueQuantity>
 	<interpretation>
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 			<code value="H"/>
 			<display value="High"/>
 		</coding>

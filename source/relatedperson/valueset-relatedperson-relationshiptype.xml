@@ -13,10 +13,10 @@
   <description value="A set of codes that can be used to indicate the relationship between a Patient and a Related Person."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v2/0131"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/v3/RoleCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>

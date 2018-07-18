@@ -50,7 +50,7 @@
 				<agent>
 					<type>
 						<coding>
-							<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+							<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
 							<code value="AUT"/>
 							<display value="author (originator)"/>
 						</coding>
@@ -62,7 +62,7 @@
 				<agent>
 					<type>
 						<coding>
-							<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+							<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
 							<code value="AUT"/>
 							<display value="author (originator)"/>
 						</coding>
@@ -74,7 +74,7 @@
 				<description value="Physical"/>
 				<securityLabel>
 					<coding>
-						<system value="http://hl7.org/fhir/v3/Confidentiality"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
 						<code value="N"/>
 						<display value="normal"/>
 					</coding>

@@ -834,7 +834,7 @@ Example searches:
  <tr><td><pre> GET [base]/Condition?code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F126851005</pre></td><td>Search for any condition in the SNOMED CT value set "http://snomed.info/sct?fhir_vs=isa/126851005" that includes all descendants of "Neoplasm of liver"</td></tr>
  <tr><td><pre> GET [base]/Condition?code:below=126851005</pre></td><td>Search for any condition that is subsumed by the SNOMED CT Code "Neoplasm of liver". Note: This is the same outcome as the previous search</td></tr>
  <tr><td><pre> GET [base]/Condition?code:in=http://acme.org/fhir/ValueSet/cardiac-conditions</pre></td><td>Search for any condition that is in the institutions list of cardiac conditions</td></tr>
- <tr><td><pre> GET [base]/Patient?identifier:otype=http://hl7.org/fhir/v2/0203|MR|446053</pre></td><td>Search for the Medical Record Number 446053 - this is useful where the system id for the MRN is not known</td></tr>
+ <tr><td><pre> GET [base]/Patient?identifier:otype=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053</pre></td><td>Search for the Medical Record Number 446053 - this is useful where the system id for the MRN is not known</td></tr>
 </table>
 
 

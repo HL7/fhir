@@ -9,10 +9,10 @@
 	<description value="The 41 [CDC ethnicity codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 2 OMB ethnicity category codes."/>
 	<compose>
 		<include>
-			<valueSet value="http://hl7.org/fhir/ValueSet/v3-Ethnicity"/>
+			<valueSet value="http://terminology.hl7.org/ValueSet/v3-Ethnicity"/>
 		</include>
 		<exclude>
-			<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-Ethnicity"/>
 			<concept>
 				<code value="2135-2"/>
 			</concept>

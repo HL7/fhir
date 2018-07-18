@@ -16,7 +16,7 @@
 	<description value="Codes for assigning sex at birth as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc)"/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"/>
 			<concept>
 				<code value="F"/>
 				<display value="Female"/>
@@ -27,7 +27,7 @@
 			</concept>
 		</include>
 		<include>
-			<system value="http://hl7.org/fhir/v3/NullFlavor"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
 			<concept>
 				<code value="UNK"/>
 				<display value="Unknown"/>

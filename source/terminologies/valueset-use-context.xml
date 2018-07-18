@@ -72,7 +72,7 @@
     <!-- age group -->
     <!-- Can't resolve MeSH OID
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-AgeGroupObservationValue"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-AgeGroupObservationValue"/>
     </include>
     -->
     
@@ -88,12 +88,12 @@
     
     <!-- workflow/venue -->
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActEncounterCode"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
     </include>
     
     <!-- task -->
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActTaskCode"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActTaskCode"/>
     </include>
     
   </compose>

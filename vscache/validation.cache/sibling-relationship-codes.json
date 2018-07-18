@@ -1,0 +1,27 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/sibling-relationship-codes",
+  "outcomes": [
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NBRO|natural brother",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "natural brother"
+      }
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NSIS|natural sister",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "natural sister"
+      }
+    }
+  ]
+}

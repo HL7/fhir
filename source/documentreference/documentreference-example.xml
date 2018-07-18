@@ -49,7 +49,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<agent>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
 				<code value="AUT"/>
 				<display value="author (originator)"/>
 			</coding>
@@ -61,7 +61,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<agent>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
 				<code value="AUT"/>
 				<display value="author (originator)"/>
 			</coding>
@@ -85,7 +85,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<description value="Physical"/>
 	<securityLabel>
 		<coding>
-			<system value="http://hl7.org/fhir/v3/Confidentiality"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
 			<code value="V"/>
 			<display value="very restricted"/>
 		</coding>

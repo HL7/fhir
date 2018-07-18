@@ -5962,7 +5962,7 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">The nature of the relationship between the patient and the related person being described in the family member history.</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-FamilyMember</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-FamilyMember</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>

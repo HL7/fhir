@@ -1,0 +1,15 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/detectedissue-category",
+  "outcomes": [
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-ActCode|null|DRG|Drug Interaction Alert",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v3-ActCode"
+    },
+    {
+      "hash": "#|http://terminology.hl7.org/CodeSystem/v3-ActCode|null|DUPTHPY|Duplicate Therapy Alert",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v3-ActCode"
+    }
+  ]
+}

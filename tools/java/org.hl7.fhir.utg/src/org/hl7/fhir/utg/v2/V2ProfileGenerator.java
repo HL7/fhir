@@ -207,7 +207,7 @@ public class V2ProfileGenerator {
   private void generatePrimitiveDatatype(VersionInfo vi, DataType dt, String dest) throws FileNotFoundException, IOException, DefinitionException, FHIRException, EOperationOutcome {
     StructureDefinition sd = new StructureDefinition();
     sd.setId(vi.version+"-"+dt.code);
-    sd.setUrl("http://hl7.org/fhir/v2/StructureDefinition/"+vi.version+"-"+dt.code);
+    sd.setUrl("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/"+vi.version+"-"+dt.code);
     sd.setName(vi.version+"."+dt.code);
     sd.setTitle("Data Type "+dt.code+" for Version "+vi.version);
     sd.setStatus(PublicationStatus.DRAFT);
@@ -216,7 +216,7 @@ public class V2ProfileGenerator {
     sd.setCopyright("This content is published under HL7's normal content licence, the license that applies to HL7 v2. Use is only open to HL7 members");
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setType("Element");
-    sd.setBaseDefinition("http://hl7.org/fhir/v2/StructureDefinition/Component");
+    sd.setBaseDefinition("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/Component");
     sd.setDerivation(TypeDerivationRule.CONSTRAINT);
 
     ElementDefinition ed = sd.getDifferential().addElement();
@@ -237,7 +237,7 @@ public class V2ProfileGenerator {
   private void generateComplexDataType(VersionInfo vi, DataType dt, String dest) throws FileNotFoundException, IOException, DefinitionException, FHIRException, EOperationOutcome {
     StructureDefinition sd = new StructureDefinition();
     sd.setId(vi.version+"-"+dt.code);
-    sd.setUrl("http://hl7.org/fhir/v2/StructureDefinition/"+vi.version+"-"+dt.code);
+    sd.setUrl("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/"+vi.version+"-"+dt.code);
     sd.setName("Data Type "+dt.code+" for Version "+vi.version);
     sd.setStatus(PublicationStatus.DRAFT);
     sd.setPublisher("HL7, International");
@@ -245,7 +245,7 @@ public class V2ProfileGenerator {
     sd.setCopyright("This content is published under HL7's normal content licence, the license that applies to HL7 v2. Use is only open to HL7 members");
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setType("Element");
-    sd.setBaseDefinition("http://hl7.org/fhir/v2/StructureDefinition/Component");
+    sd.setBaseDefinition("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/Component");
     sd.setDerivation(TypeDerivationRule.CONSTRAINT);
 
     ElementDefinition ed = sd.getDifferential().addElement();
@@ -270,8 +270,8 @@ public class V2ProfileGenerator {
       else
         ed.setMin(0);
       ed.setDefinition(comp.desc);
-      ed.addExtension().setUrl("http://hl7.org/fhir/v2/StructureDefinition/req-opt").setValue(new CodeType(comp.conf));
-      ed.addType().addProfile("http://hl7.org/fhir/v2/StructureDefinition/"+(comp.profile == null ? comp.type : comp.profile));
+      ed.addExtension().setUrl("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/req-opt").setValue(new CodeType(comp.conf));
+      ed.addType().addProfile("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/"+(comp.profile == null ? comp.type : comp.profile));
       if (comp.tbl > 0) {
         ed.getBinding().setStrength("CNE".equals(comp.type) || "ID".equals(comp.type)  ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE); 
         ed.getBinding().setValueSet("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(comp.tbl), '0', 4));
@@ -279,7 +279,7 @@ public class V2ProfileGenerator {
       if (comp.maxLength != null && comp.maxLength > 0)
         ed.setMaxLength(comp.maxLength);
       if (!Utilities.noString(comp.confLength))
-        ed.addExtension("http://hl7.org/fhir/v2/StructureDefinition/conformance-length", new StringType(comp.confLength));
+        ed.addExtension("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/conformance-length", new StringType(comp.confLength));
     }
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
     Set<String> tracker = new HashSet<>();
@@ -292,7 +292,7 @@ public class V2ProfileGenerator {
   private void generateTable(VersionInfo vi, TableDef tbl, String dest) throws IOException {
     ValueSet vs = new ValueSet();
     vs.setId(vi.version+"-"+tbl.id);
-    vs.setUrl("http://hl7.org/fhir/v2/ValueSet/"+vi.version+"-"+tbl.id);
+    vs.setUrl("http://terminology.hl7.org/CodeSystem/v2-ValueSet/"+vi.version+"-"+tbl.id);
     vs.setName("Table "+tbl.id+" for Version "+vi.version);
     vs.setStatus(PublicationStatus.DRAFT);
     vs.setPublisher("HL7, International");
@@ -300,7 +300,7 @@ public class V2ProfileGenerator {
     vs.setCopyright("This content is published under HL7's normal content licence, the license that applies to HL7 v2. Use is only open to HL7 members");
 
     ConceptSetComponent inc = vs.getCompose().addInclude();
-    inc.setSystem("http://hl7.org/fhir/v2/"+tbl.id);
+    inc.setSystem("http://terminology.hl7.org/CodeSystem/v2-"+tbl.id);
     for (TableItem ti : tbl.items) {
       ConceptReferenceComponent cc = inc.addConcept();
       cc.setCode(ti.code);
@@ -315,7 +315,7 @@ public class V2ProfileGenerator {
   private void generateSegmentProfile(VersionInfo vi, Segment segment, String dest) throws FileNotFoundException, IOException, DefinitionException, FHIRException, EOperationOutcome {
     StructureDefinition sd = new StructureDefinition();
     sd.setId(vi.version+"-"+segment.code);
-    sd.setUrl("http://hl7.org/fhir/v2/StructureDefinition/"+vi.version+"-"+segment.code);
+    sd.setUrl("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/"+vi.version+"-"+segment.code);
     sd.setName("Segment "+segment.code+" for Version "+vi.version);
     sd.setStatus(PublicationStatus.DRAFT);
     sd.setPublisher("HL7, International");
@@ -323,7 +323,7 @@ public class V2ProfileGenerator {
     sd.setCopyright("This content is published under HL7's normal content licence, the license that applies to HL7 v2. Use is only open to HL7 members");
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setType("Element");
-    sd.setBaseDefinition("http://hl7.org/fhir/v2/StructureDefinition/Segment");
+    sd.setBaseDefinition("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/Segment");
     sd.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     int i = 0;
@@ -340,12 +340,12 @@ public class V2ProfileGenerator {
         ed.setMin(0);
       ed.setMax(sde.max == Integer.MAX_VALUE ? "*" : Integer.toString(sde.max));
       ed.setDefinition(sde.element.desc);
-      ed.addExtension().setUrl("http://hl7.org/fhir/v2/StructureDefinition/req-opt").setValue(new CodeType(sde.conf));
+      ed.addExtension().setUrl("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/req-opt").setValue(new CodeType(sde.conf));
       
       ed = sd.getDifferential().addElement();
       ed.setPath("Segment.element.field");
       ed.setId("Segment:"+segment.code+".element.field");
-      ed.addType().addProfile("http://hl7.org/fhir/v2/StructureDefinition/"+sde.element.type);
+      ed.addType().addProfile("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/"+sde.element.type);
       if (sde.element.tbl > 0) {
         ed.getBinding().setStrength("CNE".equals(sde.element.type) || "ID".equals(sde.element.type)  ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE); 
         ed.getBinding().setValueSet("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(sde.element.tbl), '0', 4));
@@ -354,7 +354,7 @@ public class V2ProfileGenerator {
         if (sde.element.maxLength != null && sde.element.maxLength > 0)
           ed.setMaxLength(sde.element.maxLength);
         if (!Utilities.noString(sde.element.confLength))
-          ed.addExtension("http://hl7.org/fhir/v2/StructureDefinition/conformance-length", new StringType(sde.element.confLength));
+          ed.addExtension("http://terminology.hl7.org/CodeSystem/v2-StructureDefinition/conformance-length", new StringType(sde.element.confLength));
       }
     }
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());

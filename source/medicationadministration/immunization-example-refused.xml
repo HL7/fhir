@@ -22,7 +22,7 @@
   <explanation>	
 	<reasonNotGiven>
       <coding>
-        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
         <code value="MEDPREC"/>
         <display value="medical precaution"/>
       </coding>

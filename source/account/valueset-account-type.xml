@@ -13,7 +13,7 @@
   <description value="This examples value set defines the set of codes that can be used to represent the type of an account."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>

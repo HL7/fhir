@@ -16,7 +16,7 @@
     <!--Encounter has finished-->
     <class>
         <!--Inpatient encounter for straphylococcus infection-->
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
         <code value="IMP"/>
         <display value="inpatient encounter"/>
     </class>
@@ -48,7 +48,7 @@
     <participant>
         <type>
             <coding>
-                <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
                 <code value="PART"/>
             </coding>
         </type>
@@ -121,7 +121,7 @@
         </dietPreference>
         <specialCourtesy>
             <coding>
-                <system value="http://hl7.org/fhir/v3/EncounterSpecialCourtesy"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-EncounterSpecialCourtesy"/>
                 <code value="NRM"/>
                 <display value="normal courtesy"/>
             </coding>

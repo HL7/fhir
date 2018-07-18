@@ -30,14 +30,14 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="RFP"/>
             <display value="Refill - Part Fill"/>
         </coding>
     </type>
     <quantity>
         <value value="100"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
         <code value="TAB"/>
     </quantity>
     <daysSupply>
@@ -85,14 +85,14 @@
     <wasSubstituted value="true"></wasSubstituted>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/substanceAdminSubstitution"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-substanceAdminSubstitution"/>
             <code value="F"/>
             <display value="formulary"/>
         </coding>
     </type>
     <reason>
         <coding>
-            <system value="http://hl7.org/fhir/v3/ActReason"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
             <code value="FP"/>
             <display value="Formulary Policy"/>
         </coding>

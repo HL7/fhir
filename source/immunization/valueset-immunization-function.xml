@@ -14,7 +14,7 @@
 <extensible value="true"/>  
 <compose>
     <include>
-      <system value="http://hl7.org/fhir/v2/0443"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0443"/>
       <concept>
         <code value="OP"/>
       </concept>

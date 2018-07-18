@@ -24,7 +24,7 @@
         </scope>
 <category>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="EMRGONLY"/>
     </coding>
   </category>
@@ -48,7 +48,7 @@
   -->
   <policyRule>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="OPTOUT"/>
     </coding>
   </policyRule>
@@ -56,7 +56,7 @@
     <actor>
       <role>
         <coding>
-          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
           <code value="CST"/>
         </coding>
       </role>
@@ -65,7 +65,7 @@
       </reference>
     </actor>
     <purpose>
-      <system value="http://hl7.org/fhir/v3/ActReason"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
       <code value="ETREAT"/>
     </purpose>
     <!-- this rule overrides the other one -->
@@ -74,7 +74,7 @@
       <actor>
         <role>
           <coding>
-            <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
             <code value="CST"/>
           </coding>
         </role>

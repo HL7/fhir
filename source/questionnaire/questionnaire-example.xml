@@ -50,7 +50,7 @@
           <question value="1.1"/>
           <operator value="="/>
           <answerCoding>
-            <system value="http://hl7.org/fhir/v2/0136"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
             <code value="Y"/>
           </answerCoding>
         </enableWhen>

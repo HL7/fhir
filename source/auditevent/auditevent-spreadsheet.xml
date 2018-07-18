@@ -6588,7 +6588,7 @@
     <Cell ss:StyleID="s158"><Data ss:Type="String">The reason the activity took place.</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-PurposeOfUse</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-PurposeOfUse</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>

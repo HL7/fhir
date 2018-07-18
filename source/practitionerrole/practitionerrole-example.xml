@@ -33,7 +33,7 @@
 	<!-- Referring Practitioner for the first 3 months of 2012 -->
 	<code>
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0286"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0286"/>
 			<code value="RP"/>
 		</coding>
 	</code>
