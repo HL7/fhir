@@ -75,6 +75,7 @@ import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.ResourceFactory;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureMap;
+import org.hl7.fhir.r4.terminologies.ConceptMapEngine;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
@@ -190,7 +191,8 @@ public class ValidationEngine {
 
     @Override
     public Coding translate(Object appInfo, Coding source, String conceptMapUrl) throws FHIRException {
-      throw new FHIRException("translation is not supported yet");
+      ConceptMapEngine cme = new ConceptMapEngine(context);
+      return cme.translate(source, conceptMapUrl);
     }
 
     @Override
@@ -464,7 +466,7 @@ public class ValidationEngine {
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
     Map<String, byte[]> res = new HashMap<String, byte[]>();
     for (String s : pi.list("package")) {
-      if (s.startsWith("CodeSystem-") || s.startsWith("ImplementationGuide-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
+      if (s.startsWith("CodeSystem-") || s.startsWith("ConceptMap-") || s.startsWith("ImplementationGuide-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
         res.put(s, TextFile.streamToBytes(pi.load("package", s)));
     }
     String ini = "[FHIR]\r\nversion="+pi.fhirVersion()+"\r\n";
