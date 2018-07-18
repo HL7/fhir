@@ -34,7 +34,7 @@ public class ConceptMapEngine {
       for (SourceElementComponent e : g.getElement()) {
         if (code.equals(e.getCode())) {
           if (e != null)
-            throw new FHIRException("Ünable to process translate "+code+" because multiple candidate matches were found in concept map "+cm.getUrl());
+            throw new FHIRException("Unable to process translate "+code+" because multiple candidate matches were found in concept map "+cm.getUrl());
           ct = e;
           cg = g;
         }
@@ -46,7 +46,7 @@ public class ConceptMapEngine {
     for (TargetElementComponent t : ct.getTarget()) {
       if (!t.hasDependsOn() && !t.hasProduct() && isOkEquivalence(t.getEquivalence())) {
         if (tt != null)
-          throw new FHIRException("Ünable to process translate "+code+" because multiple targets were found in concept map "+cm.getUrl());
+          throw new FHIRException("Unable to process translate "+code+" because multiple targets were found in concept map "+cm.getUrl());
         tt = t;       
       }
     }
