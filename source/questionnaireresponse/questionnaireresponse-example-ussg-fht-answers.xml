@@ -177,10 +177,11 @@
     <linkId value="2"/>
     <definition value="http://loinc.org/fhir/DataElement/54114-4"/>
     <text value="Family member health information"/>
-    <subject>
+    <!--TODO: Subject was removed, commenting this out to get the build going -->
+	<!--subject-->
       <!-- In theory, you could associate each relative with a different subject, though typically most systems would treat all elements as belonging to the root patient -->
-      <reference value="Patient/pat1"/>
-    </subject>
+      <!--reference value="Patient/pat1"/-->
+    <!--/subject-->
     <item>
       <linkId value="2.1"/>
       <item>
