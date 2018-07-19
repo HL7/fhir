@@ -4,7 +4,6 @@
   <id value="example"/>
   <url value="http://hl7.org/fhir/CompartmentDefinition/example"/>
   <name value="EXAMPLE"/>
-  <title value="Base FHIR compartment definition for Device(example)"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-02-24"/>
@@ -29,13 +28,6 @@
       </coding>
     </valueCodeableConcept>
   </useContext>
-  <jurisdiction>
-    <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
-      <display value="United States of America (the)"/>
-    </coding>
-  </jurisdiction>
   <purpose value="Provides an example of a FHIR compartment definition based on the Device resource type."/>
   <code value="Device"/>
   <search value="true"/>
