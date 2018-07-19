@@ -58,9 +58,21 @@
       <concept>
         <code value="ACSN"/>
       </concept>
-    </include>
-    <include>
-      <system value="http://hl7.org/fhir/identifier-type"/>
+			<concept>
+				<code value="UDI"/>
+			</concept>
+			<concept>
+				<code value="SNO"/>
+			</concept>
+			<concept>
+				<code value="SB"/>
+			</concept>
+			<concept>
+				<code value="PLAC"/>
+			</concept>
+			<concept>
+				<code value="FILL"/>
+			</concept>
     </include>
   </compose>
 </ValueSet>
