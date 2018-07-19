@@ -6982,7 +6982,7 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s136" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s136" ss:Width="155.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s136" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s136" ss:Width="245.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s136" ss:Width="390.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s136" ss:Width="84.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s136" ss:Width="242.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
@@ -7238,17 +7238,6 @@
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">incomplete</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">27</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">#11</Data></Cell>
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Incomplete Results</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Not all data sources typically accessed could be reached, or responded in time, so the returned information might not be complete.</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">transient</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="Number">20</Data></Cell>
@@ -7277,7 +7266,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">#20</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">No Store Available</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The persistent store is unavailable; e.g. the database is down for maintenance or similar action.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The persistent store is unavailable; e.g. the database is down for maintenance or similar action, and the interaction or operation cannot be processed</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7288,7 +7277,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">#20</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">Exception</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">An unexpected internal error has occurred.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7300,6 +7289,17 @@
     <Cell ss:StyleID="s151"><Data ss:Type="String">#20</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">Timeout</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">An internal timeout has occurred.</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s140"><Data ss:Type="String">incomplete</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">27</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">#20</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">Incomplete Results</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Not all data sources typically accessed could be reached, or responded in time, so the returned information might not be complete (applies to search interactions and some operations)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
