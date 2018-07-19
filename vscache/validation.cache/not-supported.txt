@@ -111,6 +111,7 @@ http://unstats.un.org/unsd/methods/m49/m49.htm
 http:/acme.ped/apgarrespiratoryeffort
 http://build.fhir.org/codesystem-usage-context-type
 http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes
+http://hl7.org/fhir/identifier-type
 http://www.ncbi.nlm.nih.gov/gtr/
 http:hl7.org/fhir
 http://browser.ihtsdotools.org/
