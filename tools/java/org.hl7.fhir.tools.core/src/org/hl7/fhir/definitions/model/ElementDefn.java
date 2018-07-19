@@ -608,7 +608,7 @@ public class ElementDefn {
 			}
 			t = res.getElementByName(en, throughChoice, definitions, purpose, followType);
 			if (t == null) {
-				throw new Exception("unable to resolve " + pathname+" for purpose "+purpose);
+			  return null;
 			}
 			res = t;
 

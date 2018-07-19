@@ -7105,12 +7105,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (Profile cp : getDefinitions().getPackList()) {
       addSearchParams(map, cp, resource.getName());
     }
+    for (Profile cp : resource.getConformancePackages()) {
+      addSearchParams(map, cp, resource.getName());
+    }
 
     StringBuilder b = new StringBuilder();
     for (String s : sorted(map.keySet())) {
       SearchParameter sp = map.get(s);
       count++;
-      b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+Utilities.escapeXml(sp.getDescription())+"</td><td>"+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
+      b.append("<tr>"+
+        "<td>"+sp.getCode()+"</td>"+
+        "<td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td>"+
+        "<td>"+Utilities.escapeXml(sp.getDescription())+"<br/>"+
+        "<b>Expression:</b> "+Utilities.escapeXml(sp.getExpression())+"</td></tr>\r\n");
     }
     if (count == 0)
       b.append("<tr><td>No Search Extensions defined for this resource</td></tr>");
@@ -9757,7 +9764,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private void addSearchParams(Map<String, SearchParameter> spmap, Profile conformancePack, String rn) {
     for (SearchParameter sp : conformancePack.getSearchParameters()) {
-      if (sp.getBase().equals(rn)) {
+      boolean ok = false;
+      for (CodeType c : sp.getBase()) {
+        ok = ok || rn.equals(c.getValue());
+      }
+      if (ok) {
         spmap.put(sp.getId(), sp);
       }
     }

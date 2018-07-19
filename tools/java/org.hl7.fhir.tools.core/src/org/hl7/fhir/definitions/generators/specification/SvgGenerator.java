@@ -831,7 +831,7 @@ public class SvgGenerator extends BaseGenerator {
             i = i + texts.length - 1;
           }
         }
-      }
+      } 
     }
     xml.exit("g");
 

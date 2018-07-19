@@ -1249,7 +1249,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="130">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">QuestionnaireResponse.item.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">!QuestionnaireResponse.item.subject - see task 12866</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3560,7 +3560,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5800,7 +5800,6 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s111" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="274.0"/>
-   <Column ss:Span="1" ss:StyleID="s111" ss:Width="51.0"/>
    <Column ss:Index="5" ss:StyleID="s111" ss:Width="146.0"/>
    <Column ss:StyleID="s111" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="97.0"/>

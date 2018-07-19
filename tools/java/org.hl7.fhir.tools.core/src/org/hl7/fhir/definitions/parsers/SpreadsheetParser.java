@@ -837,6 +837,12 @@ public class SpreadsheetParser {
             } else if (!p.startsWith("!") && !p.startsWith("Extension{") && root2 != null ) {
               e = root2.getRoot().getElementForPath(p, definitions, "search param", true, true);
             }
+            if (e == null && Utilities.noString(d))
+              throw new Exception("unable to resolve sarch param " + p);
+              
+            if (e == null)
+              sp.setExpression(p);
+            
             if (Utilities.noString(d) && e != null)
               d = e.getShortDefn();
             if (d == null)
