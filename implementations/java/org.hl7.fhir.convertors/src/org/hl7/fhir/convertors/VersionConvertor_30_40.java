@@ -1004,7 +1004,7 @@ public class VersionConvertor_30_40 {
     if (src.hasContentType())
       tgt.setSigFormat(src.getContentType());
     if (src.hasBlob())
-      tgt.setBlob(src.getBlob());
+      tgt.setData(src.getBlob());
     return tgt;
   }
 
@@ -1023,8 +1023,8 @@ public class VersionConvertor_30_40 {
       tgt.setOnBehalfOf(convertType(src.getOnBehalfOf()));
     if (src.hasSigFormat())
       tgt.setContentType(src.getSigFormat());
-    if (src.hasBlob())
-      tgt.setBlob(src.getBlob());
+    if (src.hasData())
+      tgt.setBlob(src.getData());
     return tgt;
   }
 
@@ -4377,7 +4377,7 @@ public class VersionConvertor_30_40 {
     if (src.hasSecurityContext())
       tgt.setSecurityContext(convertReference(src.getSecurityContext()));
     if (src.hasContent())
-      tgt.setContent(src.getContent());
+      tgt.setData(src.getContent());
     return tgt;
   }
 
@@ -4390,8 +4390,8 @@ public class VersionConvertor_30_40 {
       tgt.setContentType(src.getContentType());
     if (src.hasSecurityContext())
       tgt.setSecurityContext(convertReference(src.getSecurityContext()));
-    if (src.hasContent())
-      tgt.setContent(src.getContent());
+    if (src.hasData())
+      tgt.setContent(src.getData());
     return tgt;
   }
 
@@ -5856,10 +5856,9 @@ public class VersionConvertor_30_40 {
     if (src == null)
       return null;
     switch (src) {
-    case COMPLETE: return org.hl7.fhir.r4.model.Claim.Use.COMPLETE;
-    case PROPOSED: return org.hl7.fhir.r4.model.Claim.Use.PROPOSED;
-    case EXPLORATORY: return org.hl7.fhir.r4.model.Claim.Use.EXPLORATORY;
-    case OTHER: return org.hl7.fhir.r4.model.Claim.Use.OTHER;
+    case COMPLETE: return org.hl7.fhir.r4.model.Claim.Use.CLAIM;
+    case PROPOSED: return org.hl7.fhir.r4.model.Claim.Use.PREAUTHORIZATION;
+    case EXPLORATORY: return org.hl7.fhir.r4.model.Claim.Use.PREDETERMINATION;
     default: return org.hl7.fhir.r4.model.Claim.Use.NULL;
   }
 }
@@ -5868,10 +5867,9 @@ public class VersionConvertor_30_40 {
     if (src == null)
       return null;
     switch (src) {
-    case COMPLETE: return org.hl7.fhir.dstu3.model.Claim.Use.COMPLETE;
-    case PROPOSED: return org.hl7.fhir.dstu3.model.Claim.Use.PROPOSED;
-    case EXPLORATORY: return org.hl7.fhir.dstu3.model.Claim.Use.EXPLORATORY;
-    case OTHER: return org.hl7.fhir.dstu3.model.Claim.Use.OTHER;
+    case CLAIM: return org.hl7.fhir.dstu3.model.Claim.Use.COMPLETE;
+    case PREAUTHORIZATION: return org.hl7.fhir.dstu3.model.Claim.Use.PROPOSED;
+    case PREDETERMINATION: return org.hl7.fhir.dstu3.model.Claim.Use.EXPLORATORY;
     default: return org.hl7.fhir.dstu3.model.Claim.Use.NULL;
   }
 }
@@ -7909,59 +7907,76 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus convertConditionClinicalStatus(org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus src) throws FHIRException {
+  private static org.hl7.fhir.r4.model.CodeableConcept convertConditionClinicalStatus(org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus src) throws FHIRException {
     if (src == null)
       return null;
+    org.hl7.fhir.r4.model.CodeableConcept cc = new org.hl7.fhir.r4.model.CodeableConcept();
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.ACTIVE;
-    case RECURRENCE: return org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.RECURRENCE;
-    case INACTIVE: return org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.INACTIVE;
-    case REMISSION: return org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.REMISSION;
-    case RESOLVED: return org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.RESOLVED;
-    default: return org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.NULL;
+      case ACTIVE: 
+        cc.addCoding().setSystem("http://hl7.org/fhir/condition-clinical").setCode("active");
+        return cc;
+      case RECURRENCE: 
+        cc.addCoding().setSystem("http://hl7.org/fhir/condition-clinical").setCode("recurrence");
+        return cc;
+      case INACTIVE: 
+        cc.addCoding().setSystem("http://hl7.org/fhir/condition-clinical").setCode("inactive");
+        return cc;
+      case REMISSION: 
+        cc.addCoding().setSystem("http://hl7.org/fhir/condition-clinical").setCode("remission");
+        return cc;
+      case RESOLVED:
+        cc.addCoding().setSystem("http://hl7.org/fhir/condition-clinical").setCode("resolved");
+        return cc;
+      default: return null;
+      }
   }
-}
 
-  private static org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus convertConditionClinicalStatus(org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus convertConditionClinicalStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.ACTIVE;
-    case RECURRENCE: return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.RECURRENCE;
-    case INACTIVE: return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.INACTIVE;
-    case REMISSION: return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.REMISSION;
-    case RESOLVED: return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.RESOLVED;
-    default: return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.NULL;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "active")) return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.ACTIVE;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "recurrence")) return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.RECURRENCE;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "inactive")) return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.INACTIVE;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "remission")) return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.REMISSION;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "resolved")) return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.RESOLVED;
+    return org.hl7.fhir.dstu3.model.Condition.ConditionClinicalStatus.NULL;
   }
-}
 
-  private static org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus convertConditionVerificationStatus(org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus src) throws FHIRException {
+  private static org.hl7.fhir.r4.model.CodeableConcept convertConditionVerificationStatus(org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus src) throws FHIRException {
     if (src == null)
       return null;
+    org.hl7.fhir.r4.model.CodeableConcept cc = new org.hl7.fhir.r4.model.CodeableConcept();
     switch (src) {
-    case PROVISIONAL: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.PROVISIONAL;
-    case DIFFERENTIAL: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.DIFFERENTIAL;
-    case CONFIRMED: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.CONFIRMED;
-    case REFUTED: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.REFUTED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.ENTEREDINERROR;
-    case UNKNOWN: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.UNCONFIRMED;
-    default: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.NULL;
+    case PROVISIONAL: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("provisional");
+      return cc;
+    case DIFFERENTIAL: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("differential");
+      return cc;
+    case CONFIRMED: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("confirmed");
+      return cc;
+    case REFUTED: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("refuted");
+      return cc;
+    case ENTEREDINERROR:
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("entered-in-error");
+      return cc;
+    default: return null;
+    }
   }
-}
 
-  private static org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus convertConditionVerificationStatus(org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus convertConditionVerificationStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case PROVISIONAL: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.PROVISIONAL;
-    case DIFFERENTIAL: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.DIFFERENTIAL;
-    case CONFIRMED: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.CONFIRMED;
-    case REFUTED: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.REFUTED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.ENTEREDINERROR;
-    case UNCONFIRMED: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.UNKNOWN;
-    default: return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.NULL;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "provisional")) return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.PROVISIONAL;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "differential")) return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.DIFFERENTIAL;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "confirmed")) return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.CONFIRMED;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "refuted")) return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.REFUTED;
+    if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "entered-in-error")) return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.ENTEREDINERROR;
+    return org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus.NULL;
   }
-}
+
 
   public static org.hl7.fhir.r4.model.Condition.ConditionStageComponent convertConditionStageComponent(org.hl7.fhir.dstu3.model.Condition.ConditionStageComponent src) throws FHIRException {
     if (src == null)
@@ -10347,234 +10362,6 @@ public class VersionConvertor_30_40 {
       tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
     if (src.hasRef())
       tgt.setRef(convertReference(src.getRef()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.EligibilityRequest convertEligibilityRequest(org.hl7.fhir.dstu3.model.EligibilityRequest src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.EligibilityRequest tgt = new org.hl7.fhir.r4.model.EligibilityRequest();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasStatus())
-      tgt.setStatus(convertEligibilityRequestStatus(src.getStatus()));
-    if (src.hasPriority())
-      tgt.setPriority(convertCodeableConcept(src.getPriority()));
-    if (src.hasPatient())
-      tgt.setPatient(convertReference(src.getPatient()));
-    if (src.hasServiced())
-      tgt.setServiced(convertType(src.getServiced()));
-    if (src.hasCreated())
-      tgt.setCreated(src.getCreated());
-    if (src.hasEnterer())
-      tgt.setEnterer(convertReference(src.getEnterer()));
-    if (src.hasProvider())
-      tgt.setProvider(convertReference(src.getProvider()));
-//    if (src.hasOrganization())
-//      tgt.setOrganization(convertReference(src.getOrganization()));
-    if (src.hasInsurer())
-      tgt.setInsurer(convertReference(src.getInsurer()));
-    if (src.hasFacility())
-      tgt.setFacility(convertReference(src.getFacility()));
-    if (src.hasCoverage())
-      tgt.setCoverage(convertReference(src.getCoverage()));
-    if (src.hasBusinessArrangement())
-      tgt.setBusinessArrangement(src.getBusinessArrangement());
-    if (src.hasBenefitCategory())
-      tgt.setBenefitCategory(convertCodeableConcept(src.getBenefitCategory()));
-    if (src.hasBenefitSubCategory())
-      tgt.setBenefitSubCategory(convertCodeableConcept(src.getBenefitSubCategory()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.EligibilityRequest convertEligibilityRequest(org.hl7.fhir.r4.model.EligibilityRequest src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityRequest tgt = new org.hl7.fhir.dstu3.model.EligibilityRequest();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasStatus())
-      tgt.setStatus(convertEligibilityRequestStatus(src.getStatus()));
-    if (src.hasPriority())
-      tgt.setPriority(convertCodeableConcept(src.getPriority()));
-    if (src.hasPatient())
-      tgt.setPatient(convertReference(src.getPatient()));
-    if (src.hasServiced())
-      tgt.setServiced(convertType(src.getServiced()));
-    if (src.hasCreated())
-      tgt.setCreated(src.getCreated());
-    if (src.hasEnterer())
-      tgt.setEnterer(convertReference(src.getEnterer()));
-    if (src.hasProvider())
-      tgt.setProvider(convertReference(src.getProvider()));
-//    if (src.hasOrganization())
-//      tgt.setOrganization(convertReference(src.getOrganization()));
-    if (src.hasInsurer())
-      tgt.setInsurer(convertReference(src.getInsurer()));
-    if (src.hasFacility())
-      tgt.setFacility(convertReference(src.getFacility()));
-    if (src.hasCoverage())
-      tgt.setCoverage(convertReference(src.getCoverage()));
-    if (src.hasBusinessArrangement())
-      tgt.setBusinessArrangement(src.getBusinessArrangement());
-    if (src.hasBenefitCategory())
-      tgt.setBenefitCategory(convertCodeableConcept(src.getBenefitCategory()));
-    if (src.hasBenefitSubCategory())
-      tgt.setBenefitSubCategory(convertCodeableConcept(src.getBenefitSubCategory()));
-    return tgt;
-  }
-
-  private static org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus convertEligibilityRequestStatus(org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus.ACTIVE;
-    case CANCELLED: return org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus.CANCELLED;
-    case DRAFT: return org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus.DRAFT;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus.NULL;
-  }
-}
-
-  private static org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus convertEligibilityRequestStatus(org.hl7.fhir.r4.model.EligibilityRequest.EligibilityRequestStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus.ACTIVE;
-    case CANCELLED: return org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus.CANCELLED;
-    case DRAFT: return org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus.DRAFT;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.dstu3.model.EligibilityRequest.EligibilityRequestStatus.NULL;
-  }
-}
-
-  public static org.hl7.fhir.r4.model.EligibilityResponse.InsuranceComponent convertInsuranceComponent(org.hl7.fhir.dstu3.model.EligibilityResponse.InsuranceComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.EligibilityResponse.InsuranceComponent tgt = new org.hl7.fhir.r4.model.EligibilityResponse.InsuranceComponent();
-    copyElement(src, tgt);
-    if (src.hasCoverage())
-      tgt.setCoverage(convertReference(src.getCoverage()));
-    if (src.hasContract())
-      tgt.setContract(convertReference(src.getContract()));
-    for (org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitsComponent t : src.getBenefitBalance())
-      tgt.addBenefitBalance(convertBenefitsComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.EligibilityResponse.InsuranceComponent convertInsuranceComponent(org.hl7.fhir.r4.model.EligibilityResponse.InsuranceComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityResponse.InsuranceComponent tgt = new org.hl7.fhir.dstu3.model.EligibilityResponse.InsuranceComponent();
-    copyElement(src, tgt);
-    if (src.hasCoverage())
-      tgt.setCoverage(convertReference(src.getCoverage()));
-    if (src.hasContract())
-      tgt.setContract(convertReference(src.getContract()));
-    for (org.hl7.fhir.r4.model.EligibilityResponse.BenefitsComponent t : src.getBenefitBalance())
-      tgt.addBenefitBalance(convertBenefitsComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.EligibilityResponse.BenefitsComponent convertBenefitsComponent(org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitsComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.EligibilityResponse.BenefitsComponent tgt = new org.hl7.fhir.r4.model.EligibilityResponse.BenefitsComponent();
-    copyElement(src, tgt);
-    if (src.hasCategory())
-      tgt.setCategory(convertCodeableConcept(src.getCategory()));
-    if (src.hasSubCategory())
-      tgt.setSubCategory(convertCodeableConcept(src.getSubCategory()));
-    if (src.hasExcluded())
-      tgt.setExcluded(src.getExcluded());
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
-    if (src.hasNetwork())
-      tgt.setNetwork(convertCodeableConcept(src.getNetwork()));
-    if (src.hasUnit())
-      tgt.setUnit(convertCodeableConcept(src.getUnit()));
-    if (src.hasTerm())
-      tgt.setTerm(convertCodeableConcept(src.getTerm()));
-    for (org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitComponent t : src.getFinancial())
-      tgt.addFinancial(convertBenefitComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitsComponent convertBenefitsComponent(org.hl7.fhir.r4.model.EligibilityResponse.BenefitsComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitsComponent tgt = new org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitsComponent();
-    copyElement(src, tgt);
-    if (src.hasCategory())
-      tgt.setCategory(convertCodeableConcept(src.getCategory()));
-    if (src.hasSubCategory())
-      tgt.setSubCategory(convertCodeableConcept(src.getSubCategory()));
-    if (src.hasExcluded())
-      tgt.setExcluded(src.getExcluded());
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
-    if (src.hasNetwork())
-      tgt.setNetwork(convertCodeableConcept(src.getNetwork()));
-    if (src.hasUnit())
-      tgt.setUnit(convertCodeableConcept(src.getUnit()));
-    if (src.hasTerm())
-      tgt.setTerm(convertCodeableConcept(src.getTerm()));
-    for (org.hl7.fhir.r4.model.EligibilityResponse.BenefitComponent t : src.getFinancial())
-      tgt.addFinancial(convertBenefitComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.EligibilityResponse.BenefitComponent convertBenefitComponent(org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.EligibilityResponse.BenefitComponent tgt = new org.hl7.fhir.r4.model.EligibilityResponse.BenefitComponent();
-    copyElement(src, tgt);
-    if (src.hasType())
-      tgt.setType(convertCodeableConcept(src.getType()));
-    if (src.hasAllowed())
-      tgt.setAllowed(convertType(src.getAllowed()));
-    if (src.hasUsed())
-      tgt.setUsed(convertType(src.getUsed()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitComponent convertBenefitComponent(org.hl7.fhir.r4.model.EligibilityResponse.BenefitComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitComponent tgt = new org.hl7.fhir.dstu3.model.EligibilityResponse.BenefitComponent();
-    copyElement(src, tgt);
-    if (src.hasType())
-      tgt.setType(convertCodeableConcept(src.getType()));
-    if (src.hasAllowed())
-      tgt.setAllowed(convertType(src.getAllowed()));
-    if (src.hasUsed())
-      tgt.setUsed(convertType(src.getUsed()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.EligibilityResponse.ErrorsComponent convertErrorsComponent(org.hl7.fhir.dstu3.model.EligibilityResponse.ErrorsComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.EligibilityResponse.ErrorsComponent tgt = new org.hl7.fhir.r4.model.EligibilityResponse.ErrorsComponent();
-    copyElement(src, tgt);
-    if (src.hasCode())
-      tgt.setCode(convertCodeableConcept(src.getCode()));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.EligibilityResponse.ErrorsComponent convertErrorsComponent(org.hl7.fhir.r4.model.EligibilityResponse.ErrorsComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.EligibilityResponse.ErrorsComponent tgt = new org.hl7.fhir.dstu3.model.EligibilityResponse.ErrorsComponent();
-    copyElement(src, tgt);
-    if (src.hasCode())
-      tgt.setCode(convertCodeableConcept(src.getCode()));
     return tgt;
   }
 
@@ -21821,8 +21608,6 @@ public class VersionConvertor_30_40 {
 //      return convertDocumentManifest((org.hl7.fhir.dstu3.model.DocumentManifest) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DocumentReference)
       return convertDocumentReference((org.hl7.fhir.dstu3.model.DocumentReference) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.EligibilityRequest)
-      return convertEligibilityRequest((org.hl7.fhir.dstu3.model.EligibilityRequest) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Encounter)
       return convertEncounter((org.hl7.fhir.dstu3.model.Encounter) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Endpoint)
@@ -22000,8 +21785,6 @@ public class VersionConvertor_30_40 {
 //      return convertDocumentManifest((org.hl7.fhir.r4.model.DocumentManifest) src);
     if (src instanceof org.hl7.fhir.r4.model.DocumentReference)
       return convertDocumentReference((org.hl7.fhir.r4.model.DocumentReference) src);
-    if (src instanceof org.hl7.fhir.r4.model.EligibilityRequest)
-      return convertEligibilityRequest((org.hl7.fhir.r4.model.EligibilityRequest) src);
     if (src instanceof org.hl7.fhir.r4.model.Encounter)
       return convertEncounter((org.hl7.fhir.r4.model.Encounter) src);
     if (src instanceof org.hl7.fhir.r4.model.Endpoint)

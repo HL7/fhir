@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -178,19 +178,15 @@ public class Claim extends DomainResource {
         /**
          * The treatment is complete and this represents a Claim for the services.
          */
-        COMPLETE, 
+        CLAIM, 
         /**
          * The treatment is proposed and this represents a Pre-authorization for the services.
          */
-        PROPOSED, 
+        PREAUTHORIZATION, 
         /**
          * The treatment is proposed and this represents a Pre-determination for the services.
          */
-        EXPLORATORY, 
-        /**
-         * A locally defined or otherwise resolved status.
-         */
-        OTHER, 
+        PREDETERMINATION, 
         /**
          * added to help the parsers with the generic types
          */
@@ -198,14 +194,12 @@ public class Claim extends DomainResource {
         public static Use fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("complete".equals(codeString))
-          return COMPLETE;
-        if ("proposed".equals(codeString))
-          return PROPOSED;
-        if ("exploratory".equals(codeString))
-          return EXPLORATORY;
-        if ("other".equals(codeString))
-          return OTHER;
+        if ("claim".equals(codeString))
+          return CLAIM;
+        if ("preauthorization".equals(codeString))
+          return PREAUTHORIZATION;
+        if ("predetermination".equals(codeString))
+          return PREDETERMINATION;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -213,37 +207,33 @@ public class Claim extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case COMPLETE: return "complete";
-            case PROPOSED: return "proposed";
-            case EXPLORATORY: return "exploratory";
-            case OTHER: return "other";
+            case CLAIM: return "claim";
+            case PREAUTHORIZATION: return "preauthorization";
+            case PREDETERMINATION: return "predetermination";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case COMPLETE: return "http://hl7.org/fhir/claim-use";
-            case PROPOSED: return "http://hl7.org/fhir/claim-use";
-            case EXPLORATORY: return "http://hl7.org/fhir/claim-use";
-            case OTHER: return "http://hl7.org/fhir/claim-use";
+            case CLAIM: return "http://hl7.org/fhir/claim-use";
+            case PREAUTHORIZATION: return "http://hl7.org/fhir/claim-use";
+            case PREDETERMINATION: return "http://hl7.org/fhir/claim-use";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case COMPLETE: return "The treatment is complete and this represents a Claim for the services.";
-            case PROPOSED: return "The treatment is proposed and this represents a Pre-authorization for the services.";
-            case EXPLORATORY: return "The treatment is proposed and this represents a Pre-determination for the services.";
-            case OTHER: return "A locally defined or otherwise resolved status.";
+            case CLAIM: return "The treatment is complete and this represents a Claim for the services.";
+            case PREAUTHORIZATION: return "The treatment is proposed and this represents a Pre-authorization for the services.";
+            case PREDETERMINATION: return "The treatment is proposed and this represents a Pre-determination for the services.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "Complete";
-            case PROPOSED: return "Proposed";
-            case EXPLORATORY: return "Exploratory";
-            case OTHER: return "Other";
+            case CLAIM: return "Claim";
+            case PREAUTHORIZATION: return "Preauthorization";
+            case PREDETERMINATION: return "Predetermination";
             default: return "?";
           }
         }
@@ -254,14 +244,12 @@ public class Claim extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("complete".equals(codeString))
-          return Use.COMPLETE;
-        if ("proposed".equals(codeString))
-          return Use.PROPOSED;
-        if ("exploratory".equals(codeString))
-          return Use.EXPLORATORY;
-        if ("other".equals(codeString))
-          return Use.OTHER;
+        if ("claim".equals(codeString))
+          return Use.CLAIM;
+        if ("preauthorization".equals(codeString))
+          return Use.PREAUTHORIZATION;
+        if ("predetermination".equals(codeString))
+          return Use.PREDETERMINATION;
         throw new IllegalArgumentException("Unknown Use code '"+codeString+"'");
         }
         public Enumeration<Use> fromType(Base code) throws FHIRException {
@@ -272,25 +260,21 @@ public class Claim extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("complete".equals(codeString))
-          return new Enumeration<Use>(this, Use.COMPLETE);
-        if ("proposed".equals(codeString))
-          return new Enumeration<Use>(this, Use.PROPOSED);
-        if ("exploratory".equals(codeString))
-          return new Enumeration<Use>(this, Use.EXPLORATORY);
-        if ("other".equals(codeString))
-          return new Enumeration<Use>(this, Use.OTHER);
+        if ("claim".equals(codeString))
+          return new Enumeration<Use>(this, Use.CLAIM);
+        if ("preauthorization".equals(codeString))
+          return new Enumeration<Use>(this, Use.PREAUTHORIZATION);
+        if ("predetermination".equals(codeString))
+          return new Enumeration<Use>(this, Use.PREDETERMINATION);
         throw new FHIRException("Unknown Use code '"+codeString+"'");
         }
     public String toCode(Use code) {
-      if (code == Use.COMPLETE)
-        return "complete";
-      if (code == Use.PROPOSED)
-        return "proposed";
-      if (code == Use.EXPLORATORY)
-        return "exploratory";
-      if (code == Use.OTHER)
-        return "other";
+      if (code == Use.CLAIM)
+        return "claim";
+      if (code == Use.PREAUTHORIZATION)
+        return "preauthorization";
+      if (code == Use.PREDETERMINATION)
+        return "predetermination";
       return "?";
       }
     public String toSystem(Use code) {
@@ -3476,7 +3460,7 @@ public class Claim extends DomainResource {
          */
         @Child(name = "category", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-benefitcategory")
         protected CodeableConcept category;
 
         /**
@@ -5107,7 +5091,7 @@ public class Claim extends DomainResource {
          */
         @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-benefitcategory")
         protected CodeableConcept category;
 
         /**
@@ -6000,7 +5984,7 @@ public class Claim extends DomainResource {
          */
         @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of service or product", formalDefinition="Health Care Service Type Codes  to identify the classification of service or benefits." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-subcategory")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-benefitcategory")
         protected CodeableConcept category;
 
         /**
@@ -6823,10 +6807,10 @@ public class Claim extends DomainResource {
     protected List<CodeableConcept> subType;
 
     /**
-     * Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
+     * A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.
      */
-    @Child(name = "use", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="complete | proposed | exploratory | other", formalDefinition="Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination)." )
+    @Child(name = "use", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="claim | preauthorization | predetermination", formalDefinition="A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-use")
     protected Enumeration<Use> use;
 
@@ -7215,7 +7199,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #use} (Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
+     * @return {@link #use} (A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
     public Enumeration<Use> getUseElement() { 
       if (this.use == null)
@@ -7235,7 +7219,7 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #use} (Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
+     * @param value {@link #use} (A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
     public Claim setUseElement(Enumeration<Use> value) { 
       this.use = value;
@@ -7243,14 +7227,14 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
+     * @return A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.
      */
     public Use getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
-     * @param value Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
+     * @param value A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.
      */
     public Claim setUse(Use value) { 
       if (value == null)
@@ -8170,7 +8154,7 @@ public class Claim extends DomainResource {
         children.add(new Property("status", "code", "The status of the resource instance.", 0, 1, status));
         children.add(new Property("type", "CodeableConcept", "The category of claim, eg, oral, pharmacy, vision, insitutional, professional.", 0, 1, type));
         children.add(new Property("subType", "CodeableConcept", "A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.", 0, java.lang.Integer.MAX_VALUE, subType));
-        children.add(new Property("use", "code", "Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).", 0, 1, use));
+        children.add(new Property("use", "code", "A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.", 0, 1, use));
         children.add(new Property("patient", "Reference(Patient)", "Patient Resource.", 0, 1, patient));
         children.add(new Property("billablePeriod", "Period", "The billable period for which charges are being submitted.", 0, 1, billablePeriod));
         children.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created));
@@ -8202,7 +8186,7 @@ public class Claim extends DomainResource {
         case -892481550: /*status*/  return new Property("status", "code", "The status of the resource instance.", 0, 1, status);
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The category of claim, eg, oral, pharmacy, vision, insitutional, professional.", 0, 1, type);
         case -1868521062: /*subType*/  return new Property("subType", "CodeableConcept", "A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.", 0, java.lang.Integer.MAX_VALUE, subType);
-        case 116103: /*use*/  return new Property("use", "code", "Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).", 0, 1, use);
+        case 116103: /*use*/  return new Property("use", "code", "A claim, a list of completed goods and services; a preauthorization, a list or proposed goods and services; or a predetermination, a set of goods and services being considered, for which insurer adjudication is sought.", 0, 1, use);
         case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "Patient Resource.", 0, 1, patient);
         case -332066046: /*billablePeriod*/  return new Property("billablePeriod", "Period", "The billable period for which charges are being submitted.", 0, 1, billablePeriod);
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created);

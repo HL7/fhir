@@ -1471,7 +1471,7 @@ use of digital signatures.
 When the signature is an XML Digital Signature (contentType = application/signature+xml), the following rules apply:
 </p>
 <ul>
- <li>The Signature.blob is base64 encoded XML-Signature</li>
+ <li>The Signature.data is base64 encoded XML-Signature</li>
  <li>The XML-Signature is a <a href="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/#def-SignatureDetached">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>The Signature SHOULD conform to XAdES-X-L for support of Long Term signatures. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="xml.html#canonical">Canonical XML form</a> of the resource(s)</li>
@@ -1495,7 +1495,7 @@ For example, some environments may choose a different XAdES profile, hashing alg
 When the signature is an JSON Digital Signature (contentType = application/jose), the following rules apply:
 </p>
 <ul>
- <li>The Signature.blob is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
+ <li>The Signature.data is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
  <li>The Signature SHOULD use the hashing algorithm SHA256. Signature validation policy will apply to the signature and determine acceptability</li>

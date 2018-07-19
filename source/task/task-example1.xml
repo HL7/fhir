@@ -35,7 +35,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 				</whoReference>
 				<targetFormat value="application/fhir+xml"/>
 				<sigFormat value="application/signature+xml"/>
-				<blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
+				<data value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
 			</signature>
 		</Provenance>
 	</contained>

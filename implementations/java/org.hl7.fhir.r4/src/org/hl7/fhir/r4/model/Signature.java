@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -96,11 +96,11 @@ public class Signature extends Type implements ICompositeType {
     /**
      * The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
      */
-    @Child(name = "blob", type = {Base64BinaryType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "data", type = {Base64BinaryType.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The actual signature content (XML DigSig. JWS, picture, etc.)", formalDefinition="The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty." )
-    protected Base64BinaryType blob;
+    protected Base64BinaryType data;
 
-    private static final long serialVersionUID = 691965984L;
+    private static final long serialVersionUID = -2138326797L;
 
   /**
    * Constructor
@@ -417,50 +417,50 @@ public class Signature extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #blob} (The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
+     * @return {@link #data} (The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Base64BinaryType getBlobElement() { 
-      if (this.blob == null)
+    public Base64BinaryType getDataElement() { 
+      if (this.data == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Signature.blob");
+          throw new Error("Attempt to auto-create Signature.data");
         else if (Configuration.doAutoCreate())
-          this.blob = new Base64BinaryType(); // bb
-      return this.blob;
+          this.data = new Base64BinaryType(); // bb
+      return this.data;
     }
 
-    public boolean hasBlobElement() { 
-      return this.blob != null && !this.blob.isEmpty();
+    public boolean hasDataElement() { 
+      return this.data != null && !this.data.isEmpty();
     }
 
-    public boolean hasBlob() { 
-      return this.blob != null && !this.blob.isEmpty();
+    public boolean hasData() { 
+      return this.data != null && !this.data.isEmpty();
     }
 
     /**
-     * @param value {@link #blob} (The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
+     * @param value {@link #data} (The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Signature setBlobElement(Base64BinaryType value) { 
-      this.blob = value;
+    public Signature setDataElement(Base64BinaryType value) { 
+      this.data = value;
       return this;
     }
 
     /**
      * @return The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
      */
-    public byte[] getBlob() { 
-      return this.blob == null ? null : this.blob.getValue();
+    public byte[] getData() { 
+      return this.data == null ? null : this.data.getValue();
     }
 
     /**
      * @param value The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
      */
-    public Signature setBlob(byte[] value) { 
+    public Signature setData(byte[] value) { 
       if (value == null)
-        this.blob = null;
+        this.data = null;
       else {
-        if (this.blob == null)
-          this.blob = new Base64BinaryType();
-        this.blob.setValue(value);
+        if (this.data == null)
+          this.data = new Base64BinaryType();
+        this.data.setValue(value);
       }
       return this;
     }
@@ -473,7 +473,7 @@ public class Signature extends Type implements ICompositeType {
         children.add(new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf));
         children.add(new Property("targetFormat", "code", "A mime type that indicates the technical format of the target resources signed by the signature.", 0, 1, targetFormat));
         children.add(new Property("sigFormat", "code", "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.", 0, 1, sigFormat));
-        children.add(new Property("blob", "base64Binary", "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.", 0, 1, blob));
+        children.add(new Property("data", "base64Binary", "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.", 0, 1, data));
       }
 
       @Override
@@ -491,7 +491,7 @@ public class Signature extends Type implements ICompositeType {
         case -1136255425: /*onBehalfOfReference*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf);
         case -917363480: /*targetFormat*/  return new Property("targetFormat", "code", "A mime type that indicates the technical format of the target resources signed by the signature.", 0, 1, targetFormat);
         case -58720216: /*sigFormat*/  return new Property("sigFormat", "code", "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.", 0, 1, sigFormat);
-        case 3026845: /*blob*/  return new Property("blob", "base64Binary", "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.", 0, 1, blob);
+        case 3076010: /*data*/  return new Property("data", "base64Binary", "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.", 0, 1, data);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -506,7 +506,7 @@ public class Signature extends Type implements ICompositeType {
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Type
         case -917363480: /*targetFormat*/ return this.targetFormat == null ? new Base[0] : new Base[] {this.targetFormat}; // CodeType
         case -58720216: /*sigFormat*/ return this.sigFormat == null ? new Base[0] : new Base[] {this.sigFormat}; // CodeType
-        case 3026845: /*blob*/ return this.blob == null ? new Base[0] : new Base[] {this.blob}; // Base64BinaryType
+        case 3076010: /*data*/ return this.data == null ? new Base[0] : new Base[] {this.data}; // Base64BinaryType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -533,8 +533,8 @@ public class Signature extends Type implements ICompositeType {
         case -58720216: // sigFormat
           this.sigFormat = castToCode(value); // CodeType
           return value;
-        case 3026845: // blob
-          this.blob = castToBase64Binary(value); // Base64BinaryType
+        case 3076010: // data
+          this.data = castToBase64Binary(value); // Base64BinaryType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -555,8 +555,8 @@ public class Signature extends Type implements ICompositeType {
           this.targetFormat = castToCode(value); // CodeType
         } else if (name.equals("sigFormat")) {
           this.sigFormat = castToCode(value); // CodeType
-        } else if (name.equals("blob")) {
-          this.blob = castToBase64Binary(value); // Base64BinaryType
+        } else if (name.equals("data")) {
+          this.data = castToBase64Binary(value); // Base64BinaryType
         } else
           return super.setProperty(name, value);
         return value;
@@ -573,7 +573,7 @@ public class Signature extends Type implements ICompositeType {
         case -14402964:  return getOnBehalfOf(); 
         case -917363480:  return getTargetFormatElement();
         case -58720216:  return getSigFormatElement();
-        case 3026845:  return getBlobElement();
+        case 3076010:  return getDataElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -588,7 +588,7 @@ public class Signature extends Type implements ICompositeType {
         case -14402964: /*onBehalfOf*/ return new String[] {"uri", "Reference"};
         case -917363480: /*targetFormat*/ return new String[] {"code"};
         case -58720216: /*sigFormat*/ return new String[] {"code"};
-        case 3026845: /*blob*/ return new String[] {"base64Binary"};
+        case 3076010: /*data*/ return new String[] {"base64Binary"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -624,8 +624,8 @@ public class Signature extends Type implements ICompositeType {
         else if (name.equals("sigFormat")) {
           throw new FHIRException("Cannot call addChild on a primitive type Signature.sigFormat");
         }
-        else if (name.equals("blob")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Signature.blob");
+        else if (name.equals("data")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Signature.data");
         }
         else
           return super.addChild(name);
@@ -649,7 +649,7 @@ public class Signature extends Type implements ICompositeType {
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         dst.targetFormat = targetFormat == null ? null : targetFormat.copy();
         dst.sigFormat = sigFormat == null ? null : sigFormat.copy();
-        dst.blob = blob == null ? null : blob.copy();
+        dst.data = data == null ? null : data.copy();
         return dst;
       }
 
@@ -666,7 +666,7 @@ public class Signature extends Type implements ICompositeType {
         Signature o = (Signature) other_;
         return compareDeep(type, o.type, true) && compareDeep(when, o.when, true) && compareDeep(who, o.who, true)
            && compareDeep(onBehalfOf, o.onBehalfOf, true) && compareDeep(targetFormat, o.targetFormat, true)
-           && compareDeep(sigFormat, o.sigFormat, true) && compareDeep(blob, o.blob, true);
+           && compareDeep(sigFormat, o.sigFormat, true) && compareDeep(data, o.data, true);
       }
 
       @Override
@@ -677,12 +677,12 @@ public class Signature extends Type implements ICompositeType {
           return false;
         Signature o = (Signature) other_;
         return compareValues(when, o.when, true) && compareValues(targetFormat, o.targetFormat, true) && compareValues(sigFormat, o.sigFormat, true)
-           && compareValues(blob, o.blob, true);
+           && compareValues(data, o.data, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, when, who, onBehalfOf
-          , targetFormat, sigFormat, blob);
+          , targetFormat, sigFormat, data);
       }
 
 

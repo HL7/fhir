@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -108,6 +108,8 @@ public class ResourceFactory extends Factory {
             return new Group();
         if ("PaymentNotice".equals(name))
             return new PaymentNotice();
+        if ("MedicinalProductManufactured".equals(name))
+            return new MedicinalProductManufactured();
         if ("Organization".equals(name))
             return new Organization();
         if ("CareTeam".equals(name))
@@ -254,8 +256,6 @@ public class ResourceFactory extends Factory {
             return new EligibilityRequest();
         if ("ProcessRequest".equals(name))
             return new ProcessRequest();
-        if ("OccupationalData".equals(name))
-            return new OccupationalData();
         if ("MedicationDispense".equals(name))
             return new MedicationDispense();
         if ("DiagnosticReport".equals(name))
@@ -547,6 +547,7 @@ public class ResourceFactory extends Factory {
         case -1801833337: return new MedicinalProductClinicals();
         case 417312586: return new MedicinalProductDeviceSpec();
         case -570248726: return new MedicinalProductIngredient();
+        case 568246684: return new MedicinalProductManufactured();
         case -500906185: return new MedicinalProductPackaged();
         case -1034780964: return new MedicinalProductPharmaceutical();
         case -2037697382: return new MessageDefinition();
@@ -559,7 +560,6 @@ public class ResourceFactory extends Factory {
         case 1247831734: return new NutritionOrder();
         case 1790214156: return new Observation();
         case 673706623: return new ObservationDefinition();
-        case 1902488480: return new OccupationalData();
         case -2140710406: return new OperationDefinition();
         case -526550005: return new OperationOutcome();
         case 1343242579: return new Organization();

@@ -61,6 +61,6 @@
 		</whoReference>	
 		<targetFormat value="application/fhir+xml"/>
 		<sigFormat value="application/signature+xml"/>
-		<blob value="Li4u"/>
+		<data value="Li4u"/>
 	</signature>
 </Provenance>

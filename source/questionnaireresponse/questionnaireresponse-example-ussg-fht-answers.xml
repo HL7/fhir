@@ -177,15 +177,22 @@
     <linkId value="2"/>
     <definition value="http://loinc.org/fhir/DataElement/54114-4"/>
     <text value="Family member health information"/>
-    <!--TODO: Subject was removed, commenting this out to get the build going -->
-	<!--subject-->
-      <!-- In theory, you could associate each relative with a different subject, though typically most systems would treat all elements as belonging to the root patient -->
-      <!--reference value="Patient/pat1"/-->
-    <!--/subject-->
     <item>
       <linkId value="2.1"/>
-      <item>
-        <linkId value="2.1.1"/>
+<!-- see comment in questionnaire     <item>
+        <linkId value="2.1.1"/> -->
+        <item>
+          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject" >
+ 					  <valueBoolean value="true"/>
+					</extension>
+          <linkId value="2.1.1.0"/>
+          <text value="Family Member identity"/>
+          <answer>
+					  <valueReference>
+						  <reference value="Patient/pat1"/>
+					  </valueReference>						
+          </answer>
+        </item>
         <item>
           <linkId value="2.1.1.1"/>
           <definition value="http://loinc.org/fhir/DataElement/54136-7"/>
@@ -265,7 +272,7 @@
             </valueCoding>
           </answer>
         </item>
-      </item>
+      <!-- </item> -->
     </item>
     <item>
       <linkId value="2.1"/>

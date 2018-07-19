@@ -3,13 +3,13 @@
 <a name="content"></a>
 <h3>Content Optionality</h3>
 <p>
-<code>Binary.content</code> is optional because it is excluded when 
+<code>Binary.data</code> is optional because it is excluded when 
 a summary view of the Binary resource is requested (this can be useful
 when the binary resource is part of a wider request e.g. a search 
 _include). 
 </p>
 <p>
-Otherwise, the content is not optional; a binary resource without
+Otherwise, the data is not optional; a binary resource without
 any specified content it not useful.
 </p>
 

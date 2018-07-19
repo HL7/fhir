@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -516,16 +516,14 @@ public class MedicationKnowledge extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("type", "CodeableConcept", "The category of documentation about the medication. (e.g. professional monograph, patient educaton monograph).", 0, 1, type));
-          children.add(new Property("source[x]", "Reference(DocumentReference|Media)", "Associated documentation about the medication.", 0, 1, source));
+          children.add(new Property("source", "Reference(DocumentReference|Media)", "Associated documentation about the medication.", 0, 1, source));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The category of documentation about the medication. (e.g. professional monograph, patient educaton monograph).", 0, 1, type);
-          case -1698413947: /*source[x]*/  return new Property("source[x]", "Reference(DocumentReference|Media)", "Associated documentation about the medication.", 0, 1, source);
-          case -896505829: /*source*/  return new Property("source[x]", "Reference(DocumentReference|Media)", "Associated documentation about the medication.", 0, 1, source);
-          case -244259472: /*sourceReference*/  return new Property("source[x]", "Reference(DocumentReference|Media)", "Associated documentation about the medication.", 0, 1, source);
+          case -896505829: /*source*/  return new Property("source", "Reference(DocumentReference|Media)", "Associated documentation about the medication.", 0, 1, source);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -559,7 +557,7 @@ public class MedicationKnowledge extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("source[x]")) {
+        } else if (name.equals("source")) {
           this.source = castToReference(value); // Reference
         } else
           return super.setProperty(name, value);
@@ -570,7 +568,6 @@ public class MedicationKnowledge extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getType(); 
-        case -1698413947:  return getSource(); 
         case -896505829:  return getSource(); 
         default: return super.makeProperty(hash, name);
         }
@@ -593,7 +590,7 @@ public class MedicationKnowledge extends DomainResource {
           this.type = new CodeableConcept();
           return this.type;
         }
-        else if (name.equals("source[x]")) {
+        else if (name.equals("source")) {
           this.source = new Reference();
           return this.source;
         }
@@ -6250,17 +6247,17 @@ public class MedicationKnowledge extends DomainResource {
    * <p>
    * Description: <b>Associated documentation about the medication</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationKnowledge.monograph.sourceReference</b><br>
+   * Path: <b>MedicationKnowledge.monograph.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="monograph", path="MedicationKnowledge.monograph.source.as(Reference)", description="Associated documentation about the medication", type="reference", target={DocumentReference.class, Media.class } )
+  @SearchParamDefinition(name="monograph", path="MedicationKnowledge.monograph.source", description="Associated documentation about the medication", type="reference", target={DocumentReference.class, Media.class } )
   public static final String SP_MONOGRAPH = "monograph";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>monograph</b>
    * <p>
    * Description: <b>Associated documentation about the medication</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationKnowledge.monograph.sourceReference</b><br>
+   * Path: <b>MedicationKnowledge.monograph.source</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MONOGRAPH = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MONOGRAPH);

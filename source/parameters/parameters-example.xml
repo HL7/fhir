@@ -10,7 +10,7 @@
     <resource>
       <Binary>
         <contentType value="text/plain"/>
-        <content value="VGhpcyBpcyBhIHRlc3QgZXhhbXBsZQ=="/>
+        <data value="VGhpcyBpcyBhIHRlc3QgZXhhbXBsZQ=="/>
       </Binary>
     </resource>
   </parameter> 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -3052,7 +3052,14 @@ public class StructureMap extends MetadataResource {
         @Description(shortDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing", formalDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing." )
         protected StringType check;
 
-        private static final long serialVersionUID = -878842729L;
+        /**
+         * A message to put in the transform log when content matching the source rule is found.
+         */
+        @Child(name = "logMessage", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Message to put in log if source exists", formalDefinition="A message to put in the transform log when content matching the source rule is found." )
+        protected StringType logMessage;
+
+        private static final long serialVersionUID = 736427977L;
 
     /**
      * Constructor
@@ -3521,6 +3528,55 @@ public class StructureMap extends MetadataResource {
           return this;
         }
 
+        /**
+         * @return {@link #logMessage} (A message to put in the transform log when content matching the source rule is found.). This is the underlying object with id, value and extensions. The accessor "getLogMessage" gives direct access to the value
+         */
+        public StringType getLogMessageElement() { 
+          if (this.logMessage == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create StructureMapGroupRuleSourceComponent.logMessage");
+            else if (Configuration.doAutoCreate())
+              this.logMessage = new StringType(); // bb
+          return this.logMessage;
+        }
+
+        public boolean hasLogMessageElement() { 
+          return this.logMessage != null && !this.logMessage.isEmpty();
+        }
+
+        public boolean hasLogMessage() { 
+          return this.logMessage != null && !this.logMessage.isEmpty();
+        }
+
+        /**
+         * @param value {@link #logMessage} (A message to put in the transform log when content matching the source rule is found.). This is the underlying object with id, value and extensions. The accessor "getLogMessage" gives direct access to the value
+         */
+        public StructureMapGroupRuleSourceComponent setLogMessageElement(StringType value) { 
+          this.logMessage = value;
+          return this;
+        }
+
+        /**
+         * @return A message to put in the transform log when content matching the source rule is found.
+         */
+        public String getLogMessage() { 
+          return this.logMessage == null ? null : this.logMessage.getValue();
+        }
+
+        /**
+         * @param value A message to put in the transform log when content matching the source rule is found.
+         */
+        public StructureMapGroupRuleSourceComponent setLogMessage(String value) { 
+          if (Utilities.noString(value))
+            this.logMessage = null;
+          else {
+            if (this.logMessage == null)
+              this.logMessage = new StringType();
+            this.logMessage.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("context", "id", "Type or variable this rule applies to.", 0, 1, context));
@@ -3533,6 +3589,7 @@ public class StructureMap extends MetadataResource {
           children.add(new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable));
           children.add(new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, 1, condition));
           children.add(new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, 1, check));
+          children.add(new Property("logMessage", "string", "A message to put in the transform log when content matching the source rule is found.", 0, 1, logMessage));
         }
 
         @Override
@@ -3585,6 +3642,7 @@ public class StructureMap extends MetadataResource {
           case -1249586564: /*variable*/  return new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable);
           case -861311717: /*condition*/  return new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, 1, condition);
           case 94627080: /*check*/  return new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, 1, check);
+          case -1067155421: /*logMessage*/  return new Property("logMessage", "string", "A message to put in the transform log when content matching the source rule is found.", 0, 1, logMessage);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -3603,6 +3661,7 @@ public class StructureMap extends MetadataResource {
         case -1249586564: /*variable*/ return this.variable == null ? new Base[0] : new Base[] {this.variable}; // IdType
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // StringType
         case 94627080: /*check*/ return this.check == null ? new Base[0] : new Base[] {this.check}; // StringType
+        case -1067155421: /*logMessage*/ return this.logMessage == null ? new Base[0] : new Base[] {this.logMessage}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3642,6 +3701,9 @@ public class StructureMap extends MetadataResource {
         case 94627080: // check
           this.check = castToString(value); // StringType
           return value;
+        case -1067155421: // logMessage
+          this.logMessage = castToString(value); // StringType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -3670,6 +3732,8 @@ public class StructureMap extends MetadataResource {
           this.condition = castToString(value); // StringType
         } else if (name.equals("check")) {
           this.check = castToString(value); // StringType
+        } else if (name.equals("logMessage")) {
+          this.logMessage = castToString(value); // StringType
         } else
           return super.setProperty(name, value);
         return value;
@@ -3689,6 +3753,7 @@ public class StructureMap extends MetadataResource {
         case -1249586564:  return getVariableElement();
         case -861311717:  return getConditionElement();
         case 94627080:  return getCheckElement();
+        case -1067155421:  return getLogMessageElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -3707,6 +3772,7 @@ public class StructureMap extends MetadataResource {
         case -1249586564: /*variable*/ return new String[] {"id"};
         case -861311717: /*condition*/ return new String[] {"string"};
         case 94627080: /*check*/ return new String[] {"string"};
+        case -1067155421: /*logMessage*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3910,6 +3976,10 @@ public class StructureMap extends MetadataResource {
           this.defaultValue = new TriggerDefinition();
           return this.defaultValue;
         }
+        else if (name.equals("defaultValueExpression")) {
+          this.defaultValue = new Expression();
+          return this.defaultValue;
+        }
         else if (name.equals("defaultValueUsageContext")) {
           this.defaultValue = new UsageContext();
           return this.defaultValue;
@@ -3933,6 +4003,9 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("check")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.check");
         }
+        else if (name.equals("logMessage")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.logMessage");
+        }
         else
           return super.addChild(name);
       }
@@ -3950,6 +4023,7 @@ public class StructureMap extends MetadataResource {
         dst.variable = variable == null ? null : variable.copy();
         dst.condition = condition == null ? null : condition.copy();
         dst.check = check == null ? null : check.copy();
+        dst.logMessage = logMessage == null ? null : logMessage.copy();
         return dst;
       }
 
@@ -3963,7 +4037,7 @@ public class StructureMap extends MetadataResource {
         return compareDeep(context, o.context, true) && compareDeep(min, o.min, true) && compareDeep(max, o.max, true)
            && compareDeep(type, o.type, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(element, o.element, true)
            && compareDeep(listMode, o.listMode, true) && compareDeep(variable, o.variable, true) && compareDeep(condition, o.condition, true)
-           && compareDeep(check, o.check, true);
+           && compareDeep(check, o.check, true) && compareDeep(logMessage, o.logMessage, true);
       }
 
       @Override
@@ -3976,12 +4050,12 @@ public class StructureMap extends MetadataResource {
         return compareValues(context, o.context, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
            && compareValues(type, o.type, true) && compareValues(element, o.element, true) && compareValues(listMode, o.listMode, true)
            && compareValues(variable, o.variable, true) && compareValues(condition, o.condition, true) && compareValues(check, o.check, true)
-          ;
+           && compareValues(logMessage, o.logMessage, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(context, min, max, type
-          , defaultValue, element, listMode, variable, condition, check);
+          , defaultValue, element, listMode, variable, condition, check, logMessage);
       }
 
   public String fhirType() {

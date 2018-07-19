@@ -775,7 +775,7 @@ public class VersionConvertor_10_40 {
     tgt.setWhen(src.getWhen());
     tgt.setWho(convertType(src.getWho()));
     tgt.setSigFormat(src.getContentType());
-    tgt.setBlob(src.getBlob());
+    tgt.setData(src.getBlob());
     return tgt;
   }
 
@@ -789,7 +789,7 @@ public class VersionConvertor_10_40 {
     tgt.setWhen(src.getWhen());
     tgt.setWho(convertType(src.getWho()));
     tgt.setContentType(src.getSigFormat());
-    tgt.setBlob(src.getBlob());
+    tgt.setBlob(src.getData());
     return tgt;
   }
 
@@ -3994,11 +3994,8 @@ public class VersionConvertor_10_40 {
       tgt.setRecordedDate(src.getDateRecorded());
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.addCategory(convertCodeableConcept(src.getCategory()));
-    try {
-      tgt.setClinicalStatus(org.hl7.fhir.r4.model.Condition.ConditionClinicalStatus.fromCode(src.getClinicalStatus()));
-    } catch (org.hl7.fhir.exceptions.FHIRException e) {
-      throw new FHIRException(e);
-    }
+    if (src.hasClinicalStatus())
+      tgt.setClinicalStatus(convertConditionClinicalStatus(src.getClinicalStatus()));
     tgt.setVerificationStatus(convertConditionVerificationStatus(src.getVerificationStatus()));
     tgt.setSeverity(convertCodeableConcept(src.getSeverity()));
     tgt.setOnset(convertType(src.getOnset()));
@@ -4027,7 +4024,8 @@ public class VersionConvertor_10_40 {
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getCategory())
       tgt.setCategory(convertCodeableConcept(t));
-    tgt.setClinicalStatus(src.getClinicalStatus().toCode());
+    if (src.hasClinicalStatus())
+      tgt.setClinicalStatus(convertConditionClinicalStatus(src.getClinicalStatus()));
     tgt.setVerificationStatus(convertConditionVerificationStatus(src.getVerificationStatus()));
     tgt.setSeverity(convertCodeableConcept(src.getSeverity()));
     tgt.setOnset(convertType(src.getOnset()));
@@ -4040,34 +4038,62 @@ public class VersionConvertor_10_40 {
 //    tgt.setNotes(src.getNotes());
     return tgt;
   }
-
-  public org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus convertConditionVerificationStatus(org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus src) throws FHIRException {
+  
+  private static org.hl7.fhir.r4.model.CodeableConcept convertConditionClinicalStatus(String src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case PROVISIONAL: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.PROVISIONAL;
-    case DIFFERENTIAL: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.DIFFERENTIAL;
-    case CONFIRMED: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.CONFIRMED;
-    case REFUTED: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.REFUTED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.ENTEREDINERROR;
-    case UNKNOWN: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.UNCONFIRMED;
-    default: return org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus.NULL;
-    }
+    org.hl7.fhir.r4.model.CodeableConcept cc = new org.hl7.fhir.r4.model.CodeableConcept();
+    cc.addCoding().setSystem("http://hl7.org/fhir/condition-clinical").setCode(src);
+    return cc;
   }
-
-  public org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus convertConditionVerificationStatus(org.hl7.fhir.r4.model.Condition.ConditionVerificationStatus src) throws FHIRException {
+  
+  private static String convertConditionClinicalStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case PROVISIONAL: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.PROVISIONAL;
-    case DIFFERENTIAL: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.DIFFERENTIAL;
-    case CONFIRMED: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.CONFIRMED;
-    case REFUTED: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.REFUTED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.ENTEREDINERROR;
-    case UNCONFIRMED: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.UNKNOWN;
-    default: return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.NULL;
+    for (org.hl7.fhir.r4.model.Coding c : src.getCoding()) {
+      if ("http://hl7.org/fhir/condition-clinical".equals(c.getSystem()))
+        return c.getCode();
     }
+    return null;
   }
+  
+  private static org.hl7.fhir.r4.model.CodeableConcept convertConditionVerificationStatus(org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.r4.model.CodeableConcept cc = new org.hl7.fhir.r4.model.CodeableConcept();
+    switch (src) {
+    case PROVISIONAL: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("provisional");
+      return cc;
+    case DIFFERENTIAL: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("differential");
+      return cc;
+    case CONFIRMED: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("confirmed");
+      return cc;
+    case REFUTED: 
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("refuted");
+      return cc;
+    case ENTEREDINERROR:
+      cc.addCoding().setSystem("http://hl7.org/fhir/condition-ver-status").setCode("entered-in-error");
+      return cc;
+    default: return null;
+    }
+  }  
+
+
+    private static org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus convertConditionVerificationStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
+      if (src == null)
+        return null;
+      if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "provisional")) return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.PROVISIONAL;
+      if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "differential")) return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.DIFFERENTIAL;
+      if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "confirmed")) return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.CONFIRMED;
+      if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "refuted")) return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.REFUTED;
+      if (src.hasCoding("http://hl7.org/fhir/condition-clinical", "entered-in-error")) return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.ENTEREDINERROR;
+      return org.hl7.fhir.dstu2.model.Condition.ConditionVerificationStatus.NULL;
+    }
+
+
 
   public org.hl7.fhir.r4.model.Condition.ConditionStageComponent convertConditionStageComponent(org.hl7.fhir.dstu2.model.Condition.ConditionStageComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -4842,7 +4868,7 @@ public class VersionConvertor_10_40 {
     tgt.setType(convertCoding(src.getType()));
     tgt.setParty(convertReference(src.getParty()));
     if (src.hasSignature())
-      tgt.addSignature(new org.hl7.fhir.r4.model.Signature().setBlob(src.getSignature().getBytes()));
+      tgt.addSignature(new org.hl7.fhir.r4.model.Signature().setData(src.getSignature().getBytes()));
     return tgt;
   }
 
@@ -4854,7 +4880,7 @@ public class VersionConvertor_10_40 {
     tgt.setType(convertCoding(src.getType()));
     tgt.setParty(convertReference(src.getParty()));
     for (org.hl7.fhir.r4.model.Signature t : src.getSignature())
-      tgt.setSignature(Base64.encodeBase64String(t.getBlob()));
+      tgt.setSignature(Base64.encodeBase64String(t.getData()));
     return tgt;
   }
 

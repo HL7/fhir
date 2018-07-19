@@ -1013,7 +1013,7 @@ public class VersionConvertor_14_40 {
     if (src.hasContentType())
       tgt.setSigFormat(src.getContentType());
     if (src.hasBlob())
-      tgt.setBlob(src.getBlob());
+      tgt.setData(src.getBlob());
     return tgt;
   }
 
@@ -1028,8 +1028,8 @@ public class VersionConvertor_14_40 {
     tgt.setWho(convertType(src.getWho()));
     if (src.hasSigFormat())
       tgt.setContentType(src.getSigFormat());
-    if (src.hasBlob())
-      tgt.setBlob(src.getBlob());
+    if (src.hasData())
+      tgt.setBlob(src.getData());
     return tgt;
   }
 

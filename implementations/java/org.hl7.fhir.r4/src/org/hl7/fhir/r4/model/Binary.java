@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -72,11 +72,11 @@ public class Binary extends BaseBinary implements IBaseBinary {
     /**
      * The actual content, base64 encoded.
      */
-    @Child(name = "content", type = {Base64BinaryType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "data", type = {Base64BinaryType.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The actual content", formalDefinition="The actual content, base64 encoded." )
-    protected Base64BinaryType content;
+    protected Base64BinaryType data;
 
-    private static final long serialVersionUID = 1111991335L;
+    private static final long serialVersionUID = 1353224198L;
 
   /**
    * Constructor
@@ -88,10 +88,9 @@ public class Binary extends BaseBinary implements IBaseBinary {
   /**
    * Constructor
    */
-    public Binary(CodeType contentType, Base64BinaryType content) {
+    public Binary(CodeType contentType) {
       super();
       this.contentType = contentType;
-      this.content = content;
     }
 
     /**
@@ -179,47 +178,51 @@ public class Binary extends BaseBinary implements IBaseBinary {
     }
 
     /**
-     * @return {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
+     * @return {@link #data} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Base64BinaryType getContentElement() { 
-      if (this.content == null)
+    public Base64BinaryType getDataElement() { 
+      if (this.data == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Binary.content");
+          throw new Error("Attempt to auto-create Binary.data");
         else if (Configuration.doAutoCreate())
-          this.content = new Base64BinaryType(); // bb
-      return this.content;
+          this.data = new Base64BinaryType(); // bb
+      return this.data;
     }
 
-    public boolean hasContentElement() { 
-      return this.content != null && !this.content.isEmpty();
+    public boolean hasDataElement() { 
+      return this.data != null && !this.data.isEmpty();
     }
 
-    public boolean hasContent() { 
-      return this.content != null && !this.content.isEmpty();
+    public boolean hasData() { 
+      return this.data != null && !this.data.isEmpty();
     }
 
     /**
-     * @param value {@link #content} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getContent" gives direct access to the value
+     * @param value {@link #data} (The actual content, base64 encoded.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Binary setContentElement(Base64BinaryType value) { 
-      this.content = value;
+    public Binary setDataElement(Base64BinaryType value) { 
+      this.data = value;
       return this;
     }
 
     /**
      * @return The actual content, base64 encoded.
      */
-    public byte[] getContent() { 
-      return this.content == null ? null : this.content.getValue();
+    public byte[] getData() { 
+      return this.data == null ? null : this.data.getValue();
     }
 
     /**
      * @param value The actual content, base64 encoded.
      */
-    public Binary setContent(byte[] value) { 
-        if (this.content == null)
-          this.content = new Base64BinaryType();
-        this.content.setValue(value);
+    public Binary setData(byte[] value) { 
+      if (value == null)
+        this.data = null;
+      else {
+        if (this.data == null)
+          this.data = new Base64BinaryType();
+        this.data.setValue(value);
+      }
       return this;
     }
 
@@ -227,7 +230,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
         super.listChildren(children);
         children.add(new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, 1, contentType));
         children.add(new Property("securityContext", "Reference(Any)", "Treat this binary as if it was this other resource for access control purposes.", 0, 1, securityContext));
-        children.add(new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, 1, content));
+        children.add(new Property("data", "base64Binary", "The actual content, base64 encoded.", 0, 1, data));
       }
 
       @Override
@@ -235,7 +238,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
         switch (_hash) {
         case -389131437: /*contentType*/  return new Property("contentType", "code", "MimeType of the binary content represented as a standard MimeType (BCP 13).", 0, 1, contentType);
         case -1622888881: /*securityContext*/  return new Property("securityContext", "Reference(Any)", "Treat this binary as if it was this other resource for access control purposes.", 0, 1, securityContext);
-        case 951530617: /*content*/  return new Property("content", "base64Binary", "The actual content, base64 encoded.", 0, 1, content);
+        case 3076010: /*data*/  return new Property("data", "base64Binary", "The actual content, base64 encoded.", 0, 1, data);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -246,7 +249,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
         switch (hash) {
         case -389131437: /*contentType*/ return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // CodeType
         case -1622888881: /*securityContext*/ return this.securityContext == null ? new Base[0] : new Base[] {this.securityContext}; // Reference
-        case 951530617: /*content*/ return this.content == null ? new Base[0] : new Base[] {this.content}; // Base64BinaryType
+        case 3076010: /*data*/ return this.data == null ? new Base[0] : new Base[] {this.data}; // Base64BinaryType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -261,8 +264,8 @@ public class Binary extends BaseBinary implements IBaseBinary {
         case -1622888881: // securityContext
           this.securityContext = castToReference(value); // Reference
           return value;
-        case 951530617: // content
-          this.content = castToBase64Binary(value); // Base64BinaryType
+        case 3076010: // data
+          this.data = castToBase64Binary(value); // Base64BinaryType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -275,8 +278,8 @@ public class Binary extends BaseBinary implements IBaseBinary {
           this.contentType = castToCode(value); // CodeType
         } else if (name.equals("securityContext")) {
           this.securityContext = castToReference(value); // Reference
-        } else if (name.equals("content")) {
-          this.content = castToBase64Binary(value); // Base64BinaryType
+        } else if (name.equals("data")) {
+          this.data = castToBase64Binary(value); // Base64BinaryType
         } else
           return super.setProperty(name, value);
         return value;
@@ -287,7 +290,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
         switch (hash) {
         case -389131437:  return getContentTypeElement();
         case -1622888881:  return getSecurityContext(); 
-        case 951530617:  return getContentElement();
+        case 3076010:  return getDataElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -298,7 +301,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
         switch (hash) {
         case -389131437: /*contentType*/ return new String[] {"code"};
         case -1622888881: /*securityContext*/ return new String[] {"Reference"};
-        case 951530617: /*content*/ return new String[] {"base64Binary"};
+        case 3076010: /*data*/ return new String[] {"base64Binary"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -313,8 +316,8 @@ public class Binary extends BaseBinary implements IBaseBinary {
           this.securityContext = new Reference();
           return this.securityContext;
         }
-        else if (name.equals("content")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Binary.content");
+        else if (name.equals("data")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Binary.data");
         }
         else
           return super.addChild(name);
@@ -330,7 +333,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
         copyValues(dst);
         dst.contentType = contentType == null ? null : contentType.copy();
         dst.securityContext = securityContext == null ? null : securityContext.copy();
-        dst.content = content == null ? null : content.copy();
+        dst.data = data == null ? null : data.copy();
         return dst;
       }
 
@@ -346,7 +349,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
           return false;
         Binary o = (Binary) other_;
         return compareDeep(contentType, o.contentType, true) && compareDeep(securityContext, o.securityContext, true)
-           && compareDeep(content, o.content, true);
+           && compareDeep(data, o.data, true);
       }
 
       @Override
@@ -356,18 +359,33 @@ public class Binary extends BaseBinary implements IBaseBinary {
         if (!(other_ instanceof Binary))
           return false;
         Binary o = (Binary) other_;
-        return compareValues(contentType, o.contentType, true) && compareValues(content, o.content, true);
+        return compareValues(contentType, o.contentType, true) && compareValues(data, o.data, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(contentType, securityContext
-          , content);
+          , data);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Binary;
    }
+
+  @Override
+  public byte[] getContent() {
+    return getData();
+  }
+
+  @Override
+  public IBaseBinary setContent(byte[] arg0) {
+    return setData(arg0);
+  }
+
+  @Override
+  Base64BinaryType getContentElement() {
+    return getDataElement();
+  }
 
 
 }

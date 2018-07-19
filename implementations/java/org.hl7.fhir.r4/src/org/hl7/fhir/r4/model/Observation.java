@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1344,14 +1344,14 @@ public class Observation extends DomainResource {
     /**
      * The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.
      */
-    @Child(name = "focus", type = {Reference.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The \"focal point\" of the observation", formalDefinition="The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus." )
-    protected Reference focus;
-
+    @Child(name = "focus", type = {Reference.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="What the observation is about, when it is not about the subject of record", formalDefinition="The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus." )
+    protected List<Reference> focus;
     /**
-     * The actual object that is the target of the reference (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * The actual objects that are the target of the reference (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
-    protected Resource focusTarget;
+    protected List<Resource> focusTarget;
+
 
     /**
      * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.
@@ -1415,10 +1415,10 @@ public class Observation extends DomainResource {
     protected CodeableConcept interpretation;
 
     /**
-     * May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+     * Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
      */
     @Child(name = "comment", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Comments about result", formalDefinition="May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result." )
+    @Description(shortDefinition="Comments about the test result value", formalDefinition="Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation." )
     protected StringType comment;
 
     /**
@@ -1499,7 +1499,7 @@ public class Observation extends DomainResource {
     @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations." )
     protected List<ObservationComponentComponent> component;
 
-    private static final long serialVersionUID = 479448059L;
+    private static final long serialVersionUID = -243802723L;
 
   /**
    * Constructor
@@ -1860,40 +1860,64 @@ public class Observation extends DomainResource {
     /**
      * @return {@link #focus} (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
      */
-    public Reference getFocus() { 
+    public List<Reference> getFocus() { 
       if (this.focus == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Observation.focus");
-        else if (Configuration.doAutoCreate())
-          this.focus = new Reference(); // cc
+        this.focus = new ArrayList<Reference>();
       return this.focus;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setFocus(List<Reference> theFocus) { 
+      this.focus = theFocus;
+      return this;
+    }
+
     public boolean hasFocus() { 
-      return this.focus != null && !this.focus.isEmpty();
+      if (this.focus == null)
+        return false;
+      for (Reference item : this.focus)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
-    /**
-     * @param value {@link #focus} (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
-     */
-    public Observation setFocus(Reference value) { 
-      this.focus = value;
+    public Reference addFocus() { //3
+      Reference t = new Reference();
+      if (this.focus == null)
+        this.focus = new ArrayList<Reference>();
+      this.focus.add(t);
+      return t;
+    }
+
+    public Observation addFocus(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.focus == null)
+        this.focus = new ArrayList<Reference>();
+      this.focus.add(t);
       return this;
     }
 
     /**
-     * @return {@link #focus} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
+     * @return The first repetition of repeating field {@link #focus}, creating it if it does not already exist
      */
-    public Resource getFocusTarget() { 
+    public Reference getFocusFirstRep() { 
+      if (getFocus().isEmpty()) {
+        addFocus();
+      }
+      return getFocus().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getFocusTarget() { 
+      if (this.focusTarget == null)
+        this.focusTarget = new ArrayList<Resource>();
       return this.focusTarget;
-    }
-
-    /**
-     * @param value {@link #focus} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.)
-     */
-    public Observation setFocusTarget(Resource value) { 
-      this.focusTarget = value;
-      return this;
     }
 
     /**
@@ -2348,7 +2372,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #comment} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     * @return {@link #comment} (Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
       if (this.comment == null)
@@ -2368,7 +2392,7 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @param value {@link #comment} (May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     * @param value {@link #comment} (Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public Observation setCommentElement(StringType value) { 
       this.comment = value;
@@ -2376,14 +2400,14 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+     * @return Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
      */
     public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
-     * @param value May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.
+     * @param value Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
      */
     public Observation setComment(String value) { 
       if (Utilities.noString(value))
@@ -2768,7 +2792,7 @@ public class Observation extends DomainResource {
         children.add(new Property("category", "CodeableConcept", "A code that classifies the general type of observation being made.", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation \"name\".", 0, 1, code));
         children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, 1, subject));
-        children.add(new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, 1, focus));
+        children.add(new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, java.lang.Integer.MAX_VALUE, focus));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.", 0, 1, context));
         children.add(new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective));
         children.add(new Property("issued", "instant", "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.", 0, 1, issued));
@@ -2776,7 +2800,7 @@ public class Observation extends DomainResource {
         children.add(new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value));
         children.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason));
         children.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, 1, interpretation));
-        children.add(new Property("comment", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, 1, comment));
+        children.add(new Property("comment", "string", "Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.", 0, 1, comment));
         children.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite));
         children.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method));
         children.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, 1, specimen));
@@ -2797,7 +2821,7 @@ public class Observation extends DomainResource {
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the general type of observation being made.", 0, java.lang.Integer.MAX_VALUE, category);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation \"name\".", 0, 1, code);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Device|Location)", "The patient, or group of patients, location, or device whose characteristics (direct or indirect) are described by the observation and into whose record the observation is placed.  Comments: Indirect characteristics may be those of a specimen, fetus, donor,  other observer (for example a relative or EMT), or any observation made about the subject.", 0, 1, subject);
-        case 97604824: /*focus*/  return new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, 1, focus);
+        case 97604824: /*focus*/  return new Property("focus", "Reference(Any)", "The actual focus of an observation when it is not the patient of record.  The focus is point of attention when the observation representing something  or someone associated with the patient.  It could be  a  spouse or parent, a fetus or donor.  The focus of an observation could be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.", 0, java.lang.Integer.MAX_VALUE, focus);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.", 0, 1, context);
         case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period|Timing", "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
@@ -2821,7 +2845,7 @@ public class Observation extends DomainResource {
         case -1524344174: /*valuePeriod*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
         case 1034315687: /*dataAbsentReason*/  return new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason);
         case -297950712: /*interpretation*/  return new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, 1, interpretation);
-        case 950398559: /*comment*/  return new Property("comment", "string", "May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.", 0, 1, comment);
+        case 950398559: /*comment*/  return new Property("comment", "string", "Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.", 0, 1, comment);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite);
         case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, 1, specimen);
@@ -2845,7 +2869,7 @@ public class Observation extends DomainResource {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case 97604824: /*focus*/ return this.focus == null ? new Base[0] : new Base[] {this.focus}; // Reference
+        case 97604824: /*focus*/ return this.focus == null ? new Base[0] : this.focus.toArray(new Base[this.focus.size()]); // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
@@ -2893,7 +2917,7 @@ public class Observation extends DomainResource {
           this.subject = castToReference(value); // Reference
           return value;
         case 97604824: // focus
-          this.focus = castToReference(value); // Reference
+          this.getFocus().add(castToReference(value)); // Reference
           return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
@@ -2966,7 +2990,7 @@ public class Observation extends DomainResource {
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("focus")) {
-          this.focus = castToReference(value); // Reference
+          this.getFocus().add(castToReference(value));
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
         } else if (name.equals("effective[x]")) {
@@ -3014,7 +3038,7 @@ public class Observation extends DomainResource {
         case 50511102:  return addCategory(); 
         case 3059181:  return getCode(); 
         case -1867885268:  return getSubject(); 
-        case 97604824:  return getFocus(); 
+        case 97604824:  return addFocus(); 
         case 951530927:  return getContext(); 
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
@@ -3096,8 +3120,7 @@ public class Observation extends DomainResource {
           return this.subject;
         }
         else if (name.equals("focus")) {
-          this.focus = new Reference();
-          return this.focus;
+          return addFocus();
         }
         else if (name.equals("context")) {
           this.context = new Reference();
@@ -3239,7 +3262,11 @@ public class Observation extends DomainResource {
         };
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.focus = focus == null ? null : focus.copy();
+        if (focus != null) {
+          dst.focus = new ArrayList<Reference>();
+          for (Reference i : focus)
+            dst.focus.add(i.copy());
+        };
         dst.context = context == null ? null : context.copy();
         dst.effective = effective == null ? null : effective.copy();
         dst.issued = issued == null ? null : issued.copy();

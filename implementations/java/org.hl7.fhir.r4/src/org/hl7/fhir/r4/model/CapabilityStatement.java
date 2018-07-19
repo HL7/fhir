@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1580,7 +1580,19 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Base URL for the installation", formalDefinition="An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces." )
         protected UrlType url;
 
-        private static final long serialVersionUID = 98009649L;
+        /**
+         * The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.
+         */
+        @Child(name = "custodian", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Organization that manages the data", formalDefinition="The organization responsible for the management of the instance and oversight of the data on the server at the specified URL." )
+        protected Reference custodian;
+
+        /**
+         * The actual object that is the target of the reference (The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.)
+         */
+        protected Organization custodianTarget;
+
+        private static final long serialVersionUID = -1705695694L;
 
     /**
      * Constructor
@@ -1691,10 +1703,55 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return this;
         }
 
+        /**
+         * @return {@link #custodian} (The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.)
+         */
+        public Reference getCustodian() { 
+          if (this.custodian == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementImplementationComponent.custodian");
+            else if (Configuration.doAutoCreate())
+              this.custodian = new Reference(); // cc
+          return this.custodian;
+        }
+
+        public boolean hasCustodian() { 
+          return this.custodian != null && !this.custodian.isEmpty();
+        }
+
+        /**
+         * @param value {@link #custodian} (The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.)
+         */
+        public CapabilityStatementImplementationComponent setCustodian(Reference value) { 
+          this.custodian = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #custodian} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.)
+         */
+        public Organization getCustodianTarget() { 
+          if (this.custodianTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementImplementationComponent.custodian");
+            else if (Configuration.doAutoCreate())
+              this.custodianTarget = new Organization(); // aa
+          return this.custodianTarget;
+        }
+
+        /**
+         * @param value {@link #custodian} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.)
+         */
+        public CapabilityStatementImplementationComponent setCustodianTarget(Organization value) { 
+          this.custodianTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("description", "string", "Information about the specific installation that this capability statement relates to.", 0, 1, description));
           children.add(new Property("url", "url", "An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, 1, url));
+          children.add(new Property("custodian", "Reference(Organization)", "The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.", 0, 1, custodian));
         }
 
         @Override
@@ -1702,6 +1759,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           switch (_hash) {
           case -1724546052: /*description*/  return new Property("description", "string", "Information about the specific installation that this capability statement relates to.", 0, 1, description);
           case 116079: /*url*/  return new Property("url", "url", "An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces.", 0, 1, url);
+          case 1611297262: /*custodian*/  return new Property("custodian", "Reference(Organization)", "The organization responsible for the management of the instance and oversight of the data on the server at the specified URL.", 0, 1, custodian);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1712,6 +1770,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UrlType
+        case 1611297262: /*custodian*/ return this.custodian == null ? new Base[0] : new Base[] {this.custodian}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1726,6 +1785,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 116079: // url
           this.url = castToUrl(value); // UrlType
           return value;
+        case 1611297262: // custodian
+          this.custodian = castToReference(value); // Reference
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1737,6 +1799,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.description = castToString(value); // StringType
         } else if (name.equals("url")) {
           this.url = castToUrl(value); // UrlType
+        } else if (name.equals("custodian")) {
+          this.custodian = castToReference(value); // Reference
         } else
           return super.setProperty(name, value);
         return value;
@@ -1747,6 +1811,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case -1724546052:  return getDescriptionElement();
         case 116079:  return getUrlElement();
+        case 1611297262:  return getCustodian(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1757,6 +1822,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case -1724546052: /*description*/ return new String[] {"string"};
         case 116079: /*url*/ return new String[] {"url"};
+        case 1611297262: /*custodian*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1770,6 +1836,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("url")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.url");
         }
+        else if (name.equals("custodian")) {
+          this.custodian = new Reference();
+          return this.custodian;
+        }
         else
           return super.addChild(name);
       }
@@ -1779,6 +1849,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         copyValues(dst);
         dst.description = description == null ? null : description.copy();
         dst.url = url == null ? null : url.copy();
+        dst.custodian = custodian == null ? null : custodian.copy();
         return dst;
       }
 
@@ -1789,7 +1860,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         if (!(other_ instanceof CapabilityStatementImplementationComponent))
           return false;
         CapabilityStatementImplementationComponent o = (CapabilityStatementImplementationComponent) other_;
-        return compareDeep(description, o.description, true) && compareDeep(url, o.url, true);
+        return compareDeep(description, o.description, true) && compareDeep(url, o.url, true) && compareDeep(custodian, o.custodian, true)
+          ;
       }
 
       @Override
@@ -1803,7 +1875,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, url);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, url, custodian
+          );
       }
 
   public String fhirType() {
@@ -1826,9 +1899,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Information about the system's restful capabilities that apply across all applications, such as security.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="General description of implementation", formalDefinition="Information about the system's restful capabilities that apply across all applications, such as security." )
-        protected StringType documentation;
+        protected MarkdownType documentation;
 
         /**
          * Information about security implementation from an interface perspective - what a client needs to know.
@@ -1872,7 +1945,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL ." )
         protected List<CanonicalType> compartment;
 
-        private static final long serialVersionUID = -1766393559L;
+        private static final long serialVersionUID = -1442029817L;
 
     /**
      * Constructor
@@ -1937,12 +2010,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public MarkdownType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CapabilityStatementRestComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
+              this.documentation = new MarkdownType(); // bb
           return this.documentation;
         }
 
@@ -1957,7 +2030,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #documentation} (Information about the system's restful capabilities that apply across all applications, such as security.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public CapabilityStatementRestComponent setDocumentationElement(StringType value) { 
+        public CapabilityStatementRestComponent setDocumentationElement(MarkdownType value) { 
           this.documentation = value;
           return this;
         }
@@ -1973,11 +2046,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value Information about the system's restful capabilities that apply across all applications, such as security.
          */
         public CapabilityStatementRestComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new StringType();
+              this.documentation = new MarkdownType();
             this.documentation.setValue(value);
           }
           return this;
@@ -2283,7 +2356,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("mode", "code", "Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.", 0, 1, mode));
-          children.add(new Property("documentation", "string", "Information about the system's restful capabilities that apply across all applications, such as security.", 0, 1, documentation));
+          children.add(new Property("documentation", "markdown", "Information about the system's restful capabilities that apply across all applications, such as security.", 0, 1, documentation));
           children.add(new Property("security", "", "Information about security implementation from an interface perspective - what a client needs to know.", 0, 1, security));
           children.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           children.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
@@ -2296,7 +2369,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3357091: /*mode*/  return new Property("mode", "code", "Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.", 0, 1, mode);
-          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Information about the system's restful capabilities that apply across all applications, such as security.", 0, 1, documentation);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "Information about the system's restful capabilities that apply across all applications, such as security.", 0, 1, documentation);
           case 949122880: /*security*/  return new Property("security", "", "Information about security implementation from an interface perspective - what a client needs to know.", 0, 1, security);
           case -341064690: /*resource*/  return new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource);
           case 1844104722: /*interaction*/  return new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction);
@@ -2312,7 +2385,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3357091: /*mode*/ return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<RestfulCapabilityMode>
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         case 949122880: /*security*/ return this.security == null ? new Base[0] : new Base[] {this.security}; // CapabilityStatementRestSecurityComponent
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // CapabilityStatementRestResourceComponent
         case 1844104722: /*interaction*/ return this.interaction == null ? new Base[0] : this.interaction.toArray(new Base[this.interaction.size()]); // SystemInteractionComponent
@@ -2332,7 +2405,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.mode = (Enumeration) value; // Enumeration<RestfulCapabilityMode>
           return value;
         case 1587405498: // documentation
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
           return value;
         case 949122880: // security
           this.security = (CapabilityStatementRestSecurityComponent) value; // CapabilityStatementRestSecurityComponent
@@ -2363,7 +2436,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           value = new RestfulCapabilityModeEnumFactory().fromType(castToCode(value));
           this.mode = (Enumeration) value; // Enumeration<RestfulCapabilityMode>
         } else if (name.equals("documentation")) {
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else if (name.equals("security")) {
           this.security = (CapabilityStatementRestSecurityComponent) value; // CapabilityStatementRestSecurityComponent
         } else if (name.equals("resource")) {
@@ -2401,7 +2474,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3357091: /*mode*/ return new String[] {"code"};
-        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         case 949122880: /*security*/ return new String[] {};
         case -341064690: /*resource*/ return new String[] {};
         case 1844104722: /*interaction*/ return new String[] {};
@@ -2532,11 +2605,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * General description of how security works.
          */
-        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "description", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="General description of how security works", formalDefinition="General description of how security works." )
-        protected StringType description;
+        protected MarkdownType description;
 
-        private static final long serialVersionUID = 253997386L;
+        private static final long serialVersionUID = -1348900500L;
 
     /**
      * Constructor
@@ -2646,12 +2719,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CapabilityStatementRestSecurityComponent.description");
             else if (Configuration.doAutoCreate())
-              this.description = new StringType(); // bb
+              this.description = new MarkdownType(); // bb
           return this.description;
         }
 
@@ -2666,7 +2739,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #description} (General description of how security works.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public CapabilityStatementRestSecurityComponent setDescriptionElement(StringType value) { 
+        public CapabilityStatementRestSecurityComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -2682,11 +2755,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value General description of how security works.
          */
         public CapabilityStatementRestSecurityComponent setDescription(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.description = null;
           else {
             if (this.description == null)
-              this.description = new StringType();
+              this.description = new MarkdownType();
             this.description.setValue(value);
           }
           return this;
@@ -2696,7 +2769,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           super.listChildren(children);
           children.add(new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables Javascript applications to use the server.", 0, 1, cors));
           children.add(new Property("service", "CodeableConcept", "Types of security services that are supported/required by the system.", 0, java.lang.Integer.MAX_VALUE, service));
-          children.add(new Property("description", "string", "General description of how security works.", 0, 1, description));
+          children.add(new Property("description", "markdown", "General description of how security works.", 0, 1, description));
         }
 
         @Override
@@ -2704,7 +2777,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           switch (_hash) {
           case 3059629: /*cors*/  return new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables Javascript applications to use the server.", 0, 1, cors);
           case 1984153269: /*service*/  return new Property("service", "CodeableConcept", "Types of security services that are supported/required by the system.", 0, java.lang.Integer.MAX_VALUE, service);
-          case -1724546052: /*description*/  return new Property("description", "string", "General description of how security works.", 0, 1, description);
+          case -1724546052: /*description*/  return new Property("description", "markdown", "General description of how security works.", 0, 1, description);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2715,7 +2788,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 3059629: /*cors*/ return this.cors == null ? new Base[0] : new Base[] {this.cors}; // BooleanType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : this.service.toArray(new Base[this.service.size()]); // CodeableConcept
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2731,7 +2804,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.getService().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1724546052: // description
-          this.description = castToString(value); // StringType
+          this.description = castToMarkdown(value); // MarkdownType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2745,7 +2818,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         } else if (name.equals("service")) {
           this.getService().add(castToCodeableConcept(value));
         } else if (name.equals("description")) {
-          this.description = castToString(value); // StringType
+          this.description = castToMarkdown(value); // MarkdownType
         } else
           return super.setProperty(name, value);
         return value;
@@ -2767,7 +2840,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 3059629: /*cors*/ return new String[] {"boolean"};
         case 1984153269: /*service*/ return new String[] {"CodeableConcept"};
-        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -4246,11 +4319,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Anything special about operation behavior", formalDefinition="Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'." )
-        protected StringType documentation;
+        protected MarkdownType documentation;
 
-        private static final long serialVersionUID = -437507806L;
+        private static final long serialVersionUID = 2128937796L;
 
     /**
      * Constructor
@@ -4315,12 +4388,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public MarkdownType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ResourceInteractionComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
+              this.documentation = new MarkdownType(); // bb
           return this.documentation;
         }
 
@@ -4335,7 +4408,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ResourceInteractionComponent setDocumentationElement(StringType value) { 
+        public ResourceInteractionComponent setDocumentationElement(MarkdownType value) { 
           this.documentation = value;
           return this;
         }
@@ -4351,11 +4424,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.
          */
         public ResourceInteractionComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new StringType();
+              this.documentation = new MarkdownType();
             this.documentation.setValue(value);
           }
           return this;
@@ -4364,14 +4437,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("code", "code", "Coded identifier of the operation, supported by the system resource.", 0, 1, code));
-          children.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, 1, documentation));
+          children.add(new Property("documentation", "markdown", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, 1, documentation));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3059181: /*code*/  return new Property("code", "code", "Coded identifier of the operation, supported by the system resource.", 0, 1, code);
-          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, 1, documentation);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'.", 0, 1, documentation);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4381,7 +4454,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<TypeRestfulInteraction>
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4395,7 +4468,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.code = (Enumeration) value; // Enumeration<TypeRestfulInteraction>
           return value;
         case 1587405498: // documentation
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -4408,7 +4481,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           value = new TypeRestfulInteractionEnumFactory().fromType(castToCode(value));
           this.code = (Enumeration) value; // Enumeration<TypeRestfulInteraction>
         } else if (name.equals("documentation")) {
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else
           return super.setProperty(name, value);
         return value;
@@ -4428,7 +4501,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"code"};
-        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -4495,10 +4568,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected StringType name;
 
         /**
-         * An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
+         * An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.
          */
         @Child(name = "definition", type = {CanonicalType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Source of definition for parameter", formalDefinition="An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]])." )
+        @Description(shortDefinition="Source of definition for parameter", formalDefinition="An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs." )
         protected CanonicalType definition;
 
         /**
@@ -4512,11 +4585,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Server-specific usage", formalDefinition="This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms." )
-        protected StringType documentation;
+        protected MarkdownType documentation;
 
-        private static final long serialVersionUID = -873420282L;
+        private static final long serialVersionUID = -171123928L;
 
     /**
      * Constructor
@@ -4580,7 +4653,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @return {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+         * @return {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public CanonicalType getDefinitionElement() { 
           if (this.definition == null)
@@ -4600,7 +4673,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @param value {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+         * @param value {@link #definition} (An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
         public CapabilityStatementRestResourceSearchParamComponent setDefinitionElement(CanonicalType value) { 
           this.definition = value;
@@ -4608,14 +4681,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @return An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
+         * @return An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.
          */
         public String getDefinition() { 
           return this.definition == null ? null : this.definition.getValue();
         }
 
         /**
-         * @param value An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).
+         * @param value An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.
          */
         public CapabilityStatementRestResourceSearchParamComponent setDefinition(String value) { 
           if (Utilities.noString(value))
@@ -4676,12 +4749,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public MarkdownType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CapabilityStatementRestResourceSearchParamComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
+              this.documentation = new MarkdownType(); // bb
           return this.documentation;
         }
 
@@ -4696,7 +4769,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #documentation} (This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public CapabilityStatementRestResourceSearchParamComponent setDocumentationElement(StringType value) { 
+        public CapabilityStatementRestResourceSearchParamComponent setDocumentationElement(MarkdownType value) { 
           this.documentation = value;
           return this;
         }
@@ -4712,11 +4785,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.
          */
         public CapabilityStatementRestResourceSearchParamComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new StringType();
+              this.documentation = new MarkdownType();
             this.documentation.setValue(value);
           }
           return this;
@@ -4725,18 +4798,18 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("name", "string", "The name of the search parameter used in the interface.", 0, 1, name));
-          children.add(new Property("definition", "canonical(SearchParameter)", "An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).", 0, 1, definition));
+          children.add(new Property("definition", "canonical(SearchParameter)", "An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.", 0, 1, definition));
           children.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, 1, type));
-          children.add(new Property("documentation", "string", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, 1, documentation));
+          children.add(new Property("documentation", "markdown", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, 1, documentation));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3373707: /*name*/  return new Property("name", "string", "The name of the search parameter used in the interface.", 0, 1, name);
-          case -1014418093: /*definition*/  return new Property("definition", "canonical(SearchParameter)", "An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]).", 0, 1, definition);
+          case -1014418093: /*definition*/  return new Property("definition", "canonical(SearchParameter)", "An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [[[SearchParameter.url]]]). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs.", 0, 1, definition);
           case 3575610: /*type*/  return new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, 1, type);
-          case 1587405498: /*documentation*/  return new Property("documentation", "string", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, 1, documentation);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms.", 0, 1, documentation);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4748,7 +4821,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // CanonicalType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SearchParamType>
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4768,7 +4841,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.type = (Enumeration) value; // Enumeration<SearchParamType>
           return value;
         case 1587405498: // documentation
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -4785,7 +4858,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           value = new SearchParamTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<SearchParamType>
         } else if (name.equals("documentation")) {
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else
           return super.setProperty(name, value);
         return value;
@@ -4809,7 +4882,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 3373707: /*name*/ return new String[] {"string"};
         case -1014418093: /*definition*/ return new String[] {"canonical"};
         case 3575610: /*type*/ return new String[] {"code"};
-        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -5208,11 +5281,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Anything special about operation behavior", formalDefinition="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented." )
-        protected StringType documentation;
+        protected MarkdownType documentation;
 
-        private static final long serialVersionUID = 510675287L;
+        private static final long serialVersionUID = -1495143879L;
 
     /**
      * Constructor
@@ -5277,12 +5350,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public MarkdownType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SystemInteractionComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
+              this.documentation = new MarkdownType(); // bb
           return this.documentation;
         }
 
@@ -5297,7 +5370,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #documentation} (Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public SystemInteractionComponent setDocumentationElement(StringType value) { 
+        public SystemInteractionComponent setDocumentationElement(MarkdownType value) { 
           this.documentation = value;
           return this;
         }
@@ -5313,11 +5386,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.
          */
         public SystemInteractionComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new StringType();
+              this.documentation = new MarkdownType();
             this.documentation.setValue(value);
           }
           return this;
@@ -5326,14 +5399,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("code", "code", "A coded identifier of the operation, supported by the system.", 0, 1, code));
-          children.add(new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, 1, documentation));
+          children.add(new Property("documentation", "markdown", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, 1, documentation));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3059181: /*code*/  return new Property("code", "code", "A coded identifier of the operation, supported by the system.", 0, 1, code);
-          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, 1, documentation);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented.", 0, 1, documentation);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -5343,7 +5416,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<SystemRestfulInteraction>
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -5357,7 +5430,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.code = (Enumeration) value; // Enumeration<SystemRestfulInteraction>
           return value;
         case 1587405498: // documentation
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -5370,7 +5443,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           value = new SystemRestfulInteractionEnumFactory().fromType(castToCode(value));
           this.code = (Enumeration) value; // Enumeration<SystemRestfulInteraction>
         } else if (name.equals("documentation")) {
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else
           return super.setProperty(name, value);
         return value;
@@ -5390,7 +5463,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"code"};
-        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -5466,9 +5539,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Messaging interface behavior details", formalDefinition="Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner." )
-        protected StringType documentation;
+        protected MarkdownType documentation;
 
         /**
          * References to message definitions for messages this system can send or receive.
@@ -5477,7 +5550,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Messages supported by this system", formalDefinition="References to message definitions for messages this system can send or receive." )
         protected List<CapabilityStatementMessagingSupportedMessageComponent> supportedMessage;
 
-        private static final long serialVersionUID = -55255167L;
+        private static final long serialVersionUID = 300411231L;
 
     /**
      * Constructor
@@ -5587,12 +5660,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public MarkdownType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CapabilityStatementMessagingComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
+              this.documentation = new MarkdownType(); // bb
           return this.documentation;
         }
 
@@ -5607,7 +5680,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #documentation} (Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public CapabilityStatementMessagingComponent setDocumentationElement(StringType value) { 
+        public CapabilityStatementMessagingComponent setDocumentationElement(MarkdownType value) { 
           this.documentation = value;
           return this;
         }
@@ -5623,11 +5696,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.
          */
         public CapabilityStatementMessagingComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new StringType();
+              this.documentation = new MarkdownType();
             this.documentation.setValue(value);
           }
           return this;
@@ -5690,7 +5763,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           super.listChildren(children);
           children.add(new Property("endpoint", "", "An endpoint (network accessible address) to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint));
           children.add(new Property("reliableCache", "unsignedInt", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, 1, reliableCache));
-          children.add(new Property("documentation", "string", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.", 0, 1, documentation));
+          children.add(new Property("documentation", "markdown", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.", 0, 1, documentation));
           children.add(new Property("supportedMessage", "", "References to message definitions for messages this system can send or receive.", 0, java.lang.Integer.MAX_VALUE, supportedMessage));
         }
 
@@ -5699,7 +5772,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           switch (_hash) {
           case 1741102485: /*endpoint*/  return new Property("endpoint", "", "An endpoint (network accessible address) to which messages and/or replies are to be sent.", 0, java.lang.Integer.MAX_VALUE, endpoint);
           case 897803608: /*reliableCache*/  return new Property("reliableCache", "unsignedInt", "Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender).", 0, 1, reliableCache);
-          case 1587405498: /*documentation*/  return new Property("documentation", "string", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.", 0, 1, documentation);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner.", 0, 1, documentation);
           case -1805139079: /*supportedMessage*/  return new Property("supportedMessage", "", "References to message definitions for messages this system can send or receive.", 0, java.lang.Integer.MAX_VALUE, supportedMessage);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -5711,7 +5784,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 1741102485: /*endpoint*/ return this.endpoint == null ? new Base[0] : this.endpoint.toArray(new Base[this.endpoint.size()]); // CapabilityStatementMessagingEndpointComponent
         case 897803608: /*reliableCache*/ return this.reliableCache == null ? new Base[0] : new Base[] {this.reliableCache}; // UnsignedIntType
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         case -1805139079: /*supportedMessage*/ return this.supportedMessage == null ? new Base[0] : this.supportedMessage.toArray(new Base[this.supportedMessage.size()]); // CapabilityStatementMessagingSupportedMessageComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -5728,7 +5801,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
           return value;
         case 1587405498: // documentation
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
           return value;
         case -1805139079: // supportedMessage
           this.getSupportedMessage().add((CapabilityStatementMessagingSupportedMessageComponent) value); // CapabilityStatementMessagingSupportedMessageComponent
@@ -5745,7 +5818,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         } else if (name.equals("reliableCache")) {
           this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("documentation")) {
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else if (name.equals("supportedMessage")) {
           this.getSupportedMessage().add((CapabilityStatementMessagingSupportedMessageComponent) value);
         } else
@@ -5770,7 +5843,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 1741102485: /*endpoint*/ return new String[] {};
         case 897803608: /*reliableCache*/ return new String[] {"unsignedInt"};
-        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         case -1805139079: /*supportedMessage*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -6337,9 +6410,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
          */
-        @Child(name = "documentation", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "documentation", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of document support", formalDefinition="A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc." )
-        protected StringType documentation;
+        protected MarkdownType documentation;
 
         /**
          * A profile on the document Bundle that constrains which resources are present, and their contents.
@@ -6348,7 +6421,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Constraint on the resources used in the document", formalDefinition="A profile on the document Bundle that constrains which resources are present, and their contents." )
         protected CanonicalType profile;
 
-        private static final long serialVersionUID = -47853274L;
+        private static final long serialVersionUID = 18026632L;
 
     /**
      * Constructor
@@ -6414,12 +6487,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() { 
+        public MarkdownType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CapabilityStatementDocumentComponent.documentation");
             else if (Configuration.doAutoCreate())
-              this.documentation = new StringType(); // bb
+              this.documentation = new MarkdownType(); // bb
           return this.documentation;
         }
 
@@ -6434,7 +6507,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @param value {@link #documentation} (A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public CapabilityStatementDocumentComponent setDocumentationElement(StringType value) { 
+        public CapabilityStatementDocumentComponent setDocumentationElement(MarkdownType value) { 
           this.documentation = value;
           return this;
         }
@@ -6450,11 +6523,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * @param value A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
          */
         public CapabilityStatementDocumentComponent setDocumentation(String value) { 
-          if (Utilities.noString(value))
+          if (value == null)
             this.documentation = null;
           else {
             if (this.documentation == null)
-              this.documentation = new StringType();
+              this.documentation = new MarkdownType();
             this.documentation.setValue(value);
           }
           return this;
@@ -6508,7 +6581,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("mode", "code", "Mode of this document declaration - whether an application is a producer or consumer.", 0, 1, mode));
-          children.add(new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.", 0, 1, documentation));
+          children.add(new Property("documentation", "markdown", "A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.", 0, 1, documentation));
           children.add(new Property("profile", "canonical(StructureDefinition)", "A profile on the document Bundle that constrains which resources are present, and their contents.", 0, 1, profile));
         }
 
@@ -6516,7 +6589,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3357091: /*mode*/  return new Property("mode", "code", "Mode of this document declaration - whether an application is a producer or consumer.", 0, 1, mode);
-          case 1587405498: /*documentation*/  return new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.", 0, 1, documentation);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.", 0, 1, documentation);
           case -309425751: /*profile*/  return new Property("profile", "canonical(StructureDefinition)", "A profile on the document Bundle that constrains which resources are present, and their contents.", 0, 1, profile);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -6527,7 +6600,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3357091: /*mode*/ return this.mode == null ? new Base[0] : new Base[] {this.mode}; // Enumeration<DocumentMode>
-        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -6542,7 +6615,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.mode = (Enumeration) value; // Enumeration<DocumentMode>
           return value;
         case 1587405498: // documentation
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
           return value;
         case -309425751: // profile
           this.profile = castToCanonical(value); // CanonicalType
@@ -6558,7 +6631,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           value = new DocumentModeEnumFactory().fromType(castToCode(value));
           this.mode = (Enumeration) value; // Enumeration<DocumentMode>
         } else if (name.equals("documentation")) {
-          this.documentation = castToString(value); // StringType
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else if (name.equals("profile")) {
           this.profile = castToCanonical(value); // CanonicalType
         } else
@@ -6581,7 +6654,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3357091: /*mode*/ return new String[] {"code"};
-        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         case -309425751: /*profile*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }

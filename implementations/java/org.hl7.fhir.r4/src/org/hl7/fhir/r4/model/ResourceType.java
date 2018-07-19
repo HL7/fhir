@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 public enum ResourceType {
     Account,
@@ -54,7 +54,6 @@ public enum ResourceType {
     EpisodeOfCare,
     EventDefinition,
     ExampleScenario,
-    ExpansionProfile,
     ExplanationOfBenefit,
     FamilyMemberHistory,
     Flag,
@@ -88,6 +87,7 @@ public enum ResourceType {
     MedicinalProductClinicals,
     MedicinalProductDeviceSpec,
     MedicinalProductIngredient,
+    MedicinalProductManufactured,
     MedicinalProductPackaged,
     MedicinalProductPharmaceutical,
     MessageDefinition,
@@ -96,7 +96,6 @@ public enum ResourceType {
     NutritionOrder,
     Observation,
     ObservationDefinition,
-    OccupationalData,
     OperationDefinition,
     OperationOutcome,
     Organization,
@@ -247,8 +246,6 @@ public enum ResourceType {
       return "eventdefinition";
     case ExampleScenario:
       return "examplescenario";
-    case ExpansionProfile:
-      return "expansionprofile";
     case ExplanationOfBenefit:
       return "explanationofbenefit";
     case FamilyMemberHistory:
@@ -315,6 +312,8 @@ public enum ResourceType {
       return "medicinalproductdevicespec";
     case MedicinalProductIngredient:
       return "medicinalproductingredient";
+    case MedicinalProductManufactured:
+      return "medicinalproductmanufactured";
     case MedicinalProductPackaged:
       return "medicinalproductpackaged";
     case MedicinalProductPharmaceutical:
@@ -331,8 +330,6 @@ public enum ResourceType {
       return "observation";
     case ObservationDefinition:
       return "observationdefinition";
-    case OccupationalData:
-      return "occupationaldata";
     case OperationDefinition:
       return "operationdefinition";
     case OperationOutcome:
@@ -533,8 +530,6 @@ public enum ResourceType {
       return EventDefinition;
     if ("ExampleScenario".equals(code))
       return ExampleScenario;
-    if ("ExpansionProfile".equals(code))
-      return ExpansionProfile;
     if ("ExplanationOfBenefit".equals(code))
       return ExplanationOfBenefit;
     if ("FamilyMemberHistory".equals(code))
@@ -601,6 +596,8 @@ public enum ResourceType {
       return MedicinalProductDeviceSpec;
     if ("MedicinalProductIngredient".equals(code))
       return MedicinalProductIngredient;
+    if ("MedicinalProductManufactured".equals(code))
+      return MedicinalProductManufactured;
     if ("MedicinalProductPackaged".equals(code))
       return MedicinalProductPackaged;
     if ("MedicinalProductPharmaceutical".equals(code))
@@ -617,8 +614,6 @@ public enum ResourceType {
       return Observation;
     if ("ObservationDefinition".equals(code))
       return ObservationDefinition;
-    if ("OccupationalData".equals(code))
-      return OccupationalData;
     if ("OperationDefinition".equals(code))
       return OperationDefinition;
     if ("OperationOutcome".equals(code))

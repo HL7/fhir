@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1080,7 +1080,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
      * The place where the device can be found.
      */
     @Child(name = "location", type = {Location.class}, order=13, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Where the resource is found", formalDefinition="The place where the device can be found." )
+    @Description(shortDefinition="Where the device is found", formalDefinition="The place where the device can be found." )
     protected Reference location;
 
     /**

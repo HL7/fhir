@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -302,35 +302,39 @@ public class Task extends DomainResource {
 
     public enum TaskIntent {
         /**
-         * The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act
+         * The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously
+         */
+        UNKNOWN, 
+        /**
+         * null
          */
         PROPOSAL, 
         /**
-         * The request represents an intention to ensure something occurs without providing an authorization for others to act
+         * null
          */
         PLAN, 
         /**
-         * The request represents a request/demand and authorization for action
+         * null
          */
         ORDER, 
         /**
-         * The request represents an original authorization for action
+         * null
          */
         ORIGINALORDER, 
         /**
-         * The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization
+         * null
          */
         REFLEXORDER, 
         /**
-         * The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order
+         * null
          */
         FILLERORDER, 
         /**
-         * An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.
+         * null
          */
         INSTANCEORDER, 
         /**
-         * The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used
+         * null
          */
         OPTION, 
         /**
@@ -340,6 +344,8 @@ public class Task extends DomainResource {
         public static TaskIntent fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if ("proposal".equals(codeString))
           return PROPOSAL;
         if ("plan".equals(codeString))
@@ -363,6 +369,7 @@ public class Task extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case UNKNOWN: return "unknown";
             case PROPOSAL: return "proposal";
             case PLAN: return "plan";
             case ORDER: return "order";
@@ -376,6 +383,7 @@ public class Task extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
+            case UNKNOWN: return "http://hl7.org/fhir/task-intent";
             case PROPOSAL: return "http://hl7.org/fhir/request-intent";
             case PLAN: return "http://hl7.org/fhir/request-intent";
             case ORDER: return "http://hl7.org/fhir/request-intent";
@@ -389,27 +397,29 @@ public class Task extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PROPOSAL: return "The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act";
-            case PLAN: return "The request represents an intention to ensure something occurs without providing an authorization for others to act";
-            case ORDER: return "The request represents a request/demand and authorization for action";
-            case ORIGINALORDER: return "The request represents an original authorization for action";
-            case REFLEXORDER: return "The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization";
-            case FILLERORDER: return "The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order";
-            case INSTANCEORDER: return "An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.";
-            case OPTION: return "The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used";
+            case UNKNOWN: return "The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously";
+            case PROPOSAL: return "";
+            case PLAN: return "";
+            case ORDER: return "";
+            case ORIGINALORDER: return "";
+            case REFLEXORDER: return "";
+            case FILLERORDER: return "";
+            case INSTANCEORDER: return "";
+            case OPTION: return "";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case PROPOSAL: return "Proposal";
-            case PLAN: return "Plan";
-            case ORDER: return "Order";
-            case ORIGINALORDER: return "Original Order";
-            case REFLEXORDER: return "Reflex Order";
-            case FILLERORDER: return "Filler Order";
-            case INSTANCEORDER: return "Instance Order";
-            case OPTION: return "Option";
+            case UNKNOWN: return "Unknown";
+            case PROPOSAL: return "proposal";
+            case PLAN: return "plan";
+            case ORDER: return "order";
+            case ORIGINALORDER: return "original-order";
+            case REFLEXORDER: return "reflex-order";
+            case FILLERORDER: return "filler-order";
+            case INSTANCEORDER: return "instance-order";
+            case OPTION: return "option";
             default: return "?";
           }
         }
@@ -420,6 +430,8 @@ public class Task extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("unknown".equals(codeString))
+          return TaskIntent.UNKNOWN;
         if ("proposal".equals(codeString))
           return TaskIntent.PROPOSAL;
         if ("plan".equals(codeString))
@@ -446,6 +458,8 @@ public class Task extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("unknown".equals(codeString))
+          return new Enumeration<TaskIntent>(this, TaskIntent.UNKNOWN);
         if ("proposal".equals(codeString))
           return new Enumeration<TaskIntent>(this, TaskIntent.PROPOSAL);
         if ("plan".equals(codeString))
@@ -465,6 +479,8 @@ public class Task extends DomainResource {
         throw new FHIRException("Unknown TaskIntent code '"+codeString+"'");
         }
     public String toCode(TaskIntent code) {
+      if (code == TaskIntent.UNKNOWN)
+        return "unknown";
       if (code == TaskIntent.PROPOSAL)
         return "proposal";
       if (code == TaskIntent.PLAN)
@@ -1300,6 +1316,10 @@ public class Task extends DomainResource {
           this.value = new TriggerDefinition();
           return this.value;
         }
+        else if (name.equals("valueExpression")) {
+          this.value = new Expression();
+          return this.value;
+        }
         else if (name.equals("valueUsageContext")) {
           this.value = new UsageContext();
           return this.value;
@@ -1727,6 +1747,10 @@ public class Task extends DomainResource {
           this.value = new TriggerDefinition();
           return this.value;
         }
+        else if (name.equals("valueExpression")) {
+          this.value = new Expression();
+          return this.value;
+        }
         else if (name.equals("valueUsageContext")) {
           this.value = new UsageContext();
           return this.value;
@@ -1849,8 +1873,8 @@ public class Task extends DomainResource {
      * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
      */
     @Child(name = "intent", type = {CodeType.class}, order=8, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="proposal | plan | order +", formalDefinition="Indicates the \"level\" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-intent")
+    @Description(shortDefinition="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option", formalDefinition="Indicates the \"level\" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-intent")
     protected Enumeration<TaskIntent> intent;
 
     /**
@@ -1996,16 +2020,28 @@ public class Task extends DomainResource {
     protected Resource reasonReferenceTarget;
 
     /**
+     * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.
+     */
+    @Child(name = "insurance", type = {Coverage.class, ClaimResponse.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Associated insurance coverage", formalDefinition="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task." )
+    protected List<Reference> insurance;
+    /**
+     * The actual objects that are the target of the reference (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.)
+     */
+    protected List<Resource> insuranceTarget;
+
+
+    /**
      * Free-text information captured about the task as it progresses.
      */
-    @Child(name = "note", type = {Annotation.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the task", formalDefinition="Free-text information captured about the task as it progresses." )
     protected List<Annotation> note;
 
     /**
      * Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Key events in history of the Task", formalDefinition="Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task." )
     protected List<Reference> relevantHistory;
     /**
@@ -2017,25 +2053,25 @@ public class Task extends DomainResource {
     /**
      * If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.
      */
-    @Child(name = "restriction", type = {}, order=26, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "restriction", type = {}, order=27, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Constraints on fulfillment tasks", formalDefinition="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned." )
     protected TaskRestrictionComponent restriction;
 
     /**
      * Additional information that may be needed in the execution of the task.
      */
-    @Child(name = "input", type = {}, order=27, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "input", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information used to perform task", formalDefinition="Additional information that may be needed in the execution of the task." )
     protected List<ParameterComponent> input;
 
     /**
      * Outputs produced by the Task.
      */
-    @Child(name = "output", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "output", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information produced as part of task", formalDefinition="Outputs produced by the Task." )
     protected List<TaskOutputComponent> output;
 
-    private static final long serialVersionUID = 1667305460L;
+    private static final long serialVersionUID = -739633078L;
 
   /**
    * Constructor
@@ -3057,6 +3093,69 @@ public class Task extends DomainResource {
     }
 
     /**
+     * @return {@link #insurance} (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.)
+     */
+    public List<Reference> getInsurance() { 
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      return this.insurance;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Task setInsurance(List<Reference> theInsurance) { 
+      this.insurance = theInsurance;
+      return this;
+    }
+
+    public boolean hasInsurance() { 
+      if (this.insurance == null)
+        return false;
+      for (Reference item : this.insurance)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addInsurance() { //3
+      Reference t = new Reference();
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      this.insurance.add(t);
+      return t;
+    }
+
+    public Task addInsurance(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      this.insurance.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #insurance}, creating it if it does not already exist
+     */
+    public Reference getInsuranceFirstRep() { 
+      if (getInsurance().isEmpty()) {
+        addInsurance();
+      }
+      return getInsurance().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getInsuranceTarget() { 
+      if (this.insuranceTarget == null)
+        this.insuranceTarget = new ArrayList<Resource>();
+      return this.insuranceTarget;
+    }
+
+    /**
      * @return {@link #note} (Free-text information captured about the task as it progresses.)
      */
     public List<Annotation> getNote() { 
@@ -3340,6 +3439,7 @@ public class Task extends DomainResource {
         children.add(new Property("location", "Reference(Location)", "The principal physical location where the this task is performed.", 0, 1, location));
         children.add(new Property("reasonCode", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, 1, reasonCode));
         children.add(new Property("reasonReference", "Reference(Any)", "A resource reference indicating why this task needs to be performed.", 0, 1, reasonReference));
+        children.add(new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.", 0, java.lang.Integer.MAX_VALUE, insurance));
         children.add(new Property("note", "Annotation", "Free-text information captured about the task as it progresses.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("relevantHistory", "Reference(Provenance)", "Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
         children.add(new Property("restriction", "", "If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.", 0, 1, restriction));
@@ -3377,6 +3477,7 @@ public class Task extends DomainResource {
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The principal physical location where the this task is performed.", 0, 1, location);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "A description or code indicating why this task needs to be performed.", 0, 1, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Any)", "A resource reference indicating why this task needs to be performed.", 0, 1, reasonReference);
+        case 73049818: /*insurance*/  return new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.", 0, java.lang.Integer.MAX_VALUE, insurance);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Free-text information captured about the task as it progresses.", 0, java.lang.Integer.MAX_VALUE, note);
         case 1538891575: /*relevantHistory*/  return new Property("relevantHistory", "Reference(Provenance)", "Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.", 0, java.lang.Integer.MAX_VALUE, relevantHistory);
         case -1561062452: /*restriction*/  return new Property("restriction", "", "If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.", 0, 1, restriction);
@@ -3414,6 +3515,7 @@ public class Task extends DomainResource {
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : new Base[] {this.reasonCode}; // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : new Base[] {this.reasonReference}; // Reference
+        case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case 1538891575: /*relevantHistory*/ return this.relevantHistory == null ? new Base[0] : this.relevantHistory.toArray(new Base[this.relevantHistory.size()]); // Reference
         case -1561062452: /*restriction*/ return this.restriction == null ? new Base[0] : new Base[] {this.restriction}; // TaskRestrictionComponent
@@ -3502,6 +3604,9 @@ public class Task extends DomainResource {
         case -1146218137: // reasonReference
           this.reasonReference = castToReference(value); // Reference
           return value;
+        case 73049818: // insurance
+          this.getInsurance().add(castToReference(value)); // Reference
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
@@ -3575,6 +3680,8 @@ public class Task extends DomainResource {
           this.reasonCode = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("reasonReference")) {
           this.reasonReference = castToReference(value); // Reference
+        } else if (name.equals("insurance")) {
+          this.getInsurance().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("relevantHistory")) {
@@ -3618,6 +3725,7 @@ public class Task extends DomainResource {
         case 1901043637:  return getLocation(); 
         case 722137681:  return getReasonCode(); 
         case -1146218137:  return getReasonReference(); 
+        case 73049818:  return addInsurance(); 
         case 3387378:  return addNote(); 
         case 1538891575:  return addRelevantHistory(); 
         case -1561062452:  return getRestriction(); 
@@ -3655,6 +3763,7 @@ public class Task extends DomainResource {
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
+        case 73049818: /*insurance*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
         case -1561062452: /*restriction*/ return new String[] {};
@@ -3757,6 +3866,9 @@ public class Task extends DomainResource {
           this.reasonReference = new Reference();
           return this.reasonReference;
         }
+        else if (name.equals("insurance")) {
+          return addInsurance();
+        }
         else if (name.equals("note")) {
           return addNote();
         }
@@ -3825,6 +3937,11 @@ public class Task extends DomainResource {
         dst.location = location == null ? null : location.copy();
         dst.reasonCode = reasonCode == null ? null : reasonCode.copy();
         dst.reasonReference = reasonReference == null ? null : reasonReference.copy();
+        if (insurance != null) {
+          dst.insurance = new ArrayList<Reference>();
+          for (Reference i : insurance)
+            dst.insurance.add(i.copy());
+        };
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
           for (Annotation i : note)
@@ -3869,9 +3986,9 @@ public class Task extends DomainResource {
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(lastModified, o.lastModified, true)
            && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
            && compareDeep(owner, o.owner, true) && compareDeep(location, o.location, true) && compareDeep(reasonCode, o.reasonCode, true)
-           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true)
-           && compareDeep(restriction, o.restriction, true) && compareDeep(input, o.input, true) && compareDeep(output, o.output, true)
-          ;
+           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(insurance, o.insurance, true)
+           && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true) && compareDeep(restriction, o.restriction, true)
+           && compareDeep(input, o.input, true) && compareDeep(output, o.output, true);
       }
 
       @Override
@@ -3890,8 +4007,8 @@ public class Task extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, basedOn
           , groupIdentifier, partOf, status, statusReason, businessStatus, intent, priority
           , code, description, focus, for_, context, executionPeriod, authoredOn, lastModified
-          , requester, performerType, owner, location, reasonCode, reasonReference, note
-          , relevantHistory, restriction, input, output);
+          , requester, performerType, owner, location, reasonCode, reasonReference, insurance
+          , note, relevantHistory, restriction, input, output);
       }
 
   @Override

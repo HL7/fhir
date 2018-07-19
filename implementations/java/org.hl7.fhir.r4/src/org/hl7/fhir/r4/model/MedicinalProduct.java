@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -53,9 +53,9 @@ public class MedicinalProduct extends DomainResource {
         /**
          * The full product name.
          */
-        @Child(name = "fullName", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "productName", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The full product name", formalDefinition="The full product name." )
-        protected StringType fullName;
+        protected StringType productName;
 
         /**
          * Coding words or phrases of the name.
@@ -71,7 +71,7 @@ public class MedicinalProduct extends DomainResource {
         @Description(shortDefinition="Country where the name applies", formalDefinition="Country where the name applies." )
         protected List<MedicinalProductNameCountryLanguageComponent> countryLanguage;
 
-        private static final long serialVersionUID = 993877853L;
+        private static final long serialVersionUID = -2005005917L;
 
     /**
      * Constructor
@@ -83,53 +83,53 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Constructor
      */
-      public MedicinalProductNameComponent(StringType fullName) {
+      public MedicinalProductNameComponent(StringType productName) {
         super();
-        this.fullName = fullName;
+        this.productName = productName;
       }
 
         /**
-         * @return {@link #fullName} (The full product name.). This is the underlying object with id, value and extensions. The accessor "getFullName" gives direct access to the value
+         * @return {@link #productName} (The full product name.). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
          */
-        public StringType getFullNameElement() { 
-          if (this.fullName == null)
+        public StringType getProductNameElement() { 
+          if (this.productName == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicinalProductNameComponent.fullName");
+              throw new Error("Attempt to auto-create MedicinalProductNameComponent.productName");
             else if (Configuration.doAutoCreate())
-              this.fullName = new StringType(); // bb
-          return this.fullName;
+              this.productName = new StringType(); // bb
+          return this.productName;
         }
 
-        public boolean hasFullNameElement() { 
-          return this.fullName != null && !this.fullName.isEmpty();
+        public boolean hasProductNameElement() { 
+          return this.productName != null && !this.productName.isEmpty();
         }
 
-        public boolean hasFullName() { 
-          return this.fullName != null && !this.fullName.isEmpty();
+        public boolean hasProductName() { 
+          return this.productName != null && !this.productName.isEmpty();
         }
 
         /**
-         * @param value {@link #fullName} (The full product name.). This is the underlying object with id, value and extensions. The accessor "getFullName" gives direct access to the value
+         * @param value {@link #productName} (The full product name.). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
          */
-        public MedicinalProductNameComponent setFullNameElement(StringType value) { 
-          this.fullName = value;
+        public MedicinalProductNameComponent setProductNameElement(StringType value) { 
+          this.productName = value;
           return this;
         }
 
         /**
          * @return The full product name.
          */
-        public String getFullName() { 
-          return this.fullName == null ? null : this.fullName.getValue();
+        public String getProductName() { 
+          return this.productName == null ? null : this.productName.getValue();
         }
 
         /**
          * @param value The full product name.
          */
-        public MedicinalProductNameComponent setFullName(String value) { 
-            if (this.fullName == null)
-              this.fullName = new StringType();
-            this.fullName.setValue(value);
+        public MedicinalProductNameComponent setProductName(String value) { 
+            if (this.productName == null)
+              this.productName = new StringType();
+            this.productName.setValue(value);
           return this;
         }
 
@@ -241,7 +241,7 @@ public class MedicinalProduct extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("fullName", "string", "The full product name.", 0, 1, fullName));
+          children.add(new Property("productName", "string", "The full product name.", 0, 1, productName));
           children.add(new Property("namePart", "", "Coding words or phrases of the name.", 0, java.lang.Integer.MAX_VALUE, namePart));
           children.add(new Property("countryLanguage", "", "Country where the name applies.", 0, java.lang.Integer.MAX_VALUE, countryLanguage));
         }
@@ -249,7 +249,7 @@ public class MedicinalProduct extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 1330852282: /*fullName*/  return new Property("fullName", "string", "The full product name.", 0, 1, fullName);
+          case -1491817446: /*productName*/  return new Property("productName", "string", "The full product name.", 0, 1, productName);
           case 1840452894: /*namePart*/  return new Property("namePart", "", "Coding words or phrases of the name.", 0, java.lang.Integer.MAX_VALUE, namePart);
           case -141141746: /*countryLanguage*/  return new Property("countryLanguage", "", "Country where the name applies.", 0, java.lang.Integer.MAX_VALUE, countryLanguage);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -260,7 +260,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1330852282: /*fullName*/ return this.fullName == null ? new Base[0] : new Base[] {this.fullName}; // StringType
+        case -1491817446: /*productName*/ return this.productName == null ? new Base[0] : new Base[] {this.productName}; // StringType
         case 1840452894: /*namePart*/ return this.namePart == null ? new Base[0] : this.namePart.toArray(new Base[this.namePart.size()]); // MedicinalProductNameNamePartComponent
         case -141141746: /*countryLanguage*/ return this.countryLanguage == null ? new Base[0] : this.countryLanguage.toArray(new Base[this.countryLanguage.size()]); // MedicinalProductNameCountryLanguageComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -271,8 +271,8 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 1330852282: // fullName
-          this.fullName = castToString(value); // StringType
+        case -1491817446: // productName
+          this.productName = castToString(value); // StringType
           return value;
         case 1840452894: // namePart
           this.getNamePart().add((MedicinalProductNameNamePartComponent) value); // MedicinalProductNameNamePartComponent
@@ -287,8 +287,8 @@ public class MedicinalProduct extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("fullName")) {
-          this.fullName = castToString(value); // StringType
+        if (name.equals("productName")) {
+          this.productName = castToString(value); // StringType
         } else if (name.equals("namePart")) {
           this.getNamePart().add((MedicinalProductNameNamePartComponent) value);
         } else if (name.equals("countryLanguage")) {
@@ -301,7 +301,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1330852282:  return getFullNameElement();
+        case -1491817446:  return getProductNameElement();
         case 1840452894:  return addNamePart(); 
         case -141141746:  return addCountryLanguage(); 
         default: return super.makeProperty(hash, name);
@@ -312,7 +312,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 1330852282: /*fullName*/ return new String[] {"string"};
+        case -1491817446: /*productName*/ return new String[] {"string"};
         case 1840452894: /*namePart*/ return new String[] {};
         case -141141746: /*countryLanguage*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -322,8 +322,8 @@ public class MedicinalProduct extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("fullName")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicinalProduct.fullName");
+        if (name.equals("productName")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicinalProduct.productName");
         }
         else if (name.equals("namePart")) {
           return addNamePart();
@@ -338,7 +338,7 @@ public class MedicinalProduct extends DomainResource {
       public MedicinalProductNameComponent copy() {
         MedicinalProductNameComponent dst = new MedicinalProductNameComponent();
         copyValues(dst);
-        dst.fullName = fullName == null ? null : fullName.copy();
+        dst.productName = productName == null ? null : productName.copy();
         if (namePart != null) {
           dst.namePart = new ArrayList<MedicinalProductNameNamePartComponent>();
           for (MedicinalProductNameNamePartComponent i : namePart)
@@ -359,8 +359,8 @@ public class MedicinalProduct extends DomainResource {
         if (!(other_ instanceof MedicinalProductNameComponent))
           return false;
         MedicinalProductNameComponent o = (MedicinalProductNameComponent) other_;
-        return compareDeep(fullName, o.fullName, true) && compareDeep(namePart, o.namePart, true) && compareDeep(countryLanguage, o.countryLanguage, true)
-          ;
+        return compareDeep(productName, o.productName, true) && compareDeep(namePart, o.namePart, true)
+           && compareDeep(countryLanguage, o.countryLanguage, true);
       }
 
       @Override
@@ -370,11 +370,11 @@ public class MedicinalProduct extends DomainResource {
         if (!(other_ instanceof MedicinalProductNameComponent))
           return false;
         MedicinalProductNameComponent o = (MedicinalProductNameComponent) other_;
-        return compareValues(fullName, o.fullName, true);
+        return compareValues(productName, o.productName, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(fullName, namePart, countryLanguage
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(productName, namePart, countryLanguage
           );
       }
 
@@ -1801,9 +1801,9 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Business idenfifier for this product. Could be an MPID.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Business idenfifier for this product. Could be an MPID", formalDefinition="Business idenfifier for this product. Could be an MPID." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * Regulatory type, e.g. Investigational or Authorized.
@@ -1939,34 +1939,46 @@ public class MedicinalProduct extends DomainResource {
 
 
     /**
+     * Clinical trials or studies that this product is involved in.
+     */
+    @Child(name = "clinicalTrial", type = {ResearchStudy.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Clinical trials or studies that this product is involved in", formalDefinition="Clinical trials or studies that this product is involved in." )
+    protected List<Reference> clinicalTrial;
+    /**
+     * The actual objects that are the target of the reference (Clinical trials or studies that this product is involved in.)
+     */
+    protected List<ResearchStudy> clinicalTrialTarget;
+
+
+    /**
      * The product's name, including full name and possibly coded parts.
      */
-    @Child(name = "name", type = {}, order=15, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "name", type = {}, order=16, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The product's name, including full name and possibly coded parts", formalDefinition="The product's name, including full name and possibly coded parts." )
     protected List<MedicinalProductNameComponent> name;
 
     /**
      * Reference to another product, e.g. for linking authorised to investigational product.
      */
-    @Child(name = "crossReference", type = {Identifier.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "crossReference", type = {Identifier.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reference to another product, e.g. for linking authorised to investigational product", formalDefinition="Reference to another product, e.g. for linking authorised to investigational product." )
     protected List<Identifier> crossReference;
 
     /**
      * An operation applied to the product, for manufacturing or adminsitrative purpose.
      */
-    @Child(name = "manufacturingBusinessOperation", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "manufacturingBusinessOperation", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="An operation applied to the product, for manufacturing or adminsitrative purpose", formalDefinition="An operation applied to the product, for manufacturing or adminsitrative purpose." )
     protected List<MedicinalProductManufacturingBusinessOperationComponent> manufacturingBusinessOperation;
 
     /**
      * Indicates if the medicinal product has an orphan designation for the treatment of a rare disease.
      */
-    @Child(name = "orphanDesignation", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "orphanDesignation", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Indicates if the medicinal product has an orphan designation for the treatment of a rare disease", formalDefinition="Indicates if the medicinal product has an orphan designation for the treatment of a rare disease." )
     protected List<MedicinalProductOrphanDesignationComponent> orphanDesignation;
 
-    private static final long serialVersionUID = 1969969632L;
+    private static final long serialVersionUID = 323154736L;
 
   /**
    * Constructor
@@ -1978,25 +1990,54 @@ public class MedicinalProduct extends DomainResource {
     /**
      * @return {@link #identifier} (Business idenfifier for this product. Could be an MPID.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicinalProduct.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicinalProduct setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    public MedicinalProduct addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #identifier} (Business idenfifier for this product. Could be an MPID.)
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
      */
-    public MedicinalProduct setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -2716,6 +2757,81 @@ public class MedicinalProduct extends DomainResource {
     }
 
     /**
+     * @return {@link #clinicalTrial} (Clinical trials or studies that this product is involved in.)
+     */
+    public List<Reference> getClinicalTrial() { 
+      if (this.clinicalTrial == null)
+        this.clinicalTrial = new ArrayList<Reference>();
+      return this.clinicalTrial;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicinalProduct setClinicalTrial(List<Reference> theClinicalTrial) { 
+      this.clinicalTrial = theClinicalTrial;
+      return this;
+    }
+
+    public boolean hasClinicalTrial() { 
+      if (this.clinicalTrial == null)
+        return false;
+      for (Reference item : this.clinicalTrial)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addClinicalTrial() { //3
+      Reference t = new Reference();
+      if (this.clinicalTrial == null)
+        this.clinicalTrial = new ArrayList<Reference>();
+      this.clinicalTrial.add(t);
+      return t;
+    }
+
+    public MedicinalProduct addClinicalTrial(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.clinicalTrial == null)
+        this.clinicalTrial = new ArrayList<Reference>();
+      this.clinicalTrial.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #clinicalTrial}, creating it if it does not already exist
+     */
+    public Reference getClinicalTrialFirstRep() { 
+      if (getClinicalTrial().isEmpty()) {
+        addClinicalTrial();
+      }
+      return getClinicalTrial().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<ResearchStudy> getClinicalTrialTarget() { 
+      if (this.clinicalTrialTarget == null)
+        this.clinicalTrialTarget = new ArrayList<ResearchStudy>();
+      return this.clinicalTrialTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public ResearchStudy addClinicalTrialTarget() { 
+      ResearchStudy r = new ResearchStudy();
+      if (this.clinicalTrialTarget == null)
+        this.clinicalTrialTarget = new ArrayList<ResearchStudy>();
+      this.clinicalTrialTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #name} (The product's name, including full name and possibly coded parts.)
      */
     public List<MedicinalProductNameComponent> getName() { 
@@ -2929,7 +3045,7 @@ public class MedicinalProduct extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "Business idenfifier for this product. Could be an MPID.", 0, 1, identifier));
+        children.add(new Property("identifier", "Identifier", "Business idenfifier for this product. Could be an MPID.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("type", "CodeableConcept", "Regulatory type, e.g. Investigational or Authorized.", 0, 1, type));
         children.add(new Property("domain", "Coding", "If this medicine applies to human or veterinary uses.", 0, 1, domain));
         children.add(new Property("combinedPharmaceuticalDoseForm", "CodeableConcept", "The dose form for a single part product, or combined form of a multiple part product.", 0, 1, combinedPharmaceuticalDoseForm));
@@ -2944,6 +3060,7 @@ public class MedicinalProduct extends DomainResource {
         children.add(new Property("attachedDocument", "Reference(DocumentReference)", "Supporting documentation, typically for regulatory submission.", 0, java.lang.Integer.MAX_VALUE, attachedDocument));
         children.add(new Property("masterFile", "Reference(DocumentReference)", "A master file for to the medicinal product (e.g. Pharmacovigilance System Master File).", 0, java.lang.Integer.MAX_VALUE, masterFile));
         children.add(new Property("contact", "Reference(Organization|PractitionerRole)", "A product specific contact, person (in a role), or an organization.", 0, java.lang.Integer.MAX_VALUE, contact));
+        children.add(new Property("clinicalTrial", "Reference(ResearchStudy)", "Clinical trials or studies that this product is involved in.", 0, java.lang.Integer.MAX_VALUE, clinicalTrial));
         children.add(new Property("name", "", "The product's name, including full name and possibly coded parts.", 0, java.lang.Integer.MAX_VALUE, name));
         children.add(new Property("crossReference", "Identifier", "Reference to another product, e.g. for linking authorised to investigational product.", 0, java.lang.Integer.MAX_VALUE, crossReference));
         children.add(new Property("manufacturingBusinessOperation", "", "An operation applied to the product, for manufacturing or adminsitrative purpose.", 0, java.lang.Integer.MAX_VALUE, manufacturingBusinessOperation));
@@ -2953,7 +3070,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business idenfifier for this product. Could be an MPID.", 0, 1, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business idenfifier for this product. Could be an MPID.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Regulatory type, e.g. Investigational or Authorized.", 0, 1, type);
         case -1326197564: /*domain*/  return new Property("domain", "Coding", "If this medicine applies to human or veterinary uses.", 0, 1, domain);
         case -1992898487: /*combinedPharmaceuticalDoseForm*/  return new Property("combinedPharmaceuticalDoseForm", "CodeableConcept", "The dose form for a single part product, or combined form of a multiple part product.", 0, 1, combinedPharmaceuticalDoseForm);
@@ -2968,6 +3085,7 @@ public class MedicinalProduct extends DomainResource {
         case -513945889: /*attachedDocument*/  return new Property("attachedDocument", "Reference(DocumentReference)", "Supporting documentation, typically for regulatory submission.", 0, java.lang.Integer.MAX_VALUE, attachedDocument);
         case -2039573762: /*masterFile*/  return new Property("masterFile", "Reference(DocumentReference)", "A master file for to the medicinal product (e.g. Pharmacovigilance System Master File).", 0, java.lang.Integer.MAX_VALUE, masterFile);
         case 951526432: /*contact*/  return new Property("contact", "Reference(Organization|PractitionerRole)", "A product specific contact, person (in a role), or an organization.", 0, java.lang.Integer.MAX_VALUE, contact);
+        case 1232866243: /*clinicalTrial*/  return new Property("clinicalTrial", "Reference(ResearchStudy)", "Clinical trials or studies that this product is involved in.", 0, java.lang.Integer.MAX_VALUE, clinicalTrial);
         case 3373707: /*name*/  return new Property("name", "", "The product's name, including full name and possibly coded parts.", 0, java.lang.Integer.MAX_VALUE, name);
         case -986968341: /*crossReference*/  return new Property("crossReference", "Identifier", "Reference to another product, e.g. for linking authorised to investigational product.", 0, java.lang.Integer.MAX_VALUE, crossReference);
         case -171103255: /*manufacturingBusinessOperation*/  return new Property("manufacturingBusinessOperation", "", "An operation applied to the product, for manufacturing or adminsitrative purpose.", 0, java.lang.Integer.MAX_VALUE, manufacturingBusinessOperation);
@@ -2980,7 +3098,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1326197564: /*domain*/ return this.domain == null ? new Base[0] : new Base[] {this.domain}; // Coding
         case -1992898487: /*combinedPharmaceuticalDoseForm*/ return this.combinedPharmaceuticalDoseForm == null ? new Base[0] : new Base[] {this.combinedPharmaceuticalDoseForm}; // CodeableConcept
@@ -2995,6 +3113,7 @@ public class MedicinalProduct extends DomainResource {
         case -513945889: /*attachedDocument*/ return this.attachedDocument == null ? new Base[0] : this.attachedDocument.toArray(new Base[this.attachedDocument.size()]); // Reference
         case -2039573762: /*masterFile*/ return this.masterFile == null ? new Base[0] : this.masterFile.toArray(new Base[this.masterFile.size()]); // Reference
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // Reference
+        case 1232866243: /*clinicalTrial*/ return this.clinicalTrial == null ? new Base[0] : this.clinicalTrial.toArray(new Base[this.clinicalTrial.size()]); // Reference
         case 3373707: /*name*/ return this.name == null ? new Base[0] : this.name.toArray(new Base[this.name.size()]); // MedicinalProductNameComponent
         case -986968341: /*crossReference*/ return this.crossReference == null ? new Base[0] : this.crossReference.toArray(new Base[this.crossReference.size()]); // Identifier
         case -171103255: /*manufacturingBusinessOperation*/ return this.manufacturingBusinessOperation == null ? new Base[0] : this.manufacturingBusinessOperation.toArray(new Base[this.manufacturingBusinessOperation.size()]); // MedicinalProductManufacturingBusinessOperationComponent
@@ -3008,7 +3127,7 @@ public class MedicinalProduct extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -3052,6 +3171,9 @@ public class MedicinalProduct extends DomainResource {
         case 951526432: // contact
           this.getContact().add(castToReference(value)); // Reference
           return value;
+        case 1232866243: // clinicalTrial
+          this.getClinicalTrial().add(castToReference(value)); // Reference
+          return value;
         case 3373707: // name
           this.getName().add((MedicinalProductNameComponent) value); // MedicinalProductNameComponent
           return value;
@@ -3072,7 +3194,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("domain")) {
@@ -3101,6 +3223,8 @@ public class MedicinalProduct extends DomainResource {
           this.getMasterFile().add(castToReference(value));
         } else if (name.equals("contact")) {
           this.getContact().add(castToReference(value));
+        } else if (name.equals("clinicalTrial")) {
+          this.getClinicalTrial().add(castToReference(value));
         } else if (name.equals("name")) {
           this.getName().add((MedicinalProductNameComponent) value);
         } else if (name.equals("crossReference")) {
@@ -3117,7 +3241,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); 
+        case -1618432855:  return addIdentifier(); 
         case 3575610:  return getType(); 
         case -1326197564:  return getDomain(); 
         case -1992898487:  return getCombinedPharmaceuticalDoseForm(); 
@@ -3132,6 +3256,7 @@ public class MedicinalProduct extends DomainResource {
         case -513945889:  return addAttachedDocument(); 
         case -2039573762:  return addMasterFile(); 
         case 951526432:  return addContact(); 
+        case 1232866243:  return addClinicalTrial(); 
         case 3373707:  return addName(); 
         case -986968341:  return addCrossReference(); 
         case -171103255:  return addManufacturingBusinessOperation(); 
@@ -3159,6 +3284,7 @@ public class MedicinalProduct extends DomainResource {
         case -513945889: /*attachedDocument*/ return new String[] {"Reference"};
         case -2039573762: /*masterFile*/ return new String[] {"Reference"};
         case 951526432: /*contact*/ return new String[] {"Reference"};
+        case 1232866243: /*clinicalTrial*/ return new String[] {"Reference"};
         case 3373707: /*name*/ return new String[] {};
         case -986968341: /*crossReference*/ return new String[] {"Identifier"};
         case -171103255: /*manufacturingBusinessOperation*/ return new String[] {};
@@ -3171,8 +3297,7 @@ public class MedicinalProduct extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = new Identifier();
-          return this.identifier;
+          return addIdentifier();
         }
         else if (name.equals("type")) {
           this.type = new CodeableConcept();
@@ -3222,6 +3347,9 @@ public class MedicinalProduct extends DomainResource {
         else if (name.equals("contact")) {
           return addContact();
         }
+        else if (name.equals("clinicalTrial")) {
+          return addClinicalTrial();
+        }
         else if (name.equals("name")) {
           return addName();
         }
@@ -3246,7 +3374,11 @@ public class MedicinalProduct extends DomainResource {
       public MedicinalProduct copy() {
         MedicinalProduct dst = new MedicinalProduct();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.type = type == null ? null : type.copy();
         dst.domain = domain == null ? null : domain.copy();
         dst.combinedPharmaceuticalDoseForm = combinedPharmaceuticalDoseForm == null ? null : combinedPharmaceuticalDoseForm.copy();
@@ -3293,6 +3425,11 @@ public class MedicinalProduct extends DomainResource {
           for (Reference i : contact)
             dst.contact.add(i.copy());
         };
+        if (clinicalTrial != null) {
+          dst.clinicalTrial = new ArrayList<Reference>();
+          for (Reference i : clinicalTrial)
+            dst.clinicalTrial.add(i.copy());
+        };
         if (name != null) {
           dst.name = new ArrayList<MedicinalProductNameComponent>();
           for (MedicinalProductNameComponent i : name)
@@ -3333,8 +3470,8 @@ public class MedicinalProduct extends DomainResource {
            && compareDeep(productClassification, o.productClassification, true) && compareDeep(marketingAuthorization, o.marketingAuthorization, true)
            && compareDeep(packagedMedicinalProduct, o.packagedMedicinalProduct, true) && compareDeep(pharmaceuticalProduct, o.pharmaceuticalProduct, true)
            && compareDeep(clinicalParticulars, o.clinicalParticulars, true) && compareDeep(attachedDocument, o.attachedDocument, true)
-           && compareDeep(masterFile, o.masterFile, true) && compareDeep(contact, o.contact, true) && compareDeep(name, o.name, true)
-           && compareDeep(crossReference, o.crossReference, true) && compareDeep(manufacturingBusinessOperation, o.manufacturingBusinessOperation, true)
+           && compareDeep(masterFile, o.masterFile, true) && compareDeep(contact, o.contact, true) && compareDeep(clinicalTrial, o.clinicalTrial, true)
+           && compareDeep(name, o.name, true) && compareDeep(crossReference, o.crossReference, true) && compareDeep(manufacturingBusinessOperation, o.manufacturingBusinessOperation, true)
            && compareDeep(orphanDesignation, o.orphanDesignation, true);
       }
 
@@ -3352,8 +3489,8 @@ public class MedicinalProduct extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, domain
           , combinedPharmaceuticalDoseForm, additionalMonitoringIndicator, specialMeasures, paediatricUseIndicator
           , productClassification, marketingAuthorization, packagedMedicinalProduct, pharmaceuticalProduct
-          , clinicalParticulars, attachedDocument, masterFile, contact, name, crossReference
-          , manufacturingBusinessOperation, orphanDesignation);
+          , clinicalParticulars, attachedDocument, masterFile, contact, clinicalTrial, name
+          , crossReference, manufacturingBusinessOperation, orphanDesignation);
       }
 
   @Override

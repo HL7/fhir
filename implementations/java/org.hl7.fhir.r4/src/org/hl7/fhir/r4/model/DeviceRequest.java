@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -216,6 +216,194 @@ public class DeviceRequest extends DomainResource {
       return "?";
       }
     public String toSystem(DeviceRequestStatus code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum RequestIntent {
+        /**
+         * The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act
+         */
+        PROPOSAL, 
+        /**
+         * The request represents an intention to ensure something occurs without providing an authorization for others to act
+         */
+        PLAN, 
+        /**
+         * The request represents a request/demand and authorization for action
+         */
+        ORDER, 
+        /**
+         * The request represents an original authorization for action
+         */
+        ORIGINALORDER, 
+        /**
+         * The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization
+         */
+        REFLEXORDER, 
+        /**
+         * The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order
+         */
+        FILLERORDER, 
+        /**
+         * An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.
+         */
+        INSTANCEORDER, 
+        /**
+         * The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used
+         */
+        OPTION, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static RequestIntent fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("proposal".equals(codeString))
+          return PROPOSAL;
+        if ("plan".equals(codeString))
+          return PLAN;
+        if ("order".equals(codeString))
+          return ORDER;
+        if ("original-order".equals(codeString))
+          return ORIGINALORDER;
+        if ("reflex-order".equals(codeString))
+          return REFLEXORDER;
+        if ("filler-order".equals(codeString))
+          return FILLERORDER;
+        if ("instance-order".equals(codeString))
+          return INSTANCEORDER;
+        if ("option".equals(codeString))
+          return OPTION;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown RequestIntent code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PROPOSAL: return "proposal";
+            case PLAN: return "plan";
+            case ORDER: return "order";
+            case ORIGINALORDER: return "original-order";
+            case REFLEXORDER: return "reflex-order";
+            case FILLERORDER: return "filler-order";
+            case INSTANCEORDER: return "instance-order";
+            case OPTION: return "option";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PROPOSAL: return "http://hl7.org/fhir/request-intent";
+            case PLAN: return "http://hl7.org/fhir/request-intent";
+            case ORDER: return "http://hl7.org/fhir/request-intent";
+            case ORIGINALORDER: return "http://hl7.org/fhir/request-intent";
+            case REFLEXORDER: return "http://hl7.org/fhir/request-intent";
+            case FILLERORDER: return "http://hl7.org/fhir/request-intent";
+            case INSTANCEORDER: return "http://hl7.org/fhir/request-intent";
+            case OPTION: return "http://hl7.org/fhir/request-intent";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PROPOSAL: return "The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act";
+            case PLAN: return "The request represents an intention to ensure something occurs without providing an authorization for others to act";
+            case ORDER: return "The request represents a request/demand and authorization for action";
+            case ORIGINALORDER: return "The request represents an original authorization for action";
+            case REFLEXORDER: return "The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization";
+            case FILLERORDER: return "The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order";
+            case INSTANCEORDER: return "An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug.";
+            case OPTION: return "The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PROPOSAL: return "Proposal";
+            case PLAN: return "Plan";
+            case ORDER: return "Order";
+            case ORIGINALORDER: return "Original Order";
+            case REFLEXORDER: return "Reflex Order";
+            case FILLERORDER: return "Filler Order";
+            case INSTANCEORDER: return "Instance Order";
+            case OPTION: return "Option";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class RequestIntentEnumFactory implements EnumFactory<RequestIntent> {
+    public RequestIntent fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("proposal".equals(codeString))
+          return RequestIntent.PROPOSAL;
+        if ("plan".equals(codeString))
+          return RequestIntent.PLAN;
+        if ("order".equals(codeString))
+          return RequestIntent.ORDER;
+        if ("original-order".equals(codeString))
+          return RequestIntent.ORIGINALORDER;
+        if ("reflex-order".equals(codeString))
+          return RequestIntent.REFLEXORDER;
+        if ("filler-order".equals(codeString))
+          return RequestIntent.FILLERORDER;
+        if ("instance-order".equals(codeString))
+          return RequestIntent.INSTANCEORDER;
+        if ("option".equals(codeString))
+          return RequestIntent.OPTION;
+        throw new IllegalArgumentException("Unknown RequestIntent code '"+codeString+"'");
+        }
+        public Enumeration<RequestIntent> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<RequestIntent>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposal".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.PROPOSAL);
+        if ("plan".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.PLAN);
+        if ("order".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.ORDER);
+        if ("original-order".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.ORIGINALORDER);
+        if ("reflex-order".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.REFLEXORDER);
+        if ("filler-order".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.FILLERORDER);
+        if ("instance-order".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.INSTANCEORDER);
+        if ("option".equals(codeString))
+          return new Enumeration<RequestIntent>(this, RequestIntent.OPTION);
+        throw new FHIRException("Unknown RequestIntent code '"+codeString+"'");
+        }
+    public String toCode(RequestIntent code) {
+      if (code == RequestIntent.PROPOSAL)
+        return "proposal";
+      if (code == RequestIntent.PLAN)
+        return "plan";
+      if (code == RequestIntent.ORDER)
+        return "order";
+      if (code == RequestIntent.ORIGINALORDER)
+        return "original-order";
+      if (code == RequestIntent.REFLEXORDER)
+        return "reflex-order";
+      if (code == RequestIntent.FILLERORDER)
+        return "filler-order";
+      if (code == RequestIntent.INSTANCEORDER)
+        return "instance-order";
+      if (code == RequestIntent.OPTION)
+        return "option";
+      return "?";
+      }
+    public String toSystem(RequestIntent code) {
       return code.getSystem();
       }
     }
@@ -672,9 +860,10 @@ public class DeviceRequest extends DomainResource {
     /**
      * Whether the request is a proposal, plan, an original order or a reflex order.
      */
-    @Child(name = "intent", type = {CodeableConcept.class}, order=6, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "intent", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposal | plan | original-order | encoded | reflex-order", formalDefinition="Whether the request is a proposal, plan, an original order or a reflex order." )
-    protected CodeableConcept intent;
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-intent")
+    protected Enumeration<RequestIntent> intent;
 
     /**
      * Indicates how quickly the {{title}} should be addressed with respect to other requests.
@@ -832,7 +1021,7 @@ public class DeviceRequest extends DomainResource {
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = -40631826L;
+    private static final long serialVersionUID = 545126379L;
 
   /**
    * Constructor
@@ -844,7 +1033,7 @@ public class DeviceRequest extends DomainResource {
   /**
    * Constructor
    */
-    public DeviceRequest(CodeableConcept intent, Type code, Reference subject) {
+    public DeviceRequest(Enumeration<RequestIntent> intent, Type code, Reference subject) {
       super();
       this.intent = intent;
       this.code = code;
@@ -1165,15 +1354,19 @@ public class DeviceRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #intent} (Whether the request is a proposal, plan, an original order or a reflex order.)
+     * @return {@link #intent} (Whether the request is a proposal, plan, an original order or a reflex order.). This is the underlying object with id, value and extensions. The accessor "getIntent" gives direct access to the value
      */
-    public CodeableConcept getIntent() { 
+    public Enumeration<RequestIntent> getIntentElement() { 
       if (this.intent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceRequest.intent");
         else if (Configuration.doAutoCreate())
-          this.intent = new CodeableConcept(); // cc
+          this.intent = new Enumeration<RequestIntent>(new RequestIntentEnumFactory()); // bb
       return this.intent;
+    }
+
+    public boolean hasIntentElement() { 
+      return this.intent != null && !this.intent.isEmpty();
     }
 
     public boolean hasIntent() { 
@@ -1181,10 +1374,27 @@ public class DeviceRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #intent} (Whether the request is a proposal, plan, an original order or a reflex order.)
+     * @param value {@link #intent} (Whether the request is a proposal, plan, an original order or a reflex order.). This is the underlying object with id, value and extensions. The accessor "getIntent" gives direct access to the value
      */
-    public DeviceRequest setIntent(CodeableConcept value) { 
+    public DeviceRequest setIntentElement(Enumeration<RequestIntent> value) { 
       this.intent = value;
+      return this;
+    }
+
+    /**
+     * @return Whether the request is a proposal, plan, an original order or a reflex order.
+     */
+    public RequestIntent getIntent() { 
+      return this.intent == null ? null : this.intent.getValue();
+    }
+
+    /**
+     * @param value Whether the request is a proposal, plan, an original order or a reflex order.
+     */
+    public DeviceRequest setIntent(RequestIntent value) { 
+        if (this.intent == null)
+          this.intent = new Enumeration<RequestIntent>(new RequestIntentEnumFactory());
+        this.intent.setValue(value);
       return this;
     }
 
@@ -2014,7 +2224,7 @@ public class DeviceRequest extends DomainResource {
         children.add(new Property("priorRequest", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, priorRequest));
         children.add(new Property("groupIdentifier", "Identifier", "Composite request this is part of.", 0, 1, groupIdentifier));
         children.add(new Property("status", "code", "The status of the request.", 0, 1, status));
-        children.add(new Property("intent", "CodeableConcept", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent));
+        children.add(new Property("intent", "code", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent));
         children.add(new Property("priority", "code", "Indicates how quickly the {{title}} should be addressed with respect to other requests.", 0, 1, priority));
         children.add(new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code));
         children.add(new Property("parameter", "", "Specific parameters for the ordered item.  For example, the prism value for lenses.", 0, java.lang.Integer.MAX_VALUE, parameter));
@@ -2042,7 +2252,7 @@ public class DeviceRequest extends DomainResource {
         case 237568101: /*priorRequest*/  return new Property("priorRequest", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, priorRequest);
         case -445338488: /*groupIdentifier*/  return new Property("groupIdentifier", "Identifier", "Composite request this is part of.", 0, 1, groupIdentifier);
         case -892481550: /*status*/  return new Property("status", "code", "The status of the request.", 0, 1, status);
-        case -1183762788: /*intent*/  return new Property("intent", "CodeableConcept", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent);
+        case -1183762788: /*intent*/  return new Property("intent", "code", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent);
         case -1165461084: /*priority*/  return new Property("priority", "code", "Indicates how quickly the {{title}} should be addressed with respect to other requests.", 0, 1, priority);
         case 941839219: /*code[x]*/  return new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code);
         case 3059181: /*code*/  return new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code);
@@ -2080,7 +2290,7 @@ public class DeviceRequest extends DomainResource {
         case 237568101: /*priorRequest*/ return this.priorRequest == null ? new Base[0] : this.priorRequest.toArray(new Base[this.priorRequest.size()]); // Reference
         case -445338488: /*groupIdentifier*/ return this.groupIdentifier == null ? new Base[0] : new Base[] {this.groupIdentifier}; // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceRequestStatus>
-        case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // CodeableConcept
+        case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // Enumeration<RequestIntent>
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<RequestPriority>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Type
         case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // DeviceRequestParameterComponent
@@ -2125,7 +2335,8 @@ public class DeviceRequest extends DomainResource {
           this.status = (Enumeration) value; // Enumeration<DeviceRequestStatus>
           return value;
         case -1183762788: // intent
-          this.intent = castToCodeableConcept(value); // CodeableConcept
+          value = new RequestIntentEnumFactory().fromType(castToCode(value));
+          this.intent = (Enumeration) value; // Enumeration<RequestIntent>
           return value;
         case -1165461084: // priority
           value = new RequestPriorityEnumFactory().fromType(castToCode(value));
@@ -2197,7 +2408,8 @@ public class DeviceRequest extends DomainResource {
           value = new DeviceRequestStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<DeviceRequestStatus>
         } else if (name.equals("intent")) {
-          this.intent = castToCodeableConcept(value); // CodeableConcept
+          value = new RequestIntentEnumFactory().fromType(castToCode(value));
+          this.intent = (Enumeration) value; // Enumeration<RequestIntent>
         } else if (name.equals("priority")) {
           value = new RequestPriorityEnumFactory().fromType(castToCode(value));
           this.priority = (Enumeration) value; // Enumeration<RequestPriority>
@@ -2245,7 +2457,7 @@ public class DeviceRequest extends DomainResource {
         case 237568101:  return addPriorRequest(); 
         case -445338488:  return getGroupIdentifier(); 
         case -892481550:  return getStatusElement();
-        case -1183762788:  return getIntent(); 
+        case -1183762788:  return getIntentElement();
         case -1165461084:  return getPriorityElement();
         case 941839219:  return getCode(); 
         case 3059181:  return getCode(); 
@@ -2278,7 +2490,7 @@ public class DeviceRequest extends DomainResource {
         case 237568101: /*priorRequest*/ return new String[] {"Reference"};
         case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
-        case -1183762788: /*intent*/ return new String[] {"CodeableConcept"};
+        case -1183762788: /*intent*/ return new String[] {"code"};
         case -1165461084: /*priority*/ return new String[] {"code"};
         case 3059181: /*code*/ return new String[] {"Reference", "CodeableConcept"};
         case 1954460585: /*parameter*/ return new String[] {};
@@ -2322,8 +2534,7 @@ public class DeviceRequest extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type DeviceRequest.status");
         }
         else if (name.equals("intent")) {
-          this.intent = new CodeableConcept();
-          return this.intent;
+          throw new FHIRException("Cannot call addChild on a primitive type DeviceRequest.intent");
         }
         else if (name.equals("priority")) {
           throw new FHIRException("Cannot call addChild on a primitive type DeviceRequest.priority");
@@ -2503,8 +2714,8 @@ public class DeviceRequest extends DomainResource {
         if (!(other_ instanceof DeviceRequest))
           return false;
         DeviceRequest o = (DeviceRequest) other_;
-        return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(priority, o.priority, true)
-           && compareValues(authoredOn, o.authoredOn, true);
+        return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(intent, o.intent, true)
+           && compareValues(priority, o.priority, true) && compareValues(authoredOn, o.authoredOn, true);
       }
 
       public boolean isEmpty() {

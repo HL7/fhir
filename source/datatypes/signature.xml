@@ -518,7 +518,6 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="27.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="107.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="81.0"/>
-   <Column ss:Span="1" ss:StyleID="s62" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="12" ss:StyleID="s62" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="161.0"/>
@@ -731,7 +730,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Signature.blob</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Signature.data</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3071,9 +3070,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>18</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

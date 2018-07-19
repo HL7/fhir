@@ -29,11 +29,10 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
 
 import java.util.*;
 
-import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -47,350 +46,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="Condition", profile="http://hl7.org/fhir/Profile/Condition")
 public class Condition extends DomainResource {
-
-    public enum ConditionClinicalStatus {
-        /**
-         * The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.
-         */
-        ACTIVE, 
-        /**
-         * The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis.
-         */
-        RECURRENCE, 
-        /**
-         * The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc.
-         */
-        RELAPSE, 
-        /**
-         * The subject's condition is adequately or well managed such that the recommended evidence-based clinical outcome targets are met.
-         */
-        WELLCONTROLLED, 
-        /**
-         * The subject's condition is inadequately/poorly managed such that the recommended evidence-based clinical outcome targets are not met.
-         */
-        POORLYCONTROLLED, 
-        /**
-         * The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.
-         */
-        INACTIVE, 
-        /**
-         * The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.
-         */
-        REMISSION, 
-        /**
-         * The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning.
-         */
-        RESOLVED, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ConditionClinicalStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("recurrence".equals(codeString))
-          return RECURRENCE;
-        if ("relapse".equals(codeString))
-          return RELAPSE;
-        if ("well-controlled".equals(codeString))
-          return WELLCONTROLLED;
-        if ("poorly-controlled".equals(codeString))
-          return POORLYCONTROLLED;
-        if ("inactive".equals(codeString))
-          return INACTIVE;
-        if ("remission".equals(codeString))
-          return REMISSION;
-        if ("resolved".equals(codeString))
-          return RESOLVED;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ConditionClinicalStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case ACTIVE: return "active";
-            case RECURRENCE: return "recurrence";
-            case RELAPSE: return "relapse";
-            case WELLCONTROLLED: return "well-controlled";
-            case POORLYCONTROLLED: return "poorly-controlled";
-            case INACTIVE: return "inactive";
-            case REMISSION: return "remission";
-            case RESOLVED: return "resolved";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/condition-clinical";
-            case RECURRENCE: return "http://hl7.org/fhir/condition-clinical";
-            case RELAPSE: return "http://hl7.org/fhir/condition-clinical";
-            case WELLCONTROLLED: return "http://hl7.org/fhir/condition-clinical";
-            case POORLYCONTROLLED: return "http://hl7.org/fhir/condition-clinical";
-            case INACTIVE: return "http://hl7.org/fhir/condition-clinical";
-            case REMISSION: return "http://hl7.org/fhir/condition-clinical";
-            case RESOLVED: return "http://hl7.org/fhir/condition-clinical";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case ACTIVE: return "The subject is currently experiencing the symptoms of the condition or there is evidence of the condition.";
-            case RECURRENCE: return "The subject is experiencing a re-occurence or repeating of a previously resolved condition, e.g. urinary tract infection, pancreatitis, cholangitis, conjunctivitis.";
-            case RELAPSE: return "The subject is experiencing a return of a condition, or signs and symptoms after a period of improvement or remission, e.g. relapse of cancer, multiple sclerosis, rheumatoid arthritis, systemic lupus erythematosus, bipolar disorder, [psychotic relapse of] schizophrenia, etc.";
-            case WELLCONTROLLED: return "The subject's condition is adequately or well managed such that the recommended evidence-based clinical outcome targets are met.";
-            case POORLYCONTROLLED: return "The subject's condition is inadequately/poorly managed such that the recommended evidence-based clinical outcome targets are not met.";
-            case INACTIVE: return "The subject is no longer experiencing the symptoms of the condition or there is no longer evidence of the condition.";
-            case REMISSION: return "The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning.";
-            case RESOLVED: return "The subject is no longer experiencing the symptoms of the condition and there is a negligible perceived risk of the symptoms returning.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case ACTIVE: return "Active";
-            case RECURRENCE: return "Recurrence";
-            case RELAPSE: return "Relapse";
-            case WELLCONTROLLED: return "Well-Controlled";
-            case POORLYCONTROLLED: return "Poorly-Controlled";
-            case INACTIVE: return "Inactive";
-            case REMISSION: return "Remission";
-            case RESOLVED: return "Resolved";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ConditionClinicalStatusEnumFactory implements EnumFactory<ConditionClinicalStatus> {
-    public ConditionClinicalStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("active".equals(codeString))
-          return ConditionClinicalStatus.ACTIVE;
-        if ("recurrence".equals(codeString))
-          return ConditionClinicalStatus.RECURRENCE;
-        if ("relapse".equals(codeString))
-          return ConditionClinicalStatus.RELAPSE;
-        if ("well-controlled".equals(codeString))
-          return ConditionClinicalStatus.WELLCONTROLLED;
-        if ("poorly-controlled".equals(codeString))
-          return ConditionClinicalStatus.POORLYCONTROLLED;
-        if ("inactive".equals(codeString))
-          return ConditionClinicalStatus.INACTIVE;
-        if ("remission".equals(codeString))
-          return ConditionClinicalStatus.REMISSION;
-        if ("resolved".equals(codeString))
-          return ConditionClinicalStatus.RESOLVED;
-        throw new IllegalArgumentException("Unknown ConditionClinicalStatus code '"+codeString+"'");
-        }
-        public Enumeration<ConditionClinicalStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<ConditionClinicalStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("active".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.ACTIVE);
-        if ("recurrence".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RECURRENCE);
-        if ("relapse".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RELAPSE);
-        if ("well-controlled".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.WELLCONTROLLED);
-        if ("poorly-controlled".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.POORLYCONTROLLED);
-        if ("inactive".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.INACTIVE);
-        if ("remission".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.REMISSION);
-        if ("resolved".equals(codeString))
-          return new Enumeration<ConditionClinicalStatus>(this, ConditionClinicalStatus.RESOLVED);
-        throw new FHIRException("Unknown ConditionClinicalStatus code '"+codeString+"'");
-        }
-    public String toCode(ConditionClinicalStatus code) {
-      if (code == ConditionClinicalStatus.ACTIVE)
-        return "active";
-      if (code == ConditionClinicalStatus.RECURRENCE)
-        return "recurrence";
-      if (code == ConditionClinicalStatus.RELAPSE)
-        return "relapse";
-      if (code == ConditionClinicalStatus.WELLCONTROLLED)
-        return "well-controlled";
-      if (code == ConditionClinicalStatus.POORLYCONTROLLED)
-        return "poorly-controlled";
-      if (code == ConditionClinicalStatus.INACTIVE)
-        return "inactive";
-      if (code == ConditionClinicalStatus.REMISSION)
-        return "remission";
-      if (code == ConditionClinicalStatus.RESOLVED)
-        return "resolved";
-      return "?";
-      }
-    public String toSystem(ConditionClinicalStatus code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum ConditionVerificationStatus {
-        /**
-         * There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
-         */
-        UNCONFIRMED, 
-        /**
-         * This is a tentative diagnosis - still a candidate that is under consideration.
-         */
-        PROVISIONAL, 
-        /**
-         * One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.
-         */
-        DIFFERENTIAL, 
-        /**
-         * There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.
-         */
-        CONFIRMED, 
-        /**
-         * This condition has been ruled out by diagnostic and clinical evidence.
-         */
-        REFUTED, 
-        /**
-         * The statement was entered in error and is not valid.
-         */
-        ENTEREDINERROR, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ConditionVerificationStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("unconfirmed".equals(codeString))
-          return UNCONFIRMED;
-        if ("provisional".equals(codeString))
-          return PROVISIONAL;
-        if ("differential".equals(codeString))
-          return DIFFERENTIAL;
-        if ("confirmed".equals(codeString))
-          return CONFIRMED;
-        if ("refuted".equals(codeString))
-          return REFUTED;
-        if ("entered-in-error".equals(codeString))
-          return ENTEREDINERROR;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ConditionVerificationStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case UNCONFIRMED: return "unconfirmed";
-            case PROVISIONAL: return "provisional";
-            case DIFFERENTIAL: return "differential";
-            case CONFIRMED: return "confirmed";
-            case REFUTED: return "refuted";
-            case ENTEREDINERROR: return "entered-in-error";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case UNCONFIRMED: return "http://hl7.org/fhir/condition-ver-status";
-            case PROVISIONAL: return "http://hl7.org/fhir/condition-ver-status";
-            case DIFFERENTIAL: return "http://hl7.org/fhir/condition-ver-status";
-            case CONFIRMED: return "http://hl7.org/fhir/condition-ver-status";
-            case REFUTED: return "http://hl7.org/fhir/condition-ver-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/condition-ver-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case UNCONFIRMED: return "There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
-            case PROVISIONAL: return "This is a tentative diagnosis - still a candidate that is under consideration.";
-            case DIFFERENTIAL: return "One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.";
-            case CONFIRMED: return "There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.";
-            case REFUTED: return "This condition has been ruled out by diagnostic and clinical evidence.";
-            case ENTEREDINERROR: return "The statement was entered in error and is not valid.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case UNCONFIRMED: return "Unconfirmed";
-            case PROVISIONAL: return "Provisional";
-            case DIFFERENTIAL: return "Differential";
-            case CONFIRMED: return "Confirmed";
-            case REFUTED: return "Refuted";
-            case ENTEREDINERROR: return "Entered In Error";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ConditionVerificationStatusEnumFactory implements EnumFactory<ConditionVerificationStatus> {
-    public ConditionVerificationStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("unconfirmed".equals(codeString))
-          return ConditionVerificationStatus.UNCONFIRMED;
-        if ("provisional".equals(codeString))
-          return ConditionVerificationStatus.PROVISIONAL;
-        if ("differential".equals(codeString))
-          return ConditionVerificationStatus.DIFFERENTIAL;
-        if ("confirmed".equals(codeString))
-          return ConditionVerificationStatus.CONFIRMED;
-        if ("refuted".equals(codeString))
-          return ConditionVerificationStatus.REFUTED;
-        if ("entered-in-error".equals(codeString))
-          return ConditionVerificationStatus.ENTEREDINERROR;
-        throw new IllegalArgumentException("Unknown ConditionVerificationStatus code '"+codeString+"'");
-        }
-        public Enumeration<ConditionVerificationStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<ConditionVerificationStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("unconfirmed".equals(codeString))
-          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.UNCONFIRMED);
-        if ("provisional".equals(codeString))
-          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.PROVISIONAL);
-        if ("differential".equals(codeString))
-          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.DIFFERENTIAL);
-        if ("confirmed".equals(codeString))
-          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.CONFIRMED);
-        if ("refuted".equals(codeString))
-          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.REFUTED);
-        if ("entered-in-error".equals(codeString))
-          return new Enumeration<ConditionVerificationStatus>(this, ConditionVerificationStatus.ENTEREDINERROR);
-        throw new FHIRException("Unknown ConditionVerificationStatus code '"+codeString+"'");
-        }
-    public String toCode(ConditionVerificationStatus code) {
-      if (code == ConditionVerificationStatus.UNCONFIRMED)
-        return "unconfirmed";
-      if (code == ConditionVerificationStatus.PROVISIONAL)
-        return "provisional";
-      if (code == ConditionVerificationStatus.DIFFERENTIAL)
-        return "differential";
-      if (code == ConditionVerificationStatus.CONFIRMED)
-        return "confirmed";
-      if (code == ConditionVerificationStatus.REFUTED)
-        return "refuted";
-      if (code == ConditionVerificationStatus.ENTEREDINERROR)
-        return "entered-in-error";
-      return "?";
-      }
-    public String toSystem(ConditionVerificationStatus code) {
-      return code.getSystem();
-      }
-    }
 
     @Block()
     public static class ConditionStageComponent extends BackboneElement implements IBaseBackboneElement {
@@ -973,18 +628,18 @@ public class Condition extends DomainResource {
     /**
      * The clinical status of the condition.
      */
-    @Child(name = "clinicalStatus", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "clinicalStatus", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | recurrence | relapse | well-controlled | poorly-controlled | inactive | remission | resolved", formalDefinition="The clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-clinical")
-    protected Enumeration<ConditionClinicalStatus> clinicalStatus;
+    protected CodeableConcept clinicalStatus;
 
     /**
      * The verification status to support the clinical status of the condition.
      */
-    @Child(name = "verificationStatus", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "verificationStatus", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error", formalDefinition="The verification status to support the clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-ver-status")
-    protected Enumeration<ConditionVerificationStatus> verificationStatus;
+    protected CodeableConcept verificationStatus;
 
     /**
      * A category assigned to the condition.
@@ -1108,7 +763,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -1283965149L;
+    private static final long serialVersionUID = 149113403L;
 
   /**
    * Constructor
@@ -1179,19 +834,15 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @return {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
+     * @return {@link #clinicalStatus} (The clinical status of the condition.)
      */
-    public Enumeration<ConditionClinicalStatus> getClinicalStatusElement() { 
+    public CodeableConcept getClinicalStatus() { 
       if (this.clinicalStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.clinicalStatus");
         else if (Configuration.doAutoCreate())
-          this.clinicalStatus = new Enumeration<ConditionClinicalStatus>(new ConditionClinicalStatusEnumFactory()); // bb
+          this.clinicalStatus = new CodeableConcept(); // cc
       return this.clinicalStatus;
-    }
-
-    public boolean hasClinicalStatusElement() { 
-      return this.clinicalStatus != null && !this.clinicalStatus.isEmpty();
     }
 
     public boolean hasClinicalStatus() { 
@@ -1199,48 +850,23 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @param value {@link #clinicalStatus} (The clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getClinicalStatus" gives direct access to the value
+     * @param value {@link #clinicalStatus} (The clinical status of the condition.)
      */
-    public Condition setClinicalStatusElement(Enumeration<ConditionClinicalStatus> value) { 
+    public Condition setClinicalStatus(CodeableConcept value) { 
       this.clinicalStatus = value;
       return this;
     }
 
     /**
-     * @return The clinical status of the condition.
+     * @return {@link #verificationStatus} (The verification status to support the clinical status of the condition.)
      */
-    public ConditionClinicalStatus getClinicalStatus() { 
-      return this.clinicalStatus == null ? null : this.clinicalStatus.getValue();
-    }
-
-    /**
-     * @param value The clinical status of the condition.
-     */
-    public Condition setClinicalStatus(ConditionClinicalStatus value) { 
-      if (value == null)
-        this.clinicalStatus = null;
-      else {
-        if (this.clinicalStatus == null)
-          this.clinicalStatus = new Enumeration<ConditionClinicalStatus>(new ConditionClinicalStatusEnumFactory());
-        this.clinicalStatus.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
-     */
-    public Enumeration<ConditionVerificationStatus> getVerificationStatusElement() { 
+    public CodeableConcept getVerificationStatus() { 
       if (this.verificationStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.verificationStatus");
         else if (Configuration.doAutoCreate())
-          this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory()); // bb
+          this.verificationStatus = new CodeableConcept(); // cc
       return this.verificationStatus;
-    }
-
-    public boolean hasVerificationStatusElement() { 
-      return this.verificationStatus != null && !this.verificationStatus.isEmpty();
     }
 
     public boolean hasVerificationStatus() { 
@@ -1248,31 +874,10 @@ public class Condition extends DomainResource {
     }
 
     /**
-     * @param value {@link #verificationStatus} (The verification status to support the clinical status of the condition.). This is the underlying object with id, value and extensions. The accessor "getVerificationStatus" gives direct access to the value
+     * @param value {@link #verificationStatus} (The verification status to support the clinical status of the condition.)
      */
-    public Condition setVerificationStatusElement(Enumeration<ConditionVerificationStatus> value) { 
+    public Condition setVerificationStatus(CodeableConcept value) { 
       this.verificationStatus = value;
-      return this;
-    }
-
-    /**
-     * @return The verification status to support the clinical status of the condition.
-     */
-    public ConditionVerificationStatus getVerificationStatus() { 
-      return this.verificationStatus == null ? null : this.verificationStatus.getValue();
-    }
-
-    /**
-     * @param value The verification status to support the clinical status of the condition.
-     */
-    public Condition setVerificationStatus(ConditionVerificationStatus value) { 
-      if (value == null)
-        this.verificationStatus = null;
-      else {
-        if (this.verificationStatus == null)
-          this.verificationStatus = new Enumeration<ConditionVerificationStatus>(new ConditionVerificationStatusEnumFactory());
-        this.verificationStatus.setValue(value);
-      }
       return this;
     }
 
@@ -1989,8 +1594,8 @@ public class Condition extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, 1, clinicalStatus));
-        children.add(new Property("verificationStatus", "code", "The verification status to support the clinical status of the condition.", 0, 1, verificationStatus));
+        children.add(new Property("clinicalStatus", "CodeableConcept", "The clinical status of the condition.", 0, 1, clinicalStatus));
+        children.add(new Property("verificationStatus", "CodeableConcept", "The verification status to support the clinical status of the condition.", 0, 1, verificationStatus));
         children.add(new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, 1, severity));
         children.add(new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, 1, code));
@@ -2011,8 +1616,8 @@ public class Condition extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -462853915: /*clinicalStatus*/  return new Property("clinicalStatus", "code", "The clinical status of the condition.", 0, 1, clinicalStatus);
-        case -842509843: /*verificationStatus*/  return new Property("verificationStatus", "code", "The verification status to support the clinical status of the condition.", 0, 1, verificationStatus);
+        case -462853915: /*clinicalStatus*/  return new Property("clinicalStatus", "CodeableConcept", "The clinical status of the condition.", 0, 1, clinicalStatus);
+        case -842509843: /*verificationStatus*/  return new Property("verificationStatus", "CodeableConcept", "The verification status to support the clinical status of the condition.", 0, 1, verificationStatus);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A category assigned to the condition.", 0, java.lang.Integer.MAX_VALUE, category);
         case 1478300413: /*severity*/  return new Property("severity", "CodeableConcept", "A subjective assessment of the severity of the condition as evaluated by the clinician.", 0, 1, severity);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Identification of the condition, problem or diagnosis.", 0, 1, code);
@@ -2048,8 +1653,8 @@ public class Condition extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -462853915: /*clinicalStatus*/ return this.clinicalStatus == null ? new Base[0] : new Base[] {this.clinicalStatus}; // Enumeration<ConditionClinicalStatus>
-        case -842509843: /*verificationStatus*/ return this.verificationStatus == null ? new Base[0] : new Base[] {this.verificationStatus}; // Enumeration<ConditionVerificationStatus>
+        case -462853915: /*clinicalStatus*/ return this.clinicalStatus == null ? new Base[0] : new Base[] {this.clinicalStatus}; // CodeableConcept
+        case -842509843: /*verificationStatus*/ return this.verificationStatus == null ? new Base[0] : new Base[] {this.verificationStatus}; // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
         case 1478300413: /*severity*/ return this.severity == null ? new Base[0] : new Base[] {this.severity}; // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
@@ -2076,12 +1681,10 @@ public class Condition extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -462853915: // clinicalStatus
-          value = new ConditionClinicalStatusEnumFactory().fromType(castToCode(value));
-          this.clinicalStatus = (Enumeration) value; // Enumeration<ConditionClinicalStatus>
+          this.clinicalStatus = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -842509843: // verificationStatus
-          value = new ConditionVerificationStatusEnumFactory().fromType(castToCode(value));
-          this.verificationStatus = (Enumeration) value; // Enumeration<ConditionVerificationStatus>
+          this.verificationStatus = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -2135,11 +1738,9 @@ public class Condition extends DomainResource {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("clinicalStatus")) {
-          value = new ConditionClinicalStatusEnumFactory().fromType(castToCode(value));
-          this.clinicalStatus = (Enumeration) value; // Enumeration<ConditionClinicalStatus>
+          this.clinicalStatus = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("verificationStatus")) {
-          value = new ConditionVerificationStatusEnumFactory().fromType(castToCode(value));
-          this.verificationStatus = (Enumeration) value; // Enumeration<ConditionVerificationStatus>
+          this.verificationStatus = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
         } else if (name.equals("severity")) {
@@ -2177,8 +1778,8 @@ public class Condition extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -462853915:  return getClinicalStatusElement();
-        case -842509843:  return getVerificationStatusElement();
+        case -462853915:  return getClinicalStatus(); 
+        case -842509843:  return getVerificationStatus(); 
         case 50511102:  return addCategory(); 
         case 1478300413:  return getSeverity(); 
         case 3059181:  return getCode(); 
@@ -2204,8 +1805,8 @@ public class Condition extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -462853915: /*clinicalStatus*/ return new String[] {"code"};
-        case -842509843: /*verificationStatus*/ return new String[] {"code"};
+        case -462853915: /*clinicalStatus*/ return new String[] {"CodeableConcept"};
+        case -842509843: /*verificationStatus*/ return new String[] {"CodeableConcept"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1478300413: /*severity*/ return new String[] {"CodeableConcept"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
@@ -2231,10 +1832,12 @@ public class Condition extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("clinicalStatus")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Condition.clinicalStatus");
+          this.clinicalStatus = new CodeableConcept();
+          return this.clinicalStatus;
         }
         else if (name.equals("verificationStatus")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Condition.verificationStatus");
+          this.verificationStatus = new CodeableConcept();
+          return this.verificationStatus;
         }
         else if (name.equals("category")) {
           return addCategory();
@@ -2401,8 +2004,7 @@ public class Condition extends DomainResource {
         if (!(other_ instanceof Condition))
           return false;
         Condition o = (Condition) other_;
-        return compareValues(clinicalStatus, o.clinicalStatus, true) && compareValues(verificationStatus, o.verificationStatus, true)
-           && compareValues(recordedDate, o.recordedDate, true);
+        return compareValues(recordedDate, o.recordedDate, true);
       }
 
       public boolean isEmpty() {
