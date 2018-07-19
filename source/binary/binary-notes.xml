@@ -1,5 +1,18 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="content"></a>
+<h3>Content Optionality</h3>
+<p>
+<code>Binary.content</code> is optional because it is excluded when 
+a summary view of the Binary resource is requested (this can be useful
+when the binary resource is part of a wider request e.g. a search 
+_include). 
+</p>
+<p>
+Otherwise, the content is not optional; a binary resource without
+any specified content it not useful.
+</p>
+
 <a name="rest"></a>
 <h3>Serving Binary Resources using the RESTful API</h3>
 
