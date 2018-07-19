@@ -477,24 +477,14 @@ attack).
 
 <a name="Events"></a>
 <a name="events"></a>
-<h2>Event List</h2>
+<h2>Defining Events</h2>
 
 <p>
 The <i>message.code</i> element carries a <a href="datatypes.html#Coding">Coding</a> that identifies the event that the message conveys.
-This table lists the message event codes defined in this specification (the system value for these is "<a href="valueset-message-events.html">http://hl7.org/fhir/message-events</a>"):
-</p>
-
-[%events%]
-
-<p>
-The request and response details: The column values are either a resource
-that is included as part of the response, or an element that refers to
-another resource, which means that the target of these references SHALL
-also be in the message.
-In this table, the request and response columns list the focus resource for the event, along with other resources that should also be carried in the message directly (if they exist).
 </p>
 <p>
-Additional events may be defined using the <a href="messagedefinition.html">MessageDefinition</a> resource.
+Events may be defined using the <a href="messagedefinition.html">MessageDefinition</a> resource. This specification 
+does not define any events, but may do so in the future if implementers find this useful.
 </p>
 
 <a name="operations"></a>
