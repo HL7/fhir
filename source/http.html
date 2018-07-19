@@ -307,6 +307,11 @@ Binary resource</a>).
 Note: between FHIR DSTU2 and STU3, the correct mime type was changed from <code>application/xml+fhir</code> and <code>application/json+fhir</code> to <code>application/fhir+xml</code> and <code>application/fhir+json</code>.
 Servers MAY also support the older mime types, and are encouraged to do so to smooth the transition process.
 </li>
+<li>
+<code>406 Not Acceptable</code>  is the appropriate response when the <code>Accept</code> header requests a format that the server
+does not support, and <code>415 Unsupported Media Type</code> when the client posts a format that is not supported 
+to the server.
+</li>
 </ul>
 <p>
 FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
