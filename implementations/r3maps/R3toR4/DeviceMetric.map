@@ -1,0 +1,30 @@
+﻿map "http://hl7.org/fhir/StructureMap/DeviceMetric3to4" = "R3 to R4 Conversions for DeviceMetric"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceMetric" alias DeviceMetricR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group DeviceMetric extends DomainResource
+  input src : DeviceMetricR3 as source
+  input tgt : DeviceMetric as target
+
+  "DeviceMetric.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "DeviceMetric.type" : for src.type as vs make tgt.type as vt
+  "DeviceMetric.unit" : for src.unit as vs make tgt.unit as vt
+  "DeviceMetric.source" : for src.source as vs make tgt.source as vt
+  "DeviceMetric.parent" : for src.parent as vs make tgt.parent as vt
+  "DeviceMetric.operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt
+  "DeviceMetric.color" : for src.color as vs make tgt.color as vt
+  "DeviceMetric.category" : for src.category as vs make tgt.category as vt
+  "DeviceMetric.measurementPeriod" : for src.measurementPeriod as vs make tgt.measurementPeriod as vt
+  "DeviceMetric.calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
+    "DeviceMetric.calibration.type" : for vs0.type as vs make vt0.type as vt then
+    "DeviceMetric.calibration.state" : for vs0.state as vs make vt0.state as vt then
+    "DeviceMetric.calibration.time" : for vs0.time as vs make vt0.time as vt
+  }
+endgroup
+

@@ -1,0 +1,40 @@
+﻿map "http://hl7.org/fhir/StructureMap/RiskAssessment3to4" = "R3 to R4 Conversions for RiskAssessment"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RiskAssessment" alias RiskAssessmentR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessment as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group RiskAssessment extends DomainResource
+  input src : RiskAssessmentR3 as source
+  input tgt : RiskAssessment as target
+
+  "RiskAssessment.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "RiskAssessment.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
+  "RiskAssessment.parent" : for src.parent as vs make tgt.parent as vt
+  "RiskAssessment.status" : for src.status as vs make tgt.status as vt
+  "RiskAssessment.method" : for src.method as vs make tgt.method as vt
+  "RiskAssessment.code" : for src.code as vs make tgt.code as vt
+  "RiskAssessment.subject" : for src.subject as vs make tgt.subject as vt
+  "RiskAssessment.context" : for src.context as vs make tgt.context as vt
+  "RiskAssessment.occurrence-dateTime" : for src.occurrence  : dateTime as vs make tgt.occurrence = create("dateTime") as vt then dateTime(vs,vt)
+  "RiskAssessment.occurrence-Period" : for src.occurrence  : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs,vt)
+  "RiskAssessment.condition" : for src.condition as vs make tgt.condition as vt
+  "RiskAssessment.performer" : for src.performer as vs make tgt.performer as vt
+  "RiskAssessment.basis" : for src.basis as vs make tgt.basis as vt
+  "RiskAssessment.prediction" : for src.prediction as vs0 make tgt.prediction as vt0 then {
+    "RiskAssessment.prediction.outcome" : for vs0.outcome as vs make vt0.outcome as vt
+    "RiskAssessment.prediction.probability-decimal" : for vs0.probability  : decimal as vs make vt0.probability = create("decimal") as vt then decimal(vs,vt)
+    "RiskAssessment.prediction.probability-Range" : for vs0.probability  : Range as vs make vt0.probability = create("Range") as vt then Range(vs,vt)
+    "RiskAssessment.prediction.qualitativeRisk" : for vs0.qualitativeRisk as vs make vt0.qualitativeRisk as vt
+    "RiskAssessment.prediction.relativeRisk" : for vs0.relativeRisk as vs make vt0.relativeRisk as vt
+    "RiskAssessment.prediction.when-Period" : for vs0.when  : Period as vs make vt0.when = create("Period") as vt then Period(vs,vt)
+    "RiskAssessment.prediction.when-Range" : for vs0.when  : Range as vs make vt0.when = create("Range") as vt then Range(vs,vt)
+    "RiskAssessment.prediction.rationale" : for vs0.rationale as vs make vt0.rationale as vt
+  }
+  "RiskAssessment.mitigation" : for src.mitigation as vs make tgt.mitigation as vt
+endgroup
+

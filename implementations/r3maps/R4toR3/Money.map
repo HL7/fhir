@@ -1,0 +1,18 @@
+﻿map "http://hl7.org/fhir/StructureMap/Money4to3" = "R4 to R3 Conversion for Money"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Money" alias Money as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Money" alias MoneyR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Money extends Element
+  input src : Money as source
+  input tgt : MoneyR3 as target
+
+  "Money.value" : for src.value as vs make tgt.value as vt
+  "Money.code" : for src.currency as vs make tgt.code as vt
+endgroup
+

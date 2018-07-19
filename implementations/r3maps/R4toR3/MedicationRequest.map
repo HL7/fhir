@@ -1,0 +1,44 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicationRequest4to3" = "R4 to R3 Conversion for MedicationRequest"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationRequest" alias MedicationRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group MedicationRequest extends DomainResource
+  input src : MedicationRequest as source
+  input tgt : MedicationRequestR3 as target
+
+  "MedicationRequest.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "MedicationRequest.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
+  "MedicationRequest.groupIdentifier" : for src.groupIdentifier as vs make tgt.groupIdentifier as vt
+  "MedicationRequest.status" : for src.status as vs make tgt.status as vt
+  "MedicationRequest.intent" : for src.intent as vs make tgt.intent as vt
+  "MedicationRequest.medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "MedicationRequest.medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
+  "MedicationRequest.subject" : for src.subject as vs make tgt.subject as vt
+  "MedicationRequest.context" : for src.context as vs make tgt.context as vt
+  "MedicationRequest.supportingInformation" : for src.supportingInformation as vs make tgt.supportingInformation as vt
+  "MedicationRequest.authoredOn" : for src.authoredOn as vs make tgt.authoredOn as vt
+  "MedicationRequest.reasonCode" : for src.reasonCode as vs make tgt.reasonCode as vt
+  "MedicationRequest.reasonReference" : for src.reasonReference as vs make tgt.reasonReference as vt
+  "MedicationRequest.note" : for src.note as vs make tgt.note as vt
+  "MedicationRequest.dosageInstruction" : for src.dosageInstruction as vs make tgt.dosageInstruction as vt
+  "MedicationRequest.dispenseRequest" : for src.dispenseRequest as vs0 make tgt.dispenseRequest as vt0 then {
+    "MedicationRequest.dispenseRequest.validityPeriod" : for vs0.validityPeriod as vs make vt0.validityPeriod as vt
+    "MedicationRequest.dispenseRequest.quantity" : for vs0.quantity as vs make vt0.quantity as vt
+    "MedicationRequest.dispenseRequest.expectedSupplyDuration" : for vs0.expectedSupplyDuration as vs make vt0.expectedSupplyDuration as vt
+    "MedicationRequest.dispenseRequest.performer" : for vs0.performer as vs make vt0.performer as vt
+  }
+  "MedicationRequest.substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
+    "MedicationRequest.substitution.allowed" : for vs0.allowed as vs make vt0.allowed as vt
+    "MedicationRequest.substitution.reason" : for vs0.reason as vs make vt0.reason as vt
+  }
+  "MedicationRequest.priorPrescription" : for src.priorPrescription as vs make tgt.priorPrescription as vt
+  "MedicationRequest.detectedIssue" : for src.detectedIssue as vs make tgt.detectedIssue as vt
+  "MedicationRequest.eventHistory" : for src.eventHistory as vs make tgt.eventHistory as vt
+endgroup
+

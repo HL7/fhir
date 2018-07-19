@@ -1,0 +1,73 @@
+﻿map "http://hl7.org/fhir/StructureMap/Task2to3" = "R3 to R4 Conversions for Task"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Task" alias Task as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Task extends DomainResource
+  input src : TaskR3 as source
+  input tgt : Task as target
+
+  "Task.identifier": for src.identifier make tgt.identifier
+  "Task.instantiates[x]": for src.instantiates[x] make tgt.instantiates[x]
+  "Task.basedOn": for src.basedOn make tgt.basedOn
+  "Task.groupIdentifier": for src.groupIdentifier make tgt.groupIdentifier
+  "Task.partOf": for src.partOf make tgt.partOf
+  "Task.status": for src.status make tgt.status
+  "Task.statusReason": for src.statusReason make tgt.statusReason
+  "Task.businessStatus": for src.businessStatus make tgt.businessStatus
+  "Task.intent": for src.intent make tgt.intent
+  "Task.priority": for src.priority make tgt.priority
+  "Task.code": for src.code make tgt.code
+  "Task.description": for src.description make tgt.description
+  "Task.focus": for src.focus make tgt.focus
+  "Task.for": for src.for make tgt.for
+  "Task.context": for src.context make tgt.context
+  "Task.executionPeriod": for src.executionPeriod make tgt.executionPeriod
+  "Task.authoredOn": for src.authoredOn make tgt.authoredOn
+  "Task.lastModified": for src.lastModified make tgt.lastModified
+  "Task.requester": for src.requester make tgt.requester
+  "Task.performerType": for src.performerType make tgt.performerType
+  "Task.owner": for src.owner make tgt.owner
+  "Task.location": for src.location make tgt.location
+  "Task.reasonCode": for src.reasonCode make tgt.reasonCode
+  "Task.reasonReference": for src.reasonReference make tgt.reasonReference
+  "Task.note": for src.note make tgt.note
+  "Task.relevantHistory": for src.relevantHistory make tgt.relevantHistory
+  "Task.restriction": for src.restriction as s make tgt.restriction as t then TaskRestriction(s,t)
+  "Task.input": for src.input as s make tgt.input as t then TaskInput(s,t)
+  "Task.output": for src.output as s make tgt.output as t then TaskOutput(s,t)
+endgroup
+
+
+group TaskRestriction extends BackboneElement
+  input src : TaskR3 as source
+  input tgt : Task as target
+
+  "Task.restriction.repetitions": for src.repetitions make tgt.repetitions
+  "Task.restriction.period": for src.period make tgt.period
+  "Task.restriction.recipient": for src.recipient make tgt.recipient
+endgroup
+
+
+group TaskInput extends BackboneElement
+  input src : TaskR3 as source
+  input tgt : Task as target
+
+  "Task.input.type": for src.type make tgt.type
+  "Task.input.value[x]": for src.value[x] make tgt.value[x]
+endgroup
+
+
+group TaskOutput extends BackboneElement
+  input src : TaskR3 as source
+  input tgt : Task as target
+
+  "Task.output.type": for src.type make tgt.type
+  "Task.output.value[x]": for src.value[x] make tgt.value[x]
+endgroup
+

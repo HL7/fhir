@@ -1,0 +1,198 @@
+﻿map "http://hl7.org/fhir/StructureMap/Claim2to3" = "R3 to R4 Conversions for Claim"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Claim" alias ClaimR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Claim" alias Claim as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Claim extends DomainResource
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.identifier": for src.identifier make tgt.identifier
+  "Claim.status": for src.status make tgt.status
+  "Claim.type": for src.type make tgt.type
+  "Claim.subType": for src.subType make tgt.subType
+  "Claim.use": for src.use make tgt.use
+  "Claim.patient": for src.patient make tgt.patient
+  "Claim.billablePeriod": for src.billablePeriod make tgt.billablePeriod
+  "Claim.created": for src.created make tgt.created
+  "Claim.enterer": for src.enterer make tgt.enterer
+  "Claim.insurer": for src.insurer make tgt.insurer
+  "Claim.provider": for src.provider make tgt.provider
+  "Claim.priority": for src.priority make tgt.priority
+  "Claim.fundsReserve": for src.fundsReserve make tgt.fundsReserve
+  "Claim.related": for src.related as s make tgt.related as t then ClaimRelated(s,t)
+  "Claim.prescription": for src.prescription make tgt.prescription
+  "Claim.originalPrescription": for src.originalPrescription make tgt.originalPrescription
+  "Claim.payee": for src.payee as s make tgt.payee as t then ClaimPayee(s,t)
+  "Claim.referral": for src.referral make tgt.referral
+  "Claim.facility": for src.facility make tgt.facility
+  "Claim.careTeam": for src.careTeam as s make tgt.careTeam as t then ClaimCareTeam(s,t)
+  "Claim.information": for src.information as s make tgt.information as t then ClaimInformation(s,t)
+  "Claim.diagnosis": for src.diagnosis as s make tgt.diagnosis as t then ClaimDiagnosis(s,t)
+  "Claim.procedure": for src.procedure as s make tgt.procedure as t then ClaimProcedure(s,t)
+  "Claim.insurance": for src.insurance as s make tgt.insurance as t then ClaimInsurance(s,t)
+  "Claim.accident": for src.accident as s make tgt.accident as t then ClaimAccident(s,t)
+  "Claim.item": for src.item as s make tgt.item as t then ClaimItem(s,t)
+  "Claim.total": for src.total make tgt.total
+endgroup
+
+
+group ClaimRelated extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.related.claim": for src.claim make tgt.claim
+  "Claim.related.relationship": for src.relationship make tgt.relationship
+  "Claim.related.reference": for src.reference make tgt.reference
+endgroup
+
+
+group ClaimPayee extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.payee.type": for src.type make tgt.type
+  "Claim.payee.resource": for src.resource make tgt.resource
+  "Claim.payee.party": for src.party make tgt.party
+endgroup
+
+
+group ClaimCareTeam extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.careTeam.sequence": for src.sequence make tgt.sequence
+  "Claim.careTeam.provider": for src.provider make tgt.provider
+  "Claim.careTeam.responsible": for src.responsible make tgt.responsible
+  "Claim.careTeam.role": for src.role make tgt.role
+  "Claim.careTeam.qualification": for src.qualification make tgt.qualification
+endgroup
+
+
+group ClaimInformation extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.information.sequence": for src.sequence make tgt.sequence
+  "Claim.information.category": for src.category make tgt.category
+  "Claim.information.code": for src.code make tgt.code
+  "Claim.information.timing[x]": for src.timing[x] make tgt.timing[x]
+  "Claim.information.value[x]": for src.value[x] make tgt.value[x]
+  "Claim.information.reason": for src.reason make tgt.reason
+endgroup
+
+
+group ClaimDiagnosis extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.diagnosis.sequence": for src.sequence make tgt.sequence
+  "Claim.diagnosis.diagnosis[x]": for src.diagnosis[x] make tgt.diagnosis[x]
+  "Claim.diagnosis.type": for src.type make tgt.type
+  "Claim.diagnosis.packageCode": for src.packageCode make tgt.packageCode
+endgroup
+
+
+group ClaimProcedure extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.procedure.sequence": for src.sequence make tgt.sequence
+  "Claim.procedure.date": for src.date make tgt.date
+  "Claim.procedure.procedure[x]": for src.procedure[x] make tgt.procedure[x]
+endgroup
+
+
+group ClaimInsurance extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.insurance.sequence": for src.sequence make tgt.sequence
+  "Claim.insurance.focal": for src.focal make tgt.focal
+  "Claim.insurance.identifier": for src.identifier make tgt.identifier
+  "Claim.insurance.coverage": for src.coverage make tgt.coverage
+  "Claim.insurance.businessArrangement": for src.businessArrangement make tgt.businessArrangement
+  "Claim.insurance.preAuthRef": for src.preAuthRef make tgt.preAuthRef
+  "Claim.insurance.claimResponse": for src.claimResponse make tgt.claimResponse
+endgroup
+
+
+group ClaimAccident extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.accident.date": for src.date make tgt.date
+  "Claim.accident.type": for src.type make tgt.type
+  "Claim.accident.location[x]": for src.location[x] make tgt.location[x]
+endgroup
+
+
+group ClaimItem extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.item.sequence": for src.sequence make tgt.sequence
+  "Claim.item.careTeamSequence": for src.careTeamSequence make tgt.careTeamSequence
+  "Claim.item.diagnosisSequence": for src.diagnosisSequence make tgt.diagnosisSequence
+  "Claim.item.procedureSequence": for src.procedureSequence make tgt.procedureSequence
+  "Claim.item.informationSequence": for src.informationSequence make tgt.informationSequence
+  "Claim.item.revenue": for src.revenue make tgt.revenue
+  "Claim.item.category": for src.category make tgt.category
+  "Claim.item.service": for src.service make tgt.service
+  "Claim.item.modifier": for src.modifier make tgt.modifier
+  "Claim.item.programCode": for src.programCode make tgt.programCode
+  "Claim.item.serviced[x]": for src.serviced[x] make tgt.serviced[x]
+  "Claim.item.location[x]": for src.location[x] make tgt.location[x]
+  "Claim.item.quantity": for src.quantity make tgt.quantity
+  "Claim.item.unitPrice": for src.unitPrice make tgt.unitPrice
+  "Claim.item.factor": for src.factor make tgt.factor
+  "Claim.item.net": for src.net make tgt.net
+  "Claim.item.udi": for src.udi make tgt.udi
+  "Claim.item.bodySite": for src.bodySite make tgt.bodySite
+  "Claim.item.subSite": for src.subSite make tgt.subSite
+  "Claim.item.encounter": for src.encounter make tgt.encounter
+  "Claim.item.detail": for src.detail as s make tgt.detail as t then ClaimItemDetail(s,t)
+endgroup
+
+
+group ClaimItemDetail extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.item.detail.sequence": for src.sequence make tgt.sequence
+  "Claim.item.detail.revenue": for src.revenue make tgt.revenue
+  "Claim.item.detail.category": for src.category make tgt.category
+  "Claim.item.detail.service": for src.service make tgt.service
+  "Claim.item.detail.modifier": for src.modifier make tgt.modifier
+  "Claim.item.detail.programCode": for src.programCode make tgt.programCode
+  "Claim.item.detail.quantity": for src.quantity make tgt.quantity
+  "Claim.item.detail.unitPrice": for src.unitPrice make tgt.unitPrice
+  "Claim.item.detail.factor": for src.factor make tgt.factor
+  "Claim.item.detail.net": for src.net make tgt.net
+  "Claim.item.detail.udi": for src.udi make tgt.udi
+  "Claim.item.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ClaimItemDetailSubDetail(s,t)
+endgroup
+
+
+group ClaimItemDetailSubDetail extends BackboneElement
+  input src : ClaimR3 as source
+  input tgt : Claim as target
+
+  "Claim.item.detail.subDetail.sequence": for src.sequence make tgt.sequence
+  "Claim.item.detail.subDetail.revenue": for src.revenue make tgt.revenue
+  "Claim.item.detail.subDetail.category": for src.category make tgt.category
+  "Claim.item.detail.subDetail.service": for src.service make tgt.service
+  "Claim.item.detail.subDetail.modifier": for src.modifier make tgt.modifier
+  "Claim.item.detail.subDetail.programCode": for src.programCode make tgt.programCode
+  "Claim.item.detail.subDetail.quantity": for src.quantity make tgt.quantity
+  "Claim.item.detail.subDetail.unitPrice": for src.unitPrice make tgt.unitPrice
+  "Claim.item.detail.subDetail.factor": for src.factor make tgt.factor
+  "Claim.item.detail.subDetail.net": for src.net make tgt.net
+  "Claim.item.detail.subDetail.udi": for src.udi make tgt.udi
+endgroup
+

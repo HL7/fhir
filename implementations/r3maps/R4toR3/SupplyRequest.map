@@ -1,0 +1,36 @@
+﻿map "http://hl7.org/fhir/StructureMap/SupplyRequest3to2" = "R4 to R3 Conversion for SupplyRequest"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyRequest" alias SupplyRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group SupplyRequest extends DomainResource
+  input src : SupplyRequestR3 as source
+  input tgt : SupplyRequest as target
+
+  "SupplyRequest.identifier": for src.identifier make tgt.identifier
+  "SupplyRequest.status": for src.status make tgt.status
+  "SupplyRequest.category": for src.category make tgt.category
+  "SupplyRequest.priority": for src.priority make tgt.priority
+  "SupplyRequest.item[x]": for src.item[x] make tgt.item[x]
+  "SupplyRequest.quantity": for src.quantity make tgt.quantity
+  "SupplyRequest.parameter": for src.parameter as s make tgt.parameter as t then SupplyRequestParameter(s,t)
+  "SupplyRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "SupplyRequest.authoredOn": for src.authoredOn make tgt.authoredOn
+  "SupplyRequest.requester": for src.requester make tgt.requester
+  "SupplyRequest.supplier": for src.supplier make tgt.supplier
+  "SupplyRequest.reasonCode": for src.reasonCode make tgt.reasonCode
+  "SupplyRequest.reasonReference": for src.reasonReference make tgt.reasonReference
+  "SupplyRequest.deliverFrom": for src.deliverFrom make tgt.deliverFrom
+  "SupplyRequest.deliverTo": for src.deliverTo make tgt.deliverTo
+
+group SupplyRequestParameter extends BackboneElement
+  input src : SupplyRequestR3 as source
+  input tgt : SupplyRequest as target
+
+  "SupplyRequest.parameter.code": for src.code make tgt.code
+  "SupplyRequest.parameter.value[x]": for src.value[x] make tgt.value[x]

@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/Substance4to3" = "R4 to R3 Conversion for Substance"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Substance" alias SubstanceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Substance extends DomainResource
+  input src : Substance as source
+  input tgt : SubstanceR3 as target
+
+  "Substance.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "Substance.status" : for src.status as vs make tgt.status as vt then
+  "Substance.category" : for src.category as vs make tgt.category as vt
+  "Substance.code" : for src.code as vs make tgt.code as vt
+  "Substance.description" : for src.description as vs make tgt.description as vt
+  "Substance.instance" : for src.instance as vs0 make tgt.instance as vt0 then {
+    "Substance.instance.identifier" : for vs0.identifier as vs make vt0.identifier as vt
+    "Substance.instance.expiry" : for vs0.expiry as vs make vt0.expiry as vt
+    "Substance.instance.quantity" : for vs0.quantity as vs make vt0.quantity as vt
+  }
+  "Substance.ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
+    "Substance.ingredient.quantity" : for vs0.quantity as vs make vt0.quantity as vt
+    "Substance.ingredient.substance-CodeableConcept" : for vs0.substance  : CodeableConcept as vs make vt0.substance = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "Substance.ingredient.substance-Reference" : for vs0.substance  : Reference as vs make vt0.substance = create("Reference") as vt then Reference(vs,vt)
+  }
+endgroup
+

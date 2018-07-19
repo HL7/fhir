@@ -1,0 +1,39 @@
+﻿map "http://hl7.org/fhir/StructureMap/SearchParameter3to4" = "R3 to R4 Conversions for SearchParameter"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/SearchParameter" alias SearchParameterR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameter as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group SearchParameter extends DomainResource
+  input src : SearchParameterR3 as source
+  input tgt : SearchParameter as target
+
+  "SearchParameter.url" : for src.url as vs make tgt.url as vt
+  "SearchParameter.version" : for src.version as vs make tgt.version as vt
+  "SearchParameter.name" : for src.name as vs make tgt.name as vt
+  "SearchParameter.status" : for src.status as vs make tgt.status as vt then
+  "SearchParameter.experimental" : for src.experimental as vs make tgt.experimental as vt
+  "SearchParameter.date" : for src.date as vs make tgt.date as vt
+  "SearchParameter.publisher" : for src.publisher as vs make tgt.publisher as vt
+  "SearchParameter.contact" : for src.contact as vs make tgt.contact as vt
+  "SearchParameter.useContext" : for src.useContext as vs make tgt.useContext as vt
+  "SearchParameter.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
+  "SearchParameter.purpose" : for src.purpose as vs make tgt.purpose as vt
+  "SearchParameter.code" : for src.code as vs make tgt.code as vt
+  "SearchParameter.base" : for src.base as vs make tgt.base as vt
+  "SearchParameter.type" : for src.type as vs make tgt.type as vt then
+  "SearchParameter.description" : for src.description as vs make tgt.description as vt
+  "SearchParameter.expression" : for src.expression as vs make tgt.expression as vt
+  "SearchParameter.xpath" : for src.xpath as vs make tgt.xpath as vt
+  "SearchParameter.xpathUsage" : for src.xpathUsage as vs make tgt.xpathUsage as vt then
+  "SearchParameter.target" : for src.target as vs make tgt.target as vt
+  "SearchParameter.chain" : for src.chain as vs make tgt.chain as vt
+  "SearchParameter.component" : for src.component as vs0 make tgt.component as vt0 then {
+    "SearchParameter.component.expression" : for vs0.expression as vs make vt0.expression as vt
+  }
+endgroup
+

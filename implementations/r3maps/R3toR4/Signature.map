@@ -1,0 +1,24 @@
+﻿map "http://hl7.org/fhir/StructureMap/Signature3to4" = "R3 to R4 Conversions for Signature"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Signature" alias SignatureR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Signature extends Element
+  input src : SignatureR3 as source
+  input tgt : Signature as target
+
+  "Signature.type" : for src.type as vs make tgt.type as vt
+  "Signature.when" : for src.when as vs make tgt.when as vt
+  "Signature.who-uri" : for src.who  : uri as vs make tgt.who = create("uri") as vt then uri(vs,vt)
+  "Signature.who-Reference" : for src.who  : Reference as vs make tgt.who = create("Reference") as vt then Reference(vs,vt)
+  "Signature.onBehalfOf-uri" : for src.onBehalfOf  : uri as vs make tgt.onBehalfOf = create("uri") as vt then uri(vs,vt)
+  "Signature.onBehalfOf-Reference" : for src.onBehalfOf  : Reference as vs make tgt.onBehalfOf = create("Reference") as vt then Reference(vs,vt)
+  "Signature.sigFormat" : for src.contentType as vs make tgt.sigFormat as vt
+  "Signature.blob" : for src.blob as vs make tgt.blob as vt
+endgroup
+

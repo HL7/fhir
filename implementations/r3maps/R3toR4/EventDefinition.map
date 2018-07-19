@@ -1,0 +1,41 @@
+﻿map "http://hl7.org/fhir/StructureMap/EventDefinition2to3" = "R3 to R4 Conversions for EventDefinition"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/EventDefinition" alias EventDefinitionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/EventDefinition" alias EventDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group EventDefinition extends DomainResource
+  input src : EventDefinitionR3 as source
+  input tgt : EventDefinition as target
+
+  "EventDefinition.url": for src.url make tgt.url
+  "EventDefinition.identifier": for src.identifier make tgt.identifier
+  "EventDefinition.version": for src.version make tgt.version
+  "EventDefinition.name": for src.name make tgt.name
+  "EventDefinition.title": for src.title make tgt.title
+  "EventDefinition.subtitle": for src.subtitle make tgt.subtitle
+  "EventDefinition.status": for src.status make tgt.status
+  "EventDefinition.experimental": for src.experimental make tgt.experimental
+  "EventDefinition.subject[x]": for src.subject[x] make tgt.subject[x]
+  "EventDefinition.date": for src.date make tgt.date
+  "EventDefinition.publisher": for src.publisher make tgt.publisher
+  "EventDefinition.contact": for src.contact make tgt.contact
+  "EventDefinition.description": for src.description make tgt.description
+  "EventDefinition.useContext": for src.useContext make tgt.useContext
+  "EventDefinition.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "EventDefinition.purpose": for src.purpose make tgt.purpose
+  "EventDefinition.usage": for src.usage make tgt.usage
+  "EventDefinition.copyright": for src.copyright make tgt.copyright
+  "EventDefinition.approvalDate": for src.approvalDate make tgt.approvalDate
+  "EventDefinition.lastReviewDate": for src.lastReviewDate make tgt.lastReviewDate
+  "EventDefinition.effectivePeriod": for src.effectivePeriod make tgt.effectivePeriod
+  "EventDefinition.topic": for src.topic make tgt.topic
+  "EventDefinition.contributor": for src.contributor make tgt.contributor
+  "EventDefinition.relatedArtifact": for src.relatedArtifact make tgt.relatedArtifact
+  "EventDefinition.trigger": for src.trigger make tgt.trigger
+endgroup
+

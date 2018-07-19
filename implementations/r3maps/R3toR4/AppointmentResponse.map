@@ -1,0 +1,24 @@
+﻿map "http://hl7.org/fhir/StructureMap/AppointmentResponse3to4" = "R3 to R4 Conversions for AppointmentResponse"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/AppointmentResponse" alias AppointmentResponseR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponse" alias AppointmentResponse as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group AppointmentResponse extends DomainResource
+  input src : AppointmentResponseR3 as source
+  input tgt : AppointmentResponse as target
+
+  "AppointmentResponse.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "AppointmentResponse.appointment" : for src.appointment as vs make tgt.appointment as vt
+  "AppointmentResponse.start" : for src.start as vs make tgt.start as vt
+  "AppointmentResponse.end" : for src.end as vs make tgt.end as vt
+  "AppointmentResponse.participantType" : for src.participantType as vs make tgt.participantType as vt
+  "AppointmentResponse.actor" : for src.actor as vs make tgt.actor as vt
+  "AppointmentResponse.participantStatus" : for src.participantStatus as vs make tgt.participantStatus as vt then
+  "AppointmentResponse.comment" : for src.comment as vs make tgt.comment as vt
+endgroup
+

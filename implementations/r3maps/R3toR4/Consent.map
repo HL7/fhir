@@ -1,0 +1,16 @@
+﻿map "http://hl7.org/fhir/StructureMap/Consent3to4" = "R3 to R4 Conversions for Consent"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Consent" alias ConsentR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Consent" alias Consent as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Consent extends DomainResource
+  input src : ConsentR3 as source
+  input tgt : Consent as target
+
+endgroup
+

@@ -1,0 +1,43 @@
+﻿map "http://hl7.org/fhir/StructureMap/ServiceRequest3to2" = "R4 to R3 Conversion for ServiceRequest"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/ServiceRequest" alias ServiceRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ServiceRequest" alias ServiceRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ServiceRequest extends DomainResource
+  input src : ServiceRequestR3 as source
+  input tgt : ServiceRequest as target
+
+  "ServiceRequest.identifier": for src.identifier make tgt.identifier
+  "ServiceRequest.instantiates": for src.instantiates make tgt.instantiates
+  "ServiceRequest.basedOn": for src.basedOn make tgt.basedOn
+  "ServiceRequest.replaces": for src.replaces make tgt.replaces
+  "ServiceRequest.requisition": for src.requisition make tgt.requisition
+  "ServiceRequest.status": for src.status make tgt.status
+  "ServiceRequest.intent": for src.intent make tgt.intent
+  "ServiceRequest.category": for src.category make tgt.category
+  "ServiceRequest.priority": for src.priority make tgt.priority
+  "ServiceRequest.doNotPerform": for src.doNotPerform make tgt.doNotPerform
+  "ServiceRequest.code": for src.code make tgt.code
+  "ServiceRequest.orderDetail": for src.orderDetail make tgt.orderDetail
+  "ServiceRequest.subject": for src.subject make tgt.subject
+  "ServiceRequest.context": for src.context make tgt.context
+  "ServiceRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "ServiceRequest.asNeeded[x]": for src.asNeeded[x] make tgt.asNeeded[x]
+  "ServiceRequest.authoredOn": for src.authoredOn make tgt.authoredOn
+  "ServiceRequest.requester": for src.requester make tgt.requester
+  "ServiceRequest.performerType": for src.performerType make tgt.performerType
+  "ServiceRequest.performer": for src.performer make tgt.performer
+  "ServiceRequest.reasonCode": for src.reasonCode make tgt.reasonCode
+  "ServiceRequest.reasonReference": for src.reasonReference make tgt.reasonReference
+  "ServiceRequest.insurance": for src.insurance make tgt.insurance
+  "ServiceRequest.supportingInfo": for src.supportingInfo make tgt.supportingInfo
+  "ServiceRequest.specimen": for src.specimen make tgt.specimen
+  "ServiceRequest.bodySite": for src.bodySite make tgt.bodySite
+  "ServiceRequest.note": for src.note make tgt.note
+  "ServiceRequest.patientInstruction": for src.patientInstruction make tgt.patientInstruction
+  "ServiceRequest.relevantHistory": for src.relevantHistory make tgt.relevantHistory

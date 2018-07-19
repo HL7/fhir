@@ -1,0 +1,28 @@
+﻿map "http://hl7.org/fhir/StructureMap/ProcessRequest4to3" = "R4 to R3 Conversion for ProcessRequest"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/ProcessRequest" alias ProcessRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessRequest" alias ProcessRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ProcessRequest extends DomainResource
+  input src : ProcessRequest as source
+  input tgt : ProcessRequestR3 as target
+
+  "ProcessRequest.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "ProcessRequest.status" : for src.status as vs make tgt.status as vt
+  "ProcessRequest.action" : for src.action as vs make tgt.action as vt then
+  "ProcessRequest.target" : for src.target as vs make tgt.target as vt
+  "ProcessRequest.created" : for src.created as vs make tgt.created as vt
+  "ProcessRequest.provider" : for src.provider as vs make tgt.provider as vt
+  "ProcessRequest.response" : for src.response as vs make tgt.response as vt
+  "ProcessRequest.nullify" : for src.nullify as vs make tgt.nullify as vt
+  "ProcessRequest.reference" : for src.reference as vs make tgt.reference as vt
+  "ProcessRequest.include" : for src.include as vs make tgt.include as vt
+  "ProcessRequest.exclude" : for src.exclude as vs make tgt.exclude as vt
+  "ProcessRequest.period" : for src.period as vs make tgt.period as vt
+endgroup
+

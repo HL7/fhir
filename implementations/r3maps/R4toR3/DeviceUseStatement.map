@@ -1,0 +1,28 @@
+﻿map "http://hl7.org/fhir/StructureMap/DeviceUseStatement4to3" = "R4 to R3 Conversion for DeviceUseStatement"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group DeviceUseStatement extends DomainResource
+  input src : DeviceUseStatement as source
+  input tgt : DeviceUseStatementR3 as target
+
+  "DeviceUseStatement.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "DeviceUseStatement.status" : for src.status as vs make tgt.status as vt
+  "DeviceUseStatement.subject" : for src.subject as vs make tgt.subject as vt
+  "DeviceUseStatement.timing-Timing" : for src.timing  : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs,vt)
+  "DeviceUseStatement.timing-Period" : for src.timing  : Period as vs make tgt.timing = create("Period") as vt then Period(vs,vt)
+  "DeviceUseStatement.timing-dateTime" : for src.timing  : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs,vt)
+  "DeviceUseStatement.recordedOn" : for src.recordedOn as vs make tgt.recordedOn as vt
+  "DeviceUseStatement.source" : for src.source as vs make tgt.source as vt
+  "DeviceUseStatement.device" : for src.device as vs make tgt.device as vt
+  "DeviceUseStatement.indication" : for src.reasonCode as vs make tgt.indication as vt
+  "DeviceUseStatement.bodySite" : for src.bodySite as vs make tgt.bodySite as vt
+  "DeviceUseStatement.note" : for src.note as vs make tgt.note as vt
+endgroup
+

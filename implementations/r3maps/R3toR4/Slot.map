@@ -1,0 +1,27 @@
+﻿map "http://hl7.org/fhir/StructureMap/Slot3to4" = "R3 to R4 Conversions for Slot"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Slot" alias SlotR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Slot" alias Slot as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Slot extends DomainResource
+  input src : SlotR3 as source
+  input tgt : Slot as target
+
+  "Slot.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "Slot.serviceCategory" : for src.serviceCategory as vs make tgt.serviceCategory as vt
+  "Slot.serviceType" : for src.serviceType as vs make tgt.serviceType as vt
+  "Slot.specialty" : for src.specialty as vs make tgt.specialty as vt
+  "Slot.appointmentType" : for src.appointmentType as vs make tgt.appointmentType as vt
+  "Slot.schedule" : for src.schedule as vs make tgt.schedule as vt
+  "Slot.status" : for src.status as vs make tgt.status as vt
+  "Slot.start" : for src.start as vs make tgt.start as vt
+  "Slot.end" : for src.end as vs make tgt.end as vt
+  "Slot.overbooked" : for src.overbooked as vs make tgt.overbooked as vt
+  "Slot.comment" : for src.comment as vs make tgt.comment as vt
+endgroup
+

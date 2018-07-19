@@ -820,7 +820,7 @@ public class Parameters extends Resource implements IBaseParameters {
   }
 
   public Parameters setParameter(String name, boolean b) {
-    for (ParametersParameterComponent p : parameter) {
+    for (ParametersParameterComponent p : getParameter()) {
       if (p.getName().equals(name)) {
         p.setValue(new BooleanType(b));
         return this;
@@ -832,7 +832,7 @@ public class Parameters extends Resource implements IBaseParameters {
 
   public Parameters setParameter(String name, String s) {
     if (s != null) {
-      for (ParametersParameterComponent p : parameter) {
+      for (ParametersParameterComponent p : getParameter()) {
         if (p.getName().equals(name)) {
           p.setValue(new StringType(s));
           return this;
@@ -845,7 +845,7 @@ public class Parameters extends Resource implements IBaseParameters {
 
   public Parameters setParameter(String name, Type v) {
     if (v != null) {
-      for (ParametersParameterComponent p : parameter) {
+      for (ParametersParameterComponent p : getParameter()                                                                                     ) {
         if (p.getName().equals(name)) {
           p.setValue(v);
           return this;

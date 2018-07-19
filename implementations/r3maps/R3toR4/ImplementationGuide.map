@@ -1,0 +1,34 @@
+﻿map "http://hl7.org/fhir/StructureMap/ImplementationGuide3to4" = "R3 to R4 Conversions for ImplementationGuide"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImplementationGuide" alias ImplementationGuideR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuide as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group ImplementationGuide extends DomainResource
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.url" : for src.url as vs make tgt.url as vt
+  "ImplementationGuide.version" : for src.version as vs make tgt.version as vt
+  "ImplementationGuide.name" : for src.name as vs make tgt.name as vt
+  "ImplementationGuide.status" : for src.status as vs make tgt.status as vt then
+  "ImplementationGuide.experimental" : for src.experimental as vs make tgt.experimental as vt
+  "ImplementationGuide.date" : for src.date as vs make tgt.date as vt
+  "ImplementationGuide.publisher" : for src.publisher as vs make tgt.publisher as vt
+  "ImplementationGuide.contact" : for src.contact as vs make tgt.contact as vt
+  "ImplementationGuide.description" : for src.description as vs make tgt.description as vt
+  "ImplementationGuide.useContext" : for src.useContext as vs make tgt.useContext as vt
+  "ImplementationGuide.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
+  "ImplementationGuide.copyright" : for src.copyright as vs make tgt.copyright as vt
+  "ImplementationGuide.fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt
+  "ImplementationGuide.dependsOn" : for src.dependency as vs0 make tgt.dependsOn as vt0 then {
+  }
+  "ImplementationGuide.global" : for src.global as vs0 make tgt.global as vt0 then {
+    "ImplementationGuide.global.type" : for vs0.type as vs make vt0.type as vt
+  }
+endgroup
+

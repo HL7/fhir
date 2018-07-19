@@ -1,0 +1,19 @@
+﻿map "http://hl7.org/fhir/StructureMap/Binary3to4" = "R3 to R4 Conversions for Binary"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Binary" alias BinaryR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Binary" alias Binary as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Binary extends Resource
+  input src : BinaryR3 as source
+  input tgt : Binary as target
+
+  "Binary.contentType" : for src.contentType as vs make tgt.contentType as vt
+  "Binary.securityContext" : for src.securityContext as vs make tgt.securityContext as vt
+  "Binary.content" : for src.content as vs make tgt.content as vt
+endgroup
+

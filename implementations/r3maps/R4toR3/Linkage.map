@@ -1,0 +1,22 @@
+﻿map "http://hl7.org/fhir/StructureMap/Linkage4to3" = "R4 to R3 Conversion for Linkage"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Linkage" alias Linkage as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Linkage" alias LinkageR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Linkage extends DomainResource
+  input src : Linkage as source
+  input tgt : LinkageR3 as target
+
+  "Linkage.active" : for src.active as vs make tgt.active as vt
+  "Linkage.author" : for src.author as vs make tgt.author as vt
+  "Linkage.item" : for src.item as vs0 make tgt.item as vt0 then {
+    "Linkage.item.type" : for vs0.type as vs make vt0.type as vt then
+    "Linkage.item.resource" : for vs0.resource as vs make vt0.resource as vt
+  }
+endgroup
+

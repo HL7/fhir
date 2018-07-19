@@ -1,0 +1,187 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicationKnowledge2to3" = "R3 to R4 Conversions for MedicationKnowledge"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationKnowledge" alias MedicationKnowledgeR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationKnowledge" alias MedicationKnowledge as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group MedicationKnowledge extends DomainResource
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.code": for src.code make tgt.code
+  "MedicationKnowledge.status": for src.status make tgt.status
+  "MedicationKnowledge.manufacturer": for src.manufacturer make tgt.manufacturer
+  "MedicationKnowledge.doseForm": for src.doseForm make tgt.doseForm
+  "MedicationKnowledge.amount": for src.amount make tgt.amount
+  "MedicationKnowledge.synonym": for src.synonym make tgt.synonym
+  "MedicationKnowledge.relatedMedicationKnowledge": for src.relatedMedicationKnowledge as s make tgt.relatedMedicationKnowledge as t then MedicationKnowledgeRelatedMedicationKnowledge(s,t)
+  "MedicationKnowledge.associatedMedication": for src.associatedMedication make tgt.associatedMedication
+  "MedicationKnowledge.productType": for src.productType make tgt.productType
+  "MedicationKnowledge.monograph": for src.monograph as s make tgt.monograph as t then MedicationKnowledgeMonograph(s,t)
+  "MedicationKnowledge.ingredient": for src.ingredient as s make tgt.ingredient as t then MedicationKnowledgeIngredient(s,t)
+  "MedicationKnowledge.preparationInstruction": for src.preparationInstruction make tgt.preparationInstruction
+  "MedicationKnowledge.intendedRoute": for src.intendedRoute make tgt.intendedRoute
+  "MedicationKnowledge.cost": for src.cost as s make tgt.cost as t then MedicationKnowledgeCost(s,t)
+  "MedicationKnowledge.monitoringProgram": for src.monitoringProgram as s make tgt.monitoringProgram as t then MedicationKnowledgeMonitoringProgram(s,t)
+  "MedicationKnowledge.administrationGuidelines": for src.administrationGuidelines as s make tgt.administrationGuidelines as t then MedicationKnowledgeAdministrationGuidelines(s,t)
+  "MedicationKnowledge.medicineClassification": for src.medicineClassification as s make tgt.medicineClassification as t then MedicationKnowledgeMedicineClassification(s,t)
+  "MedicationKnowledge.packaging": for src.packaging as s make tgt.packaging as t then MedicationKnowledgePackaging(s,t)
+  "MedicationKnowledge.drugCharacteristic": for src.drugCharacteristic as s make tgt.drugCharacteristic as t then MedicationKnowledgeDrugCharacteristic(s,t)
+  "MedicationKnowledge.contraindication": for src.contraindication make tgt.contraindication
+  "MedicationKnowledge.regulatory": for src.regulatory as s make tgt.regulatory as t then MedicationKnowledgeRegulatory(s,t)
+  "MedicationKnowledge.kinetics": for src.kinetics as s make tgt.kinetics as t then MedicationKnowledgeKinetics(s,t)
+endgroup
+
+
+group MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.relatedMedicationKnowledge.type": for src.type make tgt.type
+  "MedicationKnowledge.relatedMedicationKnowledge.reference": for src.reference make tgt.reference
+endgroup
+
+
+group MedicationKnowledgeMonograph extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.monograph.type": for src.type make tgt.type
+  "MedicationKnowledge.monograph.source": for src.source make tgt.source
+endgroup
+
+
+group MedicationKnowledgeIngredient extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.ingredient.item[x]": for src.item[x] make tgt.item[x]
+  "MedicationKnowledge.ingredient.isActive": for src.isActive make tgt.isActive
+  "MedicationKnowledge.ingredient.strength": for src.strength make tgt.strength
+endgroup
+
+
+group MedicationKnowledgeCost extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.cost.type": for src.type make tgt.type
+  "MedicationKnowledge.cost.source": for src.source make tgt.source
+  "MedicationKnowledge.cost.cost": for src.cost make tgt.cost
+endgroup
+
+
+group MedicationKnowledgeMonitoringProgram extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.monitoringProgram.type": for src.type make tgt.type
+  "MedicationKnowledge.monitoringProgram.name": for src.name make tgt.name
+endgroup
+
+
+group MedicationKnowledgeAdministrationGuidelines extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.administrationGuidelines.dosage": for src.dosage as s make tgt.dosage as t then MedicationKnowledgeAdministrationGuidelinesDosage(s,t)
+  "MedicationKnowledge.administrationGuidelines.indication[x]": for src.indication[x] make tgt.indication[x]
+  "MedicationKnowledge.administrationGuidelines.patientCharacteristics": for src.patientCharacteristics as s make tgt.patientCharacteristics as t then MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(s,t)
+endgroup
+
+
+group MedicationKnowledgeAdministrationGuidelinesDosage extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.administrationGuidelines.dosage.type": for src.type make tgt.type
+  "MedicationKnowledge.administrationGuidelines.dosage.dosage": for src.dosage make tgt.dosage
+endgroup
+
+
+group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic[x]": for src.characteristic[x] make tgt.characteristic[x]
+  "MedicationKnowledge.administrationGuidelines.patientCharacteristics.value": for src.value make tgt.value
+endgroup
+
+
+group MedicationKnowledgeMedicineClassification extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.medicineClassification.type": for src.type make tgt.type
+  "MedicationKnowledge.medicineClassification.classification": for src.classification make tgt.classification
+endgroup
+
+
+group MedicationKnowledgePackaging extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.packaging.type": for src.type make tgt.type
+  "MedicationKnowledge.packaging.quantity": for src.quantity make tgt.quantity
+endgroup
+
+
+group MedicationKnowledgeDrugCharacteristic extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.drugCharacteristic.type": for src.type make tgt.type
+  "MedicationKnowledge.drugCharacteristic.value[x]": for src.value[x] make tgt.value[x]
+endgroup
+
+
+group MedicationKnowledgeRegulatory extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.regulatory.substitution": for src.substitution as s make tgt.substitution as t then MedicationKnowledgeRegulatorySubstitution(s,t)
+  "MedicationKnowledge.regulatory.schedule": for src.schedule as s make tgt.schedule as t then MedicationKnowledgeRegulatorySchedule(s,t)
+  "MedicationKnowledge.regulatory.maxDispense": for src.maxDispense as s make tgt.maxDispense as t then MedicationKnowledgeRegulatoryMaxDispense(s,t)
+endgroup
+
+
+group MedicationKnowledgeRegulatorySubstitution extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.regulatory.substitution.type": for src.type make tgt.type
+  "MedicationKnowledge.regulatory.substitution.allowed": for src.allowed make tgt.allowed
+endgroup
+
+
+group MedicationKnowledgeRegulatorySchedule extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.regulatory.schedule.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "MedicationKnowledge.regulatory.schedule.schedule": for src.schedule make tgt.schedule
+endgroup
+
+
+group MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.regulatory.maxDispense.quantity": for src.quantity make tgt.quantity
+  "MedicationKnowledge.regulatory.maxDispense.period": for src.period make tgt.period
+endgroup
+
+
+group MedicationKnowledgeKinetics extends BackboneElement
+  input src : MedicationKnowledgeR3 as source
+  input tgt : MedicationKnowledge as target
+
+  "MedicationKnowledge.kinetics.areaUnderCurve": for src.areaUnderCurve make tgt.areaUnderCurve
+  "MedicationKnowledge.kinetics.lethalDose50": for src.lethalDose50 make tgt.lethalDose50
+  "MedicationKnowledge.kinetics.halfLifePeriod": for src.halfLifePeriod make tgt.halfLifePeriod
+endgroup
+

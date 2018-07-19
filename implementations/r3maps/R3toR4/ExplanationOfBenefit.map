@@ -1,0 +1,333 @@
+﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit2to3" = "R3 to R4 Conversions for ExplanationOfBenefit"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefit as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group ExplanationOfBenefit extends DomainResource
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.identifier": for src.identifier make tgt.identifier
+  "ExplanationOfBenefit.status": for src.status make tgt.status
+  "ExplanationOfBenefit.type": for src.type make tgt.type
+  "ExplanationOfBenefit.subType": for src.subType make tgt.subType
+  "ExplanationOfBenefit.use": for src.use make tgt.use
+  "ExplanationOfBenefit.patient": for src.patient make tgt.patient
+  "ExplanationOfBenefit.billablePeriod": for src.billablePeriod make tgt.billablePeriod
+  "ExplanationOfBenefit.created": for src.created make tgt.created
+  "ExplanationOfBenefit.enterer": for src.enterer make tgt.enterer
+  "ExplanationOfBenefit.insurer": for src.insurer make tgt.insurer
+  "ExplanationOfBenefit.provider": for src.provider make tgt.provider
+  "ExplanationOfBenefit.referral": for src.referral make tgt.referral
+  "ExplanationOfBenefit.facility": for src.facility make tgt.facility
+  "ExplanationOfBenefit.claim": for src.claim make tgt.claim
+  "ExplanationOfBenefit.claimResponse": for src.claimResponse make tgt.claimResponse
+  "ExplanationOfBenefit.outcome": for src.outcome make tgt.outcome
+  "ExplanationOfBenefit.disposition": for src.disposition make tgt.disposition
+  "ExplanationOfBenefit.related": for src.related as s make tgt.related as t then ExplanationOfBenefitRelated(s,t)
+  "ExplanationOfBenefit.prescription": for src.prescription make tgt.prescription
+  "ExplanationOfBenefit.originalPrescription": for src.originalPrescription make tgt.originalPrescription
+  "ExplanationOfBenefit.payee": for src.payee as s make tgt.payee as t then ExplanationOfBenefitPayee(s,t)
+  "ExplanationOfBenefit.information": for src.information as s make tgt.information as t then ExplanationOfBenefitInformation(s,t)
+  "ExplanationOfBenefit.careTeam": for src.careTeam as s make tgt.careTeam as t then ExplanationOfBenefitCareTeam(s,t)
+  "ExplanationOfBenefit.diagnosis": for src.diagnosis as s make tgt.diagnosis as t then ExplanationOfBenefitDiagnosis(s,t)
+  "ExplanationOfBenefit.procedure": for src.procedure as s make tgt.procedure as t then ExplanationOfBenefitProcedure(s,t)
+  "ExplanationOfBenefit.precedence": for src.precedence make tgt.precedence
+  "ExplanationOfBenefit.insurance": for src.insurance as s make tgt.insurance as t then ExplanationOfBenefitInsurance(s,t)
+  "ExplanationOfBenefit.accident": for src.accident as s make tgt.accident as t then ExplanationOfBenefitAccident(s,t)
+  "ExplanationOfBenefit.item": for src.item as s make tgt.item as t then ExplanationOfBenefitItem(s,t)
+  "ExplanationOfBenefit.addItem": for src.addItem as s make tgt.addItem as t then ExplanationOfBenefitAddItem(s,t)
+  "ExplanationOfBenefit.total": for src.total as s make tgt.total as t then ExplanationOfBenefitTotal(s,t)
+  "ExplanationOfBenefit.payment": for src.payment as s make tgt.payment as t then ExplanationOfBenefitPayment(s,t)
+  "ExplanationOfBenefit.form": for src.form make tgt.form
+  "ExplanationOfBenefit.processNote": for src.processNote as s make tgt.processNote as t then ExplanationOfBenefitProcessNote(s,t)
+  "ExplanationOfBenefit.benefitBalance": for src.benefitBalance as s make tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s,t)
+endgroup
+
+
+group ExplanationOfBenefitRelated extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.related.claim": for src.claim make tgt.claim
+  "ExplanationOfBenefit.related.relationship": for src.relationship make tgt.relationship
+  "ExplanationOfBenefit.related.reference": for src.reference make tgt.reference
+endgroup
+
+
+group ExplanationOfBenefitPayee extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.payee.type": for src.type make tgt.type
+  "ExplanationOfBenefit.payee.resource": for src.resource make tgt.resource
+  "ExplanationOfBenefit.payee.party": for src.party make tgt.party
+endgroup
+
+
+group ExplanationOfBenefitInformation extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.information.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.information.category": for src.category make tgt.category
+  "ExplanationOfBenefit.information.code": for src.code make tgt.code
+  "ExplanationOfBenefit.information.timing[x]": for src.timing[x] make tgt.timing[x]
+  "ExplanationOfBenefit.information.value[x]": for src.value[x] make tgt.value[x]
+  "ExplanationOfBenefit.information.reason": for src.reason make tgt.reason
+endgroup
+
+
+group ExplanationOfBenefitCareTeam extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.careTeam.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.careTeam.provider": for src.provider make tgt.provider
+  "ExplanationOfBenefit.careTeam.responsible": for src.responsible make tgt.responsible
+  "ExplanationOfBenefit.careTeam.role": for src.role make tgt.role
+  "ExplanationOfBenefit.careTeam.qualification": for src.qualification make tgt.qualification
+endgroup
+
+
+group ExplanationOfBenefitDiagnosis extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.diagnosis.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.diagnosis.diagnosis[x]": for src.diagnosis[x] make tgt.diagnosis[x]
+  "ExplanationOfBenefit.diagnosis.type": for src.type make tgt.type
+  "ExplanationOfBenefit.diagnosis.packageCode": for src.packageCode make tgt.packageCode
+endgroup
+
+
+group ExplanationOfBenefitProcedure extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.procedure.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.procedure.date": for src.date make tgt.date
+  "ExplanationOfBenefit.procedure.procedure[x]": for src.procedure[x] make tgt.procedure[x]
+endgroup
+
+
+group ExplanationOfBenefitInsurance extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.insurance.coverage": for src.coverage make tgt.coverage
+  "ExplanationOfBenefit.insurance.preAuthRef": for src.preAuthRef make tgt.preAuthRef
+endgroup
+
+
+group ExplanationOfBenefitAccident extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.accident.date": for src.date make tgt.date
+  "ExplanationOfBenefit.accident.type": for src.type make tgt.type
+  "ExplanationOfBenefit.accident.location[x]": for src.location[x] make tgt.location[x]
+endgroup
+
+
+group ExplanationOfBenefitItem extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.item.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.item.careTeamSequence": for src.careTeamSequence make tgt.careTeamSequence
+  "ExplanationOfBenefit.item.diagnosisSequence": for src.diagnosisSequence make tgt.diagnosisSequence
+  "ExplanationOfBenefit.item.procedureSequence": for src.procedureSequence make tgt.procedureSequence
+  "ExplanationOfBenefit.item.informationSequence": for src.informationSequence make tgt.informationSequence
+  "ExplanationOfBenefit.item.revenue": for src.revenue make tgt.revenue
+  "ExplanationOfBenefit.item.category": for src.category make tgt.category
+  "ExplanationOfBenefit.item.service": for src.service make tgt.service
+  "ExplanationOfBenefit.item.modifier": for src.modifier make tgt.modifier
+  "ExplanationOfBenefit.item.programCode": for src.programCode make tgt.programCode
+  "ExplanationOfBenefit.item.serviced[x]": for src.serviced[x] make tgt.serviced[x]
+  "ExplanationOfBenefit.item.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.item.quantity": for src.quantity make tgt.quantity
+  "ExplanationOfBenefit.item.unitPrice": for src.unitPrice make tgt.unitPrice
+  "ExplanationOfBenefit.item.factor": for src.factor make tgt.factor
+  "ExplanationOfBenefit.item.net": for src.net make tgt.net
+  "ExplanationOfBenefit.item.udi": for src.udi make tgt.udi
+  "ExplanationOfBenefit.item.bodySite": for src.bodySite make tgt.bodySite
+  "ExplanationOfBenefit.item.subSite": for src.subSite make tgt.subSite
+  "ExplanationOfBenefit.item.encounter": for src.encounter make tgt.encounter
+  "ExplanationOfBenefit.item.noteNumber": for src.noteNumber make tgt.noteNumber
+  "ExplanationOfBenefit.item.adjudication": for src.adjudication as s make tgt.adjudication as t then ExplanationOfBenefitItemAdjudication(s,t)
+  "ExplanationOfBenefit.item.detail": for src.detail as s make tgt.detail as t then ExplanationOfBenefitItemDetail(s,t)
+endgroup
+
+
+group ExplanationOfBenefitItemAdjudication extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.item.adjudication.category": for src.category make tgt.category
+  "ExplanationOfBenefit.item.adjudication.reason": for src.reason make tgt.reason
+  "ExplanationOfBenefit.item.adjudication.amount": for src.amount make tgt.amount
+  "ExplanationOfBenefit.item.adjudication.value": for src.value make tgt.value
+endgroup
+
+
+group ExplanationOfBenefitItemDetail extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.item.detail.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.item.detail.revenue": for src.revenue make tgt.revenue
+  "ExplanationOfBenefit.item.detail.category": for src.category make tgt.category
+  "ExplanationOfBenefit.item.detail.service": for src.service make tgt.service
+  "ExplanationOfBenefit.item.detail.modifier": for src.modifier make tgt.modifier
+  "ExplanationOfBenefit.item.detail.programCode": for src.programCode make tgt.programCode
+  "ExplanationOfBenefit.item.detail.quantity": for src.quantity make tgt.quantity
+  "ExplanationOfBenefit.item.detail.unitPrice": for src.unitPrice make tgt.unitPrice
+  "ExplanationOfBenefit.item.detail.factor": for src.factor make tgt.factor
+  "ExplanationOfBenefit.item.detail.net": for src.net make tgt.net
+  "ExplanationOfBenefit.item.detail.udi": for src.udi make tgt.udi
+  "ExplanationOfBenefit.item.detail.noteNumber": for src.noteNumber make tgt.noteNumber
+  "ExplanationOfBenefit.item.detail.adjudication": for src.adjudication make tgt.adjudication
+  "ExplanationOfBenefit.item.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s,t)
+endgroup
+
+
+group ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.item.detail.subDetail.sequence": for src.sequence make tgt.sequence
+  "ExplanationOfBenefit.item.detail.subDetail.revenue": for src.revenue make tgt.revenue
+  "ExplanationOfBenefit.item.detail.subDetail.category": for src.category make tgt.category
+  "ExplanationOfBenefit.item.detail.subDetail.service": for src.service make tgt.service
+  "ExplanationOfBenefit.item.detail.subDetail.modifier": for src.modifier make tgt.modifier
+  "ExplanationOfBenefit.item.detail.subDetail.programCode": for src.programCode make tgt.programCode
+  "ExplanationOfBenefit.item.detail.subDetail.quantity": for src.quantity make tgt.quantity
+  "ExplanationOfBenefit.item.detail.subDetail.unitPrice": for src.unitPrice make tgt.unitPrice
+  "ExplanationOfBenefit.item.detail.subDetail.factor": for src.factor make tgt.factor
+  "ExplanationOfBenefit.item.detail.subDetail.net": for src.net make tgt.net
+  "ExplanationOfBenefit.item.detail.subDetail.udi": for src.udi make tgt.udi
+  "ExplanationOfBenefit.item.detail.subDetail.noteNumber": for src.noteNumber make tgt.noteNumber
+  "ExplanationOfBenefit.item.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
+endgroup
+
+
+group ExplanationOfBenefitAddItem extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.addItem.itemSequence": for src.itemSequence make tgt.itemSequence
+  "ExplanationOfBenefit.addItem.detailSequence": for src.detailSequence make tgt.detailSequence
+  "ExplanationOfBenefit.addItem.subDetailSequence": for src.subDetailSequence make tgt.subDetailSequence
+  "ExplanationOfBenefit.addItem.service": for src.service make tgt.service
+  "ExplanationOfBenefit.addItem.modifier": for src.modifier make tgt.modifier
+  "ExplanationOfBenefit.addItem.programCode": for src.programCode make tgt.programCode
+  "ExplanationOfBenefit.addItem.serviced[x]": for src.serviced[x] make tgt.serviced[x]
+  "ExplanationOfBenefit.addItem.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.addItem.quantity": for src.quantity make tgt.quantity
+  "ExplanationOfBenefit.addItem.unitPrice": for src.unitPrice make tgt.unitPrice
+  "ExplanationOfBenefit.addItem.factor": for src.factor make tgt.factor
+  "ExplanationOfBenefit.addItem.net": for src.net make tgt.net
+  "ExplanationOfBenefit.addItem.bodySite": for src.bodySite make tgt.bodySite
+  "ExplanationOfBenefit.addItem.subSite": for src.subSite make tgt.subSite
+  "ExplanationOfBenefit.addItem.noteNumber": for src.noteNumber make tgt.noteNumber
+  "ExplanationOfBenefit.addItem.adjudication": for src.adjudication make tgt.adjudication
+  "ExplanationOfBenefit.addItem.detail": for src.detail as s make tgt.detail as t then ExplanationOfBenefitAddItemDetail(s,t)
+endgroup
+
+
+group ExplanationOfBenefitAddItemDetail extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.addItem.detail.service": for src.service make tgt.service
+  "ExplanationOfBenefit.addItem.detail.modifier": for src.modifier make tgt.modifier
+  "ExplanationOfBenefit.addItem.detail.programCode": for src.programCode make tgt.programCode
+  "ExplanationOfBenefit.addItem.detail.quantity": for src.quantity make tgt.quantity
+  "ExplanationOfBenefit.addItem.detail.unitPrice": for src.unitPrice make tgt.unitPrice
+  "ExplanationOfBenefit.addItem.detail.factor": for src.factor make tgt.factor
+  "ExplanationOfBenefit.addItem.detail.net": for src.net make tgt.net
+  "ExplanationOfBenefit.addItem.detail.noteNumber": for src.noteNumber make tgt.noteNumber
+  "ExplanationOfBenefit.addItem.detail.adjudication": for src.adjudication make tgt.adjudication
+  "ExplanationOfBenefit.addItem.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s,t)
+endgroup
+
+
+group ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.addItem.detail.subDetail.service": for src.service make tgt.service
+  "ExplanationOfBenefit.addItem.detail.subDetail.modifier": for src.modifier make tgt.modifier
+  "ExplanationOfBenefit.addItem.detail.subDetail.programCode": for src.programCode make tgt.programCode
+  "ExplanationOfBenefit.addItem.detail.subDetail.quantity": for src.quantity make tgt.quantity
+  "ExplanationOfBenefit.addItem.detail.subDetail.unitPrice": for src.unitPrice make tgt.unitPrice
+  "ExplanationOfBenefit.addItem.detail.subDetail.factor": for src.factor make tgt.factor
+  "ExplanationOfBenefit.addItem.detail.subDetail.net": for src.net make tgt.net
+  "ExplanationOfBenefit.addItem.detail.subDetail.noteNumber": for src.noteNumber make tgt.noteNumber
+  "ExplanationOfBenefit.addItem.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
+endgroup
+
+
+group ExplanationOfBenefitTotal extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.total.category": for src.category make tgt.category
+  "ExplanationOfBenefit.total.amount": for src.amount make tgt.amount
+endgroup
+
+
+group ExplanationOfBenefitPayment extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.payment.type": for src.type make tgt.type
+  "ExplanationOfBenefit.payment.adjustment": for src.adjustment make tgt.adjustment
+  "ExplanationOfBenefit.payment.adjustmentReason": for src.adjustmentReason make tgt.adjustmentReason
+  "ExplanationOfBenefit.payment.date": for src.date make tgt.date
+  "ExplanationOfBenefit.payment.amount": for src.amount make tgt.amount
+  "ExplanationOfBenefit.payment.identifier": for src.identifier make tgt.identifier
+endgroup
+
+
+group ExplanationOfBenefitProcessNote extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.processNote.number": for src.number make tgt.number
+  "ExplanationOfBenefit.processNote.type": for src.type make tgt.type
+  "ExplanationOfBenefit.processNote.text": for src.text make tgt.text
+  "ExplanationOfBenefit.processNote.language": for src.language make tgt.language
+endgroup
+
+
+group ExplanationOfBenefitBenefitBalance extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.benefitBalance.category": for src.category make tgt.category
+  "ExplanationOfBenefit.benefitBalance.excluded": for src.excluded make tgt.excluded
+  "ExplanationOfBenefit.benefitBalance.name": for src.name make tgt.name
+  "ExplanationOfBenefit.benefitBalance.description": for src.description make tgt.description
+  "ExplanationOfBenefit.benefitBalance.network": for src.network make tgt.network
+  "ExplanationOfBenefit.benefitBalance.unit": for src.unit make tgt.unit
+  "ExplanationOfBenefit.benefitBalance.term": for src.term make tgt.term
+  "ExplanationOfBenefit.benefitBalance.financial": for src.financial as s make tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s,t)
+endgroup
+
+
+group ExplanationOfBenefitBenefitBalanceFinancial extends BackboneElement
+  input src : ExplanationOfBenefitR3 as source
+  input tgt : ExplanationOfBenefit as target
+
+  "ExplanationOfBenefit.benefitBalance.financial.type": for src.type make tgt.type
+  "ExplanationOfBenefit.benefitBalance.financial.allowed[x]": for src.allowed[x] make tgt.allowed[x]
+  "ExplanationOfBenefit.benefitBalance.financial.used[x]": for src.used[x] make tgt.used[x]
+endgroup
+

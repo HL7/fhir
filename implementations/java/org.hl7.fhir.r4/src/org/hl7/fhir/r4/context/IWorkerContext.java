@@ -397,4 +397,7 @@ public interface IWorkerContext {
   public TranslationServices translator();
   public List<StructureMap> listTransforms();
   public StructureMap getTransform(String url);
+
+  public String getOverrideVersionNs();
+  public void setOverrideVersionNs(String value);
 }

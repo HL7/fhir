@@ -1,0 +1,71 @@
+﻿map "http://hl7.org/fhir/StructureMap/TestScript4to3" = "R4 to R3 Conversion for TestScript"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TestScript" alias TestScriptR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group TestScript extends DomainResource
+  input src : TestScript as source
+  input tgt : TestScriptR3 as target
+
+  "TestScript.url" : for src.url as vs make tgt.url as vt
+  "TestScript.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "TestScript.version" : for src.version as vs make tgt.version as vt
+  "TestScript.name" : for src.name as vs make tgt.name as vt
+  "TestScript.title" : for src.title as vs make tgt.title as vt
+  "TestScript.status" : for src.status as vs make tgt.status as vt then
+  "TestScript.experimental" : for src.experimental as vs make tgt.experimental as vt
+  "TestScript.date" : for src.date as vs make tgt.date as vt
+  "TestScript.publisher" : for src.publisher as vs make tgt.publisher as vt
+  "TestScript.contact" : for src.contact as vs make tgt.contact as vt
+  "TestScript.description" : for src.description as vs make tgt.description as vt
+  "TestScript.useContext" : for src.useContext as vs make tgt.useContext as vt
+  "TestScript.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
+  "TestScript.purpose" : for src.purpose as vs make tgt.purpose as vt
+  "TestScript.copyright" : for src.copyright as vs make tgt.copyright as vt
+  "TestScript.origin" : for src.origin as vs0 make tgt.origin as vt0 then {
+    "TestScript.origin.index" : for vs0.index as vs make vt0.index as vt
+    "TestScript.origin.profile" : for vs0.profile as vs make vt0.profile as vt
+  }
+  "TestScript.destination" : for src.destination as vs0 make tgt.destination as vt0 then {
+    "TestScript.destination.index" : for vs0.index as vs make vt0.index as vt
+    "TestScript.destination.profile" : for vs0.profile as vs make vt0.profile as vt
+  }
+  "TestScript.metadata" : for src.metadata as vs0 make tgt.metadata as vt0 then {
+  }
+  "TestScript.fixture" : for src.fixture as vs0 make tgt.fixture as vt0 then {
+    "TestScript.fixture.autocreate" : for vs0.autocreate as vs make vt0.autocreate as vt
+    "TestScript.fixture.autodelete" : for vs0.autodelete as vs make vt0.autodelete as vt
+    "TestScript.fixture.resource" : for vs0.resource as vs make vt0.resource as vt
+  }
+  "TestScript.profile" : for src.profile as vs make tgt.profile as vt
+  "TestScript.variable" : for src.variable as vs0 make tgt.variable as vt0 then {
+    "TestScript.variable.name" : for vs0.name as vs make vt0.name as vt
+    "TestScript.variable.defaultValue" : for vs0.defaultValue as vs make vt0.defaultValue as vt
+    "TestScript.variable.description" : for vs0.description as vs make vt0.description as vt
+    "TestScript.variable.expression" : for vs0.expression as vs make vt0.expression as vt
+    "TestScript.variable.headerField" : for vs0.headerField as vs make vt0.headerField as vt
+    "TestScript.variable.hint" : for vs0.hint as vs make vt0.hint as vt
+    "TestScript.variable.path" : for vs0.path as vs make vt0.path as vt
+    "TestScript.variable.sourceId" : for vs0.sourceId as vs make vt0.sourceId as vt
+  }
+  "TestScript.rule" : for src.rule as vs0 make tgt.rule as vt0 then {
+    "TestScript.rule.resource" : for vs0.resource as vs make vt0.resource as vt
+  }
+  "TestScript.ruleset" : for src.ruleset as vs0 make tgt.ruleset as vt0 then {
+    "TestScript.ruleset.resource" : for vs0.resource as vs make vt0.resource as vt
+  }
+  "TestScript.setup" : for src.setup as vs0 make tgt.setup as vt0 then {
+  }
+  "TestScript.test" : for src.test as vs0 make tgt.test as vt0 then {
+    "TestScript.test.name" : for vs0.name as vs make vt0.name as vt
+    "TestScript.test.description" : for vs0.description as vs make vt0.description as vt
+  }
+  "TestScript.teardown" : for src.teardown as vs0 make tgt.teardown as vt0 then {
+  }
+endgroup
+

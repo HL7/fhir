@@ -14,7 +14,10 @@ import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.ElementDefinition;
+import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
@@ -65,12 +68,27 @@ public class R3ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
       for (BundleEntryComponent be : b.getEntry()) {
         if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
           StructureDefinition sd = (StructureDefinition) be.getResource();
-          sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/STU3/"));
+          sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/3.0/"));
           sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("http://hl7.org/fhir"));
+          for (ElementDefinition ed : sd.getSnapshot().getElement()) 
+            patchUrl(ed);
+          for (ElementDefinition ed : sd.getDifferential().getElement()) 
+            patchUrl(ed);
         }
       }
     }
     return b;
+  }
+
+  private void patchUrl(ElementDefinition ed) {
+    for (TypeRefComponent tr : ed.getType()) {
+      for (CanonicalType s : tr.getTargetProfile()) {
+        s.setValue(s.getValue().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/3.0/"));
+      }
+      for (CanonicalType s : tr.getProfile()) {
+        s.setValue(s.getValue().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/3.0/"));
+      }
+    }    
   }
 
   @Override

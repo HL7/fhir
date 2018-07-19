@@ -1,0 +1,35 @@
+﻿map "http://hl7.org/fhir/StructureMap/Timing4to3" = "R4 to R3 Conversion for Timing"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Timing" alias TimingR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Timing extends BackboneElement
+  input src : Timing as source
+  input tgt : TimingR3 as target
+
+  "Timing.event" : for src.event as vs make tgt.event as vt
+  "Timing.repeat" : for src.repeat as vs0 make tgt.repeat as vt0 then {
+    "Timing.repeat.bounds-Duration" : for vs0.bounds  : Duration as vs make vt0.bounds = create("Duration") as vt then Duration(vs,vt)
+    "Timing.repeat.bounds-Range" : for vs0.bounds  : Range as vs make vt0.bounds = create("Range") as vt then Range(vs,vt)
+    "Timing.repeat.bounds-Period" : for vs0.bounds  : Period as vs make vt0.bounds = create("Period") as vt then Period(vs,vt)
+    "Timing.repeat.count" : for vs0.count as vs make vt0.count as vt
+    "Timing.repeat.countMax" : for vs0.countMax as vs make vt0.countMax as vt
+    "Timing.repeat.duration" : for vs0.duration as vs make vt0.duration as vt
+    "Timing.repeat.durationMax" : for vs0.durationMax as vs make vt0.durationMax as vt
+    "Timing.repeat.durationUnit" : for vs0.durationUnit as vs make vt0.durationUnit as vt then
+    "Timing.repeat.frequency" : for vs0.frequency as vs make vt0.frequency as vt
+    "Timing.repeat.frequencyMax" : for vs0.frequencyMax as vs make vt0.frequencyMax as vt
+    "Timing.repeat.period" : for vs0.period as vs make vt0.period as vt
+    "Timing.repeat.periodMax" : for vs0.periodMax as vs make vt0.periodMax as vt
+    "Timing.repeat.periodUnit" : for vs0.periodUnit as vs make vt0.periodUnit as vt then
+    "Timing.repeat.timeOfDay" : for vs0.timeOfDay as vs make vt0.timeOfDay as vt
+    "Timing.repeat.offset" : for vs0.offset as vs make vt0.offset as vt
+  }
+  "Timing.code" : for src.code as vs make tgt.code as vt
+endgroup
+

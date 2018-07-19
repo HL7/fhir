@@ -1,0 +1,43 @@
+﻿map "http://hl7.org/fhir/StructureMap/ValueSet4to3" = "R4 to R3 Conversion for ValueSet"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ValueSet" alias ValueSetR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ValueSet extends DomainResource
+  input src : ValueSet as source
+  input tgt : ValueSetR3 as target
+
+  "ValueSet.url" : for src.url as vs make tgt.url as vt
+  "ValueSet.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "ValueSet.version" : for src.version as vs make tgt.version as vt
+  "ValueSet.name" : for src.name as vs make tgt.name as vt
+  "ValueSet.title" : for src.title as vs make tgt.title as vt
+  "ValueSet.status" : for src.status as vs make tgt.status as vt then
+  "ValueSet.experimental" : for src.experimental as vs make tgt.experimental as vt
+  "ValueSet.date" : for src.date as vs make tgt.date as vt
+  "ValueSet.publisher" : for src.publisher as vs make tgt.publisher as vt
+  "ValueSet.contact" : for src.contact as vs make tgt.contact as vt
+  "ValueSet.description" : for src.description as vs make tgt.description as vt
+  "ValueSet.useContext" : for src.useContext as vs make tgt.useContext as vt
+  "ValueSet.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
+  "ValueSet.immutable" : for src.immutable as vs make tgt.immutable as vt
+  "ValueSet.purpose" : for src.purpose as vs make tgt.purpose as vt
+  "ValueSet.copyright" : for src.copyright as vs make tgt.copyright as vt
+  "ValueSet.extensible" : for src.extensible as vs make tgt.extensible as vt
+  "ValueSet.compose" : for src.compose as vs0 make tgt.compose as vt0 then {
+    "ValueSet.compose.lockedDate" : for vs0.lockedDate as vs make vt0.lockedDate as vt
+    "ValueSet.compose.inactive" : for vs0.inactive as vs make vt0.inactive as vt
+  }
+  "ValueSet.expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
+    "ValueSet.expansion.identifier" : for vs0.identifier as vs make vt0.identifier as vt
+    "ValueSet.expansion.timestamp" : for vs0.timestamp as vs make vt0.timestamp as vt
+    "ValueSet.expansion.total" : for vs0.total as vs make vt0.total as vt
+    "ValueSet.expansion.offset" : for vs0.offset as vs make vt0.offset as vt
+  }
+endgroup
+

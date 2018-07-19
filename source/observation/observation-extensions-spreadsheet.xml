@@ -4893,7 +4893,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0487</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v2-0487</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>

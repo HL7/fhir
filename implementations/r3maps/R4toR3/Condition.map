@@ -1,0 +1,46 @@
+﻿map "http://hl7.org/fhir/StructureMap/Condition3to2" = "R4 to R3 Conversion for Condition"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Condition extends DomainResource
+  input src : ConditionR3 as source
+  input tgt : Condition as target
+
+  "Condition.identifier": for src.identifier make tgt.identifier
+  "Condition.clinicalStatus": for src.clinicalStatus make tgt.clinicalStatus
+  "Condition.verificationStatus": for src.verificationStatus make tgt.verificationStatus
+  "Condition.category": for src.category make tgt.category
+  "Condition.severity": for src.severity make tgt.severity
+  "Condition.code": for src.code make tgt.code
+  "Condition.bodySite": for src.bodySite make tgt.bodySite
+  "Condition.subject": for src.subject make tgt.subject
+  "Condition.context": for src.context make tgt.context
+  "Condition.onset[x]": for src.onset[x] make tgt.onset[x]
+  "Condition.abatement[x]": for src.abatement[x] make tgt.abatement[x]
+  "Condition.recordedDate": for src.recordedDate make tgt.recordedDate
+  "Condition.recorder": for src.recorder make tgt.recorder
+  "Condition.asserter": for src.asserter make tgt.asserter
+  "Condition.stage": for src.stage as s make tgt.stage as t then ConditionStage(s,t)
+  "Condition.evidence": for src.evidence as s make tgt.evidence as t then ConditionEvidence(s,t)
+  "Condition.note": for src.note make tgt.note
+
+group ConditionStage extends BackboneElement
+  input src : ConditionR3 as source
+  input tgt : Condition as target
+
+  "Condition.stage.summary": for src.summary make tgt.summary
+  "Condition.stage.assessment": for src.assessment make tgt.assessment
+  "Condition.stage.type": for src.type make tgt.type
+
+group ConditionEvidence extends BackboneElement
+  input src : ConditionR3 as source
+  input tgt : Condition as target
+
+  "Condition.evidence.code": for src.code make tgt.code
+  "Condition.evidence.detail": for src.detail make tgt.detail

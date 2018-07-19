@@ -1,0 +1,45 @@
+﻿map "http://hl7.org/fhir/StructureMap/FamilyMemberHistory2to3" = "R3 to R4 Conversions for FamilyMemberHistory"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistory as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group FamilyMemberHistory extends DomainResource
+  input src : FamilyMemberHistoryR3 as source
+  input tgt : FamilyMemberHistory as target
+
+  "FamilyMemberHistory.identifier": for src.identifier make tgt.identifier
+  "FamilyMemberHistory.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
+  "FamilyMemberHistory.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
+  "FamilyMemberHistory.status": for src.status make tgt.status
+  "FamilyMemberHistory.dataAbsentReason": for src.dataAbsentReason make tgt.dataAbsentReason
+  "FamilyMemberHistory.patient": for src.patient make tgt.patient
+  "FamilyMemberHistory.date": for src.date make tgt.date
+  "FamilyMemberHistory.name": for src.name make tgt.name
+  "FamilyMemberHistory.relationship": for src.relationship make tgt.relationship
+  "FamilyMemberHistory.gender": for src.gender make tgt.gender
+  "FamilyMemberHistory.born[x]": for src.born[x] make tgt.born[x]
+  "FamilyMemberHistory.age[x]": for src.age[x] make tgt.age[x]
+  "FamilyMemberHistory.estimatedAge": for src.estimatedAge make tgt.estimatedAge
+  "FamilyMemberHistory.deceased[x]": for src.deceased[x] make tgt.deceased[x]
+  "FamilyMemberHistory.reasonCode": for src.reasonCode make tgt.reasonCode
+  "FamilyMemberHistory.reasonReference": for src.reasonReference make tgt.reasonReference
+  "FamilyMemberHistory.note": for src.note make tgt.note
+  "FamilyMemberHistory.condition": for src.condition as s make tgt.condition as t then FamilyMemberHistoryCondition(s,t)
+endgroup
+
+
+group FamilyMemberHistoryCondition extends BackboneElement
+  input src : FamilyMemberHistoryR3 as source
+  input tgt : FamilyMemberHistory as target
+
+  "FamilyMemberHistory.condition.code": for src.code make tgt.code
+  "FamilyMemberHistory.condition.outcome": for src.outcome make tgt.outcome
+  "FamilyMemberHistory.condition.onset[x]": for src.onset[x] make tgt.onset[x]
+  "FamilyMemberHistory.condition.note": for src.note make tgt.note
+endgroup
+

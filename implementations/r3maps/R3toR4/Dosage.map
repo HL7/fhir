@@ -1,0 +1,29 @@
+﻿map "http://hl7.org/fhir/StructureMap/Dosage3to4" = "R3 to R4 Conversions for Dosage"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Dosage" alias DosageR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Dosage" alias Dosage as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Dosage extends BackboneElement
+  input src : DosageR3 as source
+  input tgt : Dosage as target
+
+  "Dosage.sequence" : for src.sequence as vs make tgt.sequence as vt
+  "Dosage.text" : for src.text as vs make tgt.text as vt
+  "Dosage.additionalInstruction" : for src.additionalInstruction as vs make tgt.additionalInstruction as vt
+  "Dosage.patientInstruction" : for src.patientInstruction as vs make tgt.patientInstruction as vt
+  "Dosage.timing" : for src.timing as vs make tgt.timing as vt
+  "Dosage.asNeeded-boolean" : for src.asNeeded  : boolean as vs make tgt.asNeeded = create("boolean") as vt then boolean(vs,vt)
+  "Dosage.asNeeded-CodeableConcept" : for src.asNeeded  : CodeableConcept as vs make tgt.asNeeded = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "Dosage.site" : for src.site as vs make tgt.site as vt
+  "Dosage.route" : for src.route as vs make tgt.route as vt
+  "Dosage.method" : for src.method as vs make tgt.method as vt
+  "Dosage.maxDosePerPeriod" : for src.maxDosePerPeriod as vs make tgt.maxDosePerPeriod as vt
+  "Dosage.maxDosePerAdministration" : for src.maxDosePerAdministration as vs make tgt.maxDosePerAdministration as vt
+  "Dosage.maxDosePerLifetime" : for src.maxDosePerLifetime as vs make tgt.maxDosePerLifetime as vt
+endgroup
+

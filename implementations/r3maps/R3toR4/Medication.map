@@ -1,0 +1,26 @@
+﻿map "http://hl7.org/fhir/StructureMap/Medication3to4" = "R3 to R4 Conversions for Medication"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Medication" alias MedicationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Medication" alias Medication as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Medication extends DomainResource
+  input src : MedicationR3 as source
+  input tgt : Medication as target
+
+  "Medication.code" : for src.code as vs make tgt.code as vt
+  "Medication.status" : for src.status as vs make tgt.status as vt
+  "Medication.manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt
+  "Medication.form" : for src.form as vs make tgt.form as vt
+  "Medication.ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
+    "Medication.ingredient.item-CodeableConcept" : for vs0.item  : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "Medication.ingredient.item-Reference" : for vs0.item  : Reference as vs make vt0.item = create("Reference") as vt then Reference(vs,vt)
+    "Medication.ingredient.isActive" : for vs0.isActive as vs make vt0.isActive as vt
+    "Medication.ingredient.amount" : for vs0.amount as vs make vt0.amount as vt
+  }
+endgroup
+

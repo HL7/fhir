@@ -1,0 +1,42 @@
+﻿map "http://hl7.org/fhir/StructureMap/StructureMap4to3" = "R4 to R3 Conversion for StructureMap"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/StructureMap" alias StructureMap as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/StructureMap" alias StructureMapR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group StructureMap extends DomainResource
+  input src : StructureMap as source
+  input tgt : StructureMapR3 as target
+
+  "StructureMap.url" : for src.url as vs make tgt.url as vt
+  "StructureMap.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "StructureMap.version" : for src.version as vs make tgt.version as vt
+  "StructureMap.name" : for src.name as vs make tgt.name as vt
+  "StructureMap.title" : for src.title as vs make tgt.title as vt
+  "StructureMap.status" : for src.status as vs make tgt.status as vt then
+  "StructureMap.experimental" : for src.experimental as vs make tgt.experimental as vt
+  "StructureMap.date" : for src.date as vs make tgt.date as vt
+  "StructureMap.publisher" : for src.publisher as vs make tgt.publisher as vt
+  "StructureMap.contact" : for src.contact as vs make tgt.contact as vt
+  "StructureMap.description" : for src.description as vs make tgt.description as vt
+  "StructureMap.useContext" : for src.useContext as vs make tgt.useContext as vt
+  "StructureMap.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
+  "StructureMap.purpose" : for src.purpose as vs make tgt.purpose as vt
+  "StructureMap.copyright" : for src.copyright as vs make tgt.copyright as vt
+  "StructureMap.structure" : for src.structure as vs0 make tgt.structure as vt0 then {
+    "StructureMap.structure.mode" : for vs0.mode as vs make vt0.mode as vt then
+    "StructureMap.structure.alias" : for vs0.alias as vs make vt0.alias as vt
+    "StructureMap.structure.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+  }
+  "StructureMap.group" : for src.group as vs0 make tgt.group as vt0 then {
+    "StructureMap.group.name" : for vs0.name as vs make vt0.name as vt
+    "StructureMap.group.extends" : for vs0.extends as vs make vt0.extends as vt
+    "StructureMap.group.typeMode" : for vs0.typeMode as vs make vt0.typeMode as vt then
+    "StructureMap.group.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+  }
+endgroup
+

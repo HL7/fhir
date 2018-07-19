@@ -1,0 +1,125 @@
+﻿map "http://hl7.org/fhir/StructureMap/ImplementationGuide3to2" = "R4 to R3 Conversion for ImplementationGuide"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuide as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImplementationGuide" alias ImplementationGuideR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ImplementationGuide extends DomainResource
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.url": for src.url make tgt.url
+  "ImplementationGuide.version": for src.version make tgt.version
+  "ImplementationGuide.name": for src.name make tgt.name
+  "ImplementationGuide.status": for src.status make tgt.status
+  "ImplementationGuide.experimental": for src.experimental make tgt.experimental
+  "ImplementationGuide.date": for src.date make tgt.date
+  "ImplementationGuide.publisher": for src.publisher make tgt.publisher
+  "ImplementationGuide.contact": for src.contact make tgt.contact
+  "ImplementationGuide.description": for src.description make tgt.description
+  "ImplementationGuide.useContext": for src.useContext make tgt.useContext
+  "ImplementationGuide.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "ImplementationGuide.copyright": for src.copyright make tgt.copyright
+  "ImplementationGuide.packageId": for src.packageId make tgt.packageId
+  "ImplementationGuide.license": for src.license make tgt.license
+  "ImplementationGuide.fhirVersion": for src.fhirVersion make tgt.fhirVersion
+  "ImplementationGuide.dependsOn": for src.dependsOn as s make tgt.dependsOn as t then ImplementationGuideDependsOn(s,t)
+  "ImplementationGuide.global": for src.global as s make tgt.global as t then ImplementationGuideGlobal(s,t)
+  "ImplementationGuide.definition": for src.definition as s make tgt.definition as t then ImplementationGuideDefinition(s,t)
+  "ImplementationGuide.manifest": for src.manifest as s make tgt.manifest as t then ImplementationGuideManifest(s,t)
+
+group ImplementationGuideDependsOn extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.dependsOn.uri": for src.uri make tgt.uri
+  "ImplementationGuide.dependsOn.packageId": for src.packageId make tgt.packageId
+  "ImplementationGuide.dependsOn.version": for src.version make tgt.version
+
+group ImplementationGuideGlobal extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.global.type": for src.type make tgt.type
+  "ImplementationGuide.global.profile": for src.profile make tgt.profile
+
+group ImplementationGuideDefinition extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.definition.package": for src.package as s make tgt.package as t then ImplementationGuideDefinitionPackage(s,t)
+  "ImplementationGuide.definition.resource": for src.resource as s make tgt.resource as t then ImplementationGuideDefinitionResource(s,t)
+  "ImplementationGuide.definition.page": for src.page as s make tgt.page as t then ImplementationGuideDefinitionPage(s,t)
+  "ImplementationGuide.definition.parameter": for src.parameter as s make tgt.parameter as t then ImplementationGuideDefinitionParameter(s,t)
+  "ImplementationGuide.definition.template": for src.template as s make tgt.template as t then ImplementationGuideDefinitionTemplate(s,t)
+
+group ImplementationGuideDefinitionPackage extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.definition.package.name": for src.name make tgt.name
+  "ImplementationGuide.definition.package.description": for src.description make tgt.description
+
+group ImplementationGuideDefinitionResource extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.definition.resource.reference": for src.reference make tgt.reference
+  "ImplementationGuide.definition.resource.name": for src.name make tgt.name
+  "ImplementationGuide.definition.resource.description": for src.description make tgt.description
+  "ImplementationGuide.definition.resource.example[x]": for src.example[x] make tgt.example[x]
+  "ImplementationGuide.definition.resource.package": for src.package make tgt.package
+
+group ImplementationGuideDefinitionPage extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.definition.page.name[x]": for src.name[x] make tgt.name[x]
+  "ImplementationGuide.definition.page.title": for src.title make tgt.title
+  "ImplementationGuide.definition.page.generation": for src.generation make tgt.generation
+  "ImplementationGuide.definition.page.page": for src.page make tgt.page
+
+group ImplementationGuideDefinitionParameter extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.definition.parameter.code": for src.code make tgt.code
+  "ImplementationGuide.definition.parameter.value": for src.value make tgt.value
+
+group ImplementationGuideDefinitionTemplate extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.definition.template.code": for src.code make tgt.code
+  "ImplementationGuide.definition.template.source": for src.source make tgt.source
+  "ImplementationGuide.definition.template.scope": for src.scope make tgt.scope
+
+group ImplementationGuideManifest extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.manifest.rendering": for src.rendering make tgt.rendering
+  "ImplementationGuide.manifest.resource": for src.resource as s make tgt.resource as t then ImplementationGuideManifestResource(s,t)
+  "ImplementationGuide.manifest.page": for src.page as s make tgt.page as t then ImplementationGuideManifestPage(s,t)
+  "ImplementationGuide.manifest.image": for src.image make tgt.image
+  "ImplementationGuide.manifest.other": for src.other make tgt.other
+
+group ImplementationGuideManifestResource extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.manifest.resource.reference": for src.reference make tgt.reference
+  "ImplementationGuide.manifest.resource.example[x]": for src.example[x] make tgt.example[x]
+  "ImplementationGuide.manifest.resource.relativePath": for src.relativePath make tgt.relativePath
+
+group ImplementationGuideManifestPage extends BackboneElement
+  input src : ImplementationGuideR3 as source
+  input tgt : ImplementationGuide as target
+
+  "ImplementationGuide.manifest.page.name": for src.name make tgt.name
+  "ImplementationGuide.manifest.page.title": for src.title make tgt.title
+  "ImplementationGuide.manifest.page.anchor": for src.anchor make tgt.anchor

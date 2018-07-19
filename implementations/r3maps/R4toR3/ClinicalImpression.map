@@ -1,0 +1,50 @@
+﻿map "http://hl7.org/fhir/StructureMap/ClinicalImpression4to3" = "R4 to R3 Conversion for ClinicalImpression"
+
+conceptmap "ClinicalImpressionStatus" {
+  prefix s = "http://hl7.org/fhir/event-status"
+  prefix t = "http://hl7.org/fhir/clinical-impression-status"
+
+  s:in-progress - t:draft
+  s:completed - t:completed
+  s:entered-in-error - t:entered-in-error
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ClinicalImpression extends DomainResource
+  input src : ClinicalImpression as source
+  input tgt : ClinicalImpressionR3 as target
+
+  "ClinicalImpression.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "ClinicalImpression.status" : for src.status as v make tgt.status = translate(v, "#ClinicalImpressionStatus", "code")
+  "ClinicalImpression.code" : for src.code as vs make tgt.code as vt
+  "ClinicalImpression.description" : for src.description as vs make tgt.description as vt
+  "ClinicalImpression.subject" : for src.subject as vs make tgt.subject as vt
+  "ClinicalImpression.context" : for src.context as vs make tgt.context as vt
+  "ClinicalImpression.effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
+  "ClinicalImpression.effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
+  "ClinicalImpression.date" : for src.date as vs make tgt.date as vt
+  "ClinicalImpression.assessor" : for src.assessor as vs make tgt.assessor as vt
+  "ClinicalImpression.previous" : for src.previous as vs make tgt.previous as vt
+  "ClinicalImpression.problem" : for src.problem as vs make tgt.problem as vt
+  "ClinicalImpression.investigation" : for src.investigation as vs0 make tgt.investigation as vt0 then {
+    "ClinicalImpression.investigation.code" : for vs0.code as vs make vt0.code as vt
+    "ClinicalImpression.investigation.item" : for vs0.item as vs make vt0.item as vt
+  }
+  "ClinicalImpression.protocol" : for src.protocol as vs make tgt.protocol as vt
+  "ClinicalImpression.summary" : for src.summary as vs make tgt.summary as vt
+  "ClinicalImpression.finding" : for src.finding as vs0 make tgt.finding as vt0 then {
+    "ClinicalImpression.finding.item-CodeableConcept" : for vs0.itemCodeableConcept  : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "ClinicalImpression.finding.basis" : for vs0.basis as vs make vt0.basis as vt
+  }
+  "ClinicalImpression.prognosisCodeableConcept" : for src.prognosisCodeableConcept as vs make tgt.prognosisCodeableConcept as vt
+  "ClinicalImpression.prognosisReference" : for src.prognosisReference as vs make tgt.prognosisReference as vt
+  "ClinicalImpression.action" : for src.action as vs make tgt.action as vt
+  "ClinicalImpression.note" : for src.note as vs make tgt.note as vt
+endgroup
+

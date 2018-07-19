@@ -1451,12 +1451,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private boolean hasType(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(code));
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(code, null));
     return sd != null && (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE || sd.getKind() == StructureDefinitionKind.COMPLEXTYPE);
   }
 
   private String getSrcFile(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(code));
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(code, null));
     if (sd == null)
       return "??";
     else {

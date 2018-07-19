@@ -1,0 +1,41 @@
+﻿map "http://hl7.org/fhir/StructureMap/Device3to4" = "R3 to R4 Conversions for Device"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Device" alias DeviceR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Device extends DomainResource
+  input src : DeviceR3 as source
+  input tgt : Device as target
+
+  "Device.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "Device.udi" : for src.udi as vs0 make tgt.udi as vt0 then {
+    "Device.udi.deviceIdentifier" : for vs0.deviceIdentifier as vs make vt0.deviceIdentifier as vt
+    "Device.udi.name" : for vs0.name as vs make vt0.name as vt
+    "Device.udi.jurisdiction" : for vs0.jurisdiction as vs make vt0.jurisdiction as vt
+    "Device.udi.carrierHRF" : for vs0.carrierHRF as vs make vt0.carrierHRF as vt
+    "Device.udi.carrierAIDC" : for vs0.carrierAIDC as vs make vt0.carrierAIDC as vt
+    "Device.udi.issuer" : for vs0.issuer as vs make vt0.issuer as vt
+    "Device.udi.entryType" : for vs0.entryType as vs make vt0.entryType as vt then
+  }
+  "Device.status" : for src.status as vs make tgt.status as vt then
+  "Device.type" : for src.type as vs make tgt.type as vt
+  "Device.lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt
+  "Device.manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt
+  "Device.manufactureDate" : for src.manufactureDate as vs make tgt.manufactureDate as vt
+  "Device.expirationDate" : for src.expirationDate as vs make tgt.expirationDate as vt
+  "Device.model" : for src.model as vs make tgt.model as vt
+  "Device.version" : for src.version as vs make tgt.version as vt
+  "Device.patient" : for src.patient as vs make tgt.patient as vt
+  "Device.owner" : for src.owner as vs make tgt.owner as vt
+  "Device.contact" : for src.contact as vs make tgt.contact as vt
+  "Device.location" : for src.location as vs make tgt.location as vt
+  "Device.url" : for src.url as vs make tgt.url as vt
+  "Device.note" : for src.note as vs make tgt.note as vt
+  "Device.safety" : for src.safety as vs make tgt.safety as vt
+endgroup
+

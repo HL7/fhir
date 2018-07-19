@@ -1,0 +1,113 @@
+﻿map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities2to3" = "R3 to R4 Conversions for TerminologyCapabilities"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilitiesR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilities as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group TerminologyCapabilities extends DomainResource
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.url": for src.url make tgt.url
+  "TerminologyCapabilities.version": for src.version make tgt.version
+  "TerminologyCapabilities.name": for src.name make tgt.name
+  "TerminologyCapabilities.title": for src.title make tgt.title
+  "TerminologyCapabilities.status": for src.status make tgt.status
+  "TerminologyCapabilities.experimental": for src.experimental make tgt.experimental
+  "TerminologyCapabilities.date": for src.date make tgt.date
+  "TerminologyCapabilities.publisher": for src.publisher make tgt.publisher
+  "TerminologyCapabilities.contact": for src.contact make tgt.contact
+  "TerminologyCapabilities.description": for src.description make tgt.description
+  "TerminologyCapabilities.useContext": for src.useContext make tgt.useContext
+  "TerminologyCapabilities.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "TerminologyCapabilities.purpose": for src.purpose make tgt.purpose
+  "TerminologyCapabilities.copyright": for src.copyright make tgt.copyright
+  "TerminologyCapabilities.lockedDate": for src.lockedDate make tgt.lockedDate
+  "TerminologyCapabilities.codeSystem": for src.codeSystem as s make tgt.codeSystem as t then TerminologyCapabilitiesCodeSystem(s,t)
+  "TerminologyCapabilities.expansion": for src.expansion as s make tgt.expansion as t then TerminologyCapabilitiesExpansion(s,t)
+  "TerminologyCapabilities.codeSearch": for src.codeSearch make tgt.codeSearch
+  "TerminologyCapabilities.validateCode": for src.validateCode as s make tgt.validateCode as t then TerminologyCapabilitiesValidateCode(s,t)
+  "TerminologyCapabilities.translation": for src.translation as s make tgt.translation as t then TerminologyCapabilitiesTranslation(s,t)
+  "TerminologyCapabilities.closure": for src.closure as s make tgt.closure as t then TerminologyCapabilitiesClosure(s,t)
+endgroup
+
+
+group TerminologyCapabilitiesCodeSystem extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.codeSystem.uri": for src.uri make tgt.uri
+  "TerminologyCapabilities.codeSystem.version": for src.version as s make tgt.version as t then TerminologyCapabilitiesCodeSystemVersion(s,t)
+endgroup
+
+
+group TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.codeSystem.version.code": for src.code make tgt.code
+  "TerminologyCapabilities.codeSystem.version.isDefault": for src.isDefault make tgt.isDefault
+  "TerminologyCapabilities.codeSystem.version.compositional": for src.compositional make tgt.compositional
+  "TerminologyCapabilities.codeSystem.version.language": for src.language make tgt.language
+  "TerminologyCapabilities.codeSystem.version.filter": for src.filter as s make tgt.filter as t then TerminologyCapabilitiesCodeSystemVersionFilter(s,t)
+  "TerminologyCapabilities.codeSystem.version.property": for src.property make tgt.property
+endgroup
+
+
+group TerminologyCapabilitiesCodeSystemVersionFilter extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.codeSystem.version.filter.code": for src.code make tgt.code
+  "TerminologyCapabilities.codeSystem.version.filter.op": for src.op make tgt.op
+endgroup
+
+
+group TerminologyCapabilitiesExpansion extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.expansion.hierarchical": for src.hierarchical make tgt.hierarchical
+  "TerminologyCapabilities.expansion.paging": for src.paging make tgt.paging
+  "TerminologyCapabilities.expansion.incomplete": for src.incomplete make tgt.incomplete
+  "TerminologyCapabilities.expansion.parameter": for src.parameter as s make tgt.parameter as t then TerminologyCapabilitiesExpansionParameter(s,t)
+  "TerminologyCapabilities.expansion.textFilter": for src.textFilter make tgt.textFilter
+endgroup
+
+
+group TerminologyCapabilitiesExpansionParameter extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.expansion.parameter.name": for src.name make tgt.name
+  "TerminologyCapabilities.expansion.parameter.documentation": for src.documentation make tgt.documentation
+endgroup
+
+
+group TerminologyCapabilitiesValidateCode extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.validateCode.translations": for src.translations make tgt.translations
+endgroup
+
+
+group TerminologyCapabilitiesTranslation extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.translation.needsMap": for src.needsMap make tgt.needsMap
+endgroup
+
+
+group TerminologyCapabilitiesClosure extends BackboneElement
+  input src : TerminologyCapabilitiesR3 as source
+  input tgt : TerminologyCapabilities as target
+
+  "TerminologyCapabilities.closure.translation": for src.translation make tgt.translation
+endgroup
+

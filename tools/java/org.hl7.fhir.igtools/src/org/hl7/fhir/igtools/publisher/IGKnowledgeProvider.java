@@ -314,7 +314,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   public String getLinkFor(String corepath, String name) {
     if (noXhtml && name.equals("xhtml"))
       return null;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name));
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name, null));
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path");
     brokenLinkWarning(name, name);

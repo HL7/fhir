@@ -1,0 +1,66 @@
+﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy3to2" = "R4 to R3 Conversion for ImagingStudy"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStudyR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ImagingStudy extends DomainResource
+  input src : ImagingStudyR3 as source
+  input tgt : ImagingStudy as target
+
+  "ImagingStudy.identifier": for src.identifier make tgt.identifier
+  "ImagingStudy.status": for src.status make tgt.status
+  "ImagingStudy.modality": for src.modality make tgt.modality
+  "ImagingStudy.subject": for src.subject make tgt.subject
+  "ImagingStudy.context": for src.context make tgt.context
+  "ImagingStudy.started": for src.started make tgt.started
+  "ImagingStudy.basedOn": for src.basedOn make tgt.basedOn
+  "ImagingStudy.referrer": for src.referrer make tgt.referrer
+  "ImagingStudy.interpreter": for src.interpreter make tgt.interpreter
+  "ImagingStudy.endpoint": for src.endpoint make tgt.endpoint
+  "ImagingStudy.numberOfSeries": for src.numberOfSeries make tgt.numberOfSeries
+  "ImagingStudy.numberOfInstances": for src.numberOfInstances make tgt.numberOfInstances
+  "ImagingStudy.procedureReference": for src.procedureReference make tgt.procedureReference
+  "ImagingStudy.procedureCode": for src.procedureCode make tgt.procedureCode
+  "ImagingStudy.location": for src.location make tgt.location
+  "ImagingStudy.reasonCode": for src.reasonCode make tgt.reasonCode
+  "ImagingStudy.reasonReference": for src.reasonReference make tgt.reasonReference
+  "ImagingStudy.note": for src.note make tgt.note
+  "ImagingStudy.series": for src.series as s make tgt.series as t then ImagingStudySeries(s,t)
+
+group ImagingStudySeries extends BackboneElement
+  input src : ImagingStudyR3 as source
+  input tgt : ImagingStudy as target
+
+  "ImagingStudy.series.identifier": for src.identifier make tgt.identifier
+  "ImagingStudy.series.number": for src.number make tgt.number
+  "ImagingStudy.series.modality": for src.modality make tgt.modality
+  "ImagingStudy.series.description": for src.description make tgt.description
+  "ImagingStudy.series.numberOfInstances": for src.numberOfInstances make tgt.numberOfInstances
+  "ImagingStudy.series.endpoint": for src.endpoint make tgt.endpoint
+  "ImagingStudy.series.bodySite": for src.bodySite make tgt.bodySite
+  "ImagingStudy.series.laterality": for src.laterality make tgt.laterality
+  "ImagingStudy.series.specimen": for src.specimen make tgt.specimen
+  "ImagingStudy.series.started": for src.started make tgt.started
+  "ImagingStudy.series.performer": for src.performer as s make tgt.performer as t then ImagingStudySeriesPerformer(s,t)
+  "ImagingStudy.series.instance": for src.instance as s make tgt.instance as t then ImagingStudySeriesInstance(s,t)
+
+group ImagingStudySeriesPerformer extends BackboneElement
+  input src : ImagingStudyR3 as source
+  input tgt : ImagingStudy as target
+
+  "ImagingStudy.series.performer.function": for src.function make tgt.function
+  "ImagingStudy.series.performer.actor": for src.actor make tgt.actor
+
+group ImagingStudySeriesInstance extends BackboneElement
+  input src : ImagingStudyR3 as source
+  input tgt : ImagingStudy as target
+
+  "ImagingStudy.series.instance.identifier": for src.identifier make tgt.identifier
+  "ImagingStudy.series.instance.number": for src.number make tgt.number
+  "ImagingStudy.series.instance.sopClass": for src.sopClass make tgt.sopClass
+  "ImagingStudy.series.instance.title": for src.title make tgt.title

@@ -1,0 +1,49 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductAuthorization3to2" = "R4 to R3 Conversion for MedicinalProductAuthorization"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductAuthorization" alias MedicinalProductAuthorization as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductAuthorization" alias MedicinalProductAuthorizationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group MedicinalProductAuthorization extends DomainResource
+  input src : MedicinalProductAuthorizationR3 as source
+  input tgt : MedicinalProductAuthorization as target
+
+  "MedicinalProductAuthorization.identifier": for src.identifier make tgt.identifier
+  "MedicinalProductAuthorization.country": for src.country make tgt.country
+  "MedicinalProductAuthorization.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "MedicinalProductAuthorization.legalStatusOfSupply": for src.legalStatusOfSupply make tgt.legalStatusOfSupply
+  "MedicinalProductAuthorization.status": for src.status make tgt.status
+  "MedicinalProductAuthorization.statusDate": for src.statusDate make tgt.statusDate
+  "MedicinalProductAuthorization.restoreDate": for src.restoreDate make tgt.restoreDate
+  "MedicinalProductAuthorization.validityPeriod": for src.validityPeriod make tgt.validityPeriod
+  "MedicinalProductAuthorization.dataExclusivityPeriod": for src.dataExclusivityPeriod make tgt.dataExclusivityPeriod
+  "MedicinalProductAuthorization.dateOfFirstAuthorization": for src.dateOfFirstAuthorization make tgt.dateOfFirstAuthorization
+  "MedicinalProductAuthorization.internationalBirthDate": for src.internationalBirthDate make tgt.internationalBirthDate
+  "MedicinalProductAuthorization.jurisdictionalAuthorization": for src.jurisdictionalAuthorization as s make tgt.jurisdictionalAuthorization as t then MedicinalProductAuthorizationJurisdictionalAuthorization(s,t)
+  "MedicinalProductAuthorization.holder": for src.holder make tgt.holder
+  "MedicinalProductAuthorization.regulator": for src.regulator make tgt.regulator
+  "MedicinalProductAuthorization.procedure": for src.procedure as s make tgt.procedure as t then MedicinalProductAuthorizationProcedure(s,t)
+  "MedicinalProductAuthorization.marketingStatus": for src.marketingStatus make tgt.marketingStatus
+
+group MedicinalProductAuthorizationJurisdictionalAuthorization extends BackboneElement
+  input src : MedicinalProductAuthorizationR3 as source
+  input tgt : MedicinalProductAuthorization as target
+
+  "MedicinalProductAuthorization.jurisdictionalAuthorization.identifier": for src.identifier make tgt.identifier
+  "MedicinalProductAuthorization.jurisdictionalAuthorization.country": for src.country make tgt.country
+  "MedicinalProductAuthorization.jurisdictionalAuthorization.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "MedicinalProductAuthorization.jurisdictionalAuthorization.legalStatusOfSupply": for src.legalStatusOfSupply make tgt.legalStatusOfSupply
+  "MedicinalProductAuthorization.jurisdictionalAuthorization.validityPeriod": for src.validityPeriod make tgt.validityPeriod
+
+group MedicinalProductAuthorizationProcedure extends BackboneElement
+  input src : MedicinalProductAuthorizationR3 as source
+  input tgt : MedicinalProductAuthorization as target
+
+  "MedicinalProductAuthorization.procedure.identifier": for src.identifier make tgt.identifier
+  "MedicinalProductAuthorization.procedure.type": for src.type make tgt.type
+  "MedicinalProductAuthorization.procedure.date[x]": for src.date[x] make tgt.date[x]
+  "MedicinalProductAuthorization.procedure.application": for src.application make tgt.application

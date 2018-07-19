@@ -3044,10 +3044,16 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
   }
 
-  public static String sdNs(String type) {
+  private static String sdNs(String type) {
+    return sdNs(type, null);
+  }
+  
+  public static String sdNs(String type, String overrideVersionNs) {
     if (Utilities.isAbsoluteUrl(type))
       return type;
-    else 
+    else if (overrideVersionNs != null)
+      return Utilities.pathURL(overrideVersionNs, type);
+    else
       return "http://hl7.org/fhir/StructureDefinition/"+type;
   }
 

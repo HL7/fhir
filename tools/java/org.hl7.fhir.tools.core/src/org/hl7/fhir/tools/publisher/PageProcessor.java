@@ -351,7 +351,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private SpecDifferenceEvaluator diffEngine = new SpecDifferenceEvaluator();
   private Bundle typeBundle;
   private Bundle resourceBundle;
-  private JsonObject r2r3Outcomes;
+  private JsonObject r3r4Outcomes;
   private Map<String, Map<String, String>> normativePackages = new HashMap<String, Map<String, String>>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
@@ -360,8 +360,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
-  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
+  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
+//  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
@@ -796,8 +796,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String[] parts = com[1].split("\\/");
         Example e = findExample(parts[0], parts[1]);
         src = s1+genExample(e, com.length > 2 ? Integer.parseInt(com[2]) : 0, genlevel(level))+s3;
-      } else if (com[0].equals("r2r3transform")) {
-        src = s1+dtR2R3Transform(com[1])+s3;
+      } else if (com[0].equals("r3r4transform")) {
+        src = s1+dtR3R4Transform(com[1])+s3;
       } else if (com[0].equals("fmm-style")) {
         String fmm = resource == null ? "N/A" :  ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS));
@@ -1202,8 +1202,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genMeaningWhenMissingList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
-      else if (com[0].equals("r2maps-summary"))
-        src = s1 + genR2MapsSummary() + s3;
+      else if (com[0].equals("r3maps-summary"))
+        src = s1 + genR3MapsSummary() + s3;
       else if (com[0].equals("wg")) {
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group) ("+wg+" (1))" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("profile-context"))
@@ -1581,15 +1581,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return definitions.getWorkgroups().get(code);
   }
 
-  private String dtR2R3Transform(String name) throws Exception {
+  private String dtR3R4Transform(String name) throws Exception {
 
-    File f = new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
+    File f = new File(Utilities.path(folders.rootDir, "implementations", "r3maps", "R4toR3", name+".map"));
     if (!f.exists())
-       throw new Exception("No R2/R3 map exists for "+name);
+       throw new Exception("No R3/R4 map exists for "+name);
     String n = name.toLowerCase();
-    String status = r2r3StatusForResource(name);
-    String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3",  r2nameForResource(name)+".map"));
-    String bcks = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
+    String status = r3r4StatusForResource(name);
+    String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r3maps", "R3toR4",  r3nameForResource(name)+".map"));
+    String bcks = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r3maps", "R4toR3", name+".map"));
     String fwdsStatus =  "";
     String bcksStatus =  "";
     try {
@@ -1604,7 +1604,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return "<p>Functional status for this map: "+status+" (based on R2 -> R3 -> R2 round tripping)</p>\r\n"+
     "\r\n"+
-    "<h4>R2 to R3</h4>\r\n"+
+    "<h4>R3 to R4</h4>\r\n"+
     "\r\n"+
     "<div class=\"mapping\">\r\n"+
     "<pre>\r\n"+
@@ -1614,7 +1614,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     "\r\n"+
     fwdsStatus+"\r\n"+
     "\r\n"+
-    "<h4>R3 to R2</h4>\r\n"+
+    "<h4>R4 to R3</h4>\r\n"+
     "\r\n"+
     "<div class=\"mapping\">\r\n"+
     "<pre>\r\n"+
@@ -1625,13 +1625,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     bcksStatus+"\r\n";
   }
 
-  public String r2nameForResource(String name) {
-    if ("CapabilityStatement".equals(name))
-      return "Conformance";
-    if ("MedicationRequest".equals(name))
-      return "MedicationOrder";
-    if ("DeviceRequest".equals(name))
-      return "DeviceUseRequest";
+  public String r3nameForResource(String name) {
     return name;
   }
 
@@ -4173,8 +4167,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
-    if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", title+".map")).exists())
-      b.append(makeHeaderTab("R2 Conversions", n+"-version-maps.html", "conversion".equals(mode)));
+    if (new File(Utilities.path(folders.rootDir, "implementations", "r3maps", "R4toR3", title+".map")).exists())
+      b.append(makeHeaderTab("R3 Conversions", n+"-version-maps.html", "conversion".equals(mode)));
     b.append("</ul>\r\n");
 
     return b.toString();
@@ -5216,8 +5210,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("setlevel")) {
         level = Integer.parseInt(com[1]);
         src = s1+s3;
-      } else if (com[0].equals("r2r3transform")) {
-        src = s1+dtR2R3Transform(com[1])+s3;
+      } else if (com[0].equals("r3r4transform")) {
+        src = s1+dtR3R4Transform(com[1])+s3;
       } else if (com[0].equals("normative-pages")) {
         src = s1+getNormativeList(genlevel(level), com[1])+s3;
       } else if (com[0].equals("tx")) {
@@ -5454,8 +5448,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genMeaningWhenMissingList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
-      else if (com[0].equals("r2maps-summary"))
-        src = s1 + genR2MapsSummary() + s3;
+      else if (com[0].equals("r3maps-summary"))
+        src = s1 + genR3MapsSummary() + s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
       else if (com[0].equals("res-list-ballot"))
@@ -5972,8 +5966,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+searchHeader(level)+s3;
       else if (com[0].equals("diff-analysis"))
         src = s1+diffEngine.getDiffAsHtml(this, resource.getProfile())+s3;
-      else if (com[0].equals("r2r3transforms"))
-        src = s1+getR2r3transformNote(resource.getName())+s3;
+      else if (com[0].equals("r3r4transforms"))
+        src = s1+getR3r4transformNote(resource.getName())+s3;
       else if (com[0].equals("fmm-style"))
         src = s1+fmmBarColorStyle(resource)+s3;
       else if (otherValues.containsKey(com[0]))
@@ -6329,11 +6323,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private String getR2r3transformNote(String name) throws IOException {
+  private String getR3r4transformNote(String name) throws IOException {
     StringBuilder b = new StringBuilder();
-    if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map")).exists()) {
-      String st = r2r3StatusForResource(name);
-      return "<p>See <a href=\""+name.toLowerCase()+"-version-maps.html\">R2 &lt;--&gt; R3 Conversion Maps</a> (status = "+st+"). <b>Note: these have note yet been updated to be R3 to R4</b></p>\r\n";
+    if (new File(Utilities.path(folders.rootDir, "implementations", "r3maps", "R3toR4", name+".map")).exists()) {
+      String st = r3r4StatusForResource(name);
+      return "<p>See <a href=\""+name.toLowerCase()+"-version-maps.html\">R3 &lt;--&gt; R4 Conversion Maps</a> (status = "+st+")</p>\r\n";
     } else
     return "";
   }
@@ -8512,7 +8506,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public void setFolders(FolderManager folders) throws Exception {
     this.folders = folders;
     htmlchecker = new HTMLLinkChecker(this, validationErrors, baseURL);
-    r2r3Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "outcomes.json")));
+    r3r4Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r3maps", "outcomes.json")));
   }
 
   public void setIni(IniFile ini) {
@@ -9478,7 +9472,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     diffEngine = null;
     typeBundle = null;
     resourceBundle = null;
-    r2r3Outcomes = null;
+    r3r4Outcomes = null;
     normativePackages = null;
     processor = null;
 
@@ -9831,8 +9825,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     int testCount;
     int executeFailCount;
     int roundTripFailCount;
-    int r3ValidationFailCount;
-    int r3ValidationErrors;
+    int r4ValidationFailCount;
+    int r4ValidationErrors;
     public boolean isMapped() {
       return mapped;
     }
@@ -9857,17 +9851,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     public void setRoundTripFailCount(int roundTripFailCount) {
       this.roundTripFailCount = roundTripFailCount;
     }
-    public int getR3ValidationFailCount() {
-      return r3ValidationFailCount;
+    public int getR4ValidationFailCount() {
+      return r4ValidationFailCount;
     }
-    public void setR3ValidationFailCount(int r3ValidationFailCount) {
-      this.r3ValidationFailCount = r3ValidationFailCount;
+    public void setR4ValidationFailCount(int r3ValidationFailCount) {
+      this.r4ValidationFailCount = r3ValidationFailCount;
     }
-    public int getR3ValidationErrors() {
-      return r3ValidationErrors;
+    public int getR4ValidationErrors() {
+      return r4ValidationErrors;
     }
-    public void setR3ValidationErrors(int r3ValidationErrors) {
-      this.r3ValidationErrors = r3ValidationErrors;
+    public void setR4ValidationErrors(int r3ValidationErrors) {
+      this.r4ValidationErrors = r3ValidationErrors;
     }
     public int executePct() {
       return (executeCount() * 100) / testCount;
@@ -9878,13 +9872,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     public int roundTripPct() {
       return executeCount() == 0 ? 0 : ((executeCount() - roundTripFailCount) * 100) / executeCount();
     }
-    public int r3ValidPct() {
-      return executeCount() == 0 ? 0 : ((executeCount() - r3ValidationFailCount) * 100) / executeCount();
+    public int r4ValidPct() {
+      return executeCount() == 0 ? 0 : ((executeCount() - r4ValidationFailCount) * 100) / executeCount();
     }
 
   }
 
-  private String genR2MapsSummary() throws IOException {
+  private String genR3MapsSummary() throws IOException {
     StringBuilder b = new StringBuilder();
     for (String n : definitions.sortedResourceNames()) {
       ResourceSummary rs = getResourceSummary(n);
@@ -9893,9 +9887,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append("<td>"+Integer.toString(rs.getTestCount())+"</td>");
         b.append("<td style=\"background-color: "+mapsBckColor(rs.executePct(), "#ffaaaa", "#ffffff")+"\">"+Integer.toString(rs.executePct())+"</td>");
         b.append("<td style=\"background-color: "+mapsBckColor(rs.roundTripPct(), "#ffcccc", "#ffffff")+"\">"+Integer.toString(rs.roundTripPct())+"</td>");
-        b.append("<td style=\"background-color: "+mapsBckColor(rs.r3ValidPct(), "#ffcccc", "#ffffff")+"\">"+Integer.toString(rs.r3ValidPct())+"</td>");
-        if (rs.getR3ValidationErrors() > 0)
-          b.append("<td>"+Integer.toString(rs.getR3ValidationErrors())+"</td>");
+        b.append("<td style=\"background-color: "+mapsBckColor(rs.r4ValidPct(), "#ffcccc", "#ffffff")+"\">"+Integer.toString(rs.r4ValidPct())+"</td>");
+        if (rs.getR4ValidationErrors() > 0)
+          b.append("<td>"+Integer.toString(rs.getR4ValidationErrors())+"</td>");
         else
           b.append("<td></td>");
 
@@ -9910,8 +9904,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private ResourceSummary getResourceSummary(String n) throws IOException {
     ResourceSummary rs = new ResourceSummary();
-    JsonObject r = r2r3Outcomes.getAsJsonObject(n);
-    if (r != null && (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", n+".map")).exists())) {
+    JsonObject r = r3r4Outcomes.getAsJsonObject(n);
+    if (r != null && (new File(Utilities.path(folders.rootDir, "implementations", "r3maps", "R4toR3", n+".map")).exists())) {
       rs.setMapped(true);
       for (Entry<String, JsonElement> e : r.entrySet()) {
         JsonObject el = (JsonObject) e.getValue();
@@ -9919,9 +9913,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         JsonPrimitive p = el.getAsJsonPrimitive("execution");
         if (!p.isBoolean())
           rs.executeFailCount++;
-        if (el.has("r3.errors")) {
-          rs.r3ValidationFailCount++;
-          rs.r3ValidationErrors = rs.r3ValidationErrors+el.getAsJsonArray("r3.errors").size();
+        if (el.has("r4.errors")) {
+          rs.r4ValidationFailCount++;
+          rs.r4ValidationErrors = rs.r4ValidationErrors+el.getAsJsonArray("r3.errors").size();
         }
         if (el.has("round-trip"))
           rs.roundTripFailCount++;
@@ -9935,7 +9929,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return pct == 100 ? goodColor : badColor;
   }
 
-  public String r2r3StatusForResource(String name) throws IOException {
+  public String r3r4StatusForResource(String name) throws IOException {
     ResourceSummary rs = getResourceSummary(name);
     if (!rs.isMapped())
       return "Not Mapped";
@@ -9952,10 +9946,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append(" All tests pass round-trip testing ");
       else
         b.append(" <span style=\"background-color: #ccffcc\">"+Integer.toString(rs.getRoundTripFailCount())+" fail round-trip testing</span>");
-      if (rs.getR3ValidationFailCount() == 0)
+      if (rs.getR4ValidationFailCount() == 0)
         b.append(" and all r3 resources are valid.");
       else
-        b.append(" and <span style=\"background-color: #E0B0FF\">"+Integer.toString(rs.getR3ValidationFailCount())+" r3 resources are invalid ("+Integer.toString(rs.getR3ValidationErrors())+" errors).</span>");
+        b.append(" and <span style=\"background-color: #E0B0FF\">"+Integer.toString(rs.getR4ValidationFailCount())+" r3 resources are invalid ("+Integer.toString(rs.getR4ValidationErrors())+" errors).</span>");
     }
     return b.toString();
 
@@ -9970,9 +9964,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
-  public String getR2R3ValidationErrors(String name) {
+  public String getR3R4ValidationErrors(String name) {
     StringBuilder b = new StringBuilder();
-    JsonObject r = r2r3Outcomes.getAsJsonObject(name);
+    JsonObject r = r3r4Outcomes.getAsJsonObject(name);
     if (r != null) {
       boolean first = true;
       for (Entry<String, JsonElement> e : r.entrySet()) {

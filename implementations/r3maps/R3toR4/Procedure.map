@@ -1,0 +1,63 @@
+﻿map "http://hl7.org/fhir/StructureMap/Procedure2to3" = "R3 to R4 Conversions for Procedure"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Procedure" alias ProcedureR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias Procedure as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Procedure extends DomainResource
+  input src : ProcedureR3 as source
+  input tgt : Procedure as target
+
+  "Procedure.identifier": for src.identifier make tgt.identifier
+  "Procedure.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
+  "Procedure.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
+  "Procedure.basedOn": for src.basedOn make tgt.basedOn
+  "Procedure.partOf": for src.partOf make tgt.partOf
+  "Procedure.status": for src.status make tgt.status
+  "Procedure.statusReason": for src.statusReason make tgt.statusReason
+  "Procedure.category": for src.category make tgt.category
+  "Procedure.code": for src.code make tgt.code
+  "Procedure.subject": for src.subject make tgt.subject
+  "Procedure.context": for src.context make tgt.context
+  "Procedure.performed[x]": for src.performed[x] make tgt.performed[x]
+  "Procedure.recorder": for src.recorder make tgt.recorder
+  "Procedure.asserter": for src.asserter make tgt.asserter
+  "Procedure.performer": for src.performer as s make tgt.performer as t then ProcedurePerformer(s,t)
+  "Procedure.location": for src.location make tgt.location
+  "Procedure.reasonCode": for src.reasonCode make tgt.reasonCode
+  "Procedure.reasonReference": for src.reasonReference make tgt.reasonReference
+  "Procedure.bodySite": for src.bodySite make tgt.bodySite
+  "Procedure.outcome": for src.outcome make tgt.outcome
+  "Procedure.report": for src.report make tgt.report
+  "Procedure.complication": for src.complication make tgt.complication
+  "Procedure.complicationDetail": for src.complicationDetail make tgt.complicationDetail
+  "Procedure.followUp": for src.followUp make tgt.followUp
+  "Procedure.note": for src.note make tgt.note
+  "Procedure.focalDevice": for src.focalDevice as s make tgt.focalDevice as t then ProcedureFocalDevice(s,t)
+  "Procedure.usedReference": for src.usedReference make tgt.usedReference
+  "Procedure.usedCode": for src.usedCode make tgt.usedCode
+endgroup
+
+
+group ProcedurePerformer extends BackboneElement
+  input src : ProcedureR3 as source
+  input tgt : Procedure as target
+
+  "Procedure.performer.function": for src.function make tgt.function
+  "Procedure.performer.actor": for src.actor make tgt.actor
+  "Procedure.performer.onBehalfOf": for src.onBehalfOf make tgt.onBehalfOf
+endgroup
+
+
+group ProcedureFocalDevice extends BackboneElement
+  input src : ProcedureR3 as source
+  input tgt : Procedure as target
+
+  "Procedure.focalDevice.action": for src.action make tgt.action
+  "Procedure.focalDevice.manipulated": for src.manipulated make tgt.manipulated
+endgroup
+

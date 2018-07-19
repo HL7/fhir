@@ -1,0 +1,20 @@
+﻿map "http://hl7.org/fhir/StructureMap/RelatedArtifact4to3" = "R4 to R3 Conversion for RelatedArtifact"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/RelatedArtifact" alias RelatedArtifact as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RelatedArtifact" alias RelatedArtifactR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group RelatedArtifact extends Element
+  input src : RelatedArtifact as source
+  input tgt : RelatedArtifactR3 as target
+
+  "RelatedArtifact.type" : for src.type as vs make tgt.type as vt
+  "RelatedArtifact.display" : for src.display as vs make tgt.display as vt
+  "RelatedArtifact.citation" : for src.citation as vs make tgt.citation as vt
+  "RelatedArtifact.document" : for src.document as vs make tgt.document as vt
+endgroup
+

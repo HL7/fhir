@@ -1,0 +1,18 @@
+﻿map "http://hl7.org/fhir/StructureMap/Range4to3" = "R4 to R3 Conversion for Range"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Range" alias Range as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Range" alias RangeR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Range extends Element
+  input src : Range as source
+  input tgt : RangeR3 as target
+
+  "Range.low" : for src.low as vs make tgt.low as vt
+  "Range.high" : for src.high as vs make tgt.high as vt
+endgroup
+

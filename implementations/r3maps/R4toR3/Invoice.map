@@ -1,0 +1,54 @@
+﻿map "http://hl7.org/fhir/StructureMap/Invoice3to2" = "R4 to R3 Conversion for Invoice"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Invoice" alias Invoice as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Invoice" alias InvoiceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Invoice extends DomainResource
+  input src : InvoiceR3 as source
+  input tgt : Invoice as target
+
+  "Invoice.identifier": for src.identifier make tgt.identifier
+  "Invoice.status": for src.status make tgt.status
+  "Invoice.cancelledReason": for src.cancelledReason make tgt.cancelledReason
+  "Invoice.type": for src.type make tgt.type
+  "Invoice.subject": for src.subject make tgt.subject
+  "Invoice.recipient": for src.recipient make tgt.recipient
+  "Invoice.date": for src.date make tgt.date
+  "Invoice.participant": for src.participant as s make tgt.participant as t then InvoiceParticipant(s,t)
+  "Invoice.issuer": for src.issuer make tgt.issuer
+  "Invoice.account": for src.account make tgt.account
+  "Invoice.lineItem": for src.lineItem as s make tgt.lineItem as t then InvoiceLineItem(s,t)
+  "Invoice.totalPriceComponent": for src.totalPriceComponent make tgt.totalPriceComponent
+  "Invoice.totalNet": for src.totalNet make tgt.totalNet
+  "Invoice.totalGross": for src.totalGross make tgt.totalGross
+  "Invoice.paymentTerms": for src.paymentTerms make tgt.paymentTerms
+  "Invoice.note": for src.note make tgt.note
+
+group InvoiceParticipant extends BackboneElement
+  input src : InvoiceR3 as source
+  input tgt : Invoice as target
+
+  "Invoice.participant.role": for src.role make tgt.role
+  "Invoice.participant.actor": for src.actor make tgt.actor
+
+group InvoiceLineItem extends BackboneElement
+  input src : InvoiceR3 as source
+  input tgt : Invoice as target
+
+  "Invoice.lineItem.sequence": for src.sequence make tgt.sequence
+  "Invoice.lineItem.chargeItem": for src.chargeItem make tgt.chargeItem
+  "Invoice.lineItem.priceComponent": for src.priceComponent as s make tgt.priceComponent as t then InvoiceLineItemPriceComponent(s,t)
+
+group InvoiceLineItemPriceComponent extends BackboneElement
+  input src : InvoiceR3 as source
+  input tgt : Invoice as target
+
+  "Invoice.lineItem.priceComponent.type": for src.type make tgt.type
+  "Invoice.lineItem.priceComponent.code": for src.code make tgt.code
+  "Invoice.lineItem.priceComponent.factor": for src.factor make tgt.factor
+  "Invoice.lineItem.priceComponent.amount": for src.amount make tgt.amount

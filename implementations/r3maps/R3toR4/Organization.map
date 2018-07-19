@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/Organization3to4" = "R3 to R4 Conversions for Organization"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Organization" alias OrganizationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group Organization extends DomainResource
+  input src : OrganizationR3 as source
+  input tgt : Organization as target
+
+  "Organization.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "Organization.active" : for src.active as vs make tgt.active as vt
+  "Organization.type" : for src.type as vs make tgt.type as vt
+  "Organization.name" : for src.name as vs make tgt.name as vt
+  "Organization.alias" : for src.alias as vs make tgt.alias as vt
+  "Organization.telecom" : for src.telecom as vs make tgt.telecom as vt
+  "Organization.address" : for src.address as vs make tgt.address as vt
+  "Organization.partOf" : for src.partOf as vs make tgt.partOf as vt
+  "Organization.contact" : for src.contact as vs0 make tgt.contact as vt0 then {
+    "Organization.contact.purpose" : for vs0.purpose as vs make vt0.purpose as vt
+    "Organization.contact.name" : for vs0.name as vs make vt0.name as vt
+    "Organization.contact.telecom" : for vs0.telecom as vs make vt0.telecom as vt
+    "Organization.contact.address" : for vs0.address as vs make vt0.address as vt
+  }
+  "Organization.endpoint" : for src.endpoint as vs make tgt.endpoint as vt
+endgroup
+

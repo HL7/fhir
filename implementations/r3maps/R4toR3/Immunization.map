@@ -1,0 +1,35 @@
+﻿map "http://hl7.org/fhir/StructureMap/Immunization4to3" = "R4 to R3 Conversion for Immunization"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Immunization" alias ImmunizationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Immunization extends DomainResource
+  input src : Immunization as source
+  input tgt : ImmunizationR3 as target
+
+  "Immunization.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "Immunization.status" : for src.status as vs make tgt.status as vt
+  "Immunization.vaccineCode" : for src.vaccineCode as vs make tgt.vaccineCode as vt
+  "Immunization.patient" : for src.patient as vs make tgt.patient as vt
+  "Immunization.encounter" : for src.encounter as vs make tgt.encounter as vt
+  "Immunization.primarySource" : for src.primarySource as vs make tgt.primarySource as vt
+  "Immunization.reportOrigin" : for src.reportOrigin as vs make tgt.reportOrigin as vt
+  "Immunization.location" : for src.location as vs make tgt.location as vt
+  "Immunization.manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt
+  "Immunization.lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt
+  "Immunization.expirationDate" : for src.expirationDate as vs make tgt.expirationDate as vt
+  "Immunization.site" : for src.site as vs make tgt.site as vt
+  "Immunization.route" : for src.route as vs make tgt.route as vt
+  "Immunization.doseQuantity" : for src.doseQuantity as vs make tgt.doseQuantity as vt
+  "Immunization.practitioner" : for src.performer as vs0 make tgt.practitioner as vt0 then {
+    "Immunization.practitioner.role" : for vs0.function as vs make vt0.role as vt
+    "Immunization.practitioner.actor" : for vs0.actor as vs make vt0.actor as vt
+  }
+  "Immunization.note" : for src.note as vs make tgt.note as vt
+endgroup
+

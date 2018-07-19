@@ -1,0 +1,29 @@
+﻿map "http://hl7.org/fhir/StructureMap/ImmunizationEvaluation2to3" = "R3 to R4 Conversions for ImmunizationEvaluation"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ImmunizationEvaluation" alias ImmunizationEvaluationR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation" alias ImmunizationEvaluation as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group ImmunizationEvaluation extends DomainResource
+  input src : ImmunizationEvaluationR3 as source
+  input tgt : ImmunizationEvaluation as target
+
+  "ImmunizationEvaluation.identifier": for src.identifier make tgt.identifier
+  "ImmunizationEvaluation.status": for src.status make tgt.status
+  "ImmunizationEvaluation.patient": for src.patient make tgt.patient
+  "ImmunizationEvaluation.date": for src.date make tgt.date
+  "ImmunizationEvaluation.authority": for src.authority make tgt.authority
+  "ImmunizationEvaluation.targetDisease": for src.targetDisease make tgt.targetDisease
+  "ImmunizationEvaluation.immunizationEvent": for src.immunizationEvent make tgt.immunizationEvent
+  "ImmunizationEvaluation.doseStatus": for src.doseStatus make tgt.doseStatus
+  "ImmunizationEvaluation.doseStatusReason": for src.doseStatusReason make tgt.doseStatusReason
+  "ImmunizationEvaluation.description": for src.description make tgt.description
+  "ImmunizationEvaluation.series": for src.series make tgt.series
+  "ImmunizationEvaluation.doseNumber[x]": for src.doseNumber[x] make tgt.doseNumber[x]
+  "ImmunizationEvaluation.seriesDoses[x]": for src.seriesDoses[x] make tgt.seriesDoses[x]
+endgroup
+

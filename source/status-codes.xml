@@ -3546,26 +3546,6 @@
     <Cell ss:Index="16"><Data ss:Type="String">balanced</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s89"><Data ss:Type="String">OccupationalData.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">corrected, amended</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">retired</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">VerificationResult.status</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">attested</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">validated</Data></Cell>

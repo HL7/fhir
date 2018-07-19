@@ -1,0 +1,24 @@
+﻿map "http://hl7.org/fhir/StructureMap/PaymentNotice3to4" = "R3 to R4 Conversions for PaymentNotice"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentNotice" alias PaymentNoticeR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/PaymentNotice" alias PaymentNotice as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group PaymentNotice extends DomainResource
+  input src : PaymentNoticeR3 as source
+  input tgt : PaymentNotice as target
+
+  "PaymentNotice.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "PaymentNotice.status" : for src.status as vs make tgt.status as vt
+  "PaymentNotice.request" : for src.request as vs make tgt.request as vt
+  "PaymentNotice.response" : for src.response as vs make tgt.response as vt
+  "PaymentNotice.statusDate" : for src.statusDate as vs make tgt.statusDate as vt
+  "PaymentNotice.created" : for src.created as vs make tgt.created as vt
+  "PaymentNotice.target" : for src.target as vs make tgt.target as vt
+  "PaymentNotice.provider" : for src.provider as vs make tgt.provider as vt
+endgroup
+

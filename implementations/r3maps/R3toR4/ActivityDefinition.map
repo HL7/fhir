@@ -1,0 +1,74 @@
+﻿map "http://hl7.org/fhir/StructureMap/ActivityDefinition2to3" = "R3 to R4 Conversions for ActivityDefinition"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/ActivityDefinition" alias ActivityDefinition as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group ActivityDefinition extends DomainResource
+  input src : ActivityDefinitionR3 as source
+  input tgt : ActivityDefinition as target
+
+  "ActivityDefinition.url": for src.url make tgt.url
+  "ActivityDefinition.identifier": for src.identifier make tgt.identifier
+  "ActivityDefinition.version": for src.version make tgt.version
+  "ActivityDefinition.name": for src.name make tgt.name
+  "ActivityDefinition.title": for src.title make tgt.title
+  "ActivityDefinition.subtitle": for src.subtitle make tgt.subtitle
+  "ActivityDefinition.status": for src.status make tgt.status
+  "ActivityDefinition.experimental": for src.experimental make tgt.experimental
+  "ActivityDefinition.subject[x]": for src.subject[x] make tgt.subject[x]
+  "ActivityDefinition.date": for src.date make tgt.date
+  "ActivityDefinition.publisher": for src.publisher make tgt.publisher
+  "ActivityDefinition.contact": for src.contact make tgt.contact
+  "ActivityDefinition.description": for src.description make tgt.description
+  "ActivityDefinition.useContext": for src.useContext make tgt.useContext
+  "ActivityDefinition.jurisdiction": for src.jurisdiction make tgt.jurisdiction
+  "ActivityDefinition.purpose": for src.purpose make tgt.purpose
+  "ActivityDefinition.usage": for src.usage make tgt.usage
+  "ActivityDefinition.copyright": for src.copyright make tgt.copyright
+  "ActivityDefinition.approvalDate": for src.approvalDate make tgt.approvalDate
+  "ActivityDefinition.lastReviewDate": for src.lastReviewDate make tgt.lastReviewDate
+  "ActivityDefinition.effectivePeriod": for src.effectivePeriod make tgt.effectivePeriod
+  "ActivityDefinition.topic": for src.topic make tgt.topic
+  "ActivityDefinition.contributor": for src.contributor make tgt.contributor
+  "ActivityDefinition.relatedArtifact": for src.relatedArtifact make tgt.relatedArtifact
+  "ActivityDefinition.library": for src.library make tgt.library
+  "ActivityDefinition.kind": for src.kind make tgt.kind
+  "ActivityDefinition.code": for src.code make tgt.code
+  "ActivityDefinition.doNotPerform": for src.doNotPerform make tgt.doNotPerform
+  "ActivityDefinition.timing[x]": for src.timing[x] make tgt.timing[x]
+  "ActivityDefinition.location": for src.location make tgt.location
+  "ActivityDefinition.participant": for src.participant as s make tgt.participant as t then ActivityDefinitionParticipant(s,t)
+  "ActivityDefinition.product[x]": for src.product[x] make tgt.product[x]
+  "ActivityDefinition.quantity": for src.quantity make tgt.quantity
+  "ActivityDefinition.dosage": for src.dosage make tgt.dosage
+  "ActivityDefinition.bodySite": for src.bodySite make tgt.bodySite
+  "ActivityDefinition.specimenRequirement": for src.specimenRequirement make tgt.specimenRequirement
+  "ActivityDefinition.transform": for src.transform make tgt.transform
+  "ActivityDefinition.dynamicValue": for src.dynamicValue as s make tgt.dynamicValue as t then ActivityDefinitionDynamicValue(s,t)
+endgroup
+
+
+group ActivityDefinitionParticipant extends BackboneElement
+  input src : ActivityDefinitionR3 as source
+  input tgt : ActivityDefinition as target
+
+  "ActivityDefinition.participant.type": for src.type make tgt.type
+  "ActivityDefinition.participant.role": for src.role make tgt.role
+endgroup
+
+
+group ActivityDefinitionDynamicValue extends BackboneElement
+  input src : ActivityDefinitionR3 as source
+  input tgt : ActivityDefinition as target
+
+  "ActivityDefinition.dynamicValue.description": for src.description make tgt.description
+  "ActivityDefinition.dynamicValue.path": for src.path make tgt.path
+  "ActivityDefinition.dynamicValue.language": for src.language make tgt.language
+  "ActivityDefinition.dynamicValue.expression": for src.expression make tgt.expression
+endgroup
+

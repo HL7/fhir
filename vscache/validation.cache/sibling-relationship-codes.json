@@ -3,25 +3,13 @@
   "outcomes": [
     {
       "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NBRO|natural brother",
-      "severity": "warning",
-      "message": "No Message returned",
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "natural brother"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v3-RoleCode"
     },
     {
       "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NSIS|natural sister",
-      "severity": "warning",
-      "message": "No Message returned",
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "natural sister"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v3-RoleCode"
     }
   ]
 }

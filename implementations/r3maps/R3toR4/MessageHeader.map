@@ -1,0 +1,27 @@
+﻿map "http://hl7.org/fhir/StructureMap/MessageHeader3to4" = "R3 to R4 Conversions for MessageHeader"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MessageHeader" alias MessageHeaderR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group MessageHeader extends DomainResource
+  input src : MessageHeaderR3 as source
+  input tgt : MessageHeader as target
+
+  "MessageHeader.event" : for src.event as vs make tgt.event as vt
+  "MessageHeader.sender" : for src.sender as vs make tgt.sender as vt
+  "MessageHeader.author" : for src.author as vs make tgt.author as vt
+  "MessageHeader.responsible" : for src.responsible as vs make tgt.responsible as vt
+  "MessageHeader.reason" : for src.reason as vs make tgt.reason as vt
+  "MessageHeader.response" : for src.response as vs0 make tgt.response as vt0 then {
+    "MessageHeader.response.identifier" : for vs0.identifier as vs make vt0.identifier as vt
+    "MessageHeader.response.code" : for vs0.code as vs make vt0.code as vt then
+    "MessageHeader.response.details" : for vs0.details as vs make vt0.details as vt
+  }
+  "MessageHeader.focus" : for src.focus as vs make tgt.focus as vt
+endgroup
+

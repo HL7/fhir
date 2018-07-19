@@ -3454,13 +3454,13 @@ public class FHIRPathEngine {
     if (m != null && hasDataType(m.definition)) {
       if (m.fixedType != null)
       {
-        StructureDefinition dt = worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(m.fixedType));
+        StructureDefinition dt = worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(m.fixedType, worker.getOverrideVersionNs()));
         if (dt == null)
           throw new DefinitionException("unknown data type "+m.fixedType);
         sdl.add(dt);
       } else
         for (TypeRefComponent t : m.definition.getType()) {
-          StructureDefinition dt = worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(t.getCode()));
+          StructureDefinition dt = worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(t.getCode(), worker.getOverrideVersionNs()));
           if (dt == null)
             throw new DefinitionException("unknown data type "+t.getCode());
           sdl.add(dt);
@@ -3581,7 +3581,7 @@ public class FHIRPathEngine {
         // now we walk into the type.
         if (ed.getType().size() > 1)  // if there's more than one type, the test above would fail this
           throw new PathEngineException("Internal typing issue....");
-        StructureDefinition nsd = worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(ed.getType().get(0).getCode()));
+        StructureDefinition nsd = worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(ed.getType().get(0).getCode(), worker.getOverrideVersionNs()));
   	    if (nsd == null) 
   	      throw new PathEngineException("Unknown type "+ed.getType().get(0).getCode());
         return getElementDefinition(nsd, nsd.getId()+path.substring(ed.getPath().length()), allowTypedName);
@@ -3720,7 +3720,7 @@ public class FHIRPathEngine {
     if (ed.getType().get(0).hasProfile()) 
       return worker.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile().get(0).getValue());
     else
-      return worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(ed.getType().get(0).getCode()));
+      return worker.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(ed.getType().get(0).getCode(), worker.getOverrideVersionNs()));
   }
 
 

@@ -1,0 +1,56 @@
+﻿map "http://hl7.org/fhir/StructureMap/AdverseEvent2to3" = "R3 to R4 Conversions for AdverseEvent"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/AdverseEvent" alias AdverseEventR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEvent as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group AdverseEvent extends DomainResource
+  input src : AdverseEventR3 as source
+  input tgt : AdverseEvent as target
+
+  "AdverseEvent.identifier": for src.identifier make tgt.identifier
+  "AdverseEvent.actuality": for src.actuality make tgt.actuality
+  "AdverseEvent.category": for src.category make tgt.category
+  "AdverseEvent.event": for src.event make tgt.event
+  "AdverseEvent.subject": for src.subject make tgt.subject
+  "AdverseEvent.context": for src.context make tgt.context
+  "AdverseEvent.date": for src.date make tgt.date
+  "AdverseEvent.detected": for src.detected make tgt.detected
+  "AdverseEvent.recordedDate": for src.recordedDate make tgt.recordedDate
+  "AdverseEvent.resultingCondition": for src.resultingCondition make tgt.resultingCondition
+  "AdverseEvent.location": for src.location make tgt.location
+  "AdverseEvent.seriousness": for src.seriousness make tgt.seriousness
+  "AdverseEvent.severity": for src.severity make tgt.severity
+  "AdverseEvent.outcome": for src.outcome make tgt.outcome
+  "AdverseEvent.recorder": for src.recorder make tgt.recorder
+  "AdverseEvent.contributor": for src.contributor make tgt.contributor
+  "AdverseEvent.suspectEntity": for src.suspectEntity as s make tgt.suspectEntity as t then AdverseEventSuspectEntity(s,t)
+  "AdverseEvent.subjectMedicalHistory": for src.subjectMedicalHistory make tgt.subjectMedicalHistory
+  "AdverseEvent.referenceDocument": for src.referenceDocument make tgt.referenceDocument
+  "AdverseEvent.study": for src.study make tgt.study
+endgroup
+
+
+group AdverseEventSuspectEntity extends BackboneElement
+  input src : AdverseEventR3 as source
+  input tgt : AdverseEvent as target
+
+  "AdverseEvent.suspectEntity.instance": for src.instance make tgt.instance
+  "AdverseEvent.suspectEntity.causality": for src.causality as s make tgt.causality as t then AdverseEventSuspectEntityCausality(s,t)
+endgroup
+
+
+group AdverseEventSuspectEntityCausality extends BackboneElement
+  input src : AdverseEventR3 as source
+  input tgt : AdverseEvent as target
+
+  "AdverseEvent.suspectEntity.causality.assessment": for src.assessment make tgt.assessment
+  "AdverseEvent.suspectEntity.causality.productRelatedness": for src.productRelatedness make tgt.productRelatedness
+  "AdverseEvent.suspectEntity.causality.author": for src.author make tgt.author
+  "AdverseEvent.suspectEntity.causality.method": for src.method make tgt.method
+endgroup
+

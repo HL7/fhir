@@ -1,0 +1,23 @@
+﻿map "http://hl7.org/fhir/StructureMap/TriggerDefinition4to3" = "R4 to R3 Conversion for TriggerDefinition"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/TriggerDefinition" alias TriggerDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TriggerDefinition" alias TriggerDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group TriggerDefinition extends Element
+  input src : TriggerDefinition as source
+  input tgt : TriggerDefinitionR3 as target
+
+  "TriggerDefinition.type" : for src.type as vs make tgt.type as vt then
+  "TriggerDefinition.eventName" : for src.name as vs make tgt.eventName as vt
+  "TriggerDefinition.eventTiming-Timing" : for src.timing  : Timing as vs make tgt.eventTiming = create("Timing") as vt then Timing(vs,vt)
+  "TriggerDefinition.eventTiming-Reference" : for src.timing  : Reference as vs make tgt.eventTiming = create("Reference") as vt then Reference(vs,vt)
+  "TriggerDefinition.eventTiming-date" : for src.timing  : date as vs make tgt.eventTiming = create("date") as vt then date(vs,vt)
+  "TriggerDefinition.eventTiming-dateTime" : for src.timing  : dateTime as vs make tgt.eventTiming = create("dateTime") as vt then dateTime(vs,vt)
+  "TriggerDefinition.eventData" : for src.data as vs make tgt.eventData as vt
+endgroup
+

@@ -1,0 +1,20 @@
+﻿map "http://hl7.org/fhir/StructureMap/UsageContext3to4" = "R3 to R4 Conversions for UsageContext"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/UsageContext" alias UsageContextR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/UsageContext" alias UsageContext as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group UsageContext extends Element
+  input src : UsageContextR3 as source
+  input tgt : UsageContext as target
+
+  "UsageContext.code" : for src.code as vs make tgt.code as vt
+  "UsageContext.value-CodeableConcept" : for src.value  : CodeableConcept as vs make tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "UsageContext.value-Quantity" : for src.value  : Quantity as vs make tgt.value = create("Quantity") as vt then Quantity(vs,vt)
+  "UsageContext.value-Range" : for src.value  : Range as vs make tgt.value = create("Range") as vt then Range(vs,vt)
+endgroup
+

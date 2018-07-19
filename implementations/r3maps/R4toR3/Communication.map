@@ -1,0 +1,43 @@
+﻿map "http://hl7.org/fhir/StructureMap/Communication3to2" = "R4 to R3 Conversion for Communication"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Communication extends DomainResource
+  input src : CommunicationR3 as source
+  input tgt : Communication as target
+
+  "Communication.identifier": for src.identifier make tgt.identifier
+  "Communication.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
+  "Communication.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
+  "Communication.basedOn": for src.basedOn make tgt.basedOn
+  "Communication.partOf": for src.partOf make tgt.partOf
+  "Communication.inResponseTo": for src.inResponseTo make tgt.inResponseTo
+  "Communication.status": for src.status make tgt.status
+  "Communication.statusReason": for src.statusReason make tgt.statusReason
+  "Communication.category": for src.category make tgt.category
+  "Communication.priority": for src.priority make tgt.priority
+  "Communication.medium": for src.medium make tgt.medium
+  "Communication.subject": for src.subject make tgt.subject
+  "Communication.topic": for src.topic make tgt.topic
+  "Communication.about": for src.about make tgt.about
+  "Communication.context": for src.context make tgt.context
+  "Communication.sent": for src.sent make tgt.sent
+  "Communication.received": for src.received make tgt.received
+  "Communication.recipient": for src.recipient make tgt.recipient
+  "Communication.sender": for src.sender make tgt.sender
+  "Communication.reasonCode": for src.reasonCode make tgt.reasonCode
+  "Communication.reasonReference": for src.reasonReference make tgt.reasonReference
+  "Communication.payload": for src.payload as s make tgt.payload as t then CommunicationPayload(s,t)
+  "Communication.note": for src.note make tgt.note
+
+group CommunicationPayload extends BackboneElement
+  input src : CommunicationR3 as source
+  input tgt : Communication as target
+
+  "Communication.payload.content[x]": for src.content[x] make tgt.content[x]

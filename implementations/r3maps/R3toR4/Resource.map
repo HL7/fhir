@@ -1,0 +1,18 @@
+﻿map "http://hl7.org/fhir/StructureMap/Resource2to3" = "R2 to R3 Conversions for Resource"
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Resource" alias ResourceR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Resource" alias Resource as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Meta2to3"
+
+group for type+types  Resource
+  input src : ResourceR2 as source
+  input tgt : Resource as target
+
+  "Resource-id" : for src.id make tgt.id
+  "Resource-meta" : for src.meta make tgt.meta
+  "Resource-implicitRules" : for src.implicitRules make tgt.implicitRules
+  "Resource-language" : for src.language make tgt.language
+
+endgroup

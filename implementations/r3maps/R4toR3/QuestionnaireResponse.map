@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/QuestionnaireResponse4to3" = "R4 to R3 Conversion for QuestionnaireResponse"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group QuestionnaireResponse extends DomainResource
+  input src : QuestionnaireResponse as source
+  input tgt : QuestionnaireResponseR3 as target
+
+  "QuestionnaireResponse.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "QuestionnaireResponse.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
+  "QuestionnaireResponse.parent" : for src.partOf as vs make tgt.parent as vt
+  "QuestionnaireResponse.status" : for src.status as vs make tgt.status as vt
+  "QuestionnaireResponse.subject" : for src.subject as vs make tgt.subject as vt
+  "QuestionnaireResponse.context" : for src.context as vs make tgt.context as vt
+  "QuestionnaireResponse.authored" : for src.authored as vs make tgt.authored as vt
+  "QuestionnaireResponse.author" : for src.author as vs make tgt.author as vt
+  "QuestionnaireResponse.source" : for src.source as vs make tgt.source as vt
+  "QuestionnaireResponse.item" : for src.item as vs0 make tgt.item as vt0 then {
+    "QuestionnaireResponse.item.linkId" : for vs0.linkId as vs make vt0.linkId as vt
+    "QuestionnaireResponse.item.definition" : for vs0.definition as vs make vt0.definition as vt
+    "QuestionnaireResponse.item.text" : for vs0.text as vs make vt0.text as vt
+    "QuestionnaireResponse.item.subject" : for vs0.subject as vs make vt0.subject as vt
+  }
+endgroup
+

@@ -1,0 +1,22 @@
+﻿map "http://hl7.org/fhir/StructureMap/ParameterDefinition4to3" = "R4 to R3 Conversion for ParameterDefinition"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/ParameterDefinition" alias ParameterDefinition as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/ParameterDefinition" alias ParameterDefinitionR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group ParameterDefinition extends Element
+  input src : ParameterDefinition as source
+  input tgt : ParameterDefinitionR3 as target
+
+  "ParameterDefinition.name" : for src.name as vs make tgt.name as vt
+  "ParameterDefinition.use" : for src.use as vs make tgt.use as vt then
+  "ParameterDefinition.min" : for src.min as vs make tgt.min as vt
+  "ParameterDefinition.max" : for src.max as vs make tgt.max as vt
+  "ParameterDefinition.documentation" : for src.documentation as vs make tgt.documentation as vt
+  "ParameterDefinition.type" : for src.type as vs make tgt.type as vt
+endgroup
+

@@ -3,47 +3,23 @@
   "outcomes": [
     {
       "hash": "#|http://terminology.hl7.org/CodeSystem/v2-0131|null|C|null",
-      "severity": "warning",
-      "message": "No Message returned",
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Emergency Contact"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0131"
     },
     {
       "hash": "#|http://terminology.hl7.org/CodeSystem/v2-0131|null|N|null#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|WIFE|null",
-      "severity": "warning",
-      "message": "No Message returned",
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "wife"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0131"
     },
     {
       "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|NMTH|natural mother",
-      "severity": "warning",
-      "message": "No Message returned",
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "natural mother"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0131"
     },
     {
       "hash": "#|http://terminology.hl7.org/CodeSystem/v3-RoleCode|null|SIGOTHR|null",
-      "severity": "warning",
-      "message": "No Message returned",
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "significant other"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://terminology.hl7.org/CodeSystem/v2-0131"
     }
   ]
 }

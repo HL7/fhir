@@ -332,8 +332,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String sourceDir;
   private String destDir;
   private FHIRToolingClient webTxServer;
-//  private static String txServer = "http://tx.fhir.org/r4";
-  private static String txServer = "http://local.fhir.org:960/r4";
+  private static String txServer = "http://tx.fhir.org/r4";
+//  private static String txServer = "http://local.fhir.org:960/r4";
   private String igPack = "";
   private boolean watch;
   private boolean debug;

@@ -1,0 +1,42 @@
+﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest3to2" = "R4 to R3 Conversion for CommunicationRequest"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequest as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/CommunicationRequest" alias CommunicationRequestR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group CommunicationRequest extends DomainResource
+  input src : CommunicationRequestR3 as source
+  input tgt : CommunicationRequest as target
+
+  "CommunicationRequest.identifier": for src.identifier make tgt.identifier
+  "CommunicationRequest.basedOn": for src.basedOn make tgt.basedOn
+  "CommunicationRequest.replaces": for src.replaces make tgt.replaces
+  "CommunicationRequest.groupIdentifier": for src.groupIdentifier make tgt.groupIdentifier
+  "CommunicationRequest.status": for src.status make tgt.status
+  "CommunicationRequest.statusReason": for src.statusReason make tgt.statusReason
+  "CommunicationRequest.category": for src.category make tgt.category
+  "CommunicationRequest.priority": for src.priority make tgt.priority
+  "CommunicationRequest.doNotPerform": for src.doNotPerform make tgt.doNotPerform
+  "CommunicationRequest.medium": for src.medium make tgt.medium
+  "CommunicationRequest.subject": for src.subject make tgt.subject
+  "CommunicationRequest.about": for src.about make tgt.about
+  "CommunicationRequest.context": for src.context make tgt.context
+  "CommunicationRequest.payload": for src.payload as s make tgt.payload as t then CommunicationRequestPayload(s,t)
+  "CommunicationRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "CommunicationRequest.authoredOn": for src.authoredOn make tgt.authoredOn
+  "CommunicationRequest.requester": for src.requester make tgt.requester
+  "CommunicationRequest.recipient": for src.recipient make tgt.recipient
+  "CommunicationRequest.sender": for src.sender make tgt.sender
+  "CommunicationRequest.reasonCode": for src.reasonCode make tgt.reasonCode
+  "CommunicationRequest.reasonReference": for src.reasonReference make tgt.reasonReference
+  "CommunicationRequest.note": for src.note make tgt.note
+
+group CommunicationRequestPayload extends BackboneElement
+  input src : CommunicationRequestR3 as source
+  input tgt : CommunicationRequest as target
+
+  "CommunicationRequest.payload.content[x]": for src.content[x] make tgt.content[x]

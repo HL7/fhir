@@ -2602,7 +2602,7 @@ public class StructureMapUtilities {
   private TypeDetails getParam(VariablesForProfiling vars, StructureMapGroupRuleTargetParameterComponent parameter) throws DefinitionException {
     Type p = parameter.getValue();
     if (!(p instanceof IdType))
-      return new TypeDetails(CollectionStatus.SINGLETON, ProfileUtilities.sdNs(p.fhirType()));
+      return new TypeDetails(CollectionStatus.SINGLETON, ProfileUtilities.sdNs(p.fhirType(), worker.getOverrideVersionNs()));
     else { 
       String n = ((IdType) p).asStringValue();
       VariableForProfiling b = vars.get(VariableMode.INPUT, n);

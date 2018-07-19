@@ -1,0 +1,42 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductDeviceSpec2to3" = "R3 to R4 Conversions for MedicinalProductDeviceSpec"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductDeviceSpec" alias MedicinalProductDeviceSpecR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductDeviceSpec" alias MedicinalProductDeviceSpec as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group MedicinalProductDeviceSpec extends DomainResource
+  input src : MedicinalProductDeviceSpecR3 as source
+  input tgt : MedicinalProductDeviceSpec as target
+
+  "MedicinalProductDeviceSpec.identifier": for src.identifier make tgt.identifier
+  "MedicinalProductDeviceSpec.type": for src.type make tgt.type
+  "MedicinalProductDeviceSpec.tradeName": for src.tradeName make tgt.tradeName
+  "MedicinalProductDeviceSpec.quantity": for src.quantity make tgt.quantity
+  "MedicinalProductDeviceSpec.listingNumber": for src.listingNumber make tgt.listingNumber
+  "MedicinalProductDeviceSpec.modelNumber": for src.modelNumber make tgt.modelNumber
+  "MedicinalProductDeviceSpec.sterilityIndicator": for src.sterilityIndicator make tgt.sterilityIndicator
+  "MedicinalProductDeviceSpec.sterilisationRequirement": for src.sterilisationRequirement make tgt.sterilisationRequirement
+  "MedicinalProductDeviceSpec.usage": for src.usage make tgt.usage
+  "MedicinalProductDeviceSpec.nomenclature": for src.nomenclature make tgt.nomenclature
+  "MedicinalProductDeviceSpec.shelfLife": for src.shelfLife make tgt.shelfLife
+  "MedicinalProductDeviceSpec.physicalCharacteristics": for src.physicalCharacteristics make tgt.physicalCharacteristics
+  "MedicinalProductDeviceSpec.otherCharacteristics": for src.otherCharacteristics make tgt.otherCharacteristics
+  "MedicinalProductDeviceSpec.batchIdentifier": for src.batchIdentifier make tgt.batchIdentifier
+  "MedicinalProductDeviceSpec.manufacturer": for src.manufacturer make tgt.manufacturer
+  "MedicinalProductDeviceSpec.material": for src.material as s make tgt.material as t then MedicinalProductDeviceSpecMaterial(s,t)
+endgroup
+
+
+group MedicinalProductDeviceSpecMaterial extends BackboneElement
+  input src : MedicinalProductDeviceSpecR3 as source
+  input tgt : MedicinalProductDeviceSpec as target
+
+  "MedicinalProductDeviceSpec.material.substance": for src.substance make tgt.substance
+  "MedicinalProductDeviceSpec.material.alternate": for src.alternate make tgt.alternate
+  "MedicinalProductDeviceSpec.material.allergenicIndicator": for src.allergenicIndicator make tgt.allergenicIndicator
+endgroup
+

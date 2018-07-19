@@ -1,0 +1,37 @@
+﻿map "http://hl7.org/fhir/StructureMap/TestReport3to4" = "R3 to R4 Conversions for TestReport"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/TestReport" alias TestReportR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReport as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group TestReport extends DomainResource
+  input src : TestReportR3 as source
+  input tgt : TestReport as target
+
+  "TestReport.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "TestReport.name" : for src.name as vs make tgt.name as vt
+  "TestReport.status" : for src.status as vs make tgt.status as vt
+  "TestReport.testScript" : for src.testScript as vs make tgt.testScript as vt
+  "TestReport.result" : for src.result as vs make tgt.result as vt
+  "TestReport.score" : for src.score as vs make tgt.score as vt
+  "TestReport.tester" : for src.tester as vs make tgt.tester as vt
+  "TestReport.issued" : for src.issued as vs make tgt.issued as vt
+  "TestReport.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
+    "TestReport.participant.type" : for vs0.type as vs make vt0.type as vt then
+    "TestReport.participant.uri" : for vs0.uri as vs make vt0.uri as vt
+    "TestReport.participant.display" : for vs0.display as vs make vt0.display as vt
+  }
+  "TestReport.setup" : for src.setup as vs0 make tgt.setup as vt0 then {
+  }
+  "TestReport.test" : for src.test as vs0 make tgt.test as vt0 then {
+    "TestReport.test.name" : for vs0.name as vs make vt0.name as vt
+    "TestReport.test.description" : for vs0.description as vs make vt0.description as vt
+  }
+  "TestReport.teardown" : for src.teardown as vs0 make tgt.teardown as vt0 then {
+  }
+endgroup
+

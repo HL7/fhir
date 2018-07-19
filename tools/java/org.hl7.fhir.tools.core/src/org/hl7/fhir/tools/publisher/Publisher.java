@@ -2719,9 +2719,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       processRDF();
 
       page.log("....version maps", LogMessageType.Process);
-      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "r2r3maps.zip");
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3", ""), "r2/", null, null);
-      zip.addFiles(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", ""), "r3/", null, null);
+      ZipGenerator zip = new ZipGenerator(page.getFolders().dstDir + "r3r4maps.zip");
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R3toR4", ""), "r3/", null, null);
+      zip.addFiles(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R4toR3", ""), "r4/", null, null);
       zip.close();
 
       page.log("....definitions", LogMessageType.Process);
@@ -3033,17 +3033,17 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceMap(String name, SectionTracker st, ResourceDefn res) throws Exception {
-    File f = new File(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
+    File f = new File(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R4toR3", name+".map"));
     if (!f.exists())
         return;
     String n = name.toLowerCase();
     Map<String, String> values = new HashMap<String, String>();
-    values.put("conv-status", page.r2r3StatusForResource(name));
-    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3", page.r2nameForResource(name)+".map")));
-    values.put("bcks", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", name+".map")));
+    values.put("conv-status", page.r3r4StatusForResource(name));
+    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R3toR4", page.r3nameForResource(name)+".map")));
+    values.put("bcks", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R4toR3", name+".map")));
     values.put("fwds-status", "");
     values.put("bcks-status", "");
-    values.put("r3errs", page.getR2R3ValidationErrors(name));
+    values.put("r3errs", page.getR3R4ValidationErrors(name));
     try {
       new StructureMapUtilities(page.getWorkerContext()).parse(values.get("fwds"));
     } catch (FHIRException e) {

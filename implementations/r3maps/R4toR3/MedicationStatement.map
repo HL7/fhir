@@ -1,0 +1,34 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicationStatement4to3" = "R4 to R3 Conversion for MedicationStatement"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationStatement" alias MedicationStatementR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group MedicationStatement extends DomainResource
+  input src : MedicationStatement as source
+  input tgt : MedicationStatementR3 as target
+
+  "MedicationStatement.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "MedicationStatement.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
+  "MedicationStatement.partOf" : for src.partOf as vs make tgt.partOf as vt
+  "MedicationStatement.context" : for src.context as vs make tgt.context as vt
+  "MedicationStatement.status" : for src.status as vs make tgt.status as vt
+  "MedicationStatement.category" : for src.category as vs make tgt.category as vt
+  "MedicationStatement.medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "MedicationStatement.medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
+  "MedicationStatement.effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
+  "MedicationStatement.effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
+  "MedicationStatement.dateAsserted" : for src.dateAsserted as vs make tgt.dateAsserted as vt
+  "MedicationStatement.informationSource" : for src.informationSource as vs make tgt.informationSource as vt
+  "MedicationStatement.subject" : for src.subject as vs make tgt.subject as vt
+  "MedicationStatement.derivedFrom" : for src.derivedFrom as vs make tgt.derivedFrom as vt
+  "MedicationStatement.reasonCode" : for src.reasonCode as vs make tgt.reasonCode as vt
+  "MedicationStatement.reasonReference" : for src.reasonReference as vs make tgt.reasonReference as vt
+  "MedicationStatement.note" : for src.note as vs make tgt.note as vt
+  "MedicationStatement.dosage" : for src.dosage as vs make tgt.dosage as vt
+endgroup
+

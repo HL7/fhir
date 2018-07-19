@@ -1,0 +1,31 @@
+﻿map "http://hl7.org/fhir/StructureMap/GuidanceResponse2to3" = "R3 to R4 Conversions for GuidanceResponse"
+
+
+uses "http://hl7.org/fhir/3.0/StructureDefinition/GuidanceResponse" alias GuidanceResponseR3 as source
+uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponse as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to4"
+
+
+
+group GuidanceResponse extends DomainResource
+  input src : GuidanceResponseR3 as source
+  input tgt : GuidanceResponse as target
+
+  "GuidanceResponse.requestId": for src.requestId make tgt.requestId
+  "GuidanceResponse.identifier": for src.identifier make tgt.identifier
+  "GuidanceResponse.module[x]": for src.module[x] make tgt.module[x]
+  "GuidanceResponse.status": for src.status make tgt.status
+  "GuidanceResponse.subject": for src.subject make tgt.subject
+  "GuidanceResponse.context": for src.context make tgt.context
+  "GuidanceResponse.occurrenceDateTime": for src.occurrenceDateTime make tgt.occurrenceDateTime
+  "GuidanceResponse.performer": for src.performer make tgt.performer
+  "GuidanceResponse.reasonCode": for src.reasonCode make tgt.reasonCode
+  "GuidanceResponse.reasonReference": for src.reasonReference make tgt.reasonReference
+  "GuidanceResponse.note": for src.note make tgt.note
+  "GuidanceResponse.evaluationMessage": for src.evaluationMessage make tgt.evaluationMessage
+  "GuidanceResponse.outputParameters": for src.outputParameters make tgt.outputParameters
+  "GuidanceResponse.result": for src.result make tgt.result
+  "GuidanceResponse.dataRequirement": for src.dataRequirement make tgt.dataRequirement
+endgroup
+

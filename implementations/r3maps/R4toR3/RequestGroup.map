@@ -1,0 +1,72 @@
+﻿map "http://hl7.org/fhir/StructureMap/RequestGroup3to2" = "R4 to R3 Conversion for RequestGroup"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/RequestGroup" alias RequestGroup as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGroupR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group RequestGroup extends DomainResource
+  input src : RequestGroupR3 as source
+  input tgt : RequestGroup as target
+
+  "RequestGroup.identifier": for src.identifier make tgt.identifier
+  "RequestGroup.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
+  "RequestGroup.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
+  "RequestGroup.basedOn": for src.basedOn make tgt.basedOn
+  "RequestGroup.replaces": for src.replaces make tgt.replaces
+  "RequestGroup.groupIdentifier": for src.groupIdentifier make tgt.groupIdentifier
+  "RequestGroup.status": for src.status make tgt.status
+  "RequestGroup.intent": for src.intent make tgt.intent
+  "RequestGroup.priority": for src.priority make tgt.priority
+  "RequestGroup.code": for src.code make tgt.code
+  "RequestGroup.subject": for src.subject make tgt.subject
+  "RequestGroup.context": for src.context make tgt.context
+  "RequestGroup.authoredOn": for src.authoredOn make tgt.authoredOn
+  "RequestGroup.author": for src.author make tgt.author
+  "RequestGroup.reasonCode": for src.reasonCode make tgt.reasonCode
+  "RequestGroup.reasonReference": for src.reasonReference make tgt.reasonReference
+  "RequestGroup.note": for src.note make tgt.note
+  "RequestGroup.action": for src.action as s make tgt.action as t then RequestGroupAction(s,t)
+
+group RequestGroupAction extends BackboneElement
+  input src : RequestGroupR3 as source
+  input tgt : RequestGroup as target
+
+  "RequestGroup.action.prefix": for src.prefix make tgt.prefix
+  "RequestGroup.action.title": for src.title make tgt.title
+  "RequestGroup.action.description": for src.description make tgt.description
+  "RequestGroup.action.textEquivalent": for src.textEquivalent make tgt.textEquivalent
+  "RequestGroup.action.code": for src.code make tgt.code
+  "RequestGroup.action.documentation": for src.documentation make tgt.documentation
+  "RequestGroup.action.condition": for src.condition as s make tgt.condition as t then RequestGroupActionCondition(s,t)
+  "RequestGroup.action.relatedAction": for src.relatedAction as s make tgt.relatedAction as t then RequestGroupActionRelatedAction(s,t)
+  "RequestGroup.action.timing[x]": for src.timing[x] make tgt.timing[x]
+  "RequestGroup.action.participant": for src.participant make tgt.participant
+  "RequestGroup.action.type": for src.type make tgt.type
+  "RequestGroup.action.groupingBehavior": for src.groupingBehavior make tgt.groupingBehavior
+  "RequestGroup.action.selectionBehavior": for src.selectionBehavior make tgt.selectionBehavior
+  "RequestGroup.action.requiredBehavior": for src.requiredBehavior make tgt.requiredBehavior
+  "RequestGroup.action.precheckBehavior": for src.precheckBehavior make tgt.precheckBehavior
+  "RequestGroup.action.cardinalityBehavior": for src.cardinalityBehavior make tgt.cardinalityBehavior
+  "RequestGroup.action.resource": for src.resource make tgt.resource
+  "RequestGroup.action.action": for src.action make tgt.action
+
+group RequestGroupActionCondition extends BackboneElement
+  input src : RequestGroupR3 as source
+  input tgt : RequestGroup as target
+
+  "RequestGroup.action.condition.kind": for src.kind make tgt.kind
+  "RequestGroup.action.condition.description": for src.description make tgt.description
+  "RequestGroup.action.condition.language": for src.language make tgt.language
+  "RequestGroup.action.condition.expression": for src.expression make tgt.expression
+
+group RequestGroupActionRelatedAction extends BackboneElement
+  input src : RequestGroupR3 as source
+  input tgt : RequestGroup as target
+
+  "RequestGroup.action.relatedAction.actionId": for src.actionId make tgt.actionId
+  "RequestGroup.action.relatedAction.relationship": for src.relationship make tgt.relationship
+  "RequestGroup.action.relatedAction.offset[x]": for src.offset[x] make tgt.offset[x]

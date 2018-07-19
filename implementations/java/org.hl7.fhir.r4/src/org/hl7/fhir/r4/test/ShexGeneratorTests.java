@@ -25,7 +25,7 @@ public class ShexGeneratorTests {
       Path path = FileSystems.getDefault().getPath(workingDirectory, "definitions.xml.zip");
       TestingUtilities.context = SimpleWorkerContext.fromPack(path.toString());
     }
-    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name));
+    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name, null));
     if(sd == null) {
       throw new FHIRException("StructuredDefinition for " + name + "was null");
     }

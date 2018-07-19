@@ -1,0 +1,19 @@
+﻿map "http://hl7.org/fhir/StructureMap/Reference4to3" = "R4 to R3 Conversion for Reference"
+
+
+uses "http://hl7.org/fhir/StructureDefinition/Reference" alias Reference as source
+uses "http://hl7.org/fhir/3.0/StructureDefinition/Reference" alias ReferenceR3 as target
+
+imports "http://hl7.org/fhir/StructureMap/*4to3"
+
+
+
+group Reference extends Element
+  input src : Reference as source
+  input tgt : ReferenceR3 as target
+
+  "Reference.reference" : for src.reference as vs make tgt.reference as vt
+  "Reference.identifier" : for src.identifier as vs make tgt.identifier as vt
+  "Reference.display" : for src.display as vs make tgt.display as vt
+endgroup
+

@@ -1052,7 +1052,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
        if (class_ == StructureDefinition.class)
-      uri = ProfileUtilities.sdNs(uri);
+      uri = ProfileUtilities.sdNs(uri, getOverrideVersionNs());
     synchronized (lock) {
 
       if (uri.startsWith("http:") || uri.startsWith("https:")) {
@@ -1124,6 +1124,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   private Set<String> notCanonical = new HashSet<String>();
+
+  private String overrideVersionNs;
   
   private MetadataResource findTxValueSet(String uri) {
     MetadataResource res = expansionCache.getStoredResource(uri);
@@ -1427,6 +1429,16 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     synchronized (lock) {
       return searchParameters.get(code);
     }
+  }
+
+  @Override
+  public String getOverrideVersionNs() {
+    return overrideVersionNs;
+  }
+
+  @Override
+  public void setOverrideVersionNs(String value) {
+    overrideVersionNs = value;
   }
 
   
