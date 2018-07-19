@@ -285,7 +285,7 @@ The correct mime type SHALL be used by clients and servers:
 <ul>
  <li>XML: <code>application/fhir+xml</code></li>
  <li>JSON: <code>application/fhir+json</code></li>
- <li>RDF: <code>text/turtle</code> (only the Turtle format is supported)</li>
+ <li>RDF: <code>application/fhir+turtle</code> (only the Turtle format is supported)</li>
 </ul>
 <p>
 Servers SHALL support server-driven content negotiation as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a>
@@ -374,8 +374,8 @@ specify alternative response formats by their MIME-types. This parameter allows 
 header value when it is unable to set it correctly due to internal limitations (e.g. XSLT usage). For the <code>_format</code>
 parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code>
 SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and
-<code>application/fhir+json</code> SHALL be interpreted to mean the <a href="json.html">JSON format</a>, and the codes <code>ttl</code>
-and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html">Turtle RDF format</a>. In addition, the values
+<code>application/fhir+json</code> SHALL be interpreted to mean the <a href="json.html">JSON format</a>, and the codes <code>ttl</code>, 
+<code>application/fhir+turtle</code>, and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html">Turtle RDF format</a>. In addition, the values
 <code>html</code> and <code>text/html</code> are allowed.
 </p>
 <p>

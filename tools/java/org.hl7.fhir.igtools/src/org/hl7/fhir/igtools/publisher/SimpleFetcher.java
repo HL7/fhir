@@ -241,7 +241,7 @@ public class SimpleFetcher implements IFetchFile {
             if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
               try {
                 org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
-                addFile(res, f, "text/turtle");
+                addFile(res, f, "application/fhir+turtle");
                 count++;
                 ok = true;
               } catch (Exception e) {

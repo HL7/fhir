@@ -151,7 +151,7 @@ public class RedirectPatcher {
     Response.Redirect("http://hl7.org/fhir/valueset-example.xml2");
   else if (s.indexOf("application/fhir+xml") > -1) 
     Response.Redirect("http://hl7.org/fhir/valueset-example.xml1");
-  else if (s.indexOf("text/turtle") > -1) 
+  else if (s.indexOf("application/fhir+turtle") > -1) 
     Response.Redirect("http://hl7.org/fhir/valueset-example.ttl");
   else if (s.indexOf("text/html") > -1) 
     Response.Redirect("http://hl7.org/fhir/valueset-example.html");
@@ -177,7 +177,7 @@ You should not be seeing this page. If you do, ASP has failed badly.
     b.append(HEADER);
     b.append("    Response.Redirect(\"http://hl7.org/fhir/"+targetHtml+"\");\r\n");
     if (targetTtl != null) {
-      b.append("  else if (s.indexOf(\"text/turtle\") > -1)\r\n");
+      b.append("  else if (s.indexOf(\"application/fhir+turtle\") > -1)\r\n");
       b.append("    Response.Redirect(\"http://hl7.org/fhir/"+targetTtl+"\");\r\n");
     }
     if (targetJson != null) {
