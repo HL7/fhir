@@ -8,17 +8,19 @@ HTTP/1.1 200 OK
   "status": "active",
   "experimental": true,
   "date": "2012-06-13",
-  "element": [
+  "group": [
     {
-      "codeSystem": "http://snomed.info/sct",
-      "code": "22298006",
-      "map": [
-        {
-          "codeSystem": "http://snomed.info/sct",
-          "code": "128599005",
-          "equivalence": "subsumes"
-        }
-      ]
+      "source": "http://snomed.info/sct",
+      "target": "http://snomed.info/sct",
+			"element" : {
+				"code": "22298006",
+				"target": [
+					{
+						"code": "128599005",
+						"equivalence": "subsumes"
+					}
+				]
+			}
     },
   ]
 }

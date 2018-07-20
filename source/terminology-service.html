@@ -1117,14 +1117,16 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
     "status": "active",
     "experimental": true,
     "date": "2015-12-20T23:16:24Z",
-    "element": [{
-        "codeSystem": "http://snomed.info/sct",
-        "code": "22298006",
-        "target": [{
-           "codeSystem": "http://snomed.info/sct",
-           "code": "128599005",
-           "equivalence": "subsumes"
-        }]
+    "group": [{
+        "source": "http://snomed.info/sct",
+        "target": "http://snomed.info/sct",
+				"element" : {
+					"code": "22298006",
+					"target": [{
+						 "code": "128599005",
+						 "equivalence": "subsumes"
+					}]
+			  }
     }]
 }
 </pre>
