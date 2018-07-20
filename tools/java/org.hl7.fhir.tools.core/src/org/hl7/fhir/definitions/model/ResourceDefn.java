@@ -345,6 +345,15 @@ public class ResourceDefn  {
   public Map<String, PointSpec> getLayout() {
     return layout;
   }
+
+  public Operation getOperationByName(String name) {
+    for (Operation t : getOperations()) {
+      if (t.getName().equals(name)) {
+        return t;
+      }
+    }
+    return null;
+  }
   
   
 }

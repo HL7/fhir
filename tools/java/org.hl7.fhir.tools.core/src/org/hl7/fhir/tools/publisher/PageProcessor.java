@@ -872,7 +872,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("circular-references")) {
-          src = s1+buildCircularReferenceList(com[1].equals("null") ? null : Boolean.valueOf(com[1]))+s3;
+        src = s1+buildCircularReferenceList(com[1].equals("null") ? null : Boolean.valueOf(com[1]))+s3;
+      } else if (com[0].equals("shortparameterlist")) {
+        src = s1+buildShortParameterList(com[1])+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1249,6 +1251,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildShortParameterList(String param) throws FHIRException {
+    String[] p1 = param.split("\\:");
+    String[] op = p1[0].split("\\/");
+    String[] p = p1[1].split("\\,");
+
+    ResourceDefn rd = definitions.getResourceByName(op[0]);
+    Operation od = rd.getOperationByName(op[1].substring(1));
+    
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"grid\">\r\n");
+    for (OperationParameter pd : od.getParameters()) {
+      if (Utilities.existsInList(pd.getName(), p))
+        b.append("<tr><td><code>"+pd.getName()+"</code></td><td>"+Utilities.escapeXml(pd.getDoc())+"</td></tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    
+    return b.toString();
   }
 
   private String genBestPracticeList() throws Exception {

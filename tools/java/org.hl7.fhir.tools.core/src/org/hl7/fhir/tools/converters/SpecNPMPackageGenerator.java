@@ -62,9 +62,9 @@ public class SpecNPMPackageGenerator {
   }
 
   public static void main(String[] args) throws Exception {
-    generateForVersion("F:\\fhir\\web\\DSTU2", "http://hl7.org/fhir/DSTU2");
-    generateForVersion("F:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May");
-    generateForVersion("F:\\fhir\\web\\STU3", "http://hl7.org/fhir/2016STU3");
+//    generateForVersion("F:\\fhir\\web\\DSTU2", "http://hl7.org/fhir/DSTU2");
+    generateForVersion("E:\\fhir\\web\\2016May", "http://hl7.org/fhir/2016May");
+//    generateForVersion("F:\\fhir\\web\\STU3", "http://hl7.org/fhir/2016STU3");
     System.out.println("Done");
   }
 

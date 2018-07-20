@@ -163,6 +163,8 @@ The codes in the expansion should be treated as case sensitive - implementers sh
 case. Implementers can consult the definition of the underlying code systems to determine whether the code system
 that defines the code is case sensitive or not. 
 </p>
+<a name="identifiers"></a>
+<h3>Expansion Identifiers</h3>
 <p>
 It is important that expansions be identified properly. Any value set definition may produce an infinite 
 number of expansions, depending on the expansion profile and $expand operation parameters. Any expansions 
@@ -174,8 +176,11 @@ produced must be clearly identified so that there is no confusion. The following
  <li>The result of an $expand operation may use the same identifier in ValueSet.expansion.identifier as a 
    previous expansion, but if it does, the canonical representation of the value set expansion SHALL be identical (e.g. a cached response)</li>
 </ul>
+
+<a name="parameters"></a>
+<h3>Expansion Parameters</h3>
 <p>
-The expansion contains a set of parameters that record what controlled the expansion process. 
+The expansion contains a set of parameters in <code>ValueSet.expansion.parameter</code> that record what controlled the expansion process. 
 These parameters may be used by users of expanded value sets to check whether the expansion 
 is suitable for a particular purpose, or to pick the correct expansion. The server decides which 
 parameters to include here, but at a minimum, the list SHOULD include all of the parameters that 
@@ -184,6 +189,34 @@ be included. If the codeSystem on the server has a specified
 version then this version SHALL be provided as a parameter in the expansion (note that not all 
 code systems have a version). 
 </p>
+<p>
+The following parameters are predefined by the $expand operation, and are suitable for use in the
+expansion parameters:
+</p>
+[%shortparameterlist ValueSet/$expand:filter,date,offset,count,includeDesignations,designation,includeDefinition,activeOnly,excludeNested,excludeNotForUI,excludePostCoordinated,displayLanguage,exclude-system,system-version,check-system-version,force-system-version%]
+<p>
+The count and offset parameters are important. If the expansion is a page out of
+the whole expansion, the offset and count parameters SHALL be populated. Clients
+can reliably use the count/offset parameters to determine whether the whole 
+expansion is returned.
+</p>
+<p>
+Other parameters that servers SHOULD use:
+</p>
+<table class="grid">
+ <tr><td><code>[canonical]#CodeSystem.content:</code></td><td>[content] : The content value for the code system for the canonical URL</td></tr>
+ <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content of the expansion for the code system canonical1 (by influencing selection, or providing designations)</td></tr>
+</table>
+<p>
+Beyond this, servers MAY define their own parameters, though Terminology server
+authors are requested to bring additional parameters to HL7 (via 'Propose a change' 
+link below) in the interests of interoperability. 
+</p>
+
+
+
+<a name="storage"></a>
+<h3>Storing Expansions</h3>
 <p>
 Whether to store expanded value sets, or simply to store their definitions and expand on the fly is 
 a matter for system deployment. Some servers, including public value sets servers, only store expansions. 
