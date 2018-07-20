@@ -247,7 +247,7 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Minor adjustments to codes for OperationOutcome.issue.code</td><td>FHIR-I: [%GF#16922%]</td><td><a href="codesystem-issue-type.html">Issue Type Code System</a></td><td>[%diff codesystem-issue-type.html%]</td></tr>
  <tr><td>Clarify about 406 and 415 status codes</td><td>FHIR-I: [%GF#16329%]</td><td><a href="http.html">Restful API</a>, <a href="formats.html">Formats</a></td><td>[%diff http.html%], [%diff formats.html%]</td></tr>
  <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional)</td><td>FHIR-I:[%GF#16998%], [%GF#16898%]</td><td><a href="binary.html">Binary Resource</a></td><td>[%diff binary.html%]</td></tr>
- <tr><td>Change Identifier.type codes to use v2 codes now that they are defined</td><td>FHIR-I:[%GF#9239%], [%GF#16898%]</td><td><a href="valueset-identifier-type.html">Binary Resource</a></td><td>[%diff valueset-identifier-type.html%]</td></tr>
+ <tr><td>Change Identifier.type codes to use v2 codes now that they are defined</td><td>FHIR-I:[%GF#9239%], [%GF#16898%]</td><td><a href="valueset-identifier-type.html">Identifier Type ValueSet</a></td><td>[%diff valueset-identifier-type.html%]</td></tr>
  
 </table>
 
@@ -272,6 +272,7 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile</td><td>FHIR-I: [%GF#16337%] &amp; [%GF#16490%]</td><td><a href="valueset-operation-expand.html">ValueSet.$expand</a></td><td>[%diff valueset-operation-expand.html%]</td></tr>
  <tr><td>Change the canonical url for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td><td>Vocab: [%GF#???%]</td><td>todo</td><td>todo</td></tr>
  <tr><td>Change all documentation elements in CapabilityStatement to use markdown</td><td>FHIR-I: [%GF#14170%]</td><td><a href="capabilitystatement.html">CapabilityStatement</a></td><td>[%diff capabilitystatement.html%]</td></tr>
+ <tr><td>Fix search parameter generation so that context related search parameters are defined</td><td>FHIR-I:[%GF#17215%]</td><td><a href="capabilitystatement.html">CapabilityStatement Resource</a></td><td>[%diff capabilitystatement.html%]</td></tr>
 </table>
 
 <a name="patient"></a>

@@ -348,15 +348,16 @@ public class SpreadsheetParser {
 
   private void copySearchParameters(ResourceDefn resource) {
 	  for (SearchParameterDefn sps : template.getSearchParams().values()) {
-	    if (sps.getPaths().size() > 0 &&  hasPath(resource, sps.getPaths().get(0))) {
-	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle);
+	    if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
+	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName());
 	      resource.getSearchParams().put(spt.getCode(), spt);
 	    }
     }
   }
 
   private boolean hasPath(ResourceDefn resource, String path) {
-    String tail = path.substring(path.lastIndexOf('.')+1);
+    String[] nodes = path.split("\\.");
+    String tail = nodes[1];
     for (ElementDefn element : resource.getRoot().getElements()) {
       if (element.getName().equals(tail))
         return true;

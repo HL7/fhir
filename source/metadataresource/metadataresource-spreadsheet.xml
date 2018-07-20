@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>lloyd</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-04-02T09:30:25Z</LastSaved>
+  <LastSaved>2018-07-19T23:20:12Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,7 +18,7 @@
   
   
   <TabRatio>715</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4383,11 +4383,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4856,10 +4855,10 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="33" ss:StyleID="s119" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s119" ss:Width="78.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="130.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="110.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="210.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="249.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="383.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="210.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s120">
@@ -4940,7 +4939,7 @@
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">context-type &amp; context</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">A use context type and value assigned to the {{title}}</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">MetadataResource; useContext.code; useContext.value.as(CodeableConcept)</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">{{name}}.useContext; code; value.as(CodeableConcept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s129"><Data ss:Type="String">context-type-quantity</Data></Cell>
@@ -4948,7 +4947,7 @@
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="s127"><Data ss:Type="String">context-type &amp; context-quantity</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">A use context type and quantity- or range-based value assigned to the {{title}}</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">MetadataResource; useContext.code; useContext.value.as(Quantity) | useContext.value.as(Range)</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">{{name}}.useContext; code; value.as(Quantity) | value.as(Range)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s129"><Data ss:Type="String">identifier</Data></Cell>
@@ -5132,6 +5131,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6576,8 +6576,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="29" ss:StyleID="s119" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="275.0"/>
-   <Column ss:StyleID="s119" ss:Width="51.0"/>
-   <Column ss:StyleID="s119" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s119" ss:Width="45.0"/>
    <Column ss:StyleID="s119" ss:Width="146.0"/>
    <Column ss:StyleID="s119" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s119" ss:Width="98.0"/>

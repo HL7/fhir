@@ -104,6 +104,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -6750,13 +6751,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         SearchParameterDefn p = resource.getSearchParams().get(name);
         String pp = presentPaths(p.getPaths());
         b.append("<tr><td><a name=\"sp-").append(p.getCode()).append("\"> </a>").append(p.getCode()).append("</td><td><a href=\"search.html#").append(p.getType()).append("\">").append(p.getType()).append("</a></td><td>")
-                .append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(p.getExpression()).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")
+                .append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(p.getType() == SearchType.composite ? getCompositeExpression(p) : Utilities.escapeXml(p.getExpression())).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")
                 .append("</td><td>").append(presentOthers(p)).append("</td></tr>\r\n");
       }
       b.append(searchAdditions);
       b.append("</table>\r\n");
       return b.toString();
     }
+  }
+
+  private String getCompositeExpression(SearchParameterDefn p) {
+    StringBuilder b = new StringBuilder();
+    b.append("On ");
+    b.append(Utilities.escapeXml(p.getExpression()));
+    b.append(":");
+    for (CompositeDefinition cp : p.getComposites()) {
+      b.append("<br/>&nbsp;&nbsp;");
+      b.append(cp.getDefinition());
+      b.append(": ");
+      b.append(Utilities.escapeXml(cp.getExpression()));
+    }
+    return b.toString();
   }
 
   private Object presentOthers(SearchParameterDefn p) {
