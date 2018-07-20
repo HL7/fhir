@@ -377,4 +377,12 @@
 		<sort>37</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>https://bridgmodel.nci.nih.gov/download-model/bridg-releases/release-51/release-package</url>
+		<columnName>BRIDG 5.1 Mapping</columnName>
+		<title>BRIDG 5.1 Mapping</title>
+		<id>BRIDG5.1</id>
+		<sort>38</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>
