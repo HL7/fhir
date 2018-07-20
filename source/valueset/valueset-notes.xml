@@ -201,11 +201,14 @@ can reliably use the count/offset parameters to determine whether the whole
 expansion is returned.
 </p>
 <p>
-Other parameters that servers SHOULD use:
+Other parameters that servers may be required to use:
 </p>
 <table class="grid">
- <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the code system for the canonical URL</td></tr>
- <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content of the expansion for the code system canonical1 (by influencing selection, or providing designations)</td></tr>
+ <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the code system for the canonical URL. 
+   Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment" or " </td></tr>
+ <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content
+  of the expansion for the code system canonical1 (by influencing selection, or providing designations). Applications generating expansions SHALL use this parameter to record 
+	that a supplement was used durin the expansion process</td></tr>
 </table>
 <p>
 Beyond this, servers MAY define their own parameters, though Terminology server
