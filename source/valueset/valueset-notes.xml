@@ -204,7 +204,7 @@ expansion is returned.
 Other parameters that servers SHOULD use:
 </p>
 <table class="grid">
- <tr><td><code>[canonical]#CodeSystem.content:</code></td><td>[content] : The content value for the code system for the canonical URL</td></tr>
+ <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the code system for the canonical URL</td></tr>
  <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content of the expansion for the code system canonical1 (by influencing selection, or providing designations)</td></tr>
 </table>
 <p>
