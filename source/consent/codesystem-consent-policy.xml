@@ -4,7 +4,7 @@
   <name value="Policy Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="FHIR Specific Example codes for Consent Category"/>
+  <description value="FHIR Specific Example codes for Consent Policy"/>
   <hierarchyMeaning value="is-a"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
@@ -74,7 +74,7 @@
     <definition value="VA Form 10-5345a Individuals' Request for a Copy of Their Own Health Information enables a veteran to request and authorize the VA to release specified copies of protected health information (PHI), such as hospital summary or outpatient treatment notes. Note: Form is available at http://www.va.gov/vaforms/medical/pdf/vha-10-5345a-fill.pdf"/>
   </concept>
   <concept>
-    <code value="va-10-5345a-MHV"/>
+    <code value="va-10-5345a-mhv"/>
     <display value="VA Form 10-5345a-MHV"/>
     <definition value="VA Form 10-5345a-MHV Individualâ€™s Request for a Copy of their own health information from MyHealtheVet enables a veteran to receive a copy of all available personal health information to be delivered through the veteranâ€™s My HealtheVet account. Note: Form is available at http://www.va.gov/vaforms/medical/pdf/vha-10-5345a-MHV-fill.pdf"/>
   </concept>
