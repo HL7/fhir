@@ -832,7 +832,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -905,7 +904,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3558,7 +3556,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4047,7 +4044,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4071,7 +4067,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R27C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="32" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="33" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="79.0"/>
@@ -4863,6 +4859,17 @@
     <Cell ss:Index="14"><Data ss:Type="String">Declares dependency on a particular supplment</Data></Cell>
     <Cell><Data ss:Type="String">This extension declares that a value set depends on a particular supplement and should not be used in it's absence</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="29">
+    <Cell><Data ss:Type="String">parameterSource</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.expansion.parameter</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
+    <Cell><Data ss:Type="String">N</Data></Cell>
+    <Cell><Data ss:Type="String">ExpansionParameterSource</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Declares the source of the parameter</Data></Cell>
+    <Cell><Data ss:Type="String">Declares what the source of this parameter is </Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4870,7 +4877,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4880,7 +4886,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5112,7 +5118,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5697,7 +5702,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5761,12 +5765,12 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">ExpansionParameterSource</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Declares what the source of a parameter is </Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">#expansion-parameter-source</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
@@ -6216,7 +6220,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6236,11 +6239,11 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C14">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="some-code-list">
+ <Worksheet ss:Name="expansion-parameter-source">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='some-code-list'!R1C1:R1C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='expansion-parameter-source'!R1C1:R1C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s152" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" ss:StyleID="s152" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s152" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s152" ss:Width="155.0"/>
@@ -6260,45 +6263,34 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">input</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Client Input</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">The parameter was supplied by the client in the $expand request</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s156"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">server</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Server Engine</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">The parameter was added by the expansion engine on the server</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s159"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s146"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">codesystem</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s159"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s158"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Code System</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">The parameter was added from one the code systems used in the $expand operation</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s159"/>
@@ -6806,7 +6798,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
