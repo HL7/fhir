@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -223,7 +224,7 @@ public class ValueSetValidator extends BaseValidator {
       int i = 0;
       for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
         i++;
-        if (inc.hasSystem() && !context.hasResource(CodeSystem.class, inc.getSystem()))
+        if (inc.hasSystem() && !context.hasResource(CodeSystem.class, inc.getSystem()) && !isContainedSystem(vs, inc.getSystem()))
           rule(errors, IssueType.BUSINESSRULE, getWg(vs)+":ValueSet["+vs.getId()+"].compose.include["+Integer.toString(i)+"]", isKnownCodeSystem(inc.getSystem()), "The system '"+inc.getSystem()+"' is not valid");
         
         if (inc.hasSystem() && canValidate(inc.getSystem())) {
@@ -246,6 +247,22 @@ public class ValueSetValidator extends BaseValidator {
         warnings++;
     }
     vs.setUserData("warnings", o_warnings - warnings);
+  }
+
+  private boolean isContainedSystem(ValueSet vs, String system) {
+    if (system.startsWith("#"))
+      system = system.substring(1);
+    else
+      return false;
+    
+    for (Resource r : vs.getContained()) {
+      if (r instanceof CodeSystem) {
+        CodeSystem cs = (CodeSystem) r;
+        if (system.equals(cs.getId()))
+          return true;
+      }
+    }
+    return false;
   }
 
   private String getOid(ValueSet vs) {

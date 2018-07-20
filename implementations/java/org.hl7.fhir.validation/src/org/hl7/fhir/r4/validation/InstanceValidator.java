@@ -1035,7 +1035,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       Set<String> allowedTypes = listExtensionTypes(ex);
       String actualType = getExtensionType(element);
       if (actualType == null)
-        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.isEmpty(), "The Extension '" + url + "' definition is for a complex extension, so it cannot contain a value");
+        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.isEmpty(), "The Extension '" + url + "' definition is for a simple extension, so it must contain a value, not extensions");
       else
         rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.contains(actualType), "The Extension '" + url + "' definition allows for the types "+allowedTypes.toString()+" but found type "+actualType);
 

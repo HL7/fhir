@@ -108,6 +108,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.tools.publisher.PageProcessor;
+import org.hl7.fhir.tools.publisher.PageProcessor.PageInfo;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
@@ -386,7 +387,7 @@ public class SourceParser {
 
   private void loadNormativePackages() {
     for (String s : ini.getPropertyNames("normative-packages")) {
-      page.getNormativePackages().put(s, new HashMap<String, String>());
+      page.getNormativePackages().put(s, new HashMap<String, PageInfo>());
     }
   }
 

@@ -155,8 +155,9 @@ alternative approaches that are more efficient, as long as the outcome is the sa
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
 for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
-<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no support for defining hierarchies and groups, 
-but this does not exclude servers from using extensions or other knowledge to introduce such groups as an implementation feature. 
+<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no direct support for defining hierarchies and groups;
+applications may want to take advantage of the <a href="extension-valueset-expand-rules.html">expand-rules</a> and 
+<a href="extension-valueset-expand-group.html">expand-group</a> extensions as an implementation feature. 
 </p>
 <p>
 The codes in the expansion should be treated as case sensitive - implementers should use the correct 

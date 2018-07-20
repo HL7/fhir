@@ -3338,7 +3338,7 @@
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s100" ss:Width="115.0"/>
    <Column ss:StyleID="s100" ss:Width="55.0"/>
    <Column ss:StyleID="s100" ss:Width="165.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s100" ss:Width="205.0"/>
+   <Column ss:StyleID="s100" ss:Width="386.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s100" ss:Width="376.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s100" ss:Width="188.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s70">
@@ -3375,7 +3375,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">DomainResource</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">contained.where((('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical) | %resource.descendants().as(uri) | %resource.descendants().as(url))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists()).not()).trace('unmatched', id).empty()</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">not(exists(for $contained in f:contained return $contained[not(parent::*/descendant::f:reference/@value=concat('#', $contained/*/id/@value) or descendant::f:reference[@value='#'])]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -5578,8 +5578,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s112" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s112" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="274.0"/>
-   <Column ss:StyleID="s112" ss:Width="51.0"/>
-   <Column ss:StyleID="s112" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s112" ss:Width="45.0"/>
    <Column ss:StyleID="s112" ss:Width="146.0"/>
    <Column ss:StyleID="s112" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="97.0"/>

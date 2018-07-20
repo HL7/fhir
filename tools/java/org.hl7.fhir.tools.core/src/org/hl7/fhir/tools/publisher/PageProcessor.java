@@ -201,6 +201,8 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.PageInfo;
+import org.hl7.fhir.tools.publisher.PageProcessor.PageInfoType;
 import org.hl7.fhir.tools.publisher.PageProcessor.ResourceSummary;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -235,6 +237,55 @@ import com.google.gson.JsonPrimitive;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService, TypeLinkProvider  {
 
+
+  public enum PageInfoType { PAGE, RESOURCE, OPERATION, VALUESET, CODESYSTEM;
+
+    public String toCode() {
+      switch (this) {
+      case PAGE: return "page";
+      case RESOURCE: return "resource";
+      case OPERATION: return "operation";
+      case VALUESET: return "valueset";
+      case CODESYSTEM: return "codesystem";
+      default: return null;
+      }
+    }
+    public static PageInfoType fromCode(String type) throws FHIRException {
+      if ("page".equals(type))
+        return PAGE;
+      if ("resource".equals(type))
+        return RESOURCE;
+      if ("vs".equals(type))
+        return VALUESET;
+      if ("cs".equals(type))
+        return CODESYSTEM;
+      if ("op".equals(type))
+        return OPERATION;
+      throw new FHIRException("Unknown type '"+type+"'");
+    } 
+  }
+
+  public class PageInfo {
+    private PageInfoType type;
+    private String page;
+    private String title;
+    public PageInfo(PageInfoType type, String page, String title) {
+      super();
+      this.type = type;
+      this.page = page;
+      this.title = title;
+    }
+    public PageInfoType getType() {
+      return type;
+    }
+    public String getTitle() {
+      return title;
+    }
+    public String getPage() {
+      return page;
+    }
+    
+  }
 
   public class PageEvaluationContext implements IEvaluationContext {
 
@@ -353,7 +404,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Bundle typeBundle;
   private Bundle resourceBundle;
   private JsonObject r3r4Outcomes;
-  private Map<String, Map<String, String>> normativePackages = new HashMap<String, Map<String, String>>();
+  private Map<String, Map<String, PageInfo>> normativePackages = new HashMap<String, Map<String, PageInfo>>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
@@ -816,46 +867,46 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("mostlynormative")) {
         String p = null;
         String wt = workingTitle; 
-        if (com.length >= 2) {
-          if (!com[1].equals("%check"))
-            p = com[1]; 
+        if (com.length >= 3) {
+          if (!com[2].equals("%check"))
+            p = com[2]; 
           else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
           }
         }
-        src = s1+(p == null ? "" : getMostlyNormativeNote(genlevel(level), p, wt, file))+s3;
+        src = s1+(p == null ? "" : getMostlyNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("mixednormative")) {
         String p = null;
         String wt = workingTitle; 
-        if (com.length >= 2) {
-          if (!com[1].equals("%check"))
-            p = com[1]; 
+        if (com.length >= 3) {
+          if (!com[2].equals("%check"))
+            p = com[2]; 
           else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
           }
         }
-        src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, wt, file))+s3;
+        src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("normative")) {
         String p = object instanceof Object ? rd.getNormativePackage() : null;
         String wt = object instanceof Object ? rd.getName()+" Operation " + ((Operation) object).getName() : workingTitle; 
-        if (com.length >= 2) {
-          if (!com[1].equals("%check"))
-            p = com[1]; 
+        if (com.length >= 3) {
+          if (!com[2].equals("%check"))
+            p = com[2]; 
           else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
           }
         }
-        src = s1+(p == null ? "" : getNormativeNote(genlevel(level), p, wt, file))+s3;
+        src = s1+(p == null ? "" : getNormativeNote(genlevel(level), p, com[1], wt, file))+s3;
       } else if (com[0].equals("normative-op")) {
         String p = rd.getNormativePackage();
         String wt = rd.getName()+" Operation " + ((Operation) object).getName(); 
         StandardsStatus st = ((Operation) object).getStandardsStatus();
         if (st == null)
           st = StandardsStatus .fromCode(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS));
-        src = s1+(st == StandardsStatus.NORMATIVE ? getNormativeNote(genlevel(level), p, wt, file) : "")+s3;
+        src = s1+(st == StandardsStatus.NORMATIVE ? getNormativeNote(genlevel(level), p, com[1], wt, file) : "")+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         String npr = resource == null || !(resource instanceof MetadataResource) ? getNormativePackageRef(com[1]) : "";
@@ -868,7 +919,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("complinks")) {
         src = s1+(rd == null ? "" : getCompLinks(rd, com.length > 1 ? com[1] : null))+s3;
       } else if (com[0].equals("diff")) {
-        src = s1+"<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+com[1]+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+com[1]+"\">diff</a>"+s3;
+        src = s1+"<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+com[1]+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+com[1]+"\" no-external=\"true\">&Delta;B</a>"+s3;
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("circular-references")) {
@@ -1431,26 +1482,64 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getNormativeList(String genlevel, String name) {
-    Map<String, String> map = normativePackages.get(name);
+    Map<String, PageInfo> map = normativePackages.get(name);
     if (map.size() == 0) {
       return "<p>No Content Yet</p>";
     } else {
       StringBuilder b = new StringBuilder();
-      b.append("<div style=\"border: 1px grey solid; padding: 5px\"><ul style=\"column-count: 3\">\r\n");
-      for (String s : sorted(map.keySet())) {
-        b.append("  <li><a href=\""+s+"\">"+map.get(s)+"</a></li>\r\n");
-      }    
-      b.append("</ul></div>\r\n");
+      b.append("<div style=\"border: 1px grey solid; padding: 5px\">\r\n");
+//      b.append("<ul style=\"column-count: 3\">\r\n");
+//      for (String s : sorted(map.keySet())) {
+//        b.append("  <li><a href=\""+s+"\">"+map.get(s)+"</a></li>\r\n");
+//      }    
+//      b.append("</ul></div>\r\n");
+      b.append("<table class=\"none\"><tr>\r\n"); 
+      // pages, resources, operations, value sets, code systems
+      normativeCell(b, map, PageInfoType.PAGE);
+      normativeCell(b, map, PageInfoType.RESOURCE);
+      normativeCell(b, map, PageInfoType.OPERATION);
+      normativeCell(b, map, PageInfoType.VALUESET);
+      normativeCell(b, map, PageInfoType.CODESYSTEM);
+      b.append("</tr></table></div>\r\n");
       return b.toString();
     }
   }
 
-  private String getNormativeNote(String genlevel, String pack, String title, String filename) throws Exception {
+  private void normativeCell(StringBuilder b, Map<String, PageInfo> map, PageInfoType type) {
+    List<PageInfo> list = new ArrayList<PageInfo>();
+    for (String s : sorted(map.keySet())) {
+      PageInfo p = map.get(s);
+      if (p.type == type) {
+        list.add(p);
+      }
+    }
+    if (list.size() > 0) {
+      b.append("<td>");
+      b.append("<p><b>"+Utilities.capitalize(Utilities.pluralize(type.toCode(), list.size()))+"</b></p>");
+      b.append("<ul>");
+      for (PageInfo p : list) {
+        String s = p.getTitle();
+        int i = s.toLowerCase().indexOf(type.toCode()+" ");
+        if (i > -1)
+          s = s.substring(0, i)+s.substring(i+type.toCode().length()+1);
+      
+        b.append("  <li><a href=\""+p.getPage()+"\">"+s+"</a> "+
+          "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          p.getPage()+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+p.getPage()+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+          "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+p.getPage()+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+p.getPage()+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");
+      }
+      b.append("</ul>");      
+      b.append("</td>\r\n");
+      //         src = s1+"<a href=\"\">diff</a>"+s3;
+
+    }
+  }
+
+  private String getNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
     if (!filename.contains("-definitions")) {
-      Map<String, String> map = normativePackages.get(pack);
+      Map<String, PageInfo> map = normativePackages.get(pack);
       if (map == null)
         throw new Exception("Unable to find infrastructure package '"+pack+"'");
-      map.put(filename, title);
+      map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename, title));
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
@@ -1459,12 +1548,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         "";
   }
 
-  private String getMixedNormativeNote(String genlevel, String pack, String title, String filename) throws Exception {
+  private String getMixedNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
     if (!filename.contains("-definitions") && !filename.contains("-operations")) {
-      Map<String, String> map = normativePackages.get(pack);
+      Map<String, PageInfo> map = normativePackages.get(pack);
       if (map == null)
         throw new Exception("Unable to find infrastructure package '"+pack+"'");
-      map.put(filename, title);
+      map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename,  title));
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: Some of the content on this page (marked clearly) is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
@@ -1473,12 +1562,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         "";
   }
 
-  private String getMostlyNormativeNote(String genlevel, String pack, String title, String filename) throws Exception {
+  private String getMostlyNormativeNote(String genlevel, String pack, String type, String title, String filename) throws Exception {
     if (!filename.contains("-definitions") && !filename.contains("-operations")) {
-      Map<String, String> map = normativePackages.get(pack);
+      Map<String, PageInfo> map = normativePackages.get(pack);
       if (map == null)
         throw new Exception("Unable to find infrastructure package '"+pack+"'");
-      map.put(filename, title);
+      map.put(filename, new PageInfo(PageInfoType.fromCode(type), filename,  title));
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: Most of the content on this page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
@@ -2321,7 +2410,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-diff\">\r\n");
     b.append("  <div id=\"diff\">\r\n");
-    b.append("   <p><b>Changes since DSTU2</b></p>\r\n");
+    b.append("   <p><b>Changes since Release 3</b></p>\r\n");
     b.append("   <div id=\"diff-inner\">\r\n");
     b.append("    "+diff+"\r\n");
     b.append("   </div>\r\n");
@@ -2369,7 +2458,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  </div>\r\n");
     b.append("  <div id=\"diffa\">\r\n");
     b.append("   <a name=\"diff-"+name+"\"> </a>\r\n");
-    b.append("   <p><b>Changes since DSTU2</b></p>\r\n");
+    b.append("   <p><b>Changes since Release 3</b></p>\r\n");
     b.append("   <div id=\"diff-inner\">\r\n");
     b.append("     "+diff+"\r\n");
     b.append("   </div>\r\n");
@@ -3280,7 +3369,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String getNormativePackageForPage(String page) {
     for (String pn : normativePackages.keySet()) {
-      Map<String, String> m = normativePackages.get(pn);
+      Map<String, PageInfo> m = normativePackages.get(pn);
       for (String s : m.keySet()) {
         if (s.equals(page) || s.replace(".", "-definitions.").equals(page))
           return pn;
@@ -5824,10 +5913,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout(), true).generate(resource, com[1])+s3;
       else if (com[0].equals("normative")) {
         String np = null;
-        if (com[1].equals("%check") || com[1].equals("%check-op")) {
+        if (com[2].equals("%check") || com[2].equals("%check-op")) {
           StandardsStatus st = resource.getStatus();
           boolean mixed = false;
-          if (com[1].equals("%check-op") && st == StandardsStatus.NORMATIVE) {
+          if (com[2].equals("%check-op") && st == StandardsStatus.NORMATIVE) {
             for (Operation op : resource.getOperations()) {
               if (op.getStandardsStatus() != null)
                 mixed = true;
@@ -5835,12 +5924,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           }
           if (st != null && resource.getNormativePackage() != null) {
             if (mixed)
-              np = getMixedNormativeNote(genlevel(level), resource.getNormativePackage(), workingTitle, name+".html")+s3;
+              np = getMixedNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html")+s3;
             else
-              np = getNormativeNote(genlevel(level), resource.getNormativePackage(), workingTitle, name+".html")+s3;
+              np = getNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html")+s3;
           }
         } else 
-          np = getNormativeNote(genlevel(level), resource.getNormativePackage(), workingTitle, name+".html");
+          np = getNormativeNote(genlevel(level), resource.getNormativePackage(), com[1], workingTitle, name+".html");
         if (np == null)  
           src = s1+s3;
         else
@@ -10048,7 +10137,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  public Map<String, Map<String, String>> getNormativePackages() {
+  public Map<String, Map<String, PageInfo>> getNormativePackages() {
     return normativePackages;
   }
 
