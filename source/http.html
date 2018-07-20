@@ -1578,36 +1578,52 @@ Servers that do not support HEAD MUST respond in accordance with the HTTP specif
 for example using a 405 ("method not allowed") or a 501 ("not implemented").
 </p>
 
-<h3>Intermediaries</h3>
+<a name="custom"> </a>
+<h3>Custom Headers</h3>
 <p>
-The HTTP protocol may be routed through an HTTP proxy such as
-squid. Such proxies are transparent to the applications, though
-implementers should be alert to the effects of caching, particularly
-including the risk of receiving stale content. See the <a href="http://tools.ietf.org/html/rfc2616#page-74">HTTP specification</a>
-for further detail
+This specification defines or recommends some custom headers that implementers
+can use to assist with deployment/debugging purposes:
+</p>
+<table class="grid">
+ <tr><td><code>X-Request-Id</code></td><td>A unique id to for the request/response assigned by either client or server. Request: assigned by the client. Response: assigned by the server</td></tr>
+ <tr><td><code>X-Correlation-Id</code></td><td>A client assigned request id echoed back in the response</td></tr>
+ <tr><td><code>X-Forwarded-For</code></td><td>Identifies the originating IP address of a client to an intermediary</td></tr>
+ <tr><td><code>X-Forwarded-Host</code></td><td>Identifies the original host requested by the client in the Host HTTP request header</td></tr>
+ <tr><td><code>X-Intermediary</code></td><td>Stamped by an active intermediary that changes the request or the response to alter it's content (see below)</td></tr>
+</table>
+
+<p>
+The request id in <code>X-Request-Id</code> is purely to help connect between
+requests and logs/audit trails. The client can assign an id to the request,
+and send that in the X-Request-Id header. The server can either use that 
+id or assign it's own, which it returns as the <code>X-Request-Id</code> header
+in the response. When the server assigned id is different to the 
+client assigned id, the server SHOULD also return the <code>X-Correlation-Id</code>
+header with the client's original id in it. 
+</p>
+<p>
+The HTTP protocol may be routed through an HTTP proxy (e.g. as squid). 
+Such proxies are transparent to the applications, though implementers 
+should be alert to the effects of caching, particularly including the 
+risk of receiving stale content. See the <a href="http://tools.ietf.org/html/rfc2616#page-74">HTTP specification</a> for further detail
 </p>
 <p>
 Interface engines may also be placed between the consumer and
 the provider. These differ from proxies because they actively
 alter the content and/or destination of the HTTP exchange and are
 not bound the rules that apply to HTTP proxies. Such agents are allowed,
-but SHALL mark the HTTP header to assist with troubleshooting.
-</p>
-<p>
-Any agent that modifies an HTTP request or response content other
-than under the rules for HTTP proxies SHALL add a stamp to the HTTP
+but SHALL mark the request with an X-Intermediary header to assist with 
+debugging/troubleshooting. Any agent that modifies an HTTP request or 
+response content other than under the rules for HTTP proxies SHALL add 
+a stamp to the HTTP
 headers like this:
 </p>
 <pre>
-  request-modified-[identity]: [purpose]
-  response-modified-[identity]: [purpose]
+  X-Intermediary : [identity - usually a FQDN]
 </pre>
 <p>
-The identity SHALL be a single token defined by the administrator of the agent
-that will sufficiently identify the agent in the context of use. The header
-SHALL specify the agent's purpose in modifying the content. End point systems SHALL
-not use this header for any purpose. Its aim is to assist with
-system troubleshooting.
+End point systems SHALL not use this header for any purpose. Its aim 
+is to assist with system troubleshooting.
 </p>
 
 
