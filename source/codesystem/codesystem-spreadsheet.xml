@@ -15,7 +15,7 @@
   
   
   <TabRatio>893</TabRatio>
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -5461,7 +5461,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">ConceptSubsumptionOutcome</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The subsumption relationship between code/Coding "A" and code/Coding "B". There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes/Codings, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">The subsumption relationship between code/Coding "A" and code/Coding "B". There are 4 possible codes to be returned (equivalent, subsumes, subsumed-by, and not-subsumed) as defined in the concept-subsumption-outcome value set.  If the server is unable to determine the relationship between the codes/Codings, then it returns an error response with an OperationOutcome.</Data></Cell>
     <Cell ss:StyleID="s130"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6076,6 +6076,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7100,7 +7101,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s118"/>
    </Row>
-   <Row ss:Height="86">
+   <Row ss:AutoFitHeight="0" ss:Height="86">
     <Cell ss:StyleID="s117"><Data ss:Type="String">ConceptSubsumptionOutcome</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">The subsumption relationship between code/Coding "A" and code/Coding "B". There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes/Codings, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
@@ -7494,8 +7495,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -7565,7 +7564,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
