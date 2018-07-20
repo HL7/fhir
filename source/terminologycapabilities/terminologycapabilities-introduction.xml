@@ -8,12 +8,16 @@ The TerminologyCapability resource provides for a terminology server to describe
 </p>
 </div> 
 
+
 <div>
-<a name="bnc"></a>
-<h2>Background and Context</h2>
-<p>
-The TerminologyCapability does not describe the API - see <a href="capabilitystatement.html">CapabilityStatement</a> for this.
-</p>
+<a name="relationships"></a>
+<h2>Boundaries and Relationships</h2>
+
+<ul>
+ <li>The TerminologyCapability does not describe the API - see <a href="capabilitystatement.html">CapabilityStatement</a> for this.</li>
+ <li>The CodeSystem resource documents the inherent structure and capabilities of code system, whereas 
+   the <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource documents what a server hosting the code system is capable of</li>
+</ul>
 
 </div>
 
