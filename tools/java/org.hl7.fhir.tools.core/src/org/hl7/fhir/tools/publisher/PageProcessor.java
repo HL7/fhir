@@ -919,7 +919,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("complinks")) {
         src = s1+(rd == null ? "" : getCompLinks(rd, com.length > 1 ? com[1] : null))+s3;
       } else if (com[0].equals("diff")) {
-        src = s1+"<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+com[1]+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+com[1]+"\" no-external=\"true\">&Delta;B</a>"+s3;
+        String p = com[1];
+        String pd = p.contains("#") ? p.substring(0, p.indexOf("#")) : p;
+        String t = s2.substring(com[0].length()+com[1].length()+2);
+        src = s1+"<a href=\""+p+"\">"+t+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pd+"\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>"+s3;
+      } else if (com[0].equals("diffx")) {
+        String p1 = com[1];
+        String pd = p1.contains("#") ? p1.substring(0, p1.indexOf("#")) : p1;
+        String p2 = com[2];
+        String t = s2.substring(com[0].length()+com[1].length()+2);
+        src = s1+"<a href=\""+p1+"\">"+t+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+p2+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pd+"\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>"+s3;
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("circular-references")) {
@@ -5214,9 +5223,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+s3;
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
-      else if (com[0].equals("diff"))
-        src = s1+"<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+com[1]+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+com[1]+"\">diff</a>"+s3;
-      else if (com[0].equals("dtmappings"))
+      else if (com[0].equals("diff")) {
+        String p = com[1];
+        String pd = p.contains("#") ? p.substring(0, p.indexOf("#")) : p;
+        String t = s2.substring(com[0].length()+com[1].length()+2);
+        src = s1+"<a href=\""+p+"\">"+t+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pd+"\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>"+s3;
+      } else if (com[0].equals("diffx")) {
+        String p1 = com[1];
+        String pd = p1.contains("#") ? p1.substring(0, p1.indexOf("#")) : p1;
+        String p2 = com[2];
+        String t = s2.substring(com[0].length()+com[1].length()+2);
+        src = s1+"<a href=\""+p1+"\">"+t+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+p2+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pd+"\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>"+s3;
+      }  else if (com[0].equals("dtmappings"))
         src = s1 + genDataTypeMappings(com[1]) + s3;
       else if (com[0].equals("sct-vs-list"))
         src = s1+getSnomedCTVsList()+s3;
