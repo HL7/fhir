@@ -244,8 +244,14 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getRoot().getElementByName(definitions, "contained", true, false) == null, "Element named \"contained\" not allowed");
     if (rd.getRoot().getElementByName(definitions, "subject", true, false) != null && rd.getRoot().getElementByName(definitions, "subject", true, false).typeCode().startsWith("Reference"))
       rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("subject"), "A resource that contains a subject reference must have a search parameter 'subject'");
-    if (rd.getRoot().getElementByName(definitions, "patient", true, false) != null && rd.getRoot().getElementByName(definitions, "patient", true, false).typeCode().startsWith("Reference"))
-      rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "A resource that contains a patient reference must have a search parameter 'patient'");
+    ElementDefn ped = rd.getRoot().getElementByName(definitions, "patient", true, false);
+    if (ped != null && ped.typeCode().startsWith("Reference")) {
+      SearchParameterDefn spd = rd.getSearchParams().get("patient");
+      if (rule(errors, IssueType.STRUCTURE, rd.getName(), spd != null, "A resource that contains a patient reference must have a search parameter 'patient'"))
+        rule(errors, IssueType.STRUCTURE, rd.getName(), 
+            (spd.getTargets().size() ==1 && spd.getTargets().contains("Patient")) ||  (ped.getTypes().get(0).getParams().size() == 1 && ped.getTypes().get(0).getParams().get(0).equals("Patient")), 
+            "A Patient search parameter must only refer to patient");
+    }
     ElementDefn sed = rd.getRoot().getElementByName(definitions, "subject", true, false);
     if (sed != null && sed.typeCode().startsWith("Reference") && sed.typeCode().contains("Patient"))
       warning(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "A resource that contains a subject that can be a patient reference must have a search parameter 'patient'");
