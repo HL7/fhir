@@ -995,10 +995,34 @@ but this version is different in both meaning and format to version specific ref
   &nbsp;&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/example|3.0&quot;/&gt;
 </pre>
 <p>
-This version is a reference to the business version of the resource. For canonical
-references, servers SHOULD support searching by Canonical URLs, and SHOULD support 
+This version is a reference to the business version of the resource. 
+</p>
+<p>
+For canonical references, servers SHOULD support searching by Canonical URLs, and SHOULD support 
 automatically detecting a |[version] portion as part of the search parameter, and 
 interpreting that portion as a search on the business version of the target resource.
+The modifier <code>:below</code> is used with canonical references, to control
+whether the version is considered in the search. The search:
+</p>
+<pre>
+GET {base]/Observation?definition:below=http:http://acme.com/some-profile
+</pre>
+<p>
+matches all of these element values:
+</p>
+<ul>
+<li>http://acme.com/some-profile|1.0</li>
+<li>http://acme.com/some-profile|1.1</li>
+<li>http://acme.com/some-profile|2.0</li>
+</ul>
+<p>
+The search:
+</p>
+<pre>
+GET {base]/Observation?definition:below=http:http://acme.com/some-profile|1
+</pre>
+<p>
+matches the first two element values.
 </p>
 
 <a name="recursive"></a>
