@@ -91,7 +91,8 @@ public class VersionConvertor_14_40 {
     if (src.hasId())
       tgt.setId(src.getId());
     for (org.hl7.fhir.dstu2016may.model.Extension  e : src.getExtension()) {
-      tgt.addExtension(convertExtension(e));
+      if (!e.getUrl().equals(VersionConvertorConstants.IG_DEPENDSON_PACKAGE_EXTENSION))
+        tgt.addExtension(convertExtension(e));
     }
   }
 
@@ -1596,11 +1597,39 @@ public class VersionConvertor_14_40 {
   }
   
   public static String convertToR4Expression(String oldExpression) {
-    return oldExpression.replace("$context","%context").replace("$resource", "%resource");
+    String pass1 = oldExpression.replaceAll("\\$context","%context").replaceAll("\\$resource", "%resource").replaceAll("code\\+profile", "code&profile").replaceAll("path\\+'\\.'", "path&'.'").replaceAll("fullUrl\\+resource", "fullUrl&resource");
+    String pass2 = pass1;
+    if (pass1.endsWith(".distinct()"))
+      pass2 =  pass1.substring(0, pass2.length() - 11) + ".isDistinct()";
+    String pass3 = pass2;
+    if (pass2.endsWith(".empty() or (type.count() = 1)"))
+      pass3 = pass2.substring(0, pass2.length() - 30) + ".empty() or (type.count() <= 1)";
+    String pass4 = pass3;
+    if (pass3.equals("duration >= 0"))
+      pass4 = "duration.exists() implies duration >= 0";
+    else if (pass3.equals("period >= 0"))
+      pass4 = "period.exists() implies period >= 0";
+    else if (pass3.equals("fullUrl.empty() xor resource"))
+      pass4 = "fullUrl.empty() xor resource.exists()";
+    return pass4;
   }
 
   public static String convertTo2016MayExpression(String newExpression) {
-    return newExpression.replace("%context","\\$context").replaceAll("%resource",  "\\$resource");
+    String pass1 = newExpression.replaceAll("%context","\\$context").replaceAll("%resource",  "\\$resource").replaceAll("code&profile", "code+profile").replaceAll("path&'\\.'", "path+'.'").replaceAll("fullUrl%resource", "fullUrl+resource");
+    String pass2 = pass1;
+    if (pass1.endsWith(".isDistinct()"))
+      pass2 = pass1.substring(0, pass1.length() - 13) + ".distinct()";
+    String pass3 = pass2;
+    if (pass2.endsWith(".empty() or (type.count() <= 1)"))
+      pass3 = pass2.substring(0, pass2.length() - 31) + ".empty() or (type.count() = 1)";
+    String pass4 = pass3;
+    if (pass3.equals("duration.exists() implies duration >= 0"))
+      pass4 = "duration >= 0";
+    else if (pass3.equals("period.exists() implies period >= 0"))
+      pass4 = "period >= 0";
+    else if (pass3.equals("fullUrl.empty() xor resource.exists()"))
+      pass4 = "fullUrl.empty() xor resource";
+    return pass4;
   }
 
   private static org.hl7.fhir.r4.model.ElementDefinition.ConstraintSeverity convertConstraintSeverity(org.hl7.fhir.dstu2016may.model.ElementDefinition.ConstraintSeverity src) throws FHIRException {
@@ -4288,6 +4317,10 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent();
     copyElement(src, tgt);
     tgt.setUri(src.getUri());
+    
+    if ( org.hl7.fhir.dstu2016may.utils.ToolingExtensions.hasExtension(src, VersionConvertorConstants.IG_DEPENDSON_PACKAGE_EXTENSION)) {
+      tgt.setPackageId(org.hl7.fhir.dstu2016may.utils.ToolingExtensions.readStringExtension(src, VersionConvertorConstants.IG_DEPENDSON_PACKAGE_EXTENSION));
+    }
     return tgt;
   }
 

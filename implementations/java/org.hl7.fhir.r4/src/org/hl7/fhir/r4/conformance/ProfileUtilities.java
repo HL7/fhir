@@ -3302,7 +3302,6 @@ public class ProfileUtilities extends TranslatingUtilities {
         paths.add(pl[i]);
       String slices[] = sliceInfo.analyse(paths);
       
-      name = null;
       StringBuilder b = new StringBuilder();
       b.append(paths.get(0));
       for (int i = 1; i < paths.size(); i++) {
@@ -3320,6 +3319,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       ed.setId(bs);
       if (idList.containsKey(bs))
         throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
+      //System.out.println("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
       idList.put(bs, ed.getPath());
       if (ed.hasContentReference()) {
         String s = ed.getContentReference().substring(1);
