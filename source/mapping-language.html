@@ -293,6 +293,29 @@ if there is more than one source element, only one of the elements can repeat.
 Once the source statement is evaluated, the engine performing the evaluation has a list of variables, each of which
 contains a single value for each named variable. These variables are now mapped into the target structures in the target transformation.
 </p>
+<h4>Log Statement</h4>
+<p>
+Each source can include a log statement:
+</p>
+<pre>
+ log [expression]
+</pre>
+<p>
+Where expression is a FHIRPath statement. e.g. 
+</p>
+<pre>
+ log 'not handled yet'
+</pre>
+<p>
+Puts a plain string in the log file. Alternatively, the log statement can contain FHIRPath:
+</p>
+<pre>
+ log src.field
+</pre>
+<p>
+Log statements are often used to note that some particular source element is not yet mapped.
+</p>
+
 <h4>Target Transform</h4>
 <p>
 Each rule specifies zero or more elements to be created in the target structure. These targets can also be assigned to variables

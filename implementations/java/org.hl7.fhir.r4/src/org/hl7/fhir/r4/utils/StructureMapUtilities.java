@@ -108,6 +108,7 @@ public class StructureMapUtilities {
     public StructureMap targetMap;
   }
   public static final String MAP_WHERE_CHECK = "map.where.check";
+  public static final String MAP_WHERE_LOG = "map.where.log";
 	public static final String MAP_WHERE_EXPRESSION = "map.where.expression";
 	public static final String MAP_SEARCH_EXPRESSION = "map.search.expression";
 	public static final String MAP_EXPRESSION = "map.transform.expression";
@@ -513,6 +514,10 @@ public class StructureMapUtilities {
 			b.append(" check ");
 			b.append(rs.getCheck());
 		}
+    if (rs.hasLogMessage()) {
+      b.append(" log ");
+      b.append(rs.getLogMessage());
+    }
 	}
 
   public static String targetToString(StructureMapGroupRuleTargetComponent rt) {
@@ -948,6 +953,12 @@ public class StructureMapUtilities {
 			source.setUserData(MAP_WHERE_CHECK, node);
 			source.setCheck(node.toString());
 		}
+    if (lexer.hasToken("log")) {
+      lexer.take();
+      ExpressionNode node = fpe.parse(lexer);
+      source.setUserData(MAP_WHERE_CHECK, node);
+      source.setLogMessage(node.toString());
+    }
 	}
 
 	private void parseTarget(StructureMapGroupRuleComponent rule, FHIRLexer lexer) throws FHIRException {
@@ -1554,6 +1565,20 @@ public class StructureMapUtilities {
         if (!fpe.evaluateToBoolean(vars, null, item, expr))
           throw new FHIRException("Rule \""+ruleId+"\": Check condition failed");
       }
+    } 
+
+    if (src.hasLogMessage()) {
+      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_LOG);
+      if (expr == null) {
+        expr = fpe.parse(src.getCheck());
+        //        fpe.check(context.appInfo, ??, ??, expr)
+        src.setUserData(MAP_WHERE_LOG, expr);
+      }
+      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+      for (Base item : items) 
+        b.append(fpe.evaluateToString(vars, null, item, expr));
+      if (b.length() > 0)
+        services.log(b.toString());
     } 
 
 		

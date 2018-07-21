@@ -1858,8 +1858,8 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">Message to put in log if source exists</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">A message to put in the transform log when content matching the source rule is found</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Message to put in log if source exists (FHIRPath)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">This is typically used for recording that something Is not transformed to the target for some reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2263,7 +2263,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>37</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3899,8 +3899,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="34" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="217.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="274.0"/>
-   <Column ss:StyleID="s105" ss:Width="51.0"/>
-   <Column ss:StyleID="s105" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s105" ss:Width="45.0"/>
    <Column ss:StyleID="s105" ss:Width="146.0"/>
    <Column ss:StyleID="s105" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="97.0"/>
