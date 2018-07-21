@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Resource References%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -554,12 +553,17 @@ Some notes about use and interpretation of contained resources:
   Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained.</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
-  <li>Contained resources SHALL NOT contain any narrative.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
   <li>Contained resources MAY contain <code>meta.tag</code>, though there are many tags that do not make sense on a contained resources.</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
 </ul>
 
+<p>
+Like other resources, contained resources can contain narrative. However, when rendering the containing resource, 
+the narrative of the contained resources is ignored, so relevant information about contained resources SHALL
+appear in the narrative of the containing resource. 
+</p>
+	
 <p>
 Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
