@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="example-heirarchical"/>
+	<meta>
+		<!--   many expansions are not shareable, but this one is   -->
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+     <table class="grid">
+      <tr><td></td><td>(Most common)</td></tr>
+      <tr><td>..login</td><td>Login Required</td></tr>
+      <tr><td>..conflict</td><td>Edit Version Conflict</td></tr>
+      <tr><td>processing</td><td>Processing Failure</td></tr>
+      <tr><td>..duplicate</td><td>Duplicate</td></tr>
+      <tr><td>..not-found</td><td>Not Found</td></tr>
+      <tr><td>invalid</td><td>Invalid Content</td></tr>
+      <tr><td>..structure</td><td>Structural Issue</td></tr>
+      <tr><td>..required</td><td>Required element missing</td></tr>
+      <tr><td>..value</td><td>Element value invalid</td></tr>
+      <tr><td>transient</td><td>Transient Issue</td></tr>
+      <tr><td>..lock-error</td><td>Lock Error</td></tr>
+      <tr><td>..exception</td><td>Exception</td></tr>
+      <tr><td>..throttled</td><td>Throttled</td></tr>
+      <tr><td>security</td><td>Security Problem</td></tr>
+      <tr><td>..login</td><td>Login Required</td></tr>
+      <tr><td>..unknown</td><td>Unknown User</td></tr>
+     </table>
+		</div>
+	</text>
   <contained>
     <!-- 
       include the code system this value is derived from since it's been hacked a little, and for simplicity
     -->
     <CodeSystem xmlns="http://hl7.org/fhir">
+		  <id value="hacked"/>
       <url value="http://hl7.org/fhir/hacked"/> 
+      <status value="draft"/>
       <description value="Issue type in an error message - hack from real FHIR List"/> 
       <content value="complete"/> 
       <property>
@@ -87,9 +118,20 @@
       </concept> 
     </CodeSystem> 
   </contained>
-  <url value="http://hl7.org/fhir/ValueSet/hacked"/>
+  <url value="http://hl7.org/fhir/ValueSet/example-heirarchical"/>
   <version value="3.4.0"/>
+	<name value="Example Heirarchical ValueSet"/>
   <status value="draft"/>
+	<experimental value="true"/>
+	<date value="2018-07-20"/>
+	<publisher value="FHIR Project team"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="Demonstration of extensions that build a heirarchical contains"/>
   <compose>
     <!--
       the include by enumeration simply lists a set of codes with no structure
@@ -129,11 +171,11 @@
     -->
     
     <include>
-      <extension url="http://hacked.org/fhir/StructureDefinition/value-ui-rules">
-        <valueCode value="only-groups"/>  <!-- only the groups go in the root. other values are any-ungrouped | all codes (put anything that isn't in a group in the root, or put all codes in the root whether mapped or not -->
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-rules">
+        <valueCode value="groups-only"/> 
       </extension>
       <!-- #1 -->
-      <extension url="http://hacked.org/fhir/StructureDefinition/value-ui-group">
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="display">
           <valueString value="(Most common)"/>
         </extension>
@@ -145,7 +187,7 @@
         </extension>
       </extension>
       <!-- #2a -->
-      <extension url="http://hacked.org/fhir/StructureDefinition/value-ui-group">
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
           <valueString value="processing"/>
         </extension>
@@ -157,7 +199,7 @@
         </extension>
       </extension>
       <!-- #2b -->
-      <extension url="http://hacked.org/fhir/StructureDefinition/value-ui-group">
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
           <valueString value="invalid"/>
         </extension>
@@ -172,7 +214,7 @@
         </extension>
       </extension>
       <!-- #3a -->
-      <extension url="http://hacked.org/fhir/StructureDefinition/value-ui-group">
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
           <valueString value="transient"/>
         </extension>
@@ -187,7 +229,7 @@
         </extension>
       </extension>
       <!-- #3b -->
-      <extension url="http://hacked.org/fhir/StructureDefinition/value-ui-group">
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-expand-group">
         <extension url="code">
           <valueString value="security"/>
         </extension>
@@ -199,7 +241,7 @@
         </extension>
       </extension>
       
-      <system value="http://hl7.org/fhir/hacked"/>
+      <system value="#hacked"/>
       <!-- include the codes from the code system, no heirarchy here -->
       <concept>
         <code value="invalid"/>
@@ -243,6 +285,9 @@
     </include>
   </compose>
   <expansion>
+		<identifier value="urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc"/>
+		<timestamp value="2018-07-20T23:14:07+10:00"/>
+	
     <!-- snip identifier etc -->
     <parameter> <!-- this expansion is for a UI -->
       <name value="excludeNotForUI"/>
@@ -252,7 +297,8 @@
     
     <!-- #1 most common -->
     <contains>
-      <!-- no system or code - it's not a concept at all -->   
+      <!-- no system or code - it's not a concept at all -->  
+      <abstract value="true"/>			
       <display value="(Most common)"/>
       <contains>
         <system value="http://hl7.org/fhir/hacked"/>
