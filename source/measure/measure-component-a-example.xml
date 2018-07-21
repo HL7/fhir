@@ -13,15 +13,15 @@
   <group id="Main">
     <population>
       <code><coding><code value="initial-population"/></coding></code>
-      <criteria value="Initial Population"/>
+      <criteria><language value="text/cql"/><expression value="Initial Population"/></criteria>
     </population>
     <population>
       <code><coding><code value="denominator"/></coding></code>
-      <criteria value="Denominator"/>
+      <criteria><language value="text/cql"/><expression value="Denominator"/></criteria>
     </population>
     <population>
       <code><coding><code value="numerator"/></coding></code>
-      <criteria value="Numerator"/>
+      <criteria><language value="text/cql"/><expression value="Numerator"/></criteria>
     </population>
   </group>
 </Measure>

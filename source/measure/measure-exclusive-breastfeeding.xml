@@ -90,43 +90,43 @@
   </type>
   <rationale value="Exclusive breast milk feeding for the first 6 months of neonatal life has long been the expressed goal of World Health Organization (WHO), Department of Health and Human Services (DHHS), American Academy of Pediatrics (AAP) and American College of Obstetricians and Gynecologists (ACOG). ACOG has recently reiterated its position (ACOG, 2007). A recent Cochrane review substantiates the benefits (Kramer et al., 2002). Much evidence has now focused on the prenatal and intrapartum period as critical for the success of exclusive (or any) BF (Centers for Disease Control and Prevention [CDC], 2007; Petrova et al., 2007; Shealy et al., 2005; Taveras et al., 2004). Exclusive breast milk feeding rate during birth hospital stay has been calculated by the California Department of Public Health for the last several years using newborn genetic disease testing data. Healthy People 2010 and the CDC have also been active in promoting this goal."/>
   <clinicalRecommendationStatement value="Exclusive breast milk feeding for the first 6 months of neonatal life can result in numerous long-term health benefits for both mother and newborn and is recommended by a number of national and international organizations. Evidence suggests that the prenatal and intrapartum period is critical for the success of exclusive (or any) breast feeding. Therefore, it is recommended that newborns are fed breast milk only from birth to discharge."/>
-  <improvementNotation value="Improvement noted as an increase in the rate"/>
+  <improvementNotation value="increase"/>
   <definition value="Gestational age is calculated using the ACOG ReVITALize guidelines with Estimated Due Date (EDD) http://www.acog.org/about_acog/acog_departments/patient_safety_and_quality_improvement/~/media/departments/patient%20safety%20and%20quality%20improvement/201213issuesandrationale-gestationalageterm.pdf. The exam used needs to be the most recent exam associated with this pregnancy"/>
   <guidance value="A discharge to a designated cancer center or children's hospital should be captured as a discharge to an acute care facility. It is acceptable to calculate Gestational Age using the American College of Obstetricians and Gynecologists ReVITALize guidelines, which define Gestational Age as calculated using the best obstetrical Estimated Due Date (EDD) based on the formula: Gestational Age= (280-(EDD-Reference Date))/7 where Reference Date is the date on which you are trying to determine gestational age. For PC-05, Reference Date is the Birth Date. Note however that the calculation may yield a non-whole number and gestational age should be rounded off to the nearest completed week. For example, an infant born on the 5th day of the 36th week (35 weeks and 5/7 days) is at a gestational age of 35 weeks, not 36 weeks."/>
   <group id="PopulationGroup1">
     <population>
       <code><coding><code value="initial-population"/></coding></code>
-      <criteria value="InitialPopulation1"/>
+      <criteria><language value="text/cql"/><expression value="InitialPopulation1"/></criteria>
     </population>
     <population>
       <code><coding><code value="denominator"/></coding></code>
-      <criteria value="Denominator1"/>
+      <criteria><language value="text/cql"/><expression value="Denominator1"/></criteria>
     </population>
     <population>
       <code><coding><code value="denominator-exclusions"/></coding></code>
-      <criteria value="DenominatorExclusions1"/>
+      <criteria><language value="text/cql"/><expression value="DenominatorExclusions1"/></criteria>
     </population>
     <population>
       <code><coding><code value="numerator"/></coding></code>
-      <criteria value="Numerator1"/>
+      <criteria><language value="text/cql"/><expression value="Numerator1"/></criteria>
     </population>
   </group>
   <group id="PopulationGroup2">
     <population>
       <code><coding><code value="initial-population"/></coding></code>
-      <criteria value="InitialPopulation2"/>
+      <criteria><language value="text/cql"/><expression value="InitialPopulation2"/></criteria>
     </population>
     <population>
       <code><coding><code value="denominator"/></coding></code>
-      <criteria value="Denominator2"/>
+      <criteria><language value="text/cql"/><expression value="Denominator2"/></criteria>
     </population>
     <population>
       <code><coding><code value="denominator-exclusion"/></coding></code>
-      <criteria value="DenominatorExclusions2"/>
+      <criteria><language value="text/cql"/><expression value="DenominatorExclusions2"/></criteria>
     </population>
     <population>
       <code><coding><code value="numerator"/></coding></code>
-      <criteria value="Numerator2"/>
+      <criteria><language value="text/cql"/><expression value="Numerator2"/></criteria>
     </population>
   </group>
 </Measure>

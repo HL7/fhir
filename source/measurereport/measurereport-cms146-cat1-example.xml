@@ -1194,10 +1194,8 @@
       </stratum>
     </stratifier>
   </group>
-  <evaluatedResources>
-    <!-- Bundle #456 contains the resources that were evaluated for Patient #123
-    as part of calculating this measure, as well as observations to report supplemental
-    data and risk adjustment variables -->
-    <reference value="Bundle/456"/>
-  </evaluatedResources>
+  <evaluatedResource>
+    <!-- Condition #123 is a condition that was considered in evaluating the measure for Patient #123 -->
+    <reference value="Condition/123"/>
+  </evaluatedResource>
 </MeasureReport>
