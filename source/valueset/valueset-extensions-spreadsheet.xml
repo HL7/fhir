@@ -4067,7 +4067,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R27C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="38" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="39" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="79.0"/>
@@ -4870,7 +4870,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Declares the source of the parameter</Data></Cell>
     <Cell><Data ss:Type="String">Declares what the source of this parameter is </Data></Cell>
    </Row>
-   <Row ss:Height="43">
+   <Row ss:AutoFitHeight="0" ss:Height="43">
     <Cell><Data ss:Type="String">expand-rules</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
@@ -4881,7 +4881,7 @@
     <Cell><Data ss:Type="String">Defines how concepts are processed into the expansion when it's for UI presentation</Data></Cell>
     <Cell><Data ss:Type="String">In the absence of this parameter, all concepts go in the expansion as is</Data></Cell>
    </Row>
-   <Row ss:Height="171">
+   <Row ss:AutoFitHeight="0" ss:Height="171">
     <Cell><Data ss:Type="String">expand-group</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
@@ -4891,7 +4891,7 @@
     <Cell><Data ss:Type="String">This extension declares a group of concepts that is generated into the ValueSet.expansion.contains heirarchy when the expansion is generated for a UI. THere is no inherent assigned meaning to the heirarchy; it is used to help the user navigate the concepts. Each group has a display and/or a code, and a list of members, which are either concepts in the value set, or other groups (by code). </Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Note that there are inter-relationships between concept status/properties and the way the groups are built; these are described and documented in the (value set heirarchical example)[d.html]. Note that this extension should be ignored when the expansion is not generated for UI</Data></Cell>
    </Row>
-   <Row ss:Height="128">
+   <Row ss:AutoFitHeight="0" ss:Height="128">
     <Cell><Data ss:Type="String">expand-group.code</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
@@ -4900,14 +4900,14 @@
     <Cell><Data ss:Type="String">A reference to a code from the include.system that defines the meaning associated with the group. Note that including the code in this extension does not include the code in the value set; if the code is intended to be in the value set, it must be listed directly as well</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">If there is no code, the group purely exists for display, and has no underlying meaning</Data></Cell>
    </Row>
-   <Row ss:Height="100">
+   <Row ss:AutoFitHeight="0" ss:Height="100">
     <Cell><Data ss:Type="String">expand-group.display</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Display for the group</Data></Cell>
     <Cell><Data ss:Type="String">The description for the group (goes in ValueSet.expansion.contains.dispaly). All groups need a display; this can only be omitted if there is a code that can be used to determine the display</Data></Cell>
    </Row>
-   <Row ss:Height="57">
+   <Row ss:AutoFitHeight="0" ss:Height="57">
     <Cell><Data ss:Type="String">expand-group.member</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">1..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
@@ -4915,6 +4915,16 @@
     <Cell ss:Index="14"><Data ss:Type="String">Codes or other groups in this group</Data></Cell>
     <Cell><Data ss:Type="String">One of more codes that identify codes in the expansion or other groups</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">A group without a code can be included by giving it an id and using #[id] in place of the code</Data></Cell>
+   </Row>
+   <Row ss:Height="71">
+    <Cell><Data ss:Type="String">deprecated</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet.compose.include.concept</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">The concept should not be used</Data></Cell>
+    <Cell><Data ss:Type="String">if ture, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">Ths status relates to a concept's inclusion in the value set, and might be different to the underlying status of the concept itself</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4932,7 +4942,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>33</TopRowBottomPane>
+   <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6331,7 +6341,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
