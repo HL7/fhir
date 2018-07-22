@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-20T20:13:47Z</LastSaved>
+  <LastSaved>2018-07-22T16:48:18Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4323,11 +4323,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>35</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5144,7 +5143,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="54" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="178.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="124.0"/>
    <Column ss:StyleID="s116" ss:Width="24.0"/>
@@ -5219,7 +5218,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Report type</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The type of measure report, patient, patient-list, or population. If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The type of measure report: subject, subject-list, or population. If not specified, a default value of subject will be used if the subject parameter is supplied, otherwise, population will be used</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5227,7 +5226,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|Organization|Location|Device|Group)</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the measure will be calculated. If not specified, the measure will be calculated for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)</Data></Cell>
@@ -5238,7 +5237,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Practitioner for which the measure will be calculated. If specified, the measure will be calculated only for subjects that have a primary relationship to the identified practitioner</Data></Cell>
@@ -5313,212 +5312,207 @@
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">submit-data</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Submit Data</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The submit-data operation is used to submit data-of-interest for a measure. There is no expectation that the submitted data represents all the data-of-interest, only that all the data submitted is relevant to the calculation of the measure for a particular subject or population</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is that the submitted data is posted to the receiving system and may be used for subsequent calculation of the relevant quality measure</Data></Cell>
+    <Cell><Data ss:Type="String">$submit-data-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$submit-data-response.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"><Data ss:Type="String">submit-data.measureReport</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Measure Report</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The measure report being submitted</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">submit-data.resource</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The individual resources that make up the data-of-interest being submitted</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Collect Data</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The collect-data operation is used to collect the data-of-interest for the given measure.</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is to gather the data required to perform an evaluation of the measure. If the lastReceivedOn parameter is supplied, only data that is new or has been changed since the lastReceivedOn date is included in the response</Data></Cell>
+    <Cell><Data ss:Type="String">$collect-data-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$collect-data-response.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.periodStart</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Period Start</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period s</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.periodEnd</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Period End</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.measure</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Measure)</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Measure</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.subject</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the measure will be collected. If not specified, measure data will be collected for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.practitioner</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Practitioner for which the measure will be collected. If specified, measure data will be collected only for subjects that have a primary relationship to the identified practitioner</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.lastReceivedOn</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Last Received On</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The date the results of this measure were last received. This parameter used to indicate when the last time data for this measure was collected. This information is used to support incremental data collection scenarios</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.measureReport</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Result Report</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">A MeasureReport of type data-collection detailing the results of the operation</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">collect-data.resource</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Result Resource</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The result resources that make up the data-of-interest for the measure</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">care-gaps</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Care Gaps</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The care-gaps operation is used to determine gaps-in-care based on the results of quality measures</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject</Data></Cell>
+    <Cell><Data ss:Type="String">$care-gaps-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$care-gaps-response.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"><Data ss:Type="String">care-gaps.periodStart</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Period Start</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period s</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">care-gaps.periodEnd</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Period End</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">care-gaps.topic</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Topic</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The topic to be used to determine which measures are considered for the care gaps report. Any measure with the given topic will be included in the report</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">care-gaps.subject</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the care gaps report will be produced</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">care-gaps.return</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Return</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The result of the care gaps report will be returned as a document bundle with a MeasureReport entry for each included measure</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5749,12 +5743,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

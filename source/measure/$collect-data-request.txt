@@ -1,0 +1,8 @@
+// Request the data-of-interest for Measure/measure-mrp for Patient/Practitioner-2178 for all of 2018
+GET [base]/Measure/measure-mrp/$collect-data?periodStart=2018&periodEnd=2018&subject=Patient/Practitioner-2178
+
+// Request the data-of-interest since 2018-07-21 for Measure/measure-mrp for Patient/Practitioner-2178 
+GET [base]/Measure/measure-mrp/$collect-data?periodStart=2018&periodEnd=2018&subject=Patient/Practitioner-2178&lastReceivedOn=2018-07-21
+
+
+

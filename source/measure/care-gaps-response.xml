@@ -1,0 +1,140 @@
+<Bundle xmlns="http://hl7.org/fhir">
+    <type value="document"/>
+    <entry>
+        <resource>
+            <Composition xmlns="http://hl7.org/fhir">
+                <status value="final"/>
+                <type>
+                    <coding>
+                        <system value="http://loinc.org"/>
+                        <code value="57024-2"/>
+                    </coding>
+                </type>
+                <subject>
+                    <reference value="Patient/Patient-1153"/>
+                </subject>
+                <date value="2018-07-22"/>
+                <author>
+					<reference value="Organization/123"/>
+                </author>
+                <title value="Preventive Care and Screening Care Gap Report"/>
+                <section>
+                    <title value="Breast Cancer Screening Cohort Definition"/>
+                    <entry>
+                        <reference value="MeasureReport/be224ee3-20aa-4058-bf41-52a6be342d81"/>
+                    </entry>
+                </section>
+                <section>
+                  <title value="Cervical Cancer Screening Cohort Definition"/>
+                  <entry>
+                      <reference value="MeasureReport/86fa5aed-8193-4f55-835b-5bbafbd1e7d6"/>
+                  </entry>
+                </section>
+            </Composition>
+        </resource>
+    </entry>
+    <entry>
+        <resource>
+            <MeasureReport xmlns="http://hl7.org/fhir">
+                <id value="be224ee3-20aa-4058-bf41-52a6be342d81"/>
+                <contained>
+                    <Bundle xmlns="http://hl7.org/fhir">
+                        <id value="3eb57f94-7b33-48b1-9673-3b18634dca04"/>
+                        <type value="collection"/>
+                    </Bundle>
+                </contained>
+                <status value="complete"/>
+                <type value="individual"/>
+                <measure value="Measure/measure-bcs"/>
+                <subject>
+                    <reference value="Patient/Patient-1153"/>
+                </subject>
+                <period>
+                    <start value="2017-01-01T00:00:00+00:00"/>
+                    <end value="2017-12-31T00:00:00+00:00"/>
+                </period>
+                <group>
+                    <population>
+                        <code>
+                            <coding>
+                                <code value="initial-population"/>
+                            </coding>
+                        </code>
+                        <count value="1"/>
+                    </population>
+                    <population>
+                        <code>
+                            <coding>
+                                <code value="numerator"/>
+                            </coding>
+                        </code>
+                        <count value="0"/>
+                    </population>
+                    <population>
+                        <code>
+                            <coding>
+                                <code value="denominator"/>
+                            </coding>
+                        </code>
+                        <count value="1"/>
+                    </population>
+                </group>
+                <evaluatedResource>
+                    <reference value="#3eb57f94-7b33-48b1-9673-3b18634dca04"/>
+                </evaluatedResource>
+            </MeasureReport>
+        </resource>
+    </entry>
+    <entry>
+      <resource>
+        <MeasureReport xmlns="http://hl7.org/fhir">
+            <id value="86fa5aed-8193-4f55-835b-5bbafbd1e7d6"/>
+            <contained>
+                <Bundle xmlns="http://hl7.org/fhir">
+                    <id value="8e6e9224-59b6-4edd-b17f-58981a754e57"/>
+                    <type value="collection"/>
+                </Bundle>
+            </contained>
+            <status value="complete"/>
+            <type value="individual"/>
+            <measure value="Measure/measure-ccs"/>
+            <subject>
+                <reference value="Patient/Patient-1153"/>
+            </subject>
+            <period>
+                <start value="2017-01-01T00:00:00+00:00"/>
+                <end value="2017-12-31T00:00:00+00:00"/>
+            </period>
+            <group>
+                <population>
+                    <code>
+                        <coding>
+                            <code value="initial-population"/>
+                        </coding>
+                    </code>
+                    <count value="1"/>
+                </population>
+                <population>
+                    <code>
+                        <coding>
+                            <code value="numerator"/>
+                        </coding>
+                    </code>
+                    <count value="1"/>
+                </population>
+                <population>
+                    <code>
+                        <coding>
+                            <code value="denominator"/>
+                        </coding>
+                    </code>
+                    <count value="1"/>
+                </population>
+            </group>
+            <evaluatedResource>
+                <reference value="#8e6e9224-59b6-4edd-b17f-58981a754e57"/>
+            </evaluatedResource>
+        </MeasureReport>
+      </resource>
+    </entry>
+</Bundle>

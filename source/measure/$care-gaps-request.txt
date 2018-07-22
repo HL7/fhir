@@ -1,0 +1,3 @@
+// Request a care gaps report for a patient for all Preventive Care and Screening measures
+GET [base]/Measure/$care-gaps?periodStart=2014&periodEnd=2014&topic=Preventive%20Care%20and%20Screening&patient=Patient/123
+

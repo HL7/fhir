@@ -1,0 +1,4 @@
+// Submit data of interest for CMS146
+POST [base]/Measure/Measure-mrp/$submit-data
+
+$include submit-data-request.json
