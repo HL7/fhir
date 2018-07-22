@@ -245,15 +245,19 @@
 	  </doseAndRate>
 	</dosage>
 	<dynamicValue>
-	    <description value="dispenseRequest.numberOfRepeatsAllowed is three (3)"/>
 		<path value="dispenseRequest.numberOfRepeatsAllowed"/>
-	    <language value="text/cql"/>
-		<expression value="3"/>
+		<expression>
+			<description value="dispenseRequest.numberOfRepeatsAllowed is three (3)"/>
+			<language value="text/cql"/>
+			<expression value="3"/>
+		</expression>
 	</dynamicValue>
 	<dynamicValue>
-	    <description value="dispenseRequest.quantity is thirty (30) tablets"/>
 		<path value="dispenseRequest.quantity"/>
-	    <language value="text/cql"/>
-		<expression value="30 '{tbl}'"/>
+		<expression>
+			<description value="dispenseRequest.quantity is thirty (30) tablets"/>
+			<language value="text/cql"/>
+			<expression value="30 '{tbl}'"/>
+		</expression>
 	</dynamicValue>
 </ActivityDefinition>

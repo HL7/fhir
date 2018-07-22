@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-22T16:48:18Z</LastSaved>
+  <LastSaved>2018-07-22T19:19:18Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -5320,7 +5320,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Submit Data</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The submit-data operation is used to submit data-of-interest for a measure. There is no expectation that the submitted data represents all the data-of-interest, only that all the data submitted is relevant to the calculation of the measure for a particular subject or population</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is that the submitted data is posted to the receiving system and may be used for subsequent calculation of the relevant quality measure</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is that the submitted data is posted to the receiving system and can be used for subsequent calculation of the relevant quality measure</Data></Cell>
     <Cell><Data ss:Type="String">$submit-data-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$submit-data-response.txt</Data></Cell>
    </Row>
@@ -5749,7 +5749,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

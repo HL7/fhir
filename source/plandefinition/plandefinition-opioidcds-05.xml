@@ -120,23 +120,34 @@
 		</trigger>
 		<condition>
 			<kind value="applicability"/>
-			<description value="Is total MME >= 50?"/>
-			<language value="text/cql"/>
-			<expression value="Is MME 50 Or More?"/>
+            <expression>
+              <description value="Is total MME >= 50?"/>
+			  <language value="text/cql"/>
+			  <expression value="Is MME 50 Or More?"/>
+		    </expression>
 		</condition>
 		<groupingBehavior value="visual-group"/>
 		<selectionBehavior value="exactly-one"/>
 		<dynamicValue>
 			<path value="action.title"/>
-			<expression value="getSummary"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="getSummary"/>
+	  		</expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="action.description"/>
-			<expression value="getDetail"/>
+            <expression>
+              <language value="text/cql"/>
+	          <expression value="getDetail"/>
+	        </expression>
 		</dynamicValue>
 		<dynamicValue>
 			<path value="activity.extension"/>
-			<expression value="getIndicator"/>
+            <expression>
+              <language value="text/cql"/>
+	          <expression value="getIndicator"/>
+	        </expression>
 		</dynamicValue>
 		<!-- Will reduce dosage -->
 		<action>

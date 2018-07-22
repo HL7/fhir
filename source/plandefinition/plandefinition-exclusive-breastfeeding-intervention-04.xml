@@ -173,7 +173,10 @@
     </trigger>
     <condition>
       <kind value="applicability"/>
-      <expression value="Should Create Lactation Consult"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Should Create Lactation Consult"/>
+      </expression>
     </condition>
     <action>
       <title value="Create a lactation consult request."/>
@@ -183,7 +186,10 @@
       </type>
       <dynamicValue>
         <path value="/"/>
-        <expression value="Create Lactation Consult Request"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Create Lactation Consult Request"/>
+        </expression>
       </dynamicValue>
     </action>
   </action>

@@ -121,24 +121,35 @@
         </trigger>
         <condition>
             <kind value="applicability"/>
-            <description value="Check whether the opioid prescription for the existing patient is extended-release without any opioids-with-abuse-potential prescribed in the past 90 days."/>
-            <language value="text/cql"/>
-            <expression value="Inclusion Criteria"/>
+            <expression>
+              <description value="Check whether the opioid prescription for the existing patient is extended-release without any opioids-with-abuse-potential prescribed in the past 90 days."/>
+              <language value="text/cql"/>
+              <expression value="Inclusion Criteria"/>
+            </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
         <!-- dynamic card detail -->
         <dynamicValue>
             <path value="action.title"/>
-            <expression value="Get Summary"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="Get Summary"/>
+            </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.description"/>
-            <expression value="Get Detail"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="Get Detail"/>
+		    </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="activity.extension"/>
-            <expression value="Get Indicator"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="Get Indicator"/>
+            </expression>
         </dynamicValue>
         <action>
             <description value="Will precribe immediate release"/>

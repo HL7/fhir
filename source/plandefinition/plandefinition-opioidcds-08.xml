@@ -121,24 +121,35 @@
         </trigger>
         <condition>
             <kind value="applicability"/>
-            <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
-            <language value="text/cql"/>
-            <expression value="Inclusion Criteria"/>
+            <expression>
+              <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
+              <language value="text/cql"/>
+              <expression value="Inclusion Criteria"/>
+            </expression>
         </condition>
         <groupingBehavior value="visual-group"/>
         <selectionBehavior value="exactly-one"/>
         <!-- dynamic card elements -->
         <dynamicValue>
             <path value="action.description"/>
-            <expression value="Get Detail"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="Get Detail"/>
+            </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.title"/>
-            <expression value="Get Summary"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="Get Summary"/>
+            </expression>
         </dynamicValue>
         <dynamicValue>
             <path value="action.extension"/>
-            <expression value="Get Indicator"/>
+            <expression>
+              <language value="text/cql"/>
+              <expression value="Get Indicator"/>
+            </expression>
         </dynamicValue>
         <action>
             <description value="Will offer Naloxone instead"/>

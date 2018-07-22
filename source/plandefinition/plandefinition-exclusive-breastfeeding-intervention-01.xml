@@ -187,7 +187,10 @@
     </trigger>
     <condition>
       <kind value="applicability"/>
-      <expression value="Should Create Assessment Order"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Should Create Assessment Order"/>
+	  </expression>
     </condition>
     <action>
       <title value="Create the breastfeeding readiness assessment order."/>
@@ -199,7 +202,10 @@
       </type>
       <dynamicValue>
         <path value="/"/>
-        <expression value="Create Breastfeeding Risk Assessment"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Create Breastfeeding Risk Assessment"/>
+	    </expression>
       </dynamicValue>
     </action>
     <action>
@@ -212,7 +218,10 @@
       </type>
       <dynamicValue>
         <path value="/"/>
-        <expression value="Communication Request to Provider"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Communication Request to Provider"/>
+	    </expression>
       </dynamicValue>
     </action>
   </action>

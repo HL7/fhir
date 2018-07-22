@@ -187,7 +187,10 @@
     </trigger>
     <condition>
       <kind value="applicability"/>
-      <expression value="Should Notify Nurse to Perform Assessment"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Should Notify Nurse to Perform Assessment"/>
+      </expression>
     </condition>
     <action>
       <title value="Notify the charge nurse to perform the assessment."/>
@@ -197,7 +200,10 @@
       </type>
       <dynamicValue>
         <path value="/"/>
-        <expression value="Communication Request to Charge Nurse"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Communication Request to Charge Nurse"/>
+        </expression>
       </dynamicValue>
     </action>
     <action>
@@ -208,7 +214,10 @@
       </type>
       <dynamicValue>
         <path value="/"/>
-        <expression value="Communication Request to Bedside Nurse"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Communication Request to Bedside Nurse"/>
+	    </expression>
       </dynamicValue>
     </action>
   </action>

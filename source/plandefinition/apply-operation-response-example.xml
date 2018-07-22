@@ -156,10 +156,7 @@
 	  </dispenseRequest>
 	</MedicationRequest>
   </contained>
-  <!--definition>
-    <reference value="PlanDefinition/example"/>
-  </definition-->
-  <instantiates value="PlanDefinition/example"/>
+  <instantiatesCanonical value="PlanDefinition/example"/>
   <status value="draft"/>
   <intent value="proposal"/>
   <subject>

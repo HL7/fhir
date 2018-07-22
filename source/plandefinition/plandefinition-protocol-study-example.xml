@@ -125,7 +125,10 @@
     <description value="Screen"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Informed Consent"/>
+      <expression>
+        <description value="Informed Consent"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <!--exit>
       <description value="Screening assessments complete"/>
@@ -148,7 +151,10 @@
     <description value="Single Blind Run-In"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Initial Single Blind Placebo dose"/>
+      <expression>
+        <description value="Initial Single Blind Placebo dose"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <timingDuration>
       <value value="1"/>
@@ -173,7 +179,10 @@
     <description value="Administer 0.5mg [Drug A] QD"/>
     <condition>
       <kind value="applicability"/>
-      <description value="First dose of treatment where total drug dose of [Drug A] per day is 0.5 mg."/>
+      <expression>
+        <description value="First dose of treatment where total drug dose of [Drug A] per day is 0.5 mg."/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <timingDuration>
       <value value="30"/>
@@ -198,7 +207,10 @@
     <description value="Follow-Up"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Last dose of treatment"/>
+      <expression>
+        <description value="Last dose of treatment"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <!--exit>
       <description value="2 weeks after start of Element"/>
@@ -218,7 +230,10 @@
     <description value="Screen"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Informed Consent"/>
+      <expression>
+        <description value="Informed Consent"/>
+        <language value="text/cql"/>
+	  </expression>
     </condition>
     <!--exit>
       <description value="Screening assessments complete"/>
@@ -241,7 +256,10 @@
     <description value="Single Blind Run-In"/>
     <condition>
       <kind value="applicability"/>
-      <description value="First dose of Single Blind Placebo"/>
+      <expression>
+        <description value="First dose of Single Blind Placebo"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <timingDuration>
       <value value="1"/>
@@ -266,7 +284,10 @@
     <description value="Administer 1.0 mg [Drug A] QD"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Intial dose of treatment where total drug dose of [Drug A] per day is 1.0 mg."/>
+      <expression>
+        <description value="Intial dose of treatment where total drug dose of [Drug A] per day is 1.0 mg."/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <timingDuration>
       <value value="30"/>
@@ -291,7 +312,10 @@
     <description value="Follow-Up"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Last dose of treatment"/>
+      <expression>
+        <description value="Last dose of treatment"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <!--exit>
       <description value="2 weeks after start of Element"/>
@@ -304,7 +328,10 @@
     <title value="VISIT 1"/>
     <condition>
       <kind value="applicability"/>
-      <description value="Screening"/>
+      <expression>
+        <description value="Screening"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -315,7 +342,10 @@
     <title value="VISIT 2"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="single-blind placebo start"/>
+	  <expression>
+        <description value="single-blind placebo start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -326,7 +356,10 @@
     <title value="VISIT 3"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="Treatment start"/>
+	  <expression>
+        <description value="Treatment start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -337,7 +370,10 @@
     <title value="VISIT 4"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="5 weeks after treatment start"/>
+	  <expression>
+        <description value="5 weeks after treatment start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -348,7 +384,10 @@
     <title value="VISIT 5"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="10 weeks after treatment start"/>
+	  <expression>
+        <description value="10 weeks after treatment start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -359,7 +398,10 @@
     <title value="VISIT 6"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="15 weeks after treatment start"/>
+	  <expression>
+	      <description value="15 weeks after treatment start"/>
+	      <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -370,7 +412,10 @@
     <title value="VISIT 7"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="20 weeks after treatment start"/>
+	  <expression>
+        <description value="20 weeks after treatment start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -381,7 +426,10 @@
     <title value="VISIT 8"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="25 weeks after treatment start"/>
+	  <expression>
+        <description value="25 weeks after treatment start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -392,7 +440,10 @@
     <title value="VISIT 9"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="30 weeks after treatment start"/>
+	  <expression>
+        <description value="30 weeks after treatment start"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>
@@ -403,7 +454,10 @@
     <title value="VISIT 10"/>
     <condition>
 	  <kind value="applicability"/>
-      <description value="start of follow-up"/>
+	  <expression>
+        <description value="start of follow-up"/>
+        <language value="text/cql"/>
+      </expression>
     </condition>
     <definition value="#encounter"/>
   </action>

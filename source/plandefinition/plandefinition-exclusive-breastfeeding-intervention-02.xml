@@ -172,7 +172,10 @@
     </trigger>
     <condition>
 	  <kind value="applicability"/>
-      <expression value="Should Notify Provider to Sign Assessment Order"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Should Notify Provider to Sign Assessment Order"/>
+      </expression>
     </condition>
     <action>
       <title value="Notify the provider to sign the order."/>
@@ -182,7 +185,10 @@
       </type>
       <dynamicValue>
         <path value="/"/>
-        <expression value="Communication Request to Provider"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Communication Request to Provider"/>
+        </expression>
       </dynamicValue>
     </action>
   </action>

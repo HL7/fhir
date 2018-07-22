@@ -707,11 +707,17 @@
       </dosage>
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>
-        <expression value="3"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="3"/>
+	    </expression>
       </dynamicValue>
       <dynamicValue>
         <path value="dispenseRequest.quantity"/>
-        <expression value="30 '{tbl}'"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="30 '{tbl}'"/>
+	    </expression>
       </dynamicValue>
     </ActivityDefinition>
   </contained>
@@ -940,33 +946,54 @@
         <!-- These expressions will be evaluated with the library referenced above as an include -->
         <dynamicValue>
           <path value="timing.event"/>
-          <expression value="Now()"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="Now()"/>
+		  </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="specialty"/>
           <!-- This expression is code selector syntax in CQL, returning the code from the NPI provider taxonomy -->
-          <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NUCC Provider Taxonomy&quot; display 'Adult Mental Health'"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NUCC Provider Taxonomy&quot; display 'Adult Mental Health'"/>
+		  </expression>
         </dynamicValue>
         <dynamicValue>
 		  <!-- The fulfillmentTime element of the resulting ServiceRequest will be set to the result of the ServiceRequestFulfillmentTime expression defined in the SuicideRiskLogic library -->
           <path value="occurrenceDateTime"/>
-          <expression value="SuicideRiskLogic.ServiceRequestFulfillmentTime"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="SuicideRiskLogic.ServiceRequestFulfillmentTime"/>
+		  </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="subject"/>
-          <expression value="SuicideRiskLogic.Patient"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="SuicideRiskLogic.Patient"/>
+		  </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="requester.agent"/>
-          <expression value="SuicideRiskLogic.Practitioner"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="SuicideRiskLogic.Practitioner"/>
+		  </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="reasonCode"/>
-          <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
+		  </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="reasonReference"/>
-          <expression value="SuicideRiskLogic.RiskAssessment"/>
+          <expression>
+            <language value="text/cql"/>
+            <expression value="SuicideRiskLogic.RiskAssessment"/>
+	      </expression>
         </dynamicValue>
       </action>
     </action>
@@ -1012,23 +1039,38 @@
             <definition value="#citalopramPrescription"/>
             <dynamicValue>
               <path value="status"/>
-              <expression value="'draft'"/>
+              <expression>
+                <language value="text/cql"/>
+                <expression value="'draft'"/>
+			  </expression>
             </dynamicValue>
             <dynamicValue>
               <path value="patient"/>
-              <expression value="SuicideRiskLogic.Patient"/>
+              <expression>
+                <language value="text/cql"/>
+                <expression value="SuicideRiskLogic.Patient"/>
+              </expression>
             </dynamicValue>
             <dynamicValue>
               <path value="prescriber"/>
-              <expression value="SuicideRiskLogic.Practitioner"/>
+              <expression>
+                <language value="text/cql"/>
+                <expression value="SuicideRiskLogic.Practitioner"/>
+			  </expression>
             </dynamicValue>
             <dynamicValue>
               <path value="reasonCode"/>
-              <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
+              <expression>
+                <language value="text/cql"/>
+                <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
+			  </expression>
             </dynamicValue>
             <dynamicValue>
               <path value="reasonReference"/>
-              <expression value="SuicideRiskLogic.RiskAssessment"/>
+              <expression>
+                <language value="text/cql"/>
+                <expression value="SuicideRiskLogic.RiskAssessment"/>
+              </expression>
             </dynamicValue>
           </action>
           <action>

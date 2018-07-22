@@ -136,12 +136,18 @@
     <title value="Patient has not had chlamydia screening within the recommended timeframe..."/>
     <condition>
 	  <kind value="applicability"/>
-      <expression value="NoScreening"/>
+	  <expression>
+        <language value="text/cql"/>
+        <expression value="NoScreening"/>
+      </expression>
     </condition>
     <dynamicValue>
-      <!-- The '~' here indicates the dynamic value is providing the entire result, rather than a value of a particular element -->
-      <path value="~"/>
-      <expression value="ChlamydiaScreeningRequest"/>
+      <!-- The '$this' here indicates the dynamic value is providing the entire result, rather than a value of a particular element -->
+      <path value="$this"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="ChlamydiaScreeningRequest"/>
+      </expression>
     </dynamicValue>
   </action>
 </PlanDefinition>
