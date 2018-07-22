@@ -88,7 +88,25 @@ These statements apply to any resource that specializes <a href="domainresource.
 <a name="types"></a>
 <h4>Using FHIR types in expressions</h4>
 <p>
-The evaluation engine will automatically convert the value of FHIR types representing primitives to FHIRPath types when they are used in expressions according to the following mapping:</p>
+The namespace for the types defined in FHIR (primitive data types, data types, resources) is 
+FHIR. So, for example: 
+</p>
+<pre>
+Patient.is(FHIR.Patient)
+</pre>
+<p>
+The first element - the type name - is not namespaced, but the parameter to the is() operation is. 
+</p>
+<p>
+Understanding the primitive types is critical: FHIR.string is a different type to System.String.
+The FHIR.string type specializes FHIR.Element, and has the properties id, extension, and also
+the implicit value property that is actually of type of System.String.  
+</p>
+
+<p>
+The evaluation engine will automatically convert the value of FHIR types representing primitives 
+to FHIRPath types when they are used in expressions according to the following mapping:
+</p>
 
 <table class="grid">
 <tr>
@@ -96,36 +114,55 @@ The evaluation engine will automatically convert the value of FHIR types represe
 <th>FHIRPath type</th>
 </tr>
 <tr>
-<td>boolean</td>
-<td>Boolean</td>
+<td>FHIR.boolean</td>
+<td>System.Boolean</td>
 </tr>
 <tr>
-<td>string, uri, code, oid, id, uuid, sid, markdown, base64Binary</td>
-<td>String</td>
+<td>FHIR.string, FHIR.uri, FHIR.code, FHIR.oid, FHIR.id, FHIR.uuid, FHIR.sid, FHIR.markdown, FHIR.base64Binary</td>
+<td>System.String</td>
 </tr>
 <tr>
-<td>integer, unsignedInt, positiveInt</td>
-<td>Integer</td>
+<td>FHIR.integer, FHIR.unsignedInt, FHIR.positiveInt</td>
+<td>System.Integer</td>
 </tr>
 <tr>
-<td>decimal</td>
-<td>Decimal</td>
+<td>FHIR.decimal</td>
+<td>System.Decimal</td>
 </tr>
 <tr>
-<td>date, dateTime, instant</td>
-<td>DateTime</td>
+<td>FHIR.date, FHIR.dateTime, FHIR.instant</td>
+<td>System.DateTime</td>
 </tr>
 <tr>
-<td>time</td>
-<td>Time</td>
+<td>FHIR.time</td>
+<td>System.Time</td>
 </tr>
 </table>
 
-<p>Note that FHIR primitives may contain extensions, so that the following expressions are <em>not</em> mutually exclusive:</p>
+<p>Since FHIR primitives may contain extensions, so that the following expressions are <em>not</em> mutually exclusive:</p>
 
 <pre class="fhirpath">
 Patient.name.given = 'Ewout'         // value of Patient.name.given as a string
 Patient.name.given.extension.first().value = true   // extension of the primitive value
+</pre>
+<p>
+The automatic conversion means that in most respects, a FHIR primitive can 
+generally be treated as if it was the equivalent FHIRPath system type. The primary
+exception is the is() operation, where the difference is explicit:
+</p>
+<pre class="fhirpath">
+Patient.name.given.is(FHIR.string);
+Patient.name.given.is(System.string).not();
+Patient.name.given.getValue().is(System.string);
+</pre>
+<p>
+As shown, all FHIR primitives have the operation .getValue() defined (see below)
+for the few edge cases where the automatic conversion isn't appropriate. Note 
+that as() does not have such restrictions - both of the following are valid:
+</p>
+<pre class="fhirpath">
+Patient.name.given.as(FHIR.string);
+Patient.name.given.as(System.string);
 </pre>
 
 <a name="functions"></a>
@@ -141,8 +178,12 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
 <blockquote>
 <p><strong>Note to implementers</strong>: The FHIR conceptual model talks about "primitives" as subclasses of the type Element that also have id and extensions. What this actually means is that a FHIR primitive is not a primitive in an implementation language. The introduction (section 2 above) describes the navigation tree as if the the FHIR model applies - primitives are both primitives and elements with children.</p>
 
-<p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendents()</code>.</p>
+<p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendents()</code>.</p>
 </blockquote>
+
+<p><b>getValue() : System.[type]</b></p>
+<p>Return the underlying system value for the FHIR primitive (see discussion above).</p>
+
 
 <p><b>trace(name : string; selector : expression) : collection</b></p>
 
@@ -169,7 +210,6 @@ This will log the type/name for each contained resource that meets the criteria.
 <p>
 Note: the selector parameter is planned to be added to a future version of the base FHIRPath specification.
 </p>
-
 
 <p><b>resolve() : collection</b></p>
 <p>For each item in the collection, if it is a string that is a URI or (canonical or URL), locate the target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, the item is ignored and nothing is added to the output collection.</p>
