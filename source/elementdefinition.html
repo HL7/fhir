@@ -404,6 +404,15 @@
                 <li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
             </ul>
 
+						<a name="aggregation"> </a>
+						<h3>Rules about Aggregation</h3>
+						<ul>
+						 <li>If an aggregationMode is present in the definition, the 'reference' element SHALL be present and have a value 
+						     and the target of the reference SHALL be aggregated as defined</li>
+						 <li>If type.versioning is present in the definition, the 'reference' element SHALL be present and have a value
+						   and the reference SHALL be populated as the versioning constraint dictates.</li>
+						</ul>
+						
             <a name="missing"></a>
             <h3>Missing Elements</h3>
             <p>
