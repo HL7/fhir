@@ -1,0 +1,8 @@
+// convert a Patient from XML to JSON
+
+POST /base/
+Accept: application/fhir+json
+Content-Type: application/fhir+xml
+[other headers]
+
+$include ../patient/patient-example.xml
