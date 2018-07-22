@@ -837,6 +837,27 @@ Example searches:
  <tr><td><pre> GET [base]/Patient?identifier:otype=http://terminology.hl7.org/CodeSystem/v2-0203|MR|446053</pre></td><td>Search for the Medical Record Number 446053 - this is useful where the system id for the MRN is not known</td></tr>
 </table>
 
+<a name="mimetype"></a>
+<h5>Searching Mime Types</h5>
+<p>
+The <code>:below</code> modifier is also very useful with searching mime types, such as for <a href="documentreference.html">DocumentReference.contenttype</a>
+which refers to <a href="datatypes.html#Attachment">Attachment.contentType</a>. A simple search such as:
+</p>
+<pre>
+GET [base]/DocumentReference?contenttype=text/xml
+</pre>
+<p>
+will miss documents with a mime type such as <code>text/xml; charset=UTF-8</code>. This 
+search will find all text/xml documents:
+</p>
+<pre>
+GET [base]/DocumentReference?contenttype:below=text/xml
+</pre>
+<p>
+For ease of processing on the server, servers are only required to support <code>:below</code> on the 
+base part of the mime type; servers are not required to sort between different parameters and do 
+formal subsumption logic. 
+</p> 
 
 <a name="quantity"></a>
 <h4>quantity</h4>
