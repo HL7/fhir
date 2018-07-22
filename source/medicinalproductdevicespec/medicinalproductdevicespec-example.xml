@@ -1,68 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AdverseEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+<MedicinalProductDeviceSpec xmlns="http://hl7.org/fhir">
   <id value="example"/>
-
-  <!-- an identifier used for this allergic propensity (adverse reaction risk) -->
-  <identifier>
-    <system value="http://acme.com/ids/patients/risks"/>
-    <value value="49476534"/>
-  </identifier>
-
-  <!-- this was an actual adverse event, not just a potential one -->
-  <actuality value="actual"/>
-
-  <!-- high level categorizion. The "event" below will say more -->
-  <!--category value="ProductUseError"/-->
-  
-  <!-- more precise details of the event -->
-  <event>
-    <coding>
-      <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
-      <system value="http://snomed.info/sct"/>
-      <code value="304386008"/>
-      <display value="O/E - itchy rash"/>
-    </coding>
-	<text value="This was a mild rash on the left forearm"/>
-  </event>
-  
-  <!-- the patient that actually had the adverse event -->
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
-  
-  <!-- when the event happened --> 
-  <date value="2017-01-29T12:34:56+00:00"/>
-  
-  <!-- This was a rash, so overall not serious -->
-  <seriousness>
+    <identifier>
+      <system value="http://ema.europa.eu/example/DeviceDeviceIdentifierRoot"/>
+      <value value="Device.DeviceIdentifier.extension"/>
+    </identifier>
+    <type>
       <coding>
-        <system value="http://hl7.org/fhir/adverse-event-seriousness"/>
-        <code value="Non-serious"/>
-        <display value="Non-serious"/>
-    </coding>
-  </seriousness>
-  
-  <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
-  <severity>
-    <coding>
-      <system value="http://hl7.org/fhir/adverse-event-severity"/>
-      <code value="mild"/>
-      <display value="Mild"/>
-    </coding>
-  </severity>
-
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-  
-  
-
-  <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
-  <suspectEntity>
-    <instance>
-      <reference value="Medication/example"/>
-    </instance>
-  </suspectEntity>
-
-</AdverseEvent>
+        <system value="http://ema.europa.eu/example/deviceType"/>
+        <code value="{Device.DeviceType}"/>
+      </coding>
+    </type>
+    <tradeName value="Device Trade Name"/>
+    <quantity>
+      <value value="2"/>
+      <unit value="1"/>
+    </quantity>
+    <listingNumber value="Device.DeviceListingNumber"/>
+    <modelNumber value="Device.ModelNumber"/>
+    <sterilityIndicator>
+      <coding>
+        <system value="http://ema.europa.eu/example/deviceSterilityIndicator"/>
+        <code value="{Device.SterilityIndicator}"/>
+      </coding>
+    </sterilityIndicator>
+    <sterilisationRequirement>
+      <coding>
+        <system value="http://ema.europa.eu/example/deviceSterilisationRequirementIndicator"/>
+        <code value="{Device.SterilisationRequirementIndicator}"/>
+      </coding>
+    </sterilisationRequirement>
+    <usage>
+      <coding>
+        <system value="http://ema.europa.eu/example/deviceUsage"/>
+        <code value="{Device.DeviceUsage}"/>
+      </coding>
+    </usage>
+    <nomenclature>
+      <coding>
+        <system value="http://ema.europa.eu/example/deviceNomenclatureNomenclature"/>
+        <code value="{DeviceNomenclature.NomenclatureValue}"/>
+      </coding>
+    </nomenclature>
+    <physicalCharacteristics>
+      <height>
+        <value value="99"/>
+        <unit value="mm"/>
+      </height>
+      <width>
+        <value value="100"/>
+        <unit value="mm"/>
+      </width>
+      <depth>
+        <value value="10"/>
+        <unit value="mm"/>
+      </depth>
+      <weight>
+        <value value="100"/>
+        <unit value="g"/>
+      </weight>
+      <nominalVolume>
+        <value value="100"/>
+        <unit value="cm3"/>
+      </nominalVolume>
+      <externalDiameter>
+        <value value="100"/>
+        <unit value="mm"/>
+      </externalDiameter>
+      <shape value="{PhysicalCharacteristic.Shape}"/>
+      <color value="{PhysicalCharacteristic.Colour}"/>
+      <imprint value="{PhysicalCharacteristic.Imprint}"/>
+      <image>
+        <data value="e1BoeXNpY2FsQ2hhcmFjdGVyaXN0aWMuSW1hZ2V9"/>
+      </image>
+      <scoring>
+        <coding>
+          <system value="http://ema.europa.eu/example/physicalCharacteristicScoring"/>
+          <code value="{PhysicalCharacteristic.Scoring}"/>
+        </coding>
+      </scoring>
+    </physicalCharacteristics>
+    <batchIdentifier>
+      <value value="Device-BatchNumber"/>
+      <period>
+        <end value="2020-02-02"/>
+      </period>
+    </batchIdentifier>
+    <material>
+      <substance>
+        <coding>
+          <system value="http://ema.europa.eu/example/deviceMaterial"/>
+          <code value="{Device.Material}"/>
+        </coding>
+      </substance>
+      <alternate value="true"/>
+      <allergenicIndicator value="false"/>
+    </material>
+    <material>
+      <substance>
+        <coding>
+          <system value="http://ema.europa.eu/example/deviceMaterial"/>
+          <code value="{Device.Material}"/>
+        </coding>
+      </substance>
+      <alternate value="false"/>
+      <allergenicIndicator value="true"/>
+    </material>
+  </MedicinalProductDeviceSpec>  
