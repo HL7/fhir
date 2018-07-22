@@ -45,6 +45,7 @@ public class Operation {
   private List<OperationExample> examples = new ArrayList<Operation.OperationExample>();
   private List<OperationExample> examples2 = new ArrayList<Operation.OperationExample>();
   private OperationDefinition resource;
+  private String fmm;
 
   public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer, List<OperationExample> examples, boolean idempotent) {
     this.name = name;
@@ -175,6 +176,14 @@ public class Operation {
 
   public OperationDefinition getResource() {
     return resource;
+  }
+
+  public String getFmm() {
+    return fmm;
+  }
+
+  public void setFmm(String fmm) {
+    this.fmm = fmm;
   }
 
 }

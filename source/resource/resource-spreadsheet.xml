@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-02-04T01:34:39Z</LastSaved>
+  <LastSaved>2018-07-22T20:09:42Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>10</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4021,7 +4021,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C11"/>
   </Names>
-  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="47" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="47" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="192.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="125.0"/>
    <Column ss:StyleID="s111" ss:Width="24.0"/>
@@ -4044,6 +4044,7 @@
     <Cell><Data ss:Type="String">Example.Request</Data></Cell>
     <Cell><Data ss:Type="String">Example.Response</Data></Cell>
     <Cell><Data ss:Type="String">Standards-Status</Data></Cell>
+    <Cell><Data ss:Type="String">fmm</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="348">
     <Cell ss:StyleID="s113"><Data ss:Type="String">validate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4127,6 +4128,7 @@
     <Cell><Data ss:Type="String">$meta-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$meta-response.txt</Data></Cell>
     <Cell><Data ss:Type="String">trial-use</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">meta.return</Data></Cell>
@@ -4156,6 +4158,7 @@
     <Cell><Data ss:Type="String">$meta-add-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$meta-add-response.txt</Data></Cell>
     <Cell><Data ss:Type="String">trial-use</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="97">
     <Cell ss:StyleID="s116"><Data ss:Type="String">meta-add.meta</Data></Cell>
@@ -4198,6 +4201,7 @@
     <Cell><Data ss:Type="String">$meta-delete-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$meta-delete-response.txt</Data></Cell>
     <Cell><Data ss:Type="String">trial-use</Data></Cell>
+    <Cell><Data ss:Type="Number">3</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="97">
     <Cell ss:StyleID="s116"><Data ss:Type="String">meta-delete.meta</Data></Cell>
@@ -4224,6 +4228,37 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">Resulting meta for the resource</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Resulting meta for the resource</Data></Cell>
     <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="410">
+    <Cell><Data ss:Type="String">convert</Data></Cell>
+    <Cell><Data ss:Type="String">System</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">operation</Data></Cell>
+    <Cell><Data ss:Type="String">y</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Convert from one form to another</Data></Cell>
+    <Cell><Data ss:Type="String">This operation takes a resource in one form, and returns to in another form. Both input and output are a single resource. The primary use of this operation is to convert between formats (e.g. (XML -&gt; JSON or vice versa)</Data></Cell>
+    <Cell><Data ss:Type="String">While the primary use of this operation is simple - converting a resource from one format to another, there are many potential uses including:&#10;&#10;* converting resources from one version to another&#10;* restructuring information in a resource (e.g. moving method into/out of Observation.code)&#10;* extracting data from a questionnaire&#10;* converting CDA documents or v2 messages (as a binary resource) to a bundle (or vice versa) (or even openEHR or openMHealth). &#10;&#10;These variants would all be associated with parameters that define and control these kind of conversions, though such parameters are not defined at this time. In the absence of any parameters, simple format conversion is all that will occur.&#10;&#10;For this reason, implementers should be aware that:&#10;&#10;* the output resource type may be different from the input resource (particularly, it might be a bundle)&#10;* binary resources may be represented directly using some other content-type (i.e. just post the content directly)&#10;&#10;Implementers are encouraged to provide feedback to HL7 about their use of this operation&#10;</Data></Cell>
+    <Cell><Data ss:Type="String">$convert-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$convert-response.txt</Data></Cell>
+    <Cell><Data ss:Type="String">draft</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">convert.input</Data></Cell>
+    <Cell><Data ss:Type="String">in</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Resource to convert</Data></Cell>
+    <Cell><Data ss:Type="String">The resource that is to be converted</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">convert.output</Data></Cell>
+    <Cell><Data ss:Type="String">out</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="Number">1</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Converted resource</Data></Cell>
+    <Cell><Data ss:Type="String">The resource after conversion</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Index="46">
     <Cell ss:StyleID="s119"/>
@@ -4252,10 +4287,11 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5603,8 +5639,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s111" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="275.0"/>
-   <Column ss:StyleID="s111" ss:Width="51.0"/>
-   <Column ss:StyleID="s111" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s111" ss:Width="45.0"/>
    <Column ss:StyleID="s111" ss:Width="146.0"/>
    <Column ss:StyleID="s111" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="98.0"/>
@@ -6662,7 +6697,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

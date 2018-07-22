@@ -31,6 +31,7 @@ package org.hl7.fhir.definitions.parsers;
 
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -79,6 +80,7 @@ import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.IParser;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.Base64BinaryType;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CanonicalType;
@@ -526,7 +528,8 @@ public class SpreadsheetParser {
 	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, 
 	              sheet.getColumn(row, "Footer"), examples, parseBoolean(sheet.getColumn(row, "Idempotent"), row,  false));
 	          op.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
-	          op.setFooter2(sheet.getColumn(row, "Footer2"));
+            op.setFooter2(sheet.getColumn(row, "Footer2"));
+            op.setFmm(sheet.getColumn(row, "fmm"));
 	          op.getExamples2().addAll(examples2);
             oplist.add(op);
             ops.put(name, op);
@@ -601,6 +604,15 @@ public class SpreadsheetParser {
         String title = url.substring(url.indexOf(" ")+1);
         url= url.substring(0, url.indexOf(" "));
         content.append("<a href=\""+url+"\">See "+Utilities.escapeXml(title)+"</a>\r\n");
+      } else if (l.startsWith("$includexj ")) {
+        int indent = 0;
+        String filename = l.substring(11).trim();
+        if (filename.contains(" ")) {
+          indent = Integer.parseInt(filename.substring(0, filename.indexOf(" ")));
+          filename = filename.substring(filename.indexOf(" ")).trim();
+        }
+        String json = new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(new XmlParser().parse(new FileInputStream(Utilities.path(folder, filename))));
+        process(content, indent, json);
       } else if (l.startsWith("$include ")) {
         int indent = 0;
         String filename = l.substring(9).trim();
