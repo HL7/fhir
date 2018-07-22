@@ -18,7 +18,7 @@
   
   
   <TabRatio>715</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3813,7 +3813,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4463,7 +4462,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C10"/>
   </Names>
-  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="131.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="125.0"/>
    <Column ss:StyleID="s116" ss:Width="24.0"/>
@@ -4486,6 +4485,9 @@
     <Cell ss:StyleID="s129"><Data ss:Type="String">Footer</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional usage notes for an operation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Example.Request</Data></Cell>
     <Cell><Data ss:Type="String">Example.Response</Data></Cell>
+    <Cell><Data ss:Type="String">Footer2</Data></Cell>
+    <Cell><Data ss:Type="String">Example2.Request</Data></Cell>
+    <Cell><Data ss:Type="String">Example2.Response</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">subset</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4686,39 +4688,44 @@
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">versions</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">System</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Discover what versions a server supports</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Using the [FHIR Version Mime Type Parameter](http.html#version-parameter), a server can support [multiple versions on the same end-point](versioning.html#mt-version). The only way for client to find out what versions a server supports in this fashion is the $versions operation. The client invokes the operation with no parameters. and the server returns the list of supported versions, along with the default version it will use if no fhirVersion parameter is present</Data></Cell>
+    <Cell ss:StyleID="s137"/>
+    <Cell><Data ss:Type="String">$versions-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$versions-response.txt</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">For the convenience of clients, servers that implement this operation SHALL also support the relevant XML or JSON format:</Data></Cell>
+    <Cell><Data ss:Type="String">$versions-request2.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$versions-response2.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"><Data ss:Type="String">versions.version</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Supported FHIR Version</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">A version supported by the server. Use the major.minor version like 3.0</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">versions.default</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">The default version for the server</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The default version for the server. Use the major.minor version like 3.0</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5113,12 +5120,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

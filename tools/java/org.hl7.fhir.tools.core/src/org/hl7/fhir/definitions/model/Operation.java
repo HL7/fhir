@@ -39,9 +39,11 @@ public class Operation {
   private List<OperationParameter> parameters = new ArrayList<OperationParameter>();
   private String title;
   private String footer;
+  private String footer2;
   private Boolean idempotent;
   private StandardsStatus standardsStatus; // defaults to container value
   private List<OperationExample> examples = new ArrayList<Operation.OperationExample>();
+  private List<OperationExample> examples2 = new ArrayList<Operation.OperationExample>();
   private OperationDefinition resource;
 
   public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer, List<OperationExample> examples, boolean idempotent) {
@@ -126,8 +128,21 @@ public class Operation {
     this.footer = footer;
   }
   
+  public String getFooter2() {
+    return footer2;
+  }
+
+  public void setFooter2(String footer) {
+    this.footer2 = footer;
+  }
+  
   public List<OperationExample> getExamples() {
     return examples;
+  }
+
+  
+  public List<OperationExample> getExamples2() {
+    return examples2;
   }
 
   public OperationParameter getParameter(String name) {

@@ -6589,6 +6589,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (ex.isResponse())
           renderExample(b, ex, "Response");
     }
+    if (!Utilities.noString(op.getFooter2())) {
+      b.append(processMarkdown(n, op.getFooter2(), prefix)).append("\r\n");
+      if (op.getExamples2().size() > 0) {
+        for (OperationExample ex : op.getExamples2())
+          if (!ex.isResponse())
+            renderExample(b, ex, "Request");
+        for (OperationExample ex : op.getExamples2())
+          if (ex.isResponse())
+            renderExample(b, ex, "Response");
+      }      
+    }
     b.append("<p>&nbsp;</p>");
   }
 

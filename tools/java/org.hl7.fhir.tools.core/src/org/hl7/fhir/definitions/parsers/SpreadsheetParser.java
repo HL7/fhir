@@ -498,6 +498,7 @@ public class SpreadsheetParser {
         String doco = sheet.getColumn(row, "Documentation");
         String type = sheet.getColumn(row, "Type");
         List<OperationExample> examples = loadOperationExamples(sheet.getColumn(row, "Example.Request"), sheet.getColumn(row, "Example.Response"));
+        List<OperationExample> examples2 = loadOperationExamples(sheet.getColumn(row, "Example2.Request"), sheet.getColumn(row, "Example2.Response"));
 
 				if (name != null && !name.equals("") && !name.startsWith("!")) {
 	        if (!name.contains(".")) {
@@ -522,8 +523,11 @@ public class SpreadsheetParser {
 	            else
 	              throw new Exception("unknown operation use code "+c+" at "+getLocation(row));
 	          }
-	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"), examples, parseBoolean(sheet.getColumn(row, "Idempotent"), row,  false));
+	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, 
+	              sheet.getColumn(row, "Footer"), examples, parseBoolean(sheet.getColumn(row, "Idempotent"), row,  false));
 	          op.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
+	          op.setFooter2(sheet.getColumn(row, "Footer2"));
+	          op.getExamples2().addAll(examples2);
             oplist.add(op);
             ops.put(name, op);
 	        } else {

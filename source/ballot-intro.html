@@ -242,7 +242,6 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Add draft Terminology Service API to FHIRPath</td> <td>FHIR-I: [%GF#15777%]</td> <td>[%diff fhirpath.html FHIRPath%]</td></tr>
  <tr><td>Make it explicit about canonical URLs with fragments</td> <td>FHIR-I: [%GF#17357%]</td> <td>[%diff references.html#canonical References%]</td></tr>
  <tr><td>Add <code>deleted</code> as an issue type</td> <td>FHIR-I: [%GF#17327%]</td> <td>[%diff valueset-issue-type.html Issue Type ValueSet%]</td></tr>
- <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: [%GF#16342%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
  <tr><td>Fix missing code for 1.0.2 <a href="codesystem-fhir-versions.html">FHIR versions Code System</a></td> <td>FHIR-I: [%GF#16318%]</td> <td>[%diff codesystem-fhir-versions.html FHIR versions Code System%]</td></tr>
  <tr><td>New codes, adjustments, and fixed definitions to codes for OperationOutcome.issue.code</td> <td>FHIR-I: [%GF#16922%], [%GF#17329%]</td> <td>[%diff codesystem-issue-type.html Issue Type Code System%]</td></tr>
  <tr><td>Clarify about 406 and 415 status codes</td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
@@ -255,7 +254,8 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Decribe use of :below on reference for searching canonicsls</td> <td>FHIR-I:[%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
  <tr><td>Decribe use of :below on token for searching mime types</td> <td>FHIR-I:[%GF#16970%]</td> <td>[%diff search.html#mimetype Search%]</td></tr> 
  <tr><td>Change rules around optionaity of Bundle.entry.request and .response</td><td>FHIR-I: [%GF#14551%]</td> <td>[%diff http.html#transaction RESTful API%]</td></tr> 
- <tr><td>CAdd _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
+ <tr><td>Add _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
+ <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr> 
 </table>
 
 <a name="terminology"></a>
@@ -274,6 +274,7 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Fix minor errors in CapabilityStatement invariants</td> <td>FHIR-I: [%GF#13551%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
  <tr><td>Add a note restricting use of ElementDefinition.contentReference</td> <td>FHIR-I: [%GF#14958%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
  <tr><td>Make <code>CapabilityStatement.rest.resource.searchParam.definition</code> mandatory for search parameters defined in the FHIR Specification</td> <td>FHIR-I: [%GF#16359%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
+ <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: [%GF#16342%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
  <tr><td>Make additional constraint on valid Element names</td> <td>FHIR-I: [%GF#15678%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
  <tr><td>Remove codesystem-deprecated extension</td> <td>FHIR-I: [%GF#12312%]</td> <td>[%diff codesystem.html CodeSystem%]</td></tr>
  <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile</td> <td>FHIR-I: [%GF#16337%] &amp; [%GF#16490%]</td> <td>[%diff valueset-operation-expand.html ValueSet.$expand%]</td></tr>
