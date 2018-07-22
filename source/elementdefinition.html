@@ -368,11 +368,12 @@
                 <li>Slicing is only allowed when constraining an existing structure</li>
                 <li><code>slicing</code> can only be used on the first repeat of an element, this element is considered to be the slicing entry</li>
                 <li>All elements following the first repeat that containing a slicing SHALL have a <code>sliceName</code></li>
-                <li>The first entry (the one having the <code>slicing</code> information) is understood to be the set of constraints to be used for the &quot;open&quot; slice, i.e., when the slice is open, this definition is used as a constraint on elements
-                    in the instance that are not part of a slice and belong to the open portion of the slice. Its use follows the &quot;normal case&quot;, except:
+                <li>The special slice name <code>@default</code> applies to all entries that are not in any other slice</li>
+                <li>The first entry (the one having the <code>slicing</code> information) is understood to be the set of constraints that apply to all slices and entries, whether they have a defined slice or not
+								  It's use follows the &quot;normal case&quot;, except:
                     <ul>
                         <li><code>slicing</code> must be present</li>
-                        <li><code>min</code> and <code>max</code> govern the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice. </li>
+                        <li><code>min</code> governs the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice (individual slices may have a different <code>min</code> value). </li>
                     </ul>
                 </li>
             </ul>
