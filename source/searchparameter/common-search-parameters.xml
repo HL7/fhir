@@ -147,6 +147,7 @@
         <id value="clinical-code"/>
         <code value="code"/>
         <base value="AllergyIntolerance"/><base value="Condition"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="FamilyMemberHistory"/><base value="List"/><base value="Observation"/><base value="Procedure"/>
+        <base value="Medication"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,6 +166,7 @@
         <id value="clinical-identifier"/>
         <code value="identifier"/>
         <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
+        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -188,16 +190,16 @@
   </entry>
 
   <!-- Medication Core -->
-
+ <!-- moved code into clinical code - see task 16547 
   <entry>
     <resource>
       <SearchParameter>
         <id value="medications-code"/>
         <code value="code"/>
-        <base value="Medication"/><base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
+	-->
   <entry>
     <resource>
       <SearchParameter>
@@ -207,15 +209,16 @@
       </SearchParameter>
     </resource>
   </entry>
+ <!-- moved code into clinical identifier - see task 16547 
   <entry>
     <resource>
       <SearchParameter>
         <id value="medications-identifier"/>
         <code value="identifier"/>
-        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
+	-->
   <entry>
     <resource>
       <SearchParameter>
@@ -225,15 +228,16 @@
       </SearchParameter>
     </resource>
   </entry>
+ <!-- moved code into clinical patient - see task 16547 
   <entry>
     <resource>
       <SearchParameter>
         <id value="medications-patient"/>
         <code value="patient"/>
-        <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationStatement"/>
       </SearchParameter>
     </resource>
   </entry>
+	-->
   <entry>
     <resource>
       <SearchParameter>

@@ -882,7 +882,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
     }
 
-    for (ResourceDefn r : page.getDefinitions().getResources().values()) {
+    for (String rn : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       r.setConformancePack(makeConformancePack(r));
       r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", false));
       if (page.getProfiles().containsKey(r.getProfile().getUrl()))
