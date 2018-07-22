@@ -1,68 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AdverseEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
+<MedicinalProductAuthorization xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
   <id value="example"/>
-
-  <!-- an identifier used for this allergic propensity (adverse reaction risk) -->
   <identifier>
-    <system value="http://acme.com/ids/patients/risks"/>
-    <value value="49476534"/>
+    <system value="http://ema.europa.eu/example/marketingAuthorisationNumber"/>
+    <value value="EU/1/11/999/001"/>
   </identifier>
-
-  <!-- this was an actual adverse event, not just a potential one -->
-  <actuality value="actual"/>
-
-  <!-- high level categorizion. The "event" below will say more -->
-  <!--category value="ProductUseError"/-->
-  
-  <!-- more precise details of the event -->
-  <event>
+  <country>
     <coding>
-      <!-- example uses SNOMED CT. Other likely possibilities include MedDRA -->
-      <system value="http://snomed.info/sct"/>
-      <code value="304386008"/>
-      <display value="O/E - itchy rash"/>
+      <system value="http://ema.europa.eu/example/country"/>
+      <code value="EU"/>
     </coding>
-	<text value="This was a mild rash on the left forearm"/>
-  </event>
-  
-  <!-- the patient that actually had the adverse event -->
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
-  
-  <!-- when the event happened --> 
-  <date value="2017-01-29T12:34:56+00:00"/>
-  
-  <!-- This was a rash, so overall not serious -->
-  <seriousness>
+  </country>
+  <legalStatusOfSupply>
+    <coding>
+      <system value="http://ema.europa.eu/example/legalstatusofsupply"/>
+      <code value="Subjecttomedicalprescription"/>
+    </coding>
+  </legalStatusOfSupply>
+  <status>
+    <coding>
+      <system value="http://ema.europa.eu/example/authorisationstatus"/>
+      <code value="active"/>
+    </coding>
+  </status>
+  <statusDate value="2015-01-14"/>
+  <validityPeriod>
+    <start value="2015-08-16"/>
+    <end value="2020-05-20"/>
+  </validityPeriod>
+  <dataExclusivityPeriod>
+    <start value="2010-08-15"/>
+    <end value="2020-08-15"/>
+  </dataExclusivityPeriod>
+  <dateOfFirstAuthorization value="2010-08-15"/>
+  <internationalBirthDate value="2010-08-15"/>
+  <jurisdictionalAuthorization id="1">
+    <identifier>
+      <system value="http://ema.europa.eu/example/marketingauthorisationnumber"/>
+      <value value="123-456-789"/>
+    </identifier>
+    <country>
       <coding>
-        <system value="http://hl7.org/fhir/adverse-event-seriousness"/>
-        <code value="Non-serious"/>
-        <display value="Non-serious"/>
-    </coding>
-  </seriousness>
-  
-  <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
-  <severity>
-    <coding>
-      <system value="http://hl7.org/fhir/adverse-event-severity"/>
-      <code value="mild"/>
-      <display value="Mild"/>
-    </coding>
-  </severity>
-
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-  
-
-
-  <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
-  <suspectEntity>
-    <instance>
-      <reference value="Medication/example"/>
-    </instance>
-  </suspectEntity>
-
-</AdverseEvent>
+        <system value="http://ema.europa.eu/example/countryCode"/>
+        <code value="NO"/>
+      </coding>
+    </country>
+  </jurisdictionalAuthorization>
+  <jurisdictionalAuthorization id="2">
+    <identifier>
+      <system value="http://ema.europa.eu/example/marketingauthorisationnumber"/>
+      <value value="123-456-123"/>
+    </identifier>
+    <country>
+      <coding>
+        <system value="http://ema.europa.eu/example/countryCode"/>
+        <code value="NO"/>
+      </coding>
+    </country>
+  </jurisdictionalAuthorization>
+  <holder>
+    <reference value="Organization/example"/>
+  </holder>
+  <regulator>
+    <reference value="Organization/example"/>
+  </regulator>
+  <procedure>
+    <identifier>
+      <system value="http://ema.europa.eu/example/procedureidentifier-number"/>
+      <value value="EMEA/H/C/009999/IA/0099/G"/>
+    </identifier>
+    <type>
+      <coding>
+        <system value="http://ema.europa.eu/example/marketingAuthorisationProcedureType"/>
+        <code value="VariationTypeIA"/>
+      </coding>
+    </type>
+    <datePeriod>
+      <start value="2015-08-02"/>
+      <end value="2015-08-21"/>
+    </datePeriod>
+    <application>
+      <identifier>
+        <system value="http://ema.europa.eu/example/applicationidentifier-number"/>
+        <value value="IA38G"/>
+      </identifier>
+      <type>
+        <coding>
+          <system value="http://ema.europa.eu/example/marketingAuthorisationApplicationType"/>
+          <code value="GroupTypeIAVariationNotification"/>
+        </coding>
+      </type>
+      <dateDateTime value="2015-08-01"/>
+    </application>
+  </procedure>
+</MedicinalProductAuthorization>
