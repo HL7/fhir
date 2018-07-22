@@ -19,13 +19,7 @@
     </coding>
   </unitOfPresentation>
   <ingredient>
-    <reference value="MedicinalProductIngredient/Equilidem2-5mg-d4e1589"/>
-  </ingredient>
-  <ingredient>
-    <reference value="MedicinalProductIngredient/Equilidem2-5mg-d4e1763"/>
-  </ingredient>
-  <ingredient>
-    <reference value="MedicinalProductIngredient/Equilidem2-5mg-d4e1842"/>
+    <reference value="MedicinalProductIngredient/example"/>
   </ingredient>
   <routeOfAdministration>
      <code>
