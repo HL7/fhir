@@ -14,6 +14,7 @@
   
   
   
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -196,8 +197,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -242,7 +241,7 @@
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell><Data ss:Type="String">xs:anyURI+</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">urn:oid:(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))*</Data></Cell>
+    <Cell><Data ss:Type="String">urn:oid:[0-2](\.(0|[1-9][0-9]*))+</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="47">
     <Cell><Data ss:Type="String">uuid</Data><NamedCell ss:Name="uuid"/></Cell>
@@ -317,6 +316,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
