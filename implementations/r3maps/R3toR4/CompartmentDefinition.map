@@ -15,7 +15,7 @@ group CompartmentDefinition extends DomainResource
   "CompartmentDefinition.url" : for src.url as vs make tgt.url as vt
   "CompartmentDefinition.name" : for src.name as vs make tgt.name as vt
   "CompartmentDefinition.title" : for src.title as vs make tgt.title as vt
-  "CompartmentDefinition.status" : for src.status as vs make tgt.status as vt then
+  "CompartmentDefinition.status" : for src.status as vs make tgt.status as vt
   "CompartmentDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
   "CompartmentDefinition.date" : for src.date as vs make tgt.date as vt
   "CompartmentDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -24,7 +24,7 @@ group CompartmentDefinition extends DomainResource
   "CompartmentDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
   "CompartmentDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
   "CompartmentDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "CompartmentDefinition.code" : for src.code as vs make tgt.code as vt then
+  "CompartmentDefinition.code" : for src.code as vs make tgt.code as vt
   "CompartmentDefinition.search" : for src.search as vs make tgt.search as vt
   "CompartmentDefinition.resource" : for src.resource as vs0 make tgt.resource as vt0 then {
     "CompartmentDefinition.resource.code" : for vs0.code as vs make vt0.code as vt

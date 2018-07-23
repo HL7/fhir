@@ -13,7 +13,7 @@ group Substance extends DomainResource
   input tgt : Substance as target
 
   "Substance.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Substance.status" : for src.status as vs make tgt.status as vt then
+  "Substance.status" : for src.status as vs make tgt.status as vt
   "Substance.category" : for src.category as vs make tgt.category as vt
   "Substance.code" : for src.code as vs make tgt.code as vt
   "Substance.description" : for src.description as vs make tgt.description as vt

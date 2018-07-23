@@ -19,7 +19,7 @@ group MessageHeader extends DomainResource
   "MessageHeader.reason" : for src.reason as vs make tgt.reason as vt
   "MessageHeader.response" : for src.response as vs0 make tgt.response as vt0 then {
     "MessageHeader.response.identifier" : for vs0.identifier as vs make vt0.identifier as vt
-    "MessageHeader.response.code" : for vs0.code as vs make vt0.code as vt then
+    "MessageHeader.response.code" : for vs0.code as vs make vt0.code as vt
     "MessageHeader.response.details" : for vs0.details as vs make vt0.details as vt
   }
   "MessageHeader.focus" : for src.focus as vs make tgt.focus as vt

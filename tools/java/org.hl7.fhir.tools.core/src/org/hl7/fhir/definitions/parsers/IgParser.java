@@ -184,13 +184,15 @@ return null;
           vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
           vs.setUserData("path", igd.getPath()+"valueset-"+id+".html");
           vs.setUserData("filename", "valueset-"+id);
+          if (committee != null) {
           if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-            vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+            vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(committee.getCode()));
           } else {
             String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
             if (!ec.equals(committee.getCode()))
               System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 2: is "+ec+", want to set to "+committee);
           } 
+          }
           new CodeSystemConvertor(codeSystems).convert(new XmlParser(), vs, fn.getAbsolutePath());
 //          if (id.contains(File.separator))
           igd.getValueSets().add(vs);

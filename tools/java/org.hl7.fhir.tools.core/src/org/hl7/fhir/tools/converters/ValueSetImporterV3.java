@@ -202,7 +202,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
     
     vs.setUserData("filename", "valueset-"+id);
-    vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("vocab"));
+    vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("vocab"));
 
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {

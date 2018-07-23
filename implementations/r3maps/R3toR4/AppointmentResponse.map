@@ -18,7 +18,7 @@ group AppointmentResponse extends DomainResource
   "AppointmentResponse.end" : for src.end as vs make tgt.end as vt
   "AppointmentResponse.participantType" : for src.participantType as vs make tgt.participantType as vt
   "AppointmentResponse.actor" : for src.actor as vs make tgt.actor as vt
-  "AppointmentResponse.participantStatus" : for src.participantStatus as vs make tgt.participantStatus as vt then
+  "AppointmentResponse.participantStatus" : for src.participantStatus as vs make tgt.participantStatus as vt
   "AppointmentResponse.comment" : for src.comment as vs make tgt.comment as vt
 endgroup
 

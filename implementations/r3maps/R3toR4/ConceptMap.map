@@ -17,7 +17,7 @@ group ConceptMap extends DomainResource
   "ConceptMap.version" : for src.version as vs make tgt.version as vt
   "ConceptMap.name" : for src.name as vs make tgt.name as vt
   "ConceptMap.title" : for src.title as vs make tgt.title as vt
-  "ConceptMap.status" : for src.status as vs make tgt.status as vt then
+  "ConceptMap.status" : for src.status as vs make tgt.status as vt
   "ConceptMap.experimental" : for src.experimental as vs make tgt.experimental as vt
   "ConceptMap.date" : for src.date as vs make tgt.date as vt
   "ConceptMap.publisher" : for src.publisher as vs make tgt.publisher as vt

@@ -17,7 +17,7 @@ group TestScript extends DomainResource
   "TestScript.version" : for src.version as vs make tgt.version as vt
   "TestScript.name" : for src.name as vs make tgt.name as vt
   "TestScript.title" : for src.title as vs make tgt.title as vt
-  "TestScript.status" : for src.status as vs make tgt.status as vt then
+  "TestScript.status" : for src.status as vs make tgt.status as vt
   "TestScript.experimental" : for src.experimental as vs make tgt.experimental as vt
   "TestScript.date" : for src.date as vs make tgt.date as vt
   "TestScript.publisher" : for src.publisher as vs make tgt.publisher as vt

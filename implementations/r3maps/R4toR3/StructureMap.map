@@ -17,7 +17,7 @@ group StructureMap extends DomainResource
   "StructureMap.version" : for src.version as vs make tgt.version as vt
   "StructureMap.name" : for src.name as vs make tgt.name as vt
   "StructureMap.title" : for src.title as vs make tgt.title as vt
-  "StructureMap.status" : for src.status as vs make tgt.status as vt then
+  "StructureMap.status" : for src.status as vs make tgt.status as vt
   "StructureMap.experimental" : for src.experimental as vs make tgt.experimental as vt
   "StructureMap.date" : for src.date as vs make tgt.date as vt
   "StructureMap.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -28,14 +28,14 @@ group StructureMap extends DomainResource
   "StructureMap.purpose" : for src.purpose as vs make tgt.purpose as vt
   "StructureMap.copyright" : for src.copyright as vs make tgt.copyright as vt
   "StructureMap.structure" : for src.structure as vs0 make tgt.structure as vt0 then {
-    "StructureMap.structure.mode" : for vs0.mode as vs make vt0.mode as vt then
+    "StructureMap.structure.mode" : for vs0.mode as vs make vt0.mode as vt
     "StructureMap.structure.alias" : for vs0.alias as vs make vt0.alias as vt
     "StructureMap.structure.documentation" : for vs0.documentation as vs make vt0.documentation as vt
   }
   "StructureMap.group" : for src.group as vs0 make tgt.group as vt0 then {
     "StructureMap.group.name" : for vs0.name as vs make vt0.name as vt
     "StructureMap.group.extends" : for vs0.extends as vs make vt0.extends as vt
-    "StructureMap.group.typeMode" : for vs0.typeMode as vs make vt0.typeMode as vt then
+    "StructureMap.group.typeMode" : for vs0.typeMode as vs make vt0.typeMode as vt
     "StructureMap.group.documentation" : for vs0.documentation as vs make vt0.documentation as vt
   }
 endgroup

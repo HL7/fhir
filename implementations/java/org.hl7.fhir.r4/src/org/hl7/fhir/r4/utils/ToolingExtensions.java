@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.fhir.ucum.Utilities;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
@@ -422,7 +423,9 @@ public class ToolingExtensions {
   }
 
   public static void setStringExtension(DomainResource resource, String uri, String value) {
-    Extension ext = getExtension(resource, uri);
+    if (Utilities.noString(value))
+      return;
+        Extension ext = getExtension(resource, uri);
     if (ext != null)
       ext.setValue(new StringType(value));
     else
@@ -430,6 +433,9 @@ public class ToolingExtensions {
   }
 
   public static void setCodeExtension(DomainResource resource, String uri, String value) {
+    if (Utilities.noString(value))
+      return;
+    
     Extension ext = getExtension(resource, uri);
     if (ext != null)
       ext.setValue(new CodeType(value));
@@ -501,6 +507,9 @@ public class ToolingExtensions {
   }
 
   public static void addLanguageTranslation(Element element, String lang, String value) {
+    if (Utilities.noString(lang) || Utilities.noString(value))
+      return;
+    
     Extension extension = new Extension().setUrl(EXT_TRANSLATION);
     extension.addExtension().setUrl("lang").setValue(new StringType(lang));
     extension.addExtension().setUrl("content").setValue(new StringType(value));

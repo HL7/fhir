@@ -4067,7 +4067,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R27C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="39" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="40" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="79.0"/>
@@ -4916,7 +4916,7 @@
     <Cell><Data ss:Type="String">One of more codes that identify codes in the expansion or other groups</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">A group without a code can be included by giving it an id and using #[id] in place of the code</Data></Cell>
    </Row>
-   <Row ss:Height="71">
+   <Row ss:AutoFitHeight="0" ss:Height="71">
     <Cell><Data ss:Type="String">deprecated</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet.compose.include.concept</Data></Cell>
@@ -4925,6 +4925,16 @@
     <Cell ss:Index="14"><Data ss:Type="String">The concept should not be used</Data></Cell>
     <Cell><Data ss:Type="String">if ture, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Ths status relates to a concept's inclusion in the value set, and might be different to the underlying status of the concept itself</Data></Cell>
+   </Row>
+   <Row ss:Height="57">
+    <Cell><Data ss:Type="String">special-status</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet;CodeSystem</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Special note about status for implementers</Data></Cell>
+    <Cell><Data ss:Type="String">A special note for implementers about the status of the resource</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">This is used in the build to mark that though a resource is normative, it changes with the build</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4944,7 +4954,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

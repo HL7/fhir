@@ -17,7 +17,7 @@ group CodeSystem extends DomainResource
   "CodeSystem.version" : for src.version as vs make tgt.version as vt
   "CodeSystem.name" : for src.name as vs make tgt.name as vt
   "CodeSystem.title" : for src.title as vs make tgt.title as vt
-  "CodeSystem.status" : for src.status as vs make tgt.status as vt then
+  "CodeSystem.status" : for src.status as vs make tgt.status as vt
   "CodeSystem.experimental" : for src.experimental as vs make tgt.experimental as vt
   "CodeSystem.date" : for src.date as vs make tgt.date as vt
   "CodeSystem.publisher" : for src.publisher as vs make tgt.publisher as vt

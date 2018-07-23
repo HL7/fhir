@@ -16,7 +16,7 @@ group Patient extends DomainResource
   "Patient.active" : for src.active as vs make tgt.active as vt
   "Patient.name" : for src.name as vs make tgt.name as vt
   "Patient.telecom" : for src.telecom as vs make tgt.telecom as vt
-  "Patient.gender" : for src.gender as vs make tgt.gender as vt then
+  "Patient.gender" : for src.gender as vs make tgt.gender as vt
   "Patient.birthDate" : for src.birthDate as vs make tgt.birthDate as vt
   "Patient.deceased-boolean" : for src.deceased  : boolean as vs make tgt.deceased = create("boolean") as vt then boolean(vs,vt)
   "Patient.deceased-dateTime" : for src.deceased  : dateTime as vs make tgt.deceased = create("dateTime") as vt then dateTime(vs,vt)
@@ -33,7 +33,7 @@ group Patient extends DomainResource
   "Patient.managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt
   "Patient.link" : for src.link as vs0 make tgt.link as vt0 then {
     "Patient.link.other" : for vs0.other as vs make vt0.other as vt
-    "Patient.link.type" : for vs0.type as vs make vt0.type as vt then
+    "Patient.link.type" : for vs0.type as vs make vt0.type as vt
   }
 endgroup
 

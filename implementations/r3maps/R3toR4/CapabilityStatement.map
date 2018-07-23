@@ -16,7 +16,7 @@ group CapabilityStatement extends DomainResource
   "CapabilityStatement.version" : for src.version as vs make tgt.version as vt
   "CapabilityStatement.name" : for src.name as vs make tgt.name as vt
   "CapabilityStatement.title" : for src.title as vs make tgt.title as vt
-  "CapabilityStatement.status" : for src.status as vs make tgt.status as vt then
+  "CapabilityStatement.status" : for src.status as vs make tgt.status as vt
   "CapabilityStatement.experimental" : for src.experimental as vs make tgt.experimental as vt
   "CapabilityStatement.date" : for src.date as vs make tgt.date as vt
   "CapabilityStatement.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -39,7 +39,7 @@ group CapabilityStatement extends DomainResource
   "CapabilityStatement.format" : for src.format as vs make tgt.format as vt
   "CapabilityStatement.patchFormat" : for src.patchFormat as vs make tgt.patchFormat as vt
   "CapabilityStatement.rest" : for src.rest as vs0 make tgt.rest as vt0 then {
-    "CapabilityStatement.rest.mode" : for vs0.mode as vs make vt0.mode as vt then
+    "CapabilityStatement.rest.mode" : for vs0.mode as vs make vt0.mode as vt
     "CapabilityStatement.rest.documentation" : for vs0.documentation as vs make vt0.documentation as vt
   }
   "CapabilityStatement.messaging" : for src.messaging as vs0 make tgt.messaging as vt0 then {
@@ -47,7 +47,7 @@ group CapabilityStatement extends DomainResource
     "CapabilityStatement.messaging.documentation" : for vs0.documentation as vs make vt0.documentation as vt
   }
   "CapabilityStatement.document" : for src.document as vs0 make tgt.document as vt0 then {
-    "CapabilityStatement.document.mode" : for vs0.mode as vs make vt0.mode as vt then
+    "CapabilityStatement.document.mode" : for vs0.mode as vs make vt0.mode as vt
     "CapabilityStatement.document.documentation" : for vs0.documentation as vs make vt0.documentation as vt
   }
 endgroup

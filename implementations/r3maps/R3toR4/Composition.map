@@ -21,14 +21,14 @@ group Composition extends DomainResource
   "Composition.date" : for src.date as vs make tgt.date as vt
   "Composition.author" : for src.author as vs make tgt.author as vt
   "Composition.title" : for src.title as vs make tgt.title as vt
-  "Composition.confidentiality" : for src.confidentiality as vs make tgt.confidentiality as vt then
+  "Composition.confidentiality" : for src.confidentiality as vs make tgt.confidentiality as vt
   "Composition.attester" : for src.attester as vs0 make tgt.attester as vt0 then {
     "Composition.attester.time" : for vs0.time as vs make vt0.time as vt
     "Composition.attester.party" : for vs0.party as vs make vt0.party as vt
   }
   "Composition.custodian" : for src.custodian as vs make tgt.custodian as vt
   "Composition.relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "Composition.relatesTo.code" : for vs0.code as vs make vt0.code as vt then
+    "Composition.relatesTo.code" : for vs0.code as vs make vt0.code as vt
     "Composition.relatesTo.target-Identifier" : for vs0.target  : Identifier as vs make vt0.target = create("Identifier") as vt then Identifier(vs,vt)
     "Composition.relatesTo.target-Reference" : for vs0.target  : Reference as vs make vt0.target = create("Reference") as vt then Reference(vs,vt)
   }

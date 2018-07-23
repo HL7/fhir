@@ -21,7 +21,7 @@ group TestReport extends DomainResource
   "TestReport.tester" : for src.tester as vs make tgt.tester as vt
   "TestReport.issued" : for src.issued as vs make tgt.issued as vt
   "TestReport.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "TestReport.participant.type" : for vs0.type as vs make vt0.type as vt then
+    "TestReport.participant.type" : for vs0.type as vs make vt0.type as vt
     "TestReport.participant.uri" : for vs0.uri as vs make vt0.uri as vt
     "TestReport.participant.display" : for vs0.display as vs make vt0.display as vt
   }

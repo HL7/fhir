@@ -13,7 +13,7 @@ group ParameterDefinition extends Element
   input tgt : ParameterDefinition as target
 
   "ParameterDefinition.name" : for src.name as vs make tgt.name as vt
-  "ParameterDefinition.use" : for src.use as vs make tgt.use as vt then
+  "ParameterDefinition.use" : for src.use as vs make tgt.use as vt
   "ParameterDefinition.min" : for src.min as vs make tgt.min as vt
   "ParameterDefinition.max" : for src.max as vs make tgt.max as vt
   "ParameterDefinition.documentation" : for src.documentation as vs make tgt.documentation as vt

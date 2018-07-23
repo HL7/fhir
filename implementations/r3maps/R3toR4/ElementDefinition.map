@@ -19,7 +19,7 @@ group ElementDefinition extends BackboneElement
   "ElementDefinition.slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
     "ElementDefinition.slicing.description" : for vs0.description as vs make vt0.description as vt
     "ElementDefinition.slicing.ordered" : for vs0.ordered as vs make vt0.ordered as vt
-    "ElementDefinition.slicing.rules" : for vs0.rules as vs make vt0.rules as vt then
+    "ElementDefinition.slicing.rules" : for vs0.rules as vs make vt0.rules as vt
   }
   "ElementDefinition.short" : for src.short as vs make tgt.short as vt
   "ElementDefinition.definition" : for src.definition as vs make tgt.definition as vt
@@ -210,7 +210,7 @@ group ElementDefinition extends BackboneElement
   "ElementDefinition.constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then {
     "ElementDefinition.constraint.key" : for vs0.key as vs make vt0.key as vt
     "ElementDefinition.constraint.requirements" : for vs0.requirements as vs make vt0.requirements as vt
-    "ElementDefinition.constraint.severity" : for vs0.severity as vs make vt0.severity as vt then
+    "ElementDefinition.constraint.severity" : for vs0.severity as vs make vt0.severity as vt
     "ElementDefinition.constraint.human" : for vs0.human as vs make vt0.human as vt
     "ElementDefinition.constraint.expression" : for vs0.expression as vs make vt0.expression as vt
     "ElementDefinition.constraint.xpath" : for vs0.xpath as vs make vt0.xpath as vt
@@ -219,7 +219,7 @@ group ElementDefinition extends BackboneElement
   "ElementDefinition.isModifier" : for src.isModifier as vs make tgt.isModifier as vt
   "ElementDefinition.isSummary" : for src.isSummary as vs make tgt.isSummary as vt
   "ElementDefinition.binding" : for src.binding as vs0 make tgt.binding as vt0 then {
-    "ElementDefinition.binding.strength" : for vs0.strength as vs make vt0.strength as vt then
+    "ElementDefinition.binding.strength" : for vs0.strength as vs make vt0.strength as vt
     "ElementDefinition.binding.description" : for vs0.description as vs make vt0.description as vt
   }
   "ElementDefinition.mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {

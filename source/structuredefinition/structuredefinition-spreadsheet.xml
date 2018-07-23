@@ -93,7 +93,7 @@
   
   
   
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -838,7 +838,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R47C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R46C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
@@ -3959,7 +3959,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="48" ss:StyleID="s102" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="47" ss:StyleID="s102" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s102" ss:Width="70.0"/>
    <Column ss:StyleID="s102" ss:Width="55.0"/>
    <Column ss:StyleID="s102" ss:Width="165.0"/>
@@ -4082,15 +4082,6 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a type, its content must match the path name in the first element of a snapshot</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">kind != 'logical' implies snapshot.empty() or snapshot.element.first().path = type</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">(f:kind/@value = 'logical') or not(exists(f:snapshot)) or (f:type/@value = f:snapshot/f:element[1]/f:path/@value)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="58">
-    <Cell ss:StyleID="s108"><Data ss:Type="Number">12</Data><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that element.base appears with base or not</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">element.base cannot appear if there is no base on the structure definition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.exists() implies (snapshot.element.base.exists() = baseDefinition.exists())</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">f:baseDefinition or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">14</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4405,7 +4396,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4743,7 +4734,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">The [[[StructureDefinition]]] is provided directly as part of the request. Servers may choose not to accept profiles in this fashion</Data></Cell>
@@ -5270,12 +5261,13 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6217,8 +6209,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" ss:StyleID="s114" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s114" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s114" ss:Width="274.0"/>
-   <Column ss:StyleID="s114" ss:Width="51.0"/>
-   <Column ss:StyleID="s114" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s114" ss:Width="45.0"/>
    <Column ss:StyleID="s114" ss:Width="146.0"/>
    <Column ss:StyleID="s114" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s114" ss:Width="97.0"/>
@@ -7252,7 +7243,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

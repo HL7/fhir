@@ -38,7 +38,7 @@ group Sequence extends DomainResource
   }
   "Sequence.observedSeq" : for src.observedSeq as vs make tgt.observedSeq as vt
   "Sequence.quality" : for src.quality as vs0 make tgt.quality as vt0 then {
-    "Sequence.quality.type" : for vs0.type as vs make vt0.type as vt then
+    "Sequence.quality.type" : for vs0.type as vs make vt0.type as vt
     "Sequence.quality.standardSequence" : for vs0.standardSequence as vs make vt0.standardSequence as vt
     "Sequence.quality.start" : for vs0.start as vs make vt0.start as vt
     "Sequence.quality.end" : for vs0.end as vs make vt0.end as vt
@@ -55,7 +55,7 @@ group Sequence extends DomainResource
   }
   "Sequence.readCoverage" : for src.readCoverage as vs make tgt.readCoverage as vt
   "Sequence.repository" : for src.repository as vs0 make tgt.repository as vt0 then {
-    "Sequence.repository.type" : for vs0.type as vs make vt0.type as vt then
+    "Sequence.repository.type" : for vs0.type as vs make vt0.type as vt
     "Sequence.repository.url" : for vs0.url as vs make vt0.url as vt
     "Sequence.repository.name" : for vs0.name as vs make vt0.name as vt
     "Sequence.repository.datasetId" : for vs0.datasetId as vs make vt0.datasetId as vt

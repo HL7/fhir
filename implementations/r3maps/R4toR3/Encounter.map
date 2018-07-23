@@ -43,7 +43,7 @@ group Encounter extends DomainResource
   }
   "Encounter.location" : for src.location as vs0 make tgt.location as vt0 then {
     "Encounter.location.location" : for vs0.location as vs make vt0.location as vt
-    "Encounter.location.status" : for vs0.status as vs make vt0.status as vt then
+    "Encounter.location.status" : for vs0.status as vs make vt0.status as vt
     "Encounter.location.period" : for vs0.period as vs make vt0.period as vt
   }
   "Encounter.serviceProvider" : for src.serviceProvider as vs make tgt.serviceProvider as vt

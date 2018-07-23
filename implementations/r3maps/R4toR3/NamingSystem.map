@@ -13,7 +13,7 @@ group NamingSystem extends DomainResource
   input tgt : NamingSystemR3 as target
 
   "NamingSystem.name" : for src.name as vs make tgt.name as vt
-  "NamingSystem.status" : for src.status as vs make tgt.status as vt then
+  "NamingSystem.status" : for src.status as vs make tgt.status as vt
   "NamingSystem.kind" : for src.kind as vs make tgt.kind as vt
   "NamingSystem.date" : for src.date as vs make tgt.date as vt
   "NamingSystem.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -25,7 +25,7 @@ group NamingSystem extends DomainResource
   "NamingSystem.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
   "NamingSystem.usage" : for src.usage as vs make tgt.usage as vt
   "NamingSystem.uniqueId" : for src.uniqueId as vs0 make tgt.uniqueId as vt0 then {
-    "NamingSystem.uniqueId.type" : for vs0.type as vs make vt0.type as vt then
+    "NamingSystem.uniqueId.type" : for vs0.type as vs make vt0.type as vt
     "NamingSystem.uniqueId.value" : for vs0.value as vs make vt0.value as vt
     "NamingSystem.uniqueId.preferred" : for vs0.preferred as vs make vt0.preferred as vt
     "NamingSystem.uniqueId.comment" : for vs0.comment as vs make vt0.comment as vt

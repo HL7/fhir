@@ -15,8 +15,8 @@ group OperationDefinition extends DomainResource
   "OperationDefinition.url" : for src.url as vs make tgt.url as vt
   "OperationDefinition.version" : for src.version as vs make tgt.version as vt
   "OperationDefinition.name" : for src.name as vs make tgt.name as vt
-  "OperationDefinition.status" : for src.status as vs make tgt.status as vt then
-  "OperationDefinition.kind" : for src.kind as vs make tgt.kind as vt then
+  "OperationDefinition.status" : for src.status as vs make tgt.status as vt
+  "OperationDefinition.kind" : for src.kind as vs make tgt.kind as vt
   "OperationDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
   "OperationDefinition.date" : for src.date as vs make tgt.date as vt
   "OperationDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -33,12 +33,12 @@ group OperationDefinition extends DomainResource
   "OperationDefinition.instance" : for src.instance as vs make tgt.instance as vt
   "OperationDefinition.parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
     "OperationDefinition.parameter.name" : for vs0.name as vs make vt0.name as vt
-    "OperationDefinition.parameter.use" : for vs0.use as vs make vt0.use as vt then
+    "OperationDefinition.parameter.use" : for vs0.use as vs make vt0.use as vt
     "OperationDefinition.parameter.min" : for vs0.min as vs make vt0.min as vt
     "OperationDefinition.parameter.max" : for vs0.max as vs make vt0.max as vt
     "OperationDefinition.parameter.documentation" : for vs0.documentation as vs make vt0.documentation as vt
     "OperationDefinition.parameter.type" : for vs0.type as vs make vt0.type as vt
-    "OperationDefinition.parameter.searchType" : for vs0.searchType as vs make vt0.searchType as vt then
+    "OperationDefinition.parameter.searchType" : for vs0.searchType as vs make vt0.searchType as vt
   }
   "OperationDefinition.overload" : for src.overload as vs0 make tgt.overload as vt0 then {
     "OperationDefinition.overload.parameterName" : for vs0.parameterName as vs make vt0.parameterName as vt

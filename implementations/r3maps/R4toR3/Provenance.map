@@ -24,7 +24,7 @@ group Provenance extends DomainResource
     "Provenance.agent.onBehalfOf-Reference" : for vs0.onBehalfOf  : Reference as vs make vt0.onBehalfOf = create("Reference") as vt then Reference(vs,vt)
   }
   "Provenance.entity" : for src.entity as vs0 make tgt.entity as vt0 then {
-    "Provenance.entity.role" : for vs0.role as vs make vt0.role as vt then
+    "Provenance.entity.role" : for vs0.role as vs make vt0.role as vt
     "Provenance.entity.what-Reference" : for vs0.what  : Reference as vs make vt0.what = create("Reference") as vt then Reference(vs,vt)
   }
   "Provenance.signature" : for src.signature as vs make tgt.signature as vt

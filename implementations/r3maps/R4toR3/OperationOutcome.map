@@ -13,8 +13,8 @@ group OperationOutcome extends DomainResource
   input tgt : OperationOutcomeR3 as target
 
   "OperationOutcome.issue" : for src.issue as vs0 make tgt.issue as vt0 then {
-    "OperationOutcome.issue.severity" : for vs0.severity as vs make vt0.severity as vt then
-    "OperationOutcome.issue.code" : for vs0.code as vs make vt0.code as vt then
+    "OperationOutcome.issue.severity" : for vs0.severity as vs make vt0.severity as vt
+    "OperationOutcome.issue.code" : for vs0.code as vs make vt0.code as vt
     "OperationOutcome.issue.details" : for vs0.details as vs make vt0.details as vt
     "OperationOutcome.issue.diagnostics" : for vs0.diagnostics as vs make vt0.diagnostics as vt
     "OperationOutcome.issue.location" : for vs0.location as vs make vt0.location as vt

@@ -68,6 +68,7 @@ import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
@@ -1180,7 +1181,7 @@ public class ProfileGenerator {
       dst.setStrength(src.getStrength());    
       dst.setValueSet(buildValueSetReference(src));
       if (src.hasMax()) {
-        dst.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").setValue(new Reference(src.getMaxReference() != null ? src.getMaxReference() : src.getMaxValueSet().getUrl()));
+        dst.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").setValue(new CanonicalType(src.getMaxReference() != null ? src.getMaxReference() : src.getMaxValueSet().getUrl()));
       }
     } else {
       dst.setStrength(BindingStrength.EXAMPLE);    

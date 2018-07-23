@@ -14,7 +14,7 @@ group ProcessRequest extends DomainResource
 
   "ProcessRequest.identifier" : for src.identifier as vs make tgt.identifier as vt
   "ProcessRequest.status" : for src.status as vs make tgt.status as vt
-  "ProcessRequest.action" : for src.action as vs make tgt.action as vt then
+  "ProcessRequest.action" : for src.action as vs make tgt.action as vt
   "ProcessRequest.target" : for src.target as vs make tgt.target as vt
   "ProcessRequest.created" : for src.created as vs make tgt.created as vt
   "ProcessRequest.provider" : for src.provider as vs make tgt.provider as vt

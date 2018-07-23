@@ -682,7 +682,7 @@ public class VersionTransformMapBuilder {
               if (sv != null && sv.startsWith("get")) {
                 String url = processConceptMap(pm1.getName(), context, unPropertyise(sv), unPropertyise(tv), expr);
                 if (url == null)
-                  b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"."+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as vs make "+tgt+"."+unPropertyise(tv)+" as vt then\r\n");
+                  b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"."+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as vs make "+tgt+"."+unPropertyise(tv)+" as vt\r\n");
                 else
                   b.append(Utilities.padLeft("", ' ', indent*2)+"  \""+context.targetPath+"."+unPropertyise(tv)+"\" : for "+src+"."+unPropertyise(sv)+" as v make "+tgt+"."+unPropertyise(tv)+" = translate(v, \""+url+"\", \"code\")\r\n");
                 return;

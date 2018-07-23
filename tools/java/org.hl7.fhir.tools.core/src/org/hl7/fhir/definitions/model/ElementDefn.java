@@ -33,6 +33,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.naming.directory.ModificationItem;
+
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -901,6 +903,7 @@ public class ElementDefn {
     statedInvariants.clear();
     statedInvariants.addAll(other.statedInvariants);
     modifier = other.modifier;
+    modifierReason = other.modifierReason;
     mustSupport = other.mustSupport;
     summaryItem = other.summaryItem; 
     regex = other.regex;

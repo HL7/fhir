@@ -34,7 +34,7 @@ group AllergyIntolerance extends DomainResource
     "AllergyIntolerance.reaction.manifestation" : for vs0.manifestation as vs make vt0.manifestation as vt
     "AllergyIntolerance.reaction.description" : for vs0.description as vs make vt0.description as vt
     "AllergyIntolerance.reaction.onset" : for vs0.onset as vs make vt0.onset as vt
-    "AllergyIntolerance.reaction.severity" : for vs0.severity as vs make vt0.severity as vt then
+    "AllergyIntolerance.reaction.severity" : for vs0.severity as vs make vt0.severity as vt
     "AllergyIntolerance.reaction.exposureRoute" : for vs0.exposureRoute as vs make vt0.exposureRoute as vt
     "AllergyIntolerance.reaction.note" : for vs0.note as vs make vt0.note as vt
   }

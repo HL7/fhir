@@ -7,6 +7,7 @@
   <description value="This value set includes example Consenting Party role codes."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
+	<content value="complete"/>
   <concept>
     <code value="consenter"/>
     <display value="Consenter"/>

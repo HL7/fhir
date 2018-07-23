@@ -17,7 +17,7 @@ group StructureDefinition extends DomainResource
   "StructureDefinition.version" : for src.version as vs make tgt.version as vt
   "StructureDefinition.name" : for src.name as vs make tgt.name as vt
   "StructureDefinition.title" : for src.title as vs make tgt.title as vt
-  "StructureDefinition.status" : for src.status as vs make tgt.status as vt then
+  "StructureDefinition.status" : for src.status as vs make tgt.status as vt
   "StructureDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
   "StructureDefinition.date" : for src.date as vs make tgt.date as vt
   "StructureDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -38,7 +38,7 @@ group StructureDefinition extends DomainResource
   "StructureDefinition.kind" : for src.kind as vs make tgt.kind as vt
   "StructureDefinition.abstract" : for src.abstract as vs make tgt.abstract as vt
   "StructureDefinition.contextInvariant" : for src.contextInvariant as vs make tgt.contextInvariant as vt
-  "StructureDefinition.derivation" : for src.derivation as vs make tgt.derivation as vt then
+  "StructureDefinition.derivation" : for src.derivation as vs make tgt.derivation as vt
   "StructureDefinition.snapshot" : for src.snapshot as vs0 make tgt.snapshot as vt0 then {
     "StructureDefinition.snapshot.element" : for vs0.element as vs make vt0.element as vt
   }

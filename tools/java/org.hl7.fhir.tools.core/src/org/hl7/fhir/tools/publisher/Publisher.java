@@ -139,6 +139,7 @@ import org.hl7.fhir.r4.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.r4.model.CapabilityStatement.TypeRestfulInteraction;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.CompartmentDefinition;
 import org.hl7.fhir.r4.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.CompartmentDefinition.CompartmentType;
@@ -4577,7 +4578,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
 
       page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+prefix +n, vs, false, false);
       if (vs.getUrl() == null)
@@ -4591,7 +4592,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(file));
       cs.setUserData("example", "true");
       cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      cs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      cs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
       cs.setUserData("path", prefix +n + ".html");
       addToResourceFeed(cs, valueSetsFeed, file.getName());
       page.getCodeSystems().put(cs.getUrl(), cs);
@@ -5837,20 +5838,19 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
       }
     }
-
-    if (buildFlags.get("all") && false) {
-      ei.validate("profiles-resources", "Bundle");
+    if (buildFlags.get("all")) {
+      ei.validate("v2-tables", "Bundle");
+      ei.validate("v3-codesystems", "Bundle");
+      ei.validate("valuesets", "Bundle");
+      ei.validate("conceptmaps", "Bundle");
       ei.validate("profiles-types", "Bundle");
+      ei.validate("profiles-resources", "Bundle");
       ei.validate("profiles-others", "Bundle");
       ei.validate("search-parameters", "Bundle");
       ei.validate("extension-definitions", "Bundle");
-      ei.validate("valuesets", "Bundle");
-      ei.validate("dataelements", "Bundle");
-      ei.validate("conceptmaps", "Bundle");
-      ei.validate("v2-tables", "Bundle");
-      ei.validate("v3-codesystems", "Bundle");
     }
     
+
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
     

@@ -17,7 +17,7 @@ group ValueSet extends DomainResource
   "ValueSet.version" : for src.version as vs make tgt.version as vt
   "ValueSet.name" : for src.name as vs make tgt.name as vt
   "ValueSet.title" : for src.title as vs make tgt.title as vt
-  "ValueSet.status" : for src.status as vs make tgt.status as vt then
+  "ValueSet.status" : for src.status as vs make tgt.status as vt
   "ValueSet.experimental" : for src.experimental as vs make tgt.experimental as vt
   "ValueSet.date" : for src.date as vs make tgt.date as vt
   "ValueSet.publisher" : for src.publisher as vs make tgt.publisher as vt

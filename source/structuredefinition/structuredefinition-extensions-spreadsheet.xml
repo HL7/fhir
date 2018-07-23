@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-11-12T04:21:16Z</LastSaved>
+  <LastSaved>2018-07-23T05:37:10Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4078,8 +4078,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="38" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
-   <Column ss:StyleID="s84" ss:Width="51.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="77.0"/>
    <Column ss:StyleID="s84" ss:Width="29.0"/>
@@ -4550,23 +4549,23 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">codegen-super</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">StructureDefinition.baseDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Use a different base when generating code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A specififc instruction to use an intermediate parent class when generating code for the classes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">This can be useful when setting up special common ancestor classes for shared code. At present the only use for this is for the special MetadataResource pattern</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5037,7 +5036,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5864,6 +5862,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5885,8 +5884,7 @@
   <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="31" ss:StyleID="s129" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s129" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s129" ss:Width="275.0"/>
-   <Column ss:StyleID="s129" ss:Width="51.0"/>
-   <Column ss:StyleID="s129" ss:Width="68.0"/>
+   <Column ss:Index="4" ss:StyleID="s129" ss:Width="68.0"/>
    <Column ss:StyleID="s129" ss:Width="146.0"/>
    <Column ss:StyleID="s129" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s129" ss:Width="98.0"/>
@@ -7152,11 +7150,11 @@
     <Cell ss:StyleID="s160"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s158"><Data ss:Type="String">rcrim</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">brr</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="Number">18</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s159"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">Regulated Clinical Research Information Management</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">Regulated Clinical Research Information Management (http://www.hl7.org/Special/committees/rcrim/index.cfm)</Data></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">Biomedical Research and Regulation</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Biomedical Research and Regulation (http://www.hl7.org/Special/committees/rcrim/index.cfm)</Data></Cell>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s160"/>

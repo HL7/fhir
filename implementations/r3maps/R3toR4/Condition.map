@@ -1,16 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition3to4" = "R3 to R4 Conversions for Condition"
 
-conceptmap "ConditionVerificationStatus" {
-  prefix s = "http://hl7.org/fhir/condition-ver-status"
-  prefix t = "http://hl7.org/fhir/condition-ver-status"
-
-  s:provisional - t:provisional
-  s:differential - t:differential
-  s:confirmed - t:confirmed
-  s:refuted - t:refuted
-  s:entered-in-error - t:entered-in-error
-  s:unknown - t:unconfirmed
-}
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as target
@@ -25,7 +14,7 @@ group Condition extends DomainResource
 
   "Condition.identifier" : for src.identifier as vs make tgt.identifier as vt
   "Condition.clinicalStatus" : for src.clinicalStatus as vs make tgt.clinicalStatus as vt
-  "Condition.verificationStatus" : for src.verificationStatus as v make tgt.verificationStatus = translate(v, "#ConditionVerificationStatus", "code")
+  "Condition.verificationStatus" : for src.verificationStatus as vs make tgt.verificationStatus as vt
   "Condition.category" : for src.category as vs make tgt.category as vt
   "Condition.severity" : for src.severity as vs make tgt.severity as vt
   "Condition.code" : for src.code as vs make tgt.code as vt

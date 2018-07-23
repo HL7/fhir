@@ -15,7 +15,7 @@ group EpisodeOfCare extends DomainResource
   "EpisodeOfCare.identifier" : for src.identifier as vs make tgt.identifier as vt
   "EpisodeOfCare.status" : for src.status as vs make tgt.status as vt
   "EpisodeOfCare.statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
-    "EpisodeOfCare.statusHistory.status" : for vs0.status as vs make vt0.status as vt then
+    "EpisodeOfCare.statusHistory.status" : for vs0.status as vs make vt0.status as vt
     "EpisodeOfCare.statusHistory.period" : for vs0.period as vs make vt0.period as vt
   }
   "EpisodeOfCare.type" : for src.type as vs make tgt.type as vt

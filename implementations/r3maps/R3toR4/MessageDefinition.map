@@ -25,7 +25,7 @@ group MessageDefinition extends DomainResource
   "MessageDefinition.version" : for src.version as vs make tgt.version as vt
   "MessageDefinition.name" : for src.name as vs make tgt.name as vt
   "MessageDefinition.title" : for src.title as vs make tgt.title as vt
-  "MessageDefinition.status" : for src.status as vs make tgt.status as vt then
+  "MessageDefinition.status" : for src.status as vs make tgt.status as vt
   "MessageDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
   "MessageDefinition.date" : for src.date as vs make tgt.date as vt
   "MessageDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt

@@ -27,6 +27,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
@@ -88,7 +89,7 @@ public class ValueSetGenerator {
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/data-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
     } else {
       String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
       if (!ec.equals("fhir"))
@@ -153,7 +154,7 @@ public class ValueSetGenerator {
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/resource-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
     } else {
       String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
       if (!ec.equals("fhir"))
@@ -203,7 +204,7 @@ public class ValueSetGenerator {
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/abstract-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
     } else {
       String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
       if (!ec.equals("fhir"))
@@ -235,7 +236,7 @@ public class ValueSetGenerator {
       compose.addInclude().setSystem("http://hl7.org/fhir/abstract-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
     } else {
       String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
       if (!ec.equals("fhir"))
@@ -251,7 +252,7 @@ public class ValueSetGenerator {
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/message-events");
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
     } else {
       String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
       if (!ec.equals("fhir"))
@@ -341,7 +342,7 @@ public class ValueSetGenerator {
     
     vs.setUserData("filename", "valueset-"+vs.getId());
     if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType("fhir"));
     } else {
       String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
       if (!ec.equals("fhir"))

@@ -22,8 +22,8 @@ group DeviceMetric extends DomainResource
   "DeviceMetric.category" : for src.category as vs make tgt.category as vt
   "DeviceMetric.measurementPeriod" : for src.measurementPeriod as vs make tgt.measurementPeriod as vt
   "DeviceMetric.calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
-    "DeviceMetric.calibration.type" : for vs0.type as vs make vt0.type as vt then
-    "DeviceMetric.calibration.state" : for vs0.state as vs make vt0.state as vt then
+    "DeviceMetric.calibration.type" : for vs0.type as vs make vt0.type as vt
+    "DeviceMetric.calibration.state" : for vs0.state as vs make vt0.state as vt
     "DeviceMetric.calibration.time" : for vs0.time as vs make vt0.time as vt
   }
 endgroup

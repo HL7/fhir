@@ -1108,7 +1108,7 @@ public class SpreadsheetParser {
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
         if (!cd.getValueSet().hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-          cd.getValueSet().addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+          cd.getValueSet().addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(committee.getCode()));
         } else {
           String ec = ToolingExtensions.readStringExtension(cd.getValueSet(), ToolingExtensions.EXT_WORKGROUP);
           if (!ec.equals(committee))
@@ -1146,7 +1146,7 @@ public class SpreadsheetParser {
         ValueSetUtilities.makeShareable(vs);
         vs.setUserData("filename", "valueset-"+vs.getId());
         if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-          vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+          vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(committee.getCode()));
         } else {
           String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
           if (!ec.equals(committee.getCode()))
@@ -1250,10 +1250,10 @@ public class SpreadsheetParser {
       result.setUserData("filename", ref);
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       if (!result.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-        result.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+        result.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(committee.getCode()));
       } else {
         String ec = ToolingExtensions.readStringExtension(result, ToolingExtensions.EXT_WORKGROUP);
-        if (!ec.equals(committee))
+        if (!ec.equals(committee.getCode()))
           System.out.println("ValueSet "+result.getUrl()+" WG mismatch 5: is "+ec+", want to set to "+committee.getCode());
       } 
 
@@ -1924,7 +1924,6 @@ public class SpreadsheetParser {
     } else {
       if (source.startsWith("\"") && source.endsWith("\""))
         source = source.substring(1, source.length()-1);
-
 
       if (type.equals("string"))
         return new StringType(source);

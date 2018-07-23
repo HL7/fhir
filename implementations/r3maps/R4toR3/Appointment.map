@@ -33,8 +33,8 @@ group Appointment extends DomainResource
   "Appointment.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
     "Appointment.participant.type" : for vs0.type as vs make vt0.type as vt
     "Appointment.participant.actor" : for vs0.actor as vs make vt0.actor as vt
-    "Appointment.participant.required" : for vs0.required as vs make vt0.required as vt then
-    "Appointment.participant.status" : for vs0.status as vs make vt0.status as vt then
+    "Appointment.participant.required" : for vs0.required as vs make vt0.required as vt
+    "Appointment.participant.status" : for vs0.status as vs make vt0.status as vt
   }
   "Appointment.requestedPeriod" : for src.requestedPeriod as vs make tgt.requestedPeriod as vt
 endgroup

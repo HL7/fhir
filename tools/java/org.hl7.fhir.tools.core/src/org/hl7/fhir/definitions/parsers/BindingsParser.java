@@ -43,6 +43,7 @@ import org.hl7.fhir.r4.formats.IParser;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
@@ -114,7 +115,9 @@ public class BindingsParser {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(1));
-        cd.getValueSet().addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(sheet.getColumn(row, "Committee").toLowerCase()));
+        if (!Utilities.noString(sheet.getColumn(row, "Committee"))) {
+          cd.getValueSet().addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(sheet.getColumn(row, "Committee").toLowerCase()));
+        }
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
         cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         cd.getValueSet().setName(cd.getName());
@@ -139,7 +142,7 @@ public class BindingsParser {
           if (max.startsWith("http:")) {
             cd.setMaxReference(max); // will sort this out later
           } else
-            cd.setMaxValueSet(loadValueSet(max, sheet.getColumn(row, "Max").toLowerCase()));
+            cd.setMaxValueSet(loadValueSet(max, sheet.getColumn(row, "Committee").toLowerCase()));
       } else if (cd.getBinding() == BindingMethod.Special) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
@@ -209,13 +212,15 @@ public class BindingsParser {
 //      if (!result.hasUrl())
         result.setUrl("http://hl7.org/fhir/ValueSet/"+ref.substring(9));
         
-        if (!result.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
-          result.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee));
-        } else {
-          String ec = ToolingExtensions.readStringExtension(result, ToolingExtensions.EXT_WORKGROUP);
-          if (!ec.equals(committee))
-            System.out.println("ValueSet "+result.getUrl()+" WG mismatch 1: is "+ec+", want to set to "+committee);
-        } 
+        if (!Utilities.noString(committee)) {
+          if (!result.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+            result.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new CodeType(committee));
+          } else {
+            String ec = ToolingExtensions.readStringExtension(result, ToolingExtensions.EXT_WORKGROUP);
+            if (!ec.equals(committee))
+              System.out.println("ValueSet "+result.getUrl()+" WG mismatch 1: is "+ec+", want to set to "+committee);
+          } 
+        }
         result.setUserData("filename", "valueset-"+ref.substring(9));
         result.setUserData("path", "valueset-"+ref.substring(9)+".html");
         

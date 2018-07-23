@@ -17,7 +17,7 @@ group Practitioner extends DomainResource
   "Practitioner.name" : for src.name as vs make tgt.name as vt
   "Practitioner.telecom" : for src.telecom as vs make tgt.telecom as vt
   "Practitioner.address" : for src.address as vs make tgt.address as vt
-  "Practitioner.gender" : for src.gender as vs make tgt.gender as vt then
+  "Practitioner.gender" : for src.gender as vs make tgt.gender as vt
   "Practitioner.birthDate" : for src.birthDate as vs make tgt.birthDate as vt
   "Practitioner.photo" : for src.photo as vs make tgt.photo as vt
   "Practitioner.qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then {

@@ -82,7 +82,7 @@
 				<content>
 					<attachment>
 						<contentType value="text/plain"/>
-						<language value="en-us"/>
+						<language value="en-US"/>
 						<url value="http://localhost:9556/svc/fhir/Binary/1e404af3-077f-4bee-b7a6-a9be97e1ce32"/>
 					</attachment>
 					<format>

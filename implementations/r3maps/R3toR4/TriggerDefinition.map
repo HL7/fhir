@@ -12,7 +12,7 @@ group TriggerDefinition extends Element
   input src : TriggerDefinitionR3 as source
   input tgt : TriggerDefinition as target
 
-  "TriggerDefinition.type" : for src.type as vs make tgt.type as vt then
+  "TriggerDefinition.type" : for src.type as vs make tgt.type as vt
   "TriggerDefinition.name" : for src.eventName as vs make tgt.name as vt
   "TriggerDefinition.timing-Timing" : for src.eventTiming  : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs,vt)
   "TriggerDefinition.timing-Reference" : for src.eventTiming  : Reference as vs make tgt.timing = create("Reference") as vt then Reference(vs,vt)

@@ -19,7 +19,7 @@ group Subscription extends DomainResource
   "Subscription.criteria" : for src.criteria as vs make tgt.criteria as vt
   "Subscription.error" : for src.error as vs make tgt.error as vt
   "Subscription.channel" : for src.channel as vs0 make tgt.channel as vt0 then {
-    "Subscription.channel.type" : for vs0.type as vs make vt0.type as vt then
+    "Subscription.channel.type" : for vs0.type as vs make vt0.type as vt
     "Subscription.channel.payload" : for vs0.payload as vs make vt0.payload as vt
     "Subscription.channel.header" : for vs0.header as vs make vt0.header as vt
   }

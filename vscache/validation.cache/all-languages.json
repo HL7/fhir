@@ -1,0 +1,10 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/all-languages",
+  "outcomes": [
+    {
+      "hash": "|urn:ietf:bcp:47|null|en-us|null",
+      "severity": "error",
+      "message": "Attempt to free a class a second time"
+    }
+  ]
+}

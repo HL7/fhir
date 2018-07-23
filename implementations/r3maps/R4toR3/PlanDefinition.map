@@ -18,7 +18,7 @@ group PlanDefinition extends DomainResource
   "PlanDefinition.name" : for src.name as vs make tgt.name as vt
   "PlanDefinition.title" : for src.title as vs make tgt.title as vt
   "PlanDefinition.type" : for src.type as vs make tgt.type as vt
-  "PlanDefinition.status" : for src.status as vs make tgt.status as vt then
+  "PlanDefinition.status" : for src.status as vs make tgt.status as vt
   "PlanDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
   "PlanDefinition.date" : for src.date as vs make tgt.date as vt
   "PlanDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
@@ -60,11 +60,11 @@ group PlanDefinition extends DomainResource
     "PlanDefinition.action.timing-Duration" : for vs0.timing  : Duration as vs make vt0.timing = create("Duration") as vt then Duration(vs,vt)
     "PlanDefinition.action.timing-Range" : for vs0.timing  : Range as vs make vt0.timing = create("Range") as vt then Range(vs,vt)
     "PlanDefinition.action.timing-Timing" : for vs0.timing  : Timing as vs make vt0.timing = create("Timing") as vt then Timing(vs,vt)
-    "PlanDefinition.action.groupingBehavior" : for vs0.groupingBehavior as vs make vt0.groupingBehavior as vt then
-    "PlanDefinition.action.selectionBehavior" : for vs0.selectionBehavior as vs make vt0.selectionBehavior as vt then
-    "PlanDefinition.action.requiredBehavior" : for vs0.requiredBehavior as vs make vt0.requiredBehavior as vt then
-    "PlanDefinition.action.precheckBehavior" : for vs0.precheckBehavior as vs make vt0.precheckBehavior as vt then
-    "PlanDefinition.action.cardinalityBehavior" : for vs0.cardinalityBehavior as vs make vt0.cardinalityBehavior as vt then
+    "PlanDefinition.action.groupingBehavior" : for vs0.groupingBehavior as vs make vt0.groupingBehavior as vt
+    "PlanDefinition.action.selectionBehavior" : for vs0.selectionBehavior as vs make vt0.selectionBehavior as vt
+    "PlanDefinition.action.requiredBehavior" : for vs0.requiredBehavior as vs make vt0.requiredBehavior as vt
+    "PlanDefinition.action.precheckBehavior" : for vs0.precheckBehavior as vs make vt0.precheckBehavior as vt
+    "PlanDefinition.action.cardinalityBehavior" : for vs0.cardinalityBehavior as vs make vt0.cardinalityBehavior as vt
   }
 endgroup
 

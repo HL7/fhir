@@ -20,9 +20,9 @@ group Device extends DomainResource
     "Device.udi.carrierHRF" : for vs0.carrierHRF as vs make vt0.carrierHRF as vt
     "Device.udi.carrierAIDC" : for vs0.carrierAIDC as vs make vt0.carrierAIDC as vt
     "Device.udi.issuer" : for vs0.issuer as vs make vt0.issuer as vt
-    "Device.udi.entryType" : for vs0.entryType as vs make vt0.entryType as vt then
+    "Device.udi.entryType" : for vs0.entryType as vs make vt0.entryType as vt
   }
-  "Device.status" : for src.status as vs make tgt.status as vt then
+  "Device.status" : for src.status as vs make tgt.status as vt
   "Device.type" : for src.type as vs make tgt.type as vt
   "Device.lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt
   "Device.manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt

@@ -15,14 +15,14 @@ group DocumentReference extends DomainResource
   "DocumentReference.masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt
   "DocumentReference.identifier" : for src.identifier as vs make tgt.identifier as vt
   "DocumentReference.status" : for src.status as vs make tgt.status as vt
-  "DocumentReference.docStatus" : for src.docStatus as vs make tgt.docStatus as vt then
+  "DocumentReference.docStatus" : for src.docStatus as vs make tgt.docStatus as vt
   "DocumentReference.type" : for src.type as vs make tgt.type as vt
   "DocumentReference.class" : for src.class as vs make tgt.class as vt
   "DocumentReference.subject" : for src.subject as vs make tgt.subject as vt
   "DocumentReference.created" : for src.created as vs make tgt.created as vt
   "DocumentReference.custodian" : for src.custodian as vs make tgt.custodian as vt
   "DocumentReference.relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "DocumentReference.relatesTo.code" : for vs0.code as vs make vt0.code as vt then
+    "DocumentReference.relatesTo.code" : for vs0.code as vs make vt0.code as vt
     "DocumentReference.relatesTo.target" : for vs0.target as vs make vt0.target as vt
   }
   "DocumentReference.description" : for src.description as vs make tgt.description as vt

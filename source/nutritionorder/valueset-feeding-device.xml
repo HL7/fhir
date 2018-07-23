@@ -3,7 +3,15 @@
   <id value="nutorder-feeding-device"/>
   <url value="http://hl7.org/fhir/ValueSet/feeding-device"/>
   <name value="Feeding Device Codes"/>
+  <status value="draft"/>
   <description value="Materials used or needed to feed the patient."/>
+  <publisher value="FHIR NutritionOrder team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright   of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers   of these specifications must have the appropriate SNOMED CT Affiliate license - for more   information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
