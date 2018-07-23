@@ -1,95 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproduct.xsd">
-  <id value="example"/>
-  <identifier>
-    <system value="http://ema.europa.eu/example/MPID"/>
-    <value value="{mpid}"/>
-  </identifier>
-  <productClassification>
-    <coding>
-      <system
-        value="http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem"/>
-      <code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
-    </coding>
-  </productClassification>
-  <marketingAuthorization>
-    <reference value="MedicinalProductAuthorization/Equilidem2-5mg-d4e519"/>
-  </marketingAuthorization>
-  <packagedMedicinalProduct>
-    <reference value="MedicinalProductPackaged/Equilidem2-5mg-d4e759"/>
-  </packagedMedicinalProduct>
-  <pharmaceuticalProduct>
-    <reference value="MedicinalProductPharmaceutical/Equilidem2-5mg-d4e1566"/>
-  </pharmaceuticalProduct>
-  <clinicalParticulars>
-    <reference value="MedicinalProductClinicals/Equilidem2-5mg-d4e3"/>
-  </clinicalParticulars>
-  <attachedDocument>
-    <reference value="DocumentReference/Equilidem2-5mg-d4e5"/>
-  </attachedDocument>
-  <masterFile>
-    <reference value="DocumentReference/Equilidem2-5mg-d4e689"/>
-  </masterFile>
-  <name>
-    <productName value="Equilidem 2.5 mg film-coated tablets"/>
-    <namePart>
-      <part value="Equilidem"/>
-      <type>
-        <code value="INV"/>
-      </type>
-    </namePart>
-    <namePart>
-      <part value="2.5 mg"/>
-      <type>
-        <code value="STR"/>
-      </type>
-    </namePart>
-    <namePart>
-      <part value="film-coated tablets"/>
-      <type>
-        <code value="FRM"/>
-      </type>
-    </namePart>
-    <countryLanguage>
-      <!-- ISO name: /MedicinalProduct/MedicinalProductName/Country-Language/Country -->
-      <country>
-        <coding>
-          <system value="http://ema.europa.eu/example/countryCode"/>
-          <code value="EU"/>
-        </coding>
-      </country>
-      <jurisdiction>
-        <coding>
-          <system value="http://ema.europa.eu/example/jurisdictionCode"/>
-          <code value="EU"/>
-        </coding>
-      </jurisdiction>
-      <language>
-        <coding>
-          <system value="http://ema.europa.eu/example/languageCode"/>
-          <code value="EN"/>
-        </coding>
-      </language>
-    </countryLanguage>
-  </name>
-  <manufacturingBusinessOperation>
-    <operationType>
-      <coding>
-        <system value="http://ema.europa.eu/example/manufacturingOperationType"/>
-        <code value="Batchrelease"/>
-      </coding>
-    </operationType>
-    <authorisationReferenceNumber>
-      <system value="http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber"/>
-      <value value="1324TZ"/>
-    </authorisationReferenceNumber>
-    <effectiveDate value="2013-03-15"/>
-    <manufacturer>
-      <reference value="Organization/Equilidem2-5mg-d4e426"/>
-    </manufacturer>
-    <regulator>
-      <reference value="Organization/Equilidem2-5mg-d4e476"/>
-    </regulator>
-  </manufacturingBusinessOperation>
+<MedicinalProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproduct.xsd">
+	<id value="example"/>
+	<identifier>
+		<system value="http://ema.europa.eu/example/MPID"/>
+		<value value="{mpid}"/>
+	</identifier>
+	<productClassification>
+		<coding>
+			<system value="http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem"/>
+			<code value="WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"/>
+		</coding>
+	</productClassification>
+	<marketingAuthorization>
+		<reference value="MedicinalProductAuthorization/example"/>
+	</marketingAuthorization>
+	<packagedMedicinalProduct>
+		<reference value="MedicinalProductPackaged/example"/>
+	</packagedMedicinalProduct>
+	<pharmaceuticalProduct>
+		<reference value="MedicinalProductPharmaceutical/example"/>
+	</pharmaceuticalProduct>
+	<clinicalParticulars>
+		<reference value="MedicinalProductClinicals/example"/>
+	</clinicalParticulars>
+	<attachedDocument>
+		<reference value="DocumentReference/example"/>
+	</attachedDocument>
+	<masterFile>
+		<reference value="DocumentReference/example"/>
+	</masterFile>
+	<name>
+		<productName value="Equilidem 2.5 mg film-coated tablets"/>
+		<namePart>
+			<part value="Equilidem"/>
+			<type>
+				<code value="INV"/>
+			</type>
+		</namePart>
+		<namePart>
+			<part value="2.5 mg"/>
+			<type>
+				<code value="STR"/>
+			</type>
+		</namePart>
+		<namePart>
+			<part value="film-coated tablets"/>
+			<type>
+				<code value="FRM"/>
+			</type>
+		</namePart>
+		<countryLanguage>
+			<!-- ISO name: /MedicinalProduct/MedicinalProductName/Country-Language/Country -->
+			<country>
+				<coding>
+					<system value="http://ema.europa.eu/example/countryCode"/>
+					<code value="EU"/>
+				</coding>
+			</country>
+			<jurisdiction>
+				<coding>
+					<system value="http://ema.europa.eu/example/jurisdictionCode"/>
+					<code value="EU"/>
+				</coding>
+			</jurisdiction>
+			<language>
+				<coding>
+					<system value="http://ema.europa.eu/example/languageCode"/>
+					<code value="EN"/>
+				</coding>
+			</language>
+		</countryLanguage>
+	</name>
+	<manufacturingBusinessOperation>
+		<operationType>
+			<coding>
+				<system value="http://ema.europa.eu/example/manufacturingOperationType"/>
+				<code value="Batchrelease"/>
+			</coding>
+		</operationType>
+		<authorisationReferenceNumber>
+			<system value="http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber"/>
+			<value value="1324TZ"/>
+		</authorisationReferenceNumber>
+		<effectiveDate value="2013-03-15"/>
+		<manufacturer>
+			<reference value="Organization/example"/>
+		</manufacturer>
+		<regulator>
+			<reference value="Organization/example"/>
+		</regulator>
+	</manufacturingBusinessOperation>
 </MedicinalProduct>
