@@ -36,6 +36,10 @@
         <display value="seconds"/>
       </concept>
       <concept>
+        <code value="min"/>
+        <display value="minutes"/>
+      </concept>
+      <concept>
         <code value="h"/>
         <display value="hours"/>
       </concept>
