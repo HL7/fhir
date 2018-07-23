@@ -267,11 +267,11 @@ public class XmlParser extends ParserBase {
     		if (property != null) {
     			if (!property.isChoice() && "xhtml".equals(property.getType())) {
     			  XhtmlNode xhtml;
-    			  if (property.getDefinition().hasRepresentation(PropertyRepresentation.CDATEXT))
+    			  if (property.getDefinition().hasRepresentation(PropertyRepresentation.CDATEXT)) 
     			    xhtml = new CDANarrativeFormat().convert((org.w3c.dom.Element) child);
           	else 
               xhtml = new XhtmlParser().setValidatorMode(true).parseHtmlNode((org.w3c.dom.Element) child);
-						context.getChildren().add(new Element("div", property, "xhtml", new XhtmlComposer(XhtmlComposer.XML, false).compose(xhtml)).setXhtml(xhtml).markLocation(line(child), col(child)));
+						context.getChildren().add(new Element(property.getName(), property, "xhtml", new XhtmlComposer(XhtmlComposer.XML, false).compose(xhtml)).setXhtml(xhtml).markLocation(line(child), col(child)));
     			} else {
     			  String npath = path+"/"+pathPrefix(child.getNamespaceURI())+child.getLocalName();
     				Element n = new Element(child.getLocalName(), property).markLocation(line(child), col(child));

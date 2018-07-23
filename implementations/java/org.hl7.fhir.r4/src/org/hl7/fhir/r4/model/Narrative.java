@@ -32,6 +32,8 @@ package org.hl7.fhir.r4.model;
 // Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
 
 import java.util.*;
+
+import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import org.hl7.fhir.utilities.Utilities;
@@ -329,6 +331,10 @@ public class Narrative extends BaseNarrative implements INarrative {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -892481550:  return getStatusElement();
+        case 99473: /*div*/
+          if (div == null)
+            div = new XhtmlNode(NodeType.Element, "div");
+          return new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer(true).composeEx(this.div));
         default: return super.makeProperty(hash, name);
         }
 
