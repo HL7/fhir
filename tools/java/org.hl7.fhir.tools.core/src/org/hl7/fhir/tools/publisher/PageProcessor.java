@@ -10080,7 +10080,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           rs.executeFailCount++;
         if (el.has("r4.errors")) {
           rs.r4ValidationFailCount++;
-          rs.r4ValidationErrors = rs.r4ValidationErrors+el.getAsJsonArray("r3.errors").size();
+          if (el.getAsJsonArray("r3.errors") != null)
+            rs.r4ValidationErrors = rs.r4ValidationErrors+el.getAsJsonArray("r3.errors").size();
+          else
+            rs.r4ValidationErrors = rs.r4ValidationErrors;
         }
         if (el.has("round-trip"))
           rs.roundTripFailCount++;
