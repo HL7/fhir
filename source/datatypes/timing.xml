@@ -1287,7 +1287,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">BID | TID | QID | AM | PM | QD | QOD | +</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured representation should be used (in this case, specifying the two event times)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3540,7 +3540,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>12</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7703,7 +7703,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">AM</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Every morning at institution specified times</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Every morning at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7714,7 +7714,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">PM</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Every afternoon at institution specified times</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Every afternoon at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -7742,6 +7742,39 @@
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q1H</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">every hour</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Every hour at institution specified times</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q2H</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">every 2 hours</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Every 2 hours at institution specified times</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q3H</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">every 3 hours</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Every 3 hours at institution specified times</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">Q4H</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
@@ -7764,78 +7797,45 @@
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Q8H</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">every 8 hours</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Every 8 hours at institution specified times</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">BED</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">at bedtime</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">At bedtime (institution specified time)</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">WK</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s142"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">weekly</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Weekly at institution specified time</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">MO</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation</Data></Cell>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">monthly</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Monthly at institution specified time</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
