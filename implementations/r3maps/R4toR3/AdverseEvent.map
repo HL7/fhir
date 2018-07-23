@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/AdverseEvent3to2" = "R4 to R3 Conversion for AdverseEvent"
+﻿map "http://hl7.org/fhir/StructureMap/AdverseEvent4to3" = "R4 to R3 Conversion for AdverseEvent"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/AdverseEvent" alias AdverseEvent as source
@@ -32,6 +32,7 @@ group AdverseEvent extends DomainResource
   "AdverseEvent.subjectMedicalHistory": for src.subjectMedicalHistory make tgt.subjectMedicalHistory
   "AdverseEvent.referenceDocument": for src.referenceDocument make tgt.referenceDocument
   "AdverseEvent.study": for src.study make tgt.study
+endgroup
 
 group AdverseEventSuspectEntity extends BackboneElement
   input src : AdverseEventR3 as source
@@ -39,6 +40,7 @@ group AdverseEventSuspectEntity extends BackboneElement
 
   "AdverseEvent.suspectEntity.instance": for src.instance make tgt.instance
   "AdverseEvent.suspectEntity.causality": for src.causality as s make tgt.causality as t then AdverseEventSuspectEntityCausality(s,t)
+endgroup
 
 group AdverseEventSuspectEntityCausality extends BackboneElement
   input src : AdverseEventR3 as source
@@ -48,3 +50,4 @@ group AdverseEventSuspectEntityCausality extends BackboneElement
   "AdverseEvent.suspectEntity.causality.productRelatedness": for src.productRelatedness make tgt.productRelatedness
   "AdverseEvent.suspectEntity.causality.author": for src.author make tgt.author
   "AdverseEvent.suspectEntity.causality.method": for src.method make tgt.method
+endgroup

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Questionnaire2to3" = "R3 to R4 Conversions for Questionnaire"
+﻿map "http://hl7.org/fhir/StructureMap/Questionnaire3to4" = "R3 to R4 Conversions for Questionnaire"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as source
@@ -66,7 +66,7 @@ group QuestionnaireItemEnableWhen extends BackboneElement
 
   "Questionnaire.item.enableWhen.question": for src.question make tgt.question
   "Questionnaire.item.enableWhen.operator": for src.operator make tgt.operator
-  "Questionnaire.item.enableWhen.answer[x]": for src.answer[x] make tgt.answer[x]
+  "Questionnaire.item.enableWhen.answer": for src.answer make tgt.answer
 endgroup
 
 
@@ -74,7 +74,7 @@ group QuestionnaireItemAnswerOption extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
-  "Questionnaire.item.answerOption.value[x]": for src.value[x] make tgt.value[x]
+  "Questionnaire.item.answerOption.value": for src.value make tgt.value
   "Questionnaire.item.answerOption.initialSelected": for src.initialSelected make tgt.initialSelected
 endgroup
 
@@ -83,6 +83,6 @@ group QuestionnaireItemInitial extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
-  "Questionnaire.item.initial.value[x]": for src.value[x] make tgt.value[x]
+  "Questionnaire.item.initial.value": for src.value make tgt.value
 endgroup
 

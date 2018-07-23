@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/BackboneElement3to2" = "R4 to R3 Conversion for BackboneElement"
+﻿map "http://hl7.org/fhir/StructureMap/BackboneElement4to3" = "R4 to R3 Conversion for BackboneElement"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/BackboneElement" alias BackboneElement as source
@@ -13,3 +13,4 @@ group BackboneElement extends Element
   input tgt : BackboneElement as target
 
   "BackboneElement.modifierExtension": for src.modifierExtension make tgt.modifierExtension
+endgroup

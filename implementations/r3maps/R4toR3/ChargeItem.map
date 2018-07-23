@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ChargeItem3to2" = "R4 to R3 Conversion for ChargeItem"
+﻿map "http://hl7.org/fhir/StructureMap/ChargeItem4to3" = "R4 to R3 Conversion for ChargeItem"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ChargeItem" alias ChargeItem as source
@@ -19,7 +19,7 @@ group ChargeItem extends DomainResource
   "ChargeItem.code": for src.code make tgt.code
   "ChargeItem.subject": for src.subject make tgt.subject
   "ChargeItem.context": for src.context make tgt.context
-  "ChargeItem.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "ChargeItem.occurrence": for src.occurrence make tgt.occurrence
   "ChargeItem.performer": for src.performer as s make tgt.performer as t then ChargeItemPerformer(s,t)
   "ChargeItem.performingOrganization": for src.performingOrganization make tgt.performingOrganization
   "ChargeItem.requestingOrganization": for src.requestingOrganization make tgt.requestingOrganization
@@ -33,10 +33,11 @@ group ChargeItem extends DomainResource
   "ChargeItem.enteredDate": for src.enteredDate make tgt.enteredDate
   "ChargeItem.reason": for src.reason make tgt.reason
   "ChargeItem.service": for src.service make tgt.service
-  "ChargeItem.product[x]": for src.product[x] make tgt.product[x]
+  "ChargeItem.product": for src.product make tgt.product
   "ChargeItem.account": for src.account make tgt.account
   "ChargeItem.note": for src.note make tgt.note
   "ChargeItem.supportingInformation": for src.supportingInformation make tgt.supportingInformation
+endgroup
 
 group ChargeItemPerformer extends BackboneElement
   input src : ChargeItemR3 as source
@@ -44,3 +45,4 @@ group ChargeItemPerformer extends BackboneElement
 
   "ChargeItem.performer.function": for src.function make tgt.function
   "ChargeItem.performer.actor": for src.actor make tgt.actor
+endgroup

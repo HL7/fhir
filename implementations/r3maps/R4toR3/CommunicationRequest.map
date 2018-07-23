@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest3to2" = "R4 to R3 Conversion for CommunicationRequest"
+﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest4to3" = "R4 to R3 Conversion for CommunicationRequest"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/CommunicationRequest" alias CommunicationRequest as source
@@ -26,7 +26,7 @@ group CommunicationRequest extends DomainResource
   "CommunicationRequest.about": for src.about make tgt.about
   "CommunicationRequest.context": for src.context make tgt.context
   "CommunicationRequest.payload": for src.payload as s make tgt.payload as t then CommunicationRequestPayload(s,t)
-  "CommunicationRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "CommunicationRequest.occurrence": for src.occurrence make tgt.occurrence
   "CommunicationRequest.authoredOn": for src.authoredOn make tgt.authoredOn
   "CommunicationRequest.requester": for src.requester make tgt.requester
   "CommunicationRequest.recipient": for src.recipient make tgt.recipient
@@ -34,9 +34,11 @@ group CommunicationRequest extends DomainResource
   "CommunicationRequest.reasonCode": for src.reasonCode make tgt.reasonCode
   "CommunicationRequest.reasonReference": for src.reasonReference make tgt.reasonReference
   "CommunicationRequest.note": for src.note make tgt.note
+endgroup
 
 group CommunicationRequestPayload extends BackboneElement
   input src : CommunicationRequestR3 as source
   input tgt : CommunicationRequest as target
 
-  "CommunicationRequest.payload.content[x]": for src.content[x] make tgt.content[x]
+  "CommunicationRequest.payload.content": for src.content make tgt.content
+endgroup

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/NutritionOrder2to3" = "R3 to R4 Conversions for NutritionOrder"
+﻿map "http://hl7.org/fhir/StructureMap/NutritionOrder3to4" = "R3 to R4 Conversions for NutritionOrder"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/NutritionOrder" alias NutritionOrderR3 as source
@@ -95,6 +95,6 @@ group NutritionOrderEnteralFormulaAdministration extends BackboneElement
 
   "NutritionOrder.enteralFormula.administration.schedule": for src.schedule make tgt.schedule
   "NutritionOrder.enteralFormula.administration.quantity": for src.quantity make tgt.quantity
-  "NutritionOrder.enteralFormula.administration.rate[x]": for src.rate[x] make tgt.rate[x]
+  "NutritionOrder.enteralFormula.administration.rate": for src.rate make tgt.rate
 endgroup
 

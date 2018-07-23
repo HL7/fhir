@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicationKnowledge2to3" = "R3 to R4 Conversions for MedicationKnowledge"
+﻿map "http://hl7.org/fhir/StructureMap/MedicationKnowledge3to4" = "R3 to R4 Conversions for MedicationKnowledge"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationKnowledge" alias MedicationKnowledgeR3 as source
@@ -59,7 +59,7 @@ group MedicationKnowledgeIngredient extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
-  "MedicationKnowledge.ingredient.item[x]": for src.item[x] make tgt.item[x]
+  "MedicationKnowledge.ingredient.item": for src.item make tgt.item
   "MedicationKnowledge.ingredient.isActive": for src.isActive make tgt.isActive
   "MedicationKnowledge.ingredient.strength": for src.strength make tgt.strength
 endgroup
@@ -89,7 +89,7 @@ group MedicationKnowledgeAdministrationGuidelines extends BackboneElement
   input tgt : MedicationKnowledge as target
 
   "MedicationKnowledge.administrationGuidelines.dosage": for src.dosage as s make tgt.dosage as t then MedicationKnowledgeAdministrationGuidelinesDosage(s,t)
-  "MedicationKnowledge.administrationGuidelines.indication[x]": for src.indication[x] make tgt.indication[x]
+  "MedicationKnowledge.administrationGuidelines.indication": for src.indication make tgt.indication
   "MedicationKnowledge.administrationGuidelines.patientCharacteristics": for src.patientCharacteristics as s make tgt.patientCharacteristics as t then MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(s,t)
 endgroup
 
@@ -107,7 +107,7 @@ group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics extends 
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
-  "MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic[x]": for src.characteristic[x] make tgt.characteristic[x]
+  "MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic": for src.characteristic make tgt.characteristic
   "MedicationKnowledge.administrationGuidelines.patientCharacteristics.value": for src.value make tgt.value
 endgroup
 
@@ -135,7 +135,7 @@ group MedicationKnowledgeDrugCharacteristic extends BackboneElement
   input tgt : MedicationKnowledge as target
 
   "MedicationKnowledge.drugCharacteristic.type": for src.type make tgt.type
-  "MedicationKnowledge.drugCharacteristic.value[x]": for src.value[x] make tgt.value[x]
+  "MedicationKnowledge.drugCharacteristic.value": for src.value make tgt.value
 endgroup
 
 

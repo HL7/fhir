@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EligibilityResponse3to2" = "R4 to R3 Conversion for EligibilityResponse"
+﻿map "http://hl7.org/fhir/StructureMap/EligibilityResponse4to3" = "R4 to R3 Conversion for EligibilityResponse"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/EligibilityResponse" alias EligibilityResponse as source
@@ -16,7 +16,7 @@ group EligibilityResponse extends DomainResource
   "EligibilityResponse.status": for src.status make tgt.status
   "EligibilityResponse.use": for src.use make tgt.use
   "EligibilityResponse.patient": for src.patient make tgt.patient
-  "EligibilityResponse.serviced[x]": for src.serviced[x] make tgt.serviced[x]
+  "EligibilityResponse.serviced": for src.serviced make tgt.serviced
   "EligibilityResponse.created": for src.created make tgt.created
   "EligibilityResponse.requestProvider": for src.requestProvider make tgt.requestProvider
   "EligibilityResponse.request": for src.request make tgt.request
@@ -27,6 +27,7 @@ group EligibilityResponse extends DomainResource
   "EligibilityResponse.preAuthRef": for src.preAuthRef make tgt.preAuthRef
   "EligibilityResponse.form": for src.form make tgt.form
   "EligibilityResponse.error": for src.error as s make tgt.error as t then EligibilityResponseError(s,t)
+endgroup
 
 group EligibilityResponseInsurance extends BackboneElement
   input src : EligibilityResponseR3 as source
@@ -36,6 +37,7 @@ group EligibilityResponseInsurance extends BackboneElement
   "EligibilityResponse.insurance.contract": for src.contract make tgt.contract
   "EligibilityResponse.insurance.inforce": for src.inforce make tgt.inforce
   "EligibilityResponse.insurance.detail": for src.detail as s make tgt.detail as t then EligibilityResponseInsuranceDetail(s,t)
+endgroup
 
 group EligibilityResponseInsuranceDetail extends BackboneElement
   input src : EligibilityResponseR3 as source
@@ -55,17 +57,20 @@ group EligibilityResponseInsuranceDetail extends BackboneElement
   "EligibilityResponse.insurance.detail.authorizationRequired": for src.authorizationRequired make tgt.authorizationRequired
   "EligibilityResponse.insurance.detail.authorizationSupporting": for src.authorizationSupporting make tgt.authorizationSupporting
   "EligibilityResponse.insurance.detail.authorizationUrl": for src.authorizationUrl make tgt.authorizationUrl
+endgroup
 
 group EligibilityResponseInsuranceDetailBenefit extends BackboneElement
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 
   "EligibilityResponse.insurance.detail.benefit.type": for src.type make tgt.type
-  "EligibilityResponse.insurance.detail.benefit.allowed[x]": for src.allowed[x] make tgt.allowed[x]
-  "EligibilityResponse.insurance.detail.benefit.used[x]": for src.used[x] make tgt.used[x]
+  "EligibilityResponse.insurance.detail.benefit.allowed": for src.allowed make tgt.allowed
+  "EligibilityResponse.insurance.detail.benefit.used": for src.used make tgt.used
+endgroup
 
 group EligibilityResponseError extends BackboneElement
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 
   "EligibilityResponse.error.code": for src.code make tgt.code
+endgroup

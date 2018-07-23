@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductClinicals2to3" = "R3 to R4 Conversions for MedicinalProductClinicals"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductClinicals3to4" = "R3 to R4 Conversions for MedicinalProductClinicals"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductClinicals" alias MedicinalProductClinicalsR3 as source
@@ -34,7 +34,7 @@ group MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElem
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
-  "MedicinalProductClinicals.undesirableEffects.population.age[x]": for src.age[x] make tgt.age[x]
+  "MedicinalProductClinicals.undesirableEffects.population.age": for src.age make tgt.age
   "MedicinalProductClinicals.undesirableEffects.population.gender": for src.gender make tgt.gender
   "MedicinalProductClinicals.undesirableEffects.population.race": for src.race make tgt.race
   "MedicinalProductClinicals.undesirableEffects.population.physiologicalCondition": for src.physiologicalCondition make tgt.physiologicalCondition
@@ -61,7 +61,7 @@ group MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends Backbon
   input tgt : MedicinalProductClinicals as target
 
   "MedicinalProductClinicals.therapeuticIndication.otherTherapy.therapyRelationshipType": for src.therapyRelationshipType make tgt.therapyRelationshipType
-  "MedicinalProductClinicals.therapeuticIndication.otherTherapy.medication[x]": for src.medication[x] make tgt.medication[x]
+  "MedicinalProductClinicals.therapeuticIndication.otherTherapy.medication": for src.medication make tgt.medication
 endgroup
 
 

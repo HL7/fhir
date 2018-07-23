@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MeasureReport3to2" = "R4 to R3 Conversion for MeasureReport"
+﻿map "http://hl7.org/fhir/StructureMap/MeasureReport4to3" = "R4 to R3 Conversion for MeasureReport"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MeasureReport" alias MeasureReport as source
@@ -22,6 +22,7 @@ group MeasureReport extends DomainResource
   "MeasureReport.period": for src.period make tgt.period
   "MeasureReport.group": for src.group as s make tgt.group as t then MeasureReportGroup(s,t)
   "MeasureReport.evaluatedResources": for src.evaluatedResources make tgt.evaluatedResources
+endgroup
 
 group MeasureReportGroup extends BackboneElement
   input src : MeasureReportR3 as source
@@ -31,6 +32,7 @@ group MeasureReportGroup extends BackboneElement
   "MeasureReport.group.population": for src.population as s make tgt.population as t then MeasureReportGroupPopulation(s,t)
   "MeasureReport.group.measureScore": for src.measureScore make tgt.measureScore
   "MeasureReport.group.stratifier": for src.stratifier as s make tgt.stratifier as t then MeasureReportGroupStratifier(s,t)
+endgroup
 
 group MeasureReportGroupPopulation extends BackboneElement
   input src : MeasureReportR3 as source
@@ -39,6 +41,7 @@ group MeasureReportGroupPopulation extends BackboneElement
   "MeasureReport.group.population.code": for src.code make tgt.code
   "MeasureReport.group.population.count": for src.count make tgt.count
   "MeasureReport.group.population.subjects": for src.subjects make tgt.subjects
+endgroup
 
 group MeasureReportGroupStratifier extends BackboneElement
   input src : MeasureReportR3 as source
@@ -46,6 +49,7 @@ group MeasureReportGroupStratifier extends BackboneElement
 
   "MeasureReport.group.stratifier.code": for src.code make tgt.code
   "MeasureReport.group.stratifier.stratum": for src.stratum as s make tgt.stratum as t then MeasureReportGroupStratifierStratum(s,t)
+endgroup
 
 group MeasureReportGroupStratifierStratum extends BackboneElement
   input src : MeasureReportR3 as source
@@ -54,6 +58,7 @@ group MeasureReportGroupStratifierStratum extends BackboneElement
   "MeasureReport.group.stratifier.stratum.value": for src.value make tgt.value
   "MeasureReport.group.stratifier.stratum.population": for src.population as s make tgt.population as t then MeasureReportGroupStratifierStratumPopulation(s,t)
   "MeasureReport.group.stratifier.stratum.measureScore": for src.measureScore make tgt.measureScore
+endgroup
 
 group MeasureReportGroupStratifierStratumPopulation extends BackboneElement
   input src : MeasureReportR3 as source
@@ -62,3 +67,4 @@ group MeasureReportGroupStratifierStratumPopulation extends BackboneElement
   "MeasureReport.group.stratifier.stratum.population.code": for src.code make tgt.code
   "MeasureReport.group.stratifier.stratum.population.count": for src.count make tgt.count
   "MeasureReport.group.stratifier.stratum.population.subjects": for src.subjects make tgt.subjects
+endgroup

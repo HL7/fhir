@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SubstanceSpecification3to2" = "R4 to R3 Conversion for SubstanceSpecification"
+﻿map "http://hl7.org/fhir/StructureMap/SubstanceSpecification4to3" = "R4 to R3 Conversion for SubstanceSpecification"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceSpecification" alias SubstanceSpecification as source
@@ -25,6 +25,7 @@ group SubstanceSpecification extends DomainResource
   "SubstanceSpecification.substanceName": for src.substanceName as s make tgt.substanceName as t then SubstanceSpecificationSubstanceName(s,t)
   "SubstanceSpecification.molecularWeight": for src.molecularWeight make tgt.molecularWeight
   "SubstanceSpecification.polymer": for src.polymer make tgt.polymer
+endgroup
 
 group SubstanceSpecificationMoiety extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -37,6 +38,7 @@ group SubstanceSpecificationMoiety extends BackboneElement
   "SubstanceSpecification.moiety.opticalActivity": for src.opticalActivity make tgt.opticalActivity
   "SubstanceSpecification.moiety.molecularFormula": for src.molecularFormula make tgt.molecularFormula
   "SubstanceSpecification.moiety.amount": for src.amount make tgt.amount
+endgroup
 
 group SubstanceSpecificationProperty extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -48,6 +50,7 @@ group SubstanceSpecificationProperty extends BackboneElement
   "SubstanceSpecification.property.substanceId": for src.substanceId make tgt.substanceId
   "SubstanceSpecification.property.substanceName": for src.substanceName make tgt.substanceName
   "SubstanceSpecification.property.amount": for src.amount make tgt.amount
+endgroup
 
 group SubstanceSpecificationStructure extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -61,6 +64,7 @@ group SubstanceSpecificationStructure extends BackboneElement
   "SubstanceSpecification.structure.molecularWeight": for src.molecularWeight make tgt.molecularWeight
   "SubstanceSpecification.structure.referenceSource": for src.referenceSource make tgt.referenceSource
   "SubstanceSpecification.structure.structuralRepresentation": for src.structuralRepresentation as s make tgt.structuralRepresentation as t then SubstanceSpecificationStructureStructuralRepresentation(s,t)
+endgroup
 
 group SubstanceSpecificationStructureIsotope extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -72,6 +76,7 @@ group SubstanceSpecificationStructureIsotope extends BackboneElement
   "SubstanceSpecification.structure.isotope.nuclideHalfLife": for src.nuclideHalfLife make tgt.nuclideHalfLife
   "SubstanceSpecification.structure.isotope.amount": for src.amount make tgt.amount
   "SubstanceSpecification.structure.isotope.molecularWeight": for src.molecularWeight as s make tgt.molecularWeight as t then SubstanceSpecificationStructureIsotopeMolecularWeight(s,t)
+endgroup
 
 group SubstanceSpecificationStructureIsotopeMolecularWeight extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -80,6 +85,7 @@ group SubstanceSpecificationStructureIsotopeMolecularWeight extends BackboneElem
   "SubstanceSpecification.structure.isotope.molecularWeight.method": for src.method make tgt.method
   "SubstanceSpecification.structure.isotope.molecularWeight.type": for src.type make tgt.type
   "SubstanceSpecification.structure.isotope.molecularWeight.amount": for src.amount make tgt.amount
+endgroup
 
 group SubstanceSpecificationStructureStructuralRepresentation extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -88,6 +94,7 @@ group SubstanceSpecificationStructureStructuralRepresentation extends BackboneEl
   "SubstanceSpecification.structure.structuralRepresentation.type": for src.type make tgt.type
   "SubstanceSpecification.structure.structuralRepresentation.representation": for src.representation make tgt.representation
   "SubstanceSpecification.structure.structuralRepresentation.attachment": for src.attachment make tgt.attachment
+endgroup
 
 group SubstanceSpecificationSubstanceCode extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -98,6 +105,7 @@ group SubstanceSpecificationSubstanceCode extends BackboneElement
   "SubstanceSpecification.substanceCode.statusDate": for src.statusDate make tgt.statusDate
   "SubstanceSpecification.substanceCode.comment": for src.comment make tgt.comment
   "SubstanceSpecification.substanceCode.referenceSource": for src.referenceSource make tgt.referenceSource
+endgroup
 
 group SubstanceSpecificationSubstanceName extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -110,6 +118,7 @@ group SubstanceSpecificationSubstanceName extends BackboneElement
   "SubstanceSpecification.substanceName.jurisdiction": for src.jurisdiction make tgt.jurisdiction
   "SubstanceSpecification.substanceName.officialName": for src.officialName as s make tgt.officialName as t then SubstanceSpecificationSubstanceNameOfficialName(s,t)
   "SubstanceSpecification.substanceName.referenceSource": for src.referenceSource make tgt.referenceSource
+endgroup
 
 group SubstanceSpecificationSubstanceNameOfficialName extends BackboneElement
   input src : SubstanceSpecificationR3 as source
@@ -118,3 +127,4 @@ group SubstanceSpecificationSubstanceNameOfficialName extends BackboneElement
   "SubstanceSpecification.substanceName.officialName.authority": for src.authority make tgt.authority
   "SubstanceSpecification.substanceName.officialName.status": for src.status make tgt.status
   "SubstanceSpecification.substanceName.officialName.date": for src.date make tgt.date
+endgroup

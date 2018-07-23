@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse3to2" = "R4 to R3 Conversion for EnrollmentResponse"
+﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse4to3" = "R4 to R3 Conversion for EnrollmentResponse"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" alias EnrollmentResponse as source
@@ -20,3 +20,4 @@ group EnrollmentResponse extends DomainResource
   "EnrollmentResponse.created": for src.created make tgt.created
   "EnrollmentResponse.organization": for src.organization make tgt.organization
   "EnrollmentResponse.requestProvider": for src.requestProvider make tgt.requestProvider
+endgroup

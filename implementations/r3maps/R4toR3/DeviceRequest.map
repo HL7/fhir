@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DeviceRequest3to2" = "R4 to R3 Conversion for DeviceRequest"
+﻿map "http://hl7.org/fhir/StructureMap/DeviceRequest4to3" = "R4 to R3 Conversion for DeviceRequest"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/DeviceRequest" alias DeviceRequest as source
@@ -20,11 +20,11 @@ group DeviceRequest extends DomainResource
   "DeviceRequest.status": for src.status make tgt.status
   "DeviceRequest.intent": for src.intent make tgt.intent
   "DeviceRequest.priority": for src.priority make tgt.priority
-  "DeviceRequest.code[x]": for src.code[x] make tgt.code[x]
+  "DeviceRequest.code": for src.code make tgt.code
   "DeviceRequest.parameter": for src.parameter as s make tgt.parameter as t then DeviceRequestParameter(s,t)
   "DeviceRequest.subject": for src.subject make tgt.subject
   "DeviceRequest.context": for src.context make tgt.context
-  "DeviceRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "DeviceRequest.occurrence": for src.occurrence make tgt.occurrence
   "DeviceRequest.authoredOn": for src.authoredOn make tgt.authoredOn
   "DeviceRequest.requester": for src.requester make tgt.requester
   "DeviceRequest.performerType": for src.performerType make tgt.performerType
@@ -35,10 +35,12 @@ group DeviceRequest extends DomainResource
   "DeviceRequest.supportingInfo": for src.supportingInfo make tgt.supportingInfo
   "DeviceRequest.note": for src.note make tgt.note
   "DeviceRequest.relevantHistory": for src.relevantHistory make tgt.relevantHistory
+endgroup
 
 group DeviceRequestParameter extends BackboneElement
   input src : DeviceRequestR3 as source
   input tgt : DeviceRequest as target
 
   "DeviceRequest.parameter.code": for src.code make tgt.code
-  "DeviceRequest.parameter.value[x]": for src.value[x] make tgt.value[x]
+  "DeviceRequest.parameter.value": for src.value make tgt.value
+endgroup

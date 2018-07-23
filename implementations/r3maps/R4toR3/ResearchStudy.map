@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ResearchStudy3to2" = "R4 to R3 Conversion for ResearchStudy"
+﻿map "http://hl7.org/fhir/StructureMap/ResearchStudy4to3" = "R4 to R3 Conversion for ResearchStudy"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudy as source
@@ -36,6 +36,7 @@ group ResearchStudy extends DomainResource
   "ResearchStudy.note": for src.note make tgt.note
   "ResearchStudy.arm": for src.arm as s make tgt.arm as t then ResearchStudyArm(s,t)
   "ResearchStudy.objective": for src.objective as s make tgt.objective as t then ResearchStudyObjective(s,t)
+endgroup
 
 group ResearchStudyArm extends BackboneElement
   input src : ResearchStudyR3 as source
@@ -44,6 +45,7 @@ group ResearchStudyArm extends BackboneElement
   "ResearchStudy.arm.name": for src.name make tgt.name
   "ResearchStudy.arm.type": for src.type make tgt.type
   "ResearchStudy.arm.description": for src.description make tgt.description
+endgroup
 
 group ResearchStudyObjective extends BackboneElement
   input src : ResearchStudyR3 as source
@@ -51,3 +53,4 @@ group ResearchStudyObjective extends BackboneElement
 
   "ResearchStudy.objective.name": for src.name make tgt.name
   "ResearchStudy.objective.type": for src.type make tgt.type
+endgroup

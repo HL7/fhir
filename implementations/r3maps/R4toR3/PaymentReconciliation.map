@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/PaymentReconciliation3to2" = "R4 to R3 Conversion for PaymentReconciliation"
+﻿map "http://hl7.org/fhir/StructureMap/PaymentReconciliation4to3" = "R4 to R3 Conversion for PaymentReconciliation"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias PaymentReconciliation as source
@@ -25,6 +25,7 @@ group PaymentReconciliation extends DomainResource
   "PaymentReconciliation.form": for src.form make tgt.form
   "PaymentReconciliation.total": for src.total make tgt.total
   "PaymentReconciliation.processNote": for src.processNote as s make tgt.processNote as t then PaymentReconciliationProcessNote(s,t)
+endgroup
 
 group PaymentReconciliationDetail extends BackboneElement
   input src : PaymentReconciliationR3 as source
@@ -37,6 +38,7 @@ group PaymentReconciliationDetail extends BackboneElement
   "PaymentReconciliation.detail.payee": for src.payee make tgt.payee
   "PaymentReconciliation.detail.date": for src.date make tgt.date
   "PaymentReconciliation.detail.amount": for src.amount make tgt.amount
+endgroup
 
 group PaymentReconciliationProcessNote extends BackboneElement
   input src : PaymentReconciliationR3 as source
@@ -44,3 +46,4 @@ group PaymentReconciliationProcessNote extends BackboneElement
 
   "PaymentReconciliation.processNote.type": for src.type make tgt.type
   "PaymentReconciliation.processNote.text": for src.text make tgt.text
+endgroup

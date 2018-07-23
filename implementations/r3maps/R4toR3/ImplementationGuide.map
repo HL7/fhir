@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImplementationGuide3to2" = "R4 to R3 Conversion for ImplementationGuide"
+﻿map "http://hl7.org/fhir/StructureMap/ImplementationGuide4to3" = "R4 to R3 Conversion for ImplementationGuide"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuide as source
@@ -31,6 +31,7 @@ group ImplementationGuide extends DomainResource
   "ImplementationGuide.global": for src.global as s make tgt.global as t then ImplementationGuideGlobal(s,t)
   "ImplementationGuide.definition": for src.definition as s make tgt.definition as t then ImplementationGuideDefinition(s,t)
   "ImplementationGuide.manifest": for src.manifest as s make tgt.manifest as t then ImplementationGuideManifest(s,t)
+endgroup
 
 group ImplementationGuideDependsOn extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -39,6 +40,7 @@ group ImplementationGuideDependsOn extends BackboneElement
   "ImplementationGuide.dependsOn.uri": for src.uri make tgt.uri
   "ImplementationGuide.dependsOn.packageId": for src.packageId make tgt.packageId
   "ImplementationGuide.dependsOn.version": for src.version make tgt.version
+endgroup
 
 group ImplementationGuideGlobal extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -46,6 +48,7 @@ group ImplementationGuideGlobal extends BackboneElement
 
   "ImplementationGuide.global.type": for src.type make tgt.type
   "ImplementationGuide.global.profile": for src.profile make tgt.profile
+endgroup
 
 group ImplementationGuideDefinition extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -56,6 +59,7 @@ group ImplementationGuideDefinition extends BackboneElement
   "ImplementationGuide.definition.page": for src.page as s make tgt.page as t then ImplementationGuideDefinitionPage(s,t)
   "ImplementationGuide.definition.parameter": for src.parameter as s make tgt.parameter as t then ImplementationGuideDefinitionParameter(s,t)
   "ImplementationGuide.definition.template": for src.template as s make tgt.template as t then ImplementationGuideDefinitionTemplate(s,t)
+endgroup
 
 group ImplementationGuideDefinitionPackage extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -63,6 +67,7 @@ group ImplementationGuideDefinitionPackage extends BackboneElement
 
   "ImplementationGuide.definition.package.name": for src.name make tgt.name
   "ImplementationGuide.definition.package.description": for src.description make tgt.description
+endgroup
 
 group ImplementationGuideDefinitionResource extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -71,17 +76,19 @@ group ImplementationGuideDefinitionResource extends BackboneElement
   "ImplementationGuide.definition.resource.reference": for src.reference make tgt.reference
   "ImplementationGuide.definition.resource.name": for src.name make tgt.name
   "ImplementationGuide.definition.resource.description": for src.description make tgt.description
-  "ImplementationGuide.definition.resource.example[x]": for src.example[x] make tgt.example[x]
+  "ImplementationGuide.definition.resource.example": for src.example make tgt.example
   "ImplementationGuide.definition.resource.package": for src.package make tgt.package
+endgroup
 
 group ImplementationGuideDefinitionPage extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
-  "ImplementationGuide.definition.page.name[x]": for src.name[x] make tgt.name[x]
+  "ImplementationGuide.definition.page.name": for src.name make tgt.name
   "ImplementationGuide.definition.page.title": for src.title make tgt.title
   "ImplementationGuide.definition.page.generation": for src.generation make tgt.generation
   "ImplementationGuide.definition.page.page": for src.page make tgt.page
+endgroup
 
 group ImplementationGuideDefinitionParameter extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -89,6 +96,7 @@ group ImplementationGuideDefinitionParameter extends BackboneElement
 
   "ImplementationGuide.definition.parameter.code": for src.code make tgt.code
   "ImplementationGuide.definition.parameter.value": for src.value make tgt.value
+endgroup
 
 group ImplementationGuideDefinitionTemplate extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -97,6 +105,7 @@ group ImplementationGuideDefinitionTemplate extends BackboneElement
   "ImplementationGuide.definition.template.code": for src.code make tgt.code
   "ImplementationGuide.definition.template.source": for src.source make tgt.source
   "ImplementationGuide.definition.template.scope": for src.scope make tgt.scope
+endgroup
 
 group ImplementationGuideManifest extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -107,14 +116,16 @@ group ImplementationGuideManifest extends BackboneElement
   "ImplementationGuide.manifest.page": for src.page as s make tgt.page as t then ImplementationGuideManifestPage(s,t)
   "ImplementationGuide.manifest.image": for src.image make tgt.image
   "ImplementationGuide.manifest.other": for src.other make tgt.other
+endgroup
 
 group ImplementationGuideManifestResource extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
   "ImplementationGuide.manifest.resource.reference": for src.reference make tgt.reference
-  "ImplementationGuide.manifest.resource.example[x]": for src.example[x] make tgt.example[x]
+  "ImplementationGuide.manifest.resource.example": for src.example make tgt.example
   "ImplementationGuide.manifest.resource.relativePath": for src.relativePath make tgt.relativePath
+endgroup
 
 group ImplementationGuideManifestPage extends BackboneElement
   input src : ImplementationGuideR3 as source
@@ -123,3 +134,4 @@ group ImplementationGuideManifestPage extends BackboneElement
   "ImplementationGuide.manifest.page.name": for src.name make tgt.name
   "ImplementationGuide.manifest.page.title": for src.title make tgt.title
   "ImplementationGuide.manifest.page.anchor": for src.anchor make tgt.anchor
+endgroup

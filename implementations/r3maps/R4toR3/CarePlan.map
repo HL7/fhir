@@ -1,12 +1,10 @@
-﻿map "http://hl7.org/fhir/StructureMap/CarePlan3to2" = "R4 to R3 Conversion for CarePlan"
+﻿map "http://hl7.org/fhir/StructureMap/CarePlan4to3" = "R4 to R3 Conversion for CarePlan"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlan as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CarePlan" alias CarePlanR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
-
-
 
 group CarePlan extends DomainResource
   input src : CarePlanR3 as source
@@ -35,6 +33,7 @@ group CarePlan extends DomainResource
   "CarePlan.goal": for src.goal make tgt.goal
   "CarePlan.activity": for src.activity as s make tgt.activity as t then CarePlanActivity(s,t)
   "CarePlan.note": for src.note make tgt.note
+endgroup
 
 group CarePlanActivity extends BackboneElement
   input src : CarePlanR3 as source
@@ -45,6 +44,7 @@ group CarePlanActivity extends BackboneElement
   "CarePlan.activity.progress": for src.progress make tgt.progress
   "CarePlan.activity.reference": for src.reference make tgt.reference
   "CarePlan.activity.detail": for src.detail as s make tgt.detail as t then CarePlanActivityDetail(s,t)
+endgroup
 
 group CarePlanActivityDetail extends BackboneElement
   input src : CarePlanR3 as source
@@ -60,10 +60,11 @@ group CarePlanActivityDetail extends BackboneElement
   "CarePlan.activity.detail.status": for src.status make tgt.status
   "CarePlan.activity.detail.statusReason": for src.statusReason make tgt.statusReason
   "CarePlan.activity.detail.doNotPerform": for src.doNotPerform make tgt.doNotPerform
-  "CarePlan.activity.detail.scheduled[x]": for src.scheduled[x] make tgt.scheduled[x]
+  "CarePlan.activity.detail.scheduled": for src.scheduled make tgt.scheduled
   "CarePlan.activity.detail.location": for src.location make tgt.location
   "CarePlan.activity.detail.performer": for src.performer make tgt.performer
-  "CarePlan.activity.detail.product[x]": for src.product[x] make tgt.product[x]
+  "CarePlan.activity.detail.product": for src.product make tgt.product
   "CarePlan.activity.detail.dailyAmount": for src.dailyAmount make tgt.dailyAmount
   "CarePlan.activity.detail.quantity": for src.quantity make tgt.quantity
   "CarePlan.activity.detail.description": for src.description make tgt.description
+endgroup

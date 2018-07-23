@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/VerificationResult2to3" = "R3 to R4 Conversions for VerificationResult"
+﻿map "http://hl7.org/fhir/StructureMap/VerificationResult3to4" = "R3 to R4 Conversions for VerificationResult"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/VerificationResult" alias VerificationResultR3 as source
@@ -53,8 +53,8 @@ group VerificationResultAttestation extends BackboneElement
   "VerificationResult.attestation.date": for src.date make tgt.date
   "VerificationResult.attestation.sourceIdentityCertificate": for src.sourceIdentityCertificate make tgt.sourceIdentityCertificate
   "VerificationResult.attestation.proxyIdentityCertificate": for src.proxyIdentityCertificate make tgt.proxyIdentityCertificate
-  "VerificationResult.attestation.signedProxyRight[x]": for src.signedProxyRight[x] make tgt.signedProxyRight[x]
-  "VerificationResult.attestation.signedSourceAttestation[x]": for src.signedSourceAttestation[x] make tgt.signedSourceAttestation[x]
+  "VerificationResult.attestation.signedProxyRight": for src.signedProxyRight make tgt.signedProxyRight
+  "VerificationResult.attestation.signedSourceAttestation": for src.signedSourceAttestation make tgt.signedSourceAttestation
 endgroup
 
 
@@ -64,6 +64,6 @@ group VerificationResultValidator extends BackboneElement
 
   "VerificationResult.validator.organization": for src.organization make tgt.organization
   "VerificationResult.validator.identityCertificate": for src.identityCertificate make tgt.identityCertificate
-  "VerificationResult.validator.signedValidatorAttestation[x]": for src.signedValidatorAttestation[x] make tgt.signedValidatorAttestation[x]
+  "VerificationResult.validator.signedValidatorAttestation": for src.signedValidatorAttestation make tgt.signedValidatorAttestation
 endgroup
 

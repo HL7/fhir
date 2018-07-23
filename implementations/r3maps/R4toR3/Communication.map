@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Communication3to2" = "R4 to R3 Conversion for Communication"
+﻿map "http://hl7.org/fhir/StructureMap/Communication4to3" = "R4 to R3 Conversion for Communication"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as source
@@ -35,9 +35,11 @@ group Communication extends DomainResource
   "Communication.reasonReference": for src.reasonReference make tgt.reasonReference
   "Communication.payload": for src.payload as s make tgt.payload as t then CommunicationPayload(s,t)
   "Communication.note": for src.note make tgt.note
+endgroup
 
 group CommunicationPayload extends BackboneElement
   input src : CommunicationR3 as source
   input tgt : Communication as target
 
-  "Communication.payload.content[x]": for src.content[x] make tgt.content[x]
+  "Communication.payload.content": for src.content make tgt.content
+endgroup

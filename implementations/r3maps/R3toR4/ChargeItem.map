@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ChargeItem2to3" = "R3 to R4 Conversions for ChargeItem"
+﻿map "http://hl7.org/fhir/StructureMap/ChargeItem3to4" = "R3 to R4 Conversions for ChargeItem"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ChargeItem" alias ChargeItemR3 as source
@@ -19,7 +19,7 @@ group ChargeItem extends DomainResource
   "ChargeItem.code": for src.code make tgt.code
   "ChargeItem.subject": for src.subject make tgt.subject
   "ChargeItem.context": for src.context make tgt.context
-  "ChargeItem.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "ChargeItem.occurrence": for src.occurrence make tgt.occurrence
   "ChargeItem.performer": for src.performer as s make tgt.performer as t then ChargeItemPerformer(s,t)
   "ChargeItem.performingOrganization": for src.performingOrganization make tgt.performingOrganization
   "ChargeItem.requestingOrganization": for src.requestingOrganization make tgt.requestingOrganization
@@ -33,7 +33,7 @@ group ChargeItem extends DomainResource
   "ChargeItem.enteredDate": for src.enteredDate make tgt.enteredDate
   "ChargeItem.reason": for src.reason make tgt.reason
   "ChargeItem.service": for src.service make tgt.service
-  "ChargeItem.product[x]": for src.product[x] make tgt.product[x]
+  "ChargeItem.product": for src.product make tgt.product
   "ChargeItem.account": for src.account make tgt.account
   "ChargeItem.note": for src.note make tgt.note
   "ChargeItem.supportingInformation": for src.supportingInformation make tgt.supportingInformation

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductAuthorization2to3" = "R3 to R4 Conversions for MedicinalProductAuthorization"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductAuthorization3to4" = "R3 to R4 Conversions for MedicinalProductAuthorization"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductAuthorization" alias MedicinalProductAuthorizationR3 as source
@@ -49,7 +49,7 @@ group MedicinalProductAuthorizationProcedure extends BackboneElement
 
   "MedicinalProductAuthorization.procedure.identifier": for src.identifier make tgt.identifier
   "MedicinalProductAuthorization.procedure.type": for src.type make tgt.type
-  "MedicinalProductAuthorization.procedure.date[x]": for src.date[x] make tgt.date[x]
+  "MedicinalProductAuthorization.procedure.date": for src.date make tgt.date
   "MedicinalProductAuthorization.procedure.application": for src.application make tgt.application
 endgroup
 

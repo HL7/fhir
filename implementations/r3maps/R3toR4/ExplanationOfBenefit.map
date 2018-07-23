@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit2to3" = "R3 to R4 Conversions for ExplanationOfBenefit"
+﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit3to4" = "R3 to R4 Conversions for ExplanationOfBenefit"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefitR3 as source
@@ -77,8 +77,8 @@ group ExplanationOfBenefitInformation extends BackboneElement
   "ExplanationOfBenefit.information.sequence": for src.sequence make tgt.sequence
   "ExplanationOfBenefit.information.category": for src.category make tgt.category
   "ExplanationOfBenefit.information.code": for src.code make tgt.code
-  "ExplanationOfBenefit.information.timing[x]": for src.timing[x] make tgt.timing[x]
-  "ExplanationOfBenefit.information.value[x]": for src.value[x] make tgt.value[x]
+  "ExplanationOfBenefit.information.timing": for src.timing make tgt.timing
+  "ExplanationOfBenefit.information.value": for src.value make tgt.value
   "ExplanationOfBenefit.information.reason": for src.reason make tgt.reason
 endgroup
 
@@ -100,7 +100,7 @@ group ExplanationOfBenefitDiagnosis extends BackboneElement
   input tgt : ExplanationOfBenefit as target
 
   "ExplanationOfBenefit.diagnosis.sequence": for src.sequence make tgt.sequence
-  "ExplanationOfBenefit.diagnosis.diagnosis[x]": for src.diagnosis[x] make tgt.diagnosis[x]
+  "ExplanationOfBenefit.diagnosis.diagnosis": for src.diagnosis make tgt.diagnosis
   "ExplanationOfBenefit.diagnosis.type": for src.type make tgt.type
   "ExplanationOfBenefit.diagnosis.packageCode": for src.packageCode make tgt.packageCode
 endgroup
@@ -112,7 +112,7 @@ group ExplanationOfBenefitProcedure extends BackboneElement
 
   "ExplanationOfBenefit.procedure.sequence": for src.sequence make tgt.sequence
   "ExplanationOfBenefit.procedure.date": for src.date make tgt.date
-  "ExplanationOfBenefit.procedure.procedure[x]": for src.procedure[x] make tgt.procedure[x]
+  "ExplanationOfBenefit.procedure.procedure": for src.procedure make tgt.procedure
 endgroup
 
 
@@ -131,7 +131,7 @@ group ExplanationOfBenefitAccident extends BackboneElement
 
   "ExplanationOfBenefit.accident.date": for src.date make tgt.date
   "ExplanationOfBenefit.accident.type": for src.type make tgt.type
-  "ExplanationOfBenefit.accident.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.accident.location": for src.location make tgt.location
 endgroup
 
 
@@ -149,8 +149,8 @@ group ExplanationOfBenefitItem extends BackboneElement
   "ExplanationOfBenefit.item.service": for src.service make tgt.service
   "ExplanationOfBenefit.item.modifier": for src.modifier make tgt.modifier
   "ExplanationOfBenefit.item.programCode": for src.programCode make tgt.programCode
-  "ExplanationOfBenefit.item.serviced[x]": for src.serviced[x] make tgt.serviced[x]
-  "ExplanationOfBenefit.item.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.item.serviced": for src.serviced make tgt.serviced
+  "ExplanationOfBenefit.item.location": for src.location make tgt.location
   "ExplanationOfBenefit.item.quantity": for src.quantity make tgt.quantity
   "ExplanationOfBenefit.item.unitPrice": for src.unitPrice make tgt.unitPrice
   "ExplanationOfBenefit.item.factor": for src.factor make tgt.factor
@@ -227,8 +227,8 @@ group ExplanationOfBenefitAddItem extends BackboneElement
   "ExplanationOfBenefit.addItem.service": for src.service make tgt.service
   "ExplanationOfBenefit.addItem.modifier": for src.modifier make tgt.modifier
   "ExplanationOfBenefit.addItem.programCode": for src.programCode make tgt.programCode
-  "ExplanationOfBenefit.addItem.serviced[x]": for src.serviced[x] make tgt.serviced[x]
-  "ExplanationOfBenefit.addItem.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.addItem.serviced": for src.serviced make tgt.serviced
+  "ExplanationOfBenefit.addItem.location": for src.location make tgt.location
   "ExplanationOfBenefit.addItem.quantity": for src.quantity make tgt.quantity
   "ExplanationOfBenefit.addItem.unitPrice": for src.unitPrice make tgt.unitPrice
   "ExplanationOfBenefit.addItem.factor": for src.factor make tgt.factor
@@ -327,7 +327,7 @@ group ExplanationOfBenefitBenefitBalanceFinancial extends BackboneElement
   input tgt : ExplanationOfBenefit as target
 
   "ExplanationOfBenefit.benefitBalance.financial.type": for src.type make tgt.type
-  "ExplanationOfBenefit.benefitBalance.financial.allowed[x]": for src.allowed[x] make tgt.allowed[x]
-  "ExplanationOfBenefit.benefitBalance.financial.used[x]": for src.used[x] make tgt.used[x]
+  "ExplanationOfBenefit.benefitBalance.financial.allowed": for src.allowed make tgt.allowed
+  "ExplanationOfBenefit.benefitBalance.financial.used": for src.used make tgt.used
 endgroup
 

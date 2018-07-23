@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Binary3to2" = "R4 to R3 Conversion for Binary"
+﻿map "http://hl7.org/fhir/StructureMap/Binary4to3" = "R4 to R3 Conversion for Binary"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Binary" alias Binary as source
@@ -15,3 +15,4 @@ group Binary extends Resource
   "Binary.contentType": for src.contentType make tgt.contentType
   "Binary.securityContext": for src.securityContext make tgt.securityContext
   "Binary.content": for src.content make tgt.content
+endgroup

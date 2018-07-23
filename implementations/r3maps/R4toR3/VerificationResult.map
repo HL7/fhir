@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/VerificationResult3to2" = "R4 to R3 Conversion for VerificationResult"
+﻿map "http://hl7.org/fhir/StructureMap/VerificationResult4to3" = "R4 to R3 Conversion for VerificationResult"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/VerificationResult" alias VerificationResult as source
@@ -26,6 +26,7 @@ group VerificationResult extends DomainResource
   "VerificationResult.primarySource": for src.primarySource as s make tgt.primarySource as t then VerificationResultPrimarySource(s,t)
   "VerificationResult.attestation": for src.attestation as s make tgt.attestation as t then VerificationResultAttestation(s,t)
   "VerificationResult.validator": for src.validator as s make tgt.validator as t then VerificationResultValidator(s,t)
+endgroup
 
 group VerificationResultPrimarySource extends BackboneElement
   input src : VerificationResultR3 as source
@@ -38,6 +39,7 @@ group VerificationResultPrimarySource extends BackboneElement
   "VerificationResult.primarySource.validationDate": for src.validationDate make tgt.validationDate
   "VerificationResult.primarySource.canPushUpdates": for src.canPushUpdates make tgt.canPushUpdates
   "VerificationResult.primarySource.pushTypeAvailable": for src.pushTypeAvailable make tgt.pushTypeAvailable
+endgroup
 
 group VerificationResultAttestation extends BackboneElement
   input src : VerificationResultR3 as source
@@ -49,8 +51,9 @@ group VerificationResultAttestation extends BackboneElement
   "VerificationResult.attestation.date": for src.date make tgt.date
   "VerificationResult.attestation.sourceIdentityCertificate": for src.sourceIdentityCertificate make tgt.sourceIdentityCertificate
   "VerificationResult.attestation.proxyIdentityCertificate": for src.proxyIdentityCertificate make tgt.proxyIdentityCertificate
-  "VerificationResult.attestation.signedProxyRight[x]": for src.signedProxyRight[x] make tgt.signedProxyRight[x]
-  "VerificationResult.attestation.signedSourceAttestation[x]": for src.signedSourceAttestation[x] make tgt.signedSourceAttestation[x]
+  "VerificationResult.attestation.signedProxyRight": for src.signedProxyRight make tgt.signedProxyRight
+  "VerificationResult.attestation.signedSourceAttestation": for src.signedSourceAttestation make tgt.signedSourceAttestation
+endgroup
 
 group VerificationResultValidator extends BackboneElement
   input src : VerificationResultR3 as source
@@ -58,4 +61,5 @@ group VerificationResultValidator extends BackboneElement
 
   "VerificationResult.validator.organization": for src.organization make tgt.organization
   "VerificationResult.validator.identityCertificate": for src.identityCertificate make tgt.identityCertificate
-  "VerificationResult.validator.signedValidatorAttestation[x]": for src.signedValidatorAttestation[x] make tgt.signedValidatorAttestation[x]
+  "VerificationResult.validator.signedValidatorAttestation": for src.signedValidatorAttestation make tgt.signedValidatorAttestation
+endgroup

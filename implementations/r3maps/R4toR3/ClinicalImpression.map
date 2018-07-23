@@ -4,17 +4,15 @@ conceptmap "ClinicalImpressionStatus" {
   prefix s = "http://hl7.org/fhir/event-status"
   prefix t = "http://hl7.org/fhir/clinical-impression-status"
 
-  s:in-progress - t:draft
+  s:"in-progress" - t:draft
   s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
+  s:"entered-in-error" - t:"entered-in-error"
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
-
-
 
 group ClinicalImpression extends DomainResource
   input src : ClinicalImpression as source

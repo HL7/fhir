@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/List3to2" = "R4 to R3 Conversion for List"
+﻿map "http://hl7.org/fhir/StructureMap/List4to3" = "R4 to R3 Conversion for List"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/List" alias List as source
@@ -25,6 +25,7 @@ group List extends DomainResource
   "List.note": for src.note make tgt.note
   "List.entry": for src.entry as s make tgt.entry as t then ListEntry(s,t)
   "List.emptyReason": for src.emptyReason make tgt.emptyReason
+endgroup
 
 group ListEntry extends BackboneElement
   input src : ListR3 as source
@@ -34,3 +35,4 @@ group ListEntry extends BackboneElement
   "List.entry.deleted": for src.deleted make tgt.deleted
   "List.entry.date": for src.date make tgt.date
   "List.entry.item": for src.item make tgt.item
+endgroup

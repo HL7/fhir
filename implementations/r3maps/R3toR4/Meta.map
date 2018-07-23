@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Meta extends Element
+group for type+types Meta extends Element
   input src : MetaR3 as source
   input tgt : Meta as target
 

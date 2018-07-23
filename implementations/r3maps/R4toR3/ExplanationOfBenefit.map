@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit3to2" = "R4 to R3 Conversion for ExplanationOfBenefit"
+﻿map "http://hl7.org/fhir/StructureMap/ExplanationOfBenefit4to3" = "R4 to R3 Conversion for ExplanationOfBenefit"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit" alias ExplanationOfBenefit as source
@@ -47,6 +47,7 @@ group ExplanationOfBenefit extends DomainResource
   "ExplanationOfBenefit.form": for src.form make tgt.form
   "ExplanationOfBenefit.processNote": for src.processNote as s make tgt.processNote as t then ExplanationOfBenefitProcessNote(s,t)
   "ExplanationOfBenefit.benefitBalance": for src.benefitBalance as s make tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s,t)
+endgroup
 
 group ExplanationOfBenefitRelated extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -55,6 +56,7 @@ group ExplanationOfBenefitRelated extends BackboneElement
   "ExplanationOfBenefit.related.claim": for src.claim make tgt.claim
   "ExplanationOfBenefit.related.relationship": for src.relationship make tgt.relationship
   "ExplanationOfBenefit.related.reference": for src.reference make tgt.reference
+endgroup
 
 group ExplanationOfBenefitPayee extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -63,6 +65,7 @@ group ExplanationOfBenefitPayee extends BackboneElement
   "ExplanationOfBenefit.payee.type": for src.type make tgt.type
   "ExplanationOfBenefit.payee.resource": for src.resource make tgt.resource
   "ExplanationOfBenefit.payee.party": for src.party make tgt.party
+endgroup
 
 group ExplanationOfBenefitInformation extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -71,9 +74,10 @@ group ExplanationOfBenefitInformation extends BackboneElement
   "ExplanationOfBenefit.information.sequence": for src.sequence make tgt.sequence
   "ExplanationOfBenefit.information.category": for src.category make tgt.category
   "ExplanationOfBenefit.information.code": for src.code make tgt.code
-  "ExplanationOfBenefit.information.timing[x]": for src.timing[x] make tgt.timing[x]
-  "ExplanationOfBenefit.information.value[x]": for src.value[x] make tgt.value[x]
+  "ExplanationOfBenefit.information.timing": for src.timing make tgt.timing
+  "ExplanationOfBenefit.information.value": for src.value make tgt.value
   "ExplanationOfBenefit.information.reason": for src.reason make tgt.reason
+endgroup
 
 group ExplanationOfBenefitCareTeam extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -84,15 +88,17 @@ group ExplanationOfBenefitCareTeam extends BackboneElement
   "ExplanationOfBenefit.careTeam.responsible": for src.responsible make tgt.responsible
   "ExplanationOfBenefit.careTeam.role": for src.role make tgt.role
   "ExplanationOfBenefit.careTeam.qualification": for src.qualification make tgt.qualification
+endgroup
 
 group ExplanationOfBenefitDiagnosis extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
   "ExplanationOfBenefit.diagnosis.sequence": for src.sequence make tgt.sequence
-  "ExplanationOfBenefit.diagnosis.diagnosis[x]": for src.diagnosis[x] make tgt.diagnosis[x]
+  "ExplanationOfBenefit.diagnosis.diagnosis": for src.diagnosis make tgt.diagnosis
   "ExplanationOfBenefit.diagnosis.type": for src.type make tgt.type
   "ExplanationOfBenefit.diagnosis.packageCode": for src.packageCode make tgt.packageCode
+endgroup
 
 group ExplanationOfBenefitProcedure extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -100,7 +106,8 @@ group ExplanationOfBenefitProcedure extends BackboneElement
 
   "ExplanationOfBenefit.procedure.sequence": for src.sequence make tgt.sequence
   "ExplanationOfBenefit.procedure.date": for src.date make tgt.date
-  "ExplanationOfBenefit.procedure.procedure[x]": for src.procedure[x] make tgt.procedure[x]
+  "ExplanationOfBenefit.procedure.procedure": for src.procedure make tgt.procedure
+endgroup
 
 group ExplanationOfBenefitInsurance extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -108,6 +115,7 @@ group ExplanationOfBenefitInsurance extends BackboneElement
 
   "ExplanationOfBenefit.insurance.coverage": for src.coverage make tgt.coverage
   "ExplanationOfBenefit.insurance.preAuthRef": for src.preAuthRef make tgt.preAuthRef
+endgroup
 
 group ExplanationOfBenefitAccident extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -115,7 +123,8 @@ group ExplanationOfBenefitAccident extends BackboneElement
 
   "ExplanationOfBenefit.accident.date": for src.date make tgt.date
   "ExplanationOfBenefit.accident.type": for src.type make tgt.type
-  "ExplanationOfBenefit.accident.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.accident.location": for src.location make tgt.location
+endgroup
 
 group ExplanationOfBenefitItem extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -131,8 +140,8 @@ group ExplanationOfBenefitItem extends BackboneElement
   "ExplanationOfBenefit.item.service": for src.service make tgt.service
   "ExplanationOfBenefit.item.modifier": for src.modifier make tgt.modifier
   "ExplanationOfBenefit.item.programCode": for src.programCode make tgt.programCode
-  "ExplanationOfBenefit.item.serviced[x]": for src.serviced[x] make tgt.serviced[x]
-  "ExplanationOfBenefit.item.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.item.serviced": for src.serviced make tgt.serviced
+  "ExplanationOfBenefit.item.location": for src.location make tgt.location
   "ExplanationOfBenefit.item.quantity": for src.quantity make tgt.quantity
   "ExplanationOfBenefit.item.unitPrice": for src.unitPrice make tgt.unitPrice
   "ExplanationOfBenefit.item.factor": for src.factor make tgt.factor
@@ -144,6 +153,7 @@ group ExplanationOfBenefitItem extends BackboneElement
   "ExplanationOfBenefit.item.noteNumber": for src.noteNumber make tgt.noteNumber
   "ExplanationOfBenefit.item.adjudication": for src.adjudication as s make tgt.adjudication as t then ExplanationOfBenefitItemAdjudication(s,t)
   "ExplanationOfBenefit.item.detail": for src.detail as s make tgt.detail as t then ExplanationOfBenefitItemDetail(s,t)
+endgroup
 
 group ExplanationOfBenefitItemAdjudication extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -153,6 +163,7 @@ group ExplanationOfBenefitItemAdjudication extends BackboneElement
   "ExplanationOfBenefit.item.adjudication.reason": for src.reason make tgt.reason
   "ExplanationOfBenefit.item.adjudication.amount": for src.amount make tgt.amount
   "ExplanationOfBenefit.item.adjudication.value": for src.value make tgt.value
+endgroup
 
 group ExplanationOfBenefitItemDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -172,6 +183,7 @@ group ExplanationOfBenefitItemDetail extends BackboneElement
   "ExplanationOfBenefit.item.detail.noteNumber": for src.noteNumber make tgt.noteNumber
   "ExplanationOfBenefit.item.detail.adjudication": for src.adjudication make tgt.adjudication
   "ExplanationOfBenefit.item.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s,t)
+endgroup
 
 group ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -190,6 +202,7 @@ group ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
   "ExplanationOfBenefit.item.detail.subDetail.udi": for src.udi make tgt.udi
   "ExplanationOfBenefit.item.detail.subDetail.noteNumber": for src.noteNumber make tgt.noteNumber
   "ExplanationOfBenefit.item.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
+endgroup
 
 group ExplanationOfBenefitAddItem extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -201,8 +214,8 @@ group ExplanationOfBenefitAddItem extends BackboneElement
   "ExplanationOfBenefit.addItem.service": for src.service make tgt.service
   "ExplanationOfBenefit.addItem.modifier": for src.modifier make tgt.modifier
   "ExplanationOfBenefit.addItem.programCode": for src.programCode make tgt.programCode
-  "ExplanationOfBenefit.addItem.serviced[x]": for src.serviced[x] make tgt.serviced[x]
-  "ExplanationOfBenefit.addItem.location[x]": for src.location[x] make tgt.location[x]
+  "ExplanationOfBenefit.addItem.serviced": for src.serviced make tgt.serviced
+  "ExplanationOfBenefit.addItem.location": for src.location make tgt.location
   "ExplanationOfBenefit.addItem.quantity": for src.quantity make tgt.quantity
   "ExplanationOfBenefit.addItem.unitPrice": for src.unitPrice make tgt.unitPrice
   "ExplanationOfBenefit.addItem.factor": for src.factor make tgt.factor
@@ -212,6 +225,7 @@ group ExplanationOfBenefitAddItem extends BackboneElement
   "ExplanationOfBenefit.addItem.noteNumber": for src.noteNumber make tgt.noteNumber
   "ExplanationOfBenefit.addItem.adjudication": for src.adjudication make tgt.adjudication
   "ExplanationOfBenefit.addItem.detail": for src.detail as s make tgt.detail as t then ExplanationOfBenefitAddItemDetail(s,t)
+endgroup
 
 group ExplanationOfBenefitAddItemDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -227,6 +241,7 @@ group ExplanationOfBenefitAddItemDetail extends BackboneElement
   "ExplanationOfBenefit.addItem.detail.noteNumber": for src.noteNumber make tgt.noteNumber
   "ExplanationOfBenefit.addItem.detail.adjudication": for src.adjudication make tgt.adjudication
   "ExplanationOfBenefit.addItem.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s,t)
+endgroup
 
 group ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -241,6 +256,7 @@ group ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
   "ExplanationOfBenefit.addItem.detail.subDetail.net": for src.net make tgt.net
   "ExplanationOfBenefit.addItem.detail.subDetail.noteNumber": for src.noteNumber make tgt.noteNumber
   "ExplanationOfBenefit.addItem.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
+endgroup
 
 group ExplanationOfBenefitTotal extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -248,6 +264,7 @@ group ExplanationOfBenefitTotal extends BackboneElement
 
   "ExplanationOfBenefit.total.category": for src.category make tgt.category
   "ExplanationOfBenefit.total.amount": for src.amount make tgt.amount
+endgroup
 
 group ExplanationOfBenefitPayment extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -259,6 +276,7 @@ group ExplanationOfBenefitPayment extends BackboneElement
   "ExplanationOfBenefit.payment.date": for src.date make tgt.date
   "ExplanationOfBenefit.payment.amount": for src.amount make tgt.amount
   "ExplanationOfBenefit.payment.identifier": for src.identifier make tgt.identifier
+endgroup
 
 group ExplanationOfBenefitProcessNote extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -268,6 +286,7 @@ group ExplanationOfBenefitProcessNote extends BackboneElement
   "ExplanationOfBenefit.processNote.type": for src.type make tgt.type
   "ExplanationOfBenefit.processNote.text": for src.text make tgt.text
   "ExplanationOfBenefit.processNote.language": for src.language make tgt.language
+endgroup
 
 group ExplanationOfBenefitBenefitBalance extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
@@ -281,11 +300,13 @@ group ExplanationOfBenefitBenefitBalance extends BackboneElement
   "ExplanationOfBenefit.benefitBalance.unit": for src.unit make tgt.unit
   "ExplanationOfBenefit.benefitBalance.term": for src.term make tgt.term
   "ExplanationOfBenefit.benefitBalance.financial": for src.financial as s make tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s,t)
+endgroup
 
 group ExplanationOfBenefitBenefitBalanceFinancial extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
   "ExplanationOfBenefit.benefitBalance.financial.type": for src.type make tgt.type
-  "ExplanationOfBenefit.benefitBalance.financial.allowed[x]": for src.allowed[x] make tgt.allowed[x]
-  "ExplanationOfBenefit.benefitBalance.financial.used[x]": for src.used[x] make tgt.used[x]
+  "ExplanationOfBenefit.benefitBalance.financial.allowed": for src.allowed make tgt.allowed
+  "ExplanationOfBenefit.benefitBalance.financial.used": for src.used make tgt.used
+endgroup

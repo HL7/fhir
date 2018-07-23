@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ServiceRequest2to3" = "R3 to R4 Conversions for ServiceRequest"
+﻿map "http://hl7.org/fhir/StructureMap/ServiceRequest3to4" = "R3 to R4 Conversions for ServiceRequest"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ServiceRequest" alias ServiceRequestR3 as source
@@ -26,8 +26,8 @@ group ServiceRequest extends DomainResource
   "ServiceRequest.orderDetail": for src.orderDetail make tgt.orderDetail
   "ServiceRequest.subject": for src.subject make tgt.subject
   "ServiceRequest.context": for src.context make tgt.context
-  "ServiceRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
-  "ServiceRequest.asNeeded[x]": for src.asNeeded[x] make tgt.asNeeded[x]
+  "ServiceRequest.occurrence": for src.occurrence make tgt.occurrence
+  "ServiceRequest.asNeeded": for src.asNeeded make tgt.asNeeded
   "ServiceRequest.authoredOn": for src.authoredOn make tgt.authoredOn
   "ServiceRequest.requester": for src.requester make tgt.requester
   "ServiceRequest.performerType": for src.performerType make tgt.performerType

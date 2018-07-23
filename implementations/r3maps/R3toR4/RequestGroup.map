@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/RequestGroup2to3" = "R3 to R4 Conversions for RequestGroup"
+﻿map "http://hl7.org/fhir/StructureMap/RequestGroup3to4" = "R3 to R4 Conversions for RequestGroup"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGroupR3 as source
@@ -45,7 +45,7 @@ group RequestGroupAction extends BackboneElement
   "RequestGroup.action.documentation": for src.documentation make tgt.documentation
   "RequestGroup.action.condition": for src.condition as s make tgt.condition as t then RequestGroupActionCondition(s,t)
   "RequestGroup.action.relatedAction": for src.relatedAction as s make tgt.relatedAction as t then RequestGroupActionRelatedAction(s,t)
-  "RequestGroup.action.timing[x]": for src.timing[x] make tgt.timing[x]
+  "RequestGroup.action.timing": for src.timing make tgt.timing
   "RequestGroup.action.participant": for src.participant make tgt.participant
   "RequestGroup.action.type": for src.type make tgt.type
   "RequestGroup.action.groupingBehavior": for src.groupingBehavior make tgt.groupingBehavior
@@ -75,6 +75,6 @@ group RequestGroupActionRelatedAction extends BackboneElement
 
   "RequestGroup.action.relatedAction.actionId": for src.actionId make tgt.actionId
   "RequestGroup.action.relatedAction.relationship": for src.relationship make tgt.relationship
-  "RequestGroup.action.relatedAction.offset[x]": for src.offset[x] make tgt.offset[x]
+  "RequestGroup.action.relatedAction.offset": for src.offset make tgt.offset
 endgroup
 

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription2to3" = "R3 to R4 Conversions for VisionPrescription"
+﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription3to4" = "R3 to R4 Conversions for VisionPrescription"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/VisionPrescription" alias VisionPrescriptionR3 as source
@@ -18,7 +18,7 @@ group VisionPrescription extends DomainResource
   "VisionPrescription.encounter": for src.encounter make tgt.encounter
   "VisionPrescription.dateWritten": for src.dateWritten make tgt.dateWritten
   "VisionPrescription.prescriber": for src.prescriber make tgt.prescriber
-  "VisionPrescription.reason[x]": for src.reason[x] make tgt.reason[x]
+  "VisionPrescription.reason": for src.reason make tgt.reason
   "VisionPrescription.dispense": for src.dispense as s make tgt.dispense as t then VisionPrescriptionDispense(s,t)
 endgroup
 

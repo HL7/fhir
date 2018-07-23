@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ObservationDefinition2to3" = "R3 to R4 Conversions for ObservationDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/ObservationDefinition3to4" = "R3 to R4 Conversions for ObservationDefinition"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ObservationDefinition" alias ObservationDefinitionR3 as source

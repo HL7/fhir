@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EntryDefinition3to2" = "R4 to R3 Conversion for EntryDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/EntryDefinition4to3" = "R4 to R3 Conversion for EntryDefinition"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/EntryDefinition" alias EntryDefinition as source
@@ -24,6 +24,7 @@ group EntryDefinition extends DomainResource
   "EntryDefinition.additionalCharacteristic": for src.additionalCharacteristic make tgt.additionalCharacteristic
   "EntryDefinition.additionalClassification": for src.additionalClassification make tgt.additionalClassification
   "EntryDefinition.relatedEntry": for src.relatedEntry as s make tgt.relatedEntry as t then EntryDefinitionRelatedEntry(s,t)
+endgroup
 
 group EntryDefinitionRelatedEntry extends BackboneElement
   input src : EntryDefinitionR3 as source
@@ -31,3 +32,4 @@ group EntryDefinitionRelatedEntry extends BackboneElement
 
   "EntryDefinition.relatedEntry.relationtype": for src.relationtype make tgt.relationtype
   "EntryDefinition.relatedEntry.item": for src.item make tgt.item
+endgroup

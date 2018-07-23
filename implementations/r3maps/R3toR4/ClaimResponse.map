@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ClaimResponse2to3" = "R3 to R4 Conversions for ClaimResponse"
+﻿map "http://hl7.org/fhir/StructureMap/ClaimResponse3to4" = "R3 to R4 Conversions for ClaimResponse"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ClaimResponse" alias ClaimResponseR3 as source
@@ -91,8 +91,8 @@ group ClaimResponseAddItem extends BackboneElement
   "ClaimResponse.addItem.service": for src.service make tgt.service
   "ClaimResponse.addItem.modifier": for src.modifier make tgt.modifier
   "ClaimResponse.addItem.programCode": for src.programCode make tgt.programCode
-  "ClaimResponse.addItem.serviced[x]": for src.serviced[x] make tgt.serviced[x]
-  "ClaimResponse.addItem.location[x]": for src.location[x] make tgt.location[x]
+  "ClaimResponse.addItem.serviced": for src.serviced make tgt.serviced
+  "ClaimResponse.addItem.location": for src.location make tgt.location
   "ClaimResponse.addItem.quantity": for src.quantity make tgt.quantity
   "ClaimResponse.addItem.unitPrice": for src.unitPrice make tgt.unitPrice
   "ClaimResponse.addItem.factor": for src.factor make tgt.factor

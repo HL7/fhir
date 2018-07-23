@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ProductShelfLife3to2" = "R4 to R3 Conversion for ProductShelfLife"
+﻿map "http://hl7.org/fhir/StructureMap/ProductShelfLife4to3" = "R4 to R3 Conversion for ProductShelfLife"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ProductShelfLife" alias ProductShelfLife as source
@@ -16,3 +16,4 @@ group ProductShelfLife extends BackboneElement
   "ProductShelfLife.type": for src.type make tgt.type
   "ProductShelfLife.period": for src.period make tgt.period
   "ProductShelfLife.specialPrecautionsForStorage": for src.specialPrecautionsForStorage make tgt.specialPrecautionsForStorage
+endgroup

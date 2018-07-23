@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ItemInstance3to2" = "R4 to R3 Conversion for ItemInstance"
+﻿map "http://hl7.org/fhir/StructureMap/ItemInstance4to3" = "R4 to R3 Conversion for ItemInstance"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ItemInstance" alias ItemInstance as source
@@ -22,3 +22,4 @@ group ItemInstance extends DomainResource
   "ItemInstance.serialNumber": for src.serialNumber make tgt.serialNumber
   "ItemInstance.carrierAIDC": for src.carrierAIDC make tgt.carrierAIDC
   "ItemInstance.carrierHRF": for src.carrierHRF make tgt.carrierHRF
+endgroup

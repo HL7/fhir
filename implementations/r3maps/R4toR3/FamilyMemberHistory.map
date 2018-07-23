@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/FamilyMemberHistory3to2" = "R4 to R3 Conversion for FamilyMemberHistory"
+﻿map "http://hl7.org/fhir/StructureMap/FamilyMemberHistory4to3" = "R4 to R3 Conversion for FamilyMemberHistory"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistory as source
@@ -22,14 +22,15 @@ group FamilyMemberHistory extends DomainResource
   "FamilyMemberHistory.name": for src.name make tgt.name
   "FamilyMemberHistory.relationship": for src.relationship make tgt.relationship
   "FamilyMemberHistory.gender": for src.gender make tgt.gender
-  "FamilyMemberHistory.born[x]": for src.born[x] make tgt.born[x]
-  "FamilyMemberHistory.age[x]": for src.age[x] make tgt.age[x]
+  "FamilyMemberHistory.born": for src.born make tgt.born
+  "FamilyMemberHistory.age": for src.age make tgt.age
   "FamilyMemberHistory.estimatedAge": for src.estimatedAge make tgt.estimatedAge
-  "FamilyMemberHistory.deceased[x]": for src.deceased[x] make tgt.deceased[x]
+  "FamilyMemberHistory.deceased": for src.deceased make tgt.deceased
   "FamilyMemberHistory.reasonCode": for src.reasonCode make tgt.reasonCode
   "FamilyMemberHistory.reasonReference": for src.reasonReference make tgt.reasonReference
   "FamilyMemberHistory.note": for src.note make tgt.note
   "FamilyMemberHistory.condition": for src.condition as s make tgt.condition as t then FamilyMemberHistoryCondition(s,t)
+endgroup
 
 group FamilyMemberHistoryCondition extends BackboneElement
   input src : FamilyMemberHistoryR3 as source
@@ -37,5 +38,6 @@ group FamilyMemberHistoryCondition extends BackboneElement
 
   "FamilyMemberHistory.condition.code": for src.code make tgt.code
   "FamilyMemberHistory.condition.outcome": for src.outcome make tgt.outcome
-  "FamilyMemberHistory.condition.onset[x]": for src.onset[x] make tgt.onset[x]
+  "FamilyMemberHistory.condition.onset": for src.onset make tgt.onset
   "FamilyMemberHistory.condition.note": for src.note make tgt.note
+endgroup

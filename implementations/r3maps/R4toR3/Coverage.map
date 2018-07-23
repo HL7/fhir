@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Coverage3to2" = "R4 to R3 Conversion for Coverage"
+﻿map "http://hl7.org/fhir/StructureMap/Coverage4to3" = "R4 to R3 Conversion for Coverage"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Coverage" alias Coverage as source
@@ -28,6 +28,7 @@ group Coverage extends DomainResource
   "Coverage.network": for src.network make tgt.network
   "Coverage.copay": for src.copay as s make tgt.copay as t then CoverageCopay(s,t)
   "Coverage.contract": for src.contract make tgt.contract
+endgroup
 
 group CoverageClass extends BackboneElement
   input src : CoverageR3 as source
@@ -36,6 +37,7 @@ group CoverageClass extends BackboneElement
   "Coverage.class.type": for src.type make tgt.type
   "Coverage.class.value": for src.value make tgt.value
   "Coverage.class.name": for src.name make tgt.name
+endgroup
 
 group CoverageCopay extends BackboneElement
   input src : CoverageR3 as source
@@ -43,3 +45,4 @@ group CoverageCopay extends BackboneElement
 
   "Coverage.copay.type": for src.type make tgt.type
   "Coverage.copay.value": for src.value make tgt.value
+endgroup

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/PaymentReconciliation2to3" = "R3 to R4 Conversions for PaymentReconciliation"
+﻿map "http://hl7.org/fhir/StructureMap/PaymentReconciliation3to4" = "R3 to R4 Conversions for PaymentReconciliation"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR3 as source

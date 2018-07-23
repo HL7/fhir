@@ -1,10 +1,10 @@
-﻿map "http://hl7.org/fhir/StructureMap/Resource3to2" = "R3 to R2 Conversion for Resource"
+﻿map "http://hl7.org/fhir/StructureMap/Resource4to3" = "R3 to R2 Conversion for Resource"
 
 uses "http://hl7.org/fhir/StructureDefinition/Resource" alias Resource as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Resource" alias ResourceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/Meta3to2"
+imports "http://hl7.org/fhir/StructureMap/primitives4to3"
+imports "http://hl7.org/fhir/StructureMap/Meta4to3"
 
 group for type+types  Resource
   input src : Resource as source

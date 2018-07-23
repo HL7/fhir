@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/BodyStructure3to2" = "R4 to R3 Conversion for BodyStructure"
+﻿map "http://hl7.org/fhir/StructureMap/BodyStructure4to3" = "R4 to R3 Conversion for BodyStructure"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/BodyStructure" alias BodyStructure as source
@@ -20,3 +20,4 @@ group BodyStructure extends DomainResource
   "BodyStructure.description": for src.description make tgt.description
   "BodyStructure.image": for src.image make tgt.image
   "BodyStructure.patient": for src.patient make tgt.patient
+endgroup

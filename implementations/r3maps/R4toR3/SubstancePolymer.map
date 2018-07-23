@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SubstancePolymer3to2" = "R4 to R3 Conversion for SubstancePolymer"
+﻿map "http://hl7.org/fhir/StructureMap/SubstancePolymer4to3" = "R4 to R3 Conversion for SubstancePolymer"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/SubstancePolymer" alias SubstancePolymer as source
@@ -18,6 +18,7 @@ group SubstancePolymer extends DomainResource
   "SubstancePolymer.modification": for src.modification make tgt.modification
   "SubstancePolymer.monomerSet": for src.monomerSet as s make tgt.monomerSet as t then SubstancePolymerMonomerSet(s,t)
   "SubstancePolymer.repeat": for src.repeat as s make tgt.repeat as t then SubstancePolymerRepeat(s,t)
+endgroup
 
 group SubstancePolymerMonomerSet extends BackboneElement
   input src : SubstancePolymerR3 as source
@@ -25,6 +26,7 @@ group SubstancePolymerMonomerSet extends BackboneElement
 
   "SubstancePolymer.monomerSet.ratioType": for src.ratioType make tgt.ratioType
   "SubstancePolymer.monomerSet.startingMaterial": for src.startingMaterial as s make tgt.startingMaterial as t then SubstancePolymerMonomerSetStartingMaterial(s,t)
+endgroup
 
 group SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
   input src : SubstancePolymerR3 as source
@@ -34,6 +36,7 @@ group SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
   "SubstancePolymer.monomerSet.startingMaterial.type": for src.type make tgt.type
   "SubstancePolymer.monomerSet.startingMaterial.isDefining": for src.isDefining make tgt.isDefining
   "SubstancePolymer.monomerSet.startingMaterial.amount": for src.amount make tgt.amount
+endgroup
 
 group SubstancePolymerRepeat extends BackboneElement
   input src : SubstancePolymerR3 as source
@@ -43,6 +46,7 @@ group SubstancePolymerRepeat extends BackboneElement
   "SubstancePolymer.repeat.averageMolecularFormula": for src.averageMolecularFormula make tgt.averageMolecularFormula
   "SubstancePolymer.repeat.repeatUnitAmountType": for src.repeatUnitAmountType make tgt.repeatUnitAmountType
   "SubstancePolymer.repeat.repeatUnit": for src.repeatUnit as s make tgt.repeatUnit as t then SubstancePolymerRepeatRepeatUnit(s,t)
+endgroup
 
 group SubstancePolymerRepeatRepeatUnit extends BackboneElement
   input src : SubstancePolymerR3 as source
@@ -53,6 +57,7 @@ group SubstancePolymerRepeatRepeatUnit extends BackboneElement
   "SubstancePolymer.repeat.repeatUnit.amount": for src.amount make tgt.amount
   "SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation": for src.degreeOfPolymerisation as s make tgt.degreeOfPolymerisation as t then SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(s,t)
   "SubstancePolymer.repeat.repeatUnit.structuralRepresentation": for src.structuralRepresentation as s make tgt.structuralRepresentation as t then SubstancePolymerRepeatRepeatUnitStructuralRepresentation(s,t)
+endgroup
 
 group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneElement
   input src : SubstancePolymerR3 as source
@@ -60,6 +65,7 @@ group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneEle
 
   "SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.degree": for src.degree make tgt.degree
   "SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.amount": for src.amount make tgt.amount
+endgroup
 
 group SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneElement
   input src : SubstancePolymerR3 as source
@@ -68,3 +74,4 @@ group SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneE
   "SubstancePolymer.repeat.repeatUnit.structuralRepresentation.type": for src.type make tgt.type
   "SubstancePolymer.repeat.repeatUnit.structuralRepresentation.representation": for src.representation make tgt.representation
   "SubstancePolymer.repeat.repeatUnit.structuralRepresentation.attachment": for src.attachment make tgt.attachment
+endgroup

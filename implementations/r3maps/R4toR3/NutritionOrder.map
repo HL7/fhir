@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/NutritionOrder3to2" = "R4 to R3 Conversion for NutritionOrder"
+﻿map "http://hl7.org/fhir/StructureMap/NutritionOrder4to3" = "R4 to R3 Conversion for NutritionOrder"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/NutritionOrder" alias NutritionOrder as source
@@ -27,6 +27,7 @@ group NutritionOrder extends DomainResource
   "NutritionOrder.supplement": for src.supplement as s make tgt.supplement as t then NutritionOrderSupplement(s,t)
   "NutritionOrder.enteralFormula": for src.enteralFormula as s make tgt.enteralFormula as t then NutritionOrderEnteralFormula(s,t)
   "NutritionOrder.note": for src.note make tgt.note
+endgroup
 
 group NutritionOrderOralDiet extends BackboneElement
   input src : NutritionOrderR3 as source
@@ -38,6 +39,7 @@ group NutritionOrderOralDiet extends BackboneElement
   "NutritionOrder.oralDiet.texture": for src.texture as s make tgt.texture as t then NutritionOrderOralDietTexture(s,t)
   "NutritionOrder.oralDiet.fluidConsistencyType": for src.fluidConsistencyType make tgt.fluidConsistencyType
   "NutritionOrder.oralDiet.instruction": for src.instruction make tgt.instruction
+endgroup
 
 group NutritionOrderOralDietNutrient extends BackboneElement
   input src : NutritionOrderR3 as source
@@ -45,6 +47,7 @@ group NutritionOrderOralDietNutrient extends BackboneElement
 
   "NutritionOrder.oralDiet.nutrient.modifier": for src.modifier make tgt.modifier
   "NutritionOrder.oralDiet.nutrient.amount": for src.amount make tgt.amount
+endgroup
 
 group NutritionOrderOralDietTexture extends BackboneElement
   input src : NutritionOrderR3 as source
@@ -52,6 +55,7 @@ group NutritionOrderOralDietTexture extends BackboneElement
 
   "NutritionOrder.oralDiet.texture.modifier": for src.modifier make tgt.modifier
   "NutritionOrder.oralDiet.texture.foodType": for src.foodType make tgt.foodType
+endgroup
 
 group NutritionOrderSupplement extends BackboneElement
   input src : NutritionOrderR3 as source
@@ -62,6 +66,7 @@ group NutritionOrderSupplement extends BackboneElement
   "NutritionOrder.supplement.schedule": for src.schedule make tgt.schedule
   "NutritionOrder.supplement.quantity": for src.quantity make tgt.quantity
   "NutritionOrder.supplement.instruction": for src.instruction make tgt.instruction
+endgroup
 
 group NutritionOrderEnteralFormula extends BackboneElement
   input src : NutritionOrderR3 as source
@@ -76,6 +81,7 @@ group NutritionOrderEnteralFormula extends BackboneElement
   "NutritionOrder.enteralFormula.administration": for src.administration as s make tgt.administration as t then NutritionOrderEnteralFormulaAdministration(s,t)
   "NutritionOrder.enteralFormula.maxVolumeToDeliver": for src.maxVolumeToDeliver make tgt.maxVolumeToDeliver
   "NutritionOrder.enteralFormula.administrationInstruction": for src.administrationInstruction make tgt.administrationInstruction
+endgroup
 
 group NutritionOrderEnteralFormulaAdministration extends BackboneElement
   input src : NutritionOrderR3 as source
@@ -83,4 +89,5 @@ group NutritionOrderEnteralFormulaAdministration extends BackboneElement
 
   "NutritionOrder.enteralFormula.administration.schedule": for src.schedule make tgt.schedule
   "NutritionOrder.enteralFormula.administration.quantity": for src.quantity make tgt.quantity
-  "NutritionOrder.enteralFormula.administration.rate[x]": for src.rate[x] make tgt.rate[x]
+  "NutritionOrder.enteralFormula.administration.rate": for src.rate make tgt.rate
+endgroup

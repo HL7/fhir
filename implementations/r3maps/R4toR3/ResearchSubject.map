@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ResearchSubject3to2" = "R4 to R3 Conversion for ResearchSubject"
+﻿map "http://hl7.org/fhir/StructureMap/ResearchSubject4to3" = "R4 to R3 Conversion for ResearchSubject"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ResearchSubject" alias ResearchSubject as source
@@ -20,3 +20,4 @@ group ResearchSubject extends DomainResource
   "ResearchSubject.assignedArm": for src.assignedArm make tgt.assignedArm
   "ResearchSubject.actualArm": for src.actualArm make tgt.actualArm
   "ResearchSubject.consent": for src.consent make tgt.consent
+endgroup

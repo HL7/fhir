@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ProcessResponse2to3" = "R3 to R4 Conversions for ProcessResponse"
+﻿map "http://hl7.org/fhir/StructureMap/ProcessResponse3to4" = "R3 to R4 Conversions for ProcessResponse"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessResponse" alias ProcessResponseR3 as source

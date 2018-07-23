@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities2to3" = "R3 to R4 Conversions for TerminologyCapabilities"
+﻿map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities3to4" = "R3 to R4 Conversions for TerminologyCapabilities"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilitiesR3 as source

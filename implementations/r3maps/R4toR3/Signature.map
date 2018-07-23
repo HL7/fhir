@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Signature3to2" = "R4 to R3 Conversion for Signature"
+﻿map "http://hl7.org/fhir/StructureMap/Signature4to3" = "R4 to R3 Conversion for Signature"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as source
@@ -14,8 +14,9 @@ group Signature extends Element
 
   "Signature.type": for src.type make tgt.type
   "Signature.when": for src.when make tgt.when
-  "Signature.who[x]": for src.who[x] make tgt.who[x]
-  "Signature.onBehalfOf[x]": for src.onBehalfOf[x] make tgt.onBehalfOf[x]
+  "Signature.who": for src.who make tgt.who
+  "Signature.onBehalfOf": for src.onBehalfOf make tgt.onBehalfOf
   "Signature.targetFormat": for src.targetFormat make tgt.targetFormat
   "Signature.sigFormat": for src.sigFormat make tgt.sigFormat
   "Signature.blob": for src.blob make tgt.blob
+endgroup

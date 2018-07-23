@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Media3to2" = "R4 to R3 Conversion for Media"
+﻿map "http://hl7.org/fhir/StructureMap/Media4to3" = "R4 to R3 Conversion for Media"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as source
@@ -21,7 +21,7 @@ group Media extends DomainResource
   "Media.view": for src.view make tgt.view
   "Media.subject": for src.subject make tgt.subject
   "Media.context": for src.context make tgt.context
-  "Media.created[x]": for src.created[x] make tgt.created[x]
+  "Media.created": for src.created make tgt.created
   "Media.issued": for src.issued make tgt.issued
   "Media.operator": for src.operator make tgt.operator
   "Media.reasonCode": for src.reasonCode make tgt.reasonCode
@@ -34,3 +34,4 @@ group Media extends DomainResource
   "Media.duration": for src.duration make tgt.duration
   "Media.content": for src.content make tgt.content
   "Media.note": for src.note make tgt.note
+endgroup

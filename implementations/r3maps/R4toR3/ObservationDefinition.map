@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ObservationDefinition3to2" = "R4 to R3 Conversion for ObservationDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/ObservationDefinition4to3" = "R4 to R3 Conversion for ObservationDefinition"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ObservationDefinition" alias ObservationDefinition as source
@@ -24,6 +24,7 @@ group ObservationDefinition extends DomainResource
   "ObservationDefinition.normalCodedValueSet": for src.normalCodedValueSet make tgt.normalCodedValueSet
   "ObservationDefinition.abnormalCodedValueSet": for src.abnormalCodedValueSet make tgt.abnormalCodedValueSet
   "ObservationDefinition.criticalCodedValueSet": for src.criticalCodedValueSet make tgt.criticalCodedValueSet
+endgroup
 
 group ObservationDefinitionQuantitativeDetails extends BackboneElement
   input src : ObservationDefinitionR3 as source
@@ -33,6 +34,7 @@ group ObservationDefinitionQuantitativeDetails extends BackboneElement
   "ObservationDefinition.quantitativeDetails.unit": for src.unit make tgt.unit
   "ObservationDefinition.quantitativeDetails.conversionFactor": for src.conversionFactor make tgt.conversionFactor
   "ObservationDefinition.quantitativeDetails.decimalPrecision": for src.decimalPrecision make tgt.decimalPrecision
+endgroup
 
 group ObservationDefinitionQualifiedInterval extends BackboneElement
   input src : ObservationDefinitionR3 as source
@@ -45,3 +47,4 @@ group ObservationDefinitionQualifiedInterval extends BackboneElement
   "ObservationDefinition.qualifiedInterval.age": for src.age make tgt.age
   "ObservationDefinition.qualifiedInterval.gestationalAge": for src.gestationalAge make tgt.gestationalAge
   "ObservationDefinition.qualifiedInterval.condition": for src.condition make tgt.condition
+endgroup

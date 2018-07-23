@@ -4,9 +4,9 @@ conceptmap "Clinical Impression Status" {
   prefix s = "http://hl7.org/fhir/clinical-impression-status"
   prefix t = "http://hl7.org/fhir/event-status"
 
-  s:draft - t:in-progress
-  s:completed - t:completed
-  s:entered-in-error - t:entered-in-error
+  s:draft - t:"in-progress"
+  s:completed - t:"completed"
+  s:"entered-in-error" - t:"entered-in-error"
 }
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR3 as source

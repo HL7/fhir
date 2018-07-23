@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ExampleScenario2to3" = "R3 to R4 Conversions for ExampleScenario"
+﻿map "http://hl7.org/fhir/StructureMap/ExampleScenario3to4" = "R3 to R4 Conversions for ExampleScenario"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ExampleScenario" alias ExampleScenarioR3 as source

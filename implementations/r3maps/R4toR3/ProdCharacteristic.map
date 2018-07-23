@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ProdCharacteristic3to2" = "R4 to R3 Conversion for ProdCharacteristic"
+﻿map "http://hl7.org/fhir/StructureMap/ProdCharacteristic4to3" = "R4 to R3 Conversion for ProdCharacteristic"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ProdCharacteristic" alias ProdCharacteristic as source
@@ -23,3 +23,4 @@ group ProdCharacteristic extends BackboneElement
   "ProdCharacteristic.imprint": for src.imprint make tgt.imprint
   "ProdCharacteristic.image": for src.image make tgt.image
   "ProdCharacteristic.scoring": for src.scoring make tgt.scoring
+endgroup

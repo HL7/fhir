@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPackaged3to2" = "R4 to R3 Conversion for MedicinalProductPackaged"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPackaged4to3" = "R4 to R3 Conversion for MedicinalProductPackaged"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged" alias MedicinalProductPackaged as source
@@ -17,6 +17,7 @@ group MedicinalProductPackaged extends DomainResource
   "MedicinalProductPackaged.marketingStatus": for src.marketingStatus make tgt.marketingStatus
   "MedicinalProductPackaged.batchIdentifier": for src.batchIdentifier as s make tgt.batchIdentifier as t then MedicinalProductPackagedBatchIdentifier(s,t)
   "MedicinalProductPackaged.packageItem": for src.packageItem as s make tgt.packageItem as t then MedicinalProductPackagedPackageItem(s,t)
+endgroup
 
 group MedicinalProductPackagedBatchIdentifier extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
@@ -24,6 +25,7 @@ group MedicinalProductPackagedBatchIdentifier extends BackboneElement
 
   "MedicinalProductPackaged.batchIdentifier.outerPackaging": for src.outerPackaging make tgt.outerPackaging
   "MedicinalProductPackaged.batchIdentifier.immediatePackaging": for src.immediatePackaging make tgt.immediatePackaging
+endgroup
 
 group MedicinalProductPackagedPackageItem extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
@@ -41,6 +43,7 @@ group MedicinalProductPackagedPackageItem extends BackboneElement
   "MedicinalProductPackaged.packageItem.packageItem": for src.packageItem make tgt.packageItem
   "MedicinalProductPackaged.packageItem.physicalCharacteristics": for src.physicalCharacteristics make tgt.physicalCharacteristics
   "MedicinalProductPackaged.packageItem.shelfLifeStorage": for src.shelfLifeStorage make tgt.shelfLifeStorage
+endgroup
 
 group MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
@@ -52,3 +55,4 @@ group MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElemen
   "MedicinalProductPackaged.packageItem.manufacturedItem.xManufacturer": for src.xManufacturer make tgt.xManufacturer
   "MedicinalProductPackaged.packageItem.manufacturedItem.ingredient": for src.ingredient make tgt.ingredient
   "MedicinalProductPackaged.packageItem.manufacturedItem.physicalCharacteristics": for src.physicalCharacteristics make tgt.physicalCharacteristics
+endgroup

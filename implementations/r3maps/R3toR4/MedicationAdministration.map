@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration2to3" = "R3 to R4 Conversions for MedicationAdministration"
+﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration3to4" = "R3 to R4 Conversions for MedicationAdministration"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR3 as source
@@ -17,11 +17,11 @@ group MedicationAdministration extends DomainResource
   "MedicationAdministration.partOf": for src.partOf make tgt.partOf
   "MedicationAdministration.status": for src.status make tgt.status
   "MedicationAdministration.category": for src.category make tgt.category
-  "MedicationAdministration.medication[x]": for src.medication[x] make tgt.medication[x]
+  "MedicationAdministration.medication": for src.medication make tgt.medication
   "MedicationAdministration.subject": for src.subject make tgt.subject
   "MedicationAdministration.context": for src.context make tgt.context
   "MedicationAdministration.supportingInformation": for src.supportingInformation make tgt.supportingInformation
-  "MedicationAdministration.effective[x]": for src.effective[x] make tgt.effective[x]
+  "MedicationAdministration.effective": for src.effective make tgt.effective
   "MedicationAdministration.performer": for src.performer as s make tgt.performer as t then MedicationAdministrationPerformer(s,t)
   "MedicationAdministration.statusReason": for src.statusReason make tgt.statusReason
   "MedicationAdministration.reasonCode": for src.reasonCode make tgt.reasonCode
@@ -52,6 +52,6 @@ group MedicationAdministrationDosage extends BackboneElement
   "MedicationAdministration.dosage.route": for src.route make tgt.route
   "MedicationAdministration.dosage.method": for src.method make tgt.method
   "MedicationAdministration.dosage.dose": for src.dose make tgt.dose
-  "MedicationAdministration.dosage.rate[x]": for src.rate[x] make tgt.rate[x]
+  "MedicationAdministration.dosage.rate": for src.rate make tgt.rate
 endgroup
 

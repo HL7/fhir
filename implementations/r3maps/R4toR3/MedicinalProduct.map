@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProduct3to2" = "R4 to R3 Conversion for MedicinalProduct"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProduct4to3" = "R4 to R3 Conversion for MedicinalProduct"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProduct" alias MedicinalProduct as source
@@ -32,6 +32,7 @@ group MedicinalProduct extends DomainResource
   "MedicinalProduct.crossReference": for src.crossReference make tgt.crossReference
   "MedicinalProduct.manufacturingBusinessOperation": for src.manufacturingBusinessOperation as s make tgt.manufacturingBusinessOperation as t then MedicinalProductManufacturingBusinessOperation(s,t)
   "MedicinalProduct.orphanDesignation": for src.orphanDesignation as s make tgt.orphanDesignation as t then MedicinalProductOrphanDesignation(s,t)
+endgroup
 
 group MedicinalProductName extends BackboneElement
   input src : MedicinalProductR3 as source
@@ -40,6 +41,7 @@ group MedicinalProductName extends BackboneElement
   "MedicinalProduct.name.fullName": for src.fullName make tgt.fullName
   "MedicinalProduct.name.namePart": for src.namePart as s make tgt.namePart as t then MedicinalProductNameNamePart(s,t)
   "MedicinalProduct.name.countryLanguage": for src.countryLanguage as s make tgt.countryLanguage as t then MedicinalProductNameCountryLanguage(s,t)
+endgroup
 
 group MedicinalProductNameNamePart extends BackboneElement
   input src : MedicinalProductR3 as source
@@ -47,6 +49,7 @@ group MedicinalProductNameNamePart extends BackboneElement
 
   "MedicinalProduct.name.namePart.part": for src.part make tgt.part
   "MedicinalProduct.name.namePart.type": for src.type make tgt.type
+endgroup
 
 group MedicinalProductNameCountryLanguage extends BackboneElement
   input src : MedicinalProductR3 as source
@@ -55,6 +58,7 @@ group MedicinalProductNameCountryLanguage extends BackboneElement
   "MedicinalProduct.name.countryLanguage.country": for src.country make tgt.country
   "MedicinalProduct.name.countryLanguage.jurisdiction": for src.jurisdiction make tgt.jurisdiction
   "MedicinalProduct.name.countryLanguage.language": for src.language make tgt.language
+endgroup
 
 group MedicinalProductManufacturingBusinessOperation extends BackboneElement
   input src : MedicinalProductR3 as source
@@ -66,6 +70,7 @@ group MedicinalProductManufacturingBusinessOperation extends BackboneElement
   "MedicinalProduct.manufacturingBusinessOperation.confidentialityIndicator": for src.confidentialityIndicator make tgt.confidentialityIndicator
   "MedicinalProduct.manufacturingBusinessOperation.manufacturer": for src.manufacturer make tgt.manufacturer
   "MedicinalProduct.manufacturingBusinessOperation.regulator": for src.regulator make tgt.regulator
+endgroup
 
 group MedicinalProductOrphanDesignation extends BackboneElement
   input src : MedicinalProductR3 as source
@@ -77,3 +82,4 @@ group MedicinalProductOrphanDesignation extends BackboneElement
   "MedicinalProduct.orphanDesignation.status": for src.status make tgt.status
   "MedicinalProduct.orphanDesignation.date": for src.date make tgt.date
   "MedicinalProduct.orphanDesignation.species": for src.species make tgt.species
+endgroup

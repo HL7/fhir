@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPharmaceutical3to2" = "R4 to R3 Conversion for MedicinalProductPharmaceutical"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPharmaceutical4to3" = "R4 to R3 Conversion for MedicinalProductPharmaceutical"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductPharmaceutical" alias MedicinalProductPharmaceutical as source
@@ -19,6 +19,7 @@ group MedicinalProductPharmaceutical extends DomainResource
   "MedicinalProductPharmaceutical.device": for src.device make tgt.device
   "MedicinalProductPharmaceutical.characteristics": for src.characteristics as s make tgt.characteristics as t then MedicinalProductPharmaceuticalCharacteristics(s,t)
   "MedicinalProductPharmaceutical.routeOfAdministration": for src.routeOfAdministration as s make tgt.routeOfAdministration as t then MedicinalProductPharmaceuticalRouteOfAdministration(s,t)
+endgroup
 
 group MedicinalProductPharmaceuticalCharacteristics extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
@@ -26,6 +27,7 @@ group MedicinalProductPharmaceuticalCharacteristics extends BackboneElement
 
   "MedicinalProductPharmaceutical.characteristics.code": for src.code make tgt.code
   "MedicinalProductPharmaceutical.characteristics.status": for src.status make tgt.status
+endgroup
 
 group MedicinalProductPharmaceuticalRouteOfAdministration extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
@@ -38,6 +40,7 @@ group MedicinalProductPharmaceuticalRouteOfAdministration extends BackboneElemen
   "MedicinalProductPharmaceutical.routeOfAdministration.maxDosePerTreatmentPeriod": for src.maxDosePerTreatmentPeriod make tgt.maxDosePerTreatmentPeriod
   "MedicinalProductPharmaceutical.routeOfAdministration.maxTreatmentPeriod": for src.maxTreatmentPeriod make tgt.maxTreatmentPeriod
   "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies": for src.targetSpecies as s make tgt.targetSpecies as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(s,t)
+endgroup
 
 group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
@@ -45,6 +48,7 @@ group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies extends B
 
   "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.code": for src.code make tgt.code
   "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod": for src.withdrawalPeriod as s make tgt.withdrawalPeriod as t then MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(s,t)
+endgroup
 
 group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
@@ -53,3 +57,4 @@ group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawal
   "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue": for src.tissue make tgt.tissue
   "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.value": for src.value make tgt.value
   "MedicinalProductPharmaceutical.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation": for src.supportingInformation make tgt.supportingInformation
+endgroup

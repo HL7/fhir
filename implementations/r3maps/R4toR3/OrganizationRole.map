@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OrganizationRole3to2" = "R4 to R3 Conversion for OrganizationRole"
+﻿map "http://hl7.org/fhir/StructureMap/OrganizationRole4to3" = "R4 to R3 Conversion for OrganizationRole"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/OrganizationRole" alias OrganizationRole as source
@@ -27,6 +27,7 @@ group OrganizationRole extends DomainResource
   "OrganizationRole.notAvailable": for src.notAvailable as s make tgt.notAvailable as t then OrganizationRoleNotAvailable(s,t)
   "OrganizationRole.availabilityExceptions": for src.availabilityExceptions make tgt.availabilityExceptions
   "OrganizationRole.endpoint": for src.endpoint make tgt.endpoint
+endgroup
 
 group OrganizationRoleAvailableTime extends BackboneElement
   input src : OrganizationRoleR3 as source
@@ -36,6 +37,7 @@ group OrganizationRoleAvailableTime extends BackboneElement
   "OrganizationRole.availableTime.allDay": for src.allDay make tgt.allDay
   "OrganizationRole.availableTime.availableStartTime": for src.availableStartTime make tgt.availableStartTime
   "OrganizationRole.availableTime.availableEndTime": for src.availableEndTime make tgt.availableEndTime
+endgroup
 
 group OrganizationRoleNotAvailable extends BackboneElement
   input src : OrganizationRoleR3 as source
@@ -43,3 +45,4 @@ group OrganizationRoleNotAvailable extends BackboneElement
 
   "OrganizationRole.notAvailable.description": for src.description make tgt.description
   "OrganizationRole.notAvailable.during": for src.during make tgt.during
+endgroup

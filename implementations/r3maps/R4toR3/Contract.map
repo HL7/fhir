@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Contract3to2" = "R4 to R3 Conversion for Contract"
+﻿map "http://hl7.org/fhir/StructureMap/Contract4to3" = "R4 to R3 Conversion for Contract"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Contract" alias Contract as source
@@ -27,7 +27,8 @@ group Contract extends DomainResource
   "Contract.friendly": for src.friendly as s make tgt.friendly as t then ContractFriendly(s,t)
   "Contract.legal": for src.legal as s make tgt.legal as t then ContractLegal(s,t)
   "Contract.rule": for src.rule as s make tgt.rule as t then ContractRule(s,t)
-  "Contract.legallyBinding[x]": for src.legallyBinding[x] make tgt.legallyBinding[x]
+  "Contract.legallyBinding": for src.legallyBinding make tgt.legallyBinding
+endgroup
 
 group ContractTerm extends BackboneElement
   input src : ContractR3 as source
@@ -44,6 +45,7 @@ group ContractTerm extends BackboneElement
   "Contract.term.action": for src.action make tgt.action
   "Contract.term.actionReason": for src.actionReason make tgt.actionReason
   "Contract.term.group": for src.group make tgt.group
+endgroup
 
 group ContractTermOffer extends BackboneElement
   input src : ContractR3 as source
@@ -54,6 +56,7 @@ group ContractTermOffer extends BackboneElement
   "Contract.term.offer.decision": for src.decision make tgt.decision
   "Contract.term.offer.text": for src.text make tgt.text
   "Contract.term.offer.linkId": for src.linkId make tgt.linkId
+endgroup
 
 group ContractTermAsset extends BackboneElement
   input src : ContractR3 as source
@@ -66,6 +69,7 @@ group ContractTermAsset extends BackboneElement
   "Contract.term.asset.data": for src.data as s make tgt.data as t then ContractTermAssetData(s,t)
   "Contract.term.asset.valuedItem": for src.valuedItem as s make tgt.valuedItem as t then ContractTermAssetValuedItem(s,t)
   "Contract.term.asset.securityLabel": for src.securityLabel make tgt.securityLabel
+endgroup
 
 group ContractTermAssetData extends BackboneElement
   input src : ContractR3 as source
@@ -73,12 +77,13 @@ group ContractTermAssetData extends BackboneElement
 
   "Contract.term.asset.data.meaning": for src.meaning make tgt.meaning
   "Contract.term.asset.data.reference": for src.reference make tgt.reference
+endgroup
 
 group ContractTermAssetValuedItem extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
-  "Contract.term.asset.valuedItem.entity[x]": for src.entity[x] make tgt.entity[x]
+  "Contract.term.asset.valuedItem.entity": for src.entity make tgt.entity
   "Contract.term.asset.valuedItem.identifier": for src.identifier make tgt.identifier
   "Contract.term.asset.valuedItem.effectiveTime": for src.effectiveTime make tgt.effectiveTime
   "Contract.term.asset.valuedItem.quantity": for src.quantity make tgt.quantity
@@ -86,6 +91,7 @@ group ContractTermAssetValuedItem extends BackboneElement
   "Contract.term.asset.valuedItem.factor": for src.factor make tgt.factor
   "Contract.term.asset.valuedItem.points": for src.points make tgt.points
   "Contract.term.asset.valuedItem.net": for src.net make tgt.net
+endgroup
 
 group ContractTermAgent extends BackboneElement
   input src : ContractR3 as source
@@ -93,6 +99,7 @@ group ContractTermAgent extends BackboneElement
 
   "Contract.term.agent.actor": for src.actor make tgt.actor
   "Contract.term.agent.role": for src.role make tgt.role
+endgroup
 
 group ContractSigner extends BackboneElement
   input src : ContractR3 as source
@@ -101,21 +108,25 @@ group ContractSigner extends BackboneElement
   "Contract.signer.type": for src.type make tgt.type
   "Contract.signer.party": for src.party make tgt.party
   "Contract.signer.signature": for src.signature make tgt.signature
+endgroup
 
 group ContractFriendly extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
-  "Contract.friendly.content[x]": for src.content[x] make tgt.content[x]
+  "Contract.friendly.content": for src.content make tgt.content
+endgroup
 
 group ContractLegal extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
-  "Contract.legal.content[x]": for src.content[x] make tgt.content[x]
+  "Contract.legal.content": for src.content make tgt.content
+endgroup
 
 group ContractRule extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
-  "Contract.rule.content[x]": for src.content[x] make tgt.content[x]
+  "Contract.rule.content": for src.content make tgt.content
+endgroup

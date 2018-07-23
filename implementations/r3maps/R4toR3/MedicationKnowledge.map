@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicationKnowledge3to2" = "R4 to R3 Conversion for MedicationKnowledge"
+﻿map "http://hl7.org/fhir/StructureMap/MedicationKnowledge4to3" = "R4 to R3 Conversion for MedicationKnowledge"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicationKnowledge" alias MedicationKnowledge as source
@@ -34,6 +34,7 @@ group MedicationKnowledge extends DomainResource
   "MedicationKnowledge.contraindication": for src.contraindication make tgt.contraindication
   "MedicationKnowledge.regulatory": for src.regulatory as s make tgt.regulatory as t then MedicationKnowledgeRegulatory(s,t)
   "MedicationKnowledge.kinetics": for src.kinetics as s make tgt.kinetics as t then MedicationKnowledgeKinetics(s,t)
+endgroup
 
 group MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -41,6 +42,7 @@ group MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
 
   "MedicationKnowledge.relatedMedicationKnowledge.type": for src.type make tgt.type
   "MedicationKnowledge.relatedMedicationKnowledge.reference": for src.reference make tgt.reference
+endgroup
 
 group MedicationKnowledgeMonograph extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -48,14 +50,16 @@ group MedicationKnowledgeMonograph extends BackboneElement
 
   "MedicationKnowledge.monograph.type": for src.type make tgt.type
   "MedicationKnowledge.monograph.source": for src.source make tgt.source
+endgroup
 
 group MedicationKnowledgeIngredient extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
-  "MedicationKnowledge.ingredient.item[x]": for src.item[x] make tgt.item[x]
+  "MedicationKnowledge.ingredient.item": for src.item make tgt.item
   "MedicationKnowledge.ingredient.isActive": for src.isActive make tgt.isActive
   "MedicationKnowledge.ingredient.strength": for src.strength make tgt.strength
+endgroup
 
 group MedicationKnowledgeCost extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -64,6 +68,7 @@ group MedicationKnowledgeCost extends BackboneElement
   "MedicationKnowledge.cost.type": for src.type make tgt.type
   "MedicationKnowledge.cost.source": for src.source make tgt.source
   "MedicationKnowledge.cost.cost": for src.cost make tgt.cost
+endgroup
 
 group MedicationKnowledgeMonitoringProgram extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -71,14 +76,16 @@ group MedicationKnowledgeMonitoringProgram extends BackboneElement
 
   "MedicationKnowledge.monitoringProgram.type": for src.type make tgt.type
   "MedicationKnowledge.monitoringProgram.name": for src.name make tgt.name
+endgroup
 
 group MedicationKnowledgeAdministrationGuidelines extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
   "MedicationKnowledge.administrationGuidelines.dosage": for src.dosage as s make tgt.dosage as t then MedicationKnowledgeAdministrationGuidelinesDosage(s,t)
-  "MedicationKnowledge.administrationGuidelines.indication[x]": for src.indication[x] make tgt.indication[x]
+  "MedicationKnowledge.administrationGuidelines.indication": for src.indication make tgt.indication
   "MedicationKnowledge.administrationGuidelines.patientCharacteristics": for src.patientCharacteristics as s make tgt.patientCharacteristics as t then MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(s,t)
+endgroup
 
 group MedicationKnowledgeAdministrationGuidelinesDosage extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -86,13 +93,15 @@ group MedicationKnowledgeAdministrationGuidelinesDosage extends BackboneElement
 
   "MedicationKnowledge.administrationGuidelines.dosage.type": for src.type make tgt.type
   "MedicationKnowledge.administrationGuidelines.dosage.dosage": for src.dosage make tgt.dosage
+endgroup
 
 group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
-  "MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic[x]": for src.characteristic[x] make tgt.characteristic[x]
+  "MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic": for src.characteristic make tgt.characteristic
   "MedicationKnowledge.administrationGuidelines.patientCharacteristics.value": for src.value make tgt.value
+endgroup
 
 group MedicationKnowledgeMedicineClassification extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -100,6 +109,7 @@ group MedicationKnowledgeMedicineClassification extends BackboneElement
 
   "MedicationKnowledge.medicineClassification.type": for src.type make tgt.type
   "MedicationKnowledge.medicineClassification.classification": for src.classification make tgt.classification
+endgroup
 
 group MedicationKnowledgePackaging extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -107,13 +117,15 @@ group MedicationKnowledgePackaging extends BackboneElement
 
   "MedicationKnowledge.packaging.type": for src.type make tgt.type
   "MedicationKnowledge.packaging.quantity": for src.quantity make tgt.quantity
+endgroup
 
 group MedicationKnowledgeDrugCharacteristic extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
   "MedicationKnowledge.drugCharacteristic.type": for src.type make tgt.type
-  "MedicationKnowledge.drugCharacteristic.value[x]": for src.value[x] make tgt.value[x]
+  "MedicationKnowledge.drugCharacteristic.value": for src.value make tgt.value
+endgroup
 
 group MedicationKnowledgeRegulatory extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -122,6 +134,7 @@ group MedicationKnowledgeRegulatory extends BackboneElement
   "MedicationKnowledge.regulatory.substitution": for src.substitution as s make tgt.substitution as t then MedicationKnowledgeRegulatorySubstitution(s,t)
   "MedicationKnowledge.regulatory.schedule": for src.schedule as s make tgt.schedule as t then MedicationKnowledgeRegulatorySchedule(s,t)
   "MedicationKnowledge.regulatory.maxDispense": for src.maxDispense as s make tgt.maxDispense as t then MedicationKnowledgeRegulatoryMaxDispense(s,t)
+endgroup
 
 group MedicationKnowledgeRegulatorySubstitution extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -129,6 +142,7 @@ group MedicationKnowledgeRegulatorySubstitution extends BackboneElement
 
   "MedicationKnowledge.regulatory.substitution.type": for src.type make tgt.type
   "MedicationKnowledge.regulatory.substitution.allowed": for src.allowed make tgt.allowed
+endgroup
 
 group MedicationKnowledgeRegulatorySchedule extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -136,6 +150,7 @@ group MedicationKnowledgeRegulatorySchedule extends BackboneElement
 
   "MedicationKnowledge.regulatory.schedule.jurisdiction": for src.jurisdiction make tgt.jurisdiction
   "MedicationKnowledge.regulatory.schedule.schedule": for src.schedule make tgt.schedule
+endgroup
 
 group MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -143,6 +158,7 @@ group MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
 
   "MedicationKnowledge.regulatory.maxDispense.quantity": for src.quantity make tgt.quantity
   "MedicationKnowledge.regulatory.maxDispense.period": for src.period make tgt.period
+endgroup
 
 group MedicationKnowledgeKinetics extends BackboneElement
   input src : MedicationKnowledgeR3 as source
@@ -151,3 +167,4 @@ group MedicationKnowledgeKinetics extends BackboneElement
   "MedicationKnowledge.kinetics.areaUnderCurve": for src.areaUnderCurve make tgt.areaUnderCurve
   "MedicationKnowledge.kinetics.lethalDose50": for src.lethalDose50 make tgt.lethalDose50
   "MedicationKnowledge.kinetics.halfLifePeriod": for src.halfLifePeriod make tgt.halfLifePeriod
+endgroup

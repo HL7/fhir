@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductAuthorization3to2" = "R4 to R3 Conversion for MedicinalProductAuthorization"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductAuthorization4to3" = "R4 to R3 Conversion for MedicinalProductAuthorization"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductAuthorization" alias MedicinalProductAuthorization as source
@@ -28,6 +28,7 @@ group MedicinalProductAuthorization extends DomainResource
   "MedicinalProductAuthorization.regulator": for src.regulator make tgt.regulator
   "MedicinalProductAuthorization.procedure": for src.procedure as s make tgt.procedure as t then MedicinalProductAuthorizationProcedure(s,t)
   "MedicinalProductAuthorization.marketingStatus": for src.marketingStatus make tgt.marketingStatus
+endgroup
 
 group MedicinalProductAuthorizationJurisdictionalAuthorization extends BackboneElement
   input src : MedicinalProductAuthorizationR3 as source
@@ -38,6 +39,7 @@ group MedicinalProductAuthorizationJurisdictionalAuthorization extends BackboneE
   "MedicinalProductAuthorization.jurisdictionalAuthorization.jurisdiction": for src.jurisdiction make tgt.jurisdiction
   "MedicinalProductAuthorization.jurisdictionalAuthorization.legalStatusOfSupply": for src.legalStatusOfSupply make tgt.legalStatusOfSupply
   "MedicinalProductAuthorization.jurisdictionalAuthorization.validityPeriod": for src.validityPeriod make tgt.validityPeriod
+endgroup
 
 group MedicinalProductAuthorizationProcedure extends BackboneElement
   input src : MedicinalProductAuthorizationR3 as source
@@ -45,5 +47,6 @@ group MedicinalProductAuthorizationProcedure extends BackboneElement
 
   "MedicinalProductAuthorization.procedure.identifier": for src.identifier make tgt.identifier
   "MedicinalProductAuthorization.procedure.type": for src.type make tgt.type
-  "MedicinalProductAuthorization.procedure.date[x]": for src.date[x] make tgt.date[x]
+  "MedicinalProductAuthorization.procedure.date": for src.date make tgt.date
   "MedicinalProductAuthorization.procedure.application": for src.application make tgt.application
+endgroup

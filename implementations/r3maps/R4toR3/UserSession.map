@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/UserSession3to2" = "R4 to R3 Conversion for UserSession"
+﻿map "http://hl7.org/fhir/StructureMap/UserSession4to3" = "R4 to R3 Conversion for UserSession"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/UserSession" alias UserSession as source
@@ -20,6 +20,7 @@ group UserSession extends DomainResource
   "UserSession.created": for src.created make tgt.created
   "UserSession.expires": for src.expires make tgt.expires
   "UserSession.context": for src.context as s make tgt.context as t then UserSessionContext(s,t)
+endgroup
 
 group UserSessionStatus extends BackboneElement
   input src : UserSessionR3 as source
@@ -27,10 +28,12 @@ group UserSessionStatus extends BackboneElement
 
   "UserSession.status.code": for src.code make tgt.code
   "UserSession.status.source": for src.source make tgt.source
+endgroup
 
 group UserSessionContext extends BackboneElement
   input src : UserSessionR3 as source
   input tgt : UserSession as target
 
   "UserSession.context.type": for src.type make tgt.type
-  "UserSession.context.value[x]": for src.value[x] make tgt.value[x]
+  "UserSession.context.value": for src.value make tgt.value
+endgroup

@@ -31,6 +31,6 @@ group Immunization extends DomainResource
     "Immunization.performer.actor" : for vs0.actor as vs make vt0.actor as vt
   }
   "Immunization.note" : for src.note as vs make tgt.note as vt
-  "Immunization.reasonCode" : for src.explanation().getReason as vs make tgt.reasonCode as vt
+  "Immunization.reasonCode" : for src.reason as vs make tgt.reasonCode as vt
 endgroup
 

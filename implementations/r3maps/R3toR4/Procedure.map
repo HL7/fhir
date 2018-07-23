@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Procedure2to3" = "R3 to R4 Conversions for Procedure"
+﻿map "http://hl7.org/fhir/StructureMap/Procedure3to4" = "R3 to R4 Conversions for Procedure"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Procedure" alias ProcedureR3 as source
@@ -23,7 +23,7 @@ group Procedure extends DomainResource
   "Procedure.code": for src.code make tgt.code
   "Procedure.subject": for src.subject make tgt.subject
   "Procedure.context": for src.context make tgt.context
-  "Procedure.performed[x]": for src.performed[x] make tgt.performed[x]
+  "Procedure.performed": for src.performed make tgt.performed
   "Procedure.recorder": for src.recorder make tgt.recorder
   "Procedure.asserter": for src.asserter make tgt.asserter
   "Procedure.performer": for src.performer as s make tgt.performer as t then ProcedurePerformer(s,t)

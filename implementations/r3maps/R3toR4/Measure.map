@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Measure2to3" = "R3 to R4 Conversions for Measure"
+﻿map "http://hl7.org/fhir/StructureMap/Measure3to4" = "R3 to R4 Conversions for Measure"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Measure" alias MeasureR3 as source
@@ -20,7 +20,7 @@ group Measure extends DomainResource
   "Measure.subtitle": for src.subtitle make tgt.subtitle
   "Measure.status": for src.status make tgt.status
   "Measure.experimental": for src.experimental make tgt.experimental
-  "Measure.subject[x]": for src.subject[x] make tgt.subject[x]
+  "Measure.subject": for src.subject make tgt.subject
   "Measure.date": for src.date make tgt.date
   "Measure.publisher": for src.publisher make tgt.publisher
   "Measure.contact": for src.contact make tgt.contact

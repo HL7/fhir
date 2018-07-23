@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OccupationalData3to2" = "R4 to R3 Conversion for OccupationalData"
+﻿map "http://hl7.org/fhir/StructureMap/OccupationalData4to3" = "R4 to R3 Conversion for OccupationalData"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/OccupationalData" alias OccupationalData as source
@@ -23,6 +23,7 @@ group OccupationalData extends DomainResource
   "OccupationalData.combatZonePeriod": for src.combatZonePeriod make tgt.combatZonePeriod
   "OccupationalData.usualWork": for src.usualWork as s make tgt.usualWork as t then OccupationalDataUsualWork(s,t)
   "OccupationalData.pastOrPresentJob": for src.pastOrPresentJob as s make tgt.pastOrPresentJob as t then OccupationalDataPastOrPresentJob(s,t)
+endgroup
 
 group OccupationalDataEmploymentStatus extends BackboneElement
   input src : OccupationalDataR3 as source
@@ -30,6 +31,7 @@ group OccupationalDataEmploymentStatus extends BackboneElement
 
   "OccupationalData.employmentStatus.code": for src.code make tgt.code
   "OccupationalData.employmentStatus.effective": for src.effective make tgt.effective
+endgroup
 
 group OccupationalDataUsualWork extends BackboneElement
   input src : OccupationalDataR3 as source
@@ -39,6 +41,7 @@ group OccupationalDataUsualWork extends BackboneElement
   "OccupationalData.usualWork.industry": for src.industry make tgt.industry
   "OccupationalData.usualWork.start": for src.start make tgt.start
   "OccupationalData.usualWork.duration": for src.duration make tgt.duration
+endgroup
 
 group OccupationalDataPastOrPresentJob extends BackboneElement
   input src : OccupationalDataR3 as source
@@ -53,6 +56,7 @@ group OccupationalDataPastOrPresentJob extends BackboneElement
   "OccupationalData.pastOrPresentJob.jobDuty": for src.jobDuty make tgt.jobDuty
   "OccupationalData.pastOrPresentJob.occupationalHazard": for src.occupationalHazard make tgt.occupationalHazard
   "OccupationalData.pastOrPresentJob.workSchedule": for src.workSchedule as s make tgt.workSchedule as t then OccupationalDataPastOrPresentJobWorkSchedule(s,t)
+endgroup
 
 group OccupationalDataPastOrPresentJobWorkSchedule extends BackboneElement
   input src : OccupationalDataR3 as source
@@ -61,3 +65,4 @@ group OccupationalDataPastOrPresentJobWorkSchedule extends BackboneElement
   "OccupationalData.pastOrPresentJob.workSchedule.code": for src.code make tgt.code
   "OccupationalData.pastOrPresentJob.workSchedule.weeklyWorkDays": for src.weeklyWorkDays make tgt.weeklyWorkDays
   "OccupationalData.pastOrPresentJob.workSchedule.dailyWorkHours": for src.dailyWorkHours make tgt.dailyWorkHours
+endgroup

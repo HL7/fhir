@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPharmaceutical2to3" = "R3 to R4 Conversions for MedicinalProductPharmaceutical"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductPharmaceutical3to4" = "R3 to R4 Conversions for MedicinalProductPharmaceutical"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductPharmaceutical" alias MedicinalProductPharmaceuticalR3 as source

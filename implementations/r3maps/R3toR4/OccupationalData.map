@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OccupationalData2to3" = "R3 to R4 Conversions for OccupationalData"
+﻿map "http://hl7.org/fhir/StructureMap/OccupationalData3to4" = "R3 to R4 Conversions for OccupationalData"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OccupationalData" alias OccupationalDataR3 as source

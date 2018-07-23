@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest2to3" = "R3 to R4 Conversions for DocumentManifest"
+﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest3to4" = "R3 to R4 Conversions for DocumentManifest"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DocumentManifest" alias DocumentManifestR3 as source

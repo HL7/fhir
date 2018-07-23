@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SubstanceReferenceInformation2to3" = "R3 to R4 Conversions for SubstanceReferenceInformation"
+﻿map "http://hl7.org/fhir/StructureMap/SubstanceReferenceInformation3to4" = "R3 to R4 Conversions for SubstanceReferenceInformation"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceReferenceInformation" alias SubstanceReferenceInformationR3 as source
@@ -56,11 +56,11 @@ group SubstanceReferenceInformationRelationship extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
-  "SubstanceReferenceInformation.relationship.substance[x]": for src.substance[x] make tgt.substance[x]
+  "SubstanceReferenceInformation.relationship.substance": for src.substance make tgt.substance
   "SubstanceReferenceInformation.relationship.relationship": for src.relationship make tgt.relationship
   "SubstanceReferenceInformation.relationship.interaction": for src.interaction make tgt.interaction
   "SubstanceReferenceInformation.relationship.isDefining": for src.isDefining make tgt.isDefining
-  "SubstanceReferenceInformation.relationship.amount[x]": for src.amount[x] make tgt.amount[x]
+  "SubstanceReferenceInformation.relationship.amount": for src.amount make tgt.amount
   "SubstanceReferenceInformation.relationship.amountType": for src.amountType make tgt.amountType
   "SubstanceReferenceInformation.relationship.amountText": for src.amountText make tgt.amountText
   "SubstanceReferenceInformation.relationship.source": for src.source make tgt.source
@@ -77,7 +77,7 @@ group SubstanceReferenceInformationTarget extends BackboneElement
   "SubstanceReferenceInformation.target.organism": for src.organism make tgt.organism
   "SubstanceReferenceInformation.target.organismType": for src.organismType make tgt.organismType
   "SubstanceReferenceInformation.target.source": for src.source make tgt.source
-  "SubstanceReferenceInformation.target.amount[x]": for src.amount[x] make tgt.amount[x]
+  "SubstanceReferenceInformation.target.amount": for src.amount make tgt.amount
   "SubstanceReferenceInformation.target.amountType": for src.amountType make tgt.amountType
 endgroup
 

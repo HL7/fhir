@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/OrganizationRole2to3" = "R3 to R4 Conversions for OrganizationRole"
+﻿map "http://hl7.org/fhir/StructureMap/OrganizationRole3to4" = "R3 to R4 Conversions for OrganizationRole"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OrganizationRole" alias OrganizationRoleR3 as source

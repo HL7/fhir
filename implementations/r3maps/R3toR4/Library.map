@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Library2to3" = "R3 to R4 Conversions for Library"
+﻿map "http://hl7.org/fhir/StructureMap/Library3to4" = "R3 to R4 Conversions for Library"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Library" alias LibraryR3 as source
@@ -21,7 +21,7 @@ group Library extends DomainResource
   "Library.status": for src.status make tgt.status
   "Library.experimental": for src.experimental make tgt.experimental
   "Library.type": for src.type make tgt.type
-  "Library.subject[x]": for src.subject[x] make tgt.subject[x]
+  "Library.subject": for src.subject make tgt.subject
   "Library.date": for src.date make tgt.date
   "Library.publisher": for src.publisher make tgt.publisher
   "Library.contact": for src.contact make tgt.contact

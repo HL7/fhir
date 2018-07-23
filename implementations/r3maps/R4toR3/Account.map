@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Account3to2" = "R4 to R3 Conversion for Account"
+﻿map "http://hl7.org/fhir/StructureMap/Account4to3" = "R4 to R3 Conversion for Account"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Account" alias Account as source
@@ -23,6 +23,7 @@ group Account extends DomainResource
   "Account.description": for src.description make tgt.description
   "Account.guarantor": for src.guarantor as s make tgt.guarantor as t then AccountGuarantor(s,t)
   "Account.partOf": for src.partOf make tgt.partOf
+endgroup
 
 group AccountCoverage extends BackboneElement
   input src : AccountR3 as source
@@ -31,6 +32,8 @@ group AccountCoverage extends BackboneElement
   "Account.coverage.coverage": for src.coverage make tgt.coverage
   "Account.coverage.priority": for src.priority make tgt.priority
 
+endgroup
+
 group AccountGuarantor extends BackboneElement
   input src : AccountR3 as source
   input tgt : Account as target
@@ -38,3 +41,5 @@ group AccountGuarantor extends BackboneElement
   "Account.guarantor.party": for src.party make tgt.party
   "Account.guarantor.onHold": for src.onHold make tgt.onHold
   "Account.guarantor.period": for src.period make tgt.period
+endgroup
+

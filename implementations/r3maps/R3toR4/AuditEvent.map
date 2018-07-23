@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/AuditEvent2to3" = "R3 to R4 Conversions for AuditEvent"
+﻿map "http://hl7.org/fhir/StructureMap/AuditEvent3to4" = "R3 to R4 Conversions for AuditEvent"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AuditEvent" alias AuditEventR3 as source
@@ -84,6 +84,6 @@ group AuditEventEntityDetail extends BackboneElement
   input tgt : AuditEvent as target
 
   "AuditEvent.entity.detail.type": for src.type make tgt.type
-  "AuditEvent.entity.detail.value[x]": for src.value[x] make tgt.value[x]
+  "AuditEvent.entity.detail.value": for src.value make tgt.value
 endgroup
 

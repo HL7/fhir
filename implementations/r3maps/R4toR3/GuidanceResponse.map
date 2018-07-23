@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/GuidanceResponse3to2" = "R4 to R3 Conversion for GuidanceResponse"
+﻿map "http://hl7.org/fhir/StructureMap/GuidanceResponse4to3" = "R4 to R3 Conversion for GuidanceResponse"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/GuidanceResponse" alias GuidanceResponse as source
@@ -14,7 +14,7 @@ group GuidanceResponse extends DomainResource
 
   "GuidanceResponse.requestId": for src.requestId make tgt.requestId
   "GuidanceResponse.identifier": for src.identifier make tgt.identifier
-  "GuidanceResponse.module[x]": for src.module[x] make tgt.module[x]
+  "GuidanceResponse.module": for src.module make tgt.module
   "GuidanceResponse.status": for src.status make tgt.status
   "GuidanceResponse.subject": for src.subject make tgt.subject
   "GuidanceResponse.context": for src.context make tgt.context
@@ -27,3 +27,4 @@ group GuidanceResponse extends DomainResource
   "GuidanceResponse.outputParameters": for src.outputParameters make tgt.outputParameters
   "GuidanceResponse.result": for src.result make tgt.result
   "GuidanceResponse.dataRequirement": for src.dataRequirement make tgt.dataRequirement
+endgroup

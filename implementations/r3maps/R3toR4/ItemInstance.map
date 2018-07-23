@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ItemInstance2to3" = "R3 to R4 Conversions for ItemInstance"
+﻿map "http://hl7.org/fhir/StructureMap/ItemInstance3to4" = "R3 to R4 Conversions for ItemInstance"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ItemInstance" alias ItemInstanceR3 as source

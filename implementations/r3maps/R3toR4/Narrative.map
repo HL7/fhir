@@ -6,13 +6,11 @@ uses "http://hl7.org/fhir/StructureDefinition/Narrative" alias Narrative as targ
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Narrative extends Element
+group for type+types Narrative extends Element
   input src : NarrativeR3 as source
   input tgt : Narrative as target
 
   "Narrative.status" : for src.status as vs make tgt.status as vt
-  "Narrative.div" : for src.div as vs make tgt.div as vt
+// "Narrative.div" : for src.div as vs make tgt.div as vt
 endgroup
 

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EligibilityRequest2to3" = "R3 to R4 Conversions for EligibilityRequest"
+﻿map "http://hl7.org/fhir/StructureMap/EligibilityRequest3to4" = "R3 to R4 Conversions for EligibilityRequest"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityRequest" alias EligibilityRequestR3 as source
@@ -17,7 +17,7 @@ group EligibilityRequest extends DomainResource
   "EligibilityRequest.priority": for src.priority make tgt.priority
   "EligibilityRequest.use": for src.use make tgt.use
   "EligibilityRequest.patient": for src.patient make tgt.patient
-  "EligibilityRequest.serviced[x]": for src.serviced[x] make tgt.serviced[x]
+  "EligibilityRequest.serviced": for src.serviced make tgt.serviced
   "EligibilityRequest.created": for src.created make tgt.created
   "EligibilityRequest.enterer": for src.enterer make tgt.enterer
   "EligibilityRequest.provider": for src.provider make tgt.provider
@@ -57,6 +57,6 @@ group EligibilityRequestDetailDiagnosis extends BackboneElement
   input src : EligibilityRequestR3 as source
   input tgt : EligibilityRequest as target
 
-  "EligibilityRequest.detail.diagnosis.diagnosis[x]": for src.diagnosis[x] make tgt.diagnosis[x]
+  "EligibilityRequest.detail.diagnosis.diagnosis": for src.diagnosis make tgt.diagnosis
 endgroup
 

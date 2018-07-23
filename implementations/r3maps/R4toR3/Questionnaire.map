@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Questionnaire3to2" = "R4 to R3 Conversion for Questionnaire"
+﻿map "http://hl7.org/fhir/StructureMap/Questionnaire4to3" = "R4 to R3 Conversion for Questionnaire"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
@@ -34,6 +34,7 @@ group Questionnaire extends DomainResource
   "Questionnaire.effectivePeriod": for src.effectivePeriod make tgt.effectivePeriod
   "Questionnaire.code": for src.code make tgt.code
   "Questionnaire.item": for src.item as s make tgt.item as t then QuestionnaireItem(s,t)
+endgroup
 
 group QuestionnaireItem extends BackboneElement
   input src : QuestionnaireR3 as source
@@ -55,6 +56,7 @@ group QuestionnaireItem extends BackboneElement
   "Questionnaire.item.answerOption": for src.answerOption as s make tgt.answerOption as t then QuestionnaireItemAnswerOption(s,t)
   "Questionnaire.item.initial": for src.initial as s make tgt.initial as t then QuestionnaireItemInitial(s,t)
   "Questionnaire.item.item": for src.item make tgt.item
+endgroup
 
 group QuestionnaireItemEnableWhen extends BackboneElement
   input src : QuestionnaireR3 as source
@@ -62,17 +64,20 @@ group QuestionnaireItemEnableWhen extends BackboneElement
 
   "Questionnaire.item.enableWhen.question": for src.question make tgt.question
   "Questionnaire.item.enableWhen.operator": for src.operator make tgt.operator
-  "Questionnaire.item.enableWhen.answer[x]": for src.answer[x] make tgt.answer[x]
+  "Questionnaire.item.enableWhen.answer": for src.answer make tgt.answer
+endgroup
 
 group QuestionnaireItemAnswerOption extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
-  "Questionnaire.item.answerOption.value[x]": for src.value[x] make tgt.value[x]
+  "Questionnaire.item.answerOption.value": for src.value make tgt.value
   "Questionnaire.item.answerOption.initialSelected": for src.initialSelected make tgt.initialSelected
+endgroup
 
 group QuestionnaireItemInitial extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
-  "Questionnaire.item.initial.value[x]": for src.value[x] make tgt.value[x]
+  "Questionnaire.item.initial.value": for src.value make tgt.value
+endgroup

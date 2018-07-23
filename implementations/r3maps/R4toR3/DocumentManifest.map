@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest3to2" = "R4 to R3 Conversion for DocumentManifest"
+﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest4to3" = "R4 to R3 Conversion for DocumentManifest"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as source
@@ -24,6 +24,7 @@ group DocumentManifest extends DomainResource
   "DocumentManifest.description": for src.description make tgt.description
   "DocumentManifest.content": for src.content make tgt.content
   "DocumentManifest.related": for src.related as s make tgt.related as t then DocumentManifestRelated(s,t)
+endgroup
 
 group DocumentManifestAgent extends BackboneElement
   input src : DocumentManifestR3 as source
@@ -31,6 +32,7 @@ group DocumentManifestAgent extends BackboneElement
 
   "DocumentManifest.agent.type": for src.type make tgt.type
   "DocumentManifest.agent.who": for src.who make tgt.who
+endgroup
 
 group DocumentManifestRelated extends BackboneElement
   input src : DocumentManifestR3 as source
@@ -38,3 +40,4 @@ group DocumentManifestRelated extends BackboneElement
 
   "DocumentManifest.related.identifier": for src.identifier make tgt.identifier
   "DocumentManifest.related.ref": for src.ref make tgt.ref
+endgroup

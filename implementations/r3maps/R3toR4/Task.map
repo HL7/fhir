@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Task2to3" = "R3 to R4 Conversions for Task"
+﻿map "http://hl7.org/fhir/StructureMap/Task3to4" = "R3 to R4 Conversions for Task"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as source
@@ -13,7 +13,7 @@ group Task extends DomainResource
   input tgt : Task as target
 
   "Task.identifier": for src.identifier make tgt.identifier
-  "Task.instantiates[x]": for src.instantiates[x] make tgt.instantiates[x]
+  "Task.instantiates": for src.instantiates make tgt.instantiates
   "Task.basedOn": for src.basedOn make tgt.basedOn
   "Task.groupIdentifier": for src.groupIdentifier make tgt.groupIdentifier
   "Task.partOf": for src.partOf make tgt.partOf
@@ -59,7 +59,7 @@ group TaskInput extends BackboneElement
   input tgt : Task as target
 
   "Task.input.type": for src.type make tgt.type
-  "Task.input.value[x]": for src.value[x] make tgt.value[x]
+  "Task.input.value": for src.value make tgt.value
 endgroup
 
 
@@ -68,6 +68,6 @@ group TaskOutput extends BackboneElement
   input tgt : Task as target
 
   "Task.output.type": for src.type make tgt.type
-  "Task.output.value[x]": for src.value[x] make tgt.value[x]
+  "Task.output.value": for src.value make tgt.value
 endgroup
 

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImmunizationEvaluation3to2" = "R4 to R3 Conversion for ImmunizationEvaluation"
+﻿map "http://hl7.org/fhir/StructureMap/ImmunizationEvaluation4to3" = "R4 to R3 Conversion for ImmunizationEvaluation"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation" alias ImmunizationEvaluation as source
@@ -23,5 +23,6 @@ group ImmunizationEvaluation extends DomainResource
   "ImmunizationEvaluation.doseStatusReason": for src.doseStatusReason make tgt.doseStatusReason
   "ImmunizationEvaluation.description": for src.description make tgt.description
   "ImmunizationEvaluation.series": for src.series make tgt.series
-  "ImmunizationEvaluation.doseNumber[x]": for src.doseNumber[x] make tgt.doseNumber[x]
-  "ImmunizationEvaluation.seriesDoses[x]": for src.seriesDoses[x] make tgt.seriesDoses[x]
+  "ImmunizationEvaluation.doseNumber": for src.doseNumber make tgt.doseNumber
+  "ImmunizationEvaluation.seriesDoses": for src.seriesDoses make tgt.seriesDoses
+endgroup

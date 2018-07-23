@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration3to2" = "R4 to R3 Conversion for MedicationAdministration"
+﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration4to3" = "R4 to R3 Conversion for MedicationAdministration"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministration as source
@@ -17,11 +17,11 @@ group MedicationAdministration extends DomainResource
   "MedicationAdministration.partOf": for src.partOf make tgt.partOf
   "MedicationAdministration.status": for src.status make tgt.status
   "MedicationAdministration.category": for src.category make tgt.category
-  "MedicationAdministration.medication[x]": for src.medication[x] make tgt.medication[x]
+  "MedicationAdministration.medication": for src.medication make tgt.medication
   "MedicationAdministration.subject": for src.subject make tgt.subject
   "MedicationAdministration.context": for src.context make tgt.context
   "MedicationAdministration.supportingInformation": for src.supportingInformation make tgt.supportingInformation
-  "MedicationAdministration.effective[x]": for src.effective[x] make tgt.effective[x]
+  "MedicationAdministration.effective": for src.effective make tgt.effective
   "MedicationAdministration.performer": for src.performer as s make tgt.performer as t then MedicationAdministrationPerformer(s,t)
   "MedicationAdministration.statusReason": for src.statusReason make tgt.statusReason
   "MedicationAdministration.reasonCode": for src.reasonCode make tgt.reasonCode
@@ -31,6 +31,7 @@ group MedicationAdministration extends DomainResource
   "MedicationAdministration.note": for src.note make tgt.note
   "MedicationAdministration.dosage": for src.dosage as s make tgt.dosage as t then MedicationAdministrationDosage(s,t)
   "MedicationAdministration.eventHistory": for src.eventHistory make tgt.eventHistory
+endgroup
 
 group MedicationAdministrationPerformer extends BackboneElement
   input src : MedicationAdministrationR3 as source
@@ -38,6 +39,7 @@ group MedicationAdministrationPerformer extends BackboneElement
 
   "MedicationAdministration.performer.function": for src.function make tgt.function
   "MedicationAdministration.performer.actor": for src.actor make tgt.actor
+endgroup
 
 group MedicationAdministrationDosage extends BackboneElement
   input src : MedicationAdministrationR3 as source
@@ -48,4 +50,5 @@ group MedicationAdministrationDosage extends BackboneElement
   "MedicationAdministration.dosage.route": for src.route make tgt.route
   "MedicationAdministration.dosage.method": for src.method make tgt.method
   "MedicationAdministration.dosage.dose": for src.dose make tgt.dose
-  "MedicationAdministration.dosage.rate[x]": for src.rate[x] make tgt.rate[x]
+  "MedicationAdministration.dosage.rate": for src.rate make tgt.rate
+endgroup

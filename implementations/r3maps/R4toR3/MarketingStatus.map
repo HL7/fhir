@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MarketingStatus3to2" = "R4 to R3 Conversion for MarketingStatus"
+﻿map "http://hl7.org/fhir/StructureMap/MarketingStatus4to3" = "R4 to R3 Conversion for MarketingStatus"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MarketingStatus" alias MarketingStatus as source
@@ -17,3 +17,4 @@ group MarketingStatus extends BackboneElement
   "MarketingStatus.status": for src.status make tgt.status
   "MarketingStatus.dateRange": for src.dateRange make tgt.dateRange
   "MarketingStatus.restoreDate": for src.restoreDate make tgt.restoreDate
+endgroup

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation3to2" = "R4 to R3 Conversion for ImmunizationRecommendation"
+﻿map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation4to3" = "R4 to R3 Conversion for ImmunizationRecommendation"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendation as source
@@ -17,6 +17,7 @@ group ImmunizationRecommendation extends DomainResource
   "ImmunizationRecommendation.date": for src.date make tgt.date
   "ImmunizationRecommendation.authority": for src.authority make tgt.authority
   "ImmunizationRecommendation.recommendation": for src.recommendation as s make tgt.recommendation as t then ImmunizationRecommendationRecommendation(s,t)
+endgroup
 
 group ImmunizationRecommendationRecommendation extends BackboneElement
   input src : ImmunizationRecommendationR3 as source
@@ -30,10 +31,11 @@ group ImmunizationRecommendationRecommendation extends BackboneElement
   "ImmunizationRecommendation.recommendation.dateCriterion": for src.dateCriterion as s make tgt.dateCriterion as t then ImmunizationRecommendationRecommendationDateCriterion(s,t)
   "ImmunizationRecommendation.recommendation.description": for src.description make tgt.description
   "ImmunizationRecommendation.recommendation.series": for src.series make tgt.series
-  "ImmunizationRecommendation.recommendation.doseNumber[x]": for src.doseNumber[x] make tgt.doseNumber[x]
-  "ImmunizationRecommendation.recommendation.seriesDoses[x]": for src.seriesDoses[x] make tgt.seriesDoses[x]
+  "ImmunizationRecommendation.recommendation.doseNumber": for src.doseNumber make tgt.doseNumber
+  "ImmunizationRecommendation.recommendation.seriesDoses": for src.seriesDoses make tgt.seriesDoses
   "ImmunizationRecommendation.recommendation.supportingImmunization": for src.supportingImmunization make tgt.supportingImmunization
   "ImmunizationRecommendation.recommendation.supportingPatientInformation": for src.supportingPatientInformation make tgt.supportingPatientInformation
+endgroup
 
 group ImmunizationRecommendationRecommendationDateCriterion extends BackboneElement
   input src : ImmunizationRecommendationR3 as source
@@ -41,3 +43,4 @@ group ImmunizationRecommendationRecommendationDateCriterion extends BackboneElem
 
   "ImmunizationRecommendation.recommendation.dateCriterion.code": for src.code make tgt.code
   "ImmunizationRecommendation.recommendation.dateCriterion.value": for src.value make tgt.value
+endgroup

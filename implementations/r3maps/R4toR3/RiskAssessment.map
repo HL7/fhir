@@ -24,8 +24,8 @@ group RiskAssessment extends DomainResource
   "RiskAssessment.occurrence-Period" : for src.occurrence  : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs,vt)
   "RiskAssessment.condition" : for src.condition as vs make tgt.condition as vt
   "RiskAssessment.performer" : for src.performer as vs make tgt.performer as vt
-  "RiskAssessment.reason-CodeableConcept" : for src.reasonCode first  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "RiskAssessment.reason-Reference" : for src.reasonReference first  : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
+  "RiskAssessment.reason-CodeableConcept" : for src.reasonCode : CodeableConcept first as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "RiskAssessment.reason-Reference" : for src.reasonReference : Reference first as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
   "RiskAssessment.basis" : for src.basis as vs make tgt.basis as vt
   "RiskAssessment.prediction" : for src.prediction as vs0 make tgt.prediction as vt0 then {
     "RiskAssessment.prediction.outcome" : for vs0.outcome as vs make vt0.outcome as vt

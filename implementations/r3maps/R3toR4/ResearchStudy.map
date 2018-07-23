@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ResearchStudy2to3" = "R3 to R4 Conversions for ResearchStudy"
+﻿map "http://hl7.org/fhir/StructureMap/ResearchStudy3to4" = "R3 to R4 Conversions for ResearchStudy"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchStudy" alias ResearchStudyR3 as source

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EligibilityRequest3to2" = "R4 to R3 Conversion for EligibilityRequest"
+﻿map "http://hl7.org/fhir/StructureMap/EligibilityRequest4to3" = "R4 to R3 Conversion for EligibilityRequest"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/EligibilityRequest" alias EligibilityRequest as source
@@ -17,7 +17,7 @@ group EligibilityRequest extends DomainResource
   "EligibilityRequest.priority": for src.priority make tgt.priority
   "EligibilityRequest.use": for src.use make tgt.use
   "EligibilityRequest.patient": for src.patient make tgt.patient
-  "EligibilityRequest.serviced[x]": for src.serviced[x] make tgt.serviced[x]
+  "EligibilityRequest.serviced": for src.serviced make tgt.serviced
   "EligibilityRequest.created": for src.created make tgt.created
   "EligibilityRequest.enterer": for src.enterer make tgt.enterer
   "EligibilityRequest.provider": for src.provider make tgt.provider
@@ -25,6 +25,7 @@ group EligibilityRequest extends DomainResource
   "EligibilityRequest.facility": for src.facility make tgt.facility
   "EligibilityRequest.insurance": for src.insurance as s make tgt.insurance as t then EligibilityRequestInsurance(s,t)
   "EligibilityRequest.detail": for src.detail as s make tgt.detail as t then EligibilityRequestDetail(s,t)
+endgroup
 
 group EligibilityRequestInsurance extends BackboneElement
   input src : EligibilityRequestR3 as source
@@ -33,6 +34,7 @@ group EligibilityRequestInsurance extends BackboneElement
   "EligibilityRequest.insurance.focal": for src.focal make tgt.focal
   "EligibilityRequest.insurance.coverage": for src.coverage make tgt.coverage
   "EligibilityRequest.insurance.businessArrangement": for src.businessArrangement make tgt.businessArrangement
+endgroup
 
 group EligibilityRequestDetail extends BackboneElement
   input src : EligibilityRequestR3 as source
@@ -46,9 +48,11 @@ group EligibilityRequestDetail extends BackboneElement
   "EligibilityRequest.detail.unitPrice": for src.unitPrice make tgt.unitPrice
   "EligibilityRequest.detail.facility": for src.facility make tgt.facility
   "EligibilityRequest.detail.diagnosis": for src.diagnosis as s make tgt.diagnosis as t then EligibilityRequestDetailDiagnosis(s,t)
+endgroup
 
 group EligibilityRequestDetailDiagnosis extends BackboneElement
   input src : EligibilityRequestR3 as source
   input tgt : EligibilityRequest as target
 
-  "EligibilityRequest.detail.diagnosis.diagnosis[x]": for src.diagnosis[x] make tgt.diagnosis[x]
+  "EligibilityRequest.detail.diagnosis.diagnosis": for src.diagnosis make tgt.diagnosis
+endgroup

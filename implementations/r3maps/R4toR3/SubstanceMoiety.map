@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SubstanceMoiety3to2" = "R4 to R3 Conversion for SubstanceMoiety"
+﻿map "http://hl7.org/fhir/StructureMap/SubstanceMoiety4to3" = "R4 to R3 Conversion for SubstanceMoiety"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceMoiety" alias SubstanceMoiety as source
@@ -19,3 +19,4 @@ group SubstanceMoiety extends BackboneElement
   "SubstanceMoiety.opticalActivity": for src.opticalActivity make tgt.opticalActivity
   "SubstanceMoiety.molecularFormula": for src.molecularFormula make tgt.molecularFormula
   "SubstanceMoiety.amount": for src.amount make tgt.amount
+endgroup

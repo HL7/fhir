@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest2to3" = "R3 to R4 Conversions for CommunicationRequest"
+﻿map "http://hl7.org/fhir/StructureMap/CommunicationRequest3to4" = "R3 to R4 Conversions for CommunicationRequest"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CommunicationRequest" alias CommunicationRequestR3 as source
@@ -26,7 +26,7 @@ group CommunicationRequest extends DomainResource
   "CommunicationRequest.about": for src.about make tgt.about
   "CommunicationRequest.context": for src.context make tgt.context
   "CommunicationRequest.payload": for src.payload as s make tgt.payload as t then CommunicationRequestPayload(s,t)
-  "CommunicationRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "CommunicationRequest.occurrence": for src.occurrence make tgt.occurrence
   "CommunicationRequest.authoredOn": for src.authoredOn make tgt.authoredOn
   "CommunicationRequest.requester": for src.requester make tgt.requester
   "CommunicationRequest.recipient": for src.recipient make tgt.recipient
@@ -41,6 +41,6 @@ group CommunicationRequestPayload extends BackboneElement
   input src : CommunicationRequestR3 as source
   input tgt : CommunicationRequest as target
 
-  "CommunicationRequest.payload.content[x]": for src.content[x] make tgt.content[x]
+  "CommunicationRequest.payload.content": for src.content make tgt.content
 endgroup
 

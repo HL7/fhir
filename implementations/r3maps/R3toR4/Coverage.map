@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Coverage2to3" = "R3 to R4 Conversions for Coverage"
+﻿map "http://hl7.org/fhir/StructureMap/Coverage3to4" = "R3 to R4 Conversions for Coverage"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Coverage" alias CoverageR3 as source

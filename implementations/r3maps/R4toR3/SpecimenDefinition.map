@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SpecimenDefinition3to2" = "R4 to R3 Conversion for SpecimenDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/SpecimenDefinition4to3" = "R4 to R3 Conversion for SpecimenDefinition"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinition as source
@@ -18,6 +18,7 @@ group SpecimenDefinition extends DomainResource
   "SpecimenDefinition.timeAspect": for src.timeAspect make tgt.timeAspect
   "SpecimenDefinition.collection": for src.collection make tgt.collection
   "SpecimenDefinition.specimenToLab": for src.specimenToLab as s make tgt.specimenToLab as t then SpecimenDefinitionSpecimenToLab(s,t)
+endgroup
 
 group SpecimenDefinitionSpecimenToLab extends BackboneElement
   input src : SpecimenDefinitionR3 as source
@@ -38,12 +39,14 @@ group SpecimenDefinitionSpecimenToLab extends BackboneElement
   "SpecimenDefinition.specimenToLab.retentionTime": for src.retentionTime make tgt.retentionTime
   "SpecimenDefinition.specimenToLab.rejectionCriterion": for src.rejectionCriterion make tgt.rejectionCriterion
   "SpecimenDefinition.specimenToLab.handling": for src.handling as s make tgt.handling as t then SpecimenDefinitionSpecimenToLabHandling(s,t)
+endgroup
 
 group SpecimenDefinitionSpecimenToLabContainerAdditive extends BackboneElement
   input src : SpecimenDefinitionR3 as source
   input tgt : SpecimenDefinition as target
 
-  "SpecimenDefinition.specimenToLab.containerAdditive.additive[x]": for src.additive[x] make tgt.additive[x]
+  "SpecimenDefinition.specimenToLab.containerAdditive.additive": for src.additive make tgt.additive
+endgroup
 
 group SpecimenDefinitionSpecimenToLabHandling extends BackboneElement
   input src : SpecimenDefinitionR3 as source
@@ -54,3 +57,4 @@ group SpecimenDefinitionSpecimenToLabHandling extends BackboneElement
   "SpecimenDefinition.specimenToLab.handling.maxDuration": for src.maxDuration make tgt.maxDuration
   "SpecimenDefinition.specimenToLab.handling.lightExposure": for src.lightExposure make tgt.lightExposure
   "SpecimenDefinition.specimenToLab.handling.instruction": for src.instruction make tgt.instruction
+endgroup

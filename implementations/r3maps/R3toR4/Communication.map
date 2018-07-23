@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/Communication2to3" = "R3 to R4 Conversions for Communication"
+﻿map "http://hl7.org/fhir/StructureMap/Communication3to4" = "R3 to R4 Conversions for Communication"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Communication" alias CommunicationR3 as source
@@ -42,6 +42,6 @@ group CommunicationPayload extends BackboneElement
   input src : CommunicationR3 as source
   input tgt : Communication as target
 
-  "Communication.payload.content[x]": for src.content[x] make tgt.content[x]
+  "Communication.payload.content": for src.content make tgt.content
 endgroup
 

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SpecimenDefinition2to3" = "R3 to R4 Conversions for SpecimenDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/SpecimenDefinition3to4" = "R3 to R4 Conversions for SpecimenDefinition"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR3 as source
@@ -47,7 +47,7 @@ group SpecimenDefinitionSpecimenToLabContainerAdditive extends BackboneElement
   input src : SpecimenDefinitionR3 as source
   input tgt : SpecimenDefinition as target
 
-  "SpecimenDefinition.specimenToLab.containerAdditive.additive[x]": for src.additive[x] make tgt.additive[x]
+  "SpecimenDefinition.specimenToLab.containerAdditive.additive": for src.additive make tgt.additive
 endgroup
 
 

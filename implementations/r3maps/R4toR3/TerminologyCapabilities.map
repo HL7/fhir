@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities3to2" = "R4 to R3 Conversion for TerminologyCapabilities"
+﻿map "http://hl7.org/fhir/StructureMap/TerminologyCapabilities4to3" = "R4 to R3 Conversion for TerminologyCapabilities"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities" alias TerminologyCapabilities as source
@@ -33,6 +33,7 @@ group TerminologyCapabilities extends DomainResource
   "TerminologyCapabilities.validateCode": for src.validateCode as s make tgt.validateCode as t then TerminologyCapabilitiesValidateCode(s,t)
   "TerminologyCapabilities.translation": for src.translation as s make tgt.translation as t then TerminologyCapabilitiesTranslation(s,t)
   "TerminologyCapabilities.closure": for src.closure as s make tgt.closure as t then TerminologyCapabilitiesClosure(s,t)
+endgroup
 
 group TerminologyCapabilitiesCodeSystem extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
@@ -40,6 +41,7 @@ group TerminologyCapabilitiesCodeSystem extends BackboneElement
 
   "TerminologyCapabilities.codeSystem.uri": for src.uri make tgt.uri
   "TerminologyCapabilities.codeSystem.version": for src.version as s make tgt.version as t then TerminologyCapabilitiesCodeSystemVersion(s,t)
+endgroup
 
 group TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
@@ -51,6 +53,7 @@ group TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
   "TerminologyCapabilities.codeSystem.version.language": for src.language make tgt.language
   "TerminologyCapabilities.codeSystem.version.filter": for src.filter as s make tgt.filter as t then TerminologyCapabilitiesCodeSystemVersionFilter(s,t)
   "TerminologyCapabilities.codeSystem.version.property": for src.property make tgt.property
+endgroup
 
 group TerminologyCapabilitiesCodeSystemVersionFilter extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
@@ -58,6 +61,7 @@ group TerminologyCapabilitiesCodeSystemVersionFilter extends BackboneElement
 
   "TerminologyCapabilities.codeSystem.version.filter.code": for src.code make tgt.code
   "TerminologyCapabilities.codeSystem.version.filter.op": for src.op make tgt.op
+endgroup
 
 group TerminologyCapabilitiesExpansion extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
@@ -68,6 +72,7 @@ group TerminologyCapabilitiesExpansion extends BackboneElement
   "TerminologyCapabilities.expansion.incomplete": for src.incomplete make tgt.incomplete
   "TerminologyCapabilities.expansion.parameter": for src.parameter as s make tgt.parameter as t then TerminologyCapabilitiesExpansionParameter(s,t)
   "TerminologyCapabilities.expansion.textFilter": for src.textFilter make tgt.textFilter
+endgroup
 
 group TerminologyCapabilitiesExpansionParameter extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
@@ -75,21 +80,25 @@ group TerminologyCapabilitiesExpansionParameter extends BackboneElement
 
   "TerminologyCapabilities.expansion.parameter.name": for src.name make tgt.name
   "TerminologyCapabilities.expansion.parameter.documentation": for src.documentation make tgt.documentation
+endgroup
 
 group TerminologyCapabilitiesValidateCode extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
   "TerminologyCapabilities.validateCode.translations": for src.translations make tgt.translations
+endgroup
 
 group TerminologyCapabilitiesTranslation extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
   "TerminologyCapabilities.translation.needsMap": for src.needsMap make tgt.needsMap
+endgroup
 
 group TerminologyCapabilitiesClosure extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
   "TerminologyCapabilities.closure.translation": for src.translation make tgt.translation
+endgroup

@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ExampleScenario3to2" = "R4 to R3 Conversion for ExampleScenario"
+﻿map "http://hl7.org/fhir/StructureMap/ExampleScenario4to3" = "R4 to R3 Conversion for ExampleScenario"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ExampleScenario" alias ExampleScenario as source
@@ -29,6 +29,7 @@ group ExampleScenario extends DomainResource
   "ExampleScenario.instance": for src.instance as s make tgt.instance as t then ExampleScenarioInstance(s,t)
   "ExampleScenario.process": for src.process as s make tgt.process as t then ExampleScenarioProcess(s,t)
   "ExampleScenario.workflow": for src.workflow make tgt.workflow
+endgroup
 
 group ExampleScenarioActor extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -38,6 +39,7 @@ group ExampleScenarioActor extends BackboneElement
   "ExampleScenario.actor.type": for src.type make tgt.type
   "ExampleScenario.actor.name": for src.name make tgt.name
   "ExampleScenario.actor.description": for src.description make tgt.description
+endgroup
 
 group ExampleScenarioInstance extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -49,6 +51,7 @@ group ExampleScenarioInstance extends BackboneElement
   "ExampleScenario.instance.description": for src.description make tgt.description
   "ExampleScenario.instance.version": for src.version as s make tgt.version as t then ExampleScenarioInstanceVersion(s,t)
   "ExampleScenario.instance.containedInstance": for src.containedInstance as s make tgt.containedInstance as t then ExampleScenarioInstanceContainedInstance(s,t)
+endgroup
 
 group ExampleScenarioInstanceVersion extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -56,6 +59,7 @@ group ExampleScenarioInstanceVersion extends BackboneElement
 
   "ExampleScenario.instance.version.versionId": for src.versionId make tgt.versionId
   "ExampleScenario.instance.version.description": for src.description make tgt.description
+endgroup
 
 group ExampleScenarioInstanceContainedInstance extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -63,6 +67,7 @@ group ExampleScenarioInstanceContainedInstance extends BackboneElement
 
   "ExampleScenario.instance.containedInstance.resourceId": for src.resourceId make tgt.resourceId
   "ExampleScenario.instance.containedInstance.versionId": for src.versionId make tgt.versionId
+endgroup
 
 group ExampleScenarioProcess extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -73,6 +78,7 @@ group ExampleScenarioProcess extends BackboneElement
   "ExampleScenario.process.preConditions": for src.preConditions make tgt.preConditions
   "ExampleScenario.process.postConditions": for src.postConditions make tgt.postConditions
   "ExampleScenario.process.step": for src.step as s make tgt.step as t then ExampleScenarioProcessStep(s,t)
+endgroup
 
 group ExampleScenarioProcessStep extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -82,6 +88,7 @@ group ExampleScenarioProcessStep extends BackboneElement
   "ExampleScenario.process.step.pause": for src.pause make tgt.pause
   "ExampleScenario.process.step.operation": for src.operation as s make tgt.operation as t then ExampleScenarioProcessStepOperation(s,t)
   "ExampleScenario.process.step.alternative": for src.alternative as s make tgt.alternative as t then ExampleScenarioProcessStepAlternative(s,t)
+endgroup
 
 group ExampleScenarioProcessStepOperation extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -97,6 +104,7 @@ group ExampleScenarioProcessStepOperation extends BackboneElement
   "ExampleScenario.process.step.operation.receiverActive": for src.receiverActive make tgt.receiverActive
   "ExampleScenario.process.step.operation.request": for src.request make tgt.request
   "ExampleScenario.process.step.operation.response": for src.response make tgt.response
+endgroup
 
 group ExampleScenarioProcessStepAlternative extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -104,6 +112,7 @@ group ExampleScenarioProcessStepAlternative extends BackboneElement
 
   "ExampleScenario.process.step.alternative.name": for src.name make tgt.name
   "ExampleScenario.process.step.alternative.option": for src.option as s make tgt.option as t then ExampleScenarioProcessStepAlternativeOption(s,t)
+endgroup
 
 group ExampleScenarioProcessStepAlternativeOption extends BackboneElement
   input src : ExampleScenarioR3 as source
@@ -112,3 +121,4 @@ group ExampleScenarioProcessStepAlternativeOption extends BackboneElement
   "ExampleScenario.process.step.alternative.option.description": for src.description make tgt.description
   "ExampleScenario.process.step.alternative.option.step": for src.step make tgt.step
   "ExampleScenario.process.step.alternative.option.pause": for src.pause make tgt.pause
+endgroup

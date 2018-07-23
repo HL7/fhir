@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductClinicals3to2" = "R4 to R3 Conversion for MedicinalProductClinicals"
+﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductClinicals4to3" = "R4 to R3 Conversion for MedicinalProductClinicals"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductClinicals" alias MedicinalProductClinicals as source
@@ -16,6 +16,7 @@ group MedicinalProductClinicals extends DomainResource
   "MedicinalProductClinicals.therapeuticIndication": for src.therapeuticIndication as s make tgt.therapeuticIndication as t then MedicinalProductClinicalsTherapeuticIndication(s,t)
   "MedicinalProductClinicals.contraindication": for src.contraindication as s make tgt.contraindication as t then MedicinalProductClinicalsContraindication(s,t)
   "MedicinalProductClinicals.interactions": for src.interactions as s make tgt.interactions as t then MedicinalProductClinicalsInteractions(s,t)
+endgroup
 
 group MedicinalProductClinicalsUndesirableEffects extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
@@ -25,15 +26,17 @@ group MedicinalProductClinicalsUndesirableEffects extends BackboneElement
   "MedicinalProductClinicals.undesirableEffects.classification": for src.classification make tgt.classification
   "MedicinalProductClinicals.undesirableEffects.frequencyOfOccurrence": for src.frequencyOfOccurrence make tgt.frequencyOfOccurrence
   "MedicinalProductClinicals.undesirableEffects.population": for src.population as s make tgt.population as t then MedicinalProductClinicalsUndesirableEffectsPopulation(s,t)
+endgroup
 
 group MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
-  "MedicinalProductClinicals.undesirableEffects.population.age[x]": for src.age[x] make tgt.age[x]
+  "MedicinalProductClinicals.undesirableEffects.population.age": for src.age make tgt.age
   "MedicinalProductClinicals.undesirableEffects.population.gender": for src.gender make tgt.gender
   "MedicinalProductClinicals.undesirableEffects.population.race": for src.race make tgt.race
   "MedicinalProductClinicals.undesirableEffects.population.physiologicalCondition": for src.physiologicalCondition make tgt.physiologicalCondition
+endgroup
 
 group MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
@@ -47,13 +50,15 @@ group MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
   "MedicinalProductClinicals.therapeuticIndication.undesirableEffects": for src.undesirableEffects make tgt.undesirableEffects
   "MedicinalProductClinicals.therapeuticIndication.otherTherapy": for src.otherTherapy as s make tgt.otherTherapy as t then MedicinalProductClinicalsTherapeuticIndicationOtherTherapy(s,t)
   "MedicinalProductClinicals.therapeuticIndication.population": for src.population make tgt.population
+endgroup
 
 group MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
   "MedicinalProductClinicals.therapeuticIndication.otherTherapy.therapyRelationshipType": for src.therapyRelationshipType make tgt.therapyRelationshipType
-  "MedicinalProductClinicals.therapeuticIndication.otherTherapy.medication[x]": for src.medication[x] make tgt.medication[x]
+  "MedicinalProductClinicals.therapeuticIndication.otherTherapy.medication": for src.medication make tgt.medication
+endgroup
 
 group MedicinalProductClinicalsContraindication extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
@@ -65,6 +70,7 @@ group MedicinalProductClinicalsContraindication extends BackboneElement
   "MedicinalProductClinicals.contraindication.therapeuticIndication": for src.therapeuticIndication make tgt.therapeuticIndication
   "MedicinalProductClinicals.contraindication.otherTherapy": for src.otherTherapy make tgt.otherTherapy
   "MedicinalProductClinicals.contraindication.population": for src.population make tgt.population
+endgroup
 
 group MedicinalProductClinicalsInteractions extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
@@ -75,3 +81,4 @@ group MedicinalProductClinicalsInteractions extends BackboneElement
   "MedicinalProductClinicals.interactions.effect": for src.effect make tgt.effect
   "MedicinalProductClinicals.interactions.incidence": for src.incidence make tgt.incidence
   "MedicinalProductClinicals.interactions.management": for src.management make tgt.management
+endgroup

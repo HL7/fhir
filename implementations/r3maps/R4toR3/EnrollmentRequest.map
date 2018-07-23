@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EnrollmentRequest3to2" = "R4 to R3 Conversion for EnrollmentRequest"
+﻿map "http://hl7.org/fhir/StructureMap/EnrollmentRequest4to3" = "R4 to R3 Conversion for EnrollmentRequest"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequest as source
@@ -19,3 +19,4 @@ group EnrollmentRequest extends DomainResource
   "EnrollmentRequest.provider": for src.provider make tgt.provider
   "EnrollmentRequest.candidate": for src.candidate make tgt.candidate
   "EnrollmentRequest.coverage": for src.coverage make tgt.coverage
+endgroup

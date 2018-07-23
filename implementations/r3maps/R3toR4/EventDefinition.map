@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EventDefinition2to3" = "R3 to R4 Conversions for EventDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/EventDefinition3to4" = "R3 to R4 Conversions for EventDefinition"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EventDefinition" alias EventDefinitionR3 as source
@@ -20,7 +20,7 @@ group EventDefinition extends DomainResource
   "EventDefinition.subtitle": for src.subtitle make tgt.subtitle
   "EventDefinition.status": for src.status make tgt.status
   "EventDefinition.experimental": for src.experimental make tgt.experimental
-  "EventDefinition.subject[x]": for src.subject[x] make tgt.subject[x]
+  "EventDefinition.subject": for src.subject make tgt.subject
   "EventDefinition.date": for src.date make tgt.date
   "EventDefinition.publisher": for src.publisher make tgt.publisher
   "EventDefinition.contact": for src.contact make tgt.contact

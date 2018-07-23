@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy2to3" = "R3 to R4 Conversions for ImagingStudy"
+﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy3to4" = "R3 to R4 Conversions for ImagingStudy"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStudyR3 as source

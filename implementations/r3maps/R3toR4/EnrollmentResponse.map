@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse2to3" = "R3 to R4 Conversions for EnrollmentResponse"
+﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse3to4" = "R3 to R4 Conversions for EnrollmentResponse"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentResponse" alias EnrollmentResponseR3 as source

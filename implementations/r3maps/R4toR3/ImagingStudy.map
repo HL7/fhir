@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy3to2" = "R4 to R3 Conversion for ImagingStudy"
+﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy4to3" = "R4 to R3 Conversion for ImagingStudy"
 
 
 uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as source
@@ -31,6 +31,7 @@ group ImagingStudy extends DomainResource
   "ImagingStudy.reasonReference": for src.reasonReference make tgt.reasonReference
   "ImagingStudy.note": for src.note make tgt.note
   "ImagingStudy.series": for src.series as s make tgt.series as t then ImagingStudySeries(s,t)
+endgroup
 
 group ImagingStudySeries extends BackboneElement
   input src : ImagingStudyR3 as source
@@ -48,6 +49,7 @@ group ImagingStudySeries extends BackboneElement
   "ImagingStudy.series.started": for src.started make tgt.started
   "ImagingStudy.series.performer": for src.performer as s make tgt.performer as t then ImagingStudySeriesPerformer(s,t)
   "ImagingStudy.series.instance": for src.instance as s make tgt.instance as t then ImagingStudySeriesInstance(s,t)
+endgroup
 
 group ImagingStudySeriesPerformer extends BackboneElement
   input src : ImagingStudyR3 as source
@@ -55,6 +57,7 @@ group ImagingStudySeriesPerformer extends BackboneElement
 
   "ImagingStudy.series.performer.function": for src.function make tgt.function
   "ImagingStudy.series.performer.actor": for src.actor make tgt.actor
+endgroup
 
 group ImagingStudySeriesInstance extends BackboneElement
   input src : ImagingStudyR3 as source
@@ -64,3 +67,4 @@ group ImagingStudySeriesInstance extends BackboneElement
   "ImagingStudy.series.instance.number": for src.number make tgt.number
   "ImagingStudy.series.instance.sopClass": for src.sopClass make tgt.sopClass
   "ImagingStudy.series.instance.title": for src.title make tgt.title
+endgroup

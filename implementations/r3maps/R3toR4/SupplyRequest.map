@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/SupplyRequest2to3" = "R3 to R4 Conversions for SupplyRequest"
+﻿map "http://hl7.org/fhir/StructureMap/SupplyRequest3to4" = "R3 to R4 Conversions for SupplyRequest"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SupplyRequest" alias SupplyRequestR3 as source
@@ -16,10 +16,10 @@ group SupplyRequest extends DomainResource
   "SupplyRequest.status": for src.status make tgt.status
   "SupplyRequest.category": for src.category make tgt.category
   "SupplyRequest.priority": for src.priority make tgt.priority
-  "SupplyRequest.item[x]": for src.item[x] make tgt.item[x]
+  "SupplyRequest.item": for src.item make tgt.item
   "SupplyRequest.quantity": for src.quantity make tgt.quantity
   "SupplyRequest.parameter": for src.parameter as s make tgt.parameter as t then SupplyRequestParameter(s,t)
-  "SupplyRequest.occurrence[x]": for src.occurrence[x] make tgt.occurrence[x]
+  "SupplyRequest.occurrence": for src.occurrence make tgt.occurrence
   "SupplyRequest.authoredOn": for src.authoredOn make tgt.authoredOn
   "SupplyRequest.requester": for src.requester make tgt.requester
   "SupplyRequest.supplier": for src.supplier make tgt.supplier
@@ -35,6 +35,6 @@ group SupplyRequestParameter extends BackboneElement
   input tgt : SupplyRequest as target
 
   "SupplyRequest.parameter.code": for src.code make tgt.code
-  "SupplyRequest.parameter.value[x]": for src.value[x] make tgt.value[x]
+  "SupplyRequest.parameter.value": for src.value make tgt.value
 endgroup
 

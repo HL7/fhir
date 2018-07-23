@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/ActivityDefinition2to3" = "R3 to R4 Conversions for ActivityDefinition"
+﻿map "http://hl7.org/fhir/StructureMap/ActivityDefinition3to4" = "R3 to R4 Conversions for ActivityDefinition"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ActivityDefinition" alias ActivityDefinitionR3 as source
@@ -20,7 +20,7 @@ group ActivityDefinition extends DomainResource
   "ActivityDefinition.subtitle": for src.subtitle make tgt.subtitle
   "ActivityDefinition.status": for src.status make tgt.status
   "ActivityDefinition.experimental": for src.experimental make tgt.experimental
-  "ActivityDefinition.subject[x]": for src.subject[x] make tgt.subject[x]
+  "ActivityDefinition.subject": for src.subject make tgt.subject
   "ActivityDefinition.date": for src.date make tgt.date
   "ActivityDefinition.publisher": for src.publisher make tgt.publisher
   "ActivityDefinition.contact": for src.contact make tgt.contact
@@ -40,10 +40,10 @@ group ActivityDefinition extends DomainResource
   "ActivityDefinition.kind": for src.kind make tgt.kind
   "ActivityDefinition.code": for src.code make tgt.code
   "ActivityDefinition.doNotPerform": for src.doNotPerform make tgt.doNotPerform
-  "ActivityDefinition.timing[x]": for src.timing[x] make tgt.timing[x]
+  "ActivityDefinition.timing": for src.timing make tgt.timing
   "ActivityDefinition.location": for src.location make tgt.location
   "ActivityDefinition.participant": for src.participant as s make tgt.participant as t then ActivityDefinitionParticipant(s,t)
-  "ActivityDefinition.product[x]": for src.product[x] make tgt.product[x]
+  "ActivityDefinition.product": for src.product make tgt.product
   "ActivityDefinition.quantity": for src.quantity make tgt.quantity
   "ActivityDefinition.dosage": for src.dosage make tgt.dosage
   "ActivityDefinition.bodySite": for src.bodySite make tgt.bodySite

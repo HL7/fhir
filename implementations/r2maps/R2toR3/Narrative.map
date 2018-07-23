@@ -11,6 +11,6 @@ group for type+types Narrative extends Element
   input tgt : Narrative as target
 
   "Narrative-status" : for src.status make tgt.status
-  "Narrative-div" : for src.div as vs make tgt.div = vs
+  "Narrative-div" : for src.div as vs make tgt.div
 
 endgroup
