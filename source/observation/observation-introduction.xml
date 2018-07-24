@@ -43,7 +43,7 @@
       <li>Laboratory Data like <a href="observation-example-f001-glucose.html">blood glucose</a>, or an <a href="observation-example-f205-egfr.html">estimated GFR</a>
       </li>
       <li>Imaging results like  <a href="observation-example-bmd.html">bone density</a> or fetal measurements</li>
-      <li>Clinical Findings such as  <a href="observation-example-abdo.html">abdominal tenderness</a> (Note that the boundaries between clinical findings and disorders remains a challenge in medical ontology.  Refer the <a href="#bnr">Boundaries</a> section below and in <a href="condition.html#bnr">Condition</a> for general guidance.  These boundaries can be clarified by profiling Observation for a particular use case.)
+      <li>Clinical Findings<sup>*</sup> such as  <a href="observation-example-abdo-tender.html">abdominal tenderness</a>
       </li>
       <li>Device measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a>
       </li>
@@ -54,6 +54,10 @@
       <li>Social history like tobacco use,  family support, or cognitive status</li>
       <li>Core characteristics like pregnancy status, or a death assertion</li>
     </ul>
+
+    <p>
+    <sup>*</sup>The boundaries between clinical findings and disorders remains a challenge in medical ontology.  Refer the <a href="#bnr">Boundaries</a> section below and in <a href="condition.html#bnr">Condition</a> for general guidance.  These boundaries can be clarified by profiling Observation for a particular use case.
+    </p>
     <h3>Core Profiles for Observation</h3>
     <p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. If implementations use this Resource when expressing the profile-specific concepts as structured data, they <strong>SHALL</strong> conform to the following profiles:</p>
     <table class="grid">
