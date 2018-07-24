@@ -1356,21 +1356,24 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     for (String fn : pi.list("package")) {
       if (fn.endsWith(".json") && fn.contains("-")) {
-        Resource r;
-        if (igm.getVersion().equals("3.0.1") || igm.getVersion().equals("3.0.0")) {
-          org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(pi.load("package", fn));
-          r = VersionConvertor_30_40.convertResource(res, true);
-        } else if (igm.getVersion().equals("1.4.0")) {
-          org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(pi.load("package", fn));
-          r = VersionConvertor_14_40.convertResource(res);
-        } else if (igm.getVersion().equals("1.0.2")) {
-          org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(pi.load("package", fn));
-          VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
-          r = new VersionConvertor_10_40(advisor ).convertResource(res);
-        } else if (igm.getVersion().equals(Constants.VERSION)) {
-          r = new JsonParser().parse(pi.load("package", fn));
-        } else
-          throw new Exception("Unsupported version "+igm.getVersion());
+        Resource r = null;
+        String t = fn.substring(0, fn.indexOf("-"));
+        if (Utilities.existsInList(t, "StructureDefinition", "ValueSet", "CodeSystem", "SearchParameter", "OperationDefinition", "Questionnaire","ConceptMap","StructureMap", "NamingSystem")) {
+          if (igm.getVersion().equals("3.0.1") || igm.getVersion().equals("3.0.0")) {
+            org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(pi.load("package", fn));
+            r = VersionConvertor_30_40.convertResource(res, true);
+          } else if (igm.getVersion().equals("1.4.0")) {
+            org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(pi.load("package", fn));
+            r = VersionConvertor_14_40.convertResource(res);
+          } else if (igm.getVersion().equals("1.0.2")) {
+            org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(pi.load("package", fn));
+            VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
+            r = new VersionConvertor_10_40(advisor ).convertResource(res);
+          } else if (igm.getVersion().equals(Constants.VERSION)) {
+            r = new JsonParser().parse(pi.load("package", fn));
+          } else
+            throw new Exception("Unsupported version "+igm.getVersion());
+        }
         if (r != null) {
           if (r instanceof MetadataResource) {
             String u = ((MetadataResource) r).getUrl();
@@ -4475,6 +4478,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       Publisher self = new Publisher();
       System.out.println("FHIR Implementation Guide Publisher (v"+self.getToolingVersion()+", gen-code v"+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
       System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
+      System.out.print(System.getProperty("user.dir"));
+      for (int i = 0; i < args.length; i++) {
+          System.out.print(" "+args[i]);
+      }      
+      System.out.println();
       if (hasParam(args, "-source")) {
         // run with standard template. this is publishing lite
         self.setSourceDir(getNamedParam(args, "-source"));
