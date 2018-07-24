@@ -1570,13 +1570,13 @@ public class StructureMapUtilities {
     if (src.hasLogMessage()) {
       ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_LOG);
       if (expr == null) {
-        expr = fpe.parse(src.getCheck());
+        expr = fpe.parse(src.getLogMessage());
         //        fpe.check(context.appInfo, ??, ??, expr)
         src.setUserData(MAP_WHERE_LOG, expr);
       }
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (Base item : items) 
-        b.append(fpe.evaluateToString(vars, null, item, expr));
+        b.appendIfNotNull(fpe.evaluateToString(vars, null, item, expr));
       if (b.length() > 0)
         services.log(b.toString());
     } 
