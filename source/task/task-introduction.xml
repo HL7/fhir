@@ -73,7 +73,7 @@
     <p>The task resource tracks the state of a task, enabling systems to ensure that tasks are
       completed. This information is kept separate from the operational details necessary to
       complete the task, as those details vary across and even within workflows. That detail is
-      expected to be carried as the subject of the task.
+      expected to be carried in the referenced `focus` of the task.
     </p>
     <p>Tasks may have named inputs and outputs. Inputs represent information that may
       or must be present in order for a task to complete. Outputs represent intermediate or

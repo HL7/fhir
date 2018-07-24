@@ -35,26 +35,30 @@
 		</li>
 		<li>
 			<p>Simple blood typing example:</p>
-			
+
 				<ul>
 				<li>
-					<a href="observation-example-bgpanel.html">A simple blood typing panel.</a> 
+					<a href="observation-example-bgpanel.html">A simple blood typing panel.</a>
 				</li>
 				<li>
-					<a href="observation-example-bloodgroup.html"> An example of a  blood group (ABO) measurement.</a> 
+					<a href="observation-example-bloodgroup.html"> An example of a  blood group (ABO) measurement.</a>
 				</li>
 				<li>
-					<a href="observation-example-rhstatus.html"> An example of a blood Rh antigen measurement.</a> 
+					<a href="observation-example-rhstatus.html"> An example of a blood Rh antigen measurement.</a>
 				</li>
 			</ul>
 
 		</li>
 
 	</ul>
-	<h3>Exam and Simple Assessments</h3>
+  
+	<h3>Exam Findings and Simple Assessments</h3>
 	<p>The following Observations shows examples of physical exams finding and simple assessments:
     </p>
 	<ul>
+    <li>
+      <a href="observation-example-abdo-tender.html"> An exam finding of abdominal tenderness .</a>Note that this example uses the pattern 3 described in the "Using Codes in Observation" Section.
+    </li>
 		<li>
 			<a href="observation-example-trachcare.html"> Observation to capture whether the mother is trained to change her child's tracheostomy tube.</a> Note that in this example, the child is the patient of record and the mother is the focus.
 		</li>
@@ -259,6 +263,9 @@
 		<li>
 			<a href="observation-example-bloodpressure-cancel.html">Blood Pressure Measurement cancelled</a>
 		</li>
+    <li>
+      <a href="observation-example-map-sitting.html">An example to demonstrate the bodyPosition and delta extensions</a>
+    </li>
 	</ul>
 	<br/>
 </div>
