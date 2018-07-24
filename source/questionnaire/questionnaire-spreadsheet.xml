@@ -1611,7 +1611,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">canonical(ElementDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">uri</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4885,7 +4885,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"><Data ss:Type="String">definition</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s124"><Data ss:Type="String">Questionnaire.item.definition</Data></Cell>
     <Cell ss:StyleID="s123"/>

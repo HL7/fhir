@@ -873,7 +873,7 @@ public class SvgGenerator extends BaseGenerator {
       return root.toLowerCase()+"-definitions.html#";
     else
       throw new Exception(root+" not handled yet");
-  }
+  } 
 
   private ClassItem getItemForPath(ResourceDefn resource, String path) throws Exception {
     ElementDefn e = resource.getRoot().getElementForPath(path, definitions, "SVG diagram", false, false);
