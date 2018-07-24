@@ -1,0 +1,64 @@
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+	<id value="map-sitting"/>
+
+	<!--	To be used only when the body position in not precoordinated in the observation code.-->
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-bodyPosition">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="33586001"/>
+				<display value="Sitting position (finding)"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+		<!--	The qualitative change in the value relative to the previous measurement. Usually only recorded if the change is clinically significant.-->
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-delta">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="1250004"/>
+				<display value="Decreased (qualifier value)"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="8478-0"/>
+			<display value="Mean blood pressure"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<context>
+		<reference value="Encounter/example"/>
+	</context>
+	<effectivePeriod>
+		<start value="2018-04-02T10:30:10+01:00"/>
+		<end value="2018-04-05T10:30:10+01:00"/>
+	</effectivePeriod>
+	<issued value="2018-04-03T15:30:10+01:00"/>
+	<valueQuantity>
+		<value value="60"/>
+		<unit value="mm Hg"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mm[Hg]"/>
+	</valueQuantity>
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="L"/>
+			<display value="Low"/>
+		</coding>
+		<text value="Below low normal"/>
+	</interpretation>
+</Observation>
