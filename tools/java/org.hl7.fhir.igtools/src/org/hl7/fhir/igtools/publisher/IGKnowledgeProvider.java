@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.hl7.fhir.convertors.VersionConvertorConstants;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
@@ -361,10 +362,16 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           if (vs != null) { 
             br.url = vs.getUserString("path");
             br.display = vs.getName(); 
-          } else { 
-            br.display = ref.substring(29);
-            br.url = ref.substring(29)+".html";
-            brokenLinkWarning(path, ref);
+          } else {
+            String vsr = VersionConvertorConstants.vsToRef(ref);
+            if (vsr != null) {
+              br.display = ref.substring(29);
+              br.url = vsr;
+            } else {
+              br.display = ref.substring(29);
+              br.url = ref.substring(29)+".html";
+              brokenLinkWarning(path, ref);
+            }
           }
         } else if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
           br.url = specPath("v3/"+ref.substring(26)+"/index.html"); 
