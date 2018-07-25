@@ -494,6 +494,12 @@
     <display value="Clydesdale horse"/>
     <display value="Clydesdale horse (organism)"/>
   </concept>
+  <concept id="1250004" display="Decreased">
+    <display value="Decreased"/>
+    <display value="Diminished"/>
+    <display value="Decreased by"/>
+    <display value="Decreased (qualifier value)"/>
+  </concept>
   <concept id="125074003" display="Hereford cattle">
     <display value="Hereford cattle"/>
     <display value="Hereford cattle superbreed (organism)"/>
@@ -12569,6 +12575,11 @@
     <display value="Kentucky red berkshire pig"/>
     <display value="Kentucky red berkshire pig (organism)"/>
   </concept>
+  <concept id="33586001" display="Sitting position">
+    <display value="Sitting position"/>
+    <display value="Sitting"/>
+    <display value="Sitting position (finding)"/>
+  </concept>
   <concept id="33607002" display="Buttercup chicken">
     <display value="Buttercup chicken"/>
     <display value="Buttercup chicken (organism)"/>
@@ -14370,6 +14381,10 @@
   <concept id="434711009" display="Specimen container">
     <display value="Specimen container (physical object)"/>
     <display value="Specimen container"/>
+  </concept>
+  <concept id="43478001" display="Abdominal tenderness">
+    <display value="Abdominal tenderness"/>
+    <display value="Abdominal tenderness (finding)"/>
   </concept>
   <concept id="43500007" display="Boar power pig 454">
     <display value="Boar power pig 454"/>

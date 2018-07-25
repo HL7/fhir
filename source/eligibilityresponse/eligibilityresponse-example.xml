@@ -13,7 +13,7 @@
 
 	<status value="active"/>
 
-	<use value="validation"/>
+	<purpose value="validation"/>
 
 	<patient>
 		<reference value="Patient/pat1"/>

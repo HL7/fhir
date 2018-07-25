@@ -101,6 +101,9 @@
 	</identifier>
 
 	<status value="active"/>
+	
+	<purpose value="validation"/>
+	<purpose value="benefits"/>
 
 	<created value="2014-09-16"/>
 

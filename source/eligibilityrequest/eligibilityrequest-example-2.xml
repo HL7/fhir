@@ -19,8 +19,8 @@
 		</coding>
 	</priority>
 
-	<use value="validation"/>
-	<use value="benefits"/>
+	<purpose value="validation"/>
+	<purpose value="benefits"/>
 
 	<patient>
 		<reference value="Patient/pat1"/>

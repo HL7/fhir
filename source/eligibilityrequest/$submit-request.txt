@@ -22,6 +22,8 @@ POST [baseurl]/EligibilityRequest/$submit
 			<code value="normal"/>
 		</coding>
 	</priority>
+	
+	<purpose value="validation"/>
 
 	<patient>
 		<reference value="Patient/pat1"/>
