@@ -1741,7 +1741,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private boolean loadPrePage(FetchedFile file, PreProcessInfo ppinfo) {
     FetchedFile existing = altMap.get("pre-page/"+file.getPath());
     if (existing == null || existing.getTime() != file.getTime() || existing.getHash() != file.getHash()) {
-      file.setProcessMode(ppinfo.hasXslt() ? FetchedFile.PROCESS_XSLT : FetchedFile.PROCESS_NONE);
+      file.setProcessMode(ppinfo.hasXslt() && !file.getPath().endsWith(".md") ? FetchedFile.PROCESS_XSLT : FetchedFile.PROCESS_NONE);
       file.setXslt(ppinfo.getXslt());
       if (ppinfo.hasRelativePath())
         file.setRelativePath(ppinfo.getRelativePath() + File.separator + file.getRelativePath());
@@ -3166,9 +3166,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "pages.json"));
 
       createToc();
-      if (configuration.has("html-template")) {
-        String template = str(configuration, "html-template");
-        applyPageTemplate(template, sourceIg.getDefinition().getPage());
+      if (configuration.has("html-template") || configuration.has("md-template")) {
+        String htmlTemplate = configuration.has("html-template") ? str(configuration, "html-template") : null;
+        String mdTemplate = configuration.has("md-template") ? str(configuration, "md-template") : null;
+        applyPageTemplate(htmlTemplate, mdTemplate, sourceIg.getDefinition().getPage());
       }
     }
   }
@@ -3204,10 +3205,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return null;
   }
 
-  private void applyPageTemplate(String template, ImplementationGuideDefinitionPageComponent page) throws Exception {
+  private void applyPageTemplate(String htmlTemplate, String mdTemplate, ImplementationGuideDefinitionPageComponent page) throws Exception {
     String p = page.getNameUrlType().getValue();
-    if (page.getGeneration() == GuidePageGeneration.HTML  && !relativeNames.keySet().contains(p) && p.endsWith(".html")) {
-      String sourceName = p.substring(0, p.indexOf(".html")) + ".xml";
+    String sourceName = null;
+    String template = null;
+    if (htmlTemplate != null && page.getGeneration() == GuidePageGeneration.HTML  && !relativeNames.keySet().contains(p) && p.endsWith(".html")) {
+      sourceName = p.substring(0, p.indexOf(".html")) + ".xml";
+      template = htmlTemplate;
+    } else if (mdTemplate != null && page.getGeneration() == GuidePageGeneration.MARKDOWN  && !relativeNames.keySet().contains(p) && p.endsWith(".html")) {
+      sourceName = p.substring(0, p.indexOf(".html")) + ".md";
+      template = mdTemplate;
+    }
+    if (sourceName!=null) {
       String sourcePath = Utilities.path("_includes", sourceName);
       if (!relativeNames.keySet().contains(sourcePath) && !sourceName.equals("toc.xml"))
         throw new Exception("Template based HTML file " + p + " is missing source file " + sourceName);
@@ -3220,8 +3229,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       else
         checkMakeFile(s.getBytes(), targetPath, f.getOutputNames());
     }
+
     for (ImplementationGuideDefinitionPageComponent childPage : page.getPage()) {
-      applyPageTemplate(template, childPage);
+      applyPageTemplate(htmlTemplate, mdTemplate, childPage);
     }
   }
 
@@ -3312,11 +3322,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String contentFile = pagesDir + File.separator + "_includes" + File.separator + baseUrl + "-intro.xml";
       if (new File(contentFile).exists()) {
         jsonPage.addProperty("intro", baseUrl+"-intro.xml");
+        jsonPage.addProperty("intro-type", "xml");
+      } else {
+        contentFile = pagesDir + File.separator + "_includes" + File.separator + baseUrl + "-intro.md";
+        if (new File(contentFile).exists()) {
+          jsonPage.addProperty("intro", baseUrl+"-intro.md");
+          jsonPage.addProperty("intro-type", "md");
+        }
       }
 
       contentFile = pagesDir + File.separator + "_includes" + File.separator + baseUrl + "-notes.xml";
       if (new File(contentFile).exists()) {
         jsonPage.addProperty("notes", baseUrl+"-notes.xml");
+        jsonPage.addProperty("notes-type", "xml");
+      } else {
+        contentFile = pagesDir + File.separator + "_includes" + File.separator + baseUrl + "-notes.md";
+        if (new File(contentFile).exists()) {
+          jsonPage.addProperty("notes", baseUrl+"-notes.md");
+          jsonPage.addProperty("notes-type", "md");
+        }
       }
     }
 
@@ -3331,11 +3355,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String contentFile = baseFile + "-intro.xml";
       if (new File(contentFile).exists()) {
         jsonPage.addProperty("intro", baseUrl+"-intro.xml");
+        jsonPage.addProperty("intro-type", "xml");
+      } else {
+        contentFile = baseFile + "-intro.md";
+        if (new File(contentFile).exists()) {
+          jsonPage.addProperty("intro", baseUrl+"-intro.md");
+          jsonPage.addProperty("intro-type", "md");
+        }
       }
   
       contentFile = baseFile + "-notes.xml";
       if (new File(contentFile).exists()) {
         jsonPage.addProperty("notes", baseUrl+"-notes.xml");
+        jsonPage.addProperty("notes-type", "xml");
+      } else {
+        contentFile = baseFile + "-notes.md";
+        if (new File(contentFile).exists()) {
+          jsonPage.addProperty("notes", baseUrl+"-notes.md");
+          jsonPage.addProperty("notes-type", "md");
+        }        
       }
     }
     

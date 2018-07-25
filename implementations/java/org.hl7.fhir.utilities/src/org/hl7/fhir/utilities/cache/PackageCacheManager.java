@@ -202,7 +202,7 @@ public class PackageCacheManager {
   
   public NpmPackage loadPackageCache(String id, String version) throws IOException {
     for (NpmPackage p : temporaryPackages) {
-      if (p.name().equals(id) && ("current".equals(version) || p.version().equals(version)))
+      if (p.name().equals(id) && ("current".equals(version) || "dev".equals(version) || p.version().equals(version)))
         return p;
     }
     String match = null;
