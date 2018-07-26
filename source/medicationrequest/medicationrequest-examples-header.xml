@@ -3,92 +3,93 @@
     <p>The following examples are MedicationRequest resources for Oral Dosage Forms that reference Medication Resources for generic formulations:
     </p>
     <ul>
-        <li><a href="medicationrequest0302.html">Active Order with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin.  Also includes non-clinical supportingInformation</a></li>
-        <li><a href="medicationrequest0301.html">Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
-        <li><a href="medicationrequest0303.html">Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
-        <li><a href="medicationrequest0304.html">Order for Oral Drops - Nystatin Suspension - completed - with Dispense Request</a></li>
-        <li><a href="medicationrequest0305.html">Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept</a></li>
-        <li><a href="medicationrequest0331.html">Order for a Dosage that needs to be dispensed as different strength tablets - Warfarin - active</a></li>
+        <li><a href="medicationrequest0302.html">Active Request with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin.  Also includes non-clinical supportingInformation</a></li>
+        <li><a href="medicationrequest0301.html">Request with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0303.html">Request for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
+        <li><a href="medicationrequest0304.html">Request for Oral Drops - Nystatin Suspension - completed - with Dispense Request</a></li>
+        <li><a href="medicationrequest0305.html">Request with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept</a></li>
+        <li><a href="medicationrequest0331.html">Request for a Dosage that needs to be dispensed as different strength tablets - Warfarin - active</a></li>
 
     </ul>
     <p>The following examples are MedicationRequest resources for Oral Dosage Forms that reference Medication Resources for manufactured products:
     </p>
     <ul>
-        <li><a href="medicationrequest0306.html">Oral Chemotherapy Order - Myleran - completed - with reasonCode</a></li>
-        <li><a href="medicationrequest0307.html">Order with as needed (PRN) dosage - Percocet - completed with link to encounter, dispenseRequest and substitution</a></li>
-        <li><a href="medicationrequest0308.html">Order for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution</a></li>
-        <li><a href="medicationrequest0309.html">Oral Chemotherapy Order - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)</a></li>
-        <li><a href="medicationrequest0310.html">Order for Over the Counter Medication - Tylenol PM - with dosage range as needed with pre-condition for use</a></li>
-        <li><a href="medicationrequestexample2.html">Order for a medication that includes the dosage of a prescription in text</a></li>
+        <li><a href="medicationrequest0306.html">Oral Chemotherapy Request - Myleran - completed - with reasonCode</a></li>
+        <li><a href="medicationrequest0307.html">Request with as needed (PRN) dosage - Percocet - completed with link to encounter, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0308.html">Request for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0309.html">Oral Chemotherapy Request - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)</a></li>
+        <li><a href="medicationrequest0310.html">Request for Over the Counter Medication - Tylenol PM - with dosage range as needed with pre-condition for use</a></li>
+        <li><a href="medicationrequestexample2.html">Request for a medication that includes the dosage of a prescription in text</a></li>
         <li><a href="medicationrequestexample1.html">Fully populated example of a MedicationRequest - Chlorthalidone - active - with link to encounter, reasonReference, note, dispenseRequest, substitution and eventHistory</a></li>
     </ul>
     <p>The following examples are MedicationRequest resources for Oral Dosage Forms that include a Medication Code
     </p>
     <ul>
         <li><a href="medicationrequest0312.html">Liquid Medication - Phenytoin with link to prior prescription</a></li>
-        <li><a href="medicationrequest0313.html">Order with a single dosage line - Azithromycin - completed - with link to prior prescription and reason code</a></li>
-        <li><a href="medicationrequest0314.html">Order - Levothyroxine - completed with reasonCode, dosageInstructions and dispenseRequest</a></li>
+        <li><a href="medicationrequest0313.html">Request with a single dosage line - Azithromycin - completed - with link to prior prescription and reason code</a></li>
+        <li><a href="medicationrequest0314.html">Request - Levothyroxine - completed with reasonCode, dosageInstructions and dispenseRequest</a></li>
     </ul>
     <p>INJECTABLE DOSAGE FORMS</p>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that reference a Medication Resource for a generic formulation
     </p>
     <ul>
-        <li><a href="medicationrequest0315.html">Order for an injectable medication - Lorazepam with Dosage Rate (as rateRange) - active - with link to encounter, reasonCode and dosageInstruction</a></li>
+        <li><a href="medicationrequest0315.html">Request for an injectable medication - Lorazepam with Dosage Rate (as rateRange) - active - with link to encounter, reasonCode and dosageInstruction</a></li>
     </ul>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that reference a Medication Resource for a manufactured product:
     </p>
     <ul>
-        <li><a href="medicationrequest0316.html">Order for Intravenous Chemotherapy (inpatient order) - Brentuximab Vedotin - completed</a></li>
-        <li><a href="medicationrequest0317.html">Order for Intravenous Chemotherapy (inpatient order) - Alemtuzumab - completed with multiple dosageInstruction lines</a></li>
-        <li><a href="medicationrequest0318.html">Order for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note</a></li>
-        <li><a href="medicationrequest0319.html">Order for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
-        <li><a href="medicationrequest0321.html">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
+        <li><a href="medicationrequest0316.html">Request for Intravenous Chemotherapy (inpatient Request) - Brentuximab Vedotin - completed</a></li>
+        <li><a href="medicationrequest0317.html">Request for Intravenous Chemotherapy (inpatient Request) - Alemtuzumab - completed with multiple dosageInstruction lines</a></li>
+        <li><a href="medicationrequest0318.html">Request for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note</a></li>
+        <li><a href="medicationrequest0319.html">Request for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
+        <li><a href="medicationrequest0321.html">Request for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
     </ul>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that include a Medication Code:
     </p>
     <ul>
-        <li><a href="medicationrequest0320.html">Order for Subcutaneous injection - Insulin - Lantus - completed, with reason code and dispense request</a></li>
+        <li><a href="medicationrequest0320.html">Request for Subcutaneous injection - Insulin - Lantus - completed, with reason code and dispense request</a></li>
         
     </ul>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms  for Injectable Dosage Forms where the medication is a compounded (aka extemporaneous or magistral) product:
     </p>
     <ul>
-        <li><a href="medicationrequest0322.html">Order for Intravenous Admixture with Dosage Rate (as rateRatio) - Potassium Chloride in D5W - completed with reason code</a></li>
-        <li><a href="medicationrequest0323.html">Order for TPN Solution with Dosage Rate (as rateRatio) - completed</a></li>
+        <li><a href="medicationrequest0322.html">Request for Intravenous Admixture with Dosage Rate (as rateRatio) - Potassium Chloride in D5W - completed with reason code</a></li>
+        <li><a href="medicationrequest0323.html">Request for TPN Solution with Dosage Rate (as rateRatio) - completed</a></li>
     </ul>
     <p>MISCELLAENOUS DOSAGE FORMS</p>
     <p>The following examples of MedicationRequest resources including miscellaneous dosage forms:
     </p>
     <ul>
-        <li><a href="medicationrequest0324.html">Order using Medication Code for Rectal Suppository - Acetaminophen - completed with reasonCode, dispenseRequest and substitution</a></li>
-        <li><a href="medicationrequest0325.html">Order using Medication Code for Topical Ointment - Nystatin - on hold and with dispense request</a></li>
-        <li><a href="medicationrequest0326.html">Order using Medication Code for Inhaler - Proventil - on hold with dispenseRequest and substitution</a></li>
-        <li><a href="medicationrequest0327.html">Order using Medication Code for Patch - Fentanyl - active, with dispense request</a></li>
+        <li><a href="medicationrequest0324.html">Request using Medication Code for Rectal Suppository - Acetaminophen - completed with reasonCode, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0325.html">Request using Medication Code for Topical Ointment - Nystatin - on hold and with dispense request</a></li>
+        <li><a href="medicationrequest0326.html">Request using Medication Code for Inhaler - Proventil - on hold with dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0327.html">Request using Medication Code for Patch - Fentanyl - active, with dispense request</a></li>
         <li><a href="medicationrequest0328.html">Medication Resource Reference - Nasal Spray - Nasonex</a></li>
-        <li><a href="medicationrequest0329.html">Order referencing Medication Resource for Compounded Product - HC 1%, Salicylic Acid 5% in Glaxal Base - on hold with dispenseRequest</a></li>
-        <li><a href="medicationrequest0330.html">Order referencing Medication Resource for Eye Drops - Timoptic - active - with link to encounter, dispenseRequest and substitution flag</a></li>
+        <li><a href="medicationrequest0329.html">Request referencing Medication Resource for Compounded Product - HC 1%, Salicylic Acid 5% in Glaxal Base - on hold with dispenseRequest</a></li>
+        <li><a href="medicationrequest0330.html">Request referencing Medication Resource for Eye Drops - Timoptic - active - with link to encounter, dispenseRequest and substitution flag</a></li>
+        <li><a href="medicationrequest0339.html">Request referencing Medication Resource for a Kit that contains 2 different dosage forms - Vagistat</a></li>
     </ul>
     
     <p>MISCELLAENOUS DOSAGE INSTRUCTIONS</p>
     <p>The following examples of MedicationRequest resources including miscellaneous dosage instructions:
     </p>
     <ul>
-        <li><a href="medicationrequest0332.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
-        <li><a href="medicationrequest0333.html">Order for a medication that is intended to be given in the morning</a></li>
-        <li><a href="medicationrequest0334.html">Order that includes a dosage instruction for a medication that is given on a specific day of the week</a></li>
-        <li><a href="medicationrequest0335.html">Order that includes a dosage instruction for a medication that is given at a specific time of the day</a></li>
-        <li><a href="medicationrequest0301.html">Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
-        <li><a href="medicationrequest0303.html">Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
-        <li><a href="medicationrequest0305.html">Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept</a></li>
-        <li><a href="medicationrequest0315.html">Order for an injectable medication - Lorazepam with Dosage Rate (as rateRange) - active - with link to encounter, reasonCode and dosageInstruction</a></li>
-        <li><a href="medicationrequest0322.html">Order for Intravenous Admixture with Dosage Rate (as rateRatio) - Potassium Chloride in D5W - completed with reason code</a></li>
-        <li><a href="medicationrequest0336.html">Order for Intravenous Dopamine - Weight based calculation with rateQuantity</a></li>
-        <li><a href="medicationrequest0337.html">Order for Intravenous Admixture Dopamine - with rateQuantity</a></li>
-        <li><a href="medicationrequest0338.html">Order for Intravenous Admixture Dopamine - with doseQuantity and rateQuantity</a></li>
-        <li><a href="medicationrequest0321.html">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
-        <li><a href="medicationrequest0319.html">Order for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
-        <li><a href="medicationrequest0309.html">Oral Chemotherapy Order - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)</a></li>
-        <li><a href="medicationrequest0308.html">Order for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0332.html">Request that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
+        <li><a href="medicationrequest0333.html">Request for a medication that is intended to be given in the morning</a></li>
+        <li><a href="medicationrequest0334.html">Request that includes a dosage instruction for a medication that is given on a specific day of the week</a></li>
+        <li><a href="medicationrequest0335.html">Request that includes a dosage instruction for a medication that is given at a specific time of the day</a></li>
+        <li><a href="medicationrequest0301.html">Request with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0303.html">Request for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
+        <li><a href="medicationrequest0305.html">Request with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept</a></li>
+        <li><a href="medicationrequest0315.html">Request for an injectable medication - Lorazepam with Dosage Rate (as rateRange) - active - with link to encounter, reasonCode and dosageInstruction</a></li>
+        <li><a href="medicationrequest0322.html">Request for Intravenous Admixture with Dosage Rate (as rateRatio) - Potassium Chloride in D5W - completed with reason code</a></li>
+        <li><a href="medicationrequest0336.html">Request for Intravenous Dopamine - Weight based calculation with rateQuantity</a></li>
+        <li><a href="medicationrequest0337.html">Request for Intravenous Admixture Dopamine - with rateQuantity</a></li>
+        <li><a href="medicationrequest0338.html">Request for Intravenous Admixture Dopamine - with doseQuantity and rateQuantity</a></li>
+        <li><a href="medicationrequest0321.html">Request for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
+        <li><a href="medicationrequest0319.html">Request for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
+        <li><a href="medicationrequest0309.html">Oral Chemotherapy Request - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)</a></li>
+        <li><a href="medicationrequest0308.html">Request for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution</a></li>
     </ul>
     
 </div>
