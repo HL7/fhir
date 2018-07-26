@@ -104,7 +104,7 @@ public class ValueSetValidator extends BaseValidator {
     codeSystems.add("http://www.ncbi.nlm.nih.gov/nuccore");
     codeSystems.add("http://www.ncbi.nlm.nih.gov/clinvar");
     codeSystems.add("http://sequenceontology.org");
-    codeSystems.add("http://www.hgvs.org/mutnomen");
+    codeSystems.add("http://varnomen.hgvs.org/");
     codeSystems.add("http://www.ncbi.nlm.nih.gov/projects/SNP");
     codeSystems.add("http://cancer.sanger.ac.uk/");
     codeSystems.add("cancergenome/projects/cosmic");
@@ -334,7 +334,7 @@ public class ValueSetValidator extends BaseValidator {
         "http://hl7.org/fhir/sid/ndc",  "http://loinc.org",  "https://precision.fda.gov/apps/", 
         "http://www.lrg-sequence.org",  "http://ncimeta.nci.nih.gov",  "http://www.sequenceontology.org", 
         "http://snomed.info/sct",  "http://unitsofmeasure.org",  "http://www.ama-assn.org/go/cpt", 
-        "http://www.ensembl.org",  "http://www.genenames.org",  "http://www.hgvs.org/mutnomen", 
+        "http://www.ensembl.org",  "http://www.genenames.org",  "http://varnomen.hgvs.org/", 
         "http://www.icd10data.com/icd10pcs",  "http://www.ncbi.nlm.nih.gov/nuccore",  "http://www.ncbi.nlm.nih.gov/projects/SNP", 
         "http://www.ncbi.nlm.nih.gov/pubmed",  "http://www.ncbi.nlm.nih.gov/clinvar",  "http://www.nlm.nih.gov/research/umls/rxnorm", 
         "http://www.nubc.org/patient-discharge",  "http://www.omim.org",  "http://www.pharmgkb.org", 
