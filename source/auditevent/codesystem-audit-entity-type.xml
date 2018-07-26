@@ -1,5 +1,5 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/audit-entity-type"/> 
+  <url value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/> 
   <version value="3.4.0"/> 
   <name value="AuditEventEntityType"/> 
   <status value="draft"/> 

@@ -12,7 +12,7 @@
         <id value="extensional-case-1"/>
         <text>
           <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/patient-contact-relationship</div>
+          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://example.org/fhir/CodeSystem/patient-contact-relationship</div>
         </text>
         <identifier>
           <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1" />
@@ -30,7 +30,7 @@
         <experimental value="true"/>
         <compose>
           <include>
-            <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+            <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
             <concept>
               <code value="emergency"/>
               <display value="Emergency"/>
@@ -422,7 +422,7 @@
         <id value="extensional-case-4"/>
         <text>
           <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/patient-contact-relationship</div>
+          <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://example.org/fhir/CodeSystem/patient-contact-relationship</div>
         </text>
         <identifier>
           <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4" />
@@ -440,7 +440,7 @@
         <experimental value="true"/>
         <compose>
           <include>
-            <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+            <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
             <concept>
               <code value="emergency"/>
               <display value="Emergency"/>
@@ -607,37 +607,37 @@
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="exact-no-order"/>
               </extension>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="emergency"/>
               <display value="Emergency"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="family"/>
               <display value="Family"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="guardian"/>
               <display value="Guardian"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="friend"/>
               <display value="Friend"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="partner"/>
               <display value="Partner"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="work"/>
               <display value="Work"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="parent"/>
               <display value="Parent"/>
           </contains>
@@ -1981,12 +1981,12 @@
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="open"/>
               </extension>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="family"/>
               <display value="Family"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="friend"/>
               <display value="Friend"/>
           </contains>
@@ -2127,12 +2127,12 @@
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
                 <valueInteger value="8"/>
               </extension>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="family"/>
               <display value="Family"/>
           </contains>
           <contains>
-              <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
               <code value="friend"/>
               <display value="Friend"/>
           </contains>
@@ -3052,7 +3052,7 @@
     <operation>
       <type value="assertion"/>
       <parameter value="equals"/>
-      <parameter value="http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
       <parameter value="fhir:ValueSet/fhir:expansion/fhir:contains/fhir:system/@value"/>
     </operation>
     <operation>
@@ -3517,7 +3517,7 @@
 
   <test id="test3-1-a">
     <name value="Validation valueset #1 valid"/>
-    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set"/>
+    <description value="Check that the code {http://example.org/fhir/CodeSystem/patient-contact-relationship}emergency is in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -3535,7 +3535,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-1"/>
-      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="system=http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
       <parameter value="code=emergency"/>
     </operation>
     <operation>
@@ -3551,7 +3551,7 @@
   </test>
   <test id="test3-1-b">
     <name value="Validation valueset #1 invalid system"/>
-    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is not in the value set"/>
+    <description value="Check that the code {http://example.org/fhir/CodeSystem/patient-contact-relationshipX}emergency is not in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -3569,7 +3569,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-1"/>
-      <parameter value="system=http://hl7.org/fhir/patient-contact-relationshipX"/>
+      <parameter value="system=http://example.org/fhir/CodeSystem/patient-contact-relationshipX"/>
       <parameter value="code=emergency"/>
     </operation>
     <operation>
@@ -3584,7 +3584,7 @@
   </test>
   <test id="test3-1-c">
     <name value="Validation valueset #1 invalid code"/>
-    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergencyX is not in the value set"/>
+    <description value="Check that the code {http://example.org/fhir/CodeSystem/patient-contact-relationship}emergencyX is not in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -3602,7 +3602,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-1"/>
-      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="system=http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
       <parameter value="code=emergencyX"/>
     </operation>
     <operation>
@@ -4633,7 +4633,7 @@
 <!-- These tests are from suite4 - Validation Tests - API variation -->
   <test id="test4-1-a">
     <name value="Valid - system/code parameters"/>
-    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set"/>
+    <description value="Check that the code {http://example.org/fhir/CodeSystem/patient-contact-relationship}emergency is in the value set"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -4651,7 +4651,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-1"/>
-      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="system=http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
       <parameter value="code=emergency"/>
       <parameter value="display=Emergency"/>
     </operation>
@@ -4668,7 +4668,7 @@
   </test>
   <test id="test4-1-b">
     <name value="Invalid display - system/code parameters"/>
-    <description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display"/>
+    <description value="Check that the code {http://example.org/fhir/CodeSystem/patient-contact-relationshipX}emergency is in the value set, but give the wrong display"/>
     <metadata>
       <link>
         <url value="http://fhir.org/spec.html"/>
@@ -4686,7 +4686,7 @@
     <operation>
       <type value="$validate"/>
       <target value="extensional-case-1"/>
-      <parameter value="system=http://hl7.org/fhir/patient-contact-relationship"/>
+      <parameter value="system=http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
       <parameter value="code=emergency"/>
       <parameter value="display=EmergencyX"/>
     </operation>

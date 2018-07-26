@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-login"/>
 	<type>
@@ -17,7 +17,7 @@
 	<agent>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/extra-security-role-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
 				<code value="humanuser"/>
 				<display value="human user"/>
 			</coding>
@@ -66,7 +66,7 @@
 			</identifier>
 		</observer>
 		<type>
-			<system value="http://hl7.org/fhir/security-source-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
 			<code value="3"/>
 			<display value="Web Server"/>
 		</type>

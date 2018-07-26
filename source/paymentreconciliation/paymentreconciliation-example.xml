@@ -1,4 +1,4 @@
-<PaymentReconciliation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+﻿<PaymentReconciliation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
 	<id value="ER2500"/>
 
 	<text>
@@ -39,7 +39,7 @@
 	<detail>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/payment-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/payment-type"/>
 				<code value="payment"/>
 			</coding>
 		</type>
@@ -71,7 +71,7 @@
 	<detail>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/payment-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/payment-type"/>
 				<code value="payment"/>
 			</coding>
 		</type>
@@ -88,7 +88,7 @@
 	<detail>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/payment-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/payment-type"/>
 				<code value="advance"/>
 			</coding>
 		</type>

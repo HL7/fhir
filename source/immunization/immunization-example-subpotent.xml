@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--Authored by Joginder Madra-->
 <Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/immunization.xsd">
 	<id value="subpotent"/>
@@ -77,7 +77,7 @@
 	<isSubpotent value="false"/>
 	<subpotentReason>
 		<coding>
-			<system value="http://hl7.org/fhir/immunization-subpotent-reason"/>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason"/>
 			<code value="partial"/>
 		</coding>
 	</subpotentReason>
@@ -88,13 +88,13 @@
 	</education>
 	<programEligibility>
 		<coding>
-			<system value="http://hl7.org/fhir/immunization-program-eligibility"/>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
 			<code value="ineligible"/>
 		</coding>
 	</programEligibility>
 	<fundingSource>
 		<coding>
-			<system value="http://hl7.org/fhir/immunization-funding-source"/>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-funding-source"/>
 			<code value="private"/>
 		</coding>
 	</fundingSource>

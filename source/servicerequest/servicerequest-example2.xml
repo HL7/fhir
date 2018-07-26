@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="physiotherapy"/>
 	<!-- demonstrating in this example the reason reference element using contained resources for the purpose of this example only typically this would be a separate independent resource-->
@@ -43,20 +43,20 @@
 			<id value="cystic-fibrosis"/>
 			<clinicalStatus>
 			  <coding>
-			    <system value="http://hl7.org/fhir/condition-clinical"/>
+			    <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
 			    <code value="active"/>
 			  </coding>
 		    </clinicalStatus>
 
 		    <verificationStatus>
 			  <coding>
-			    <system value="http://hl7.org/fhir/condition-ver-status"/>
+			    <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
 			    <code value="confirmed"/>
 			  </coding>
 		    </verificationStatus>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/condition-category"/>
+					<system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
 					<code value="problem-list-item"/>
 					<display value="Problem List Item"/>
 				</coding>
@@ -85,7 +85,7 @@
 	<identifier>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/identifier-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
 				<code value="PLAC"/>
 				<display value="Placer Identifier"/>
 			</coding>

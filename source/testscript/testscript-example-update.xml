@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <TestScript xmlns="http://hl7.org/fhir">
   <id value="testscript-example-update"/>
@@ -73,7 +73,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="delete"/>
         </type>
         <resource value="Patient"/>
@@ -96,7 +96,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="update"/>
         </type>
         <resource value="Patient"/>
@@ -124,7 +124,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="update"/>
         </type>
         <resource value="Patient"/>

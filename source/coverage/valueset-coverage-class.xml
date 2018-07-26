@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Coverage Class Codes"/>
@@ -14,7 +14,7 @@
   <copyright value="HL7 Inc."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/coverage-class"/>
+      <system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
     </include>
   </compose>
 </ValueSet>

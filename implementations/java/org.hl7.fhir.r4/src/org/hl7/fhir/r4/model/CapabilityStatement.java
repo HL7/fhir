@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
 @ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
-@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "format", "patchFormat", "implementationGuide", "rest", "messaging", "document"})
+@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "imports", "software", "implementation", "fhirVersion", "format", "patchFormat", "implementationGuide", "rest", "messaging", "document"})
 public class CapabilityStatement extends MetadataResource implements IBaseConformance {
 
     public enum CapabilityStatementKind {
@@ -333,15 +333,15 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getSystem() {
           switch (this) {
-            case READ: return "http://hl7.org/fhir/restful-interaction";
-            case VREAD: return "http://hl7.org/fhir/restful-interaction";
-            case UPDATE: return "http://hl7.org/fhir/restful-interaction";
-            case PATCH: return "http://hl7.org/fhir/restful-interaction";
-            case DELETE: return "http://hl7.org/fhir/restful-interaction";
-            case HISTORYINSTANCE: return "http://hl7.org/fhir/restful-interaction";
-            case HISTORYTYPE: return "http://hl7.org/fhir/restful-interaction";
-            case CREATE: return "http://hl7.org/fhir/restful-interaction";
-            case SEARCHTYPE: return "http://hl7.org/fhir/restful-interaction";
+            case READ: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case VREAD: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case UPDATE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case PATCH: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case DELETE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case HISTORYINSTANCE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case HISTORYTYPE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case CREATE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case SEARCHTYPE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
             default: return "?";
           }
         }
@@ -982,10 +982,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getSystem() {
           switch (this) {
-            case TRANSACTION: return "http://hl7.org/fhir/restful-interaction";
-            case BATCH: return "http://hl7.org/fhir/restful-interaction";
-            case SEARCHSYSTEM: return "http://hl7.org/fhir/restful-interaction";
-            case HISTORYSYSTEM: return "http://hl7.org/fhir/restful-interaction";
+            case TRANSACTION: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case BATCH: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case SEARCHSYSTEM: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case HISTORYSYSTEM: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
             default: return "?";
           }
         }
@@ -4578,7 +4578,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * The type of value a search parameter refers to, and how the content is interpreted.
          */
         @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
+        @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri | special", formalDefinition="The type of value a search parameter refers to, and how the content is interpreted." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-param-type")
         protected Enumeration<SearchParamType> type;
 
@@ -6741,30 +6741,37 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     protected Enumeration<CapabilityStatementKind> kind;
 
     /**
-     * Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.
+     * Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.
      */
     @Child(name = "instantiates", type = {CanonicalType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Canonical URL of another capability statement this implements", formalDefinition="Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so." )
+    @Description(shortDefinition="Canonical URL of another capability statement this implements", formalDefinition="Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details." )
     protected List<CanonicalType> instantiates;
+
+    /**
+     * Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.
+     */
+    @Child(name = "imports", type = {CanonicalType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Canonical URL of another capability statement this adds to", formalDefinition="Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them." )
+    protected List<CanonicalType> imports;
 
     /**
      * Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.
      */
-    @Child(name = "software", type = {}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "software", type = {}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Software that is covered by this capability statement", formalDefinition="Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation." )
     protected CapabilityStatementSoftwareComponent software;
 
     /**
      * Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.
      */
-    @Child(name = "implementation", type = {}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "implementation", type = {}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="If this describes a specific instance", formalDefinition="Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program." )
     protected CapabilityStatementImplementationComponent implementation;
 
     /**
      * The version of the FHIR specification on which this capability statement is based.
      */
-    @Child(name = "fhirVersion", type = {IdType.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "fhirVersion", type = {IdType.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version the system uses", formalDefinition="The version of the FHIR specification on which this capability statement is based." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
     protected IdType fhirVersion;
@@ -6772,7 +6779,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * A list of the formats supported by this implementation using their content types.
      */
-    @Child(name = "format", type = {CodeType.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "format", type = {CodeType.class}, order=8, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="formats supported (xml | json | ttl | mime type)", formalDefinition="A list of the formats supported by this implementation using their content types." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected List<CodeType> format;
@@ -6780,7 +6787,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * A list of the patch formats supported by this implementation using their content types.
      */
-    @Child(name = "patchFormat", type = {CodeType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "patchFormat", type = {CodeType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Patch formats supported", formalDefinition="A list of the patch formats supported by this implementation using their content types." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/mimetypes")
     protected List<CodeType> patchFormat;
@@ -6788,32 +6795,32 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * A list of implementation guides that the server does (or should) support in their entirety.
      */
-    @Child(name = "implementationGuide", type = {CanonicalType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "implementationGuide", type = {CanonicalType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Implementation guides supported", formalDefinition="A list of implementation guides that the server does (or should) support in their entirety." )
     protected List<CanonicalType> implementationGuide;
 
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name = "rest", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "rest", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<CapabilityStatementRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name = "messaging", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "messaging", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<CapabilityStatementMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name = "document", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "document", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<CapabilityStatementDocumentComponent> document;
 
-    private static final long serialVersionUID = -2010720074L;
+    private static final long serialVersionUID = -1192000348L;
 
   /**
    * Constructor
@@ -7565,7 +7572,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.)
+     * @return {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.)
      */
     public List<CanonicalType> getInstantiates() { 
       if (this.instantiates == null)
@@ -7591,7 +7598,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.)
+     * @return {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.)
      */
     public CanonicalType addInstantiatesElement() {//2 
       CanonicalType t = new CanonicalType();
@@ -7602,7 +7609,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @param value {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.)
+     * @param value {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.)
      */
     public CapabilityStatement addInstantiates(String value) { //1
       CanonicalType t = new CanonicalType();
@@ -7614,12 +7621,73 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @param value {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.)
+     * @param value {@link #instantiates} (Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.)
      */
     public boolean hasInstantiates(String value) { 
       if (this.instantiates == null)
         return false;
       for (CanonicalType v : this.instantiates)
+        if (v.getValue().equals(value)) // canonical(CapabilityStatement)
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #imports} (Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.)
+     */
+    public List<CanonicalType> getImports() { 
+      if (this.imports == null)
+        this.imports = new ArrayList<CanonicalType>();
+      return this.imports;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CapabilityStatement setImports(List<CanonicalType> theImports) { 
+      this.imports = theImports;
+      return this;
+    }
+
+    public boolean hasImports() { 
+      if (this.imports == null)
+        return false;
+      for (CanonicalType item : this.imports)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #imports} (Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.)
+     */
+    public CanonicalType addImportsElement() {//2 
+      CanonicalType t = new CanonicalType();
+      if (this.imports == null)
+        this.imports = new ArrayList<CanonicalType>();
+      this.imports.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #imports} (Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.)
+     */
+    public CapabilityStatement addImports(String value) { //1
+      CanonicalType t = new CanonicalType();
+      t.setValue(value);
+      if (this.imports == null)
+        this.imports = new ArrayList<CanonicalType>();
+      this.imports.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #imports} (Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.)
+     */
+    public boolean hasImports(String value) { 
+      if (this.imports == null)
+        return false;
+      for (CanonicalType v : this.imports)
         if (v.getValue().equals(value)) // canonical(CapabilityStatement)
           return true;
       return false;
@@ -8077,7 +8145,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         children.add(new Property("purpose", "markdown", "Explanation of why this capability statement is needed and why it has been designed as it has.", 0, 1, purpose));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement.", 0, 1, copyright));
         children.add(new Property("kind", "code", "The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).", 0, 1, kind));
-        children.add(new Property("instantiates", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("instantiates", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("imports", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.", 0, java.lang.Integer.MAX_VALUE, imports));
         children.add(new Property("software", "", "Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.", 0, 1, software));
         children.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, 1, implementation));
         children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion));
@@ -8107,7 +8176,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explanation of why this capability statement is needed and why it has been designed as it has.", 0, 1, purpose);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement.", 0, 1, copyright);
         case 3292052: /*kind*/  return new Property("kind", "code", "The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase).", 0, 1, kind);
-        case -246883639: /*instantiates*/  return new Property("instantiates", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case -246883639: /*instantiates*/  return new Property("instantiates", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case 1926037870: /*imports*/  return new Property("imports", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.", 0, java.lang.Integer.MAX_VALUE, imports);
         case 1319330215: /*software*/  return new Property("software", "", "Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.", 0, 1, software);
         case 1683336114: /*implementation*/  return new Property("implementation", "", "Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, 1, implementation);
         case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion);
@@ -8141,6 +8211,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<CapabilityStatementKind>
         case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // CanonicalType
+        case 1926037870: /*imports*/ return this.imports == null ? new Base[0] : this.imports.toArray(new Base[this.imports.size()]); // CanonicalType
         case 1319330215: /*software*/ return this.software == null ? new Base[0] : new Base[] {this.software}; // CapabilityStatementSoftwareComponent
         case 1683336114: /*implementation*/ return this.implementation == null ? new Base[0] : new Base[] {this.implementation}; // CapabilityStatementImplementationComponent
         case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
@@ -8207,6 +8278,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return value;
         case -246883639: // instantiates
           this.getInstantiates().add(castToCanonical(value)); // CanonicalType
+          return value;
+        case 1926037870: // imports
+          this.getImports().add(castToCanonical(value)); // CanonicalType
           return value;
         case 1319330215: // software
           this.software = (CapabilityStatementSoftwareComponent) value; // CapabilityStatementSoftwareComponent
@@ -8276,6 +8350,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.kind = (Enumeration) value; // Enumeration<CapabilityStatementKind>
         } else if (name.equals("instantiates")) {
           this.getInstantiates().add(castToCanonical(value));
+        } else if (name.equals("imports")) {
+          this.getImports().add(castToCanonical(value));
         } else if (name.equals("software")) {
           this.software = (CapabilityStatementSoftwareComponent) value; // CapabilityStatementSoftwareComponent
         } else if (name.equals("implementation")) {
@@ -8318,6 +8394,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1522889671:  return getCopyrightElement();
         case 3292052:  return getKindElement();
         case -246883639:  return addInstantiatesElement();
+        case 1926037870:  return addImportsElement();
         case 1319330215:  return getSoftware(); 
         case 1683336114:  return getImplementation(); 
         case 461006061:  return getFhirVersionElement();
@@ -8351,6 +8428,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1522889671: /*copyright*/ return new String[] {"markdown"};
         case 3292052: /*kind*/ return new String[] {"code"};
         case -246883639: /*instantiates*/ return new String[] {"canonical"};
+        case 1926037870: /*imports*/ return new String[] {"canonical"};
         case 1319330215: /*software*/ return new String[] {};
         case 1683336114: /*implementation*/ return new String[] {};
         case 461006061: /*fhirVersion*/ return new String[] {"id"};
@@ -8414,6 +8492,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         else if (name.equals("instantiates")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.instantiates");
+        }
+        else if (name.equals("imports")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.imports");
         }
         else if (name.equals("software")) {
           this.software = new CapabilityStatementSoftwareComponent();
@@ -8488,6 +8569,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           for (CanonicalType i : instantiates)
             dst.instantiates.add(i.copy());
         };
+        if (imports != null) {
+          dst.imports = new ArrayList<CanonicalType>();
+          for (CanonicalType i : imports)
+            dst.imports.add(i.copy());
+        };
         dst.software = software == null ? null : software.copy();
         dst.implementation = implementation == null ? null : implementation.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
@@ -8536,10 +8622,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return false;
         CapabilityStatement o = (CapabilityStatement) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true)
-           && compareDeep(instantiates, o.instantiates, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
-           && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true)
-           && compareDeep(implementationGuide, o.implementationGuide, true) && compareDeep(rest, o.rest, true)
-           && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
+           && compareDeep(instantiates, o.instantiates, true) && compareDeep(imports, o.imports, true) && compareDeep(software, o.software, true)
+           && compareDeep(implementation, o.implementation, true) && compareDeep(fhirVersion, o.fhirVersion, true)
+           && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true) && compareDeep(implementationGuide, o.implementationGuide, true)
+           && compareDeep(rest, o.rest, true) && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true)
+          ;
       }
 
       @Override
@@ -8556,8 +8643,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, copyright, kind
-          , instantiates, software, implementation, fhirVersion, format, patchFormat, implementationGuide
-          , rest, messaging, document);
+          , instantiates, imports, software, implementation, fhirVersion, format, patchFormat
+          , implementationGuide, rest, messaging, document);
       }
 
   @Override
@@ -8610,6 +8697,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * the path value of "<b>CapabilityStatement:resource-profile</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCE_PROFILE = new ca.uhn.fhir.model.api.Include("CapabilityStatement:resource-profile").toLocked();
+
+ /**
+   * Search parameter: <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the capability statement</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-value", path="CapabilityStatement.useContext", description="A use context type and value assigned to the capability statement", type="composite", compositeOf={"context-type", "context"} )
+  public static final String SP_CONTEXT_TYPE_VALUE = "context-type-value";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the capability statement</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CONTEXT_TYPE_VALUE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CONTEXT_TYPE_VALUE);
 
  /**
    * Search parameter: <b>software</b>
@@ -8710,6 +8817,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the capability statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CapabilityStatement.useContext.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type", path="CapabilityStatement.useContext.code", description="A type of use context assigned to the capability statement", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the capability statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CapabilityStatement.useContext.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>title</b>
@@ -8838,6 +8965,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam MODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_MODE);
 
  /**
+   * Search parameter: <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the capability statement</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>CapabilityStatement.useContext.valueQuantity, CapabilityStatement.useContext.valueRange</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-quantity", path="CapabilityStatement.useContext.value.as(Quantity) | CapabilityStatement.useContext.value.as(Range)", description="A quantity- or range-valued use context assigned to the capability statement", type="quantity" )
+  public static final String SP_CONTEXT_QUANTITY = "context-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the capability statement</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>CapabilityStatement.useContext.valueQuantity, CapabilityStatement.useContext.valueRange</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam CONTEXT_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_CONTEXT_QUANTITY);
+
+ /**
    * Search parameter: <b>security-service</b>
    * <p>
    * Description: <b>OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates</b><br>
@@ -8878,6 +9025,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the capability statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CapabilityStatement.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="CapabilityStatement.useContext.value.as(CodeableConcept)", description="A use context assigned to the capability statement", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the capability statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CapabilityStatement.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
    * Search parameter: <b>publisher</b>
    * <p>
    * Description: <b>Name of the publisher of the capability statement</b><br>
@@ -8896,6 +9063,26 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the capability statement</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-quantity", path="CapabilityStatement.useContext", description="A use context type and quantity- or range-based value assigned to the capability statement", type="composite", compositeOf={"context-type", "context-quantity"} )
+  public static final String SP_CONTEXT_TYPE_QUANTITY = "context-type-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the capability statement</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CONTEXT_TYPE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CONTEXT_TYPE_QUANTITY);
 
  /**
    * Search parameter: <b>guide</b>

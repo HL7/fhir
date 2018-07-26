@@ -1,4 +1,4 @@
-<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+﻿<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
 
 	<id value="R3501"/>
@@ -17,7 +17,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
 		</coding>
 	</type>
@@ -80,7 +80,7 @@
 		<detailSequence value="2"/>
 		<code>
 			<coding>
-				<system value="http://hl7.org/fhir/adjudication-error"/>
+				<system value="http://terminology.hl7.org/CodeSystem/adjudication-error"/>
 				<code value="a002"/>
 			</coding>
 		</code>
@@ -88,7 +88,7 @@
 
 	<form>
 		<coding>
-			<system value="http://hl7.org/fhir/forms-codes" />
+			<system value="http://terminology.hl7.org/CodeSystem/forms-codes" />
 			<code value="2" />
 		</coding>
 	</form>

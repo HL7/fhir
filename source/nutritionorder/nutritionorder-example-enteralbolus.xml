@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = enteralbolus  file name = nutritionorder-example-enteralbolus.xml Name= Enteral Bolus  Description = Nutrition Order Enteral Bolus Feeding  Example
 Tube feedings are given in boluses several times a day   edited by Eric Haas Health eData Inc
 --><!--EH  Show all the elements in this examples for preference, and intolerance --><id value="enteralbolus"/>
@@ -26,7 +26,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 	</allergyIntolerance>
 	<foodPreferenceModifier>
 		<coding>
-			<system value="http://hl7.org/fhir/diet"/>
+			<system value="http://terminology.hl7.org/CodeSystem/diet"/>
 			<code value="dairy-free"/>
 		</coding>
 	</foodPreferenceModifier>
@@ -53,7 +53,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 
 		<additiveType>
 			<coding>
-				<system value="http://hl7.org/fhir/entformula-additive"/>
+				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
 				<code value="lipid"/>
 				<display value="Lipid"/>
 			</coding>

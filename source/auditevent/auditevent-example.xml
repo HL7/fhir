@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
  <id value="example"/>
   <text>
@@ -20,7 +20,7 @@
     <recorded value="2012-10-25T22:04:27+11:00"/>
     <outcome value="0"/>
   <agent>
-      <type> <coding> <system value="http://hl7.org/fhir/extra-security-role-type"/> <code value="humanuser"/> <display value="human user"/> </coding> </type> 
+      <type> <coding> <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/> <code value="humanuser"/> <display value="human user"/> </coding> </type> 
 
     <role>
       <text value="Service User (Logon)"/>
@@ -64,7 +64,7 @@
     <what><identifier>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/identifier-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
           <code value="SNO"/>
         </coding>
         <text value="Dell Serial Number"/>
@@ -73,17 +73,17 @@
     </identifier>
 	</what>
 	<type>
-		<system value="http://hl7.org/fhir/object-type"/>
+		<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
 		<code value="4"/>
 		<display value="Other"/>
 	</type>
 	<role>
-		<system value="http://hl7.org/fhir/object-role"/>
+		<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 		<code value="4"/>
 		<display value="Domain Resource"/>
 	</role>
     <lifecycle>
-		<system value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
+		<system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
 		<code value="6"/>
 		<display value="Access / Use"/>
 	</lifecycle>

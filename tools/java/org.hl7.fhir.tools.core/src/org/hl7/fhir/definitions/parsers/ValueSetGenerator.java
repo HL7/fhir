@@ -191,7 +191,7 @@ public class ValueSetGenerator {
       }
       if (t != null) {
         for (String l : t.keySet())
-          c.addDesignation().setLanguage(l).setValue(t.get(l)).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("display");
+          c.addDesignation().setLanguage(l).setValue(t.get(l)).getUse().setSystem("http://terminology.hl7.org/CodeSystem/designation-usage").setCode("display");
       }
     }
 
@@ -357,7 +357,7 @@ public class ValueSetGenerator {
     vs.setStatus(PublicationStatus.DRAFT);
     if (!vs.hasCompose())
       vs.setCompose(new ValueSetComposeComponent());
-    vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/operation-outcome");
+    vs.getCompose().addInclude().setSystem("http://terminology.hl7.org/CodeSystem/operation-outcome");
 
     CodeSystem cs = new CodeSystem();
     cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
@@ -373,12 +373,12 @@ public class ValueSetGenerator {
           ConceptDefinitionDesignationComponent dc = cv.addDesignation();
           dc.setLanguage(lang);
           dc.setValue(value);
-          dc.getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("display");
+          dc.getUse().setSystem("http://terminology.hl7.org/CodeSystem/designation-usage").setCode("display");
         }
       }
     }
     CodeSystemConvertor.populate(cs, vs);
-    cs.setUrl("http://hl7.org/fhir/operation-outcome");
+    cs.setUrl("http://terminology.hl7.org/CodeSystem/operation-outcome");
     cs.setVersion(version);
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);

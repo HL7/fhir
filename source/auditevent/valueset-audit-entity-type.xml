@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir">
+﻿<ValueSet xmlns="http://hl7.org/fhir">
   <name value="AuditEventEntityType"/> 
   <status value="draft"/> 
   <experimental value="false"/> 
@@ -19,7 +19,7 @@
 
   <compose> 
     <include> 
-      <system value="http://hl7.org/fhir/audit-entity-type"/> 
+      <system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/> 
     </include> 
     <include> 
       <system value="http://hl7.org/fhir/resource-types"/> 

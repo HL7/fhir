@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <TestScript xmlns="http://hl7.org/fhir">
   <id value="testscript-example-search"/>
@@ -79,7 +79,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="search"/>
         </type>
         <resource value="Patient"/>
@@ -127,7 +127,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="create"/>
         </type>
         <resource value="Patient"/>
@@ -158,7 +158,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="read"/>
         </type>
         <description value="Read the created Patient using the captured Location URL value."/>
@@ -188,7 +188,7 @@
     <action>
       <operation>
         <type>
-          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
           <code value="search"/>
         </type>
         <resource value="Patient"/>

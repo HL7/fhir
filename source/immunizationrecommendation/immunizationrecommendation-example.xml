@@ -30,7 +30,7 @@
 		<dateCriterion>
 			<code>
 				<coding>
-					<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+					<system value="http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"/>
 					<code value="earliest"/>
 					<display value="Earliest Date"/>
 				</coding>
@@ -40,7 +40,7 @@
 		<dateCriterion>
 			<code>
 				<coding>
-					<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+					<system value="http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"/>
 					<code value="recommended"/>
 					<display value="Recommended"/>
 				</coding>
@@ -50,7 +50,7 @@
 		<dateCriterion>
 			<code>
 				<coding>
-					<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+					<system value="http://example.org/fhir/CodeSystem/immunization-recommendation-date-criterion"/>
 					<code value="overdue"/>
 					<display value="Past Due Date"/>
 				</coding>

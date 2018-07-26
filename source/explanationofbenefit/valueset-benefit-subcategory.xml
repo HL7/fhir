@@ -17,7 +17,7 @@
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/benefit-subcategory"/>
+      <system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
     </include>
   </compose>
 </ValueSet>

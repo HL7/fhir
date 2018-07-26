@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="example"/>
@@ -13,7 +13,7 @@
       example, in a repository, registry, processes and workflows, for making access control
       decisions, and providing query responses.</div>
   </text>
-  <url value="http://hl7.org/fhir/contract-content-derivative"/>
+  <url value="http://terminology.hl7.org/CodeSystem/contract-content-derivative"/>
   <version value="3.4.0"/>
   <name value="ContractContentDerivative"/>
   <status value="draft"/>

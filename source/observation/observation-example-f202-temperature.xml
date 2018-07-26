@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/observation.xsd">
 	<id value="f202"/><!-- Oral temperature was measured on April fourth --><status value="entered-in-error"/><!-- category code is A code that classifies the general type of observation being made. This is used for searching, sorting and display purposes.--><category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="vital-signs"/>
 			<display value="Vital Signs"/>
 		</coding>

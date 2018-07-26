@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -35,7 +35,7 @@
     </authorizingPrescription>
     <type>
         <coding>
-            <system value="http:hl7.org/fhir"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
             <code value="FF"/>
             <display value="First Fill"/>
         </coding>
@@ -92,7 +92,7 @@
         <doseAndRate>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
                     <code value="calculated"/>
                     <display value="Calculated"/>
                 </coding>
@@ -143,7 +143,7 @@
         <doseAndRate>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
                     <code value="calculated"/>
                     <display value="Calculated"/>
                 </coding>
@@ -195,7 +195,7 @@
         <doseAndRate>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
                     <code value="calculated"/>
                     <display value="Calculated"/>
                 </coding>

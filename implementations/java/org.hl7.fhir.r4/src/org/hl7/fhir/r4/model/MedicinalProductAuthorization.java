@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -930,14 +930,7 @@ public class MedicinalProductAuthorization extends DomainResource {
     @Description(shortDefinition="The regulatory procedure for granting or amending a marketing authorization", formalDefinition="The regulatory procedure for granting or amending a marketing authorization." )
     protected MedicinalProductAuthorizationProcedureComponent procedure;
 
-    /**
-     * Marketing status of the medicinal product, in contrast to marketing authorizaton.
-     */
-    @Child(name = "marketingStatus", type = {MarketingStatus.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Marketing status of the medicinal product, in contrast to marketing authorizaton", formalDefinition="Marketing status of the medicinal product, in contrast to marketing authorizaton." )
-    protected List<MarketingStatus> marketingStatus;
-
-    private static final long serialVersionUID = -152195390L;
+    private static final long serialVersionUID = 1861074548L;
 
   /**
    * Constructor
@@ -1562,59 +1555,6 @@ public class MedicinalProductAuthorization extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #marketingStatus} (Marketing status of the medicinal product, in contrast to marketing authorizaton.)
-     */
-    public List<MarketingStatus> getMarketingStatus() { 
-      if (this.marketingStatus == null)
-        this.marketingStatus = new ArrayList<MarketingStatus>();
-      return this.marketingStatus;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public MedicinalProductAuthorization setMarketingStatus(List<MarketingStatus> theMarketingStatus) { 
-      this.marketingStatus = theMarketingStatus;
-      return this;
-    }
-
-    public boolean hasMarketingStatus() { 
-      if (this.marketingStatus == null)
-        return false;
-      for (MarketingStatus item : this.marketingStatus)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public MarketingStatus addMarketingStatus() { //3
-      MarketingStatus t = new MarketingStatus();
-      if (this.marketingStatus == null)
-        this.marketingStatus = new ArrayList<MarketingStatus>();
-      this.marketingStatus.add(t);
-      return t;
-    }
-
-    public MedicinalProductAuthorization addMarketingStatus(MarketingStatus t) { //3
-      if (t == null)
-        return this;
-      if (this.marketingStatus == null)
-        this.marketingStatus = new ArrayList<MarketingStatus>();
-      this.marketingStatus.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #marketingStatus}, creating it if it does not already exist
-     */
-    public MarketingStatus getMarketingStatusFirstRep() { 
-      if (getMarketingStatus().isEmpty()) {
-        addMarketingStatus();
-      }
-      return getMarketingStatus().get(0);
-    }
-
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifier for the marketing authorization, as assigned by a regulator.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1632,7 +1572,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         children.add(new Property("holder", "Reference(Organization)", "Marketing Authorization Holder.", 0, 1, holder));
         children.add(new Property("regulator", "Reference(Organization)", "Medicines Regulatory Agency.", 0, 1, regulator));
         children.add(new Property("procedure", "", "The regulatory procedure for granting or amending a marketing authorization.", 0, 1, procedure));
-        children.add(new Property("marketingStatus", "MarketingStatus", "Marketing status of the medicinal product, in contrast to marketing authorizaton.", 0, java.lang.Integer.MAX_VALUE, marketingStatus));
       }
 
       @Override
@@ -1653,7 +1592,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         case -1211707988: /*holder*/  return new Property("holder", "Reference(Organization)", "Marketing Authorization Holder.", 0, 1, holder);
         case 414760449: /*regulator*/  return new Property("regulator", "Reference(Organization)", "Medicines Regulatory Agency.", 0, 1, regulator);
         case -1095204141: /*procedure*/  return new Property("procedure", "", "The regulatory procedure for granting or amending a marketing authorization.", 0, 1, procedure);
-        case 70767032: /*marketingStatus*/  return new Property("marketingStatus", "MarketingStatus", "Marketing status of the medicinal product, in contrast to marketing authorizaton.", 0, java.lang.Integer.MAX_VALUE, marketingStatus);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -1677,7 +1615,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         case -1211707988: /*holder*/ return this.holder == null ? new Base[0] : new Base[] {this.holder}; // Reference
         case 414760449: /*regulator*/ return this.regulator == null ? new Base[0] : new Base[] {this.regulator}; // Reference
         case -1095204141: /*procedure*/ return this.procedure == null ? new Base[0] : new Base[] {this.procedure}; // MedicinalProductAuthorizationProcedureComponent
-        case 70767032: /*marketingStatus*/ return this.marketingStatus == null ? new Base[0] : this.marketingStatus.toArray(new Base[this.marketingStatus.size()]); // MarketingStatus
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1731,9 +1668,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         case -1095204141: // procedure
           this.procedure = (MedicinalProductAuthorizationProcedureComponent) value; // MedicinalProductAuthorizationProcedureComponent
           return value;
-        case 70767032: // marketingStatus
-          this.getMarketingStatus().add(castToMarketingStatus(value)); // MarketingStatus
-          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1771,8 +1705,6 @@ public class MedicinalProductAuthorization extends DomainResource {
           this.regulator = castToReference(value); // Reference
         } else if (name.equals("procedure")) {
           this.procedure = (MedicinalProductAuthorizationProcedureComponent) value; // MedicinalProductAuthorizationProcedureComponent
-        } else if (name.equals("marketingStatus")) {
-          this.getMarketingStatus().add(castToMarketingStatus(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1796,7 +1728,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         case -1211707988:  return getHolder(); 
         case 414760449:  return getRegulator(); 
         case -1095204141:  return getProcedure(); 
-        case 70767032:  return addMarketingStatus(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1820,7 +1751,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         case -1211707988: /*holder*/ return new String[] {"Reference"};
         case 414760449: /*regulator*/ return new String[] {"Reference"};
         case -1095204141: /*procedure*/ return new String[] {};
-        case 70767032: /*marketingStatus*/ return new String[] {"MarketingStatus"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1880,9 +1810,6 @@ public class MedicinalProductAuthorization extends DomainResource {
           this.procedure = new MedicinalProductAuthorizationProcedureComponent();
           return this.procedure;
         }
-        else if (name.equals("marketingStatus")) {
-          return addMarketingStatus();
-        }
         else
           return super.addChild(name);
       }
@@ -1926,11 +1853,6 @@ public class MedicinalProductAuthorization extends DomainResource {
         dst.holder = holder == null ? null : holder.copy();
         dst.regulator = regulator == null ? null : regulator.copy();
         dst.procedure = procedure == null ? null : procedure.copy();
-        if (marketingStatus != null) {
-          dst.marketingStatus = new ArrayList<MarketingStatus>();
-          for (MarketingStatus i : marketingStatus)
-            dst.marketingStatus.add(i.copy());
-        };
         return dst;
       }
 
@@ -1951,8 +1873,7 @@ public class MedicinalProductAuthorization extends DomainResource {
            && compareDeep(validityPeriod, o.validityPeriod, true) && compareDeep(dataExclusivityPeriod, o.dataExclusivityPeriod, true)
            && compareDeep(dateOfFirstAuthorization, o.dateOfFirstAuthorization, true) && compareDeep(internationalBirthDate, o.internationalBirthDate, true)
            && compareDeep(jurisdictionalAuthorization, o.jurisdictionalAuthorization, true) && compareDeep(holder, o.holder, true)
-           && compareDeep(regulator, o.regulator, true) && compareDeep(procedure, o.procedure, true) && compareDeep(marketingStatus, o.marketingStatus, true)
-          ;
+           && compareDeep(regulator, o.regulator, true) && compareDeep(procedure, o.procedure, true);
       }
 
       @Override
@@ -1971,7 +1892,7 @@ public class MedicinalProductAuthorization extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, country, jurisdiction
           , legalStatusOfSupply, status, statusDate, restoreDate, validityPeriod, dataExclusivityPeriod
           , dateOfFirstAuthorization, internationalBirthDate, jurisdictionalAuthorization, holder
-          , regulator, procedure, marketingStatus);
+          , regulator, procedure);
       }
 
   @Override

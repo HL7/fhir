@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -158,7 +158,14 @@ public class TerminologyCapabilities extends MetadataResource {
         @Description(shortDefinition="Version of Code System supported", formalDefinition="For the code system, a list of versions that are supported by the server." )
         protected List<TerminologyCapabilitiesCodeSystemVersionComponent> version;
 
-        private static final long serialVersionUID = 1023500432L;
+        /**
+         * True if subsumption is supported for this version of the code system.
+         */
+        @Child(name = "subsumption", type = {BooleanType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Whether subsumption is supported", formalDefinition="True if subsumption is supported for this version of the code system." )
+        protected BooleanType subsumption;
+
+        private static final long serialVersionUID = -1593622817L;
 
     /**
      * Constructor
@@ -269,10 +276,56 @@ public class TerminologyCapabilities extends MetadataResource {
           return getVersion().get(0);
         }
 
+        /**
+         * @return {@link #subsumption} (True if subsumption is supported for this version of the code system.). This is the underlying object with id, value and extensions. The accessor "getSubsumption" gives direct access to the value
+         */
+        public BooleanType getSubsumptionElement() { 
+          if (this.subsumption == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TerminologyCapabilitiesCodeSystemComponent.subsumption");
+            else if (Configuration.doAutoCreate())
+              this.subsumption = new BooleanType(); // bb
+          return this.subsumption;
+        }
+
+        public boolean hasSubsumptionElement() { 
+          return this.subsumption != null && !this.subsumption.isEmpty();
+        }
+
+        public boolean hasSubsumption() { 
+          return this.subsumption != null && !this.subsumption.isEmpty();
+        }
+
+        /**
+         * @param value {@link #subsumption} (True if subsumption is supported for this version of the code system.). This is the underlying object with id, value and extensions. The accessor "getSubsumption" gives direct access to the value
+         */
+        public TerminologyCapabilitiesCodeSystemComponent setSubsumptionElement(BooleanType value) { 
+          this.subsumption = value;
+          return this;
+        }
+
+        /**
+         * @return True if subsumption is supported for this version of the code system.
+         */
+        public boolean getSubsumption() { 
+          return this.subsumption == null || this.subsumption.isEmpty() ? false : this.subsumption.getValue();
+        }
+
+        /**
+         * @param value True if subsumption is supported for this version of the code system.
+         */
+        public TerminologyCapabilitiesCodeSystemComponent setSubsumption(boolean value) { 
+            if (this.subsumption == null)
+              this.subsumption = new BooleanType();
+            this.subsumption.setValue(value);
+          return this;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("uri", "canonical(CodeSystem)", "URI for the Code System.", 0, 1, uri));
           children.add(new Property("version", "", "For the code system, a list of versions that are supported by the server.", 0, java.lang.Integer.MAX_VALUE, version));
+          children.add(new Property("subsumption", "boolean", "True if subsumption is supported for this version of the code system.", 0, 1, subsumption));
         }
 
         @Override
@@ -280,6 +333,7 @@ public class TerminologyCapabilities extends MetadataResource {
           switch (_hash) {
           case 116076: /*uri*/  return new Property("uri", "canonical(CodeSystem)", "URI for the Code System.", 0, 1, uri);
           case 351608024: /*version*/  return new Property("version", "", "For the code system, a list of versions that are supported by the server.", 0, java.lang.Integer.MAX_VALUE, version);
+          case -499084711: /*subsumption*/  return new Property("subsumption", "boolean", "True if subsumption is supported for this version of the code system.", 0, 1, subsumption);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -290,6 +344,7 @@ public class TerminologyCapabilities extends MetadataResource {
         switch (hash) {
         case 116076: /*uri*/ return this.uri == null ? new Base[0] : new Base[] {this.uri}; // CanonicalType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : this.version.toArray(new Base[this.version.size()]); // TerminologyCapabilitiesCodeSystemVersionComponent
+        case -499084711: /*subsumption*/ return this.subsumption == null ? new Base[0] : new Base[] {this.subsumption}; // BooleanType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -304,6 +359,9 @@ public class TerminologyCapabilities extends MetadataResource {
         case 351608024: // version
           this.getVersion().add((TerminologyCapabilitiesCodeSystemVersionComponent) value); // TerminologyCapabilitiesCodeSystemVersionComponent
           return value;
+        case -499084711: // subsumption
+          this.subsumption = castToBoolean(value); // BooleanType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -315,6 +373,8 @@ public class TerminologyCapabilities extends MetadataResource {
           this.uri = castToCanonical(value); // CanonicalType
         } else if (name.equals("version")) {
           this.getVersion().add((TerminologyCapabilitiesCodeSystemVersionComponent) value);
+        } else if (name.equals("subsumption")) {
+          this.subsumption = castToBoolean(value); // BooleanType
         } else
           return super.setProperty(name, value);
         return value;
@@ -325,6 +385,7 @@ public class TerminologyCapabilities extends MetadataResource {
         switch (hash) {
         case 116076:  return getUriElement();
         case 351608024:  return addVersion(); 
+        case -499084711:  return getSubsumptionElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -335,6 +396,7 @@ public class TerminologyCapabilities extends MetadataResource {
         switch (hash) {
         case 116076: /*uri*/ return new String[] {"canonical"};
         case 351608024: /*version*/ return new String[] {};
+        case -499084711: /*subsumption*/ return new String[] {"boolean"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -347,6 +409,9 @@ public class TerminologyCapabilities extends MetadataResource {
         }
         else if (name.equals("version")) {
           return addVersion();
+        }
+        else if (name.equals("subsumption")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TerminologyCapabilities.subsumption");
         }
         else
           return super.addChild(name);
@@ -361,6 +426,7 @@ public class TerminologyCapabilities extends MetadataResource {
           for (TerminologyCapabilitiesCodeSystemVersionComponent i : version)
             dst.version.add(i.copy());
         };
+        dst.subsumption = subsumption == null ? null : subsumption.copy();
         return dst;
       }
 
@@ -371,7 +437,8 @@ public class TerminologyCapabilities extends MetadataResource {
         if (!(other_ instanceof TerminologyCapabilitiesCodeSystemComponent))
           return false;
         TerminologyCapabilitiesCodeSystemComponent o = (TerminologyCapabilitiesCodeSystemComponent) other_;
-        return compareDeep(uri, o.uri, true) && compareDeep(version, o.version, true);
+        return compareDeep(uri, o.uri, true) && compareDeep(version, o.version, true) && compareDeep(subsumption, o.subsumption, true)
+          ;
       }
 
       @Override
@@ -381,11 +448,12 @@ public class TerminologyCapabilities extends MetadataResource {
         if (!(other_ instanceof TerminologyCapabilitiesCodeSystemComponent))
           return false;
         TerminologyCapabilitiesCodeSystemComponent o = (TerminologyCapabilitiesCodeSystemComponent) other_;
-        return true;
+        return compareValues(subsumption, o.subsumption, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(uri, version);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(uri, version, subsumption
+          );
       }
 
   public String fhirType() {
@@ -3909,6 +3977,26 @@ public class TerminologyCapabilities extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
+   * Search parameter: <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the terminology capabilities</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-value", path="TerminologyCapabilities.useContext", description="A use context type and value assigned to the terminology capabilities", type="composite", compositeOf={"context-type", "context"} )
+  public static final String SP_CONTEXT_TYPE_VALUE = "context-type-value";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the terminology capabilities</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CONTEXT_TYPE_VALUE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CONTEXT_TYPE_VALUE);
+
+ /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
    * Description: <b>Intended jurisdiction for the terminology capabilities</b><br>
@@ -3927,26 +4015,6 @@ public class TerminologyCapabilities extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the terminology capabilities</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TerminologyCapabilities.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="TerminologyCapabilities.name", description="Computationally friendly name of the terminology capabilities", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the terminology capabilities</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TerminologyCapabilities.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>description</b>
@@ -3969,24 +4037,24 @@ public class TerminologyCapabilities extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the terminology capabilities</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TerminologyCapabilities.publisher</b><br>
+   * Description: <b>A type of use context assigned to the terminology capabilities</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TerminologyCapabilities.useContext.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="TerminologyCapabilities.publisher", description="Name of the publisher of the terminology capabilities", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="context-type", path="TerminologyCapabilities.useContext.code", description="A type of use context assigned to the terminology capabilities", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the terminology capabilities</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TerminologyCapabilities.publisher</b><br>
+   * Description: <b>A type of use context assigned to the terminology capabilities</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TerminologyCapabilities.useContext.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>title</b>
@@ -4047,6 +4115,106 @@ public class TerminologyCapabilities extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the terminology capabilities</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>TerminologyCapabilities.useContext.valueQuantity, TerminologyCapabilities.useContext.valueRange</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-quantity", path="TerminologyCapabilities.useContext.value.as(Quantity) | TerminologyCapabilities.useContext.value.as(Range)", description="A quantity- or range-valued use context assigned to the terminology capabilities", type="quantity" )
+  public static final String SP_CONTEXT_QUANTITY = "context-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the terminology capabilities</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>TerminologyCapabilities.useContext.valueQuantity, TerminologyCapabilities.useContext.valueRange</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam CONTEXT_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_CONTEXT_QUANTITY);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the terminology capabilities</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TerminologyCapabilities.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="TerminologyCapabilities.name", description="Computationally friendly name of the terminology capabilities", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the terminology capabilities</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TerminologyCapabilities.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the terminology capabilities</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TerminologyCapabilities.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="TerminologyCapabilities.useContext.value.as(CodeableConcept)", description="A use context assigned to the terminology capabilities", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the terminology capabilities</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TerminologyCapabilities.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the terminology capabilities</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TerminologyCapabilities.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="TerminologyCapabilities.publisher", description="Name of the publisher of the terminology capabilities", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the terminology capabilities</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>TerminologyCapabilities.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the terminology capabilities</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-quantity", path="TerminologyCapabilities.useContext", description="A use context type and quantity- or range-based value assigned to the terminology capabilities", type="composite", compositeOf={"context-type", "context-quantity"} )
+  public static final String SP_CONTEXT_TYPE_QUANTITY = "context-type-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the terminology capabilities</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CONTEXT_TYPE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CONTEXT_TYPE_QUANTITY);
 
  /**
    * Search parameter: <b>status</b>

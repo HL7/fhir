@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
 
@@ -39,7 +39,7 @@ See below for details.
 <a name="endpoint"></a>
 <h4>WADO-RS</h4>
 <p>
-An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rsi</code>, system <code>http://hl7.org/fhir/endpoint-connection-type</code>, 
+An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rsi</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-RS service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
 That is, only the scheme, authority and path are included. Sub-services, such as study, shall not be specified. 
 The path shall not contain a trailing slash.
@@ -90,7 +90,7 @@ For further details on DICOM WADO-RS capabilities including additional rendering
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <h4>WADO-URI</h4>
-<p>An Endpoint.connectionType of code <code>dicom-wado-uri</code>, system <code>http://hl7.org/fhir/endpoint-connection-type</code>, 
+<p>An Endpoint.connectionType of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
 identifies a DICOM WADO-URI service. The Endpoint.address identifies the HTTP(S) service base url. 
 That is, only the scheme, authority and path are included. Neither a question mark (?) nor any query parameters shall be included.
 </p>
@@ -136,7 +136,7 @@ For further details on DICOM WADO-URI capabilities including additional renderin
 see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
 </p>
 <h4>IID</h4>
-<p>An Endpoint.connectionType of code <code>ihe-iid</code>, system <code>http://hl7.org/fhir/endpoint-connection-type</code>, identifies an IHE 
+<p>An Endpoint.connectionType of code <code>ihe-iid</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies an IHE 
 <b>Invoke Image Display (IID)</b> service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
 That is, only the scheme, authority and path are included. Neither the question mark (“?”) nor any query parameters shall be included.
 </p>

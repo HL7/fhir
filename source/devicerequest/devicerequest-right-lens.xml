@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
   <id value="right-lens"/>
   <identifier>
@@ -14,7 +14,7 @@
   <intent value="original-order"/>
   <codeCodeableConcept>
     <coding>
-      <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
+      <system value="http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"/>
       <code value="lens"/>
     </coding>
   </codeCodeableConcept>

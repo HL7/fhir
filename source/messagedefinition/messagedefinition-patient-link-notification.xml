@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <MessageDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-link-notification"/>
   <text>
@@ -26,12 +26,12 @@
   <description value="Notification of two patient records that represent the same individual that require an established linkage."/>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/variant-state"/>
+        <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
         <code value="positive"/>
       </coding>
     </valueCodeableConcept>

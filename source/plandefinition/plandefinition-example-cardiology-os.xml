@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
 <PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="example-cardiology-os" />
@@ -8,7 +8,7 @@
       <status value="active"/>
       <type>
          <coding>
-            <system value="http://hl7.org/fhir/library-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
             <code value="logic-library"/>
             <display value="Logic Library"/>
          </coding>
@@ -70,7 +70,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
               <code value="ordered" />
               <display value="Ordered" />
             </coding>
@@ -164,7 +164,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
               <code value="ordered" />
               <display value="Ordered" />
             </coding>
@@ -258,7 +258,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
               <code value="ordered" />
               <display value="Ordered" />
             </coding>
@@ -349,7 +349,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
               <code value="ordered" />
               <display value="Ordered" />
             </coding>
@@ -508,7 +508,7 @@
   <title value="Chest Pain (CP) - Coronary Artery Disease (CAD) Order Set KNART" />
   <type>
     <coding>
-      <system value="http://hl7.org/fhir/plan-definition-type" />
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type" />
       <code value="order-set" />
       <display value="Order Set" />
     </coding>
@@ -519,7 +519,7 @@
   <description value="The Cardiology chest pain (CP) and coronary artery disease (CAD) group of KNARTs are     intended to assist primary care providers in the management of adult patients with stable     chest pain (with or without known CAD); aid in determining when a cardiology consultation is     appropriate; provide guidance for initial noninvasive diagnostic orders (stress testing) and     provide a structured documentation template for the process. Stable patients with cardiac     chest pain require risk stratification, office-based workup, initiation of disease-specific     medications, and subspecialty referral to a cardiologist." />
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type" />
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type" />
       <code value="focus" />
     </code>
     <valueCodeableConcept>

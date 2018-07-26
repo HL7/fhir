@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/bundle.xsd">
   <id value="b0a5e4277-83c4-4adb-87e2-e3efe3369b6f"/>
@@ -19,7 +19,7 @@
         </text>
         <status value="[%status%]"/>
         <connectionType>
-           <system value="http://hl7.org/fhir/endpoint-connection-type" />
+           <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
            <code value="[%connectionType%]" />
         </connectionType>
         <name value="[%name%]"/>

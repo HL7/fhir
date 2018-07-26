@@ -52,7 +52,7 @@
 	<!-- The repeating 'class' element is proposed to replace the 'grouping' element -->
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="group"/>
 		</type>
 		<value value="CB135"/>
@@ -61,7 +61,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="subgroup"/>
 		</type>
 		<value value="123"/>
@@ -70,7 +70,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="plan"/>
 		</type>
 		<value value="B37FC"/>
@@ -79,7 +79,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="subplan"/>
 		</type>
 		<value value="P7"/>
@@ -88,7 +88,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="class"/>
 		</type>
 		<value value="SILVER"/>
@@ -97,7 +97,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="subclass"/>
 		</type>
 		<value value="Tier2"/>
@@ -106,7 +106,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="sequence"/>
 		</type>
 		<value value="9"/>
@@ -115,7 +115,7 @@
 	<!-- the following RX class values may be used when pharmacy claims under this coverage are sent to a pharmacy claim only processor -->
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="rxid"/>
 		</type>
 		<value value="MDF12345"/> <!-- member id used when submitting pharmacy claims -->
@@ -123,7 +123,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="rxbin"/>
 		</type>
 		<value value="987654"/> <!-- the pharmacy processor BIN number used when submitting pharmacy claims -->
@@ -131,7 +131,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="rxgroup"/>
 		</type>
 		<value value="M35PT"/> <!-- group used when submitting pharmacy claims -->
@@ -139,7 +139,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="rxpcn"/>
 		</type>
 		<value value="234516"/> <!-- the PCN number used when submitting pharmacy claims -->
@@ -147,7 +147,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-level"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="sequence"/>
 		</type>
 		<value value="9"/> <!-- the sequence number for a short-term continuance of the coverage -->

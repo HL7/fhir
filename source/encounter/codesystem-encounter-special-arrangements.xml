@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/encounter-special-arrangements"/>
+  <url value="http://terminology.hl7.org/CodeSystem/encounter-special-arrangements"/>
   <name value="SpecialArrangements"/>
   <status value="draft"/>
   <experimental value="false"/>

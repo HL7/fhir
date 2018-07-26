@@ -30,7 +30,7 @@
   <status value="in-progress"/>
   <scope>
     <coding>
-      <system value="http://hl7.org/fhir/consentscope"/>
+      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
       <code value="patient-privacy"/>
     </coding>
     </scope>
@@ -79,7 +79,7 @@
       <!-- no actors here, or anything, just read/write and the resource type -->
       <action>
         <coding>
-          <system value="http://hl7.org/fhir/consentaction"/>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
           <code value="access"/>
         </coding>
       </action>

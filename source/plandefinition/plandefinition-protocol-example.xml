@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
   <id value="protocol-example"/>
   <text>
@@ -49,7 +49,7 @@
         <type value="practitioner"/>
         <role>
           <coding>
-            <system value="http://hl7.org/fhir/practitioner-role"/>
+            <system value="http://terminology.hl7.org/CodeSystem/practitioner-role"/>
             <code value="doctor"/>
             <display value="Doctor"/>
           </coding>

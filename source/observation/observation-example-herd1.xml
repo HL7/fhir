@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
  An example of a herd screening observation for Mycoplasmal Pneumonia in Pigs
 (Enzootic pneumonia).  Many thanks to Veterinary Diagnostic Laboratory Iowa State University for the data.
@@ -10,7 +10,7 @@ This uses the Group resource as the subject-->
 	<!-- category code is A code that classifies the general type of observation being made. This is used for searching, sorting and display purposes.-->
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="laboratory"/>
 			<display value="Laboratory"/>
 		</coding>

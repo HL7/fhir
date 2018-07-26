@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -16,7 +16,7 @@
   <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/list-empty-reason"/>
+      <system value="http://terminology.hl7.org/CodeSystem/list-empty-reason"/>
     </include>
   </compose>
 </ValueSet>

@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-search"/>
 	<type>
-		<system value="http://hl7.org/fhir/audit-event-type"/>
+		<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
 		<code value="rest"/>
 		<display value="Restful Operation"/>
 	</type>
 	<subtype>
-		<system value="http://hl7.org/fhir/restful-interaction"/>
+		<system value="http://terminology.hl7.org/CodeSystem/restful-interaction"/>
 		<code value="search"/>
 		<display value="search"/>
 	</subtype>
@@ -17,7 +17,7 @@
 	<agent>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/extra-security-role-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
 				<code value="humanuser"/>
 				<display value="human user"/>
 			</coding>
@@ -60,7 +60,7 @@
 			<display value="hl7connect.healthintersections.com.au"/>
 		</observer>
 		<type>
-			<system value="http://hl7.org/fhir/security-source-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
 			<code value="3"/>
 			<display value="Web Server"/>
 		</type>
@@ -70,12 +70,12 @@
 		<!-- orignal example encoded here is -->
 		<!-- "http://fhir-dev.healthintersections.com.au/open/Encounter?participant=13" -->
 		<type>
-			<system value="http://hl7.org/fhir/object-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
 			<code value="2"/>
 			<display value="System Object"/>
 		</type>
 		<role>
-			<system value="http://hl7.org/fhir/object-role"/>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="24"/>
 			<display value="Query"/>
 		</role>

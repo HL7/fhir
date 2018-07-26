@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationAdministration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationadministration.xsd"
  xmlns="http://hl7.org/fhir"> 
@@ -63,7 +63,7 @@
   <performer>
     <function>
       <coding>
-        <system value="http://hl7.org/fhir/med-admin-perform-function"/>
+        <system value="http://terminology.hl7.org/CodeSystem/med-admin-perform-function"/>
         <code value="performer"/>
         <display value="Performer"/>
       </coding>

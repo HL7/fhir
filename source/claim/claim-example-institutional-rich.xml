@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
 	<id value="960151"/>
 
@@ -16,7 +16,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="institutional"/>
 		</coding>
 	</type>
@@ -81,13 +81,13 @@
 		<responsible value="true"/>
 		<role>
 			<coding>
-				<system value="http://hl7.org/fhir/claim-careteamrole"/>
+				<system value="http://example.org/fhir/CodeSystem/claim-careteamrole"/>
 				<code value="primary"/>
 			</coding>
 		</role>
 		<qualification>
 			<coding>
-				<system value="http://hl7.org/fhir/provider-qualification"/>
+				<system value="http://example.org/fhir/CodeSystem/provider-qualification"/>
 				<code value="physician"/>
 			</coding>
 		</qualification>
@@ -97,7 +97,7 @@
 		<sequence value="1"/>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<system value="http://terminology.hl7.org/CodeSystem/claiminformationcategory"/>
 				<code value="employmentimpacted"/>
 			</coding>
 		</category>
@@ -111,7 +111,7 @@
 		<sequence value="2"/>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<system value="http://terminology.hl7.org/CodeSystem/claiminformationcategory"/>
 				<code value="hospitalized"/>
 			</coding>
 		</category>
@@ -130,13 +130,13 @@
 		</diagnosisCodeableConcept>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-diagnosistype"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-diagnosistype"/>
 				<code value="admitting"/>
 			</coding>
 		</type>
 		<packageCode>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-diagnosisrelatedgroup"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup"/>
 				<code value="400"/>
 				<display value="Head trauma - concussion"/>
 			</coding>

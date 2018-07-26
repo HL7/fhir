@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = fiberrestricteddiet  file name = nutritionorder-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted and Low Fat Diet l Example
 edited by Eric Haas Health eData Inc
 --><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="fiberrestricteddiet"/>
@@ -26,7 +26,7 @@ edited by Eric Haas Health eData Inc
 	</allergyIntolerance>
 	<foodPreferenceModifier>
 		<coding>
-			<system value="http://hl7.org/fhir/diet"/>
+			<system value="http://terminology.hl7.org/CodeSystem/diet"/>
 			<code value="dairy-free"/>
 		</coding>
 	</foodPreferenceModifier>

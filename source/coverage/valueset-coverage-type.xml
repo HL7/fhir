@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Coverage Type and Self-Pay Codes"/>
@@ -14,7 +14,7 @@
   <copyright value="HL7 International."/>
   <compose>
     <include>
-	    <system value="http://hl7.org/fhir/coverage-selfpay"/>
+	    <system value="http://terminology.hl7.org/CodeSystem/coverage-selfpay"/>
 	  </include>
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCoverageTypeCode"/>

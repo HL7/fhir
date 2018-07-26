@@ -1359,6 +1359,8 @@ public class IgSpreadsheetParser {
       return SearchParamType.COMPOSITE;
     if ("quantity".equals(s))
       return SearchParamType.QUANTITY;
+    if ("special".equals(s))
+      return SearchParamType.QUANTITY;
     throw new Exception("Unknown Search Type '" + s + "': " + getLocation(row));
   }
 

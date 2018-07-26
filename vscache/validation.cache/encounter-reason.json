@@ -4,7 +4,7 @@
     {
       "hash": "#|http://ihe.net/xds/connectathon/eventCodes|null|T-D8200|Arm",
       "severity": "error",
-      "message": "The code provided (http://ihe.net/xds/connectathon/eventCodes#T-D8200) is not  valid in the value set Encounter Reason Codes"
+      "message": "Unable to provide support for code system http://ihe.net/xds/connectathon/eventCodes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|18099001|Retropharyngeal abscess",

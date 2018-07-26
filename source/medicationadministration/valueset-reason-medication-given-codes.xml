@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -16,7 +16,7 @@
   <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/reason-medication-given"/>
+      <system value="http://terminology.hl7.org/CodeSystem/reason-medication-given"/>
     </include>
   </compose>
 </ValueSet>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -16,7 +16,7 @@
   <description value="This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/contactentity-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/contactentity-type"/>
     </include>
   </compose>
 </ValueSet>

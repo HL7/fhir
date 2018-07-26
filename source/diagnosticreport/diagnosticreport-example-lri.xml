@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir">
 	<id value="lri-example"/>
 	<meta>
@@ -14,7 +14,7 @@
 				<identifier>
 					<type>
 						<coding>
-							<system value="http://hl7.org/fhir/identifier-type"/>
+							<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
 							<code value="PLAC"/>
 							<display value="Placer Identifier"/>
 						</coding>
@@ -25,7 +25,7 @@
 				<identifier>
 					<type>
 						<coding>
-							<system value="http://hl7.org/fhir/identifier-type"/>
+							<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
 							<code value="FILL"/>
 							<display value="Filler Identifier"/>
 						</coding>
@@ -122,7 +122,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -212,7 +212,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -302,7 +302,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -392,7 +392,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -482,7 +482,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -544,7 +544,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -606,7 +606,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -668,7 +668,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -736,7 +736,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -804,7 +804,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -872,7 +872,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -940,7 +940,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -1008,7 +1008,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -1064,7 +1064,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -1130,7 +1130,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>
@@ -1208,7 +1208,7 @@
 				<status value="final"/>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/observation-category"/>
+						<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 						<code value="laboratory"/>
 						<display value="Laboratory"/>
 					</coding>

@@ -4,7 +4,7 @@
     {
       "hash": "#|urn:iso:std:iso:11073:10101|null|2000|MDC_DEV_ANALY_SAT_O2_MDS",
       "severity": "error",
-      "message": "The code provided (urn:iso:std:iso:11073:10101#2000) is not  valid in the value set FHIR Device Types"
+      "message": "Unable to provide support for code system urn:iso:std:iso:11073:10101"
     }
   ]
 }

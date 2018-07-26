@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://hl7.org/fhir ../../schema/claim.xsd">
 	<id value="100156"/>
@@ -36,7 +36,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
 		</coding>
 	</type>
@@ -69,7 +69,7 @@
 		</claim>
 		<relationship>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-relatedclaimrelationship"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship"/>
 				<code value="associated"/>
 			</coding>
 		</relationship>
@@ -81,7 +81,7 @@
 	<payee>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/payeetype"/>
+				<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
 				<code value="other"/>
 			</coding>
 		</type>
@@ -108,7 +108,7 @@
 		<sequence value="1"/>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<system value="http://terminology.hl7.org/CodeSystem/claiminformationcategory"/>
 				<code value="prosthesis"/>
 			</coding>
 		</category>
@@ -152,7 +152,7 @@
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-serviceplace"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-serviceplace"/>
 				<code value="11"/>
 			</coding>
 		</locationCodeableConcept>
@@ -188,7 +188,7 @@
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-serviceplace"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-serviceplace"/>
 				<code value="11"/>
 			</coding>
 		</locationCodeableConcept>
@@ -227,7 +227,7 @@
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-serviceplace"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-serviceplace"/>
 				<code value="11"/>
 			</coding>
 		</locationCodeableConcept>

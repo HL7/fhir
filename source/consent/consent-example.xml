@@ -16,7 +16,7 @@
 	<status value="in-progress"/>
 	<scope>
 		<coding>
-			<system value="http://hl7.org/fhir/consentscope"/>
+			<system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
 			<code value="patient-privacy"/>
 		</coding>
 	</scope>

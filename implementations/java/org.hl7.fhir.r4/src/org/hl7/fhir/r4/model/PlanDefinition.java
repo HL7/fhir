@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -376,6 +376,10 @@ public class PlanDefinition extends MetadataResource {
          */
         RELATEDPERSON, 
         /**
+         * The participant is a system or device used in the care of the patient
+         */
+        DEVICE, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -388,6 +392,8 @@ public class PlanDefinition extends MetadataResource {
           return PRACTITIONER;
         if ("related-person".equals(codeString))
           return RELATEDPERSON;
+        if ("device".equals(codeString))
+          return DEVICE;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -398,6 +404,7 @@ public class PlanDefinition extends MetadataResource {
             case PATIENT: return "patient";
             case PRACTITIONER: return "practitioner";
             case RELATEDPERSON: return "related-person";
+            case DEVICE: return "device";
             default: return "?";
           }
         }
@@ -406,6 +413,7 @@ public class PlanDefinition extends MetadataResource {
             case PATIENT: return "http://hl7.org/fhir/action-participant-type";
             case PRACTITIONER: return "http://hl7.org/fhir/action-participant-type";
             case RELATEDPERSON: return "http://hl7.org/fhir/action-participant-type";
+            case DEVICE: return "http://hl7.org/fhir/action-participant-type";
             default: return "?";
           }
         }
@@ -414,6 +422,7 @@ public class PlanDefinition extends MetadataResource {
             case PATIENT: return "The participant is the patient under evaluation";
             case PRACTITIONER: return "The participant is a practitioner involved in the patient's care";
             case RELATEDPERSON: return "The participant is a person related to the patient";
+            case DEVICE: return "The participant is a system or device used in the care of the patient";
             default: return "?";
           }
         }
@@ -422,6 +431,7 @@ public class PlanDefinition extends MetadataResource {
             case PATIENT: return "Patient";
             case PRACTITIONER: return "Practitioner";
             case RELATEDPERSON: return "Related Person";
+            case DEVICE: return "Device";
             default: return "?";
           }
         }
@@ -438,6 +448,8 @@ public class PlanDefinition extends MetadataResource {
           return ActionParticipantType.PRACTITIONER;
         if ("related-person".equals(codeString))
           return ActionParticipantType.RELATEDPERSON;
+        if ("device".equals(codeString))
+          return ActionParticipantType.DEVICE;
         throw new IllegalArgumentException("Unknown ActionParticipantType code '"+codeString+"'");
         }
         public Enumeration<ActionParticipantType> fromType(Base code) throws FHIRException {
@@ -454,6 +466,8 @@ public class PlanDefinition extends MetadataResource {
           return new Enumeration<ActionParticipantType>(this, ActionParticipantType.PRACTITIONER);
         if ("related-person".equals(codeString))
           return new Enumeration<ActionParticipantType>(this, ActionParticipantType.RELATEDPERSON);
+        if ("device".equals(codeString))
+          return new Enumeration<ActionParticipantType>(this, ActionParticipantType.DEVICE);
         throw new FHIRException("Unknown ActionParticipantType code '"+codeString+"'");
         }
     public String toCode(ActionParticipantType code) {
@@ -463,6 +477,8 @@ public class PlanDefinition extends MetadataResource {
         return "practitioner";
       if (code == ActionParticipantType.RELATEDPERSON)
         return "related-person";
+      if (code == ActionParticipantType.DEVICE)
+        return "device";
       return "?";
       }
     public String toSystem(ActionParticipantType code) {
@@ -3935,27 +3951,13 @@ public class PlanDefinition extends MetadataResource {
         protected Enumeration<ActionConditionKind> kind;
 
         /**
-         * A brief, natural language description of the condition that effectively communicates the intended semantics.
-         */
-        @Child(name = "description", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Natural language description of the condition", formalDefinition="A brief, natural language description of the condition that effectively communicates the intended semantics." )
-        protected StringType description;
-
-        /**
-         * The media type of the language for the expression.
-         */
-        @Child(name = "language", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Language of the expression", formalDefinition="The media type of the language for the expression." )
-        protected StringType language;
-
-        /**
          * An expression that returns true or false, indicating whether the condition is satisfied.
          */
-        @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "expression", type = {Expression.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Boolean-valued expression", formalDefinition="An expression that returns true or false, indicating whether the condition is satisfied." )
-        protected StringType expression;
+        protected Expression expression;
 
-        private static final long serialVersionUID = 944300105L;
+        private static final long serialVersionUID = -455150438L;
 
     /**
      * Constructor
@@ -4018,117 +4020,15 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #description} (A brief, natural language description of the condition that effectively communicates the intended semantics.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @return {@link #expression} (An expression that returns true or false, indicating whether the condition is satisfied.)
          */
-        public StringType getDescriptionElement() { 
-          if (this.description == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionConditionComponent.description");
-            else if (Configuration.doAutoCreate())
-              this.description = new StringType(); // bb
-          return this.description;
-        }
-
-        public boolean hasDescriptionElement() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        public boolean hasDescription() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        /**
-         * @param value {@link #description} (A brief, natural language description of the condition that effectively communicates the intended semantics.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public PlanDefinitionActionConditionComponent setDescriptionElement(StringType value) { 
-          this.description = value;
-          return this;
-        }
-
-        /**
-         * @return A brief, natural language description of the condition that effectively communicates the intended semantics.
-         */
-        public String getDescription() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        /**
-         * @param value A brief, natural language description of the condition that effectively communicates the intended semantics.
-         */
-        public PlanDefinitionActionConditionComponent setDescription(String value) { 
-          if (Utilities.noString(value))
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new StringType();
-            this.description.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
-         */
-        public StringType getLanguageElement() { 
-          if (this.language == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionConditionComponent.language");
-            else if (Configuration.doAutoCreate())
-              this.language = new StringType(); // bb
-          return this.language;
-        }
-
-        public boolean hasLanguageElement() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        public boolean hasLanguage() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        /**
-         * @param value {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
-         */
-        public PlanDefinitionActionConditionComponent setLanguageElement(StringType value) { 
-          this.language = value;
-          return this;
-        }
-
-        /**
-         * @return The media type of the language for the expression.
-         */
-        public String getLanguage() { 
-          return this.language == null ? null : this.language.getValue();
-        }
-
-        /**
-         * @param value The media type of the language for the expression.
-         */
-        public PlanDefinitionActionConditionComponent setLanguage(String value) { 
-          if (Utilities.noString(value))
-            this.language = null;
-          else {
-            if (this.language == null)
-              this.language = new StringType();
-            this.language.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #expression} (An expression that returns true or false, indicating whether the condition is satisfied.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
-         */
-        public StringType getExpressionElement() { 
+        public Expression getExpression() { 
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionConditionComponent.expression");
             else if (Configuration.doAutoCreate())
-              this.expression = new StringType(); // bb
+              this.expression = new Expression(); // cc
           return this.expression;
-        }
-
-        public boolean hasExpressionElement() { 
-          return this.expression != null && !this.expression.isEmpty();
         }
 
         public boolean hasExpression() { 
@@ -4136,49 +4036,24 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @param value {@link #expression} (An expression that returns true or false, indicating whether the condition is satisfied.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (An expression that returns true or false, indicating whether the condition is satisfied.)
          */
-        public PlanDefinitionActionConditionComponent setExpressionElement(StringType value) { 
+        public PlanDefinitionActionConditionComponent setExpression(Expression value) { 
           this.expression = value;
-          return this;
-        }
-
-        /**
-         * @return An expression that returns true or false, indicating whether the condition is satisfied.
-         */
-        public String getExpression() { 
-          return this.expression == null ? null : this.expression.getValue();
-        }
-
-        /**
-         * @param value An expression that returns true or false, indicating whether the condition is satisfied.
-         */
-        public PlanDefinitionActionConditionComponent setExpression(String value) { 
-          if (Utilities.noString(value))
-            this.expression = null;
-          else {
-            if (this.expression == null)
-              this.expression = new StringType();
-            this.expression.setValue(value);
-          }
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("kind", "code", "The kind of condition.", 0, 1, kind));
-          children.add(new Property("description", "string", "A brief, natural language description of the condition that effectively communicates the intended semantics.", 0, 1, description));
-          children.add(new Property("language", "string", "The media type of the language for the expression.", 0, 1, language));
-          children.add(new Property("expression", "string", "An expression that returns true or false, indicating whether the condition is satisfied.", 0, 1, expression));
+          children.add(new Property("expression", "Expression", "An expression that returns true or false, indicating whether the condition is satisfied.", 0, 1, expression));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3292052: /*kind*/  return new Property("kind", "code", "The kind of condition.", 0, 1, kind);
-          case -1724546052: /*description*/  return new Property("description", "string", "A brief, natural language description of the condition that effectively communicates the intended semantics.", 0, 1, description);
-          case -1613589672: /*language*/  return new Property("language", "string", "The media type of the language for the expression.", 0, 1, language);
-          case -1795452264: /*expression*/  return new Property("expression", "string", "An expression that returns true or false, indicating whether the condition is satisfied.", 0, 1, expression);
+          case -1795452264: /*expression*/  return new Property("expression", "Expression", "An expression that returns true or false, indicating whether the condition is satisfied.", 0, 1, expression);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4188,9 +4063,7 @@ public class PlanDefinition extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<ActionConditionKind>
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // StringType
-        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // Expression
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4203,14 +4076,8 @@ public class PlanDefinition extends MetadataResource {
           value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
           return value;
-        case -1724546052: // description
-          this.description = castToString(value); // StringType
-          return value;
-        case -1613589672: // language
-          this.language = castToString(value); // StringType
-          return value;
         case -1795452264: // expression
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -4222,12 +4089,8 @@ public class PlanDefinition extends MetadataResource {
         if (name.equals("kind")) {
           value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
-        } else if (name.equals("description")) {
-          this.description = castToString(value); // StringType
-        } else if (name.equals("language")) {
-          this.language = castToString(value); // StringType
         } else if (name.equals("expression")) {
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
         } else
           return super.setProperty(name, value);
         return value;
@@ -4237,9 +4100,7 @@ public class PlanDefinition extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3292052:  return getKindElement();
-        case -1724546052:  return getDescriptionElement();
-        case -1613589672:  return getLanguageElement();
-        case -1795452264:  return getExpressionElement();
+        case -1795452264:  return getExpression(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4249,9 +4110,7 @@ public class PlanDefinition extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3292052: /*kind*/ return new String[] {"code"};
-        case -1724546052: /*description*/ return new String[] {"string"};
-        case -1613589672: /*language*/ return new String[] {"string"};
-        case -1795452264: /*expression*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"Expression"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -4262,14 +4121,9 @@ public class PlanDefinition extends MetadataResource {
         if (name.equals("kind")) {
           throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.kind");
         }
-        else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.description");
-        }
-        else if (name.equals("language")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.language");
-        }
         else if (name.equals("expression")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.expression");
+          this.expression = new Expression();
+          return this.expression;
         }
         else
           return super.addChild(name);
@@ -4279,8 +4133,6 @@ public class PlanDefinition extends MetadataResource {
         PlanDefinitionActionConditionComponent dst = new PlanDefinitionActionConditionComponent();
         copyValues(dst);
         dst.kind = kind == null ? null : kind.copy();
-        dst.description = description == null ? null : description.copy();
-        dst.language = language == null ? null : language.copy();
         dst.expression = expression == null ? null : expression.copy();
         return dst;
       }
@@ -4292,8 +4144,7 @@ public class PlanDefinition extends MetadataResource {
         if (!(other_ instanceof PlanDefinitionActionConditionComponent))
           return false;
         PlanDefinitionActionConditionComponent o = (PlanDefinitionActionConditionComponent) other_;
-        return compareDeep(kind, o.kind, true) && compareDeep(description, o.description, true) && compareDeep(language, o.language, true)
-           && compareDeep(expression, o.expression, true);
+        return compareDeep(kind, o.kind, true) && compareDeep(expression, o.expression, true);
       }
 
       @Override
@@ -4303,13 +4154,11 @@ public class PlanDefinition extends MetadataResource {
         if (!(other_ instanceof PlanDefinitionActionConditionComponent))
           return false;
         PlanDefinitionActionConditionComponent o = (PlanDefinitionActionConditionComponent) other_;
-        return compareValues(kind, o.kind, true) && compareValues(description, o.description, true) && compareValues(language, o.language, true)
-           && compareValues(expression, o.expression, true);
+        return compareValues(kind, o.kind, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, description, language
-          , expression);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, expression);
       }
 
   public String fhirType() {
@@ -4658,7 +4507,7 @@ public class PlanDefinition extends MetadataResource {
          * The type of participant in the action.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
+        @Description(shortDefinition="patient | practitioner | related-person | device", formalDefinition="The type of participant in the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
         protected Enumeration<ActionParticipantType> type;
 
@@ -4884,34 +4733,20 @@ public class PlanDefinition extends MetadataResource {
     @Block()
     public static class PlanDefinitionActionDynamicValueComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A brief, natural language description of the intended semantics of the dynamic value.
-         */
-        @Child(name = "description", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Natural language description of the dynamic value", formalDefinition="A brief, natural language description of the intended semantics of the dynamic value." )
-        protected StringType description;
-
-        /**
          * The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
-        @Child(name = "path", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The path to the element to be set dynamically", formalDefinition="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression." )
         protected StringType path;
 
         /**
-         * The media type of the language for the expression.
-         */
-        @Child(name = "language", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Language of the expression", formalDefinition="The media type of the language for the expression." )
-        protected StringType language;
-
-        /**
          * An expression specifying the value of the customized element.
          */
-        @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "expression", type = {Expression.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="An expression that provides the dynamic value for the customization", formalDefinition="An expression specifying the value of the customized element." )
-        protected StringType expression;
+        protected Expression expression;
 
-        private static final long serialVersionUID = 448404361L;
+        private static final long serialVersionUID = 1064529082L;
 
     /**
      * Constructor
@@ -4919,55 +4754,6 @@ public class PlanDefinition extends MetadataResource {
       public PlanDefinitionActionDynamicValueComponent() {
         super();
       }
-
-        /**
-         * @return {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public StringType getDescriptionElement() { 
-          if (this.description == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionDynamicValueComponent.description");
-            else if (Configuration.doAutoCreate())
-              this.description = new StringType(); // bb
-          return this.description;
-        }
-
-        public boolean hasDescriptionElement() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        public boolean hasDescription() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        /**
-         * @param value {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public PlanDefinitionActionDynamicValueComponent setDescriptionElement(StringType value) { 
-          this.description = value;
-          return this;
-        }
-
-        /**
-         * @return A brief, natural language description of the intended semantics of the dynamic value.
-         */
-        public String getDescription() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        /**
-         * @param value A brief, natural language description of the intended semantics of the dynamic value.
-         */
-        public PlanDefinitionActionDynamicValueComponent setDescription(String value) { 
-          if (Utilities.noString(value))
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new StringType();
-            this.description.setValue(value);
-          }
-          return this;
-        }
 
         /**
          * @return {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
@@ -5019,68 +4805,15 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
+         * @return {@link #expression} (An expression specifying the value of the customized element.)
          */
-        public StringType getLanguageElement() { 
-          if (this.language == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionDynamicValueComponent.language");
-            else if (Configuration.doAutoCreate())
-              this.language = new StringType(); // bb
-          return this.language;
-        }
-
-        public boolean hasLanguageElement() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        public boolean hasLanguage() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        /**
-         * @param value {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
-         */
-        public PlanDefinitionActionDynamicValueComponent setLanguageElement(StringType value) { 
-          this.language = value;
-          return this;
-        }
-
-        /**
-         * @return The media type of the language for the expression.
-         */
-        public String getLanguage() { 
-          return this.language == null ? null : this.language.getValue();
-        }
-
-        /**
-         * @param value The media type of the language for the expression.
-         */
-        public PlanDefinitionActionDynamicValueComponent setLanguage(String value) { 
-          if (Utilities.noString(value))
-            this.language = null;
-          else {
-            if (this.language == null)
-              this.language = new StringType();
-            this.language.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
-         */
-        public StringType getExpressionElement() { 
+        public Expression getExpression() { 
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDynamicValueComponent.expression");
             else if (Configuration.doAutoCreate())
-              this.expression = new StringType(); // bb
+              this.expression = new Expression(); // cc
           return this.expression;
-        }
-
-        public boolean hasExpressionElement() { 
-          return this.expression != null && !this.expression.isEmpty();
         }
 
         public boolean hasExpression() { 
@@ -5088,49 +4821,24 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @param value {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (An expression specifying the value of the customized element.)
          */
-        public PlanDefinitionActionDynamicValueComponent setExpressionElement(StringType value) { 
+        public PlanDefinitionActionDynamicValueComponent setExpression(Expression value) { 
           this.expression = value;
-          return this;
-        }
-
-        /**
-         * @return An expression specifying the value of the customized element.
-         */
-        public String getExpression() { 
-          return this.expression == null ? null : this.expression.getValue();
-        }
-
-        /**
-         * @param value An expression specifying the value of the customized element.
-         */
-        public PlanDefinitionActionDynamicValueComponent setExpression(String value) { 
-          if (Utilities.noString(value))
-            this.expression = null;
-          else {
-            if (this.expression == null)
-              this.expression = new StringType();
-            this.expression.setValue(value);
-          }
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("description", "string", "A brief, natural language description of the intended semantics of the dynamic value.", 0, 1, description));
           children.add(new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, 1, path));
-          children.add(new Property("language", "string", "The media type of the language for the expression.", 0, 1, language));
-          children.add(new Property("expression", "string", "An expression specifying the value of the customized element.", 0, 1, expression));
+          children.add(new Property("expression", "Expression", "An expression specifying the value of the customized element.", 0, 1, expression));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -1724546052: /*description*/  return new Property("description", "string", "A brief, natural language description of the intended semantics of the dynamic value.", 0, 1, description);
           case 3433509: /*path*/  return new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, 1, path);
-          case -1613589672: /*language*/  return new Property("language", "string", "The media type of the language for the expression.", 0, 1, language);
-          case -1795452264: /*expression*/  return new Property("expression", "string", "An expression specifying the value of the customized element.", 0, 1, expression);
+          case -1795452264: /*expression*/  return new Property("expression", "Expression", "An expression specifying the value of the customized element.", 0, 1, expression);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -5139,10 +4847,8 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
-        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // StringType
-        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // Expression
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -5151,17 +4857,11 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1724546052: // description
-          this.description = castToString(value); // StringType
-          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
           return value;
-        case -1613589672: // language
-          this.language = castToString(value); // StringType
-          return value;
         case -1795452264: // expression
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -5170,14 +4870,10 @@ public class PlanDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("description")) {
-          this.description = castToString(value); // StringType
-        } else if (name.equals("path")) {
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        } else if (name.equals("language")) {
-          this.language = castToString(value); // StringType
         } else if (name.equals("expression")) {
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
         } else
           return super.setProperty(name, value);
         return value;
@@ -5186,10 +4882,8 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052:  return getDescriptionElement();
         case 3433509:  return getPathElement();
-        case -1613589672:  return getLanguageElement();
-        case -1795452264:  return getExpressionElement();
+        case -1795452264:  return getExpression(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -5198,10 +4892,8 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: /*description*/ return new String[] {"string"};
         case 3433509: /*path*/ return new String[] {"string"};
-        case -1613589672: /*language*/ return new String[] {"string"};
-        case -1795452264: /*expression*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"Expression"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -5209,17 +4901,12 @@ public class PlanDefinition extends MetadataResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.description");
-        }
-        else if (name.equals("path")) {
+        if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.path");
         }
-        else if (name.equals("language")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.language");
-        }
         else if (name.equals("expression")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.expression");
+          this.expression = new Expression();
+          return this.expression;
         }
         else
           return super.addChild(name);
@@ -5228,9 +4915,7 @@ public class PlanDefinition extends MetadataResource {
       public PlanDefinitionActionDynamicValueComponent copy() {
         PlanDefinitionActionDynamicValueComponent dst = new PlanDefinitionActionDynamicValueComponent();
         copyValues(dst);
-        dst.description = description == null ? null : description.copy();
         dst.path = path == null ? null : path.copy();
-        dst.language = language == null ? null : language.copy();
         dst.expression = expression == null ? null : expression.copy();
         return dst;
       }
@@ -5242,8 +4927,7 @@ public class PlanDefinition extends MetadataResource {
         if (!(other_ instanceof PlanDefinitionActionDynamicValueComponent))
           return false;
         PlanDefinitionActionDynamicValueComponent o = (PlanDefinitionActionDynamicValueComponent) other_;
-        return compareDeep(description, o.description, true) && compareDeep(path, o.path, true) && compareDeep(language, o.language, true)
-           && compareDeep(expression, o.expression, true);
+        return compareDeep(path, o.path, true) && compareDeep(expression, o.expression, true);
       }
 
       @Override
@@ -5253,13 +4937,11 @@ public class PlanDefinition extends MetadataResource {
         if (!(other_ instanceof PlanDefinitionActionDynamicValueComponent))
           return false;
         PlanDefinitionActionDynamicValueComponent o = (PlanDefinitionActionDynamicValueComponent) other_;
-        return compareValues(description, o.description, true) && compareValues(path, o.path, true) && compareValues(language, o.language, true)
-           && compareValues(expression, o.expression, true);
+        return compareValues(path, o.path, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
-          , expression);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, expression);
       }
 
   public String fhirType() {
@@ -7388,6 +7070,26 @@ public class PlanDefinition extends MetadataResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUCCESSOR = new ca.uhn.fhir.model.api.Include("PlanDefinition:successor").toLocked();
 
  /**
+   * Search parameter: <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the plan definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-value", path="PlanDefinition.useContext", description="A use context type and value assigned to the plan definition", type="composite", compositeOf={"context-type", "context"} )
+  public static final String SP_CONTEXT_TYPE_VALUE = "context-type-value";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the plan definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CONTEXT_TYPE_VALUE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CONTEXT_TYPE_VALUE);
+
+ /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
    * Description: <b>Intended jurisdiction for the plan definition</b><br>
@@ -7452,6 +7154,26 @@ public class PlanDefinition extends MetadataResource {
    * the path value of "<b>PlanDefinition:derived-from</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DERIVED_FROM = new ca.uhn.fhir.model.api.Include("PlanDefinition:derived-from").toLocked();
+
+ /**
+   * Search parameter: <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the plan definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PlanDefinition.useContext.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type", path="PlanDefinition.useContext.code", description="A type of use context assigned to the plan definition", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the plan definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PlanDefinition.useContext.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>predecessor</b>
@@ -7586,6 +7308,26 @@ public class PlanDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
+   * Search parameter: <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the plan definition</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>PlanDefinition.useContext.valueQuantity, PlanDefinition.useContext.valueRange</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-quantity", path="PlanDefinition.useContext.value.as(Quantity) | PlanDefinition.useContext.value.as(Range)", description="A quantity- or range-valued use context assigned to the plan definition", type="quantity" )
+  public static final String SP_CONTEXT_QUANTITY = "context-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the plan definition</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>PlanDefinition.useContext.valueQuantity, PlanDefinition.useContext.valueRange</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam CONTEXT_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_CONTEXT_QUANTITY);
+
+ /**
    * Search parameter: <b>effective</b>
    * <p>
    * Description: <b>The time during which the plan definition is intended to be in use</b><br>
@@ -7613,7 +7355,7 @@ public class PlanDefinition extends MetadataResource {
    * Path: <b>PlanDefinition.relatedArtifact.resource, PlanDefinition.library</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="PlanDefinition.relatedArtifact.where(type='depends-on').resource | PlanDefinition.library", description="What resource is being referenced", type="reference", target={Library.class } )
+  @SearchParamDefinition(name="depends-on", path="PlanDefinition.relatedArtifact.where(type='depends-on').resource | PlanDefinition.library", description="What resource is being referenced", type="reference" )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
@@ -7650,6 +7392,26 @@ public class PlanDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the plan definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PlanDefinition.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="PlanDefinition.useContext.value.as(CodeableConcept)", description="A use context assigned to the plan definition", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the plan definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PlanDefinition.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -7716,6 +7478,26 @@ public class PlanDefinition extends MetadataResource {
    * the path value of "<b>PlanDefinition:definition</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION = new ca.uhn.fhir.model.api.Include("PlanDefinition:definition").toLocked();
+
+ /**
+   * Search parameter: <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the plan definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-quantity", path="PlanDefinition.useContext", description="A use context type and quantity- or range-based value assigned to the plan definition", type="composite", compositeOf={"context-type", "context-quantity"} )
+  public static final String SP_CONTEXT_TYPE_QUANTITY = "context-type-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the plan definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CONTEXT_TYPE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CONTEXT_TYPE_QUANTITY);
 
  /**
    * Search parameter: <b>status</b>

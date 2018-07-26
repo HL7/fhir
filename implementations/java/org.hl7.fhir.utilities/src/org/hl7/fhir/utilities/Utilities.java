@@ -56,13 +56,13 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities.FileVisitor;
 
 import net.sf.saxon.TransformerFactoryImpl;
 
 public class Utilities {
 
 //	 private static final String TOKEN_REGEX = "^a-z[A-Za-z0-9]*$";
-
 
   private static final String OID_REGEX = "[0-2](\\.(0|[1-9][0-9]*))+";
 
@@ -1101,7 +1101,21 @@ public class Utilities {
     return b.toString();
   }
 
+  public interface FileVisitor {
+    void visitFile(File file) throws FileNotFoundException, IOException;
+  }
 
-
+  public static void visitFiles(String folder, String extension, FileVisitor visitor) throws FileNotFoundException, IOException {
+    visitFiles(new File(folder), extension, visitor);
+  }
+  
+  public static void visitFiles(File folder, String extension, FileVisitor visitor) throws FileNotFoundException, IOException {
+    for (File file : folder.listFiles()) {
+      if (file.isDirectory()) 
+        visitFiles(file, extension, visitor);
+      else if (extension == null || file.getName().endsWith(extension)) 
+        visitor.visitFile(file);
+    }    
+  }
 
 }

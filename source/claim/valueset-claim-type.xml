@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -17,7 +17,7 @@
   <copyright value="HL7 Inc."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/claim-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
     </include>
   </compose>
 </ValueSet>

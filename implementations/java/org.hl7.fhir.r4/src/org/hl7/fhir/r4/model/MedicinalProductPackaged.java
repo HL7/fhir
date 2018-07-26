@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -293,21 +293,9 @@ public class MedicinalProductPackaged extends DomainResource {
         protected List<CodeableConcept> alternateMaterial;
 
         /**
-         * Manufacturer of this Package Item.
-         */
-        @Child(name = "manufacturer", type = {Organization.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Manufacturer of this Package Item", formalDefinition="Manufacturer of this Package Item." )
-        protected List<Reference> manufacturer;
-        /**
-         * The actual objects that are the target of the reference (Manufacturer of this Package Item.)
-         */
-        protected List<Organization> manufacturerTarget;
-
-
-        /**
          * A device accompanying a medicinal product.
          */
-        @Child(name = "device", type = {MedicinalProductDeviceSpec.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "device", type = {MedicinalProductDeviceSpec.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="A device accompanying a medicinal product", formalDefinition="A device accompanying a medicinal product." )
         protected List<Reference> device;
         /**
@@ -319,7 +307,7 @@ public class MedicinalProductPackaged extends DomainResource {
         /**
          * The manufactured item as contained in the packaged medicinal product.
          */
-        @Child(name = "manufacturedItem", type = {MedicinalProductManufactured.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "manufacturedItem", type = {MedicinalProductManufactured.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="The manufactured item as contained in the packaged medicinal product", formalDefinition="The manufactured item as contained in the packaged medicinal product." )
         protected List<Reference> manufacturedItem;
         /**
@@ -329,34 +317,46 @@ public class MedicinalProductPackaged extends DomainResource {
 
 
         /**
-         * Other codeable characteristics.
-         */
-        @Child(name = "otherCharacteristics", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Other codeable characteristics", formalDefinition="Other codeable characteristics." )
-        protected List<CodeableConcept> otherCharacteristics;
-
-        /**
          * Allows containers within containers.
          */
-        @Child(name = "packageItem", type = {MedicinalProductPackagedPackageItemComponent.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "packageItem", type = {MedicinalProductPackagedPackageItemComponent.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Allows containers within containers", formalDefinition="Allows containers within containers." )
         protected List<MedicinalProductPackagedPackageItemComponent> packageItem;
 
         /**
          * Dimensions, color etc.
          */
-        @Child(name = "physicalCharacteristics", type = {ProdCharacteristic.class}, order=11, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "physicalCharacteristics", type = {ProdCharacteristic.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Dimensions, color etc.", formalDefinition="Dimensions, color etc." )
         protected ProdCharacteristic physicalCharacteristics;
 
         /**
+         * Other codeable characteristics.
+         */
+        @Child(name = "otherCharacteristics", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Other codeable characteristics", formalDefinition="Other codeable characteristics." )
+        protected List<CodeableConcept> otherCharacteristics;
+
+        /**
          * Shelf Life and storage information.
          */
-        @Child(name = "shelfLifeStorage", type = {ProductShelfLife.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "shelfLifeStorage", type = {ProductShelfLife.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Shelf Life and storage information", formalDefinition="Shelf Life and storage information." )
         protected List<ProductShelfLife> shelfLifeStorage;
 
-        private static final long serialVersionUID = 1362675138L;
+        /**
+         * Manufacturer of this Package Item.
+         */
+        @Child(name = "manufacturer", type = {Organization.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Manufacturer of this Package Item", formalDefinition="Manufacturer of this Package Item." )
+        protected List<Reference> manufacturer;
+        /**
+         * The actual objects that are the target of the reference (Manufacturer of this Package Item.)
+         */
+        protected List<Organization> manufacturerTarget;
+
+
+        private static final long serialVersionUID = 1676682022L;
 
     /**
      * Constructor
@@ -582,81 +582,6 @@ public class MedicinalProductPackaged extends DomainResource {
         }
 
         /**
-         * @return {@link #manufacturer} (Manufacturer of this Package Item.)
-         */
-        public List<Reference> getManufacturer() { 
-          if (this.manufacturer == null)
-            this.manufacturer = new ArrayList<Reference>();
-          return this.manufacturer;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public MedicinalProductPackagedPackageItemComponent setManufacturer(List<Reference> theManufacturer) { 
-          this.manufacturer = theManufacturer;
-          return this;
-        }
-
-        public boolean hasManufacturer() { 
-          if (this.manufacturer == null)
-            return false;
-          for (Reference item : this.manufacturer)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Reference addManufacturer() { //3
-          Reference t = new Reference();
-          if (this.manufacturer == null)
-            this.manufacturer = new ArrayList<Reference>();
-          this.manufacturer.add(t);
-          return t;
-        }
-
-        public MedicinalProductPackagedPackageItemComponent addManufacturer(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.manufacturer == null)
-            this.manufacturer = new ArrayList<Reference>();
-          this.manufacturer.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #manufacturer}, creating it if it does not already exist
-         */
-        public Reference getManufacturerFirstRep() { 
-          if (getManufacturer().isEmpty()) {
-            addManufacturer();
-          }
-          return getManufacturer().get(0);
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public List<Organization> getManufacturerTarget() { 
-          if (this.manufacturerTarget == null)
-            this.manufacturerTarget = new ArrayList<Organization>();
-          return this.manufacturerTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public Organization addManufacturerTarget() { 
-          Organization r = new Organization();
-          if (this.manufacturerTarget == null)
-            this.manufacturerTarget = new ArrayList<Organization>();
-          this.manufacturerTarget.add(r);
-          return r;
-        }
-
-        /**
          * @return {@link #device} (A device accompanying a medicinal product.)
          */
         public List<Reference> getDevice() { 
@@ -807,59 +732,6 @@ public class MedicinalProductPackaged extends DomainResource {
         }
 
         /**
-         * @return {@link #otherCharacteristics} (Other codeable characteristics.)
-         */
-        public List<CodeableConcept> getOtherCharacteristics() { 
-          if (this.otherCharacteristics == null)
-            this.otherCharacteristics = new ArrayList<CodeableConcept>();
-          return this.otherCharacteristics;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public MedicinalProductPackagedPackageItemComponent setOtherCharacteristics(List<CodeableConcept> theOtherCharacteristics) { 
-          this.otherCharacteristics = theOtherCharacteristics;
-          return this;
-        }
-
-        public boolean hasOtherCharacteristics() { 
-          if (this.otherCharacteristics == null)
-            return false;
-          for (CodeableConcept item : this.otherCharacteristics)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public CodeableConcept addOtherCharacteristics() { //3
-          CodeableConcept t = new CodeableConcept();
-          if (this.otherCharacteristics == null)
-            this.otherCharacteristics = new ArrayList<CodeableConcept>();
-          this.otherCharacteristics.add(t);
-          return t;
-        }
-
-        public MedicinalProductPackagedPackageItemComponent addOtherCharacteristics(CodeableConcept t) { //3
-          if (t == null)
-            return this;
-          if (this.otherCharacteristics == null)
-            this.otherCharacteristics = new ArrayList<CodeableConcept>();
-          this.otherCharacteristics.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #otherCharacteristics}, creating it if it does not already exist
-         */
-        public CodeableConcept getOtherCharacteristicsFirstRep() { 
-          if (getOtherCharacteristics().isEmpty()) {
-            addOtherCharacteristics();
-          }
-          return getOtherCharacteristics().get(0);
-        }
-
-        /**
          * @return {@link #packageItem} (Allows containers within containers.)
          */
         public List<MedicinalProductPackagedPackageItemComponent> getPackageItem() { 
@@ -937,6 +809,59 @@ public class MedicinalProductPackaged extends DomainResource {
         }
 
         /**
+         * @return {@link #otherCharacteristics} (Other codeable characteristics.)
+         */
+        public List<CodeableConcept> getOtherCharacteristics() { 
+          if (this.otherCharacteristics == null)
+            this.otherCharacteristics = new ArrayList<CodeableConcept>();
+          return this.otherCharacteristics;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicinalProductPackagedPackageItemComponent setOtherCharacteristics(List<CodeableConcept> theOtherCharacteristics) { 
+          this.otherCharacteristics = theOtherCharacteristics;
+          return this;
+        }
+
+        public boolean hasOtherCharacteristics() { 
+          if (this.otherCharacteristics == null)
+            return false;
+          for (CodeableConcept item : this.otherCharacteristics)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public CodeableConcept addOtherCharacteristics() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.otherCharacteristics == null)
+            this.otherCharacteristics = new ArrayList<CodeableConcept>();
+          this.otherCharacteristics.add(t);
+          return t;
+        }
+
+        public MedicinalProductPackagedPackageItemComponent addOtherCharacteristics(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.otherCharacteristics == null)
+            this.otherCharacteristics = new ArrayList<CodeableConcept>();
+          this.otherCharacteristics.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #otherCharacteristics}, creating it if it does not already exist
+         */
+        public CodeableConcept getOtherCharacteristicsFirstRep() { 
+          if (getOtherCharacteristics().isEmpty()) {
+            addOtherCharacteristics();
+          }
+          return getOtherCharacteristics().get(0);
+        }
+
+        /**
          * @return {@link #shelfLifeStorage} (Shelf Life and storage information.)
          */
         public List<ProductShelfLife> getShelfLifeStorage() { 
@@ -989,6 +914,81 @@ public class MedicinalProductPackaged extends DomainResource {
           return getShelfLifeStorage().get(0);
         }
 
+        /**
+         * @return {@link #manufacturer} (Manufacturer of this Package Item.)
+         */
+        public List<Reference> getManufacturer() { 
+          if (this.manufacturer == null)
+            this.manufacturer = new ArrayList<Reference>();
+          return this.manufacturer;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public MedicinalProductPackagedPackageItemComponent setManufacturer(List<Reference> theManufacturer) { 
+          this.manufacturer = theManufacturer;
+          return this;
+        }
+
+        public boolean hasManufacturer() { 
+          if (this.manufacturer == null)
+            return false;
+          for (Reference item : this.manufacturer)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Reference addManufacturer() { //3
+          Reference t = new Reference();
+          if (this.manufacturer == null)
+            this.manufacturer = new ArrayList<Reference>();
+          this.manufacturer.add(t);
+          return t;
+        }
+
+        public MedicinalProductPackagedPackageItemComponent addManufacturer(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.manufacturer == null)
+            this.manufacturer = new ArrayList<Reference>();
+          this.manufacturer.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #manufacturer}, creating it if it does not already exist
+         */
+        public Reference getManufacturerFirstRep() { 
+          if (getManufacturer().isEmpty()) {
+            addManufacturer();
+          }
+          return getManufacturer().get(0);
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
+        public List<Organization> getManufacturerTarget() { 
+          if (this.manufacturerTarget == null)
+            this.manufacturerTarget = new ArrayList<Organization>();
+          return this.manufacturerTarget;
+        }
+
+        /**
+         * @deprecated Use Reference#setResource(IBaseResource) instead
+         */
+        @Deprecated
+        public Organization addManufacturerTarget() { 
+          Organization r = new Organization();
+          if (this.manufacturerTarget == null)
+            this.manufacturerTarget = new ArrayList<Organization>();
+          this.manufacturerTarget.add(r);
+          return r;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("identifier", "Identifier", "Including possibly Data Carrier Identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -996,13 +996,13 @@ public class MedicinalProductPackaged extends DomainResource {
           children.add(new Property("quantity", "Quantity", "The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.", 0, 1, quantity));
           children.add(new Property("material", "CodeableConcept", "Material type of the package item.", 0, java.lang.Integer.MAX_VALUE, material));
           children.add(new Property("alternateMaterial", "CodeableConcept", "A possible alternate material for the packaging.", 0, java.lang.Integer.MAX_VALUE, alternateMaterial));
-          children.add(new Property("manufacturer", "Reference(Organization)", "Manufacturer of this Package Item.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
           children.add(new Property("device", "Reference(MedicinalProductDeviceSpec)", "A device accompanying a medicinal product.", 0, java.lang.Integer.MAX_VALUE, device));
           children.add(new Property("manufacturedItem", "Reference(MedicinalProductManufactured)", "The manufactured item as contained in the packaged medicinal product.", 0, java.lang.Integer.MAX_VALUE, manufacturedItem));
-          children.add(new Property("otherCharacteristics", "CodeableConcept", "Other codeable characteristics.", 0, java.lang.Integer.MAX_VALUE, otherCharacteristics));
           children.add(new Property("packageItem", "@MedicinalProductPackaged.packageItem", "Allows containers within containers.", 0, java.lang.Integer.MAX_VALUE, packageItem));
           children.add(new Property("physicalCharacteristics", "ProdCharacteristic", "Dimensions, color etc.", 0, 1, physicalCharacteristics));
+          children.add(new Property("otherCharacteristics", "CodeableConcept", "Other codeable characteristics.", 0, java.lang.Integer.MAX_VALUE, otherCharacteristics));
           children.add(new Property("shelfLifeStorage", "ProductShelfLife", "Shelf Life and storage information.", 0, java.lang.Integer.MAX_VALUE, shelfLifeStorage));
+          children.add(new Property("manufacturer", "Reference(Organization)", "Manufacturer of this Package Item.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         }
 
         @Override
@@ -1013,13 +1013,13 @@ public class MedicinalProductPackaged extends DomainResource {
           case -1285004149: /*quantity*/  return new Property("quantity", "Quantity", "The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.", 0, 1, quantity);
           case 299066663: /*material*/  return new Property("material", "CodeableConcept", "Material type of the package item.", 0, java.lang.Integer.MAX_VALUE, material);
           case -1021448255: /*alternateMaterial*/  return new Property("alternateMaterial", "CodeableConcept", "A possible alternate material for the packaging.", 0, java.lang.Integer.MAX_VALUE, alternateMaterial);
-          case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Manufacturer of this Package Item.", 0, java.lang.Integer.MAX_VALUE, manufacturer);
           case -1335157162: /*device*/  return new Property("device", "Reference(MedicinalProductDeviceSpec)", "A device accompanying a medicinal product.", 0, java.lang.Integer.MAX_VALUE, device);
           case 62093686: /*manufacturedItem*/  return new Property("manufacturedItem", "Reference(MedicinalProductManufactured)", "The manufactured item as contained in the packaged medicinal product.", 0, java.lang.Integer.MAX_VALUE, manufacturedItem);
-          case 722135304: /*otherCharacteristics*/  return new Property("otherCharacteristics", "CodeableConcept", "Other codeable characteristics.", 0, java.lang.Integer.MAX_VALUE, otherCharacteristics);
           case 908628089: /*packageItem*/  return new Property("packageItem", "@MedicinalProductPackaged.packageItem", "Allows containers within containers.", 0, java.lang.Integer.MAX_VALUE, packageItem);
           case -1599676319: /*physicalCharacteristics*/  return new Property("physicalCharacteristics", "ProdCharacteristic", "Dimensions, color etc.", 0, 1, physicalCharacteristics);
+          case 722135304: /*otherCharacteristics*/  return new Property("otherCharacteristics", "CodeableConcept", "Other codeable characteristics.", 0, java.lang.Integer.MAX_VALUE, otherCharacteristics);
           case 172049237: /*shelfLifeStorage*/  return new Property("shelfLifeStorage", "ProductShelfLife", "Shelf Life and storage information.", 0, java.lang.Integer.MAX_VALUE, shelfLifeStorage);
+          case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Manufacturer of this Package Item.", 0, java.lang.Integer.MAX_VALUE, manufacturer);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1033,13 +1033,13 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case 299066663: /*material*/ return this.material == null ? new Base[0] : this.material.toArray(new Base[this.material.size()]); // CodeableConcept
         case -1021448255: /*alternateMaterial*/ return this.alternateMaterial == null ? new Base[0] : this.alternateMaterial.toArray(new Base[this.alternateMaterial.size()]); // CodeableConcept
-        case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : this.manufacturer.toArray(new Base[this.manufacturer.size()]); // Reference
         case -1335157162: /*device*/ return this.device == null ? new Base[0] : this.device.toArray(new Base[this.device.size()]); // Reference
         case 62093686: /*manufacturedItem*/ return this.manufacturedItem == null ? new Base[0] : this.manufacturedItem.toArray(new Base[this.manufacturedItem.size()]); // Reference
-        case 722135304: /*otherCharacteristics*/ return this.otherCharacteristics == null ? new Base[0] : this.otherCharacteristics.toArray(new Base[this.otherCharacteristics.size()]); // CodeableConcept
         case 908628089: /*packageItem*/ return this.packageItem == null ? new Base[0] : this.packageItem.toArray(new Base[this.packageItem.size()]); // MedicinalProductPackagedPackageItemComponent
         case -1599676319: /*physicalCharacteristics*/ return this.physicalCharacteristics == null ? new Base[0] : new Base[] {this.physicalCharacteristics}; // ProdCharacteristic
+        case 722135304: /*otherCharacteristics*/ return this.otherCharacteristics == null ? new Base[0] : this.otherCharacteristics.toArray(new Base[this.otherCharacteristics.size()]); // CodeableConcept
         case 172049237: /*shelfLifeStorage*/ return this.shelfLifeStorage == null ? new Base[0] : this.shelfLifeStorage.toArray(new Base[this.shelfLifeStorage.size()]); // ProductShelfLife
+        case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : this.manufacturer.toArray(new Base[this.manufacturer.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1063,17 +1063,11 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1021448255: // alternateMaterial
           this.getAlternateMaterial().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case -1969347631: // manufacturer
-          this.getManufacturer().add(castToReference(value)); // Reference
-          return value;
         case -1335157162: // device
           this.getDevice().add(castToReference(value)); // Reference
           return value;
         case 62093686: // manufacturedItem
           this.getManufacturedItem().add(castToReference(value)); // Reference
-          return value;
-        case 722135304: // otherCharacteristics
-          this.getOtherCharacteristics().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 908628089: // packageItem
           this.getPackageItem().add((MedicinalProductPackagedPackageItemComponent) value); // MedicinalProductPackagedPackageItemComponent
@@ -1081,8 +1075,14 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1599676319: // physicalCharacteristics
           this.physicalCharacteristics = castToProdCharacteristic(value); // ProdCharacteristic
           return value;
+        case 722135304: // otherCharacteristics
+          this.getOtherCharacteristics().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
         case 172049237: // shelfLifeStorage
           this.getShelfLifeStorage().add(castToProductShelfLife(value)); // ProductShelfLife
+          return value;
+        case -1969347631: // manufacturer
+          this.getManufacturer().add(castToReference(value)); // Reference
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1101,20 +1101,20 @@ public class MedicinalProductPackaged extends DomainResource {
           this.getMaterial().add(castToCodeableConcept(value));
         } else if (name.equals("alternateMaterial")) {
           this.getAlternateMaterial().add(castToCodeableConcept(value));
-        } else if (name.equals("manufacturer")) {
-          this.getManufacturer().add(castToReference(value));
         } else if (name.equals("device")) {
           this.getDevice().add(castToReference(value));
         } else if (name.equals("manufacturedItem")) {
           this.getManufacturedItem().add(castToReference(value));
-        } else if (name.equals("otherCharacteristics")) {
-          this.getOtherCharacteristics().add(castToCodeableConcept(value));
         } else if (name.equals("packageItem")) {
           this.getPackageItem().add((MedicinalProductPackagedPackageItemComponent) value);
         } else if (name.equals("physicalCharacteristics")) {
           this.physicalCharacteristics = castToProdCharacteristic(value); // ProdCharacteristic
+        } else if (name.equals("otherCharacteristics")) {
+          this.getOtherCharacteristics().add(castToCodeableConcept(value));
         } else if (name.equals("shelfLifeStorage")) {
           this.getShelfLifeStorage().add(castToProductShelfLife(value));
+        } else if (name.equals("manufacturer")) {
+          this.getManufacturer().add(castToReference(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1128,13 +1128,13 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1285004149:  return getQuantity(); 
         case 299066663:  return addMaterial(); 
         case -1021448255:  return addAlternateMaterial(); 
-        case -1969347631:  return addManufacturer(); 
         case -1335157162:  return addDevice(); 
         case 62093686:  return addManufacturedItem(); 
-        case 722135304:  return addOtherCharacteristics(); 
         case 908628089:  return addPackageItem(); 
         case -1599676319:  return getPhysicalCharacteristics(); 
+        case 722135304:  return addOtherCharacteristics(); 
         case 172049237:  return addShelfLifeStorage(); 
+        case -1969347631:  return addManufacturer(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1148,13 +1148,13 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1285004149: /*quantity*/ return new String[] {"Quantity"};
         case 299066663: /*material*/ return new String[] {"CodeableConcept"};
         case -1021448255: /*alternateMaterial*/ return new String[] {"CodeableConcept"};
-        case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         case -1335157162: /*device*/ return new String[] {"Reference"};
         case 62093686: /*manufacturedItem*/ return new String[] {"Reference"};
-        case 722135304: /*otherCharacteristics*/ return new String[] {"CodeableConcept"};
         case 908628089: /*packageItem*/ return new String[] {"@MedicinalProductPackaged.packageItem"};
         case -1599676319: /*physicalCharacteristics*/ return new String[] {"ProdCharacteristic"};
+        case 722135304: /*otherCharacteristics*/ return new String[] {"CodeableConcept"};
         case 172049237: /*shelfLifeStorage*/ return new String[] {"ProductShelfLife"};
+        case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1179,17 +1179,11 @@ public class MedicinalProductPackaged extends DomainResource {
         else if (name.equals("alternateMaterial")) {
           return addAlternateMaterial();
         }
-        else if (name.equals("manufacturer")) {
-          return addManufacturer();
-        }
         else if (name.equals("device")) {
           return addDevice();
         }
         else if (name.equals("manufacturedItem")) {
           return addManufacturedItem();
-        }
-        else if (name.equals("otherCharacteristics")) {
-          return addOtherCharacteristics();
         }
         else if (name.equals("packageItem")) {
           return addPackageItem();
@@ -1198,8 +1192,14 @@ public class MedicinalProductPackaged extends DomainResource {
           this.physicalCharacteristics = new ProdCharacteristic();
           return this.physicalCharacteristics;
         }
+        else if (name.equals("otherCharacteristics")) {
+          return addOtherCharacteristics();
+        }
         else if (name.equals("shelfLifeStorage")) {
           return addShelfLifeStorage();
+        }
+        else if (name.equals("manufacturer")) {
+          return addManufacturer();
         }
         else
           return super.addChild(name);
@@ -1225,11 +1225,6 @@ public class MedicinalProductPackaged extends DomainResource {
           for (CodeableConcept i : alternateMaterial)
             dst.alternateMaterial.add(i.copy());
         };
-        if (manufacturer != null) {
-          dst.manufacturer = new ArrayList<Reference>();
-          for (Reference i : manufacturer)
-            dst.manufacturer.add(i.copy());
-        };
         if (device != null) {
           dst.device = new ArrayList<Reference>();
           for (Reference i : device)
@@ -1240,21 +1235,26 @@ public class MedicinalProductPackaged extends DomainResource {
           for (Reference i : manufacturedItem)
             dst.manufacturedItem.add(i.copy());
         };
-        if (otherCharacteristics != null) {
-          dst.otherCharacteristics = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : otherCharacteristics)
-            dst.otherCharacteristics.add(i.copy());
-        };
         if (packageItem != null) {
           dst.packageItem = new ArrayList<MedicinalProductPackagedPackageItemComponent>();
           for (MedicinalProductPackagedPackageItemComponent i : packageItem)
             dst.packageItem.add(i.copy());
         };
         dst.physicalCharacteristics = physicalCharacteristics == null ? null : physicalCharacteristics.copy();
+        if (otherCharacteristics != null) {
+          dst.otherCharacteristics = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : otherCharacteristics)
+            dst.otherCharacteristics.add(i.copy());
+        };
         if (shelfLifeStorage != null) {
           dst.shelfLifeStorage = new ArrayList<ProductShelfLife>();
           for (ProductShelfLife i : shelfLifeStorage)
             dst.shelfLifeStorage.add(i.copy());
+        };
+        if (manufacturer != null) {
+          dst.manufacturer = new ArrayList<Reference>();
+          for (Reference i : manufacturer)
+            dst.manufacturer.add(i.copy());
         };
         return dst;
       }
@@ -1268,10 +1268,10 @@ public class MedicinalProductPackaged extends DomainResource {
         MedicinalProductPackagedPackageItemComponent o = (MedicinalProductPackagedPackageItemComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(quantity, o.quantity, true)
            && compareDeep(material, o.material, true) && compareDeep(alternateMaterial, o.alternateMaterial, true)
-           && compareDeep(manufacturer, o.manufacturer, true) && compareDeep(device, o.device, true) && compareDeep(manufacturedItem, o.manufacturedItem, true)
-           && compareDeep(otherCharacteristics, o.otherCharacteristics, true) && compareDeep(packageItem, o.packageItem, true)
-           && compareDeep(physicalCharacteristics, o.physicalCharacteristics, true) && compareDeep(shelfLifeStorage, o.shelfLifeStorage, true)
-          ;
+           && compareDeep(device, o.device, true) && compareDeep(manufacturedItem, o.manufacturedItem, true)
+           && compareDeep(packageItem, o.packageItem, true) && compareDeep(physicalCharacteristics, o.physicalCharacteristics, true)
+           && compareDeep(otherCharacteristics, o.otherCharacteristics, true) && compareDeep(shelfLifeStorage, o.shelfLifeStorage, true)
+           && compareDeep(manufacturer, o.manufacturer, true);
       }
 
       @Override
@@ -1286,8 +1286,8 @@ public class MedicinalProductPackaged extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, quantity
-          , material, alternateMaterial, manufacturer, device, manufacturedItem, otherCharacteristics
-          , packageItem, physicalCharacteristics, shelfLifeStorage);
+          , material, alternateMaterial, device, manufacturedItem, packageItem, physicalCharacteristics
+          , otherCharacteristics, shelfLifeStorage, manufacturer);
       }
 
   public String fhirType() {
@@ -1319,20 +1319,44 @@ public class MedicinalProductPackaged extends DomainResource {
     protected List<MarketingStatus> marketingStatus;
 
     /**
+     * Manufacturer of this Package Item.
+     */
+    @Child(name = "marketingAuthorization", type = {MedicinalProductAuthorization.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Manufacturer of this Package Item", formalDefinition="Manufacturer of this Package Item." )
+    protected Reference marketingAuthorization;
+
+    /**
+     * The actual object that is the target of the reference (Manufacturer of this Package Item.)
+     */
+    protected MedicinalProductAuthorization marketingAuthorizationTarget;
+
+    /**
+     * Manufacturer of this Package Item.
+     */
+    @Child(name = "manufacturer", type = {Organization.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Manufacturer of this Package Item", formalDefinition="Manufacturer of this Package Item." )
+    protected List<Reference> manufacturer;
+    /**
+     * The actual objects that are the target of the reference (Manufacturer of this Package Item.)
+     */
+    protected List<Organization> manufacturerTarget;
+
+
+    /**
      * Batch numbering.
      */
-    @Child(name = "batchIdentifier", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "batchIdentifier", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Batch numbering", formalDefinition="Batch numbering." )
     protected List<MedicinalProductPackagedBatchIdentifierComponent> batchIdentifier;
 
     /**
      * A packaging item, as a contained for medicine, possibly with other packaging items within.
      */
-    @Child(name = "packageItem", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "packageItem", type = {}, order=6, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="A packaging item, as a contained for medicine, possibly with other packaging items within", formalDefinition="A packaging item, as a contained for medicine, possibly with other packaging items within." )
     protected List<MedicinalProductPackagedPackageItemComponent> packageItem;
 
-    private static final long serialVersionUID = -934778857L;
+    private static final long serialVersionUID = 1280861928L;
 
   /**
    * Constructor
@@ -1476,6 +1500,125 @@ public class MedicinalProductPackaged extends DomainResource {
     }
 
     /**
+     * @return {@link #marketingAuthorization} (Manufacturer of this Package Item.)
+     */
+    public Reference getMarketingAuthorization() { 
+      if (this.marketingAuthorization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicinalProductPackaged.marketingAuthorization");
+        else if (Configuration.doAutoCreate())
+          this.marketingAuthorization = new Reference(); // cc
+      return this.marketingAuthorization;
+    }
+
+    public boolean hasMarketingAuthorization() { 
+      return this.marketingAuthorization != null && !this.marketingAuthorization.isEmpty();
+    }
+
+    /**
+     * @param value {@link #marketingAuthorization} (Manufacturer of this Package Item.)
+     */
+    public MedicinalProductPackaged setMarketingAuthorization(Reference value) { 
+      this.marketingAuthorization = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #marketingAuthorization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Manufacturer of this Package Item.)
+     */
+    public MedicinalProductAuthorization getMarketingAuthorizationTarget() { 
+      if (this.marketingAuthorizationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicinalProductPackaged.marketingAuthorization");
+        else if (Configuration.doAutoCreate())
+          this.marketingAuthorizationTarget = new MedicinalProductAuthorization(); // aa
+      return this.marketingAuthorizationTarget;
+    }
+
+    /**
+     * @param value {@link #marketingAuthorization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Manufacturer of this Package Item.)
+     */
+    public MedicinalProductPackaged setMarketingAuthorizationTarget(MedicinalProductAuthorization value) { 
+      this.marketingAuthorizationTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #manufacturer} (Manufacturer of this Package Item.)
+     */
+    public List<Reference> getManufacturer() { 
+      if (this.manufacturer == null)
+        this.manufacturer = new ArrayList<Reference>();
+      return this.manufacturer;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicinalProductPackaged setManufacturer(List<Reference> theManufacturer) { 
+      this.manufacturer = theManufacturer;
+      return this;
+    }
+
+    public boolean hasManufacturer() { 
+      if (this.manufacturer == null)
+        return false;
+      for (Reference item : this.manufacturer)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addManufacturer() { //3
+      Reference t = new Reference();
+      if (this.manufacturer == null)
+        this.manufacturer = new ArrayList<Reference>();
+      this.manufacturer.add(t);
+      return t;
+    }
+
+    public MedicinalProductPackaged addManufacturer(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.manufacturer == null)
+        this.manufacturer = new ArrayList<Reference>();
+      this.manufacturer.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #manufacturer}, creating it if it does not already exist
+     */
+    public Reference getManufacturerFirstRep() { 
+      if (getManufacturer().isEmpty()) {
+        addManufacturer();
+      }
+      return getManufacturer().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Organization> getManufacturerTarget() { 
+      if (this.manufacturerTarget == null)
+        this.manufacturerTarget = new ArrayList<Organization>();
+      return this.manufacturerTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Organization addManufacturerTarget() { 
+      Organization r = new Organization();
+      if (this.manufacturerTarget == null)
+        this.manufacturerTarget = new ArrayList<Organization>();
+      this.manufacturerTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #batchIdentifier} (Batch numbering.)
      */
     public List<MedicinalProductPackagedBatchIdentifierComponent> getBatchIdentifier() { 
@@ -1586,6 +1729,8 @@ public class MedicinalProductPackaged extends DomainResource {
         children.add(new Property("identifier", "Identifier", "Unique identifier.", 0, 1, identifier));
         children.add(new Property("description", "string", "Textual description.", 0, 1, description));
         children.add(new Property("marketingStatus", "MarketingStatus", "Marketing information.", 0, java.lang.Integer.MAX_VALUE, marketingStatus));
+        children.add(new Property("marketingAuthorization", "Reference(MedicinalProductAuthorization)", "Manufacturer of this Package Item.", 0, 1, marketingAuthorization));
+        children.add(new Property("manufacturer", "Reference(Organization)", "Manufacturer of this Package Item.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         children.add(new Property("batchIdentifier", "", "Batch numbering.", 0, java.lang.Integer.MAX_VALUE, batchIdentifier));
         children.add(new Property("packageItem", "", "A packaging item, as a contained for medicine, possibly with other packaging items within.", 0, java.lang.Integer.MAX_VALUE, packageItem));
       }
@@ -1596,6 +1741,8 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Unique identifier.", 0, 1, identifier);
         case -1724546052: /*description*/  return new Property("description", "string", "Textual description.", 0, 1, description);
         case 70767032: /*marketingStatus*/  return new Property("marketingStatus", "MarketingStatus", "Marketing information.", 0, java.lang.Integer.MAX_VALUE, marketingStatus);
+        case 571831283: /*marketingAuthorization*/  return new Property("marketingAuthorization", "Reference(MedicinalProductAuthorization)", "Manufacturer of this Package Item.", 0, 1, marketingAuthorization);
+        case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Manufacturer of this Package Item.", 0, java.lang.Integer.MAX_VALUE, manufacturer);
         case -1688395901: /*batchIdentifier*/  return new Property("batchIdentifier", "", "Batch numbering.", 0, java.lang.Integer.MAX_VALUE, batchIdentifier);
         case 908628089: /*packageItem*/  return new Property("packageItem", "", "A packaging item, as a contained for medicine, possibly with other packaging items within.", 0, java.lang.Integer.MAX_VALUE, packageItem);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -1609,6 +1756,8 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 70767032: /*marketingStatus*/ return this.marketingStatus == null ? new Base[0] : this.marketingStatus.toArray(new Base[this.marketingStatus.size()]); // MarketingStatus
+        case 571831283: /*marketingAuthorization*/ return this.marketingAuthorization == null ? new Base[0] : new Base[] {this.marketingAuthorization}; // Reference
+        case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : this.manufacturer.toArray(new Base[this.manufacturer.size()]); // Reference
         case -1688395901: /*batchIdentifier*/ return this.batchIdentifier == null ? new Base[0] : this.batchIdentifier.toArray(new Base[this.batchIdentifier.size()]); // MedicinalProductPackagedBatchIdentifierComponent
         case 908628089: /*packageItem*/ return this.packageItem == null ? new Base[0] : this.packageItem.toArray(new Base[this.packageItem.size()]); // MedicinalProductPackagedPackageItemComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -1627,6 +1776,12 @@ public class MedicinalProductPackaged extends DomainResource {
           return value;
         case 70767032: // marketingStatus
           this.getMarketingStatus().add(castToMarketingStatus(value)); // MarketingStatus
+          return value;
+        case 571831283: // marketingAuthorization
+          this.marketingAuthorization = castToReference(value); // Reference
+          return value;
+        case -1969347631: // manufacturer
+          this.getManufacturer().add(castToReference(value)); // Reference
           return value;
         case -1688395901: // batchIdentifier
           this.getBatchIdentifier().add((MedicinalProductPackagedBatchIdentifierComponent) value); // MedicinalProductPackagedBatchIdentifierComponent
@@ -1647,6 +1802,10 @@ public class MedicinalProductPackaged extends DomainResource {
           this.description = castToString(value); // StringType
         } else if (name.equals("marketingStatus")) {
           this.getMarketingStatus().add(castToMarketingStatus(value));
+        } else if (name.equals("marketingAuthorization")) {
+          this.marketingAuthorization = castToReference(value); // Reference
+        } else if (name.equals("manufacturer")) {
+          this.getManufacturer().add(castToReference(value));
         } else if (name.equals("batchIdentifier")) {
           this.getBatchIdentifier().add((MedicinalProductPackagedBatchIdentifierComponent) value);
         } else if (name.equals("packageItem")) {
@@ -1662,6 +1821,8 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1618432855:  return getIdentifier(); 
         case -1724546052:  return getDescriptionElement();
         case 70767032:  return addMarketingStatus(); 
+        case 571831283:  return getMarketingAuthorization(); 
+        case -1969347631:  return addManufacturer(); 
         case -1688395901:  return addBatchIdentifier(); 
         case 908628089:  return addPackageItem(); 
         default: return super.makeProperty(hash, name);
@@ -1675,6 +1836,8 @@ public class MedicinalProductPackaged extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 70767032: /*marketingStatus*/ return new String[] {"MarketingStatus"};
+        case 571831283: /*marketingAuthorization*/ return new String[] {"Reference"};
+        case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         case -1688395901: /*batchIdentifier*/ return new String[] {};
         case 908628089: /*packageItem*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -1693,6 +1856,13 @@ public class MedicinalProductPackaged extends DomainResource {
         }
         else if (name.equals("marketingStatus")) {
           return addMarketingStatus();
+        }
+        else if (name.equals("marketingAuthorization")) {
+          this.marketingAuthorization = new Reference();
+          return this.marketingAuthorization;
+        }
+        else if (name.equals("manufacturer")) {
+          return addManufacturer();
         }
         else if (name.equals("batchIdentifier")) {
           return addBatchIdentifier();
@@ -1719,6 +1889,12 @@ public class MedicinalProductPackaged extends DomainResource {
           for (MarketingStatus i : marketingStatus)
             dst.marketingStatus.add(i.copy());
         };
+        dst.marketingAuthorization = marketingAuthorization == null ? null : marketingAuthorization.copy();
+        if (manufacturer != null) {
+          dst.manufacturer = new ArrayList<Reference>();
+          for (Reference i : manufacturer)
+            dst.manufacturer.add(i.copy());
+        };
         if (batchIdentifier != null) {
           dst.batchIdentifier = new ArrayList<MedicinalProductPackagedBatchIdentifierComponent>();
           for (MedicinalProductPackagedBatchIdentifierComponent i : batchIdentifier)
@@ -1744,7 +1920,8 @@ public class MedicinalProductPackaged extends DomainResource {
           return false;
         MedicinalProductPackaged o = (MedicinalProductPackaged) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(description, o.description, true)
-           && compareDeep(marketingStatus, o.marketingStatus, true) && compareDeep(batchIdentifier, o.batchIdentifier, true)
+           && compareDeep(marketingStatus, o.marketingStatus, true) && compareDeep(marketingAuthorization, o.marketingAuthorization, true)
+           && compareDeep(manufacturer, o.manufacturer, true) && compareDeep(batchIdentifier, o.batchIdentifier, true)
            && compareDeep(packageItem, o.packageItem, true);
       }
 
@@ -1760,7 +1937,7 @@ public class MedicinalProductPackaged extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, description, marketingStatus
-          , batchIdentifier, packageItem);
+          , marketingAuthorization, manufacturer, batchIdentifier, packageItem);
       }
 
   @Override

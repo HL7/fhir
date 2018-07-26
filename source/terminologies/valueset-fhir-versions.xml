@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="fhir-versions"/>
@@ -10,7 +10,7 @@
   <extensible value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/fhir-versions"/>
+      <system value="http://terminology.hl7.org/CodeSystem/fhir-versions"/>
     </include>
   </compose>
 </ValueSet>

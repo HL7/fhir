@@ -2633,6 +2633,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           this.value = new TriggerDefinition();
           return this.value;
         }
+        else if (name.equals("valueExpression")) {
+          this.value = new Expression();
+          return this.value;
+        }
         else if (name.equals("valueUsageContext")) {
           this.value = new UsageContext();
           return this.value;
@@ -6700,6 +6704,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           this.defaultValue = new TriggerDefinition();
           return this.defaultValue;
         }
+        else if (name.equals("defaultValueExpression")) {
+          this.defaultValue = new Expression();
+          return this.defaultValue;
+        }
         else if (name.equals("defaultValueUsageContext")) {
           this.defaultValue = new UsageContext();
           return this.defaultValue;
@@ -6898,6 +6906,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
           this.fixed = new TriggerDefinition();
           return this.fixed;
         }
+        else if (name.equals("fixedExpression")) {
+          this.fixed = new Expression();
+          return this.fixed;
+        }
         else if (name.equals("fixedUsageContext")) {
           this.fixed = new UsageContext();
           return this.fixed;
@@ -7088,6 +7100,10 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
         }
         else if (name.equals("patternTriggerDefinition")) {
           this.pattern = new TriggerDefinition();
+          return this.pattern;
+        }
+        else if (name.equals("patternExpression")) {
+          this.pattern = new Expression();
           return this.pattern;
         }
         else if (name.equals("patternUsageContext")) {

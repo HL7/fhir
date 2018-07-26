@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
 	<id value="960150"/>
 
@@ -16,14 +16,14 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="institutional"/>
 		</coding>
 	</type>
 
 	<subType>
 		<coding>
-			<system value="http://hl7.org/fhir/ex-claimsubtype"/>
+			<system value="http://terminology.hl7.org/CodeSystem/ex-claimsubtype"/>
 			<code value="emergency"/>
 		</coding>
 	</subType> 

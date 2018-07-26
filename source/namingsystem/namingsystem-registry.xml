@@ -21,7 +21,7 @@
         </contact>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/identifier-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="SB"/>
           </coding>
         </type>
@@ -62,7 +62,7 @@
         </contact>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/identifier-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
             <code value="SB"/>
           </coding>
         </type>

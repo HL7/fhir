@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -16,7 +16,7 @@
   <description value="Example codes for grouping goals for filtering or presentation."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/goal-category"/>
+      <system value="http://terminology.hl7.org/CodeSystem/goal-category"/>
     </include>
   </compose>
 </ValueSet>

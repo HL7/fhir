@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/security-source-type"/>
+  <url value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
   <version value="20100826"/>
   <name value="Audit Event Source Type"/>
   <status value="active"/>

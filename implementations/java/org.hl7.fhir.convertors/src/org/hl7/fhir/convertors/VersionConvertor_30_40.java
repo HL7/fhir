@@ -8,6 +8,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent;
 import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r4.model.Expression.ExpressionLanguage;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Type;
@@ -3193,7 +3194,6 @@ public class VersionConvertor_30_40 {
     case ENROLLMENTREQUEST: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.ENROLLMENTREQUEST;
     case ENROLLMENTRESPONSE: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.ENROLLMENTRESPONSE;
     case EPISODEOFCARE: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.EPISODEOFCARE;
-    case EXPANSIONPROFILE: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.EXPANSIONPROFILE;
     case EXPLANATIONOFBENEFIT: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.EXPLANATIONOFBENEFIT;
     case FAMILYMEMBERHISTORY: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.FAMILYMEMBERHISTORY;
     case FLAG: return org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionKind.FLAG;
@@ -3317,7 +3317,6 @@ public class VersionConvertor_30_40 {
     case ENROLLMENTREQUEST: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.ENROLLMENTREQUEST;
     case ENROLLMENTRESPONSE: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.ENROLLMENTRESPONSE;
     case EPISODEOFCARE: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.EPISODEOFCARE;
-    case EXPANSIONPROFILE: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.EXPANSIONPROFILE;
     case EXPLANATIONOFBENEFIT: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.EXPLANATIONOFBENEFIT;
     case FAMILYMEMBERHISTORY: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.FAMILYMEMBERHISTORY;
     case FLAG: return org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionKind.FLAG;
@@ -3443,13 +3442,13 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionDynamicValueComponent tgt = new org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionDynamicValueComponent();
     copyElement(src, tgt);
     if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
+      tgt.getExpression().setDescription(src.getDescription());
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
+      tgt.getExpression().setLanguage(ExpressionLanguage.fromCode(src.getLanguage()));
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.getExpression().setExpression(src.getExpression());
     return tgt;
   }
 
@@ -3458,14 +3457,14 @@ public class VersionConvertor_30_40 {
       return null;
     org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionDynamicValueComponent tgt = new org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionDynamicValueComponent();
     copyElement(src, tgt);
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
     if (src.hasPath())
       tgt.setPath(src.getPath());
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+    if (src.getExpression().hasDescription())
+      tgt.setDescription(src.getExpression().getDescription());
+    if (src.getExpression().hasLanguage())
+      tgt.setLanguage(src.getExpression().getLanguage().toCode());
+    if (src.getExpression().hasExpression())
+      tgt.setExpression(src.getExpression().getExpression());
     return tgt;
   }
 
@@ -14531,7 +14530,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDataAbsentReason())
       tgt.setDataAbsentReason(convertCodeableConcept(src.getDataAbsentReason()));
     if (src.hasInterpretation())
-      tgt.setInterpretation(convertCodeableConcept(src.getInterpretation()));
+      tgt.addInterpretation(convertCodeableConcept(src.getInterpretation()));
     if (src.hasComment())
       tgt.setComment(src.getComment());
     if (src.hasBodySite())
@@ -14584,7 +14583,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDataAbsentReason())
       tgt.setDataAbsentReason(convertCodeableConcept(src.getDataAbsentReason()));
     if (src.hasInterpretation())
-      tgt.setInterpretation(convertCodeableConcept(src.getInterpretation()));
+      tgt.setInterpretation(convertCodeableConcept(src.getInterpretationFirstRep()));
     if (src.hasComment())
       tgt.setComment(src.getComment());
     if (src.hasBodySite())
@@ -14701,7 +14700,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDataAbsentReason())
       tgt.setDataAbsentReason(convertCodeableConcept(src.getDataAbsentReason()));
     if (src.hasInterpretation())
-      tgt.setInterpretation(convertCodeableConcept(src.getInterpretation()));
+      tgt.addInterpretation(convertCodeableConcept(src.getInterpretation()));
     for (org.hl7.fhir.dstu3.model.Observation.ObservationReferenceRangeComponent t : src.getReferenceRange())
       tgt.addReferenceRange(convertObservationReferenceRangeComponent(t));
     return tgt;
@@ -14719,7 +14718,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDataAbsentReason())
       tgt.setDataAbsentReason(convertCodeableConcept(src.getDataAbsentReason()));
     if (src.hasInterpretation())
-      tgt.setInterpretation(convertCodeableConcept(src.getInterpretation()));
+      tgt.setInterpretation(convertCodeableConcept(src.getInterpretationFirstRep()));
     for (org.hl7.fhir.r4.model.Observation.ObservationReferenceRangeComponent t : src.getReferenceRange())
       tgt.addReferenceRange(convertObservationReferenceRangeComponent(t));
     return tgt;
@@ -21353,11 +21352,11 @@ public class VersionConvertor_30_40 {
     if (src.hasKind())
       tgt.setKind(convertActionConditionKind(src.getKind()));
     if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
+      tgt.getExpression().setDescription(src.getDescription());
     if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
+      tgt.getExpression().setLanguage(ExpressionLanguage.fromCode(src.getLanguage()));
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.getExpression().setExpression(src.getExpression());
     return tgt;
   }
 
@@ -21368,12 +21367,12 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasKind())
       tgt.setKind(convertActionConditionKind(src.getKind()));
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+    if (src.getExpression().hasDescription())
+      tgt.setDescription(src.getExpression().getDescription());
+    if (src.getExpression().hasLanguage())
+      tgt.setLanguage(src.getExpression().getLanguage().toCode());
+    if (src.getExpression().hasExpression())
+      tgt.setExpression(src.getExpression().getExpression());
     return tgt;
   }
 
@@ -21513,13 +21512,13 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionActionDynamicValueComponent tgt = new org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionActionDynamicValueComponent();
     copyElement(src, tgt);
     if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
+      tgt.getExpression().setDescription(src.getDescription());
     if (src.hasPath())
       tgt.setPath(src.getPath());
     if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
+      tgt.getExpression().setLanguage(ExpressionLanguage.fromCode(src.getLanguage()));
     if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+      tgt.getExpression().setExpression(src.getExpression());
     return tgt;
   }
 
@@ -21528,14 +21527,14 @@ public class VersionConvertor_30_40 {
       return null;
     org.hl7.fhir.dstu3.model.PlanDefinition.PlanDefinitionActionDynamicValueComponent tgt = new org.hl7.fhir.dstu3.model.PlanDefinition.PlanDefinitionActionDynamicValueComponent();
     copyElement(src, tgt);
-    if (src.hasDescription())
-      tgt.setDescription(src.getDescription());
+    if (src.getExpression().hasDescription())
+      tgt.setDescription(src.getExpression().getDescription());
     if (src.hasPath())
       tgt.setPath(src.getPath());
-    if (src.hasLanguage())
-      tgt.setLanguage(src.getLanguage());
-    if (src.hasExpression())
-      tgt.setExpression(src.getExpression());
+    if (src.getExpression().hasLanguage())
+      tgt.setLanguage(src.getExpression().getLanguage().toCode());
+    if (src.getExpression().hasExpression())
+      tgt.setExpression(src.getExpression().getExpression());
     return tgt;
   }
 

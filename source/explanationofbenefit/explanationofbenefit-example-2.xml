@@ -1,4 +1,4 @@
-<ExplanationOfBenefit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+﻿<ExplanationOfBenefit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 	<id value="EB3501"/>
 
 	<text>
@@ -15,14 +15,14 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
 		</coding>
 	</type>
 
 	<subType>
 		<coding>
-			<system value="http://hl7.org/fhir/ex-claimsubtype"/>
+			<system value="http://terminology.hl7.org/CodeSystem/ex-claimsubtype"/>
 			<code value="emergency"/>
 		</coding>
 	</subType>
@@ -87,7 +87,7 @@
 		<sequence value="1"/>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<system value="http://terminology.hl7.org/CodeSystem/claiminformationcategory"/>
 				<code value="employmentimpacted"/>
 			</coding>
 		</category>
@@ -101,7 +101,7 @@
 		<sequence value="2"/>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/ValueSet/claiminformationcategory"/>
+				<system value="http://terminology.hl7.org/CodeSystem/claiminformationcategory"/>
 				<code value="hospitalized"/>
 			</coding>
 		</category>
@@ -180,7 +180,7 @@
 
 	<form>
 		<coding>
-			<system value="http://hl7.org/fhir/forms-codes" />
+			<system value="http://terminology.hl7.org/CodeSystem/forms-codes" />
 			<code value="2" />
 		</coding>
 	</form>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="yesnodontknow"/>
 	<url value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
@@ -10,7 +10,7 @@
 			<valueSet value="http://terminology.hl7.org/ValueSet/v2-0136"/>
 		</include>
 		<include>
-			<system value="http://hl7.org/fhir/data-absent-reason"/>
+			<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 			<concept>
 				<code value="asked-unknown"/>
 				<display value="Don't know"/>
@@ -31,7 +31,7 @@
 			<display value="No"/>
 		</contains>
 		<contains>
-			<system value="http://hl7.org/fhir/data-absent-reason"/>
+			<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 			<code value="asked-unknown"/>
 			<display value="Don't know"/>
 		</contains>

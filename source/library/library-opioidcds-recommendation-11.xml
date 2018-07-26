@@ -1,4 +1,4 @@
-<Library xmlns="http://hl7.org/fhir">
+﻿<Library xmlns="http://hl7.org/fhir">
    <id value="opioidcds-recommendation-11"/>
    <identifier>
       <use value="official"/>
@@ -10,7 +10,7 @@
    <experimental value="false"/>
    <type>
       <coding>
-         <system value="http://hl7.org/fhir/library-type"/>
+         <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
          <code value="logic-library"/>
          <display value="Logic Library"/>
       </coding>
@@ -20,7 +20,7 @@
    <description value="Opioid decision support logic to avoid prescribing opioid pain medication and benzodiazepines concurrently whenever possible."/>
    <useContext>
       <code>
-         <system value="http://hl7.org/fhir/usage-context-type"/>
+         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
          <code value="focus"/>
          <display value="Clinical Focus"/>
       </code>
@@ -34,7 +34,7 @@
    </useContext>
    <useContext>
       <code>
-         <system value="http://hl7.org/fhir/usage-context-type"/>
+         <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
          <code value="focus"/>
          <display value="Clinical Focus"/>
       </code>

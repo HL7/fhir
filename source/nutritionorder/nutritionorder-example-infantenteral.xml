@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = infantenteral  file name = nutritionorder-infantenteral-example.xml  Name= Infant Enteral  Description = Nutrition Order Infant Enteral Feeding Canonical Example
 edited by Eric Haas Health eData Inc
 --><id value="infantenteral"/>
@@ -32,7 +32,7 @@ edited by Eric Haas Health eData Inc
 
 		<additiveType>
 			<coding>
-				<system value="http://hl7.org/fhir/entformula-additive"/>
+				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
 				<code value="carbohydrate"/>
 				<display value="Carbohydrate"/>
 			</coding>

@@ -1,4 +1,4 @@
-<EligibilityResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+﻿<EligibilityResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
 	<id value="E2501"/>
 
 	<text>
@@ -45,7 +45,7 @@
 		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
 					<code value="30"/>
 					<display value="Health Benefit Plan Coverage"/>
 				</coding>
@@ -53,21 +53,21 @@
 
 			<network>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-network"/>
 					<code value="in"/>
 				</coding>
 			</network>
 
 			<unit>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-unit"/>
 					<code value="individual"/>
 				</coding>
 			</unit>
 
 			<term>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-term"/>
 					<code value="annual"/>
 				</coding>
 			</term>
@@ -112,7 +112,7 @@
 		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
 					<code value="69"/>
 					<display value="Maternity"/>
 				</coding>
@@ -120,21 +120,21 @@
 
 			<network>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-network"/>
 					<code value="in"/>
 				</coding>
 			</network>
 
 			<unit>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-unit"/>
 					<code value="individual"/>
 				</coding>
 			</unit>
 
 			<term>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-term"/>
 					<code value="annual"/>
 				</coding>
 			</term>
@@ -156,7 +156,7 @@
 		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
 					<code value="F3"/>
 					<display value="Dental Coverage"/>
 				</coding>
@@ -164,21 +164,21 @@
 
 			<network>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-network"/>
 					<code value="in"/>
 				</coding>
 			</network>
 
 			<unit>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-unit"/>
 					<code value="individual"/>
 				</coding>
 			</unit>
 
 			<term>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-term"/>
 					<code value="annual"/>
 				</coding>
 			</term>
@@ -200,7 +200,7 @@
 		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
 					<code value="F6"/>
 					<display value="Vision Coverage"/>
 				</coding>
@@ -208,21 +208,21 @@
 
 			<network>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-network"/>
 					<code value="in"/>
 				</coding>
 			</network>
 
 			<unit>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-unit"/>
 					<code value="individual"/>
 				</coding>
 			</unit>
 
 			<term>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-term"/>
 					<code value="annual"/>
 				</coding>
 			</term>
@@ -244,7 +244,7 @@
 		<detail>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
 					<code value="49"/>
 					<display value="Hospital Room and Board"/>
 				</coding>
@@ -252,21 +252,21 @@
 
 			<network>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-network"/>
 					<code value="in"/>
 				</coding>
 			</network>
 
 			<unit>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-unit"/>
 					<code value="individual"/>
 				</coding>
 			</unit>
 
 			<term>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
+					<system value="http://terminology.hl7.org/CodeSystem/benefit-term"/>
 					<code value="day"/>
 				</coding>
 			</term>

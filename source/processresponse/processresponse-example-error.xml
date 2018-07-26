@@ -1,4 +1,4 @@
-<ProcessResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+﻿<ProcessResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
 	<id value="SR2349"/>
 
 	<text>
@@ -48,7 +48,7 @@
 
 	<error>
 		<coding>
-			<system value="http://hl7.org/fhir/adjudication-error"/>
+			<system value="http://terminology.hl7.org/CodeSystem/adjudication-error"/>
 			<code value="a001"/>
 		</coding>
 	</error>

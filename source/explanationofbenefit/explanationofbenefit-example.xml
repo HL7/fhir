@@ -1,4 +1,4 @@
-<ExplanationOfBenefit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+﻿<ExplanationOfBenefit xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 	<id value="EB3500"/>
 
 	<text>
@@ -15,7 +15,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
 		</coding>
 	</type>
@@ -55,12 +55,12 @@
 	<payee>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/payeetype"/>
+				<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
 				<code value="provider"/>
 			</coding>
 		</type>
 		<resource>
-			<system value="http://hl7.org/fhir/resource-type-link"/>
+			<system value="http://terminology.hl7.org/CodeSystem/resource-type-link"/>
 			<code value="organization"/>
 		</resource>
 		<party>
@@ -86,8 +86,8 @@
 		<careTeamSequence value="1"/>
 		<service>
 			<coding>
-				<system value="http://hl7.org/fhir/service-uscls"/>
-				<code value="1200"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
+				<code value="1205"/>
 			</coding>
 		</service>
 		<servicedDate value="2014-08-16"/>

@@ -106,6 +106,7 @@ public class ResourceValidator extends BaseValidator {
   private List<FHIRPathUsage> fpUsages;
   private List<String> suppressedMessages;
   private IWorkerContext context;
+  private Set<String> txurls = new HashSet<String>();
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
@@ -1073,6 +1074,11 @@ public class ResourceValidator extends BaseValidator {
       rule(errors, IssueType.STRUCTURE, path, cd.getElementType() == ElementType.Complex, "Cannot use a binding from both code and Coding/CodeableConcept elements");
     else
       rule(errors, IssueType.STRUCTURE, path, cd.getElementType() == ElementType.Simple, "Cannot use a binding from both code and Coding/CodeableConcept elements");
+    if (isComplex && cd.getValueSet() != null) {
+      for (ConceptSetComponent inc : cd.getValueSet().getCompose().getInclude()) 
+        if (inc.hasSystem())
+          txurls.add(inc.getSystem());
+    }
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, (cd.getElementType() != ElementType.Simple || cd.getStrength() == BindingStrength.REQUIRED || cd.hasMax()) || isExemptFromProperBindingRules(path), "Must be a required binding if bound to a code instead of a Coding/CodeableConcept");
     rule(errors, IssueType.STRUCTURE, "Binding @ "+path, cd.getElementType() != ElementType.Simple || cd.getBinding() != BindingMethod.Unbound, "Need to provide a binding for code elements");
     if (!isComplex && !externalException(path)) {
@@ -1138,6 +1144,10 @@ public class ResourceValidator extends BaseValidator {
 //      total += names.get(n);
 //    }
 //    System.out.println("total = "+Integer.toString(total));
+//    for (String s : txurls) {
+//      if (!s.startsWith("http://terminology.hl7.org") &&s.startsWith("http://hl7.org/fhir"))
+//        System.out.println("URL to fix: "+s);
+//    }
   }
 
   public void summariseSearchTypes(Set<String> searchTypeUsage) {

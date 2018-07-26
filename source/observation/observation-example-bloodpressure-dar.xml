@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<id value="blood-pressure-dar"/>
 	<meta>
@@ -11,7 +11,7 @@
 	<status value="final"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="vital-signs"/>
 			<display value="Vital Signs"/>
 		</coding>
@@ -87,7 +87,7 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			</coding>
 		</code><!--   Here the Diastolic measurement is missing and we give a reason using the DataAbsentReason element   --><dataAbsentReason>
 			<coding>
-				<system value="http://hl7.org/fhir/data-absent-reason"/>
+				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 				<code value="not-performed"/>
 				<display value="Not Performed"/>
 			</coding>

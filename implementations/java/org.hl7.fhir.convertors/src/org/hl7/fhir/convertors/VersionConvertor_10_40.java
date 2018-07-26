@@ -8496,7 +8496,7 @@ public class VersionConvertor_10_40 {
       tgt.addPerformer(convertReference(t));
     tgt.setValue(convertType(src.getValue()));
     tgt.setDataAbsentReason(convertCodeableConcept(src.getDataAbsentReason()));
-    tgt.setInterpretation(convertCodeableConcept(src.getInterpretation()));
+    tgt.addInterpretation(convertCodeableConcept(src.getInterpretation()));
     tgt.setComment(src.getComments());
     tgt.setBodySite(convertCodeableConcept(src.getBodySite()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
@@ -8532,7 +8532,7 @@ public class VersionConvertor_10_40 {
       tgt.addPerformer(convertReference(t));
     tgt.setValue(convertType(src.getValue()));
     tgt.setDataAbsentReason(convertCodeableConcept(src.getDataAbsentReason()));
-    tgt.setInterpretation(convertCodeableConcept(src.getInterpretation()));
+    tgt.setInterpretation(convertCodeableConcept(src.getInterpretationFirstRep()));
     tgt.setComments(src.getComment());
     tgt.setBodySite(convertCodeableConcept(src.getBodySite()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));

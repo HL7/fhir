@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -704,12 +704,12 @@ public class Observation extends DomainResource {
         protected CodeableConcept dataAbsentReason;
 
         /**
-         * The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
+         * A categorical assessment of an observation value.  For example, high, low, normal.
          */
-        @Child(name = "interpretation", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="High, low, normal, etc.", formalDefinition="The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag." )
+        @Child(name = "interpretation", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="High, low, normal, etc.", formalDefinition="A categorical assessment of an observation value.  For example, high, low, normal." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/observation-interpretation")
-        protected CodeableConcept interpretation;
+        protected List<CodeableConcept> interpretation;
 
         /**
          * Guidance on how to interpret the value by comparison to a normal or recommended range.
@@ -718,7 +718,7 @@ public class Observation extends DomainResource {
         @Description(shortDefinition="Provides guide for interpretation of component result", formalDefinition="Guidance on how to interpret the value by comparison to a normal or recommended range." )
         protected List<ObservationReferenceRangeComponent> referenceRange;
 
-        private static final long serialVersionUID = -846379911L;
+        private static final long serialVersionUID = 576590931L;
 
     /**
      * Constructor
@@ -970,27 +970,56 @@ public class Observation extends DomainResource {
         }
 
         /**
-         * @return {@link #interpretation} (The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.)
+         * @return {@link #interpretation} (A categorical assessment of an observation value.  For example, high, low, normal.)
          */
-        public CodeableConcept getInterpretation() { 
+        public List<CodeableConcept> getInterpretation() { 
           if (this.interpretation == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ObservationComponentComponent.interpretation");
-            else if (Configuration.doAutoCreate())
-              this.interpretation = new CodeableConcept(); // cc
+            this.interpretation = new ArrayList<CodeableConcept>();
           return this.interpretation;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ObservationComponentComponent setInterpretation(List<CodeableConcept> theInterpretation) { 
+          this.interpretation = theInterpretation;
+          return this;
+        }
+
         public boolean hasInterpretation() { 
-          return this.interpretation != null && !this.interpretation.isEmpty();
+          if (this.interpretation == null)
+            return false;
+          for (CodeableConcept item : this.interpretation)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public CodeableConcept addInterpretation() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.interpretation == null)
+            this.interpretation = new ArrayList<CodeableConcept>();
+          this.interpretation.add(t);
+          return t;
+        }
+
+        public ObservationComponentComponent addInterpretation(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.interpretation == null)
+            this.interpretation = new ArrayList<CodeableConcept>();
+          this.interpretation.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #interpretation} (The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.)
+         * @return The first repetition of repeating field {@link #interpretation}, creating it if it does not already exist
          */
-        public ObservationComponentComponent setInterpretation(CodeableConcept value) { 
-          this.interpretation = value;
-          return this;
+        public CodeableConcept getInterpretationFirstRep() { 
+          if (getInterpretation().isEmpty()) {
+            addInterpretation();
+          }
+          return getInterpretation().get(0);
         }
 
         /**
@@ -1051,7 +1080,7 @@ public class Observation extends DomainResource {
           children.add(new Property("code", "CodeableConcept", "Describes what was observed. Sometimes this is called the observation \"code\".", 0, 1, code));
           children.add(new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value));
           children.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.component.value[x] is missing.", 0, 1, dataAbsentReason));
-          children.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, 1, interpretation));
+          children.add(new Property("interpretation", "CodeableConcept", "A categorical assessment of an observation value.  For example, high, low, normal.", 0, java.lang.Integer.MAX_VALUE, interpretation));
           children.add(new Property("referenceRange", "@Observation.referenceRange", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange));
         }
 
@@ -1073,7 +1102,7 @@ public class Observation extends DomainResource {
           case 1047929900: /*valueDateTime*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
           case -1524344174: /*valuePeriod*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
           case 1034315687: /*dataAbsentReason*/  return new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.component.value[x] is missing.", 0, 1, dataAbsentReason);
-          case -297950712: /*interpretation*/  return new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, 1, interpretation);
+          case -297950712: /*interpretation*/  return new Property("interpretation", "CodeableConcept", "A categorical assessment of an observation value.  For example, high, low, normal.", 0, java.lang.Integer.MAX_VALUE, interpretation);
           case -1912545102: /*referenceRange*/  return new Property("referenceRange", "@Observation.referenceRange", "Guidance on how to interpret the value by comparison to a normal or recommended range.", 0, java.lang.Integer.MAX_VALUE, referenceRange);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -1086,7 +1115,7 @@ public class Observation extends DomainResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
         case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
-        case -297950712: /*interpretation*/ return this.interpretation == null ? new Base[0] : new Base[] {this.interpretation}; // CodeableConcept
+        case -297950712: /*interpretation*/ return this.interpretation == null ? new Base[0] : this.interpretation.toArray(new Base[this.interpretation.size()]); // CodeableConcept
         case -1912545102: /*referenceRange*/ return this.referenceRange == null ? new Base[0] : this.referenceRange.toArray(new Base[this.referenceRange.size()]); // ObservationReferenceRangeComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1106,7 +1135,7 @@ public class Observation extends DomainResource {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -297950712: // interpretation
-          this.interpretation = castToCodeableConcept(value); // CodeableConcept
+          this.getInterpretation().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1912545102: // referenceRange
           this.getReferenceRange().add((ObservationReferenceRangeComponent) value); // ObservationReferenceRangeComponent
@@ -1125,7 +1154,7 @@ public class Observation extends DomainResource {
         } else if (name.equals("dataAbsentReason")) {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("interpretation")) {
-          this.interpretation = castToCodeableConcept(value); // CodeableConcept
+          this.getInterpretation().add(castToCodeableConcept(value));
         } else if (name.equals("referenceRange")) {
           this.getReferenceRange().add((ObservationReferenceRangeComponent) value);
         } else
@@ -1140,7 +1169,7 @@ public class Observation extends DomainResource {
         case -1410166417:  return getValue(); 
         case 111972721:  return getValue(); 
         case 1034315687:  return getDataAbsentReason(); 
-        case -297950712:  return getInterpretation(); 
+        case -297950712:  return addInterpretation(); 
         case -1912545102:  return addReferenceRange(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1215,8 +1244,7 @@ public class Observation extends DomainResource {
           return this.dataAbsentReason;
         }
         else if (name.equals("interpretation")) {
-          this.interpretation = new CodeableConcept();
-          return this.interpretation;
+          return addInterpretation();
         }
         else if (name.equals("referenceRange")) {
           return addReferenceRange();
@@ -1231,7 +1259,11 @@ public class Observation extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.value = value == null ? null : value.copy();
         dst.dataAbsentReason = dataAbsentReason == null ? null : dataAbsentReason.copy();
-        dst.interpretation = interpretation == null ? null : interpretation.copy();
+        if (interpretation != null) {
+          dst.interpretation = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : interpretation)
+            dst.interpretation.add(i.copy());
+        };
         if (referenceRange != null) {
           dst.referenceRange = new ArrayList<ObservationReferenceRangeComponent>();
           for (ObservationReferenceRangeComponent i : referenceRange)
@@ -1407,12 +1439,12 @@ public class Observation extends DomainResource {
     protected CodeableConcept dataAbsentReason;
 
     /**
-     * The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
+     * A categorical assessment of an observation value.  For example, high, low, normal.
      */
-    @Child(name = "interpretation", type = {CodeableConcept.class}, order=14, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="High, low, normal, etc.", formalDefinition="The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag." )
+    @Child(name = "interpretation", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="High, low, normal, etc.", formalDefinition="A categorical assessment of an observation value.  For example, high, low, normal." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/observation-interpretation")
-    protected CodeableConcept interpretation;
+    protected List<CodeableConcept> interpretation;
 
     /**
      * Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
@@ -1499,7 +1531,7 @@ public class Observation extends DomainResource {
     @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations." )
     protected List<ObservationComponentComponent> component;
 
-    private static final long serialVersionUID = -243802723L;
+    private static final long serialVersionUID = -541209789L;
 
   /**
    * Constructor
@@ -2348,27 +2380,56 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #interpretation} (The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.)
+     * @return {@link #interpretation} (A categorical assessment of an observation value.  For example, high, low, normal.)
      */
-    public CodeableConcept getInterpretation() { 
+    public List<CodeableConcept> getInterpretation() { 
       if (this.interpretation == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Observation.interpretation");
-        else if (Configuration.doAutoCreate())
-          this.interpretation = new CodeableConcept(); // cc
+        this.interpretation = new ArrayList<CodeableConcept>();
       return this.interpretation;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Observation setInterpretation(List<CodeableConcept> theInterpretation) { 
+      this.interpretation = theInterpretation;
+      return this;
+    }
+
     public boolean hasInterpretation() { 
-      return this.interpretation != null && !this.interpretation.isEmpty();
+      if (this.interpretation == null)
+        return false;
+      for (CodeableConcept item : this.interpretation)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addInterpretation() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.interpretation == null)
+        this.interpretation = new ArrayList<CodeableConcept>();
+      this.interpretation.add(t);
+      return t;
+    }
+
+    public Observation addInterpretation(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.interpretation == null)
+        this.interpretation = new ArrayList<CodeableConcept>();
+      this.interpretation.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #interpretation} (The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.)
+     * @return The first repetition of repeating field {@link #interpretation}, creating it if it does not already exist
      */
-    public Observation setInterpretation(CodeableConcept value) { 
-      this.interpretation = value;
-      return this;
+    public CodeableConcept getInterpretationFirstRep() { 
+      if (getInterpretation().isEmpty()) {
+        addInterpretation();
+      }
+      return getInterpretation().get(0);
     }
 
     /**
@@ -2799,7 +2860,7 @@ public class Observation extends DomainResource {
         children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|RelatedPerson)", "Who was responsible for asserting the observed value as \"true\".", 0, java.lang.Integer.MAX_VALUE, performer));
         children.add(new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value));
         children.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason));
-        children.add(new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, 1, interpretation));
+        children.add(new Property("interpretation", "CodeableConcept", "A categorical assessment of an observation value.  For example, high, low, normal.", 0, java.lang.Integer.MAX_VALUE, interpretation));
         children.add(new Property("comment", "string", "Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.", 0, 1, comment));
         children.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite));
         children.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method));
@@ -2844,7 +2905,7 @@ public class Observation extends DomainResource {
         case 1047929900: /*valueDateTime*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
         case -1524344174: /*valuePeriod*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
         case 1034315687: /*dataAbsentReason*/  return new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason);
-        case -297950712: /*interpretation*/  return new Property("interpretation", "CodeableConcept", "The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.", 0, 1, interpretation);
+        case -297950712: /*interpretation*/  return new Property("interpretation", "CodeableConcept", "A categorical assessment of an observation value.  For example, high, low, normal.", 0, java.lang.Integer.MAX_VALUE, interpretation);
         case 950398559: /*comment*/  return new Property("comment", "string", "Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.", 0, 1, comment);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite);
         case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method);
@@ -2876,7 +2937,7 @@ public class Observation extends DomainResource {
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
         case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
-        case -297950712: /*interpretation*/ return this.interpretation == null ? new Base[0] : new Base[] {this.interpretation}; // CodeableConcept
+        case -297950712: /*interpretation*/ return this.interpretation == null ? new Base[0] : this.interpretation.toArray(new Base[this.interpretation.size()]); // CodeableConcept
         case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
         case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
@@ -2938,7 +2999,7 @@ public class Observation extends DomainResource {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -297950712: // interpretation
-          this.interpretation = castToCodeableConcept(value); // CodeableConcept
+          this.getInterpretation().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 950398559: // comment
           this.comment = castToString(value); // StringType
@@ -3004,7 +3065,7 @@ public class Observation extends DomainResource {
         } else if (name.equals("dataAbsentReason")) {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("interpretation")) {
-          this.interpretation = castToCodeableConcept(value); // CodeableConcept
+          this.getInterpretation().add(castToCodeableConcept(value));
         } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
         } else if (name.equals("bodySite")) {
@@ -3047,7 +3108,7 @@ public class Observation extends DomainResource {
         case -1410166417:  return getValue(); 
         case 111972721:  return getValue(); 
         case 1034315687:  return getDataAbsentReason(); 
-        case -297950712:  return getInterpretation(); 
+        case -297950712:  return addInterpretation(); 
         case 950398559:  return getCommentElement();
         case 1702620169:  return getBodySite(); 
         case -1077554975:  return getMethod(); 
@@ -3193,8 +3254,7 @@ public class Observation extends DomainResource {
           return this.dataAbsentReason;
         }
         else if (name.equals("interpretation")) {
-          this.interpretation = new CodeableConcept();
-          return this.interpretation;
+          return addInterpretation();
         }
         else if (name.equals("comment")) {
           throw new FHIRException("Cannot call addChild on a primitive type Observation.comment");
@@ -3277,7 +3337,11 @@ public class Observation extends DomainResource {
         };
         dst.value = value == null ? null : value.copy();
         dst.dataAbsentReason = dataAbsentReason == null ? null : dataAbsentReason.copy();
-        dst.interpretation = interpretation == null ? null : interpretation.copy();
+        if (interpretation != null) {
+          dst.interpretation = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : interpretation)
+            dst.interpretation.add(i.copy());
+        };
         dst.comment = comment == null ? null : comment.copy();
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.method = method == null ? null : method.copy();

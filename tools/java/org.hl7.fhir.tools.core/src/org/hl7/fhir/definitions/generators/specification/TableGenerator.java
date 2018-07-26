@@ -254,7 +254,7 @@ public class TableGenerator extends BaseGenerator {
     } else
       for (ElementDefn c : e.getElements())
         row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false, null));
-    return row;
+    return row; 
   } 
 
   private boolean isReference(String t) {

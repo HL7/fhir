@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adjudication-error"/>
-  <url value="http://hl7.org/fhir/adjudication-error"/>
+  <url value="http://terminology.hl7.org/CodeSystem/adjudication-error"/>
   <name value="Adjudication Error Codes"/>
   <status value="draft"/>
   <experimental value="true"/>

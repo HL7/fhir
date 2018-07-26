@@ -108,6 +108,7 @@ public class BindingsParser {
         throw new Exception("binding name "+cd.getName()+" is illegal - must start with a capital letter");
       cd.setDefinition(sheet.getColumn(row, "Definition"));
       cd.setBindingMethod(readBinding(sheet.getColumn(row, "Binding"), cd.getName()+" in "+filename));
+      boolean utg = "y".equals(sheet.getColumn(row, "UTG"));
       String ref = sheet.getColumn(row, "Reference");
       if (!cd.getBinding().equals(BindingMethod.Unbound) && Utilities.noString(ref)) 
         throw new Exception("binding "+cd.getName()+" is missing a reference");
@@ -131,7 +132,7 @@ public class BindingsParser {
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"), utg);
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:")) {
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later

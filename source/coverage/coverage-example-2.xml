@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
 	<id value="7546D"/>
 
@@ -51,7 +51,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-class"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="group"/>
 		</type>
 		<value value="WESTAIR"/>
@@ -60,7 +60,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-class"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="plan"/>
 		</type>
 		<value value="BG4352"/>
@@ -69,7 +69,7 @@
 
 	<class>
 		<type>
-			<system value="http://hl7.org/fhir/coverage-class"/>
+			<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 			<code value="subplan"/>
 		</type>
 		<value value="D15C9"/>

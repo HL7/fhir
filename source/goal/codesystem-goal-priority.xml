@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/goal-priority"/>
+  <url value="http://terminology.hl7.org/CodeSystem/goal-priority"/>
   <name value="GoalPriority"/>
   <status value="draft"/>
   <experimental value="false"/>

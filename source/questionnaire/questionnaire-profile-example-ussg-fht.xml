@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Eric Haas (Health eData Inc) -->
 <!-- 
 Note: The URLs used for LOINC objects have not been approved by the LOINC organization.  If/when LOINC begins officially exposing their content as FHIR objects, the URLs may differ
@@ -287,7 +287,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="This represents an implementation of the &quot;US Surgeon General family health portrait&quot; form found at https://lforms-demo.nlm.nih.gov"/>
 				<useContext>
           <code>
-            <system value="http://hl7.org/fhir/usage-context-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
             <code value="species"/>
           </code>
           <valueCodeableConcept>

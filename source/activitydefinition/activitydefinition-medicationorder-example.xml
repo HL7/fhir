@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ActivityDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd"
  xmlns="http://hl7.org/fhir">
@@ -78,7 +78,7 @@
   <description value="Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills"/>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="age"/>
     </code>
     <valueCodeableConcept>
@@ -91,7 +91,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -104,7 +104,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -117,7 +117,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -130,7 +130,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -143,7 +143,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="user"/>
     </code>
     <valueCodeableConcept>
@@ -156,7 +156,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="venue"/>
     </code>
     <valueCodeableConcept>
@@ -233,7 +233,7 @@
 	  <doseAndRate>
 	    <type>
 	      <coding>
-	        <system value="http://hl7.org/fhir/dose-rate-type"/>
+	        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
 	        <code value="ordered"/>
 	        <display value="Ordered"/>
 	      </coding>

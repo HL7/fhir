@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<a name="notes">
 	</a>
 	<h2>Notes:</h2>
@@ -248,7 +248,7 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 	"dataAbsentReason": {
 		"coding": [
 			{
-				"system": "http://hl7.org/fhir/data-absent-reason",
+				"system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
 				"code": "NaN",
 				"display": "Not a Number"
 			}

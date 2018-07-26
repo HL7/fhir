@@ -1032,6 +1032,8 @@ public class ProfileGenerator {
       return SearchParamType.COMPOSITE;
     case quantity:
       return SearchParamType.QUANTITY;
+    case special:
+      return SearchParamType.SPECIAL;
     }
     return null;
   }

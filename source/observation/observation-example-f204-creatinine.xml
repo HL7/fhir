@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
 	<id value="f204"/><!-- The observation is complete --><!-- No reliability concerns --><identifier>
 		<system value="https://intranet.aumc.nl/labvalues"/><!-- Does not exist --><value value="1304-03720-Creatinine"/>
@@ -41,7 +41,7 @@
 		</high>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/referencerange-meaning"/>
+				<system value="http://terminology.hl7.org/CodeSystem/referencerange-meaning"/>
 				<code value="normal"/>
 				<display value="Normal Range"/>
 			</coding>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
+  <url value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason"/>
   <name value="Vaccination Protocol Dose Status Reason codes"/>
   <status value="draft"/>
   <experimental value="false"/>

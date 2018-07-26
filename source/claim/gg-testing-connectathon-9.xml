@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir">
   <contained>
     <Patient>
@@ -37,7 +37,7 @@
   <created value="2015-05-10T16:30:00+10:00"/>
   <!-- this should be a code? -->
   <priority>
-    <system value="http://hl7.org/fhir/processpriority"/>
+    <system value="http://terminology.hl7.org/CodeSystem/processpriority"/>
     <code value="normal"/>
   </priority>
   <patient>
@@ -53,8 +53,8 @@
       <reference value="#p2"/>
     </provider>
     <service>
-      <system value="http://hl7.org/fhir/ex-USCLS"/>
-      <code value="1102"/>
+      <system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
+      <code value="1205"/>
     </service>
     <serviceDate value="2015-05-10"/>
     <unitPrice>
@@ -74,7 +74,7 @@
       <reference value="#p2"/>
     </provider>
     <service>
-      <system value="http://hl7.org/fhir/ex-USCLS"/>
+      <system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
       <code value="21211"/>
     </service>
     <serviceDate value="2015-05-10"/>
@@ -89,7 +89,7 @@
       <code value="21"/>
     </bodySite>
     <subSite>
-      <system value="http://hl7.org/fhir/FDI-surface"/>
+      <system value="http://terminology.hl7.org/CodeSystem/FDI-surface"/>
       <code value="L"/>
     </subSite>
   </item> 
@@ -103,7 +103,7 @@
       <reference value="#p2"/>
     </provider>
     <service>
-      <system value="http://hl7.org/fhir/ex-USCLS"/>
+      <system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
       <code value="27211"/>
     </service>
     <serviceDate value="2015-05-10"/>

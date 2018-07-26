@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Organization xmlns="http://hl7.org/fhir">
   <id value="f201"/>
@@ -23,7 +23,7 @@
       <display value="University Medical Hospital"/>
     </coding>
     <coding>
-      <system value="http://hl7.org/fhir/organization-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/organization-type"/>
       <code value="prov"/>
       <display value="Healthcare Provider"/>
     </coding>

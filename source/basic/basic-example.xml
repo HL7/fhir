@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- This is a bare-bones referral intended to show how the Basic resource might be used.
 A real referral would likely include references to supporting information such as medication lists,
 problem lists, allergy lists, etc.
@@ -56,7 +56,7 @@ in a future version (todo).
   </identifier>
   <code>
     <coding>
-      <system value="http://hl7.org/fhir/basic-resource-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/basic-resource-type"/>
       <code value="referral"/>
     </coding>
   </code>

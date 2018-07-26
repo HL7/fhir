@@ -1066,6 +1066,8 @@ public class SpreadsheetParser {
       return SearchType.composite;
     if ("quantity".equals(s))
       return SearchType.quantity;
+    if ("special".equals(s))
+      return SearchType.special;
 		throw new Exception("Unknown Search Type '" + s + "': " + getLocation(row));
 	}
 
@@ -1127,7 +1129,7 @@ public class SpreadsheetParser {
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         vsGen.updateHeader(cd, cd.getValueSet());
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")), getIsUtg(bindingName));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -1208,6 +1210,24 @@ public class SpreadsheetParser {
 	    }
 		}
 	}
+
+	private boolean getIsUtg(String bindingName) {
+	  Sheet sheet =  loadSheet("Data Elements");
+	  if (sheet != null)
+	    for (int row = 0; row < sheet.rows.size(); row++) {
+	      if (bindingName.equals(sheet.getColumn(row, "Binding"))) {
+	        return !"code".equals(sheet.getColumn(row, "Type"));
+	      }
+	    }
+	  sheet =  loadSheet("Operations");
+	  if (sheet != null)
+	    for (int row = 0; row < sheet.rows.size(); row++) {
+	      if (bindingName.equals(sheet.getColumn(row, "Binding"))) {
+	        return !"code".equals(sheet.getColumn(row, "Type"));
+	      }
+	    }
+	  return true;
+  }
 
   private ValueSet loadValueSet(String ref) throws Exception {
 	  if (!ref.startsWith("valueset-"))

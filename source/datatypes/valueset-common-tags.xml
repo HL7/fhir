@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Common Tags"/>
@@ -13,7 +13,7 @@
   <description value="Common Tag Codes defined by FHIR project"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/common-tags"/>
+      <system value="http://terminology.hl7.org/CodeSystem/common-tags"/>
     </include>
   </compose>
 </ValueSet>

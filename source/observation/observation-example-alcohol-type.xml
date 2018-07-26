@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- 
+﻿<?xml version="1.0" encoding="UTF-8"?><!-- 
  This is an example of a multi-select values/answers as a single observatio using components to group  the multiple answers 
  --><Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
 	<id value="alcohol-type"/><!--  the mandatory quality flags:  --><status value="final"/><!-- 
@@ -9,7 +9,7 @@
 	In this example there is only local codes
    --><category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="social-history"/>
 			<display value="Social History"/>
 		</coding>

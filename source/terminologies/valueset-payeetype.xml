@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="payeetype"/>
@@ -19,7 +19,7 @@
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/payeetype"/>
+      <system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
     </include>
   </compose>
 </ValueSet>

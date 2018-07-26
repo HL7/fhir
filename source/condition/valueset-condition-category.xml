@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -17,7 +17,7 @@
   <description value="Preferred value set for Condition Categories."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/condition-category"/>
+      <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
     </include>
   </compose>
 </ValueSet>

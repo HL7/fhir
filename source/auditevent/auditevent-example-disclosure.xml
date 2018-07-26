@@ -1,4 +1,4 @@
-<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
+﻿<AuditEvent xmlns="http://hl7.org/fhir"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-disclosure"/>
 	<text>
 		<status value="generated"/>
@@ -85,7 +85,7 @@
 			<display value="Watchers Accounting of Disclosures Application"/>
 		</observer>
 		<type>
-			<system value="http://hl7.org/fhir/security-source-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
 			<code value="4"/>
 			<display value="Application Server"/>
 		</type>
@@ -96,12 +96,12 @@
 			<reference value="Patient/example"/>
 		</what>
 		<type>
-			<system value="http://hl7.org/fhir/object-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
 			<code value="1"/>
 			<display value="Person"/>
 		</type>
 		<role>
-			<system value="http://hl7.org/fhir/object-role"/>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="1"/>
 			<display value="Patient"/>
 		</role>
@@ -115,17 +115,17 @@
 			</identifier>
 		</what>
 		<type>
-			<system value="http://hl7.org/fhir/object-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
 			<code value="2"/>
 			<display value="System Object"/>
 		</type>
 		<role>
-			<system value="http://hl7.org/fhir/object-role"/>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="4"/>
 			<display value="Domain Resource"/>
 		</role>
 		<lifecycle>
-			<system value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
+			<system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
 			<code value="11"/>
 			<display value="Disclosure"/>
 		</lifecycle>

@@ -138,9 +138,9 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         concept.setDisplay(display);
         concept.setDefinition(textDefinition);
         if (displayNL != null)
-          concept.addDesignation().setLanguage("nl").setValue(displayNL).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("display");
+          concept.addDesignation().setLanguage("nl").setValue(displayNL).getUse().setSystem("http://terminology.hl7.org/CodeSystem/designation-usage").setCode("display");
         if (definitionNL != null)
-          concept.addDesignation().setLanguage("nl").setValue(definitionNL).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("definition");
+          concept.addDesignation().setLanguage("nl").setValue(definitionNL).getUse().setSystem("http://terminology.hl7.org/CodeSystem/designation-usage").setCode("definition");
         
         if (doPart && partOf != null)
           concept.addProperty().setCode("partOf").setValue(new CodeType(partOf));

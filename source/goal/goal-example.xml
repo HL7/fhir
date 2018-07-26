@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/goal.xsd">
 	<id value="example"/>
 	<text>
@@ -13,13 +13,13 @@
 	<status value="on-hold"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/goal-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/goal-category"/>
 			<code value="dietary"/>
 		</coding>
 	</category>
 	<priority>
 		<coding>
-			<system value="http://hl7.org/fhir/goal-priority" />
+			<system value="http://terminology.hl7.org/CodeSystem/goal-priority" />
 			<code value="high-priority" />
 			<display value="High Priority" />
 		</coding>

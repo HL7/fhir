@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
    <id value="INS-101"/>
@@ -22,7 +22,7 @@
    
    <type>
       <coding>
-         <system value="http://hl7.org/fhir/contracttypecodes"/>
+         <system value="http://terminology.hl7.org/CodeSystem/coverage-copay-type"/>
          <code value="healthinsurance"/>
          <display value="Health Insurance"/>
       </coding>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
 	<id value="660152"/>
 
@@ -47,7 +47,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="vision"/>
 		</coding>
 	</type>
@@ -128,33 +128,33 @@
 		<careTeamSequence value="1"/>
 		<revenue>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-revenue-center"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 				<code value="0010"/>
 				<display value ="Vision Clinic"/>
 			</coding>
 		</revenue>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/benefit-subcategory"/>
+				<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 				<code value="F6"/>
 				<display value ="Vision Coverage"/>
 			</coding>
 		</category>
 		<service>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-visionservice"/>
+				<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 				<code value="glasses"/>
 			</coding>
 		</service>
 		<modifier>
 			<coding>
-				<system value="http://hl7.org/fhir/modifiers"/>
+				<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
 				<code value="rooh"/>
 			</coding>
 		</modifier>
 		<programCode>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-programcode"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
 				<code value="none"/>
 			</coding>
 		</programCode>	
@@ -172,27 +172,27 @@
 			<sequence value="1"/>
 			<revenue>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-revenue-center"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 					<code value="0010"/>
 					<display value ="Vision Clinic"/>
 				</coding>
 			</revenue>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 					<code value="F6"/>
 					<display value ="Vision Coverage"/>
 				</coding>
 			</category>
 			<service>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-visionservice"/>
+					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="frame"/>
 				</coding>
 			</service>
 			<modifier>
 				<coding>
-					<system value="http://hl7.org/fhir/modifiers"/>
+					<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
 					<code value="rooh"/>
 				</coding>
 			</modifier>
@@ -214,27 +214,27 @@
 			<sequence value="2"/>
 			<revenue>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-revenue-center"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 					<code value="0010"/>
 					<display value ="Vision Clinic"/>
 				</coding>
 			</revenue>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 					<code value="F6"/>
 					<display value ="Vision Coverage"/>
 				</coding>
 			</category>
 			<service>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-visionservice"/>
+					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="lens"/>
 				</coding>
 			</service>
 			<programCode>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-programcode"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
 					<code value="none"/>
 				</coding>
 			</programCode>	
@@ -254,33 +254,33 @@
 				<sequence value="1"/>
 				<revenue>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-revenue-center"/>
+						<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 						<code value="0010"/>
 						<display value ="Vision Clinic"/>
 					</coding>
 				</revenue>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/benefit-subcategory"/>
+						<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 						<code value="F6"/>
 						<display value ="Vision Coverage"/>
 					</coding>
 				</category>
 				<service>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-visionservice"/>
+						<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 						<code value="lens"/>
 					</coding>
 				</service>
 				<modifier>
 					<coding>
-						<system value="http://hl7.org/fhir/modifiers"/>
+						<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
 						<code value="rooh"/>
 					</coding>
 				</modifier>
 				<programCode>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-programcode"/>
+						<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
 						<code value="none"/>
 					</coding>
 				</programCode>	
@@ -305,27 +305,27 @@
 				<sequence value="2"/>
 				<revenue>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-revenue-center"/>
+						<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 						<code value="0010"/>
 						<display value ="Vision Clinic"/>
 					</coding>
 				</revenue>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/benefit-subcategory"/>
+						<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 						<code value="F6"/>
 						<display value ="Vision Coverage"/>
 					</coding>
 				</category>
 				<service>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-visionservice"/>
+						<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 						<code value="hardening"/>
 					</coding>
 				</service>
 				<modifier>
 					<coding>
-						<system value="http://hl7.org/fhir/modifiers"/>
+						<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
 						<code value="rooh"/>
 					</coding>
 				</modifier>
@@ -347,27 +347,27 @@
 				<sequence value="3"/>
 				<revenue>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-revenue-center"/>
+						<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 						<code value="0010"/>
 						<display value ="Vision Clinic"/>
 					</coding>
 				</revenue>
 				<category>
 					<coding>
-						<system value="http://hl7.org/fhir/benefit-subcategory"/>
+						<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 						<code value="F6"/>
 						<display value ="Vision Coverage"/>
 					</coding>
 				</category>
 				<service>
 					<coding>
-						<system value="http://hl7.org/fhir/ex-visionservice"/>
+						<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 						<code value="UV coating"/>
 					</coding>
 				</service>
 				<modifier>
 					<coding>
-						<system value="http://hl7.org/fhir/modifiers"/>
+						<system value="http://terminology.hl7.org/CodeSystem/modifiers"/>
 						<code value="rooh"/>
 					</coding>
 				</modifier>
@@ -390,21 +390,21 @@
 			<sequence value="3"/>
 			<revenue>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-revenue-center"/>
+					<system value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
 					<code value="0010"/>
 					<display value ="Vision Clinic"/>
 				</coding>
 			</revenue>
 			<category>
 				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
+					<system value="http://example.org/fhir/CodeSystem/benefit-subcategory"/>
 					<code value="F6"/>
 					<display value ="Vision Coverage"/>
 				</coding>
 			</category>
 			<service>
 				<coding>
-					<system value="http://hl7.org/fhir/ex-visionservice"/>
+					<system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
 					<code value="fst"/>
 				</coding>
 			</service>

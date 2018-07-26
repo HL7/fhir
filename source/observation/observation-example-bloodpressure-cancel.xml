@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!--
+﻿<?xml version="1.0" encoding="UTF-8"?><!--
  This is an example of a cancelled standard blood pressure measurement. with a Observation/component/dataAbsentReason valued due to cancellation.
 
  Blood Pressure is a regarded as a single observation, and
@@ -37,7 +37,7 @@
 	<status value="cancelled"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="vital-signs"/>
 			<display value="Vital Signs"/>
 		</coding>
@@ -103,7 +103,7 @@
     </valueQuantity>
 --><dataAbsentReason>
 			<coding>
-				<system value="http://hl7.org/fhir/data-absent-reason"/>
+				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 				<code value="not-asked"/>
 				<display value="Not Asked"/>
 			</coding>
@@ -123,7 +123,7 @@
     </valueQuantity>
 --><dataAbsentReason>
 			<coding>
-				<system value="http://hl7.org/fhir/data-absent-reason"/>
+				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 				<code value="not-asked"/>
 				<display value="Not Asked"/>
 			</coding>

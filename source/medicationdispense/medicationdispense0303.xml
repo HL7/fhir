@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
@@ -21,7 +21,7 @@
     <status value="on-hold"/>
     <category>
         <coding>
-            <system value="http://hl7.org/fhir/medication-dispense-category"/>
+            <system value="http://terminology.hl7.org/CodeSystem/medication-dispense-category"/>
             <code value="outpatient"/>
             <display value="Outpatient"/>
         </coding>

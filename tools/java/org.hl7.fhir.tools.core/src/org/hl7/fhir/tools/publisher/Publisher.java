@@ -1563,7 +1563,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     rest.setSecurity(new CapabilityStatementRestSecurityComponent());
     rest.getSecurity().setCors(true);
-    rest.getSecurity().addService().setText("See http://docs.smarthealthit.org/").addCoding().setSystem("http://hl7.org/fhir/restful-security-service").setCode("SMART-on-FHIR").setDisplay("SMART-on-FHIR");
+    rest.getSecurity().addService().setText("See http://docs.smarthealthit.org/").addCoding().setSystem("http://terminology.hl7.org/CodeSystem/restful-security-service").setCode("SMART-on-FHIR").setDisplay("SMART-on-FHIR");
     rest.getSecurity().setDescription("This is the Capability Statement to declare that the server supports SMART-on-FHIR. See the SMART-on-FHIR docs for the extension that would go with such a server");
 
     if (full) {
@@ -1707,6 +1707,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       return SearchParamType.COMPOSITE;
     case quantity:
       return SearchParamType.QUANTITY;
+    case special:
+      return SearchParamType.SPECIAL;
     }
     return null;
   }

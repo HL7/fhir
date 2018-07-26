@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -24,7 +24,7 @@
   <description value="The type of participation a provenance participant."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/provenance-participant-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
     </include>
   </compose>
 </ValueSet>

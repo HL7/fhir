@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="http://hl7.org/fhir/coverage-class"/>
+	<url value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 	<name value="Coverage Class Codes"/>
 	<status value="draft"/>
 	<publisher value="Financial Management"/>

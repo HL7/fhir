@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/immunization-program-eligibility"/>
+  <url value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
   <name value="Immunization Event Program Eligibility"/>
   <status value="draft"/>
   <experimental value="false"/>

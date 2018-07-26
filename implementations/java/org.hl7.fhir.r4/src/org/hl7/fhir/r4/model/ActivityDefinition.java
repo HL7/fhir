@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -253,10 +253,6 @@ into another (possibly the same) biological entity.
          */
         EXAMPLESCENARIO, 
         /**
-         * Resource to define constraints on the Expansion of a FHIR ValueSet.
-         */
-        EXPANSIONPROFILE, 
-        /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
         EXPLANATIONOFBENEFIT, 
@@ -389,6 +385,10 @@ into another (possibly the same) biological entity.
          */
         MEDICINALPRODUCTINGREDIENT, 
         /**
+         * The manufactured item as contained in the packaged medicinal product.
+         */
+        MEDICINALPRODUCTMANUFACTURED, 
+        /**
          * A medicinal product in a container or package.
          */
         MEDICINALPRODUCTPACKAGED, 
@@ -420,10 +420,6 @@ into another (possibly the same) biological entity.
          * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
          */
         OBSERVATIONDEFINITION, 
-        /**
-         * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
-         */
-        OCCUPATIONALDATA, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
@@ -727,8 +723,6 @@ into another (possibly the same) biological entity.
           return EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -795,6 +789,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -811,8 +807,6 @@ into another (possibly the same) biological entity.
           return OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -968,7 +962,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -1002,6 +995,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -1010,7 +1004,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -1115,7 +1108,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
             case EVENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case EXAMPLESCENARIO: return "http://hl7.org/fhir/resource-types";
-            case EXPANSIONPROFILE: return "http://hl7.org/fhir/resource-types";
             case EXPLANATIONOFBENEFIT: return "http://hl7.org/fhir/resource-types";
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
@@ -1149,6 +1141,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
+            case MEDICINALPRODUCTMANUFACTURED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPACKAGED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -1157,7 +1150,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OBSERVATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
-            case OCCUPATIONALDATA: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
@@ -1262,7 +1254,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
             case EXAMPLESCENARIO: return "Example of workflow instance.";
-            case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
@@ -1296,6 +1287,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to relace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
+            case MEDICINALPRODUCTMANUFACTURED: return "The manufactured item as contained in the packaged medicinal product.";
             case MEDICINALPRODUCTPACKAGED: return "A medicinal product in a container or package.";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "A pharmaceutical product described in terms of its composition and dose form.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
@@ -1304,7 +1296,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OBSERVATIONDEFINITION: return "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.";
-            case OCCUPATIONALDATA: return "A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
@@ -1409,7 +1400,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -1443,6 +1433,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -1451,7 +1442,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -1611,8 +1601,6 @@ into another (possibly the same) biological entity.
           return ActivityDefinitionKind.EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return ActivityDefinitionKind.EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return ActivityDefinitionKind.EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return ActivityDefinitionKind.EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -1679,6 +1667,8 @@ into another (possibly the same) biological entity.
           return ActivityDefinitionKind.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return ActivityDefinitionKind.MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return ActivityDefinitionKind.MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return ActivityDefinitionKind.MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -1695,8 +1685,6 @@ into another (possibly the same) biological entity.
           return ActivityDefinitionKind.OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return ActivityDefinitionKind.OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return ActivityDefinitionKind.OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return ActivityDefinitionKind.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -1905,8 +1893,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EVENTDEFINITION);
         if ("ExampleScenario".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EXAMPLESCENARIO);
-        if ("ExpansionProfile".equals(codeString))
-          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EXPANSIONPROFILE);
         if ("ExplanationOfBenefit".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.EXPLANATIONOFBENEFIT);
         if ("FamilyMemberHistory".equals(codeString))
@@ -1973,6 +1959,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIngredient".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.MEDICINALPRODUCTINGREDIENT);
+        if ("MedicinalProductManufactured".equals(codeString))
+          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.MEDICINALPRODUCTMANUFACTURED);
         if ("MedicinalProductPackaged".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.MEDICINALPRODUCTPACKAGED);
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -1989,8 +1977,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.OBSERVATION);
         if ("ObservationDefinition".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.OBSERVATIONDEFINITION);
-        if ("OccupationalData".equals(codeString))
-          return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.OCCUPATIONALDATA);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<ActivityDefinitionKind>(this, ActivityDefinitionKind.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
@@ -2192,8 +2178,6 @@ into another (possibly the same) biological entity.
         return "EventDefinition";
       if (code == ActivityDefinitionKind.EXAMPLESCENARIO)
         return "ExampleScenario";
-      if (code == ActivityDefinitionKind.EXPANSIONPROFILE)
-        return "ExpansionProfile";
       if (code == ActivityDefinitionKind.EXPLANATIONOFBENEFIT)
         return "ExplanationOfBenefit";
       if (code == ActivityDefinitionKind.FAMILYMEMBERHISTORY)
@@ -2260,6 +2244,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProductDeviceSpec";
       if (code == ActivityDefinitionKind.MEDICINALPRODUCTINGREDIENT)
         return "MedicinalProductIngredient";
+      if (code == ActivityDefinitionKind.MEDICINALPRODUCTMANUFACTURED)
+        return "MedicinalProductManufactured";
       if (code == ActivityDefinitionKind.MEDICINALPRODUCTPACKAGED)
         return "MedicinalProductPackaged";
       if (code == ActivityDefinitionKind.MEDICINALPRODUCTPHARMACEUTICAL)
@@ -2276,8 +2262,6 @@ into another (possibly the same) biological entity.
         return "Observation";
       if (code == ActivityDefinitionKind.OBSERVATIONDEFINITION)
         return "ObservationDefinition";
-      if (code == ActivityDefinitionKind.OCCUPATIONALDATA)
-        return "OccupationalData";
       if (code == ActivityDefinitionKind.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == ActivityDefinitionKind.OPERATIONOUTCOME)
@@ -2397,6 +2381,10 @@ into another (possibly the same) biological entity.
          */
         RELATEDPERSON, 
         /**
+         * The participant is a system or device used in the care of the patient
+         */
+        DEVICE, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -2409,6 +2397,8 @@ into another (possibly the same) biological entity.
           return PRACTITIONER;
         if ("related-person".equals(codeString))
           return RELATEDPERSON;
+        if ("device".equals(codeString))
+          return DEVICE;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -2419,6 +2409,7 @@ into another (possibly the same) biological entity.
             case PATIENT: return "patient";
             case PRACTITIONER: return "practitioner";
             case RELATEDPERSON: return "related-person";
+            case DEVICE: return "device";
             default: return "?";
           }
         }
@@ -2427,6 +2418,7 @@ into another (possibly the same) biological entity.
             case PATIENT: return "http://hl7.org/fhir/action-participant-type";
             case PRACTITIONER: return "http://hl7.org/fhir/action-participant-type";
             case RELATEDPERSON: return "http://hl7.org/fhir/action-participant-type";
+            case DEVICE: return "http://hl7.org/fhir/action-participant-type";
             default: return "?";
           }
         }
@@ -2435,6 +2427,7 @@ into another (possibly the same) biological entity.
             case PATIENT: return "The participant is the patient under evaluation";
             case PRACTITIONER: return "The participant is a practitioner involved in the patient's care";
             case RELATEDPERSON: return "The participant is a person related to the patient";
+            case DEVICE: return "The participant is a system or device used in the care of the patient";
             default: return "?";
           }
         }
@@ -2443,6 +2436,7 @@ into another (possibly the same) biological entity.
             case PATIENT: return "Patient";
             case PRACTITIONER: return "Practitioner";
             case RELATEDPERSON: return "Related Person";
+            case DEVICE: return "Device";
             default: return "?";
           }
         }
@@ -2459,6 +2453,8 @@ into another (possibly the same) biological entity.
           return ActivityParticipantType.PRACTITIONER;
         if ("related-person".equals(codeString))
           return ActivityParticipantType.RELATEDPERSON;
+        if ("device".equals(codeString))
+          return ActivityParticipantType.DEVICE;
         throw new IllegalArgumentException("Unknown ActivityParticipantType code '"+codeString+"'");
         }
         public Enumeration<ActivityParticipantType> fromType(Base code) throws FHIRException {
@@ -2475,6 +2471,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<ActivityParticipantType>(this, ActivityParticipantType.PRACTITIONER);
         if ("related-person".equals(codeString))
           return new Enumeration<ActivityParticipantType>(this, ActivityParticipantType.RELATEDPERSON);
+        if ("device".equals(codeString))
+          return new Enumeration<ActivityParticipantType>(this, ActivityParticipantType.DEVICE);
         throw new FHIRException("Unknown ActivityParticipantType code '"+codeString+"'");
         }
     public String toCode(ActivityParticipantType code) {
@@ -2484,6 +2482,8 @@ into another (possibly the same) biological entity.
         return "practitioner";
       if (code == ActivityParticipantType.RELATEDPERSON)
         return "related-person";
+      if (code == ActivityParticipantType.DEVICE)
+        return "device";
       return "?";
       }
     public String toSystem(ActivityParticipantType code) {
@@ -2497,7 +2497,7 @@ into another (possibly the same) biological entity.
          * The type of participant in the action.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
+        @Description(shortDefinition="patient | practitioner | related-person | device", formalDefinition="The type of participant in the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
         protected Enumeration<ActivityParticipantType> type;
 
@@ -2723,34 +2723,20 @@ into another (possibly the same) biological entity.
     @Block()
     public static class ActivityDefinitionDynamicValueComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A brief, natural language description of the intended semantics of the dynamic value.
-         */
-        @Child(name = "description", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Natural language description of the dynamic value", formalDefinition="A brief, natural language description of the intended semantics of the dynamic value." )
-        protected StringType description;
-
-        /**
          * The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
-        @Child(name = "path", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The path to the element to be set dynamically", formalDefinition="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression." )
         protected StringType path;
 
         /**
-         * The media type of the language for the expression.
-         */
-        @Child(name = "language", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Language of the expression", formalDefinition="The media type of the language for the expression." )
-        protected StringType language;
-
-        /**
          * An expression specifying the value of the customized element.
          */
-        @Child(name = "expression", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "expression", type = {Expression.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="An expression that provides the dynamic value for the customization", formalDefinition="An expression specifying the value of the customized element." )
-        protected StringType expression;
+        protected Expression expression;
 
-        private static final long serialVersionUID = 448404361L;
+        private static final long serialVersionUID = 1064529082L;
 
     /**
      * Constructor
@@ -2759,54 +2745,14 @@ into another (possibly the same) biological entity.
         super();
       }
 
-        /**
-         * @return {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public StringType getDescriptionElement() { 
-          if (this.description == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.description");
-            else if (Configuration.doAutoCreate())
-              this.description = new StringType(); // bb
-          return this.description;
-        }
-
-        public boolean hasDescriptionElement() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        public boolean hasDescription() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        /**
-         * @param value {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public ActivityDefinitionDynamicValueComponent setDescriptionElement(StringType value) { 
-          this.description = value;
-          return this;
-        }
-
-        /**
-         * @return A brief, natural language description of the intended semantics of the dynamic value.
-         */
-        public String getDescription() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        /**
-         * @param value A brief, natural language description of the intended semantics of the dynamic value.
-         */
-        public ActivityDefinitionDynamicValueComponent setDescription(String value) { 
-          if (Utilities.noString(value))
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new StringType();
-            this.description.setValue(value);
-          }
-          return this;
-        }
+    /**
+     * Constructor
+     */
+      public ActivityDefinitionDynamicValueComponent(StringType path, Expression expression) {
+        super();
+        this.path = path;
+        this.expression = expression;
+      }
 
         /**
          * @return {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
@@ -2847,79 +2793,22 @@ into another (possibly the same) biological entity.
          * @param value The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
         public ActivityDefinitionDynamicValueComponent setPath(String value) { 
-          if (Utilities.noString(value))
-            this.path = null;
-          else {
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
-          }
           return this;
         }
 
         /**
-         * @return {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
+         * @return {@link #expression} (An expression specifying the value of the customized element.)
          */
-        public StringType getLanguageElement() { 
-          if (this.language == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.language");
-            else if (Configuration.doAutoCreate())
-              this.language = new StringType(); // bb
-          return this.language;
-        }
-
-        public boolean hasLanguageElement() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        public boolean hasLanguage() { 
-          return this.language != null && !this.language.isEmpty();
-        }
-
-        /**
-         * @param value {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
-         */
-        public ActivityDefinitionDynamicValueComponent setLanguageElement(StringType value) { 
-          this.language = value;
-          return this;
-        }
-
-        /**
-         * @return The media type of the language for the expression.
-         */
-        public String getLanguage() { 
-          return this.language == null ? null : this.language.getValue();
-        }
-
-        /**
-         * @param value The media type of the language for the expression.
-         */
-        public ActivityDefinitionDynamicValueComponent setLanguage(String value) { 
-          if (Utilities.noString(value))
-            this.language = null;
-          else {
-            if (this.language == null)
-              this.language = new StringType();
-            this.language.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
-         */
-        public StringType getExpressionElement() { 
+        public Expression getExpression() { 
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.expression");
             else if (Configuration.doAutoCreate())
-              this.expression = new StringType(); // bb
+              this.expression = new Expression(); // cc
           return this.expression;
-        }
-
-        public boolean hasExpressionElement() { 
-          return this.expression != null && !this.expression.isEmpty();
         }
 
         public boolean hasExpression() { 
@@ -2927,49 +2816,24 @@ into another (possibly the same) biological entity.
         }
 
         /**
-         * @param value {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         * @param value {@link #expression} (An expression specifying the value of the customized element.)
          */
-        public ActivityDefinitionDynamicValueComponent setExpressionElement(StringType value) { 
+        public ActivityDefinitionDynamicValueComponent setExpression(Expression value) { 
           this.expression = value;
-          return this;
-        }
-
-        /**
-         * @return An expression specifying the value of the customized element.
-         */
-        public String getExpression() { 
-          return this.expression == null ? null : this.expression.getValue();
-        }
-
-        /**
-         * @param value An expression specifying the value of the customized element.
-         */
-        public ActivityDefinitionDynamicValueComponent setExpression(String value) { 
-          if (Utilities.noString(value))
-            this.expression = null;
-          else {
-            if (this.expression == null)
-              this.expression = new StringType();
-            this.expression.setValue(value);
-          }
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("description", "string", "A brief, natural language description of the intended semantics of the dynamic value.", 0, 1, description));
           children.add(new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, 1, path));
-          children.add(new Property("language", "string", "The media type of the language for the expression.", 0, 1, language));
-          children.add(new Property("expression", "string", "An expression specifying the value of the customized element.", 0, 1, expression));
+          children.add(new Property("expression", "Expression", "An expression specifying the value of the customized element.", 0, 1, expression));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -1724546052: /*description*/  return new Property("description", "string", "A brief, natural language description of the intended semantics of the dynamic value.", 0, 1, description);
           case 3433509: /*path*/  return new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, 1, path);
-          case -1613589672: /*language*/  return new Property("language", "string", "The media type of the language for the expression.", 0, 1, language);
-          case -1795452264: /*expression*/  return new Property("expression", "string", "An expression specifying the value of the customized element.", 0, 1, expression);
+          case -1795452264: /*expression*/  return new Property("expression", "Expression", "An expression specifying the value of the customized element.", 0, 1, expression);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2978,10 +2842,8 @@ into another (possibly the same) biological entity.
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
-        case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // StringType
-        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
+        case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // Expression
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2990,17 +2852,11 @@ into another (possibly the same) biological entity.
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1724546052: // description
-          this.description = castToString(value); // StringType
-          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
           return value;
-        case -1613589672: // language
-          this.language = castToString(value); // StringType
-          return value;
         case -1795452264: // expression
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3009,14 +2865,10 @@ into another (possibly the same) biological entity.
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("description")) {
-          this.description = castToString(value); // StringType
-        } else if (name.equals("path")) {
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        } else if (name.equals("language")) {
-          this.language = castToString(value); // StringType
         } else if (name.equals("expression")) {
-          this.expression = castToString(value); // StringType
+          this.expression = castToExpression(value); // Expression
         } else
           return super.setProperty(name, value);
         return value;
@@ -3025,10 +2877,8 @@ into another (possibly the same) biological entity.
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052:  return getDescriptionElement();
         case 3433509:  return getPathElement();
-        case -1613589672:  return getLanguageElement();
-        case -1795452264:  return getExpressionElement();
+        case -1795452264:  return getExpression(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -3037,10 +2887,8 @@ into another (possibly the same) biological entity.
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: /*description*/ return new String[] {"string"};
         case 3433509: /*path*/ return new String[] {"string"};
-        case -1613589672: /*language*/ return new String[] {"string"};
-        case -1795452264: /*expression*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"Expression"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3048,17 +2896,12 @@ into another (possibly the same) biological entity.
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.description");
-        }
-        else if (name.equals("path")) {
+        if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.path");
         }
-        else if (name.equals("language")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.language");
-        }
         else if (name.equals("expression")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.expression");
+          this.expression = new Expression();
+          return this.expression;
         }
         else
           return super.addChild(name);
@@ -3067,9 +2910,7 @@ into another (possibly the same) biological entity.
       public ActivityDefinitionDynamicValueComponent copy() {
         ActivityDefinitionDynamicValueComponent dst = new ActivityDefinitionDynamicValueComponent();
         copyValues(dst);
-        dst.description = description == null ? null : description.copy();
         dst.path = path == null ? null : path.copy();
-        dst.language = language == null ? null : language.copy();
         dst.expression = expression == null ? null : expression.copy();
         return dst;
       }
@@ -3081,8 +2922,7 @@ into another (possibly the same) biological entity.
         if (!(other_ instanceof ActivityDefinitionDynamicValueComponent))
           return false;
         ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other_;
-        return compareDeep(description, o.description, true) && compareDeep(path, o.path, true) && compareDeep(language, o.language, true)
-           && compareDeep(expression, o.expression, true);
+        return compareDeep(path, o.path, true) && compareDeep(expression, o.expression, true);
       }
 
       @Override
@@ -3092,13 +2932,11 @@ into another (possibly the same) biological entity.
         if (!(other_ instanceof ActivityDefinitionDynamicValueComponent))
           return false;
         ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other_;
-        return compareValues(description, o.description, true) && compareValues(path, o.path, true) && compareValues(language, o.language, true)
-           && compareValues(expression, o.expression, true);
+        return compareValues(path, o.path, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
-          , expression);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, expression);
       }
 
   public String fhirType() {
@@ -6065,6 +5903,26 @@ into another (possibly the same) biological entity.
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUCCESSOR = new ca.uhn.fhir.model.api.Include("ActivityDefinition:successor").toLocked();
 
  /**
+   * Search parameter: <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the activity definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-value", path="ActivityDefinition.useContext", description="A use context type and value assigned to the activity definition", type="composite", compositeOf={"context-type", "context"} )
+  public static final String SP_CONTEXT_TYPE_VALUE = "context-type-value";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the activity definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CONTEXT_TYPE_VALUE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CONTEXT_TYPE_VALUE);
+
+ /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
    * Description: <b>Intended jurisdiction for the activity definition</b><br>
@@ -6263,6 +6121,26 @@ into another (possibly the same) biological entity.
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
+   * Search parameter: <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the activity definition</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>ActivityDefinition.useContext.valueQuantity, ActivityDefinition.useContext.valueRange</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-quantity", path="ActivityDefinition.useContext.value.as(Quantity) | ActivityDefinition.useContext.value.as(Range)", description="A quantity- or range-valued use context assigned to the activity definition", type="quantity" )
+  public static final String SP_CONTEXT_QUANTITY = "context-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the activity definition</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>ActivityDefinition.useContext.valueQuantity, ActivityDefinition.useContext.valueRange</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam CONTEXT_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_CONTEXT_QUANTITY);
+
+ /**
    * Search parameter: <b>effective</b>
    * <p>
    * Description: <b>The time during which the activity definition is intended to be in use</b><br>
@@ -6290,7 +6168,7 @@ into another (possibly the same) biological entity.
    * Path: <b>ActivityDefinition.relatedArtifact.resource, ActivityDefinition.library</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="ActivityDefinition.relatedArtifact.where(type='depends-on').resource | ActivityDefinition.library", description="What resource is being referenced", type="reference", target={Library.class } )
+  @SearchParamDefinition(name="depends-on", path="ActivityDefinition.relatedArtifact.where(type='depends-on').resource | ActivityDefinition.library", description="What resource is being referenced", type="reference" )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
@@ -6327,6 +6205,26 @@ into another (possibly the same) biological entity.
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the activity definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ActivityDefinition.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="ActivityDefinition.useContext.value.as(CodeableConcept)", description="A use context assigned to the activity definition", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the activity definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ActivityDefinition.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -6367,6 +6265,26 @@ into another (possibly the same) biological entity.
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the activity definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-quantity", path="ActivityDefinition.useContext", description="A use context type and quantity- or range-based value assigned to the activity definition", type="composite", compositeOf={"context-type", "context-quantity"} )
+  public static final String SP_CONTEXT_TYPE_QUANTITY = "context-type-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the activity definition</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CONTEXT_TYPE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CONTEXT_TYPE_QUANTITY);
 
  /**
    * Search parameter: <b>status</b>

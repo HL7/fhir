@@ -24,14 +24,14 @@
 	</immunizationEvent>
 	<doseStatus>
 		<coding>
-			<system value="http://hl7.org/fhir/vaccination-protocol-dose-status"/>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status"/>
 			<code value="notvalid"/>
 			<display value="Not Valid"/>
 		</coding>
 	</doseStatus>
 	<doseStatusReason>
 		<coding>
-			<system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason"/>
 			<code value="outsidesched"/>
 			<display value="Administered outside recommended schedule"/>
 		</coding>

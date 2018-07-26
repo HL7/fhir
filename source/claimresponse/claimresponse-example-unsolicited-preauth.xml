@@ -1,4 +1,4 @@
-<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
+﻿<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
 
 	<id value="UR3503"/>
 
@@ -16,7 +16,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
 		</coding>
 	</type>
@@ -46,7 +46,7 @@
 
 	<payeeType>	<!-- advise that assignment of benefit is allowed -->
 		<coding>
-			<system value="http://hl7.org/fhir/payeetype"/>
+			<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
 			<code value="provider"/>
 		</coding>
 	</payeeType>

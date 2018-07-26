@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
 	<id value="760151"/>
 
@@ -16,7 +16,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="pharmacy"/>
 		</coding>	
 	</type>
@@ -75,7 +75,7 @@
 		</category>
 		<code>
 			<coding>
-				<system value="http://hl7.org/fhir/pharmacy-refill"/>
+				<system value="http://example.org/fhir/CodeSystem/pharmacy-refill"/>
 				<code value="new"/>
 			</coding>
 		</code>	
@@ -90,7 +90,7 @@
 		</category>
 		<code>
 			<coding>
-				<system value="http://hl7.org/fhir/pharmacy-information"/>
+				<system value="http://example.org/fhir/CodeSystem/pharmacy-information"/>
 				<code value="refillsremaining"/>
 			</coding>
 		</code>	
@@ -108,7 +108,7 @@
 		</category>
 		<code>
 			<coding>
-				<system value="http://hl7.org/fhir/pharmacy-information"/>
+				<system value="http://example.org/fhir/CodeSystem/pharmacy-information"/>
 				<code value="dayssupply"/>
 			</coding>
 		</code>	
@@ -143,7 +143,7 @@
 		<!-- type=packagemedication -->
 		<service>
 			<coding>
-				<system value="http://hl7.org/fhir/RxNorm"/>
+				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 				<code value="562721"/> 
 				<display value="Alprazolam 0.25mg (Xanax)"/>
 			</coding> 

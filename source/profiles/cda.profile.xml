@@ -952,7 +952,7 @@
             </type>
             <fixedCodeableConcept>
               <coding>
-                <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+                <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
                 <code value="guardian"/>
               </coding>
             </fixedCodeableConcept>

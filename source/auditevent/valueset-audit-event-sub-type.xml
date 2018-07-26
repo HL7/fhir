@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://dicom.nema.org/resources/ontology/DCM/401"/>
@@ -83,7 +83,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/restful-interaction"/>
+      <system value="http://terminology.hl7.org/CodeSystem/restful-interaction"/>
 <!--      <concept>
         <code value="read"/>
       </concept>

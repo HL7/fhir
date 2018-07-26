@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <AdverseEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
   <id value="example"/>
 
@@ -14,7 +14,7 @@
   <!-- high level categorizion. The "event" below will say more -->
   <category> 
     <coding> 
-      <system value="http://hl7.org/fhir/adverse-event-category"/> 
+      <system value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/> 
       <code value="product-use-error"/> 
       <display value="Product Use Error"/> 
     </coding> 
@@ -43,7 +43,7 @@
   <!-- This was a rash, so overall not serious -->
   <seriousness>
       <coding>
-        <system value="http://hl7.org/fhir/adverse-event-seriousness"/>
+        <system value="http://terminology.hl7.org/CodeSystem/adverse-event-seriousness"/>
         <code value="Non-serious"/>
         <display value="Non-serious"/>
     </coding>
@@ -52,7 +52,7 @@
   <!-- In overall terms even if it was a severe rash it is a relatively mild event overall --> 
   <severity>
     <coding>
-      <system value="http://hl7.org/fhir/adverse-event-severity"/>
+      <system value="http://terminology.hl7.org/CodeSystem/adverse-event-severity"/>
       <code value="mild"/>
       <display value="Mild"/>
     </coding>

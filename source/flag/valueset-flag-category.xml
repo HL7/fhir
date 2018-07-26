@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -17,7 +17,7 @@
   <description value="Example list of general categories for flagged issues. (Not complete or necessarily appropriate.)"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/flag-category"/>
+      <system value="http://terminology.hl7.org/CodeSystem/flag-category"/>
     </include>
   </compose>
 </ValueSet>

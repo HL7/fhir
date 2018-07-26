@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<text>
@@ -37,12 +37,12 @@
 	<description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
 	<useContext>
 		<code>
-			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
 			<code value="focus"/>
 		</code>
 		<valueCodeableConcept>
 			<coding>
-				<system value="http://hl7.org/fhir/variant-state"/>
+				<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
 				<code value="positive"/>
 			</coding>
 		</valueCodeableConcept>
@@ -92,7 +92,7 @@
 			<cors value="true"/>
 			<service>
 				<coding>
-					<system value="http://hl7.org/fhir/restful-security-service"/>
+					<system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
 					<code value="SMART-on-FHIR"/>
 				</coding>
 			</service>
@@ -166,7 +166,7 @@
 	<messaging>
 		<endpoint>
 			<protocol>
-				<system value="http://hl7.org/fhir/message-transport"/>
+				<system value="http://terminology.hl7.org/CodeSystem/message-transport"/>
 				<code value="mllp"/>
 			</protocol>
 			<!-- LLP server at 10.1.1.10 on port 9234 -->

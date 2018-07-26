@@ -1,4 +1,4 @@
-<CapabilityStatement xmlns="http://hl7.org/fhir">
+﻿<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="knowledge-repository"/>
   <text>
     <status value="generated"/>
@@ -95,7 +95,7 @@
       <cors value="true"/>
       <service>
         <coding>
-          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
           <code value="Certificates"/>
         </coding>
       </service>

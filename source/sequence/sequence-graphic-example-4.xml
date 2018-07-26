@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Sequence>
     <id value="graphic-example-4"/>
@@ -7,7 +7,7 @@
     <referenceSeq>
         <chromosome>
             <coding>
-                <system value="http://hl7.org/fhir/chromosome-human"/>
+                <system value="http://terminology.hl7.org/CodeSystem/chromosome-human"/>
                 <code value="2"/>
                 <display value="chromosome 2"/>
             </coding>

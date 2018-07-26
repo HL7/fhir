@@ -66,7 +66,7 @@
 					<display value="Golden retriever"/>
 				</coding>
 				<coding>
-					<system value="http://hl7.org/fhir/animal-breed"/>
+					<system value="http://example.org/fhir/CodeSystem/animal-breed"/>
 					<code value="gret"/>
 					<display value="Golden Retriever"/>
 				</coding>

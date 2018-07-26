@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
-	<url value="http://hl7.org/fhir/definition-use"/>
+	<url value="http://terminology.hl7.org/CodeSystem/definition-use"/>
   <name value="DefinitionUseCodes"/>
   <title value="Structure Definition Use Codes / Keywords"/>
 	<status value="draft"/>

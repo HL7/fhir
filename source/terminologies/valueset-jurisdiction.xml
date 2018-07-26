@@ -26,9 +26,5 @@
         <value value="region"/>
       </filter>
     </include>
-    <include>
-      <!--   US states   -->
-      <valueSet value="http://hl7.org/fhir/ValueSet/usps-state"/>
-    </include>
   </compose>
 </ValueSet>

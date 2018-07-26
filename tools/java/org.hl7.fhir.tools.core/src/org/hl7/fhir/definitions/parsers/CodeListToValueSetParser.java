@@ -45,7 +45,7 @@ public class CodeListToValueSetParser {
 
   }
 
-  public void execute(String v2map, String v3map) throws Exception {
+  public void execute(String v2map, String v3map, boolean utg) throws Exception {
     boolean hasDefine = false;
     for (int row = 0; row < sheet.rows.size(); row++) {
 
@@ -61,7 +61,10 @@ public class CodeListToValueSetParser {
     
     if (hasDefine) {
       cs = new CodeSystem();
-      cs.setUrl("http://hl7.org/fhir/"+sheetName);
+      if (utg)
+        cs.setUrl("http://terminology.hl7.org/CodeSystem/"+sheetName);
+      else
+        cs.setUrl("http://hl7.org/fhir/"+sheetName);
       if (!valueSet.hasCompose())
         valueSet.setCompose(new ValueSetComposeComponent());
       valueSet.getCompose().addInclude().setSystem(cs.getUrl());

@@ -989,7 +989,7 @@
   </text>
   <!--code>
     <coding>
-      <system value="http://hl7.org/fhir/c80-doc-typecodes" />
+      <system value="http://loinc.org" />
       <code value="55184-6" />
     </coding>
   </code-->

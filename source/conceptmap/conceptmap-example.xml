@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
     <id value="101"/>
     <url value="http://hl7.org/fhir/ConceptMap/101"/>
@@ -27,7 +27,7 @@
     <description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
     <useContext>
         <code>
-            <system value="http://hl7.org/fhir/usage-context-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
             <code value="venue"/>
             <!-- todo ... -->
         </code>

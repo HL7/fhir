@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
   <id value="pcd-example-notThem"/>
@@ -82,7 +82,7 @@
 
   <signer>
     <type>
-      <system value="http://www.hl7.org/fhir/contractsignertypecodes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/contractsignertypecodes"/>
       <code value="COVPTY"/>
     </type>
     <party>

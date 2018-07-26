@@ -3,19 +3,13 @@
   "outcomes": [
     {
       "hash": "|urn:ietf:bcp:13|null|application/hl7-cda+xml|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "application/hl7-cda+xml",
-        "definition": null,
-        "display": "CDA Documents"
-      }
+      "severity": "error",
+      "message": "Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
     },
     {
       "hash": "|urn:ietf:rfc:3986|null|RicardianContract|null",
       "severity": "error",
-      "message": "Unknown Code RicardianContract in http://hl7.org/fhir/ValueSet/consent-content-class"
+      "message": "Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
     }
   ]
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1855,9 +1855,16 @@ public class MedicinalProduct extends DomainResource {
     protected List<CodeableConcept> productClassification;
 
     /**
+     * Marketing status of the medicinal product, in contrast to marketing authorizaton.
+     */
+    @Child(name = "marketingStatus", type = {MarketingStatus.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Marketing status of the medicinal product, in contrast to marketing authorizaton", formalDefinition="Marketing status of the medicinal product, in contrast to marketing authorizaton." )
+    protected List<MarketingStatus> marketingStatus;
+
+    /**
      * Product regulatory authorization.
      */
-    @Child(name = "marketingAuthorization", type = {MedicinalProductAuthorization.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "marketingAuthorization", type = {MedicinalProductAuthorization.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Product regulatory authorization", formalDefinition="Product regulatory authorization." )
     protected Reference marketingAuthorization;
 
@@ -1869,7 +1876,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Package representation for the product.
      */
-    @Child(name = "packagedMedicinalProduct", type = {MedicinalProductPackaged.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "packagedMedicinalProduct", type = {MedicinalProductPackaged.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Package representation for the product", formalDefinition="Package representation for the product." )
     protected List<Reference> packagedMedicinalProduct;
     /**
@@ -1881,7 +1888,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Pharmaceutical aspects of product.
      */
-    @Child(name = "pharmaceuticalProduct", type = {MedicinalProductPharmaceutical.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "pharmaceuticalProduct", type = {MedicinalProductPharmaceutical.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Pharmaceutical aspects of product", formalDefinition="Pharmaceutical aspects of product." )
     protected List<Reference> pharmaceuticalProduct;
     /**
@@ -1893,7 +1900,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Clinical particulars, indications etc.
      */
-    @Child(name = "clinicalParticulars", type = {MedicinalProductClinicals.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "clinicalParticulars", type = {MedicinalProductClinicals.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Clinical particulars, indications etc.", formalDefinition="Clinical particulars, indications etc." )
     protected List<Reference> clinicalParticulars;
     /**
@@ -1905,7 +1912,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Supporting documentation, typically for regulatory submission.
      */
-    @Child(name = "attachedDocument", type = {DocumentReference.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "attachedDocument", type = {DocumentReference.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Supporting documentation, typically for regulatory submission", formalDefinition="Supporting documentation, typically for regulatory submission." )
     protected List<Reference> attachedDocument;
     /**
@@ -1917,7 +1924,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * A master file for to the medicinal product (e.g. Pharmacovigilance System Master File).
      */
-    @Child(name = "masterFile", type = {DocumentReference.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "masterFile", type = {DocumentReference.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)", formalDefinition="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)." )
     protected List<Reference> masterFile;
     /**
@@ -1929,7 +1936,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * A product specific contact, person (in a role), or an organization.
      */
-    @Child(name = "contact", type = {Organization.class, PractitionerRole.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "contact", type = {Organization.class, PractitionerRole.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="A product specific contact, person (in a role), or an organization", formalDefinition="A product specific contact, person (in a role), or an organization." )
     protected List<Reference> contact;
     /**
@@ -1941,7 +1948,7 @@ public class MedicinalProduct extends DomainResource {
     /**
      * Clinical trials or studies that this product is involved in.
      */
-    @Child(name = "clinicalTrial", type = {ResearchStudy.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "clinicalTrial", type = {ResearchStudy.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Clinical trials or studies that this product is involved in", formalDefinition="Clinical trials or studies that this product is involved in." )
     protected List<Reference> clinicalTrial;
     /**
@@ -1953,32 +1960,32 @@ public class MedicinalProduct extends DomainResource {
     /**
      * The product's name, including full name and possibly coded parts.
      */
-    @Child(name = "name", type = {}, order=16, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "name", type = {}, order=17, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The product's name, including full name and possibly coded parts", formalDefinition="The product's name, including full name and possibly coded parts." )
     protected List<MedicinalProductNameComponent> name;
 
     /**
      * Reference to another product, e.g. for linking authorised to investigational product.
      */
-    @Child(name = "crossReference", type = {Identifier.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "crossReference", type = {Identifier.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reference to another product, e.g. for linking authorised to investigational product", formalDefinition="Reference to another product, e.g. for linking authorised to investigational product." )
     protected List<Identifier> crossReference;
 
     /**
      * An operation applied to the product, for manufacturing or adminsitrative purpose.
      */
-    @Child(name = "manufacturingBusinessOperation", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "manufacturingBusinessOperation", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="An operation applied to the product, for manufacturing or adminsitrative purpose", formalDefinition="An operation applied to the product, for manufacturing or adminsitrative purpose." )
     protected List<MedicinalProductManufacturingBusinessOperationComponent> manufacturingBusinessOperation;
 
     /**
      * Indicates if the medicinal product has an orphan designation for the treatment of a rare disease.
      */
-    @Child(name = "orphanDesignation", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "orphanDesignation", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Indicates if the medicinal product has an orphan designation for the treatment of a rare disease", formalDefinition="Indicates if the medicinal product has an orphan designation for the treatment of a rare disease." )
     protected List<MedicinalProductOrphanDesignationComponent> orphanDesignation;
 
-    private static final long serialVersionUID = 323154736L;
+    private static final long serialVersionUID = -1485997954L;
 
   /**
    * Constructor
@@ -2272,6 +2279,59 @@ public class MedicinalProduct extends DomainResource {
         addProductClassification();
       }
       return getProductClassification().get(0);
+    }
+
+    /**
+     * @return {@link #marketingStatus} (Marketing status of the medicinal product, in contrast to marketing authorizaton.)
+     */
+    public List<MarketingStatus> getMarketingStatus() { 
+      if (this.marketingStatus == null)
+        this.marketingStatus = new ArrayList<MarketingStatus>();
+      return this.marketingStatus;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicinalProduct setMarketingStatus(List<MarketingStatus> theMarketingStatus) { 
+      this.marketingStatus = theMarketingStatus;
+      return this;
+    }
+
+    public boolean hasMarketingStatus() { 
+      if (this.marketingStatus == null)
+        return false;
+      for (MarketingStatus item : this.marketingStatus)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public MarketingStatus addMarketingStatus() { //3
+      MarketingStatus t = new MarketingStatus();
+      if (this.marketingStatus == null)
+        this.marketingStatus = new ArrayList<MarketingStatus>();
+      this.marketingStatus.add(t);
+      return t;
+    }
+
+    public MedicinalProduct addMarketingStatus(MarketingStatus t) { //3
+      if (t == null)
+        return this;
+      if (this.marketingStatus == null)
+        this.marketingStatus = new ArrayList<MarketingStatus>();
+      this.marketingStatus.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #marketingStatus}, creating it if it does not already exist
+     */
+    public MarketingStatus getMarketingStatusFirstRep() { 
+      if (getMarketingStatus().isEmpty()) {
+        addMarketingStatus();
+      }
+      return getMarketingStatus().get(0);
     }
 
     /**
@@ -3053,6 +3113,7 @@ public class MedicinalProduct extends DomainResource {
         children.add(new Property("specialMeasures", "string", "Whether the Medicinal Product is subject to special measures for regulatory reasons.", 0, java.lang.Integer.MAX_VALUE, specialMeasures));
         children.add(new Property("paediatricUseIndicator", "CodeableConcept", "If authorised for use in children.", 0, 1, paediatricUseIndicator));
         children.add(new Property("productClassification", "CodeableConcept", "Allows the product to be classified by various systems.", 0, java.lang.Integer.MAX_VALUE, productClassification));
+        children.add(new Property("marketingStatus", "MarketingStatus", "Marketing status of the medicinal product, in contrast to marketing authorizaton.", 0, java.lang.Integer.MAX_VALUE, marketingStatus));
         children.add(new Property("marketingAuthorization", "Reference(MedicinalProductAuthorization)", "Product regulatory authorization.", 0, 1, marketingAuthorization));
         children.add(new Property("packagedMedicinalProduct", "Reference(MedicinalProductPackaged)", "Package representation for the product.", 0, java.lang.Integer.MAX_VALUE, packagedMedicinalProduct));
         children.add(new Property("pharmaceuticalProduct", "Reference(MedicinalProductPharmaceutical)", "Pharmaceutical aspects of product.", 0, java.lang.Integer.MAX_VALUE, pharmaceuticalProduct));
@@ -3078,6 +3139,7 @@ public class MedicinalProduct extends DomainResource {
         case 975102638: /*specialMeasures*/  return new Property("specialMeasures", "string", "Whether the Medicinal Product is subject to special measures for regulatory reasons.", 0, java.lang.Integer.MAX_VALUE, specialMeasures);
         case -1019867160: /*paediatricUseIndicator*/  return new Property("paediatricUseIndicator", "CodeableConcept", "If authorised for use in children.", 0, 1, paediatricUseIndicator);
         case 1247936181: /*productClassification*/  return new Property("productClassification", "CodeableConcept", "Allows the product to be classified by various systems.", 0, java.lang.Integer.MAX_VALUE, productClassification);
+        case 70767032: /*marketingStatus*/  return new Property("marketingStatus", "MarketingStatus", "Marketing status of the medicinal product, in contrast to marketing authorizaton.", 0, java.lang.Integer.MAX_VALUE, marketingStatus);
         case 571831283: /*marketingAuthorization*/  return new Property("marketingAuthorization", "Reference(MedicinalProductAuthorization)", "Product regulatory authorization.", 0, 1, marketingAuthorization);
         case -361025513: /*packagedMedicinalProduct*/  return new Property("packagedMedicinalProduct", "Reference(MedicinalProductPackaged)", "Package representation for the product.", 0, java.lang.Integer.MAX_VALUE, packagedMedicinalProduct);
         case 443273260: /*pharmaceuticalProduct*/  return new Property("pharmaceuticalProduct", "Reference(MedicinalProductPharmaceutical)", "Pharmaceutical aspects of product.", 0, java.lang.Integer.MAX_VALUE, pharmaceuticalProduct);
@@ -3106,6 +3168,7 @@ public class MedicinalProduct extends DomainResource {
         case 975102638: /*specialMeasures*/ return this.specialMeasures == null ? new Base[0] : this.specialMeasures.toArray(new Base[this.specialMeasures.size()]); // StringType
         case -1019867160: /*paediatricUseIndicator*/ return this.paediatricUseIndicator == null ? new Base[0] : new Base[] {this.paediatricUseIndicator}; // CodeableConcept
         case 1247936181: /*productClassification*/ return this.productClassification == null ? new Base[0] : this.productClassification.toArray(new Base[this.productClassification.size()]); // CodeableConcept
+        case 70767032: /*marketingStatus*/ return this.marketingStatus == null ? new Base[0] : this.marketingStatus.toArray(new Base[this.marketingStatus.size()]); // MarketingStatus
         case 571831283: /*marketingAuthorization*/ return this.marketingAuthorization == null ? new Base[0] : new Base[] {this.marketingAuthorization}; // Reference
         case -361025513: /*packagedMedicinalProduct*/ return this.packagedMedicinalProduct == null ? new Base[0] : this.packagedMedicinalProduct.toArray(new Base[this.packagedMedicinalProduct.size()]); // Reference
         case 443273260: /*pharmaceuticalProduct*/ return this.pharmaceuticalProduct == null ? new Base[0] : this.pharmaceuticalProduct.toArray(new Base[this.pharmaceuticalProduct.size()]); // Reference
@@ -3149,6 +3212,9 @@ public class MedicinalProduct extends DomainResource {
           return value;
         case 1247936181: // productClassification
           this.getProductClassification().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case 70767032: // marketingStatus
+          this.getMarketingStatus().add(castToMarketingStatus(value)); // MarketingStatus
           return value;
         case 571831283: // marketingAuthorization
           this.marketingAuthorization = castToReference(value); // Reference
@@ -3209,6 +3275,8 @@ public class MedicinalProduct extends DomainResource {
           this.paediatricUseIndicator = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("productClassification")) {
           this.getProductClassification().add(castToCodeableConcept(value));
+        } else if (name.equals("marketingStatus")) {
+          this.getMarketingStatus().add(castToMarketingStatus(value));
         } else if (name.equals("marketingAuthorization")) {
           this.marketingAuthorization = castToReference(value); // Reference
         } else if (name.equals("packagedMedicinalProduct")) {
@@ -3249,6 +3317,7 @@ public class MedicinalProduct extends DomainResource {
         case 975102638:  return addSpecialMeasuresElement();
         case -1019867160:  return getPaediatricUseIndicator(); 
         case 1247936181:  return addProductClassification(); 
+        case 70767032:  return addMarketingStatus(); 
         case 571831283:  return getMarketingAuthorization(); 
         case -361025513:  return addPackagedMedicinalProduct(); 
         case 443273260:  return addPharmaceuticalProduct(); 
@@ -3277,6 +3346,7 @@ public class MedicinalProduct extends DomainResource {
         case 975102638: /*specialMeasures*/ return new String[] {"string"};
         case -1019867160: /*paediatricUseIndicator*/ return new String[] {"CodeableConcept"};
         case 1247936181: /*productClassification*/ return new String[] {"CodeableConcept"};
+        case 70767032: /*marketingStatus*/ return new String[] {"MarketingStatus"};
         case 571831283: /*marketingAuthorization*/ return new String[] {"Reference"};
         case -361025513: /*packagedMedicinalProduct*/ return new String[] {"Reference"};
         case 443273260: /*pharmaceuticalProduct*/ return new String[] {"Reference"};
@@ -3324,6 +3394,9 @@ public class MedicinalProduct extends DomainResource {
         }
         else if (name.equals("productClassification")) {
           return addProductClassification();
+        }
+        else if (name.equals("marketingStatus")) {
+          return addMarketingStatus();
         }
         else if (name.equals("marketingAuthorization")) {
           this.marketingAuthorization = new Reference();
@@ -3393,6 +3466,11 @@ public class MedicinalProduct extends DomainResource {
           dst.productClassification = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : productClassification)
             dst.productClassification.add(i.copy());
+        };
+        if (marketingStatus != null) {
+          dst.marketingStatus = new ArrayList<MarketingStatus>();
+          for (MarketingStatus i : marketingStatus)
+            dst.marketingStatus.add(i.copy());
         };
         dst.marketingAuthorization = marketingAuthorization == null ? null : marketingAuthorization.copy();
         if (packagedMedicinalProduct != null) {
@@ -3467,11 +3545,12 @@ public class MedicinalProduct extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(domain, o.domain, true)
            && compareDeep(combinedPharmaceuticalDoseForm, o.combinedPharmaceuticalDoseForm, true) && compareDeep(additionalMonitoringIndicator, o.additionalMonitoringIndicator, true)
            && compareDeep(specialMeasures, o.specialMeasures, true) && compareDeep(paediatricUseIndicator, o.paediatricUseIndicator, true)
-           && compareDeep(productClassification, o.productClassification, true) && compareDeep(marketingAuthorization, o.marketingAuthorization, true)
-           && compareDeep(packagedMedicinalProduct, o.packagedMedicinalProduct, true) && compareDeep(pharmaceuticalProduct, o.pharmaceuticalProduct, true)
-           && compareDeep(clinicalParticulars, o.clinicalParticulars, true) && compareDeep(attachedDocument, o.attachedDocument, true)
-           && compareDeep(masterFile, o.masterFile, true) && compareDeep(contact, o.contact, true) && compareDeep(clinicalTrial, o.clinicalTrial, true)
-           && compareDeep(name, o.name, true) && compareDeep(crossReference, o.crossReference, true) && compareDeep(manufacturingBusinessOperation, o.manufacturingBusinessOperation, true)
+           && compareDeep(productClassification, o.productClassification, true) && compareDeep(marketingStatus, o.marketingStatus, true)
+           && compareDeep(marketingAuthorization, o.marketingAuthorization, true) && compareDeep(packagedMedicinalProduct, o.packagedMedicinalProduct, true)
+           && compareDeep(pharmaceuticalProduct, o.pharmaceuticalProduct, true) && compareDeep(clinicalParticulars, o.clinicalParticulars, true)
+           && compareDeep(attachedDocument, o.attachedDocument, true) && compareDeep(masterFile, o.masterFile, true)
+           && compareDeep(contact, o.contact, true) && compareDeep(clinicalTrial, o.clinicalTrial, true) && compareDeep(name, o.name, true)
+           && compareDeep(crossReference, o.crossReference, true) && compareDeep(manufacturingBusinessOperation, o.manufacturingBusinessOperation, true)
            && compareDeep(orphanDesignation, o.orphanDesignation, true);
       }
 
@@ -3488,9 +3567,10 @@ public class MedicinalProduct extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, domain
           , combinedPharmaceuticalDoseForm, additionalMonitoringIndicator, specialMeasures, paediatricUseIndicator
-          , productClassification, marketingAuthorization, packagedMedicinalProduct, pharmaceuticalProduct
-          , clinicalParticulars, attachedDocument, masterFile, contact, clinicalTrial, name
-          , crossReference, manufacturingBusinessOperation, orphanDesignation);
+          , productClassification, marketingStatus, marketingAuthorization, packagedMedicinalProduct
+          , pharmaceuticalProduct, clinicalParticulars, attachedDocument, masterFile, contact
+          , clinicalTrial, name, crossReference, manufacturingBusinessOperation, orphanDesignation
+          );
       }
 
   @Override

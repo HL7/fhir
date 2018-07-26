@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="terminology-server"/>
@@ -49,7 +49,7 @@
     <!--  this bit is optional: security using registered client certificates  -->
       <service>
         <coding>
-          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
           <code value="Certificates"/>
         </coding>
       </service>
@@ -58,7 +58,7 @@
          SMART-on-FHIR, but this doesn't make sense for the actual terminology services API
       <service>
         <coding>
-          <system value="http://hl7.org/fhir/restful-security-service"/>
+          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
           <code value="SMART-on-FHIR"/>
         </coding>
       </service>

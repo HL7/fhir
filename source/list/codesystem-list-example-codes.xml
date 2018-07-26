@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/list-example-use-codes"/>
+  <url value="http://terminology.hl7.org/CodeSystem/list-example-use-codes"/>
   <name value="Example Use Codes for List"/>
   <status value="draft"/>
   <experimental value="false"/>

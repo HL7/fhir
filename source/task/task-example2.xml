@@ -1,4 +1,4 @@
-<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
+﻿<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
 	<!--This is an example to demonstrate using task for actioning a filler generated servicerequest and to illustrate how to populate many of the task elements - this is the child task from task example1 to grab the specimen
 example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected with output Specimen => example 6 action lipid panel - completed with output Specimen and DiagnosticReport -->
 	<id value="example2"/>
@@ -56,7 +56,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	</requester>
 	<performerType>
 		<coding>
-			<system value="http://hl7.org/fhir/task-performer-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/task-performer-type"/>
 			<code value="performer"/>
 			<display value="Performer"/>
 		</coding>

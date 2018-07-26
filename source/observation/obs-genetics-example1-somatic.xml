@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- NOTE: This example will soon be revised and moved to the Genomics Reporting implementation guide - current version at http://hl7.org/fhir/uv/genomics-reporting -->
 <Observation xmlns="http://hl7.org/fhir">
   <id value="genetics-example1-somatic"/>
@@ -8,7 +8,7 @@
       <verificationStatus value="provisional"/>
       <category>
         <coding>
-          <system value="http://hl7.org/fhir/condition-category"/>
+          <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
           <code value="finding"/>
           <display value="Finding"/>
         </coding>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Claim xmlns="http://hl7.org/fhir">
 	<id value="100152"/>
@@ -99,7 +99,7 @@
 
 			<class>
 				<type>
-					<system value="http://hl7.org/fhir/coverage-class"/>
+					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 					<code value="plan"/>
 				</type>
 				<value value="CBI35"/>
@@ -108,7 +108,7 @@
 
 			<class>
 				<type>
-					<system value="http://hl7.org/fhir/coverage-class"/>
+					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 					<code value="subplan"/>
 				</type>
 				<value value="123"/>
@@ -117,7 +117,7 @@
 
 			<class>
 				<type>
-					<system value="http://hl7.org/fhir/coverage-class"/>
+					<system value="http://terminology.hl7.org/CodeSystem/coverage-class"/>
 					<code value="sequence"/>
 				</type>
 				<value value="1"/>
@@ -135,7 +135,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
 		</coding>
 	</type>

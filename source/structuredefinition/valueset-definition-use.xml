@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/definition-use"/>
@@ -15,7 +15,7 @@
   </contact>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/definition-use"/>
+      <system value="http://terminology.hl7.org/CodeSystem/definition-use"/>
     </include>
   </compose>
 </ValueSet>

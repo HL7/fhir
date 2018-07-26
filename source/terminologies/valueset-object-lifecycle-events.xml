@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir">
+﻿<ValueSet xmlns="http://hl7.org/fhir">
   <id value="object-lifecycle-events"/>
   <text>
     <status value="generated"/>
@@ -33,10 +33,10 @@
   <extensible value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/dicom-audit-lifecycle"/>
+      <system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/iso-21089-lifecycle"/>
+      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
     </include>
 	</compose>
 </ValueSet>

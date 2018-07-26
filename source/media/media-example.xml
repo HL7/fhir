@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Media xmlns="http://hl7.org/fhir">
 	<id value="example"/>
 	<status value="completed"/>
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/CodeSystem/media-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/media-type"/>
 			<code value="image"/>
 			<display value="Image"/>
 		</coding>
 	</type>
 	<modality>
 		<coding>
-			<system value="http://hl7.org/fhir/media-modality"/>
+			<system value="http://terminology.hl7.org/CodeSystem/media-modality"/>
 			<code value="diagram"/>
 		</coding>
 	</modality>

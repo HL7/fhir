@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <OrganizationRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitionerrole.xsd">
 	<id value="example"/>
@@ -35,7 +35,7 @@
 	<!-- General Practice Provider for the first 3 months of 2012 -->
 	<code>
 		<coding>
-			<system value="http://hl7.org/fhir/organization-role"/>
+			<system value="http://terminology.hl7.org/CodeSystem/organization-role"/>
 			<code value="provider"/>
 		</coding>
 	</code>

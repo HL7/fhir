@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
@@ -8374,7 +8374,7 @@
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-ex-diagnosisrelatedgroup</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String" x:Ticked="1">http://hl7.org/fhir/ex-diagnosisrelatedgroup</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String" x:Ticked="1">http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s168"><Data ss:Type="String">DiagnosisType</Data></Cell>
@@ -8382,7 +8382,7 @@
     <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">valueset-ex-diagnosistype</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">http://hl7.org/fhir/ex-diagnosistype</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/ex-diagnosistype</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s88"><Data ss:Type="String">!BenefitSubCategory</Data></Cell>

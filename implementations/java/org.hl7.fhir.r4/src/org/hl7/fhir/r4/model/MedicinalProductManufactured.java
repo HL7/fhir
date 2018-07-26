@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -99,7 +99,14 @@ public class MedicinalProductManufactured extends DomainResource {
     @Description(shortDefinition="Dimensions, color etc.", formalDefinition="Dimensions, color etc." )
     protected ProdCharacteristic physicalCharacteristics;
 
-    private static final long serialVersionUID = -1890651119L;
+    /**
+     * Other codeable characteristics.
+     */
+    @Child(name = "otherCharacteristics", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Other codeable characteristics", formalDefinition="Other codeable characteristics." )
+    protected List<CodeableConcept> otherCharacteristics;
+
+    private static final long serialVersionUID = 623073384L;
 
   /**
    * Constructor
@@ -363,6 +370,59 @@ public class MedicinalProductManufactured extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #otherCharacteristics} (Other codeable characteristics.)
+     */
+    public List<CodeableConcept> getOtherCharacteristics() { 
+      if (this.otherCharacteristics == null)
+        this.otherCharacteristics = new ArrayList<CodeableConcept>();
+      return this.otherCharacteristics;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicinalProductManufactured setOtherCharacteristics(List<CodeableConcept> theOtherCharacteristics) { 
+      this.otherCharacteristics = theOtherCharacteristics;
+      return this;
+    }
+
+    public boolean hasOtherCharacteristics() { 
+      if (this.otherCharacteristics == null)
+        return false;
+      for (CodeableConcept item : this.otherCharacteristics)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addOtherCharacteristics() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.otherCharacteristics == null)
+        this.otherCharacteristics = new ArrayList<CodeableConcept>();
+      this.otherCharacteristics.add(t);
+      return t;
+    }
+
+    public MedicinalProductManufactured addOtherCharacteristics(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.otherCharacteristics == null)
+        this.otherCharacteristics = new ArrayList<CodeableConcept>();
+      this.otherCharacteristics.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #otherCharacteristics}, creating it if it does not already exist
+     */
+    public CodeableConcept getOtherCharacteristicsFirstRep() { 
+      if (getOtherCharacteristics().isEmpty()) {
+        addOtherCharacteristics();
+      }
+      return getOtherCharacteristics().get(0);
+    }
+
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("manufacturedDoseForm", "CodeableConcept", "Dose form as manufactured and before any transformation into the pharmaceutical product.", 0, 1, manufacturedDoseForm));
@@ -371,6 +431,7 @@ public class MedicinalProductManufactured extends DomainResource {
         children.add(new Property("manufacturer", "Reference(Organization)", "Manufacturer of the item (Note that this should be named \"manufacturer\" but it currently causes technical issues).", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         children.add(new Property("ingredient", "Reference(MedicinalProductIngredient)", "Ingredient.", 0, java.lang.Integer.MAX_VALUE, ingredient));
         children.add(new Property("physicalCharacteristics", "ProdCharacteristic", "Dimensions, color etc.", 0, 1, physicalCharacteristics));
+        children.add(new Property("otherCharacteristics", "CodeableConcept", "Other codeable characteristics.", 0, java.lang.Integer.MAX_VALUE, otherCharacteristics));
       }
 
       @Override
@@ -382,6 +443,7 @@ public class MedicinalProductManufactured extends DomainResource {
         case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Manufacturer of the item (Note that this should be named \"manufacturer\" but it currently causes technical issues).", 0, java.lang.Integer.MAX_VALUE, manufacturer);
         case -206409263: /*ingredient*/  return new Property("ingredient", "Reference(MedicinalProductIngredient)", "Ingredient.", 0, java.lang.Integer.MAX_VALUE, ingredient);
         case -1599676319: /*physicalCharacteristics*/  return new Property("physicalCharacteristics", "ProdCharacteristic", "Dimensions, color etc.", 0, 1, physicalCharacteristics);
+        case 722135304: /*otherCharacteristics*/  return new Property("otherCharacteristics", "CodeableConcept", "Other codeable characteristics.", 0, java.lang.Integer.MAX_VALUE, otherCharacteristics);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -396,6 +458,7 @@ public class MedicinalProductManufactured extends DomainResource {
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : this.manufacturer.toArray(new Base[this.manufacturer.size()]); // Reference
         case -206409263: /*ingredient*/ return this.ingredient == null ? new Base[0] : this.ingredient.toArray(new Base[this.ingredient.size()]); // Reference
         case -1599676319: /*physicalCharacteristics*/ return this.physicalCharacteristics == null ? new Base[0] : new Base[] {this.physicalCharacteristics}; // ProdCharacteristic
+        case 722135304: /*otherCharacteristics*/ return this.otherCharacteristics == null ? new Base[0] : this.otherCharacteristics.toArray(new Base[this.otherCharacteristics.size()]); // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -422,6 +485,9 @@ public class MedicinalProductManufactured extends DomainResource {
         case -1599676319: // physicalCharacteristics
           this.physicalCharacteristics = castToProdCharacteristic(value); // ProdCharacteristic
           return value;
+        case 722135304: // otherCharacteristics
+          this.getOtherCharacteristics().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -441,6 +507,8 @@ public class MedicinalProductManufactured extends DomainResource {
           this.getIngredient().add(castToReference(value));
         } else if (name.equals("physicalCharacteristics")) {
           this.physicalCharacteristics = castToProdCharacteristic(value); // ProdCharacteristic
+        } else if (name.equals("otherCharacteristics")) {
+          this.getOtherCharacteristics().add(castToCodeableConcept(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -455,6 +523,7 @@ public class MedicinalProductManufactured extends DomainResource {
         case -1969347631:  return addManufacturer(); 
         case -206409263:  return addIngredient(); 
         case -1599676319:  return getPhysicalCharacteristics(); 
+        case 722135304:  return addOtherCharacteristics(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -469,6 +538,7 @@ public class MedicinalProductManufactured extends DomainResource {
         case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         case -206409263: /*ingredient*/ return new String[] {"Reference"};
         case -1599676319: /*physicalCharacteristics*/ return new String[] {"ProdCharacteristic"};
+        case 722135304: /*otherCharacteristics*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -498,6 +568,9 @@ public class MedicinalProductManufactured extends DomainResource {
           this.physicalCharacteristics = new ProdCharacteristic();
           return this.physicalCharacteristics;
         }
+        else if (name.equals("otherCharacteristics")) {
+          return addOtherCharacteristics();
+        }
         else
           return super.addChild(name);
       }
@@ -524,6 +597,11 @@ public class MedicinalProductManufactured extends DomainResource {
             dst.ingredient.add(i.copy());
         };
         dst.physicalCharacteristics = physicalCharacteristics == null ? null : physicalCharacteristics.copy();
+        if (otherCharacteristics != null) {
+          dst.otherCharacteristics = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : otherCharacteristics)
+            dst.otherCharacteristics.add(i.copy());
+        };
         return dst;
       }
 
@@ -540,7 +618,8 @@ public class MedicinalProductManufactured extends DomainResource {
         MedicinalProductManufactured o = (MedicinalProductManufactured) other_;
         return compareDeep(manufacturedDoseForm, o.manufacturedDoseForm, true) && compareDeep(unitOfPresentation, o.unitOfPresentation, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(manufacturer, o.manufacturer, true) && compareDeep(ingredient, o.ingredient, true)
-           && compareDeep(physicalCharacteristics, o.physicalCharacteristics, true);
+           && compareDeep(physicalCharacteristics, o.physicalCharacteristics, true) && compareDeep(otherCharacteristics, o.otherCharacteristics, true)
+          ;
       }
 
       @Override
@@ -555,7 +634,8 @@ public class MedicinalProductManufactured extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(manufacturedDoseForm, unitOfPresentation
-          , quantity, manufacturer, ingredient, physicalCharacteristics);
+          , quantity, manufacturer, ingredient, physicalCharacteristics, otherCharacteristics
+          );
       }
 
   @Override

@@ -24,7 +24,7 @@
 	</immunizationEvent>
 	<doseStatus>
 		<coding>
-			<system value="http://hl7.org/fhir/vaccination-protocol-dose-status"/>
+			<system value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status"/>
 			<code value="valid"/>
 			<display value="Valid"/>
 		</coding>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -16,7 +16,7 @@
   <description value="Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/message-reasons-encounter"/>
+      <system value="http://terminology.hl7.org/CodeSystem/message-reasons-encounter"/>
     </include>
   </compose>
 </ValueSet>

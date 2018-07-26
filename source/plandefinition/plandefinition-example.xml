@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
  xmlns="http://hl7.org/fhir">
@@ -96,7 +96,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -139,7 +139,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -182,7 +182,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -225,7 +225,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -268,7 +268,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -311,7 +311,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -354,7 +354,7 @@
                <td style="padding-right: 25px;">
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>system: </b>
-                     <span>http://hl7.org/fhir/usage-context-type</span>
+                     <span>http://terminology.hl7.org/CodeSystem/usage-context-type</span>
                   </p>
                   <p style="padding-left: 25px; margin-top: 5px; margin-bottom: 5px;">
                      <b>code: </b>
@@ -693,7 +693,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type"/>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
               <code value="ordered"/>
               <display value="Ordered"/>
             </coding>
@@ -796,7 +796,7 @@
   <description value="Orders to be applied to a patient characterized as low suicide risk."/>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="age"/>
     </code>
     <valueCodeableConcept>
@@ -809,7 +809,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -822,7 +822,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -835,7 +835,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -848,7 +848,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>
@@ -861,7 +861,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="user"/>
     </code>
     <valueCodeableConcept>
@@ -874,7 +874,7 @@
   </useContext>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="venue"/>
     </code>
     <valueCodeableConcept>
@@ -1009,7 +1009,7 @@
             <extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
 			  <valueCodeableConcept>
 			    <coding>
-			      <system value="http://hl7.org/fhir/evidence-quality"/>
+			      <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
 			      <code value="high"/>
 			    </coding>
 			    <text value="High Quality"/>

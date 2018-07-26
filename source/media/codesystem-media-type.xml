@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="media-type"/>
-  <url value="http://hl7.org/fhir/CodeSystem/media-type"/>
+  <url value="http://terminology.hl7.org/CodeSystem/media-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.326"/>

@@ -1,4 +1,4 @@
-<PaymentNotice xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+﻿<PaymentNotice xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
 	<id value="77654"/>
 
 	<text>
@@ -38,7 +38,7 @@
 
 	<paymentStatus>
 		<coding>
-			<system value="http://hl7.org/fhir/paymentstatus"/>
+			<system value="http://terminology.hl7.org/CodeSystem/paymentstatus"/>
 			<code value="paid"/>
 		</coding>
 	</paymentStatus>

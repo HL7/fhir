@@ -1,4 +1,4 @@
-<EligibilityRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+﻿<EligibilityRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
 	<id value="52346"/>
 
 	<text>
@@ -63,7 +63,7 @@
 	<detail>
 		<category>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-benefitcategory"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
 				<code value="69"/>
 				<display value="Maternity"/>
 			</coding>

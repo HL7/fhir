@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/contract.xsd">
@@ -12,7 +12,7 @@
 
   <contentDerivative>
     <coding>
-      <system value="http://hl7.org/fhir/contract-content-derivative"/>
+      <system value="http://terminology.hl7.org/CodeSystem/contract-content-derivative"/>
       <code value="registration"/>
     </coding>
   </contentDerivative>
@@ -36,7 +36,7 @@
   </type>
   <subType>
     <coding>
-      <system value="http://hl7.org/fhir/consentcategorycodes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/consentcategorycodes"/>
       <code value="hcd"/>
 <!--      <code value="MDHHS-5515"/>
       <display
@@ -49,7 +49,7 @@
     <offer>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/contract-term-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/contracttermtypecodes"/>
           <code value="statutory"/>
         </coding>
       </type>
@@ -150,7 +150,7 @@
 
     <action>
       <coding>
-        <system value="http://www.hl7.org/fhir/contractaction"/>
+        <system value="http://terminology.hl7.org/CodeSystem/contractaction"/>
         <code value="action-a"/>
       </coding>
     </action>

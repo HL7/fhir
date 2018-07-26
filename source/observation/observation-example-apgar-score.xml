@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="apgar-score"/><!--	Using a contained patient for the purposes of this example Observation.  Typically the reference would be to an external resource  --><contained>
 		<Patient>
@@ -21,7 +21,7 @@
 	<status value="final"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="survey"/>
 			<display value="Survey"/>
 		</coding>

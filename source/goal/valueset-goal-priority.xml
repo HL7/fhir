@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -17,7 +17,7 @@
   <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/goal-priority"/>
+      <system value="http://terminology.hl7.org/CodeSystem/goal-priority"/>
     </include>
   </compose>
 </ValueSet>

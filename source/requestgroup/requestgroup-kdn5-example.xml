@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <RequestGroup xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestgroup.xsd">
   <id value="kdn5-example"/>
   <text>
@@ -35,7 +35,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type"/>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
               <code value="ordered"/>
               <display value="Ordered"/>
             </coding> 
@@ -78,7 +78,7 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://hl7.org/fhir/dose-rate-type"/>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
               <code value="ordered"/>
               <display value="Ordered"/>
             </coding> 

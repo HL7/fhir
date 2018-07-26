@@ -262,7 +262,7 @@ further advice. All patient records should have a score from 0 to 1, where
 <p>
 The match-grade extension has one of the <a href="valueset-match-grade.html">following codes</a>:
 </p>
-[%codelist-nh http://hl7.org/fhir/match-grade%]
+[%codelist-nh http://terminology.hl7.org/CodeSystem/match-grade%]
 <p>
   The purpose of using an MPI search versus a regular search is that the MPI search is really intended to target and 
   find a specific single patient for recording information about reducing errors through incorrectly selecting the

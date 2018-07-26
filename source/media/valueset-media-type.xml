@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
 	<id value="media-type"/>
 	<url value="http://hl7.org/fhir/ValueSet/media-category"/>
@@ -22,7 +22,7 @@
 	<description value="Codes for high level media categories."/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/CodeSystem/media-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/media-type"/>
 		</include>
 	</compose>
 </ValueSet>

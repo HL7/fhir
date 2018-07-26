@@ -15,7 +15,7 @@
   <description value="This value set includes sample Regulatory consent policy types from the US and other regions."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/consentpolicycodes"/>
+      <system value="http://terminology.hl7.org/CodeSystem/consentpolicycodes"/>
     </include>
   </compose>
 </ValueSet>

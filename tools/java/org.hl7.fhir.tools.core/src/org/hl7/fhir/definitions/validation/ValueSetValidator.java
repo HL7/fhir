@@ -218,7 +218,7 @@ public class ValueSetValidator extends BaseValidator {
     }
     
     if (vs.hasCompose()) {
-      if (!context.hasResource(CodeSystem.class, "http://hl7.org/fhir/data-absent-reason") && !vs.getUrl().contains("v3")&& !vs.getUrl().contains("v2"))
+      if (!context.hasResource(CodeSystem.class, "http://terminology.hl7.org/CodeSystem/data-absent-reason") && !vs.getUrl().contains("v3")&& !vs.getUrl().contains("v2"))
         throw new Error("d-a-r not found");
       
       int i = 0;

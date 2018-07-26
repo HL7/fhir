@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
 	<id value="failure-action"/>
 	<url value="http://hl7.org/fhir/ValueSet/failure-action"/>
@@ -26,7 +26,7 @@
 	<immutable value="true"/>
 	<compose>
 		<include>
-			<system value="http://hl7.org/fhir/CodeSystem/failure-action"/>
+			<system value="http://terminology.hl7.org/CodeSystem/failure-action"/>
 		</include>
 	</compose>
 </ValueSet>

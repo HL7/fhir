@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/location.xsd"
  xmlns="http://hl7.org/fhir">
@@ -34,7 +34,7 @@
   </telecom>
   <physicalType>
     <coding>
-      <system value="http://hl7.org/fhir/location-physical-type" />
+      <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
       <code value="ro" />
       <display value="Room" />
     </coding>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Wed, Jul 25, 2018 22:55+1000 for FHIR v3.4.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -880,21 +880,21 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
-            case UNKNOWN: return "http://hl7.org/fhir/data-absent-reason";
-            case ASKEDUNKNOWN: return "http://hl7.org/fhir/data-absent-reason";
-            case TEMPUNKNOWN: return "http://hl7.org/fhir/data-absent-reason";
-            case NOTASKED: return "http://hl7.org/fhir/data-absent-reason";
-            case ASKEDDECLINED: return "http://hl7.org/fhir/data-absent-reason";
-            case MASKED: return "http://hl7.org/fhir/data-absent-reason";
-            case NOTAPPLICABLE: return "http://hl7.org/fhir/data-absent-reason";
-            case UNSUPPORTED: return "http://hl7.org/fhir/data-absent-reason";
-            case ASTEXT: return "http://hl7.org/fhir/data-absent-reason";
-            case ERROR: return "http://hl7.org/fhir/data-absent-reason";
-            case NOTANUMBER: return "http://hl7.org/fhir/data-absent-reason";
-            case NEGATIVEINFINITY: return "http://hl7.org/fhir/data-absent-reason";
-            case POSITIVEINFINITY: return "http://hl7.org/fhir/data-absent-reason";
-            case NOTPERFORMED: return "http://hl7.org/fhir/data-absent-reason";
-            case NOTPERMITTED: return "http://hl7.org/fhir/data-absent-reason";
+            case UNKNOWN: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case ASKEDUNKNOWN: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case TEMPUNKNOWN: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case NOTASKED: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case ASKEDDECLINED: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case MASKED: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case NOTAPPLICABLE: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case UNSUPPORTED: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case ASTEXT: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case ERROR: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case NOTANUMBER: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case NEGATIVEINFINITY: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case POSITIVEINFINITY: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case NOTPERFORMED: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+            case NOTPERMITTED: return "http://terminology.hl7.org/CodeSystem/data-absent-reason";
             default: return "?";
           }
         }
@@ -2680,10 +2680,6 @@ into another (possibly the same) biological entity.
          */
         EXAMPLESCENARIO, 
         /**
-         * Resource to define constraints on the Expansion of a FHIR ValueSet.
-         */
-        EXPANSIONPROFILE, 
-        /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
         EXPLANATIONOFBENEFIT, 
@@ -2816,6 +2812,10 @@ into another (possibly the same) biological entity.
          */
         MEDICINALPRODUCTINGREDIENT, 
         /**
+         * The manufactured item as contained in the packaged medicinal product.
+         */
+        MEDICINALPRODUCTMANUFACTURED, 
+        /**
          * A medicinal product in a container or package.
          */
         MEDICINALPRODUCTPACKAGED, 
@@ -2847,10 +2847,6 @@ into another (possibly the same) biological entity.
          * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
          */
         OBSERVATIONDEFINITION, 
-        /**
-         * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
-         */
-        OCCUPATIONALDATA, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
@@ -3288,8 +3284,6 @@ into another (possibly the same) biological entity.
           return EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -3356,6 +3350,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -3372,8 +3368,6 @@ into another (possibly the same) biological entity.
           return OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -3593,7 +3587,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -3627,6 +3620,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -3635,7 +3629,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -3805,7 +3798,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
             case EVENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case EXAMPLESCENARIO: return "http://hl7.org/fhir/resource-types";
-            case EXPANSIONPROFILE: return "http://hl7.org/fhir/resource-types";
             case EXPLANATIONOFBENEFIT: return "http://hl7.org/fhir/resource-types";
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
@@ -3839,6 +3831,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
+            case MEDICINALPRODUCTMANUFACTURED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPACKAGED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -3847,7 +3840,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OBSERVATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
-            case OCCUPATIONALDATA: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
@@ -4017,7 +4009,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
             case EXAMPLESCENARIO: return "Example of workflow instance.";
-            case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
@@ -4051,6 +4042,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to relace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
+            case MEDICINALPRODUCTMANUFACTURED: return "The manufactured item as contained in the packaged medicinal product.";
             case MEDICINALPRODUCTPACKAGED: return "A medicinal product in a container or package.";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "A pharmaceutical product described in terms of its composition and dose form.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
@@ -4059,7 +4051,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OBSERVATIONDEFINITION: return "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.";
-            case OCCUPATIONALDATA: return "A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
@@ -4229,7 +4220,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -4263,6 +4253,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -4271,7 +4262,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -4559,8 +4549,6 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return FHIRAllTypes.EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return FHIRAllTypes.EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return FHIRAllTypes.EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -4627,6 +4615,8 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return FHIRAllTypes.MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return FHIRAllTypes.MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return FHIRAllTypes.MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -4643,8 +4633,6 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return FHIRAllTypes.OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return FHIRAllTypes.OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return FHIRAllTypes.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -4983,8 +4971,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.EVENTDEFINITION);
         if ("ExampleScenario".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.EXAMPLESCENARIO);
-        if ("ExpansionProfile".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.EXPANSIONPROFILE);
         if ("ExplanationOfBenefit".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.EXPLANATIONOFBENEFIT);
         if ("FamilyMemberHistory".equals(codeString))
@@ -5051,6 +5037,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIngredient".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTINGREDIENT);
+        if ("MedicinalProductManufactured".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTMANUFACTURED);
         if ("MedicinalProductPackaged".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTPACKAGED);
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -5067,8 +5055,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OBSERVATION);
         if ("ObservationDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OBSERVATIONDEFINITION);
-        if ("OccupationalData".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OCCUPATIONALDATA);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
@@ -5400,8 +5386,6 @@ into another (possibly the same) biological entity.
         return "EventDefinition";
       if (code == FHIRAllTypes.EXAMPLESCENARIO)
         return "ExampleScenario";
-      if (code == FHIRAllTypes.EXPANSIONPROFILE)
-        return "ExpansionProfile";
       if (code == FHIRAllTypes.EXPLANATIONOFBENEFIT)
         return "ExplanationOfBenefit";
       if (code == FHIRAllTypes.FAMILYMEMBERHISTORY)
@@ -5468,6 +5452,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProductDeviceSpec";
       if (code == FHIRAllTypes.MEDICINALPRODUCTINGREDIENT)
         return "MedicinalProductIngredient";
+      if (code == FHIRAllTypes.MEDICINALPRODUCTMANUFACTURED)
+        return "MedicinalProductManufactured";
       if (code == FHIRAllTypes.MEDICINALPRODUCTPACKAGED)
         return "MedicinalProductPackaged";
       if (code == FHIRAllTypes.MEDICINALPRODUCTPHARMACEUTICAL)
@@ -5484,8 +5470,6 @@ into another (possibly the same) biological entity.
         return "Observation";
       if (code == FHIRAllTypes.OBSERVATIONDEFINITION)
         return "ObservationDefinition";
-      if (code == FHIRAllTypes.OCCUPATIONALDATA)
-        return "OccupationalData";
       if (code == FHIRAllTypes.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == FHIRAllTypes.OPERATIONOUTCOME)
@@ -6050,10 +6034,6 @@ into another (possibly the same) biological entity.
          */
         EXAMPLESCENARIO, 
         /**
-         * Resource to define constraints on the Expansion of a FHIR ValueSet.
-         */
-        EXPANSIONPROFILE, 
-        /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
         EXPLANATIONOFBENEFIT, 
@@ -6186,6 +6166,10 @@ into another (possibly the same) biological entity.
          */
         MEDICINALPRODUCTINGREDIENT, 
         /**
+         * The manufactured item as contained in the packaged medicinal product.
+         */
+        MEDICINALPRODUCTMANUFACTURED, 
+        /**
          * A medicinal product in a container or package.
          */
         MEDICINALPRODUCTPACKAGED, 
@@ -6217,10 +6201,6 @@ into another (possibly the same) biological entity.
          * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
          */
         OBSERVATIONDEFINITION, 
-        /**
-         * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
-         */
-        OCCUPATIONALDATA, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
@@ -6650,8 +6630,6 @@ into another (possibly the same) biological entity.
           return EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -6718,6 +6696,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -6734,8 +6714,6 @@ into another (possibly the same) biological entity.
           return OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -6951,7 +6929,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -6985,6 +6962,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -6993,7 +6971,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -7161,7 +7138,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
             case EVENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case EXAMPLESCENARIO: return "http://hl7.org/fhir/resource-types";
-            case EXPANSIONPROFILE: return "http://hl7.org/fhir/resource-types";
             case EXPLANATIONOFBENEFIT: return "http://hl7.org/fhir/resource-types";
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
@@ -7195,6 +7171,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
+            case MEDICINALPRODUCTMANUFACTURED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPACKAGED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -7203,7 +7180,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OBSERVATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
-            case OCCUPATIONALDATA: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
@@ -7371,7 +7347,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
             case EXAMPLESCENARIO: return "Example of workflow instance.";
-            case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
@@ -7405,6 +7380,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to relace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
+            case MEDICINALPRODUCTMANUFACTURED: return "The manufactured item as contained in the packaged medicinal product.";
             case MEDICINALPRODUCTPACKAGED: return "A medicinal product in a container or package.";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "A pharmaceutical product described in terms of its composition and dose form.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
@@ -7413,7 +7389,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OBSERVATIONDEFINITION: return "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.";
-            case OCCUPATIONALDATA: return "A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
@@ -7581,7 +7556,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -7615,6 +7589,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -7623,7 +7598,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -7909,8 +7883,6 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return FHIRDefinedType.EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return FHIRDefinedType.EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return FHIRDefinedType.EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -7977,6 +7949,8 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return FHIRDefinedType.MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return FHIRDefinedType.MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return FHIRDefinedType.MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -7993,8 +7967,6 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return FHIRDefinedType.OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return FHIRDefinedType.OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return FHIRDefinedType.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -8329,8 +8301,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.EVENTDEFINITION);
         if ("ExampleScenario".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.EXAMPLESCENARIO);
-        if ("ExpansionProfile".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.EXPANSIONPROFILE);
         if ("ExplanationOfBenefit".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.EXPLANATIONOFBENEFIT);
         if ("FamilyMemberHistory".equals(codeString))
@@ -8397,6 +8367,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIngredient".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTINGREDIENT);
+        if ("MedicinalProductManufactured".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTMANUFACTURED);
         if ("MedicinalProductPackaged".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTPACKAGED);
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -8413,8 +8385,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OBSERVATION);
         if ("ObservationDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OBSERVATIONDEFINITION);
-        if ("OccupationalData".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OCCUPATIONALDATA);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
@@ -8742,8 +8712,6 @@ into another (possibly the same) biological entity.
         return "EventDefinition";
       if (code == FHIRDefinedType.EXAMPLESCENARIO)
         return "ExampleScenario";
-      if (code == FHIRDefinedType.EXPANSIONPROFILE)
-        return "ExpansionProfile";
       if (code == FHIRDefinedType.EXPLANATIONOFBENEFIT)
         return "ExplanationOfBenefit";
       if (code == FHIRDefinedType.FAMILYMEMBERHISTORY)
@@ -8810,6 +8778,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProductDeviceSpec";
       if (code == FHIRDefinedType.MEDICINALPRODUCTINGREDIENT)
         return "MedicinalProductIngredient";
+      if (code == FHIRDefinedType.MEDICINALPRODUCTMANUFACTURED)
+        return "MedicinalProductManufactured";
       if (code == FHIRDefinedType.MEDICINALPRODUCTPACKAGED)
         return "MedicinalProductPackaged";
       if (code == FHIRDefinedType.MEDICINALPRODUCTPHARMACEUTICAL)
@@ -8826,8 +8796,6 @@ into another (possibly the same) biological entity.
         return "Observation";
       if (code == FHIRDefinedType.OBSERVATIONDEFINITION)
         return "ObservationDefinition";
-      if (code == FHIRDefinedType.OCCUPATIONALDATA)
-        return "OccupationalData";
       if (code == FHIRDefinedType.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == FHIRDefinedType.OPERATIONOUTCOME)
@@ -9540,10 +9508,6 @@ into another (possibly the same) biological entity.
          */
         EXAMPLESCENARIO, 
         /**
-         * Resource to define constraints on the Expansion of a FHIR ValueSet.
-         */
-        EXPANSIONPROFILE, 
-        /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
         EXPLANATIONOFBENEFIT, 
@@ -9676,6 +9640,10 @@ into another (possibly the same) biological entity.
          */
         MEDICINALPRODUCTINGREDIENT, 
         /**
+         * The manufactured item as contained in the packaged medicinal product.
+         */
+        MEDICINALPRODUCTMANUFACTURED, 
+        /**
          * A medicinal product in a container or package.
          */
         MEDICINALPRODUCTPACKAGED, 
@@ -9707,10 +9675,6 @@ into another (possibly the same) biological entity.
          * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
          */
         OBSERVATIONDEFINITION, 
-        /**
-         * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
-         */
-        OCCUPATIONALDATA, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
@@ -10014,8 +9978,6 @@ into another (possibly the same) biological entity.
           return EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -10082,6 +10044,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -10098,8 +10062,6 @@ into another (possibly the same) biological entity.
           return OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -10252,7 +10214,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -10286,6 +10247,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -10294,7 +10256,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -10399,7 +10360,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
             case EVENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case EXAMPLESCENARIO: return "http://hl7.org/fhir/resource-types";
-            case EXPANSIONPROFILE: return "http://hl7.org/fhir/resource-types";
             case EXPLANATIONOFBENEFIT: return "http://hl7.org/fhir/resource-types";
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
@@ -10433,6 +10393,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
+            case MEDICINALPRODUCTMANUFACTURED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPACKAGED: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "http://hl7.org/fhir/resource-types";
             case MESSAGEDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -10441,7 +10402,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
             case OBSERVATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
-            case OCCUPATIONALDATA: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
@@ -10546,7 +10506,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
             case EXAMPLESCENARIO: return "Example of workflow instance.";
-            case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
@@ -10580,6 +10539,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to relace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
+            case MEDICINALPRODUCTMANUFACTURED: return "The manufactured item as contained in the packaged medicinal product.";
             case MEDICINALPRODUCTPACKAGED: return "A medicinal product in a container or package.";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "A pharmaceutical product described in terms of its composition and dose form.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
@@ -10588,7 +10548,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OBSERVATIONDEFINITION: return "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.";
-            case OCCUPATIONALDATA: return "A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
@@ -10693,7 +10652,6 @@ into another (possibly the same) biological entity.
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
             case EXAMPLESCENARIO: return "ExampleScenario";
-            case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
@@ -10727,6 +10685,7 @@ into another (possibly the same) biological entity.
             case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
+            case MEDICINALPRODUCTMANUFACTURED: return "MedicinalProductManufactured";
             case MEDICINALPRODUCTPACKAGED: return "MedicinalProductPackaged";
             case MEDICINALPRODUCTPHARMACEUTICAL: return "MedicinalProductPharmaceutical";
             case MESSAGEDEFINITION: return "MessageDefinition";
@@ -10735,7 +10694,6 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
             case OBSERVATIONDEFINITION: return "ObservationDefinition";
-            case OCCUPATIONALDATA: return "OccupationalData";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -10895,8 +10853,6 @@ into another (possibly the same) biological entity.
           return ResourceType.EVENTDEFINITION;
         if ("ExampleScenario".equals(codeString))
           return ResourceType.EXAMPLESCENARIO;
-        if ("ExpansionProfile".equals(codeString))
-          return ResourceType.EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
           return ResourceType.EXPLANATIONOFBENEFIT;
         if ("FamilyMemberHistory".equals(codeString))
@@ -10963,6 +10919,8 @@ into another (possibly the same) biological entity.
           return ResourceType.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIngredient".equals(codeString))
           return ResourceType.MEDICINALPRODUCTINGREDIENT;
+        if ("MedicinalProductManufactured".equals(codeString))
+          return ResourceType.MEDICINALPRODUCTMANUFACTURED;
         if ("MedicinalProductPackaged".equals(codeString))
           return ResourceType.MEDICINALPRODUCTPACKAGED;
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -10979,8 +10937,6 @@ into another (possibly the same) biological entity.
           return ResourceType.OBSERVATION;
         if ("ObservationDefinition".equals(codeString))
           return ResourceType.OBSERVATIONDEFINITION;
-        if ("OccupationalData".equals(codeString))
-          return ResourceType.OCCUPATIONALDATA;
         if ("OperationDefinition".equals(codeString))
           return ResourceType.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -11189,8 +11145,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.EVENTDEFINITION);
         if ("ExampleScenario".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.EXAMPLESCENARIO);
-        if ("ExpansionProfile".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.EXPANSIONPROFILE);
         if ("ExplanationOfBenefit".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.EXPLANATIONOFBENEFIT);
         if ("FamilyMemberHistory".equals(codeString))
@@ -11257,6 +11211,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIngredient".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTINGREDIENT);
+        if ("MedicinalProductManufactured".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTMANUFACTURED);
         if ("MedicinalProductPackaged".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTPACKAGED);
         if ("MedicinalProductPharmaceutical".equals(codeString))
@@ -11273,8 +11229,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.OBSERVATION);
         if ("ObservationDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.OBSERVATIONDEFINITION);
-        if ("OccupationalData".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.OCCUPATIONALDATA);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
@@ -11476,8 +11430,6 @@ into another (possibly the same) biological entity.
         return "EventDefinition";
       if (code == ResourceType.EXAMPLESCENARIO)
         return "ExampleScenario";
-      if (code == ResourceType.EXPANSIONPROFILE)
-        return "ExpansionProfile";
       if (code == ResourceType.EXPLANATIONOFBENEFIT)
         return "ExplanationOfBenefit";
       if (code == ResourceType.FAMILYMEMBERHISTORY)
@@ -11544,6 +11496,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProductDeviceSpec";
       if (code == ResourceType.MEDICINALPRODUCTINGREDIENT)
         return "MedicinalProductIngredient";
+      if (code == ResourceType.MEDICINALPRODUCTMANUFACTURED)
+        return "MedicinalProductManufactured";
       if (code == ResourceType.MEDICINALPRODUCTPACKAGED)
         return "MedicinalProductPackaged";
       if (code == ResourceType.MEDICINALPRODUCTPHARMACEUTICAL)
@@ -11560,8 +11514,6 @@ into another (possibly the same) biological entity.
         return "Observation";
       if (code == ResourceType.OBSERVATIONDEFINITION)
         return "ObservationDefinition";
-      if (code == ResourceType.OCCUPATIONALDATA)
-        return "OccupationalData";
       if (code == ResourceType.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == ResourceType.OPERATIONOUTCOME)
@@ -11701,6 +11653,10 @@ into another (possibly the same) biological entity.
          */
         URI, 
         /**
+         * Special logic applies to this parameter per the description of the search parameter
+         */
+        SPECIAL, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -11723,6 +11679,8 @@ into another (possibly the same) biological entity.
           return QUANTITY;
         if ("uri".equals(codeString))
           return URI;
+        if ("special".equals(codeString))
+          return SPECIAL;
         throw new FHIRException("Unknown SearchParamType code '"+codeString+"'");
         }
         public String toCode() {
@@ -11735,6 +11693,7 @@ into another (possibly the same) biological entity.
             case COMPOSITE: return "composite";
             case QUANTITY: return "quantity";
             case URI: return "uri";
+            case SPECIAL: return "special";
             default: return "?";
           }
         }
@@ -11748,6 +11707,7 @@ into another (possibly the same) biological entity.
             case COMPOSITE: return "http://hl7.org/fhir/search-param-type";
             case QUANTITY: return "http://hl7.org/fhir/search-param-type";
             case URI: return "http://hl7.org/fhir/search-param-type";
+            case SPECIAL: return "http://hl7.org/fhir/search-param-type";
             default: return "?";
           }
         }
@@ -11761,6 +11721,7 @@ into another (possibly the same) biological entity.
             case COMPOSITE: return "A composite search parameter that combines a search on two values together.";
             case QUANTITY: return "A search parameter that searches on a quantity.";
             case URI: return "A search parameter that searches on a URI (RFC 3986).";
+            case SPECIAL: return "Special logic applies to this parameter per the description of the search parameter";
             default: return "?";
           }
         }
@@ -11774,6 +11735,7 @@ into another (possibly the same) biological entity.
             case COMPOSITE: return "Composite";
             case QUANTITY: return "Quantity";
             case URI: return "URI";
+            case SPECIAL: return "Special";
             default: return "?";
           }
         }
@@ -11800,6 +11762,8 @@ into another (possibly the same) biological entity.
           return SearchParamType.QUANTITY;
         if ("uri".equals(codeString))
           return SearchParamType.URI;
+        if ("special".equals(codeString))
+          return SearchParamType.SPECIAL;
         throw new IllegalArgumentException("Unknown SearchParamType code '"+codeString+"'");
         }
         public Enumeration<SearchParamType> fromType(Base code) throws FHIRException {
@@ -11826,6 +11790,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<SearchParamType>(this, SearchParamType.QUANTITY);
         if ("uri".equals(codeString))
           return new Enumeration<SearchParamType>(this, SearchParamType.URI);
+        if ("special".equals(codeString))
+          return new Enumeration<SearchParamType>(this, SearchParamType.SPECIAL);
         throw new FHIRException("Unknown SearchParamType code '"+codeString+"'");
         }
     public String toCode(SearchParamType code) {
@@ -11845,6 +11811,8 @@ into another (possibly the same) biological entity.
         return "quantity";
       if (code == SearchParamType.URI)
         return "uri";
+      if (code == SearchParamType.SPECIAL)
+        return "special";
       return "?";
       }
     public String toSystem(SearchParamType code) {
@@ -11911,12 +11879,12 @@ into another (possibly the same) biological entity.
         }
         public String getSystem() {
           switch (this) {
-            case TRUE: return "http://hl7.org/fhir/special-values";
-            case FALSE: return "http://hl7.org/fhir/special-values";
-            case TRACE: return "http://hl7.org/fhir/special-values";
-            case SUFFICIENT: return "http://hl7.org/fhir/special-values";
-            case WITHDRAWN: return "http://hl7.org/fhir/special-values";
-            case NILKNOWN: return "http://hl7.org/fhir/special-values";
+            case TRUE: return "http://terminology.hl7.org/CodeSystem/special-values";
+            case FALSE: return "http://terminology.hl7.org/CodeSystem/special-values";
+            case TRACE: return "http://terminology.hl7.org/CodeSystem/special-values";
+            case SUFFICIENT: return "http://terminology.hl7.org/CodeSystem/special-values";
+            case WITHDRAWN: return "http://terminology.hl7.org/CodeSystem/special-values";
+            case NILKNOWN: return "http://terminology.hl7.org/CodeSystem/special-values";
             default: return "?";
           }
         }

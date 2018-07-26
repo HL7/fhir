@@ -64,7 +64,8 @@ public class SearchParameterDefn {
     quantity, // search parameter is onto a quantity (= token + -lower & -upper, and canonical)
     reference,// search parameter refers to a resource reference
     token,   // search parameter is onto a pair of fixed value strings, space and value. Space is optional
-    uri;     // search onto a URI
+    uri,     // search onto a URI
+    special;  // special case - not one of the others
   }
   
   

@@ -692,11 +692,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         return rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
       return true;
     } else if (system.startsWith("http://hl7.org/fhir")) {
-      if (system.equals("http://hl7.org/fhir/sid/icd-10"))
-        return true; // else don't check ICD-10 (for now)
+      if (Utilities.existsInList(system, "http://hl7.org/fhir/sid/icd-10", "http://hl7.org/fhir/sid/cvx", "http://hl7.org/fhir/sid/icd-10-cm","http://hl7.org/fhir/sid/icd-9","http://hl7.org/fhir/sid/ndc"))
+        return true; // else don't check these (for now)
       else {
         CodeSystem cs = getCodeSystem(system);
-        if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, cs != null, "Unknown Code System " + system)) {
+        if (rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, cs != null, "Invalid FHIR Code System " + system)) {
           ConceptDefinitionComponent def = getCodeDefinition(cs, code);
           if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, def != null, "Unknown Code (" + system + "#" + code + ")"))
             return warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, display == null || display.equals(def.getDisplay()), "Display should be '" + def.getDisplay() + "'");
@@ -925,7 +925,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     ValidationResult vr = null;
                     if (binding.getStrength() != BindingStrength.EXAMPLE) {
                       vr = context.validateCode(c, valueset);
-						  }
+						        }
                     txTime = txTime + (System.nanoTime() - t);
                     if (vr != null && !vr.isOk()) {
                       if (vr.IsNoService())

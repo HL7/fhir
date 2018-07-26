@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/consentscope"/>
+  <url value="http://terminology.hl7.org/CodeSystem/consentscope"/>
   <name value="Consent Scope Codes"/>
   <status value="draft"/>
   <experimental value="false"/>

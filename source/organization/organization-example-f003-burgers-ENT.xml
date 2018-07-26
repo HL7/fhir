@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Organization xmlns="http://hl7.org/fhir">
   <id value="f003"/>
   <active value="true"/>
   <type>
     <coding>
-      <system value="http://hl7.org/fhir/organization-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/organization-type"/>
       <code value="dept"/>
       <display value="Hospital Department"/>
     </coding>
@@ -24,7 +24,7 @@
   <contact>
     <purpose>
       <coding>
-        <system value="http://hl7.org/fhir/contactentity-type"/>
+        <system value="http://terminology.hl7.org/CodeSystem/contactentity-type"/>
         <code value="ADMIN"/>
       </coding>
     </purpose>

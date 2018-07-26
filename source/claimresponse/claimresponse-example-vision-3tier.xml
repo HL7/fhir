@@ -1,4 +1,4 @@
-<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
+﻿<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
 
 	<id value="R3502"/>
 
@@ -16,7 +16,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/claim-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="vision"/>
 		</coding>
 	</type>
@@ -50,7 +50,7 @@
 
 	<payeeType>
 		<coding>
-			<system value="http://hl7.org/fhir/payeetype"/>
+			<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
 			<code value="provider"/>
 		</coding>
 	</payeeType>
@@ -374,7 +374,7 @@
 	<payment>
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/ex-paymenttype"/>
+				<system value="http://terminology.hl7.org/CodeSystem/ex-paymenttype"/>
 				<code value="complete"/>
 			</coding>
 		</type>	
@@ -386,7 +386,7 @@
 
 		<adjustmentReason>
 			<coding>
-				<system value="http://hl7.org/fhir/payment-adjustment-reason"/>
+				<system value="http://terminology.hl7.org/CodeSystem/payment-adjustment-reason"/>
 				<code value="a002"/>
 				<display value="Prior Overpayment"/>
 			</coding>

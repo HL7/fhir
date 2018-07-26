@@ -18,7 +18,7 @@
 	<status value="in-progress"/>
 	<scope>
 		<coding>
-			<system value="http://hl7.org/fhir/consentscope"/>
+			<system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
 			<code value="patient-privacy"/>
 		</coding>
 	</scope>
@@ -61,7 +61,7 @@
 		<!-- to read -->
 		<action>
 			<coding>
-				<system value="http://hl7.org/fhir/consentaction"/>
+				<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 				<code value="access"/>
 			</coding>
 		</action>
@@ -88,7 +88,7 @@
 			<!-- to read -->
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -116,7 +116,7 @@
 			<!-- to read -->
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -141,7 +141,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -164,7 +164,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -187,7 +187,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -210,7 +210,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -233,7 +233,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -256,7 +256,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -279,7 +279,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -302,7 +302,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>
@@ -325,7 +325,7 @@
 			</actor>
 			<action>
 				<coding>
-					<system value="http://hl7.org/fhir/consentaction"/>
+					<system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
 					<code value="access"/>
 				</coding>
 			</action>

@@ -4,7 +4,7 @@
     {
       "hash": "#|http://ihe.net/connectathon/classCodes|null|History and Physical|History and Physical",
       "severity": "error",
-      "message": "The code provided (http://ihe.net/connectathon/classCodes#History and Physical) is not  valid in the value set Document Type Value Set"
+      "message": "Unable to provide support for code system http://ihe.net/connectathon/classCodes"
     },
     {
       "hash": "#|http://loinc.org|null|34108-1|Outpatient Note",

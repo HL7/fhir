@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CompartmentDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
@@ -18,7 +18,7 @@
   <description value="The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only)."/>
   <useContext>
     <code>
-      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
       <code value="focus"/>
     </code>
     <valueCodeableConcept>

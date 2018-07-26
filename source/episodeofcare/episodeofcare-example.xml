@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <EpisodeOfCare xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/episodeofcare.xsd">
   <id value="example"/>
   <text>
@@ -42,7 +42,7 @@
   </statusHistory>
   <type>
     <coding>
-        <system value="http://hl7.org/fhir/episodeofcare-type"/>
+        <system value="http://terminology.hl7.org/CodeSystem/episodeofcare-type"/>
         <code value="hacc"/>
         <display value="Home and Community Care"/>
     </coding>
@@ -53,7 +53,7 @@
     </condition>
     <role>
       <coding>
-        <system value="http://hl7.org/fhir/diagnosis-role"/>
+        <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
         <code value="CC"/>
         <display value="Chief complaint"/>
       </coding>

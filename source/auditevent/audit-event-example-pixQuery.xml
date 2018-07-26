@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
 	<id value="example-pixQuery"/>
 
@@ -46,7 +46,7 @@
 		<!--  The Human using the software, if known  -->
 		<type>
 			<coding>
-				<system value="http://hl7.org/fhir/extra-security-role-type"/>
+				<system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
 				<code value="humanuser"/>
 				<display value="human user"/>
 			</coding>
@@ -76,12 +76,12 @@
 			</identifier>
 		</what>
 		<type>
-			<system value="http://hl7.org/fhir/object-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
 			<code value="1"/>
 			<display value="Person"/>
 		</type>
 		<role>
-			<system value="http://hl7.org/fhir/object-role"/>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="1"/>
 			<display value="Patient"/>
 		</role>
@@ -89,12 +89,12 @@
 	<entity>
 		<!-- The PIX Query Parameters -->
 		<type>
-			<system value="http://hl7.org/fhir/object-type"/>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
 			<code value="2"/>
 			<display value="System Object"/>
 		</type>
 		<role>
-			<system value="http://hl7.org/fhir/object-role"/>
+			<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
 			<code value="24"/>
 			<display value="Query"/>
 		</role>

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="iso-21089-lifecycle"/>
-    <url value="http://hl7.org/fhir/iso-21089-lifecycle"/>
+    <url value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
 <!--
 	<url value="urn:iso:std:21089:2017:lifecycle"/>
 -->

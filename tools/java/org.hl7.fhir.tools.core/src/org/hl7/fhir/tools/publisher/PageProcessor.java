@@ -412,8 +412,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
-//  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
+//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
+  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
@@ -1234,6 +1234,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genAllSearchParams()+s3;
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
+      else if (com[0].equals("internalsystemlistx"))
+        src = s1 + genCSListX()+s3;
       else if (com[0].equals("example-usage"))
         src = s1+s3;
       else if (com[0].equals("ig.title"))
@@ -3101,7 +3103,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (CodeSystem cs : definitions.getCodeSystems().values()) {
       if (cs != null) {
         String n = cs.getUrl();
-        if (n.contains("/v3/")) {
+        if (n.contains("/v3-")) {
           names.add(n);
           map.put(n, cs);
         }
@@ -3113,7 +3115,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       CodeSystem cs = map.get(n);
       String id = tail(cs.getUrl());
       String oid = CodeSystemUtilities.getOID(cs);
-      s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id))
+      s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id.substring(3)))
               .append("</a></td><td>").append(Utilities.escapeXml(cs.getDescription())).append("</td><td>").append(oid == null ? "--" : oid).append("</td></tr>\r\n");
     }
 
@@ -3518,7 +3520,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (ed.hasBinding()) {
         if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
           b.append(" <li><a href=\"").append(prefix).append(path).append("\">Extension ")
-          .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> (").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+          .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> ("+ed.typeSummary()+" : ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
       }
     }
   }
@@ -3528,7 +3530,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (OperationParameter p : op.getParameters()) {
         if (p.getBs() != null && p.getBs().getValueSet() == vs) {
           b.append(" <li><a href=\"").append(prefix+page).append(op.getName()).append(".html").append("\">Operation Parameter $")
-          .append(op.getName()).append(".").append(p.getName()).append("</a> (").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
+          .append(op.getName()).append(".").append(p.getName()).append("</a> ("+p.getFhirType()+" : ").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
         }
       }
     }
@@ -3541,7 +3543,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           if (ed.hasBinding()) {
             if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
               b.append(" <li><a href=\"").append(prefix+p.getId()).append(".html\">StructureDefinition ")
-              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> (").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ("+ed.typeSummary()+" : ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
           }
         }
       }
@@ -3578,20 +3580,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String path, String ref, String prefix) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
     if (e.hasBinding() && e.getBinding().getValueSet() == vs) {
-      b.append(" <li><a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
+      b.append(" <li><a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
     }
     if (e.hasBinding() && e.getBinding().getMaxValueSet() == vs) {
-      b.append(" <li>Max: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
+      b.append(" <li>Max: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
       scanForUsage(b, vs, c, path, ref, prefix);
     }
   }
 
-  private String getBSTypeDesc(BindingSpecification cd, String prefix) {
+  private String getBSTypeDesc(ElementDefn ed, BindingSpecification cd, String prefix) {
     if (cd == null || cd.getStrength() == null) // partial build
       return "Unknown";
-    return "(<a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)";
+    return "("+ed.typeCode()+" : <a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)";
   }
 
   private String generateCodeDefinition(String name) {
@@ -5555,6 +5557,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genAllSearchParams()+s3;
       else if (com[0].equals("internalsystemlist"))
         src = s1 + genCSList()+s3;
+      else if (com[0].equals("internalsystemlistx"))
+        src = s1 + genCSListX()+s3;
       else if (com[0].equals("baseURLn"))
         src = s1 + Utilities.appendForwardSlash(baseURL)+s3;
       else if (com[0].equals("ig.title"))
@@ -9587,6 +9591,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a>");
+          if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
+            b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
+          b.append("</td>\r\n");
+          b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
+          String oid = CodeSystemUtilities.getOID(cs);
+          b.append("    <td>"+(oid == null ? "" : oid)+"</td>\r\n");
+          b.append("  </tr>\r\n");
+        }
+      }
+    }
+    return b.toString();
+  }
+
+  private String genCSListX() {
+    StringBuilder b = new StringBuilder();
+    List<String> names = new ArrayList<String>();
+    names.addAll(definitions.getCodeSystems().keySet());
+    Collections.sort(names);
+    for (String n : names) {
+      CodeSystem cs = definitions.getCodeSystems().get(n);
+      if (cs != null) {
+        if (cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
+          b.append("  <tr>\r\n");
+          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(38)+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
             b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");

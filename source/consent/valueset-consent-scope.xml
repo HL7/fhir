@@ -17,7 +17,7 @@
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/consentscope"/>
+      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
     </include>
   </compose>
 </ValueSet>

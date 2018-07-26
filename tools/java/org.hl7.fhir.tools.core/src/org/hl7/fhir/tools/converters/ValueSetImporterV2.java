@@ -277,7 +277,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private void addLangDesc(ConceptDefinitionComponent c, String lang, String value, String type) {
     if (!Utilities.noString(value)) {
-      c.addDesignation().setLanguage(lang).setValue(value).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode(type);
+      c.addDesignation().setLanguage(lang).setValue(value).getUse().setSystem("http://terminology.hl7.org/CodeSystem/designation-usage").setCode(type);
     }
   }
 

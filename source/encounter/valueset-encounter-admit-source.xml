@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -16,7 +16,7 @@
   <description value="This value set defines a set of codes that can be used to indicate from where the patient came in."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/admit-source"/>
+      <system value="http://terminology.hl7.org/CodeSystem/admit-source"/>
     </include>
   </compose>
 </ValueSet>

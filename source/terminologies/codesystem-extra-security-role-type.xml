@@ -1,4 +1,4 @@
-<CodeSystem xmlns="http://hl7.org/fhir">
+﻿<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="extra-security-role-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -7,7 +7,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml"> </div>
   </text>
-  <url value="http://hl7.org/fhir/extra-security-role-type"/>
+  <url value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
   <version value="3.4.0"/>
   <name value="SecurityRoleType"/>
   <status value="draft"/>
