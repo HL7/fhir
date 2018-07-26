@@ -629,7 +629,7 @@ might submit the finalized result using <code>PUT path/Observation?identifier=ht
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
 not expected that every server will implement them. Servers that don't support the conditional
-update should return an HTTP <code>400</code> error and an <a href="operationoutcome.html">OperationOutcome</a>.
+update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 
 
@@ -809,7 +809,7 @@ For example, a client deleting a lab atomic result might delete the resource usi
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
 not expected that every server will implement them. Servers that don't support the conditional
-delete should return an HTTP <code>400</code> error and an <a href="operationoutcome.html">OperationOutcome</a>.
+update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 
 <a name="create"></a>
@@ -910,7 +910,7 @@ creating duplicate resources for the same record. For example, a client posting 
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
 not expected that every server will implement them. Servers that don't support the conditional
-create should return an HTTP <code>412</code> error and an <a href="operationoutcome.html">OperationOutcome</a>.
+update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 
 
@@ -971,8 +971,8 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 <a href="valueset-search-entry-mode.html">Bundle.entry.search.mode</a> of <code>outcome</code>.
 </p>
 <p>
-If the search fails (cannot be executed, not that there are no matches), the return value is
-a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+If the search fails (cannot be executed, not that there are no matches), the return value 
+return value SHALL be a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
@@ -1092,7 +1092,8 @@ document index entry and its accompanying document).
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
-not expected that every server will implement them.
+not expected that every server will implement them. Servers that don't support the conditional
+update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 A <code>batch</code> or <code>transaction</code> interaction is performed by an HTTP <code>POST</code> command as shown:
