@@ -7,7 +7,7 @@
 		<display value="Restful Operation"/>
 	</type>
 	<subtype>
-		<system value="http://terminology.hl7.org/CodeSystem/restful-interaction"/>
+		<system value="http://hl7.org/fhir/restful-interaction"/>
 		<code value="vread"/>
 		<display value="vread"/>
 	</subtype>

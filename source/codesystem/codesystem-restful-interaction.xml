@@ -2,7 +2,7 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="restful-interaction"/>
-  <url value="http://terminology.hl7.org/CodeSystem/restful-interaction"/>
+  <url value="http://hl7.org/fhir/restful-interaction"/>
   <name value="FHIR Restful Interactions"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>

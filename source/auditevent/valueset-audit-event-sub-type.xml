@@ -83,7 +83,7 @@
       </concept>
     </include>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/restful-interaction"/>
+      <system value="http://hl7.org/fhir/restful-interaction"/>
 <!--      <concept>
         <code value="read"/>
       </concept>

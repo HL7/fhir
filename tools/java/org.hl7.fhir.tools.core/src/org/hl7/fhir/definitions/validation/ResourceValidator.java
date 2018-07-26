@@ -1084,8 +1084,8 @@ public class ResourceValidator extends BaseValidator {
     if (!isComplex && !externalException(path)) {
       ValueSet vs = cd.getValueSet();
       if (warning(errors, IssueType.REQUIRED, path, vs != null || cd.hasReference(), "Unable to resolve value set on 'code' Binding")) {
-// Comment out for now.  Reactivate in STU 4
-//        hint(errors, IssueType.REQUIRED, path, noExternals(vs), "Bindings for code data types should only use internally defined codes");
+        hint(errors, IssueType.REQUIRED, path, noExternals(vs), "Bindings for code data types should only use internally defined codes ("+vs.getUrl()+")");
+        // don't disable this without discussion on Zulip
       }
     }
   }
@@ -1093,16 +1093,19 @@ public class ResourceValidator extends BaseValidator {
   
 
 	private boolean externalException(String path) {
-    return Utilities.existsInList(path, "Attachment.language", "Binary.contentType");
+    return Utilities.existsInList(path, "Attachment.language", "Binary.contentType", "Composition.confidentiality");
 }
 
   private boolean noExternals(ValueSet vs) {
+    if (Utilities.existsInList(vs.getUrl(), "http://hl7.org/fhir/ValueSet/mimetypes", "http://hl7.org/fhir/ValueSet/languages"))
+      return true;
+    
     for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
       if (inc.hasValueSet())
         throw new Error("not handled yet");
-      if (!inc.getSystem().startsWith("http://hl7.org/fhir/"))
-        return false;
       if (inc.getSystem().startsWith("http://terminology.hl7.org/CodeSystem/v2-") || inc.getSystem().startsWith("http://terminology.hl7.org/CodeSystem/v3-"))
+        return false;
+      if (!Utilities.existsInList(inc.getSystem(), "urn:iso:std:iso:4217", "http://unitsofmeasure.org") && !inc.getSystem().startsWith("http://hl7.org/fhir/"))
         return false;
     }
     return true;

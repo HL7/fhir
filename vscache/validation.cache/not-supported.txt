@@ -1,4 +1,5 @@
-﻿http://ema.europa.eu/example/routeofadministration
+﻿http://varnomen.hgvs.org/
+http://ema.europa.eu/example/routeofadministration
 http://ema.europa.eu/example/ingredientRole
 https://precision.fda.gov/jobs/
 http://ema.europa.eu/example/legalstatusofsupply
@@ -62,7 +63,6 @@ http://ema.europa.eu/example/marketingAuthorisationProcedureType
 http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/test-codes
 http://snomed.info.sct
 https://github.com/common-workflow-language/workflows
-http://www.hgvs.org/mutnomen
 https://www.cms.gov/codes/billtype
 urn:iso:std:iso:4217
 http://nucc.org/provider-taxonomy
