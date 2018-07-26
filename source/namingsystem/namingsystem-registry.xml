@@ -86,6 +86,47 @@
     </resource>
   </entry>    
   <entry>
+    <fullUrl value="http://hl7.org/fhir/NamingSystem/us-mbi"/>
+    <resource>
+      <NamingSystem>
+        <id value="us-mbi"/>
+        <name value="Medicare Beneficiary Identifier (United States)"/>
+        <status value="active"/>
+        <kind value="identifier"/>
+        <date value="2016-07-12"/>
+        <publisher value="Centers for Medicare &amp; Medicaid Services"/>
+        <contact>  
+          <telecom>
+            <system value="url"/>
+            <value value="https://www.medicare.gov/"/>
+          </telecom>
+        </contact>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="SB"/>
+          </coding>
+        </type>
+        <description value="Medicare Beneficiary Identifiers are represented without any spaces or dashes"/>
+        <jurisdiction>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </jurisdiction>
+        <uniqueId>  
+          <type value="uri"/>
+          <value value="http://hl7.org/fhir/sid/us-mbi"/>
+          <preferred value="true"/>
+         </uniqueId>
+        <uniqueId>  
+          <type value="oid"/>
+          <value value="2.16.840.1.113883.4.927"/>
+         </uniqueId>
+      </NamingSystem>
+    </resource>
+  </entry>    
+  <entry>
     <fullUrl value="http://hl7.org/fhir/NamingSystem/us-npi"/>
     <resource>
       <NamingSystem>
