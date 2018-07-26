@@ -1033,6 +1033,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validator.setNoBindingMsgSuppressed(true);
     validator.setNoExtensibleWarnings(true);
     validator.setHintAboutNonMustSupport(bool(configuration, "hintAboutNonMustSupport"));
+    validator.setAnyExtensionsAllowed(bool(configuration, "anyExtensionsAllowed"));
     
     pvalidator = new ProfileValidator();
     pvalidator.setContext(context);

@@ -255,7 +255,7 @@ public class NativeHostServices {
   public byte[] validateResource(String location, byte[] source, String cntType, String options) throws Exception {
     try {
       IdStatus resourceIdRule = IdStatus.OPTIONAL;
-      boolean anyExtensionsAllowed = false;
+      boolean anyExtensionsAllowed = true;
       BestPracticeWarningLevel bpWarnings = BestPracticeWarningLevel.Ignore;
       CheckDisplayOption displayOption = CheckDisplayOption.Ignore;
       for (String s : options.split(" ")) {
@@ -266,7 +266,9 @@ public class NativeHostServices {
         else if ("id-prohibited".equalsIgnoreCase(s))
           resourceIdRule = IdStatus.PROHIBITED;
         else if ("any-extensions".equalsIgnoreCase(s))
-          anyExtensionsAllowed = true;
+          anyExtensionsAllowed = true; // This is already the default
+        else if ("strict-extensions".equalsIgnoreCase(s))
+          anyExtensionsAllowed = false;
         else if ("bp-ignore".equalsIgnoreCase(s))
           bpWarnings = BestPracticeWarningLevel.Ignore;
         else if ("bp-hint".equalsIgnoreCase(s))

@@ -213,6 +213,7 @@ public class ValidationEngine {
   private boolean doNative;
   private boolean noInvariantChecks;
   private boolean hintAboutNonMustSupport;
+  private boolean anyExtensionsAllowed = false;
   private String version;
   private PackageCacheManager pcm;
 
@@ -271,6 +272,14 @@ public class ValidationEngine {
 
   public void setHintAboutNonMustSupport(boolean hintAboutNonMustSupport) {
     this.hintAboutNonMustSupport = hintAboutNonMustSupport;
+  }
+
+  public boolean isAnyExtensionsAllowed() {
+    return anyExtensionsAllowed;
+  }
+
+  public void setAnyExtensionsAllowed(boolean anyExtensionsAllowed) {
+    this.anyExtensionsAllowed = anyExtensionsAllowed;
   }
 
   public ValidationEngine(String src, String txsrvr) throws Exception {
@@ -376,7 +385,7 @@ public class ValidationEngine {
       else
         return fetchFromUrl(src+(v == null ? "" : "|"+v));
     }
-    if ((src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) && !src.endsWith(".zip")) {
+    if ((src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) && !src.endsWith(".zip") && !src.endsWith(".tgz")) {
       return fetchByPackage(src);
     }
     
@@ -390,7 +399,7 @@ public class ValidationEngine {
         return readZip(new FileInputStream(Utilities.path(src, "validator.pack")));
       if (f.isDirectory())
         return scanDirectory(f);
-      if (src.endsWith("package.tgz"))
+      if (src.endsWith(".tgz"))
         return loadPackage(new FileInputStream(src), src);
       if (src.endsWith(".pack"))
         return readZip(new FileInputStream(src));
@@ -408,9 +417,9 @@ public class ValidationEngine {
 
   
   private Map<String, byte[]> fetchFromUrl(String src) throws Exception {
-    if (src.endsWith("package.tgz"))
+    if (src.endsWith(".tgz"))
       return loadPackage(fetchFromUrlSpecific(src, false), src);
-    if (src.endsWith("validator.pack"))
+    if (src.endsWith(".pack"))
       return readZip(fetchFromUrlSpecific(src, false));
     if (src.endsWith("igpack.zip"))
       return readZip(fetchFromUrlSpecific(src, false));
@@ -811,6 +820,7 @@ public class ValidationEngine {
     }
     InstanceValidator validator = new InstanceValidator(context, null);
     validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
+    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setNoInvariantChecks(isNoInvariantChecks());
     validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
     return messagesToOutcome(messages);
@@ -828,6 +838,7 @@ public class ValidationEngine {
     }
     InstanceValidator validator = new InstanceValidator(context, null);
     validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
+    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setResourceIdRule(resourceIdRule);
     validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setBestPracticeWarningLevel(bpWarnings);
