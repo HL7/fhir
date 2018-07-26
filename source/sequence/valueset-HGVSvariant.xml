@@ -14,7 +14,7 @@
   <copyright value="The Human Genome Variation Society Webpages constitute the intellectual property of the Human Genome Variation Society. Any unauthorised copying, reutilization, extraction, storage or distribution of this material, or a substantial part thereof without written permission from the Human Genome Variation Society would lead to copyright and database right of infringement with possible ensuing litigation. Copyright © and or database right of Human Genome Variation Society. All Rights Reserved"/>
   <compose>
     <include>
-      <system value="http://www.hgvs.org/mutnomen"/>
+      <system value="http://varnomen.hgvs.org/"/>
     </include>
   </compose>
 </ValueSet>

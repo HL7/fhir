@@ -46,7 +46,6 @@ http://www.radlex.org
 http://ema.europa.eu/example/manufacturingOperationType
 http://hl7.org/fhir/sid/icd-10
 http://fdi.org/fhir/oraltoothcodes
-http://hl7.org/fhir/immunization-recommendation-date-criterion
 http://ema.europa.eu/example/deviceMaterial
 http://hl7.org/fhir/sid/cvx
 urn:ietf:rfc:3986
@@ -135,6 +134,7 @@ http://ema.europa.eu/example/interactionseffect
 http://ema.europa.eu/example/deviceUsage
 https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf
 https://acme.org/identifiers
+http://hl7.org/fhir/observation-category
 urn:iso:std:iso:3166
 http://example.com
 http://www.ama-assn.org/go/cpt

@@ -724,7 +724,7 @@
         <date value="2015-08-21"/>
         <uniqueId>
           <type value="uri"/>
-          <value value="http://www.hgvs.org/mutnomen"/>
+          <value value="http://varnomen.hgvs.org/"/>
           <preferred value="true"/>
         </uniqueId>
         <uniqueId>

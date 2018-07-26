@@ -13,7 +13,7 @@
   <description value="HGVS : Human Genome Variation Society"/>
   <compose>
     <include>
-      <system value="http://www.hgvs.org/mutnomen"/>
+      <system value="http://varnomen.hgvs.org/"/>
     </include>
   </compose>
 </ValueSet>

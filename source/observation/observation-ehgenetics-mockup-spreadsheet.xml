@@ -8569,8 +8569,8 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">International nomenclature for variant naming</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s148" ss:HRef="http://www.hgvs.org/mutnomen/"><Data
-      ss:Type="String">http://www.hgvs.org/mutnomen/</Data></Cell>
+    <Cell ss:StyleID="s148" ss:HRef="http://varnomen.hgvs.org//"><Data
+      ss:Type="String">http://varnomen.hgvs.org//</Data></Cell>
     <Cell><Data ss:Type="String">Sequence Variation Nomenclature</Data></Cell>
     <Cell><Data ss:Type="String">2.16.840.1.113883.6.282</Data></Cell>
     <Cell ss:StyleID="s137"/>
