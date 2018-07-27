@@ -87,6 +87,7 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities.ITransformerServices;
 import org.hl7.fhir.r4.validation.ValidationEngine.TransformSupportServices;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.ValidationProfileSet;
+import org.hl7.fhir.convertors.R2016MayToR4Loader;
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.convertors.R3ToR4Loader;
@@ -309,7 +310,7 @@ public class ValidationEngine {
     if (version.equals("1.0.2"))
       return new R2ToR4Loader();
     if (version.equals("1.4.0"))
-      return new R3ToR4Loader(); // special case
+      return new R2016MayToR4Loader(); // special case
     if (version.equals("3.0.1"))
       return new R3ToR4Loader();    
     return null;
