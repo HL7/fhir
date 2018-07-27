@@ -26,7 +26,7 @@
     <concept>
       <code value="normal"/>
       <display value="Normal Range"/>
-      <definition value="Based on 95th percentile for the relevant control population."/>
+      <definition value="Within two standard deviations from the mean and accounting for 95.45% of the relevant control population."/>
     </concept>
     <concept>
       <code value="recommended"/>
