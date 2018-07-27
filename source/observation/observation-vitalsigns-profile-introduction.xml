@@ -102,7 +102,7 @@
 					</td>
 					<td>8867-4</td>
 					<td>
-						<em>Heart rate</em> - To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be used as an additional observation.</td>
+						<em>Heart rate</em> - To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be included as an additional observation.</td>
 					<td>/min</td>
 					<td>
 						<a href="observation-example-heart-rate.html">Heart Rate Example</a>
@@ -112,9 +112,9 @@
 					<td>
 						<a href="oxygensat.html">Oxygen saturation</a>
 					</td>
-					<td>59408-5</td>
+					<td>2708-6</td>
 					<td>
-						<em>Oxygen saturation in Arterial blood by Pulse oximetry</em> - This code replaces the deprecated code 2710-2 -<em> Deprecated Oxygen saturation in Capillary blood by Oximetry</em> which had been listed in C-CDA.</td>
+						<em>Oxygen saturation in Arterial blood</em> - This code replaces 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry</em> which MAY be included as an additional observation code.</td>
 					<td>%</td>
 					<td>
 						<a href="observation-example-satO2.html">Oxygen Saturation Example</a>
@@ -126,7 +126,7 @@
 					</td>
 					<td>8310-5</td>
 					<td>
-						<em>Body temperature</em> - To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations</td>
+						<em>Body temperature</em> - To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations.</td>
 					<td>Cel, [degF]</td>
 					<td>
 						<a href="observation-example-body-temperature.html">Body Temperature Example</a>
@@ -160,14 +160,14 @@
 					</td>
 				</tr>
 				-->
-				
+
 				<tr>
 					<td>
 						<a href="headcircum.html">Head circumference</a>
 					</td>
-					<td>8287-5</td>
+					<td>9843-4</td>
 					<td>
-						<em>Head Occipital-frontal circumference by Tape measure</em>
+						<em>Head Occipital-frontal circumference</em>
 					</td>
 					<td>cm, [in_i]</td>
 					<td>

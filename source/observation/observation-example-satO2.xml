@@ -27,8 +27,8 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<!-- LOINC -->
-			<code value="59408-5"/>
-			<display value="Oxygen saturation in Arterial blood by Pulse oximetry"/>
+			<code value="2708-6"/>
+			<display value="Oxygen saturation in Arterial blood"/>
 		</coding>
 		<!-- Example of a translation to a more specific code  to the vitals profile LOINC code -->
 		<coding>

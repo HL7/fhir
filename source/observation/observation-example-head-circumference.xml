@@ -16,8 +16,8 @@
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="8287-5"/>
-			<display value="Head Occipital-frontal circumference by Tape measure"/>
+			<code value="9843-4"/>
+			<display value="Head Occipital-frontal circumference"/>
 		</coding>
 		<text value="Head Circumference"/>
 	</code>
