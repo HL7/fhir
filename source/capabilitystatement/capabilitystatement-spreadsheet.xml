@@ -18,7 +18,7 @@
   
   
   <TabRatio>715</TabRatio>
-  <ActiveSheet>11</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -775,7 +775,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R45C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R44C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
@@ -3812,10 +3812,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>58</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3830,7 +3831,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="46" ss:StyleID="s101" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="45" ss:StyleID="s101" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s101" ss:Width="412.0"/>
    <Column ss:StyleID="s101" ss:Width="56.0"/>
    <Column ss:StyleID="s101" ss:Width="165.0"/>
@@ -3882,15 +3883,6 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">The set of documents must be unique by the combination of profile and mode.</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">document.select(profile&amp;mode).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:document[f:mode/@value='producer'])=count(distinct-values(f:document[f:mode/@value='producer']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value='consumer'])=count(distinct-values(f:document[f:mode/@value='consumer']/f:profile/f:reference/@value))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s108"><Data ss:Type="Number">8</Data><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Rest unique by mode</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">CapabilityStatement</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">There can only be one REST declaration per mode.</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">rest.select(mode).isDistinct()</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">count(f:rest)=count(distinct-values(f:rest/f:mode/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">9</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -8118,7 +8110,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
