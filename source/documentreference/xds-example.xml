@@ -35,13 +35,13 @@
 						<display value="History and Physical"/>
 					</coding>
 				</type>
-				<class>
+				<category>
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="47039-3"/>
 						<display value="Inpatient Admission history and physical note"/>
 					</coding>
-				</class>
+				</category>
 				<subject>
 					<reference value="Patient/a2"/>
 				</subject>

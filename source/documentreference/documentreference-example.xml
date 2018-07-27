@@ -34,13 +34,13 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 			<display value="Outpatient Note"/>
 		</coding>
 	</type>
-	<class>
+	<category>
 		<coding>
 			<system value="http://ihe.net/xds/connectathon/classCodes"/>
 			<code value="History and Physical"/>
 			<display value="History and Physical"/>
 		</coding>
-	</class>
+	</category>
 	<subject>
 		<reference value="Patient/xcda"/>
 	</subject>

@@ -11,12 +11,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -74,12 +74,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="conditioncenter"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -137,12 +137,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="actionset"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -200,12 +200,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="actionset"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -263,12 +263,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -319,12 +319,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="actionset"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -382,12 +382,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -445,12 +445,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -508,12 +508,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -571,12 +571,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -634,12 +634,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -697,12 +697,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -760,12 +760,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -823,12 +823,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -886,12 +886,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -949,12 +949,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1012,12 +1012,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1075,12 +1075,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1138,12 +1138,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1201,12 +1201,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="otherdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1264,12 +1264,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="drugdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1327,12 +1327,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="drugdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1390,12 +1390,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="drugdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1453,12 +1453,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="drugdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1516,12 +1516,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="drugdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1579,12 +1579,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1642,12 +1642,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1705,12 +1705,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1768,12 +1768,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1831,12 +1831,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1894,12 +1894,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -1957,12 +1957,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2020,12 +2020,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2083,12 +2083,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2146,12 +2146,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2209,12 +2209,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="actionset"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2272,12 +2272,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="actionset"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2335,12 +2335,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2391,12 +2391,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2447,12 +2447,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2503,12 +2503,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2559,12 +2559,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2615,12 +2615,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2671,12 +2671,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2727,12 +2727,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2783,12 +2783,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="multimedia"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2839,12 +2839,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="cam"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2902,12 +2902,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="cam"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -2965,12 +2965,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3028,12 +3028,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3091,12 +3091,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3154,12 +3154,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3217,12 +3217,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="drugdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3280,12 +3280,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="otherdetail"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3343,12 +3343,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3406,12 +3406,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3469,12 +3469,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="actionset"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>
@@ -3532,12 +3532,12 @@
           <display value="Education note"/>
         </coding>
       </type>
-      <class>
+      <category>
         <coding>
           <system value="http://healthwise.org/doctype"/>
           <code value="special"/>
         </coding>
-      </class>
+      </category>
       <author>
         <reference value="Organization/healthwise"/>
       </author>

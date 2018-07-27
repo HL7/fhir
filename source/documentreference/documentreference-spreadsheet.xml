@@ -10,7 +10,6 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowIconic/>
   
   
   
@@ -980,9 +979,9 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">DocumentReference.class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">DocumentReference.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">kind</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -996,7 +995,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Categorization of document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Helps humans to assess whether the document is of interest when viewing a list of documents.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This is a metadata field from [XDS/MHD](http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)) </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This is a metadata field from [XDS/MHD] (class) (http://wiki.ihe.net/index.php?title=Mobile_access_to_Health_Documents_(MHD)) </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.outboundRelationship[typeCode="COMP].target[classCode="LIST", moodCode="EVN"].code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3394,9 +3393,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>24</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3925,10 +3924,10 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">class</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">category</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">DocumentReference.class</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">DocumentReference.category</Data></Cell>
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5639,8 +5638,7 @@
   <Table ss:ExpandedColumnCount="18" ss:ExpandedRowCount="29" ss:StyleID="s109" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s109" ss:Width="152.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s109" ss:Width="274.0"/>
-   <Column ss:StyleID="s109" ss:Width="51.0"/>
-   <Column ss:StyleID="s109" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s109" ss:Width="45.0"/>
    <Column ss:StyleID="s109" ss:Width="79.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s109" ss:Width="217.0"/>
    <Column ss:StyleID="s109" ss:Width="172.0"/>
