@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/consentaction"/>
   <name value="Consent Action Codes"/>
@@ -12,26 +11,26 @@
   <concept>
     <code value="collect"/>
     <display value="Collect"/>
-    <definition value="Gather/acquire information by an entity to achieve a stated purpose"/>
+    <definition value="Gather retrieved information for storage"/>
   </concept>
   <concept>
     <code value="access"/>
     <display value="Access"/>
-    <definition value="Provide an entity access to information to achieve a stated purpose"/>
+    <definition value="Retrieval without permitting collection, use or disclosure. e.g., no screen-scraping for collection, use or disclosure (view-only access)"/>
   </concept>
   <concept>
     <code value="use"/>
     <display value="Use"/>
-    <definition value="Use of stored information by an entity fo the stated purpose"/>
+    <definition value="Utilize the retrieved information"/>
   </concept>
   <concept>
     <code value="disclose"/>
     <display value="Disclose"/>
-    <definition value="Release / transfer of information to an entity "/>
+    <definition value="Transfer retrieved information"/>
   </concept>
   <concept>
     <code value="correct"/>
     <display value="Access and Correct"/>
-    <definition value="Allowing an entity to correct a patient's information"/>
+    <definition value="Allow retrieval of a patient's information for the purpose of update or rectify"/>
   </concept>
 </CodeSystem>
