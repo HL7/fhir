@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-24T00:00:42Z</LastSaved>
+  <LastSaved>2018-07-26T20:05:17Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>808</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -961,7 +961,7 @@
     <Cell ss:StyleID="s76"><Data ss:Type="String">BodyHeight</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s74"><Data ss:Type="String">published.structure</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">!published.structure</Data></Cell>
     <Cell ss:StyleID="s76"><Data ss:Type="String">BodyLength</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1037,7 +1037,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'8302-2'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system="http://unitsofmeasure.org"&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'cm', or '[in_i]'**&#xD;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Formula="=&#34;summary-&#34;&amp;R[-19]C[1]"><Data ss:Type="String">summary-BodyLength</Data></Cell>
+    <Cell ss:Formula="=&#34;!summary-&#34;&amp;R[-19]C[1]"><Data ss:Type="String">!summary-BodyLength</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'8306-3'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system="http://unitsofmeasure.org"&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'cm', or '[in_i]'**&#xD;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1084,11 +1084,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -19375,6 +19374,9 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   <LeftColumnVisible>8</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>

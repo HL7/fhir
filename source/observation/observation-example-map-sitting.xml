@@ -24,7 +24,7 @@
 	<status value="final"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="laboratory"/>
 			<display value="Laboratory"/>
 		</coding>
@@ -55,7 +55,7 @@
 	</valueQuantity>
 	<interpretation>
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/0078"/>
 			<code value="L"/>
 			<display value="Low"/>
 		</coding>

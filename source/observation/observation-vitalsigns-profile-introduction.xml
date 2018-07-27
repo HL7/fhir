@@ -138,25 +138,29 @@
 					</td>
 					<td>8302-2</td>
 					<td>
-						<em>Body height</em>
+						<em>Body height</em> - To supplement this vital sign observation, 8306-3 -<em>Body height - lying</em> (i.e., body length - typically
+      used for infants) MAY be included as an additional observation code.
 					</td>
 					<td>cm, [in_i]</td>
 					<td>
 						<a href="observation-example-body-height.html">Body height Example</a>
 					</td>
 				</tr>
+				<!--
 				<tr>
 					<td>
 						<a href="bodylength.html">Body length</a>
 					</td>
 					<td>8306-3</td>
 					<td>
-						<em>Body height --lying</em> - Like height, but lying down, typically this is used for infants</td>
+						<em>Body height -lying</em> - Like height, but lying down, typically this is used for infants</td>
 					<td>cm, [in_i]</td>
 					<td>
 						<a href="observation-example-body-length.html">Body Length Example</a>
 					</td>
 				</tr>
+				-->
+				
 				<tr>
 					<td>
 						<a href="headcircum.html">Head circumference</a>
@@ -176,7 +180,7 @@
 					</td>
 					<td>29463-7</td>
 					<td>
-						<em>Body weight</em> - To supplement this vital sign observation, 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY be used as additional observations.</td>
+						<em>Body weight</em> - To supplement this vital sign observation, 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY be included as additional observation codes.</td>
 					<td>g, kg,[lb_av]</td>
 					<td>
 						<a href="observation-example.html">Body Weight Example</a>

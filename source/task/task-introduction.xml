@@ -70,7 +70,7 @@
   <div>
     <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>
-    <p>Task spans both intent and event and tracks the execution through to completion. Task is intended for "administrative" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps to be performed as part of a fulfilment process. In contrast to Task, <a href="procedure.html">Procedure</a> is an event record and is more about actions that result in changes to a patient and <a href= "servicerequest.html">ServiceRequest</a> is a record of a request for a service to be performed that would result in a procedure.
+    <p>Task spans both intent and event and tracks the execution through to completion. Task is intended for "administrative" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps to be performed as part of a fulfilment process. In contrast to Task, <a href="procedure.html">Procedure</a> is an event record and is more about actions that result in changes to a patient. <a href= "servicerequest.html">ServiceRequest</a> is a record of a request for a service to be performed that would result in a Procedure, Observation, DiagnosticReport, ImagingStudy or similar resource.  <a href= "communicationrequest.html">CommunicationRequest</a> is record of a request for a communication to be performed between actors such as patients, practitioners, related persons, organizations, and/or devices.
     </p>
     <p>As stated above, the task resource tracks the state of a task, enabling systems to ensure that tasks are
       completed. This information is kept separate from the operational details necessary to

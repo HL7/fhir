@@ -5,7 +5,7 @@
 	<status value="final"/>
 	<category>
 		<coding>
-			<system value="http://hl7.org/fhir/observation-category"/>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
 			<code value="exam"/>
 			<display value="Exam"/>
 		</coding>
@@ -31,7 +31,7 @@
 	<valueBoolean value="true"/>
 	<interpretation>
 		<coding>
-			<system value="http://hl7.org/fhir/v2/0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
 			<code value="A"/>
 			<display value="Abnormal"/>
 		</coding>

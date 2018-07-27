@@ -15,7 +15,7 @@
   
   
   <TabRatio>839</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4938,7 +4938,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7050,8 +7049,8 @@
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Body Length</Data></Cell>
-    <Cell ss:Formula="=&#34;Simple &#34;&amp;RC[-2]&amp;&#34; Example&#34;" ss:Index="3" ss:StyleID="s89"><Data ss:Type="String">Simple Body Length Example</Data></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="String">!Body Length</Data></Cell>
+    <Cell ss:Formula="=&#34;Simple &#34;&amp;RC[-2]&amp;&#34; Example&#34;" ss:Index="3" ss:StyleID="s89"><Data ss:Type="String">Simple !Body Length Example</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">body-length</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-body-length.xml</Data></Cell>
     <Cell ss:StyleID="s189"/>
@@ -7517,13 +7516,13 @@
     <Cell><Data ss:Type="String">decimal</Data></Cell>
     <Cell><Data ss:Type="String">observation-decimal.xml</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s190"><Data ss:Type="String">MAP Sitting</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s190"><Data ss:Type="String">An example to demonstrate using the bodyPosition and delta extensions</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="String">map-sitting</Data></Cell>
     <Cell ss:Formula="=&#34;observation-example-&#34;&amp;RC[-1]&amp;&#34;.xml&#34;" ss:StyleID="s190"><Data ss:Type="String">observation-example-map-sitting.xml</Data></Cell>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s190"><Data ss:Type="String">abdo-tender</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s190"><Data ss:Type="String">An exam finding using pattern 3 described in the "Using Codes in Observation" Section</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="String">abdo-tender</Data></Cell>
@@ -7541,10 +7540,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>54</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
