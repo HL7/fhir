@@ -4,6 +4,9 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml"> This value set includes codes from multiple codesets. </div>
   </text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+	  <valueBoolean value="true"/>
+	</extension>
   <url value="http://hl7.org/fhir/ValueSet/object-lifecycle-events"/>
   <version value="1.1.0"/>
   <name value="ObjectLifecycleEvents"/>
@@ -30,7 +33,6 @@
         HL7 Role Code 2.16.840.1.113883.5.111, HL7 ParticipationType OID: 2.16.840.1.113883.5.90, HL7 ParticipationFunction codes at OID: 2.16.840.1.113883.5.88, 
         and HL7 Security and Privacy Domain Analysis Model roles classes.
 		These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
-  <extensible value="true"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/dicom-audit-lifecycle"/>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+	  <valueBoolean value="true"/>
+	</extension>
   <id value="ucum-common"/>
   <url value="http://hl7.org/fhir/ValueSet/ucum-common"/>
   <name value="Common UCUM units"/>
@@ -8,7 +11,6 @@
   <publisher value="FHIR Project"/>
   <description value="Commonly encountered UCUM units (for purposes of helping populate look ups."/>
   <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details."/>
-  <extensible value="true"/>
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>

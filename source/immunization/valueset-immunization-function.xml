@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+	  <valueBoolean value="true"/>
+	</extension>
   <name value="Immunization Function Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,8 +14,7 @@
     </telecom>
   </contact>
   <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the function a practitioner or organization may play in the immunization event. This value set is provided as a suggestive example."/>
-<extensible value="true"/>  
-<compose>
+  <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v2-0443"/>
       <concept>

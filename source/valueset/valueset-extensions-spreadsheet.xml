@@ -806,6 +806,28 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s163">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s164">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s165">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
@@ -4067,7 +4089,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R27C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="40" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="28" ss:ExpandedRowCount="41" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="79.0"/>
@@ -4926,7 +4948,7 @@
     <Cell><Data ss:Type="String">if ture, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">Ths status relates to a concept's inclusion in the value set, and might be different to the underlying status of the concept itself</Data></Cell>
    </Row>
-   <Row ss:Height="57">
+   <Row ss:AutoFitHeight="0" ss:Height="57">
     <Cell><Data ss:Type="String">special-status</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">ValueSet;CodeSystem</Data></Cell>
@@ -4935,6 +4957,32 @@
     <Cell ss:Index="14"><Data ss:Type="String">Special note about status for implementers</Data></Cell>
     <Cell><Data ss:Type="String">A special note for implementers about the status of the resource</Data></Cell>
     <Cell ss:Index="18"><Data ss:Type="String">This is used in the build to mark that though a resource is normative, it changes with the build</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s165"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s105"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s106"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Intended to be used with an extensible binding (e.g. 'open')</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Whether this is intended to be used with an extensible binding or not</Data></Cell>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell><Data ss:Type="String">Value sets intended for extensible bindings often are more selective about the concepts they include</Data></Cell>
+    <Cell ss:Index="21" ss:StyleID="s107"/>
+    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s164"/>
+    <Cell ss:StyleID="s109"/>
+    <Cell ss:StyleID="s163"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4954,7 +5002,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

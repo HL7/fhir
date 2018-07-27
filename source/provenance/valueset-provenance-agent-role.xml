@@ -4,6 +4,9 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+	  <valueBoolean value="true"/>
+	</extension>
   <url value="http://hl7.org/fhir/ValueSet/provenance-participant-role"/>
   <name value="ProvenanceParticipantRole"/>
   <status value="draft"/>
@@ -22,7 +25,6 @@
     </telecom>
   </contact>
   <description value="The role that a provenance participant played"/>
-  <extensible value="true"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/provenance-participant-role"/>

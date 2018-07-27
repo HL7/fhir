@@ -225,7 +225,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						<status value="active"/>
 						<description value="Length units"/>
 						<immutable value="true"/>
-						<extensible value="false"/>
 						<compose>
 							<include>
 								<system value="http://unitsofmeasure.org"/>
@@ -251,7 +250,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 						<status value="active"/>
 						<description value="Weight units"/>
 						<immutable value="true"/>
-						<extensible value="false"/>
 						<compose>
 							<include>
 								<system value="http://unitsofmeasure.org"/>
@@ -662,7 +660,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Male=1, Female=2"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -702,7 +699,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool twin"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -743,7 +739,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Yes/No"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -780,7 +775,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool race"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -881,7 +875,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool ethnicity"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -958,7 +951,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool diseases"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -1251,7 +1243,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool age range"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -1324,7 +1315,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool relationship to patient"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -1441,7 +1431,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool living"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>
@@ -1482,7 +1471,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 				<description value="Family history tool diseases and cause of death"/>
 				<immutable value="true"/>
 				<copyright value="Refer to https://loinc.org/terms-of-use"/>
-				<extensible value="false"/>
 				<compose>
 					<include>
 						<system value="http://loinc.org"/>

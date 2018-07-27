@@ -4,6 +4,9 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+	  <valueBoolean value="false"/>
+	</extension>
   <url value="http://hl7.org/fhir/ValueSet/operation-definition-parameter-type"/>
   <name value="Parameter Types used in Operation Definitions"/>
   <status value="draft"/>
@@ -11,7 +14,6 @@
   <date value="2014-07-22"/>
   <publisher value="HL7, Inc. FHIR project"/>
   <description value="Parameter Types used in Operation Definitions"/>
-  <extensible value="false"/>
   <compose>
   <!--    search parameters    -->
     <include>
