@@ -89,9 +89,9 @@
     <definition value="Closure Table Maintenance"/>
   </concept>
   <concept>
-    <code value="compose"/>
-    <display value="$compose"/>
-    <definition value="Code Composition based on supplied properties"/>
+    <code value="find-matches"/>
+    <display value="$find-matches"/>
+    <definition value="Finding Codes based on supplied properties"/>
   </concept>
   <concept>
     <code value="conforms"/>
