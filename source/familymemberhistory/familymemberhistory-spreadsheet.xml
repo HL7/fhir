@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-06-19T16:51:53Z</LastSaved>
+  <LastSaved>2018-07-27T13:06:41Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -845,8 +845,9 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="118.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="27.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s69" ss:Width="106.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="10" ss:StyleID="s69" ss:Width="81.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="116.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="106.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="81.0"/>
    <Column ss:Span="1" ss:StyleID="s69" ss:Width="52.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s69" ss:Width="79.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="121.0"/>
@@ -1141,17 +1142,17 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">AdministrativeGender</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BirthSex</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">male | female | other | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">male | female | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The birth sex of the family member. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Not all relationship codes imply gender and the relative's gender can be relevant for risk assessments</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3619,9 +3620,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>17</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5933,8 +5934,8 @@
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="211.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="338.0"/>
    <Column ss:StyleID="s118" ss:Width="51.0"/>
-   <Column ss:StyleID="s118" ss:Width="45.0"/>
-   <Column ss:StyleID="s118" ss:Width="145.0"/>
+   <Column ss:StyleID="s118" ss:Width="79.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="280.0"/>
    <Column ss:StyleID="s118" ss:Width="172.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="97.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="88.0"/>
@@ -6048,11 +6049,11 @@
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">BirthSex</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Codes describing the sex assigned at birth as documented on the birth registration.</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">valueset-birth-sex</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>

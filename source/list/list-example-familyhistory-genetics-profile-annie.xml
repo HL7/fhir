@@ -1014,7 +1014,13 @@
           <display value="maternal cousin"/>
         </coding>
       </relationship>
-      <gender value="female"/>
+      <gender>
+		<coding>
+		  <system value="http://hl7.org/fhir/administrative-gender"/>
+		  <code value="female"/>
+		  <display value="Female"/>
+		</coding>
+	  </gender>
       <ageAge>
         <value value="30"/>
         <unit value="years"/>
@@ -1086,7 +1092,13 @@
           <display value="maternal cousin"/>
         </coding>
       </relationship>
-      <gender value="female"/>
+      <gender>
+		<coding>
+		  <system value="http://hl7.org/fhir/administrative-gender"/>
+		  <code value="female"/>
+		  <display value="Female"/>
+		</coding>
+	  </gender>
       <ageAge>
         <value value="31"/>
         <unit value="years"/>

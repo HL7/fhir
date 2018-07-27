@@ -171,7 +171,13 @@
         </coding>
         <text value="maternal aunt"/>
       </relationship>
-      <gender value="female"/>
+      <gender>
+		<coding>
+		  <system value="http://hl7.org/fhir/administrative-gender"/>
+		  <code value="female"/>
+		  <display value="Female"/>
+		</coding>
+	  </gender>
       <ageAge>
         <value value="55"/>
         <unit value="yr"/>
