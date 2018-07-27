@@ -136,7 +136,7 @@ the following process should be followed:
    <li>If there is a system, identify the correct version of the code system, and then:
      <ul>
       <li>If there are no codes or filters, add every code in the code system to the result set.</li>   
-      <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the profile parameter to the $expand operation may be used to control whether active codes are included).</li>
+      <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the parameters to the $expand operation may be used to control whether active codes are included).</li>
       <li>If any filters are present, process them in order (as explained above), and add the intersection of their results to the result set.</li>
    </ul></li>
    <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$url=[compose.include.valueSet]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
@@ -168,7 +168,7 @@ that defines the code is case sensitive or not.
 <h3>Expansion Identifiers</h3>
 <p>
 It is important that expansions be identified properly. Any value set definition may produce an infinite 
-number of expansions, depending on the expansion profile and $expand operation parameters. Any expansions 
+number of expansions, depending on the operation parameters. Any expansions 
 produced must be clearly identified so that there is no confusion. The following rules apply:
 </p>
 <ul>

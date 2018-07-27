@@ -4283,7 +4283,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the conformance registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s138"/>
    </Row>
@@ -4361,7 +4361,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether concept designations are to be included or excluded in value set expansions. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether concept designations are to be included or excluded in value set expansions</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4417,7 +4417,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether the value set definition is included or excluded in value set expansions. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether the value set definition is included or excluded in value set expansions</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4445,7 +4445,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether inactive concepts are included or excluded in value set expansions. Overrides the value in the expansion profile if there is one. Note that if the value set explicitly specifies that inactive codes are included, this parameter can still remove them from a specific expansion, but this parameter cannot include them if the value set excludes them</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether inactive concepts are included or excluded in value set expansions. Note that if the value set explicitly specifies that inactive codes are included, this parameter can still remove them from a specific expansion, but this parameter cannot include them if the value set excludes them</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4473,7 +4473,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains). Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains)</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4501,7 +4501,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4529,7 +4529,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes post coordinated codes. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Controls whether or not the value set expansion includes post coordinated codes</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4557,7 +4557,7 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s87"/>
@@ -4738,7 +4738,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the profile registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the conformance registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s138"/>
    </Row>
