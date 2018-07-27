@@ -1,0 +1,38 @@
+HTTP/1.1 200 OK
+[headers]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CoverageEligibilityResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+	<id value="E2500"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the CoverageEligibilityResponse.</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/coverageeligibilityresponse"/>
+		<value value="881234"/>
+	</identifier>
+
+	<status value="active"/>
+
+	<purpose value="validation"/>
+
+	<created value="2014-08-16"/>
+
+	<request>
+		<reference value="http://www.BenefitsInc.com/fhir/coverageeligibilityrequest/52345"/>
+	</request>
+
+	<outcome value="complete"/>
+
+	<disposition value="Policy is currently in-force."/>
+
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
+
+	<inforce value="true"/>
+
+</CoverageEligibilityResponse>

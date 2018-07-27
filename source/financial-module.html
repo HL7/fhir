@@ -38,8 +38,8 @@ See also the <a href="administration-module.html">Administration</a> and <a href
                 <ul>
                     <li><a href="account.html">Account</a></li>
                     <li><a href="coverage.html">Coverage</a></li>
-                    <li><a href="eligibilityrequest.html">EligibilityRequest</a></li>
-                    <li><a href="eligibilityresponse.html">EligibilityResponse</a></li>
+                    <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
+                    <li><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
                 </ul>
             </td>
             <td>
@@ -71,8 +71,8 @@ See also the <a href="administration-module.html">Administration</a> and <a href
         <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
         [%res-item Account%]
         [%res-item Coverage%]
-        [%res-item EligibilityRequest%]
-        [%res-item EligibilityResponse%]
+        [%res-item CoverageEligibilityRequest%]
+        [%res-item CoverageEligibilityResponse%]
         [%res-item EnrollmentRequest%]
         [%res-item EnrollmentResponse%]
     </table>
@@ -178,7 +178,7 @@ Protected Health Information and as such must be afforded the same protection an
  <table class="grid">
 
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
- <tr><td>Eligibility Check</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
+ <tr><td>Eligibility Check</td><td><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></td><td><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></td></tr>
  <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
  <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=claim)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Predetermination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=predetermination)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
@@ -211,8 +211,8 @@ Protected Health Information and as such must be afforded the same protection an
  <table class="grid">
  <tr><td><b>Business Activity</b></td><td><b>Focal Resource</b></td></tr>
  <tr><td><b>Patient visits Provider</b></td></tr>
- <tr><td>Provider checks for valid insurance coverage</td><td><a href="eligibilityrequest.html">EligibilityRequest</a></td></tr>
- <tr><td>Insurer responds with coverage status and optional plan details</td><td><a href="eligibilityresponse.html">EligibilityResponse</a></td></tr>
+ <tr><td>Provider checks for valid insurance coverage</td><td><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></td></tr>
+ <tr><td>Insurer responds with coverage status and optional plan details</td><td><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></td></tr>
  <tr><td><b>Provider examines Patient and reviews treatment options</b></td></tr>
  <tr><td>Provider submits Predetermination(s) for treatment options to determine potential reimbursement</td><td><a href="claim.html">Claim</a> {use=predetermination}</td></tr>
  <tr><td>Insurer responds with potential reimbursement</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>

@@ -234,6 +234,18 @@
 		<translation lang="fr">Couverture</translation>
 		<translation lang="it">Copertura</translation>
 	</item>
+	<item id="CoverageEligibilityRequest">
+		<translation lang="en">CoverageEligibilityRequest</translation>
+		<translation lang="fr">CouvertureDemandeEligibilité</translation>
+		<translation lang="it">RichiestaEleggibilitaCopertura</translation>
+		<translation lang="zh">资格请求</translation>
+	</item>
+	<item id="CoverageEligibilityResponse">
+		<translation lang="en">CoverageEligibilityResponse</translation>
+		<translation lang="fr">RéponseEligibilitéCouverture</translation>
+		<translation lang="it">RispostaEleggibilitaCopertura</translation>
+		<translation lang="zh">资格响应</translation>
+	</item>
 	<item id="DataElement">
 		<translation lang="en">DataElement</translation>
 		<translation lang="zh">公共数据元素</translation>

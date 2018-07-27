@@ -373,7 +373,9 @@ signatures.html
     <page title="Financial" filename="financial-module.html" icon="financial.png">
       <page type="resource" resource="Coverage"/>
       <page type="resource" resource="EligibilityRequest"/>
+      <page type="resource" resource="CoverageEligibilityRequest"/>
       <page type="resource" resource="EligibilityResponse"/>
+      <page type="resource" resource="CoverageEligibilityResponse"/>
       <page type="resource" resource="EnrollmentRequest"/>
       <page type="resource" resource="EnrollmentResponse"/>
       <page type="resource" resource="Claim"/>
