@@ -233,6 +233,7 @@ public class ProfileGenerator {
     ted.makeBase();
   }
 
+
   private String tail(String path) {
     int i = path.lastIndexOf(".");
     return i < 0 ? path : path.substring(i + 1);

@@ -484,6 +484,132 @@ usage <a href="http://fhir.org/implementations/usage">here</a>, which captures c
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
 </p>
 
+<a name="extensions"></a>
+<h3>Extensions for converting between versions</h3>
+
+<p>
+Many implementations need to convert resources from one FHIR version to another. Once resources become
+normative (once sufficiently mature and stable), converting resources forwards from past versions is
+not needed. Converting back to older versions presents a challenge, however, in that the newer version
+may add additional elements that are not present in the older version. In some cases, the elements 
+are simply irrelevant since the requirements they represent are not in scope for older applications, 
+but in other cases, it is necessary to represent the data in order to cater for round-tripping. 
+</p>
+<p>
+A more complex problem arises with resources that are not yet stable (early in the maturity 
+process). If applications have implemented less stable resources, not only do they have the 
+problem of new elements for new requirements, the specification may change in either compatible
+or incompatible ways, and it may be necessary to carry data elements from past versions forward
+in order to allow seamless round-tripping. 
+</p>
+<p>
+In order to help implementers with this problem, any element defined in any version of FHIR 
+is automatically assigned an extension URL that uniquely identifies the element and can be used
+in the relevant FHIR version. The extension URL for an element can automatically be derived:
+</p>
+<pre>
+http://hl7.org/fhir/[version]/StructureDefinition/extension-[Path]
+</pre>
+<p>
+where [version] is taken from this list:
+</p>
+<p>
+This technique can be used with all versions of FHIR, including R2 and R3:
+</p>
+<table class="grid">
+<tr>
+<td><a href="http://hl7.org/fhir/DSTU2">FHIR DSTU2</a></td>
+<td>3.0</td>
+</tr>
+<tr>
+<td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
+<td>4.0 (once published)</td>
+</tr>
+</table>
+<p>
+Note that this extension framework only applies back to DSTU2.
+The [Path] is actually the ElementDefinition.id from the relevent
+StructureDefinition for the element. This leads to URLS like the 
+following:
+</p>
+<table class="grid">
+ <tr><td><code>http://hl7.org/fhir/4.0/StructureDefinition/extension-Bundle.signature</code></td><td><a href="http://hl7.org/fhir/4.0/bundle-definitions.html#Bundle.signature">R4 Signature Element on Bundle</a></td></tr>
+ <tr><td><code>http://hl7.org/fhir/3.0/StructureDefinition/extension-Patient.animal.species</code></td><td><a href="http://hl7.org/fhir/STU3/patient-definitions.html#Patient.animal.species">STU3 Species Element on Patient</a></td></tr>
+ <tr><td><code>http://hl7.org/fhir/1.0/StructureDefinition/extension-ValueSet.extensible</code></td><td><a href="http://hl7.org/fhir/DSTU2/valueset-definitions.html#ValueSet.extensible">DSTU2 ValueSet.extensible</a></td></tr>
+</table>
+<p>
+Implementers should be aware of the following issues when using these extensions:
+</p>
+<ul>
+ <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r3maps.html">maps</a> (and their equivalent for other versions) can help</li>
+ <li>Where complex data types have no equivalent in an earlier version, use a complex extension, containing extensions also following this pattern. Follow the same pattern for any elements not found in data types in earlier versions </li>
+ <li>This table shows the data type mapping across versions. The mapping table SHALL be used.</li>
+</ul>
+<p>
+This table shows the mapping between primitive data types across versions:
+</p>
+
+<table class="grid">
+ <tr>    <td>R4</td>  <td>R3</td>  <td>DSTU2</td> </tr>
+ <tr>    <td>base64Binary</td>  <td>base64Binary</td>  <td>base64Binary</td> </tr>
+ <tr>    <td>boolean</td>  <td>boolean</td>  <td>boolean</td> </tr>
+ <tr>    <td>canonical</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
+ <tr>    <td>code</td>  <td>code</td>  <td>code</td> </tr>
+ <tr>    <td>date</td>  <td>date</td>  <td>date</td> </tr>
+ <tr>    <td>dateTime</td>  <td>dateTime</td>  <td>dateTime</td> </tr>
+ <tr>    <td>decimal</td>  <td>decimal</td>  <td>decimal</td> </tr>
+ <tr>    <td>id</td>  <td>id</td>  <td>id</td> </tr>
+ <tr>    <td>instant</td>  <td>instant</td>  <td>instant</td> </tr>
+ <tr>    <td>integer</td>  <td>integer</td>  <td>integer</td> </tr>
+ <tr>    <td>markdown</td>  <td>markdown</td>  <td>markdown</td> </tr>
+ <tr>    <td>oid</td>  <td>oid</td>  <td>oid</td> </tr>
+ <tr>    <td>positiveInt</td>  <td>positiveInt</td>  <td>positiveInt</td> </tr>
+ <tr>    <td>string</td>  <td>string</td>  <td>string</td> </tr>
+ <tr>    <td>time</td>  <td>time</td>  <td>time</td> </tr>
+ <tr>    <td>unsignedInt</td>  <td>unsignedInt</td>  <td>unsignedInt</td> </tr>
+ <tr>    <td>uri</td>  <td>uri</td>  <td>uri</td> </tr>
+ <tr>    <td>url</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
+ <tr>    <td>uuid</td>  <td>uuid</td>  <td><i>(id)</i></td> </tr>
+</table>
+
+<p>
+Formal Definitions for extensions:
+</p>
+<table class="grid">
+  <tr>
+	  <td>Format:</td>
+		<td>R2 Package</td>
+		<td>R3 Package</td>
+		<td>R4 Package</td>
+	</tr>
+  <tr>
+	  <td>R2 Extensions:</td>
+		<td style="background-color: #EEEEEE">n/a</td>
+		<td>hl7.fhir.extensions.r2:3.0.1 <a href="http://hl7.org/fhir/1.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r2:4.0.0 <a href="http://hl7.org/fhir/1.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+	</tr>
+  <tr>
+	  <td>R3 Extensions:</td>
+		<td>hl7.fhir.extensions.r3:1.0.2 <a href="http://hl7.org/fhir/3.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td style="background-color: #EEEEEE">n/a`</td>
+		<td>hl7.fhir.extensions.r3:4.0.0 <a href="http://hl7.org/fhir/3.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+	</tr>
+  <tr>
+	  <td>R4 Extensions:</td>
+		<td>hl7.fhir.extensions.r4:1.0.2 <a href="http://hl7.org/fhir/4.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r4:3.0.1 <a href="http://hl7.org/fhir/4.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td style="background-color: #EEEEEE">n/a</td>
+	</tr>
+</table>
+
+<p>
+Note for balloters: these packages will be created when R4 is finalized. Until then, these are broken links.
+</p>
+
 <a name="plans"></a>
 <h3>Plans for future releases</h3>
 <p>
