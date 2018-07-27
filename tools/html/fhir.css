@@ -705,6 +705,12 @@ div.warning {
   padding: 5px;
 }
 
+span.warning {
+  background-color: #FFE6E6;
+  border: 1px silver solid;
+  padding: 1px;
+}
+
 
 
 tr.diff-title td {

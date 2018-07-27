@@ -27,6 +27,9 @@ using the facilities provided by the code system. For these value sets:
  </li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
     over time as the underlying code systems are updated</li>
+ <li>The version reference may be the special value "<code>*</code>", which indicates that the value set includes codes from all versions of the code system.
+     how to handle provision of the required versions and generation of expansions is at server discrection, including for poorly behaved code systems where 
+		 a code changes in meaning). <br/><span class="warning">Implementer's Note: Use of this capability is subject to future clarification and conformance requirements based on implementation experience</span>.</li>
  <li>Using the property filters is only possible where the code system in use defines 
   the relevant properties. Note that in some cases the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
