@@ -847,7 +847,7 @@ public class SvgGenerator extends BaseGenerator {
         }
       }
     }
-    return item; 
+    return item;  
   }
 
   private String getXsi(DefinedCode primitive) {
