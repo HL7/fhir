@@ -10,10 +10,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+
+
+
+
   <TabRatio>839</TabRatio>
   <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
@@ -4945,7 +4945,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -5415,7 +5415,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -5895,7 +5895,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -6078,7 +6078,12 @@
     <Cell ss:StyleID="s158"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">Last N Observations Query</Data></Cell>
-    <Cell ss:StyleID="s173"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* query uses the [normal search parameters](observation.html#search) defined for the Observation resource.  However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#xD;&#xD;The request for a lastn query SHALL include:&#xD;&#xD;* A `$lastn` operation parameter&#xD;*  A subject using either the `patient` or `subject`  search parameter&#xD;*  A `category` parameter and/or a search parameter that contains a code element in its FHIRpath expression.  ( e.g., `code` or `code-value-concept`)&#xD;&#xD;The request for a lastn query MAY include:&#xD;&#xD;* Other Observation search parameters and modifiers&#xD;&#xD;The response from a lastn query is a set of observations:&#xD;&#xD;*  Filtered by additional parameters&#xD;   * If not explicitly filtered by status then will include statuses of 'entered-in-error'&#xD;* 'GROUP BY' `Observation.code`&#xD;   * Codes SHALL be considered equivalent if the `coding.value` *and* `coding.system` are the same.&#xD;   * Text only codes SHALL be treated and grouped based on the text.&#xD;   * For codes with translations (multiple codings), the code translations are assumed to be equal and the grouping by code SHALL follow the transitive property of equality.&#xD;&#xD;for example:&#10;&#10;&#xD;&#xD;|Observation.code for observation a|Observation.code for observation b|Observation.code for observation c|number of groups [codes/text in each group]|&#xD;|---|---|---|---|&#xD;|a|b|c | 3 [a],[b],[c]|&#xD;|a|b|a,c | 2 [a.c],[b]|&#xD;|a|b|a,b | 1 [a,b]|&#xD;|'text'|'Text'|'t e x t'|3 ['text'],['Text'],['t e x t']|&#10;&#10;&#xD;&#xD;* Sorted from most recent to the oldest&#xD;* Limited to the number of requested responses per group specified by the optional *max* query parameter&#xD;  * In case of a tie - when the effective times for &gt;1 Observations are equal - both will be returned.  Therefore, more Observations may be returned than is specified in *max*.  For example, 4 Observations instead of 3 if the 3rd and 4th most recent observation had the same effective time.&#xD;* If no maximum number is given then only the most recent Observation in each group is returned.&#xD;&#xD;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.&#xD;</Data></Cell>
+    <Cell ss:StyleID="s173"><Data ss:Type="String">The *lastn query* meets the common need for searching for the most recent or last n=number of observations for a subject. For example, retrieving the last 5 temperatures for a patient to view trends or fetching the most recent laboratory results or vitals signs. To ask a server to return the last n=number of observations, the *lastn* query uses the [normal search parameters](observation.html#search) defined for the Observation resource.  However, rather than their normal use, they are interpreted as inputs - i.e.. instead of requiring that the resources literally contain the search parameters, they are passed to a server algorithm of some kind that uses them to determine the most appropriate matches.&#xD;&#xD;The request for a lastn query SHALL include:&#xD;&#xD;* A `$lastn` operation parameter&#xD;*  A subject using either the `patient` or `subject`  search parameter&#xD;*  A `category` parameter and/or a search parameter that contains a code element in its FHIRpath expression.  ( e.g., `code` or `code-value-concept`)&#xD;&#xD;The request for a lastn query MAY include:&#xD;&#xD;* Other Observation search parameters and modifiers&#xD;&#xD;The response from a lastn query is a set of observations:&#xD;&#xD;*  Filtered by additional parameters&#xD;   * If not explicitly filtered by status then will include statuses of 'entered-in-error'&#xD;* 'GROUP BY' `Observation.code`&#xD;   * Codes SHALL be considered equivalent if the `coding.value` *and* `coding.system` are the same.&#xD;   * Text only codes SHALL be treated and grouped based on the text.&#xD;   * For codes with translations (multiple codings), the code translations are assumed to be equal and the grouping by code SHALL follow the transitive property of equality.&#xD;&#xD;for example:&#xD;&#xD;|Observation.code for observation a|Observation.code for observation b|Observation.code for observation c|number of groups [codes/text in each group]|
+    |---|---|---|---|
+    |a|b|c | 3 [a],[b],[c]|
+    |a|b|a,c | 2 [a.c],[b]|
+    |a|b|a,b | 1 [a,b]|
+    |'textM'|'Text'|'t e x t'|3 ['text'],['Text'],['t e x t']|&#xD;&#xD;* Sorted from most recent to the oldest&#xD;* Limited to the number of requested responses per group specified by the optional *max* query parameter&#xD;  * In case of a tie - when the effective times for &gt;1 Observations are equal - both will be returned.  Therefore, more Observations may be returned than is specified in *max*.  For example, 4 Observations instead of 3 if the 3rd and 4th most recent observation had the same effective time.&#xD;* If no maximum number is given then only the most recent Observation in each group is returned.&#xD;&#xD;The set of returned observations should represent distinct real world observations and not the same observation with changes in status or versions. If there are no matches, the *lastn* query SHALL return an empty search set with no error, but may include an operation outcome with further advice.&#xD;</Data></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#xD;&#xD;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the total matches so you may need to page through several "A" Observations  before getting to Observation "B".&#xD;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#xD;&#xD;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-response.txt</Data></Cell>
@@ -6608,7 +6613,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -6869,7 +6874,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -6978,7 +6983,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -7548,7 +7553,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -7998,7 +8003,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -8588,7 +8593,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -9185,7 +9190,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -9763,7 +9768,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -10947,7 +10952,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
