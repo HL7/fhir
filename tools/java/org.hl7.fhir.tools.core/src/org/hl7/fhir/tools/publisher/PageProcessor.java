@@ -3113,7 +3113,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     for (String n : names) {
       CodeSystem cs = map.get(n);
-      String id = tail(cs.getUrl());
+      String id = tail(cs.getUrl()).substring(3);
       String oid = CodeSystemUtilities.getOID(cs);
       s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id.substring(3)))
               .append("</a></td><td>").append(Utilities.escapeXml(cs.getDescription())).append("</td><td>").append(oid == null ? "--" : oid).append("</td></tr>\r\n");
