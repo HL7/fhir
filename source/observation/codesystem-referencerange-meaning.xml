@@ -75,7 +75,7 @@
     <concept>
       <code value="midcycle"/>
       <display value="MidCycle"/>
-      <definition value="An expected range in an individual during the follicular stage of the cycle."/>
+      <definition value="An expected range in an individual during the midcycle stage of the cycle."/>
     </concept>
     <concept>
       <code value="luteal"/>

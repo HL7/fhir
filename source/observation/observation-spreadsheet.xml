@@ -9841,7 +9841,7 @@
     <Cell ss:StyleID="s195"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s205"><Data ss:Type="String">totalcount</Data></Cell>
+    <Cell ss:StyleID="s205"><Data ss:Type="String">total-count</Data></Cell>
     <Cell ss:StyleID="s172"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s206"/>
