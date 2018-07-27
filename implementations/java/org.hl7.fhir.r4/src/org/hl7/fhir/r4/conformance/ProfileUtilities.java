@@ -518,7 +518,7 @@ public class ProfileUtilities extends TranslatingUtilities {
                   throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
               }
             }
-            StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+            StructureDefinition dt = outcome.getType().isEmpty() ? null : getProfileForDataType(outcome.getType().get(0));
             if (dt == null)
               throw new DefinitionException(cpath+" has children for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
             contextName = dt.getUrl();
