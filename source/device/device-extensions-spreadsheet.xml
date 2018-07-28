@@ -3643,7 +3643,7 @@
     <Cell ss:StyleID="s100"><Data ss:Type="String">[#9449]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">implant-status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">implantStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Device</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Status of Implantable Devices</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5205,7 +5205,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">#implant-status</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">#implantStatus</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
@@ -5675,9 +5675,9 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C14">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="implant-status">
+ <Worksheet ss:Name="implantStatus">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='implant-status'!R1C1:R1C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='implantStatus'!R1C1:R1C9"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="49" ss:StyleID="s146" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s146" ss:Width="80.0"/>

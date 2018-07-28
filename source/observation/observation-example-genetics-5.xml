@@ -2,11 +2,11 @@
 <!-- NOTE: This example will soon be revised and moved to the Genomics Reporting implementation guide - current version at http://hl7.org/fhir/uv/genomics-reporting -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Downloads/fhir-all-xsd/structuredefinition.xsd">
 	<id value="example-genetics-5"/>
-	
-		
+
+
 	<!-- replaced the .related type sequel to with an extension -->
-	
-	<extension url="http://hl7.org/fhir/StructureDefinition/observation-sequel-to">
+
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-sequelTo">
 		<valueReference>
 			<reference value="Observation/example-genetics-1"/>
 			<display value="ObservationForGenetics profile example 1"/>
