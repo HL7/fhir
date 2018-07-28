@@ -42,7 +42,7 @@ ReferralRequest and ProcedureRequest have been merged into ServiceRequest since 
 						Additional reference targets added to the <code>performer</code>, and <code>reasonReference</code> elements.
 					</li>
 					<li>
-						Added a  <a href="extension-request-statusreason.html">statusReason</a> standard extension - We would like implementer input on whether extension should be promoted to an inline element.
+						Added a  <a href="'extension-event-statusReason.html">statusReason</a> standard extension - We would like implementer input on whether extension should be promoted to an inline element.
 					</li>
 				</ul></li>
 			</ol>
