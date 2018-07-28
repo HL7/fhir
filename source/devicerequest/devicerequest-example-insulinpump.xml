@@ -14,7 +14,7 @@
 <identifier>
   <value value="ip_request1.1"/>
 </identifier>
-<instantiates value="PlanDefinition/example"/>
+<instantiatesCanonical value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
 <basedOn>
   <display value="Homecare - DM follow-up"/>
 </basedOn>
