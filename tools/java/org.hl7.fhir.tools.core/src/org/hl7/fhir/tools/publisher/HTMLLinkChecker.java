@@ -279,7 +279,7 @@ public class HTMLLinkChecker implements FileNotifier {
         if (e == null) {
           if (href.startsWith("v2/") || href.startsWith("v3/")) // we can't check those links
             return;
-          if (target.endsWith(".zip") || target.endsWith(".ttl") || target.endsWith(".jar") || target.endsWith(".cfm"))
+          if (target.endsWith(".zip") || target.endsWith(".ttl") || target.endsWith(".jar") || target.endsWith(".cfm") || target.endsWith(".tgz"))
             return;
           reportError(base, "Broken Link (2) in "+base+": '"+href+"' not found at \""+target+"\"("+node.allText()+")");
           return;

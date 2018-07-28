@@ -70,7 +70,6 @@ http://www.ihe.net/xds/connectathon/practiceSettingCodes
 http://www.ebi.ac.uk/ipd/imgt/hla
 http://ema.europa.eu/example/interactant
 http://acme.lab
-http://hl7.org/fhir/v2/0078
 http://fhir.de/CodeSystem/billing-attributes
 http://ihe.net/xds/connectathon/classCodes
 http://acme.org/lab/codes/panels
@@ -116,6 +115,7 @@ https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets/Alpha-Numeric-HCPCS.htm
 http://ema.europa.eu/example/deviceSterilityIndicator
 http://ema.europa.eu/example/comorbidity
 http://www.sequenceontology.org
+http://terminology.hl7.org/CodeSystem/0078
 https://www.aphis.usda.gov
 http://ema.europa.eu/example/interactionsType
 http://nema.org/examples/gender
@@ -134,7 +134,6 @@ http://ema.europa.eu/example/interactionseffect
 http://ema.europa.eu/example/deviceUsage
 https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMattersArticles/downloads/SE0801.pdf
 https://acme.org/identifiers
-http://hl7.org/fhir/observation-category
 urn:iso:std:iso:3166
 http://example.com
 http://www.ama-assn.org/go/cpt
