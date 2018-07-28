@@ -142,13 +142,13 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
        This data type can be <a href="terminologies.html#uri">bound to a value set</a></td>
  </tr>
  <tr>
-   <td>url<a name="uri"></a></td>
+   <td>url<a name="url"></a></td>
    <td>A Uniform Resource Locator (<a href="http://tools.ietf.org/html/rfc1738">RFC 1738</a>). Note URLs are accessed directly using the specified protocol. Common URL protocols are <code>http(s):</code>, <code>ftp:</code>, <code>mailto:</code> and <code>mllp:</code>, though many others are defined</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a URL</td>
  </tr>
  <tr>
-   <td>canonical<a name="uri"></a></td>
+   <td>canonical<a name="canonical"></a></td>
    <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
     and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URls that are the target
     of these references, but for the URLs that refer to them, and may have the version suffix in them. Canonical URLs may also have #fragment references</td>
@@ -278,6 +278,12 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td style="border-top: 0px silver solid"></td>
    <td colspan="3" style="border-top: 0px silver solid">Regex: +?[1-9][0-9]*</td>
  </tr>
+ <tr>
+   <td>uuid<a name="uuid"></a></td>
+   <td>A UUID (aka GUID) represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>); e.g. urn:uuid:c757873d-ec9a-4326-a141-556f43239520</td>
+   <td>xs:anyURI</td>
+   <td>JSON string - uri</td>
+  </tr>
 </table>
 
 <p>
@@ -755,8 +761,9 @@ contain text that is a valid UCUM unit, but it cannot be assumed that the unit a
 <p>
 The context of use may frequently define what kind of measured quantity
 this is and therefore what kind of unit can be used. The context
-of use may additionally require a <code>code</code> from a particular <code>system</code>.
-The context of use may also restrict the values for the <code>value</code> or <code>range</code>.
+of use may additionally require a <code>code</code> from a particular <code>system</code>, or a <code>value set</code> - see
+<a href="terminologies.html">Using Terminologies</a> for information about binding a Quantity to a <a href="valueset.html">value set</a> to constrain the unit codes.
+The context of use may also restrict the values for the <code>value</code> or <code>comparator</code>.
 </p>
 [%tx Quantity%]
 </div>
