@@ -1173,7 +1173,9 @@ a new id to any resource in the bundle as part of the processing rules above,
 it SHALL also update any references to that resource in the same bundle as they
 are processed. References to resources that are not
 part of the bundle are left untouched. Version-specific references should remain
-as version-specific references after the references have been updated.
+as version-specific references after the references have been updated. Note that 
+when building a transaction, a client can use arbitrarily chosen version references 
+since they will all be re-assigned anyway.
 Servers SHALL replace all matching links in the bundle, whether they are found in the resource ids,
 <a href="references.html">resource references</a>, 
 elements of type <a href="datatypes.html#uri">uri</a>, <a href="datatypes.html#url">url</a>, <a href="datatypes.html#oid">oid</a>, 
