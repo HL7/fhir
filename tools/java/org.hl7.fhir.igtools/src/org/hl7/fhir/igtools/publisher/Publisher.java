@@ -3269,7 +3269,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         addPageDataRow(pages, outputName, page.getTitle() + " - TTL Representation", label, breadcrumb + breadCrumbForPage(page, false), null);
       }
 
-      if (dontDoThis() /*page.getKind().equals(ImplementationGuide.GuidePageKind.RESOURCE) && page.getFormat().equals("generated")*/) {
+      if (page.hasGeneration() && page.getGeneration().equals(GuidePageGeneration.GENERATED) /*page.getKind().equals(ImplementationGuide.GuidePageKind.RESOURCE) */) {
         outputName = determineOutputName(igpkp.getProperty(r, "defns"), r, vars, null, "definitions");
         addPageDataRow(pages, outputName, page.getTitle() + " - Definitions", label, breadcrumb + breadCrumbForPage(page, false), null);
         JsonArray templates = configuration.getAsJsonArray("extraTemplates");

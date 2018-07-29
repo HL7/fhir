@@ -14,6 +14,12 @@ other resources.  This pattern serves two purposes:
 <p>
 A "definition" resource is a resource that describes a type of activity that *can* occur in a manner that is independent of a particular patient or subject.  Examples include 
 protocols, order sets, questionnaires, etc.  It only includes definitions of activities, not of objects or roles.
+
+"Definition" is a pattern to be followed by resources that describe types of clinical, administrative or other events that <b>can</b> be performed .  Definitions are patient/subject 
+and time-independent and are intended to be instantiated by <a href="request.html">Requests</a> (orders, plans and proposals) and <a href="event.html">Events</a>. For example a 
+<a href="plandefinition.html">PlanDefinition</a> might represent an order set that is subsequently instantiated by a combination of <a href="medicationrequest.html">MedicationRequests</a>
+and <a href="servicerequest.html">ServiceRequests</a> and results in the execution of various <a href="medicationadministration.html">MedicationAdministration</a>, 
+<a href="procedure.html">Procedure</a> and <a href="observation.html">Observation</a> events.
 </p>
 </div>
 
@@ -41,10 +47,6 @@ specific to their resource (e.g. use the term "protocol" or "questionnaire" rath
 brackets] identifies areas where domain variation is expected and encouraged.  Other variation, including differences in names, cardinalities, data types and the decision to
 omit an element outright are also possible, but should be discussed with the FHIR Infrastructure work group's Workflow project to ensure the rationale for non-alignment is
 understood, to confirm that the deviation is necessary and to identify whether any adjustments to the pattern are appropriate.
-</p>
-<p>
-Unlike the request and event patterns, this pattern has not yet been formally reviewed, nor applied to any of its candidate resources.  It should therefore be treated as a
-draft for comment.  Alignment with this pattern (and the content of the pattern) will be discussed by work groups as part of ballot reconciliation.
 </p>
 <p>
 This pattern provides a linkage to the <a href="w5.html">W5</a> list of standard data elements.  Resources that adhere to this pattern should ensure their w5 mappings are
