@@ -300,7 +300,7 @@ Implementation Notes:
 If a client provides a generic mime type in the Accept header
 (application/xml, text/json, or application/json), the server SHOULD respond with
 the requested mime type, using the XML or JSON formats described in this specification
-as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the
+as the best representation for the named mime type (except for binary - see the <a href="binary.html#rest">note on the
 Binary resource</a>).
 </li>
 <li>
@@ -695,7 +695,7 @@ interaction is performed by an HTTP <code>PATCH</code> command as shown:
 The body of a PATCH operation SHALL be either:
 </p>
 <ul>
- <li>a <a href="http://jsonpatch.com/">JSON Patch</a> document with a content type of <code>application/json-patch+json</code></li>
+ <li>a <a href="https://tools.ietf.org/html/rfc6902.">JSON Patch</a> document with a content type of <code>application/json-patch+json</code></li>
  <li>an <a href="http://tools.ietf.org/html/rfc5261">XML Patch</a> document with a content type of <code>application/xml-patch+xml</code></li>
  <li>a <a href="fhirpatch.html">FHIRPath Patch</a> parameters resource with <a href="#mime-type">FHIR Content Type</a></li>
 </ul>
