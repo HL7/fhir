@@ -422,7 +422,7 @@ where they can indicate one of three levels for versioning support:
 </ul>
 <p>
 Servers that do support versioning SHALL ensure that <code>Resource.meta.versionId</code> is not present on
-resource they return, and SHALL update the value of <code>Resource.meta.lastUpdated</code> correctly.
+resources they return, and SHALL update the value of <code>Resource.meta.lastUpdated</code> correctly.
 </p>
 <p>
 Server should always return the default timezone for <a href="search.html#date">date searches</a>
@@ -753,13 +753,14 @@ The request body SHALL be empty.
 A delete interaction means that subsequent <a href="#read">non-version specific reads</a> of a resource
 return a <code>410</code> HTTP status code and that the resource is no longer found through <a href="#search">search</a>
 interactions. Upon successful deletion, or if the resource does not exist at all, the server should return either a
-<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
+<code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload,
+or a <code>202 Accepted</code> if the server wishes to be non-commital about the outcome of the delete.
 <!--, or 200 OK status code, with an <a href="operationoutcome.html">OperationOutcome</a>
 resource containing hints and warnings about the deletion; if one is sent it SHALL NOT include any errors. -->
 </p>
 <p>
 Whether to support delete at all, or for a particular resource type or a particular instance is at the
-discretion of the server based on the business rules that apply in its context.
+discretion of the server based on the policy and business rules that apply in its context.
 If the server refuses to delete resources of that type as a blanket policy, then it should return the <code>405</code>
 Method not allowed status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the <code>409</code> Conflict status code.
@@ -776,14 +777,17 @@ deletion interaction should be understood as deleting the record of the resource
 about the state of the real-world corresponding resource implied.
 </p>
 <p>
-For servers that maintain a version history, the <code>delete</code> interaction does not remove a resource's version history. From a version history respect,
+For servers that maintain a version history, the <code>delete</code> interaction does not 
+remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
 no content and is marked as deleted. Note that
 there is no support for deleting past versions - see notes on the <a href="#history">history</a> interaction.
-</p>
-<p>
 Since deleted resources may be brought back to life, servers MAY include an <code>ETag</code> on the delete response
 to allow version contention management when a resource is brought back to life.
+</p>
+<p>
+Note that irrespective of this rule, servers are free to completely delete the resource and it's history 
+if policy or business rules make this the appropriate action to take.
 </p>
 
 <h4>Conditional delete</h4>
