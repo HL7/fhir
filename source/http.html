@@ -516,7 +516,7 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
 <p>
 The request body SHALL be a <a href="resource.html">Resource</a> with an <code>id</code> element
 that has an identical value to the <code>[id]</code> in the URL. If no <code>id</code> element is provided, 
-of the id disagrees with the id in the URL, the server SHALL respond with an HTTP <code>400</code> error code, and SHOULD
+or the id disagrees with the id in the URL, the server SHALL respond with an HTTP <code>400</code> error code, and SHOULD
 provide an <a href="operationoutcome.html">OperationOutcome</a> identifying the issue.
 If the request body includes a <a href="resource.html#meta"><code>meta</code></a>, the server SHALL
 ignore the provided <code>versionId</code> and <code>lastUpdated</code> values.
