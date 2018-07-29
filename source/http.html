@@ -986,11 +986,12 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 To search a <a href="compartmentdefinition.html">compartment</a>, for either all possible resources or for a particular resource type, respectively:
 </p>
 <pre class="http">
-  GET [base]/[Compartment]/[id]/{*?[parameters]{&amp;_format=[mime-type]}}
+  GET [base]/[Compartment]/[id]/*{?[parameters]{&amp;_format=[mime-type]}}
   GET [base]/[Compartment]/[id]/[type]{?[parameters]{&amp;_format=[mime-type]}}
 </pre>
 <p>
-For example, to retrieve all the observation resources for a particular LOINC code associated with a particular encounter:
+In the first URL the character "<code>*</code>" appears in the URL as a literal to mean 'all types'.
+So, for example, to retrieve all the observation resources for a particular LOINC code associated with a particular encounter:
 </p>
 <pre>
   GET [base]/Encounter/23423445/Observation?code=2951-2  {&amp;_format=[mime-type]}
