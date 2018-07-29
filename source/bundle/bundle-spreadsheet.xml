@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>12</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4105,7 +4105,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5982,8 +5981,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="151.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="275.0"/>
-   <Column ss:StyleID="s111" ss:Width="51.0"/>
-   <Column ss:StyleID="s111" ss:Width="45.0"/>
+   <Column ss:Index="4" ss:StyleID="s111" ss:Width="45.0"/>
    <Column ss:StyleID="s111" ss:Width="146.0"/>
    <Column ss:StyleID="s111" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="98.0"/>
@@ -6039,7 +6037,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s149"><Data ss:Type="String">HTTPVerb</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">HTTP verbs (in the HTTP command line).</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc2616) for details</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#http-verb</Data></Cell>
@@ -8099,7 +8097,7 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">GET</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">HTTP GET</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">HTTP GET Command</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s142"/>
@@ -8110,7 +8108,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">HEAD</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP HEAD</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP HEAD Command</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
@@ -8121,7 +8119,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">POST</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP POST</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP POST Command</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
@@ -8132,7 +8130,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">PUT</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP PUT</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP PUT Command</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
@@ -8143,7 +8141,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">DELETE</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP DELETE</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP DELETE Command</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
@@ -8154,7 +8152,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">PATCH</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP PATCH</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">HTTP PATCH Command</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
@@ -8640,6 +8638,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
