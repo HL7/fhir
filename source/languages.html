@@ -98,6 +98,17 @@ language. Note that it doesn't really make sense to specify a different language
 than on the resource itself; the xml:lang attribute is allowed to support natural language processing
 of the narrative.
 </p>
+<p>
+Where resources contain the same documentation in several different languages, each
+different langauges should use a <code>div</code> element with an XHTML lang 
+attribute in the root div. By default, all languages will be displayed to a user, 
+but multi-language aware applications can filter the content by language and only display the 
+language that ia relevant to or chosend by the patient.
+</p>
+<p>
+See the W3C documentation on <a href="https://www.w3.org/TR/i18n-html-tech-lang/">Language declarations</a> for further information.
+</p>
+
 
 <a name="#ext"></a>
 <h3>Translation Extension</h3>
