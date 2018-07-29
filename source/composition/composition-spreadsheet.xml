@@ -4189,7 +4189,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Source Composition Id to use</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Identifies the composition to use. This can either be a simple id, which identifies a composition, or it can be a full URL, which identifies a composition on another server. &#10;&#10;Notes: &#10;&#10;* GET [base]/Composition/[id]/$document is identical in meaning to GET [base]/Composition/$document?id=[id]&#10;* the id parameter SHALL not be used if the operation is requested on a particular composition (e.g.  GET [base]/Composition/[id]/$document?id=[id] is not allowed)&#10;* Servers are not required to support generating documents on Compositions located on another server </Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Identifies the composition to use. This can either be a simple id, which identifies a composition, or it can be a full URL, which identifies a composition on another server. &#10;&#10;Notes: &#10;&#10;* GET [base]/Composition/[id]/$document is identical in meaning to GET [base]/Composition/$document?id=[id]&#10;* the id parameter SHALL NOT be used if the operation is requested on a particular composition (e.g.  GET [base]/Composition/[id]/$document?id=[id] is not allowed)&#10;* Servers are not required to support generating documents on Compositions located on another server </Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">

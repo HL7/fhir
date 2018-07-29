@@ -92,7 +92,7 @@ There are a few base rules that apply for all operations:
 <ul>
  <li>The FHIRPath statement must return elements from the resource being modified.
      e.g. a FHIRPath could cross resources like <code>Observation.subject.resolve().identifier</code>.
-     Servers SHALL not allow patch operations to alter other resources than the nominated target, and SHOULD return an error if the patch operation tries</li>
+     Servers SHALL NOT allow patch operations to alter other resources than the nominated target, and SHOULD return an error if the patch operation tries</li>
  <li>The type of the value must be correct for the place at which it will be added/inserted. Servers SHALL return an error if the type is wrong</li>
  <li>Servers SHALL return an error if the outcome of the patch operation is a not a valid resource</li>
 </ul>

@@ -4589,7 +4589,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Original Text that represents the data as seen/selected/uttered originally</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the full intended meaning of the user.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The data in the element does not always capture the correct meaning with all the nuances of the original text. In these cases, the text is used to capture the full meaning of the source. This is commonly used to provide "what did the user actually see/type". Note that this extension has the same definition as CodeableConcept.text and SHALL not be used on CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">The data in the element does not always capture the correct meaning with all the nuances of the original text. In these cases, the text is used to capture the full meaning of the source. This is commonly used to provide "what did the user actually see/type". Note that this extension has the same definition as CodeableConcept.text and SHALL NOT be used on CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>

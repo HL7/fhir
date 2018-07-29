@@ -77,10 +77,10 @@ same path must conform.
 		context in which the meaning of the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
-		<li>Element names (the parts of a path delineated by the '.' character) SHALL not contain whitespace (i.e. Unicode characters marked as whitespace)</li>
-		<li>Element names SHALL not contain the characters ,:;'"/|?|!@#$%^&amp;*()[]{}</li>
+		<li>Element names (the parts of a path delineated by the '.' character) SHALL NOT contain whitespace (i.e. Unicode characters marked as whitespace)</li>
+		<li>Element names SHALL NOT contain the characters ,:;'"/|?|!@#$%^&amp;*()[]{}</li>
 		<li>Element names SHOULD not contain non-ASCII characters</li>
-		<li>Element paths SHALL not exceed 64 characters in length</li>
+		<li>Element paths SHALL NOT exceed 64 characters in length</li>
 		<li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
 		<li>By convention, each path start with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical
 				models are not required to do so</li>
@@ -394,7 +394,7 @@ same path must conform.
 </p>
 <ul>
  <li>Constraints limiting the acceptable list of types must be applied to the original "[x]" element as this is where the list of acceptable types is defined</li>
- <li>The inclusion of a type specific path (such as "Patient.deceasedBoolean") SHALL not be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
+ <li>The inclusion of a type specific path (such as "Patient.deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
  <li>the original element SHALL always be represented in a snapshot; the type specific variants are only represented when needed</li>
 </ul>
 

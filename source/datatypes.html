@@ -209,7 +209,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  <tr>
    <td>time<a name="time"></a></td>
    <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. 
-   <b>The time "24:00" SHALL not be used. A time zone SHALL not be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
+   <b>The time "24:00" SHALL NOT be used. A time zone SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
    <td>xs:time</td>
    <td>A JSON string - an xs:time</td>
   </tr>
@@ -329,7 +329,7 @@ Notes:
      <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format</li>
      <li>Note that GFM prohibits Raw HTML</li>
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy</li>
-     <li>Markdown content SHALL not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed)</li>
+     <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed)</li>
      <li>Markdown is a <code>string</code>, and subject to the same rules (e.g. length limit)</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification 
 		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of data types)</li>

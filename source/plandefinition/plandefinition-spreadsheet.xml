@@ -10689,7 +10689,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Exactly One</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">The end user must choose one and only one of the selectable actions in the group. The user SHALL not choose none of the actions in the group</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">The end user must choose one and only one of the selectable actions in the group. The user SHALL NOT choose none of the actions in the group</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -11243,7 +11243,7 @@
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Must</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">An action with this behavior must be included in the actions processed by the end user; the end user SHALL not choose not to include this action</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT choose not to include this action</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s144"/>

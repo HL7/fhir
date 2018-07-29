@@ -89,7 +89,7 @@ With regard to handling errors, FHIR GraphQL servers:
 </p>
 <ul>
  <li>SHALL return a 200 ok with a "data" field, or a 3xx, 4xx or 5xx response with an OperationOutcome</li>
- <li>SHALL not include an "errors" property in their response</li>
+ <li>SHALL NOT include an "errors" property in their response</li>
  <li>MAY include an operation outcome in a mutation response in the "extensions" property along with a "data" element, if the mutation succeeded. The OperationOutcome SHALL only include information and warning messages</li> 
  <li>SHALL return an error when fields that are not valid or not supported are used, or when queries, mutations, arguments, types, and directives that are not recognized or supported are encountered</li>
 </ul>
@@ -152,7 +152,7 @@ Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={birthD
 <h4>Field Arguments: List Navigation</h4>
 
 <p>
-Primitive fields SHALL not have any arguments at all. Complex fields may have one of more of the following parameters, all of which 
+Primitive fields SHALL NOT have any arguments at all. Complex fields may have one of more of the following parameters, all of which 
 help select a subset of a repeating element:
 </p>
 <ul>
@@ -694,7 +694,7 @@ Notes:
 </p>
 <ul>
  <li>In general, the intent of @slice is to break a list into multiple singletons. However 
-  servers SHALL not treat the outputs as singletons unless this is explicitly specified using <code>@singleton</code></li>
+  servers SHALL NOT treat the outputs as singletons unless this is explicitly specified using <code>@singleton</code></li>
  <li>The suffixes added by this method are cumulative when nesting e.g. .suffix1.suffix2</li>
  <li>The same general outcome can be achieved by a set of fields, each with an alias 
    and a filter, if the possible values are known in advance</li>

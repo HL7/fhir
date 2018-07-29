@@ -1146,7 +1146,7 @@ than 200 indicates that processing the batch itself failed, and means that none 
 For a <code>transaction</code>, servers SHALL either accept all actions and return a <code>200</code> OK, along with a
 response bundle (see below), or reject all resources and return an HTTP <code>400</code> or <code>500</code> type
 response. It is not an error if the submitted bundle has no resources in it.
-The outcome of the processing the transaction SHALL NOT depend on the order
+The outcome of processing the transaction SHALL NOT depend on the order
 of the resources in the transaction. A resource can only appear in a transaction
 once (by identity).
 </p>
@@ -1397,7 +1397,7 @@ In addition to the standard <code>_format</code> parameter, the parameters to th
   <tr><td><code>_list</code> : <a href="search.html#reference"><code>reference</code></a></td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
 </table>
 <p>
-Each of these parameters SHALL not appear more than once. 
+Each of these parameters SHALL NOT appear more than once. 
 </p>
 <p>
 The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with time zone.
@@ -1635,7 +1635,7 @@ risk of receiving stale content. See the <a href="http://tools.ietf.org/html/rfc
 Interface engines may also be placed between the consumer and
 the provider. These differ from proxies because they actively
 alter the content and/or destination of the HTTP exchange and are
-not bound the rules that apply to HTTP proxies. Such agents are allowed,
+not bound by the rules that apply to HTTP proxies. Such agents are allowed,
 but SHALL mark the request with an X-Intermediary header to assist with 
 debugging/troubleshooting. Any agent that modifies an HTTP request or 
 response content other than under the rules for HTTP proxies SHALL add 
@@ -1646,7 +1646,7 @@ headers like this:
   X-Intermediary : [identity - usually a FQDN]
 </pre>
 <p>
-End point systems SHALL not use this header for any purpose. Its aim 
+End point systems SHALL NOT use this header for any purpose. Its aim 
 is to assist with system troubleshooting.
 </p>
 
