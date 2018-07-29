@@ -1454,6 +1454,11 @@ base CapabilityStatement <a href="capabilitystatement-definitions.html#Capabilit
 values the server does not support.
 </p>
 <p>
+The <a href="#patch">PATCH operation</a> offers some support for making changes to a part of a resource and should
+be used where a client wishes to change just part of a resource, though transactional integrity
+issues are still important. 
+</p>
+<p>
 To the degree that the server alters the resource for any of
 the 3 reasons above, the FHIR server will create implementation
 consequences for the eco-system that it is part of, which will
