@@ -835,7 +835,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("resource-table")) {
         src = s1+genResourceTable(definitions.getResourceByName(com[1]), genlevel(level))+s3;
       } else if (com[0].equals("dtextras")) {
-        src = s1+produceDataTypeExtras(com[1])+s3;
+        src = s1+produceDataTypeExtras(com[1], false)+s3;
+      } else if (com[0].equals("dtextensions")) {
+        src = s1+produceDataTypeExtras(com[1], true)+s3;
       } else if (com[0].equals("tx")) {
         src = s1+produceDataTypeTx(com[1])+s3;
       } else if (com[0].equals("extension-diff")) {
@@ -3956,6 +3958,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("<ul class=\"nav nav-tabs\">");
     b.append(makeHeaderTab("Element", "element.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "element-definitions.html", mode==null || "definitions".equals(mode)));
+    b.append(makeHeaderTab("Extensions", "element-extras.html", mode==null || "extensions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
   }
@@ -5325,7 +5328,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("ig.registry")) {
         src = s1+buildIgRegistry(ig, com[1])+s3;
       } else if (com[0].equals("dtextras")) {
-        src = s1+produceDataTypeExtras(com[1])+s3;
+        src = s1+produceDataTypeExtras(com[1], true)+s3;
+      } else if (com[0].equals("dtextensions")) {
+        src = s1+produceDataTypeExtras(com[1], false)+s3;
       } else if (com[0].equals("resource-table")) {
         src = s1+genResourceTable(definitions.getResourceByName(com[1]), genlevel(level))+s3;
       } else if (com[0].equals("profile-diff")) {
@@ -7179,7 +7184,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private String produceDataTypeExtras(String tn) {
+  private String produceDataTypeExtras(String tn, boolean profiles) {
     int count = 0;
     Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
     for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
@@ -7194,7 +7199,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
 
     StringBuilder b = new StringBuilder();
-    b.append("  <tr><td colspan=\"3\"><b>Extensions</b></td></tr>\r\n");
+    b.append("  <tr><td colspan=\"3\"><b>Extensions</b> (+ see <a href=\"element-extras.html\">extensions on all Elements</a>)</td></tr>\r\n");
     for (String s : sorted(map.keySet())) {
       StructureDefinition cs = map.get(s);
       count++;
@@ -7212,32 +7217,34 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(" </tr>\r\n");
     }
     if (count == 0)
-      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+"</td></tr>");
+      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+" (though <a href=\"element-extras.html\">extensions on all Elements</a>)</td></tr>");
 
-    count = 0;
-    Map<String, CSPair> pmap = new HashMap<String, CSPair>();
-    for (Profile ap: definitions.getPackList()) {
-      for (ConstraintStructure cs : ap.getProfiles()) {
-        if (coversType(cs, tn))
-          pmap.put(cs.getTitle(), new CSPair(ap, cs));
+    if (profiles) {
+      count = 0;
+      Map<String, CSPair> pmap = new HashMap<String, CSPair>();
+      for (Profile ap: definitions.getPackList()) {
+        for (ConstraintStructure cs : ap.getProfiles()) {
+          if (coversType(cs, tn))
+            pmap.put(cs.getTitle(), new CSPair(ap, cs));
+        }
       }
-    }
 
-    b.append("  <tr><td colspan=\"3\"><b>Profiles</b></td></tr>\r\n");
-    for (String s : sorted(pmap.keySet())) {
-      CSPair cs = pmap.get(s);
-      ImplementationGuideDefn ig = definitions.getIgs().get(cs.p.getCategory());
-      count++;
-      b.append("  <tr>\r\n");
-      String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.cs.getId()+".html";
-      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
-      b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
-      ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
-      b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
-      b.append(" </tr>\r\n");
+      b.append("  <tr><td colspan=\"3\"><b>Profiles</b></td></tr>\r\n");
+      for (String s : sorted(pmap.keySet())) {
+        CSPair cs = pmap.get(s);
+        ImplementationGuideDefn ig = definitions.getIgs().get(cs.p.getCategory());
+        count++;
+        b.append("  <tr>\r\n");
+        String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.cs.getId()+".html";
+        b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
+        b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
+        ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
+        b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
+        b.append(" </tr>\r\n");
+      }
+      if (count == 0)
+        b.append("<tr><td>No Profiles defined for for "+(tn.equals("primitives")? "primitive types" : "this type")+"</td></tr>");
     }
-    if (count == 0)
-      b.append("<tr><td>No Profiles defined for for "+(tn.equals("primitives")? "primitive types" : "this type")+"</td></tr>");
     return b.toString();
   }
 

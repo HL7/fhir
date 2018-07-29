@@ -758,7 +758,8 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#Identifier">Identifier</a></td>
   <td>Identifier.system</td>
   <td>Identifier.value</td>
-  <td>Clients can search by <code>type</code> not <code>system</code> using the :of-type modifier, see below</td>
+  <td>Clients can search by <code>type</code> not <code>system</code> using the :of-type modifier, see below. To search on a CDA <code>II.root</code> - which 
+	    may appear in either <code>Identifier.system</code> or <code>Identifier.value</code>, use the syntax <code>identifier=|[root],[root]</code></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#ContactPoint">ContactPoint</a></td>

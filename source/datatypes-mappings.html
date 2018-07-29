@@ -81,6 +81,9 @@ When mapping an HL7 v3 II data type to a FHIR Identifier, there are two possibil
  <li>If the II has both a root and an extension, the II.root will be mapped to a URI - either a human-friendly URL or URN or (less preferred) an OID expressed as a urn, and the II.extension will be sent in Identifier.value</li>
 </ul>
 <p>
+To search on a CDA <code>II.root</code> - which may appear in either <code>Identifier.system</code> or <code>Identifier.value</code>, use the syntax <code>identifier=|[root],[root]</code>.
+</p>
+<p>
 See <a href="datatypes-examples.html#ii">v3 Mapping examples</a>
 </p>
 <a name="Coding"></a>
