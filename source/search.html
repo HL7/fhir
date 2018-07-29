@@ -57,7 +57,8 @@ complexity that they require for their implementations.
 </tr>
 </table>
 <p>
-In addition, there is a special search parameters <a href="#query"><code>_query</code></a> and <a href="#filter"><code>_filter</code></a> that allow for an alternative method of searching.
+In addition, there is a special search parameters <a href="#query"><code>_query</code></a> and <a href="#filter"><code>_filter</code></a> that allow for an alternative method of searching,
+and the parameters <code>_format</code> and <code>_pretty</code> <a href="http.html#parameters">defined for all interactions</a>.
 </p>
 <p>
 Also, there is a single page that lists <a href="searchparameter-registry.html">all the search parameters</a>.
@@ -1841,7 +1842,7 @@ Feedback on which elements should be in the summaries is welcome <a href="http:/
 <h4>Elements</h4>
 <p>
 If one of the summary views defined above is not appropriate, a client can
-request a specific set of elements be returned as part of a resource using
+request a specific set of elements be returned as part of a resource in the search results using
 the <code>_elements</code> parameter:
 </p>
 <pre>
