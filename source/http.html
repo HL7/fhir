@@ -1315,7 +1315,7 @@ interaction are performed by HTTP <code>GET</code> command as shown:
 The return content is a <a href="bundle.html">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the
 specified version history, sorted with oldest versions last, and including deleted resources.
-Each entry SHALL minimally contain either a <code>resource</code> which holds the resource as
+Each entry SHALL minimally contain at least one of: a <code>resource</code> which holds the resource as
 it is at the conclusion of the interaction, or a <code>request</code> with <code>entry.request.method</code>
 The <code>request</code> provides information about the result of the interaction that 
  led to this new version, and allows, for instance, a subscriber system to 
