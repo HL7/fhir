@@ -716,6 +716,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.log("FHIR build failure @ " + Config.DATE_FORMAT().format(Calendar.getInstance().getTime()), LogMessageType.Process);
       System.out.println("Error: " + e.getMessage());
       e.printStackTrace();
+      TextFile.stringToFile(e.getMessage(), Utilities.path(folder, "publish", "simple-error.txt"));
       System.exit(1);
     }
   }
