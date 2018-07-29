@@ -1286,6 +1286,9 @@ can be treated as either a transaction or batch, so servers SHOULD accept a hist
 possible to replicate data from one server to another easily using a pub/sub model. Note, however, that
 the original transaction boundaries might not be represented in a history list, and a resource may occur 
 more than once in a history list, so servers processing history bundles must have some strategy to manage this.
+When processing a history bundle via a transaction, any entries with the request method of POST must use the
+<code>Bundle.entry.resource.id</code> (which must match the <code>Bundle.entry.response.location</code>) for
+that resource so that references are preserved.
 </p>
 <p>
 For other Bundle types, should the server choose to accept them, there will be
