@@ -3117,7 +3117,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       CodeSystem cs = map.get(n);
       String id = tail(cs.getUrl()).substring(3);
       String oid = CodeSystemUtilities.getOID(cs);
-      s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id.substring(3)))
+      s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id))
               .append("</a></td><td>").append(Utilities.escapeXml(cs.getDescription())).append("</td><td>").append(oid == null ? "--" : oid).append("</td></tr>\r\n");
     }
 
@@ -7217,7 +7217,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(" </tr>\r\n");
     }
     if (count == 0)
-      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+" (though <a href=\"element-extras.html\">extensions on all Elements</a>)</td></tr>");
+      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+" (though <a href=\"element-extensions.html\">extensions on all Elements</a>)</td></tr>");
 
     if (profiles) {
       count = 0;
@@ -9597,7 +9597,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (cs != null) {
         if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
           b.append("  <tr>\r\n");
-          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a>");
+          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
             b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
@@ -9621,7 +9621,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (cs != null) {
         if (cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
           b.append("  <tr>\r\n");
-          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(38)+"</a>");
+          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
             b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
