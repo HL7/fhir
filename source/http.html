@@ -1389,11 +1389,14 @@ Notes:
 In addition to the standard <code>_format</code> parameter, the parameters to this interaction may also include:
 </p>
 <table class="list">
-  <tr><td><code>_count</code> : <a href="search.html#number"><code>integer</code></a></td><td>single</td><td>Number of return records requested. The server is not bound to return the number requested, but cannot return more</td></tr>
-  <tr><td><code>_since</code> : <a href="search.html#date"><code>instant</code></a></td><td>single</td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
-  <tr><td><code>_at</code> : <a href="search.html#date"><code>date(Time)</code></a></td><td>single</td><td>Only include resource versions that were current at some point during the time period specified in the date time value (may be more than one)</td></tr>
-  <tr><td><code>_list</code> : <a href="search.html#reference"><code>reference</code></a></td><td>single</td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
+  <tr><td><code>_count</code> : <a href="search.html#number"><code>integer</code></a></td><td>Number of return records requested. The server is not bound to return the number requested, but cannot return more</td></tr>
+  <tr><td><code>_since</code> : <a href="search.html#date"><code>instant</code></a></td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
+  <tr><td><code>_at</code> : <a href="search.html#date"><code>date(Time)</code></a></td><td>Only include resource versions that were current at some point during the time period specified in the date time value (may be more than one version of a given resource)</td></tr>
+  <tr><td><code>_list</code> : <a href="search.html#reference"><code>reference</code></a></td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
 </table>
+<p>
+Each of these parameters SHALL not appear more than once. 
+</p>
 <p>
 The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with time zone.
 Clients should be aware that due to timing imprecision, they may receive notifications of a resource update on the boundary instant more than once. Servers are
