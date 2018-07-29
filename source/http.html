@@ -314,11 +314,8 @@ to the server.
 </li>
 </ul>
 <p>
-FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
-defines a default character encoding of ISO-8859-1, requests and responses SHOULD explicitly set
-the character encoding to UTF-8 using the <code>charset</code> MIME-type parameter in the <code>Content-Type</code> header
-for XML and Turtle, and MAY do this for JSON and ND-JSON. Requests MAY also specify this <code>charset</code> parameter in 
-the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
+UTF-8 encoding SHALL be used for the mime type <code>application/fhir</code>. This MAY be specified as a 
+MIME type parameter to the application/fhir mime type, but is not required. 
 </p>
 <a name="version-parameter"> </a>
 <h4>FHIR Version Parameter</h4>
