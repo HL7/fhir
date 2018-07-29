@@ -1085,8 +1085,8 @@ framework.
 <p>
 The <code>transaction</code> mode is especially useful where one would otherwise need multiple interactions, possibly
 with a risk of loss of referential integrity if a later interaction fails (e.g. when storing
-a Provenance resource and its corresponding target resource, or, on document repositories, a
-document index entry and its accompanying document).
+a Provenance resource and its corresponding target resource, or and <a href="https://wiki.ihe.net/index.php/MHD_Implementation_Guide">IHE-MHD transaction "Provide Document Resources"</a> 
+with a DocumentManifest, and some number of DocumentReference, List, and Binary resources).
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
