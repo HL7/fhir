@@ -757,6 +757,7 @@ discretion of the server based on the business rules that apply in its context.
 If the server refuses to delete resources of that type as a blanket policy, then it should return the <code>405</code>
 Method not allowed status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the <code>409</code> Conflict status code.
+Note that the servers MAY choose to enforce business rules regarding deletion of resources that are being referenced by other resources, but they also MAY NOT do so.
 Performing this interaction on a resource that is already deleted has no effect, and the server should return either a
 <code>200 OK</code> if the response contains a payload, or a <code>204 No Content</code> with no response payload.
 Resources that have been deleted may be "brought back to life" by a subsequent <a href="#href"><code>update</code></a>
