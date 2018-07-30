@@ -1408,6 +1408,7 @@ Notes:
  <li>The resource in the entry is the resource as processed by the server, not as submitted by the client (<a href="updates.html">may be different</a>)</li>
  <li>The server SHOULD populate at least <a href="bundle-definitions.html#Bundle.entry.response.lastModified">response.lastModified</a> so the time of processing is clear in the history record</li>
  <li>If the server does not populate <a href="bundle-definitions.html#Bundle.entry.response.status">response.status</a>, it should ensure that only successful interactions appear in the history logs</li>
+ <li>There may be more than one version of a given resource in the history</li>
 </ul>
 <p>
 In addition to the standard <code>_format</code> parameter, the parameters to this interaction may also include:
@@ -1415,7 +1416,7 @@ In addition to the standard <code>_format</code> parameter, the parameters to th
 <table class="list">
   <tr><td><code>_count</code> : <a href="search.html#number"><code>integer</code></a></td><td>The maximum number of search results on a page, excluding related resources included by _include or _revinclude or OperationOutcomes. The server is not bound to return the number requested, but cannot return more</td></tr>
   <tr><td><code>_since</code> : <a href="search.html#date"><code>instant</code></a></td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
-  <tr><td><code>_at</code> : <a href="search.html#date"><code>date(Time)</code></a></td><td>Only include resource versions that were current at some point during the time period specified in the date time value (may be more than one version of a given resource)</td></tr>
+  <tr><td><code>_at</code> : <a href="search.html#date"><code>date(Time)</code></a></td><td>Only include resource versions that were current at some point during the time period specified in the date time value (see <a href="search.html#date">Search notes on date searching</a>)</td></tr>
   <tr><td><code>_list</code> : <a href="search.html#reference"><code>reference</code></a></td><td>Only include resource versions that are referenced in the specified list (<a href="lifecycle.html#current">current list references</a> are allowed)</td></tr>
 </table>
 <p>
