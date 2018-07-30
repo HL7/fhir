@@ -563,8 +563,9 @@ in <a href="http.html#return">Managing Return Content</a>.
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
 </p>
 <a name="upsert"></a>
+<h4>Update as Create</h4>
 <p>
-Note that servers MAY choose to allow clients to <code>PUT</code> a resource to a location that
+Servers MAY choose to allow clients to <code>PUT</code> a resource to a location that
 does not yet exist on the server - effectively, allowing the client to define the
 id of the resource. Whether a server allows this is a deployment choice based
 on the nature of its relationships with the clients. While many servers will
@@ -628,7 +629,7 @@ When the server processes this update, it performs a search using its standard
 on how many matches are found:
 </p>
 <ul>
- <li><b>No matches</b>: The server performs a <a href="#create"><code>create</code></a> interaction</li>
+ <li><b>No matches</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
  <li><b>One Match</b>: The server performs the update against the matching resource</li>
  <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
 </ul>
