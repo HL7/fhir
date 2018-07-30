@@ -319,18 +319,6 @@
 		<translation lang="es">RecursoDeDominio</translation>
 		<translation lang="zh">领域资源</translation>
 	</item>
-	<item id="EligibilityRequest">
-		<translation lang="en">EligibilityRequest</translation>
-		<translation lang="fr">DemandeEligibilité</translation>
-		<translation lang="it">RichiestaEleggibilita</translation>
-		<translation lang="zh">资格请求</translation>
-	</item>
-	<item id="EligibilityResponse">
-		<translation lang="en">EligibilityResponse</translation>
-		<translation lang="fr">RéponseEligibilité</translation>
-		<translation lang="it">RispostaEleggibilita</translation>
-		<translation lang="zh">资格响应</translation>
-	</item>
 	<item id="Encounter">
 		<translation lang="en">Encounter</translation>
 		<translation lang="zh">就医过程</translation>
