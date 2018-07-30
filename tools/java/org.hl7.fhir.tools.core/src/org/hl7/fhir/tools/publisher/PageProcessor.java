@@ -9807,7 +9807,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private void checkForModifiers(StringBuilder b, String path, ElementDefn e) {
-    if (e.isModifier() && !isFromMetadataResource(path, e)) {
+    if (e.isModifier() && !e.getName().equals("status")) {
       b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a></li>\r\n");
     }
     for (ElementDefn c : e.getElements())
