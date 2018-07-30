@@ -644,7 +644,12 @@ Note that transactions and conditional create/update/delete are complex interact
 not expected that every server will implement them. Servers that don't support the conditional
 update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
-
+<p>
+The resource MAY contain an <code>id</code> element, but does not need to (this is 
+one of the few cases where a resource exists without an <code>id</code> element). 
+If an <code>id</code> is provided, the server SHALL ignore it - see documentation 
+for the <a href="#update">update</a> interaction.
+</p>
 
 <a name="versionaware"></a>
 <a name="concurrency"></a>
