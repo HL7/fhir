@@ -233,6 +233,7 @@ If the server has a default timezone, it SHOULD return the default timezone in t
 In the interests of managing band-width, this specification allows clients
 to specify what kind of content to return for resources.
 </p>
+
 <a name="cread"></a>
 <h4>conditional read</h4>
 <p>
@@ -247,6 +248,7 @@ Servers can return <code>304</code> Not Modified where content is unchanged beca
 return the full content as normal. This optimisation is relevant in reducing bandwidth for caching purposes and servers are encouraged but
 not required to support this. If servers don't support conditional read, they just return the full content.
 </p>
+
 <h4>create/update/patch/transaction</h4>
 <p>
 These interactions are performed using <code>POST</code>, <code>PUT</code> or <code>PATCH</code>, and
@@ -614,8 +616,14 @@ whether they do or not). In practice, servers may also return 5xx errors in thes
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
+<div class="draft-content">
 <a name="cond-update"></a>
 <h4>Conditional update</h4>
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Unlike this rest of this page, the conditional create, update, patch and delete are trial use until 
+further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
+</p>
+
 <p>
 The conditional update interaction allows a client to update an existing resource based on some identification criteria,
 rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues a <code>PUT</code> as shown:
@@ -650,6 +658,7 @@ one of the few cases where a resource exists without an <code>id</code> element)
 If an <code>id</code> is provided, the server SHALL ignore it - see documentation 
 for the <a href="#update">update</a> interaction.
 </p>
+</div>
 
 <a name="versionaware"></a>
 <a name="concurrency"></a>
@@ -727,9 +736,25 @@ operation; all the version and error handling etc. applies as specified, as does
 Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support
 conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>.
 Clients SHOULD always consider using version specific PATCH operations so that inappropriate
-actions are not executed. In addition, servers SHALL support Conditional PATCH, which works
-exactly as described for <a href="#cond-update">Conditional Update</a>.
+actions are not executed.
 </p>
+<div class="draft-content">
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Unlike this rest of this page, the conditional create, update, patch and delete are trial use until 
+further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
+</p>
+<p>
+In addition, servers that support PATCH, and that support <a href="#cond-update">Conditional Update</a> SHOULD 
+also support conditional PATCH. When the server processes a conditional PATCH, it performs a search using its standard
+<a href="search.html">search facilities</a> for the resource type, with the goal of resolving a single logical id for this request. The action it takes depends
+on how many matches are found:
+</p>
+<ul>
+ <li><b>No matches</b>: The server returns a 404 Not Found</li>
+ <li><b>One Match</b>: The server performs the update against the matching resource</li>
+ <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
+</ul>
+</div>
 <p>
 The server SHALL ensure that the narrative in a resource is not clinically unsafe after the PATCH operation is performed.
 Exactly how this is defined and can be achieved depends on the context, and how narrative is being maintained, but servers may wish to consider:
@@ -805,7 +830,12 @@ Note that irrespective of this rule, servers are free to completely delete the r
 if policy or business rules make this the appropriate action to take.
 </p>
 
+<div class="draft-content">
 <h4>Conditional delete</h4>
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Unlike this rest of this page, the conditional create, update, patch and delete are trial use until 
+further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
+</p>
 <p>
 The conditional delete interaction allows a client to delete an existing resource based on some selection criteria,
 rather than by a specific <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues an HTTP <code>DELETE</code> as shown:
@@ -834,6 +864,7 @@ Note that transactions and conditional create/update/delete are complex interact
 not expected that every server will implement them. Servers that don't support the conditional
 update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
+</div>
 
 <a name="create"></a>
 <h3>create</h3>
@@ -902,8 +933,13 @@ whether they do or not). In practice, servers may also return 5xx errors in thes
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
 </p>
 
+<div class="draft-content">
 <a name="ccreate"></a>
 <h4>Conditional create</h4>
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Unlike this rest of this page, the conditional create, update, patche and delete are trial use until 
+further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
+</p>
 <p>
 The conditional <code>create</code> interaction allows a client to create a new resource only if some equivalent resource
 does not already exist on the server. The client defines what equivalence means in this case by supplying
@@ -935,7 +971,7 @@ Note that transactions and conditional create/update/delete are complex interact
 not expected that every server will implement them. Servers that don't support the conditional
 update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
-
+</div>
 
 <a name="search"></a>
 <h3>search</h3>
@@ -1116,8 +1152,8 @@ with a DocumentManifest, and some number of DocumentReference, List, and Binary 
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
-not expected that every server will implement them. Servers that don't support the conditional
-update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
+not expected that every server will implement them. Servers that don't support the batches
+or transactions SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
 A <code>batch</code> or <code>transaction</code> interaction is performed by an HTTP <code>POST</code> command as shown:

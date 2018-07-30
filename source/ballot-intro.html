@@ -229,13 +229,24 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 
 <table class="grid">
  <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td> </tr>
+ 
+ <tr><td colspan="3"><b>RESTful API</b></td></tr>
  <tr><td>Add fhirVersion parameter to application/fhir mime type</td> <td>FHIR-I: [%GF#16165%]</td> <td>[%diff http.html#version-parameter RESTful API%]</td></tr>
+ <tr><td>Fix HTTP response status codes for If-Match header</td> <td>FHIR-I: [%GF#16096%]</td> <td>[%diff http.html Search%]</td></tr>
+ <tr><td>Clarify about 406 and 415 status codes</td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
+ <tr><td>Rewrite intermediaries section, and refocus on custom headers</td> <td>FHIR-I:[%GF#14162%]</td> <td>[%diff http.html#custom RESTful API%]</td></tr> 
+ <tr><td>Clarify version requirements in Location header</td> <td>FHIR-I:[%GF#13915%]</td> <td>[%diff http.html#create RESTful API%]</td></tr> 
+ <tr><td>Decribe use of :below on reference for searching canonicsls</td> <td>FHIR-I:[%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
+ <tr><td>Change rules around optionality of Bundle.entry.request and .response</td><td>FHIR-I: [%GF#14551%]</td> <td>[%diff http.html#transaction RESTful API%]</td></tr> 
+ <tr><td>Add _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
+ <tr><td>Add conformance language about errors and operation outcome</td><td>FHIR-I: [%GF#14495%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
+ <tr><td>Mark Conditional Create, Update, Patch, and Delete as Trail-use</td><td>FHIR-I: [%GF#16448%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
+
  <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Data Types%], [%diff xml.html#decimal XML%]</td></tr>
  <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: [%GF#16369%]</td> <td>[%diff search.html#decimal Search%]</td></tr>
  <tr><td>Change Money Type to make it simpler</td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Data Types%]</td></tr>
  <tr><td>Rename the "recurse" modifier on _include to "iterate"</td> <td>FHIR-I: [%GF#13602%]</td> <td>[%diff search.html Search%]</td></tr>
  <tr><td>Add rule that search parameter names cannot differ only by case</td> <td>FHIR-I: [%GF#14961%]</td> <td>[%diff search.html Search%]</td></tr>
- <tr><td>Fix HTTP response status codes for If-Match header</td> <td>FHIR-I: [%GF#16096%]</td> <td>[%diff http.html Search%]</td></tr>
  <tr><td>Make it clear that contained resources can't contain security labels</td> <td>FHIR-I: [%GF#16622%]</td> <td>[%diff resource.html Resource%]</td></tr>
  <tr><td>Remove support for operations on historical resources</td> <td>FHIR-I: [%GF#17258%]</td> <td>[%diff operations.html Operations%]</td></tr>
  <tr><td>Remove restriction on Bundle containing multiple versions of the same resource</td> <td>FHIR-I: [%GF#17085%]</td> <td>[%diff bundle.html Bundle%]</td></tr>
@@ -244,24 +255,17 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Add <code>deleted</code> as an issue type</td> <td>FHIR-I: [%GF#17327%]</td> <td>[%diff valueset-issue-type.html Issue Type ValueSet%]</td></tr>
  <tr><td>Fix missing code for 1.0.2 <a href="codesystem-fhir-versions.html">FHIR versions Code System</a></td> <td>FHIR-I: [%GF#16318%]</td> <td>[%diff codesystem-fhir-versions.html FHIR versions Code System%]</td></tr>
  <tr><td>New codes, adjustments, and fixed definitions to codes for OperationOutcome.issue.code</td> <td>FHIR-I: [%GF#16922%], [%GF#17329%]</td> <td>[%diff codesystem-issue-type.html Issue Type Code System%]</td></tr>
- <tr><td>Clarify about 406 and 415 status codes</td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
  <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional)</td> <td>FHIR-I:[%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr>
  <tr><td>Change Identifier.type codes to use v2 codes now that they are defined</td> <td>FHIR-I:[%GF#9239%], [%GF#16898%]</td> <td>[%diff valueset-identifier-type.html Identifier Type ValueSet%]</td></tr>
- <tr><td>Rewrite intermediaries section, and refocus on custom headers</td> <td>FHIR-I:[%GF#14162%]</td> <td>[%diff http.html#custom RESTful API%]</td></tr> 
  <tr><td>Make it clear and consistent that ElementDefinition specializes BackboneElement</td> <td>FHIR-I:[%GF#17404%]</td> <td>[%diff elementdefinition.html#custom ElementDefinition%]</td></tr> 
  <tr><td>Contained resources can contain Narrative</td> <td>FHIR-I:[%GF#13870%]</td> <td>[%diff references.html#contained References%]</td></tr> 
- <tr><td>Clarify version requirements in Location header</td> <td>FHIR-I:[%GF#13915%]</td> <td>[%diff http.html#create RESTful API%]</td></tr> 
- <tr><td>Decribe use of :below on reference for searching canonicsls</td> <td>FHIR-I:[%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
  <tr><td>Decribe use of :below on token for searching mime types</td> <td>FHIR-I:[%GF#16970%]</td> <td>[%diff search.html#mimetype Search%]</td></tr> 
- <tr><td>Change rules around optionaity of Bundle.entry.request and .response</td><td>FHIR-I: [%GF#14551%]</td> <td>[%diff http.html#transaction RESTful API%]</td></tr> 
- <tr><td>Add _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
  <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF#17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr> 
  <tr><td>Add note about namespaces in types in FHIRPath consequence to FHIRPath changes</td><td>FHIR-I: [%GF#15876%]</td> <td>[%diff fhirpath.html#types FHIRPath%]</td></tr> 
  <tr><td>Clarify use of slicing entry</td><td>FHIR-I: [%GF#16309%]</td> <td>[%diff elementdefinition.html#slicing ElementDefinition%]</td></tr> 
  <tr><td>Change Annotation.text to support markdown</td><td>FHIR-I: [%GF#16965%]</td> <td>[%diff datatypes.html#Annotation Annotation Data type%]</td></tr> 
  <tr><td>Fix OID regex</td><td>FHIR-I: [%GF#16023%]</td> <td>[%diff datatypes.html#oid OID Data type%]</td></tr> 
  <tr><td>Add minutes to Duration value set</td><td>FHIR-I: [%GF#15868%]</td> <td>[%diff valueset-duration-units.html Duration Value Set%]</td></tr> 
- <tr><td>Add conformance language about errors and operation outcome</td><td>FHIR-I: [%GF#14495%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
 </table>
 
 <a name="terminology"></a>
