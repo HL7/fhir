@@ -260,12 +260,16 @@ negates the primary meaning of the element that contains it. Some examples:
  <li>Asserting an additional subsumption relationship on a concept in a <a href="valueset.html">value set</a></li>
 </ul>
 <p>
-Such extensions are known as "modifier extensions". Implementers should avoid the use of modifier extensions 
-where possible.  Any use should be carefully considered against its possible downstream consequences. However, implementers
-are often forced into these situations by the business arrangements around
-the use of resources, so this specification creates a framework for handling such cases.
+Such extensions are known as "modifier extensions". For further information, see <a href="conformance-rules.html#modifier">the definition of what makes an element - or 
+an extension - a modifier</a>.
 If modifier extensions are present, an application cannot safely process the resource unless it knows
 what the extension means for its own use of the data.
+</p>
+<p>
+Implementers SHOULD avoid the use of modifier extensions where possible.  Any use should be carefully considered against its possible downstream consequences. However, implementers
+are often forced into these situations by the business arrangements around
+the use of resources, so this specification creates a framework for handling such cases.
+Implementers who are introducing an extension and are uncertain whether the extension should be marked as a modifier are encouraged to raise the question on <a href="http://chat.fhir.org">chat.fhir.org</a>.
 </p>
 <p>
 This specification allows for such modifier elements to be included at the base of a resource or in any elements
