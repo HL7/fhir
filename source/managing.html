@@ -89,23 +89,23 @@ These combinations are why either relative (logical) or absolute references are 
 a logical id is always required, in order to enable seamless exchange amongst partially closed trading systems.
 </p>
 <a name="distributed"></a>
-<h3>Copying Resources and Re-identification</h3>
+<h3>Copying Resources and Assigning new Ids</h3>
 <p>
-When resources are exchanged between systems, they may need to be re-identified (i.e. assigned a new logical resource id).
-When a resource is re-identified, nothing in the resource change other than the <a href="resource-definitions.html#Resource.id">Resource.id</a>, 
-but any references that point to the resource need to be updated. Whether re-identification is required or not depends on the context, as does how resource
+When resources are exchanged between systems, they may need to have new logical resource ids assigned.
+When a resource has a new logical id assigned, nothing in the resource change other than the <a href="resource-definitions.html#Resource.id">Resource.id</a>, 
+but any references that point to the resource need to be updated. Whether new ids are required or not depends on the context, as does how resource
 references are updated.
 </p>
 <p>
 The normal case is that a client/receiving system accepts the server/sender's identification of a resource
 at face value, whether it is a relative or absolute reference. When the client/receiver wants to follow
 resource references, they are done using the server id (typically either by http calls or locating them
-in a <a href="bundle.html">bundle</a>), but other arrangements are possible. In such cases, there is no need for re-identification.
+in a <a href="bundle.html">bundle</a>), but other arrangements are possible. In such cases, there is no need for new ids.
 </p>
 <p>
 Another scenario is for a client to retrieve a resource from a server and make its own local persistent
 copy. If the local resource has a life-cycle of its own (i.e. it is not just a cached resource), then it
-needs to have its own identity; i.e. the resource must be re-identified. The simplest case is that the
+needs to have its own identity; i.e. the resource must get new ids. The simplest case is that the
 client is only keeping local copies of resources from a single server. In these cases, the client can
 simply replace the Base URL and keep the logical id of the resource the same. In fact, if the server
 is using relative references, then this change doesn't involve any actual changes to the resources, it only
@@ -115,7 +115,7 @@ means a re-interpretation of the references.
 In some cases, however, the client may deal with multiple servers. In this case, the logical id of the
 resource is not guaranteed to be unique (unless all resources have a UUID for the logical id, which is
 allowed but not required). When the client cannot be sure that the resource identities are unique, it
-will have to re-identify the resources. In practice this means that the client needs to keep some kind of
+will have assign new ids to the resources. In practice this means that the client needs to keep some kind of
 identity translation table, and update references to the resources it has copied locally when other resources
 are received.
 </p>
