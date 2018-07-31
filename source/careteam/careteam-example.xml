@@ -22,8 +22,9 @@
   <status value="active"/>
   <category>
      <coding>
-       <system value="http://terminology.hl7.org/CodeSystem/care-team-category"/>
-       <code value="encounter"/>
+       <system value="http://loinc.org"/>
+       <code value="LA27976-2"/>
+	   <display value="Encounter-focused care team"/>
      </coding>
   </category>
   <name value="Peter James Charlmers Care Plan for Inpatient Encounter"/>
