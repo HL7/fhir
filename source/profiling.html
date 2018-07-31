@@ -64,13 +64,16 @@ FHIR defines a cascade of artifacts for this purpose:
  <tr>
   <td>Conformance Resource</td>
   <td>A single resource in a package that makes rules about how an implementation works. These are described below</td>
+   <td><a href="http://hl7.org/fhir/us/core/ValueSet-us-core-problem.html">DAF Problem Value Set</a></td>
+ </tr>
+ <tr>
+  <td>Profile</td>
+  <td>A set of constraints on a resource represented as a structure definition with kind = <code>constraint</code></td>
    <td><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html">DAF Medication Request</a></td>
  </tr>
 </table>
 <p>
-The term "profile" is a general one that is used about either a "package" or an "item".
-"Profiling" is a general term that describes the process of creating an implementation guide,
-or any of the conformance resources found in one.
+The verb 'profile', or 'profiling', is used to describe the process of creating a profile.
 </p>
 
 <a name="conf-res"></a>
@@ -155,7 +158,7 @@ forward operation (one option is to use the <a href="downloads.html">provided to
 but this is very inefficient way - the decision support system has to receive
 and process 100 times as many resources as it uses. To help a consumer
 find the correct set of reports for a use-case, a producer of
-resources also SHALL, for any profile declared in Conformance.profile:
+resources also SHALL, for any profile declared in <code>CapabilityStatement.rest.resource.supportedProfile</code>:
 </p>
 <ol>
  <li><a href="resource.html#meta">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
