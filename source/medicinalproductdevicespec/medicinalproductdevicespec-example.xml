@@ -1,109 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicinalProductDeviceSpec xmlns="http://hl7.org/fhir">
-  <id value="example"/>
-    <identifier>
-      <system value="http://ema.europa.eu/example/DeviceDeviceIdentifierRoot"/>
-      <value value="Device.DeviceIdentifier.extension"/>
-    </identifier>
-    <type>
-      <coding>
-        <system value="http://ema.europa.eu/example/deviceType"/>
-        <code value="{Device.DeviceType}"/>
-      </coding>
-    </type>
-    <tradeName value="Device Trade Name"/>
-    <quantity>
-      <value value="2"/>
-      <unit value="1"/>
-    </quantity>
-    <listingNumber value="Device.DeviceListingNumber"/>
-    <modelNumber value="Device.ModelNumber"/>
-    <sterilityIndicator>
-      <coding>
-        <system value="http://ema.europa.eu/example/deviceSterilityIndicator"/>
-        <code value="{Device.SterilityIndicator}"/>
-      </coding>
-    </sterilityIndicator>
-    <sterilisationRequirement>
-      <coding>
-        <system value="http://ema.europa.eu/example/deviceSterilisationRequirementIndicator"/>
-        <code value="{Device.SterilisationRequirementIndicator}"/>
-      </coding>
-    </sterilisationRequirement>
-    <usage>
-      <coding>
-        <system value="http://ema.europa.eu/example/deviceUsage"/>
-        <code value="{Device.DeviceUsage}"/>
-      </coding>
-    </usage>
-    <nomenclature>
-      <coding>
-        <system value="http://ema.europa.eu/example/deviceNomenclatureNomenclature"/>
-        <code value="{DeviceNomenclature.NomenclatureValue}"/>
-      </coding>
-    </nomenclature>
-    <physicalCharacteristics>
-      <height>
-        <value value="99"/>
-        <unit value="mm"/>
-      </height>
-      <width>
-        <value value="100"/>
-        <unit value="mm"/>
-      </width>
-      <depth>
-        <value value="10"/>
-        <unit value="mm"/>
-      </depth>
-      <weight>
-        <value value="100"/>
-        <unit value="g"/>
-      </weight>
-      <nominalVolume>
-        <value value="100"/>
-        <unit value="cm3"/>
-      </nominalVolume>
-      <externalDiameter>
-        <value value="100"/>
-        <unit value="mm"/>
-      </externalDiameter>
-      <shape value="{PhysicalCharacteristic.Shape}"/>
-      <color value="{PhysicalCharacteristic.Colour}"/>
-      <imprint value="{PhysicalCharacteristic.Imprint}"/>
-      <image>
-        <data value="e1BoeXNpY2FsQ2hhcmFjdGVyaXN0aWMuSW1hZ2V9"/>
-      </image>
-      <scoring>
-        <coding>
-          <system value="http://ema.europa.eu/example/physicalCharacteristicScoring"/>
-          <code value="{PhysicalCharacteristic.Scoring}"/>
-        </coding>
-      </scoring>
-    </physicalCharacteristics>
-    <batchIdentifier>
-      <value value="Device-BatchNumber"/>
-      <period>
-        <end value="2020-02-02"/>
-      </period>
-    </batchIdentifier>
-    <material>
-      <substance>
-        <coding>
-          <system value="http://ema.europa.eu/example/deviceMaterial"/>
-          <code value="{Device.Material}"/>
-        </coding>
-      </substance>
-      <alternate value="true"/>
-      <allergenicIndicator value="false"/>
-    </material>
-    <material>
-      <substance>
-        <coding>
-          <system value="http://ema.europa.eu/example/deviceMaterial"/>
-          <code value="{Device.Material}"/>
-        </coding>
-      </substance>
-      <alternate value="false"/>
-      <allergenicIndicator value="true"/>
-    </material>
-  </MedicinalProductDeviceSpec>  
+	<id value="example"/>
+	<identifier>
+		<system value="http://ema.europa.eu/example/DeviceDeviceIdentifierRoot"/>
+		<value value="Device.DeviceIdentifier.extension"/>
+	</identifier>
+	<type>
+		<coding>
+			<system value="http://ema.europa.eu/example/deviceType"/>
+			<code value="{Device.DeviceType}"/>
+		</coding>
+	</type>
+	<tradeName value="Device Trade Name"/>
+	<quantity>
+		<value value="2"/>
+		<unit value="1"/>
+	</quantity>
+	<listingNumber value="Device.DeviceListingNumber"/>
+	<modelNumber value="Device.ModelNumber"/>
+	<sterilityIndicator>
+		<coding>
+			<system value="http://ema.europa.eu/example/deviceSterilityIndicator"/>
+			<code value="{Device.SterilityIndicator}"/>
+		</coding>
+	</sterilityIndicator>
+	<sterilisationRequirement>
+		<coding>
+			<system value="http://ema.europa.eu/example/deviceSterilisationRequirementIndicator"/>
+			<code value="{Device.SterilisationRequirementIndicator}"/>
+		</coding>
+	</sterilisationRequirement>
+	<usage>
+		<coding>
+			<system value="http://ema.europa.eu/example/deviceUsage"/>
+			<code value="{Device.DeviceUsage}"/>
+		</coding>
+	</usage>
+	<nomenclature>
+		<coding>
+			<system value="http://ema.europa.eu/example/deviceNomenclatureNomenclature"/>
+			<code value="{DeviceNomenclature.NomenclatureValue}"/>
+		</coding>
+	</nomenclature>
+	<physicalCharacteristics>
+		<height>
+			<value value="99"/>
+			<unit value="mm"/>
+		</height>
+		<width>
+			<value value="100"/>
+			<unit value="mm"/>
+		</width>
+		<depth>
+			<value value="10"/>
+			<unit value="mm"/>
+		</depth>
+		<weight>
+			<value value="100"/>
+			<unit value="g"/>
+		</weight>
+		<nominalVolume>
+			<value value="100"/>
+			<unit value="cm3"/>
+		</nominalVolume>
+		<externalDiameter>
+			<value value="100"/>
+			<unit value="mm"/>
+		</externalDiameter>
+		<shape value="{PhysicalCharacteristic.Shape}"/>
+		<color value="{PhysicalCharacteristic.Colour}"/>
+		<imprint value="{PhysicalCharacteristic.Imprint}"/>
+		<!-- image commented out - it needs content type but none seem available -->
+		<!--image>
+        	<data value="e1BoeXNpY2FsQ2hhcmFjdGVyaXN0aWMuSW1hZ2V9"/>
+        </image-->
+		<scoring>
+			<coding>
+				<system value="http://ema.europa.eu/example/physicalCharacteristicScoring"/>
+				<code value="{PhysicalCharacteristic.Scoring}"/>
+			</coding>
+		</scoring>
+	</physicalCharacteristics>
+	<batchIdentifier>
+		<value value="Device-BatchNumber"/>
+		<period>
+			<end value="2020-02-02"/>
+		</period>
+	</batchIdentifier>
+	<material>
+		<substance>
+			<coding>
+				<system value="http://ema.europa.eu/example/deviceMaterial"/>
+				<code value="{Device.Material}"/>
+			</coding>
+		</substance>
+		<alternate value="true"/>
+		<allergenicIndicator value="false"/>
+	</material>
+	<material>
+		<substance>
+			<coding>
+				<system value="http://ema.europa.eu/example/deviceMaterial"/>
+				<code value="{Device.Material}"/>
+			</coding>
+		</substance>
+		<alternate value="false"/>
+		<allergenicIndicator value="true"/>
+	</material>
+</MedicinalProductDeviceSpec>
