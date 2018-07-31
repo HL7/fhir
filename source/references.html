@@ -55,7 +55,7 @@ Resources contain two types of references to other resources:
 </p>
 <ul>
  <li><b>Resource references</b> - general references between resources</li>
- <li><b>Canonical references</b> - references to resources by their canonical URL</li>
+ <li><b>Canonical references</b> - references to resources by their canonical URL (see <a href="#canonical">below</a>)</li>
 </ul>
 <p>
 For canonical references, see below. The general references are handled by the <code>Reference</code> type.
@@ -145,6 +145,7 @@ Notes:
    However conformance with this regex is no guarantee that the end-point is a FHIR server
    </li>
  <li>URLs are always considered to be case-sensitive</li>
+ <li>The URL may contain a reference to a canonical URL (see below) and applications can use the canonical URL resolution methods they support when resolving references, though the <code>|[version]</code> syntax part of the canonical reference is not supported</li>
  <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
 </ul>
 <div class="example">
