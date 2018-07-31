@@ -118,12 +118,12 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="1200"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
@@ -138,12 +138,12 @@
 	<item>
 		<sequence value="2"/>
 		<careTeamSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="21211"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="105.00"/>
@@ -170,12 +170,12 @@
 	<item>
 		<sequence value="3"/>
 		<careTeamSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="27211"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="1100.00"/>
@@ -193,12 +193,12 @@
 		</bodySite>
 		<detail>
 			<sequence value="1"/>
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="27211"/>
 				</coding>
-			</service>
+			</billcode>
 			<unitPrice>
 				<value value="1000.00"/>
 				<currency value="USD"/> 
@@ -211,12 +211,12 @@
 		</detail>
 		<detail>
 			<sequence value="2"/>
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="lab"/>
 				</coding>
-			</service>
+			</billcode>
 			<unitPrice>
 				<value value="350.00"/>
 				<currency value="USD"/> 

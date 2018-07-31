@@ -84,12 +84,12 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
 				<code value="1205"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>

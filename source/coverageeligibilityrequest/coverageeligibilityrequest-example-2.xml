@@ -60,7 +60,7 @@
 		<businessArrangement value="NB8742"/>
 	</insurance>
 
-	<detail>
+	<item>
 		<category>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
@@ -68,6 +68,6 @@
 				<display value="Maternity"/>
 			</coding>
 		</category>
-	</detail>
+	</item>
 
 </CoverageEligibilityRequest>

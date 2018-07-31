@@ -141,13 +141,13 @@
 		<informationSequence value="2"/>
 		<informationSequence value="3"/>
 		<!-- type=packagemedication -->
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
 				<code value="562721"/> 
 				<display value="Alprazolam 0.25mg (Xanax)"/>
 			</coding> 
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<quantity>
 			<value value="90"/>
@@ -162,12 +162,12 @@
 		<detail>
 			<sequence value="1"/>
 			<!-- type=costitem -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="drugcost"/> 
 				</coding> 
-			</service>
+			</billcode>
 			<net>
 				<value value="45.00"/>
 				<currency value="USD"/> 
@@ -176,12 +176,12 @@
 		<detail>
 			<sequence value="2"/>
 			<!-- type=costitem -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="markup"/> 
 				</coding> 
-			</service>
+			</billcode>
 			<net>
 				<value value="9.00"/>
 				<currency value="USD"/> 
@@ -190,12 +190,12 @@
 		<detail>
 			<sequence value="3"/>
 			<!-- type=costitem -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="dispensefee"/> 
 				</coding> 
-			</service>
+			</billcode>
 			<net>
 				<value value="36.00"/>
 				<currency value="USD"/> 

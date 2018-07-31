@@ -135,7 +135,7 @@
 		</contract>
 		<inforce value="true"/>
 
-		<detail>
+		<item>
 			<category>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
@@ -206,9 +206,9 @@
 
 				<allowedUnsignedInt value="20"/>
 			</benefit>
-		</detail>
+		</item>
 
-		<detail>
+		<item>
 			<category>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
@@ -251,8 +251,8 @@
 				</allowedMoney>
 			</benefit>
 
-		</detail>
-		<detail>
+		</item>
+		<item>
 			<category>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
@@ -295,8 +295,8 @@
 				</allowedMoney>
 			</benefit>
 
-		</detail>
-		<detail>
+		</item>
+		<item>
 			<category>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/ex-benefitcategory"/>
@@ -309,7 +309,7 @@
 			<name value="Vision"/>
 			<description value="Vision products and services such as exams, glasses and contact lenses."/>
 
-		</detail>
+		</item>
 	</insurance>
 
 	<form>

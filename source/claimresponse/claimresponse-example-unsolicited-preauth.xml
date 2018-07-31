@@ -56,12 +56,12 @@
 	<!-- Authorization to receive an exam and an Xray panel -->
 	<addItem> <!-- Exam -->
 		<itemSequence value="1"/> 
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="1101"/>
 			</coding>
-		</service>
+		</billcode>
 		<modifier>
 			<coding>
 				<system value="http://example.org/fhir/modifiers"/>
@@ -122,13 +122,13 @@
 
 	<addItem> <!-- Xray Panel -->
 		<itemSequence value="1"/> 
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="2101"/>
 				<display value="Radiograph, series (12)"/>
 			</coding>
-		</service>
+		</billcode>
 		<net>
 			<value value="800.00"/>
 			<currency value="USD"/>

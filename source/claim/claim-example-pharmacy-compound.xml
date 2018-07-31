@@ -149,13 +149,13 @@
 		<informationSequence value="3"/>
 		<informationSequence value="4"/>
 		<!-- type=compoundmedication -->
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://localdruglist.org"/>
 				<code value="compound"/> 
 				<display value="Custom compound"/>
 			</coding> 
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<quantity>
 			<value value="30"/>
@@ -170,13 +170,13 @@
 		<detail>
 			<sequence value="1"/>
 			<!-- type=packagemedication -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://localdruglist.org"/>
 					<code value="44001"/> 
 					<display value="Acetaminophen 250mg"/>
 				</coding> 
-			</service>
+			</billcode>
 			<quantity>
 				<value value="250"/>
 				<unit value="mg"/>
@@ -188,12 +188,12 @@
 			<subDetail>
 				<sequence value="1"/>
 				<!-- type=costitem -->
-				<service>
+				<billcode>
 					<coding>
 						<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 						<code value="drugcost"/> 
 					</coding> 
-				</service>
+				</billcode>
 				<net>
 					<value value="20.00"/>
 					<currency value="USD"/> 
@@ -203,13 +203,13 @@
 		<detail>
 			<sequence value="2"/>
 			<!-- type=packagemedication -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://localdruglist.org"/>
 					<code value="44035"/> 
 					<display value="Phenacetin 50mg"/>
 				</coding> 
-			</service>
+			</billcode>
 			<quantity>
 				<value value="50"/>
 				<unit value="mg"/>
@@ -221,12 +221,12 @@
 			<subDetail>
 				<sequence value="1"/>
 				<!-- type=costitem -->
-				<service>
+				<billcode>
 					<coding>
 						<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 						<code value="drugcost"/> 
 					</coding> 
-				</service>
+				</billcode>
 				<net>
 					<value value="25.00"/>
 					<currency value="USD"/> 
@@ -236,13 +236,13 @@
 		<detail>
 			<sequence value="3"/>
 			<!-- type=packagemedication -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://localdruglist.org"/>
 					<code value="44057"/> 
 					<display value="Codeine 25mg"/>
 				</coding> 
-			</service>
+			</billcode>
 			<quantity>
 				<value value="25"/>
 				<unit value="mg"/>
@@ -254,12 +254,12 @@
 			<subDetail>
 				<sequence value="1"/>
 				<!-- type=costitem -->
-				<service>
+				<billcode>
 					<coding>
 						<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 						<code value="drugcost"/> 
 					</coding> 
-				</service>
+				</billcode>
 				<net>
 					<value value="28.00"/>
 					<currency value="USD"/> 
@@ -269,12 +269,12 @@
 		<detail>
 			<sequence value="2"/>
 			<!-- type=costitem -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="markup"/> 
 				</coding> 
-			</service>
+			</billcode>
 			<net>
 				<value value="22.00"/>
 				<currency value="USD"/> 
@@ -283,12 +283,12 @@
 		<detail>
 			<sequence value="3"/>
 			<!-- type=costitem -->
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
 					<code value="compoundfee"/> 
 				</coding> 
-			</service>
+			</billcode>
 			<net>
 				<value value="60.00"/>
 				<currency value="USD"/> 

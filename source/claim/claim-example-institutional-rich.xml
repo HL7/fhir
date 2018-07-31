@@ -170,12 +170,12 @@
 	<item>
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://hl7.org/fhir/ex-serviceproduct"/>
 				<code value="exam"/> 
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="125.00"/>

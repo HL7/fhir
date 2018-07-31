@@ -167,17 +167,6 @@
 		</amount> 
 	</total>
 
-	<!--	
-	<totalCost>
-		<value value="2478.57"/>
-		<currency value="USD"/> 
-	</totalCost>
-
-	<totalBenefit>
-		<value value="0.00"/>
-		<currency value="USD"/> 
-	</totalBenefit> -->
-
 	<form>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/forms-codes" />

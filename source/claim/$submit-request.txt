@@ -85,11 +85,11 @@ POST [baseurl]/Claim/$submit
 	<item>
 		<sequence value="1"/>
 		<careTeamLinkId value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<code value="1200"/>
 			</coding> 
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>

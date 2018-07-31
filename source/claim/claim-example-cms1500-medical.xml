@@ -244,13 +244,13 @@
 		<diagnosisSequence value="2"/>
 		<diagnosisSequence value="4"/>
 		<informationSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://www.ama-assn.org/go/cpt"/>
 				<code value="62264"/>
 				<display value="Surgical Procedures on the Spine and Spinal Cord"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2015-10-13"/>
 		<locationCodeableConcept>
 			<coding>

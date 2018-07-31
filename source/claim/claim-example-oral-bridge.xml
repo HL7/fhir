@@ -142,13 +142,13 @@
 		<sequence value="1"/>
 		<careTeamSequence value="1"/>
 		<informationSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="67221"/>
 				<display value="Maryland Bridge"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
@@ -179,12 +179,12 @@
 	<item>
 		<sequence value="2"/>
 		<careTeamSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="21211"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
@@ -218,12 +218,12 @@
 		<sequence value="3"/>
 		<careTeamSequence value="1"/>
 		<procedureSequence value="1"/>
-		<service>
+		<billcode>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
 				<code value="27211"/>
 			</coding>
-		</service>
+		</billcode>
 		<servicedDate value="2014-08-16"/>
 		<locationCodeableConcept>
 			<coding>
@@ -248,12 +248,12 @@
 
 		<detail>
 			<sequence value="1"/>
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="27211"/>
 				</coding>
-			</service>
+			</billcode>
 			<unitPrice>
 				<value value="1000.00"/>
 				<currency value="USD"/> 
@@ -267,12 +267,12 @@
 
 		<detail>
 			<sequence value="2"/>
-			<service>
+			<billcode>
 				<coding>
 					<system value="http://example.org/fhir/oralservicecodes"/>
 					<code value="lab"/>
 				</coding>
-			</service>
+			</billcode>
 			<unitPrice>
 				<value value="350.00"/>
 				<currency value="USD"/> 
