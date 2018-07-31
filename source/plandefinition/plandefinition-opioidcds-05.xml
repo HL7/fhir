@@ -94,7 +94,7 @@
 			<type value="documentation"/>
 			<document>
 				<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqif-strengthOfRecommendation">
+				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
@@ -103,7 +103,7 @@
 						</coding>
 					</valueCodeableConcept>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 					<valueCodeableConcept>
 						<coding>
 							<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>

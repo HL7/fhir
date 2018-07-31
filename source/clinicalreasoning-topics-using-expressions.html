@@ -42,7 +42,10 @@
 <p>The <i>description</i> element can be used either alone, to communicate unstructured logic, or together with the other elements to provide a natural language narrative for the formal representation. The element is typically optional to enable usage in both contexts. Note that if both an expression and a description are provided, the expression is considered to override the description element, although the description should reflect the semantics of the expression as accurately as possible.</p>
 
 <pre><code>&lt;dynamicValue&gt;
-  &lt;description value=&quot;Now&quot;/&gt;
+  &lt;path value=&quot;timing.event&quot;/&gt;
+  &lt;expression&gt;
+    &lt;description value=&quot;Now&quot;/&gt;
+  &lt;/expression&gt;
 &lt;/dynamicValue&gt;
 </code></pre>
 
@@ -61,17 +64,22 @@
 
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;timing.event&quot;/&gt;
-  &lt;language value=&quot;text/cql&quot;/&gt;
-  &lt;expression value=&quot;Now()&quot;/&gt;
+  &lt;expression&gt;
+    &lt;language value=&quot;text/cql&quot;/&gt;
+    &lt;expression value=&quot;Now()&quot;/&gt;
+  &lt;/expression&gt;
 &lt;/dynamicValue&gt;
 </code></pre>
 
-<p>Note that when extensions are used, each language defines a specific extension, so the content type is implied. For example:</p>
+<p>Note that when extensions are used, the same Expression structure is used for the extension. For example:</p>
 
 <a name="dynamic-value-for-a-resource-element"> </a>
 <pre><code>&lt;event&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression&quot;&gt;
-    &lt;valueString value=&quot;Now()&quot;/&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;
+    &lt;valueExpression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;Now()&quot;/&gt;
+    &gt;/valueExpression&gt;
   &lt;/extension&gt;
 &lt;/event&gt;
 </code></pre>
@@ -83,8 +91,10 @@
 
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;reasonCode&quot;/&gt;
-  &lt;language value=&quot;text/cql&quot;/&gt;
-  &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+  &lt;expression&gt;
+    &lt;language value=&quot;text/cql&quot;/&gt;
+    &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+  &lt;/expression&gt;
 &lt;/dynamicValue&gt;
 </code></pre>
 
@@ -103,12 +113,14 @@
 
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;reasonCode&quot;/&gt;
-  &lt;language value=&quot;text/cql&quot;/&gt;
-  &lt;expression value=&quot;&amp;quot;mmi-suiciderisk-orderset-logic&amp;quot;.RiskAssessmentScore&quot;/&gt;
+  &lt;expression&gt;
+    &lt;language value=&quot;text/cql&quot;/&gt;
+    &lt;expression value=&quot;&amp;quot;mmi-suiciderisk-orderset-logic&amp;quot;.RiskAssessmentScore&quot;/&gt;
+  &lt;/expression&gt;
 &lt;/dynamicValue&gt;
 </code></pre>
 
-<p>For resources that do not have a <code>library</code> element, the <a href="extension-cqif-library.html">library</a> <a href="extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
+<p>For resources that do not have a <code>library</code> element, the <a href="extension-cqf-library.html">library</a> <a href="extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
 
 <p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references. Take, for example, the case of updating a library reference in a resource. If the resource has multiple library references, then every expression qualifier that referred to the previous library must be updated. However, if the libraries were combined into a single reference, then only the reference would need to be updated.</p>
 

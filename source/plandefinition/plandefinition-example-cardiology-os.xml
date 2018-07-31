@@ -33,8 +33,11 @@
       <timingTiming>
         <event>
           <!--  The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start  -->
-          <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-            <valueString value="Now()" />
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+              <language value="text/cql"/>
+              <expression value="Now()" />
+            </valueExpression>
           </extension>
         </event>
       </timingTiming>

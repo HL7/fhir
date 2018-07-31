@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
   <id value="serum-dengue-virus-igm"/>
   <text>
     <status value="generated"/>
@@ -111,8 +111,11 @@
   </code>
   <timingTiming>
     <event>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-        <valueString value="Now()"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+        <valueExpression>
+          <language value="text/cql"/>
+          <expression value="Now()"/>
+        </valueExpression>
       </extension>
     </event>
   </timingTiming>

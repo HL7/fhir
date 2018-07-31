@@ -549,14 +549,14 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 
 <p>The <a href="questionnaire.html">Questionnaire</a> resource provides a basis for representing the structure of a documentation template. Using the expression extensions, the resource can be extended to provide dynamic behavior such as calculating values, showing/hiding content based on answers to questions, and other interactive functionality.</p>
 
-<p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this module introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
+<p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this module introduces a <a href="cqf-questionnaire.html">CQF-Questionnaire</a> profile of the <a href="questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
 
-<p>As an example, the PHQ-9 Health Questionnaire contains a question that is answered by totaling the weights from the answers of each of the previous questions. The <a href="questionnaire-cqif-example.html">CQIF Questionnaire</a> example illustrates the representation of this questionnaire with the required logic for computation.</p>
+<p>As an example, the PHQ-9 Health Questionnaire contains a question that is answered by totaling the weights from the answers of each of the previous questions. The <a href="questionnaire-cqf-example.html">CQF Questionnaire</a> example illustrates the representation of this questionnaire with the required logic for computation.</p>
 
 <p>The following fragment taken from that example illustrates the use of the cqlExpression extension to calculate the TotalScore answer for a PHQ-9 Depression Assessment instrument:</p>
 
 <pre><code>&lt;item&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression&quot;&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression&quot;&gt;
     &lt;valueString value=&quot;CalculateTotalScore&quot;/&gt;
   &lt;/extension&gt;
   &lt;linkId value=&quot;TotalScore&quot;/&gt;

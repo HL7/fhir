@@ -56,8 +56,11 @@
   &lt;/code&gt;
   &lt;timingTiming&gt;
     &lt;event&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression&quot;&gt;
-        &lt;valueString value=&quot;Now()&quot;/&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;
+        &lt;valueExpression&gt;
+          &lt;language value=&quot;text/cql&quot;/&gt;
+          &lt;expression value=&quot;Now()&quot;/&gt;
+        &lt;/valueExpression&gt;
       &lt;/extension&gt;
     &lt;/event&gt;
   &lt;/timingTiming&gt;
@@ -79,11 +82,17 @@
   &lt;/productReference&gt;
   &lt;dynamicValue&gt;
     &lt;path value=&quot;dispenseRequest.numberOfRepeatsAllowed&quot;/&gt;
-    &lt;expression value=&quot;3&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;3&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
     &lt;path value=&quot;dispenseRequest.quantity&quot;/&gt;
-    &lt;expression value=&quot;30 &apos;{tbl}&apos;&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;30 &apos;{tbl}&apos;&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>

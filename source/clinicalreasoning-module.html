@@ -100,14 +100,14 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><th>Extension</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="extension-cqif-cqlexpression.html">cqlExpression</a></td><td>A general purpose extension that supports the use of Clinical Quality Language within FHIR.</td></tr>
-		<tr><td><a href="extension-cqif-fhirpathexpression.html">fhirPathExpression</a></td><td>A general purpose extension that supports the use of FHIRPath within FHIR.</td></tr>
-		<tr><td><a href="extension-cqif-library.html">library</a></td><td>A general purpose extension that supports the declaration of dependencies that can be accessed by expression logic.</td></tr>
-		<tr><td><a href="extension-cqif-qualityofevidence.html">qualityOfEvidence</a></td><td>An extension that can be applied to indicate the quality of evidence in support of a particular artifact or recommendation.</td></tr>
-		<tr><td><a href="extension-cqif-strengthofrecommendation.html">strengthOfRecommendation</a></td><td>An extension that can be applied to indicate the strength of a recommendation.</td></tr>
-		<tr><td><a href="extension-cqif-optioncode.html">optionCode</a></td><td>An extension that can be applied to questionnaire response options to provide meaning to the given option.</td></tr>
-		<!--tr><td><a href="extension-cqif-sourcevalueset.html">sourceValueSet</a></td><td>An extension that can be applied to coding elements to indicate the intended or actual source value set for the coding.</td></tr-->
-		<tr><td><a href="extension-cqif-measureinfo.html">measureInfo</a></td><td>An extension that can be applied to resources to indicate the measure criteria they satisfy. Used in evaluated resource bundles as part of reporting measure results for a patient to identify resources that contributed to the patient's membership in a particular population criteria.</td></tr>
+		<tr><td><a href="extension-cqf-cdsHooksEndpoint.html">expression</a></td><td>An extension applied to a PlanDefinition to indicate that it provides the behavior for a CDS Hooks service endpoint.</td></tr>
+		<tr><td><a href="extension-cqf-expression.html">expression</a></td><td>A general purpose extension that supports the use of languages such as FHIRPath and Clinical Quality Language within FHIR.</td></tr>
+		<tr><td><a href="extension-cqf-library.html">library</a></td><td>A general purpose extension that supports the declaration of dependencies that can be accessed by expression logic.</td></tr>
+		<tr><td><a href="extension-cqf-measureinfo.html">measureInfo</a></td><td>An extension that can be applied to resources to indicate the measure criteria they satisfy. Used in evaluated resource bundles as part of reporting measure results for a patient to identify resources that contributed to the patient's membership in a particular population criteria.</td></tr>
+		<tr><td><a href="extension-cqf-optioncode.html">optionCode</a></td><td>An extension that can be applied to questionnaire response options to provide meaning to the given option.</td></tr>
+		<tr><td><a href="extension-cqf-qualityofevidence.html">qualityOfEvidence</a></td><td>An extension that can be applied to indicate the quality of evidence in support of a particular artifact or recommendation.</td></tr>
+		<tr><td><a href="extension-cqf-relativeDateTime.html">relativeDateTime</a></td><td>An extension that can be applied to define a date/time value relative to another event.</td></tr>
+		<tr><td><a href="extension-cqf-strengthofrecommendation.html">strengthOfRecommendation</a></td><td>An extension that can be applied to indicate the strength of a recommendation.</td></tr>
 	</tbody>
 </table>
 
@@ -120,7 +120,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</thead>
 	<tbody>
 		<tr>
-			<td><a href="cqif-questionnaire.html">CQIF-Questionnaire</a></td>
+			<td><a href="cqf-questionnaire.html">CQF-Questionnaire</a></td>
 			<td>Defines extensions to the base Questionnaire that allow it to be used as a DocumentationTemplate with behavior specified via logic in CQL libraries.</td>
 		</tr>
 	</tbody>

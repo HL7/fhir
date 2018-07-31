@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
  xmlns="http://hl7.org/fhir">
@@ -656,8 +656,11 @@
   	  <timingTiming>
   		  <event>
 	    	  <!-- The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start -->
-		      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-	  		    <valueString value="Now()"/>
+		      <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
+            <valueExpression>
+              <language value="text/cql"/>
+	  		  <expression value="Now()"/>
+            </valueExpression>
     		  </extension>
     		</event>
 	    </timingTiming>
@@ -1006,7 +1009,7 @@
           <documentation>
             <type value="citation"/>
             <document>
-            <extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+            <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
 			  <valueCodeableConcept>
 			    <coding>
 			      <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
