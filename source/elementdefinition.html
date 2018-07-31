@@ -419,38 +419,17 @@ same path must conform.
 <a name="missing"></a>
 <h3>Missing Elements</h3>
 <p>
-		Most elements have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems. Generally, when an element is missing, all that an application processing the resource can say about the element
-		is that the value is unknown - it may have a correct value, but it has not been provided for security or workflow reasons. On the other hand, it might not have a value at all. All the application can say is that the value is unknown.
+		Most elements have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems. 
+		Generally, when an element is missing, all that an application processing the resource can say about the element
+		is that the value is unknown - it may have a correct value, but it has not been provided for security or workflow reasons. 
+		On the other hand, it might not have a value at all. All the application can say is that the value is unknown.
 </p>
 <p>
-		However, for some elements, this specification makes specific rules about what it means if the element is missing. For example:
-</p>
-<table class="grid">
-		<tr>
-				<td><b>Element</b></td>
-				<td><b>Meaning when missing</b></td>
-		</tr>
-		<tr>
-				<td>Period.end</td>
-				<td>If the end of the period is missing, it means that the period is ongoing</td>
-		</tr>
-		<tr>
-				<td>Quantity.comparator</td>
-				<td>If there is no comparator, then there is no modification of the value</td>
-		</tr>
-		<tr>
-				<td>MedicationAdministration.wasNotGiven</td>
-				<td>If this is missing, then the medication was administered</td>
-		</tr>
-		<tr>
-				<td>Substance.instance</td>
-				<td>If this element is not present, then the substance resource describes a kind of substance</td>
-		</tr>
-</table>
-<p>
-		Assigning a meaning when an element is missing is something that is not done very often. Note that constraints on other structures cannot change the missing meaning of an element.
+  This also applies when the element is present, but has no value or child elements, and only has extensions instead. 
 </p>
 <p>
+		However, for some elements, this specification makes specific rules about what it means if the element is missing.
+		Constraints on other structures cannot change the missing meaning of an element.
 		Here is a list of all elements with a default value or a missing meaning:
 </p>
 <ul>
