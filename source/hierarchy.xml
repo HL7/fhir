@@ -92,6 +92,7 @@ signatures.html
       <page type="resource" resource="DomainResource"/>
       <page title="Element" filename="element.html">
         <page title="Element - Detailed Descriptions" filename="element-definitions.html"/>
+        <page title="Extensions - Element" filename="element-extras.html"/>
       </page>
       <page title="BackboneElement" filename="backboneelement.html">
         <page title="BackboneElement Detailed Descriptions" filename="backboneelement-definitions.html"/>
@@ -100,6 +101,7 @@ signatures.html
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
         <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
+        <page title="ElementDefinition Extensions" filename="elementdefinition-extras.html"/>
       </page>
 
       <page title="Resource Guide" filename="resourceguide.html"/>
