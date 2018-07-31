@@ -35,12 +35,11 @@ search parameters for the references, and by providing support for <a href="sear
 </p>
 <p>
 Because resources are processed independently, relationships are not considered to be transitive.
-For example, if a <a href="condition.html">Condition</a> resource references a particular
-<a href="patient.html">Patient</a> as its subject, and references a <a href="procedure.html">Procedure</a>
-resource as its cause, there is no automatic rule or implication that the procedure
-has or must have the same patient for its subject. Instead, the subject of the procedure must be established
-directly in the Procedure resource itself. Another way to state this is that the context of the subject
-is not "inherited", nor does it "conduct" along the relationship to procedure.
+For example, if a <a href="procedure.html">Procedure</a> resource references a particular <a href="patient.html">Patient</a> as its subject, and has a 
+<a href="procedure.html">Procedure</a> resource as its reason, there is no automatic rule or implication that the condition 
+has the same patient for its subject. Instead, the subject of the condition must be established 
+directly in the Condition resource itself. Another way to state this is that the context of the 
+subject is not "inherited", nor does it "conduct" along the relationship to condition.
 The only exception to this is the case of contained resources (see below). Note that in
 practice, the relationships need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
