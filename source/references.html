@@ -149,17 +149,17 @@ Notes:
  <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolveable (allowing for access control, temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
 </ul>
 <div class="example">
-<p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <code>context</code> on a FHIR RESTful server:</p>
+<p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <codesubject</code> on a FHIR RESTful server:</p>
 <pre class="xml" fragment="Reference">
-  &lt;patient&gt;
+  &lt;subject&gt;
     &lt;reference value="Patient/034AB16" /&gt;
-  &lt;/patient&gt;
+  &lt;/subject&gt;
 </pre>
 <p>An absolute reference to a <a href="structuredefinition.html">Structure Definition</a> in an element named <code>profile</code>:</p>
-<pre class="xml" fragment="Reference">
-  &lt;profile&gt;
-    &lt;reference value="http://fhir.hl7.org/svc/StructureDefinition/c8973a22-2b5b-4e76-9c66-00639c99e61b" /&gt;
-  &lt;/profile&gt;
+<pre class="json" fragment="Reference">
+  "profile" : {
+    "reference" : "http://fhir.hl7.org/svc/StructureDefinition/c8973a22-2b5b-4e76-9c66-00639c99e61b"
+  }
 </pre>
 </div>
 
