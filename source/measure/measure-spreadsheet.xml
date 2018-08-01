@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-22T19:19:18Z</LastSaved>
+  <LastSaved>2018-07-31T21:27:17Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -5141,15 +5141,15 @@
  </Worksheet>
  <Worksheet ss:Name="Operations">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C10"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="12" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="178.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="124.0"/>
    <Column ss:StyleID="s116" ss:Width="24.0"/>
    <Column ss:StyleID="s116" ss:Width="25.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s116" ss:Width="106.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s116" ss:Width="223.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="2" ss:StyleID="s116" ss:Width="106.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="8" ss:StyleID="s116" ss:Width="223.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s116" ss:Width="253.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s126"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of the operation or parameter (parameters prefixed by operation name + ".") </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5157,6 +5157,7 @@
     <Cell ss:StyleID="s127"><Data ss:Type="String">Min</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Minimum cardinality for a parameter (must be a non-negative integer)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Max</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">maximum cardinality for a parameter - must be "*" or a positive integer</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">query/operation for operation; data type for a parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Search Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Profile</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Profile that must apply to parameter's type</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Title</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The descriptive label for the operation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Documentation</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of the operation or parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5171,6 +5172,7 @@
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Evaluate Measure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The evaluate-measure operation is used to calculate an eMeasure and obtain the results</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5184,6 +5186,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period Start</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5194,6 +5197,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period End</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
@@ -5206,6 +5210,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Measure)</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Measure</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5216,6 +5221,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Report type</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The type of measure report: subject, subject-list, or population. If not specified, a default value of subject will be used if the subject parameter is supplied, otherwise, population will be used</Data></Cell>
@@ -5228,6 +5234,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the measure will be calculated. If not specified, the measure will be calculated for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5238,6 +5245,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Practitioner for which the measure will be calculated. If specified, the measure will be calculated only for subjects that have a primary relationship to the identified practitioner</Data></Cell>
@@ -5250,6 +5258,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Last Received On</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The date the results of this measure were last received. This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5261,6 +5270,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Return</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The results of the measure calculation. See the MeasureReport resource for a complete description of the output of this operation</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5271,6 +5281,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Data Requirements</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The data-requirements operation aggregates and returns the parameters and data requirements for the measure and all its dependencies as a single module definition</Data></Cell>
@@ -5285,6 +5296,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period Start</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5295,6 +5307,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period End</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
@@ -5307,6 +5320,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Library</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Return</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the measure</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5317,6 +5331,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Submit Data</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The submit-data operation is used to submit data-of-interest for a measure. There is no expectation that the submitted data represents all the data-of-interest, only that all the data submitted is relevant to the calculation of the measure for a particular subject or population</Data></Cell>
@@ -5331,6 +5346,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Measure Report</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The measure report being submitted</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5342,6 +5358,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The individual resources that make up the data-of-interest being submitted</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5352,6 +5369,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Collect Data</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The collect-data operation is used to collect the data-of-interest for the given measure.</Data></Cell>
@@ -5366,6 +5384,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period Start</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period s</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5376,6 +5395,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period End</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
@@ -5388,6 +5408,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Measure)</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Measure</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5398,6 +5419,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the measure will be collected. If not specified, measure data will be collected for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)</Data></Cell>
@@ -5410,6 +5432,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Practitioner for which the measure will be collected. If specified, measure data will be collected only for subjects that have a primary relationship to the identified practitioner</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5420,6 +5443,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Last Received On</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The date the results of this measure were last received. This parameter used to indicate when the last time data for this measure was collected. This information is used to support incremental data collection scenarios</Data></Cell>
@@ -5432,6 +5456,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Result Report</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">A MeasureReport of type data-collection detailing the results of the operation</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5443,6 +5468,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Result Resource</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The result resources that make up the data-of-interest for the measure</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5453,6 +5479,7 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Care Gaps</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The care-gaps operation is used to determine gaps-in-care based on the results of quality measures</Data></Cell>
@@ -5467,6 +5494,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period Start</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period s</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5477,6 +5505,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Period End</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
@@ -5489,6 +5518,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Topic</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The topic to be used to determine which measures are considered for the care gaps report. Any measure with the given topic will be included in the report</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5500,6 +5530,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the care gaps report will be produced</Data></Cell>
     <Cell ss:StyleID="s137"/>
@@ -5510,6 +5541,7 @@
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Return</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The result of the care gaps report will be returned as a document bundle with a MeasureReport entry for each included measure</Data></Cell>
@@ -5523,16 +5555,6 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s137"/>
@@ -5543,16 +5565,6 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -5567,16 +5579,6 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s137"/>
@@ -5587,16 +5589,6 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -5611,16 +5603,6 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s137"/>
@@ -5631,16 +5613,6 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -5655,16 +5627,6 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s137"/>
@@ -5675,16 +5637,6 @@
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -5699,6 +5651,19 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s137"/>
    </Row>
@@ -5710,6 +5675,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s137"/>
    </Row>
@@ -5718,6 +5684,91 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s137"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
@@ -5729,6 +5780,7 @@
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
@@ -5747,15 +5799,15 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C10">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Events">
