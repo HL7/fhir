@@ -18,7 +18,7 @@
   
   
   <TabRatio>715</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3812,11 +3812,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4453,7 +4452,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C10"/>
   </Names>
-  <Table ss:ExpandedColumnCount="15" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="53" ss:StyleID="s116" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="131.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s116" ss:Width="125.0"/>
    <Column ss:StyleID="s116" ss:Width="24.0"/>
@@ -4479,6 +4478,7 @@
     <Cell><Data ss:Type="String">Footer2</Data></Cell>
     <Cell><Data ss:Type="String">Example2.Request</Data></Cell>
     <Cell><Data ss:Type="String">Example2.Response</Data></Cell>
+    <Cell><Data ss:Type="String">Standards-Status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">subset</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4493,6 +4493,7 @@
     <Cell ss:StyleID="s134"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$subset-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$subset-response.txt</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">subset.server</Data></Cell>
@@ -4543,6 +4544,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided    Technically, this operation is implemented as follows:   &#10;&#10;* The server's capability statement must have an entry for each resource in the client's capability statement    &#10;* The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude   &#10;* The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)   &#10;* The server must have a search parameter with matching name and definition for any search parameters in the client capability statement   &#10;* The server must have an operation definitions with a matching reference for any operations in the client capability statement   &#10;&#10;If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
     <Cell><Data ss:Type="String">$implements-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$implements-response.txt</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">implements.server</Data></Cell>
@@ -4605,6 +4607,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps.     &#10;&#10;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate    &#10;&#10;If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
     <Cell><Data ss:Type="String">$conforms-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$conforms-response.txt</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">conforms.left</Data></Cell>
@@ -4694,6 +4697,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">For the convenience of clients, servers that implement this operation SHALL also support the relevant XML or JSON format:</Data></Cell>
     <Cell><Data ss:Type="String">$versions-request2.txt</Data></Cell>
     <Cell><Data ss:Type="String">$versions-response2.txt</Data></Cell>
+    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">versions.version</Data></Cell>
@@ -5111,6 +5115,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
