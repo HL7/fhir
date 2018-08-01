@@ -22,12 +22,16 @@ and MAY also provide profiles for the parameters. If present, the profiles SHALL
 with the parameters defined for the operation.
 </p>
 
-<h3>Executing Operations and Named Queries</h3>
+<h3>Executing Operations</h3>
+<p>
+OperationDefinitions with <code>kind = operation</code> are executed as defined in the <a href="operations.html">Operations Framework</a>.
+</p>
+
+<h3>Executing Named Queries</h3>
 
 <p>
-Operations are executed by POSTing to a URL that is <a href="operations.html">defined by the operation definition</a>.
-Named queries are executed by performing a <a href="search.html">search</a> with the value of the search parameter
-"_query" set to the name provided in the definition. 
+Named queries (OperationDefinitions with <code>kind = query</code>) are executed by performing a <a href="search.html">search</a> 
+with the value of the search parameter "_query" set to the name provided in the definition. 
 </p>
 <p>
 If the named query is to be performed over the RESTful API, all the parameters must be simple search parameters,
@@ -36,6 +40,10 @@ return a bundle containing a set of resources, so all the out parameters must be
 resources, not data types.
 </p>
  
+<p>
+For named queries, all the standard search parameters are automatically in scope (though servers do not need to support them unless explicitly documented).
+</p>
+
 <h3>Passing Resources to Operations</h3> 
 
 <p>
