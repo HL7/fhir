@@ -296,7 +296,7 @@ The correct mime type SHALL be used by clients and servers:
  <li>RDF: <code>application/fhir+turtle</code> (only the Turtle format is supported)</li>
 </ul>
 <p>
-Servers SHALL support server-driven content negotiation as described in <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec12.html#sec12">section 12</a>
+Servers SHALL support server-driven content negotiation as described in <a href="https://tools.ietf.org/html/rfc7231#section-3.4">section 12</a>
 of the HTTP specification.
 </p>
 <p>
@@ -667,8 +667,8 @@ for the <a href="#update">update</a> interaction.
 <p>
 <a href="http://www.w3.org/1999/04/Editing/">Lost Updates</a>, where two clients update the same
 resource, and the second overwrites the updates of the first, can be prevented using a combination
-of the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETag</a> and
-<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.24">If-Match</a> header.
+of the <a href="hhttps://tools.ietf.org/html/rfc7232#section-2.3">ETag</a> and
+<a href="https://tools.ietf.org/html/rfc7232#section-3.1">If-Match</a> header.
 This is also known as 'Optimistic Locking'.
 </p>
 <p>
@@ -1703,7 +1703,7 @@ header with the client's original id in it.
 The HTTP protocol may be routed through an HTTP proxy (e.g. as squid). 
 Such proxies are transparent to the applications, though implementers 
 should be alert to the effects of caching, particularly including the 
-risk of receiving stale content. See the <a href="http://tools.ietf.org/html/rfc2616#page-74">HTTP specification</a> for further detail
+risk of receiving stale content. See the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">HTTP specification</a> for further detail
 </p>
 <p>
 Interface engines may also be placed between the consumer and
