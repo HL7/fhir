@@ -617,6 +617,7 @@ To search for all the procedures in a patient compartment that occurred over a 2
 <p>
 For a simple string search, a string parameter serves as the input for a search against 
 sequences of characters. This search is insensitive to casing and included combining characters, like accents or other diacritical marks. 
+Punctuation and non-significant whitespace (e.g. repeated space characters, tab vs space) should also be ignored.
 By default, a field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have 
 been normalized by case and combining characters. Therefore, the default string search only operates on the base characters of the string parameter. 
 The <code>:contains</code> modifier returns results that include the supplied parameter value anywhere within the field
