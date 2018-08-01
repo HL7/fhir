@@ -5,8 +5,9 @@
 <h2>Scope and Usage</h2>
 <p>
 The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse,
-with information regarding whether the stated coverage is valid and in-force, and potentially the amount of coverage which may be available to any 
-services classes identified in this request.
+with information regarding: (validation) whether the specified coverage(s) is valid and in-force; (discovery) what coverages the insurer has for the specified patient; (benefits)
+the benefits provided under the coverage; whether benefits exist under the specified coverage(s) for specified classes of services and products; and (auth-requirements) 
+whether preauthorization is required, and if so what information may be required in that preauthorization, for the specified service classes or services.
 </p>
 
 </div>
