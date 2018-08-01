@@ -1658,6 +1658,11 @@ using  the <a href="bundle-definitions.html#Bundle.total">Bundle.total</a>.
 </p>
 <p>Note that for search, where <code>_include</code> can be used to return additional related resources, the total number
 of resources in the feed may exceed the number indicated in totalResults.</p>
+<p>
+In the case of a <code>search</code>, the initial request may be made via a POST, but the 
+follow up page requests will be made via GET requests. However servers SHOULD allow for a 
+client to convert the follow up requests to be made via a POST.
+</p>
 
 <a name="head"/>
 <h3>Support for HEAD</h3>
