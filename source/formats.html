@@ -79,7 +79,7 @@ Here's an example:
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img alt="." class="hierarchy" src="tbl_spacer.png"/><img alt="." class="hierarchy" src="tbl_vjoin.png"/><img title="Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_datatype.gif"/> <a title="Definition" href="#">nameA</a></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><span title="This element is included in summaries">Σ</span></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">1..1</td>
- <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">type</a></td>
+ <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">TypeA</a></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">description of content</td>
 </tr>
 <tr style="border: 0px; padding:0px; vertical-align: top; background-color: white;">
@@ -93,14 +93,14 @@ Here's an example:
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img alt="." class="hierarchy" src="tbl_spacer.png"/><img alt="." class="hierarchy" src="tbl_vline.png"/><img alt="." class="hierarchy" src="tbl_vjoin.png"/><img title="Primitive Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_primitive.png"/> <span title="Value of &quot;true&quot; or &quot;false&quot;">nameBType1</span></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
- <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">type1</a></td>
+ <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">TypeB</a></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
 </tr>
 <tr style="border: 0px; padding:0px; vertical-align: top; background-color: white;">
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img alt="." class="hierarchy" src="tbl_spacer.png"/><img alt="." class="hierarchy" src="tbl_vline.png"/><img alt="." class="hierarchy" src="tbl_vjoin_end.png"/><img title="Primitive Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_primitive.png"/> <span title="Value of &quot;true&quot; or &quot;false&quot;">nameBType2</span></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><span title="This element has or is affected by some invariants">I</span></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
- <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">type2</a></td>
+ <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">typeC</a></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
 </tr>
 <tr style="border: 0px; padding:0px; vertical-align: top; background-color: white;">
@@ -114,7 +114,7 @@ Here's an example:
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img alt="." class="hierarchy" src="tbl_spacer.png"/><img alt="." class="hierarchy" src="tbl_blank.png"/><img alt="." class="hierarchy" src="tbl_vjoin_end.png"/><img title="Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_datatype.gif"/> <a title="Definition" href="#">nameD</a></td>
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">1..1</td>
-<td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">type</a></td>
+<td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">TypeD</a></td>
 <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">Relevant Records</td>
 </tr>
 </tbody>
@@ -126,8 +126,8 @@ Here's an example:
  <li><img title="Resource" style="background-color: white;" alt="." class="hierarchy" src="icon_resource.png"/>: The base element for a resource (see <a href="resource.html">Resources</a>)</li>
  <li><img title="Element" style="background-color: white;" alt="." class="hierarchy" src="icon_element.gif"/>: An element that is part of the resource and has elements within it defined in the same resource or profile</li>
  <li><img title="Choice of Types" style="background-color: white;" alt="." class="hierarchy" src="icon_choice.gif"/>: An element which can have one of several different types (see below)</li>
- <li><img title="Primitive Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_primitive.png"/>: An element of a data type which describes an element that has a <code>value</code> attribute/property</li>
- <li><img title="Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_datatype.gif"/>: An element of a data type which describes an element that has other elements</li>
+ <li><img title="Primitive Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_primitive.png"/>: An element of a data type which describes an element that has a <code>value</code> attribute/property. These are also known as primitive types. All primitive type names start with a lower case letter</li>
+ <li><img title="Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_datatype.gif"/>: An element of a data type which describes an element that has other elements. These are known as complex types. All complex type names defined in this specification start with an uppwer case letter </li>
  <li><img title="Reference to another Resource" style="background-color: white;" alt="." class="hierarchy" src="icon_reference.png"/>: An element that contains a reference to another resource (see <a href="references.html">references</a>)</li>
  <li><img title="Reference to another Element" style="background-color: white;" alt="." class="hierarchy" src="icon_reuse.png"/>: This element has the same content as another element defined within this resource or profile</li>
  <li><img title="Slice Definition" style="background-color: white;" alt="." class="hierarchy" src="icon_slice.png"/>: Introduction of a set of slices (see <a href="profiling.html#slicing">Slicing</a>)</li>
@@ -292,8 +292,14 @@ different technical stacks. The RDF format has quite different benefits - primar
 analysis rather than exchange.  
 </p>
 
+<div class="draft-content">
+
 <a name="bulk"></a>
 <h4>Bulk Data Formats</h4>
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+Unlike this rest of this page, the bulk use formats are draft until 
+further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
+</p>
 <p>
 The XML and JSON formats are designed to support typical system process
 based data exchange uses. FHIR is also used to exchange large amounts 
@@ -307,6 +313,7 @@ documents the following formats:
  <li>Apache Parquet/Avro (bulk data formats under consideration)</li>
 </ul> 
 
+</div>
 </div>
 
 [%file newfooter%]
