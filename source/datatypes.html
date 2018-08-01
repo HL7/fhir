@@ -783,34 +783,21 @@ Defined Variations on Quantity
 <p>
 There are several additional data types that are specializations of Quantity
 that only introduce new restrictions on the existing elements defined as part
-of the Quantity data type:
+of the Quantity data type.
 </p>
+<div class="draft-content">
+<p>
+The types Age, Distance and Count are marked as Trial Use because they are not used in this specification
+(though they may be used in extensions). These types may be converted back to a profile (see <a href="http://hl7.org/fhir/DSTU2/datatypes.html#quantity">R2 definitions</a>).
+</p>
+</div>
+
 
 <table class="list">
  <tr>
    <td><b>Type Name</b></td>
    <td><b>Rules</b></td>
    <td><b>Formal Definitions</b></td>
- </tr>
-
- <tr>
-   <td>Age<a name="Age"></a></td>
-   <td>[%dt.constraints Age%] [%tx Age%]</td>
-   <td><a href="age.profile.xml.html">XML</a>, <a href="age.profile.json.html">JSON</a></td>
- </tr>
- <tr>
-   <td></td>
-   <td colspan="2">Usage: [%dtusage Age%]</td>
- </tr>
-
- <tr>
-   <td>Count<a name="Count"></a></td>
-   <td>[%dt.constraints Count%]</td>
-   <td><a href="count.profile.xml.html">XML</a>, <a href="count.profile.json.html">JSON</a></td>
- </tr>
- <tr>
-   <td></td>
-   <td colspan="2">Usage: [%dtusage Count%]</td>
  </tr>
 
  <tr>
@@ -822,16 +809,6 @@ of the Quantity data type:
    <td></td>
    <td colspan="2">Usage: [%dtusage Distance%]</td>
  </tr>
-
- <tr>
-   <td>Duration<a name="Duration"></a></td>
-   <td>[%dt.constraints Duration%] [%tx Duration%]</td>
-   <td><a href="duration.profile.xml.html">XML</a>, <a href="duration.profile.json.html">JSON</a></td>
- </tr>
- <tr>
-   <td></td>
-   <td colspan="2">Usage: [%dtusage Duration%]</td>
- </tr>
  <tr>
    <td></td>
    <td colspan="2">
@@ -842,6 +819,35 @@ of the Quantity data type:
    </td>
  </tr>
 
+
+ <tr class="draft-content">
+   <td>Age<a name="Age"></a></td>
+   <td>[%dt.constraints Age%] [%tx Age%]</td>
+   <td><a href="age.profile.xml.html">XML</a>, <a href="age.profile.json.html">JSON</a></td>
+ </tr>
+ <tr class="draft-content">
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Age%]</td>
+ </tr>
+ <tr class="draft-content">
+   <td>Count<a name="Count"></a></td>
+   <td>[%dt.constraints Count%]</td>
+   <td><a href="count.profile.xml.html">XML</a>, <a href="count.profile.json.html">JSON</a></td>
+ </tr>
+ <tr class="draft-content">
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Count%]</td>
+ </tr>
+
+ <tr class="draft-content">
+   <td>Duration<a name="Duration"></a></td>
+   <td>[%dt.constraints Duration%] [%tx Duration%]</td>
+   <td><a href="duration.profile.xml.html">XML</a>, <a href="duration.profile.json.html">JSON</a></td>
+ </tr>
+ <tr class="draft-content">
+   <td></td>
+   <td colspan="2">Usage: [%dtusage Duration%]</td>
+ </tr>
  <tr>
   <td colspan="3"><hr/>In addition to the specializations, there is a constraint on Quantity used in several resources:</td>
  </tr>

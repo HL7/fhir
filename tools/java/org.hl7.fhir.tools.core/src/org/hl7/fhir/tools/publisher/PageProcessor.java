@@ -6535,7 +6535,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"list\">\r\n");
     for (Operation op : oplist) {
-      b.append("<tr><td><a href=\""+resource.getName().toLowerCase()+"-operation-"+ op.getName()+".html\">$"+Utilities.escapeXml(op.getName())+"</a></td><td>"+Utilities.escapeXml(op.getTitle())+"</td></tr>\r\n");
+      b.append("<tr><td><a href=\""+resource.getName().toLowerCase()+"-operation-"+ op.getName()+".html\">$"+Utilities.escapeXml(op.getName())+"</a></td><td>"+Utilities.escapeXml(op.getTitle())+"</td>");
+      if (resource.getStatus() == StandardsStatus.NORMATIVE) {
+        if (op.getStandardsStatus() == null)
+          b.append("<td><a href=\"versions.html#std-process\">"+resource.getStatus().toDisplay()+"</a></td>");
+        else
+          b.append("<td><a href=\"versions.html#std-process\">"+op.getStandardsStatus().toDisplay()+"</a></td>");
+      }
+      
+      b.append("</tr>\r\n");
     }
     b.append("</table>\r\n");
     return b.toString();

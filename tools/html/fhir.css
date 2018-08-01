@@ -828,6 +828,14 @@ div.draft-content {
   padding: 10px; 
 }  
 
+td.draft-content {
+  background-color: #fff5e6; 
+}  
+
+tr.draft-content {
+  background-color: #fff5e6; 
+}  
+
 a.normative-flag {
   border: 1px grey solid; 
   background-color: #e6ffe6; 
