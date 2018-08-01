@@ -257,6 +257,13 @@ If there is only one <i>out</i> parameter, which is a Resource with the paramete
 not used, and the response is simply the resource itself.
 </p>
 <p>
+The result of an operation is subject to <a href="http.html#mime-type">content negotiation like any other interaction</a>. 
+Specifically, if the returned resource is a Binary, the response SHALL behave in the same manner as if a 'read' operation
+had been performed on the resource.  I.e. The content will be returned as either a FHIR resourse with base64-encoded content 
+or as a raw binary, depending on the Accept header specified when invoking the operation (see <a href="binary.html#rest">Serving Binary Resources using the RESTful API </a>).
+</p>
+
+<p>
 The resources that are returned by the operation may be
 retained and made available in the resource repository
 on the operation server. In that case, the server will
