@@ -255,15 +255,15 @@ Elements are represented by an XML element. The name of the element comes from
 the context in which it is used, not from the type. The internal <code>id</code>
 is represented as an attribute (similar to xml:id, but see below about scope).
 Extensions are represented as XML elements. Here is the representation for an
-element 'code' of type <a href="datatypes.html#Coding">Coding</a>:
+element 'use' of type <a href="datatypes.html#Coding">Coding</a>:
 </p>
 <pre name="xml">
-  &lt;code id=&quot;[internal id]&quot;&gt;
+  &lt;use id=&quot;[internal id]&quot;&gt;
     &lt;extension url=&quot;...&quot;/&gt;
       ... if there are any extensions
     &lt;extension&gt;
     .. elements of Coding type...
-  &lt;/code&gt;
+  &lt;/use&gt;
 </pre>
 <p>
 Primitive types have the same representation; the actual primitive value appears
@@ -271,11 +271,11 @@ as an XML attribute named <code>value</code> on the XML element. For example,
 a string property named "name" will be represented like this:
 </p>
 <pre name="xml">
-  &lt;code id=&quot;[internal id]&quot; value="[value of string]"&quot;&gt;
+  &lt;status id=&quot;[internal id]&quot; value="[value of code]"&quot;&gt;
     &lt;extension url=&quot;...&quot;/&gt;
       ... if there are any extensions
     &lt;extension&gt;
-  &lt;/code&gt;
+  &lt;/status&gt;
 </pre>
 
 <a name="json"></a>
@@ -286,11 +286,11 @@ object property. The name of the property comes from
 the context in which it is used, not from the type. The internal <code>id</code>
 is represented as a JSON string property named "_id". Extensions are represented
 in a JSON array of objects named "extension". Here is the representation for a
-property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
+property 'use' of type <a href="datatypes.html#Coding">Coding</a>:
 </p>
 <pre class="json">
   {
-    "code" : {
+    "use" : {
       "id" : "[internal id]",
       "extension" : [
         ..extensions, if present...
@@ -303,13 +303,13 @@ property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 Primitive types are represented differently; the actual primitive value appears
 as a JSON string or number property. If an internal id or extensions are present,
 they appear in a JSON object with the name of the primitive value property with
-"_" prepended. For example, a string property named "name" will be represented
+"_" prepended. For example, a code property named "status" will be represented
 like this:
 </p>
 <pre class="json">
   {
-    "name" : "[value of string]",
-    "_name" : {
+    "status" : "[value of code]",
+    "_status" : {
       "id" : "[internal id]",
       "extension" : [
         ..extensions, if present...
