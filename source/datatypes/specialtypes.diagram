@@ -1,5 +1,5 @@
 [diagram]
-classes=Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,BackboneElement
+classes=Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,BackboneElement,xhtml
 attributes=false
 
 [size]
@@ -14,5 +14,6 @@ Meta=50;-50
 ElementDefinition=110;50
 Dosage=150;-50
 BackboneElement=120;0
+xhtml=-70;0
 
 

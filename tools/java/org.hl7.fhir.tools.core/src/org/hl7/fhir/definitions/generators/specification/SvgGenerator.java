@@ -283,6 +283,12 @@ public class SvgGenerator extends BaseGenerator {
           p = determineMetrics(fake, classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), cn, false, cd);
         else
           p = determineMetrics(fake, item, cn, false, cd);        
+      } else if ("xhtml".equals(cn)) {
+        ElementDefn fake = new ElementDefn();
+        fake.setName("xhtml");
+        fakes.put("xhtml", fake);
+        DefinedCode cd = new DefinedCode("xhtml", "XHTML for resource narrative", null);
+        p = determineMetrics(fake, item, cn, false, cd);        
       } else if (definitions.getConstraints().containsKey(cn)) {
         ProfiledType cd = definitions.getConstraints().get(cn);
         ElementDefn ed = definitions.getElementDefn(cd.getBaseType());
@@ -713,11 +719,19 @@ public class SvgGenerator extends BaseGenerator {
           links.add(new Link(classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
         else
           links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
+      } else if ("xhtml".equals(cn)) {
+        DefinedCode cd = new DefinedCode("xhtml", "XHTML for resource narrative", null);
+        ElementDefn fake = fakes.get(cn);
+        links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
       } else if (definitions.getConstraints().containsKey(cn)) {
         ProfiledType cd = definitions.getConstraints().get(cn);
         ElementDefn fake = fakes.get(cn);
         ClassItem parent = classes.get(definitions.getElementDefn(cd.getBaseType()));
         links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null, StandardsStatus.NORMATIVE), LinkType.CONSTRAINT, null, null, PointKind.unknown, null, null));        
+      } else if (definitions.getPrimitives().containsKey(cn)) {
+        DefinedCode cd = new DefinedCode("xhtml", "XHTML for resource narrative", null);
+        ElementDefn fake = fakes.get(cn);
+        links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
       } else if (!onlyElement) {
         ElementDefn e = definitions.getElementDefn(cn);
         ClassItem parent = item;
@@ -736,7 +750,7 @@ public class SvgGenerator extends BaseGenerator {
   private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path, DefinedCode primitive, StandardsStatus status) throws Exception {
     ClassItem item = classes.get(e);
     String tn = e.getName();
-    if (!definitions.hasPrimitiveType(tn))
+    if (!definitions.hasPrimitiveType(tn) && !tn.equals("xhtml"))
       tn = Utilities.capitalize(tn);
     ResourceDefn r = definitions.hasResource(tn) ? definitions.getResourceByName(tn) : null;
 
