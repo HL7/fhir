@@ -15,7 +15,7 @@
   
   
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3524,7 +3524,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4686,7 +4685,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Value Set based Validation</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set.&#10;&#10;If the operation is not called at the instance level, one of the in parameters url, context or  valueSet must be provided.  One (and only one) of the in parameters code, coding, or codeableConcept must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code</Data></Cell>
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">Note: the correct behaviour of validation with regard to language for Coding.display items is currently undefined, and further development and testing may lead to specific requirements or recommendations in subsequent releases</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell><Data ss:Type="String">$validate-code-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$validate-code-response.txt</Data></Cell>
@@ -5175,10 +5174,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
