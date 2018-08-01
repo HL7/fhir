@@ -1799,7 +1799,7 @@ The <code>_summary</code> parameter requests the server to return a subset of th
 resource. It can contain one of the following values:
 </p>
 <table class="codes">
- <tr><td><a href="#summary-true">true</a></td><td>Return only those elements marked as "summary" in the base definition of the resource(s) (see <a href="elementdefinition-definitions.html#ElementDefinition.isSummary">ElementDefinition.isSummary</a>)</td></tr>
+ <tr><td><a href="#summary-true">true</a></td><td>Return a limited subset of elements from the resource.  This subset SHOULD consist solely of all supported elements that are marked as "summary" in the base definition of the resource(s) (see <a href="elementdefinition-definitions.html#ElementDefinition.isSummary">ElementDefinition.isSummary</a>)</td></tr>
  <tr><td><a href="#summary-text">text</a></td><td>Return only the "text" element, the 'id' element, the 'meta' element, and only top-level mandatory elements</td></tr>
  <tr><td><a href="#summary-data">data</a></td><td>Remove the text element</td></tr>
  <tr><td><a href="#summary-count">count</a></td><td>Search only: just return a count of the matching resources, without returning the actual matches</td></tr>
@@ -1830,19 +1830,8 @@ Note that the <code>_include</code> and <code>_revinclude</code> parameters cann
 <blockquote class="stu-note">
 <a name="dstu-tc"></a>
 <p>
-<b>STU Note:</b>  There are open issues around the definitions of which elements are in the summary for each resource.
-There are 2 kinds of problems in the existing definitions:
-</p>
-<ul>
- <li>Elements are marked as 'include in summary', but their parent element is not</li>
- <li>Elements have minimum cardinality &gt; 0, but are not included in the summary (and their parent element is) - so sumarised resources will not be schema valid</li>
-</ul>
-<p>
-These issues will be resolved for FHIR Release 4. In the meantime, implementers may choose to
-override which elements are marked as 'included in summary', and implementations may vary.
-</p>
-<p>
-Feedback on which elements should be in the summaries is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
+<b>Implementers Note:</b> There is some question about the inclusion of extensions in the summary. Additional rules may be made 
+around this in the future.
 </p>
 </blockquote>
 
