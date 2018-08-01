@@ -764,7 +764,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(this, genlevel(level), null, false).generate(folders.srcDir+ com[1], com[2])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("v2xref"))
@@ -2240,7 +2240,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           "classes="+dt+"\r\n"+
           "element-attributes=true\r\n";
       TextFile.stringToFileNoPrefix(s, tmp.getAbsolutePath());
-      return new SvgGenerator(this, "", null, false).generate(tmp.getAbsolutePath(), id);
+      return new SvgGenerator(this, "", null, false, true).generate(tmp.getAbsolutePath(), id);
     } finally {
       tmp.delete();
     }
@@ -5292,7 +5292,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
-        src = s1+new SvgGenerator(this, genlevel(level), null, false).generate(folders.srcDir+ com[1], com[2])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
       else if (com[0].equals("file"))
         src = s1+/*TextFile.fileToString(folders.srcDir + com[1]+".html")+*/s3;
       else if (com[0].equals("settitle")) {
@@ -5938,7 +5938,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("svg"))
-        src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout(), true).generate(resource, com[1])+s3;
+        src = s1+new SvgGenerator(this, genlevel(level), resource.getLayout(), true, false).generate(resource, com[1])+s3;
       else if (com[0].equals("normative")) {
         String np = null;
         if (com[2].equals("%check") || com[2].equals("%check-op")) {

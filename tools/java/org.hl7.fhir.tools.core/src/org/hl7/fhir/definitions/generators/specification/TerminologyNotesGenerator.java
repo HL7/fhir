@@ -314,8 +314,14 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
         throw new Exception("Unknown special type "+cd.getValueSet().getName());
     }
     String mx = "";
-    if (cd.hasMax())
-      mx = " but limited to ??";
+    if (cd.hasMax()) {
+      if (cd.getMaxValueSet() == null)
+        mx = " but limited to ??";
+      else {
+        String pp = cd.getMaxValueSet().hasUserData("external.url") ? cd.getMaxValueSet().getUserString("external.url") : cd.getMaxValueSet().getUserString("path");
+        mx = " but limited to <a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getMaxValueSet().getName()+"</a>";
+      }
+    }
 
     String bs = "<a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
     if (cd.getValueSet() != null) {

@@ -158,13 +158,15 @@ public class SvgGenerator extends BaseGenerator {
   private String prefix;
   private Map<String, PointSpec> layout;
   private boolean makeTargets;
+  private boolean isDatatypes;
 
-  public SvgGenerator(PageProcessor page, String prefix, Map<String, PointSpec> layout, boolean makeTargets) {
+  public SvgGenerator(PageProcessor page, String prefix, Map<String, PointSpec> layout, boolean makeTargets, boolean isDatatypes) {
     this.definitions = page.getDefinitions();
     this.page = page;
     this.prefix = prefix;
     this.layout = layout;
     this.makeTargets = makeTargets;
+    this.isDatatypes = isDatatypes;
   }
 
   
@@ -796,7 +798,7 @@ public class SvgGenerator extends BaseGenerator {
     if (link) {
       xml.attribute("id", "n"+(++nc));
       xml.enter("text");
-      xml.attribute("xlink:href", definitions.getSrcFile(tn)+".html#"+tn);
+      xml.attribute("xlink:href", makeRel(definitions.getSrcFile(tn)+".html#"+tn));
       xml.attribute("id", "n"+(++nc));
       xml.enter("a");
       xml.text(tn);
@@ -1233,21 +1235,29 @@ public class SvgGenerator extends BaseGenerator {
       return tc.length();
     } else if (definitions.getConstraints().containsKey(tc)) {
       ProfiledType pt = definitions.getConstraints().get(tc);
-      xml.attribute("xlink:href", prefix+definitions.getSrcFile(pt.getBaseType()) + ".html#" + pt.getBaseType());
+      xml.attribute("xlink:href", makeRel(prefix+definitions.getSrcFile(pt.getBaseType()) + ".html#" + pt.getBaseType()));
       xml.attribute("id", "n"+(++nc));
       xml.element("a", ls.see(pt.getBaseType()));
       xml.text(ls.see("("));
-      xml.attribute("xlink:href", prefix+definitions.getSrcFile(tc) + ".html#" + tc);
+      xml.attribute("xlink:href", makeRel(prefix+definitions.getSrcFile(tc) + ".html#" + tc));
       xml.element("a", ls.see(tc));
       xml.text(ls.see(")"));
       return tc.length()+2+pt.getBaseType().length();
     } else {
-      xml.attribute("xlink:href", prefix+definitions.getSrcFile(tc) + ".html#" + tc);
+      xml.attribute("xlink:href", makeRel(prefix+definitions.getSrcFile(tc) + ".html#" + tc));
       xml.attribute("id", "n"+(++nc));
       xml.element("a", ls.see(tc));
       return tc.length();
     }
   }
+
+  private String makeRel(String link) {
+    if (isDatatypes && link.startsWith(prefix+"datatypes.html#"))
+      return link.substring(link.indexOf("#"));
+    else
+      return link;
+  }
+
 
   public Point hasIntersection(Segment segment1, Segment segment2, PointKind kind){
      
