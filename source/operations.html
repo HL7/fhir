@@ -146,7 +146,7 @@ Each Operation is defined by:
 For each parameter, the following information is needed:
 </p>
 <ul>
- <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token (see below)</li>
+ <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token in common implementation languages</li>
  <li>Use - In | Out | Both</li>
  <li>Type - a data type or a Resource type</li>
  <li>Search Type - for string search parameters, what kind of search parameter they are (&amp; and what kind of modifiers they have)</li>
@@ -212,7 +212,7 @@ with respect to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
 If all the parameters for the operation are <a href="datatypes.html#primitive">primitive types</a>, and the operation
-has <code>affectsState</code> = false (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
+has <code>affectsState</code> = false (see <a href="https://tools.ietf.org/html/rfc7231#section-4.2.2">HTTP specification
 definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
 all of the values of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
 Servers SHALL support this method of invocation. E.g.
