@@ -612,11 +612,11 @@ To search for all the procedures in a patient compartment that occurred over a 2
 <a name="string"></a>
 <h4>string</h4>
 <p>
-For a simple string search, a string parameter serves as the input for a case- and accent-insensitive search against sequences of characters.
-By default, a field matches a string query
-if the value of the field equals or starts with the supplied parameter value, after
-both have been normalized by case and accent. The <code>:contains</code> modifier
-returns results that include the supplied parameter value anywhere within the field
+For a simple string search, a string parameter serves as the input for a search against 
+sequences of characters. This search is insensitive to casing and included combining characters, like accents or other diacritical marks. 
+By default, a field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have 
+been normalized by case and combining characters. Therefore, the default string search only operates on the base characters of the string parameter. 
+The <code>:contains</code> modifier returns results that include the supplied parameter value anywhere within the field
 being searched. The <code>:exact</code> modifier returns results that match
 the entire supplied parameter, including casing and accents.
 </p>
