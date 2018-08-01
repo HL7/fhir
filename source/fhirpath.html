@@ -165,6 +165,19 @@ Patient.name.given.as(FHIR.string);
 Patient.name.given.as(System.string);
 </pre>
 
+<a name="variables"></a>
+<h4>FHIR Specific Variables</h4>
+
+<p>FHIR defines a specific variable that is always in scope when FHIRPath is used
+in any of the contexts above:
+</p>
+<pre>
+%resource // the resource that contains the original node that is in %context
+</pre>
+<p>
+The resource is very often the context, such that %resource = %context.
+</p>
+
 <a name="functions"></a>
 <h4>Additional functions</h4>
 <p>FHIR adds (compatible) functionality to the common set of functions:</p>
@@ -195,7 +208,7 @@ Patient.name.given.as(System.string);
   from
 
 "reference.startsWith('#').not() or 
-  (%context.reference.substring(1).trace('url') in $resource.contained.id.trace('ids'))"
+  (%context.reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))"
 </pre>
 <p>
 The FHIRPath specification adds an additional parameter to the trace() function, a selection expression that can be used
