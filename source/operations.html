@@ -76,8 +76,15 @@ more output parameters. This means that a FHIR operation can take a set of zero 
 result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource.
 </p>
 <p>
-Some Operations with primitive input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters.
-In this case, the response is simply the resource that is the return value, with no Parameters resource. These kinds of usage are discussed further below.
+Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
+</p>
+<ol>
+ <li>there are only simple input parameters - i.e. no complex datatypes like 'Identifier' or 'Reference', and</li>
+ <li>and the operation does not <a href="operationdefinition-definitions.html#OperationDefinition.affectsState">affect the state of the server</a></li>
+</ol>
+<p>
+If there is a single output parameter named 'return' then the response MAY be the resource that is the return value, with no Parameters resource.
+These kinds of usage are discussed further below.
 </p>
 
 <a name="executing"></a>
