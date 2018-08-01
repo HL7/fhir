@@ -5208,8 +5208,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Measure)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Measure</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
@@ -5232,8 +5232,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the measure will be calculated. If not specified, the measure will be calculated for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)</Data></Cell>
@@ -5244,8 +5244,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Practitioner for which the measure will be calculated. If specified, the measure will be calculated only for subjects that have a primary relationship to the identified practitioner</Data></Cell>
@@ -5406,8 +5406,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Measure)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Measure</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
@@ -5418,8 +5418,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the measure will be collected. If not specified, measure data will be collected for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)</Data></Cell>
@@ -5430,8 +5430,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Practitioner</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Practitioner for which the measure will be collected. If specified, measure data will be collected only for subjects that have a primary relationship to the identified practitioner</Data></Cell>
@@ -5528,8 +5528,8 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Reference(Patient|Practitioner|PractitionerRole|Organization|Location|Device|Group)</Data></Cell>
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Subject</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">Subject for which the care gaps report will be produced</Data></Cell>
@@ -5799,7 +5799,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
