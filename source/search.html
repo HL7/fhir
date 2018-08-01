@@ -1518,7 +1518,7 @@ or processed by the client.
 </p>
 
 <p>
-The parameter <code>_count</code> is defined as a hint to the server
+The parameter <code>_count</code> is defined as an instruction to the server
 regarding how many resources should be returned in a
 single page. Servers SHALL NOT return more resources than
 requested, even if they don't support paging, but are
@@ -1543,6 +1543,12 @@ server returns a bundle that reports the total number of resources that match in
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
 <a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
+In the same way, the _count parameter only applies to resources with <code>entry.search.mode = search</code>, and does not include 
+included resources or operation outcomes.
+</p>
+<p>
+The _count parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total 
+number of matches, not how many are returned in a single Bundle response.
 </p>
 
 <a name="include"></a>
