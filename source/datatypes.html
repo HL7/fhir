@@ -90,7 +90,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  <!-- leading 0s -->
  <tr>
    <td>integer<a name="integer"></a></td>
-   <td>A signed 32-bit integer (for larger values, use decimal)</td>
+   <td>A signed integer in the range −2,147,483,648..2,147,483,647 (32-bit; for larger values, use decimal)</td>
    <td>xs:int, except that <b>leading 0 digits are not allowed</b></td>
    <td>JSON number (with no decimal point)</td>
  </tr>
@@ -262,7 +262,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>unsignedInt<a name="unsignedInt"></a></td>
-   <td>Any non-negative integer (e.g. >= 0)</td>
+   <td>Any non-negative integer in the range 0..2,147,483,647 </td>
    <td>xs:nonNegativeInteger </td>
    <td>JSON number</td>
  </tr>
@@ -272,7 +272,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>positiveInt<a name="positiveInt"></a></td>
-   <td>Any positive integer (e.g. >= 1)</td>
+   <td>Any positive integer in the range 1..2,147,483,647</td>
    <td>xs:positiveInteger</td>
    <td>JSON number</td>
  </tr>
