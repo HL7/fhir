@@ -1224,8 +1224,8 @@ these are different instances of <code>HumanName</code>.
 </p>
 <p>
 The text element specifies the entire name as it should be displayed e.g. in an application UI. 
-This may be provided instead of or as well as the specific parts. Applications updating an 
-address SHALL ensure that when both text and parts are present, no content is included in the 
+This may be provided instead of or as well as the specific parts. Applications updating a 
+name SHALL ensure that when both text and parts are present, no content is included in the 
 text that isn't found in a part. The correct order of assembly of the parts is culture 
 dependent: the order of the parts within a given part type has significance and SHALL be 
 observed. The appropriate order between family name and given names depends on culture and context of use.
@@ -1253,8 +1253,8 @@ and a decomposition of the name can be provided using the <code>family</code> ex
 <p>
 For robust search, servers should search the parts of a family name independently.
 E.g. Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
-HL7 affiliates may make more specific recommendations about how search should work
-in their specific culture.
+HL7 affiliates, and others producing implementation guides, may make more specific recommendations about how search should work
+in specific cultures or environments.
 </p>
 <div class="use">
 <p><b>Constraints</b></p>
