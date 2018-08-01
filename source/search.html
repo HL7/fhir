@@ -1410,7 +1410,7 @@ GET [base]/Observation?code=http://loinc.org|1234-5&amp;subject.name=peter
 Using the <code>_filter</code> parameter, the search would be expressed like this:
 </p>
 <pre>
-GET [base]/Observation?_filter=name eq http://loinc.org|1234-5 and subject.name co "peter"
+GET [base]/Observation?_filter=code eq http://loinc.org|1234-5 and subject.name co "peter"
 </pre>
 <p>
 The <code>_filter</code> parameter is described in detail on the <a href="search_filter.html">"_Filter Parameter" page</a>.
