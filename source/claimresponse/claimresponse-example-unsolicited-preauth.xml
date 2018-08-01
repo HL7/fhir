@@ -206,7 +206,7 @@
 		<sequence value="1"/>
 		<focal value="true"/>
 		<coverage>
-			<reference value="Coverage/9876B1SS"/>
+			<reference value="Coverage/9876B1"/>
 		</coverage>
 		<preAuthRef value="18SS12345" />
 	</insurance>
