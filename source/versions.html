@@ -91,6 +91,43 @@ different aspects of the specification.  They are as follows:
   </tbody>
 </table>
 
+<a name="mixed"></a>
+<h4>Mixed Normative content</h4>
+<p>
+Some Normative artefacts contain a few parts labeled as 'Trial Use' <i>even though the artrfact itself
+is labeled 'Normative'</i>:
+</p>
+<ul>
+ <li>Some normative resources contain elements labelled as 'trial-use'</li>
+ <li>Some normative pages contain sections labelled as 'trial-use'</li>
+</ul>
+<p>
+While HL7 prefers to avoid this outcome, there are a number of resources where the overall functionality 
+of the artefact is clearly ready to be labeled as 'normative' while some very specific parts are known 
+not to have the requisite level of implementation experience as the rest of the resource. 
+E.g. <a href="bundle-definitions.html#Bundle.signature">Bundle.signature</a>.
+</p>
+<p>
+Where a Normative resource contains elements marked as trial-use, these elements are clearly marked
+in the resource definitions. Implementers should be aware that future versions of the FHIR specification
+may change these parts of the resources (in addition to the other changes allowed under the 
+<a href="versions.html#change">inter-version compatibility rules</a>. While HL7 will carefully
+consider the consequences of breaking change to these elements, implementers should be aware that
+reading/using these elements has the potential to cause breaking change to their applications later.
+</p>
+<p>
+Note that this same status will arise as a matter of process when new elements are introduced into 
+normative resources in future versions - they will undergo a period of trial use as appropriate. 
+</p>
+<p>
+Note: it is also possible that some resources in the future will be labeled as 'trial use', but
+contain some elements labeled as 'normative'. There is no resource like this in this specification, 
+though all Trial Use resources contain normative content from <a href="resource.html">Resource</a> 
+and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Data types</a>.
+</p>
+
+
+
 <p style="background-color: gold; border:1px solid maroon; padding: 5px;">
 This release (Release 3) is an <i>Trial Use</i> Specification, though a little of the content (where marked 
 specifically at the top of the page) is <i>Draft</i>. For Release 4, some content is planned to be <i>Normative</i>.

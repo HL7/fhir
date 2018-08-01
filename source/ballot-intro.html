@@ -25,36 +25,6 @@ Note that the R4 version of FHIR will have content with different ballot status:
  <li><span style="background-color: #e6ffff; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>External</b></span>: Content that is replicated from external standards (e.g. HL7 v2, DICOM) and is not subject to ballot comment</li>
 </ul>
 
-<a name="mixed"></a>
-<h3>Mixed Normative content</h3>
-<p>
-Some Normative resources contain a few elements labeled as 'Trial Use' <i>even though the resource itself
-is labeled 'Normative'</i>. While HL7 prefers to avoid this outcome, there are a number of resources 
-where the overall functionality of the resource is clearly ready to be labeled as 'normative' while
-some very specific elements are known not to have the requisite level of implementation experience 
-as the rest of the resource. E.g. <a href="bundle-definitions.html#Bundle.signature">Bundle.signature</a>.
-</p>
-<p>
-Where a Normative resource contains elements marked as trial-use, these elements are clearly marked
-in the resource definitions. Implementers should be aware that future versions of the FHIR specification
-may change these parts of the resources (in addition to the other changes allowed under the 
-<a href="versions.html#change">inter-version compatibility rules</a>. While HL7 will carefully
-consider the consequences of breaking change to these elements, implementers should be aware that
-reading/using these elements has the potential to cause breaking change to their applications later.
-</p>
-<p>
-Note that this same status will arise as a matter of process when new elements are introduced into 
-normative resources in future versions - they will undergo a period of trial use as appropriate. 
-</p>
-<p>
-Note: it is also possible that some resources in the future will be labeled as 'trial use', but
-contain some elements labeled as 'normative'. There is no resource like this in this ballot, 
-though all Trial Use resources contain normative content from <a href="resource.html">Resource</a> 
-and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Data types</a>.
-</p>
-
-
-
 <a name="process"></a>
 <h3>The FHIR R4 Ballot Process</h3>
 
