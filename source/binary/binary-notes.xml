@@ -21,7 +21,7 @@ Binary resources behave slightly differently to all other resources on the RESTf
 Specifically, when a read request is made for the binary resource that doesn't explicitly
 specify the FHIR content types "application/fhir+xml" or "application/fhir+json", then 
 the content should be returned using the content type stated in the resource. 
-e.g. if the content type in the resource is "application/pdf", then the content should
+E.g. if the content type in the resource is "application/pdf", then the content should
 be returned as a PDF directly. 
 </p>
 <p>
