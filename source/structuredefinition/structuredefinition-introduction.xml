@@ -53,25 +53,28 @@ find the structure when registered in profile repositories.
    </td></tr>
  <tr><td>name</td><td>A Computer=ready name (e.g. a token) that identifies the structure - suitable for code generation	</td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>
- <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the structure. This helps establish the "authority/credibility" of the structure.</td></tr>
- <tr><td>telecom</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>
- <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>
- <tr><td>requirements</td><td>The Scope and Usage that this structure was created to meet</td></tr>
- <tr><td>code</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>
  <tr><td>date</td><td>The date this version of the structure was published	</td></tr>
+ <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the structure. This helps establish the "authority/credibility" of the structure.</td></tr>
+ <tr><td>contact</td><td>Contact details to assist a user in finding and communicating with the publisher</td></tr>
+ <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>
+ <tr><td>purpose</td><td>Why this structure was created - what the intent of it is</td></tr>
+ <tr><td>useContext &amp; Jurisdiction</td><td>Computable details about purpose and scope of use</td></tr>
+ <tr><td>keyword</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
+ <tr><td>copyright</td><td>Use and/or publishing restrictions</td></tr>
  <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this structure is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a structure against a particular version of FHIR can easily be checked by tooling.	</td></tr>
+
  <tr><td>type</td><td>The type the structure describes.</td></tr>
- <tr><td>contextType</td><td>For extensions, the types of contexts in which the extension can be used (resources, datatypes, or extensions).</td></tr>
- <tr><td>context</td><td>For extensions, the specific types of resources or data types on which the extension can be used.</td></tr>
+ <tr><td>contextType &amp; context</td><td>For extensions, the types of contexts in which the extension can be used. For further details, see <a href="defining-extensions.html">Defining Extensions</a></td></tr>
 </table>
 
 <p>Notes:</p>
 <ul>
-<li>The name of the structure is not required to be globally unique, but the name should have some scoping information (e.g. Acme Inc. (USA), Allergy List)</li>
-<li>Multiple codes may be assigned to the structure. These may either describe the structure, the focus of the structure or both. They are solely to help find the structure by searching for structured concepts</li>
+<li>The name and title of the structure are not required to be globally unique, but the name amd title should have some scoping information (e.g. AcmeAllergies / Acme Inc. (USA), Allergy List)</li>
+<li>Multiple keywords may be assigned to the structure. These may either describe the structure, the focus of the structure or both. They are solely to help find the structure by searching for structured concepts</li>
 <li>The 3 status codes (draft, active, and retired) are the codes that are relevant to structure consumers. Authors may wish to use the <a href="#author-status">authoring-status</a> extension to track the life cycle of a structure as it is prepared</li>
+<li>For further clarification 
 </ul>
 
 </div>
