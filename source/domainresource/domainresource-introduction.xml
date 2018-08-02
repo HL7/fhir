@@ -5,7 +5,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-A domain resource is an resource that:
+A domain resource is a resource that:
 </p>
 <ul>
  <li>has a human-readable XHTML representation of the content of the resource (see <a href="narrative.html">Human Narrative in resources</a>)</li>
