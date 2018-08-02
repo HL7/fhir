@@ -4290,8 +4290,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (n.contains("-"))
       n = n.substring(0, n.indexOf('-'));
 
-    boolean hasOps = !definitions.getResourceByName(title).getOperations().isEmpty();
-    boolean isAbstract = definitions.getResourceByName(title).isAbstract();
+    ResourceDefn res = definitions.getResourceByName(title);
+    boolean hasOps = !res.getOperations().isEmpty();
+    boolean isAbstract = res.isAbstract();
+    boolean hasExtensions = res.getRoot().typeCode().equals("DomainResource");
     b.append("<ul class=\"nav nav-tabs\">");
 
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
@@ -4300,7 +4302,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     if (!isAbstract)
       b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    if (!isAbstract)
+    if (!isAbstract && hasExtensions)
       b.append(makeHeaderTab("Profiles &amp; Extensions", n+"-profiles.html", "profiles".equals(mode)));
 //    if (!isAbstract)
 //      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
