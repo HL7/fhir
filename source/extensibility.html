@@ -360,7 +360,8 @@ Applications might also be able to ignore a modifier extension if they know
 that it is safe to do so in their own context, though this would not usually be the case.
 </p>
 <p>
-Note that implementations might be able to be sure, due to their
+Implementations SHALL ensure that they do not process data containing unrecognized modifier 
+extensions. Note that implementations might be able to be sure, due to their
 implementation environment (e.g. specific trading partner agreement),
 that modifier extensions will never occur, and can therefore meet
 the requirement to check for modifiers at the design stage.
@@ -417,7 +418,7 @@ modifier extension, it must act in one of the ways outlined above.
 <ul>
  <li>A Modifier Extension SHALL only modify the element which contains it and/or that element's children</li>
  <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative</li>
- <li>Applications SHALL always check for modifier extensions when processing the data from any element that can carry one</li>
+ <li>Applications SHALL always ensure unrecognized modifier extensions are not present when processing the data from any element that might have carry modifier extensions</li>
  <li>If a Modifier Extension that an application does not understand is present, the application SHALL refuse to process the resource or affected element, or SHALL provide an appropriate warning to its users</li>
 </ul>
 
