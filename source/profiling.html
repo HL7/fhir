@@ -241,6 +241,24 @@ it is constraining. This table summarizes what types of restrictions are allowed
 When a profile is constraining another profile where there are more cardinality options (e.g. low is not just 0 or 1, and high is not just 1 or *), the same
 principles still apply: the constraining profile can only allow what the base profile allows.
 </p>
+<p>
+Note that though a profile can constrain an element from x..* to x..1, this doesn't make any difference to the 
+representation in the JSON format - the element will still be represented in an array. As an example, take 
+Patient.name which has a cardinality of 0..*. In an unprofiled Patient, this will be represented as:
+</p>
+<pre class="json" fragment="Patient">
+{
+  "resourceType" : "Patient",
+	"name" : [{
+	   "text" : "Peter James"
+	}]
+}
+</pre>
+<p>
+Even if a profile is created on the resource that narrows tha cardinality to 1..1, applications will still process
+the resource without knowledge of the profile. For this reason the representation will still be the same. 
+</p>
+
 
 <h3>Limitations of Use</h3>
 <p>
@@ -557,6 +575,19 @@ The <a href="profiling-examples.html">examples of slicing and discriminators</a>
 <p>
 Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
 </p>
+
+<a name="slice-cardinality"></a>
+<h3>Slice Cardinality</h3>
+<p>
+When an element of a fixed cardinality m..n is sliced, the following rules apply:
+</p>
+<ul>
+ <li>Each slice cannot have a greater cardinality than the maximum number of slices allowed</li>
+ <li>The sum of the maximum cardinalities can be larger than <code>n</code></li>
+ <li>The sum of the minimum cardinalities must be less or equal to <code>n</code></li>
+ <li>Each individual slice can have a minimum cardinality of 0 (less than <code>m</code> - the only situation where this is allowed), but the total number of elements in the instance must still be greater or equal to <code>m</code></li>
+</ul>
+
 
 <a name="default-slice"></a>
 <h3>Default Slice</h3>
