@@ -495,7 +495,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   }
 
   private String getStandardsStatusNote(StandardsStatus status) {
-    return "This element has a standards status of \""+status.toDisplay()+"\" which is different to the status of the whole resource";  
+    return "This element has a standards status of \""+status.toDisplay()+"\" which is different from the status of the whole resource";  
   }
 
   private String tasks(List<String> tasks) {
