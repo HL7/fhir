@@ -51,7 +51,7 @@ appropriate. The Binary resource may be used to convey actual binary file conten
 those resources.
 </p>
 <p>
-The <a href="media.html">Media</a> resource is preferred for handling images, but this is not possible when the content is already binary (e.g. in some uses of IHE XDS).
+The <a href="media.html">Media</a> resource is preferred for handling images, but this is not possible when the content is already binary (e.g. in some uses of <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE XDS</a>).
 </p>
 </div>
 
