@@ -52,7 +52,6 @@ http://hl7.org/fhir/sid/cvx
 urn:ietf:rfc:3986
 http://fhir.de/CodingSystem/kbv/ebm
 https://system/PGxReport
-http://ema.europa.eu/example/confidentialityindicator
 http://www.ncbi.nlm.nih.gov/nuccore
 http://ema.europa.eu/example/marketingAuthorisationApplicationType
 http://www.genenames.org

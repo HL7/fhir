@@ -266,7 +266,8 @@ If modifier extensions are present, an application cannot safely process the res
 what the extension means for its own use of the data.
 </p>
 <p>
-Implementers SHOULD avoid the use of modifier extensions where possible.  Any use should be carefully considered against its possible downstream consequences. However, implementers
+Implementers SHOULD avoid the use of modifier extensions where possible.  Any use should be carefully considered against its possible downstream consequences. Inclusion of modifier 
+extensions in an instance would be expected to significantly limit the ability of other systems to process the instance. However, implementers
 are often forced into these situations by the business arrangements around
 the use of resources, so this specification creates a framework for handling such cases.
 Implementers who are introducing an extension and are uncertain whether the extension should be marked as a modifier are encouraged to raise the question on <a href="http://chat.fhir.org">chat.fhir.org</a>.
@@ -286,6 +287,7 @@ Internal extensions like this marked "Is-Modifier" are still represented using t
 because the impact of the modifier element is expected to be known by applications that understand the containing extension.
 </p>
 <p>
+Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 Any modifierExtension defined outside an extension cannot be placed in another extension.
 </p>
 
@@ -327,14 +329,18 @@ Or in JSON:
 <p>
 Implementations processing the data in resources SHALL
 check for modifiers anywhere they could appear, and if
-a modifier extension is present, SHALL do one of these
+a modifier extension is present on a data element that the application 'processes', SHALL do one of these
 things:
 </p>
 <ol>
- <li>understand the impact of the extension when using the data</li>
- <li>refuse to process the data</li>
+ <li>recognize the modifier extension, and understand the impact of the extension when using the data</li>
+ <li>reject instances that contain the modifier extension</li>
+ <li>treat such instances as "for rendering purposes only" - i.e. check that the narrative status = <code>extensions</code> or <code>generated</code>, display the narrative and don't process the discrete data</li>
+ <li>Ask for a human to check the modifier extension before proceeding to process the data</li>
  <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
 </ol>
+
+
 <p>
 Processing the data of a resource typically means
 copying or filtering data out of a resource for use in another
@@ -413,6 +419,12 @@ the fact that one of the performers has a modifier extension is irrelevant and t
 application is free to ignore it. If the application does process the performers, and it sees the
 modifier extension, it must act in one of the ways outlined above.
 </p>
+
+<p>
+<a href="implementationguide.html">Implementation Guides</a> might place limitations on the appearance 
+of modifier extensions within instances that comply with the implementation guide. 
+</p>
+ 
 
 <h3>Summary: Conformance Rules for Modifier Extensions</h3>
 <ul>
