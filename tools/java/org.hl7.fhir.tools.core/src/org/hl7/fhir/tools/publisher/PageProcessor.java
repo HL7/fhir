@@ -6070,6 +6070,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+mappingsList+s3;
       else if (com[0].equals("breadcrumb"))
         src = s1 + breadCrumbManager.make(name) + s3;
+      else if (com[0].equals("ext-link"))
+        src = s1 + getExtensionsLink(resource) + s3;
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
       else if (com[0].equals("breadcrumblist"))
@@ -10323,6 +10325,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     b.append("</ul>\r\n");
     return b.toString();
-
+  }
+  
+  private String getExtensionsLink(ResourceDefn res) {
+    if (res.getRoot().typeCode().equals("DomainResource"))
+      return " + <a href=\""+res.getName().toLowerCase()+"-profiles.html\">see the extensions</a>";
+    else
+      return "";
   }
 }
