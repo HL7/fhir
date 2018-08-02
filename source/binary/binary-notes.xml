@@ -82,4 +82,11 @@ that is not mandatory.
 This specification does not support searching on Binary resources.
 </p>
 
+<a name="patch"></a>
+<h3>Patch</h3>
+
+<p>
+The semantics of a PATCH operation on a Binary resource are not currently specified.
+</p>
+
 </div>
