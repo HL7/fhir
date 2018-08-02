@@ -95,6 +95,11 @@ Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL 
 If there is a single output parameter named 'return' then the response MAY be the resource that is the return value, with no Parameters resource.
 These kinds of usage are discussed further below.
 </p>
+<p>
+If the response is a <a href="bundle.html">Bundle</a>, the correct <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> is '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', unless it has <a href="http.html#search">search semantics</a>, such as 
+matching resource counts, and <a href="http.html#paging">page links (next etc)</a>.
+</p>
+
 
 <a name="executing"></a>
 <h4>Operations with no parameters</h4>
