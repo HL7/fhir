@@ -21,11 +21,20 @@ performed on a repository of typed resources. These interactions follow
 the RESTful paradigm of managing state by <b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete actions on a set of identified
 resources. While this approach solves many use cases, there is some specific
 functionality that can be met more efficiently using an RPC-like paradigm,
-where named operations are performed with inputs and outputs (<b>E</b>xecute). Operations are used (a) where the server
-needs to play an active role in formulating the content of the response, not merely return existing
-information, or (b)where the intended purpose is to cause side effects such as the modification of existing
-resources, or creation of new resources. This specification describes a lightweight operation framework that
-seamlessly extends the RESTful API.
+where named operations are performed with inputs and outputs (<b>E</b>xecute).
+</p>
+<p>
+Operations are appropriately used where:
+</p>
+<ul>
+ <li>the server needs to play an active role in formulating the content of the response, not merely return existing information</li>
+ <li>the intended purpose is to cause side effects such as the modification of existing resources, or creation of new resources, or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
+ <li>The task involves business rules to be enforced across multiple different resources and/or</li>
+ <li>the task involves updating several resources in a coordinated manner (note: this can also be done by a <a href="http.html#transaction">Transaction</a>, but an operation can be more focused on the task</li>
+</ul>
+<p> 
+This specification describes a lightweight operation framework that seamlessly extends the RESTful API. 
+The framework covers both how to execute such an operation (this page) and how to <a href="operationdefinition.html">define an operation</a>.
 </p>
 <p>
 Operations have the following general properties:
