@@ -33,6 +33,18 @@ element, such as in the DocumentReference and Media resources. Consequently, the
 be a target wherever the Attachment data type is used such as in the DocumentReference resource. 
 </p>
 <p>
+The <a href="documentreference.html">DocumentReference</a> and <a href="media.html">Media</a> resources 
+allow conveying binary content (via attachment) or pointing to one (as a <code>Binary</code> or non-FHIR 
+URI) along with the metadata around that resource, and as such are searchable.  
+Binary resources do not support 'search'.
+</p>
+<p>
+While CDA and PDF documents are conveyed as Binary (because they cannot be expressed natively in FHIR), 
+<a href="documents.html">FHIR Documents</a> do not need to be similarly encoded and can be sent natively 
+in FHIR using <a href="bundle.html">Bundle</a>.  However, in some situations FHIR Documents may be sent 
+as a Binary if there is a need to treat them the same as other types of documents or binary files.
+</p>
+<p>
 The Binary resource does not convey context of the file. If the context (information such as 
 author, procedure, technique, etc.) should be conveyed, Media or DocumentReference resources are 
 appropriate. The Binary resource may be used to convey actual binary file content conveyed by 
