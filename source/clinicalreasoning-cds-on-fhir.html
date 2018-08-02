@@ -186,7 +186,7 @@
   <tr><td>Request service</td><td>GuidanceResponse.performer &amp; RequestGroup.author (as a Device)</td></tr>
   <tr><td>Response.summary</td><td>RequestGroup.action.title</td></tr>
   <tr><td>Response.detail</td><td>RequestGroup.action.description</td></tr>
-  <tr><td>Response.indicator</td><td>RequestGroup.priority | RequestGroup.action.resource.priority</td></tr>
+  <tr><td>Response.indicator</td><td>RequestGroup.priority | RequestGroup.action.resource.priority, using the mapping specified <a href="conceptmap-cdshooks-indicator.html">here</a></td></tr>
   <tr><td>Response.source</td><td>RequestGroup.action.relatedArtifact.where(type = 'documentation')</td></tr>
   <tr><td>Response.suggestion.label</td><td>RequestGroup.action.title</td></tr>
   <tr><td>Response.suggestion.uuid</td><td>RequestGroup.action.id</td></tr>
