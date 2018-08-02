@@ -75,6 +75,24 @@ DocumentReference or similar resource that refers directly to the Binary resourc
 that is not mandatory.
 </p>
 
+<a name="read"></a>
+<h3>Read</h3>
+
+<p>
+This specification makes no rules concerning advanced read functionality for 
+the Binary resource, such as:
+</p>
+<ul>
+ <li>retrieving byte ranges</li>
+ <li>Finding the size of the content before retrieving it (though see <a href="http.html#head">about HEAD</a></li>
+ <li>Stream content from Binary? </li>
+ <li>generating content dynamically on the fly</li>
+</ul>
+<p>
+Servers are free to support these features, but they are not required.
+</p>
+
+
 <a name="search"></a>
 <h3>Search</h3>
 
