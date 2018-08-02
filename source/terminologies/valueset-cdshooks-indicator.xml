@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
+  <name value="Indicator"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set captures the set of indicator codes defined by the CDS Hooks specification."/>
+  <compose>
+    <include>
+      <system value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
+    </include>
+  </compose>
+</ValueSet>

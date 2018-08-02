@@ -31,7 +31,10 @@
       </parameter>
     </Parameters>
   </contained>
-  <requestId value="guidanceRequest1"/>
+  <requestIdentifier>
+    <system value="http://example.org"/>
+    <value value="guidanceRequest1"/>
+  </requestIdentifier>
   <identifier>
     <system value="http://example.org"/>
     <value value="guidanceResponse1"/>

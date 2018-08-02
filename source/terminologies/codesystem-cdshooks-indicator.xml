@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
+  <name value="Indicator"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This codesystem captures the indicator codes defined by the CDS Hooks specification."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="info"/>
+    <display value="The response is informational"/>
+  </concept>
+  <concept>
+    <code value="warning"/>
+    <display value="The response is a warning"/>
+  </concept>
+  <concept>
+    <code value="critical"/>
+    <display value="The response is critical and indicates the workflow should not be allowed to proceed"/>
+  </concept>
+</CodeSystem>
