@@ -60,9 +60,9 @@ Note that the _summary parameter does not apply when the mime type is not one of
 <a name="rest"></a>
 <h3>Security Considerations</h3>
 <p>
-Binary resources are not constrained, and therefore can be of any content type and encoding. 
-Therefore, extra care needs to be taken to validate the content of the Binary resource against 
-malicious or malformed content. For more details see <a href="security.html#narrative">Security of Narrative</a>.
+Binary resources are not constrained to any list of safe content types (content types without active elements such as scripting or executable code), 
+and therefore can be of any content type and encoding. Therefore, extra care needs to be taken to validate the content of the Binary resource against 
+malicious or malformed content. For more details see <a href="security.html#narrative">Security of Narrative</a>, since the security issues are similar.
 </p>
 <p>
 Very often, the content of a <code>Binary</code> resource is sensitive, and the server should apply 
