@@ -324,8 +324,13 @@ Note that if a canonical reference does not have a version, and the server finds
 versions for the value set, the system using the reference should pick the latest version
 of the target resource and use that. Servers SHOULD support version specific searching for canonical
 URLs by automatically detecting the presence of a |[version] and performing the appropriate
-search.
+search. Additional notes about searching on versioned canonical references:
 </p>
+<ul>
+ <li>Search only regards the latest version for each different logical id</li>
+ <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
+ <li>This search only works for specific data elements of type of uri that act as canonical uri's (see list below)</li>
+</ul>
 <p>
 Systems resolving canonical references SHOULD first try to resolve the reference using 
 the canonical URL (e.g. search on a known registry of terminology, conformance, or knowledge
@@ -335,6 +340,10 @@ This approach is safe because the approaches must refer to the same
 artifact, though implementations will need to make appropriate arrangements regarding 
 the version and/or currency of their local copy of the artifact.
 </p>
+<p>
+List of all resources that have canonical URLs:
+</p>
+[%canonical-resources%]
 <a name="canonical-fragments"></a>
 <h3>Canonical Reference and Fragments</h3>
 <p>

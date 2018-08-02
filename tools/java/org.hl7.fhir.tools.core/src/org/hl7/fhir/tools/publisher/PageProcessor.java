@@ -1313,6 +1313,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
          src = s1 + "<p><a href=\"#DomainResource.text.div-end\">Jump past Narrative</a></p>" + s3;
       } else if (others != null && others.containsKey(s2))
         src = s1+others.get(s2)+s3;
+      else  if (com[0].equals("canonical-resources")) 
+        src = s1+listCanonicalResources()+s3;      
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -5620,6 +5622,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genWildcardTypeList()+s3;
       else if (com[0].startsWith("GF#"))
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
+      else  if (com[0].equals("canonical-resources")) 
+        src = s1+listCanonicalResources()+s3;      
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
@@ -10307,5 +10311,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return false;
   }
-  
+
+  private String listCanonicalResources() throws FHIRException {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul style=\"column-count: 3\">\r\n");
+    for (String rn : definitions.sortedResourceNames()) {
+     if (definitions.getResourceByName(rn).getTemplate() != null)
+        b.append("<li><a href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
+    }
+    b.append("</ul>\r\n");
+    return b.toString();
+
+  }
 }
