@@ -43,7 +43,8 @@ when describing references. Narrative for a resource SHOULD include summary info
 about any referenced resources that would be required for a consumer of the resource to
 be able to understand the key, essential information about a resource without retrieving
 any additional resources. If the <code>Narrative.status</code> = extensions, the narrative 
-SHALL reflect the impact of all modifier extensions.
+SHALL reflect the impact of all modifier extensions. Narrative MAY <a href="references.html#rendering">include generated 
+content</a> from other resources and still be considered generated.
 </p>
 <p>
 For example, the narrative for a MedicationRequest might include brief summary information
