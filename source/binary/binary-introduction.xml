@@ -12,7 +12,7 @@ can handle additional related content. Typically, Binary resources are used for 
 <ul>
  <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents (i.e. with XDS)</li>
  <li>PDF Documents</li>
- <li>Images (the Media resource is preferred for handling images, but not possible when the content is already binary - XDS)</li>
+ <li>Images</li>
 </ul>
 <p>
 A binary resource can contain any content, whether text, image, pdf, zip archive, etc. These 
@@ -31,6 +31,15 @@ as the other resources, the Binary resource is generally used as the target in t
 <a href="datatypes.html#Attachment">Attachment</a> data type to reference content via the <code>.url</code> 
 element, such as in the DocumentReference and Media resources. Consequently, the Binary resource can 
 be a target wherever the Attachment data type is used such as in the DocumentReference resource. 
+</p>
+<p>
+The Binary resource does not convey context of the file. If the context (information such as 
+author, procedure, technique, etc.) should be conveyed, Media or DocumentReference resources are 
+appropriate. The Binary resource may be used to convey actual binary file content conveyed by 
+those resources.
+</p>
+<p>
+The <a href="media.html">Media</a> resource is preferred for handling images, but this is not possible when the content is already binary (e.g. in some uses of IHE XDS.
 </p>
 </div>
 
