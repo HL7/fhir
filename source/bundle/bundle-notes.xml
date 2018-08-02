@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="notes"> </a>
 <h3>Notes about Bundle</h3>
 <ul>
   <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
@@ -81,7 +82,7 @@ can access the <code>location</code> header. See <a href="http.html#history">His
 <p>
 In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
 used to return the total number of resources that are included in the change history, 
-and that may be returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
+including those that may be returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
 </p>
 
 <a name="transaction"></a>
