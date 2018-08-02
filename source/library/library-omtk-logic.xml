@@ -1,4 +1,4 @@
-﻿<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
     <id value="omtk-logic"/>
     <identifier>
         <use value="official"/>
@@ -59,22 +59,18 @@
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
-    <contributor>
-        <type value="author" />
+    <author>
         <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
+    </author>
+    <author>
         <name value="Bryn Rhodes"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
+    </author>
+    <author>
         <name value="Floyd Eisenberg, MD, MPH"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
+    </author>
+    <author>
         <name value="Robert McClure, MD, MPH"/>
-    </contributor>
+    </author>
     <relatedArtifact>
         <type value="depends-on"/>
         <resource value="Library/omtk-modelinfo"/>

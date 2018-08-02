@@ -66,10 +66,9 @@ CPT(R) contained in the Measure specifications is copyright 2004-2015 American M
       <code value="57024-2" />
     </coding>
   </topic>
-  <contributor>
-    <type value="author"/>
+  <author>
     <name value="National Committee for Quality Assurance"/>
-  </contributor>
+  </author>
   <relatedArtifact>
 	<type value="documentation"/>
 	<citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment of children with sore throat.&quot; JAMA 294(18):2315-2322. "/>

@@ -1,4 +1,4 @@
-﻿<Library xmlns="http://hl7.org/fhir">
+<Library xmlns="http://hl7.org/fhir">
    <id value="opioidcds-common"/>
    <identifier>
       <use value="official"/>
@@ -59,22 +59,18 @@
    <topic>
       <text value="Opioid Prescribing"/>
    </topic>
-   <contributor>
-      <type value="author"/>
-      <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-   </contributor>
-   <contributor>
-      <type value="author"/>
-      <name value="Bryn Rhodes"/>
-   </contributor>
-   <contributor>
-      <type value="author"/>
-      <name value="Floyd Eisenberg, MD, MPH"/>
-   </contributor>
-   <contributor>
-      <type value="author"/>
-      <name value="Robert McClure, MD, MPH"/>
-   </contributor>
+    <author>
+        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+    </author>
+    <author>
+        <name value="Bryn Rhodes"/>
+    </author>
+    <author>
+        <name value="Floyd Eisenberg, MD, MPH"/>
+    </author>
+    <author>
+        <name value="Robert McClure, MD, MPH"/>
+    </author>
    <relatedArtifact>
       <type value="documentation"/>
       <display value="CDC guideline for prescribing opioids for chronic pain"/>

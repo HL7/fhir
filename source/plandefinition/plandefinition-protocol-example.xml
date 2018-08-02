@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
   <id value="protocol-example"/>
   <text>
@@ -93,16 +93,13 @@
   <!--When is the protocol to be used-->
   <purpose value="Example of A medical algorithm for assessment and treatment of overweight and obesity"/>
   <!--Who wrote the Protocol-->
-  <contributor>
-    <type value="author"/>
+  <author>
     <name value="National Heart, Lung, and Blood Institute"/>
-    <contact>
-	  <telecom>
-	    <system value="url"/>
-	    <value value="https://www.nhlbi.nih.gov/health-pro/guidelines"/>
-	  </telecom>
-    </contact>
-  </contributor>
+    <telecom>
+	  <system value="url"/>
+	  <value value="https://www.nhlbi.nih.gov/health-pro/guidelines"/>
+	</telecom>
+  </author>
   <!--Where is the Protocol-->
   <relatedArtifact>
     <type value="derived-from"/>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
 <PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="example-cardiology-os" />
@@ -535,8 +535,7 @@
   </useContext>
   <usage value="The Cardiology chest pain (CP) and coronary artery disease (CAD) group of KNARTs are intended to assist primary care providers in the management of adult patients with stable chest pain (with or without known CAD); aid in determining when a cardiology consultation is appropriate; provide guidance for initial noninvasive diagnostic orders (stress testing) and provide a structured documentation template for the process. Stable patients with cardiac chest pain require risk stratification, office-based workup, initiation of disease-specific medications, and subspecialty referral to a cardiologist. This context excludes emergent patients (new/ongoing/unstable pattern CP). Included are those patients with stable CP with or without known CAD, to be considered for evaluation by cardiology." />
   <copyright value="© Copyright Cognitive Medical Systems, Inc. 9444 Waples Street Suite 300 San Diego, CA 92121" />
-  <contributor>
-    <type value="author" />
+  <author>
     <name value="Bruce Bray MD" />
     <!-- No place for affiliation in the contributor, left here as comments
         <affiliation>
@@ -545,9 +544,8 @@
                  Cardiologist, Salt Lake City VA Medical Center (VAMC)"
                         />
            </affiliation> -->
-  </contributor>
-  <contributor>
-    <type value="author" />
+  </author>
+  <author>
     <name value="Scott Wall MD" />
     <!-- No place for affiliation in the contributor, left here as comments
      <affiliation>
@@ -556,16 +554,15 @@
            Medicine Staff Cardiologist, Electrophysiology, Salt Lake City VAMC"
         />
      </affiliation> -->
-  </contributor>
-  <contributor>
-    <type value="author" />
+  </author>
+  <author>
     <name value="Aiden Abidov MD, PhD" />
     <!-- No place for affiliation in the contributor, left here as comments
      <affiliation>
         <name
            value="Professor of Medicine, Wayne State University; Section Chief, Cardiology, John Dingell VAMC" />
      </affiliation> -->
-  </contributor>
+  </author>
   <relatedArtifact>
     <type value="derived-from" />
     <display value="Cardiology: Chest Pain (CP) / Coronary Artery Disease (CAD) Clinical Content White Paper" />

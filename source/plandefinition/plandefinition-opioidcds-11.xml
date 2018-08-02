@@ -1,4 +1,4 @@
-﻿<PlanDefinition xmlns="http://hl7.org/fhir">
+<PlanDefinition xmlns="http://hl7.org/fhir">
     <id value="opioidcds-11"/>
     <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-11"/>
     <identifier>
@@ -60,22 +60,18 @@
     <topic>
         <text value="Opioid Prescribing"/>
     </topic>
-    <contributor>
-        <type value="author" />
+    <author>
         <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
+    </author>
+    <author>
         <name value="Bryn Rhodes"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
+    </author>
+    <author>
         <name value="Floyd Eisenberg, MD, MPH"/>
-    </contributor>
-    <contributor>
-        <type value="author" />
+    </author>
+    <author>
         <name value="Robert McClure, MD, MPH"/>
-    </contributor>
+    </author>
     <relatedArtifact>
         <type value="documentation"/>
         <display value="CDC guideline for prescribing opioids for chronic pain"/>

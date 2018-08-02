@@ -1,4 +1,4 @@
-﻿<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="KDN5" />
@@ -244,10 +244,9 @@
   <copyright value="All rights reserved." />
   <approvalDate value="2016-07-27" />
   <lastReviewDate value="2016-07-27" />
-  <contributor>
-    <type value="author" />
+  <author>
     <name value="Lee Surprenant" />
-  </contributor>
+  </author>
   <!-- list of references for the order template -->
   <relatedArtifact>
     <type value="derived-from" />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="suiciderisk-orderset-logic"/>
   <text>
@@ -495,22 +495,19 @@
   <topic>
     <text value="Suicide Risk Order Set Logic"/>
   </topic>
-  <contributor>
-    <type value="author"/>
+  <author>
     <name value="Motive Medical Intelligence"/>
-    <contact>
-      <telecom>
-        <system value="phone"/>
-        <value value="415-362-4007"/>
-        <use value="work"/>
-      </telecom>
-      <telecom>
-        <system value="email"/>
-        <value value="info@motivemi.com"/>
-        <use value="work"/>
-      </telecom>
-    </contact>
-  </contributor>
+    <telecom>
+	  <system value="phone"/>
+	  <value value="415-362-4007"/>
+	  <use value="work"/>
+    </telecom>
+    <telecom>
+  	  <system value="email"/>
+	  <value value="info@motivemi.com"/>
+	  <use value="work"/>
+    </telecom>
+  </author>
   <relatedArtifact>
     <type value="citation"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>

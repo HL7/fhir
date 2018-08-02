@@ -906,22 +906,19 @@
   <topic>
     <text value="Suicide risk assessment"/>
   </topic>
-  <contributor>
-    <type value="author"/>
+  <author>
     <name value="Motive Medical Intelligence"/>
-    <contact>
-      <telecom>
-        <system value="phone"/>
-        <value value="415-362-4007"/>
-        <use value="work"/>
-      </telecom>
-      <telecom>
-        <system value="email"/>
-        <value value="info@motivemi.com"/>
-        <use value="work"/>
-      </telecom>
-    </contact>
-  </contributor>
+    <telecom>
+      <system value="phone"/>
+      <value value="415-362-4007"/>
+	  <use value="work"/>
+    </telecom>
+    <telecom>
+	  <system value="email"/>
+	  <value value="info@motivemi.com"/>
+	  <use value="work"/>
+    </telecom>
+  </author>
   <relatedArtifact>
     <type value="derived-from"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
