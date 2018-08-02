@@ -4167,7 +4167,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry(0).resource</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry[0].resource</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Composition</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is "document" - this is a composition, and this parameter provides access to searches its contents</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is "document" - this is a composition, and this parameter provides access to search its contents</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"><Data ss:Type="String">identifier</Data></Cell>
