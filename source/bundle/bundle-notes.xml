@@ -186,7 +186,7 @@ How to resolve a reference in a Bundle:
  </li>
  <li>Look for an entry with a fullUrl that contains the URL in the reference
   <ul>
-   <li>If no match is found, the resource is not in the bundle, and must be found elsewhere (e.g. if an http: URL, try accessing it directly)</li>
+   <li>If no match is found, the resource is not in the bundle and must be found elsewhere (e.g. if an http: URL, try accessing it directly)</li>
    <li>If multiple matches are found, it is ambiguous which is correct</li>
   </ul>
  </li>
