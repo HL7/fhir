@@ -19,7 +19,7 @@
     asked the server to, if it cares -->
   <link>
     <relation value="self"/>
-    <url value="https://example.com/base/MedicationRequest?patient=347&amp;_include=MedicationRequest.medication"/>
+    <url value="https://example.com/base/MedicationRequest?patient=347&amp;_include=MedicationRequest.medication&amp;_count=2"/>
   </link>
   <!-- now, the link to the next set of results. The actual URL is entirely at the 
   discretion of the server, and is opaque to the client. Many servers will insert 
@@ -42,7 +42,7 @@
         <status value="unknown"></status>
         <intent value="order">
         </intent>
-	<medicationReference>
+	      <medicationReference>
           <reference value="Medication/example"/>
         </medicationReference>
         <subject>
