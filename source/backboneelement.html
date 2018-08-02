@@ -21,7 +21,8 @@
 [%normative page infrastructure%]
 
 <p>
-The base definition for elements defined as part of a resource definition. <a href="datatypes.html">Data Type</a> elements do not use this type.
+The base definition for elements defined as part of a resource definition. <a href="datatypes.html">Data Type</a> elements do not use this type,
+though a few data types specialize it (<a href="datatypes.html#Timing">Timing</a>, <a href="dosage.html">Dosage</a>, <a href="elementdefinition.html">ElementDefinition</a>).
 For instance, <a href="patient.html#resource">Patient.contact</a> is an element that is defined as part of the patient resource, so it automatically 
 has the type <code>BackboneElement</code>.
 </p>
