@@ -32,7 +32,7 @@ bundles. There is an important difference between the two:
 </ul>
 
 <p>
-In addition to these two technical mechanisms, there are three administrative and infrastructure resources which also support grouping of content:
+In addition to these two technical mechanisms, there are three these administrative and infrastructure resources which also support grouping of content:
 </p>
 <ul>
 <li>
@@ -56,6 +56,9 @@ of a FHIR <a href="documents.html">document</a>.  The full content of the docume
 often reference Lists as the focus of particular sections.
 </li>
 </ul>
+<p>
+This list is not exhaustive; other resources also provde grouping functionality.
+</p>
 
 </div>
 </div>
