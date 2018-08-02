@@ -17,7 +17,7 @@ any specified content it not useful.
 <h3>Serving Binary Resources using the RESTful API</h3>
 
 <p>
-Binary resources behave slightly differently to all other resources on the RESTful API.
+Binary resources behave slightly differently from all other resources on the RESTful API.
 Specifically, when a read request is made for the binary resource that doesn't explicitly
 specify the FHIR content types "application/fhir+xml" or "application/fhir+json", then 
 the content should be returned using the content type stated in the resource. 
