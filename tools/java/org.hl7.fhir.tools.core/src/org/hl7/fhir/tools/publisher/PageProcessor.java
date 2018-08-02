@@ -7609,8 +7609,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   }
 
-  private void checkFormat(String filename, String res, ResourceDefn r) throws Exception {
-    XhtmlNode doc = new XhtmlParser().parse("<div>"+res+"</div>", null).getFirstElement();
+  private void checkFormat(String filename, String res, ResourceDefn r) throws FHIRException  {
+    XhtmlNode doc;
+    try {
+      doc = new XhtmlParser().parse("<div>"+res+"</div>", null).getFirstElement();
     if (doc.getFirstElement() == null || !doc.getFirstElement().getName().equals("div"))
       log("file \""+filename+"\": root element should be 'div'", LogMessageType.Error);
     else if (doc.getFirstElement() == null) {
@@ -7673,6 +7675,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     List<String> allowed = Arrays.asList("div", "h2", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "thead", "tbody", "tr", "th", "td", "ol", "ul", "li", "br", "span", "em", "strong");
     iterateAllChildNodes(doc, allowed);
+    } catch (Exception e) {
+      throw new FHIRException("Error processing "+filename+": "+e.getMessage(), e);
+    }
   }
 
   private XhtmlNode getH2Element(XhtmlNode x) {
