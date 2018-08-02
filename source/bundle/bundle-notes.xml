@@ -103,7 +103,7 @@ See <a href="http.html#transaction">Transactions</a> for further information.
 
 <p>
 A transaction response (type = "transaction-response") or batch response (type="batch-response") 
-consists of a series of 0 or more entries, 1 for each entry in the transaction or batch it is in response to. 
+consists of a series of 0 or more entries: 1 for each entry in the transaction or batch it is in response to. 
 Each entry element SHALL contain a <code>response</code> element which indicates 
 the outcome of the HTTP operation that the server performed for the entry. 
 </p>
