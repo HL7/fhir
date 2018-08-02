@@ -16,7 +16,7 @@ can handle additional related content. Typically, Binary resources are used for 
 </ul>
 <p>
 A binary resource can contain any content, whether text, image, pdf, zip archive, etc. These 
-resources are served in their native form on the rest interface, but can also be represented in XML or JSON, 
+resources are served in their native form on the rest interface, but can also be represented in XML, JSON, of other formats, 
 such as when including these resources in a Bundle (used when it is convenient to include these in the 
 response directly rather than leaving them by reference).
 </p>
@@ -39,7 +39,7 @@ appropriate. The Binary resource may be used to convey actual binary file conten
 those resources.
 </p>
 <p>
-The <a href="media.html">Media</a> resource is preferred for handling images, but this is not possible when the content is already binary (e.g. in some uses of IHE XDS.
+The <a href="media.html">Media</a> resource is preferred for handling images, but this is not possible when the content is already binary (e.g. in some uses of IHE XDS).
 </p>
 </div>
 
