@@ -925,7 +925,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">planned | arrived | triaged | in-progress | onleave | finished | cancelled +</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Note that internal business rules will detemine the appropraite transitions that may occur between statuses (and also classes).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Note that internal business rules will detemine the appropriate transitions that may occur between statuses (and also classes).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">.statusCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
