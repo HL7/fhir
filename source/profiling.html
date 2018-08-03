@@ -496,14 +496,14 @@ discriminator is based is a restricted FHIRPath statement that is allowed to inc
 </ul>
 <p>
 Each slice must use the <a href="elementdefinition.html">element definition</a> for the
-element in the discriminator(s) to ensure that the slices are clearly differentiated by
-assigning a fixed value, a specific type, or a profile, depending on the discriminator
-type. If the type is 'value', then the element definition must use either
-<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>, or
-<a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>
-or, if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a>
-that enumerates the list of possible codes in the value set ("extensional definition").
+element(s) in the discriminator(s) to ensure that the slices are clearly differentiated by
+assigning an appropriate value domain, depending on the discriminator type. If the type is <code>value</code>, or <code>pattern</code>, then the element definition must use either:
 </p>
+<ul>
+ <li><a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>, or</li>
+ <li><a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>, or</li>
+ <li>if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a> that enumerates the list of possible codes in the value set ("extensional definition")</li>
+</ul>
 <p>
 It is the composite (combined) values of the discriminators
 that are unique, not each discriminator alone. For example,
