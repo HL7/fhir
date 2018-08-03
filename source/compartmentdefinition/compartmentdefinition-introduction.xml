@@ -13,7 +13,7 @@ grouping of resources which share a common property. Compartments have two princ
 </ul>
 <p><b>Note:</b></p>
 <p>
-At present, CompartmentDefinitions can <i>only</i> be defined by HL7 International.  This is because
+At present, compartment definitions can <i>only</i> be defined by HL7 International.  This is because
 their existence creates significant impact on the behavior of servers.
 </p>
 </div> 
