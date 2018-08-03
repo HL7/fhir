@@ -151,7 +151,13 @@ public class ResourceValidator extends BaseValidator {
 
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) throws Exception {
     rule(errors, IssueType.STRUCTURE, structure.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
-    checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure), new ArrayList<String>(), true, structure.getStandardsStatus());
+    ResourceDefn fakeParent = new ResourceDefn();
+    fakeParent.setRoot((TypeDefn) structure);
+    fakeParent.setWg(definitions.getWorkgroups().get("fhir"));
+    fakeParent.setFmmLevel(fakeParent.getRoot().getFmmLevel());
+    fakeParent.setStatus(fakeParent.getRoot().getStandardsStatus());
+    fakeParent.setNormativePackage("infrastructure");
+    checkElement(errors, structure.getName(), structure, fakeParent, null, true, false, hasSummary(structure), new ArrayList<String>(), true, structure.getStandardsStatus());
   }
   
   private boolean hasSummary(ElementDefn structure) {
