@@ -15,6 +15,8 @@ The OperationOutcome resource is used in the following circumstances:
  <li>When an <a href="http.html#operations">RESTful operation</a> fails</li>
  <li>As the response on a <a href="http.html#validate">validation operation</a> to provide information about the outcome</li>
  <li>As part of a message response, usually when the message has not been processed correctly</li>
+ <li>As the response to a batch/transaction, when requested</li>
+ <li>As part of a search's Bundle response containing information about the search</li>
 </ul>
 <p>
 This resource is referenced by <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="messageheader.html">MessageHeader</a>. 
