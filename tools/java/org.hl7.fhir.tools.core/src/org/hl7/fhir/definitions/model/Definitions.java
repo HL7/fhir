@@ -791,7 +791,6 @@ public class Definitions {
     packMap = null;
     dictionaries = null;
     knownResources = null;
-    knownTypes = null;
     statusCodes = null;
     valueSetCount = valuesets.size();
     valuesets = null;

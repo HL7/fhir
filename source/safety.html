@@ -54,6 +54,13 @@ list underlying assumptions about deployment
  <li><input type="checkbox"/> My system supports <a href="conformance-rules.html#mustSupport">elements labeled as "must-support"</a> in the <a href="profiling.html">profiles</a> that apply to my system</li>
  <li><input type="checkbox"/> All resources in use are <a href="validation.html">valid</a> against the base specification and the <a href="profiling.html">profiles</a> that apply to my system (see note about the <a href="validation.html#correct-use">correct run-time use of validation</a>)</li>
  <li><input type="checkbox"/> For each resource that my system handles, my system handles the full <a href="lifecycle.html">Life cycle</a> (status codes, currency issues, and erroneous entry status)</li>
+ <li><b>Deleting Records</b> 
+   <ol>
+     <li><input type="checkbox"/> For each resource, I have checked whether resources can be deleted, and/or how records are marked as incorrect/no longer relevant</li>
+     <li><input type="checkbox"/> Deletion of records (or equivalent updates in status) flow through the system so any replicated copies are deleted/updated</li>
+     <li><input type="checkbox"/> (If a server) my documentation about deleted resources is clear, and my test sandbox (if exists) has deleted/error record cases in the test data</li>   
+   </ol>
+ </li>
  <li><input type="checkbox"/> My system can <a href="narrative.html#css">render narratives properly</a> and <a href="security.html#narrative">securely</a>(where they are used)</li>
  <li><input type="checkbox"/> My system has documented how <a href="managing.html#distributed">distributed resource identification</a> works in its relevant contexts of use, and where (and why) <a href="references.html#contained">contained</a> resources are used</li>
  <li><input type="checkbox"/> My system manages lists of <a href="lifecycle.html#current">current resources</a> correctly</li>
