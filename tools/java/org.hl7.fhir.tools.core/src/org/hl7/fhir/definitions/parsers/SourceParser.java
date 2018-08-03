@@ -509,9 +509,9 @@ public class SourceParser {
           int lp = p.lastIndexOf(".")+ed.getName().length()-2;
           String tn = p.substring(lp);
           if (definitions.hasPrimitiveType(Utilities.uncapitalize(tn)))
-            p = p.substring(0, lp)+".as("+Utilities.uncapitalize(tn)+")";
+            p = "("+p.substring(0, lp)+" as "+Utilities.uncapitalize(tn)+")";
           else
-            p = p.substring(0, lp)+".as("+tn+")";
+            p = "("+p.substring(0, lp)+" as "+tn+")";
         }
       if (first)
         first = false;
