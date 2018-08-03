@@ -1611,7 +1611,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
           if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a></li>\r\n");
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
@@ -1644,7 +1644,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             first = false;
           }
           if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a></li>\r\n");
+            b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
         }
@@ -4477,7 +4477,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           String path = ae.hasUserData("external.url") ? ae.getUserString("external.url") : pathTail(Utilities.changeFileExt(ae.getUserString("path"), ".html"));
           s.append(" <tr><td><a href=\""+path+"\">"+n+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS)))
-            s.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
+            s.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           s.append("</td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
           if (hasId)
             s.append("<td>"+Utilities.oidTail(ValueSetUtilities.getOID(ae))+"</td>");
@@ -9593,7 +9593,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (rd.getNormativePackage() == null)
       return "";
     else
-      return " <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a>";
+      return " <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
   }
   private String getFmmShort(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
@@ -9601,7 +9601,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new Exception("unable to find resource '"+resourceName+"'");
     if (rd.getNormativePackage() != null)
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>"+
-       "<a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a>";
+       "<a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" title=\"Normative Content\" class=\"normative-flag\">N</a>";
     else
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
@@ -9632,7 +9632,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
-            b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
+            b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
@@ -9656,7 +9656,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
-            b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
+            b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
