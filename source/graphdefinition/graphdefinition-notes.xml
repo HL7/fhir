@@ -68,7 +68,7 @@ approach is to do a search, and _include the required resources:
 <p>
 But scaling this approach to fetch a full package with its dependencies
 becomes increasingly difficult as the package gets deeper. A graph definition
-can be used instead to inform the server what to return as part of the search:
+can be used instead to inform the server what to return with the resource using the <a href="resource-operation-graph.html">$graph operation</a>:
 </p>
 <pre>
   GET [base]/MedicationDispense/example/$graph?graph=med-package
