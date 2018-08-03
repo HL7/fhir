@@ -7234,7 +7234,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">#11</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">Business Rule Violation</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">The content/operation failed to pass some business rule, and so could not proceed.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The content/operation failed to pass some business rule and so could not proceed.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
