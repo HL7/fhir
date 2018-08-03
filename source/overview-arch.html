@@ -142,7 +142,7 @@ As discussed, FHIR’s principal components are resources and RESTful APIs. Howe
 NOTE: The term “component” is used loosely to mean a part of something and does not intend to carry the specific meanings for this term
 provided by rigorous ontologies, modeling frameworks, or other architectural and organizational constructs. Diagrammatically, the components
 below are depicted below as UML classes. This is done purely to take advantage of the semantics afforded using this notation. FHIR is neither
-objected oriented in its modeling approach nor are the component that make up the FHIR specification UML classes or objects in the formal sense.
+objected oriented in its modeling approach nor are the components that make up the FHIR specification UML classes or objects in the formal sense.
 Likewise, the UML packages shown below are notional and used for organizational purposes only.
 </p>
 </blockquote>
@@ -254,7 +254,7 @@ referenced by  other resources, but don't typically reference other resources th
  therefore require the highest degree of consistency and architectural rigor. Governance is greatest for resources in layers one and two.</li>
 <li><b>Clinical Resources</b>: Layer 3 includes the resources that are clinical in nature but are also very common across many use cases. This
 includes resources for clinical observations, clinical treatment, care provision, and medications. These resources can be used by themselves, but
-typically build on the resources in later two. For example, an observation resource will reference the patient resource from layer two. These resources
+typically build on the resources in layer two. For example, an observation resource will reference the patient resource from layer two. These resources
 are also frequently contextualized when they are referenced by resources in layers three, four and five.</li>
 <li><b>Financial Resources</b>: Layer four is dedicated to financial resources. Logically, financial resources build on clinical and base resources.
 For example, a billing resource will reference clinical events and activities as well as base resources like a patient.</li>
@@ -296,12 +296,12 @@ to say that the business transactions needed for the higher layers are not impor
 they are not as common across the whole healthcare space.
 </p>
 <p>
-The 6th layer of the framework are not actually resources. Profiles and Clusters are extensions of resources
-or resource compositions that continue the progression through the FHIR Composition Framework. The provide
+The 6th layer of the framework are not actually resources. Profiles and Graphs are extensions of resources
+or resource compositions that continue the progression through the FHIR Composition Framework. They provide
 additional contextualization required to satisfy certain use cases.
 </p>
 <p>
-There are several benefits expected from aligning the creation of FHIR resources to this framework, including::
+There are several benefits expected from aligning the creation of FHIR resources to this framework, including:
 </p>
 <ul>
 <li>Organization and manageability of health domains - the framework provides a basis for decomposition and modularity</li>
@@ -346,7 +346,7 @@ Additional details on the FHIR APIs can be found at <a href="http.html">the FHIR
 FHIR Transactions
 </h4>
 <p>
-As mentioned, FHIR resources are optimized for stateless transactions with RESTful APIs. Although this is not the only way FHIR resources can be used, these types or transactions are the only ones with defined interfaces and behaviors in the FHIR specification.
+As mentioned, FHIR resources are optimized for stateless transactions with RESTful APIs. Although this is not the only way FHIR resources can be used, these types of transactions are the only ones with defined interfaces and behaviors in the FHIR specification.
 </p>
 <p>
 FHIR transactions follow a simple request and response transaction pattern. The request and response can be for a single payload or can operate as batch. The payload or a request and response consist of a header and the content of interest. See diagram below for details.
@@ -428,7 +428,7 @@ business processes it supports, FHIR will always carry forward some of the data 
 practice of healthcare across different organizations and practitioners. Nonetheless, the
 issues of resource consistency and granularity is a topic that gets considerable ongoing discussion, and may change as FHIR approaches a final
 normative standard and as FHIR adoption approaches a level
-where more control is warranted, or a more information/process consistency emerges in the existing healthcare systems.
+where more control is warranted, or more information/process consistency emerges in the existing healthcare systems.
 </li>
 <li>
 <b>Resource References</b> – there are currently a lack of strict rules for what resources should be referenced by other resources and under what circumstance.
