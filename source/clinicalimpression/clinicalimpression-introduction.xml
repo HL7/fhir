@@ -49,6 +49,8 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
+ClinicalImpression is the equivalent of the "A" in Weed  SOAP.  It is the outcome of the clinical assessment process.  The ClinicalImpression may lead to a statement of a Condition about a patient.
+
 There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales").
 This is not what the ClinicalImpression resource is about; assessment tools such as Apgar are represented as 
 <a href="observation.html">Observations</a>, and <a href="questionnaire.html">Questionnaires</a> may be used to help 
