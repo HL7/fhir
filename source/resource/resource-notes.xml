@@ -377,7 +377,7 @@ resources to technical or clinical workflow.
 <a name="simple-tags"></a>
 <h4>Tags</h4>
 <p>
-Tags are used to associate additional operational information with the Resources, including
+Tags are used to associate additional operational information with the Resources, 
 such as workflow management. A typical use of tagging would be to maintain an informal list
 of resources that need review.
 </p>
@@ -444,7 +444,7 @@ about the information in the resource. For further information, see
 <a href="security-labels.html">Security Labels</a>.
 </p>
 <p>
-The list of security on a resource is a set, where each tag is unique based on the 
+The list of security labels on a resource is a set, where each tag is unique based on the 
 <code>system</code>+<code>code</code> combination.
 </p>
 
