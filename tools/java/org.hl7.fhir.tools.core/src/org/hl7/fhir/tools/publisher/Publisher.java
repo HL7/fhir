@@ -2967,9 +2967,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFilesFiltered(page.getFolders().dstDir, "", ".ttl", new String[0]);
       zip.close();
 
-      page.log(" ...final zip", LogMessageType.Process);
-      produceZip();
-
       page.log("Check HTML Links", LogMessageType.Process);
       page.getHTMLChecker().produce();
       checkAllOk();
@@ -4023,18 +4020,6 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, f.getPage(), "Fragment Error in page " + f.getPage() +(f.id != null ? "#"+f.id : "") + ": " + e.getMessage(), IssueSeverity.ERROR));
       }
     }
-  }
-
-  private void produceZip() throws Exception {
-    File f = new CSFile(page.getFolders().dstDir + "fhir-spec.zip");
-    if (f.exists())
-      f.delete();
-    ZipGenerator zip = new ZipGenerator(page.getFolders().tmpResDir + "fhir-spec.zip");
-    zip.addFolder(page.getFolders().dstDir, "site/", false, ".zip");
-    zip.addFolder(Utilities.path(page.getFolders().rootDir, "tools", "html", ""), "site/", true);
-    zip.addFileName("index.html", page.getFolders().srcDir + "redirect.html", false);
-    zip.close();
-    Utilities.copyFile(new CSFile(page.getFolders().tmpResDir + "fhir-spec.zip"), f);
   }
 
   private void produceSchemaZip() throws Exception {
