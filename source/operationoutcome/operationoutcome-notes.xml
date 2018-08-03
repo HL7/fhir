@@ -32,7 +32,9 @@ This granularity could include:
 Operation outcomes returned SHOULD be in alignment with the HTTP response code.  For example, if the HTTP code indicates a failure (300+), at least
 one of the issues should have a severity of "error", indicating the reason for the failure.
 </p>
-
+<p>
+Operation outcomes must include at least one issue. See the <a href="operationoutcome-example-allok.html">All OK </a> example for a template for an operation that returns no errors.
+</p>
 <a name="loc"></a>
 <h2>Using the Location Element</h2>
 <p>

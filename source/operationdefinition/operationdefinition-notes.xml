@@ -21,6 +21,29 @@ always define the parameters using <code>OperationDefinition.parameter</code> in
 and MAY also provide profiles for the parameters. If present, the profiles SHALL NOT disagree
 with the parameters defined for the operation.
 </p>
+<p>
+As an example, consider an operation that defines 3 parameters, 2 in and 1 out:
+</p>
+<table class="grid">
+<tr><td colspan="6"><b>In Parameters:</b></td></tr>
+<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr>
+<tr><td>a</td><td>0..1</td><td><a href="datatypes.html#integer">integer</a></td><td></td><td></td><td><p>An integer parameter</p></td></tr>
+<tr><td>b</td><td>0..1</td><td><a href="Patient.html">Patient</a></td><td></td><td></td><td><p>A patient parameter</p></td></tr>
+<tr><td colspan="6"><b>Out Parameters:</b></td></tr>
+<tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr>
+<tr><td>c</td><td>1..1</td><td><a href="datatypes.html#decimal">decimal</a></td><td></td><td></td><td><p>A result parameter</p></td></tr>
+</table>
+<p>
+In addition to specifying the operation parameters directly, an operation definition can also provide a profile:
+</p>
+<pre class="json">
+ "inputProfile" : "http://example.org/StructureDefinition/op.x.in.profile"
+</pre>
+<p>
+This profile would describe a parameters resource with 2 parameters (using slicing), with the same details as the table above.
+The operation definition would still list the parameters directly to save applications consuming the definition (e.g. to produce
+an <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI document</a>) from parsing and interpreting the profile.
+</p>
 
 <h3>Executing Operations</h3>
 <p>
