@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3689,11 +3689,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3799,31 +3798,31 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:type/@value = 'document') or exists(f:identifier/f:system) or exists(f:identifier/f:value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">10</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Document last updated</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A document must have a date</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">type = 'document' implies (meta.lastUpdated.hasValue())</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:type/@value = 'document') or exists(f:meta/f:lastUpdated/f:value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">11</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Document.entry.first</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A document must have a Composition as the first resource</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">type = 'document' implies entry.first().resource.is(Composition)</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:type/@value='document') or f:entry[1]/f:resource/f:Composition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s105"><Data ss:Type="Number">12</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Message.entry.first</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">A message must have a MessageHeader as the first resource</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">type = 'message' implies entry.first().resource.is(MessageHeader)</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">not(f:type/@value='message') or f:entry[1]/f:resource/f:MessageHeader</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4108,12 +4107,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
