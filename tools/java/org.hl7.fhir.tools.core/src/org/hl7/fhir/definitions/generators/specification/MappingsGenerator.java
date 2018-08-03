@@ -38,6 +38,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn.StringPair;
+import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
@@ -192,17 +193,23 @@ public class MappingsGenerator {
 		Collections.sort(maps, new Sorter());
 		StringBuilder list = new StringBuilder();
 		for (String m : maps) {
-			list.append("|"+definitions.getMapTypes().get(m).getTitle() + "#"+definitions.getMapTypes().get(m).getId());
+			MappingSpace ms = definitions.getMapTypes().get(m);
+      list.append("|"+ms.getTitle() + "#"+ms.getId());
 
-			s.append("<a name=\""+m+"\"> </a><a name=\""+definitions.getMapTypes().get(m).getId()+"\"> </a><h3>Mappings for "+definitions.getMapTypes().get(m).getTitle()+" ("+m+")</h3>");
+			s.append("<a name=\""+m+"\"> </a><a name=\""+ms.getId()+"\"> </a>");
+
+			if (!Utilities.noString(ms.getLink()))
+		    s.append("<h3>Mappings for "+ms.getTitle()+" (<a href=\""+ms.getLink()+"\">"+m+"</a>)</h3>");
+			else
+			  s.append("<h3>Mappings for "+ms.getTitle()+" ("+m+")</h3>");
 			
-			XhtmlNode pre = definitions.getMapTypes().get(m).getPreamble();
+			XhtmlNode pre = ms.getPreamble();
 			if (pre != null)
 			  s.append(new XhtmlComposer(XhtmlComposer.HTML).compose(pre));
 			s.append("<table class=\"grid\">\r\n");
-      genElement(s, 0, resource.getRoot(), m, ROOT_ONLY, true, definitions.getMapTypes().get(m).isSparse());
+      genElement(s, 0, resource.getRoot(), m, ROOT_ONLY, true, ms.isSparse());
 			genInherited(s, resource, m);
-			genElement(s, 0, resource.getRoot(), m, CHILDREN_ONLY, true, definitions.getMapTypes().get(m).isSparse());
+			genElement(s, 0, resource.getRoot(), m, CHILDREN_ONLY, true, ms.isSparse());
 			s.append("</table>\r\n");
 		}
 	  mappings = s.toString();

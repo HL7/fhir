@@ -28,7 +28,7 @@ As an example, consider an operation that defines 3 parameters, 2 in and 1 out:
 <tr><td colspan="6"><b>In Parameters:</b></td></tr>
 <tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr>
 <tr><td>a</td><td>0..1</td><td><a href="datatypes.html#integer">integer</a></td><td></td><td></td><td><p>An integer parameter</p></td></tr>
-<tr><td>b</td><td>0..1</td><td><a href="Patient.html">Patient</a></td><td></td><td></td><td><p>A patient parameter</p></td></tr>
+<tr><td>b</td><td>0..1</td><td><a href="patient.html">Patient</a></td><td></td><td></td><td><p>A patient parameter</p></td></tr>
 <tr><td colspan="6"><b>Out Parameters:</b></td></tr>
 <tr><td><b>Name</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Profile</b></td><td><b>Documentation</b></td></tr>
 <tr><td>c</td><td>1..1</td><td><a href="datatypes.html#decimal">decimal</a></td><td></td><td></td><td><p>A result parameter</p></td></tr>

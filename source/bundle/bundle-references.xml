@@ -31,11 +31,19 @@
     <fullUrl value="http://example.org/fhir/Observation/123"/>
     <resource>
       <Observation>
-         <id value="123"/>
-         <subject>
-           <!-- this is reference to the first patient above -->
-           <reference value="Patient/23"/>
-         </subject>
+        <id value="123"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <!-- this is reference to the first patient above -->
+          <reference value="Patient/23"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
@@ -45,11 +53,19 @@
     <fullUrl value="http://example.org/fhir/Observation/124"/>
     <resource>
       <Observation>
-         <id value="124"/>
-         <subject>
-           <!-- this is reference to the first patient above -->
-           <reference value="http://example.org/fhir/Patient/23"/>
-         </subject>
+        <id value="124"/>
+				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <!-- this is reference to the first patient above -->
+          <reference value="http://example.org/fhir/Patient/23"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
@@ -59,11 +75,19 @@
     <fullUrl value="http://example.org/fhir/Observation/12"/>
     <resource>
       <Observation>
-         <id value="12"/>
-         <subject>
-           <!-- reference to the second patient above -->
-           <reference value="urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d"/>
-         </subject>
+        <id value="12"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <!-- reference to the second patient above -->
+          <reference value="urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
@@ -73,11 +97,19 @@
     <fullUrl value="http://example.org/fhir/Observation/14"/>
     <resource>
       <Observation>
-         <id value="14"/>
-         <subject>
-           <!-- reference to a patient not found in this bundle -->
-           <reference value="http://example.org/fhir-2/Patient/1"/>
-         </subject>
+        <id value="14"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <!-- reference to a patient not found in this bundle -->
+          <reference value="http://example.org/fhir-2/Patient/1"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
@@ -88,23 +120,31 @@
     <fullUrl value="http://example.org/fhir-2/Observation/14"/>
     <resource>
       <Observation>
-         <id value="14"/>
-         <subject>
-           <!-- reference to a patient not found in this bundle -->
-           <reference value="Patient/23"/>
-         </subject>
+        <id value="14"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <!-- reference to a patient not found in this bundle -->
+          <reference value="Patient/23"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
 	
   <!-- A duplicate patient (#1) -->
   <entry>
-    <fullUrl value="http://example.org/fhir/Patient/23"/>
+    <fullUrl value="http://example.org/fhir/Patient/45"/>
     <resource>
       <Patient>
          <id value="45"/>
 				 <meta>
-				   <versionid value="1"/>
+				   <versionId value="1"/>
 				 </meta>
 				 <name>
 				   <text value="Name 1"/>
@@ -115,12 +155,12 @@
   
   <!-- A duplicate patient (#2) -->
   <entry>
-    <fullUrl value="http://example.org/fhir/Patient/23"/>
+    <fullUrl value="http://example.org/fhir/Patient/45"/>
     <resource>
       <Patient>
          <id value="45"/>
 				 <meta>
-				   <versionid value="2"/>
+				   <versionId value="2"/>
 				 </meta>
 				 <name>
 				   <text value="Name 2"/>
@@ -129,28 +169,45 @@
     </resource>
   </entry>
   
-  <!-- ambiguous reference -->
+  <!-- ambiguous reference .. commented out because the validator calls it an error
   <entry>
     <fullUrl value="http://example.org/fhir/Observation/46"/>
     <resource>
       <Observation>
-         <id value="46"/>
-         <subject>
-           <reference value="Patient/45"/>
-         </subject>
+        <id value="46"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <reference value="Patient/45"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
+ -->
 
   <!-- unambiguous reference -->
   <entry>
     <fullUrl value="http://example.org/fhir/Observation/47"/>
     <resource>
       <Observation>
-         <id value="47"/>
-         <subject>
-           <reference value="Patient/45/_history/2"/>
-         </subject>
+        <id value="47"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+          <reference value="Patient/45/_history/2"/>
+        </subject>
       </Observation>
     </resource>
   </entry>
@@ -160,13 +217,21 @@
     <fullUrl value="http://example.org/fhir/Observation/48"/>
     <resource>
       <Observation>
-         <id value="48"/>
-         <subject>
-					 <identifier>
-						 <system value="http://example.org/ids"/>
-						 <value value="1234567"/>
-					 </identifier>
-         </subject>
+        <id value="48"/>
+ 				<status value="final"/> 
+	 			<code> 
+					<coding> 
+						<system value="http://loinc.org"/> 
+						<code value="15074-8"/> 
+						<display value="Glucose [Moles/volume] in Blood"/> 
+					</coding> 
+				</code> 
+        <subject>
+ 				  <identifier>
+					  <system value="http://example.org/ids"/>
+						<value value="1234567"/>
+					</identifier>
+        </subject>
       </Observation>
     </resource>
   </entry>

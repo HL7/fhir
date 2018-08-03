@@ -1912,7 +1912,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       rule(errors, IssueType.REQUIRED, -1, -1, path, path.startsWith("Bundle.signature"), "Relative Reference appears inside Bundle whose entry is missing a fullUrl");
       return null;
 
-    } else if (ref.split("/").length!=2) {
+    } else if (ref.split("/").length!=2 && ref.split("/").length!=4) {
       rule(errors, IssueType.INVALID, -1, -1, path, false, "Relative URLs must be of the format [ResourceName]/[id].  Encountered " + ref);
       return null;
 
@@ -1934,7 +1934,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String id = null;
       if (ref.contains("/_history/")) {
         version = ref.substring(ref.indexOf("/_history/") + 10);
-        id = ref.substring(0, ref.indexOf("/history/")-1);
+        id = ref.substring(0, ref.indexOf("/_history/")).split("/")[1];
       } else if (base.startsWith("urn"))
         id = ref.split("/")[1];
       else
