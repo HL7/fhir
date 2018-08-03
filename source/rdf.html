@@ -194,6 +194,7 @@ more than one node labeled as a 'treeRoot' in a set of Turtle statements, it can
 to parse them as a single resource.
 </p>
 
+<a name="index"> </a>
 <h4>Representing Repeating Elements</h4>
 
 <p>
@@ -280,6 +281,32 @@ as part of generating the resource representation, or it
 can be injected by a post-processor that knows how to
 convert the raw references into RDF-suitable references.
 </p>
+
+
+<a name="contained"></a>
+<h4>Representing Inline Resources</h4>
+<p>
+Inline resources - when a resource is contained directly in another element occur in the following places:
+</p>
+<ul>
+ <li><a href="bundle-definitions.html#Bundle.entry.resource">Bundle.entry.resource</a></li>
+ <li><a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a></li>
+ <li><a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a></li>
+</ul>
+<p>
+Inline resources are represented directly as anonymous nodes. This is an example for a contained Medication resource:
+</p>
+<pre class="ttl">
+  fhir:DomainResource.contained [
+     a fhir:Medication;
+     fhir:index 0;
+     # triples for the Medication
+  ]
+</pre>
+<p>
+Note that DomainResource.contained has a cardinality of 0..*, so <a href="#index">fhir:index</a> is used to order the array.
+</p>
+
 
 <a name="concept"></a>
 <h4>Representing Concepts</h4>
