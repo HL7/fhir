@@ -300,7 +300,7 @@ public class Definitions {
 	}
 
 	public boolean hasResource(String name) {
-		return resources.containsKey(name);
+		return resources.containsKey(name) || baseResources.containsKey(name);
 	}
 	
 	

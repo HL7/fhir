@@ -4293,7 +4293,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     ResourceDefn res = definitions.getResourceByName(title);
     boolean hasOps = !res.getOperations().isEmpty();
     boolean isAbstract = res.isAbstract();
-    boolean hasExtensions = res.getRoot().typeCode().equals("DomainResource");
     b.append("<ul class=\"nav nav-tabs\">");
 
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
@@ -4302,7 +4301,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     if (!isAbstract)
       b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
-    if (!isAbstract && hasExtensions)
+    if (!isAbstract)
       b.append(makeHeaderTab("Profiles &amp; Extensions", n+"-profiles.html", "profiles".equals(mode)));
 //    if (!isAbstract)
 //      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
@@ -6138,6 +6137,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genDependencyGraph(resource, genlevel(level))+s3; 
       else if (com[0].equals("logical-mappings"))
         src = s1+genLogicalMappings(resource, genlevel(level))+s3; 
+      else if (com[0].equals("no-extensions-base-warning"))
+        src = s1+genNoExtensionsWarning(resource)+s3; 
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -6148,6 +6149,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     }
     return src;
+  }
+
+  private String genNoExtensionsWarning(ResourceDefn resource) {
+    boolean hasExtensions = resource.getRoot().typeCode().equals("DomainResource");
+    if (hasExtensions)
+      return "";
+    else
+      return "<p>Resources of type "+resource.getName()+" do not have extensions at the root element, but extensions MAY be present on the elements in the resource</p>\r\n";
   }
 
   private String genImplementationList(ResourceDefn logical) throws FHIRException {

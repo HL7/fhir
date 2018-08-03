@@ -2225,6 +2225,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       sch.generate(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), r, page.getDefinitions());
     }
 
+    ResourceDefn r = page.getDefinitions().getBaseResources().get("Parameters");
+    String n = r.getName().toLowerCase();
+    SchematronGenerator sch = new SchematronGenerator(page);
+    sch.generate(new FileOutputStream(page.getFolders().dstDir + n + ".sch"), r, page.getDefinitions());
+
+
     SchematronGenerator sg = new SchematronGenerator(page);
     sg.generate(new FileOutputStream(page.getFolders().dstDir + "fhir-invariants.sch"), page.getDefinitions());
 
@@ -2411,7 +2417,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String rname : page.getDefinitions().getBaseResources().keySet()) {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
       page.log(" ...resource " + r.getName(), LogMessageType.Process);
-      produceResource2(r, true, rname.equals("Resource") ? "Meta" : null, false);
+      produceResource2(r, !rname.equals("Parameters"), rname.equals("Resource") ? "Meta" : null, false);
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && !rname.equals("CodeSystem") && wantBuild(rname)) {
@@ -4173,13 +4179,11 @@ public class Publisher implements URIResolver, SectionNumberer {
                   + "-explanations.html", 0, null), page.getFolders().dstDir + n + "-explanations.html");
           page.getHTMLChecker().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
         }
-        if (resource.getRoot().typeCode().equals("DomainResource")) {
-          src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
-          TextFile.stringToFile(
-              insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html", null, values, resource.getWg(), null), st, n + "-profiles.html", 0, null),
-              page.getFolders().dstDir + n + "-profiles.html");
-          page.getHTMLChecker().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
-        }
+        src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
+        TextFile.stringToFile(
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html", null, values, resource.getWg(), null), st, n + "-profiles.html", 0, null),
+            page.getFolders().dstDir + n + "-profiles.html");
+        page.getHTMLChecker().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
       }
       for (Profile ap : resource.getConformancePackages())
         produceConformancePackage(resource, ap, st);

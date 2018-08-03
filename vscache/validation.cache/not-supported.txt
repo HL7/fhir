@@ -13,7 +13,6 @@ http://ema.europa.eu/example/managementactions
 http://snomed.info/id
 http://ema.europa.eu/example/deviceType
 http://snomed/sct
-http://terminology.hl7.org/CodeSystem/designation-usage
 https://precision.fda.gov/files/
 http://hl7.org/fhir/sid/ndc
 http://terminology.hl7.org/CodeSystem/v3-ActIncidentCode
@@ -32,7 +31,6 @@ http://acme.org/tests
 http://ema.europa.eu/example/indicationasdisease-symptom-procedure
 http://ema.europa.eu/example/jurisdictionCode
 https://meshb.nlm.nih.gov
-https://www.cms.gov/medicare/coding/place-of-service-codes/place_of_service_code_set.html
 http://ncforms.org/formid
 http:/acme.ped/apgarheartrate
 http://acme-rehab.org
@@ -125,7 +123,6 @@ http://build.fhir.org/codesystem-usage-context-type
 http://ema.europa.eu/example/substance
 http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes
 http://www.ncbi.nlm.nih.gov/gtr/
-http:hl7.org/fhir
 http://browser.ihtsdotools.org/
 http://ihe.net/connectathon/classCodes
 http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
