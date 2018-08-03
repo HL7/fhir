@@ -60,7 +60,6 @@ of a FHIR <a href="documents.html">document</a>.  The full content of the docume
 containing the Composition and its entries. 
 </li>
 </ul>
-
 <p>
 The Composition resource organizes clinical and administrative content into sections, each of which contains a narrative, 
 and references other resources for supporting data. The narrative content of the various sections in a Composition are 
