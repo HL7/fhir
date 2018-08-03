@@ -6498,7 +6498,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Batch</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a transaction - intended to be processed by a server as a group of actions</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The bundle is a set of actions - intended to be processed by a server as a group of independent actions</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
