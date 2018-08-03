@@ -21,16 +21,16 @@
 	</serviceType>
 	<specialty>
 		<coding>
-			<system value="http://example.org/specialty" />
-			<code value="gp"/>
-			<display value="General Practice" />
+			<system value="http://snomed.info/sct" />
+			<code value="394814009"/>
+			<display value="General practice" />
 		</coding>
 	</specialty>
 	<appointmentType>
 		<coding>
-			<system value="http://example.org/appointment-type" />
-			<code value="wi" />
-			<display value="Walk in" />
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0276" />
+			<code value="WALKIN" />
+			<display value="A previously unscheduled walk-in visit" />
 		</coding>
 	</appointmentType>
 	<priority value="5" />

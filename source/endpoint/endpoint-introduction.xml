@@ -35,12 +35,24 @@
   <div>
    <h2>Boundaries and Relationships</h2>
  <a name="bnr"></a>
+ <h3>CapabilityStatement</h3>
     <p>
       The endpoint is distinct from a capability statement in that the CapabilityStatement statement describes the entire capability
       of a server (and in the metadata case, just this server)<br/>
       Where the endpoint resource describes the technical details for how to connect, and for what purposes 
       (which could be a small sub-set of the server's capabilities, and might not be a FHIR endpoint).
     </p>
+	<h3>ContactPoint</h3>
+	<p>
+	Endpoints are used to facilitate system to system communication, providing the details of the addressing of the system, purpose of use, protocols required/provided, and any other details required to communicate between the systems. (such as configuration parameters, require headers ...) The address vaue in the endpoint can only be used in the context of the provided details.
+</p><p>
+E.g. If the endpoint has a URL for an XDS service, using that in a browser by a user is meaningless.
+</p><p>
+E.g.2 If the endpoint has a US Direct address, using this to send a normal email message will not work, as they are not true email addresses (even though they appear to be)
+</p><p>
+
+A ContactPoint contains contact information, such as a phone number, web address that a user can directly interact with, no additional information would be required to use the value. Generally it is used to communicate with an entity directly, not a system.
+</p>
   </div>
 
   <div>

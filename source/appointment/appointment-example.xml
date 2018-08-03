@@ -21,16 +21,16 @@
 	</serviceType>
 	<specialty>
 		<coding>
-			<system value="http://example.org/specialty" />
-			<code value="gp"/>
-			<display value="General Practice" />
+			<system value="http://snomed.info/sct" />
+			<code value="394814009"/>
+			<display value="General practice" />
 		</coding>
 	</specialty>
 	<appointmentType>
 		<coding>
-			<system value="http://example.org/appointment-type" />
-			<code value="follow" />
-			<display value="Followup" />
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0276" />
+			<code value="FOLLOWUP" />
+			<display value="A follow up visit from a previous appointment" />
 		</coding>
 	</appointmentType>
 	<indication>
