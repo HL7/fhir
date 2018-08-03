@@ -786,7 +786,6 @@ public class Definitions {
     unresolvedBindings = null;
     allBindings = null;
     constraints = null;
-    baseResources = null;
     resourceTemplates = null;
 
     packMap = null;
