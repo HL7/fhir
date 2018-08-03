@@ -104,7 +104,7 @@ the Patient.generalPractitioner field.</p>
 Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient's gender and sex with a single value. However, there are many considerations around sex and gender documentation and interoperability.  Listed below are the various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can be communicated.
 </p>
 <ul>
- <li><b>Administrative Gender</b> - in order to interoperate with systems that use a single generic property, the basic <a href="patient-definitions.html#Patient.gender">Patient.gender</a> property attempts to represent an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms, for example.</li>
+ <li><b>Administrative Gender</b> - in order to interoperate with systems that use a single generic property, the basic <a href="patient-definitions.html#Patient.gender">Patient.gender</a> property represents an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms, for example.</li>
 </ul>
 <p>
 In addition to this administrative gender, other kinds of gender or sex properties may be represented:
