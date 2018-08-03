@@ -1091,23 +1091,34 @@ When searching all resources at once, the only search parameters that be can be 
 <a name="capabilities"></a>
 <h3>capabilities</h3>
 <p>
-The <code>capabilities</code> interaction retrieves the server's Capability Statement that defines how it supports resources.
+The <code>capabilities</code> interaction retrieves the information about a server's capabilities - which portions of this specification it supports.
 The interaction is performed by an HTTP <code>GET</code> command as shown:
 </p>
 <pre class="http">
-  GET [base]/metadata {?_format=[mime-type]}
+  GET [base]/metadata{?mode=[mode]} {&amp;_format=[mime-type]}
 </pre>
 <p>
-Applications SHALL return a <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported
-for the <code>GET</code> command. If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR (or the specified version_ is not supported on the
-nominated service url. An <code>ETag</code> header SHOULD be returned with the CapabilityStatement. The value of the ETag header SHALL change if the
-CapabilityStatement itself changes.
+Applications SHALL return a resource that describes the functionality of the server end-point. The information returned depends 
+on the value of the <code>mode</code> parameter:
+</p>
+<table class="grid">
+ <tr><td><code>full</code> (or mode not present)</td><td>A <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported</td></tr>
+ <tr><td><code>normative</code></td><td>As above, but only the normative portions of the Capability Statement</td></tr>
+ <tr><td><code>terminology</code></td><td>A <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource that provides further information about terminologies are supported by the server</td></tr>
+</table>
+<p>
+Servers MAY ignore the mode parameter and return a CapabilityStatement resource. Note: servers might be required to support this parameter in further versions of this specification.
+</p>
+<p>
+If a <code>404</code> Unknown is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
+nominated service url. An <code>ETag</code> header SHOULD be returned with the Response. The value of the ETag header SHALL change if the
+returned resource changes.
 </p>
 <p>
 Servers SHOULD check for the <a href="#version-parameter">fhirVersion MIME-type parameter</a> when processing this request.
 </p>
 <p>
-The Capability statement returned typically has an arbitrary id, and no meta element, though it is not prohibited.
+The resource returned typically has an arbitrary id, and no meta element, though it is not prohibited.
 Capability statements can become quite large; servers are encouraged to support the
 <a href="search.html#summary"><code>_summary</code></a> and <a href="search.html#elements"><code>_elements</code></a>
 parameters on the capabilities interaction, though this is not required. In addition, servers are encouraged to
