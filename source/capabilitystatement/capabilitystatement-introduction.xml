@@ -62,13 +62,17 @@ needed system capabilities, or might be used as part of an RFP process to formal
 document the requirements of a requested solution and to document the criteria by
 which proposals will be evaluated.
 </p>
-<p/>
-
 <p>
 These three types of profiles can be used together.  A requirements statement can 
 be compared against the solution statements proffered by respondents to an RFP.  A 
 solution statement for a software package forms the starting point for the implementation 
 statement associated with a particular installation of that software package.
+</p>
+<p>
+CapabilityStatements of type "requirement" describe what capabilities are potentially relevant;
+additional documentation or extensions (<add reference to existing extension>) within the 
+CapabilityStatement are expected to make more explicit statements of degree of expectation 
+associated with each capability.
 </p>
 </div> 
 

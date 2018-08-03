@@ -68,10 +68,16 @@
       <type value="ValueSet"/>
       <profile value="StructureDefinition/ValueSet"/>
       <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the value sets"/>
       </interaction>
       <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <code value="search-type"/>
         <documentation value="Search allows clients to find value sets on the server"/>
       </interaction>
@@ -79,8 +85,8 @@
         servers should also consider offering these interactions to allow clients 
         to edit the content on the server, but are not required to do so
       <interaction>
-		<code value="create"/>
-	  </interaction>
+    		<code value="create"/>
+  	  </interaction>
       <interaction>
 		<code value="update"/>
 	  </interaction>
@@ -128,10 +134,16 @@
       <type value="ConceptMap"/>
       <profile value="StructureDefinition/ConceptMap"/>
       <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the concept maps"/>
       </interaction>
       <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
         <code value="search-type"/>
         <documentation value="Search allows clients to find concept maps on the server"/>
       </interaction>
@@ -192,22 +204,37 @@
   <!--  now, operations. We expect terminology services to implement these 
       named services, though not necessarily actually these profiles  -->
     <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
       <name value="expand"/>
       <definition value="OperationDefinition/ValueSet-expand"/>
     </operation>
     <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
       <name value="lookup"/>
       <definition value="OperationDefinition/CodeSystem-lookup"/>
     </operation>
     <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
       <name value="validate-code"/>
       <definition value="OperationDefinition/ValueSet-validate-code"/>
     </operation>
     <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHALL"/>
+      </extension>
       <name value="translate"/>
       <definition value="OperationDefinition/ConceptMap-translate"/>
     </operation>
     <operation>
+      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+        <valueCode value="SHOULD"/>
+      </extension>
       <name value="closure"/>
       <definition value="OperationDefinition/ConceptMap-closure"/>
     </operation>
