@@ -1,0 +1,175 @@
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bundle-references"/>
+  <type value="collection"/>
+
+  <!-- A patient that already has an id on a server -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Patient/23"/>
+    <resource>
+      <Patient>
+         <id value="23"/>
+				 <identifier>
+				   <system value="http://example.org/ids"/>
+					 <value value="1234567"/>
+				 </identifier>
+      </Patient>
+    </resource>
+  </entry>
+  
+  <!-- A patient that doesn't have a persistent home - but it does have 
+      a UUID assigned for this bundle "locally identified" -->
+  <entry>
+    <fullUrl value="urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d"/>
+    <resource>
+      <Patient>
+      </Patient>
+    </resource>
+  </entry>
+  
+  <!-- a relative resource reference -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/123"/>
+    <resource>
+      <Observation>
+         <id value="123"/>
+         <subject>
+           <!-- this is reference to the first patient above -->
+           <reference value="Patient/23"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+
+  <!-- an absolute reference -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/124"/>
+    <resource>
+      <Observation>
+         <id value="124"/>
+         <subject>
+           <!-- this is reference to the first patient above -->
+           <reference value="http://example.org/fhir/Patient/23"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+
+  <!-- reference to a locally identified resource -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/12"/>
+    <resource>
+      <Observation>
+         <id value="12"/>
+         <subject>
+           <!-- reference to the second patient above -->
+           <reference value="urn:uuid:04121321-4af5-424c-a0e1-ed3aab1c349d"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+  
+  <!-- reference that doesn't resolve in this bundle -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/14"/>
+    <resource>
+      <Observation>
+         <id value="14"/>
+         <subject>
+           <!-- reference to a patient not found in this bundle -->
+           <reference value="http://example.org/fhir-2/Patient/1"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+  
+	
+  <!-- nor does this one (FullUrl base is different) -->
+  <entry>
+    <fullUrl value="http://example.org/fhir-2/Observation/14"/>
+    <resource>
+      <Observation>
+         <id value="14"/>
+         <subject>
+           <!-- reference to a patient not found in this bundle -->
+           <reference value="Patient/23"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+	
+  <!-- A duplicate patient (#1) -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Patient/23"/>
+    <resource>
+      <Patient>
+         <id value="45"/>
+				 <meta>
+				   <versionid value="1"/>
+				 </meta>
+				 <name>
+				   <text value="Name 1"/>
+				 </name>
+      </Patient>
+    </resource>
+  </entry>
+  
+  <!-- A duplicate patient (#2) -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Patient/23"/>
+    <resource>
+      <Patient>
+         <id value="45"/>
+				 <meta>
+				   <versionid value="2"/>
+				 </meta>
+				 <name>
+				   <text value="Name 2"/>
+				 </name>
+      </Patient>
+    </resource>
+  </entry>
+  
+  <!-- ambiguous reference -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/46"/>
+    <resource>
+      <Observation>
+         <id value="46"/>
+         <subject>
+           <reference value="Patient/45"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+
+  <!-- unambiguous reference -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/47"/>
+    <resource>
+      <Observation>
+         <id value="47"/>
+         <subject>
+           <reference value="Patient/45/_history/2"/>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+	
+  <!-- idnetifier based reference, resolves to first patient -->
+  <entry>
+    <fullUrl value="http://example.org/fhir/Observation/48"/>
+    <resource>
+      <Observation>
+         <id value="48"/>
+         <subject>
+					 <identifier>
+						 <system value="http://example.org/ids"/>
+						 <value value="1234567"/>
+					 </identifier>
+         </subject>
+      </Observation>
+    </resource>
+  </entry>
+	
+	
+</Bundle>

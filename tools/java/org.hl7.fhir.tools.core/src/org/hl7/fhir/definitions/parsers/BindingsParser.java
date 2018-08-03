@@ -106,7 +106,7 @@ public class BindingsParser {
     if (!cd.getName().startsWith("!")) {
       if (Character.isLowerCase(cd.getName().charAt(0)))
         throw new Exception("binding name "+cd.getName()+" is illegal - must start with a capital letter");
-      cd.setDefinition(sheet.getColumn(row, "Definition"));
+      cd.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
       cd.setBindingMethod(readBinding(sheet.getColumn(row, "Binding"), cd.getName()+" in "+filename));
       boolean utg = "y".equals(sheet.getColumn(row, "UTG"));
       String ref = sheet.getColumn(row, "Reference");

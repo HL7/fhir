@@ -1095,7 +1095,7 @@ public class SpreadsheetParser {
       if (definitions != null)
         definitions.getAllBindings().add(cd);
 
-			cd.setDefinition(sheet.getColumn(row, "Definition"));
+			cd.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
 
 			cd.setBindingMethod(BindingsParser.readBinding(sheet.getColumn(row, "Binding"), cd.getName()+" in "+folder));
       String ref = sheet.getColumn(row, "Reference");
@@ -1301,7 +1301,7 @@ public class SpreadsheetParser {
         c.setDisplay(Utilities.humanize(c.getCode()));
       c.setSystem(sheet.getColumn(row, "System"));
 			c.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
-      c.setComment(sheet.getColumn(row, "Comment"));
+      c.setComment(Utilities.appendPeriod(sheet.getColumn(row, "Comment")));
       c.setParent(sheet.getColumn(row, "Parent"));
       c.setV2Map(sheet.getColumn(row, "v2"));
       c.setV3Map(sheet.getColumn(row, "v3"));
@@ -1317,7 +1317,7 @@ public class SpreadsheetParser {
 
   private String processDefinition(String definition) {
 
-    return definition.replace("$version$", version);
+    return definition.replace("$version$", Utilities.appendPeriod(version));
   }
 
 
@@ -1816,7 +1816,7 @@ public class SpreadsheetParser {
 
     if (sheet.hasColumn(row, "Definition"))
       if (sheet.getColumn(row, "Definition").startsWith("&"))
-        e.setDefinition(Utilities.appendPeriod(e.getDefinition() + sheet.getColumn(row, "Definition").substring(1)));
+        e.setDefinition(Utilities.appendPeriod(e.getDefinition() + processDefinition(sheet.getColumn(row, "Definition")).substring(1)));
       else
         e.setDefinition(Utilities.appendPeriod(processDefinition(sheet.getColumn(row, "Definition"))));
 
@@ -1833,9 +1833,9 @@ public class SpreadsheetParser {
 		    e.setRequirements(Utilities.appendPeriod(sheet.getColumn(row, "Requirements")));
 		if (sheet.hasColumn(row, "Comments"))
 		  if (sheet.getColumn(row, "Comments").startsWith("&"))
-		    e.setComments(Utilities.appendPeriod(e.getComments() + sheet.getColumn(row, "Comments").substring(1)));
+		    e.setComments(Utilities.appendPeriod(e.getComments() + Utilities.appendPeriod(sheet.getColumn(row, "Comments").substring(1))));
 		  else
-		    e.setComments(Utilities.appendPeriod(sheet.getColumn(row, "Comments")));
+		    e.setComments(Utilities.appendPeriod(Utilities.appendPeriod(sheet.getColumn(row, "Comments"))));
 		for (String n : mappings.keySet()) {
 		  String ms = sheet.getColumn(row, mappings.get(n).getColumnName());
 		  if (mappings.get(n).getColumnName().equals("Snomed Code") && !Utilities.noString(ms))

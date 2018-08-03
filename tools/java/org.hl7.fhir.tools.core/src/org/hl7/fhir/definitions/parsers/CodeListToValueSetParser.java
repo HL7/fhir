@@ -89,7 +89,7 @@ public class CodeListToValueSetParser {
           	CodeSystemUtilities.setNotSelectable(cs, cc);
           if (cc.hasCode() && !cc.hasDisplay())
             cc.setDisplay(Utilities.humanize(cc.getCode()));
-          cc.setDefinition(sheet.getColumn(row, "Definition"));
+          cc.setDefinition(Utilities.appendPeriod(sheet.getColumn(row, "Definition")));
           if (!Utilities.noString(sheet.getColumn(row, "Comment")))
             ToolingExtensions.addCSComment(cc, sheet.getColumn(row, "Comment"));
           cc.setUserData("v2", sheet.getColumn(row, "v2"));

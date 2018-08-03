@@ -175,6 +175,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private ValidationProfileSet providedProfiles;
   private IEvaluationContext externalHostServices;
   private boolean noExtensibleWarnings;
+  private String serverBase;
 
   /*
    * Keeps track of whether a particular profile has been checked or not yet
@@ -3018,6 +3019,29 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // We do not yet have rules requiring that the id and fullUrl match when dealing with messaging Bundles
       //      validateResourceIds(errors, entries, stack);
     }
+    for (Element entry : entries) {
+      String fullUrl = entry.getNamedChildValue("fullUrl");
+      String url = getCanonicalURLForEntry(entry);
+      String id = getIdForEntry(entry);
+      if (url != null) {
+        rule(errors, IssueType.INVALID, entry.line(), entry.col(), stack.addToLiteralPath("entry", ":0"), !url.equals(fullUrl) || (url.matches(Constants.URI_REGEX) && url.endsWith("/"+id)), "The canonical URL ("+url+") cannot match the fullUrl ("+fullUrl+") unless the resource id ("+id+") also matches");
+        rule(errors, IssueType.INVALID, entry.line(), entry.col(), stack.addToLiteralPath("entry", ":0"), !url.equals(fullUrl) || serverBase == null || (url.equals(Utilities.pathURL(serverBase, entry.getNamedChild("resource").fhirType(), id))), "The canonical URL ("+url+") cannot match the fullUrl ("+fullUrl+") unless on the canonical server itself");
+      }
+    }
+  }
+
+  private String getCanonicalURLForEntry(Element entry) {
+    Element e = entry.getNamedChild("resource");
+    if (e == null)
+      return null;
+    return e.getNamedChildValue("url");
+  }
+
+  private String getIdForEntry(Element entry) {
+    Element e = entry.getNamedChild("resource");
+    if (e == null)
+      return null;
+    return e.getNamedChildValue("id");
   }
 
   /**

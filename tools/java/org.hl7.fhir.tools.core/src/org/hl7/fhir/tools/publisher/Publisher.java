@@ -1386,7 +1386,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(oid).setPreferred(false);
           }
           ns.setUserData("path", cs.getUserData("path"));
-          bnd.addEntry().setResource(ns).setFullUrl(cs.getUrl().replace("ValueSet", "NamingSystem"));
+          bnd.addEntry().setResource(ns).setFullUrl("http://hl7.org/fhir/"+ns.fhirType()+"/"+ns.getId());
         }
       }
     }
@@ -2558,7 +2558,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions()) {
         if (!urls.contains(ed.getUrl())) {
           urls.add(ed.getUrl());
-          extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed).setFullUrl(ed.getUrl()));
+          extensionsFeed.getEntry().add(new BundleEntryComponent().setResource(ed).setFullUrl("http://hl7.org/fhir/"+ed.fhirType()+"/"+ed.getId()));
         }
       }
       checkBundleURLs(extensionsFeed);
@@ -2647,10 +2647,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       v2Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
       for (ValueSet vs : page.getValueSets().values())
         if (vs.getUrl().contains("/v2"))
-          v2Valuesets.addEntry().setFullUrl(vs.getUrl()).setResource(vs);
+          v2Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()).setResource(vs);
       for (CodeSystem cs : page.getCodeSystems().values())
         if (cs!= null && cs.getUrl().contains("/v2"))
-          v2Valuesets.addEntry().setFullUrl(cs.getUrl()).setResource(cs);
+          v2Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+cs.fhirType()+"/"+cs.getId()).setResource(cs);
 
 
       checkBundleURLs(v2Valuesets);
@@ -2668,10 +2668,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       v3Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
       for (ValueSet vs : page.getValueSets().values())
         if (vs.getUrl().contains("/v3"))
-          v3Valuesets.addEntry().setFullUrl(vs.getUrl()).setResource(vs);
+          v3Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()).setResource(vs);
       for (CodeSystem cs : page.getCodeSystems().values())
         if (cs != null && cs.getUrl().contains("/v3"))
-          v3Valuesets.addEntry().setFullUrl(cs.getUrl()).setResource(cs);
+          v3Valuesets.addEntry().setFullUrl("http://hl7.org/fhir/"+cs.fhirType()+"/"+cs.getId()).setResource(cs);
       
       checkBundleURLs(v3Valuesets);
       s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml");
@@ -2706,7 +2706,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             ValueSet vsc = vs.copy();
             vsc.setText(null);
             vsc.setExpansion(evs.getExpansion());
-            expansionFeed.addEntry().setFullUrl(vsc.getUrl()).setResource(vsc);
+            expansionFeed.addEntry().setFullUrl("http://hl7.org/fhir/"+vsc.fhirType()+"/"+vsc.getId()).setResource(vsc);
           }
         }
       }
@@ -3582,7 +3582,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void addOtherProfiles(Bundle bundle, Profile cp) {
     for (ConstraintStructure p : cp.getProfiles())
-      bundle.addEntry().setResource(p.getResource()).setFullUrl(p.getResource().getUrl());
+      bundle.addEntry().setResource(p.getResource()).setFullUrl("http://hl7.org/fhir/"+p.getResource().fhirType()+"/"+p.getResource().getId());
   }
 
   private void addOtherProfiles(Bundle bundle, ResourceDefn rd) {
@@ -3600,7 +3600,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
         SearchParameter sp = spd.getResource();
         if (!uris.contains(sp.getUrl())) {
-          bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
+          bundle.addEntry().setResource(sp).setFullUrl("http://hl7.org/fhir/"+sp.fhirType()+"/"+sp.getId());
           uris.add(sp.getUrl());
         }
       }
@@ -3624,7 +3624,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void addSearchParams(Set<String> uris, Bundle bundle, Profile conformancePack) {
     for (SearchParameter sp : conformancePack.getSearchParameters()) {
       if (!uris.contains(sp.getUrl())) {
-        bundle.addEntry().setResource(sp).setFullUrl(sp.getUrl());
+        bundle.addEntry().setResource(sp).setFullUrl("http://hl7.org/fhir/"+sp.fhirType()+"/"+sp.getId());
         uris.add(sp.getUrl());
       }
     }
@@ -4911,7 +4911,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     ResourceUtilities.meta(vs).setLastUpdated(page.getGenDate().getTime());
     if (vs.getUrl().startsWith("http://hl7.org/fhir/") && !vs.getUrl().equals("http://hl7.org/fhir/"+vs.getResourceType().toString()+"/"+vs.getId()))
       throw new Exception("URL mismatch on value set: "+vs.getUrl()+" vs "+"http://hl7.org/fhir/"+vs.getResourceType().toString()+"/"+vs.getId());
-    dest.getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
+    dest.getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl("http://hl7.org/fhir/"+vs.fhirType()+"/"+vs.getId()));
   }
 
   private void addToResourceFeed(ConceptMap cm, Bundle dest) throws Exception {
@@ -4925,7 +4925,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     ResourceUtilities.meta(cm).setLastUpdated(page.getGenDate().getTime());
     if (!cm.getUrl().equals("http://hl7.org/fhir/"+cm.getResourceType().toString()+"/"+cm.getId()))
       throw new Exception("URL mismatch on concept map");
-    dest.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
+    dest.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl("http://hl7.org/fhir/"+cm.fhirType()+"/"+cm.getId()));
   }
 
   private void addToResourceFeed(CompartmentDefinition cd, Bundle dest) throws Exception {
@@ -4939,7 +4939,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     ResourceUtilities.meta(cd).setLastUpdated(page.getGenDate().getTime());
     if (!cd.getUrl().equals("http://hl7.org/fhir/"+cd.getResourceType().toString()+"/"+cd.getId()))
       throw new Exception("URL mismatch on concept map");
-    dest.getEntry().add(new BundleEntryComponent().setResource(cd).setFullUrl(cd.getUrl()));
+    dest.getEntry().add(new BundleEntryComponent().setResource(cd).setFullUrl("http://hl7.org/fhir/"+cd.fhirType()+"/"+cd.getId()));
   }
 
   private void addToResourceFeed(CapabilityStatement cs, Bundle dest) throws Exception {
@@ -4955,7 +4955,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     ResourceUtilities.meta(cs).setLastUpdated(page.getGenDate().getTime());
     if (!cs.getUrl().equals("http://hl7.org/fhir/"+cs.getResourceType().toString()+"/"+cs.getId()))
       throw new Exception("URL mismatch on CapabilityStatement");
-    dest.getEntry().add(new BundleEntryComponent().setResource(cs).setFullUrl(cs.getUrl()));
+    dest.getEntry().add(new BundleEntryComponent().setResource(cs).setFullUrl("http://hl7.org/fhir/"+cs.fhirType()+"/"+cs.getId()));
   }
 
   private void produceConformancePackage(ResourceDefn res, Profile pack, SectionTracker st) throws Exception {
@@ -6325,7 +6325,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     html = page.processPageIncludes(Utilities.changeFileExt(filename, ".html"), html, "conceptmap-instance", null, null, null, "Concept Map", null, null, wg("vocab"));
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, ".html"));
 
-    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
+    conceptMapsFeed.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl("http://hl7.org/fhir/"+cm.fhirType()+"/"+cm.getId()));
     page.getConceptMaps().put(cm.getUrl(), cm);
     page.getHTMLChecker().registerFile(n + ".html", cm.getName(), HTMLLinkChecker.XHTML_TYPE, false);
   }

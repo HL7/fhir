@@ -33,6 +33,7 @@ import java.util.List;
 
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.utilities.CSVReader;
+import org.hl7.fhir.utilities.Utilities;
 
 public class CodeListParser  extends CSVReader {
 
@@ -53,8 +54,8 @@ public class CodeListParser  extends CSVReader {
 		DefinedCode c = new DefinedCode();
     c.setId(getColumn(titles, values, "Id"));
     c.setCode(getColumn(titles, values, "Code"));
-		c.setDefinition(getColumn(titles, values, "Definition"));
-    c.setComment(getColumn(titles, values, "Comment"));
+		c.setDefinition(Utilities.appendPeriod(getColumn(titles, values, "Definition")));
+    c.setComment(Utilities.appendPeriod(getColumn(titles, values, "Comment")));
     c.setParent(getColumn(titles, values, "Parent"));
     c.setAbstract(getColumn(titles, values, "Abstract").toUpperCase().equals("Y"));
 		codes.add(c);

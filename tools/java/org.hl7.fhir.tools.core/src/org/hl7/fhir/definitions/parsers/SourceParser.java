@@ -352,7 +352,7 @@ public class SourceParser {
     if (res instanceof MetadataResource) {
       res.setUserData("external.url", stated);
       context.cacheResource(res);
-      externals.addEntry().setFullUrl(((MetadataResource) res).getUrl()).setResource(res).addLink().setRelation("via").setUrl(stated);
+      externals.addEntry().setFullUrl("http://hl7.org/fhir/"+res.fhirType()+"/"+res.getId()).setResource(res).addLink().setRelation("via").setUrl(stated);
     } else
       throw new Exception("Unsupported external resource type "+res.fhirType());  
   }
