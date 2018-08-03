@@ -7245,7 +7245,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">#11</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="String">Edit Version Conflict</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Content could not be accepted because of an edit conflict (i.e. version aware updates) (In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the conflict is discovered further into the application architecture.)</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Content could not be accepted because of an edit conflict (i.e. version aware updates). (In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the conflict is discovered further into the application architecture.)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
