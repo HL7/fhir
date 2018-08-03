@@ -3005,6 +3005,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getHTMLChecker().registerFile(n, cm.getTitle(), HTMLLinkChecker.XHTML_TYPE, true);
     cloneToXhtml(Utilities.changeFileExt(n, ""), cm.getTitle(), true, "conceptmap-instance", "Profile", null, ((ResourceDefn) cm.getUserData("resource-definition")).getWg());
     jsonToXhtml(Utilities.changeFileExt(n, ""), cm.getTitle(), resource2Json(cm), "conceptmap-instance", "Profile", null, ((ResourceDefn) cm.getUserData("resource-definition")).getWg());
+    ttlToXhtml(Utilities.changeFileExt(n, ""), cm.getTitle(), resource2Ttl(cm),  "conceptmap-instance", "Profile", null, ((ResourceDefn) cm.getUserData("resource-definition")).getWg());
   }
 
   public class ProfileBundleSorter implements Comparator<BundleEntryComponent> {
@@ -3655,6 +3656,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.close();
       cloneToXhtml(prefix+filename, ed.getName(), false, "summary-instance", ed.getUrl(), null, wg(ed));
       jsonToXhtml(prefix+filename, ed.getName(), resource2Json(ed), "extension", ed.getUrl(), null, wg(ed));
+      ttlToXhtml(prefix+filename, ed.getName(), resource2Ttl(ed), "extension", ed.getUrl(), null, wg(ed));
 
       ByteArrayOutputStream bytes = new ByteArrayOutputStream();
       XmlSpecGenerator gen = new XmlSpecGenerator(bytes, filename+"-definitions.html", null /*"http://hl7.org/fhir/"*/, page, page.genlevel(ig.isCore() ? 0 : 1));
@@ -3874,6 +3876,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     addToResourceFeed(rp, page.getTypeBundle(), (fn));
     cloneToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), false, "profile-instance:type:" + pt.getName(), "Type", null, wg("mnm"));
     jsonToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), resource2Json(rp), "profile-instance:type:" + pt.getName(), "Type", null, wg("mnm"));
+    ttlToXhtml(pt.getName().toLowerCase() + ".profile", "StructureDefinition for " + pt.getName(), resource2Ttl(rp), "profile-instance:type:" + pt.getName(), "Type", null, wg("mnm"));
     String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
     TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
     shexToXhtml(pt.getName().toLowerCase(), "ShEx statement for " + pt.getName(), shex, "profile-instance:type:" + pt.getName(), "Type", null, wg("mnm"));
@@ -3906,6 +3909,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // + File.separator + "datatypes.html"));
     cloneToXhtml("xhtml.profile", "StructureDefinition for xhtml", false, "profile-instance:type:xhtml", "Type", null, wg("mnm"));
     jsonToXhtml("xhtml.profile", "StructureDefinition for xhtml", resource2Json(rp), "profile-instance:type:xhtml", "Type", null, wg("mnm"));
+    ttlToXhtml("xhtml.profile", "StructureDefinition for xhtml", resource2Ttl(rp), "profile-instance:type:xhtml", "Type", null, wg("mnm"));
     shexToXhtml("xhtml", "ShEx statement for xhtml", shex, "profile-instance:type:xhtml", "Type", null, wg("mnm"));
   }
 
@@ -3937,6 +3941,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), false, "profile-instance:type:" + type.getCode(), "Type", null, wg("mnm"));
     jsonToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), resource2Json(rp), "profile-instance:type:" + type.getCode(), "Type", null, wg("mnm"));
+    ttlToXhtml(type.getCode().toLowerCase() + ".profile", "StructureDefinition for " + type.getCode(), resource2Ttl(rp), "profile-instance:type:" + type.getCode(), "Type", null, wg("mnm"));
     shexToXhtml(type.getCode().toLowerCase(), "ShEx statement for " + type.getCode(), shex, "profile-instance:type:" + type.getCode(), "Type", null, wg("mnm"));
   }
 
@@ -3977,6 +3982,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // + File.separator + "datatypes.html"));
     cloneToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), false, "profile-instance:type:" + type.getName(), "Type", null, wg("mnm"));
     jsonToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), resource2Json(rp), "profile-instance:type:" + type.getName(), "Type", null, wg("mnm"));
+    ttlToXhtml(type.getName().toLowerCase() + ".profile", "StructureDefinition for " + type.getName(), resource2Ttl(rp), "profile-instance:type:" + type.getName(), "Type", null, wg("mnm"));
     String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
     TextFile.stringToFile(shex, Utilities.changeFileExt(page.getFolders().dstDir + fn, ".shex"));
     shexToXhtml(type.getName().toLowerCase(), "ShEx statement for " + type.getName(), shex, "profile-instance:type:" + type.getName(), "Type", null, wg("mnm"));
@@ -4822,6 +4828,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       saveAsPureHtml(rp, new FileOutputStream(page.getFolders().dstDir + "html" + File.separator + n + ".html"));
       cloneToXhtml(n + ".profile", "StructureDefinition for " + n, true, "profile-instance:resource:" + root.getName(), "Profile", root, root.getWg());
       jsonToXhtml(n + ".profile", "StructureDefinition for " + n, resource2Json(rp), "profile-instance:resource:" + root.getName(), "Profile", root, root.getWg());
+      ttlToXhtml(n + ".profile", "StructureDefinition for " + n, resource2Ttl(rp), "profile-instance:resource:" + root.getName(), "Profile", root, root.getWg());
       String shex = new ShExGenerator(page.getWorkerContext()).generate(HTMLLinkPolicy.NONE, rp);
       TextFile.stringToFile(shex, page.getFolders().dstDir + n+".shex");
       shexToXhtml(n, "ShEx statement for " + n, shex, "profile-instance:type:" + root.getName(), "Type", root, root.getWg());
@@ -5389,6 +5396,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       cloneToXhtml(ig.getPrefix()+n, "Logical Model "+lm.getDefinition().getName(), true, "logical-model", lm.getDefinition().getName(), null, lm.getWg());
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, ig.getPrefix(), n+".json")), lm.getDefinition());
       jsonToXhtml(ig.getPrefix()+n, "Logical Model "+lm.getDefinition().getName(), new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(lm.getDefinition()), "logical-model", lm.getDefinition().getName(), null, lm.getWg());
+      ttlToXhtml(ig.getPrefix()+n, "Logical Model "+lm.getDefinition().getName(), new RdfParser().setOutputStyle(OutputStyle.PRETTY).composeString(lm.getDefinition()), "logical-model", lm.getDefinition().getName(), null, lm.getWg());
     }
     if (lm.getWg() != null && lm.getResource().getWg() == null)
       lm.getResource().setWg(lm.getWg());
@@ -5475,6 +5483,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     json.compose(s, dict);
     s.close();
     jsonToXhtml(filename, "Source for Dictionary" + d.getName(), resource2Json(dict), "dict-instance", "Dictionary", null, null);
+    ttlToXhtml(filename, "Source for Dictionary" + d.getName(), resource2Ttl(dict), "dict-instance", "Dictionary", null, null);
     throw new Error("must be redone");
 //    for (BundleEntryComponent e : dict.getEntry()) {
 //      produceDictionaryProfile(d, file, filename, (DataElement) e.getResource(), d.getIg());
@@ -6056,6 +6065,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         s.close();
         cloneToXhtml(name, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set", null, wg("vocab"));
         jsonToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set", null, wg("vocab"));
+        ttlToXhtml(name, "Definition for Value Set" + vs.getName(), resource2Ttl(vs), "valueset-instance", "Value Set", null, wg("vocab"));
       }
     }
   }
@@ -6150,6 +6160,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 //      System.out.println(vs.getUrl());
       cloneToXhtml(n, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set", null, wg("vocab"));
       jsonToXhtml(n, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set", null, wg("vocab"));
+      ttlToXhtml(n, "Definition for Value Set" + vs.getName(), resource2Ttl(vs), "valueset-instance", "Value Set", null, wg("vocab"));
     }
 
   }
@@ -6222,6 +6233,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 //      System.out.println(vs.getUrl());
       cloneToXhtml(n, "Definition for Code System " + cs.getName(), false, "codesystem-instance", "Code System", null, wg);
       jsonToXhtml(n, "Definition for Code System " + cs.getName(), resource2Json(cs), "codesystem-instance", "Code System", null, wg);
+      ttlToXhtml(n, "Definition for Code System " + cs.getName(), resource2Ttl(cs), "codesystem-instance", "Code System", null, wg);
     }
   }
 //  if (vs.hasCodeSystem()) {
@@ -6298,6 +6310,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     s.close();
     String n = Utilities.changeFileExt(filename, "");
     jsonToXhtml(n, cm.getName(), resource2Json(cm), "conceptmap-instance", "Concept Map", null, wg("vocab"));
+    ttlToXhtml(n, cm.getName(), resource2Ttl(cm), "conceptmap-instance", "Concept Map", null, wg("vocab"));
     IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
     s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".xml"));
     xml.compose(s, cm);
