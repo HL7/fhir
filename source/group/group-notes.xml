@@ -1,5 +1,13 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+<a name="mixed-use"> </a>
+<h3>Mixing Characteristics and Members</h3>
+
+<p>
+If both <code>Group.characteristic</code> and <code>Group.member</code> are present, then the 
+members are the individuals who were found who met the characteristic.  It's possible that 
+there might be other candidate members who meet the characteristic and aren't (yet) in the list.  
+All members SHALL have the listed characteristics.
+</p>
 
 </div>
