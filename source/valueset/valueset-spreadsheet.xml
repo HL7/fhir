@@ -16,7 +16,6 @@
   
   <TabRatio>893</TabRatio>
   <ActiveSheet>4</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -5756,11 +5755,11 @@
     <Cell ss:StyleID="s156"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Heirarchical</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Hierarchical</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ValueSet Example showing how to specify a heirarchy for UI using extensions</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">example-heirarchical</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">valueset-example-heirarchical.xml</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">example-hierarchical</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">valueset-example-hierarchical.xml</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>
    </Row>

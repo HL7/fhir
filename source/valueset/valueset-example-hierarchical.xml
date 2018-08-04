@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="example-heirarchical"/>
+  <id value="example-hierarchical"/>
 	<meta>
 		<!--   many expansions are not shareable, but this one is   -->
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -118,9 +118,9 @@
       </concept> 
     </CodeSystem> 
   </contained>
-  <url value="http://hl7.org/fhir/ValueSet/example-heirarchical"/>
+  <url value="http://hl7.org/fhir/ValueSet/example-hierarchical"/>
   <version value="3.4.0"/>
-	<name value="Example Heirarchical ValueSet"/>
+	<name value="Example Hierarchical ValueSet"/>
   <status value="draft"/>
 	<experimental value="true"/>
 	<date value="2018-07-20"/>
@@ -131,7 +131,7 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="Demonstration of extensions that build a heirarchical contains"/>
+	<description value="Demonstration of extensions that build a hierarchical contains"/>
   <compose>
     <!--
       the include by enumeration simply lists a set of codes with no structure
