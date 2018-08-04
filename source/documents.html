@@ -282,7 +282,7 @@ of posting to them:
  <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end-point
    for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle,
    an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed
-   using a <a href="http.html#create">create</a> interaction the Bundle.id will change, but the Bundle.identifier will not</td></tr>
+   using a <a href="http.html#create">create</a> interaction the Bundle.id will change, but the Bundle.identifier will not. See <a href="bundle.html#rest">Serving Bundles using the RESTful API</a> for further comment</td></tr>
  <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end-point for managing
    composition resources. This can be used while building a document or after breaking a document up into
    its constituent resources or when using compositions separately from documents</td> </tr>
@@ -296,7 +296,7 @@ of posting to them:
    fact that the bundle is a document and process all of the resources that it contains as individual resources. Clients SHOULD
    not expect that a server that receives a document submitted using this method will be able to reassemble the document exactly. (Even if the
    server can reassemble the document (see below), the result cannot be expected to be in the same order, etc.  Thus a document signature will
-   very likely be invalid.)</td> </tr>
+   very likely be invalid.). See <a href="http.html#other-bundles">Accepting other Bundle types</a> for further details</td> </tr>
 
 </table>
 
