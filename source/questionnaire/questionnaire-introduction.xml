@@ -25,7 +25,7 @@ shared data elements using the <code>Questionnaire.item.definition</code> elemen
 <li>Research questionnaires/Clinical research forms (CRFs)</li>
 <li>Quality and evaluation forms</li>
 <li>Patient intake form (e.g. clipboard)</li>
-<li>Insurance claim form</li>
+<li>Forms to support insurance claims</li>
 </ul>
 <p>
 This resource is limited in scope to support the characteristics of simple questionnaires.  However, common extensions have been defined to allow more
@@ -36,7 +36,7 @@ sophisticated behavior.  This includes:
   <li><a href="element-extensions.html">Element extensions</a> which can describe additional constraints on allowed answers for questionnaires such as string length and date and numeric ranges</li>
 </ul>
 <p>
-Additional profiles such as the <a href="http://hl7.org/fhir/us/sdc/sdc-questionnaire.html">Structured Data Capture Questionnaire profile</a> may provide additional capabilities for defining
+Additional profiles such as the <a href="http://hl7.org/fhir/us/sdc/">Structured Data Capture Questionnaire profile</a> may provide additional capabilities for defining
 more sophisticated questionnaires and forms.
 </p>
 </div>
@@ -52,8 +52,13 @@ intended to capture only certain types of information (lab, imaging, vitals, etc
 medications, care plans, etc.), while Questionnaires are able to capture any information at all.  More importantly, Observation and DiagnosticReport focus on capturing the
 discrete information in a standardized form so that the information can be used consistently regardless of where or how it is captured.  Questionnaire focuses on information
 capture.  The same information can be captured using a wide variety of questionnaires with differently phrased questions organized in different manners.  As such, the
-Questionnaire resource provides a means to standardize the information gathering process (how information is captured), but not the actual information collected.  Observation
-and DiagnosticReport standardize what information is actually captured, but not how the information is gathered.
+Questionnaire resource provides a means to standardize the information gathering process (how information is captured), but not how data is interoperably compared, analyzed
+or computed upon (typically managed using Observation, DiagnosticReport as well as other resources).
+</p>
+<p>
+Questionnaire supports data-collection workflow to a limited extent, in that - once triggered - a Questionnaire can guide a user through a data collection process that ensures
+appropriate information is collected based on answers to particular questions.  However, Questionnaire doesn't provide support for capturing sets of information at different
+times or highly interactive data capture.  Broader workflow is typically managed using PlanDefinition and Task or using other mechanisms such as CDSHooks.
 </p>
 <p>
 Questionnaires are similar to the notion of "logical models" supported by the <a href="structuredefinition.html">StructureDefinition</a> resource.  Both support the representation

@@ -16,6 +16,7 @@ constrain its structure and flexibility using profiles to define standardized, r
 Observations to model Questionnaires. Such use cases should now use the Questionnaire Resource instead.</li>
 <li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.</li>
 <li>Display items allow the inclusion of instructions, background information and similar content within a questionnaire.</li>
+<li>In cases where it is necessary or appropriate to capture the reason why a response is missing (that is, why a particular question was not answered), there should be an explicit child item defined for the relevant question(s) in the Questionnaire; e.g. add a child question of "Reason not specified:" with an enableWhen operator "not exists" to the parent question.</li>
 </ul>
 
 <a name="qversusr"></a>
