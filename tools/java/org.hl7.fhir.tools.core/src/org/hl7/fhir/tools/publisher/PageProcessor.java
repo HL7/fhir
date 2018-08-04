@@ -407,6 +407,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Map<String, Map<String, PageInfo>> normativePackages = new HashMap<String, Map<String, PageInfo>>();
   private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
+  private Map<String, String> macros = new HashMap<String, String>();
+  
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
     this.tsServer = tsServer;
@@ -1315,7 +1317,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+others.get(s2)+s3;
       else  if (com[0].equals("canonical-resources")) 
         src = s1+listCanonicalResources()+s3;      
-      else
+      else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
+      } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
@@ -4985,7 +4989,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + publicationNotice + s3;
       else if (com[0].startsWith("!"))
         src = s1 + s3;
-      else
+      else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
+      } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
@@ -5625,7 +5631,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
       else  if (com[0].equals("canonical-resources")) 
         src = s1+listCanonicalResources()+s3;      
-      else
+      else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
+      } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
@@ -6144,6 +6152,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+s3;
         else
           src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.html#root\">[root]</a>/"+name+"/</p>"+s3;
+      } else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
+      } else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
+      } else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
 
@@ -7940,6 +7954,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
            src = s1+s3;
          else
            src = s1+"The id of this profile is "+pack.metadata("id")+s3;
+      } else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
@@ -8388,7 +8404,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(ed, genlevel(level))+s3;
-      else
+      else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
+      } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+filename);
     }
     return src;
@@ -8721,6 +8739,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.folders = folders;
     htmlchecker = new HTMLLinkChecker(this, validationErrors, baseURL);
     r3r4Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r3maps", "outcomes.json")));
+    for (File f : new File(Utilities.path(folders.rootDir, "tools", "macros")).listFiles()) {
+      if (f.getAbsolutePath().endsWith(".html")) {
+        macros.put(Utilities.fileTitle(f.getName()), TextFile.fileToString(f));
+      }
+    }
   }
 
   public void setIni(IniFile ini) {
@@ -9215,6 +9238,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+"(No assigned work group) ("+wg+") (4)"+s3;
         else
           src = s1+ "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group"+s3;
+      } else if (macros.containsKey(com[0])) {
+        src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing profile "+pack.getId());
     }
