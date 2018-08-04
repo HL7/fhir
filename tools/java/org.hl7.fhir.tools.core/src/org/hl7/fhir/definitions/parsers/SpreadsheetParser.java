@@ -74,6 +74,7 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.ExtensionDefinitionValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.formats.FormatUtilities;
@@ -2100,7 +2101,7 @@ public class SpreadsheetParser {
 	    if (sheet.hasColumn("Context Invariant"))
 	      for (String s : sheet.getColumn(row, "Context Invariant").split("~"))
 	        ex.addContextInvariant(s);
-	    String cc = sheet.getColumn(row, "Context");
+	    String cc = checkContextMacro(sheet.getColumn(row, "Context"));
 	    if (!Utilities.noString(cc))
 	      for (String c : cc.split("\\;")) {
 	        StructureDefinitionContextComponent ec = ex.addContext();
@@ -2196,7 +2197,24 @@ public class SpreadsheetParser {
 	  return row;
 	}
 
-  private String preProcessMarkdown(String text, String location) throws Exception {
+ private String checkContextMacro(String s) throws FHIRException {
+    if ("%canonicals".equals(s)) {
+      StringBuilder b = new StringBuilder();
+      boolean first = true;
+      
+      for (String rn : definitions.sortedResourceNames()) {
+        ResourceDefn rd = definitions.getResourceByName(rn);
+        if (rd.getTemplate() != null) {
+          if (first) first = false; else b.append(";");
+          b.append(rn);
+        }
+      }
+      return b.toString();
+    }
+    return s;
+  }
+
+ private String preProcessMarkdown(String text, String location) throws Exception {
     return MarkDownPreProcessor.process(definitions, context, null, text, location, null);
   }
 
