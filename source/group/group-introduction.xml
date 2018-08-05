@@ -20,7 +20,7 @@
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are five mechanisms in FHIR for communicating collections of resources:
+There are a number of mechanisms in FHIR for communicating collections of resources:
 </p>
 <ul>
 <li>
@@ -35,6 +35,14 @@ or by describing qualities that group members have. The group resource refers to
 Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
 etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
 defining a test subject pool) and similar purposes.
+</li>
+<li><a href="careteam.html">CareTeam</a>. Group is distinct from CareTeam. Group is patient-independent and identifies an 
+undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of 
+clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc.) 
+The CareTeam resource establishes a set of relationships and roles and is specific to a particular Patient. 
+The actors are the individual members or organized group of individuals. CareTeam can be referenced by EpisodeOfCare, 
+Encounter, or CarePlan to identify the set of individuals (and their respective roles) who are intended to be involved 
+in providing the care defined by those resources.
 </li>
 <li>
 The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have narrative 
