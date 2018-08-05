@@ -17,7 +17,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.WorkGroup;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.FormatUtilities;
+import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
@@ -359,17 +361,21 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   }
 
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
-    ValueSet vs = new ValueSet();
+    ValueSet vs = createValueSet(id);
     vs.setLanguage("en");
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-    vs.setName("v2 table " + id);
-    vs.setPublisher("HL7, Inc");
+    vs.setName("V2." + id);
+    if (!vs.hasTitle())
+      vs.setTitle("v2 table " + id);
+    if (!vs.hasPublisher())
+      vs.setPublisher("HL7, Inc");
     vs.setVersion(MAX_VER);
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    if (!vs.hasContact())
+      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     vs.setDateElement(new DateTimeType(date));
@@ -385,8 +391,10 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       String ver = c.getAttribute("version");
       if (!ver.contains(" ")) {
         desc = c.getAttribute("desc");
-        vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
-        vs.setName("v2 " + desc);
+        if (!vs.hasDescription())
+          vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
+        if (vs.getTitle().equals("v2 table " + id))
+          vs.setTitle("v2 " + desc);
 
         Element g = XMLUtil.getFirstChild(c);
         while (g != null) {
@@ -465,6 +473,14 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     return vs;
   }
 
+  private ValueSet createValueSet(String id) throws IOException, FHIRFormatError {
+    File f = new File(Utilities.path(page.getFolders().srcDir, "v2", "templates", "v2."+id+".xml"));
+    if (f.exists())
+      return (ValueSet) new XmlParser().parse(new FileInputStream(f));
+    else
+      return new ValueSet();
+  }
+
   private ConceptSetComponent checkAddCSReference(ValueSet vs, Set<String> sources, String cd) throws Exception {
     ConceptSetComponent cset = null;
     for (String system : sources) {
@@ -498,7 +514,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   }
 
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
-    ValueSet vs = new ValueSet();
+    ValueSet vs = createValueSet(id);
     vs.setLanguage("en");
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     ValueSetUtilities.makeShareable(vs);
@@ -506,10 +522,14 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-    vs.setName("v2 table " + id);
+    vs.setName("V2." + id);
+    if (!vs.hasTitle())
+      vs.setTitle("v2 table " + id);
+    if (!vs.hasPublisher())
     vs.setPublisher("HL7, Inc");
     vs.setVersion(MAX_VER);
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    if (!vs.hasContact())
+      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     vs.setDateElement(new DateTimeType(date)); 
@@ -531,8 +551,10 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       String ver = c.getAttribute("version");
       if (!ver.contains(" ")) {
         desc = c.getAttribute("desc");
+        if (!vs.hasDescription())
         vs.setDescription("FHIR Value set/code system definition for HL7 v2 table " + id + " ( " + desc + ")");
-        vs.setName("v2 " + desc);
+        if (vs.getTitle().equals("v2 table " + id))
+          vs.setTitle("v2 " + desc);
 
         Element g = XMLUtil.getFirstChild(c);
         while (g != null) {
@@ -663,7 +685,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
   private void buildV2CodeSystemVersioned(VSPack vp, String id, String version, String endVersion, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
 
-    ValueSet vs = new ValueSet();
+    ValueSet vs = createValueSet(id+"."+version);
     vs.setLanguage("en");
     ValueSetUtilities.makeShareable(vs);
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
@@ -671,14 +693,19 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
-    vs.setName("v2 table " + id + ", Version " + version);
-    vs.setPublisher("HL7, Inc");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
+    vs.setName("V2." + id + "." + version);
+    if (!vs.hasTitle())
+      vs.setTitle("v2 table " + id + ", Version " + version);
+    if (!vs.hasPublisher())
+      vs.setPublisher("HL7, Inc");
+    if (!vs.hasContact())
+      vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org"));
     vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExperimental(false);
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType(date)); 
-    vs.setDescription("v2 table definition for "+vs.getName());
+    if (!vs.hasDescription())
+      vs.setDescription("v2 table definition for "+vs.getName());
     CodeSystem cs = new CodeSystem();
     cs.setLanguage("en");
     CodeSystemUtilities.makeShareable(cs);
