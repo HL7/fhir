@@ -123,22 +123,41 @@ messages in a given stream are dependent on each other, and must be sent and
 processed in order. In addition, some transfer methods may require sequential
 delivery of messages.
 </p>
+<a name="sync"> </a>
+<h4>Synchronous</h4>
 <p>
 For this reason, a synchronous exchange pattern - where the sender sends a
 message, and waits on the same channel for a single response, and then
-sends the next message - is the easiest to understand and manage. The
-<a href="#process">$process-message</a> <a href="operations.html">operation</a>
-described below works in this fashion.
+sends the next message - is the easiest to understand and manage:
 </p>
+<ul>
+ <li>the sender sends a message to the receiver (the server)</li>
+ <li>the server processes it, and then returns a response</li>
+ <li>Usually (though not always) the sender waits for the response to the current message before sending the next message</li>
+</ul>
+<p>
+This kind of messaging exchange is the most common because it's the simplest to understand. 
+</p>
+<a name="async"> </a>
+<h4>Asynchronous</h4>
 <p>
 However synchronous message exchange does not cater for multiple response
 messages, which may arise when processing queries, and also imposes
 through-put limitations which may become relevant at high volumes.
 Additionally, it might not be practical or appropriate to wait for
 response messages. In these cases, the asynchronous message pattern
-<a href="#async">described below</a> should be used.
+should be used.
 </p>
-
+<p>
+In Asynchronous messaging, the server acknowledges receipt of the message immediately,
+and responds to the sender separately. The server may respond more than once to any
+given message.
+</p>
+<p>
+When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent.
+Note that asynchronous messaging can be harder to implement due to the amount of complexity opposed to synchronous messaging; more can go wrong.
+This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
+</p>
 
 <h3>MessageHeader Identifiers &amp; Timestamps</h3>
 <p>
@@ -299,91 +318,9 @@ information content of the individual resources.
 <h2>$process-message</h2>
 <p>
 The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
-occurring is to use the <a href="messageheader-operations.html">$process-message</a>.
+occurring is to use the <a href="messageheader-operation-process-message.html">$process-message</a>.
 This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages.
-For example, in addition to processing the message event, a server
-may choose to retain all or some the resources and make them available on a RESTful interface, but
-is not required to do so.
-</p>
-<p>
-When processing messages, a server may return one of several status codes:
-</p>
-<ul>
-  <li><b>200 OK</b>: Indicates that the message has been fully processed.  If an application-level response is expected for the
-    submitted message, that response SHALL be returned as the body of the 200 response.</li>
-  <li><b>202 Accepted</b>: Indicates that the receiving system has accepted custody of the message</li>
-  <li><b>204 No Content</b>: Indicates that the message has been fully processed and would normally have had an application-level response,
-    but because of instructions from the sender (e.g. the
-    <a href="extension-messageheader-response-request.html">messageheader-response-request</a> extension), no response is being provided</li>
-  <li><b>300+</b>: Indicates that the message was not successfully processed.  The server MAY return an
-    <a href="operationoutcome.html">OperationOutcome</a> with additional information, and SHOULD
-    do so if the response code is 400 or greater.<br/>
-    The client SHALL interpret a 4xx response to indicate that there is no point resubmitting the unaltered
-    message, and a 5xx response to indicate an unexpected error occurred on the part of the server, with
-    the implication that it may be appropriate to resubmit the original message. Doing so SHOULD NOT result
-    in a duplicate message response. Repeated failures indicate either a fatal problem with the submission
-    or a problem with the receiving application.</li>
-</ul>
-<p>
-The following rules apply when using $process-message:
-</p>
-<ul>
- <li>The operation only accepts POST transactions - any other HTTP method will result in an HTTP error</li>
- <li>The request content type submitted is always <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource</li>
- <li>The response content type returned is always <a href="bundle.html">a Bundle</a> with type "message" containing a <a href="messageheader.html">Message Header</a> resource as the first resource, or an HTTP error</li>
- <li>If the response is an error, the body SHOULD be an <a href="operationoutcome.html">Errors &amp; Warning</a> resource with full details</li>
- <li>The mailbox may be authenticated using standard HTTP authentication methods, including OAuth</li>
-</ul>
-<p>
-The $process-message operation can be used by any HTTP end-point that accepts FHIR messages, not just FHIR RESTful servers.
-</p>
-<p>
-In order to ensure consistency of processing, the <a href="#reliable">logical rules regarding processing of Bundle.id and
-message id described above</a> SHALL be followed when messages are processed using this operation.
-</p>
-
-<p>
-The <a href="messageheader-operations.html">$process-message</a> operation may be used
-synchronously, or asynchronously.
-</p>
-<h3>Synchronous Operation</h3>
-<p>
-Synchronous messaging is the easiest to understand; the sender sends a message to the
-receiver (the server), the server processes it, and then returns a response. Usually
-(though not always) the sender waits for the response to the current message before
-sending the next message. This kind of messaging exchange is the most common because
-it's the simplest to understand.
-</p>
-<p>
-The following rules apply when using the $process-message operation synchronously:
-</p>
-<ul>
- <li>The URL (http://server/base/$process-message) has no parameters</li>
- <li>It is an error if the sender POSTs a message that requires multiple response messages</li>
- <li>Servers SHALL accept multiple concurrent message submissions and process them correctly (they are allowed to process them sequentially internally, but multiple concurrent submissions is not an error in its own right)</li>
-</ul>
-<h3>Asynchronous Operation</h3>
-<p>
-In Asynchronous messaging, the server acknowledges receipt of the message immediately,
-and responds to the sender separately. The server may respond more than once to any
-given message.
-</p>
-<p>
-The following rules apply when using the $process-message operation asynchronously:
-</p>
-<ul>
- <li>The URL has at least one parameter: http://server/base/$process-message?async=true</li>
- <li>The server acknowledges the message with a 200 OK with no body, or returns an HTTP error if the message cannot be processed. An <a href="operationoutcome.html">OperationOutcome</a> SHOULD be returned in such a case</li>
- <li>Accepting the message means that the server has understood the message enough to know where to respond</li>
- <li>By default, the server responds by invoking the $process-message using the sender's stated end-point in the message: POST [MessageHeader.source.endpoint]/$process-messages]</li>
- <li>Since the source end-point may be manipulated by message transfer engines, an alternative response address may be specified using the parameter "response-url": http://server/base/$process-message?async=true&amp;response-url=http://server2.com/base/anything.
-   The endpoint at the specified URL SHALL implement the signature of the $process-message operation (parameter async=true, accept a Bundle, return a 200 OK or an error)</li>
- <li>The server submits response messages to the appropriate end-point with the parameter async=true. There is no response message for the response messages</li>
-</ul>
-<p>
-When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent.
-Note that asynchronous messaging can be harder to implement due to the amount of complexity opposed to synchronous messaging; more can go wrong.
-This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
+See the opreation definition for further details.
 </p>
 
 <a name="endpoints"></a>
