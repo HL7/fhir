@@ -386,4 +386,22 @@
 		<sort>38</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>http://hl7.org/fhir/composition</url>
+    <link></link>
+		<columnName>Composition Mapping</columnName>
+		<title>FHIR Composition</title>
+		<id>fhircomposition</id>
+		<sort>39</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/documentreference</url>
+    <link></link>
+		<columnName>DocumentReference Mapping</columnName>
+		<title>FHIR DocumentReference</title>
+		<id>fhirdocumentreference</id>
+		<sort>40</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>

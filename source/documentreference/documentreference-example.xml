@@ -44,7 +44,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<subject>
 		<reference value="Patient/xcda"/>
 	</subject>
-	<created value="2005-12-24T09:35:00+11:00"/>
 	<date value="2005-12-24T09:43:41+11:00"/>
 	<agent>
 		<type>
@@ -97,6 +96,8 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 			<url value="http://example.org/xds/mhd/Binary/07a6483f-732b-461e-86b6-edb665c45510"/>
 			<size value="3654"/>
 			<hash value="2jmj7l5rSw0yVb/vlWAYkK/YBwk="/>
+			<title value="Physical"/>
+         	<creation value="2005-12-24T09:35:00+11:00"/>
 		</attachment>
 		<format>
 			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
@@ -137,13 +138,11 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 			<reference value="Patient/xcda"/>
 		</sourcePatientInfo>
 		<related>
+			<reference value="Patient/xcda"/>
 			<identifier>
 				<system value="urn:ietf:rfc:3986"/>
 				<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.2345"/>
 			</identifier>
-			<ref>
-				<reference value="Patient/xcda"/>
-			</ref>
 		</related>
 	</context>
 </DocumentReference>
