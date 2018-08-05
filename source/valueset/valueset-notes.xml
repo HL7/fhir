@@ -253,4 +253,27 @@ For this reason, the degree to which the search parameter is supported can be de
 statement. 
 </p>
 
+<a name="combinations"></a>
+<h2>Combinations of .compose and .expansion</h2>
+<p>
+Use cases for the different combinations:
+</p>
+<ul>
+ <li><code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code> only:
+ Provides the value set definition (CLD).  This is the expected format from the value set publisher. 
+ </li>
+ <li><code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code> only:
+ Provides the value set expansion, which might or might not be persisted (see <a href="valueset.html#expansion">4.8.7 Value Set Expansion</a> above).
+ The "expansion only" format may be returned in the $expand operation output (at the terminology server's discretion). 
+ </li>
+ <li>Both <code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code> and <code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
+ The terminology server often may include the definition as well as the expansion in the $expand operation output.  
+ The resource instance including the expansion might or might not be persisted. 
+ </li>
+ <li>Neither <code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code> nor <code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
+ This is a valid format for ValueSet resource instances.  A primary use case is the return from a summary search (i.e. _summary=true).  
+ This may be especially useful to reduce the performance overhead when returning a summary of extensionally defined value sets 
+ (which may include a large number of concepts in the value set definition).
+ </li>
+</ul>
 </div>
