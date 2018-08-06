@@ -51,7 +51,7 @@ find the structure when registered in profile repositories.
    <p>The identifier that is used to identify this version of the structure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure author manually and the value should be a timestamp.</p>
    <p>Note that there may be multiple resource versions of the structure that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
    </td></tr>
- <tr><td>name</td><td>A Computer=ready name (e.g. a token) that identifies the structure - suitable for code generation	</td></tr>
+ <tr><td>name</td><td>A Computer-ready name (e.g. a token) that identifies the structure - suitable for code generation	</td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>
