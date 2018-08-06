@@ -517,7 +517,7 @@ public class SourceParser {
         }
       else
         bp.append(p);
-      if (!targets.isEmpty())
+      if (!targets.isEmpty()) {
         bp.append(".where(");
         boolean innerFirst = true;
         for (String t : targets) {
@@ -525,6 +525,7 @@ public class SourceParser {
           bp.append("resolve() is "+t);
         }
         bp.append(")");
+      }
       if (first)
         first = false;
       else
