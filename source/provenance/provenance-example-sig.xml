@@ -56,9 +56,9 @@
 			<display value="Verification Signature"/>
 		</type>
 		<when value="2015-08-27T08:39:24+10:00"/>
-		<whoReference>
+		<who>
 			<reference value="Practitioner/xcda-author"/>
-		</whoReference>	
+		</who>	
 		<targetFormat value="application/fhir+xml"/>
 		<sigFormat value="application/signature+xml"/>
 		<data value="Li4u"/>

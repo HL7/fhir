@@ -51,6 +51,9 @@
 			<concept><code value="APPEND"/>	</concept>
 			<concept><code value="NULLIFY"/> </concept>
 		</include>
+		<include>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+		</include>
 <!-- Reduced set to most likely
 		<include>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/>

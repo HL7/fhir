@@ -28,10 +28,10 @@
 					<display value="Author's Signature"/>
 				</type>
 				<when value="2017-02-01T17:23:07Z"/>
-				<whoReference>
+				<who>
 					<reference value="Practitioner/example"/>
 					<display value="Dr Adam Careful"/>
-				</whoReference>
+				</who>
 				<targetFormat value="application/fhir+xml"/>
 				<sigFormat value="application/signature+xml"/>
 				<data value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>

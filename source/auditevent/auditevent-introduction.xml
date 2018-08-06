@@ -32,26 +32,35 @@ it can also be used for any audit logging needs and simple event-based notificat
 <p>
 All actors - such as applications, processes, and services - involved in an auditable event should record an AuditEvent. 
 This will likely result in multiple AuditEvent entries that show whether privacy and security 
-safeguards, such as access control, are the properly functioning across an enterprise's system-of-systems. 
-Thus, it is typical to get an auditable event recorded by both the application in a workflow process, and the servers that support them. 
-For this reason, duplicate entries are expected, which is helpful because it may aid in the detection of, for example, 
+safeguards, such as access control, are properly functioning across an enterprise's system-of-systems. 
+Thus, it is typical to get an auditable event recorded by both the application in a workflow process and the servers that support them. 
+For this reason, duplicate entries are expected, which is helpful because it may aid in the detection of. For example, 
 fewer than expected actors being recorded in a multi-actor process or attributes related to those records being in 
 conflict, which is an indication of a security problem.
 There may be non-participating actors, such as trusted intermediary, that also detect a security relevant event and thus would record 
 an AuditEvent, such as a trusted intermediary.
 </p>
 <p>
-Security relevant events are not limited to communications or RESTful events. They include: software start-up and shutdown; 
-user login and logout; access control decisions; configuration events; software installation; policy rules changes; 
-and manipulation of data that exposes the data to users. See the 
+Security relevant events are not limited to communications or RESTful events. They include: 
+</p>
+<ul>
+<li>software start-up and shutdown;</li>
+<li>user login and logout; </li>
+<li>access control decisions; </li>
+<li>configuration events; </li>
+<li>software installation; </li>
+<li>policy rules changes; and </li>
+<li>manipulation of data that exposes the data to users. </li>
+</ul>
+<p>
+See the 
 <a href="valueset-audit-event-sub-type.html">Audit Event Sub-Type</a> vocabulary for guidance on some security relevant events.
 </p>
 <p>
-The content of an AuditEvent is intended for use by Security System Administrators, Security and Privacy Information 
-Managers, and Records Management personnel.  This content is not intended to be accessible or used directly by other 
-healthcare users, such as Providers or Patients, although reports generated from the raw data would be useful. An 
-example is a Patient-centric Accounting of Disclosures or an Access Report. Servers that provide support for Audit 
-Event resources would not generally accept update or delete operations on the resources, as this would compromise 
+The content of an AuditEvent is intended for use by security system administrators, security and privacy information 
+managers, and records management personnel.  This content is not intended to be accessible or used directly by other 
+healthcare users, such as providers or patients, although reports generated from the raw data would be useful. An 
+example is a patient-centric accounting of disclosures or an access report. Servers that provide support for AuditEvent resources would not generally accept update or delete operations on the resources, as this would compromise 
 the integrity of the audit record. Access to the AuditEvent would typically be limited to security, privacy, 
 or other system administration purposes.
 </p>

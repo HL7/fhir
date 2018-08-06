@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>John Moehrke</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-02-28T16:16:37Z</LastSaved>
+  <LastSaved>2018-08-05T16:19:42Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3780,7 +3781,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6511,7 +6511,7 @@
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s161"><Data ss:Type="String">Derivation</Data></Cell>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity.</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s148"/>
@@ -7057,6 +7057,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

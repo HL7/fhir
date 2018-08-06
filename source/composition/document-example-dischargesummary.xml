@@ -511,12 +511,12 @@
       <display value="Author's Signature"/>
     </type>
     <when value="2015-08-31T07:42:33+10:00"/>
-    <whoReference>
+    <who>
       <reference value="Device/software"/>
-    </whoReference>
-    <onBehalfOfReference>
+    </who>
+    <onBehalfOf>
       <reference value="Organization/example"/>
-    </onBehalfOfReference>
+    </onBehalfOf>
     <!-- a real document would typically have an digital signature, but 
       the publishing tools are not yet setup to produce a valid digital 
       signature. For now, an image of a signature -->

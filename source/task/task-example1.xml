@@ -29,10 +29,10 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 					<display value="Author's Signature"/>
 				</type>
 				<when value="2016-10-31T08:25:05+10:00"/>
-				<whoReference>
+				<who>
 					<reference value="Practitioner/example"/>
 					<display value="Dr Adam Careful"/>
-				</whoReference>
+				</who>
 				<targetFormat value="application/fhir+xml"/>
 				<sigFormat value="application/signature+xml"/>
 				<data value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
