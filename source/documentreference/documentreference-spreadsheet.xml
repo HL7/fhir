@@ -5702,7 +5702,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-c80-doc-classcodes</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">valueset-document-classcodes</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
