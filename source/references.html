@@ -47,7 +47,10 @@ the same patient for their subjects, and profiles and/or implementation guides m
 about this (and see <a href="graphdefinition.html">GraphDefinition</a>).
 </p>
 <p>
-Resolving the references is discussed below.
+Resolving the references is discussed below. 
+</p>
+<p>
+References are made to resource based on their identity; there are <a href="resource.html#id">several different identities</a> to refer to.
 </p>
 <p>
 Resources contain two types of references to other resources:
@@ -56,6 +59,7 @@ Resources contain two types of references to other resources:
  <li><b>Resource references</b> - general references between resources</li>
  <li><b>Canonical references</b> - references to resources by their canonical URL (see <a href="#canonical">below</a>)</li>
 </ul>
+
 <p>
 For canonical references, see below. The general references are handled by the <code>Reference</code> type.
 which contains at least one of a <code>reference</code> (literal reference),
@@ -285,18 +289,8 @@ being referenced, not to more fully describe it.
 <h3>Canonical URLs</h3>
 <p>
 Many resource types have a defined element "url" which is the canonical URI that always identifies the
-resource. These include all the <a href="terminology-module.html">terminology</a>, <a href="conformance-module.html">conformance</a> and <a href="clinicalreasoning-module.html">knowledge resources</a> (most of the resources
-not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>). Note that the
-element actually contains a URI, but is named <code>url</code> for legacy reasons.
-</p>
-<p>
-The canonical URI remains the same when the resource is copied from server to server, while the logical
-id of the resource - its local identifier - usually changes as the resource is copied. The canonical
-URI serves as a stable logical identifier for the conformance artifact, and <b>is the preferred
-way to reference a conformance or knowledge resource</b>. The canonical URI SHOULD also resolve to the location 
-where the master copy of the artifact is found, though it is not always possible to arrange this. 
-The canonical URL SHALL NOT contain some other resource (though it may resolve to a different 
-version of the same resource).
+resource. The canonical <b>is the preferred way to reference a conformance or knowledge resource</b>. 
+See <a href="resource.html#canonical">Canonical Resource Identity</a> for further information.
 </p>
 <p>
 References to canonical URLs use the <a href="datatypes.html#canonical"><code>canonical</code></a> to refer to 
