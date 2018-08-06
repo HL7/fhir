@@ -4695,7 +4695,7 @@
     <Cell ss:StyleID="s131"><Data ss:Type="String">item-subject</Data></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s95"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">QuestionnaireResponse.item.where(hasExtension('http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject')).answer.value as Reference</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">QuestionnaireResponse.item.where(hasExtension('http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject')).answer.value.ofType(Reference)</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Allows searching for QuestionnaireResponses by item value where the item has isSubject=true</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

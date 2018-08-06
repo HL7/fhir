@@ -487,13 +487,15 @@ public class SourceParser {
   private void processSearchExpressions(ResourceDefn rd) throws Exception {
     for (SearchParameterDefn sp : rd.getSearchParams().values())
       if (Utilities.noString(sp.getExpression()))
-        sp.setExpression(convertToExpression(rd, sp.getPaths()));    
+        sp.setExpression(convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets()));    
   }
 
-  private String convertToExpression(ResourceDefn rd, List<String> pn) throws Exception {
+  private String convertToExpression(ResourceDefn rd, List<String> pn, Set<String> targets) throws Exception {
     StringBuilder b = new StringBuilder();
+    
     boolean first = true;
     for (String p : pn) {
+      StringBuilder bp = new StringBuilder();
       ElementDefn ed;
       if (p.startsWith(rd.getName()+"."))
         ed = rd.getRoot().getElementByName(p, true, definitions, "search parameter generation", true);
@@ -504,20 +506,30 @@ public class SourceParser {
       
       if (ed.getName().endsWith("[x]"))
         if (p.endsWith("[x]"))
-          p = p.substring(0, p.length()-3);
+          bp.append(p.substring(0, p.length()-3));
         else {
           int lp = p.lastIndexOf(".")+ed.getName().length()-2;
           String tn = p.substring(lp);
           if (definitions.hasPrimitiveType(Utilities.uncapitalize(tn)))
-            p = "("+p.substring(0, lp)+" as "+Utilities.uncapitalize(tn)+")";
+            bp.append("("+p.substring(0, lp)+" as "+Utilities.uncapitalize(tn)+")");
           else
-            p = "("+p.substring(0, lp)+" as "+tn+")";
+            bp.append("("+p.substring(0, lp)+" as "+tn+")");
         }
+      else
+        bp.append(p);
+      if (!targets.isEmpty())
+        bp.append(".where(");
+        boolean innerFirst = true;
+        for (String t : targets) {
+          if (innerFirst) innerFirst = false; else bp.append(" or ");
+          bp.append("resolve() is "+t);
+        }
+        bp.append(")");
       if (first)
         first = false;
       else
         b.append(" | ");
-      b.append(p);
+      b.append(bp.toString());
     }
     return b.toString();
   }

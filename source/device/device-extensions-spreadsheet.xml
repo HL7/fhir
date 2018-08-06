@@ -4369,7 +4369,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">din</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Device.extension(http://hl7.org/fhir/SearchParameter/device-extensions-Device-din)</Data></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">Device.extension('http://hl7.org/fhir/SearchParameter/device-extensions-Device-din')</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">The donation identification number (DIN)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
