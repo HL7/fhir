@@ -73,6 +73,9 @@
 			<concept>
 				<code value="FILL"/>
 			</concept>
+			<concept>
+				<code value="JHN"/>
+			</concept>
     </include>
   </compose>
 </ValueSet>
