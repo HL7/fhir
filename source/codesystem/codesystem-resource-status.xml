@@ -2,6 +2,15 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="resource-status"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status">
+    <valueString value="trial-use"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="mnm"/> 
+  </extension>   
   <url value="http://hl7.org/fhir/resource-status"/>
   <name value="Canonical Status Codes for FHIR Resources"/>
   <status value="draft"/>
