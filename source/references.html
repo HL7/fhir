@@ -335,9 +335,14 @@ artifact, though implementations will need to make appropriate arrangements rega
 the version and/or currency of their local copy of the artifact.
 </p>
 <p>
-List of all resources that have canonical URLs:
+The following resources have canonical URLs and are allowed to be the target of a canonical URL:
 </p>
 [%canonical-resources%]
+<p>
+A few canonical references have a <a href="">targetProfile</a> of <code>http://hl7.org/fhir/StructureDefinition/Resource</code>,
+which is shown as canonical(Any) in this specification. Such references SHALL only reference one of these types of resources.
+</p>
+
 <a name="canonical-fragments"></a>
 <h3>Canonical Reference and Fragments</h3>
 <p>
