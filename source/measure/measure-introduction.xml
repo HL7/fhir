@@ -2,19 +2,27 @@
 
 <div>
 <a name="bnc"></a>
+    <blockquote class="stu-note">
+      <a name="scope">
+      </a>
+      <a name="dstu">
+      </a>
+      <p>
+        <b>Note to balloters</b> The Clinical Quality Information workgroup is seeking feedback on the name of this resource, as discussed in the <a href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=11305">GF#11305</a>. Specifically, the committee is seeking implementer community feedback on whether the resource should be named Measure or MeasureDefinition. The committee believes that the name Measure is a reasonable description of what the resource is doing, and the suggested name change to MeasureDefinition will likely not have much if any positive impact on the usability of the resource. The documentation for the resource is much more important in terms of communicating the intended use.</p>
+    </blockquote>
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
-<p>The Measure resource represents a structured computable definition of a clinical quality measure. A quality measure is a quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</p>
+<p>The Measure resource represents a structured, computable definition of a health-related measure such as a clinical quality measure, public health indicator, or population analytics measure. A quality measure is a quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</p>
 
 <p>Note that the Measure itself does not contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The Measure resource describes a specific quality measure, providing the structure of the measure in terms of the calculation elements (the <i>populations</i> involved). The <a href="group.html">Group</a> resource is also capable of describing a population, however, the complexity involved in specifying the criteria in the general case requires the use of a high-level query language such as Clinical Quality Language (CQL). As such, the Measure resource defines only the top-level populations and references CQL expressions for the actual criteria.</p>
+<p>The Measure resource describes a specific quality measure, or population analytic, providing the structure of the measure in terms of the calculation elements (the <i>populations</i> involved). The <a href="group.html">Group</a> resource is also capable of describing a population, however, the complexity involved in specifying the criteria in the general case requires the use of a high-level query language such as Clinical Quality Language (CQL). As such, the Measure resource defines only the top-level populations and references CQL expressions for the actual criteria. In addition, the individual members of a population may be cases such as encounters or procedures and in these cases, the Group resource would be unable to represent the population characteristics accurately.</p>
 
-<p>A Measure is also similar to an <a href="observation.html">Observation</a> resource, with the exception that the Measure is purely definitional, it contains no actual measurements, only a description of how to calculate a particular measurement.</p>
+<p>A Measure is also similar to an <a href="observation.html">Observation</a> resource, with the exception that the Measure is purely definitional, it contains no actual measurements, only a description of how to calculate a particular measurement or set of measurements.</p>
 
 <p>A Measure is also similar to a clinical document, but as with the relationship to Observation, a Document is specific to a particular subject.</p>
 </div>
