@@ -20,12 +20,12 @@
             <code value="conformancepack"/>
           </coding>
         </type>
-        <class>
+        <category>
           <coding>
             <system value="http://hl7.org/fhir/special-values"/>
             <code value="conformance"/>
           </coding>
-        </class>
+        </category>
         <title value="CDA R2 Profile"/>
         <status value="preliminary"/>
         <!-- todo: make these two optional -->
@@ -156,7 +156,7 @@
           </element>
           <element>
             <!-- not used in CDA -->
-            <path value="Composition.class"/>
+            <path value="Composition.category"/>
             <min value="0"/>
             <max value="0"/>
             <type>

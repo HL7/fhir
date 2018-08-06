@@ -20,13 +20,13 @@
 			<display value="Consult note"/>
 		</coding>
 	</type>
-	<class>
+	<category>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="LP173421-1"/>
 			<display value="Report"/>
 		</coding>
-	</class>
+	</category>
 	<subject>
 		<reference value="Patient/xcda"/>
 		<display value="Henry Levin the 7th"/>
