@@ -24,7 +24,7 @@
     </telecom>
   </contact>
   <description value="NUCC Healthcare Provider Taxonomy codes"/>
-  <copyright value="The NUCC Health Care Provider Taxonomy codes are copyright © 2017, American Medical Association."/>
+  <copyright value="This value set includes content from NUCC Health Care Provider Taxonomy Code Set for providers which is copyright © 2016+ American Medical Association. For commercial use, including sales or licensing, a license must be obtained"/>
   <compose>
     <include>
       <system value="http://nucc.org/provider-taxonomy"/>
