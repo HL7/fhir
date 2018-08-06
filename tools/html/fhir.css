@@ -873,3 +873,16 @@ table.lmap td {
   padding: 3px;
   vertical-align: top;
 }
+
+ol.fmmlist {
+  counter-reset: number 0;
+}
+ol.fmmlist li {
+  list-style: none;
+  counter-increment: number;
+}
+ol.fmmlist li::before {
+  content: "FMM " counter(number);
+  position: relative;
+  left:-25px
+}
