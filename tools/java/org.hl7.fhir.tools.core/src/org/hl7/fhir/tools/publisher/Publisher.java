@@ -875,7 +875,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getBaseResources().values()) {
         r.setConformancePack(makeConformancePack(r));
-        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", false));
+        r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", false));
         if (page.getProfiles().containsKey(r.getProfile().getUrl()))
           throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
@@ -887,7 +887,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", false));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", false));
       if (page.getProfiles().containsKey(r.getProfile().getUrl()))
         throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
@@ -898,7 +898,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
       r.setConformancePack(makeConformancePack(r));
-      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", true));
+      r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(r.getConformancePack(), r, "core", true));
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
       r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
@@ -939,7 +939,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       for (LogicalModel lm : ig.getLogicalModels()) {
         page.log(" ...process logical model " + lm.getId(), LogMessageType.Process);
         if (lm.getDefinition() == null)
-          lm.setDefinition(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generateLogicalModel(ig, lm.getResource()));
+          lm.setDefinition(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generateLogicalModel(ig, lm.getResource()));
       }
     }
 
@@ -993,7 +993,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genProfiledTypeProfile(ProfiledType pt) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(pt, page.getValidationErrors());
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(pt, page.getValidationErrors());
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -1004,7 +1004,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genXhtmlProfile() throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generateXhtml();
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generateXhtml();
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -1017,7 +1017,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void genPrimitiveTypeProfile(PrimitiveType t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(t);
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -1032,7 +1032,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void genPrimitiveTypeProfile(DefinedStringPattern t) throws Exception {
-    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(t);
+    StructureDefinition profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(t);
     if (page.getProfiles().containsKey(profile.getUrl()))
       throw new Exception("Duplicate Profile URL "+profile.getUrl());
     page.getProfiles().put(profile.getUrl(), profile);
@@ -1048,7 +1048,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void genTypeProfile(TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(t);
+      profile = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(t);
       page.getProfiles().put(profile.getUrl(), profile);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
@@ -1066,7 +1066,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
+      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
       p.setUserData("pack", ap);
       profile.setResource(p);
       if (profile.getResourceInfo() != null) {
@@ -1535,7 +1535,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
   
   private void generateConformanceStatement(boolean full, String name, boolean register) throws Exception {
-    pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages);
+    pgen = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir);
     CapabilityStatement cpbs = new CapabilityStatement();
     cpbs.setId(FormatUtilities.makeId(name));
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
@@ -3621,7 +3621,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     p.setName(rd.getName());
     p.setType(rd.getName());
     p.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("http://hl7.org/fhir");
-    SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd, rd);
+    SearchParameter sp = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).makeSearchParam(p, rd.getName()+"-"+spd.getCode(), rd.getName(), spd, rd);
     spd.setResource(sp);
   }
 
@@ -4268,7 +4268,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceOperation(ImplementationGuideDefn ig, String name, String id, ResourceDefn resource, Operation op, SectionTracker st) throws Exception {
-    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(name, id, resource.getName(), op, resource);
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(name, id, resource.getName(), op, resource);
     
     String dir = ig == null ? "" : ig.getCode()+File.separator;
 

@@ -3213,6 +3213,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     String color = even ? "#EFEFEF" : "#FFFFFF";
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
+      if (resourceCategory != null && !ToolingExtensions.hasExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY)) {
+        ToolingExtensions.setStringExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY, resourceCategory); 
+        ini.setStringProperty("category", r.getName(), resourceCategory, null);
+        ini.save();
+      }
       return
           "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".html\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
 
@@ -3234,13 +3239,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String resDesc(String name) throws Exception {
     if (definitions.hasResource(name)) {
       ResourceDefn r = definitions.getResourceByName(name);
-      if (resourceCategory != null && !ToolingExtensions.hasExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY)) {
-        ToolingExtensions.setStringExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY, resourceCategory);
+      if (resourceCategory != null) {
+        if (!ToolingExtensions.hasExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY)) {
+          ToolingExtensions.setStringExtension(r.getProfile(), ToolingExtensions.EXT_RESOURCE_CATEGORY, resourceCategory); 
+        }
+        IniFile cini = new IniFile(Utilities.path(folders.rootDir, "temp", "categories.ini"));
+        if (!resourceCategory.equals(cini.getStringProperty("category", r.getName()))) {
+          cini.setStringProperty("category", r.getName(), resourceCategory, null);
+          cini.save();
+        }
       }
       return Utilities.escapeXml(r.getDefinition());
     } else
       return " ";
-
   }
 
   private String aliases(List<String> aliases) {

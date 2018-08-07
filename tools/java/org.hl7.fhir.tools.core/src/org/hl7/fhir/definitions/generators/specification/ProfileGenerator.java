@@ -126,6 +126,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -155,13 +156,14 @@ public class ProfileGenerator {
   private Calendar genDate;
   private String version;
   private Bundle dataElements;
+  private String rootFolder;
 
   private static class SliceHandle {
     private String name;
     private Map<String, ElementDefinition> paths = new HashMap<String, ElementDefinition>();
   }
 
-  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, String version, Bundle dataElements, List<FHIRPathUsage> fpUsages) {
+  public ProfileGenerator(Definitions definitions, BuildWorkerContext context, ProfileKnowledgeProvider pkp, Calendar genDate, String version, Bundle dataElements, List<FHIRPathUsage> fpUsages, String rootFolder) {
     super();
     this.definitions = definitions;
     this.context = context;
@@ -170,6 +172,7 @@ public class ProfileGenerator {
     this.version = version;
     this.dataElements = dataElements;
     this.fpUsages = fpUsages;
+    this.rootFolder = rootFolder;
     if (dataElements != null) {
       for (BundleEntryComponent be : dataElements.getEntry()) {
         if (be.getResource() instanceof StructureDefinition)
@@ -835,6 +838,10 @@ public class ProfileGenerator {
       p.setKind(StructureDefinitionKind.LOGICAL);
     else
     p.setKind(StructureDefinitionKind.RESOURCE);
+    IniFile cini = new IniFile(Utilities.path(rootFolder, "temp", "categories.ini"));
+    String cat = cini.getStringProperty("category", r.getName());
+    if (!Utilities.noString(cat))
+      ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_RESOURCE_CATEGORY, cat); 
     p.setAbstract(r.isAbstract());
     assert !Utilities.noString(r.getRoot().typeCode());
     if (!Utilities.noString(r.getRoot().typeCode())) {
