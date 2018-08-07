@@ -52,7 +52,7 @@ different aspects of the specification.  They are as follows:
       <th>Description</th>
     </tr>
     <tr>
-      <th><a name="draft"></a>Draft</th>
+      <th style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="draft"></a>Draft</th>
       <td>This portion of the specification is not considered to be complete enough or sufficiently reviewed to be
       safe for implementation.  It may have known issues or still be in the "in development" stage.  It is included
       in the publication as a place-holder, to solicit feedback from the implementation community and/or to give
@@ -62,7 +62,7 @@ different aspects of the specification.  They are as follows:
       correction is complete after it has been subjected to ballot</td>
     </tr>
     <tr>
-      <th><a name="stu"></a>Trial Use</th>
+      <th style="background-color: #fff5e6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="stu"></a>Trial Use</th>
       <td>
       <p>This content has been well reviewed and is considered by the authors to be ready for use in production
       systems.  It has been subjected to ballot and approved as an official standard.  However, it has not yet
@@ -77,14 +77,19 @@ different aspects of the specification.  They are as follows:
       </td>
     </tr>
     <tr>
-      <th><a name="normative"></a>Normative</th>
+      <th style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="normative"></a>Normative</th>
       <td>This content has been subject to review and production implementation in a wide variety of environments.
       The content is considered to be stable and has been 'locked', subjecting it to FHIR 
       <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
       expected to be infrequent and are tightly constrained.</td>
     </tr>
     <tr>
-      <th>Informative</th>
+      <th style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;">Informative</th>
+      <td>This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. 
+         Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice</td>
+    </tr>
+    <tr>
+      <th style="background-color: #ffcccc; border: 1px grey solid; padding-left: 3px; padding-right: 3px;">Deprecated</th>
       <td>This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. 
          Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice</td>
     </tr>
@@ -487,18 +492,19 @@ Once content is normative, there is a process for removing it from the standard 
 </table>
 <p>
 The specification will provide guidance with deprecated materials showing how to avoid using them.
-<code>Deprecated</code> materials are eligible to be ballotted to be <code>withdrawn</code> two years after their <code>deprecated</code> status is published.
+<code>Deprecated</code> materials are eligible to be balloted to be <code>withdrawn</code> two years after their <code>deprecated</code> status is published.
 </p>
 <p>
 The computable artifact labels (e.g. codes, element names, urls, etc) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
 Materials marked "deprecated" may have that marking removed as part of a subsequent ballot at a later moment, while withdrawn materials SHALL NOT.
 </p>
 <p>
-Note: this version does not define any withdrawn or deprecrated content.
+The following artefacts are deprecated in this version of FHIR:
 </p>
-<p>
+<ul>
+ <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.location">OperationOutcome.issue.location</a></li>
+</ul>
 <hr/>
-</p>
 <p>
 Additional discussion on inter-versioning issues can be found here:
 <a href="http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility">http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility</a>.

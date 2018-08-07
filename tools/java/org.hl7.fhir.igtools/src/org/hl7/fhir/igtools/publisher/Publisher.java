@@ -207,7 +207,7 @@ import com.google.gson.JsonPrimitive;
  *   for each source file:
  *     generate all outputs
  *
- *   generate summary file
+ *   generate summary fiLle
  *
  * Documentation: see http://wiki.hl7.org/index.php?title=IG_Publisher_Documentation
  * 

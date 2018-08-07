@@ -14,6 +14,7 @@ import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -67,15 +68,15 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
       return "{todo}";      
     else if (com[0].equals("fmm-style")) {
       String fmm = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_FMM_LEVEL);
-      String ss = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_BALLOT_STATUS);
-      if ("External".equals(ss))
+      StandardsStatus ss = ToolingExtensions.getStandardsStatus(definition);
+      if (StandardsStatus.EXTERNAL == ss)
         return "colse";
       else
         return "colsi";
     } else if (com[0].equals("fmm")) {
       String fmm = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_FMM_LEVEL);
-      String ss = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_BALLOT_STATUS);
-      if ("External".equals(ss))
+      StandardsStatus ss = ToolingExtensions.getStandardsStatus(definition);
+      if (StandardsStatus.EXTERNAL == ss)
         return getFmmFromlevel("", "N/A");
       else
         return getFmmFromlevel("", fmm);
@@ -84,15 +85,15 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
       return (wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group");
     } else if (com[0].equals("fmm-style"))  {
       String fmm = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_FMM_LEVEL);
-      String ss = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_BALLOT_STATUS);
-      if ("External".equals(ss))
+      StandardsStatus ss = ToolingExtensions.getStandardsStatus(definition);
+      if (StandardsStatus.EXTERNAL == ss)
         return "colse";
       else
         return "colsi";
     } else if (com[0].equals("wgt")) {
       String fmm = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_FMM_LEVEL);
-      String ss = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_BALLOT_STATUS);
-      if ("External".equals(ss))
+      StandardsStatus ss = ToolingExtensions.getStandardsStatus(definition);
+      if (StandardsStatus.EXTERNAL == ss)
         return getFmmFromlevel("", "N/A");
       else
         return getFmmFromlevel("", fmm);

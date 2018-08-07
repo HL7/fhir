@@ -157,9 +157,9 @@ public class CodeSystemUtilities {
       }
     }
     if (status != null) {
-      StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS));
+      StandardsStatus ss = ToolingExtensions.getStandardsStatus(cs);
       if (ss == null || ss.isLowerThan(status)) 
-        ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, status.toDisplay());
+        ToolingExtensions.setStandardsStatus(cs, status);
       if (pckage != null) {
         if (!cs.hasUserData("ballot.package"))
           cs.setUserData("ballot.package", pckage);

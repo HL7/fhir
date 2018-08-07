@@ -37,6 +37,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.fhir.ucum.Utilities;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
@@ -55,12 +56,14 @@ import org.hl7.fhir.r4.model.MarkdownType;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemComponent;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemType;
+import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 
@@ -110,7 +113,7 @@ public class ToolingExtensions {
   public static final String EXT_TABLE_NAME = "http://hl7.org/fhir/StructureDefinition/structuredefinition-table-name";
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
   public static final String EXT_WORKGROUP = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg";
-  public static final String EXT_BALLOT_STATUS = "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status";
+  public static final String EXT_STANDARDS_STATUS = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status";
 
 
   // specific extension helpers
@@ -614,6 +617,17 @@ public class ToolingExtensions {
       }
     }
     return res;
+  }
+
+  public static StandardsStatus getStandardsStatus(DomainResource dr) throws FHIRException {
+    return StandardsStatus.fromCode(ToolingExtensions.readStringExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS));
+  }
+
+  public static void setStandardsStatus(DomainResource dr, StandardsStatus status) {
+    if (status == null)
+      ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
+    else
+      ToolingExtensions.setStringExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toDisplay());
   }
 
 //  public static boolean hasOID(ValueSet vs) {

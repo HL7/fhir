@@ -70,6 +70,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeType;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
@@ -252,7 +253,7 @@ public class ProfileGenerator {
     p.setType(type.getCode());
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -398,7 +399,7 @@ public class ProfileGenerator {
     p.setType("xhtml");
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -523,7 +524,7 @@ public class ProfileGenerator {
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -646,7 +647,7 @@ public class ProfileGenerator {
     }
     p.setType(t.getName());
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, t.getStandardsStatus().toDisplay());
+    ToolingExtensions.setStandardsStatus(p, t.getStandardsStatus());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -700,7 +701,7 @@ public class ProfileGenerator {
     p.setUserData("filename", pt.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+pt.getName());
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+    ToolingExtensions.setStandardsStatus(p, StandardsStatus.NORMATIVE);
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
@@ -845,7 +846,7 @@ public class ProfileGenerator {
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, r.getStatus().toDisplay());
+    ToolingExtensions.setStandardsStatus(p, r.getStatus());
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
@@ -938,7 +939,7 @@ public class ProfileGenerator {
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, resource.getStatus().toDisplay());
+    ToolingExtensions.setStandardsStatus(p, resource.getStatus());
 
     if (pack.hasMetadata("summary-"+profile.getTitle()))
       ToolingExtensions.addMarkdownExtension(p, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary", pack.metadata("summary-"+profile.getTitle()));
@@ -1068,6 +1069,9 @@ public class ProfileGenerator {
       spd.setResource(sp);
       definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
       sp.setStatus(p.getStatus());
+      StandardsStatus sst = ToolingExtensions.getStandardsStatus(sp);
+      if (sst == null || (spd.getStandardsStatus() == null && spd.getStandardsStatus().isLowerThan(sst)))
+        ToolingExtensions.setStandardsStatus(sp, spd.getStandardsStatus());
       sp.setExperimental(p.getExperimental());
       sp.setName(spd.getCode());
       sp.setCode(spd.getCode());
@@ -1305,6 +1309,14 @@ public class ProfileGenerator {
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
         ce.setContentReference("#"+getIdForPath(elements, e.typeCode().substring(1)));
+      } else if (Utilities.existsInList(path, "Element.id", "Extension.url")) {
+        TypeRefComponent tr = ce.addType();
+        tr.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML,\r\n    JSON and RDF types provided by extension");
+        tr.getCodeElement().addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type", new StringType("string")); 
+        tr.getCodeElement().addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-type", new StringType("xsd:string")); 
+        tr.getCodeElement().addExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-rdf-type", new StringType("xsd:string")); 
+        if (path.equals("Extension.url"))
+          tr.getCodeElement().addExtension("http://hl7.org/fhir/StructureDefinition/regex", new StringType(Constants.URI_REGEX)); 
       } else {
         List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
         for (TypeRef t : e.getTypes()) {
@@ -1648,7 +1660,7 @@ public class ProfileGenerator {
 
 
   private ElementDefinition makeExtensionSlice(String extensionName, StructureDefinition p, StructureDefinitionSnapshotComponent c, ElementDefn e, String path) throws URISyntaxException, Exception {
-    ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false));
+    ElementDefinition ex = createBaseDefinition(p, path, definitions.getBaseResources().get("DomainResource").getRoot().getElementByName(definitions, extensionName, false, false, null));
     c.getElement().add(ex);
     if (!ex.hasBase())
       ex.setBase(new ElementDefinitionBaseComponent());
@@ -1907,7 +1919,7 @@ public class ProfileGenerator {
       ToolingExtensions.addIntegerExtension(opd, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(rd.getFmmLevel()));
     else
       ToolingExtensions.addIntegerExtension(opd, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(op.getFmm()));
-    ToolingExtensions.setStringExtension(opd, ToolingExtensions.EXT_BALLOT_STATUS, op.getStandardsStatus() == null ? rd.getStatus().toDisplay() : op.getStandardsStatus().toDisplay());
+    ToolingExtensions.setStandardsStatus(opd, op.getStandardsStatus() == null ? rd.getStatus() : op.getStandardsStatus());
     opd.setId(FormatUtilities.makeId(id));
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
     opd.setName(op.getTitle());
@@ -2005,7 +2017,7 @@ public class ProfileGenerator {
     p.setUserData("path", igd.getPrefix()+ r.getName().toLowerCase()+".html");
     p.setTitle(r.getName());
     p.setFhirVersion(version);
-    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, r.getStatus().toDisplay());
+    ToolingExtensions.setStandardsStatus(p, r.getStatus());
 
     ToolResourceUtilities.updateUsage(p, igd.getCode());
     p.setName(r.getRoot().getName());

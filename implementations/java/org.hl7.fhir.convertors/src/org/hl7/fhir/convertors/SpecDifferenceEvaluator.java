@@ -745,6 +745,8 @@ public class SpecDifferenceEvaluator {
   private String analyseTypes(ElementDefinition rev, ElementDefinition orig) {
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
+      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id", "Extension.url"))
+        r = "string";        
       String o = describeType(orig.getType().get(0));
       if ((r == null && o == null) || r.equals(o))
         return null;
@@ -1088,6 +1090,8 @@ public class SpecDifferenceEvaluator {
     JsonArray ra = new JsonArray();
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
+      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id", "Extension.url"))
+        r = "string";        
       String o = describeType(orig.getType().get(0));
       if (!o.equals(r)) {
         oa.add(new JsonPrimitive(o));
@@ -1112,6 +1116,8 @@ public class SpecDifferenceEvaluator {
   private void analyseTypes(Document doc, Element element, ElementDefinition rev, ElementDefinition orig) {
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
+      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id", "Extension.url"))
+        r = "string";        
       String o = describeType(orig.getType().get(0));
       if (!o.equals(r)) {
         element.appendChild(makeElementWithAttribute(doc, "removed-type", "name", o));

@@ -264,10 +264,17 @@ public class ElementDefn {
   }
 
   public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions, String purpose, boolean followType) throws Exception {
+    return getElementByName(name, throughChoice, definitions, purpose, followType, new ArrayList<ElementDefn>());
+  }
+  
+  public ElementDefn getElementByName(String name, boolean throughChoice, Definitions definitions, String purpose, boolean followType, List<ElementDefn> trace) throws Exception {
     String n = name.contains(".") ? name.substring(0, name.indexOf(".")) : name;
     String t = name.contains(".") ? name.substring(name.indexOf(".") + 1) : null;
-    if (n.equals(this.name) && t != null)
-      return getElementByName(definitions, t, throughChoice, followType);
+    if (n.equals(this.name) && t != null) {
+      if (trace != null)
+        trace.add(this);
+      return getElementByName(definitions, t, throughChoice, followType, trace);
+    }
     
     ElementDefn focus = this;
     
@@ -280,11 +287,11 @@ public class ElementDefn {
     for (int i = focus.elements.size() - 1; i >= 0; i--) {
       ElementDefn e = focus.elements.get(i);
       if (nameMatches(n, e, throughChoice, definitions))
-        return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType);
+        return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType, trace);
     }
     if (followType && focus.types.size() == 1 && !focus.getElements().isEmpty()) {
       ElementDefn parent = definitions.getElementDefn("Type".equals(focus.typeCode()) || "Structure".equals(focus.typeCode())  ? "Element" : focus.typeCode());
-      return parent.getElementByName(definitions, name, throughChoice, followType);
+      return parent.getElementByName(definitions, name, throughChoice, followType, trace);
     }
     return null;
   }
@@ -313,32 +320,38 @@ public class ElementDefn {
     }
   }
 
-	public ElementDefn getElementByName(Definitions definitions, String name, boolean throughChoice, boolean followType) {
+  public ElementDefn getElementByName(Definitions definitions, String name, boolean throughChoice, boolean followType) {
+    return getElementByName(definitions, name, throughChoice, followType, null);
+  }
+  public ElementDefn getElementByName(Definitions definitions, String name, boolean throughChoice, boolean followType, List<ElementDefn> trace) {
 		String n = name.contains(".") ? name.substring(0, name.indexOf("."))
 				: name;
 		String t = name.contains(".") ? name.substring(name.indexOf(".") + 1)
 				: null;
 		if (n.equals(this.name) && t != null)
-			return getElementByName(definitions, t, throughChoice, followType);
+			return getElementByName(definitions, t, throughChoice, followType, trace);
 
 		for (int i = elements.size() - 1; i >= 0; i--) {
 			ElementDefn e = elements.get(i);
-			if (nameMatches(n, e, throughChoice, null))
-				return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType);
+			if (nameMatches(n, e, throughChoice, null)) {
+			  if (trace != null)
+	        trace.add(e);
+				return t == null ? e : e.getElementByName(definitions, t, throughChoice, followType, trace);
+			}
 		}
 		// ok, didn't find it. do we have a reference or a type to follow?
 		if (followType && !Utilities.noString(typeCode())) {
 		  if (typeCode().startsWith("@")) {
         try {
           ElementDefn ed = definitions.getElementByPath(typeCode().substring(1).split("\\."), "resolution", true);
-          return ed.getElementByName(definitions, n, throughChoice, followType);
+          return ed.getElementByName(definitions, n, throughChoice, followType, trace);
         } catch (Exception e) {
           return null;
         }
 		  } else {
 		    try {
 		      TypeDefn type = definitions.getElementDefn(typeCode());
-		      return type.getElementByName(definitions, name, throughChoice, followType);
+		      return type.getElementByName(definitions, name, throughChoice, followType, trace);
 		    } catch (Exception e) {
 		      return null;
 		    }

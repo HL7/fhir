@@ -77,7 +77,10 @@ import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
@@ -487,22 +490,37 @@ public class SourceParser {
   private void processSearchExpressions(ResourceDefn rd) throws Exception {
     for (SearchParameterDefn sp : rd.getSearchParams().values())
       if (Utilities.noString(sp.getExpression()))
-        sp.setExpression(convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets()));    
+        sp.setExpression(convertToExpression(rd, sp.getPaths(), sp.getWorkingTargets(), sp));
   }
 
-  private String convertToExpression(ResourceDefn rd, List<String> pn, Set<String> targets) throws Exception {
+  private String convertToExpression(ResourceDefn rd, List<String> pn, Set<String> targets, SearchParameterDefn sp) throws Exception {
     StringBuilder b = new StringBuilder();
     
     boolean first = true;
     for (String p : pn) {
       StringBuilder bp = new StringBuilder();
+      
       ElementDefn ed;
+      List<ElementDefn> trace = new ArrayList<ElementDefn>();
       if (p.startsWith(rd.getName()+"."))
-        ed = rd.getRoot().getElementByName(p, true, definitions, "search parameter generation", true);
+        ed = rd.getRoot().getElementByName(p, true, definitions, "search parameter generation", true, trace);
       else
         throw new Exception("huh?");
       if (ed == null)
         throw new Exception("not found: "+p);
+      
+      for (ElementDefn t : trace) {
+        if (t.getStandardsStatus() != null && t.getStandardsStatus().isLowerThan(sp.getStandardsStatus()))
+          sp.setStandardsStatus(t.getStandardsStatus());
+        try {
+        TypeDefn tt = definitions.getElementDefn(t.typeCode());
+        if (tt.getStandardsStatus() != null && tt.getStandardsStatus().isLowerThan(sp.getStandardsStatus()))
+          sp.setStandardsStatus(tt.getStandardsStatus());
+        } catch (Exception e) {
+          // nothing
+        }
+        
+      }
       
       if (ed.getName().endsWith("[x]"))
         if (p.endsWith("[x]"))
@@ -534,7 +552,6 @@ public class SourceParser {
     }
     return b.toString();
   }
-
 
 
   private void processContainerExamples() throws Exception {
@@ -1068,9 +1085,9 @@ public class SourceParser {
   }
 
   private StandardsStatus loadStatus(String n) throws FHIRException {
-    String ns = ini.getStringProperty("ballot-status", n);
+    String ns = ini.getStringProperty("standards-status", n);
     if (Utilities.noString(ns))
-      throw new FHIRException("Data types must be registered in the [ballot-status] section of fhir.ini ("+n+")");
+      throw new FHIRException("Data types must be registered in the [standards-status] section of fhir.ini ("+n+")");
     return StandardsStatus.fromCode(ns);
   }
 
@@ -1102,10 +1119,7 @@ public class SourceParser {
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());
 
-    if (ini.getBooleanProperty("draft-resources", root.getName()) || "draft".equals(ini.getStringProperty("ballot-status", root.getName())))
-      root.setStatus(StandardsStatus.DRAFT);
-    else if (ini.getBooleanProperty("normative-resources", root.getName()))
-      root.setStatus(StandardsStatus.NORMATIVE);
+ 
     
     if (map != null) {
       map.put(root.getName(), root);

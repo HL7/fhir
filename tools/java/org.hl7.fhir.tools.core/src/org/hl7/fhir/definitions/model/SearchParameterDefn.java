@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.SearchParameter;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 
 /*
@@ -84,6 +85,7 @@ public class SearchParameterDefn {
   private List<String> otherResources = new ArrayList<String>();
   private String commonId;
   private boolean hierarchy;
+  private StandardsStatus standardsStatus;
   
   // operational tracking
   private String xPath;
@@ -105,15 +107,16 @@ public class SearchParameterDefn {
     return type;
   }
   
-  public SearchParameterDefn(String code, String description, SearchType type, SearchParameter.XPathUsageType xPathUsage) {
+  public SearchParameterDefn(String code, String description, SearchType type, SearchParameter.XPathUsageType xPathUsage, StandardsStatus status) {
     super();
     this.code = code;
     this.description = description;
     this.type = type;
     this.xPathUsage = xPathUsage; 
+    this.standardsStatus = status;
   }
     
-  public SearchParameterDefn(SearchParameterDefn source, String oldName, String newName, String title, String name) {
+  public SearchParameterDefn(SearchParameterDefn source, String oldName, String newName, String title, String name, StandardsStatus status) {
     super();
     code = source.code;
     description = source.description.replace("{{title}}", title).replace("{{titles}}", Utilities.pluralize(title, 2));
@@ -127,6 +130,10 @@ public class SearchParameterDefn {
     targets.addAll(source.targets);
     manualTargets.addAll(source.manualTargets);
     otherResources.addAll(source.otherResources);
+    if (type == SearchType.composite && source.getStandardsStatus() != null)
+      this.standardsStatus = source.getStandardsStatus();
+    else
+      this.standardsStatus = status;
   }
 
   public List<String> getPaths() {
@@ -261,6 +268,14 @@ public class SearchParameterDefn {
 
   public void setHierarchy(boolean hierarchy) {
     this.hierarchy = hierarchy;
+  }
+
+  public StandardsStatus getStandardsStatus() {
+    return standardsStatus;
+  }
+
+  public void setStandardsStatus(StandardsStatus standardsStatus) {
+    this.standardsStatus = standardsStatus;
   }
   
 }

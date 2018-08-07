@@ -360,7 +360,7 @@ public class FhirTurtleGenerator {
             String en = path[i];
             if (en.length() == 0)
                 throw new Exception("Improper path "+pathname);
-            ElementDefn t = res.getElementByName(definitions, en, true, false);
+            ElementDefn t = res.getElementByName(definitions, en, true, false, null);
             if (t == null) {
                 throw new Exception("unable to resolve "+pathname);
             }

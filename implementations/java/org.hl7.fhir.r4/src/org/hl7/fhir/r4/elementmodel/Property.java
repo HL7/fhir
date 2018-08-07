@@ -89,7 +89,10 @@ public class Property {
 			} else
         throw new Error("logic error, gettype when types > 1, name mismatch for "+elementName+" on at "+ed.getPath());
     } else if (ed.getType().get(0).getCode() == null) {
-      return structure.getId();
+      if (Utilities.existsInList(ed.getId(), "Element.id", "Extension.url"))
+        return "string";
+      else
+        return structure.getId();
 		} else
       return ed.getType().get(0).getCode();
 	}

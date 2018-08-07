@@ -72,9 +72,9 @@ public class ValueSetUtilities {
       }
     }
     if (status != null) {
-      StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS));
+      StandardsStatus ss = ToolingExtensions.getStandardsStatus(vs);
       if (ss == null || ss.isLowerThan(status)) 
-        ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, status.toDisplay());
+        ToolingExtensions.setStandardsStatus(vs, status);
       if (pckage != null) {
         if (!vs.hasUserData("ballot.package"))        
           vs.setUserData("ballot.package", pckage);

@@ -137,12 +137,12 @@ public class ValueSetGenerator {
   
   private void markSpecialStatus(ValueSet vs, CodeSystem cs) {
     ToolingExtensions.setStringExtension(vs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Value Set"));
-    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+    ToolingExtensions.setStandardsStatus(vs, StandardsStatus.NORMATIVE);
     ToolingExtensions.addIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, 5);
     ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, "fhir");
     if (cs != null) {
       ToolingExtensions.setStringExtension(cs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Code System"));
-      ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+      ToolingExtensions.setStandardsStatus(cs, StandardsStatus.NORMATIVE);
       ToolingExtensions.addIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, 5);
       ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_WORKGROUP, "fhir");
     }    
@@ -337,7 +337,8 @@ public class ValueSetGenerator {
     cd.setBindingMethod(BindingMethod.ValueSet);
     vs.setId("operation-outcome");
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
-    vs.setName("Operation Outcome Codes");
+    vs.setName("OperationOutcomeCodes");
+    vs.setTitle("Operation Outcome Codes");
     vs.setPublisher("HL7 (FHIR Project)");
     
     vs.setUserData("filename", "valueset-"+vs.getId());

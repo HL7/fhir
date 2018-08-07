@@ -3503,7 +3503,9 @@ public class FHIRPathEngine {
         for (ElementDefinition ed : sdi.getSnapshot().getElement()) {
           if (ed.getPath().startsWith(path) && !ed.getPath().substring(path.length()).contains("."))
             for (TypeRefComponent t : ed.getType()) {
-              if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
+              if (Utilities.noString(t.getCode())) // Element.id or Extension.url
+                result.addType("System.string");
+              else if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))
                 result.addType(sdi.getType()+"#"+ed.getPath());
               else if (t.getCode().equals("Resource"))
                 result.addTypes(worker.getResourceNames());
@@ -3520,8 +3522,11 @@ public class FHIRPathEngine {
             result.addType(ed.getFixedType());
           else
             for (TypeRefComponent t : ed.getDefinition().getType()) {
-              if (Utilities.noString(t.getCode()))
+              if (Utilities.noString(t.getCode())) {
+                if (Utilities.existsInList(ed.getDefinition().getId(), "Element.id", "Extension.url")) 
+                  result.addType(TypeDetails.FP_NS, "string");
                 break; // throw new PathEngineException("Illegal reference to primitive value attribute @ "+path);
+              }
 
               ProfiledType pt = null;
               if (t.getCode().equals("Element") || t.getCode().equals("BackboneElement"))

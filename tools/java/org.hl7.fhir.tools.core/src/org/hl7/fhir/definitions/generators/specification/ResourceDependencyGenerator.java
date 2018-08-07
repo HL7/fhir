@@ -233,7 +233,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
     ValueSet vs = binding.getValueSet();
     if (vs != null) {
       tgtFMM = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_FMM_LEVEL);
-      tgtSS = StandardsStatus.fromCode(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS));
+      tgtSS = ToolingExtensions.getStandardsStatus(vs);
     } else if (Utilities.existsInList(binding.getReference(), "http://www.rfc-editor.org/bcp/bcp13.txt")) {
       tgtFMM = "5";
       tgtSS = StandardsStatus.EXTERNAL;      

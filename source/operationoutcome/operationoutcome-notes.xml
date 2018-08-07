@@ -36,11 +36,10 @@ one of the issues should have a severity of "error", indicating the reason for t
 Operation outcomes must include at least one issue. See the <a href="operationoutcome-example-allok.html">All OK </a> example for a template for an operation that returns no errors.
 </p>
 <a name="loc"></a>
-<h2>Using the Location Element</h2>
+<h2>Using the Expression</h2>
 <p>
-Each issue in an operation outcome may have a location reported. 
-Systems that create operation outcomes SHOULD populate the 
-location of an error. A correctly populated location can 
+Each issue in an operation outcome SHOUD have a expression that
+reports a location for the issue. A correctly populated expression can 
 allow client systems to:
 </p>
 <ul>
@@ -50,59 +49,30 @@ allow client systems to:
 </ul>
 
 <p>
-In order to support these kinds of usages, these applications
+In order to support these kinds of usages, applications
 need to use the location element consistently. Applications
 can use the location element to refer to a location inside
 a resource, or some location in the HTTP request (when appropriate). 
 </p>
-<h3>Reporting Errors in Resources</h3>
+
 <p>
-While resources may be represented in XML, JSON, or other forms, 
-error locations are always reported using a simplified XPath 
-notation:
+Error locations are always reported using a <a href="fhirpath.html#simple">simplified FHIRPath</a>
+statement. In addition to the simplified FHIRPath restrictions, the expression
+SHALL not contain a .resolve() function. These examples are legal:
 </p>
-<pre>
- &lt;location value=&quot;/f:Patient/f:identifier&quot;/&gt;
+<pre class="xml">
+ &lt;expression value=&quot;Patient.identifier&quot;/&gt;
 </pre>
-<p>
-The XPath must use the <a href="elementdefinition-definitions.html#ElementDefinition.constraint.xpath">FHIR standard XPath prefixes f: and h:</a>
-for the FHIR and XHTML namespaces respectively.
-</p>
-<p>
-The XPath here can be used to automatically find 
-the relevant XML element in a resource if the resource 
-is represented in XML. Because resources are often represented
-in JSON, and because applications will often process the XPath
-directly (e.g. to determine the relevant widget), the XPath
-statement must be simple. Specifically, the XPath
-SHALL only contain element names and repetition indicators.
-So this is legal:
-</p>
-<pre>
- &lt;location value=&quot;/f:Patient/f:identifier[2]/f:label&quot;/&gt;
+<pre class="json">
+  "expression" : "Patient.identifier[2].value"
 </pre>
 <p>
 but this is not:
 </p>
-<pre>
- &lt;location value=&quot;/f:Patient/f:identifier[f:system/@value='http://example.com/mrn']/f:label&quot;/&gt;
+<pre class="json">
+  "expression" : "Patient.identifier.where(system.value='http://example.com/mrn').value"
 </pre>
-<p>
-Because the Xpath is required to be simple, it can be converted
-to <a href="https://tools.ietf.org/html/rfc6901">JsonPointer</a>
-by dropping the namespace prefixes, and correcting for array offsets. The XPaths above have these 
-equivalent JsonPointer representations:
-</p>
-<pre>
- Patient/identifier
- Patient/identifier/2/label
-</pre>
-<p>
-Note that correcting for array offsets may require knowledge of 
-which elements are Arrays in JSON. It is also possible to 
-convert the XPath statements to JsonPath, though there is no
-single standard for JsonPath.
-</p>
+
 <h3>Reporting Errors in the HTTP Headers</h3>
 <p>
 Servers may also need to report errors in the HTTP headers - especially 
@@ -117,7 +87,7 @@ examples:
    <td><b>Description</b></td>
  </tr>
  <tr>
-   <td>http.name:exact</td>
+   <td>http."name:exact"</td>
    <td>A reference to the search parameter "name" with the modifier ":exact"</td>
  </tr>
  <tr>

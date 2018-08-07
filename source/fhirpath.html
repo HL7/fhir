@@ -276,6 +276,12 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumed by the given code.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<p><b>htmlChecks : Boolean</b></p>
+
+<p>When invoked on an <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around 
+HTML usage</a> are met, and false if they are not. The return value is undefined (<code>null</code>) on any other kind of element.
+</p>
+
 <a name="changes"></a>
 <h4>Changes to operators</h4>
 

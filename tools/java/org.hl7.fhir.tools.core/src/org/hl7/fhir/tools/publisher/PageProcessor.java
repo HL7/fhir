@@ -306,7 +306,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     @Override
     public FunctionDetails resolveFunction(String functionName) {
-      if (functionName.equals("htmlchecks"))
+      if (functionName.equals("htmlChecks"))
         return new FunctionDetails("check HTML structure", 0, 0);
       return null;
     }
@@ -816,10 +816,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getXcm(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
         if (com.length == 1) {
-          String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
-          if (Utilities.noString(ss))
-            ss = "Informative";
-          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss+"</a>"+s3;
+          StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
+          if (ss == null)
+            ss = StandardsStatus.INFORMATIVE;
+          src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a>"+s3;
         } else
           src = s1+getStandardsStatus(com[1])+s3;
       } else if (com[0].equals("wg")) {
@@ -858,12 +858,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+dtR3R4Transform(com[1])+s3;
       } else if (com[0].equals("fmm-style")) {
         String fmm = resource == null ? "N/A" :  ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
-        StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS));
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
-        String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
-        if ("External".equals(ss))
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
+        if (StandardsStatus.EXTERNAL == ss)
           src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
         else
           src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
@@ -876,7 +876,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (com.length >= 3) {
           if (!com[2].equals("%check"))
             p = com[2]; 
-          else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
+          else if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus((DomainResource) resource)) {
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
           }
@@ -888,7 +888,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (com.length >= 3) {
           if (!com[2].equals("%check"))
             p = com[2]; 
-          else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
+          else if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus((DomainResource) resource)) {
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
           }
@@ -900,7 +900,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (com.length >= 3) {
           if (!com[2].equals("%check"))
             p = com[2]; 
-          else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
+          else if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus((DomainResource) resource)) {
             p = resource.getUserString("ballot.package");
             wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
           }
@@ -911,7 +911,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String wt = rd.getName()+" Operation " + ((Operation) object).getName(); 
         StandardsStatus st = ((Operation) object).getStandardsStatus();
         if (st == null)
-          st = StandardsStatus .fromCode(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS));
+          st = ToolingExtensions.getStandardsStatus((DomainResource) resource);
         src = s1+(st == StandardsStatus.NORMATIVE ? getNormativeNote(genlevel(level), p, com[1], wt, file) : "")+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
@@ -4458,7 +4458,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s.toString();
   }
 
-  private void generateVSforNS(StringBuilder s, String ns, Map<String, ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) {
+  private void generateVSforNS(StringBuilder s, String ns, Map<String, ValueSet> vslist, boolean hasId, ImplementationGuideDefn ig) throws FHIRException {
     List<String> sorts = new ArrayList<String>();
     for (String sn : vslist.keySet()) {
       ValueSet vs = vslist.get(sn);
@@ -4479,7 +4479,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (wantPublish(vs)) {
           String path = ae.hasUserData("external.url") ? ae.getUserString("external.url") : pathTail(Utilities.changeFileExt(ae.getUserString("path"), ".html"));
           s.append(" <tr><td><a href=\""+path+"\">"+n+"</a>");
-          if ("Normative".equals(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS)))
+          if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(vs))
             s.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           s.append("</td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
           if (hasId)
@@ -6935,6 +6935,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (resource.getSearchParams().size() == 0)
       return "";
     else {
+      StandardsStatus st = resource.getStatus();
+      
       StringBuilder b = new StringBuilder();
       b.append("<h2>Search Parameters</h2>\r\n");
       if (resource.getName().equals("Query"))
@@ -6949,7 +6951,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (String name : names)  {
         SearchParameterDefn p = resource.getSearchParams().get(name);
         String pp = presentPaths(p.getPaths());
-        b.append("<tr><td><a name=\"sp-").append(p.getCode()).append("\"> </a>").append(p.getCode()).append("</td><td><a href=\"search.html#").append(p.getType()).append("\">").append(p.getType()).append("</a></td><td>")
+        String sst = (p.getStandardsStatus() == null || p.getStandardsStatus() == st) ? "" : makeStandardsStatusRef(p.getStandardsStatus());
+        
+        b.append("<tr><td><a name=\"sp-").append(p.getCode()).append("\"> </a>").append(p.getCode()).append(sst).append("</td><td><a href=\"search.html#").append(p.getType()).append("\">").append(p.getType()).append("</a></td><td>")
                 .append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(p.getType() == SearchType.composite ? getCompositeExpression(p) : Utilities.escapeXml(p.getExpression())).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")
                 .append("</td><td>").append(presentOthers(p)).append("</td></tr>\r\n");
       }
@@ -6957,6 +6961,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("</table>\r\n");
       return b.toString();
     }
+  }
+
+  private String makeStandardsStatusRef(StandardsStatus ss) {
+    if (ss == null)
+      return "";
+    return " <a href=\"ballot-intro.html#std-process\" title=\""+ss.toDisplay()+" Content\" style=\"padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: "+ss.getColor()+"\">"+ss.getAbbrev()+"</a>";
   }
 
   private String getCompositeExpression(SearchParameterDefn p) {
@@ -7940,10 +7950,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(pack.getCandidateResource(), genlevel(level))+s3;
       else if (com[0].equals("sstatus")) {
-        String ss = ToolingExtensions.readStringExtension(profile.getResource(), ToolingExtensions.EXT_BALLOT_STATUS);
-        if (Utilities.noString(ss))
-          ss = "Informative";
-        src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus(profile.getResource());
+        if (ss == null)
+          ss = StandardsStatus.INFORMATIVE;
+        src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">"+ss.toDisplay()+"</a>"+s3;
       } else if (com[0].equals("past-narrative-link")) {
         if (hasNarrative)  
           src = s1 + s3;
@@ -8388,19 +8398,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group) ("+wg+") (3)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("fmm-style"))  {
         String fmm = ed == null ? "N/A" :  ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
-        StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS));
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus(ed);
         src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
-        String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
-        if ("External".equals(ss))
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus(ed);
+        if (StandardsStatus.EXTERNAL == ss)
           src = s1+getFmmFromlevel(genlevel(level), "N/A")+s3;
         else
           src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("sstatus")) {
-        String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
-        if (Utilities.noString(ss))
-          ss = "Informative";
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus(ed);
+        if (ss == null)
+          ss = StandardsStatus.INFORMATIVE;
         src = s1+"<a href=\""+genlevel(level)+"versions.html#std-process\">Informative</a>"+s3;
       } else if (com[0].equals("profile-context"))
         src = s1+getProfileContext(ed, genlevel(level))+s3;
@@ -9654,7 +9664,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "<span style=\"color: grey\">N</span>";
   }
 
-  private String genCSList() {
+  private String genCSList() throws FHIRException {
     StringBuilder b = new StringBuilder();
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getCodeSystems().keySet());
@@ -9665,7 +9675,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
-          if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
+          if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(cs))
             b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
@@ -9678,7 +9688,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private String genCSListX() {
+  private String genCSListX() throws FHIRException {
     StringBuilder b = new StringBuilder();
     List<String> names = new ArrayList<String>();
     names.addAll(definitions.getCodeSystems().keySet());
@@ -9689,7 +9699,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v2-") && !cs.getUrl().startsWith("http://terminology.hl7.org/CodeSystem/v3-")) {
           b.append("  <tr>\r\n");
           b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getName()+"</a>");
-          if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
+          if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(cs))
             b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
@@ -9962,13 +9972,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     Collections.sort(list, new SearchParameterListSorter());
     if (list.size() > 0) {
-      b.append("<tr><td colspan=\"5\" style=\"background-color: #dddddd\"><b><a href=\""+base.toLowerCase()+".html\">"+base+"</a><a name=\""+base.toLowerCase()+"\"> </a></b></td></tr>\r\n");
+      StandardsStatus bss = definitions.getResourceByName(base).getStatus();
+      b.append("<tr><td colspan=\"5\" style=\"background-color: #dddddd\"><b><a href=\""+base.toLowerCase()+".html\">"+base+"</a><a name=\""+base.toLowerCase()+"\"> </a></b>"+makeStandardsStatusRef(bss)+"</td></tr>\r\n");
       for (SearchParameter sp : list) {
+        String ss = "";
+        StandardsStatus spss = ToolingExtensions.getStandardsStatus(sp);
+        if (spss != null && spss != bss)
+          ss = makeStandardsStatusRef(spss);
         if (sp.getBase().size() > 1) {
           SearchParameterDefn spd = definitions.getResourceByName(base).getSearchParams().get(sp.getCode());
-          b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+sp.getId()+"</td><td>"+processMarkdown("allsearchparams", spd.getDescription(), "")+"</td><td>"+Utilities.escapeXml(spd.getExpression()).replace(".", ".&#8203;")+"</td></tr>\r\n");
+          b.append("<tr><td>"+sp.getCode()+ss+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+sp.getId()+"</td><td>"+processMarkdown("allsearchparams", spd.getDescription(), "")+"</td><td>"+Utilities.escapeXml(spd.getExpression()).replace(".", ".&#8203;")+"</td></tr>\r\n");
         } else
-          b.append("<tr><td>"+sp.getCode()+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+sp.getId()+"</td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression()).replace(".", ".&#8203;")+"</td></tr>\r\n");
+          b.append("<tr><td>"+sp.getCode()+ss+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+sp.getId()+"</td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression()).replace(".", ".&#8203;")+"</td></tr>\r\n");
       }
     }
   }
@@ -9998,7 +10013,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (list.size() > 0) {
       b.append("<tr><td colspan=\"5\" style=\"background-color: #dddddd\"><b>Common Search Parameters<a name=\"common\"> </a></b></td></tr>\r\n");
       for (SearchParameter sp : list) {
-        b.append("<tr><td>"+sp.getCode()+"<a name=\""+sp.getId()+"\"> </a></td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a>"+"</td><td>"+sp.getId()+"</td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression()).replace(".", ".&#8203;")+"</td></tr>\r\n");
+        b.append("<tr><td>"+sp.getCode()+"<a name=\""+sp.getId()+"\"> </a>"+makeStandardsStatusRef(ToolingExtensions.getStandardsStatus(sp))+"</td><td><a href=\"search.html#"+sp.getType().toCode()+"\">"+sp.getType().toCode()+"</a></td><td>"+sp.getId()+"</td><td>"+processMarkdown("allsearchparams", sp.getDescription(), "")+"</td><td>"+Utilities.escapeXml(sp.getExpression()).replace(".", ".&#8203;")+"</td></tr>\r\n");
       }
     }
   }

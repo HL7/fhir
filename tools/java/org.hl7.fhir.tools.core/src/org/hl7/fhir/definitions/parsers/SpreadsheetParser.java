@@ -283,6 +283,12 @@ public class SpreadsheetParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  processLine(resource, sheet, row, invariants, false, null, row == 0);
 		}
+    StandardsStatus ss = StandardsStatus.TRIAL_USE; // default...
+    String s = ini.getStringProperty("normative", resource.getName());
+    if (!Utilities.noString(s))
+      ss = StandardsStatus.NORMATIVE;
+    resource.setStatus(ss);
+		
 		resource.addHints(checkIgnoredColumns(sheet));
 		if (template != null) {
 		  resource.setTemplate(template.getRoot());
@@ -352,7 +358,7 @@ public class SpreadsheetParser {
   private void copySearchParameters(ResourceDefn resource) {
 	  for (SearchParameterDefn sps : template.getSearchParams().values()) {
 	    if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
-	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName());
+	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName(), resource.getStatus());
 	      resource.getSearchParams().put(spt.getCode(), spt);
 	    }
     }
@@ -437,7 +443,7 @@ public class SpreadsheetParser {
 	{
 		for (TypeRef ref : root.getTypes()) {
 			if (ref.isElementReference()) {
-				ElementDefn referredElement = parent.getRoot().getElementByName(definitions, ref.getName().substring(1), true, false);
+				ElementDefn referredElement = parent.getRoot().getElementByName(definitions, ref.getName().substring(1), true, false, null);
 
 				if (referredElement == null)
 					throw new Exception("Element reference " + ref.getName()+ " cannot be found in type " + parent.getName());
@@ -458,7 +464,8 @@ public class SpreadsheetParser {
 	public ResourceDefn parseResource(boolean isTemplate) throws Exception {
 	  isProfile = false;
 	  ResourceDefn root = parseCommonTypeColumns(true);
-
+	  
+    
 	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
 //	  readEvents(loadSheet("Events"), root);
 	  readSearchParams(root, loadSheet("Search"), false);
@@ -941,7 +948,10 @@ public class SpreadsheetParser {
               }
               pn.add(new CompositeDefinition(p, e));
             }
-            sp = new SearchParameterDefn(n, d, t, pu);
+            StandardsStatus ss = root2.getStatus();
+            if (!Utilities.noString(sheet.getColumn(row, "Standards-Status")))
+              ss = StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status"));
+            sp = new SearchParameterDefn(n, d, t, pu, ss);
             sp.setExpression(pe[0].trim());
             sp.getComposites().addAll(pn);
           } else {
@@ -992,7 +1002,10 @@ public class SpreadsheetParser {
             if (!forProfile && t == SearchType.reference && pn.size() == 0 && !sheet.hasColumn(row, "Target Types"))
               throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has no path(s) "+ getLocation(row));
 
-            sp = new SearchParameterDefn(n, d, t, pu);
+            StandardsStatus ss = root2.getStatus();
+            if (!Utilities.noString(sheet.getColumn(row, "Standards-Status")))
+              ss = StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status"));
+            sp = new SearchParameterDefn(n, d, t, pu, ss);
             sp.getPaths().addAll(pn);
             if (!Utilities.noString(xp))
               sp.setXPath(xp);
@@ -1475,7 +1488,7 @@ public class SpreadsheetParser {
       while (row < sheet.rows.size()) {
         if (sheet.getColumn(row, "Code").startsWith("!"))
           row++;
-        else
+        else 
           row = processExtension(resource.getRoot().getElementByName(definitions, "extensions", true, false), sheet, row, definitions, ap.metadata("extension.uri"), ap, issues, invariants, wg);
       }
     }
@@ -2362,7 +2375,7 @@ public class SpreadsheetParser {
 			if (en.charAt(en.length() - 1) == '*') {
 				throw new Exception("no list wrapper found " + getLocation(row));
 			}
-			ElementDefn t = res.getElementByName(definitions, en, false, false);
+			ElementDefn t = res.getElementByName(definitions, en, false, false, null);
 
 			boolean isUnpickingElement = t != null && (i == path.length - 1)
 					&& (!t.getProfileName().equals("") || t.hasDescriminator())
