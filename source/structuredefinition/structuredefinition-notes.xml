@@ -26,7 +26,7 @@ When profiling a resource and only one type is specified, the name of the elemen
 <p>
 The base structure definition is used in a number of different ways to support
 the FHIR specification. The various uses of the StructureDefinition are
-controlled by the elements <code>kind</code>, <code>constrainedType</code>, <code>base</code>, and <code>url</code>,
+controlled by the elements <code>kind</code>, <code>type</code>, <code>base</code>, and <code>url</code>,
 using this basic pattern:
 </p>
 <pre class="json">
@@ -138,7 +138,7 @@ are (or may be) created by the specification but can also be defined by other im
 
 <h3>Rules for Constrained Types</h3>
 <p>
-When the structure is a constraint (constrainedType is not null), see <a href="profiling.html#resources">Extending and Restricting Resources</a> for the rules that apply.
+When the structure is a constraint (<code>derivation</code> = <code>constraint</code>), see <a href="profiling.html#resources">Extending and Restricting Resources</a> for the rules that apply.
 </p>
 
 <h3>Common Mapping Targets</h3>
