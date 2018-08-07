@@ -610,7 +610,20 @@ To search for all the procedures in a patient compartment that occurred over a 2
 <pre>
  GET [base]/Patient/23/Procedure?date=ge2010-01-01&amp;date=le2011-12-31
 </pre>
-
+[%dragons-start] 
+<p>
+Managing timezones and offsets and their impact on search is a very difficult area. The FHIR
+implementation community is still investigating and debating the best way to handle timezones.
+Implementation guides may made additional rules in this regard. 
+</p>
+<p>
+Future versions of this specification may impose rules around the use of timezones with dates.
+Implementers and authors of implementation guides should be aware of ongoing work in this area.
+</p>
+<p>
+Implementer feedback is welcome <a href="http://wiki.hl7.org????">on the HL7 wiki</a> or <a href="https://chat.fhir.org/#narrow/stream/4-implementers">chat.fhir.org</a>.
+</p>
+[%dragons-end%]
 
 <a name="string"></a>
 <h4>string</h4>
