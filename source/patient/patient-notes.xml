@@ -16,8 +16,8 @@ See below for further discussion</li>
 </ul>
 
 <a name="ids"></a>
-<h2>Patient id's and Patient resource id's</h2>
-<p>A Patient record's Resource Id can never change. For this reason, the identifiers with 
+<h2>Patient ids and Patient resource ids</h2>
+<p>A Patient record's <a href="resource.html#id">Resource Id</a> can never change. For this reason, the identifiers with 
 which humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not 
 be used for the resource's id, since MRN's may change, i.e. as a result of having duplicate records of
 the same patient. Instead they should be represented in the <i>Patient.identifier</i> 
