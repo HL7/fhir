@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="ProductPlanType"/>
+  <name value="InsurancePlanType"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -13,10 +13,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate a type of product plan."/>
+  <description value="This example value set defines a set of codes that can be used to indicate a type of insurance plan."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/product-plan-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/insurance-plan-type"/>
     </include>
   </compose>
 </ValueSet>

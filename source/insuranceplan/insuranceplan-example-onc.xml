@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProductPlan xmlns="http://hl7.org/fhir">
+<InsurancePlan xmlns="http://hl7.org/fhir">
 	<id value="example-onc" />
 	<text>
 		<status value="generated" />
@@ -152,4 +152,4 @@
 	<endpoint>
 		<reference value="Endpoint/example" />
 	</endpoint>
-</ProductPlan>
+</InsurancePlan>

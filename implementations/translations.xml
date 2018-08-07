@@ -755,8 +755,8 @@
 		<translation lang="es">RespuestaDeProceso</translation>
 		<translation lang="zh">处理响应</translation>
 	</item>
-	<item id="ProductPlan">
-		<translation lang="en">ProductPlan</translation>
+	<item id="InsurancePlan">
+		<translation lang="en">InsurancePlan</translation>
 	</item>
 	<item id="Network">
 		<translation lang="en">Network</translation>

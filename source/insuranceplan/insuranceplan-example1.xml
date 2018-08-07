@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProductPlan xmlns="http://hl7.org/fhir">
+<InsurancePlan xmlns="http://hl7.org/fhir">
 	<id value="example1" />
 	<text>
 		<status value="generated" />
@@ -64,4 +64,4 @@
 		<!-- Endpoint that handles the v2 messaging for the external organization -->
 		<reference value="Endpoint/example" />
 	</endpoint>
-</ProductPlan>
+</InsurancePlan>

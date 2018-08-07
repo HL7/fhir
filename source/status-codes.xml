@@ -2810,7 +2810,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ProductPlan.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">InsurancePlan.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s66"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><NamedCell ss:Name="_FilterDatabase"/></Cell>
