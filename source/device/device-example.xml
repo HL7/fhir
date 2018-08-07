@@ -9,37 +9,4 @@
     <system value="http://goodcare.org/devices/id"/>
     <value value="345675"/>
   </identifier>
-	<identifier>
-    <type>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
-        <code value="SNO"/>
-      </coding>
-      <text value="Serial Number"/>
-    </type>
-    <value value="AMID-342135-8464"/>
-  </identifier>
-	<status value="active"/>
-	<type>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="86184003"/>
-      <display value="Electrocardiographic monitor and recorder"/>
-    </coding>
-    <text value="ECG"/>
-  </type>
-	<lotNumber value="43453424"/>
-	<manufacturer value="Acme Devices, Inc"/>
-	<model value="AB 45-J"/>
-	<contact>
-    <system value="phone"/>
-    <value value="ext 4352"/>
-  </contact>
-	<note>
-	  <authorReference>
-		  <reference value="Practitioner/xcda-author"/>
-		</authorReference>
-		<time value="2015-06-28T14:03:32+10:00"/>
-		<text value="QA Checked"/>
-	</note>
 </Device>

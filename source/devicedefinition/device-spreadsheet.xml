@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Jose Costa Teixeira</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-08-05T08:53:20Z</LastSaved>
+  <LastSaved>2018-08-02T19:15:36Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1102,7 +1102,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="Number">7662</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31">
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Device.definition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Device.deviceDefinition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s92"><Data ss:Type="String">Reference (DeviceDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4196,10 +4196,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>70</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6097,76 +6098,76 @@
     <Cell ss:StyleID="s160"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">device-example-f001-feedingtube.html</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">ihd-pcd</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">Feeding Tube</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Example for IHE-PCD example</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">ihe-pcd</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-ihe-pcd.xml</Data></Cell>
+    <Cell ss:StyleID="s159"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Feeding tube</Data></Cell>
+    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Example of device</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">f001</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-f001-feedingtube.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Pacemaker Example</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Example of a pacemaker device</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">example-pacemaker</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-pacemaker.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Software</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Example of an EHR software installation</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">software</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-software.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">UDI Implantable 1</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Implantable device/UDI example GS-1 Format</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">example-udi1</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-udi1.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">UDI Implantable 2</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Implantable device/UDI example ICCBBA Format</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">example-udi2</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-udi2.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">UDI Implantable 3</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Implantable device/UDI example HIBBC Format</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">example-udi3</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-udi3.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">UDI Blood Bag</Data></Cell>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Blood Bag UDI example ICCBBA Format</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">example-udi4</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">device-example-udi4.xml</Data></Cell>
     <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s159"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s156"/>
@@ -6445,7 +6446,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6574,7 +6574,7 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">DeviceNameType</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">The type of name the device is referred by</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">#device-nametype</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>

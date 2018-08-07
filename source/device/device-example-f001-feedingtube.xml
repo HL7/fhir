@@ -14,19 +14,5 @@
 	</udiCarrier>
 
 -->	<status value="active"/>
-	<type>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="25062003"/>
-			<display value="Feeding tube, device"/>
-		</coding>
-	</type>
-	<manufactureDate value="2015-08-08"/>
-	<expirationDate value="2020-08-08"/>
-	<owner>
-		<reference value="Organization/2.16.840.1.113883.19.5"/>
-	</owner>
-	<location>
-		<display value="Central Supply"/>
-	</location>
+
 </Device>

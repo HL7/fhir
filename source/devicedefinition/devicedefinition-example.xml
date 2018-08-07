@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceDefinition xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<identifier>
+		<value value="0"/>
+	</identifier>
+</DeviceDefinition>
