@@ -293,6 +293,7 @@ public class SpreadsheetParser {
 		if (template != null) {
 		  resource.setTemplate(template.getRoot());
 		  copySearchParameters(resource);
+		  copyInvariants(resource);
 		  template = null;
 		}
     parseMetadata(resource);
@@ -356,11 +357,21 @@ public class SpreadsheetParser {
   }
 
   private void copySearchParameters(ResourceDefn resource) {
-	  for (SearchParameterDefn sps : template.getSearchParams().values()) {
-	    if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
-	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName(), resource.getStatus());
-	      resource.getSearchParams().put(spt.getCode(), spt);
-	    }
+    for (SearchParameterDefn sps : template.getSearchParams().values()) {
+      if (sps.getPaths().size() == 0  || hasPath(resource, sps.getPaths().get(0))) {
+        SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle, resource.getName(), resource.getStatus());
+        resource.getSearchParams().put(spt.getCode(), spt);
+      }
+    }
+  }
+
+  private void copyInvariants(ResourceDefn resource) {
+    String abb = ini.getStringProperty("tla", resource.getName());
+    if (abb == null)
+      abb = ini.getStringProperty("tla", resource.getName().toLowerCase());
+    for (String n : template.getRoot().getInvariants().keySet()) {
+      Invariant inv = template.getRoot().getInvariants().get(n);
+      resource.getRoot().getInvariants().put(n.replace("inv", abb), new Invariant(inv, template.getName(), resource.getName(), templateTitle, abb));
     }
   }
 

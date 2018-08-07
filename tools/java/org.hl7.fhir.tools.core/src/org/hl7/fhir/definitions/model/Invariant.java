@@ -41,6 +41,23 @@ public class Invariant {
   private String expression;
   private String explanation;
   
+  public Invariant(Invariant inv, String oname, String name, String templateTitle, String abb) {
+    context = inv.context.replace(oname, name);
+    english = inv.english;
+    ocl = inv.ocl;
+    xpath = inv.xpath;
+    id = inv.id.replace("inv", abb);
+    fixedName = inv.fixedName;
+    severity = inv.severity;
+    turtle = inv.turtle;
+    requirements = inv.requirements;
+    expression = inv.expression;
+    explanation = inv.explanation;
+  }
+
+  public Invariant() {
+  }
+
   public String getId()
   {
 	  return id;
