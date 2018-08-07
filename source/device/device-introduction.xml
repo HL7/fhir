@@ -7,46 +7,22 @@
     </a>
 
 
-    <p><strong>Note to balloters</strong> The Orders and Observations work-group wants to draw the attention of reviewers and implementers to the following active discussions which may result in significant changes to this resource.  We would appreciate your feedback on these issues.</p>
+    <p><strong>Note to balloters</strong> The Orders and Observations work-group has considerably changed this resource and wants to draw the attention of reviewers and implementers.</p>
     <ul>
-    <li><p><strong>How to distinguish between the device “instance” or the “kind”</strong></p>
-    <p> Current list of device 'kind' elements:</p>
-    <ul>
-    <li><code>deviceIdentifier</code> </li>
-    <li><code>type</code></li>
-    <li><code>name</code></li>
-    <li><code>jurisdiction</code></li>
-    <li><code>issuer</code></li>
-    <li><code>manufacturer</code></li>
-    <li><code>model</code></li>
-    <li><code>version</code></li>
-    <li><code>safety</code></li>
-    </ul>
-    <p>Current list of device 'instance' elements:</p>
-    <ul>
-    <li><code>identifier</code> (serial number)</li>
-    <li><code>carrierAIDC</code></li>
-    <li><code>carrierHRF</code></li>
-    <li><code>entryType</code></li>
-    <li><code>lotNumber</code></li>
-    <li><code>manufactureDate</code></li>
-    <li><code>expirationDate</code></li>
-    <li><code>status</code></li>
-    </ul>
-    <p>Currently, the Device resource represents both an ‘instance’ of a device (e.g., an IM pin with serial number 123) and a ‘kind’ of device (e.g.,  3ml syringes). The lists above identify the Device elements associated with kind and instance respectively.  Note that <em>both</em> kind and instance related elements are typically present when representing instance of a device.   To clearly differentiate the kind of device from the instance of a device, several proposals have been put forth:</p>
+    <li><p><strong>Device is an "instance", DeviceDefinition is a "kind"</strong></p>
+    <p>Previously, the Device resource represented both an ‘instance’ of a device (e.g., an IM pin with serial number 123) and a ‘kind’ of device (e.g.,  3ml syringes). To differentiate the kind of device from the instance of a device, several proposals have been put forth:</p>
     <ol>
-    <li>Create separate resources for kind vs instance of Device</li>
+    <li><strong>Create separate resources for kind vs instance of Device</strong> (current choice)</li>
     <li>Create a Device profile to represent a Device Kind</li>
     <li>Reorder the elements and group by kind and instance within the Device resource. </li>
     </ol>
-
      <p>More details on these options can be found <a href="http://confluence.hl7.org:8090/display/OO/Device+Resource+Harmonization">here</a>.</p>
 
     </li>
     </ul>
     <ul>
-    <li><p><strong>Representation of UDI for multipart devices</strong></p>
-    <p>Currently, the Device resource only permits a single UDI, which does not allow for devices that are composed of multiple parts each with a separate UDI.  The following options are proposed to allow representation of UDI for multipart devices.</p>
+    <li><p><strong>Representation multipart devices including UDI</strong></p>
+    <p>Both Device and DeviceDefinition resources allow nesting of parts, each of them having a UDI representation.</p>
     <ol>
     <li>Group individual Devices using the Procedure resource <code>focalDevice</code> element.  There would be as many devices as necessary represented, but each device will have zero to one DI and UDI.  There is no way to define the relationship between devices with DeviceComponent unless add a reference of DeviceComponent in Procedure.  </li>
     <li>Change Device to support a device that has zero to one DIs (represent type) with multiple UDIs (instance). </li>
@@ -54,7 +30,7 @@
     </ol>
     </li>
     <li><p><strong>Harmonization between Personal Healthcare Devices (PHD) with Point of Care Device (POCD)</strong></p>
-    <p>  Similar to the 3rd option above for UDI for multipart devices,  there is active discussion within the Devices working group to harmonize the representation of simpler Personal Healthcare Devices (PHD) with Point of Care Device (POCD) by merging DeviceComponent within Device and allow multiple component Devices reference the 'parent' device.</p>
+    <p>  These resources aim to harmonize the representation of simpler Personal Healthcare Devices (PHD) with Point of Care Device (POCD) by merging DeviceComponent within Device and allow multiple component Devices reference the 'parent' device.</p>
     </li>
     </ul>
 
@@ -64,7 +40,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-This resource is an administrative resource that tracks individual device types or instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, referenced when prescribing and dispensing devices for patient use or for ordering supplies, and used to record and transmit <a href="#udi">Unique Device Identifer (UDI)</a> information about a device such as a patient's implant.
+This resource is an administrative resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, referenced when prescribing and dispensing devices for patient use or for ordering supplies, and used to record and transmit <a href="#udi">Unique Device Identifer (UDI)</a> information about a device such as a patient's implant.
 </p>
 
 </div>
@@ -77,8 +53,8 @@ These are the device related resources
 </p>
 <ul>
  <li>Device (this resource)</li>
+ <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance, cut a "catalog entry" where a device is defined by the manufacturer, reseller, or regulator.</li>
  <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting  capability of a medical device.</li>
- <li><a href="devicecomponent.html">DeviceComponent</a> that the DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice (VMD), a MedicalDeviceSystem (MDS) , or a Channel</li>
 </ul>
 <p>
 In FHIR, the "Device" is the "administrative" resource for the device (it does not change much and has manufacturer information etc.), whereas the DeviceComponent and DeviceMetric (which is really a kind of DeviceComponent) model the physical part, including operation status and is much more volatile.
