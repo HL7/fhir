@@ -53,18 +53,19 @@ otherwise no significant difference between them.
 Formal grammar for the syntax:
 </p>
 <pre>
-filter       = paramExp / logExp / ("not") "(" filter ")"
-logExp       = filter ("and" / "or" filter)+
-paramExp     = paramPath SP compareOp SP compValue
-compareOp    = (see table below)
-compValue    = string / numberOrDate / token
-string       = json string
-token        = any sequence of non-whitespace characters (by Unicode rules) except "]" and ")"
-paramPath    = paramName (("[" filter "]") "." paramPath)
-paramName    = ALPHA (nameChar)*
-nameChar     = "_" / "-" / DIGIT / ALPHA
-numberOrDate = DIGIT (DateChar)*
-dateChar     = DIGIT / "T" / "-" / "." / "+"
+filter        = paramExp / logExp / ("not") "(" filter ")"
+logExp        = filter ("and" / "or" filter)+
+paramExp      = paramPath SP compareOp SP compValue
+compareOp     = (see table below)
+compValue     = string / numberOrDate / token
+string        = json string
+token         = any sequence of non-whitespace characters (by Unicode rules) except "]" and ")"
+paramPath     = paramName (("[" filter "]") "." paramPath)
+paramName     = nameCharStart (nameChar)*
+nameCharStart = "_" / ALPHA
+nameChar      = "_" / "-" / DIGIT / ALPHA
+numberOrDate  = DIGIT (DateChar)*
+dateChar      = DIGIT / "T" / "-" / "." / "+"
 </pre>
 
 <p>Notes about using the syntax:</p>
