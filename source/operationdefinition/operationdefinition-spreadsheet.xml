@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1705,8 +1705,8 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">If type is Reference, allowed targets</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If type is Reference | canonical, allowed targets</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Used when the type is "Reference" or "canonical", and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Often, these profiles are the base definitions from the spec (e.g. http://hl7.org/fhir/StructureDefinition/Patient)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3629,11 +3629,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>23</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3684,13 +3683,13 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:searchType)) or (f:type/@value = 'string')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s111"/>
+    <Cell ss:StyleID="s110"><Data ss:Type="Number">3</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">TargetProfile</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">OperationDefinition.parameter</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">A targetProfile can only be specified for parameters of type Reference or Canonical</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">targetProfile.exists() implies (type = 'Reference' or type = 'canonical')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or ((f:type/@value = 'Reference') or (f:type/@value = 'canonical'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s110"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4119,6 +4118,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
