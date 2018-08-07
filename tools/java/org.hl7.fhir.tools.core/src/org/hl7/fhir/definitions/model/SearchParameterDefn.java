@@ -86,6 +86,7 @@ public class SearchParameterDefn {
   private String commonId;
   private boolean hierarchy;
   private StandardsStatus standardsStatus;
+  private String url;
   
   // operational tracking
   private String xPath;
@@ -276,6 +277,14 @@ public class SearchParameterDefn {
 
   public void setStandardsStatus(StandardsStatus standardsStatus) {
     this.standardsStatus = standardsStatus;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
   
 }

@@ -699,7 +699,7 @@ If-Match: W/"23"
 </pre>
 <p>
 If the version id given in the <code>If-Match</code> header does not match, the server returns a
-<code>412 Conflict</code> status code instead of updating the resource.
+<code>412 Precondition Failed</code> status code instead of updating the resource.
 </p>
 <p>
 Servers can require that clients provide an <code>If-Match</code> header by returning <code>400 Client Error</code>

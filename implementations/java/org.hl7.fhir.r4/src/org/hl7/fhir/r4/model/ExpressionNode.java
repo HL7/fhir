@@ -92,7 +92,7 @@ public class ExpressionNode {
       if (name.equals("hasValue")) return Function.HasValue;
       if (name.equals("alias")) return Function.Alias;
       if (name.equals("aliasAs")) return Function.AliasAs;
-      if (name.equals("htmlchecks")) return Function.HtmlChecks;
+      if (name.equals("htmlChecks")) return Function.HtmlChecks;
       if (name.equals("ofType")) return Function.OfType;      
       if (name.equals("type")) return Function.Type;      
       if (name.equals("toInteger")) return Function.ToInteger;
@@ -162,7 +162,7 @@ public class ExpressionNode {
       case HasValue : return "hasValue";
       case Alias : return "alias";
       case AliasAs : return "aliasAs";
-      case HtmlChecks : return "htmlchecks";
+      case HtmlChecks : return "htmlChecks";
       case OfType : return "ofType";
       case Type : return "type";
       case ToInteger : return "toInteger";

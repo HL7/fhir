@@ -57,6 +57,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
+import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
@@ -105,6 +106,7 @@ import org.hl7.fhir.r4.model.OperationDefinition.OperationKind;
 import org.hl7.fhir.r4.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.SearchParameter;
+import org.hl7.fhir.r4.model.SearchParameter.SearchComparator;
 import org.hl7.fhir.r4.model.SearchParameter.SearchModifierCodeEnumFactory;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
@@ -882,8 +884,16 @@ public class ProfileGenerator {
       List<String> names = new ArrayList<String>();
       names.addAll(r.getSearchParams().keySet());
       Collections.sort(names);
+      // 1st, non composites
       for (String pn : names) {
-        pack.getSearchParameters().add(makeSearchParam(p, r.getName()+"-"+pn.replace("_", ""), r.getName(), r.getSearchParams().get(pn)));
+        SearchParameterDefn sp = r.getSearchParams().get(pn);
+        if (sp.getType() != SearchType.composite)
+          pack.getSearchParameters().add(makeSearchParam(p, r.getName()+"-"+pn.replace("_", ""), r.getName(), sp, r));
+      }
+      for (String pn : names) {
+        SearchParameterDefn sp = r.getSearchParams().get(pn);
+        if (sp.getType() == SearchType.composite)
+          pack.getSearchParameters().add(makeSearchParam(p, r.getName()+"-"+pn.replace("_", ""), r.getName(), sp, r));
       }
     }
     containedSlices.clear();
@@ -986,7 +996,7 @@ public class ProfileGenerator {
     names.addAll(resource.getSearchParams().keySet());
     Collections.sort(names);
     for (String pn : names) {
-      pack.getSearchParameters().add(makeSearchParam(p, pack.getId()+"-"+resource.getName()+"-"+pn, resource.getName(), resource.getSearchParams().get(pn)));
+      pack.getSearchParameters().add(makeSearchParam(p, pack.getId()+"-"+resource.getName()+"-"+pn, resource.getName(), resource.getSearchParams().get(pn), resource));
     }
     StructureDefinition base = definitions.getSnapShotForBase(p.getBaseDefinition());
 
@@ -1040,7 +1050,7 @@ public class ProfileGenerator {
     return null;
   }
 
-  public SearchParameter makeSearchParam(StructureDefinition p, String id, String rn, SearchParameterDefn spd) throws Exception  {
+  public SearchParameter makeSearchParam(StructureDefinition p, String id, String rn, SearchParameterDefn spd, ResourceDefn rd) throws Exception  {
     boolean shared;
     boolean created = true;
     SearchParameter sp;
@@ -1099,6 +1109,8 @@ public class ProfileGenerator {
         sp.setDescription(preProcessMarkdown(spd.getDescription(), "Search Description"));
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(spd.getExpression());
+      addModifiers(sp);
+      addComparators(sp);
       String xpath = Utilities.noString(spd.getXPath()) ? new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths()) : spd.getXPath();
       if (xpath != null) {
         if (xpath.contains("[x]"))
@@ -1108,7 +1120,11 @@ public class ProfileGenerator {
       }
       if (sp.getType() == SearchParamType.COMPOSITE) {
         for (CompositeDefinition cs : spd.getComposites()) {
-          sp.addComponent().setExpression(cs.getExpression()).setDefinition("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs.getDefinition());
+          SearchParameterDefn cspd = findSearchParameter(rd, cs.getDefinition());
+          if (cspd != null)
+            sp.addComponent().setExpression(cs.getExpression()).setDefinition(cspd.getUrl());
+          else
+            sp.addComponent().setExpression(cs.getExpression()).setDefinition("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs.getDefinition());
         }
         sp.setMultipleOr(false);
       } 
@@ -1124,7 +1140,8 @@ public class ProfileGenerator {
       if (xpath != null) {
         if (xpath.contains("[x]"))
           xpath = convertToXpath(xpath);
-        sp.setXpath(sp.getXpath()+" | " +xpath);
+        if (sp.getXpath() != null && !sp.getXpath().contains(xpath)) 
+          sp.setXpath(sp.getXpath()+" | " +xpath);
         if (sp.getXpathUsage() != spd.getxPathUsage()) 
           throw new FHIRException("Usage mismatch on common parameter: expected "+sp.getXpathUsage().toCode()+" but found "+spd.getxPathUsage().toCode());
       }
@@ -1134,6 +1151,7 @@ public class ProfileGenerator {
       if (!found)
         sp.addBase(p.getType());
     }
+    spd.setUrl(sp.getUrl());
     for(String target : spd.getWorkingTargets()) {
       if("Any".equals(target) == true) {   	  
         for(String resourceName : definitions.sortedResourceNames()) {
@@ -1154,6 +1172,80 @@ public class ProfileGenerator {
     }
 
     return sp;
+  }
+
+
+  private SearchParameterDefn findSearchParameter(ResourceDefn rd, String definition) {
+    for (SearchParameterDefn spd : rd.getSearchParams().values()) {
+      if (spd.getCode().equals(definition))
+        return spd;
+    }
+    return null;
+  }
+
+
+  private void addComparators(SearchParameter sp) {
+    if (sp.getType() == SearchParamType.NUMBER || sp.getType() == SearchParamType.DATE || sp.getType() == SearchParamType.QUANTITY) {
+      sp.addComparator(SearchComparator.EQ);
+      sp.addComparator(SearchComparator.NE);
+      sp.addComparator(SearchComparator.GT);
+      sp.addComparator(SearchComparator.LT);
+      sp.addComparator(SearchComparator.LE);
+      sp.addComparator(SearchComparator.SA);
+      sp.addComparator(SearchComparator.EB);
+      sp.addComparator(SearchComparator.AP);
+    }
+  }
+
+
+  private void addModifiers(SearchParameter sp) {
+    sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.MISSING); // on everything
+    switch (sp.getType()) {
+    case STRING: 
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.EXACT);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.CONTAINS);
+      return;
+    case TOKEN: 
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.TEXT);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.NOT);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.IN);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.NOTIN);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.BELOW);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.ABOVE);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.OFTYPE);
+      return;
+    case REFERENCE: 
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.TYPE);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.IDENTIFIER);
+      if (isCircularReference(sp)) {
+        sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.BELOW);
+        sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.ABOVE);
+      }
+      return;
+    case URI: 
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.BELOW);
+      sp.addModifier(org.hl7.fhir.r4.model.SearchParameter.SearchModifierCode.ABOVE);
+      return;
+     // no modifiers for these
+    case NUMBER: 
+    case DATE: 
+    case COMPOSITE:
+    case QUANTITY: 
+    case SPECIAL: 
+    default:
+      return;
+    }
+  }
+
+
+  private boolean isCircularReference(SearchParameter sp) {
+    try {
+      ElementDefn e = definitions.getElementByPath(sp.getExpression().split("\\."), "search parameter analysis", true);
+      return e != null && e.hasHierarchy() && e.getHierarchy();
+    } catch (Exception e) {
+      return false;
+      
+    }
   }
 
 
