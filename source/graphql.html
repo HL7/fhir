@@ -88,11 +88,42 @@ mutations that provide additional functionality.
 With regard to handling errors, FHIR GraphQL servers:
 </p>
 <ul>
- <li>SHALL return a 200 ok with a "data" field, or a 3xx, 4xx or 5xx response with an OperationOutcome</li>
- <li>SHALL NOT include an "errors" property in their response</li>
- <li>MAY include an operation outcome in a mutation response in the "extensions" property along with a "data" element, if the mutation succeeded. The OperationOutcome SHALL only include information and warning messages</li> 
+ <li>SHALL return a 200 ok with a "data" field, or a 3xx, 4xx or 5xx response with a graphQL error as described below</li>
  <li>SHALL return an error when fields that are not valid or not supported are used, or when queries, mutations, arguments, types, and directives that are not recognized or supported are encountered</li>
+ <li>MAY include an operation outcome in a mutation response in the "extensions" property along with a "data" element, if the mutation succeeded. The OperationOutcome SHALL only include information and warning messages</li> 
 </ul>
+
+<p>
+A graphQL error response with an <a href="operationoutcome.html">OperationOutcome</a> looks like this:
+</p>
+<pre class="json">
+{
+  "data": null,
+  "errors": [
+    {
+      "extensions": {
+        "resource" : {
+          "resourceType": "OperationOutcome",
+          "issue": [
+            {
+              "severity": "error",
+              "code": "exception",
+              "diagnostics": "500: Internal server error"
+            }
+          ]
+        },
+      },  
+      "message": "500: Internal server error"
+    }
+  ]
+}
+</pre>
+<p>
+The error response SHALL include at least one error.
+Each error SHALL include a <code>message</code>, and MAY include the graphQL <code>locations</code> and <code>path</code> properties. 
+Each error SHOULD include an OperationOutcome in the <code>resource</code> property in the graphQL <code>extensions</code> element.
+Note that in this usage, there MAY be multiple OperationOutcome, one for each <code>errors</code> item, with one issue matching the message. 
+</p>
 
 <a name="fields"></a>
 <h3>Field Selection</h3>
