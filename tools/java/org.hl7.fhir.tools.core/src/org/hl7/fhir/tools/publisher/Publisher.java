@@ -1838,6 +1838,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       ResourceDefn r = page.getDefinitions().getResources().get(rname);
       checkExampleLinks(page.getValidationErrors(), r);
     }
+    for (Compartment cmp : page.getDefinitions().getCompartments())
+      page.getValidationErrors().addAll(val.check(cmp));
     
     val.report();
     val.summariseSearchTypes(page.getSearchTypeUsage());

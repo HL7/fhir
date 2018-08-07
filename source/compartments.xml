@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -300,7 +301,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | requester | performer</Data></Cell>
+    <Cell><Data ss:Type="String">subject | performer</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">requester |  performer</Data></Cell>
     <Cell><Data ss:Type="String">device | subject | requester |  performer</Data></Cell>
@@ -787,7 +788,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

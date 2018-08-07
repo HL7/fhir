@@ -177,6 +177,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
+import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
@@ -9581,12 +9582,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setText(null);
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
 
+      int i = countContains(exp.getExpansion().getContains());
+      IniFile sini = new IniFile(Utilities.path(folders.rootDir, "temp", "stats.ini"));
+      sini.setIntegerProperty("valuesets", vs.getId(), i, null);
+      sini.save();
       new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, exp, vs, false);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       e.printStackTrace();
       return "<hr/>\r\n"+VS_INC_START+"<!--5-->"+processExpansionError(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+VS_INC_END;
     }
+  }
+
+private int countContains(List<ValueSetExpansionContainsComponent> list) {
+    int i = list.size();
+    for (ValueSetExpansionContainsComponent c : list) {
+      if (c.hasContains())
+        i = i + countContains(c.getContains());
+    }
+    return i;
   }
 
 //  public List<ValidationMessage> getCollectedValidationErrors() {
