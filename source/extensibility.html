@@ -205,11 +205,11 @@ The URL of the extension is thus different. In XML:
         &lt;start value=&quot;2009-03-14&quot; /&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
+    &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/passport-number&quot; &gt;
+        &lt;valueString value=&quot;12345ABC&quot; /&gt;
+      &lt;/extension&gt;
+    &lt;!-- other data for patient --&gt;
   &lt;/extension&gt;
-  &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/passport-number&quot; &gt;
-      &lt;valueString value=&quot;12345ABC&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;!-- other data for patient --&gt;
 &lt;/Patient&gt;
 </pre>
 <p>
@@ -224,19 +224,19 @@ or in JSON:
     "extension" : [{
       "url" : "code",
       "valueCodeableConcept" : {
-          "coding" : [{
-             "system" : "urn:iso:std:iso:3166",
-             "code" : "DE"
-          }]
-       }
-    }, {
+        "coding" : [{
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "DE"
+        }]
+      }
+    },{
       "url" : "period",
       "valuePeriod" : {
-         "start" : "2009-03-14"
+        "start" : "2009-03-14"
       }
     },
 		{
-			"url": "http://acme.org/fhir/StructureDefinition/passport-number",
+		  "url": "http://acme.org/fhir/StructureDefinition/passport-number",
 			"valueString": "12345ABC"
 		}]
 	}]
