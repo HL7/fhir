@@ -1298,38 +1298,40 @@ prepended by the character <code>\</code>, which also must be used to prepend it
 Therefore, <code>param=xxx$xxx</code> indicates that it is a composite parameter, while <code>param=xx\$xx</code> indicates that
 the parameter has the literal value <code>xx$xx</code>. The parameter value <code>xx\xx</code> is illegal,
 and the parameter value <code>param=xx\\xx</code> indicates a literal value of <code>xx\xx</code>.
-</p>
-<p>
-This specification defines this additional form of escape
-for a reason. The classic <code>%xx</code> escaping which is part of
-normal HTTP URLs ensures that the character appears at the FHIR server
-correctly, while the <code>,</code> versus <code>\</code> becomes important once it has
-reached the server and the query is parsed. Therefore:
+This means that:
 </p>
 <pre>
-GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125
+GET [base]/Observation?code=a,b
 </pre>
 <p>
-uses url escaping to make sure the FHIR server received:
+is a request for any Observation that has a code of either <code>a</code> or <code>b</code>, where as:
+</p>
+<pre>
+GET [base]/Observation?code=a\,b
+</pre>
+<p>
+is a request for any Observation that has a code of <code>a,b</code>.
+</p>
+<p>
+This escaping is at a different level to the % encoding that applies to all 
+URL parameters. Standard % escaping still applies, such that these URLs
+have the same meaning:
 </p>
 <pre>
 GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125
+GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2CValueSet/125
 </pre>
 <p>
-This request will compare the URL against three values: the last one being a relative and incorrect url,
-which is likely not the actual intent. However:
+As do these URLs:
 </p>
 <pre>
 GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125
+GET [base]/ValueSet?url=http%58%47%47acme%46org%47fhir%47ValueSet%47123%44http%58%47%47acme%46org%47fhir%47ValueSet%47124%92%46125
 </pre>
 <p>
-is equivalent to:
-</p>
-<pre>
-GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\%2C125
-</pre>
-<p>
-which would mean: url = <code>http://.....123</code> OR  <code>http://....124,125</code>.
+This specification defines this additional form of escape because the escape syntax using \ applies 
+to all parameter values after they have been 'unescaped' on the server while being read from the
+HTTP headers.
 </p>
 
 <a name="text"></a>
