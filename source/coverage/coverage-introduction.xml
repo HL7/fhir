@@ -5,12 +5,13 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The Coverage resource is intended to provide the high level identifiers and descriptors of an insurance plan which may used to pay for,
- in part or in whole, the provision of health care products and services. 
+The Coverage resource is intended to provide the high-level identifiers and descriptors of an insurance plan, typically the information which would 
+appear on an insurance card, which may be used to pay,
+ in part or in whole, for the provision of health care products and services. 
 </p>
 <p>
 This resource may also be used to register 'SelfPay' where an individual or organization other than an insurer is taking responsibility for payment for a
- portion of the health care costs.
+ portion of the health care costs. Selfpay should not be confused with being a guarantor of the patient's account.
 </p>
 
 </div>

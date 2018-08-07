@@ -27,7 +27,7 @@
   <concept>
     <code value="related"/>
     <display value="Related Services"/>
-    <definition value="Nature and date of the related event eg. Last exam, service, Xray etc."/>
+    <definition value="Nature and date of the related event e.g. Last exam, service, X-ray etc."/>
   </concept>
   <concept>
     <code value="exception"/>
@@ -37,7 +37,7 @@
   <concept>
     <code value="material"/>
     <display value="Materials Forwarded"/>
-    <definition value="Materials being forwarded, eg. Models, molds, images, documents."/>
+    <definition value="Materials being forwarded, e.g. Models, molds, images, documents."/>
   </concept>
   <concept>
     <code value="attachment"/>

@@ -26,13 +26,13 @@
   </concept>
   <concept>
     <code value="deductible"/>
-    <display value="Deductable"/>
+    <display value="Deductible"/>
     <definition value="Amount deducted from the eligible amount prior to adjudication."/>
   </concept>
   <concept>
     <code value="unallocdeduct"/>
-    <display value="Unallocated Deductable"/>
-    <definition value="The amount of deductable which could not allocated to other line items."/>
+    <display value="Unallocated Deductible"/>
+    <definition value="The amount of deductible which could not allocated to other line items."/>
   </concept>
   <concept>
     <code value="eligpercent"/>

@@ -46,8 +46,8 @@
   </concept>
   <concept>
     <code value="2141"/>
-    <display value="Radiograph, bytewing"/>
-    <definition value="Radiograph, bytewing"/>
+    <display value="Radiograph, bitewing"/>
+    <definition value="Radiograph, bitewing"/>
   </concept>
   <concept>
     <code value="2601"/>

@@ -52,7 +52,7 @@
   <concept>
     <code value="COAUTH"/>
     <display value="Co-Author"/>
-    <definition value="The entity that co-authored content. There can be multiple co-authors of content,which may take such forms as a  such as a contract, a healthcare record entry or document, a policy, or a consent directive."/>
+    <definition value="The entity that co-authored content. There can be multiple co-authors of content, which may take such forms as a contract, a healthcare record entry or document, a policy, or a consent directive."/>
   </concept>
   <concept>
     <code value="CONSENTER"/>
@@ -72,7 +72,7 @@
   <concept>
     <code value="COPART"/>
     <display value="Co-Participant"/>
-    <definition value="A person who participates in the generation of and attest to veracity of content, but is not an author or co-author. For example a surgeon who is required by institutional, regulatory, or legal rules to sign an operative report, but who was not involved in the authorship of that report."/>
+    <definition value="A person who participates in the generation of and attest to veracity of content but is not an author or co-author. For example, a surgeon who is required by institutional, regulatory, or legal rules to sign an operative report, but who was not involved in the authorship of that report."/>
   </concept>
   <concept>
     <code value="COVPTY"/>
@@ -92,7 +92,7 @@
   <concept>
     <code value="DEPEND"/>
     <display value="Dependent"/>
-    <definition value="A person covered under an insurance policy or program based on an association with a subscriber, which is recognized by the policy holder. The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child. The policy holder may be required by law to recognize certain associations or may have discretion about the associations. For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents. Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently-abled or deceased, a guardian ad Lidem or estate executor may be appointed to assume the subscriber's legal standing in the relationship with the dependent."/>
+    <definition value="A person covered under an insurance policy or program based on an association with a subscriber, which is recognized by the policy holder. The dependent has an association with the subscriber such as a financial dependency or personal relationship such as that of a spouse, or a natural or adopted child. The policy holder may be required by law to recognize certain associations or may have discretion about the associations. For example, a policy holder may dictate the criteria for the dependent status of adult children who are students, such as requiring full time enrollment, or may recognize domestic partners as dependents. Under certain circumstances, the dependent may be under the indirect authority of a responsible party acting as a surrogate for the subscriber, for example, if the subscriber is differently-abled or deceased, a guardian ad lidem or estate executor may be appointed to assume the subscriber's legal standing in the relationship with the dependent."/>
   </concept>
   <concept>
     <code value="DPOWATT"/>

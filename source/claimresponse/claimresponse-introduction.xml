@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The ClaimResponse resource provides application level error or application level adjudication results
+The ClaimResponse resource provides application level adjudication results, or an application level error,
  which are the result of processing a submitted Claim resource where that Claim may be which is the functional corollary of 
  a Claim, Pre-Determination or a Pre-Authorization.
  </p>
