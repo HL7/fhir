@@ -18,7 +18,8 @@
   
   
   <TabRatio>715</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>22</ActiveSheet>
+  <FirstVisibleSheet>16</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3824,11 +3825,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>77</TopRowBottomPane>
+   <TopRowBottomPane>65</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -12939,7 +12939,7 @@
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Literal References</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced')</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s146"/>
@@ -12950,7 +12950,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Logical References</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">The server allows logical references</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">The server allows logical references (i.e. using Reference.identifier)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s148"/>
@@ -12961,7 +12961,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Resolves References</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The server will attempt to resolve logical references to literal references - i.e. converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical)</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s148"/>
@@ -13480,6 +13480,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
