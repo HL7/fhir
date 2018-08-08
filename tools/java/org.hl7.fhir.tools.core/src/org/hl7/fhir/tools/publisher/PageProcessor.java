@@ -415,8 +415,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4"; 
-//  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
+//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4"; 
+  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
@@ -432,7 +432,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           "</p>\r\n";
 
   public static final String CODE_LIMIT_EXPANSION = "1000";
-  public static final String TOO_MANY_CODES_TEXT_NOT_EMPTY = "This value set has >2000 codes in it. In order to keep the publication size manageable, only a selection  (2000 codes) of the whole set of codes is shown";
+  public static final String TOO_MANY_CODES_TEXT_NOT_EMPTY = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown";
   public static final String TOO_MANY_CODES_TEXT_EMPTY = "This value set cannot be expanded because of the way it is defined - it has an infinite number of members";
   private static final String NO_CODESYSTEM_TEXT = "This value set refers to code systems that the FHIR Publication Tooling does not support";
 
@@ -3724,7 +3724,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genResourceConstraints(ResourceDefn res, String prefix) throws Exception {
     ElementDefn e = res.getRoot();
     Map<String, String> invs = new HashMap<String, String>();
-    generateConstraints(res.getName(), e, invs, true, prefix);
+    generateConstraintsTable(res.getName(), e, invs, true, prefix);
     List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
       ids.add(n);
@@ -3735,7 +3735,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(invs.get(n));
     }
     if (b.length() > 0)
-      return "<a name=\"invs\"> </a>\r\n<h3>Constraints</h3><ul>"+b+"</ul>";
+      return "<a name=\"invs\"> </a>\r\n<h3>Constraints</h3><table class=\"grid\"><tr><td width=\"60\"><b>id</b></td><td><b>Level</b></td><td><b>Location</b></td><td><b>Description</b></td><td><b><a href=\""+prefix+"fhirpath.html\">Expression</a></b></td></tr>"+b+"</table>";
     else
       return "";
   }
@@ -3779,10 +3779,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     Map<String, String> invs = new HashMap<String, String>();
     if (definitions.getConstraints().containsKey(name)) {
       ProfiledType cnst = definitions.getConstraints().get(name);
-      generateConstraints(name, cnst, invs, true, prefix);
+      generateConstraintsTable(name, cnst, invs, true, prefix);
     } else {
       ElementDefn e = definitions.getElementDefn(name);
-      generateConstraints(name, e, invs, true, prefix);
+      generateConstraintsTable(name, e, invs, true, prefix);
     }
     List<String> ids = new ArrayList<String>();
     for (String n : invs.keySet()) {
@@ -3794,7 +3794,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(invs.get(n));
     }
     if (b.length() > 0)
-      return "<a name=\""+name+"-inv\"> </a><ul>"+b+"</ul>";
+      return "<a name=\""+name+"-inv\"> </a><table class=\"grid\"><tr><td width=\"60\"><b>id</b></td><td><b>Level</b></td><td><b>Location</b></td><td><b>Description</b></td><td><b><a href=\""+prefix+"fhirpath.html\">Expression</a></b></td></tr>"+b+"</table>";
     else
       return "";
   }
@@ -3815,6 +3815,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
+  private void generateConstraintsTable(String path, ElementDefn e, Map<String, String> invs, boolean base, String prefix) throws Exception {
+    for (Invariant inv : e.getInvariants().values()) {
+      String s = "";
+      if (base)
+        s = "<tr><td><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b></td><td>"+presentLevel(inv)+"</td><td>(base)</td><td>"+Utilities.escapeXml(inv.getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>";
+      else
+        s = "<tr><td><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b></td><td>"+presentLevel(inv)+"</td><td>"+path+"</td><td>"+Utilities.escapeXml(inv.getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>";
+      if (!Utilities.noString(inv.getExplanation())) 
+        s = s + "<br/>This is (only) a best practice guideline because: <blockquote>"+processMarkdown("best practice guideline", inv.getExplanation(), prefix)+"</blockquote>";
+      s = s + "</td></tr>";
+      invs.put(inv.getId(), s);
+    }
+    for (ElementDefn c : e.getElements()) {
+      generateConstraintsTable(path + "." + c.getName(), c, invs, false, prefix);
+    }
+  }
+
   private String presentLevel(Invariant inv) {
     if ("warning".equals(inv.getSeverity()))
       return "<a href=\"conformance-rules.html#warning\" style=\"color: Chocolate\">Warning</a> ";
@@ -3825,6 +3842,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private void generateConstraints(String path, ProfiledType pt, Map<String, String> invs, boolean base, String prefix) {
     invs.put("sqty-1", "<li><a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a> <b title=\"Formal Invariant Identifier\">sqty-1</b>: "+Utilities.escapeXml(pt.getInvariant().getEnglish())+" (<a href=\"http://hl7.org/fhirpath\">expression</a>: <span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</li>");
+  }
+  private void generateConstraintsTable(String path, ProfiledType pt, Map<String, String> invs, boolean base, String prefix) {
+    invs.put("sqty-1", "<tr><td><b title=\"Formal Invariant Identifier\">sqty-1</b></td><td><a href=\"conformance-rules.html#rule\" style=\"color: Maroon\">Rule</a></td><td>(base)</td><td>"+Utilities.escapeXml(pt.getInvariant().getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(pt.getInvariant().getExpression())+"</span>)</td></tr>");
   }
 
   private String presentPath(String path) {
@@ -5669,6 +5689,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
 
+  private String genResExtLink(ResourceDefn resource) {
+    boolean isAbstract = resource.isAbstract();
+
+    if (isAbstract)
+      return "See the ";
+    else
+      return "See the <a href=\""+resource.getName().toLowerCase()+"-profiles.html\">Profiles &amp; Extensions</a> and the ";
+  }
+
   public class SnomedConceptUsage {
     private String code;
     private String display;
@@ -6176,15 +6205,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genLogicalMappings(resource, genlevel(level))+s3; 
       else if (com[0].equals("no-extensions-base-warning"))
         src = s1+genNoExtensionsWarning(resource)+s3; 
+      else if (com[0].equals("res-ext-link"))  
+        src = s1+genResExtLink(resource)+s3;
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
         else
           src = s1+"<p>The resource name as it appears in a  RESTful URL is <a href=\"http.html#root\">[root]</a>/"+name+"/</p>"+s3;
-      } else if (macros.containsKey(com[0])) {
-        src = s1+macros.get(com[0])+s3;
-      } else if (macros.containsKey(com[0])) {
-        src = s1+macros.get(com[0])+s3;
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else

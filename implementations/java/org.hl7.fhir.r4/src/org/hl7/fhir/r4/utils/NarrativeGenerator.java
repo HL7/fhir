@@ -3654,7 +3654,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
         }
       }
     } else {
-      li = ul.li();
       li.tx("Import all the codes that are contained in ");
       boolean first = true;
       for (UriType vs : inc.getValueSet()) {

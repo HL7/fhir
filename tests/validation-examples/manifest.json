@@ -4,6 +4,9 @@
 			"bundle-good.json": {
 				"errorCount": 0
 			},
+			"bundle-bad-empty.json": {
+				"errorCount": 1
+			},
 			"group-choice-bad1.json": {
 				"errorCount": 2,
 				"errors": ["/Group/characteristic (line 10, col21) Unrecognised property '@value' ",
@@ -120,6 +123,9 @@
       },
       "primitive-bad.xml" : {
 				"errorCount": 51
+      },
+      "primitive-bad-empty.xml" : {
+				"errorCount": 1
       },
 			"group-choice-bad1.xml": {
 				"errorCount": 2,

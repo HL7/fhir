@@ -165,9 +165,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     return null;
   }
 
-  private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, Parameters expParams, List<ValueSet> filters)
-      throws FHIRException {
+  private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def, ValueSetExpansionContainsComponent parent, Parameters expParams, List<ValueSet> filters, ConceptDefinitionComponent exclusion)  throws FHIRException {
     def.checkNoModifiers("Code in Code System", "expanding");
+    if (exclusion != null) {
+      if (exclusion.getCode().equals(def.getCode()))
+        return; // excluded.
+    }
     if (!CodeSystemUtilities.isDeprecated(cs, def)) {
       ValueSetExpansionContainsComponent np = null;
       boolean abs = CodeSystemUtilities.isNotSelectable(cs, def);
@@ -175,10 +178,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (canBeHeirarchy || !abs)
         np = addCode(system, def.getCode(), def.getDisplay(), parent, def.getDesignation(), expParams, abs, inc, filters);
       for (ConceptDefinitionComponent c : def.getConcept())
-        addCodeAndDescendents(cs, system, c, np, expParams, filters);
+        addCodeAndDescendents(cs, system, c, np, expParams, filters, exclusion);
     } else {
       for (ConceptDefinitionComponent c : def.getConcept())
-        addCodeAndDescendents(cs, system, c, null, expParams, filters);
+        addCodeAndDescendents(cs, system, c, null, expParams, filters, exclusion);
     }
 
   }
@@ -411,7 +414,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
         // special case - add all the code system
         for (ConceptDefinitionComponent def : cs.getConcept()) {
-          addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
+          addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports, null);
         }
       }
 
@@ -434,20 +437,22 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
           if (def == null)
             throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
-          addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
-//        } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.ISNOTA) {
-//            // special: all codes in the target code system under the value
-//            ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
-//            if (def == null)
-//              throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
-//            addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
+          addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports, null);
+        } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.ISNOTA) {
+           // special: all codes in the target code system that are not under the value
+            ConceptDefinitionComponent defEx = getConceptForCode(cs.getConcept(), fc.getValue());
+            if (defEx == null)
+              throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
+            for (ConceptDefinitionComponent def : cs.getConcept()) {
+              addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports, defEx);
+            }
         } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDENTOF) {
           // special: all codes in the target code system under the value
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
           if (def == null)
             throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
           for (ConceptDefinitionComponent c : def.getConcept())
-            addCodeAndDescendents(cs, inc.getSystem(), c, null, expParams, imports);
+            addCodeAndDescendents(cs, inc.getSystem(), c, null, expParams, imports, null);
         } else if ("display".equals(fc.getProperty()) && fc.getOp() == FilterOperator.EQUAL) {
           // gg; note: wtf is this: if the filter is display=v, look up the code 'v', and see if it's diplsay is 'v'?
           canBeHeirarchy = false;
