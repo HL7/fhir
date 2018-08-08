@@ -1317,13 +1317,28 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (others != null && others.containsKey(s2))
         src = s1+others.get(s2)+s3;
       else  if (com[0].equals("canonical-resources")) 
-        src = s1+listCanonicalResources()+s3;      
-      else if (macros.containsKey(com[0])) {
+        src = s1+listCanonicalResources()+s3;
+      else if (com[0].equals("special-search-parameters")) { 
+        src = s1+listSpecialParameters()+s3;
+      } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String listSpecialParameters() throws FHIRException {
+    StringBuilder b = new StringBuilder();
+    for (String rn : definitions.sortedResourceNames()) {
+      ResourceDefn rd = definitions.getResourceByName(rn);
+      for (SearchParameterDefn spd : rd.getSearchParams().values()) {
+        if (spd.getType() == SearchType.special) {
+          b.append(" <li><code>"+spd.getCode()+"</code> on <a href=\""+rn.toLowerCase()+".html#search\">"+rn+"</a></li>\r\n");
+        }
+      }
+    }
+    return b.toString();
   }
 
   private String buildShortParameterList(String param) throws FHIRException {
@@ -5643,7 +5658,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<a href=\"https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id="+com[0].substring(3)+"\">"+com[0]+"</a>"+s3;      
       else  if (com[0].equals("canonical-resources")) 
         src = s1+listCanonicalResources()+s3;      
-      else if (macros.containsKey(com[0])) {
+      else if (com[0].equals("special-search-parameters")) { 
+        src = s1+listSpecialParameters()+s3;
+      } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
