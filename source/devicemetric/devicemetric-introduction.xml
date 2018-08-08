@@ -23,7 +23,6 @@ There are two related resources
 </p>
 <ul>
  <li><a href="device.html">Device</a>  - The physical device that this DeviceMetric belongs to.</li>
- <li><a href="devicecomponent.html">DeviceComponent</a>  - The DeviceComponent that this DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice, a MedicalDeviceSystem, or a Channel.</li>
 </ul>
 
 </div>

@@ -25,10 +25,6 @@
 		<system value="urn:iso:std:iso:11073:10101"/>
 		<code value="265201"/>
 	</valueQuantity>
-	<device>
-		<reference value="DeviceComponent/DeviceComponent-SysId-E239000000000001"/>
-	</device>
-
 	<!---
 Removed the .related type qualified-by  - if needed would be an extension 
 

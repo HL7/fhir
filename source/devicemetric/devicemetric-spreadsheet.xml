@@ -438,9 +438,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s75">
     <Cell ss:StyleID="s77"><Data ss:Type="String">DeviceMetric.parent</Data></Cell>
     <Cell><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">Reference(DeviceDefinition)</Data></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Describes the link to the parent DeviceComponent</Data></Cell>
-    <Cell><Data ss:Type="String">Describes the link to the  DeviceComponent that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a DeviceComponent that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">Reference(Device)</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Describes the link to the parent Device</Data></Cell>
+    <Cell><Data ss:Type="String">Describes the link to the  Device that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a Device that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">DeviceMetric.operationalStatus</Data></Cell>
@@ -524,7 +524,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

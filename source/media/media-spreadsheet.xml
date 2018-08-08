@@ -20,7 +20,6 @@
   
   <TabRatio>736</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1402,7 +1401,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Device|DeviceMetric|DeviceComponent)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Device|DeviceMetric|Device)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4068,7 +4067,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4079,7 +4078,7 @@
    <Range>R6C23,R4C26:R5C26,R24C26,R15C26,R16C25,R11C26:R12C26</Range>
    <Type>List</Type>
    <CellRangeList/>
-   <Value>"left,right,up,down,[xpixels];[ypixels]"</Value>
+   <Value>"left,right,up,down,[xpixels],[ypixels]"</Value>
    <ErrorHide/>
    <ErrorStyle>Info</ErrorStyle>
   </DataValidation>
