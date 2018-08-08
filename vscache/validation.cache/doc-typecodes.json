@@ -1,0 +1,21 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/doc-typecodes",
+  "outcomes": [
+    {
+      "hash": "#|http://loinc.org|null|11488-4|Consult note",
+      "severity": "error",
+      "message": "Access violation at address 0000000000C56682 in module 'FHIRServer.exe'. Read of address FFFFFFFFFFFFFFFF"
+    },
+    {
+      "hash": "#|http://loinc.org|null|28655-9|null",
+      "severity": "warning",
+      "message": "No Message returned",
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Physician attending Discharge summary"
+      }
+    }
+  ]
+}

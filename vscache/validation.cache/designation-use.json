@@ -1,0 +1,20 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/designation-use",
+  "outcomes": [
+    {
+      "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
+      "severity": "error",
+      "message": "Unknown Code internal-label in http://hl7.org/fhir/ValueSet/designation-use"
+    },
+    {
+      "hash": "|http://terminology.hl7.org/CodeSystem/designation-usage|null|definition|null",
+      "severity": "error",
+      "message": "Unknown Code definition in http://hl7.org/fhir/ValueSet/designation-use"
+    },
+    {
+      "hash": "|http://terminology.hl7.org/CodeSystem/designation-usage|null|display|null",
+      "severity": "error",
+      "message": "Unknown Code display in http://hl7.org/fhir/ValueSet/designation-use"
+    }
+  ]
+}

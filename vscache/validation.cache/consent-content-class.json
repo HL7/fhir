@@ -1,0 +1,15 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/consent-content-class",
+  "outcomes": [
+    {
+      "hash": "|urn:ietf:bcp:13|null|application/hl7-cda+xml|null",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
+    },
+    {
+      "hash": "|urn:ietf:rfc:3986|null|RicardianContract|null",
+      "severity": "error",
+      "message": "Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
+    }
+  ]
+}
