@@ -88,7 +88,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s75">
+  <Style ss:ID="s76">
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s77">
@@ -907,7 +907,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(MedicinalProductDeviceSpec)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Reference(MedicinalProductDeviceSpec|DeviceDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -970,7 +970,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Dimensions, color etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="54" ss:StyleID="s75">
+   <Row ss:AutoFitHeight="0" ss:Height="54" ss:StyleID="s76">
     <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.otherCharacteristics</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1043,7 +1043,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
