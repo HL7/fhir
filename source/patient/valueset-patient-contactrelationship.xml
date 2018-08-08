@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Patient Contact Relationship "/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="The nature of the relationship between the patient and the contact person."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-not-a"/>
+        <value value="O"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
