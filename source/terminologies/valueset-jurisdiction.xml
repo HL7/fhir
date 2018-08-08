@@ -11,14 +11,25 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a base set of codes for country and region, for indicating where a resource is intended to be used"/>
+  <description value="This value set defines a base set of codes for country, country subdivision and region 
+  for indicating where a resource is intended to be used.
+  &#13;&#10;
+  &#13;&#10;
+  Note: The codes for countries and country subdivisions are taken from 
+  [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) 
+  while the codes for &quot;supra-national&quot; regions are from 
+  [UN Standard country or area codes for statistical use (M49)](http://unstats.un.org/unsd/methods/m49/m49.htm)."/>
   <compose>
     <include>
-      <!--   ISO 2 letter country codes   -->
+      <!--   ISO Part 1 (2-letter, 3-letter and numerical) country codes   -->
       <system value="urn:iso:std:iso:3166"/>
     </include>
     <include>
-    <!--   ISO region codes   -->
+      <!--   ISO Part 2 , Subdivision (State/Province) Codes   -->
+      <system value="urn:iso:std:iso:3166:-2"/>
+    </include>
+    <include>
+    <!--   Regions from UN standard country or area codes   -->
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <filter>
         <property value="class"/>

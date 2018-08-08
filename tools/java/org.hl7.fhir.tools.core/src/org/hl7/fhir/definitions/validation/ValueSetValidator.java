@@ -341,8 +341,8 @@ public class ValueSetValidator extends BaseValidator {
         "http://www.radlex.org",  "http://www.whocc.no/atc",  "http://hl7.org/fhir/sid/cvx", 
         "urn:ietf:bcp:47",  "urn:ietf:bcp:13",  "urn:ietf:rfc:3986", 
         "urn:iso:std:iso:4217",  "urn:iso:std:iso:11073:10101",  "urn:iso-astm:E1762-95:2013", 
-        "urn:iso:std:iso:3166",  "http://nucc.org/provider-taxonomy",  "http://example.com", 
-        "http://example.org", "https://precision.fda.gov/files/", "http://www.ebi.ac.uk/ipd/imgt/hla", 
+        "urn:iso:std:iso:3166",  "urn:iso:std:iso:3166:-2",  "urn:iso:std:iso:3166:-3",  "http://nucc.org/provider-taxonomy", 
+        "http://example.com",  "http://example.org", "https://precision.fda.gov/files/", "http://www.ebi.ac.uk/ipd/imgt/hla", 
         "https://www.iana.org/time-zones", "https://precision.fda.gov/jobs/"))
       return true;
     

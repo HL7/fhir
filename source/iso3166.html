@@ -24,17 +24,17 @@
    ISO 3166 is a 3 part standard, each of which defines a code system:
    <ul>
     <li><code>urn:iso:std:iso:3166</code>: Part 1, Country Codes (2-letter and 3-letter, and numerical codes)</li>
-    <li><code>urn:iso:std:iso:3166:-2</code>: Part 1, State/Province Codes</li>
-    <li><code>urn:iso:std:iso:3166:-3</code>: Part 1, Historical Country Names</li>
+    <li><code>urn:iso:std:iso:3166:-2</code>: Part 2, Subdivision (State/Province) Codes</li>
+    <li><code>urn:iso:std:iso:3166:-3</code>: Part 3, Historical Country Names</li>
    </ul>
    Note: the URI used for Part 1 would be urn:iso:std:iso:3166:-1 if it were consistent with the other URIs, but urn:iso:std:iso:3166 is used for legacy reasons.
  </td></tr>
  <tr><td>Version</td><td>If necessary to exchange the version (see below), use the year of release in the format YYYY</td></tr>
  <tr><td>Code</td><td>
    <ul>
-    <li><code>Part 1</code>: Any of the 2-letter, 3-letter, or numerical codes defined in part 1</li>
-    <li><code>Part 2</code>: ??</li>
-    <li><code>Part 3</code>: One of the 4 letter codes defined in part 4</li>
+    <li><code>Part 1</code>: Any of the 2-letter, 3-letter, or numerical country name codes defined in Part 1</li>
+    <li><code>Part 2</code>: Any of the codes for principal subdivisions (e.g province or state) of countries coded in Part 1</li>
+    <li><code>Part 3</code>: One of the 4 letter historical country name codes defined in Part 3</li>
    </ul> 
    The codes SHALL always be represented in upper case, but (for robustness) comparisons are case insensitive.
  </td></tr>
