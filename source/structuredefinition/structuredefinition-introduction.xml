@@ -41,7 +41,7 @@ before working with this resource.
 <p>
 The StructureDefinition resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>,
 <a href="capabilitystatement.html">CapabilityStatement</a> and other infrastructure resources. The metadata describes the structure and helps
-find the structure when registered in profile repositories.
+find the structure when registered in repositories.
 </p>
 
 <table class="grid">
@@ -54,7 +54,7 @@ find the structure when registered in profile repositories.
  <tr><td>name</td><td>A Computer-ready name (e.g. a token) that identifies the structure - suitable for code generation. 
    Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>
- <tr><td>status</td><td>The status of the structure	allows filtering of profiles that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
+ <tr><td>status</td><td>The status of the structure	allows filtering of StructureDefinitions that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>
  <tr><td>date</td><td>The date this version of the structure was published	</td></tr>
  <tr><td>publisher</td><td>Details of the individual or organization who accepts responsibility for publishing the structure. This helps establish the "authority/credibility" of the structure.</td></tr>
@@ -62,10 +62,10 @@ find the structure when registered in profile repositories.
  <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>
  <tr><td>purpose</td><td>Why this structure was created - what the intent of it is</td></tr>
  <tr><td>useContext &amp; Jurisdiction</td><td>Computable details about purpose and scope of use</td></tr>
- <tr><td>keyword</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of profiles</td></tr>
+ <tr><td>keyword</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of StructureDefinitionss</td></tr>
  <tr><td>copyright</td><td>Use and/or publishing restrictions</td></tr>
- <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this structure is based. It is not necessary to specify the version, as most profiles are valid across multiple versions, and the validity of a structure against a particular version of FHIR can easily be checked by tooling.	</td></tr>
-
+ <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this structure is based. It is not necessary to specify the version, 
+ as most SructureDefinitions are valid across multiple versions, and the validity of a structure against a particular version of FHIR can easily be checked by tooling.	</td></tr>
  <tr><td>type</td><td>The type the structure describes.</td></tr>
  <tr><td>contextType &amp; context</td><td>For extensions, the types of contexts in which the extension can be used. For further details, see <a href="defining-extensions.html">Defining Extensions</a></td></tr>
 </table>

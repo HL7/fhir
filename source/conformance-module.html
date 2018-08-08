@@ -163,20 +163,23 @@ running the risk of being misconfigured.</li>
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
-    <p>A subset of the conformance resources has been tested and used in production tooling and as
-        such have reached a maturity level where changes become less likely. These are
-            <code>CapabilityStatement</code>, <code>StructureDefinition</code>,
-            <code>ValueSet</code>, <code>OperationDefinition</code> and <code>SearchParameter</code>.</p>
+    <p>A subset of the conformance resources has been tested and used in production tooling and are now normative.
+        These include StructureDefinition and ValueSet.
+        
+        Others, like CapabilityStatement, have been used widely, but not across all elements. As a consequence, these resource
+        have a considerable number of elements marked for "trial use", while other parts are normative and will no longer change
+        in a substantive way.</p>
+
     <p>Other resources are still under development:</p>
     <ul>
         <li><code>ImplementationGuide</code>: used in the HL7 production tooling but has not received much use
             outside of these tools yet.</li>
-        <li><code>CompartmentDefinition</code>: new in STU3, and as such has not undergone much production
+        <li><code>CompartmentDefinition</code>: was new in STU3, and as such has not undergone much production
             use</li>
     </ul>
-    <p>Over the past two years, these resources have been mainly used in the tools used to build the FHIR
+    <p>These resources have been mainly used in the tools used to build the FHIR
         publication, early-adopter implementation guides and the FHIR Foundation conformance
-        resource registry. In the 2016-2018 timeframe, we expect to see more widespread use of these
+        resource registry. In future, we expect to see more widespread use of these
         resources in validation tooling, code-generators and more extensive model-based guide
         authoring tools.</p>
 
