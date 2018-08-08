@@ -261,7 +261,6 @@ signatures.html
 
       <page type="resource" resource="Device"/>
       <page type="resource" resource="DeviceDefinition"/>
-      <page type="resource" resource="DeviceComponent"/>
       <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>
       <page type="resource" resource="SubstanceSpecification"/>

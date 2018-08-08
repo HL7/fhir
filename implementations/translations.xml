@@ -270,13 +270,6 @@
 		<translation lang="es">Dispositivo</translation>
 		<translation lang="zh">装置</translation>
 	</item>
-	<item id="DeviceComponent">
-		<translation lang="en">DeviceComponent</translation>
-		<translation lang="fr">ComposantDeDispositif</translation>
-		<translation lang="it">ComponenteDispositivo</translation>
-		<translation lang="es">ComponenteDeDispositivo</translation>
-		<translation lang="zh">装置组件</translation>
-	</item>
 	<item id="DeviceDefinition">
 		<translation lang="en">DeviceDefinition</translation>
 		<translation lang="fr">DéfinitionDeDispositif</translation>
