@@ -79,22 +79,29 @@ Mobile Services (kind)
     <h3>Positional Searching</h3>
     <p>
         Searching for locations often require that a facility is within a specified distance of a specified point.
-        For example, to locate healthcare facilities within 2 kms of a client's home, or the current geo-coded
+        For example, to locate healthcare facilities within 11.2 kms of a client's home, or the current geo-coded
         position of a practitioner travelling between patients (read from a mobile phone or device).
     </p>
 <pre>
- GET [base]/Location?near=-83.694810:42.256500&amp;near-distance=11.20||km...
+ GET [base]/Location?near=-83.694810|42.256500|11.20|km...
 </pre>
     <p>
-        Note: The near search parameters are not able to be used with multiples thus the multiple 
-        separator <code> , </code> should not be used with near or near-distance.
+        The distance and distance unit parameter components are optional, if the units are missing, kms are to be assumed.
+        If the distance parameter component is missing, then the server may choose its own interpretation
+        of what near enough is to be included in the search results.
+    </p>
+    <p>
+        Note: The STU3 version of this functionality did not support the multiple multiple 
+        separator <code> , </code> or chaining. The update to this format now supports both these use cases.<br/>
+        (And the near-distance was deprecated as a result of this change too)
     </p>
     <p>
         The distance between the location and the provided point is often used as one of the 
         determining factors for selection of the location. So this value is included in the results.<br/>
         However the value cannot be inside the Location resource as it is different depending on the
         point of reference in the search. So the distance between is included in the search section
-        of the bundle entry.
+        of the bundle entry. Where multiple near positions are included, the distance to the closest 
+        point provided may be included.
     </p>
 <pre>
 &lt;entry&gt; 
