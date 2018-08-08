@@ -7461,8 +7461,8 @@ public class XmlParser extends XmlParserBase {
         res.getMedia().add(parseDiagnosticReportDiagnosticReportMediaComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conclusion")) {
         res.setConclusionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("codedDiagnosis")) {
-        res.getCodedDiagnosis().add(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("conclusionCode")) {
+        res.getConclusionCode().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("presentedForm")) {
         res.getPresentedForm().add(parseAttachment(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
@@ -31113,9 +31113,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasConclusionElement()) {
         composeString("conclusion", element.getConclusionElement());
       }
-      if (element.hasCodedDiagnosis()) { 
-        for (CodeableConcept e : element.getCodedDiagnosis()) 
-          composeCodeableConcept("codedDiagnosis", e);
+      if (element.hasConclusionCode()) { 
+        for (CodeableConcept e : element.getConclusionCode()) 
+          composeCodeableConcept("conclusionCode", e);
       }
       if (element.hasPresentedForm()) { 
         for (Attachment e : element.getPresentedForm()) 

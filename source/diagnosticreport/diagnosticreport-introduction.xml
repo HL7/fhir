@@ -40,7 +40,7 @@ The DiagnosticReport resource has the following aspects:
  <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide
     a hierarchical tree of groups of results</li>
  <li>specimen details: a reference to 0 or more <a href="specimen.html">Specimen resources</a> on which the report is based</li>
- <li>conclusion, codedDiagnosis: support for structured reporting</li>
+ <li>conclusion, conclusionCode: support for structured reporting</li>
  <li>images, representation: image and media representations of the report and supporting images</li>
 </ul-->
 

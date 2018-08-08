@@ -680,10 +680,10 @@ public class DiagnosticReport extends DomainResource {
     /**
      * Codes for the conclusion.
      */
-    @Child(name = "codedDiagnosis", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "conclusionCode", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Codes for the conclusion", formalDefinition="Codes for the conclusion." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
-    protected List<CodeableConcept> codedDiagnosis;
+    protected List<CodeableConcept> conclusionCode;
 
     /**
      * Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
@@ -1551,56 +1551,56 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #codedDiagnosis} (Codes for the conclusion.)
+     * @return {@link #conclusionCode} (Codes for the conclusion.)
      */
-    public List<CodeableConcept> getCodedDiagnosis() { 
-      if (this.codedDiagnosis == null)
-        this.codedDiagnosis = new ArrayList<CodeableConcept>();
-      return this.codedDiagnosis;
+    public List<CodeableConcept> getConclusionCode() { 
+      if (this.conclusionCode == null)
+        this.conclusionCode = new ArrayList<CodeableConcept>();
+      return this.conclusionCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DiagnosticReport setCodedDiagnosis(List<CodeableConcept> theCodedDiagnosis) { 
-      this.codedDiagnosis = theCodedDiagnosis;
+    public DiagnosticReport setConclusionCode(List<CodeableConcept> theConclusionCode) { 
+      this.conclusionCode = theConclusionCode;
       return this;
     }
 
-    public boolean hasCodedDiagnosis() { 
-      if (this.codedDiagnosis == null)
+    public boolean hasConclusionCode() { 
+      if (this.conclusionCode == null)
         return false;
-      for (CodeableConcept item : this.codedDiagnosis)
+      for (CodeableConcept item : this.conclusionCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addCodedDiagnosis() { //3
+    public CodeableConcept addConclusionCode() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.codedDiagnosis == null)
-        this.codedDiagnosis = new ArrayList<CodeableConcept>();
-      this.codedDiagnosis.add(t);
+      if (this.conclusionCode == null)
+        this.conclusionCode = new ArrayList<CodeableConcept>();
+      this.conclusionCode.add(t);
       return t;
     }
 
-    public DiagnosticReport addCodedDiagnosis(CodeableConcept t) { //3
+    public DiagnosticReport addConclusionCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.codedDiagnosis == null)
-        this.codedDiagnosis = new ArrayList<CodeableConcept>();
-      this.codedDiagnosis.add(t);
+      if (this.conclusionCode == null)
+        this.conclusionCode = new ArrayList<CodeableConcept>();
+      this.conclusionCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #codedDiagnosis}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #conclusionCode}, creating it if it does not already exist
      */
-    public CodeableConcept getCodedDiagnosisFirstRep() { 
-      if (getCodedDiagnosis().isEmpty()) {
-        addCodedDiagnosis();
+    public CodeableConcept getConclusionCodeFirstRep() { 
+      if (getConclusionCode().isEmpty()) {
+        addConclusionCode();
       }
-      return getCodedDiagnosis().get(0);
+      return getConclusionCode().get(0);
     }
 
     /**
@@ -1674,7 +1674,7 @@ public class DiagnosticReport extends DomainResource {
         children.add(new Property("imagingStudy", "Reference(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
         children.add(new Property("media", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, media));
         children.add(new Property("conclusion", "string", "Concise and clinically contextualized impression / summary of the diagnostic report.", 0, 1, conclusion));
-        children.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
+        children.add(new Property("conclusionCode", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, conclusionCode));
         children.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
       }
 
@@ -1700,7 +1700,7 @@ public class DiagnosticReport extends DomainResource {
         case -814900911: /*imagingStudy*/  return new Property("imagingStudy", "Reference(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy);
         case 103772132: /*media*/  return new Property("media", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, media);
         case -1731259873: /*conclusion*/  return new Property("conclusion", "string", "Concise and clinically contextualized impression / summary of the diagnostic report.", 0, 1, conclusion);
-        case -1364269926: /*codedDiagnosis*/  return new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis);
+        case -1364269926: /*conclusionCode*/  return new Property("conclusionCode", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, conclusionCode);
         case 230090366: /*presentedForm*/  return new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
@@ -1726,7 +1726,7 @@ public class DiagnosticReport extends DomainResource {
         case -814900911: /*imagingStudy*/ return this.imagingStudy == null ? new Base[0] : this.imagingStudy.toArray(new Base[this.imagingStudy.size()]); // Reference
         case 103772132: /*media*/ return this.media == null ? new Base[0] : this.media.toArray(new Base[this.media.size()]); // DiagnosticReportMediaComponent
         case -1731259873: /*conclusion*/ return this.conclusion == null ? new Base[0] : new Base[] {this.conclusion}; // StringType
-        case -1364269926: /*codedDiagnosis*/ return this.codedDiagnosis == null ? new Base[0] : this.codedDiagnosis.toArray(new Base[this.codedDiagnosis.size()]); // CodeableConcept
+        case -1364269926: /*conclusionCode*/ return this.conclusionCode == null ? new Base[0] : this.conclusionCode.toArray(new Base[this.conclusionCode.size()]); // CodeableConcept
         case 230090366: /*presentedForm*/ return this.presentedForm == null ? new Base[0] : this.presentedForm.toArray(new Base[this.presentedForm.size()]); // Attachment
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1785,8 +1785,8 @@ public class DiagnosticReport extends DomainResource {
         case -1731259873: // conclusion
           this.conclusion = castToString(value); // StringType
           return value;
-        case -1364269926: // codedDiagnosis
-          this.getCodedDiagnosis().add(castToCodeableConcept(value)); // CodeableConcept
+        case -1364269926: // conclusionCode
+          this.getConclusionCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 230090366: // presentedForm
           this.getPresentedForm().add(castToAttachment(value)); // Attachment
@@ -1831,8 +1831,8 @@ public class DiagnosticReport extends DomainResource {
           this.getMedia().add((DiagnosticReportMediaComponent) value);
         } else if (name.equals("conclusion")) {
           this.conclusion = castToString(value); // StringType
-        } else if (name.equals("codedDiagnosis")) {
-          this.getCodedDiagnosis().add(castToCodeableConcept(value));
+        } else if (name.equals("conclusionCode")) {
+          this.getConclusionCode().add(castToCodeableConcept(value));
         } else if (name.equals("presentedForm")) {
           this.getPresentedForm().add(castToAttachment(value));
         } else
@@ -1860,7 +1860,7 @@ public class DiagnosticReport extends DomainResource {
         case -814900911:  return addImagingStudy(); 
         case 103772132:  return addMedia(); 
         case -1731259873:  return getConclusionElement();
-        case -1364269926:  return addCodedDiagnosis(); 
+        case -1364269926:  return addConclusionCode(); 
         case 230090366:  return addPresentedForm(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1886,7 +1886,7 @@ public class DiagnosticReport extends DomainResource {
         case -814900911: /*imagingStudy*/ return new String[] {"Reference"};
         case 103772132: /*media*/ return new String[] {};
         case -1731259873: /*conclusion*/ return new String[] {"string"};
-        case -1364269926: /*codedDiagnosis*/ return new String[] {"CodeableConcept"};
+        case -1364269926: /*conclusionCode*/ return new String[] {"CodeableConcept"};
         case 230090366: /*presentedForm*/ return new String[] {"Attachment"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1952,8 +1952,8 @@ public class DiagnosticReport extends DomainResource {
         else if (name.equals("conclusion")) {
           throw new FHIRException("Cannot call addChild on a primitive type DiagnosticReport.conclusion");
         }
-        else if (name.equals("codedDiagnosis")) {
-          return addCodedDiagnosis();
+        else if (name.equals("conclusionCode")) {
+          return addConclusionCode();
         }
         else if (name.equals("presentedForm")) {
           return addPresentedForm();
@@ -2018,10 +2018,10 @@ public class DiagnosticReport extends DomainResource {
             dst.media.add(i.copy());
         };
         dst.conclusion = conclusion == null ? null : conclusion.copy();
-        if (codedDiagnosis != null) {
-          dst.codedDiagnosis = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : codedDiagnosis)
-            dst.codedDiagnosis.add(i.copy());
+        if (conclusionCode != null) {
+          dst.conclusionCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : conclusionCode)
+            dst.conclusionCode.add(i.copy());
         };
         if (presentedForm != null) {
           dst.presentedForm = new ArrayList<Attachment>();
@@ -2047,7 +2047,7 @@ public class DiagnosticReport extends DomainResource {
            && compareDeep(context, o.context, true) && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true)
            && compareDeep(performer, o.performer, true) && compareDeep(resultsInterpreter, o.resultsInterpreter, true)
            && compareDeep(specimen, o.specimen, true) && compareDeep(result, o.result, true) && compareDeep(imagingStudy, o.imagingStudy, true)
-           && compareDeep(media, o.media, true) && compareDeep(conclusion, o.conclusion, true) && compareDeep(codedDiagnosis, o.codedDiagnosis, true)
+           && compareDeep(media, o.media, true) && compareDeep(conclusion, o.conclusion, true) && compareDeep(conclusionCode, o.conclusionCode, true)
            && compareDeep(presentedForm, o.presentedForm, true);
       }
 
@@ -2065,7 +2065,7 @@ public class DiagnosticReport extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, status
           , category, code, subject, context, effective, issued, performer, resultsInterpreter
-          , specimen, result, imagingStudy, media, conclusion, codedDiagnosis, presentedForm
+          , specimen, result, imagingStudy, media, conclusion, conclusionCode, presentedForm
           );
       }
 
@@ -2191,17 +2191,17 @@ public class DiagnosticReport extends DomainResource {
    * <p>
    * Description: <b>A coded diagnosis on the report</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DiagnosticReport.codedDiagnosis</b><br>
+   * Path: <b>DiagnosticReport.conclusionCode</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="diagnosis", path="DiagnosticReport.codedDiagnosis", description="A coded diagnosis on the report", type="token" )
+  @SearchParamDefinition(name="diagnosis", path="DiagnosticReport.conclusionCode", description="A coded diagnosis on the report", type="token" )
   public static final String SP_DIAGNOSIS = "diagnosis";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>diagnosis</b>
    * <p>
    * Description: <b>A coded diagnosis on the report</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>DiagnosticReport.codedDiagnosis</b><br>
+   * Path: <b>DiagnosticReport.conclusionCode</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam DIAGNOSIS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DIAGNOSIS);

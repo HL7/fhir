@@ -5775,7 +5775,7 @@ public class VersionConvertor_10_40 {
       tgt.addMedia(convertDiagnosticReportImageComponent(t));
     tgt.setConclusion(src.getConclusion());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getCodedDiagnosis())
-      tgt.addCodedDiagnosis(convertCodeableConcept(t));
+      tgt.addConclusionCode(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.Attachment t : src.getPresentedForm())
       tgt.addPresentedForm(convertAttachment(t));
     return tgt;
@@ -5807,7 +5807,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportMediaComponent t : src.getMedia())
       tgt.addImage(convertDiagnosticReportImageComponent(t));
     tgt.setConclusion(src.getConclusion());
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getCodedDiagnosis())
+    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getConclusionCode())
       tgt.addCodedDiagnosis(convertCodeableConcept(t));
     for (org.hl7.fhir.r4.model.Attachment t : src.getPresentedForm())
       tgt.addPresentedForm(convertAttachment(t));

@@ -41,13 +41,13 @@
 					<display value="Results for staphylococcus analysis on Roel's blood culture"/>
 				</result>
 				<conclusion value="Blood culture tested positive on staphylococcus aureus"/>
-				<codedDiagnosis>
+				<conclusionCode>
 					<coding>
 						<system value="http://snomed.info/sct"/>
 						<code value="428763004"/>
 						<display value="Bacteremia due to staphylococcus"/>
 					</coding>
-				</codedDiagnosis>
+				</conclusionCode>
 			</DiagnosticReport>
 		</resource>
 	</entry>

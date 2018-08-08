@@ -1,4 +1,4 @@
-﻿map "http://hl7.org/fhir/StructureMap/DiagnosticReport3to4" = "R3 to R4 Conversions for DiagnosticReport"
+map "http://hl7.org/fhir/StructureMap/DiagnosticReport3to4" = "R3 to R4 Conversions for DiagnosticReport"
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DiagnosticReport" alias DiagnosticReportR3 as source
@@ -30,7 +30,7 @@ group DiagnosticReport extends DomainResource
     "DiagnosticReport.media.link" : for vs0.link as vs make vt0.link as vt
   }
   "DiagnosticReport.conclusion" : for src.conclusion as vs make tgt.conclusion as vt
-  "DiagnosticReport.codedDiagnosis" : for src.codedDiagnosis as vs make tgt.codedDiagnosis as vt
+  "DiagnosticReport.codedDiagnosis" : for src.codedDiagnosis as vs make tgt.conclusionCode as vt
   "DiagnosticReport.presentedForm" : for src.presentedForm as vs make tgt.presentedForm as vt
 endgroup
 

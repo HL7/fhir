@@ -8371,10 +8371,10 @@ public class JsonParser extends JsonParserBase {
       res.setConclusionElement(parseString(json.get("conclusion").getAsString()));
     if (json.has("_conclusion"))
       parseElementProperties(json.getAsJsonObject("_conclusion"), res.getConclusionElement());
-    if (json.has("codedDiagnosis")) {
-      JsonArray array = json.getAsJsonArray("codedDiagnosis");
+    if (json.has("conclusionCode")) {
+      JsonArray array = json.getAsJsonArray("conclusionCode");
       for (int i = 0; i < array.size(); i++) {
-        res.getCodedDiagnosis().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+        res.getConclusionCode().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("presentedForm")) {
@@ -35061,9 +35061,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("conclusion", element.getConclusionElement(), false);
         composeStringExtras("conclusion", element.getConclusionElement(), false);
       }
-      if (element.hasCodedDiagnosis()) {
-        openArray("codedDiagnosis");
-        for (CodeableConcept e : element.getCodedDiagnosis()) 
+      if (element.hasConclusionCode()) {
+        openArray("conclusionCode");
+        for (CodeableConcept e : element.getConclusionCode()) 
           composeCodeableConcept(null, e);
         closeArray();
       };

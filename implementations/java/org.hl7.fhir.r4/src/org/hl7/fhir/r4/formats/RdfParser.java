@@ -5449,8 +5449,8 @@ public class RdfParser extends RdfParserBase {
       composeDiagnosticReportDiagnosticReportMediaComponent(t, "DiagnosticReport", "media", element.getMedia().get(i), i);
     if (element.hasConclusionElement())
       composeString(t, "DiagnosticReport", "conclusion", element.getConclusionElement(), -1);
-    for (int i = 0; i < element.getCodedDiagnosis().size(); i++)
-      composeCodeableConcept(t, "DiagnosticReport", "codedDiagnosis", element.getCodedDiagnosis().get(i), i);
+    for (int i = 0; i < element.getConclusionCode().size(); i++)
+      composeCodeableConcept(t, "DiagnosticReport", "conclusionCode", element.getConclusionCode().get(i), i);
     for (int i = 0; i < element.getPresentedForm().size(); i++)
       composeAttachment(t, "DiagnosticReport", "presentedForm", element.getPresentedForm().get(i), i);
   }

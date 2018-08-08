@@ -32,11 +32,11 @@
 		<display value="HEAD and NECK CT DICOM imaging study"/>
 	</imagingStudy>
 	<conclusion value="CT brains: large tumor sphenoid/clivus."/>
-	<codedDiagnosis>
+	<conclusionCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="188340000"/>
 			<display value="Malignant tumor of craniopharyngeal duct"/>
 		</coding>
-	</codedDiagnosis>
+	</conclusionCode>
 </DiagnosticReport>

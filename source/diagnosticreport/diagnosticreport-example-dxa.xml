@@ -147,11 +147,11 @@ GE LUNAR PRODIGY DENSITOMETER
 
 <reference value="Observation/bmd5"/>      (24966-4  Lumbar spine DXA Bone densityO g/cm2)
 <reference value="Observation/bmd6"/>     (38267-1  Lumbar spine DXA [T-score] Bone densityO {T-score})
---></result><!--      the imaging service marks this to help find categories of patient      --><codedDiagnosis>
+--></result><!--      the imaging service marks this to help find categories of patient      --><conclusionCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="391040000"/>
 			<display value="At risk of osteoporotic fracture"/>
 		</coding>
-	</codedDiagnosis>
+	</conclusionCode>
 </DiagnosticReport>
