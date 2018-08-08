@@ -744,9 +744,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
     ValueSetExpansionOutcome vse = expandVS(vs, true, heirarchy);
-    if (vse.getValueset() == null)
+    if (vse.getValueset() == null) {
+      System.out.println("Error expanding from "+inc.getSystem()+": " +vse.getError());
       return null;
-    else
+    } else
       return vse.getValueset().getExpansion();
   }
 

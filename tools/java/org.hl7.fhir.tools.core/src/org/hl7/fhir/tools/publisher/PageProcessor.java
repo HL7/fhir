@@ -432,7 +432,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           "</p>\r\n";
 
   public static final String CODE_LIMIT_EXPANSION = "1000";
-  public static final String TOO_MANY_CODES_TEXT_NOT_EMPTY = "This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection  (1000 codes) of the whole set of codes is shown";
+  public static final String TOO_MANY_CODES_TEXT_NOT_EMPTY = "This value set has >2000 codes in it. In order to keep the publication size manageable, only a selection  (2000 codes) of the whole set of codes is shown";
   public static final String TOO_MANY_CODES_TEXT_EMPTY = "This value set cannot be expanded because of the way it is defined - it has an infinite number of members";
   private static final String NO_CODESYSTEM_TEXT = "This value set refers to code systems that the FHIR Publication Tooling does not support";
 

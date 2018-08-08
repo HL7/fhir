@@ -1250,7 +1250,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         ValueSet vs = page.getWorkerContext().fetchResource(ValueSet.class, ref);
         if (vs != null)
           cd.setValueSet(vs);
-        else
+        else if (!ref.startsWith("http://loinc.org/vs/LL"))
           System.out.println("Unresolved value set reference: "+ref);
       }
     }
@@ -5924,7 +5924,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceCoverageWarning(String path, ElementDefn e) {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path) && !e.typeCode().startsWith("@")) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.INFORMATION));
+      // page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.INFORMATION));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);

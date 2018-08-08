@@ -3346,7 +3346,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
             if (bc == null || !bc.equalsIgnoreCase(translations.get(l))) 
               sl = true;
           if (bc != null) {
-            td.addText((sl ? cs.getLanguage("en") : "")+bc);
+            td.addText((sl ? cs.getLanguage("en")+": " : "")+bc);
           }
           for (String l : translations.keySet()) {
             if (bc == null || !bc.equalsIgnoreCase(translations.get(l))) {

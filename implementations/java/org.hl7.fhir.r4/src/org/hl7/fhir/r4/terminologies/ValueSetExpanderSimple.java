@@ -184,14 +184,16 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   }
 
   private void addCodes(ValueSetExpansionComponent expand, List<ValueSetExpansionParameterComponent> params, Parameters expParams, List<ValueSet> filters) throws ETooCostly, FHIRException {
-    if (expand.getContains().size() > maxExpansionSize)
-      throw new ETooCostly("Too many codes to display (>" + Integer.toString(expand.getContains().size()) + ")");
-    for (ValueSetExpansionParameterComponent p : expand.getParameter()) {
-      if (!existsInParams(params, p.getName(), p.getValue()))
-        params.add(p);
-    }
+    if (expand != null) {
+      if (expand.getContains().size() > maxExpansionSize)
+        throw new ETooCostly("Too many codes to display (>" + Integer.toString(expand.getContains().size()) + ")");
+      for (ValueSetExpansionParameterComponent p : expand.getParameter()) {
+        if (!existsInParams(params, p.getName(), p.getValue()))
+          params.add(p);
+      }
 
-    copyImportContains(expand.getContains(), null, expParams, filters);
+      copyImportContains(expand.getContains(), null, expParams, filters);
+    }
   }
 
   private void excludeCode(String theSystem, String theCode) {
@@ -433,6 +435,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
           if (def == null)
             throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
           addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
+//        } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.ISNOTA) {
+//            // special: all codes in the target code system under the value
+//            ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
+//            if (def == null)
+//              throw new TerminologyServiceException("Code '" + fc.getValue() + "' not found in system '" + inc.getSystem() + "'");
+//            addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports);
         } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDENTOF) {
           // special: all codes in the target code system under the value
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());

@@ -164,7 +164,8 @@ public class CodeSystemUtilities {
         if (!cs.hasUserData("ballot.package"))
           cs.setUserData("ballot.package", pckage);
         else if (!pckage.equals(cs.getUserString("ballot.package")))
-          System.out.println("Code System "+cs.getUrl()+": ownership clash "+pckage+" vs "+cs.getUserString("ballot.package"));
+          if (!"infrastructure".equals(cs.getUserString("ballot.package")))
+            System.out.println("Code System "+cs.getUrl()+": ownership clash "+pckage+" vs "+cs.getUserString("ballot.package"));
       }
     }
     if (fmm != null) {

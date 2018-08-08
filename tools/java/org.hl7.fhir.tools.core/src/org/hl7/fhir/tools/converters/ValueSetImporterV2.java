@@ -261,7 +261,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
                ex = c.addExtension().setUrl(ToolingExtensions.EXT_CS_COMMENT);
                ex.setValue(new StringType());
              } 
-             ToolingExtensions.addLanguageTranslation(ex.getValue(), e.getAttribute("lang"), e.getAttribute("comments"));
+             ToolingExtensions.addLanguageTranslation(ex.getValue(), e.getAttribute("lang"), fixComments(e.getAttribute("comments")));
            }
          }
        }
@@ -400,7 +400,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         while (g != null) {
           codes.put(g.getAttribute("code"), g.getAttribute("desc"));
           if (!Utilities.noString(g.getAttribute("comments")))
-            comments.put(g.getAttribute("code"), g.getAttribute("comments"));
+            comments.put(g.getAttribute("code"), fixComments(g.getAttribute("comments")));
           g = XMLUtil.getNextSibling(g);
         }
       }
@@ -471,6 +471,12 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
     return vs;
+  }
+
+  private String fixComments(String value) {
+    if (value.contains("<p>"))
+      value = value.replace("<p>", "\r\n").replace("</p>", "\r\n");
+    return value;
   }
 
   private ValueSet createValueSet(String id) throws IOException, FHIRFormatError {
@@ -563,7 +569,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
           if (!Utilities.noString(g.getAttribute("comments"))) {
             if (!comments.containsKey(g.getAttribute("code").toLowerCase()))
               commentVersions.put(g.getAttribute("code").toLowerCase(), ver);
-            comments.put(g.getAttribute("code").toLowerCase(), g.getAttribute("comments"));
+            comments.put(g.getAttribute("code").toLowerCase(), fixComments(g.getAttribute("comments")));
           }
           g = XMLUtil.getNextSibling(g);
         }
@@ -748,7 +754,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
           while (g != null) {
             codes.put(g.getAttribute("code"), g.getAttribute("desc"));
             if (!Utilities.noString(g.getAttribute("comments")))
-              comments.put(g.getAttribute("code"), g.getAttribute("comments"));
+              comments.put(g.getAttribute("code"), fixComments(g.getAttribute("comments")));
             g = XMLUtil.getNextSibling(g);
           }
         } else if (started)

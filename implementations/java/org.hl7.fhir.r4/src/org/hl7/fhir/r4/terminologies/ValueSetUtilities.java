@@ -79,7 +79,8 @@ public class ValueSetUtilities {
         if (!vs.hasUserData("ballot.package"))        
           vs.setUserData("ballot.package", pckage);
         else if (!pckage.equals(vs.getUserString("ballot.package")))
-          System.out.println("Code System "+vs.getUrl()+": ownership clash "+pckage+" vs "+vs.getUserString("ballot.package"));
+          if (!"infrastructure".equals(vs.getUserString("ballot.package")))
+          System.out.println("Value Set "+vs.getUrl()+": ownership clash "+pckage+" vs "+vs.getUserString("ballot.package"));
       }
     }
     if (fmm != null) {
