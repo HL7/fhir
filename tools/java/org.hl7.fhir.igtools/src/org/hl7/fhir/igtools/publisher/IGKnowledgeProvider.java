@@ -390,7 +390,10 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           }
         } else {
           ValueSet vs = context.fetchResource(ValueSet.class, ref);
-          if (Utilities.isAbsoluteUrl(ref) && (!ref.startsWith("http://hl7.org") || !ref.startsWith("http://terminology.hl7.org"))) {
+          if (vs != null && vs.hasUserData("path")) {
+            br.url = vs.getUserString("path");  
+            br.display = vs.getTitle();
+          } else if (Utilities.isAbsoluteUrl(ref) && (!ref.startsWith("http://hl7.org") || !ref.startsWith("http://terminology.hl7.org"))) {
             br.url = ref;  
             br.display = ref;
           } else if (vs == null) {
