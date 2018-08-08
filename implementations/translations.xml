@@ -569,6 +569,18 @@
 	<item id="MedicinalProductClinicals">
 		<translation lang="en">MedicinalProductClinicals</translation>
 	</item>
+	<item id="MedicinalProductContraindication">
+		<translation lang="en">MedicinalProductContraindication</translation>
+	</item>
+	<item id="MedicinalProductIndication">
+		<translation lang="en">MedicinalProductInteraction</translation>
+	</item>
+	<item id="MedicinalProductInteraction">
+		<translation lang="en">MedicinalProductInteraction</translation>
+	</item>
+	<item id="MedicinalProductUndesirableEffect">
+		<translation lang="en">MedicinalProductUndesirableEffect</translation>
+	</item>
 	<item id="MedicinalProductIngredient">
 		<translation lang="en">MedicinalProductIngredient</translation>
 		<translation lang="it">IngredienteProdottoMedicinale</translation>
