@@ -177,7 +177,7 @@ public class TypeRef {
 	public boolean isSpecialType() {
 		return isXhtml() || isUnboundGenericParam() || isXmlLang() 
 				|| isWildcardType() || name.equals("Type") || name.equals("Narrative") || name.equals("Resource") || name.equals("ResourceBase")
-				|| name.equals("SharedDefinition") || isResourceReference() || name.equals("Structure") ||
+				|| name.equals("SharedDefinition") || isResourceReference() || name.equals("Structure") || name.equals("OperationOutcome") ||
 				isContainedReference() || isExtension();
 	}
 
