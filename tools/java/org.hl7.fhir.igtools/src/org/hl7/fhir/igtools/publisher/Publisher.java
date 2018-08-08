@@ -3250,7 +3250,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void addPageData(JsonObject pages, ImplementationGuideDefinitionPageComponent page, String source, String title, String label, String breadcrumb) throws FHIRException {
     FetchedResource r = resources.get(source);
     if (r==null)
-      addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
+      addPageDataRow(pages, source, title, label + (page.hasPage() ? ".0" : ""), breadcrumb + breadCrumbForPage(page, false), null);
     else
       addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), r.getExamples());
     if ( r != null ) {
@@ -4108,6 +4108,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars, boolean regen) throws Exception {
+    boolean includeHeadings = !configuration.has("includeHeadings") || configuration.get("includeHeadings").getAsBoolean();
     // todo : generate shex itself
     if (igpkp.wantGen(r, "shex"))
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
@@ -4141,9 +4142,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "uml"))
       fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
     if (igpkp.wantGen(r, "tx"))
-      fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(includeHeadings), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "inv"))
-      fragment("StructureDefinition-"+sd.getId()+"-inv", sdr.inv(), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-inv", sdr.inv(includeHeadings), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "dict"))
       fragment("StructureDefinition-"+sd.getId()+"-dict", sdr.dict(true), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "dict-active"))

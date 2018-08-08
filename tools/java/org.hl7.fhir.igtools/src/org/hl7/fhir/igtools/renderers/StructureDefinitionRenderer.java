@@ -333,7 +333,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateGrid(defnFile, sd, destDir, false, sd.getId(), prefix, "", outputTracker));
   }
 
-  public String tx() {
+  public String tx(boolean withHeadings) {
     List<String> txlist = new ArrayList<String>();
     Map<String, ElementDefinitionBindingComponent> txmap = new HashMap<String, ElementDefinitionBindingComponent>();
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
@@ -349,7 +349,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "";
     else {
       StringBuilder b = new StringBuilder();
-      b.append("<h4>"+translate("sd.tx", "Terminology Bindings")+"</h4>\r\n");       
+      if (withHeadings)
+        b.append("<h4>"+translate("sd.tx", "Terminology Bindings")+"</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>"+translate("sd.tx", "Path")+"</b></td><td><b>"+translate("sd.tx", "Name")+"</b></td><td><b>"+translate("sd.tx", "Conformance")+"</b></td><td><b>"+translate("sd.tx", "ValueSet")+"</b></td></tr>\r\n");
       for (String path : txlist)  {
@@ -411,7 +412,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return null;
   }
 
-  public String inv() {
+  public String inv(boolean withHeadings) {
     List<String> txlist = new ArrayList<String>();
     Map<String, List<ElementDefinitionConstraintComponent>> txmap = new HashMap<String, List<ElementDefinitionConstraintComponent>>();
     for (ElementDefinition ed : sd.getSnapshot().getElement()) {
@@ -424,7 +425,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "";
     else {
       StringBuilder b = new StringBuilder();
-      b.append("<h4>"+translate("sd.inv", "Constraints")+"</h4>\r\n");       
+      if (withHeadings)
+        b.append("<h4>"+translate("sd.inv", "Constraints")+"</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td width=\"60\"><b>"+translate("sd.inv", "Id")+"</b></td><td><b>"+translate("sd.inv", "Path")+"</b></td><td><b>"+translate("sd.inv", "Details")+"</b></td><td><b>"+translate("sd.inv", "Requirements")+"</b></td></tr>\r\n");
       for (String path : txlist)  {
