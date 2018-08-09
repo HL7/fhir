@@ -438,12 +438,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public final static String CI_PUB_NAME = "Current Build";
 
   public final static String WEB_PUB_NOTICE =
-      "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
+      "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
        " This is the Current officially released version of FHIR, which is <a href=\"history.html\">STU3</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n";
 
   public final static String CI_PUB_NOTICE =
-      "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
+      "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
           "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
 
@@ -5855,7 +5855,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String searchFooter(int level) {
-    return "<a style=\"color: #81BEF7\" href=\"http://hl7.org/fhir/search.cfm\">Search</a>";
+    return "<a style=\"color: #b8dcf9\" href=\"http://hl7.org/fhir/search.cfm\">Search</a>";
   }
 
   private String searchHeader(int level) {
