@@ -12,11 +12,14 @@
 <h2 id="asynchronous-request-pattern">Asynchronous Request Pattern</h2>
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
-<p>Note: the FHIR Asynchronous API and the $export Operation are under active development:</p>
+[%impl-note%]
+the FHIR Asynchronous API and the $export Operation are under active development:</p>
 <ul>
 <li>Visit the <a href="https://github.com/smart-on-fhir/fhir-bulk-data-docs">Draft FHIR Bulk Data Repository</a> for the most recent draft documentation and open issues</li>
 <li>Participate in design discussions at <a href="https://chat.fhir.org/#narrow/stream/bulk.20data">chat.fhir.org</a></li>
 </ul>
+[%end-note-np%]
+
 <h3 id="use-case">Use Case</h3>
 <p>All of the interactions defined in the <a href="http.html">RESTful API</a> are described as synchronous operations - that is, the client makes a query and waits for the server to respond with the outcome in the HTTP response. This pattern is not suitable once significant server side processing becomes necessary or when substantial amounts of data must be returned.</p>
 <p>A good example of this is the <a href="https://github.com/smart-on-fhir/fhir-bulk-data-docs/blob/master/export.md">$export operation</a>, where simple searches may result in large amounts of data. </p>

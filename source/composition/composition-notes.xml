@@ -18,10 +18,9 @@ Notes:
  <li>It is acceptable for a Composition to contain only narrative (<code>Composition.section.text</code>) and no entries (<code>Composition.section.entry</code>)</li>
 </ul>  
 
-<blockquote class="stu-note">
 <a name="dstu"></a>
-<p>
-<b>STU Note:</b> Feedback is welcome on two issues related to Composition:
+[%stu-note%]
+Feedback is welcome on two issues related to Composition:
 </p>
 <ul>
  <li>For many compositions, the title is the same as the text or a display name of Composition.type (e.g., a "consultation" or "progress note"). Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here during the trial use period.</li>
@@ -29,7 +28,6 @@ Notes:
 </ul>
 <p>
 Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
+[%end-note%]
 
 </div>

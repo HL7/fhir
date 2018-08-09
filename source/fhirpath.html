@@ -308,13 +308,13 @@ HTML usage</a> are met, and false if they are not. The return value is undefined
 Observation.component.where(code.memberOf(%"vs-observation-vitalsignresult"))
 </pre>
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
-<blockquote>
-<p>Note: Implementation Guides are allowed to define their own externals, and implementers should provide some appropriate configuration framework to allow these constants to be provided to the evaluation engine at run-time. E.g.:</p>
-</blockquote>
-
+[%impl-note%]
+Implementation Guides are allowed to define their own externals, and implementers should provide some appropriate configuration framework to allow these constants to be provided to the evaluation engine at run-time. E.g.:
+</p>
 <pre class="fhirpath">
 %"us-zip" = '[0-9]{5}(-[0-9]{4}){0,1}'
 </pre>
+[%end-note-np%]
 
 <p>Authors of Implementation Guides should be aware that adding specific environment variables restricts the use of the FHIRPath to their particular context.</p>
 

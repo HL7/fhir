@@ -105,14 +105,12 @@
 					Consideration should be given to situations where scheduling needs to be handled
 					in more of a queue-like process.
 				</p>
-				<blockquote>
-					<p>
+[%impl-note%]
 						Note: This type of clinical appointment scheduling has not been specifically covered
 						with this definition of the Appointment resource (and other related resources), however if you
 						would like to contribute to the modification of this resource to cover these use cases,
 						please contact the HL7 Patient Administration work-group.
-					</p>
-				</blockquote>
+[%end-note%]
 			</li>
 		</ul>
 	</div>

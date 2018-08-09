@@ -143,7 +143,7 @@ In some cases, parameters may cause an error, or might not be able to match anyt
  <li>A parameter may be unknown or unsupported (see below)</li>
 </ul>
 <p>
-<b>Note:</b> Empty parameters are not an error - they are just ignored by the server.
+Note: Empty parameters are not an error - they are just ignored by the server.
 </p>
 <p>
 Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
@@ -1357,10 +1357,9 @@ This request returns all Condition resources with the word "metastases" and eith
 "bone" or "liver" in the narrative. The server MAY choose to search
 for related words as well.
 </p>
-<blockquote class="stu-note">
+[%stu-note%]
 <a name="dstu2"></a>
-<p>
-<b>STU Note:</b>  The issues around standardizing text search are not fully resolved.
+The issues around standardizing text search are not fully resolved.
 During the trial use period for this specification, we recommend that systems use
 the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
 the OData specification for the $<code>search</code> parameter</a>.
@@ -1369,8 +1368,7 @@ or some indexing service.
 </p>
 <p>
 Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
+[%end-note%]
 
 <a name="special"></a>
 <h4>Special Parameters</h4>
@@ -1868,13 +1866,11 @@ a complete resource.
 Note that the <code>_include</code> and <code>_revinclude</code> parameters cannot be mixed with <code>_summary=text</code>.
 </p>
 
-<blockquote class="stu-note">
+[%impl-note%]
 <a name="dstu-tc"></a>
-<p>
-<b>Implementers Note:</b> There is some question about the inclusion of extensions in the summary. Additional rules may be made 
+There is some question about the inclusion of extensions in the summary. Additional rules may be made 
 around this in the future.
-</p>
-</blockquote>
+[%end-note%]
 
 <a name="elements"></a>
 <h4>Elements</h4>
@@ -2007,7 +2003,7 @@ how to handle ongoing updates to the resources while the search
 is proceeding.
 </p>
 <p>
-Note: Performing a search operation does not change the set of
+Performing a search operation does not change the set of
 resources on the server, with the exception of the creation
 of <a href="auditevent.html">Audit Event</a> resources
 auditing the search itself.

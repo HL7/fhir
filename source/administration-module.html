@@ -87,20 +87,18 @@ in order to support consistent definitions for schema and UML derived code.
         <div>
             <img src="administration-module-person.png" alt="Image showing the relationship between resources representing people" width="584px" />
         </div>
-        <p>
-            <blockquote>
-                <em>Note:</em> <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
+[%impl-note%]
+                <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
                 searches with references to other resources. e.g. searching for a patients' conditions for a patient.<br />
                 At present the specification does not define if the links should be also followed to include
                 conditions that reference the linked patients too. We are currently seeking feedback on this.
-            </blockquote>
-            <blockquote>
-                <em>Note:</em> The Person resource may be used as a centralized register of people that may
+[%end-note%]
+[%impl-note%]
+                The Person resource may be used as a centralized register of people that may
                 eventually be involved in healthcare, and could be used as the central core demographics register.<br />
                 However, the fields/values in Person are duplicated in the other resources, and in many cases the
                 Person resource will be hosted on external systems.
-            </blockquote>
-        </p>
+[%end-note%]
 
         <a name="clinical-reg"></a>
         <h4>Clinical Categorization Resources</h4>
@@ -117,12 +115,10 @@ in order to support consistent definitions for schema and UML derived code.
         <div>
             <img src="administration-module-interactions.png" alt="Image showing the administration interactions" width="600px" />
         </div>
-        <p>
-            <blockquote>
-                <em>Note:</em> Resources shown with a dotted box are described in other sections of the specification:
+[%impl-note%]
+                Resources shown with a dotted box are described in other sections of the specification:
                 <code>Coverage</code> and <code>Claim</code> are from the <a href="financial-module.html">section on Finance</a>.
-            </blockquote>
-        </p>
+[%end-note%]
 
         <a name="dir-reg"></a>
         <h4>Service Provider Directory Resources</h4>

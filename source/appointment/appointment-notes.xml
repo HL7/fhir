@@ -407,15 +407,12 @@
 		</li>
 	</ul>
 <a name="dstu"> </a>
-<blockquote class="stu-note">
-<p>
-<b>STU Note:</b> Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
+[%stu-note%]
+Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
 Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.
 </p>
 <p>
 Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-
-</blockquote>
+[%end-note%]
   
 </div>

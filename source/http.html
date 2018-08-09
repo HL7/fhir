@@ -1142,15 +1142,13 @@ All servers are required to support the <code>capabilities</code> interaction, b
 just like any other end-point.
 </p>
 
-<blockquote class="design-note">
+[%impl-note%]
 <a name="cap-st-note"></a>
-<p>
-<b>Implementation Note:</b> In DSTU 2 and earlier, the resource that this interaction returned was named "Conformance".
+In DSTU 2 and earlier, the resource that this interaction returned was named "Conformance".
 Clients often connect to a server, and use the <code>capabilities</code> interaction to check whether they are version
 and/or feature compatible with the server. Such clients should be able to process either a Conformance or a
 CapabilityStatement resource.
-</p>
-</blockquote>
+[%end-note%]
 
 
 <a name="transaction"></a>
@@ -1281,15 +1279,13 @@ since this is only <a href="#upsert">safe in controlled circumstances</a>, serve
 may choose to assign new ids to all submitted resources, irrespective of any claimed
 logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
 </p>
-<blockquote class="stu-note">
+[%stu-note%]
 <a name="dstu-3"></a>
-<p>
-<b>Note:</b> this behavior is subject to verification based on implementation experience and may change.
+this behavior is subject to verification based on implementation experience and may change.
 </p>
 <p>
 Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
+[%end-note%]
 
 <p><b>Conditional References</b></p>
 <p>
@@ -1595,18 +1591,16 @@ wishes to delete the information.
 Both client and server systems SHOULD clearly document how transaction
 integrity is handled.
 </p>
-<blockquote class="stu-note">
+[%stu-note%]
 <a name="dstu-4"></a>
-<p>
-<b>STU Note:</b>  For now, the only way to document how transaction integrity
+For now, the only way to document how transaction integrity
 is handled is as text in the narrative portions of the <a href="capabilitystatement.html">CapabilityStatement</a>
 resource. Feedback during the Trial use period on which - if any - of this information
 should be computable is welcome.
 </p>
 <p>
 Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
+[%end-note%]
 
 
 

@@ -536,10 +536,8 @@ The same example in JSON:
 }
 </pre>
 </div>
-<blockquote>
-<div class="design-note">
-<p>
-Design Note: Contained resources are still a reference rather than being inlined directly
+[%impl-note%]
+Contained resources are still a reference rather than being inlined directly
 into the element that is the reference (e.g. "custodian" above) to ensure that a
 single approach to resolving resource references can be used. Though direct containment
 would seem simpler, it would still be necessary to support internal references where the
@@ -550,8 +548,8 @@ the following XPath fragment resolves the internal reference:
 <pre>
 ancestor::f:*[not(parent::f:*)]/f:contained/*[@id=substring-after(<b>current()</b>/f:reference/@value, '#')]
 </pre>
-</div>
-</blockquote>
+[%end-note-np%]
+
 <p>
 Some notes about use and interpretation of contained resources:
 </p>

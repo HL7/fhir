@@ -182,15 +182,13 @@ it recognizes by data elements. However servers might not know all the data elem
 </ul>
 
 <a name="dstu"></a>
-<blockquote class="stu-note">
-<p>
-<b>STU Note:</b> The FHIR Infrastructure work group is considering rolling the DataElement resource into the <a href="structuredefinition.html">StructureDefinition</a> 
+[%stu-note%]
+The FHIR Infrastructure work group is considering rolling the DataElement resource into the <a href="structuredefinition.html">StructureDefinition</a> 
 resource.  If this is done, DataElement will be treated as a type of logical model (whether there will be a distinct 'type' for it is unclear).
 </p>
 <p>Implementers wishing to 
 provide their feedback on the proposed change are invited to make comments on the associated 
 <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;tracker_item_id=13094">Tracker item</a>.
-</p>
-</blockquote>
+[%end-note%]
 
 </div>

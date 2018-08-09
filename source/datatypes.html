@@ -623,9 +623,8 @@ particular context by <a href="terminologies.html">binding</a> the element to a 
 <p>
 Coding is used in the following places: [%dtusage Coding%]
 </p>
-<blockquote>
-<p>
-<b>Design Note</b>: This specification defines two types for representing coded values:
+[%impl-note%]
+This specification defines two types for representing coded values:
 </p>
 <ul>
  <li><b>Coding</b>: a simple direct reference to a code defined by a code system</li>
@@ -644,8 +643,7 @@ must be selected directly from one of the available codes, and the list of
 possible codes is agreed to by all participants. This is not usually the case
 in the context of FHIR - general interoperability - so Coding is mostly used
 in extensions, which are usually intended to be defined for a well-controlled context of use.
-</p>
-</blockquote>
+[%end-note%]
 
 <a name="CodeableConcept"></a>
 <a name="codeableconcept"></a>
@@ -813,10 +811,12 @@ The types Age, Distance and Count are marked as Trial Use because they are not u
  <tr>
    <td></td>
    <td colspan="2">
-    Implementation Note: If the duration value is specified as a whole number (e.g. 1 month), then 
+   [%impl-note%]
+    If the duration value is specified as a whole number (e.g. 1 month), then 
     when the duration is added or subtracted to a given date(time), the outcome should be rounded 
     to the nearest natural calendar division - e.g. Feb. 1 + 1 mo = March 1, not March 2 or 3 
     (since 1 month in is defined in UCUM as 30 days). 
+   [%end-note%]
    </td>
  </tr>
 

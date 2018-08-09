@@ -171,19 +171,21 @@ as a JSON boolean, and all other types are represented as a JSON string which ha
  "count" : 23
 </pre>
 <a name="decimal"></a>
-<div class="warning">
-<blockquote>
-<p>When using a JavaScript JSON.parse() implementation, note that JavaScript natively supports only one numeric datatype, which is a floating point number.
+[%dragons-start%]
+<p>
+When using a JavaScript JSON.parse() implementation, note that JavaScript natively supports only one numeric datatype, which is a floating point number.
 This can cause loss of precision for FHIR numbers. In particular, trailing 0s after a decimal point will be lost e.g. 2.00 will be converted to 2.
 The FHIR decimal data type is defined such that precision, including trailing zeros, is preserved for presentation purposes, and this
 is widely regarded as critical for correct presentation of clinical measurements. Implementations should consider using a custom parser and big number library
-(e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.</p>
-</blockquote>
-</div>
-<a name="null"></a>
+(e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
+</p>
+
+[%dragons-end%]
+
 <p>
 If the value has an id attribute, or extensions, then this is represented as follows:
 </p>
+<a name="null"></a>
 <pre class="xml">
  &lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
    &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
@@ -232,15 +234,14 @@ the first array, as demonstrated in this example:
 </pre>
 <p>Note: when one of the repeating elements has no value, it is represented in the first array using a null. When
 an element has a value but no extension/id, the second array will have a null at the position of that element.</p>
-<blockquote>
-<p>
-Design Note: The representation of primitive data types has been
+
+[%impl-note%]
+The representation of primitive data types has been
 split into two parts like this in order to simplify the representation
 of simple primitive values without id or extensions. This does have the cost of making the
 representation of the id attribute and extensions more ungainly, but these are both
 rarely used with primitive data types.
-</p>
-</blockquote>
+[%end-note%]
 
 <a name="complex"></a>
 
@@ -306,9 +307,8 @@ parser which resource type this is:
 <p>
 Note that parsers cannot assume that the resourceType property will come first.
 </p>
-<blockquote>
-<p>
-<b>Design Note</b>: This is a problem for several JSON -&gt; Object serializers that assume that the
+[%impl-note%]
+This is a problem for several JSON -&gt; Object serializers that assume that the
 resourceType property does come first, including <a href="http://james.newtonking.com/json">Json.NET</a>.
 However, some JSON generators do not give the authoring application control of the order of the
 property values, and so these implementations cannot interoperate with implementations that make
@@ -316,8 +316,7 @@ assumptions about order. Given that JSON says that the property values are an un
 pairs, this specification cannot require that properties come in any particular order, though implementers
 may choose to fix the property order if they are able (and the reference platforms provided with this
 specification do so).
-</p>
-</blockquote>
+[%end-note%]
 
 <p>
 There is <a href="json-edge-cases.json">a sample file</a> with many edge cases to help test JSON parsers.
@@ -365,14 +364,15 @@ These canonicalization methods allow system the flexibility to sign the various 
 the resource that matter for the workflow the signature serves.
 </p>
 
-<p>
-Note: One consequence of signing the document is that URLs, identifiers and internal references are frozen and
+[%impl-note%]
+One consequence of signing the document is that URLs, identifiers and internal references are frozen and
 cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
 ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
 recommended that systems consider carefully the impact of any signature processes. The impact of signatures
 on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
 use of digital signatures.
-</p>
+[%end-note%]
+
 
 </div>
 

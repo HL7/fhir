@@ -2,10 +2,9 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<blockquote class="stu-note">
-			<p>
-				<b>STU Note:</b> In terms of scope and usage, the  Orders and Observations workgroups wish to
-draw the attention of reviewers and implementers to the following issues and changes
+[%stu-note%]
+In terms of scope and usage, the  Orders and Observations workgroups wish to
+draw the attention of reviewers and implementers to the following issues and changes.
 </p>
 			<ol>
 				<li>We are seeking input from the implementation community on whether to combine SupplyRequest and  <a href="devicerequest.html">DeviceRequest</a> for R4.
@@ -13,7 +12,8 @@ draw the attention of reviewers and implementers to the following issues and cha
 				<li>The <a href="supplyrequest-definitions.html#parameters">parameters</a> element  was added to SupplyRequest for representing custom details for ordering devices.
 </li>
 			</ol>
-		</blockquote>
+      <p>[todo: where to send input?]
+[%end-note%]
 		<p>
 			<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html">
 					<em>request</em> resources</a>.</strong>

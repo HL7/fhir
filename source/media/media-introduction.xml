@@ -4,16 +4,15 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 		<a name="dstu"></a>
-		<blockquote class="stu-note">
-			<p>
-				<b>STU Note:</b> The Orders and Observations workgroups wants to make the balloter aware than observations that require the attachment data types are represented by the Media resource instead of Observation.  There have been several significant changes to  the Media resource in order to align it with <a href="observation.html">Observation</a> and the workflow <a href="event.html">event</a> pattern including:</p>
+[%stu-note%]
+			The Orders and Observations workgroups wants to make the balloter aware than observations that require the attachment data types are represented by the Media resource instead of Observation.  There have been several significant changes to  the Media resource in order to align it with <a href="observation.html">Observation</a> and the workflow <a href="event.html">event</a> pattern including:</p>
 			<ol>
 				<li>The addition of the <a href="media-definitions.html#Media.partOf">partOf</a> and <a href="media-definitions.html#issued">issued</a> elements.</li>
 				<li>The required <code>type</code> was changed an optional <a href="media-definitions.html#category">category</a> and the <code>subtype</code> element was renamed to  <a href="media-definitions.html#modality">modality</a>.</li>
 				<li>Additional reference targets added to the <code>subject</code>,<code>operator</code>, and <code>basedOn</code> elements</li>
 				<li>The additions of several standard <a href="media-profiles.html#extensions">event extensions</a>.</li>
 			</ol>
-		</blockquote>
+[%end-note-np%]
 <p>
 The Media resource contains photos, videos, and audio recordings. It is used with media acquired or used as part of the healthcare process. Here are some typical usages:
 </p>

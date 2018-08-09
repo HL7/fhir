@@ -3,9 +3,8 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<a name="dstu"></a>
-		<blockquote class="stu-note">
-			<p>
-				<b>STU Note:</b> In terms of scope and usage, the Patient Care and Orders and Observations workgroups wish to
+[%stu-note%]
+In terms of scope and usage, the Patient Care and Orders and Observations workgroups wish to
 draw the attention of reviewers and implementers to the following issues:
 </p>
 			<ol>
@@ -46,7 +45,7 @@ ReferralRequest and ProcedureRequest have been merged into ServiceRequest since 
 					</li>
 				</ul></li>
 			</ol>
-		</blockquote>
+[%end-note-np%]
 		<p>
 			<strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
 		<p>
