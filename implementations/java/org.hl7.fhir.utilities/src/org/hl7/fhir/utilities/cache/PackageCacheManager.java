@@ -87,6 +87,7 @@ public class PackageCacheManager {
   private JsonArray buildInfo;
   private boolean progress = true;
   private List<NpmPackage> temporaryPackages = new ArrayList<NpmPackage>();
+  private Map<String, String> ciList = new HashMap<String, String>();
   
   public PackageCacheManager(boolean userMode) throws IOException {
     if (userMode)
@@ -424,6 +425,7 @@ public class PackageCacheManager {
         if (u.contains("/ImplementationGuide/"))
           u = u.substring(0, u.indexOf("/ImplementationGuide/"));
         recordMap(u, o.get("package-id").getAsString());
+        ciList.put(o.get("package-id").getAsString(), "https://build.fhir.org/ig/"+o.get("repo").getAsString());
       }
     }
     return buildInfo;
@@ -475,6 +477,9 @@ public class PackageCacheManager {
       if (stream != null)
         return addPackageToCache(id, null,  stream);
       throw new FHIRException("Unable to find the package source for '"+id+"' at "+url);
+    } else if ("current".equals(v) && ciList.containsKey(id)){
+      InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(ciList.get(id), "package.tgz"), true);
+      return addPackageToCache(id, v, stream);
     } else {
       String pu = Utilities.pathURL(url, "package-list.json");
       JsonObject json;
@@ -539,6 +544,10 @@ public class PackageCacheManager {
         temporaryPackages.add(extractLocally(new FileInputStream(f), f.getName()));
       }
     }
+  }
+
+  public Map<String, String> getCiList() {
+    return ciList;
   }
 
 }
