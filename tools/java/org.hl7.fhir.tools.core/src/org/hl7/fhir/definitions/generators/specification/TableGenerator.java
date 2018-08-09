@@ -1,8 +1,11 @@
 package org.hl7.fhir.definitions.generators.specification;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator.ConstraintsSorter;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -157,10 +160,12 @@ public class TableGenerator extends BaseGenerator {
         cc.getPieces().add(gen.new Piece(prefix+"terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, ")", null));
     }
-    for (String name : e.getInvariants().keySet()) {
+    List<String> invs = new ArrayList<String>(e.getInvariants().keySet());
+    Collections.sort(invs, new ConstraintsSorter());
+    for (String name : invs) {
       Invariant inv = e.getInvariants().get(name);
       cc.addPiece(gen.new Piece("br"));
-      cc.getPieces().add(gen.new Piece(null, "+ "+inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
+      cc.getPieces().add(gen.new Piece(null, "+ "+presentLevel(inv)+": "+inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
     if (e.unbounded() && !isRoot) {
       if (cc.getPieces().size() > 0)
@@ -257,6 +262,31 @@ public class TableGenerator extends BaseGenerator {
     return row; 
   }   
 
+  public class ConstraintsSorter implements Comparator<String> {
+
+    @Override
+    public int compare(String s0, String s1) {
+    String[] parts0 = s0.split("\\-");
+    String[] parts1 = s1.split("\\-");
+    if (parts0.length != 2 || parts1.length != 2)
+      return s0.compareTo(s1);
+    int comp = parts0[0].compareTo(parts1[0]);
+    if (comp == 0 && Utilities.isInteger(parts0[1]) && Utilities.isInteger(parts1[1]))
+      return new Integer(parts0[1]).compareTo(new Integer(parts1[1]));
+    else
+      return parts0[1].compareTo(parts1[1]);
+    }
+
+  }
+  private String presentLevel(Invariant inv) {
+    if ("warning".equals(inv.getSeverity()))
+      return "Warning";
+    if ("best-practice".equals(inv.getSeverity()))
+      return "Guideline";
+    return "Rule";
+  }
+
+  
   private boolean isReference(String t) {
     return t.equals("Reference") || t.equals("canonical"); 
   }

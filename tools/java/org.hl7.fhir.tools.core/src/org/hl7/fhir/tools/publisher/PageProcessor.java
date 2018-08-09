@@ -3743,7 +3743,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (String n : invs.keySet()) {
       ids.add(n);
     }
-    Collections.sort(ids);
+    Collections.sort(ids, new ConstraintsSorter());
     StringBuilder b = new StringBuilder();
     for (String n : ids) {
       b.append(invs.get(n));
