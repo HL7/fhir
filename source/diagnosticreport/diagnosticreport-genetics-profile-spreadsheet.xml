@@ -4982,7 +4982,7 @@
     <Cell ss:StyleID="s140"><Data ss:Type="String">assessed-condition</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s105"/>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">DiagnosticReport.extension(AssessedCondition)</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">DiagnosticReport.extension('http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition')</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">Condition assessed by genetic test</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

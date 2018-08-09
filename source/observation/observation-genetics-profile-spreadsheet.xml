@@ -6337,35 +6337,35 @@
     <Cell ss:StyleID="s138"><Data ss:Type="String">gene-identifier</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s140"><Data ss:Type="String">Observation.extension(Gene)</Data></Cell>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">Observation.extension('http://hl7.org/fhir/StructureDefinition/observation-geneticsGene')</Data></Cell>
     <Cell ss:StyleID="s141"><Data ss:Type="String">HGNC gene symbol and identifier</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"><Data ss:Type="String">dna-variant</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension(DNASequenceVariantName)</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension('http://hl7.org/fhir/StructureDefinition/observation-geneticsDnaVariant')</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">HGVS DNA variant</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"><Data ss:Type="String">amino-acid-change</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension(AminoAcidChangeName)</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension('http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChangeName')</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">HGVS Protein Change</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"><Data ss:Type="String">gene-dnavariant</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension(Gene, DNASequenceVariantName)</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension(http://hl7.org/fhir/StructureDefinition/observation-geneticsGene) | Observation.extension('http://hl7.org/fhir/StructureDefinition/observation-geneticsDnaVariant')</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">HGNC gene symbol and HGVS DNA Variant</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"><Data ss:Type="String">gene-amino-acid-change</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension(Gene, AminoAcidChangeName)</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">Observation.extension(http://hl7.org/fhir/StructureDefinition/observation-geneticsGene) | Observation.extension('http://hl7.org/fhir/StructureDefinition/observation-geneticsAminoAcidChangeName')</Data></Cell>
     <Cell ss:StyleID="s144"><Data ss:Type="String">HGNC gene symbol and HGVS Protein change</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
