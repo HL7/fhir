@@ -15,7 +15,8 @@
   
   
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3523,7 +3524,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4274,7 +4274,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context. The server can document the way this parameter works in [[[TerminologyCapabilities]]]..expansion.textFilter. Typical usage of this parameter includes functionality like:&#10;&#10;* using left matching e.g. "acut ast"&#10;* allowing for wild cards such as %, &amp;, ?&#10;* searching on definition as well as display(s)&#10;* allowing for search conditions (and / or / exclusions)&#10;&#10;Text Search engines such as Lucene or Solr, long with their considerable functionality, might also be used. The optional text search might also be code system specific, and servers might have different implementations for different code systems</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s138"/>
    </Row>
@@ -5165,10 +5165,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
