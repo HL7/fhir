@@ -136,7 +136,7 @@
     <!--
       the include by enumeration simply lists a set of codes with no structure
       
-      we're going to introduce a heirarchy. There's 5 possibilities, each shown in this 
+      we're going to introduce a hierarchy. There's 5 possibilities, each shown in this 
       complex example:
        1. the grouper we are introducing isn't in the code system
        2. The grouper matches a concept in the code system, which is in the value set
@@ -242,7 +242,7 @@
       </extension>
       
       <system value="#hacked"/>
-      <!-- include the codes from the code system, no heirarchy here -->
+      <!-- include the codes from the code system, no hierarchy here -->
       <concept>
         <code value="invalid"/>
       </concept>      

@@ -4909,9 +4909,9 @@
     <Cell><Data ss:Type="String">ValueSet.compose.include</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">N</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Defines a heirarchy structure (when in UI mode)</Data></Cell>
-    <Cell><Data ss:Type="String">This extension declares a group of concepts that is generated into the ValueSet.expansion.contains heirarchy when the expansion is generated for a UI. THere is no inherent assigned meaning to the heirarchy; it is used to help the user navigate the concepts. Each group has a display and/or a code, and a list of members, which are either concepts in the value set, or other groups (by code). </Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">Note that there are inter-relationships between concept status/properties and the way the groups are built; these are described and documented in the (value set heirarchical example)[d.html]. Note that this extension should be ignored when the expansion is not generated for UI</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Defines a hierarchy structure (when in UI mode)</Data></Cell>
+    <Cell><Data ss:Type="String">This extension declares a group of concepts that is generated into the ValueSet.expansion.contains hierarchy when the expansion is generated for a UI. THere is no inherent assigned meaning to the hierarchy; it is used to help the user navigate the concepts. Each group has a display and/or a code, and a list of members, which are either concepts in the value set, or other groups (by code). </Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">Note that there are inter-relationships between concept status/properties and the way the groups are built; these are described and documented in the (value set hierarchical example)[d.html]. Note that this extension should be ignored when the expansion is not generated for UI</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="128">
     <Cell><Data ss:Type="String">expand-group.code</Data></Cell>
