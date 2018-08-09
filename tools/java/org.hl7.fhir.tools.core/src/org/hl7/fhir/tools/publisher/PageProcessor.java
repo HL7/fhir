@@ -3462,11 +3462,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
       if (uses) {
         if (vs.hasUserData("external.url"))
-          b.append(" <li><a href=\"").append(vs.getUserString("external.url")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+          b.append(" <li>ValueSet: <a href=\"").append(vs.getUserString("external.url")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
         else if (!vs.hasUserData("path"))
-          b.append(" <li><a href=\"").append(prefix+"valueset-"+vs.getId()).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+          b.append(" <li>ValueSet: <a href=\"").append(prefix+"valueset-"+vs.getId()).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
         else
-          b.append(" <li><a href=\"").append(prefix+vs.getUserString("path")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+          b.append(" <li>ValueSet: <a href=\"").append(prefix+vs.getUserString("path")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
       }
     }
     if (b.length() == 0)
@@ -3481,7 +3481,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (CodeSystem cs : getCodeSystems().values()) {
         if (cs != null) {
           if (vs.getUrl().equals(cs.getValueSet())) {
-            b.append(" <li>This value set is the designated 'entire code system' value set for <a href=\"").append(prefix+cs.getUserString("path")).append("\">").append(cs.getName()).append("</a> ").append("</li>\r\n");
+            b.append(" <li>CodeSystem: This value set is the designated 'entire code system' value set for <a href=\"").append(prefix+cs.getUserString("path")).append("\">").append(cs.getName()).append("</a> ").append("</li>\r\n");
           }
         }
       }
@@ -3489,18 +3489,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     for (ConceptMap cm : getConceptMaps().values()) {
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
-        b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
-      }
-      if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
-        b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+        b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+      } else if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
+        b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
     }
     for (ConceptMap cm : getConceptMaps().values()) {
       if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
-        b.append(" <li>This value set is the target of translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
-      }
-      if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
-        b.append(" <li>This value set is the target of translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+        b.append(" <li>ConceptMap: Translation target in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+      } else if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
+        b.append(" <li>ConceptMap: Translation target ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
     }
 
@@ -3536,13 +3534,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         for (ConceptSetComponent t : vs.getCompose().getInclude()) {
           for (UriType uri : t.getValueSet()) {
             if (uri.getValue().equals(vs.getUrl()))
-              b.append(" <li>Included into Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+              b.append(" <li>ValueSet: Included in <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
           }
         }
         for (ConceptSetComponent t : vs.getCompose().getExclude()) {
           for (UriType uri : t.getValueSet()) {
             if (uri.getValue().equals(vs.getUrl()))
-              b.append(" <li>Excluded from Valueset <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
+              b.append(" <li>ValueSet: Excluded from  <a href=\"").append(prefix+path).append("\">").append(Utilities.escapeXml(vs.getName())).append("</a></li>\r\n");
           }
         }
 //        for (ConceptSetComponent t : vsi.getCompose().getInclude()) {
@@ -3572,8 +3570,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (ElementDefinition ed : exd.getSnapshot().getElement()) {
       if (ed.hasBinding()) {
         if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
-          b.append(" <li><a href=\"").append(prefix).append(path).append("\">Extension ")
-          .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> ("+ed.typeSummary()+" : ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+          b.append(" <li>Extension: <a href=\"").append(prefix).append(path).append("\">")
+          .append(exd.getUrl()).append(": ").append(Utilities.escapeXml(exd.getName())).append("</a> ("+ed.typeSummary()+" / ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
       }
     }
   }
@@ -3582,8 +3580,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (Operation op : r.getOperations()) {
       for (OperationParameter p : op.getParameters()) {
         if (p.getBs() != null && p.getBs().getValueSet() == vs) {
-          b.append(" <li><a href=\"").append(prefix+page).append(op.getName()).append(".html").append("\">Operation Parameter $")
-          .append(op.getName()).append(".").append(p.getName()).append("</a> ("+p.getFhirType()+" : ").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
+          b.append(" <li>Operation: <a href=\"").append(prefix+page).append(op.getName()).append(".html").append("\"> Parameter $")
+          .append(op.getName()).append(".").append(p.getName()).append("</a> ("+p.getFhirType()+" /: ").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
         }
       }
     }
@@ -3595,8 +3593,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         for (ElementDefinition ed : p.getResource().getSnapshot().getElement()) {
           if (ed.hasBinding()) {
             if (isValueSetMatch(ed.getBinding().getValueSet(), vs))
-              b.append(" <li><a href=\"").append(prefix+p.getId()).append(".html\">StructureDefinition ")
-              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ("+ed.typeSummary()+" : ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
+              b.append(" <li>Profile: <a href=\"").append(prefix+p.getId()).append(".html\"> ")
+              .append(p.getTitle()).append(": ").append(ed.getPath()).append("</a> ("+ed.typeSummary()+" / ").append(getBindingTypeDesc(ed.getBinding(), prefix)).append(")</li>\r\n");
           }
         }
       }
@@ -3613,7 +3611,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (binding.getStrength() == null)
       return "";
     else
-      return "(<a href=\""+prefix+"terminologies.html#"+binding.getStrength().toCode()+"\">"+binding.getStrength().getDisplay()+"</a>)";
+      return "<a href=\""+prefix+"terminologies.html#"+binding.getStrength().toCode()+"\">"+binding.getStrength().getDisplay()+"</a>";
   }
 
   private String getBindingTypeDesc(BindingSpecification binding, String prefix) {
@@ -3633,10 +3631,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String path, String ref, String prefix) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
     if (e.hasBinding() && e.getBinding().getValueSet() == vs) {
-      b.append(" <li><a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
+      b.append(" <li>Resource: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
     }
     if (e.hasBinding() && e.getBinding().getMaxValueSet() == vs) {
-      b.append(" <li>Max: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
+      b.append(" <li>Max ValueSet: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e, e.getBinding(), prefix)).append("</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
       scanForUsage(b, vs, c, path, ref, prefix);
@@ -3646,7 +3644,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String getBSTypeDesc(ElementDefn ed, BindingSpecification cd, String prefix) {
     if (cd == null || cd.getStrength() == null) // partial build
       return "Unknown";
-    return "("+ed.typeCode()+" : <a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)";
+    return "("+ed.typeCode()+" / <a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>)";
   }
 
   private String generateCodeDefinition(String name) {
