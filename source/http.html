@@ -207,6 +207,7 @@ Note: to support browser-based client applications, servers SHOULD implement <a 
 See the <a href="security.html#AccessDenied">HTTP Security</a> guidance for further information about both security generally and the use of CORS.
 </p>
 
+<a name="Status-Codes"></a>
 <h4>HTTP Status Codes</h4>
 <p>
 This specification makes rules about the use of specific HTTP status codes
@@ -249,6 +250,7 @@ return the full content as normal. This optimisation is relevant in reducing ban
 not required to support this. If servers don't support conditional read, they just return the full content.
 </p>
 
+<a name="ops"></a>
 <h4>create/update/patch/transaction</h4>
 <p>
 These interactions are performed using <code>POST</code>, <code>PUT</code> or <code>PATCH</code>, and
@@ -1201,6 +1203,7 @@ Examples:
  <li><a href="bundle-request-simplesummary.html">Batch request to fetch simple Patient Summary</a> with <a href="bundle-response-simplesummary.html">Response</a></li>
 </ul>
 
+<a name="brules"></a>
 <h4>Batch Processing Rules</h4>
 <p>
 For a <code>batch</code>, there SHALL be no interdependencies between the different entries
@@ -1586,6 +1589,7 @@ a server to determine whether the client omitted the information
 because it wasn't supported (perhaps in this case) or whether it
 wishes to delete the information.
 </p>
+<a name="conformance-rules"></a>
 <h4>Conformance</h4>
 <p>
 Both client and server systems SHOULD clearly document how transaction

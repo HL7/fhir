@@ -45,6 +45,7 @@ minutiae of interoperability.  However, clinical readers are welcome to explore 
 technical areas if they find them of interest.
 </p>
 
+<a name="Resources"></a>
 <h3>Resources</h3>
 <p>
 From a clinical perspective, the most important parts of the FHIR specification to understand are the Resources.
@@ -67,6 +68,7 @@ taken together creates a useful clinical record. Information systems map the act
 note in their history, etc.) to operations on the relevant resources.
 </p>
 
+<a name="Extensibility"></a>
 <h3>Extensibility and Profiling</h3>
 <p>
 The paper forms (Resources) in FHIR are somewhat generic.  They have to be usable in different countries and by different types of clinicians
@@ -98,6 +100,7 @@ detailed clinical information should be captured and shared in particular settin
 of profiles directly by clinicians is part of the plan for FHIR, but is still in the very early stages.
 </p>
 
+<a name="Narrative"></a>
 <h3>Narrative</h3>
 <p>
 FHIR is intended to support sharing data in a computable manner.  I.e. The information shared should be usable for computer-mediated processes such as decision support, rules triggering, trend analysis, etc.  However, not every system is
@@ -133,6 +136,7 @@ referral letters, pathology reports, etc.  Certain parts of the narrative conten
 discrete data.
 </p>
 
+<a name="Interfaces"></a>
 <h3>Interfaces</h3>
 <p>
 In addition to defining the "forms" for data exchange (Resources), FHIR also defines a set of interfaces by
@@ -140,6 +144,7 @@ which systems actually share that information.  There are four primary mechanism
 or "paradigms" of exchange supported by FHIR: via a REST interface, by exchanging Documents, by sending and receiving Messages and by exposing and invoking Services.
 </p>
 
+<a name="REST"></a>
 <h4>REST</h4>
 <p>
 REST is the simplest exchange mechanism.  Continuing with the "form" metaphor, a RESTful server can be thought
@@ -177,6 +182,7 @@ EHRs and other systems may present a more sophisticated interface to their end u
 making these same types of requests to the file clerk.
 </p>
 
+<a name="Documents"></a>
 <h4>Documents</h4>
 <p>
 Documents are a familiar mechanism for sharing information in the healthcare space.  They are useful whenever
@@ -192,6 +198,7 @@ together.  That stapled collection can then be stored or passed around, conveyin
 once.
 </p>
 
+<a name="Messaging"></a>
 <h4>Messaging</h4>
 <p>
 Much healthcare information exchange happens using a messaging paradigm.  In messaging, a set of information is sent
@@ -208,6 +215,7 @@ resources are joined together with a paper-clip and there's no expectation that 
 contents of the message exactly as received, if at all.
 </p>
 
+<a name="Services"></a>
 <h4>Services</h4>
 <p>
 Services can be thought of as a light-weight way of doing messaging.  Rather than a full cover page, a small sticky
@@ -217,6 +225,7 @@ instances.  Services are likely to be used for things like decision support. E.g
 X for patient Y?</i>" or "<i>What's the recommended care plan for a patient with conditions A, B and C?</i>"
 </p>
 
+<a name="Approaching"></a>
 <h3>Approaching the specification</h3>
 <p>
 A FHIR-based system's capabilities are defined by what the Resources can say and from a clinical perspective, these things define the clinical record:

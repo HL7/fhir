@@ -22,6 +22,7 @@ Welcome to the FHIR (Fast Healthcare Interoperability Resources) Specification, 
 This page provides an overview of the standard, and serves as a road map for first-time readers of the specification to help find your way around FHIR quickly.
 </p>
 
+<a name="Background"></a>
 <h3>Background</h3>
 <p>
 Healthcare records are increasingly becoming digitized. As patients move around the
@@ -48,6 +49,7 @@ without requiring the implementer to have intimate knowledge of the RIM or any <
 to other HL7 standards</a>)
 </p>
 
+<a name="Components"></a>
 <h3>Components</h3>
 <p>
 The basic building block in FHIR is a <a href="resource.html">Resource</a>. All exchangeable content is defined as a resource. Resources all share the following set of characteristics:
@@ -58,7 +60,9 @@ The basic building block in FHIR is a <a href="resource.html">Resource</a>. All 
  <li>A <a href="narrative.html">human readable</a> part</li>
 </ul>
 
+<a name="Approach"></a>
 <h3>Approach</h3>
+<a name="modeling"></a>
 <h4>Approach to information modeling</h4>
 <p>
 The philosophy behind FHIR is to build a base set of resources that,
@@ -82,6 +86,7 @@ case specific requirements. Two special kinds of resources are used to describe 
  <li><a href="structuredefinition.html">StructureDefinition</a> - provide additional rules that serve to constrain the optionality, cardinality, terminology bindings, data types and extensions defined in the resources used by the implementation</li>
 </ul>
 
+<a name="Specification"></a>
 <h3>The Specification</h3>
 <p>
 Broadly, the FHIR specification is broken up into a <a href="modules.html#modules">set of modules</a>:
@@ -95,6 +100,7 @@ such as <a href="messageheader.html">Message Header</a> and <a href="capabilitys
 but they are used in totally different fashions. Note that you do not have to use REST to make use of resources.
 </p>
 
+<a name="Start"></a>
 <h3>Where to Start</h3>
 <p>
 The best place to start is to quickly read the <a href="resourcelist.html">Resources</a> list to get a sense of what resources exist and then look at
@@ -108,6 +114,7 @@ the <a href="patient.html">Patient resource</a> definition to see what resource 
   <li>If you are coming to FHIR with a background in another HL7 standard (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> or <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>), <a href="comparison.html">The Relationship between FHIR and other HL7 Standards</a> may also be useful</li>
 </ul>
 
+<a name="Headers"></a>
 <h4>Header Tabs</h4>
 <p>
 These header tabs found through-out the specification are important, and many readers miss them:
@@ -125,6 +132,7 @@ notes that help implementers understand the design rationale underlying them.
 </p>
 
 
+<a name="Feedback"></a>
 <h3>Finding Additional Information and Providing Feedback</h3>
 <p>While intended to be consumable by a variety of audiences, the FHIR specification is targeted to the implementation community - those who will actually
 write the software that uses the specification.  To help meet the needs of the implementation community, the editors have strived to keep the specification
@@ -138,6 +146,7 @@ HL7 has therefore provided a number of mechanisms through which additional infor
 and requests for change can be made.
 </p>
 
+<a name="Wiki"></a>
 <h4>The FHIR Wiki</h4>
 <p>
 The FHIR project team also maintains a <a href="http://wiki.hl7.org/index.php?title=FHIR">wiki</a> where
@@ -152,6 +161,7 @@ use of the <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Authoring_
 explore the FHIR wiki, you can start at the <a href="http://wiki.hl7.org/index.php?title=FHIR">root page</a>
 </p>
 
+<a name="Change"></a>
 <h4>Formal Change requests</h4>
 <p>
 Formal requests for change can be submitted <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">here</a>.
@@ -159,6 +169,7 @@ Formal requests for change can be submitted <a href="http://gforge.hl7.org/gf/pr
 specification, including which release (if any) they will be part of.
 </p>
 
+<a name="Engagement"></a>
 <h4>Additional Information sources/Engagement Mechanisms</h4>
 <p>
 In addition to the above mechanisms, HL7 provides a Stack Overflow tag, list servers and online chat system to provide various levels of implementer support

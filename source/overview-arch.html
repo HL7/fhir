@@ -38,9 +38,8 @@ From an operational perspective, HL7’s internal standards development and gove
 resource and which resources exist. In addition, the FHIR specification also provides a mechanism for contextualizing resources for
 specific needs within specific bounds (see <a href="profiling.html">Profiling Resources</a>).
 </p>
-<h3>
-Architecture Frameworks and FHIR Alignment
-</h3>
+<a name="frameworks"></a>
+<h3>Architecture Frameworks and FHIR Alignment</h3>
 <p>
 FHIR resources fit firmly within the information architecture domain and the FHIR APIs for data exchange
 address aspects of application architecture.
@@ -87,9 +86,8 @@ Information Models and the Behavioral Models Viewpoints, respectively.
 </td>
 </tr>
 </table>
-<h3>
-FHIR and Architectural Principles
-</h3>
+<a name="principles"></a>
+<h3>FHIR and Architectural Principles</h3>
 <p>
 FHIR’s primary purpose is to address interoperability with well-structured, expressive data models and simple, efficient data exchange mechanisms.
 In addition, FHIR aligns to the following architectural principles:
@@ -132,9 +130,8 @@ FHIR is easily understood and readily implemented using industry standards and c
 There are additional architecture principles related to consistency, granularity, referential integrity, and others that are not as
 well established or proven. See the section below on Outstanding Issues for details.
 </p>
-<h3>
-FHIR Decomposition
-</h3>
+<a name="decomposition"></a>
+<h3>FHIR Decomposition</h3>
 <p>
 As discussed, FHIR’s principal components are resources and RESTful APIs. However, there is more to the FHIR specification including the components depicted below.
 </p>
@@ -197,9 +194,8 @@ Component definitions:
   </li>
 </ul>
 
-<h3>
-Creating Resources – Architectural Considerations
-</h3>
+<a name="creating"></a>
+<h3>Creating Resources – Architectural Considerations</h3>
 
 <p>
 The following list provides general guidelines that apply when FHIR resources are defined. Most of these items are not enforced programmatically
@@ -225,9 +221,8 @@ requiring human due diligence and governance to ensure adherence.
 <li>There is a bias towards fewer resources rather than more</li>
 </ul>
 
-<h3>
-Organizing FHIR Resources
-</h3>
+<a name="organizing"></a>
+<h3>Organizing FHIR Resources</h3>
 <p>
 It is impractical to model the entirety of health data in a single information model. Every modeling
 initiative in healthcare from HL7 version 2 message specifications to FHIR resources decomposes the
@@ -317,12 +312,10 @@ The framework is further elaborated in the <a href="http://wiki.hl7.org/index.ph
 Another useful tool for visualizing how FHIR resources are organized relative to each other can be found using the Resource Reference
 Visualization tool on <a href="https://fhirblog.com/2016/06/14/resource-reference-visualization-in-clinfhir/">clinFHIR</a>.
 </p>
-<h3>
-FHIR Implementation – High-Level Design Considerations
-</h3>
-<h4>
-FHIR Servers and the FHIR APIs
-</h4>
+<a name="implementations"></a>
+<h3>FHIR Implementation – High-Level Design Considerations</h3>
+<a name="APIs"></a>
+<h4>FHIR Servers and the FHIR APIs</h4>
 <p>
 A FHIR REST server is any software that implements the FHIR APIs and uses FHIR resources to exchange data. The diagram below describes the FHIR interface definitions. The methods are classified as:
 </p>
@@ -343,9 +336,8 @@ Additional details on the FHIR APIs can be found at <a href="http.html">the FHIR
 <p>
 <img src="arch-uml1.png" width="600" height="332" style="float: none"/>
 </p>
-<h4>
-FHIR Transactions
-</h4>
+<a name="transactions"></a>
+<h4>FHIR Transactions</h4>
 <p>
 As mentioned, FHIR resources are optimized for stateless transactions with RESTful APIs. Although this is not the only way FHIR resources can be used, these types of transactions are the only ones with defined interfaces and behaviors in the FHIR specification.
 </p>
@@ -355,9 +347,8 @@ FHIR transactions follow a simple request and response transaction pattern. The 
 <p>
 <img src="arch-uml2.png" width="600" height="502" style="float: none"/>
 </p>
-<h4>
-Security
-</h4>
+<a name="security"></a>
+<h4>Security</h4>
 <p>
 <i>(section to be filled out)</i> (but see <a href="security.html">Security</a> in the meantime).
 </p>
@@ -405,9 +396,8 @@ One or more clinical resource(s)
 <p>
 Although this example use case is very simple, more complex transactions using a combination of GETs, PUTs and DELETEs against resources and metadata can be envisioned. However, the exact details of these use cases including which methods are used, the orchestration of methods and the specific resources involved are outside the scope of the FHIR specification.
 </p>
-<h3>
-Outstanding Issues
-</h3>
+<a name="issues"></a>
+<h3>Outstanding Issues</h3>
 <ul>
 <li>
 <b>Resource Consistency and Granularity</b> – there is nothing intrinsically prohibiting one resource from duplicating the same information

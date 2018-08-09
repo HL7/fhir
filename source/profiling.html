@@ -112,12 +112,14 @@ The <a href="capabilitystatement.html">CapabilityStatement</a> resource describe
 Resource Profiles and Supported Profiles. Resource Profiles are specified using the <i>CapabilityStatement.rest.resource.profile</i> element
 and Supported Profiles are specified using the <i>CapabilityStatement.rest.resource.supportedProfile</i> element.
 </p>
+<a name="CapabilityStatement.rest.resource.profile"></a>
 <h4>CapabilityStatement.rest.resource.profile</h4>
 <p>
 These profiles describe the general features that are supported by the system for each kind of
 resource. Typically, this is the superset of all the different use-cases implemented by the system.
 This is a resource-level perspective of a system's functionality.
 </p>
+<a name="CapabilityStatement.rest.resource.supportedProfile"></a>
 <h4>CapabilityStatement.rest.resource.supportedProfile</h4>
 <p>
 These profiles describe the information handled/produced by the system on a per use case basis.
@@ -260,6 +262,7 @@ the resource without knowledge of the profile. For this reason the representatio
 </p>
 
 
+<a name="limitations"></a>
 <h3>Limitations of Use</h3>
 <p>
 What StructureDefinitions can do when they are constraining existing resources and datatypes is limited in some respects:
@@ -289,6 +292,7 @@ see <a href="resource.html#implicitRules">Restricted Understanding of Resources<
 </p>
 
 
+<a name="using"></a>
 <h3>Using StructureDefinitions</h3>
 <p>
 A "constraint" StructureDefinition specifies a set of restrictions on the content of a FHIR resource or data type,
@@ -684,6 +688,7 @@ For further discussion of defining and using extensions, along with some example
 see <a href="extensibility.html">Extensibility</a>.
 </p>
 
+<a name="using-extensions"></a>
 <h4>Using Extensions in Profiles</h4>
 <p>
 Once defined, an extension can be used in an instance of a resource
