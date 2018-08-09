@@ -50,6 +50,32 @@
     person resource with a <i>link</i> for each of the practitioner resources located in other organizations.
   </p>
 
+<a name="pmi"></a>
+<h2>
+  Person Master Index
+</h2>
+<p>
+  Many national and state programs maintain a central register of people, and their key Identifiers.
+  These systems do not store any health related information, they are purely a validated set data, often
+  provided by government departments. These may contain identifiers for patients, practitioners from various
+  departments for various purposes. Access to these systems typically requires some form of professional
+  role or permission, such as those in healthcare, law enforcement, or other internal government uses.
+</p>
+<p>
+  These may also operate outside of government in the private sector, such as associations or networks
+  that a person may be involved with and may work in the same was as they do inside government.
+  The usage of the data into the healthcare environment is not the only use of the register.
+</p>
+<blockquote class="stu-note">
+  <p>
+    <b>Note:</b>  This style of system may use the Person resource without any FHIR references
+    to Patient or Practitioner resources. In these environments the Master Index is likely to
+    have a master identifier that performs this logical linking.<br/>
+    This style of usage has fewer security implications, as it doesn’t disclose where the
+    information is being used.
+  </p>
+</blockquote>
+
 <a name="portal"></a>
   <h2>
     Client Portal
@@ -66,5 +92,27 @@
     entered.<br/>
     With appropriate permissions/consent applied, the user could have access to other Patient records linked via 
     a RelatedPerson.
+  </p>
+
+<a name="security"></a>
+  <h2>
+    Security and Privacy Considerations
+  </h2>
+  <p>
+    The Person resource may contain identifying and demographic information about an individual, therefore it must
+    be protected as Identifying Information.
+  </p>
+  <p>
+    The Person resource may contain references to the individual's other various Patient, Practitioner,
+    and RelatedPerson resources, where the referenced record might be to very sensitive information.
+    The access to the linked sensitive Resource may be protected, but the link itself may expose information.<br/> 
+    For example where a Practitioner and Patient resource are linked through a Person resource, inspecting the
+    Patient URL could reveal that the Practitioner has a record at a sensitive medical health clinic (e.g. Drug Rehabilitation Clinic).
+  </p>
+  <p>
+    When implementing the Person resource consideration should be given to the security and privacy
+    of this information. Some mitigations to these risks include higher access control protections, filling
+    out the Person resource as sparsely as practical for the given use-cases, and masking some data elements for
+    certain users of the information. Additional security guidance can be found on the <a href="security.html">security page</a>.
   </p>
 </div>
