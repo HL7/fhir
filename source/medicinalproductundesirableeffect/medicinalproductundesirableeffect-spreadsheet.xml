@@ -16,8 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -642,9 +641,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R10C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R11C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="10" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="11" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="347.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="287.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="28.0"/>
@@ -694,6 +693,12 @@
     <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">MedicinalProductUndesirableEffect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Describe the undesirable effects of the medicinal product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductUndesirableEffect.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">The medication for which this is an indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductUndesirableEffect.symptomConditionEffect</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -838,7 +843,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -851,7 +855,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R10C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R11C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -1361,10 +1365,11 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductUndesirableEffect.subject</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The medication for which this is an undesirable effect</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s98"/>
@@ -1543,6 +1548,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

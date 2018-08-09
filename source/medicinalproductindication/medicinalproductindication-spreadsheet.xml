@@ -642,14 +642,14 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R16C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R17C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="16" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="17" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="347.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="287.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="40.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="176.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="59.0"/>
    <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="227.0"/>
@@ -694,6 +694,12 @@
     <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">MedicinalProductIndication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Indication for the Medicinal Product</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">0;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductIndication.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Reference(MedicinalProduct|Medication)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s79"><Data ss:Type="String">The medication for which this is an indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductIndication.diseaseSymptomProcedure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -790,7 +796,7 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Information about the use of the medicinal product in relation to other therapies described as part of the indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">400;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">300;200</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductIndication.otherTherapy.therapyRelationshipType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -856,7 +862,8 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">The population group to which this applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">300;200</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22" ss:StyleID="Default"><Data ss:Type="String">400;0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductIndication.population.age[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -949,7 +956,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R16C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R17C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -1459,10 +1466,11 @@
     <Cell ss:StyleID="s85"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s99"/>
-    <Cell ss:StyleID="s100"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductIndication.subject</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The medication for which this is an indication</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s98"/>
