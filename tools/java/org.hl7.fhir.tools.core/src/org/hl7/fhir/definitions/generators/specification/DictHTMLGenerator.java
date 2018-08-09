@@ -89,7 +89,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  write("<table class=\"dict\">\r\n");
 
 	  for (ElementDefinition ec : profile.getSnapshot().getElement()) {
-	    if (isProfiledExtension(ec)) {
+	    if (false && isProfiledExtension(ec)) {
 	      String name = profile.getId()+"."+ makePathLink(ec);
         StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile().get(0).getValue());
 	      if (extDefn == null) {

@@ -9083,10 +9083,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String checkEscape(String text) {
+    if (Utilities.noString(text))
+      return "";
     if (text.startsWith("```"))
       return text.substring(3);
-    else
-      return Utilities.escapeXml(text);
+    
+    StringBuilder b = new StringBuilder();
+    boolean escaping = true;
+    for (int i = 0; i < text.length(); i++) {
+      if (i < text.length()-3 && "```".equals(text.substring(i, i+3)))
+        escaping = !escaping;
+      char c = text.charAt(i);
+      if (escaping && c == '<')
+        b.append("&lt;");
+      else if (escaping && c == '>')
+        b.append("&gt;");
+      else if (escaping && c == '&')
+        b.append("&amp;");
+      else if (escaping && c == '"')
+        b.append("&quot;");
+      else 
+        b.append(c);
+    }   
+    return b.toString();
   }
 
   public BuildWorkerContext getWorkerContext() {
