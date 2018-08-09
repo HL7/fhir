@@ -7198,6 +7198,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("  <tr>\r\n");
       String ref = cs.getUserString("path");
       b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td>").append(presentContext(cs, resource.getName())).append("</td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
       Profile ap = (Profile) cs.getUserData("profile");
       if (ap == null)
@@ -7222,13 +7223,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         map.put(sd.getId(), sd);
     }
 
-    b.append("<tr><td colspan=\"3\">Extensions for all resources or elements</td></tr>");
+    b.append("<tr><td colspan=\"4\">Extensions for all resources or elements</td></tr>");
     for (String s : sorted(map.keySet())) {
       StructureDefinition cs = map.get(s);
       count++;
       b.append("  <tr>\r\n");
       String ref = cs.getUserString("path");
-      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td colspan=\"2\"><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
       Profile ap = (Profile) cs.getUserData("profile");
       if (ap == null)
@@ -7242,6 +7243,35 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
     return b.toString();
+  }
+
+  private Object presentContext(StructureDefinition cs, String resource) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (StructureDefinitionContextComponent c : cs.getContext()) {
+        if (appliesTo(c, resource)) {
+          if (first) first = false; else b.append(", ");
+          if (c.getType() != ExtensionContextType.ELEMENT) 
+            b.append("<a href=\"codesystem-extension-context-type.html#"+c.getType().toCode()+"\">"+c.getType().toCode()+"</a>: ");
+          b.append("<code>"+c.getExpression()+"</code>");
+      }
+    }
+    return b.toString();
+  }
+
+  private boolean appliesTo(StructureDefinitionContextComponent c, String resource) {
+    switch (c.getType()) {
+    case ELEMENT: return c.getExpression().startsWith(resource+".") || c.getExpression().equals(resource);
+    case EXTENSION: return false;
+    case FHIRPATH: 
+      if (c.getExpression().startsWith(resource+"."))
+        return true;
+      if (c.getExpression().contains(".") && definitions.hasResource(c.getExpression().split("\\.")[0]))
+        return false;
+      return true; // maybe it applies..
+    default:
+      return false;
+    }
   }
 
   private String produceRefExtensions(ResourceDefn resource) {

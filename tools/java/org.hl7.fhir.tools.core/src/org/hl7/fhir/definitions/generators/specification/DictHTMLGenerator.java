@@ -409,7 +409,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     s.append("<tr><td colspan=\"4\"><b>"+title+"</b></td></tr>\r\n");
     for (String id : ids) {
       ElementDefinitionConstraintComponent inv = getConstraint(constraints, id);
-      s.append("<tr><td><b title=\"Formal Invariant Identifier\">"+inv.getKey()+"</b></td><td>"+presentLevel(inv)+"</td><td>"+Utilities.escapeXml(inv.getHuman())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>");
+      s.append("<tr><td width=\"60px\"><b title=\"Formal Invariant Identifier\">"+inv.getKey()+"</b></td><td>"+presentLevel(inv)+"</td><td>"+Utilities.escapeXml(inv.getHuman())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>");
       if (inv.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice")) 
         s.append("<br/>This is (only) a best practice guideline because: <blockquote>"+page.processMarkdown("best practice guideline", inv.getExtensionString("http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation"), prefix)+"</blockquote>");
       s.append("</td></tr>");
@@ -623,7 +623,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         for (String i : ids) {
           Invariant inv = invariants.get(i);
           done.add(inv.getId());
-          s.append("<tr><td><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b></td><td>"+presentLevel(inv)+"</td><td>"+Utilities.escapeXml(inv.getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>");
+          s.append("<tr><td width=\"60px\"><b title=\"Formal Invariant Identifier\">"+inv.getId()+"</b></td><td>"+presentLevel(inv)+"</td><td>"+Utilities.escapeXml(inv.getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(inv.getExpression())+"</span>");
           if (!Utilities.noString(inv.getExplanation())) 
             s.append("<br/>This is (only) a best practice guideline because: <blockquote>"+page.processMarkdown("best practice guideline", inv.getExplanation(), prefix)+"</blockquote>");
           s.append("</td></tr>");
@@ -634,7 +634,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         boolean b = false;
         for (Invariant id : stated) {
           if (!done.contains(id.getId())) {
-            s.append("<tr><td><b title=\"Formal Invariant Identifier\">"+id.getId()+"</b></td><td>"+presentLevel(id)+"</td><td>"+Utilities.escapeXml(id.getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(id.getExpression())+"</span>");
+            s.append("<tr><td width=\"60px\"><b title=\"Formal Invariant Identifier\">"+id.getId()+"</b></td><td>"+presentLevel(id)+"</td><td>"+Utilities.escapeXml(id.getEnglish())+"</td><td><span style=\"font-family: Courier New, monospace\">"+Utilities.escapeXml(id.getExpression())+"</span>");
             if (!Utilities.noString(id.getExplanation())) 
               s.append("<br/>This is (only) a best practice guideline because: <blockquote>"+page.processMarkdown("best practice guideline", id.getExplanation(), prefix)+"</blockquote>");
             s.append("</td></tr>");
