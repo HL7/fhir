@@ -31,14 +31,14 @@ System resources may also be used to define supplements, that extend an existing
 additional designations and properties.
 </p>
 <p>
-The CodeSystem resource is not intended to support the process of maintaining a 
-code system. Instead, the focus is on publishing the properties and optionally 
-the content of a code system for use throughout the FHIR eco-system, such as to support value set expansion and validation. Note that 
-the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc.) 
-all have their own distribution formats, and there is no intent that the CodeSystem
-resource be used for distributing these kinds of terminologies. Instead, it is 
-intended to be used for distributing the smaller ad-hoc code systems that are 
-ubiquitously encountered throughout the healthcare process.
+The CodeSystem resource is not intended to support the process of maintaining code systems. 
+Instead, the focus is on publishing the properties and optionally the content of a code 
+system for use throughout the FHIR eco-system, such as to support value set expansion and 
+validation. 
+Note that the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc.) 
+all have their own maintenance systems and distribution formats, and CodeSystem is generally
+not an efficient way to distribute their content, though it is used as one way of 
+declaring the filters and properties associated with those code systems. 
 </p>
 </div>
 <div>
