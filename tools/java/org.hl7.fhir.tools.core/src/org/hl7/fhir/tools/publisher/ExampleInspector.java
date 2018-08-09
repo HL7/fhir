@@ -21,6 +21,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.jena.graph.Triple;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
@@ -54,6 +55,7 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
@@ -146,6 +148,20 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       } catch (Exception e) {
         return null;
       }
+    }
+
+    @Override
+    public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
+      IResourceValidator val = context.newValidator();
+      List<ValidationMessage> valerrors = new ArrayList<ValidationMessage>();
+      if (item instanceof org.hl7.fhir.r4.model.Resource) {
+        val.validate(appContext, valerrors, (org.hl7.fhir.r4.model.Resource) item, url);
+        boolean ok = true;
+        for (ValidationMessage v : valerrors)
+          ok = ok && v.getLevel().isError();
+        return ok;
+      }
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
     }
   }
   

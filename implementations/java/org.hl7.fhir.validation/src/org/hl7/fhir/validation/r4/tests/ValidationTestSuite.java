@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
@@ -27,9 +28,11 @@ import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.Patient;
+import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
+import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.r4.utils.IResourceValidator.ReferenceValidationPolicy;
@@ -219,6 +222,20 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
   @Override
   public boolean resolveURL(Object appContext, String path, String url) throws IOException, FHIRException {
     return true;
+  }
+
+  @Override
+  public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
+    IResourceValidator val = TestingUtilities.context.newValidator();
+    List<ValidationMessage> valerrors = new ArrayList<ValidationMessage>();
+    if (item instanceof Resource) {
+      val.validate(appContext, valerrors, (Resource) item, url);
+      boolean ok = true;
+      for (ValidationMessage v : valerrors)
+        ok = ok && v.getLevel().isError();
+      return ok;
+    }
+    throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
   }
 
 }

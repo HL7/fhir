@@ -122,6 +122,9 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
       default: return "?";
       }
     }
+    public boolean isError() {
+      return this == FATAL || this == ERROR;
+    }
   }
 
   public enum IssueType {

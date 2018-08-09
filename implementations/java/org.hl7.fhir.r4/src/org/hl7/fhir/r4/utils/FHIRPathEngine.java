@@ -4,7 +4,6 @@ package org.hl7.fhir.r4.utils;
 import ca.uhn.fhir.util.ElementUtil;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.apache.http.protocol.ExecutionContext;
 import org.fhir.ucum.Decimal;
 import org.fhir.ucum.Pair;
 import org.fhir.ucum.UcumException;
@@ -24,12 +23,7 @@ import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext.FunctionDetails;
 import org.hl7.fhir.utilities.Utilities;
 
 import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
-
-import static org.apache.commons.lang3.StringUtils.length;
 
 /**
  * 
@@ -208,6 +202,7 @@ public class FHIRPathEngine {
      */
     public Base resolveReference(Object appContext, String url) throws FHIRException;
     
+    public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException;
   }
 
 
@@ -1030,6 +1025,7 @@ public class FHIRPathEngine {
     case IsBoolean: return checkParamCount(lexer, location, exp, 0);
     case IsDateTime: return checkParamCount(lexer, location, exp, 0);
     case IsTime: return checkParamCount(lexer, location, exp, 0);
+    case ConformsTo: return checkParamCount(lexer, location, exp, 1);
     case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
     }
     return false;
@@ -2352,6 +2348,10 @@ public class FHIRPathEngine {
       checkContextPrimitive(focus, exp.getFunction().toCode(), false);
       return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_Boolean);
     }
+    case ConformsTo: {
+      checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_String)); 
+      return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_Boolean);       
+    }
     case Custom : {
       return hostServices.checkFunction(context.appInfo, exp.getName(), paramTypes);
     }
@@ -2491,6 +2491,7 @@ public class FHIRPathEngine {
     case IsQuantity : return funcIsQuantity(context, focus, exp);
     case IsDateTime : return funcIsDateTime(context, focus, exp);
     case IsTime : return funcIsTime(context, focus, exp);
+    case ConformsTo : return funcConformsTo(context, focus, exp); 
     case Custom: { 
       List<List<Base>> params = new ArrayList<List<Base>>();
       for (ExpressionNode p : exp.getParameters()) 
@@ -3229,6 +3230,19 @@ public class FHIRPathEngine {
           ("([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"))).noExtensions());
     else 
       result.add(new BooleanType(false).noExtensions());
+    return result;
+  }
+
+  private List<Base> funcConformsTo(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
+    if (hostServices == null)
+      throw new FHIRException("Unable to check conformsTo - no hostservices provided");
+    List<Base> result = new ArrayList<Base>();
+    if (focus.size() != 1)
+      result.add(new BooleanType(false).noExtensions());
+    else {
+      String url = convertToString(execute(context, focus, exp.getParameters().get(0), true));
+      result.add(new BooleanType(hostServices.conformsToProfile(context.appInfo,  focus.get(0), url)).noExtensions());
+    }
     return result;
   }
 

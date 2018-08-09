@@ -18,12 +18,19 @@ import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Quantity;
 import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.TypeDetails;
+import org.hl7.fhir.r4.test.FHIRPathTests.FHIRPathTestEvaluationServices;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.IResourceValidator;
+import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.apache.commons.lang3.NotImplementedException;
 import org.fhir.ucum.UcumEssenceService;
 import org.fhir.ucum.UcumException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,6 +45,55 @@ import junit.framework.Assert;
 
 @RunWith(Parameterized.class)
 public class FHIRPathTests {
+
+  public class FHIRPathTestEvaluationServices implements IEvaluationContext {
+
+    @Override
+    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveConstant), when item is element");
+    }
+
+    @Override
+    public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveConstantType), when item is element");
+    }
+
+    @Override
+    public boolean log(String argument, List<Base> focus) {
+      return false;
+    }
+
+    @Override
+    public FunctionDetails resolveFunction(String functionName) {
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveFunction), when item is element");
+    }
+
+    @Override
+    public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.checkFunction), when item is element");
+    }
+
+    @Override
+    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.executeFunction), when item is element");
+    }
+
+    @Override
+    public Base resolveReference(Object appContext, String url) throws FHIRException {
+      throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveReference), when item is element");
+    }
+
+    @Override
+    public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
+      if (url.equals("http://hl7.org/fhir/StructureDefinition/Patient"))
+        return true;
+      if (url.equals("http://hl7.org/fhir/StructureDefinition/Person"))
+        return false;
+      throw new FHIRException("unknown profile "+url);
+      
+    }
+
+  }
 
   private static FHIRPathEngine fp;
 
@@ -97,6 +153,7 @@ public class FHIRPathTests {
     }
     if (fp == null)
       fp = new FHIRPathEngine(TestingUtilities.context);
+    fp.setHostServices(new FHIRPathTestEvaluationServices());
     String input = test.getAttribute("inputfile");
     String expression = XMLUtil.getNamedChild(test, "expression").getTextContent();
     boolean fail = "true".equals(XMLUtil.getNamedChild(test, "expression").getAttribute("invalid"));

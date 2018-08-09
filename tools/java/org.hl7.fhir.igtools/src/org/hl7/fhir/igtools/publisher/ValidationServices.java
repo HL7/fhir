@@ -37,7 +37,7 @@ public class ValidationServices implements IValidatorResourceFetcher {
 
 
   @Override
-  public Element fetch(Object appContext, String url) throws IOException, FHIRException {
+  public Element fetch(Object appContext, String url) throws FHIRException, IOException {
     String turl = (!Utilities.isAbsoluteUrl(url)) ? Utilities.pathURL(ipg.getCanonical(), url) : url;
     Resource res = context.fetchResource(getResourceType(turl), turl);
     if (res != null) {

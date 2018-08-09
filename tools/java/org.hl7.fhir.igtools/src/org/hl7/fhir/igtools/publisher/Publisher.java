@@ -143,6 +143,7 @@ import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
@@ -272,6 +273,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         return null;
       }
       throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveReference("+appContext.toString()+", \""+url+"\")");
+    }
+
+    @Override
+    public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
+      IResourceValidator val = context.newValidator();
+      List<ValidationMessage> valerrors = new ArrayList<ValidationMessage>();
+      if (item instanceof Resource) {
+        val.validate(appContext, valerrors, (Resource) item, url);
+        boolean ok = true;
+        for (ValidationMessage v : valerrors)
+          ok = ok && v.getLevel().isError();
+        return ok;
+      }
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.conformsToProfile), when item is element");
     }
 
   }

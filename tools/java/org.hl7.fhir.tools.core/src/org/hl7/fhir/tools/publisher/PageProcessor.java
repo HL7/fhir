@@ -65,6 +65,7 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.fhir.ucum.UcumException;
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator;
 import org.hl7.fhir.convertors.SpecDifferenceEvaluator.TypeLinkProvider;
@@ -182,6 +183,7 @@ import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
+import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
@@ -330,6 +332,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new Error("Not done yet");
     }
 
+    @Override
+    public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
+      IResourceValidator val = workerContext.newValidator();
+      List<ValidationMessage> valerrors = new ArrayList<ValidationMessage>();
+      if (item instanceof Resource) {
+        val.validate(appContext, valerrors, (Resource) item, url);
+        boolean ok = true;
+        for (ValidationMessage v : valerrors)
+          ok = ok && v.getLevel().isError();
+        return ok;
+      }
+      throw new NotImplementedException("Not done yet (PageEvaluationContext.conformsToProfile), when item is element");
+    }
+
   }
 
   public class SectionSorter implements Comparator<String> {
@@ -415,8 +431,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4"; 
-  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
+  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4"; 
+//  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";

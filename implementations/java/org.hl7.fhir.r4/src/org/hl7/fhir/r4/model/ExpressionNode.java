@@ -40,7 +40,7 @@ public class ExpressionNode {
     Empty, Not, Exists, SubsetOf, SupersetOf, IsDistinct, Distinct, Count, Where, Select, All, Repeat, Aggregate, Item /*implicit from name[]*/, As, Is, Single,
     First, Last, Tail, Skip, Take, Union, Combine, Intersect, Exclude, Iif, Upper, Lower, ToChars, Substring, StartsWith, EndsWith, Matches, ReplaceMatches, Contains, Replace, Length,  
     Children, Descendants, MemberOf, Trace, Today, Now, Resolve, Extension, HasValue, AliasAs, Alias, HtmlChecks, OfType, Type,
-    IsBoolean, IsInteger, IsString, IsDecimal, IsQuantity, IsDateTime, IsTime, ToBoolean, ToInteger, ToString, ToDecimal, ToQuantity, ToDateTime, ToTime;
+    IsBoolean, IsInteger, IsString, IsDecimal, IsQuantity, IsDateTime, IsTime, ToBoolean, ToInteger, ToString, ToDecimal, ToQuantity, ToDateTime, ToTime, ConformsTo;
 
     public static Function fromCode(String name) {
       if (name.equals("empty")) return Function.Empty;
@@ -109,6 +109,7 @@ public class ExpressionNode {
       if (name.equals("isBoolean")) return Function.IsBoolean;
       if (name.equals("isDateTime")) return Function.IsDateTime;
       if (name.equals("isTime")) return Function.IsTime;
+      if (name.equals("conformsTo")) return Function.ConformsTo;
       return null;
     }
     public String toCode() {
@@ -179,6 +180,7 @@ public class ExpressionNode {
       case IsQuantity : return "isQuantity";
       case IsDateTime : return "isDateTime";
       case IsTime : return "isTime";
+      case ConformsTo : return "conformsTo";
       default: return "??";
       }
     }
