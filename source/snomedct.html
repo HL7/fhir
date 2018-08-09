@@ -189,7 +189,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
  <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value (including the concept itself)</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administration Methods</a></td></tr>
- <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (Long syntax: descendantOrSelfOf [concept])</pre></td></tr>
+ <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (Long syntax: descendantOrSelfOf [concept])</pre></td></tr>
 </table>
 
 <h4>By Reference Set</h4>
@@ -200,7 +200,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Operations Allowed</td><td>in</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
  <tr><td>Comments</td><td>Includes all concept ids that are active members of the reference set identified by the concept Id provided as the value</td></tr>
- <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>^ [concept] (Long syntax: memberOf [concept])</pre></td></tr>
+ <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>^ [concept] (Long syntax: memberOf [concept])</pre></td></tr>
 </table>
 
 <h4>By SNOMED Expression Constraint</h4>
@@ -211,7 +211,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Operations Allowed</td><td>=</td></tr>
  <tr><td>Values Allowed</td><td>[expression constraint]</td></tr>
  <tr><td>Comments</td><td>
-   The result of the filter is the result of executing the given <a href="http://snomed.org/expressionconstraints.pdf">SNOMED CT Expression Constraint</a>.
+   The result of the filter is the result of executing the given <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint</a>.
    <br/>
    Example:
    <pre class="json">
@@ -243,7 +243,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Values Allowed</td><td>true or false</td></tr>
  <tr><td>Comments</td><td>Expressions, if allowed, are subject to the same rules as precoordinated concepts. [Note: Simple reference sets do not include expressions.]</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administration Methods</a></td></tr>
- <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>n/a</pre></td></tr>
+ <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>n/a</pre></td></tr>
 </table>
 
 
@@ -424,7 +424,7 @@ concept maps defined:
  <li>Simple Map Reference Sets</li>
 </ul>
 <p>
-<a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/4.2.5.+Association+Reference+Set">Association Reference Sets</a>
+<a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.5+Association+Reference+Set">Association Reference Sets</a>
 are part of the core SNOMED CT distribution. The following standard Association Reference sets can be used for implicit
 concept maps:
 </p>
@@ -437,7 +437,7 @@ concept maps:
 </table>
 <p>
 <p>
-<a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/4.2.8.+Simple+Map+Reference+Set">Simple Map Reference Sets</a>
+<a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/5.2.5+Association+Reference+Set">Simple Map Reference Sets</a>
 (reference sets which are descendants of 900000000000496009 "Simple map") also define an implicit concept map.
 </p>
 If any ConceptMap resources exist with an identifier that conforms to the URL pattern
