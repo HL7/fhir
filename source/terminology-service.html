@@ -1110,24 +1110,24 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
 <div class="example">
 <pre class="json">
 {
-    "resourceType": "ConceptMap",
-    "id": "b87db127-9996-4d0c-bda9-a278d7a24a69",
-    "version": "[version]",
-    "name": "Updates for Closure Table [name]",
-    "status": "active",
-    "experimental": true,
-    "date": "2015-12-20T23:16:24Z",
-    "group": [{
-        "source": "http://snomed.info/sct",
-        "target": "http://snomed.info/sct",
-				"element" : {
-					"code": "22298006",
-					"target": [{
-						 "code": "128599005",
-						 "equivalence": "subsumes"
-					}]
-			  }
-    }]
+  "resourceType": "ConceptMap",
+  "id": "b87db127-9996-4d0c-bda9-a278d7a24a69",
+  "version": "[version]",
+  "name": "Updates for Closure Table [name]",
+  "status": "active",
+  "experimental": true,
+  "date": "2015-12-20T23:16:24Z",
+  "group": [{
+    "source": "http://snomed.info/sct",
+    "target": "http://snomed.info/sct",
+    "element" : {
+      "code": "22298006",
+      "target": [{
+        "code": "128599005",
+        "equivalence": "subsumes"
+      }]
+    }
+  }]
 }
 </pre>
 </div>
