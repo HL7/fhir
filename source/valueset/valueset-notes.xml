@@ -39,7 +39,7 @@ using the facilities provided by the code system. For these value sets:
   the relevant properties. Note that in some cases the underlying code system defines the 
   logical concepts but not the syntax for exercising them. In such cases, the literal 
   definitions may be provided by a third party</li>
- <li>In addition to include rules, codes may be excluded. Rules for interpretation of exclude statements match those for includes, but codes in the exlude statements are never in the value set</li>
+ <li>In addition to include rules, codes may be excluded. Rules for interpretation of exclude statements match those for includes, but codes in the exclude statements are never in the value set</li>
  <li>Value sets may include abstract codes - that is, codes designated by the underlying code system as 
    not for use as a selectable concept in a particular context. These abstract codes are typically used as a grouping/searching mechanism,
    and can be included either by enumerating them, or by using a filter.</li>
