@@ -135,7 +135,7 @@ by working through the following list, in order:
 If a code system is not resolved by this list, and there is no publisher to consult, implementers
 must choose a URI to use. The priority should be to choose a unique value that won't
 accidentally be used by another implementer for a different purpose - or a very similar purpose
-with a different scope.
+with a different scope. See <a href="http://wiki.hl7.org/index.php?title=Process_for_registering_code_systems">Registering Code Systems</a> for further advice.
 </p>
 <p>
 For publishers of code systems, the following considerations should be kept in mind when
@@ -187,6 +187,12 @@ There are a number of places in the specification where value sets are reference
  <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding</td><td>Used to bind a defined parameter to a value set</td></tr>
  <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>
 </table>
+<p>
+When referencing value sets, the reference is usually made to the <a href="valueset.html#compositions">definition of a value set</a> - that is, a value set 
+that defines what codes are in the value set. A <a href="terminology-service.html">terminology server</a> is required to convert this definition to the
+<a href="valueset.html#expansion">actual expansion that specifies what codes are in the value set</a> in the context of operation.
+</p>
+
 <p>
 There are two types of value set references in this list, direct and logical.
 </p>
