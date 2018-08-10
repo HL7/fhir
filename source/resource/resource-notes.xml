@@ -174,6 +174,49 @@ is not fixed to a single resource - multiple resources can be derived from a sin
 that matching entity source information means that the resources are identifying the same real world concept.
 </p>
 
+<a name="implicitRules"></a>  
+<h3>Implicit Rules</h3>
+<p>
+A reference to a custom agreement that describes 
+how the resource is being used (e.g. an <a href="profiling.html#glossary">implementation guide</a>)  
+that was followed when the resource was constructed, where the implemenation guide must be 
+known and understood in order to safely processing the content.
+</p>
+<p>
+Asserting this rule set restricts the content to be only understood by a limited set of 
+trading partners. This inherently limits the usefulness of the data in the long term,
+and should be avoided where possible. However, the existing health 
+eco-system is highly fractured, and not yet ready to define, collect, and exchange 
+data in a generally exchangeable sense. 
+</p>
+<p>
+Note that resources are almost always constructed following some custom agreement.
+Best practice - which is recommended throughout the conformance resources - is that 
+such agreements make all knowledge about the content of the resource explicit in 
+the content of the resource; if custom agreements follow this advice, and declare 
+their extensions as required, then it is not necessary to understand the agreement 
+in order to safely process the resource content. For this reason, use of 
+<code>implicitRules</code> is rare.
+</p>
+
+<a name="lang"></a>
+<a name="language"></a>
+<h3>Language</h3>
+
+<p>
+Each resource may have a language element that specifies the base language of the content using a <a href="http://tools.ietf.org/html/bcp47">code defined in BCP 47</a>.
+The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
+</p>
+<p>
+There is no default language, though one may be inferred from the context of use.
+Not all of the content of the resource has to be in the specified language. 
+</p>
+<p>
+If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>. 
+The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
+so that applications processing the data in the resource can specify the language of any alternate presentations generated from the data.
+</p>
+
 
 <a name="metadata"></a>
 <a name="meta"></a>
@@ -414,49 +457,6 @@ of the resource</a> progresses.
 The version is often not stated explicitly in the resource; it is controlled by the context. See <a href="versioning.html">Managing Multiple FHIR versions</a> for further information.
 </p>
 
-
-<a name="implicitRules"></a>  
-<h3>Implicit Rules</h3>
-<p>
-A reference to a custom agreement that describes 
-how the resource is being used (e.g. an <a href="profiling.html#glossary">implementation guide</a>)  
-that was followed when the resource was constructed, where the implemenation guide must be 
-known and understood in order to safely processing the content.
-</p>
-<p>
-Asserting this rule set restricts the content to be only understood by a limited set of 
-trading partners. This inherently limits the usefulness of the data in the long term,
-and should be avoided where possible. However, the existing health 
-eco-system is highly fractured, and not yet ready to define, collect, and exchange 
-data in a generally exchangeable sense. 
-</p>
-<p>
-Note that resources are almost always constructed following some custom agreement.
-Best practice - which is recommended throughout the conformance resources - is that 
-such agreements make all knowledge about the content of the resource explicit in 
-the content of the resource; if custom agreements follow this advice, and declare 
-their extensions as required, then it is not necessary to understand the agreement 
-in order to safely process the resource content. For this reason, use of 
-<code>implicitRules</code> is rare.
-</p>
-
-<a name="lang"></a>
-<a name="language"></a>
-<h3>Language</h3>
-
-<p>
-Each resource may have a language element that specifies the base language of the content using a <a href="http://tools.ietf.org/html/bcp47">code defined in BCP 47</a>.
-The language element is provided to support indexing and accessibility (e.g. text-to-speech use the language tag). 
-</p>
-<p>
-There is no default language, though one may be inferred from the context of use.
-Not all of the content of the resource has to be in the specified language. 
-</p>
-<p>
-If a language is specified, it should also be specified on the <a href="narrative.html#Narrative">Narrative Text</a>. 
-The html language tag in the narrative is used when processing the narrative. The language tag on the resource is provided 
-so that applications processing the data in the resource can specify the language of any alternate presentations generated from the data.
-</p>
 
 <a name="tags"></a>
 <a name="tag"></a>

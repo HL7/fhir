@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+
 <a name="compositions"></a>
 <h2>Composition Rules</h2>
 
@@ -68,6 +69,21 @@ specified in the value set would go in <a href="datatypes.html#CodeableConcept">
 perhaps appended to the UI label for the matching data element.
 </p>
  
+
+<a name="display"></a>
+<h2>Display &amp; Designations</h2>
+<p>
+Concepts used in ValueSets can have both a <code>display</code> and an array of <code>designation</code>. 
+If neither a display or designations are provided, the value set just uses the <a href="codesystem.html#display">display and designations 
+from the code system</a> (which is the preferred approach). If provided, the display is 
+equivalent to a special designation with a n implied <code>designation.use</code> of "primary code" and
+a language equal to the <a href="resource.html#language">Resource Language</a>.
+</p>
+<p>
+When using concepts, applications use the <code>display</code> unless the language or usage in context provide a reason
+to use one of the designations.
+</p>
+
 <a name="multiples"></a>
 <h2>Value Sets with multiple code systems</h2> 
 <p>
