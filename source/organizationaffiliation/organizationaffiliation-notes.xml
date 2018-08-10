@@ -16,7 +16,7 @@ Notes:
     Conversely if no Locations are specified, then it can be assumed that all locations are available.
   </li>
   <li>
-    For some types of affiliation the HealthcareService may not be relevant and be empty, and location could be included.
+    For some types of affiliation the HealthcareService might not be relevant and be empty, and location could be included.
   </li>
   </ul>
 
