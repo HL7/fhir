@@ -2109,7 +2109,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             if (child.getPath().endsWith(".extension") || child.getPath().endsWith(".modifierExtension"))
               genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, true, false, corePath, imagePath, false, logicalModel, isConstraintMode, allInvariants);
       }
-    }
+    } 
   }
 
   private void genGridElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, String corePath, String imagePath, boolean root, boolean isConstraintMode) throws IOException {

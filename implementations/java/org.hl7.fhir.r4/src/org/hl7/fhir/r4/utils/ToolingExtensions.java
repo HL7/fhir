@@ -219,7 +219,7 @@ public class ToolingExtensions {
 //  }
 //
   public static void addSubsumes(ConceptDefinitionComponent nc, String code) {
-    nc.getModifierExtension().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
+    nc.getExtension().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
 
   public static void addDefinition(Element nc, String definition) {
