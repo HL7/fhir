@@ -1357,7 +1357,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private String buildShortParameterList(String param) throws FHIRException {
+  private String buildShortParameterList(String param) throws Exception {
     String[] p1 = param.split("\\:");
     String[] op = p1[0].split("\\/");
     String[] p = p1[1].split("\\,");
@@ -1369,7 +1369,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("<table class=\"grid\">\r\n");
     for (OperationParameter pd : od.getParameters()) {
       if (Utilities.existsInList(pd.getName(), p))
-        b.append("<tr><td><code>"+pd.getName()+"</code></td><td>"+Utilities.escapeXml(pd.getDoc())+"</td></tr>\r\n");
+        b.append("<tr><td><code>"+pd.getName()+"</code></td><td>"+processMarkdown("short param list", pd.getDoc(), "")+"</td></tr>\r\n");
     }
     b.append("</table>\r\n");
     

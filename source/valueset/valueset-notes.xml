@@ -31,7 +31,7 @@ using the facilities provided by the code system. For these value sets:
      how to handle provision of the required versions and generation of expansions is at server discrection, including for poorly behaved code systems where 
 		 a code changes in meaning). 
     [%impl-note%]     
-       <span class="warning">Implementer's Note: Use of this capability is subject to future clarification and conformance requirements based on implementation experience</span>.
+       <span class="warning">Use of this capability is subject to future clarification and conformance requirements based on implementation experience</span>.
     [%end-note%]     
  </li>
  <li>Using the property filters is only possible where the code system in use defines 
@@ -172,7 +172,8 @@ case. Implementers can consult the definition of the underlying code systems to 
 that defines the code is case sensitive or not. 
 </p>
 <div class="warning"><blockquote><p>
-The impact of Code System supplements on <a href="valueset-operation-expand.html">value set expansion</a> - and therefore <a href="valueset-operation-validate-code.html">value set validation</a> - is 
+The impact of Code System supplements on <a href="valueset-operation-expand.html">value set expansion</a> - and 
+therefore <a href="valueset-operation-validate-code.html">value set validation</a> - is 
 subject to ongoing experimentation and implementation testing, and further clarification and additional
 rules might be proposed in future versions of this specification.
 </p></blockquote></div>
