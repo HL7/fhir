@@ -111,16 +111,17 @@ SNOMED CT distribution (e.g. 32506021000036107 for Australia).
 <p>
 Any number of terms in additional languages and dialects can be specified for a given code in the ValueSet 
 <a href="valueset.html#designations">'designation'</a> element (ValueSet.compose.include.concept.designation).  
-The associated language refset must be mapped to one of the <a href="http://tools.ietf.org/html/bcp47">BCP-47</a> 
-language codes specified by the <a href="valueset-all-languages.html">value set binding</a> for 'designation.language' 
-and the <a href="valueset-designation-use.html">type</a> of the term (e.g., the SNOMED CT code for "Fully specified name", 
-"Synonym" or "Definition") can be specified in 'designation.use'.  Note that to use 'concept.designation' the value set 
-must be defined extensionally (i.e. as an enumerated list of concepts) rather than intensionally (i.e. using one or more 
-filters).
+The language is specified as a <a href="http://tools.ietf.org/html/bcp47">BCP-47</a> 
+language code as required by the 'designation.language' Preferred but limited to 
+<a href="valueset-all-languages.html">All Languages</a> value set binding and would be mapped to a corresponding 
+SNOMED CT language refset.  The <a href="valueset-designation-use.html">type</a> of the term (e.g., the SNOMED CT code 
+for "Fully specified name", "Synonym" or "Definition") can be specified in 'designation.use'.  Note that to use 
+'concept.designation' the value set must be defined extensionally (i.e. as an enumerated list of concepts) rather than 
+intensionally (i.e. using one or more filters).
 </p>
 <p>
 This can be done in a similar way using the CodeSystem <a href="codesystem.html#designations">'designation'</a> element in a 
-<a href="codesystem.html#supplements">code system supplement</a>, with the additional terms being then being available to 
+<a href="codesystem.html#supplements">code system supplement</a>, with the additional terms then being available to 
 be returned in a <a href="valueset.html#expansion">value set expansion</a>, controlled by the 
 <a href="valueset-operation-expand.html#4.8.1.1">$expand</a> operation 'includeDesignations' input parameter 
 (if supported by the terminology server). 
