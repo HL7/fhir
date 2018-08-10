@@ -400,12 +400,14 @@ may state rules on which codes can be used, but cannot select new or additional 
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
 can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), an alternate
-system.code may be used instead.</i>
+<code>system/code</code> may be used instead.</i>
 </p>
 <p>
 If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the <i>coding</i> values SHALL
 be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may
-be provided in its place. If no codes, including local codes, are available, then just text may be used.
+be provided in its place. If no codes, including local codes, are available, then just text may be used. Note that it is the
+binding that is extensible, not the value set; additional codes to those found in the extensible binding are considered to 
+come from some other value set, not the bound value set.
 </p>
 <p>
 If an extensible binding is applied to an element with maximum cardinality &gt; 1, the binding applies to
@@ -471,7 +473,8 @@ Some other coded value MAY be used, or (for a CodeableConcept), a text alternati
 Example value sets are provided to assist implementers to understand the correct use of an element.
 Value sets based on code systems such as SNOMED CT that have restrictive license terms will only be
 used as example bindings in the base FHIR specification, though implementation guides for particular
-jurisdictions may adopt value sets that require licenses.
+jurisdictions may adopt value sets that require licenses. In addition, well-specified realm-specific 
+ValueSets may also be used as example bindings in the base specification.
 </p>
 <p>
 When an element is bound to an example value set, <a href="profiling.html">derived profiles</a>
