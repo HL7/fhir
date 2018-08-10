@@ -70,7 +70,7 @@ perhaps appended to the UI label for the matching data element.
 </p>
  
 <a name="designations"></a>
-<h2>Display, Designations and Designations</h2>
+<h2>Display and Designations</h2>
 <p>
 Concepts used in ValueSets can have a <code>display</code>, which is a short text that represents the meaning
 of the concept to human users in the context of the value set (which often has narrower meaning and therefore

@@ -83,7 +83,7 @@ rules might be proposed in future versions of this specification.
 </p></blockquote></div>
 
 <a name="designations"></a>
-<h2>Display, Designations and Designations</h2>
+<h2>Display, Definitions and Designations</h2>
 <p>
 Concepts have both a <code>display</code> and a <code>definition</code>. The display is a short text that represents the meaning
 of the concept to human users, while the definition is a more formal statement of the meaning of the concept, which 
