@@ -362,7 +362,7 @@ public class CodeSystem extends MetadataResource {
           return EQUAL;
         if ("is-a".equals(codeString))
           return ISA;
-        if ("descendent-of".equals(codeString))
+        if ("descendant-of".equals(codeString))
           return DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return ISNOTA;
@@ -448,7 +448,7 @@ public class CodeSystem extends MetadataResource {
           return FilterOperator.EQUAL;
         if ("is-a".equals(codeString))
           return FilterOperator.ISA;
-        if ("descendent-of".equals(codeString))
+        if ("descendant-of".equals(codeString))
           return FilterOperator.DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return FilterOperator.ISNOTA;
@@ -476,7 +476,7 @@ public class CodeSystem extends MetadataResource {
           return new Enumeration<FilterOperator>(this, FilterOperator.EQUAL);
         if ("is-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
-        if ("descendent-of".equals(codeString))
+        if ("descendant-of".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.DESCENDENTOF);
         if ("is-not-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
@@ -498,7 +498,7 @@ public class CodeSystem extends MetadataResource {
       if (code == FilterOperator.ISA)
         return "is-a";
       if (code == FilterOperator.DESCENDENTOF)
-        return "descendent-of";
+        return "descendant-of";
       if (code == FilterOperator.ISNOTA)
         return "is-not-a";
       if (code == FilterOperator.REGEX)

@@ -12,7 +12,7 @@
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
 			<filter>
         <property value="concept"/>
-        <op value="descendent-of"/>
+        <op value="descendant-of"/>
         <value value="_ActMoodPredicate"/>
       </filter>
 		</include>

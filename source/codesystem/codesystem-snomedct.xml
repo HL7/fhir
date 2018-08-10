@@ -160,7 +160,7 @@ support a particular edition/version
  
   <!-- 
     SCT attribute relationships also surface as properties. That is, any relationship where the type 
-    is a descendent of 410662002|Concept model attribute|. 
+    is a descendant of 410662002|Concept model attribute|. 
   -->
   <property>
     <code value="Due to"/>

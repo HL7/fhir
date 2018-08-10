@@ -191,7 +191,7 @@ The resource is very often the context, such that %resource = %context.
 <blockquote>
 <p><strong>Note to implementers</strong>: The FHIR conceptual model talks about "primitives" as subclasses of the type Element that also have id and extensions. What this actually means is that a FHIR primitive is not a primitive in an implementation language. The introduction (section 2 above) describes the navigation tree as if the the FHIR model applies - primitives are both primitives and elements with children.</p>
 
-<p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendents()</code>.</p>
+<p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
 <p><b>getValue() : System.[type]</b></p>
