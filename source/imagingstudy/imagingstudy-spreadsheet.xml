@@ -18,7 +18,7 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -849,6 +849,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -4007,6 +4008,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4543,6 +4545,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4784,12 +4787,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5375,6 +5378,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5631,6 +5635,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5904,6 +5909,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6289,6 +6295,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6328,7 +6335,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Conformance</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Y = example, blank = incomplete.  Only relevant if binding is "value set"</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Reference</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">#tab-name or value set filename(without extension) or URL for reference </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Text to display for reference bindings (not used otherwise)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">OID</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The OID for the code list if one already exists.  (If omitted, one will be assigned)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Oid</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The OID for the code list if one already exists.  (If omitted, one will be assigned)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">URI</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Full URI for the code list.  (If not specified, defaults to http://hl7.org/fhir/ValueSet</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Website/Email</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Contact information for the code list (if different from standard HL7 FHIR contact info)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Copyright</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Copyright information associated with the code list.  If not specified, Public Domain assumed</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6343,7 +6350,7 @@
     <Cell ss:StyleID="s131"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">#instance-availability</Data></Cell>
     <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">1.2.840.10008.6.​1.​811</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"><Data ss:Type="String">These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association</Data></Cell>
@@ -6704,11 +6711,13 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7309,6 +7318,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -7899,6 +7909,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8484,6 +8495,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9069,6 +9081,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9112,7 +9125,7 @@
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s156"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s157"><Data ss:Type="String">available</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s168"><Data ss:Type="String">Available</Data></Cell>
@@ -9158,6 +9171,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

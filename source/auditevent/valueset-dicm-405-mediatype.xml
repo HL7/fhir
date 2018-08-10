@@ -2,6 +2,10 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://dicom.nema.org/resources/ontology/DCM/405"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.10008.6.​1.​908"/>
+  </identifier>
   <version value="20100826"/>
   <name value="Media Type Code"/>
   <status value="active"/>

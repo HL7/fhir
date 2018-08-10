@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.fhir.ucum.Utilities;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
@@ -40,6 +41,7 @@ import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 
 /**
@@ -339,6 +341,8 @@ public class BindingSpecification {
 
   public void setVsOid(String vsOid) {
     this.vsOid = vsOid;
+    if (!Utilities.noString(vsOid) && valueSet != null) 
+      ValueSetUtilities.setOID(valueSet, vsOid);
   }
 
   public PublicationStatus getStatus() {
@@ -356,6 +360,8 @@ public class BindingSpecification {
   public void setValueSet(ValueSet valueSet) {
     this.valueSet = valueSet;
     ToolResourceUtilities.updateUsage(valueSet, usageContext);
+    if (!Utilities.noString(vsOid)) 
+      ValueSetUtilities.setOID(valueSet, vsOid);
   }
 
   public List<DefinedCode> getAllCodes(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, boolean wantComplete) throws Exception {

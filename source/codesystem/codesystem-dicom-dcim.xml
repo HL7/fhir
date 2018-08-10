@@ -3,6 +3,10 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="dicom-dcim"/>
   <url value="http://dicom.nema.org/resources/ontology/DCM"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:1.2.840.10008.2.16.4"/>
+  </identifier>
   <version value="01"/>
   <name value="DICOM Controlled Terminology Definitions"/>
   <status value="active"/>
