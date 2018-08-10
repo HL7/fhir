@@ -202,10 +202,10 @@ A detailed analysis of the basis for the maturity metrics for FHIR artifacts can
 
 <p>
 New versions of FHIR will be published on a release cycle of approximately 18-24 months.  This frequency is based on
-the timelines necessary to consult with implementers, and develop, review new content as well undertake the
+the timelines necessary to consult with implementers, to develop and review new content, as well as to undertake the
 formal balloting and reconciliation processes required for ANSI-approved standards.  This release cycle also ensures
 an opportunity to incorporate implementer feedback from earlier versions of the specification into subsequent versions.
-Limited-scope releases on a shorter timeline may occur occasionally where necessary to meet implementer desires.
+Limited-scope releases on a shorter timeline may occur occasionally where necessary to meet implementer needs.
 </p>
 <p>
 Each new release is assigned a unique version number. The FHIR version policy is based on 
@@ -283,6 +283,14 @@ Additional notes:
 </ul>
 
 
+<a name="version-identification"></a>
+<h3>Version identification</h3>
+<p>
+There is no explicit version marker in the content of FHIR resource instances. Instead, the version supported by a given system is declared 
+using the <a href="conformance-module.html">conformance framework</a>. The resources <a href="capabilitystatement.html">CapabilityStatement</a> and <a href="structuredefinition.html">StructureDefinition</a>
+have properties for declaring the FHIR specification version, and these may be used to determine which version of FHIR an implementation is using to aid in validation and integration.
+</p>
+
 <a name="change"></a>
 <h3>Rules for Inter-version change</h3>
 <p>
@@ -292,69 +300,63 @@ The following kinds of changes may be made to the specification:
  <li><b>Breaking changes</b> are changes that mean that previously conformant applications are no longer conformant to the updated specification</li>
  <li><b>Substantive changes</b> are changes that introduce new functionality - changes to the specification that create new capabilities - but would not render 
   unchanged existing applications non-conformant</li>
- <li><b>Non-substantive changes</b> do not cause changes in any conformant application. For example, section renumbering,  broken links, style corrections, typos, and clarifications that do not change the meaning of the specification. 
-    In addition, some other kinds of corrections may be judged not to create any expectation of change to a conformant application</li>
+ <li><b>Non-substantive changes</b> should not cause changes in any conformant application. For example, section renumbering, correcting broken links, changing styles, fixing typos, and providing clarifications that do not change the meaning of the specification. 
+    In addition, this covers corrections that are judged not to create any expectation of change to a conformant application</li>
 </ul>
 <p>
-Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) might not be able to handle some consequences of these changes without error:</p>
-<ul>
- <li>Creation of new resources</li>
- <li>Adding new optional elements in an existing resource</li>
- <li>Defining new data types</li>
- <li>Adding new API operations</li>
-</ul>
-<p>
-The examples provided as part of this specification are never substantive. While every effort is made to ensure that FHIR examples are correct, changes to the examples in the specification are not considered substantive.
+NOTE: The examples provided as part of this specification are never substantive. While every effort is made to ensure that FHIR examples are correct, changes to the examples in the specification are not considered substantive.
 </p>
-
 <p>
 Content with a status of <i>Draft</i> or <i>Trial Use</i> can change - including Breaking Changes - from
-version to version, subject to the rules described by the <a href="#maturity">Maturity Process</a>. Once an artifact
-achieves <i>Normative</i> status, the <a href="#b-compat">Backward compatible behavior</a> rules will apply. These rules ensure that implementations 
-may exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data 
-between applications using different versions of FHIR.
+version to version, subject to the rules described by the <a href="#maturity">Maturity Process</a>.  There are no rules for maintaining any sort of compatibility between versions for content with these statuses, though of we will only make breaking changes based on feedback from the community.
 </p>
-
-<a name="version-identification"></a>
-<h4>Version identification</h4>
 <p>
-There is no explicit version marker in the content of FHIR resource instances. Instead, the version supported by a given system is declared 
-using the <a href="conformance-module.html">conformance framework</a>. The resources <a href="capabilitystatement.html">CapabilityStatement</a> and <a href="structuredefinition.html">StructureDefinition</a>
-have properties for declaring the FHIR specification version, and these may be used to determine which version of FHIR an implementation is using to aid in validation and integration.
+Once an artifact achieves <i>Normative</i> status, specific rules come into play around inter-version compatibility.  These rules have implication for both forward and backward compatibility and are intended to allow implmeentations to exercise FHIR interfaces and process the content of FHIR resources safely while exchanging data between systems using different versions of FHIR.
+</p>
+<p>
+<b>Forward compatibility</b> means that content that is conformant in an old release will remain conformant with future versions.  Once normative, FHIR's rules try to enforce forward compatibility.  However, that doesn't guarantee that all old systems will interoperate with future systems.
+</p>
+<p>
+<b>Backward compatibility</b> means that instances created against future versions of the specification will interoperate with older versions of the specification.  This is not guaranteed by FHIR, though there are strategies systems can adhere to that will increase their chances of such interoperability.  Specifically, when dealing with content from a system supporting an unknown normative version and wishing to maximize backwards compatibility, applications SHOULD:
+</p>
+<ul>
+  <li>Ignore elements that are unexpected (new elements will never be modifier elements)</li>
+  <li>Ignore references to resources that are not recognized</li>
+  <li>Ignore unrecognized codes in required and extensible bindings unless the element they appear on is a modifier (in which case, treat the element as an unrecognized modifier extension)</li>
+  <li>Ignore unrecognized search criteria - see <a href="search.html#errors">Handling Search Errors</a> for further information.</li>
+  <li>Respond to HTTP commands on unexpected URLs with an appropriate error code.</li>
+</ul>
+<p>
+However, in a healthcare context, many implementers are unwilling to
+consider some of these steps because of concerns about clinical risk or
+technical limitations in their software (e.g. schema based processing).
 </p>
 
 <a name="f-compat"></a>
-<h4>Forward compatible behavior</h4>
-<p>
-In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements
-that they do not recognize unless they are modifierExtensions.
-However, in a healthcare context, many application vendors are unwilling to
-consider this approach because of concerns about clinical risk or
-technical limitations in their software (e.g. schema based processing).
-Applications are not required to ignore unknown elements, but SHALL
-declare whether they will do so in their <a href="capabilitystatement.html">Capability Statements</a>.
-</p>
-<p>
-Unrecognized search criteria SHOULD always be ignored - see <a href="search.html#errors">Handling Search Errors</a> for further information.
-</p>
-<p>
-Attempts to perform HTTP operations on unexpected URLs SHOULD be responded to with an appropriate
-error code.  
-</p>
-
-<a name="b-compat"></a>
-<h4>Backward compatible behavior</h4>
+<h4>Forward and backward compatible rules</h4>
+The following rules apply once an artifact in the FHIR core specification or in an HL7-international published implementation guide has become normative
 <table>
   <tbody>
     <tr>
       <th>Category</th><th>Allowed changes</th>
     </tr>
     <tr>
+      <td>Resources</td>
+      <td>
+      New artifacts resources may be introduced.  Existing resources will not have their names changed
+      </td>
+    </tr>
+    <tr>
+      <td>Artifacts (resources, profiles, code systems, etc.)</td>
+      <td>
+      New artifacts including new resources and data types may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
+      </td>
+    </tr>
+    <tr>
       <td>Elements</td>
       <td>
-      Once <i>Normative</i>, subsequent versions of
-      this specification may introduce new elements and/or content (e.g. XML attributes, etc.)
-      at any location in the bundle, resource and/or data type structures.  However, the names, path
+       New optional elements and/or content (e.g. XML attributes, etc.)
+      at any location in resource and data type structures provided they do not constitute "isModifier" elements.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This means there will be no change to resource names and no changes to names assigned to slices and
       other elements within profiles.
@@ -392,7 +394,8 @@ error code.
         For non-immutable value sets:
         </p>
         <ul>
-          <li>Value sets with an enumerated list of codes and having a 'fixed' binding may have additional codes introduced but will never have codes removed, though they may be deprecated.</li>
+          <li>Value sets with an enumerated list of codes and having a 'fixed' binding may have additional codes
+           introduced but will never have codes removed, though they may be deprecated.</li>
           <li>Value sets making use of filters may have filters loosened or tightened to accommodate changes to
           underlying code systems.  StableDates and referenced code system and value set versions may be adjusted
           to point to newer versions.</li>
@@ -402,6 +405,11 @@ error code.
         </ul>
         <p>
         For both immutable and non-immutable value sets, additional designations may be declared.
+        </p>
+        <p>
+        Normative CodeSystems whose content is generated from a mix of normative and non-normative contents may 
+        break these rules.  For example, the code system containing the list of all resources may have codes 
+        removed or renamed as non-normative resources are removed or renamed.
         </p>
       </td>
     </tr>
@@ -451,9 +459,9 @@ error code.
     <tr>
       <td>Operations</td>
       <td>
-      New operations may be defined but operations SHALL NOT be removed or renamed.  Existing parameters will not be removed or renamed, nor may their type
+      New operations may be defined but operations will not be removed or renamed.  Existing parameters will not be removed or renamed, nor may their type
       or lower cardinality be changed.  Upper cardinality may be changed from 1 to *.  (Systems should ignore unexpected repetitions.)
-      Additional optional parameters may be introduced; e.g. Operation signatures cannot change; instead, additional operation variants will be defined.
+      Additional optional parameters may be introduced.  Changes to operations that would violate the preceding constraints will be handled by defining new operations and, potentially, deprecating the old operations.
       </td>
     </tr>
     <tr>
@@ -474,8 +482,32 @@ error code.
       to these forward and backward compatibility rules.
       </td>
     </tr>
+    <tr>
+      <td>Capability Statements</td>
+      <td>
+      Within the CapabilityStatements for defined FHIR Services or 'core' implementation guides, additional 
+      operations may be added.  These additions might be optional (MAY/SHOULD) or mandatory (SHALL).  Note that 
+      the introduction of mandatory operations would break forwards compatibility and will only occur with 
+      community consultation.
+      </td>
+    </tr>
+    <tr>
+      <td>Implementation Guides</td>
+      <td>
+      Additional artifacts can be added and artifacts can be changed.  The list of global profiles will not change
+      </td>
+    </tr>
+    <tr>
+      <td>References</td>
+      <td>
+      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
+      </td>
+    </tr>
   </tbody>
 </table>
+<p>
+NOTE: In rare circumstances, HL7 may approve changes that technically break one of the above rules in situations where there is a high level of confidence that the change will not impact existing implementers.  Such deviations from these declared rules will involve broad notification, extensive community consultation and reviews by multiple levels of HL7 governance processes.
+</p>
 <p>
 &nbsp;
 </p>
