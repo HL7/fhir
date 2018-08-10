@@ -15,7 +15,7 @@
   
   
   <TabRatio>893</TabRatio>
-  <ActiveSheet>10</ActiveSheet>
+  <ActiveSheet>11</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -7564,7 +7564,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -7593,13 +7592,13 @@
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Example</Data></Cell>
-    <Cell><Data ss:Type="String">A few representative concepts are included in the code system resource</Data></Cell>
+    <Cell><Data ss:Type="String">A few representative concepts are included in the code system resource. There is no useful intent in the subset choice and there's no process to make it workable: it's not intended to be workable</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">fragment</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Fragment</Data></Cell>
-    <Cell><Data ss:Type="String">A subset of the code system concepts are included in the code system resource</Data></Cell>
+    <Cell><Data ss:Type="String">A subset of the code system concepts are included in the code system resource. This is a curated subset released for a specific purpose under the governanceo of the code system steward, and that the intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">complete</Data></Cell>
@@ -7620,6 +7619,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
