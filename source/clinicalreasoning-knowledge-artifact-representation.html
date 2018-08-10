@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Clinical Reasoning%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
 </head>
-<body> 
+<body>
 [%file newnavbar%]
 
 <div class="col-12">
@@ -60,7 +60,7 @@
 	</thead>
 	<tbody>
 		<tr><td>businessId</td><td>Identifier.value</td><td>hemoglobin-control-rule</td></tr>
-		<tr><td>scopingEntityId</td><td>Identifier.system</td><td>com.clinica</td></tr>
+		<tr><td>scopingEntityUri</td><td>Identifier.system</td><td>com.clinica</td></tr>
 		<tr><td>version</td><td>Artifact.version</td><td>1.0.0</td></tr>
 	</tbody>
 </table>
@@ -103,10 +103,10 @@
 <pre><code>&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
 &lt;status value=&quot;active&quot;/&gt;
 &lt;experimental value=&quot;true&quot;/&gt;
-&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and 
+&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and
 	received a group A streptococcus (strep) test for the episode.&quot;/&gt;
-&lt;purpose value=&quot;The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS 
-	pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate 
+&lt;purpose value=&quot;The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS
+	pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate
 	between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&quot;&quot;/&gt;
 &lt;topic&gt;
   &lt;coding&gt;
@@ -374,14 +374,14 @@
       &lt;expression value=&quot;NoScreening&quot;/&gt;
     &lt;/condition&gt;
     &lt;dynamicValue&gt;
-      &lt;path value=&quot;~&quot;/&gt;
+      &lt;path value=&quot;this&quot;/&gt;
       &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
     &lt;/dynamicValue&gt;
   &lt;/action&gt;
 &lt;/PlanDefinition&gt;
 </code></pre>
 
-<p>Note that the use of the tilde (<code>~</code>) in the <code>path</code> element here indicates that the result of the expression is the entire result for the action, rather than providing the value for a specific element of the result. In other words, the <code>ChlamydiaScreeningRequest</code> expression will result in an entire ProcedureRequest resource, which is the action to be performed.</p>
+<p>Note that the use of the tilde (<code>this</code>) in the <code>path</code> element here indicates that the result of the expression is the entire result for the action, rather than providing the value for a specific element of the result. In other words, the <code>ChlamydiaScreeningRequest</code> expression will result in an entire ProcedureRequest resource, which is the action to be performed.</p>
 
 <a name="order-set"> </a>
 <h4>Order Set</h4>
@@ -530,7 +530,7 @@
   &lt;!--Rules prior to execution--&gt;
   &lt;condition&gt;
     &lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
-      
+
 For those who have not been overweight, a 2 year interval is appropriate for the reassessment of BMI. While this time span is not evidence-based, it is believed to be a reasonable compromise between the need to identify weight gain at an early stage and the need to limit the time, effort, and cost of repeated measurements.&quot;/&gt;
     &lt;expression value=&quot;Observation of Obesity or BMI Measured in Past 2 Years&quot;/&gt;
     &lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
