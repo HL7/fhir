@@ -82,15 +82,21 @@ subject to ongoing experimentation and implementation testing, and further clari
 rules might be proposed in future versions of this specification.
 </p></blockquote></div>
 
-<a name="display"></a>
-<h2>Display &amp; Designations</h2>
+<a name="designations"></a>
+<h2>Display, Designations and Designations</h2>
 <p>
-Concepts have both a <code>display</code> and an array of <code>designation</code>. The display is 
-equivalent to a special designation with a n implied <code>designation.use</code> of "primary code" and
-a language equal to the <a href="resource.html#language">Resource Language</a>.
+Concepts have both a <code>display</code> and a <code>definition</code>. The display is a short text that represents the meaning
+of the concept to human users, while the definition is a more formal statement of the meaning of the concept, which 
+is often longer. All concepts SHOULD have a a <code>display</code> and a <code>definition</code>, though it is not 
+mandatory because there are many cases where no such properties are provided, in spite of their utility and importance
+for clear and safe communication.
 </p>
 <p>
-When using concepts, applications use the <code>display</code> unless the language or usage in context provide a reason
+In addition to the display and definition, a concept can have one or more <code>designation</code> elements. 
+The display and definitions are equivalent to a special designation with an implied <code>designation.use</code> of "primary code/designation" 
+and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide additional displays
+and definitions for other language, as well as designations for other purposes. 
+When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provide a reason
 to use one of the designations.
 </p>
 

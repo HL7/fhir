@@ -69,17 +69,20 @@ specified in the value set would go in <a href="datatypes.html#CodeableConcept">
 perhaps appended to the UI label for the matching data element.
 </p>
  
-
-<a name="display"></a>
-<h2>Display &amp; Designations</h2>
+<a name="designations"></a>
+<h2>Display, Designations and Designations</h2>
 <p>
-Concepts used in ValueSets can have both a <code>display</code> and an array of <code>designation</code>. 
-If neither a display or designations are provided, the value set just uses the <a href="codesystem.html#display">display and designations 
-from the code system</a> (which is the preferred approach). If provided, the display is 
-equivalent to a special designation with a n implied <code>designation.use</code> of "primary code" and
-a language equal to the <a href="resource.html#language">Resource Language</a>.
+Concepts used in ValueSets can have a <code>display</code>, which is a short text that represents the meaning
+of the concept to human users in the context of the value set (which often has narrower meaning and therefore
+is amenable to shorter displays. If a display is not provided, the value set uses the 
+<a href="codesystem.html#designations">display from the code system</a> (which is the preferred approach,
+because overriding the display can lead to very unsafe outcomes).
 </p>
 <p>
+In addition to the display, a concept can have one or more <code>designation</code> elements. 
+The display is equivalent to a special designation with an implied <code>designation.use</code> of "primary code" 
+and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide 
+additional displays for other language, as well as designations for other purposes. 
 When using concepts, applications use the <code>display</code> unless the language or usage in context provide a reason
 to use one of the designations.
 </p>
