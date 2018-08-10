@@ -33,7 +33,7 @@ an expansion given the composition rules, in a particular context.
  <li><a href="conceptmap.html">ConceptMap resources</a> describe mappings between value sets</li>
  <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification, along 
  with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
- value set and code system instances.</li>
+ value set or code system instances.</li>
  <li>The value set resource is aligned with the <a href="http://wiki.hl7.org/index.php?title=Value_Set_Definition_Standard_Project">Value Set Definition</a> (VSD) project. 
  Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
  In the ValueSet resource, the <code>compose</code> element is the VSD "Content Logical definition".</li>
