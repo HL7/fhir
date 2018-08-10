@@ -3,7 +3,6 @@ https://precision.fda.gov/jobs/
 http://cancer.sanger.ac.uk/cancergenome/projects/cosmic
 https://www.iana.org/time-zones
 urn:ietf:bcp:47
-#hacked
 http://hl7.org/fhir/sid/icd-10
 http://www.sequenceontology.org
 http://www.ncbi.nlm.nih.gov/clinvar
@@ -22,6 +21,5 @@ http://example.com
 urn:iso:std:iso:4217
 http://nucc.org/provider-taxonomy
 urn:iso:std:iso:3166:-2
-http://www.ama-assn.org/go/cpt
 http://www.ebi.ac.uk/ipd/imgt/hla
 https://precision.fda.gov/apps/

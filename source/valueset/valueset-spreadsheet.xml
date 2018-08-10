@@ -1965,8 +1965,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Uniquely identifies this expansion</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String"> Identifies the value set expansion (business identifier)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so. This is a business identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Typically, this uri is a UUID (e.g. urn:uuid:8230ff20-c97a-4167-a59d-dc2cb9df16dd)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3527,7 +3527,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>37</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
