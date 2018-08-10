@@ -201,6 +201,8 @@ public class CodeSystemUtilities {
           if (!"infrastructure".equals(cs.getUserString("ballot.package")))
             System.out.println("Code System "+cs.getUrl()+": ownership clash "+pckage+" vs "+cs.getUserString("ballot.package"));
       }
+      if (ss == StandardsStatus.NORMATIVE)
+        cs.setExperimental(false);
     }
     if (fmm != null) {
       String sfmm = ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_FMM_LEVEL);

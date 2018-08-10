@@ -67,7 +67,7 @@ public class ValueSetUtilities {
     
     if (wg != null) {
       if (!ToolingExtensions.hasExtension(vs, ToolingExtensions.EXT_WORKGROUP) || 
-          (Utilities.existsInList(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP), "fhir", "vocab") && !Utilities.existsInList(wg, "fhir", "vocab"))) {
+          (!Utilities.existsInList(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP), "fhir", "vocab") && Utilities.existsInList(wg, "fhir", "vocab"))) {
         ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, wg);
       }
     }
@@ -82,6 +82,8 @@ public class ValueSetUtilities {
           if (!"infrastructure".equals(vs.getUserString("ballot.package")))
           System.out.println("Value Set "+vs.getUrl()+": ownership clash "+pckage+" vs "+vs.getUserString("ballot.package"));
       }
+      if (ss == StandardsStatus.NORMATIVE)
+        vs.setExperimental(false);
     }
     if (fmm != null) {
       String sfmm = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_FMM_LEVEL);

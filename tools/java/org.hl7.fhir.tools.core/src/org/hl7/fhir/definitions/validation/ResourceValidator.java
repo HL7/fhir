@@ -750,8 +750,13 @@ public class ResourceValidator extends BaseValidator {
 	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), StandardsStatus.DRAFT, null, "1", context);
 			    else if (parent == null)
             ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", StandardsStatus.DRAFT, null, "0", context);
-			    else
+          else if (e.getBinding().getStrength() == BindingStrength.PREFERRED)
+            ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), null, null, null, context);
+          else 
 			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context);
+			    if (cd.getMaxValueSet() != null) {
+            ValueSetUtilities.markStatus(cd.getMaxValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context);
+			    }
 			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
 			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
 			      vsWarnings++;

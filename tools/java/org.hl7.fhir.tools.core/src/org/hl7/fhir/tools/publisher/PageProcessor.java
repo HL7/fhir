@@ -1515,7 +1515,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
       return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
       "Normative Candidate Note: This "+type.replace("_", " ")+" is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-      "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+      "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
       "</p>\r\n";
     }
     throw new Error("Not done yet");
@@ -1596,7 +1596,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-        "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
         "</p>\r\n" + 
         "";
   }
@@ -1610,7 +1610,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: Some of the content on this page (marked clearly) is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-        "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
         "</p>\r\n" + 
         "";
   }
@@ -1624,7 +1624,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: Most of the content on this page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-        "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made. The few parts of this page that are not normative are clearly marked\r\n" + 
+        "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made. The few parts of this page that are not normative are clearly marked\r\n" + 
         "</p>\r\n" + 
         "";
   }
@@ -6742,7 +6742,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
     "Normative Candidate Note: This operation is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
-    "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+    "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made.\r\n" + 
     "</p>\r\n" + 
     "";
 
@@ -8083,12 +8083,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (CodeableConcept cc : mr.getJurisdiction()) {
       b.append("Country: "+gen.displayCodeableConcept(cc));
     }
-    if (mr.getExperimental())
-      b.append("Not Intended for Production use");
+    if (mr.getExperimental()) {
+      if (isTrialUse(mr))
+        b.append("Not yet ready for Production use");
+      else
+        b.append("Not Intended for Production use");
+    }
     if (b.length() == 0)
       return "<a href=\""+prefix+"metadatatypes.html#UsageContext\">Use Context</a>: Any";
     else
       return "<a href=\""+prefix+"metadatatypes.html#UsageContext\">Use Context</a>: "+b.toString();
+  }
+
+  private boolean isTrialUse(MetadataResource mr) {
+    String s = ToolingExtensions.readStringExtension(mr, "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status");
+    return s == null ? false : s.toLowerCase().contains("trial");
   }
 
   private String generateProfileExamples(Profile pack, ConstraintStructure profile) {
