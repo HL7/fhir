@@ -171,12 +171,15 @@ The codes in the expansion should be treated as case sensitive - implementers sh
 case. Implementers can consult the definition of the underlying code systems to determine whether the code system
 that defines the code is case sensitive or not. 
 </p>
-<div class="warning"><blockquote><p>
+[%dragons-start%]
+<p class="warning">
 The impact of Code System supplements on <a href="valueset-operation-expand.html">value set expansion</a> - and 
 therefore <a href="valueset-operation-validate-code.html">value set validation</a> - is 
 subject to ongoing experimentation and implementation testing, and further clarification and additional
 rules might be proposed in future versions of this specification.
-</p></blockquote></div>
+</p>
+[%dragons-end%]
+
 <a name="identifiers"></a>
 <h3>Expansion Identifiers</h3>
 <p>
@@ -230,7 +233,17 @@ authors are requested to bring additional parameters to HL7 (via 'Propose a chan
 link below) in the interests of interoperability. 
 </p>
 
-
+<a name="limitations"></a>
+[%feedback-note%]
+The existing set of parameters are intended to cover the vast majority of 
+use cases, but there are some cases where the parameters do not provide 
+enough control to a client, particularly with regard to combinations of 
+parameters, and the interplay between code system versions and other parameters.
+Implementers may need to define their own value sets to meet these requirements.
+</p>
+<p>
+Ongoing feedback is welcome at [link to be provided]
+[%end-note%]
 
 <a name="storage"></a>
 <h3>Storing Expansions</h3>
