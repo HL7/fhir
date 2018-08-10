@@ -47,8 +47,9 @@ declaring the filters and properties associated with those code systems.
 <ul>
  <li>Code systems are used in <a href="valueset.html">ValueSet</a> resources</li>
  <li>The <a href="datatypes.html#Coding">Coding</a> data type refers to CodeSystem resources by their canonical URI</li>
- <li>The CodeSystem resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification. CodeSystem resources can be converted to CTS2 
- code system instances.</li>
+ <li>The CodeSystem resource design is based, in part, on the code system functionality described in 
+     the <a href="http://www.omg.org/spec/CTS2/1.0/">HL7 CTS 2</a> specification. 
+     A CTS2 server can be used to maintain code systems which are then published using the CodeSystem resource</li>
  <li>The CodeSystem resource documents the inherent structure and capabilities of code system, whereas 
    the <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource documents what a server hosting the code system is capable of</li>
 </ul>
