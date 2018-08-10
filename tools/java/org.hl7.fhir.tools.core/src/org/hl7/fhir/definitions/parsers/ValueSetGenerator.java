@@ -362,7 +362,7 @@ public class ValueSetGenerator {
 
     CodeSystem cs = new CodeSystem();
     cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
-    Set<String> codes = translator.listTranslations("code");
+    Set<String> codes = translator.listTranslations("ecode");
     for (String s : sorted(codes)) {
       Map<String, String> langs = translator.translations(s);
       ConceptDefinitionComponent cv = cs.addConcept();
