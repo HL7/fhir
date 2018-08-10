@@ -44,6 +44,8 @@
 
 	<disposition value="The enclosed services are authorized for your provision within 30 days of this notice."/>
 
+	<preAuthRef value="18SS12345" />
+
 	<payeeType>	<!-- advise that assignment of benefit is allowed -->
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/payeetype"/>
@@ -208,6 +210,5 @@
 		<coverage>
 			<reference value="Coverage/9876B1"/>
 		</coverage>
-		<preAuthRef value="18SS12345" />
 	</insurance>
 </ClaimResponse>
