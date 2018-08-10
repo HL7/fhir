@@ -7,8 +7,8 @@
 The FHIR terminology specification is based on two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
 </p>
 <ul>
-<li> <b>code system</b> - defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology)</li>
-<li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
+<li> <b>code system</b> - declares the existence of and describes a code system or code system supplement and its key properties, and optionally defines a part or all of its content. Also known as Ontology, Terminology, or Enumeration</li>
+<li> <b>value set</b> - specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between <code>CodeSystem</code> definitions and their use in <a href="terminologies.html">coded elements</a></li>
 </ul>
 <p>
 Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets 
