@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="dedate"></a>
+<a name="dedata"></a>
   <h2>De-normalized Data</h2>
   <p>
     Most of the properties of the Person resource are replicated within the other resources that they
