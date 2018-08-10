@@ -266,18 +266,24 @@ The following filters are defined for all code systems:
  </tr>
 </table>
 
+<div class="informative-content">
+<p>
+This informative section about the relationships between rich terminologies and structured content is still undergoing review.
+</p>
+
 <a name="detailed-metadata"></a>
 <h3>Code systems with detailed metadata</h3>
 <p>
 Sometimes code systems may be used to represent more complex information than just
 code, display name and code system.  For example, a code system of drug information
-which contains information about the content of the medication (e.g., RxNorm), or a set of
-observation types, that contain methods, units, etc. (e.g., LOINC).
+which contains information about the content of the medication, or a set of
+observation definitions, that contain methods, units, etc.
 In FHIR, these are handled by splitting the concept into two distinct parts - the
 Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used to
 manage the codes, display names and relationships.  A separate "detail"
-resource (e.g., <a href="medication.html">Medication</a> for drugs,
-<a href="location.html">Location</a> for location, etc.) is used to convey detailed
+resource (e.g., <a href="medication.html">Medication resource instances</a> for RxNorm code details,
+<a href="observationdefinition.html">ObservationDefinition</a> instances for LOINC code details, or 
+<a href="location.html">Location</a>, etc.) is used to convey detailed
 information (dose form &amp; strength, allowed data type or permitted values, address &amp;
 hours of operation, etc.).  One "detail" resource instance is created for each code.
 </p>
@@ -313,5 +319,6 @@ set to the same value and namespace as the code, but if the only identifier a re
 is its defining code, it may be better to omit the identifier entirely. For further
 information, see <a href="conceptmap.html#implicit">Implicit Code Systems</a>.
 </p>
+</div>
 
 </div>
