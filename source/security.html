@@ -22,19 +22,19 @@ with various security protocols defined elsewhere. This section gathers all info
 in one section. A summary:
 </p>
 <ol>
- <li><input type="checkbox"/> Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
+ <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
  <li><input type="checkbox"/> <a href="#http">Communications Security</a> - all exchange of production data should be secured using TLS (e.g., https).</li>
- <li><input type="checkbox"/> <a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> where appropriate.</li>
- <li><input type="checkbox"/> <a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
- <li><input type="checkbox"/> <a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
- <li><input type="checkbox"/> <a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
- <li><input type="checkbox"/> <a href="#attachments">Attachments</a> - FHIR allows for binary resources and attachments. These have their own concerns</li>
- <li><input type="checkbox"/> <a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
- <li><input type="checkbox"/> Data Management Policies - FHIR defines a set of capabilities to support data exchange.
+ <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended. When using OAuth, a profile of OAuth will be needed. Consider use of <a href="http://docs.smarthealthit.org/">Smart-On-FHIR</a> where appropriate.</li>
+ <li><a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
+ <li><a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
+ <li><a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
+ <li><a href="#attachments">Attachments</a> - FHIR allows for binary resources and attachments. These have their own concerns</li>
+ <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
+ <li>Data Management Policies - FHIR defines a set of capabilities to support data exchange.
      Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met</li>
- <li><input type="checkbox"/> <a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
- <li><input type="checkbox"/> <a href="#narrative">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
+ <li><a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
+ <li><a href="#narrative">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behaviour. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
 </ol>
 <p>
 Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
