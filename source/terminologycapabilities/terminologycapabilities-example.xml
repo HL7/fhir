@@ -35,5 +35,14 @@
 		</telecom>
 	</contact>
 	<description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+	<kind value="instance"/>
+	<software>
+		<name value="TxServer"/>
+		<version value="0.1.2"/>
+	</software>
+	<implementation>
+		<description value="Acme Terminology Server"/>
+		<url value="http://example.org/tx"/>
+	</implementation>
   <codeSearch value="explicit"/>
 </TerminologyCapabilities>
