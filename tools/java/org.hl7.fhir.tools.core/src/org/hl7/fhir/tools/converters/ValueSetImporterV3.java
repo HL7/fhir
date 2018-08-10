@@ -34,6 +34,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.FilterOperator;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r4.terminologies.CodeSystemUtilities.ConceptStatus;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
@@ -151,12 +152,12 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           CodeSystemUtilities.setNotSelectable(cs, concept);
           d = d + " <b><i>Abstract</i></b>";
         }
-        if (inactive)
-          CodeSystemUtilities.setInactive(cs, concept);
         if (deprecated != null) {
           CodeSystemUtilities.setDeprecated(cs, concept, deprecated);
           d = d + " <b><i>Deprecated</i></b>";
         }
+        if (inactive)
+          CodeSystemUtilities.setStatus(cs, concept, ConceptStatus.Retired);
 
         list.add(concept);
 
