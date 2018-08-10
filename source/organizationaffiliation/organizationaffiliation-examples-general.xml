@@ -4,9 +4,9 @@
   <id value="3ad0687e-f477-468c-afd5-fcc2bf897808"/>
   <type value="collection"/>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f003-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f003-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f003-0" />
         <text>
           <status value="generated" />
@@ -38,13 +38,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/example-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/example-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="example-0" />
         <text>
           <status value="generated" />
@@ -87,13 +87,13 @@
         <endpoint>
           <reference value="Endpoint/example" />
         </endpoint>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/example-1" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/example-1" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="example-1" />
         <text>
           <status value="generated" />
@@ -112,13 +112,13 @@
           <reference value="Organization/2" />
           <display value="Good Health Clinic" />
         </organization>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/example-2" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/example-2" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="example-2" />
         <text>
           <status value="generated" />
@@ -154,13 +154,13 @@
           <allDay value="true"/>
         </availableTime>
       <availabilityExceptions value="Public Holidays"/>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f007-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f007-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f007-0" />
         <text>
           <status value="generated" />
@@ -192,13 +192,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f004-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f004-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f004-0" />
         <text>
           <status value="generated" />
@@ -230,13 +230,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/xcda1-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/xcda1-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="xcda1-0" />
         <text>
           <status value="generated" />
@@ -257,13 +257,13 @@
         <specialty>
           <text value="Orthopedic" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f202-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f202-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f202-0" />
         <text>
           <status value="generated" />
@@ -293,13 +293,13 @@
             <display value="Medical laboratory technician" />
           </coding>
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f201-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f201-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f201-0" />
         <text>
           <status value="generated" />
@@ -329,13 +329,13 @@
             <display value="Medical oncologist" />
           </coding>
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f203-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f203-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f203-0" />
         <text>
           <status value="generated" />
@@ -365,13 +365,13 @@
             <display value="Assess physical therapist service" />
           </coding>
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f005-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f005-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f005-0" />
         <text>
           <status value="generated" />
@@ -403,13 +403,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f006-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f006-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f006-0" />
         <text>
           <status value="generated" />
@@ -441,13 +441,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f001-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f001-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f001-0" />
         <text>
           <status value="generated" />
@@ -479,13 +479,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f002-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f002-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f002-0" />
         <text>
           <status value="generated" />
@@ -517,13 +517,13 @@
           </coding>
           <text value="specialization" />
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/OrganizationRole/f204-0" />
+    <fullUrl value="http://hl7.org/fhir/OrganizationAffiliation/f204-0" />
     <resource>
-      <OrganizationRole>
+      <OrganizationAffiliation>
         <id value="f204-0" />
         <text>
           <status value="generated" />
@@ -553,7 +553,7 @@
             <display value="Nursing procedure" />
           </coding>
         </specialty>
-      </OrganizationRole>
+      </OrganizationAffiliation>
     </resource>
   </entry>
 </Bundle>

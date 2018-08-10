@@ -1,0 +1,76 @@
+<OrganizationAffiliation  xmlns="http://hl7.org/fhir"> <!-- Describes the relationship between Founding Fathers Memorial Hospital and Independence Rehabilitation Services, Inc. Independence is contracted to provide rehab services to patients at Founding Fathers -->
+
+	<id value="orgrole1"/>
+
+    <identifier> <!-- Internal business ID for the relationship created by Founding Fathers Memorial Hospital -->
+        <use value="secondary"/>
+        <system value="http://example.org/www.foundingfathersmemorial.com"/>
+        <value value="service002"/>
+        <assigner>
+            <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/>
+            <display value="Founding Fathers Memorial Hospital"/>
+        </assigner>
+    </identifier>
+
+    <active value="true"/> <!-- This record is active -->
+
+    <period> <!-- The relationship between the organizations began on February 9, 2018, ends on February 01, 2022 -->
+        <start value="2018-02-09"/>
+        <end value="2022-02-01"/>
+    </period>
+
+    <organization> <!-- The organization receiving services, Founding Fathers Memorial Hospital -->
+        <reference value="http://hl7.org/fhir/ig/vhdir/Organization/foundingfathers"/>
+        <display value="Founding Fathers Memorial Hospital"/>
+    </organization>
+
+    <participatingOrganization> <!-- The organization providing services, Independence Rehabilitation Services, Inc. -->
+        <reference value="http://hl7.org/fhir/ig/vhdir/Organization/independencerehab"/>
+        <display value="Independence Rehabilitation Services, Inc."/>
+    </participatingOrganization>
+
+    <network> <!-- Independence and Founding Father providers participate in the Patriot Preferred Provider Network -->
+        <reference value="http://hl7.org/fhir/ig/vhdir/Network/patriotppo"/>
+        <display value="Patriot Preferred Provider Network"/>
+    </network>
+
+    <code> <!-- Indicates the role of the participating organization (Independence) in the relationship -->
+        <coding>
+            <system value="http://hl7.org/fhir/organization-role"/>
+            <code value="provider"/>
+            <display value="Provider"/>
+            <userSelected value="true"/>
+        </coding>
+        <text value="Provider of rehabilitation services"/>
+    </code>
+
+    <specialty> <!-- Provider specialty associated with this role, rehabilitation -->
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="394602003"/>
+            <display value="Rehabilitation - specialty"/>
+        </coding>
+        <text value="Rehabilitation"/>
+    </specialty>
+
+    <location> <!-- Rehab services are provided at Founding Fathers Memorial Hospital -->
+        <reference value="http://hl7.org/fhir/ig/vhdir/Location/foundingfathers1"/>
+        <display value="Founding Fathers Memorial Hospital"/>
+    </location>
+
+    <healthcareService> <!-- Reference to inpatient rehabilitation services provided by Independence -->
+        <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab1"/>
+        <display value="Inpatient rehabilitation services"/>
+    </healthcareService>
+
+    <healthcareService> <!-- Reference to outpatient rehabilitation services provided by Independence -->
+        <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab2"/>
+        <display value="Outpatient rehabilitation services"/>
+    </healthcareService>
+
+    <telecom> <!-- Call 202-109-8765 for more information, Mon-Fri 8:00am - 6:00pm -->
+        <system value="phone"/>
+        <value value="202-109-8765"/>
+        <use value="work"/>
+    </telecom>
+</OrganizationAffiliation>

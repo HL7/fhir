@@ -717,7 +717,7 @@
     <Cell><Data ss:Type="String">InsurancePlan</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">OrganizationRole</Data></Cell>
+    <Cell><Data ss:Type="String">OrganizationAffiliation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicinalProduct</Data></Cell>

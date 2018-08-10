@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<OrganizationRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<OrganizationAffiliation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitionerrole.xsd">
 	<id value="example"/>
 
@@ -25,11 +25,12 @@
 		<reference value="Organization/hl7pay"/>
 	</organization>
 	<participatingOrganization>
+		<!-- Organization that will provide services to the affiliated organization -->
 		<reference value="Organization/f001"/>
 	</participatingOrganization>
 	<network>
 		<reference value="Organization/hl7pay"/>
-		<display value="Dr Adam Careful"/>
+		<display value="HL7 Payer Network"/>
 	</network>
 
 	<!-- General Practice Provider for the first 3 months of 2012 -->
@@ -58,22 +59,8 @@
 		<value value="general.practice@example.org" />
 		<use value="work"/>
 	</telecom>
-	<availableTime>
-		<daysOfWeek value="mon"/>
-		<daysOfWeek value="tue"/>
-		<daysOfWeek value="wed"/>
-		<availableStartTime value="09:00:00"/>
-		<availableEndTime value="16:30:00"/>
-	</availableTime>
-	<availableTime>
-		<daysOfWeek value="thu"/>
-		<daysOfWeek value="fri"/>
-		<availableStartTime value="09:00:00"/>
-		<availableEndTime value="12:00:00"/>
-	</availableTime>
-	<availabilityExceptions value="Reduced Services on public holidays and during the Christmas/New Year break"/>
 	<endpoint>
     <!-- Endpoint that handles the v2 messaging for the network -->
     <reference value="Endpoint/example"/>
   </endpoint>
-</OrganizationRole>
+</OrganizationAffiliation>

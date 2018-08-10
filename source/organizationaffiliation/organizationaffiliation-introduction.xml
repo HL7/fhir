@@ -1,0 +1,49 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p>
+A relationship between 2 organizations over a period of time, where the entities are separate business entities.
+The relationship can optionally include details of locations/services from the participating organization.
+</p>
+<p>
+The OrganizationAffiliation enables defining  non-hierarchical relationships between organizations. For example:
+</p>
+<ul>
+  <li>One organization may provide services to another organization<br/>
+  <i>e.g. An agency service providing casual staff, a radiology service, 
+  a diagnostic lab, catering services, community care services etc.</i></li>
+  <li>Two or more organizations may form a partnership or joint venture</li>
+  <li>An organization may be a member of an association, but not owned by it<br/>
+  <i>e.g. a hospital is a member the American Hospital Association, 
+  a hospital is a member of a health information exchange network</i></li>
+  <!-- <li>Preferred referral partners</li> -->
+</ul>
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2>Boundaries and Relationships</h2>
+<p>
+The Organization.partOf is used to form a hierarchical relationships within an organization which eventually resolves 
+to a single organization. Each child in the tree is a subdivision of the parent.<br/>
+The OrganizationAffiliation is used to describe the relationship between two distinct organizations. It does not require
+a hierarchical relationship. A resource instance is for a singular linkage between 2 organizations (it does not contain all members),
+to create multiple affiliations, create additional resources for the other relationship between other organizations.<br/>
+Each instance contains its own period, and optionally links to specific related services/locations that are available.
+These referenced locations/services should be associated with the participating organization, and are available to the
+primary organization.
+</p>
+<p>
+This resource should not be used when the affiliates are part of a single organization.
+</p>
+</div>
+
+<!-- <div>
+<a name="bnc"></a>
+<h2>Background and Context</h2>
+<p>
+</p>
+</div> -->
+
+</div>

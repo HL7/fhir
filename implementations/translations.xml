@@ -683,8 +683,8 @@
 		<translation lang="it">Organizzazione</translation>
 		<translation lang="es">Organización</translation>
 	</item>
-	<item id="OrganizationRole">
-		<translation lang="en">OrganizationRole</translation>
+	<item id="OrganizationAffiliation">
+		<translation lang="en">OrganizationAffiliation</translation>
 	</item>
 	<item id="Parameters">
 		<translation lang="en">Parameters</translation>

@@ -1,0 +1,30 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<a name="notes"></a>
+<h2>
+Notes:
+</h2>
+  <ul>
+  <li>
+    Multiple instances of an OrganizationAffilitiation may exist between the same 2 organizations if
+    a specific combination of the other related properties is required, or has a different period of usage.<br/>
+    Some systems record a collection of service values for a single location, others record the 
+    single service and the list of locations it is available. Both are acceptable options for representing this data.
+  </li>
+  <li>
+    If the HealthcareService contains more locations than specified in the Affilition, then only those in the Affiliation 
+    are relevant in the OrganizationAffiliation, it cannot introduce new locations not covered by the HealthcareService.<br/>
+    Conversely if no Locations are specified, then it can be assumed that all locations are available.
+  </li>
+  <li>
+    For some types of affiliation the HealthcareService may not be relevant and be empty, and location could be included.
+  </li>
+  </ul>
+
+<a name="jv"></a>
+  <h2>Joint Ventures</h2>
+  <p>
+  With a joint venture between multiple organizations, a seperate Organization is created which represents the Venture.
+  Each Organization in the venture is created through a seperate OrganizationAffiliation resource with
+  the telecom details provided in each being the contact point to call for enquiries relating to their affiliation in the venture.
+  </p>
+</div>
