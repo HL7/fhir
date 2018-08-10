@@ -4,7 +4,8 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-  Person is a linking resource used to convey shared demographics for one or more other Patient, Practitioner and/or RelatedPerson resources.<br/>
+  The Person resource serves as a linkage resource that may provide a reference set of common demographics 
+  for an individual (human or animal) across multiple roles.<br/>
   This linkage can be direct to role-specific FHIR resources (Patient, Practitioner and RelatedPerson)
   residing on the same or possibly distinct FHIR systems/applications, or indirectly through the use of
   business identifiers.
