@@ -1357,18 +1357,10 @@ This request returns all Condition resources with the word "metastases" and eith
 "bone" or "liver" in the narrative. The server MAY choose to search
 for related words as well.
 </p>
-[%stu-note%]
-<a name="dstu2"></a>
-The issues around standardizing text search are not fully resolved.
-During the trial use period for this specification, we recommend that systems use
-the rules specified by <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
-the OData specification for the $<code>search</code> parameter</a>.
-Typical implementations would use Lucene, an sql-based full text search,
-or some indexing service.
-</p>
 <p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-[%end-note%]
+Implementers could consider using the rules specified by the <a href="http://docs.oasis-open.org/odata/odata/v4.0/cs01/part1-protocol/odata-v4.0-cs01-part1-protocol.html#_The_$search_System">
+the OData specification for the $<code>search</code> parameter</a>. Typical implementations would use Lucene, Solr, an sql-based full text search, or some similar indexing service.
+</p>
 
 <a name="special"></a>
 <h4>Special Parameters</h4>

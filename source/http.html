@@ -1279,13 +1279,6 @@ since this is only <a href="#upsert">safe in controlled circumstances</a>, serve
 may choose to assign new ids to all submitted resources, irrespective of any claimed
 logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
 </p>
-[%stu-note%]
-<a name="dstu-3"></a>
-this behavior is subject to verification based on implementation experience and may change.
-</p>
-<p>
-Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-[%end-note%]
 
 <p><b>Conditional References</b></p>
 <p>
@@ -1589,18 +1582,8 @@ wishes to delete the information.
 <h4>Conformance</h4>
 <p>
 Both client and server systems SHOULD clearly document how transaction
-integrity is handled.
+integrity is handled, in the documentation in the <a href="capabilitystatement.html">CapabilityStatement</a>.
 </p>
-[%stu-note%]
-<a name="dstu-4"></a>
-For now, the only way to document how transaction integrity
-is handled is as text in the narrative portions of the <a href="capabilitystatement.html">CapabilityStatement</a>
-resource. Feedback during the Trial use period on which - if any - of this information
-should be computable is welcome.
-</p>
-<p>
-Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-[%end-note%]
 
 
 
