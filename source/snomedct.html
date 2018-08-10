@@ -19,7 +19,7 @@
 <h3>Summary</h3>
 
 <table class="grid">
- <tr><td>Source</td><td>SNOMED CT is owned, maintained and distributed by <a href="http://www.snomed.org/">SNOMED International</a>.	 
+ <tr><td>Source</td><td>SNOMED CT is owned, maintained and distributed by <a href="http://snomed.org/">SNOMED International</a>.	 
 	 SNOMED International is the organization which publishes the International Edition of SNOMED CT. SNOMED International Members may also distribute their own SNOMED CT National Edition, which contains the international release plus local extension content and derivatives.
     </td></tr>
  <tr><td>System</td><td>The URI <a href="http://snomed.info/sct">http://snomed.info/sct</a> identifies the SNOMED CT code system.</td></tr>
@@ -32,10 +32,8 @@
    Note: When <a href="https://confluence.ihtsdotools.org/display/DOCGLOSS/term">SNOMED CT Terms</a> must be exchanged, use the <a href="extension-coding-sctdescid.html">Description Id Extension.
  </a></td></tr>
  <tr><td>Display</td><td>
-  The correct display for a <a
-  href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept">SNOMED CT
-  concept </a>is one of the <a
-  href="https://confluence.ihtsdotools.org/display/DOCGLOSS/term">terms</a>
+  The correct display for a <a href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept">SNOMED CT
+  concept</a> is one of the <a href="https://confluence.ihtsdotools.org/display/DOCGLOSS/term">terms</a>
   associated with that concept. The best display is the preferred term in the
   relevant language or dialect, as specified in the associated language
   reference set. SNOMED CT synonyms may be case sensitive.
@@ -50,16 +48,26 @@
   that have not been officially published by a SNOMED CT Terminology Producer.
 	</td></tr>
  <tr><td>Inactive</td><td>Inactive codes are identified using the 'inactive' property (see below)</td></tr>
- <tr><td>Subsumption</td><td>SNOMED CT Subsumption testing is based in the |is a| relationship defined by SNOMED CT</td></tr>
- <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
+ <tr><td>Subsumption</td><td>SNOMED CT Subsumption testing for concepts is based on the |is a| relationship defined by SNOMED CT</td></tr>
+ <tr><td>Filter Properties</td><td>Several filter properties are defined, as described below</td></tr>
 </table>
 <p>
-This specification publishes a <a href="codesystem-snomedct.html">canonical SNOMED CT</a> <a href="codesystem.html">code system</a>
-resource. See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>.
+This specification publishes a <a href="codesystem-snomedct.html">canonical SNOMED CT</a> <a href="codesystem.html">CodeSystem</a> resource. 
+See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>.
 </p>
 
 <p>
 Note: The <a href="http://snomed.org/gl">SNOMED International glossary</a> explains some of these SNOMED CT specific terms.
+</p>
+
+<h3>Copyright and Licenses</h3>
+<p>
+This specification includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the 
+International Health Terminology Standards
+Development Organisation (IHTSDO) (trading as SNOMED International). Implementers of these 
+specifications must have the appropriate SNOMED CT Affiliate license - for more information contact 
+<a href="http://www.snomed.org/snomed-ct/get-snomed-ct">http://www.snomed.org/snomed-ct/get-snomed-ct</a> or 
+<a href="mailto:info@snomed.org">info@snomed.org</a>.
 </p>
 
 <h3>Versions</h3>
@@ -77,13 +85,12 @@ unambiguously reference a particular version of a SNOMED CT edition:</p>
 <p>where [sctid] is the concept id that identifies the given SNOMED CT edition
 (based on the identifier of the most dependent module), and
 &quot;YYYYMMDD&quot; is the date of release. Examples of sctids that identify a specific edition
-are <a href="https://confluence.ihtsdotools.org/display/FHIR/Known+SNOMED+CT+Edition+Modules">listed here</a>.</p>
+are <a href="https://confluence.ihtsdotools.org/display/DOC/List+of+SNOMED+CT+Edition+URIs">listed here</a>.</p>
 <p>Note that many implementations are in the habit of
 simply using the date of release in the form YYYYMMDD (e.g. "20140531"),
-and assuming that the distribution is known. However this is not always
+and assuming that the edition is known. However this is not always
 safe, so implementations that populate the <i>version</i> element
-SHOULD use the URI form (as shown above). Note also that in future SNOMED CT releases the date
-format may be extended to a timestamp as YYMMDDThhmmssZ (allowed per the SNOMED CT URI Specification).
+SHOULD use the URI form.
 </p><p>
 Servers SHOULD regard provision of the date only for the 
 version (without an sctid) as an error, and refuse to process the interaction or operation. At minimum the URI SHOULD 
@@ -100,23 +107,30 @@ of release is not provided, the Terminology Service may default to the most rece
 SNOMED CT distribution (e.g. 32506021000036107 for Australia).
 </p>
 
-<h3>Copyright and Licenses</h3>
+<h3>Display</h3>
 <p>
-This specification includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the 
-International Health Terminology Standards
-Development Organisation (IHTSDO) (trading as SNOMED International). Implementers of these 
-specifications must have the appropriate SNOMED CT Affiliate license - for more information contact 
-<a href="http://www.snomed.org/snomed-ct/get-snomed-ct">http://www.snomed.org/snomed-ct/get-snomed-ct</a> or 
-<a href="mailto:info@snomed.org">info@snomed.org</a>.
+Any number of terms in additional languages and dialects can be specified for a given code in the ValueSet 
+<a href="valueset.html#designations">'designation'</a> element (ValueSet.compose.include.concept.designation).  
+The associated language refset must be mapped to one of the <a href="http://tools.ietf.org/html/bcp47">BCP-47</a> 
+language codes specified by the <a href="valueset-all-languages.html">value set binding</a> for 'designation.language' 
+and the <a href="valueset-designation-use.html">type</a> of the term (e.g., the SNOMED CT code for "Fully specified name", 
+"Synonym" or "Definition") can be specified in 'designation.use'.  Note that to use 'concept.designation' the value set 
+must be defined extensionally (i.e. as an enumerated list of concepts) rather than intensionally (i.e. using one or more 
+filters).
+</p>
+<p>
+This can be done in a similar way using the CodeSystem <a href="codesystem.html#designations">'designation'</a> element in a 
+<a href="codesystem.html#supplements">code system supplement</a>, with the additional terms being then being available to 
+be returned in a <a href="valueset.html#expansion">value set expansion</a>, controlled by the 
+<a href="valueset-operation-expand.html#4.8.1.1">$expand</a> operation 'includeDesignations' input parameter 
+(if supported by the terminology server). 
 </p>
 
 <h3>SNOMED CT Expressions</h3>
 <p>A <a href="https://confluence.ihtsdotools.org/display/DOCGLOSS/SNOMED+CT+expression">SNOMED
 CT Expression</a> is a structured combination of one or more clinical
-concepts, stated using <a
-href="https://confluence.ihtsdotools.org/display/DOCSCG">Compositional Grammar
-Syntax</a>.</p>
-<p>Note that expressions may optionally contain display terms.</p>
+concepts, stated using <a href="https://confluence.ihtsdotools.org/display/DOCSCG">Compositional Grammar
+Syntax</a>.  Expressions may optionally contain display terms.</p>
 
 <h3>RDF</h3>
 <p>
@@ -124,8 +138,8 @@ The SNOMED International URI specification uses the namespace http://snomed.info
 and the URI http://snomed.info/id for the individual concepts in the code system. This means
 that when a SNOMED CT concept is converted from the system::code pair, where the system is
 http://snomed.info/sct, to the <a href="rdf.html">RDF ontological form</a>, the representation is
-http://snomed.info/id/[concept-id]. Expressions are represented the same way, except
-that for this use, expressions SHALL NOT contain whitespace, terms, or comments.
+http://snomed.info/id/[concept-id]. Expressions are represented using the URI pattern http://snomed.info/scg/[expression].
+Expressions represented in this way SHALL NOT contain whitespace, terms or comments.
 </p>
 
 <a name="props"></a>
@@ -141,7 +155,8 @@ In addition to the <a href="terminology-service.html#standard-props">standard pr
   value in the Concept file of the RF2 distribution (i.e. If 900000000000073002
   |Sufficiently defined concept definition status| then true).</td></tr>
 <tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
-<tr><td>normalForm</td><td>string</td><td>Generated Normal Form expression for the provided code or expression.</td></tr>
+<tr><td>normalForm</td><td>string</td><td>Generated Necessary Normal Form expression for the provided code or expression, with terms.</td></tr>
+<tr><td>normalFormTerse</td><td>string</td><td>Generated Necessary Normal form expression for the provided code or expression, concept ids only.</td></tr>
 </table>
 <p>
 SNOMED CT relationships, where the relationship
@@ -157,7 +172,7 @@ For example, the laterality property is represented using the concept id
 <table class="grid">
 <tr><td nowrap><strong>Property Name</strong></td><td nowrap><strong>Data Type</strong></td><td><strong>Comments</strong></td></tr>
 <tr><td>272741003</td><td>code</td><td>
-  <p>The equivalent URI for the Laterality property is <code><a href="http://snomed.info/id/272741003">http://snomed.info/id/272741003</a>
+  <p>The value of the laterality attribute in the definition of the given code or expression.  The equivalent URI for the laterality property is <code><a href="http://snomed.info/id/272741003">http://snomed.info/id/272741003</a>
   (see the&nbsp;<a href="http://build.fhir.org/codesystem-snomedct.html">code
   system definition</a>).</code></p>
 </td></tr>
@@ -173,10 +188,7 @@ Other properties are at the discretion of the server and the client.
 
 <p>
 This section documents the property filters that can be used with the SNOMED CT
-code system in value set composition statements.
-</p>
-<p>
-For implementer convenience, some of the property filters are documented in terms
+code system in value set composition statements.  For implementer convenience, some of the property filters are documented in terms
 of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language</a>, but this does not imply that its use is required.
 </p>
 
@@ -187,7 +199,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Property Name</td><td>concept</td></tr>
  <tr><td>Operations Allowed</td><td>is-a</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
- <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value (including the concept itself)</td></tr>
+ <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept id provided as the value (including the concept itself)</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administration Methods</a></td></tr>
  <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (Long syntax: descendantOrSelfOf [concept])</pre></td></tr>
 </table>
@@ -199,7 +211,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Property Name</td><td>concept</td></tr>
  <tr><td>Operations Allowed</td><td>in</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
- <tr><td>Comments</td><td>Includes all concept ids that are active members of the reference set identified by the concept Id provided as the value</td></tr>
+ <tr><td>Comments</td><td>Includes all concept ids that are active members of the reference set identified by the concept id provided as the value</td></tr>
  <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>^ [concept] (Long syntax: memberOf [concept])</pre></td></tr>
 </table>
 
@@ -234,7 +246,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
    </td></tr>
 </table>
 
-<h4>By whether post-coordination is allowed</h4>
+<h4>By whether postcoordination is allowed</h4>
 
 <table class="grid">
  <tr><td>Description</td><td>Specify whether postcoordination is allowed or not</td></tr>
@@ -279,11 +291,11 @@ service SHALL use the latest version available for its default edition (or the I
 For the second part of the URL (the query part), the 5 possible values are:
 </p>
 <ul>
-  <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is <a href="http://snomed.info/sct">http://snomed.info/sct</a>, this means all possible SNOMED CT concepts</li>
-  <li>?fhir_vs=isa/[sctid] - all concept IDs that are subsumed by the specified concept.</li>
-  <li>?fhir_vs=refset - all concept IDs that correspond to reference sets that are explicitly defined in the specified SNOMED CT edition</li>
-  <li>?fhir_vs=refset/[sctid] - all concept IDs in the specified reference set</li>
-  <li>?fhir_vs=ecl/[ecl] - all concept IDs that match the supplied (URI-encoded) expression constraint</li>
+  <li>?fhir_vs - all concept ids in the edition/version. If the base URI is <a href="http://snomed.info/sct">http://snomed.info/sct</a>, this means all possible SNOMED CT concepts</li>
+  <li>?fhir_vs=isa/[sctid] - all concept ids that are subsumed by the specified concept.</li>
+  <li>?fhir_vs=refset - all concept ids that correspond to reference sets that are explicitly defined in the specified SNOMED CT edition</li>
+  <li>?fhir_vs=refset/[sctid] - all concept ids in the specified reference set</li>
+  <li>?fhir_vs=ecl/[ecl] - all concept ids that match the supplied (URI-encoded) expression constraint</li>
 </ul>
 
 <p>
