@@ -58,7 +58,7 @@
   </p>
   <p>
     Person instances are never directly referenced as actors (authors, subjects, performers, etc.)
-    Individual actors are identified as either Patient, Practitioner or RelatedPerson, depending on the role
+    Individual actors are always identified as either Patient, Practitioner or RelatedPerson, depending on the role
     of the individual when undertaking the action. Therefore this resource SHALL NOT be referenced by any
     other clinical or administrative resources.  
     E.g. it can be the focus of an operation or message or included in a Bundle, 
