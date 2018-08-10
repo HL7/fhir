@@ -20,9 +20,6 @@
 	<pharmaceuticalProduct>
 		<reference value="MedicinalProductPharmaceutical/example"/>
 	</pharmaceuticalProduct>
-	<clinicalParticulars>
-		<reference value="MedicinalProductClinicals/example"/>
-	</clinicalParticulars>
 	<attachedDocument>
 		<reference value="DocumentReference/example"/>
 	</attachedDocument>
