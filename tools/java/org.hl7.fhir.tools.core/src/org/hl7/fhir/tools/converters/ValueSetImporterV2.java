@@ -638,7 +638,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     OIDEntry oe = oids.get(id);
     if (oe != null)
       CodeSystemUtilities.setOID(cs, "urn:oid:"+oe.getOid());
-    cs.setCaseSensitive(false);
+    // see GF14567 cs.setCaseSensitive(false);
     cs.setUrl("http://terminology.hl7.org/CodeSystem/v2-" + id);
     cs.setId("v2-"+FormatUtilities.makeId(id));
     cs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -723,7 +723,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     OIDEntry oe = oids.get(id+"-"+version);
     if (oe != null)
       CodeSystemUtilities.setOID(cs, "urn:oid:"+oe.getOid());
-    cs.setCaseSensitive(true);
+ // see GF14567 cs.setCaseSensitive(true);
     cs.setUrl("http://terminology.hl7.org/CodeSystem/v2-" + id + "|" + version);
     cs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     cs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
