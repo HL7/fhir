@@ -7198,7 +7198,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Less Then</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Less Than</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">the value for the parameter in the resource is less than the provided value</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
