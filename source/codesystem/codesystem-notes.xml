@@ -122,7 +122,7 @@ Properties are defined using the following elements:
  <tr>
   <td>code</td>
   <td><a href="datatypes.html#code">code</a></td>
-  <td>Used to identify the property, as enumerated above</td>
+  <td>Used to identify the property, in the places shown in the list immediately above this table</td>
  </tr>
  <tr>
   <td>uri</td>
