@@ -74,8 +74,8 @@
       <code value="US"/>
     </coding>  
   </jurisdiction>
-	<copyright value="This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <purpose value="This value set was published by ACME Inc in order to make clear which codes are used for Cholesterol by AcmeClinicals (Adult Ambulatory care support in USA)"/>
+	<copyright value="This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
 	<compose>
 		<!--    
 	  if we didn't specify the version of LOINC on the include, then
