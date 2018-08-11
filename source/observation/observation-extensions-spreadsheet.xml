@@ -3958,13 +3958,12 @@
     <Cell ss:Index="19"><Data ss:Type="String">Note this extension may be superseded by elements in planned instrumentation management resource elements.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">!secondaryFinding</Data></Cell>
+    <Cell><Data ss:Type="String">secondaryFinding</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">Secondary Finding</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">SecondaryFinding</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="s172"><Data ss:Type="String">Secondary findings are genetic test results that provide information about variants in a gene unrelated to the primary purpose for the testing, most often discovered when [Whole Exome Sequencing (WES)](https://en.wikipedia.org/wiki/Exome_sequencing) or [Whole Genome Sequencing (WGS)](https://en.wikipedia.org/wiki/Whole_genome_sequencing) is performed. This extension should be used to denote when a genetic finding is being shared as a secondary finding, and ideally refer to a corresponding guideline or policy statement.&#10;&#10;For more detail, please see:&#10;https://ghr.nlm.nih.gov/primer/testing/secondaryfindings</Data></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">Secondary findings are genetic test results that provide information about variants in a gene unrelated to the primary purpose for the testing, most often discovered when Whole Exome Sequencing (WES) or Whole Genome Sequencing (WGS) is performed. This extension should be used to denote when a genetic finding is being shared as a secondary finding, and ideally refer to a corresponding guideline or policy statement.</Data></Cell>
    </Row>
