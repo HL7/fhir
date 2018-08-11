@@ -42,9 +42,9 @@ This uses the Group resource as the subject-->
 	<subject>
 		<reference value="Group/herd1"/>
 	</subject>
-	<context>
+	<encounter>
 		<display value="part of a health assurance program"/>
-	</context>
+	</encounter>
 	<effectiveDateTime value="2017-11-20"/>
 	<!--  In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.

@@ -25,10 +25,9 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <context>
-    <!-- 0..1 Reference(Encounter|EpisodeOfCare) Healthcare event during which this observation is made -->
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <effectiveDateTime value="2018-02-01"/>
   <performer>
     <!-- 0..* Reference(Practitioner|PractitionerRole|Organization|     CareTeam|Patient|RelatedPerson)Who is responsible for the observation -->

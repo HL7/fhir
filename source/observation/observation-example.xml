@@ -48,9 +48,9 @@
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<context>
+	<encounter>
 		<reference value="Encounter/example"/>
-	</context>
+	</encounter>
 	<effectiveDateTime value="2016-03-28"/>
 	<!--  In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
