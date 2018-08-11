@@ -6,6 +6,16 @@
 <p>
 The TerminologyCapability resource provides for a terminology server to describe how the underlying terminology service works.
 </p>
+<p>
+A client can get the TerminologyCapability statement for a <a href="terminology-service.html">Terminology Service</a> by using
+the <a href="http.html#capabilities">capabilities API</a>:
+</p>
+<pre>
+ GET [base]/metadata?mode=terminology
+</pre>
+<p>
+This will return the TerminologyCapabilities resource that applies to the service itself.
+</p>
 </div> 
 
 
