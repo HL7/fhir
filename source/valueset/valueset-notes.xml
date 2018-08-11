@@ -101,6 +101,10 @@ Best Practice Note: Mixing definitional systems offers the potential for
 confusing, overlapping, and inconsistent definitions. Creating value sets that cross
 code systems should be done with care to avoid creating definitional confusion.
 </p>
+<p>
+Value sets should only include well differentiated concepts, but many value sets and code systems
+do not have well differentiated concepts because of various real world constraints.
+</p>
 
 <a name="csnote"></a>
 <h3>Code systems Note</h3>
@@ -177,6 +181,14 @@ also provides support for a hierarchical tree of items. This specification does 
 the order or the hierarchy, and the conceptual approach described should not be understood to prohibit any implementation approach in
 these regards. In addition, note that the method described above is a conceptual approach; individual servers may choose to follow
 alternative approaches that are more efficient, as long as the outcome is the same.
+</p>
+<p>
+Value set definitions may lead to more than one instruction to include a given concept in the value set across the includes and imports. 
+No matter how many times the definitions include a concept, it is only present in the value set once, and will only appear once 
+in a flat expansion of the value set. Note, however, that a concept may appear more than once in a nested hierarchy when the 
+expansion is prepared for UI use (irrespective of how many times it is included in the definitions).  Note that uniqueness is
+based on system/version/code; it is possible to include the same concept from different versions of a code system in the 
+same expansion, though this is generally confusing for users and should be avoided.
 </p>
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
