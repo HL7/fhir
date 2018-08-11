@@ -7,12 +7,12 @@ HTTP/1.1 200 OK
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Request timeout waiting for server http://server1.example.org/fhir/metadata CapabilitieStatement.</p>
+      <p>Request timeout waiting for server http://server1.example.org/fhir/metadata CapabilitiesStatement.</p>
     </div>
   </text>
   <issue> 
     <severity value="error"/>
     <code value="timeout"/>
-    <diagnostics value="Request timeout waiting for server http://server1.example.org/fhir/metadata CapabilitieStatement."/>
+    <diagnostics value="Request timeout waiting for server http://server1.example.org/fhir/metadata CapabilitiesStatement."/>
  </issue>
 </OperationOutcome>
