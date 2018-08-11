@@ -25,6 +25,28 @@ that contain no target system may only contained 'unmatched' concepts. There is 
 the meaning of an <code>unmatched</code> target whether or not there is a stated target system.
 </p>
 
+<a name="dependencies"> </a>
+<h2>Mapping Dependencies</h2>
+
+<p>
+In the simple case, a mapping is made from one code to another. E.g. from "home address" in one code system to "address - home" in another. 
+But in other cases, the mapping is not a simple one to one mapping. A typical example might be mapping between 
+a radiology imaging request that has 2 elements: modality, and body site, and another radiology imaging request that 
+pre-coordinates both of these into a single code modality+body site. In this case, it is not possible to map from 
+one code to another. Instead, the mapping might contain entries like this:
+</p>
+<table class="grid">
+ <tr><td><b>Source Concept</b></td><td><b>DependsOn.property</b></td><td><b>DependsOn Concept</b></td><td><b>Target Concept</b></td></tr>
+ <tr><td>X-Ray</td><td>Bodysite</td><td>Chest</td><td>Chest-XRay</td></tr>
+</table>
+<p>
+When attempting to translate the source to the target, an application must also provide a value for the element 
+identified in <code>dependsOn.property</code> so that the correct mapping can be performed. To support the reverse
+operation, <code>product</code> is the converse, and works in reverse.
+</p>
+<p>
+To see a real example of a mapping with dependencies, check the <a href="conceptmap-example-specimen-type.html">Specimen Type Mapping</a>.
+</p>
 
 <a name="unmapped"></a>
 <h2>Handling Unmapped Codes</h2>
