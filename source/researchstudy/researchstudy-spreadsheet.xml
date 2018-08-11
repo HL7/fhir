@@ -899,7 +899,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">.identifier</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Organization's Unique Protocol ID; Secondary IDs</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">No BRIDG mapping (although there is  DocumentVersion.identifer &gt; StudyProtocolDocumentVersion, this is arguably a different semantic)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">No BRIDG mapping (although there is  DocumentVersion.identifier &gt; StudyProtocolDocumentVersion, this is arguably a different semantic)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>

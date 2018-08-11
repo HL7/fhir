@@ -7333,7 +7333,7 @@
     <Cell ss:StyleID="s148"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s147"><Data ss:Type="String">General-Claim-Oral-Identifers</Data></Cell>
+    <Cell ss:StyleID="s147"><Data ss:Type="String">General-Claim-Oral-Identifiers</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">SOA Dental Claim using identifiers</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="Number">100154</Data></Cell>
