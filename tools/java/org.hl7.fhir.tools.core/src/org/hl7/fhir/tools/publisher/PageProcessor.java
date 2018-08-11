@@ -6928,7 +6928,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("</td><td>");
     b.append(processMarkdown(resource, p.getDoc(), prefix));
     if (p.getName().equals("return") && isOnlyOutParameter(op.getParameters(), p) && definitions.hasResource(t))
-      b.append("<p>Note: as this the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
+      b.append("<p>Note: as this is the only out parameter, it is a resource, and it has the name 'return', the result of this operation is returned directly as a resource</p>");
     b.append("</td></tr>");
     if (p.getParts() != null)
       for (OperationParameter pp : p.getParts())
