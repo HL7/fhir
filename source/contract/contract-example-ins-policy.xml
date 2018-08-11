@@ -20,6 +20,10 @@
       <start value="2017-01-01"/>
    </applies>
    
+   <subject>
+      <reference value="Patient/1"/>
+   </subject>
+   
    <type>
       <coding>
          <system value="http://terminology.hl7.org/CodeSystem/coverage-copay-type"/>
