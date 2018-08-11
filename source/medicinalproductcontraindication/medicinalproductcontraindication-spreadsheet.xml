@@ -16,7 +16,7 @@
   
   
   <TabRatio>837</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -765,6 +765,55 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">Information about the use of the medicinal product in relation to other therapies as part of the indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
+    <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductContraindication.otherTherapy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Backbone Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Information about the use of the medicinal product in relation to other therapies described as part of the indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">400;160</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductContraindication.otherTherapy.therapyRelationshipType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">The type of relationship between the medicinal product indication or contraindication and another therapy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
+    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductContraindication.otherTherapy.medication[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">CodeableConcept | Reference (MedicinalProduct|Medication|Substance|SubstanceSpecification)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductContraindication.population</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -846,55 +895,6 @@
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">The existing physiological conditions of the specific population to which this applies</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductContraindication.otherTherapy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">Backbone Element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Information about the use of the medicinal product in relation to other therapies described as part of the indication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22"><Data ss:Type="String">400;160</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42" ss:StyleID="Default">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductContraindication.otherTherapy.therapyRelationshipType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">The type of relationship between the medicinal product indication or contraindication and another therapy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductContraindication.otherTherapy.medication[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String" x:Ticked="1">CodeableConcept | Reference (MedicinalProduct|Medication|Substance|SubstanceSpecification)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -909,6 +909,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1613,7 +1614,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
