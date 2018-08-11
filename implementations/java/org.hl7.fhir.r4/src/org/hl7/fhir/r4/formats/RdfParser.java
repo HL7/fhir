@@ -10933,8 +10933,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Observation", "subject", element.getSubject(), -1);
     for (int i = 0; i < element.getFocus().size(); i++)
       composeReference(t, "Observation", "focus", element.getFocus().get(i), i);
-    if (element.hasContext())
-      composeReference(t, "Observation", "context", element.getContext(), -1);
+    if (element.hasEncounter())
+      composeReference(t, "Observation", "encounter", element.getEncounter(), -1);
     if (element.hasEffective())
       composeType(t, "Observation", "effective", element.getEffective(), -1);
     if (element.hasIssuedElement())

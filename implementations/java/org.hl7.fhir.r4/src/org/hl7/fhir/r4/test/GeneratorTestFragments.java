@@ -63,7 +63,7 @@ public class GeneratorTestFragments {
         res.setSubject(r);
         r.setReference("Patient/example");
       r = new Reference();
-        res.setContext(r);
+        res.setEncounter(r);
         r.setReference("Encounter/example");
       res.setEffective(new DateTimeType("2016-03-28"));
       Quantity q = new Quantity();

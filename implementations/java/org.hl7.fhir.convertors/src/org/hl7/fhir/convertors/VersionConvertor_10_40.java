@@ -8489,7 +8489,7 @@ public class VersionConvertor_10_40 {
     tgt.addCategory(convertCodeableConcept(src.getCategory()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setContext(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setIssued(src.getIssued());
     for (org.hl7.fhir.dstu2.model.Reference t : src.getPerformer())
@@ -8525,7 +8525,7 @@ public class VersionConvertor_10_40 {
       tgt.setCategory(convertCodeableConcept(c));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setEncounter(convertReference(src.getContext()));
+    tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setIssued(src.getIssued());
     for (org.hl7.fhir.r4.model.Reference t : src.getPerformer())

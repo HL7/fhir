@@ -16567,8 +16567,8 @@ public class JsonParser extends JsonParserBase {
         res.getFocus().add(parseReference(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("context"))
-      res.setContext(parseReference(json.getAsJsonObject("context")));
+    if (json.has("encounter"))
+      res.setEncounter(parseReference(json.getAsJsonObject("encounter")));
     Type effective = parseType("effective", json);
     if (effective != null)
       res.setEffective(effective);
@@ -44033,8 +44033,8 @@ public class JsonParser extends JsonParserBase {
           composeReference(null, e);
         closeArray();
       };
-      if (element.hasContext()) {
-        composeReference("context", element.getContext());
+      if (element.hasEncounter()) {
+        composeReference("encounter", element.getEncounter());
       }
       if (element.hasEffective()) {
         composeType("effective", element.getEffective());
