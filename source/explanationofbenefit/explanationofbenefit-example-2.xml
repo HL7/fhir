@@ -125,6 +125,7 @@
 	<precedence value="2"/>
 
 	<insurance>
+		<focal value="true"/>
 		<coverage>
 			<reference value="Coverage/9876B1"/>
 		</coverage>
