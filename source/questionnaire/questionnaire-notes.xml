@@ -46,6 +46,7 @@ can be used to identify the Questionnaire as the data source for the other resou
 <code>Observation.valueQuantity</code> can be created.
 </p>
 
+<a name="structure"> </a>
 <h3>Structure of the Questionnaire</h3>
 <p>
 A Questionnaire is built out of two components, Questionnaire and item:</p>
@@ -59,7 +60,8 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
       <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child
         'question' items which do.  </li>
       <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single
-        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
+        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', 
+        then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from
@@ -69,8 +71,29 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
 </ul>
 <p>
 Specific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and
-are handled using extensions.</p>
+are handled using extensions.
+</p>
+<p>
+Group text is intended to provide a "label" for a collection of nested items.  The text will often be rendered in a "heading" style.  As such, it should be kept relatively short.  
+Detailed instructions should be conveyed by a nested "display" item.  It's not necessary to create groups in order to relate an instruction to a collection of questions - you can simply intermix
+display items and questions or groups, with the expectation that users will see the display text before encountering the following questions. 
+</p>
 
+<a name="adaptive"> </a>
+<h3>Adaptive Questionnaires</h3>
+<p>
+Some questionnaires might not provide a full listing of questions, instead relying on a service to interactively sending partially completed forms to a server which generates the next set of questions.  
+As such, some questionnaires might be 'active' but have either no questions or an insufficient set of questions for their purpose.  Additional capabilities relating to adaptive questionnaires, including how 
+to clearly distingish such forms from other forms.
+</p>
+
+<blockquote class="stu-note">
+<p>
+Feedback on how best to handle adaptive questionnaires - and how to discover the services that support completing such questionnaires - is welcome.
+</p>
+</blockquote>
+
+<a name="identifiers"> </a>
 <h3>Identifiers within Questionnaire</h3>
 <p>There are three different "identifying" elements within Questionnaire: <code>identifier</code>, <code>id</code> and <code>linkId</code>.  Each serves very distinct
 purposes:</p>
@@ -128,6 +151,7 @@ alignment is required; e.g. Does the question text need to match exactly?  Is it
 These rules will need to be established within implementation environments.
 </p>
 
+<a name="question-types"> </a>
 <h3>Question types</h3>
 <p>
 The codes for the data type for each question are slightly different than the data types allowed in the <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
@@ -187,6 +211,7 @@ will not adopt a new version of the referenced value set without revising the Qu
 in control of any changes.
 </p>
 
+<a name="valuesets"> </a>
 <h3>Useful Value Sets</h3>
 <p>
 Many questions have a common set of possible codes for their answer. These value sets may be useful to help,
@@ -196,6 +221,7 @@ and when referenced by full URL, do not need to be provided as part of the quest
  <li><a href="valueset-example-yesnodontknow.html">Yes | No | Don't Know</a>: http://hl7.org/fhir/ValueSet/yesnodontknow</li>
 </ul>
 
+<a name="polymorphic"> </a>
 <h3>Questions with multiple answer types</h3>
 <p>
 In some questionnaires, it may be possible to respond to a question with multiple types of answers.  For example, capturing a coded answer plus free text,
@@ -204,6 +230,7 @@ each question can have nested child questions.  These nested child questions can
 guidance is provided by the parent question or group.
 </p>
 
+<a name="math"> </a>
 <h3>Questionnaires with Math</h3>
 <p>
 Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
@@ -212,6 +239,26 @@ To help with associating numeric values to coded answers, the extension <a href=
 can be used to define the numeric weighting of a code defined in a value set or in the questionnaire itself.
 </p>
 
-<p>In addition, there are extensions for defining the dynamic value of an element using expressions. For more information, see the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> and <a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Documentation Template</a> topics in the Clinical Reasoning module.</p>
+<p>In addition, there are extensions for defining the dynamic value of an element using expressions. For more information, see the 
+<a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> and <a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Documentation Template</a> 
+topics in the Clinical Reasoning module.</p>
 
+<a name="advanced"> </a>
+<h3>More advanced questionnaires</h3>
+<p>
+The capabilities of the Questionnaire resource are fairly simple and try to adhere to what most systems that deal with questionnaires would be capable of.
+However, there are lots of systems that require more sophisticated capabilities, such as:
+</p>
+<ul>
+  <li>Greater control over rendering, including tables, read-only values, hidden answers, multi-column drop-downs</li>
+  <li>Greater control over question flow, including formula-based rules for conditional display of elements</li>
+  <li>Ability to pre-populate forms with data found in the client system</li>
+  <li>Ability to define how to convert a completed QuestionnaireResponse for a Questionnaire into a collection of Observations and/or other resources</li>
+</ul>
+<p>
+Extensions have been defined for all of these purposes and many more.  (Questionnaire has the most 'core' extensions of any resource to-date.)  A list of these
+extensions can be found <a href="questionnaire-profiles.html#extensions">here</a>.  However, some of the extensions are complex and work together in particular
+ways.  To support more advanced questionnaire implementation, the <a href="http://hl7.org/fhir/uv/sdc">Structured Data Capture (SDC)</a> implementation guide has been 
+created to provide non-country-specific guidance on the use of most of these extensions and sets expectations for systems wishing to support more complex forms.
+</p>
 </div>

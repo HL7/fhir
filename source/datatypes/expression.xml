@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1020,7 +1021,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">text/cql | text/fhirpath | etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">text/cql | text/fhirpath | application/x-fhir-query | etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The media type of the language for the expression</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3464,7 +3465,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6879,13 +6880,13 @@
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s163"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s162"/>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s161"><Data ss:Type="String">application/x-fhir-query</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">FHIR Query</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">FHIR's RESTful query syntax - typically independent of base URL</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s163"/>
