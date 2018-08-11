@@ -4,7 +4,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2018-07-19T19:09:02Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -15,7 +15,7 @@
   
   
   <TabRatio>839</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1121,6 +1121,9 @@
    </Borders>
    <Interior/>
    <NumberFormat ss:Format="0%"/>
+  </Style>
+  <Style ss:ID="s213">
+   <Font ss:Color="#333333" ss:FontName="Arial" ss:Size="11" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Names>
@@ -5906,9 +5909,10 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C10"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="57" ss:StyleID="s120" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="14" ss:ExpandedRowCount="57" ss:StyleID="s120" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s120" ss:Width="124.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s120" ss:Width="205.0"/>
+   <Column ss:Index="14" ss:StyleID="s120" ss:Width="92.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s163"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of the operation or parameter (parameters prefixed by operation name + ".") </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s164"><Data ss:Type="String">Use</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">"System | Resource | Instance" (operation) "In" or "Out" (parameter)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5923,6 +5927,7 @@
     <Cell><Data ss:Type="String">Example.Request</Data></Cell>
     <Cell><Data ss:Type="String">Example.Response</Data></Cell>
     <Cell><Data ss:Type="String">fmm</Data></Cell>
+    <Cell ss:StyleID="s213"><Data ss:Type="String">Standards-Status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="409">
     <Cell ss:StyleID="s167"><Data ss:Type="String">stats</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5938,6 +5943,7 @@
     <Cell><Data ss:Type="String">$stats-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$stats-response.txt</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s157"><Data ss:Type="String">stats.subject</Data></Cell>
@@ -6084,6 +6090,7 @@
     <Cell><Data ss:Type="String">$lastn-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$lastn-response.txt</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
+    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s157"><Data ss:Type="String">lastn.max</Data></Cell>
@@ -6602,10 +6609,11 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Zoom>85</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7541,7 +7549,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
