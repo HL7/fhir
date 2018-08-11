@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<id value="body-length"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
@@ -13,11 +13,18 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
+	<!--  This example demonstrates the use of a code translation to allow the observation to be interpreted as Body Length  ( typically used for infants)  -->
 	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="8302-2"/>
+			<display value="Body height"/>
+		</coding>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="8306-3"/>
 			<display value="Body height --lying"/>
+			<userSelected value="true"></userSelected>
 		</coding>
 		<text value="Body Length"/>
 	</code>

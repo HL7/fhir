@@ -233,6 +233,11 @@
 		<li>
 			<a href="observation-example-body-height.html">Simple Body Height Example</a>
 		</li>
+		
+		<li>
+			<a href="observation-example-body-length.html">Simple Body Length Example</a> This example demonstrates the use of a code translation to allow the observation to be interpreted as Body Length  ( typically used for infants).
+		</li>
+
 		<li>
 			<a href="observation-example-head-circumference.html">Simple Head Circumference Example</a>
 		</li>
