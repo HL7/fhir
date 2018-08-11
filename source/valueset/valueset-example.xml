@@ -55,7 +55,27 @@
 		</telecom>
 	</contact>
 	<description value="This is an example value set that includes all the LOINC codes for serum/plasma cholesterol from v2.36."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueQuantity>
+      <value value="18"/>
+      <comparator value="&gt;"/>
+      <unit value="yrs"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="a"/>      
+    </valueQuantity>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>  
+  </jurisdiction>
 	<copyright value="This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <purpose value="This value set was published by ACME Inc in order to make clear which codes are used for Cholesterol by AcmeClinicals (Adult Ambulatory care support in USA)"/>
 	<compose>
 		<!--    
 	  if we didn't specify the version of LOINC on the include, then

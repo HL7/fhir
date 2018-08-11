@@ -28,6 +28,12 @@ Each source concept may have multiple targets:
 There SHOULD be at least one target for each element, but some incomplete concept maps 
 might not have a target for each concept. 
 </p>
+<p>
+A key concept for the ConceptMap resource is the <a href="conceptmap-operation-translate.html">$translate operation</a>. This operation 
+is a formal definition of an API by which a <a href="terminology-service.html">terminology server</a> can allow clients to ask for a 
+translation to be done based on the content in the ConceptMap resource. As such it is also provides useful perspective on the 
+operational use of ConceptMap resources in any context.
+</p>
 
 </div> 
 

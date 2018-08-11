@@ -141,12 +141,9 @@ A resource that represents a value set expansion includes the same
 identification details as the definition of the value set, and MAY
 include the definition of the value set (<code>.compose</code>). In 
 addition, it has an <code>.expansion</code> element which contains
-the list of codes that constitute the value set expansion. 
-If the expansion has nested <code>contains</code> elements, there is 
-no implication about the logical relationship between them, and the 
-structure cannot be used for logical inferencing. The structure 
-exists to provide navigational assistance for helping human users to 
-locate codes in the expansion.
+the list of codes that constitute the value set expansion. Each
+contained code can include nested contained codes - see <a href="#hierarchy">below 
+for further discussion</a>.
 </p>
 <p>
 When a request for an expansion is received (e.g., for the <a href="valueset-operations.html#expand">$expand</a> operation),
@@ -176,31 +173,11 @@ the following process should be followed:
  <li>For each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove any codes from the result set, instead of adding them.</li>
 </ul>
 <p>
-The final "result set" is then represented in <i>expansion</i>. Note that the expansion structure is inherently ordered, and 
-also provides support for a hierarchical tree of items. This specification does not fix the meaning of use of either
-the order or the hierarchy, and the conceptual approach described should not be understood to prohibit any implementation approach in
+The final "result set" is then represented in <i>expansion</i>.
+Note that the expansion structure is inherently ordered; this specification does not fix the 
+meaning of use of the order. The conceptual approach described should not be understood to prohibit any implementation approach in
 these regards. In addition, note that the method described above is a conceptual approach; individual servers may choose to follow
 alternative approaches that are more efficient, as long as the outcome is the same.
-</p>
-<p>
-Value set definitions may lead to more than one instruction to include a given concept in the value set across the includes and imports. 
-No matter how many times the definitions include a concept, it is only present in the value set once, and will only appear once 
-in a flat expansion of the value set. Note, however, that a concept may appear more than once in a nested hierarchy when the 
-expansion is prepared for UI use (irrespective of how many times it is included in the definitions).  Note that uniqueness is
-based on system/version/code; it is possible to include the same concept from different versions of a code system in the 
-same expansion, though this is generally confusing for users and should be avoided.
-</p>
-<p>
-An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
-for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
-<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no direct support for defining hierarchies and groups;
-applications may want to take advantage of the <a href="extension-valueset-expand-rules.html">expand-rules</a> and 
-<a href="extension-valueset-expand-group.html">expand-group</a> extensions as an implementation feature. 
-</p>
-<p>
-The codes in the expansion should be treated as case sensitive - implementers should use the correct 
-case. Implementers can consult the definition of the underlying code systems to determine whether the code system
-that defines the code is case sensitive or not. 
 </p>
 [%dragons-start%]
 <p class="warning">
@@ -210,6 +187,42 @@ subject to ongoing experimentation and implementation testing, and further clari
 rules might be proposed in future versions of this specification.
 </p>
 [%dragons-end%]
+
+<a name="hierarchy"></a>
+<h3>Hierarchical Expansions</h3>
+<p>
+The expansion MAY be hierarchical - that is, it may have contains element that contain their own sub-elements, to any 
+level of depth. This specification does not fix the meaning of the hierarchy: there is 
+no implication about the logical relationship between the nested <code>contain</code> elements, and the 
+structure cannot be used for logical inferencing. The structure 
+exists to provide navigational assistance for helping human users to 
+locate codes in the expansion. There is an <a href="valueset-example-hierarchical.html">example of use of a hierarchical expansion</a>.
+</p>
+<p>
+Note that the 
+<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no direct support for defining hierarchies and groups;
+applications may want to take advantage of the <a href="extension-valueset-expand-rules.html">expand-rules</a> and 
+<a href="extension-valueset-expand-group.html">expand-group</a> extensions as an implementation feature.
+An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
+for a human to use the list. These entries have no system or code, and must be marked as abstract.  
+</p>
+
+<a name="uniqueness"></a>
+<h3>Uniqueness of Concepts in Expansions</h3>
+<p>
+Value set definitions may lead to more than one instruction to include a given concept in the value set across the includes and imports. 
+No matter how many times the definitions include a concept, it is only present in the value set once, and will only appear once 
+in a flat expansion of the value set. Note, however, that a concept may appear more than once in a nested hierarchy when the 
+expansion is prepared for UI use (irrespective of how many times it is included in the definitions).  Note that uniqueness is
+based on system/version/code; it is possible to include the same concept from different versions of a code system in the 
+same expansion, though this is generally confusing for users and should be avoided.
+</p>
+<p>
+The codes in the expansion should be treated as case sensitive - implementers should use the correct 
+case. Implementers can consult the definition of the underlying code systems to determine whether the code system
+that defines the code is case sensitive or not. 
+</p>
+
 
 <a name="identifiers"></a>
 <h3>Expansion Identifiers</h3>

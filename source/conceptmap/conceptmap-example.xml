@@ -32,9 +32,15 @@
             <!-- todo ... -->
         </code>
         <valueCodeableConcept>
-            <text value="for CDA Usage"/>
+            <text value="for CCDA Usage"/>
         </valueCodeableConcept>
     </useContext>
+    <jurisdiction>
+      <coding>
+        <system value="urn:iso:std:iso:3166"/>
+        <code value="US"/>
+      </coding>  
+    </jurisdiction>
     <purpose value="To help implementers map from HL7 v3/CDA to FHIR"/>
     <copyright value="Creative Commons 0"/>
     <sourceUri value="http://hl7.org/fhir/ValueSet/address-use"/>
