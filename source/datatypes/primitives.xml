@@ -14,6 +14,7 @@
   
   
   
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -140,7 +141,7 @@
     <Cell><Data ss:Type="String">Note that FHIR strings SHALL NOT exceed 1MB in size</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">\s*(\S|\s)*</Data></Cell>
+    <Cell><Data ss:Type="String">[ \r\n\t\S]+</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">ST</Data></Cell>
     <Cell><Data ss:Type="String">ST</Data></Cell>
    </Row>
@@ -196,7 +197,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -302,7 +302,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">\s*(\S|\s)*</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">[ \r\n\t\S]+</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -317,6 +317,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

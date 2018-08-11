@@ -85,7 +85,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: true|false</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>true|false</code></td>
  </tr>
  <!-- leading 0s -->
  <tr>
@@ -96,7 +96,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: [0]|[-+]?[1-9][0-9]*</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[0]|[-+]?[1-9][0-9]*</code></td>
  </tr>
  <tr>
    <td>string<a name="string"></a></td>
@@ -115,7 +115,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: \s*(\S|\s)*  (can't put size limit in the regex - too large)</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[ \r\n\t\S]+</code> (see notes below)</td>
  </tr>
  <tr>
    <td>decimal<a name="decimal"></a></td>
@@ -125,7 +125,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: -?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</code></td>
  </tr>
  <tr>
    <td>uri<a name="uri"></a></td>
@@ -135,7 +135,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: \S* (This regex is very permissive, but URIs must be valid implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>\S*</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
@@ -164,7 +164,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: (\s*([0-9a-zA-Z\+\=]){4}\s*)+</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
@@ -183,7 +183,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
  </tr>
  <tr>
    <td>date<a name="date"></a></td>
@@ -193,7 +193,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
  </tr>
  <tr>
    <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
@@ -204,7 +204,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</code></td>
  </tr>
  <tr>
    <td>time<a name="time"></a></td>
@@ -215,7 +215,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: ([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?</code></td>
  </tr>
  <tr>
    <td>code<a name="code"></a></td>
@@ -227,7 +227,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: [^\s]+(\s[^\s]+)*<br/>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
        This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
  </tr>
  <tr>
@@ -238,7 +238,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: urn:oid:[0-2](\.(0|[1-9][0-9]*))+</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
  </tr>
  <tr>
    <td>id<a name="id"></a></td>
@@ -248,7 +248,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: [%id_regex%]</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
  </tr>
  <tr>
    <td>markdown<a name="markdown"></a></td>
@@ -258,7 +258,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: \s*(\S|\s)*  (can't put size limit in the regex - too large)</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
  </tr>
  <tr>
    <td>unsignedInt<a name="unsignedInt"></a></td>
@@ -268,7 +268,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: [0]|([1-9][0-9]*)</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
  </tr>
  <tr>
    <td>positiveInt<a name="positiveInt"></a></td>
@@ -278,7 +278,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: +?[1-9][0-9]*</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>+?[1-9][0-9]*</code></td>
  </tr>
  <tr>
    <td>uuid<a name="uuid"></a></td>
@@ -305,7 +305,16 @@ Notes:
     </ul>
  </li>
  <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
- <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
+ <li>Issues with the specified regexes: 
+   <ul>
+     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are a number of issues with the regexes</li>
+     <li>The string regex has problems with unicode - specifically, it might or might not allow unicode whitespace to some degree depending on unicode support in the regex engine being used. 
+        The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
+        The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
+     <li>The unicode issues also apply to the regex for <code>code</code></li>
+     <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed</li>
+   </ul>
+ </li>
  <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds</li>
  <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li> 
  <li>About the id datatype:
