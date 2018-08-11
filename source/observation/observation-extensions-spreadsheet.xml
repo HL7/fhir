@@ -829,9 +829,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s171">
-   <Font ss:Color="#202020" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
   <Style ss:ID="s172">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
    <Font ss:Color="#202020" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
@@ -3963,9 +3960,10 @@
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">Secondary Finding</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="8" ss:StyleID="s97"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">SecondaryFinding</Data></Cell>
     <Cell ss:Index="16" ss:StyleID="s172"><Data ss:Type="String">Secondary findings are genetic test results that provide information about variants in a gene unrelated to the primary purpose for the testing, most often discovered when [Whole Exome Sequencing (WES)](https://en.wikipedia.org/wiki/Exome_sequencing) or [Whole Genome Sequencing (WGS)](https://en.wikipedia.org/wiki/Whole_genome_sequencing) is performed. This extension should be used to denote when a genetic finding is being shared as a secondary finding, and ideally refer to a corresponding guideline or policy statement.&#10;&#10;For more detail, please see:&#10;https://ghr.nlm.nih.gov/primer/testing/secondaryfindings</Data></Cell>
-    <Cell ss:StyleID="s171"><Data ss:Type="String">Secondary findings are genetic test results that provide information about variants in a gene unrelated to the primary purpose for the testing, most often discovered when Whole Exome Sequencing (WES) or Whole Genome Sequencing (WGS) is performed. This extension should be used to denote when a genetic finding is being shared as a secondary finding, and ideally refer to a corresponding guideline or policy statement.</Data></Cell>
+    <Cell ss:StyleID="s172"><Data ss:Type="String">Secondary findings are genetic test results that provide information about variants in a gene unrelated to the primary purpose for the testing, most often discovered when [Whole Exome Sequencing (WES)](https://en.wikipedia.org/wiki/Exome_sequencing) or [Whole Genome Sequencing (WGS)](https://en.wikipedia.org/wiki/Whole_genome_sequencing) is performed. This extension should be used to denote when a genetic finding is being shared as a secondary finding, and ideally refer to a corresponding guideline or policy statement.&#10;&#10;For more detail, please see:&#10;https://ghr.nlm.nih.gov/primer/testing/secondaryfindings</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -3986,7 +3984,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4950,12 +4948,12 @@
     <Cell ss:StyleID="s139"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">!SecondaryFinding</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">SecondaryFinding</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding.</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/secondary-finding</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">valueset-secondary-finding</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>

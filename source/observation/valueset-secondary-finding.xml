@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+
+  <url value="http://hl7.org/fhir/ValueSet/secondary-finding"/>
+  <name value="Observation Category Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/secondary-finding"/>
+    </include>
+  </compose>
+</ValueSet>
