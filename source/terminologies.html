@@ -400,14 +400,28 @@ may state rules on which codes can be used, but cannot select new or additional 
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
 can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), an alternate
-<code>system/code</code> may be used instead.</i>
+<code>system/code</code> from a different value set may be used instead.</i>
 </p>
 <p>
-If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the <i>coding</i> values SHALL
-be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may
-be provided in its place. If no codes, including local codes, are available, then just text may be used. Note that it is the
-binding that is extensible, not the value set; additional codes to those found in the extensible binding are considered to 
-come from some other value set, not the bound value set.
+If there is a concept in the value set with a meaning which includes but is more general than the meaning that is intended to be 
+represented by the element in the resource instance, then the code that is used in the instance SHALL be taken from the value set, 
+and using a more specific code that more completely represents the intended meaning but is outside the value set is <b>not</b> 
+allowed.  The more specific code may <b>also</b> be included in the instance as an additional Coding if the data type is 
+CodeableConcept, but it cannot be used <b>instead of</b> the code from the value set.  This helps ensure that systems know which 
+codes they should expect to receive and build logic for and it facilitates interoperability.  
+</p>
+<p>
+Whether or not the code system (or systems) that the extensibly bound value set is based on includes hierarchical (i.e. "is-a") 
+relationships between the concepts that are included in the value set, the code for the concept in the value set that applies to 
+and is the closest match for the intended meaning of the element instance is the one that should be used, regardless of the "level" 
+of the concept in the code system hierarchy (if a hierarchy exists). 
+</p>
+<p>
+If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the Coding values SHALL
+be from the specified value set if a code applies (as noted above), but if no suitable code exists in the value set, alternate 
+code(s) may be provided in its place. If no codes, including local codes, are available, then just text may be used. Note that it 
+is the <b>binding</b> that is extensible, not the <b>value set</b>; additional codes to those found in the extensible binding must 
+be obtained from some other value set, not the bound value set.
 </p>
 <p>
 If an extensible binding is applied to an element with maximum cardinality &gt; 1, the binding applies to
@@ -431,7 +445,10 @@ When an element is extensibly bound to a value set, <a href="profiling.html">der
 may state rules on which codes can be used, but cannot select new or additional codes for these elements
 unless no codes with appropriate meanings are found in the base value set.
 </p>
-
+<p>
+Examples of the use of extensible binding: 
+</p>
+    
 <a name="preferred"></a>
 <h3>Preferred</h3>
 <p>
@@ -439,7 +456,7 @@ unless no codes with appropriate meanings are found in the base value set.
 are not required to do so to be considered conformant.</i>
 </p>
 <p>
-If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the <i>coding</i> values SHOULD
+If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the Coding values SHOULD
 be from the specified value set, but another code and/or text can be used in its place.
 </p>
 <p>
@@ -466,7 +483,7 @@ or there is no consensus over the correct codes to be used. For these bindings:
 </p>
 <ul>
  <li><b>Coding</b>: the <i>system</i>/<i>code</i> values MAY be one of the codes in the value set. </li>
- <li><b>CodeableConcept</b>: one of the <i>coding</i> elements MAY  contain a <i>system</i>/<i>code</i> that is in the value set. </li>
+ <li><b>CodeableConcept</b>: one of the <i>coding</i> elements MAY contain a <i>system</i>/<i>code</i> that is in the value set.</li>
 </ul>
 <p>
 Some other coded value MAY be used, or (for a CodeableConcept), a text alternative MAY be provided.
