@@ -4214,7 +4214,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">This name is intended to be human readable, short and as specific as possible and to convey the purpose of the value set.  It is considered to be the name of the value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">This need not be unique. However some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">This need not be unique. However, some use cases require uniqueness within a namespace and therefore best practice would be to make the name unique</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>

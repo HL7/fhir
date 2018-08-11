@@ -281,7 +281,7 @@ Ongoing feedback is welcome at [link to be provided]
 <p>
 Whether to store expanded value sets, or simply to store their definitions and expand on the fly is 
 a matter for system deployment. Some servers, including public value sets servers, only store expansions. 
-However any system that stores an expansion must be concerned with how to determine whether the expansion 
+However, any system that stores an expansion must be concerned with how to determine whether the expansion 
 is still current, and this requires deep knowledge of how the expansion was created. 
 A system with a dedicated terminology server that returns expansions on demand avoids this problem, but 
 leaves open the question of how to audit the specific expansion that was used for a particular case. 
