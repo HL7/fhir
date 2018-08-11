@@ -263,6 +263,13 @@ Beyond this, servers MAY define their own parameters, though Terminology server
 authors are requested to bring additional parameters to HL7 (via 'Propose a change' 
 link below) in the interests of interoperability. 
 </p>
+<p>
+Servers can also create and store <a href="provenance.html">Provenance</a> statements about the expansion, or <a href="auditevent.html">AuditEvent</a> records
+of the expansion process if further transparency is required. These resources can contain considerable
+detail about the various inputs to the process, and any significant decisions by the expansion 
+engine. Further details around this (and profiles on the relevant resources) may be provided
+in future versions of this specification or related implementation guides.
+</p>
 
 <a name="limitations"></a>
 [%feedback-note%]
