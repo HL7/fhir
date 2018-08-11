@@ -1,4 +1,4 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<a name="notes">
 	</a>
 	<h2>Notes:</h2>
@@ -55,7 +55,7 @@
 	<h3> Using codes in Observation </h3>
 	<p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
 	<h4>Code Translations </h4>
-	<p>Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example below.</p>
+	<p>Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as <a href="datatypes.html#CodeableConcept">translations</a> directly in the element as shown in the example below.</p>
 	<p>For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:</p>
 	<pre class="json">
 
@@ -209,7 +209,29 @@
 		<li>SHOULD NOT use the <em>Assertion</em> pattern as described in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=418">HL7 Version 3 Implementation Guide: TermInfo - Using SNOMED CT in CDA R2 Models, Release 1</a>. ( The code is 'ASSERTION' and the value is a SNOMED CT concept or expression )
 	  </li>
 	</ol>
-	<a name="valuex">
+
+	<a name="refine">
+	</a>	
+		<h3>Refining the interpretation of an Observation using additional codes or Observations</h3>
+		<p>The following list provides guidance on using codes or other observations to provide addition context that may alter how an observation is interpreted.: </p>
+		<ol>
+		<li>
+		<p>If possible, use the most specific code you can</p>
+		<p>e.g.: Observation.code = 49134-0 Glucose [Mass/?volume] in Blood 2 hours post dose glucose</p>
+		</li>
+		<li>
+		<p>Alternatively, use code <a href="datatypes.html#CodeableConcept">translations</a> in Observation.code.</p>
+		<p>e.g.: Observation.code = coding-1: 20564-1 Oxygen saturation in Blood,  coding-2:   59408-5 Oxygen saturation in Arterial blood by Pulse oximetry</p>
+		</li>
+		<li>
+		<p>Another alternative is to use the <a href="extension-observation-precondition.html">precondition extension</a>.</p>
+		<p>e.g.:</p>
+		<p>Observation.code = 20564-1 Oxygen saturation in Blood,  Observation.value: 98%</p>
+		<p>observation-precondition extension: Observation.code: 19995-0 Oxygen/Inspired gas Respiratory system by O2 Analyzer on ventilator  Observation.value: 100%</p>
+		</li>
+		</ol>
+	
+		<a name="valuex">
 	</a>
 	<h3>Value[x] and Datatypes</h3>
 	<ul>
@@ -293,3 +315,4 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 	</ul>See the <a href="observation-operation-stats.html">Observation Statistics</a> section in the Observation resource operations page for more information and examples<p>
 	</p>
 </div>
+
