@@ -7169,12 +7169,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
       b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
       ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
-      b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
       b.append(" </tr>\r\n");
     }
     if (count == 0)
-      b.append("<tr><td>No Profiles defined for this resource</td></tr>");
-    return b.toString();
+      return "<p>No Profiles defined for this resource</p>";
+    return 
+      "<table class=\"list\">\r\n"+
+      " <tr><td><b>Profile</b></td><td><b>Description</b></td><td><b>Context</b></td></tr>\r\n"+
+      b.toString()+
+      "</table>\r\n";
+
   }
 
   private String produceExtensions(ResourceDefn resource) {
