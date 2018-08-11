@@ -707,10 +707,12 @@ code systems such as LOINC or SNOMED CT. Sending local codes is useful and impor
 The <code>text</code>
 is the representation of the concept as entered or chosen by the user, and which most closely
 represents the intended meaning of the user or concept. Very often the <code>text</code>
-is the same as a <code>display</code> of one of the codings. One of the codings
+is the same as a <code>display</code> of one of the codings. One  or more of the codings
 may be flagged as the userSelected - the code or concept that the user actually selected directly.
-When none of the <code>coding</code> elements is marked as userSelected, the text (if present)
-is the preferred source of meaning.
+Note that in all but a few cases, only one of the codings may be flagged as the <code>userSelected = true</code> 
+- the code or concept that the user actually selected directly. If more than one code is marked as user selected, 
+this means the user explicitly chose multiple codes. When none of the <code>coding</code> elements is 
+marked as user selected, the text (if present)is the preferred source of meaning.
 </p>
 	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
 	<pre class="json">
