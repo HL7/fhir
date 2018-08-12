@@ -659,7 +659,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
     if (!ok)
       res = new ValidationResult(IssueSeverity.ERROR, message, err);
-    else if (message != null) 
+    else if (message != null && !message.equals("No Message returned")) 
       res = new ValidationResult(IssueSeverity.WARNING, message, new ConceptDefinitionComponent().setDisplay(display));
     else if (display != null)
       res = new ValidationResult(new ConceptDefinitionComponent().setDisplay(display));
