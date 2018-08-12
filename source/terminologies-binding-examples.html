@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+
+[%settitle Terminology Binding Examples%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<%txheader%>
+
+<h1>Terminology Binding Examples</h1>
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<a name="binding-examples"></a>
+
+<a name="extensible"></a>
+<h2>Extensible binding examples</h2>
+
+<h3>Condition.code with Extensible binding</h3>
+<p>For example, we have a Condition.code and the applicable profile binds the code to the value set <a href="http://build.fhir.org/valueset-condition-code.html">http://hl7.org/fhir/ValueSet/condition-code</a>:</p>
+
+<pre> {
+  "path": "Condition.code",
+  "definition" : "Identification of the condition, problem or diagnosis."
+  "binding": {
+   "strength": "extensible",
+   "valueSetCanonical": "http://hl7.org/fhir/ValueSet/condition-code"
+  }
+ }
+</pre>
+
+<p>This value set includes all SCT concepts that  are clinical findings.</p> 
+  
+<h3>Condition instance #1</h3>
+
+<pre>{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "39065001",
+        "display": "Burn of ear"
+      }
+    ],
+    "text": "Burnt Ear"
+  }
+}
+</pre>
+
+<p>This concept (code = 39065001) is included in the value set so the instance is valid.</p>
+  
+<h3>Condition instance #2</h3>
+
+<pre class="json">{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "312824007",
+        "display": "Family history of cancer of colon"
+      }
+    ]
+  }
+}
+</pre>
+
+<p>This SNOMED CT concept is not a clinical finding. So is it valid? 
+With the extensible binding 2 questions must be answered:</p>
+
+<ul>
+<li>Is there an applicable code in the bound value set (condition-code) for &#8216;family history of cancer of colon&#8217;?  
+That doesn&#8217;t appear to be the case, so the instance is valid in that respect.</li>
+<li>Does this code fit into the definition of the element in the profile: &#8220;Identification of the condition, problem or diagnosis.&#8221;?  
+That also appears likely to be the case.  But that isn&#8217;t entirely clear, which is the challenge of extensible bindings.</li>
+</ul>
+
+<p>So this example is most likely valid (based on human review).</p>
+
+<h3>Condition instance #3</h3>
+    
+    <pre class="json">{
+      "resourceType": "Condition",
+      "code": {
+        "coding": [
+          {
+            "system": "http://my-local-organization.com",
+            "code": "XYZ123",
+            "display": "Severe pneumococcal pneumonia"
+          }
+        ]
+      }
+    }
+    </pre>
+    
+    <p>This Condition instance contains a local code.  Is it a valid instance? With the extensible binding, the same questions as before have to be answered:</p>
+    
+    <ul>
+    <li>Is there an applicable code in the bound value set (condition-code) for &#8216;Severe pneumococcal pneumonia&#8217;?
+    In this case SNOMED CT does have the code 233607000 for &#8216;Pneumococcal pneumonia&#8217;.  
+    Since &#8216;Pneumococcal pneumonia&#8217; is a more general meaning which "covers" (i.e. includes or subsumes) 
+    &#8216;Severe pneumococcal pneumonia&#8217;, this Condition instance is not valid and the SNOMED CT code  
+    233607000 for &#8216;Pneumococcal pneumonia&#8217; SHALL be used instead.</li>
+    <li>Does this code fit into the definition of the element in the profile: &#8220;Identification of the condition, problem or diagnosis.&#8221;?  
+    Yes, it does.  But since it was already determined that there is an applicable code in the bound value set that should be
+    used instead, this instance is not valid.</li>
+    </ul>
+    
+    <h3>Condition instance #4</h3>
+    <p>What if we would like to send our local code for &#8216;Severe pneumococcal pneumonia&#8217; in the instance along with
+    the SNOMED CT code 233607000 for &#8216;Pneumococcal pneumonia&#8217;?  Because the data type for Condition.code is CodeableConcept, 
+    we can do that using an additional Coding (translation):
+    </p>
+    
+    <pre class="json">{
+      "resourceType": "Condition",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "233607000",
+            "display": "Pneumococcal pneumonia"
+          },
+          {
+            "system": "http://my-local-organization.com",
+            "code": "XYZ123",
+            "display": "Severe pneumococcal pneumonia"
+          }
+        ]
+      }
+    }
+    </pre>
+    
+    <p>So this is a valid Condition instance which contains both the applicable SNOMED CT code from the bound condition-code
+    value set for &#8216;Pneumococcal pneumonia&#8217; as well as my organization's local code for 
+    &#8216;Severe pneumococcal pneumonia&#8217;.</p>
+        
+<a name="preferred"></a>
+<h2>Preferred bindings</h2>
+<p>The choice of code with a Preferred binding is considerably simpler than for an Extensional binding, because the Preferred
+binding is a suggestion from the developers of the resource or profile about which codes they believe would be best to use to
+represent this data, but in a particular instance you are free to choose to follow that suggestion or not depending on your
+particular desires and needs and there are no specific conformance expectations regarding that choice.   
+</p>
+<p>So in this case we have a Condition.code and the applicable profile binds the code to the value set 
+<a href="http://build.fhir.org/valueset-condition-code.html">http://hl7.org/fhir/ValueSet/condition-code</a>
+with a Preferred binding:</p>
+
+<h3>Condition.code with Preferred binding</h3>
+
+<pre> {
+  "path": "Condition.code",
+  "definition" : "Identification of the condition, problem or diagnosis."
+  "binding": {
+   "strength": "preferred",
+   "valueSetCanonical": "http://hl7.org/fhir/ValueSet/condition-code"
+  }
+ }
+</pre>
+
+<p>With the Preferred binding all of the following instances (and many other possibilities) are valid instances of the 
+Condition resource:</p>
+
+<h3>Condition instance #5</h3>
+
+<pre>{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "39065001",
+        "display": "Burn of ear"
+      }
+    ],
+    "text": "Burnt Ear"
+  }
+}
+</pre>
+
+<h3>Condition instance #6</h3>
+
+<pre class="json">{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "312824007",
+        "display": "Family history of cancer of colon"
+      }
+    ]
+  }
+}
+</pre>
+
+<h3>Condition instance #7</h3>
+    
+<pre class="json">{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "http://my-local-organization.com",
+        "code": "XYZ123",
+        "display": "Severe pneumococcal pneumonia"
+      }
+    ]
+  }
+}
+</pre>
+
+<h3>Condition instance #8</h3>
+
+<pre class="json">{
+  "resourceType": "Condition",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "233607000",
+        "display": "Pneumococcal pneumonia"
+      },
+      {
+        "system": "http://my-local-organization.com",
+        "code": "XYZ123",
+        "display": "Severe pneumococcal pneumonia"
+      }
+    ]
+  }
+}
+</pre>
+
+</div>
+
+[%file newfooter%]
+
+</body>
+</html>
