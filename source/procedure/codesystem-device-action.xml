@@ -7,7 +7,6 @@
   <experimental value="false"/>
   <description value="Example value set for Procedure Device Action code (what happened to a device during a procedure."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-action"/>
   <content value="complete"/>
   <concept>
     <code value="implanted"/>

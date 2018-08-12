@@ -201,7 +201,13 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 <table class="grid">
  <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td> </tr>
  
- <tr><td colspan="3"><b>RESTful API</b></td></tr>
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Scope Changes</b></td></tr>
+ <tr><td>Mark <code>Managing Resource Identity</code> as trial-use, not normative</td><td>FHIR-I: [%GF#16466%]</td> <td>[%diff managing.html Managing Resource Identity%]</td></tr> 
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>References</b></td></tr>
+ <tr><td>Make it explicit about canonical URLs with fragments</td> <td>FHIR-I: [%GF#17357%]</td> <td>[%diff references.html#canonical References%]</td></tr>
+
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>RESTful API</b></td></tr>
  <tr><td>Add fhirVersion parameter to application/fhir mime type</td> <td>FHIR-I: [%GF#16165%]</td> <td>[%diff http.html#version-parameter RESTful API%]</td></tr>
  <tr><td>Fix HTTP response status codes for If-Match header</td> <td>FHIR-I: [%GF#16096%]</td> <td>[%diff http.html Search%]</td></tr>
  <tr><td>Clarify about 406 and 415 status codes</td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
@@ -214,33 +220,46 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
  <tr><td>Mark Conditional Create, Update, Patch, and Delete as Trail-use</td><td>FHIR-I: [%GF#16448%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
  <tr><td>Add mode parameter to /metadata</td> <td>FHIR-I:[%GF#14444%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
 
- <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Data Types%], [%diff xml.html#decimal XML%]</td></tr>
- <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: [%GF#16369%]</td> <td>[%diff search.html#decimal Search%]</td></tr>
- <tr><td>Change Money Type to make it simpler</td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Data Types%]</td></tr>
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Search Page</b></td></tr>
  <tr><td>Rename the "recurse" modifier on _include to "iterate"</td> <td>FHIR-I: [%GF#13602%]</td> <td>[%diff search.html Search%]</td></tr>
  <tr><td>Add rule that search parameter names cannot differ only by case</td> <td>FHIR-I: [%GF#14961%]</td> <td>[%diff search.html Search%]</td></tr>
- <tr><td>Make it clear that contained resources can't contain security labels</td> <td>FHIR-I: [%GF#16622%]</td> <td>[%diff resource.html Resource%]</td></tr>
+ <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: [%GF#16369%]</td> <td>[%diff search.html#decimal Search%]</td></tr>
+ <tr><td>Describe use of :below on token for searching mime types</td> <td>FHIR-I:[%GF#16970%]</td> <td>[%diff search.html#mimetype Search%]</td></tr> 
+
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Operations</b></td></tr>
  <tr><td>Remove support for operations on historical resources</td> <td>FHIR-I: [%GF#17258%]</td> <td>[%diff operations.html Operations%]</td></tr>
- <tr><td>Remove restriction on Bundle containing multiple versions of the same resource</td> <td>FHIR-I: [%GF#17085%]</td> <td>[%diff bundle.html Bundle%]</td></tr>
- <tr><td>Add draft Terminology Service API to FHIRPath</td> <td>FHIR-I: [%GF#15777%]</td> <td>[%diff fhirpath.html FHIRPath%]</td></tr>
- <tr><td>Make it explicit about canonical URLs with fragments</td> <td>FHIR-I: [%GF#17357%]</td> <td>[%diff references.html#canonical References%]</td></tr>
- <tr><td>Add <code>deleted</code> as an issue type</td> <td>FHIR-I: [%GF#17327%]</td> <td>[%diff valueset-issue-type.html Issue Type ValueSet%]</td></tr>
- <tr><td>Fix missing code for 1.0.2 <a href="codesystem-fhir-versions.html">FHIR versions Code System</a></td> <td>FHIR-I: [%GF#16318%]</td> <td>[%diff codesystem-fhir-versions.html FHIR versions Code System%]</td></tr>
- <tr><td>New codes, adjustments, and fixed definitions to codes for OperationOutcome.issue.code</td> <td>FHIR-I: [%GF#16922%], [%GF#17329%]</td> <td>[%diff codesystem-issue-type.html Issue Type Code System%]</td></tr>
- <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional)</td> <td>FHIR-I:[%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr>
- <tr><td>Change Identifier.type codes to use v2 codes now that they are defined</td> <td>FHIR-I:[%GF#9239%], [%GF#16898%]</td> <td>[%diff valueset-identifier-type.html Identifier Type ValueSet%]</td></tr>
- <tr><td>Make it clear and consistent that ElementDefinition specializes BackboneElement</td> <td>FHIR-I:[%GF#17404%]</td> <td>[%diff elementdefinition.html#custom ElementDefinition%]</td></tr> 
- <tr><td>Contained resources can contain Narrative</td> <td>FHIR-I:[%GF#13870%]</td> <td>[%diff references.html#contained References%]</td></tr> 
- <tr><td>Decribe use of :below on token for searching mime types</td> <td>FHIR-I:[%GF#16970%]</td> <td>[%diff search.html#mimetype Search%]</td></tr> 
  <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF#17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr> 
- <tr><td>Add note about namespaces in types in FHIRPath consequence to FHIRPath changes</td><td>FHIR-I: [%GF#15876%]</td> <td>[%diff fhirpath.html#types FHIRPath%]</td></tr> 
- <tr><td>Clarify use of slicing entry</td><td>FHIR-I: [%GF#16309%]</td> <td>[%diff elementdefinition.html#slicing ElementDefinition%]</td></tr> 
- <tr><td>Change Annotation.text to support markdown</td><td>FHIR-I: [%GF#16965%]</td> <td>[%diff datatypes.html#Annotation Annotation Data type%]</td></tr> 
+
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Data Types</b></td></tr>
  <tr><td>Fix OID regex</td><td>FHIR-I: [%GF#16023%]</td> <td>[%diff datatypes.html#oid OID Data type%]</td></tr> 
+ <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Data Types%], [%diff xml.html#decimal XML%]</td></tr>
+ <tr><td>Change Money Type to make it simpler</td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Data Types%]</td></tr>
+ <tr><td>Change Identifier.type codes to use v2 codes now that they are defined</td> <td>FHIR-I:[%GF#9239%], [%GF#16898%]</td> <td>[%diff valueset-identifier-type.html Identifier Type ValueSet%]</td></tr>
+ <tr><td>Change Annotation.text to support markdown</td><td>FHIR-I: [%GF#16965%]</td> <td>[%diff datatypes.html#Annotation Annotation Data type%]</td></tr> 
  <tr><td>Add minutes to Duration value set</td><td>FHIR-I: [%GF#15868%]</td> <td>[%diff valueset-duration-units.html Duration Value Set%]</td></tr> 
+
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>ElementDefinition</b></td></tr>
+ <tr><td>Make it clear and consistent that ElementDefinition specializes BackboneElement</td> <td>FHIR-I:[%GF#17404%]</td> <td>[%diff elementdefinition.html#custom ElementDefinition%]</td></tr> 
+ <tr><td>Clarify use of slicing entry</td><td>FHIR-I: [%GF#16309%]</td> <td>[%diff elementdefinition.html#slicing ElementDefinition%]</td></tr> 
  <tr><td>Make <code>ElementDefinition.constraint.expression</code> optional, and <code>ElementDefinition.constraint.xpath</code> trial-use</td><td>FHIR-I: [%GF#16862%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr> 
  <tr><td>Add <code>ElementDefinition.sliceIsConstraining</code> (trial-use)</td><td>FHIR-I: [%GF#13545%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr> 
- <tr><td>Mark <code>Managing Resource Identity</code> as trial-use, not normative</td><td>FHIR-I: [%GF#16466%]</td> <td>[%diff managing.html Managing Resource Identity%]</td></tr> 
+ <tr><td>Change ElementDefinition.binding.valueSet to only be of type Canonical</td> <td>FHIR-I: [%GF#16055%]</td> <td>[%diff elementdefinition.html Element Definition%]</td></tr>
+ <tr><td>Add a note restricting use of ElementDefinition.contentReference</td> <td>FHIR-I: [%GF#14958%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
+ <tr><td>Make additional constraint on valid Element names</td> <td>FHIR-I: [%GF#15678%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
+
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Resources</b></td></tr>
+ <tr><td>Make it clear that contained resources can't contain security labels</td> <td>FHIR-I: [%GF#16622%]</td> <td>[%diff resource.html Resource%]</td></tr>
+ <tr><td>Contained resources can contain Narrative</td> <td>FHIR-I:[%GF#13870%]</td> <td>[%diff references.html#contained References%]</td></tr> 
+ <tr><td>Remove restriction on Bundle containing multiple versions of the same resource</td> <td>FHIR-I: [%GF#17085%]</td> <td>[%diff bundle.html Bundle%]</td></tr>
+ <tr><td>Add <code>deleted</code> as an issue type</td> <td>FHIR-I: [%GF#17327%]</td> <td>[%diff valueset-issue-type.html Issue Type ValueSet%]</td></tr>
+ <tr><td>New codes, adjustments, and fixed definitions to codes for OperationOutcome.issue.code</td> <td>FHIR-I: [%GF#16922%], [%GF#17329%]</td> <td>[%diff codesystem-issue-type.html Issue Type Code System%]</td></tr>
+ <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional)</td> <td>FHIR-I:[%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr>
+
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Misc</b></td></tr>
+ <tr><td>Add note about namespaces in types in FHIRPath consequence to FHIRPath changes</td><td>FHIR-I: [%GF#15876%]</td> <td>[%diff fhirpath.html#types FHIRPath%]</td></tr> 
+ <tr><td>Add draft Terminology Service API to FHIRPath</td> <td>FHIR-I: [%GF#15777%]</td> <td>[%diff fhirpath.html FHIRPath%]</td></tr>
+ <tr><td>Fix missing code for 1.0.2 <a href="codesystem-fhir-versions.html">FHIR versions Code System</a></td> <td>FHIR-I: [%GF#16318%]</td> <td>[%diff codesystem-fhir-versions.html FHIR versions Code System%]</td></tr>
+ 
 </table>
 
 <a name="terminology"></a>
@@ -254,28 +273,38 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 
 <table class="grid">
  <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td>  </tr>
- <tr><td>Change ElementDefinition.binding.valueSet to only be of type Canonical</td> <td>FHIR-I: [%GF#16055%]</td> <td>[%diff elementdefinition.html Element Definition%]</td></tr>
- <tr><td>Remove "logical" from list of StructureDefinition.kind codes, and update invariants</td> <td>FHIR-I: [%GF#17185%]</td> <td>[%diff valueset-structure-definition-kind.html StructureDefinition.kind%]</td></tr>
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>Scope Changes / General</b></td></tr>
+ <tr><td>Remove ConceptMap from Normative package</td> <td>FHIR-I:[%GF#16363%]</td> <td>[%diff conceptmap.html ConceptMap%]</td></tr> 
+ <tr><td>Change the canonical url for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>Vocab: [%GF#???%]</td> <td>todo</td> </tr>
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>CodeSystem</b></td></tr>
+ <tr><td>Remove codesystem-deprecated extension</td> <td>FHIR-I: [%GF#12312%]</td> <td>[%diff codesystem.html CodeSystem%]</td></tr>
+ <tr><td>Rationalise ordinal value extensions</td> <td>FHIR-I:[%GF#17350%]</td> <td>[%diffx extension-iso21090-ordinal-value.html extension-iso21090-CO-value.html Ordinal Value Extension%]</td></tr>
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>ValueSet</b></td></tr>
+ <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile</td> <td>FHIR-I: [%GF#16337%] &amp; [%GF#16490%]</td> <td>[%diff valueset-operation-expand.html ValueSet.$expand%]</td></tr>
+ <tr><td>Remove ValueSet.$expand.limitedExpansion parameter, and document how to use count instead</td> <td>FHIR-I:[%GF#16449%]</td> <td>[%diff valueset-operation-expand.html ValueSet $expand operation%]</td></tr>
+ <tr><td>Document Valueset.expansion.parameters better, along with new requirements</td> <td>FHIR-I:[%GF#16841%], [%GF#16484%], [%GF#16445%]</td> <td>[%diff valueset.html#parameters ValueSet%]</td></tr> 
+ <tr><td>Move Valueset.extensible to an extension</td> <td>FHIR-I:[%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
+ <tr><td>Add note about Supplements and future rules around expansions </td> <td>FHIR-I:[%GF#16832%]</td> <td>[%diff valueset.html#expansions ValueSet%], [%diff codesystem.html#supplements CodeSystem%]</td></tr> 
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>StructureDefinition</b></td></tr>
+ <tr><td>Update StructureDefinition invariants</td> <td>FHIR-I: [%GF#17185%]</td> <td>[%diff structuredefinition.html StructureDefinition.kind%]</td></tr>
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>CapabilityStatement</b></td></tr>
  <tr><td>Fix minor errors in CapabilityStatement invariants</td> <td>FHIR-I: [%GF#13551%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Add a note restricting use of ElementDefinition.contentReference</td> <td>FHIR-I: [%GF#14958%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
  <tr><td>Make <code>CapabilityStatement.rest.resource.searchParam.definition</code> mandatory for search parameters defined in the FHIR Specification</td> <td>FHIR-I: [%GF#16359%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
  <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: [%GF#16342%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Make additional constraint on valid Element names</td> <td>FHIR-I: [%GF#15678%]</td> <td>[%diff elementdefinition.html ElementDefinition%]</td></tr>
- <tr><td>Remove codesystem-deprecated extension</td> <td>FHIR-I: [%GF#12312%]</td> <td>[%diff codesystem.html CodeSystem%]</td></tr>
- <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile</td> <td>FHIR-I: [%GF#16337%] &amp; [%GF#16490%]</td> <td>[%diff valueset-operation-expand.html ValueSet.$expand%]</td></tr>
- <tr><td>Change the canonical url for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>Vocab: [%GF#???%]</td> <td>todo</td> </tr>
  <tr><td>Change all documentation elements in CapabilityStatement to use markdown</td> <td>FHIR-I: [%GF#14170%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
  <tr><td>Add CapabilityStatement.imports</td> <td>FHIR-I: [%GF#14299%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
  <tr><td>Fix search parameter generation so that context related search parameters are defined</td> <td>FHIR-I:[%GF#17215%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
- <tr><td>Remove ValueSet.$expand.limitedExpansion parameter, and document how to use count instead</td> <td>FHIR-I:[%GF#16449%]</td> <td>[%diff valueset-operation-expand.html ValueSet $expand operation%]</td></tr>
- <tr><td>Rationalise ordinal value extensions</td> <td>FHIR-I:[%GF#17350%]</td> <td>[%diffx extension-iso21090-ordinal-value.html extension-iso21090-CO-value.html Ordinal Value Extension%]</td></tr>
- <tr><td>Document Valueset.expansion.parameters better</td> <td>FHIR-I:[%GF#16841%], [%GF#16484%], [%GF#16445%]</td> <td>[%diff valueset.html#parameters ValueSet%]</td></tr> 
- <tr><td>Move Valueset.extensible to an extension</td> <td>FHIR-I:[%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
- <tr><td>Add note about Supplements and future rules around expansions </td> <td>FHIR-I:[%GF#16832%]</td> <td>[%diff valueset.html#expansions ValueSet%], [%diff codesystem.html#supplements CodeSystem%]</td></tr> 
- <tr><td>Add OperationDefinition.title</td> <td>FHIR-I:[%GF#15982%]</td> <td>[%diff operationdefinition.html OperationDefinition%]</td></tr> 
  <tr><td>Revoke constraint <code>cpb-8</code> on CapabilityStatement.rest cardinality</td> <td>FHIR-I:[%GF#10205%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr> 
- <tr><td>Remove ConceptMap from Normative package</td> <td>FHIR-I:[%GF#16363%]</td> <td>[%diff conceptmap.html ConceptMap%]</td></tr> 
  <tr><td>Mark many attributes in CapabilityStatement as trial-use</td> <td>FHIR-I:[%GF#14444%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr> 
+ 
+ <tr style="background-color: #eeeeee"><td colspan="3"><b>OperationDefinition</b></td></tr>
+ <tr><td>Add OperationDefinition.title</td> <td>FHIR-I:[%GF#15982%]</td> <td>[%diff operationdefinition.html OperationDefinition%]</td></tr> 
+
 </table>
 
 <a name="patient"></a>

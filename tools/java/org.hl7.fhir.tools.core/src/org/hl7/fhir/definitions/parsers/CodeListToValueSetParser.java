@@ -68,7 +68,6 @@ public class CodeListToValueSetParser {
       if (!valueSet.hasCompose())
         valueSet.setCompose(new ValueSetComposeComponent());
       valueSet.getCompose().addInclude().setSystem(cs.getUrl());
-      CodeSystemConvertor.populate(cs, valueSet);
       cs.setVersion(version);
       cs.setCaseSensitive(true);
       cs.setContent(CodeSystemContentMode.COMPLETE);
@@ -145,6 +144,8 @@ public class CodeListToValueSetParser {
     if (!Utilities.noString(v3map)) {
       generateConceptMapV3(v3map, valueSet, cs);
     }
+    if (cs != null)
+      CodeSystemConvertor.populate(cs, valueSet);
   }
 
   private void generateConceptMapV2(String v2map, ValueSet vs, CodeSystem cs) throws Exception {

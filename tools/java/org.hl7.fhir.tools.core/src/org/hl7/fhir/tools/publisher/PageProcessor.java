@@ -6945,32 +6945,45 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String getReferences(String name) throws Exception {
     List<String> refs = new ArrayList<String>();
+    for (String tn : definitions.sortedTypeNames()) {
+      checkReferences(name, refs, tn, definitions.getElementDefn(tn));
+    }
     for (String rn : definitions.sortedResourceNames()) {
-      if (!rn.equals(name)) {
-        ResourceDefn r = definitions.getResourceByName(rn);
-        if (usesReference(r.getRoot(), name)) {
-          refs.add(rn);
-        }
-      }
+      checkReferences(name, refs, rn, definitions.getResourceByName(rn).getRoot());
     }
     if (refs.size() == 1)
-      return "<p>This resource is referenced by <a href=\""+refs.get(0).toLowerCase()+".html\">"+refs.get(0).toLowerCase()+"</a></p>\r\n";
+      return "<p>This resource is referenced by "+renderRef(refs.get(0), name)+"</p>\r\n";
     else if (refs.size() > 1)
-      return "<p>This resource is referenced by "+asLinks(refs)+"</p>\r\n";
+      return "<p>This resource is referenced by "+asLinks(refs, name)+"</p>\r\n";
     else
       return "";
   }
 
-  private String asLinks(List<String> refs) {
+  public void checkReferences(String name, List<String> refs, String rn, ElementDefn r) throws FHIRException {
+    if (usesReference(r, name)) {
+      refs.add(rn);
+    }
+    if (name.equals("CodeSystem") && Utilities.existsInList(rn, "ValueSet", "ConceptMap", "Coding") && !refs.contains(rn))
+      refs.add(rn);
+  }
+
+  private String renderRef(String ref, String name) {
+    if (ref.equals(name))
+      return "itself";
+    else
+      return "<a href=\""+definitions.getSrcFile(name)+".html#"+ref+"\">"+ref+"</a>";
+  }
+
+  private String asLinks(List<String> refs, String name) {
     StringBuilder b = new StringBuilder();
     for (int i = 0; i < refs.size(); i++) {
       if (i == refs.size() - 1)
         b.append(" and ");
       else if (i > 0)
         b.append(", ");
-      b.append("<a href=\"").append(refs.get(i).toLowerCase()).append(".html\">").append(refs.get(i)).append("</a>");
+      b.append(renderRef(refs.get(i), name));
     }
-      return b.toString();
+    return b.toString();
   }
 
   private boolean usesReference(ElementDefn e, String name) {

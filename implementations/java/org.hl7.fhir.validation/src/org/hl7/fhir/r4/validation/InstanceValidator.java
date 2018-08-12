@@ -732,7 +732,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         return rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
       return true;
     } else if (system.startsWith("http://hl7.org/fhir")) {
-      if (Utilities.existsInList(system, "http://hl7.org/fhir/sid/icd-10", "http://hl7.org/fhir/sid/cvx", "http://hl7.org/fhir/sid/icd-10-cm","http://hl7.org/fhir/sid/icd-9","http://hl7.org/fhir/sid/ndc"))
+      if (Utilities.existsInList(system, "http://hl7.org/fhir/sid/icd-10", "http://hl7.org/fhir/sid/cvx", "http://hl7.org/fhir/sid/icd-10-cm","http://hl7.org/fhir/sid/icd-9","http://hl7.org/fhir/sid/ndc","http://hl7.org/fhir/sid/srt"))
         return true; // else don't check these (for now)
       else {
         CodeSystem cs = getCodeSystem(system);
@@ -2556,6 +2556,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         validateObservation(errors, element, stack);
       else if (element.getType().equals("QuestionnaireResponse"))
         validateQuestionannaireResponse(errors, element, stack);
+      else if (element.getType().equals("CodeSystem"))
+        validateCodeSystem(errors, element, stack);
     }
     for (ProfileUsage profileUsage : resourceProfiles.uncheckedProfiles()) {
       profileUsage.setChecked();
@@ -2564,6 +2566,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 //        throw new FHIRException("Profile type mismatch - resource is "+resource.fhirType()+", and profile is for "+profileUsage.getProfile().getType());
       validateElement(hostContext, errors, profileUsage.getProfile(), profileUsage.getProfile().getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
     }
+  }
+
+  private void validateCodeSystem(List<ValidationMessage> errors, Element cs, NodeStack stack) {
+    String url = cs.getNamedChildValue("url");
+    String vsu = cs.getNamedChildValue("valueSet");
+    if (!Utilities.noString(vsu)) {
+      ValueSet vs = context.fetchResource(ValueSet.class, vsu);
+      if (vs != null) {
+        if (rule(errors, IssueType.BUSINESSRULE, stack.getLiteralPath(), vs.hasCompose() && !vs.hasExpansion(), "CodeSystem "+url+" has a 'all system' value set of "+vsu+", but it is an expansion"))
+          if (rule(errors, IssueType.BUSINESSRULE, stack.getLiteralPath(), vs.getCompose().getInclude().size() == 1, "CodeSystem "+url+" has a 'all system' value set of "+vsu+", but doesn't have a single include"))
+            if (rule(errors, IssueType.BUSINESSRULE, stack.getLiteralPath(), vs.getCompose().getInclude().get(0).getSystem().equals(url), "CodeSystem "+url+" has a 'all system' value set of "+vsu+", but doesn't have a matching system ("+vs.getCompose().getInclude().get(0).getSystem()+")")) {
+              rule(errors, IssueType.BUSINESSRULE, stack.getLiteralPath(), !vs.getCompose().getInclude().get(0).hasValueSet()
+                   && !vs.getCompose().getInclude().get(0).hasConcept() && !vs.getCompose().getInclude().get(0).hasFilter(), "CodeSystem "+url+" has a 'all system' value set of "+vsu+", but the include has extra details");
+            }
+      } 
+    } // todo... try getting the value set the other way...
   }
 
   private void validateQuestionannaireResponse(List<ValidationMessage> errors, Element element, NodeStack stack) {

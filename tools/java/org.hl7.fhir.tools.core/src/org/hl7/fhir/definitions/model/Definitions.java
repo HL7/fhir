@@ -47,6 +47,7 @@ import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.utilities.Utilities;
+import org.apache.jena.graph.GetTriple;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -385,7 +386,7 @@ public class Definitions {
     return shared;
   }
 
-  private List<String> sortedNames;
+  private List<String> sortedNames, sortedTypeNames;
   private List<String> vsFixups = new ArrayList<String>();
   private List<NamingSystem> namingSystems = new ArrayList<NamingSystem>();
   private Set<String> structuralPages = new HashSet<String>();
@@ -401,6 +402,17 @@ public class Definitions {
       Collections.sort(sortedNames);
     }
     return sortedNames;
+  }
+
+  public List<String> sortedTypeNames() {
+    if (sortedTypeNames == null) {
+      sortedTypeNames = new ArrayList<String>();
+      sortedTypeNames.addAll(getTypes().keySet());
+      sortedTypeNames.addAll(getStructures().keySet());
+      sortedTypeNames.addAll(getInfrastructure().keySet());
+      Collections.sort(sortedTypeNames);
+    }
+    return sortedTypeNames;
   }
 
   public Map<String, ConceptMap> getConceptMaps() {

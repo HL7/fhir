@@ -71,7 +71,12 @@ public class CodeSystemConvertor {
       cs.addUseContext(cc);
     cs.setPurpose(vs.getPurpose());
     cs.setCopyright(vs.getCopyright());
-    cs.setValueSet(vs.getUrl());  
+    if (vs.hasCompose() && vs.getCompose().getInclude().size() == 1 && vs.getCompose().getExclude().size() == 0
+        && vs.getCompose().getInclude().get(0).getSystem().equals(cs.getUrl()) 
+        && !vs.getCompose().getInclude().get(0).hasValueSet()
+        && !vs.getCompose().getInclude().get(0).hasConcept()
+        && !vs.getCompose().getInclude().get(0).hasFilter())
+      cs.setValueSet(vs.getUrl());
     vs.setImmutable(true);
   }
 
