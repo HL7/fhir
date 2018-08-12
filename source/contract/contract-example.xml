@@ -18,13 +18,15 @@
          <text value="Can't refuse"/>
       </offer>
       <asset>
-         <class>
+         <type>
+           <coding>
             <system value="urn:ietf:rfc:3986"/>
             <code value="RicardianContract"/>
-         </class>
-         <code>
-            <display value="sample"/>
-         </code>
+          </coding>
+         </type>
+         <subtype>
+            <text value="sample"/>
+         </subtype>
          <period>
             <start value="2017-06-01"/>
          </period>
