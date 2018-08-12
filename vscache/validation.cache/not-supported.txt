@@ -98,6 +98,7 @@ http://samplevisionreasoncodes.com
 http:/acme.ped/apgarmuscletone
 http:/acme.ped/apgarreflexirritability
 http://ema.europa.eu/example/deviceSterilisationRequirementIndicator
+http://hl7.org/fhir/sid/srt
 http://ema.europa.eu/example/authorisationstatus
 http://ema.europa.eu/example/packageItemContainerMaterial
 http://www.ensembl.org
