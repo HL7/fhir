@@ -1478,7 +1478,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return false;
   }
 
-  private String buildChoiceElementList() {
+  private String buildChoiceElementList() throws Exception {
     StringBuilder b = new StringBuilder();
     for (String s : sorted(definitions.getTypes().keySet())) {
       ElementDefn t = definitions.getTypes().get(s);
@@ -1493,12 +1493,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private void buildChoiceElementList(StringBuilder b, String s, ElementDefn t) {
+  private void buildChoiceElementList(StringBuilder b, String s, ElementDefn t) throws Exception {
     if (t.getName().contains("[x]")) {
+      boolean normative = false;
+      if (definitions.hasResource(s))
+        normative = definitions.getResourceByName(s).getStatus() == StandardsStatus.NORMATIVE;
+      else if (definitions.hasElementDefn(s))
+        normative = definitions.getElementDefn(s).getStandardsStatus() == StandardsStatus.NORMATIVE;
+      String ns = normative ? " <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>" : "";
       if (definitions.getTypes().containsKey(s))
-        b.append("<li><a href=\"datatypes-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
+        b.append("<li><a href=\"datatypes-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a>"+ns+"</li>");
       else
-        b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
+        b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a>"+ns+"</li>");
     }
     for (ElementDefn e : t.getElements())
       buildChoiceElementList(b, s, e);    
@@ -1576,14 +1582,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if (i > -1)
           s = s.substring(0, i)+s.substring(i+type.toCode().length()+1);
       
-        b.append("  <li><a href=\""+p.getPage()+"\">"+s+"</a> "+
-          "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          p.getPage()+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+p.getPage()+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
-          "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+p.getPage()+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+p.getPage()+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");
+        String pn = p.getPage();
+        String pnd = Utilities.changeFileExt(pn, "-definitions.html");
+
+        if (pageExists(pnd))
+          b.append("  <li><a href=\""+pn+"\">"+s+"</a> "+
+              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>\r\n"+
+              "<br/>+ Defns: <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+ pnd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pnd+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+              "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pnd+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pnd+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");
+        else
+          b.append("  <li><a href=\""+pn+"\">"+s+"</a> "+
+            "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F"+          pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to R3\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #FBF8D5; padding: 2px 2px 2px 2px\">&Delta;R</a>  "+
+            "<a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+pn+"&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+pn+"\" no-external=\"true\" title=\"Difference to last ballot\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");
       }
       b.append("</ul>");      
       b.append("</td>\r\n");
       //         src = s1+"<a href=\"\">diff</a>"+s3;
 
+    }
+  }
+
+  private boolean pageExists(String pnd) {
+    try {
+      return new File(Utilities.path(folders.dstDir, pnd)).exists();
+    } catch (IOException e) {
+      return false;
     }
   }
 

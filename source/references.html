@@ -346,16 +346,8 @@ which is shown as canonical(Any) in this specification. Such references SHALL on
 <a name="canonical-fragments"></a>
 <h3>Canonical Reference and Fragments</h3>
 <p>
-Canonical URLs may include fragments in two different cases:
-</p>
-<ul>
- <li>Referencing Contained Resources</li>
- <li>Referencing particular data elements inside resources</li>
-</ul>
-
-<p><b>Referencing Contained Resources</b></p>
-
-<p>When the target of a canonical reference is a contained resource, the 
+Canonical URLs may include a fragment when the reference is to a contained Contained Resources.
+When the target of a canonical reference is a contained resource, the 
 canonical reference will have a fragment as part of the URL:
 </p>
 <pre>
@@ -371,23 +363,6 @@ The common case for this is internal references:
 <p>
 Which is the form for references to the contained value set inside the above example questionnaire.
 </p>
-
-<p><b>Referencing particular data elements inside resources</b></p>
-<p>
-Canonical references can have a targetProfile of "<a href="elementdefinition.html">http://hl7.org/fhir/ElementDefinition</a>".
-In this case, the canonical url has general format of a StructureDefinition canonical url followed by a '#' and then the path of an 
-element definition within that StructureDefinition, using the document value for the <a href="elementdefinition.html#id">ElementDefinition.id</a>:
-</p>
-<pre>
-  &lt;definition value=&quot;http://hl7.org/fhir/StructureDefinition/Observation#Observation.dataAbsentReason&quot;/&gt;
-</pre>
-<p>
-If the targetProfile is "<code>http://hl7.org/fhir/ElementDefinition</code>", and the profile is pointing to just a 
-StructureDefinition (no # fragment), then the reference is referring to the root element of the StructureDefinition
-(this is useful for referencing simple <a href="structuredefinition.html#logical">logical models</a>).
-</p>
-
-
 
 <a name="rendering"></a>
 <h3>Rendering References in Resource Narratives</h3>
