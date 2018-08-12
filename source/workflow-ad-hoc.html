@@ -51,6 +51,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Requires that the placer have authority to post directly to the placer's system</li>
             <li>Requires that the "request" be expressible as a simple creation, update or operation invocation</li>
             <li>Only works for "fulfillment" requests for Request resources - can't handle request for state changes or information</li>
+            <li>Only way to cancel the request is with a separate custom operation</li>
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
@@ -87,6 +88,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>No indication of agreement to act on the request</li>
             <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
             <li>This completely reverses the usual provenance of resources, as the request only exists on the fulfiller's system, and the event only exists on the placer's system. This greatly limits the use of these resources for any other purpose.</li>
+            <li>The only way to stop fulfillment is to update the Request to have a 'cancelled' status</li>
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
@@ -125,6 +127,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>No indication of agreement to act on the request</li>
             <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
             <li>Placer might not know when (or if) filler system has retrieved the request</li>
+            <li>If the Request is cancelled, there's no guarantee the filler will notice or act on the change</li>
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
@@ -198,6 +201,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
             <li>Additional complexity of using Task</li>
             <li>Need message delivery infrastructure in place</li>
+            <li>Cancellation requires a separate purpose-specific message</li>
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
@@ -212,8 +216,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Steps</h4>
         <ol>
             <li>Placer may create and store a Request resource on their own system or a queue server.</li>
-            <li>Placer invokes a service on the filler system saying "please fulfill this order", including the content or a reference to the request resource and any other relevant data
-            </li>
+            <li>Placer invokes a service on the filler system saying "please fulfill this order", including the content or a reference to the request resource and any other relevant data</li>
             <li>Filler system responds (synchronously if using HTTP, but may be asynchronous if using SOAP or other transport mechanisms) with conformation of receipt and, optionally indication of intention to fulfill and/or results</li>
             <li></li>
         </ol>
@@ -235,24 +238,6 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             <i>TODO: needs review and update. Possibly add options about using messaging and/or services instead of polling/subscription in above scenarios</i>
         </p>
-        <h4>POST of "request" resource for filler system, response via Task</h4>
-        <p>This is a variation of<a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request, and be made aware of the changes to
-            the other resources via subscription or polling.
-        </p>
-        <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optionh-a.png" />
-        <ol>
-            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. ServiceRequest etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
-                queue server system and sets a "tag" on the resource that indicates the request is "actionable"</li>
-            <li>Filler POSTs a Task resource to its own system or a queue server system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
-            <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>
-            <li>Fulfiller may update the Task to indicate interim progress notes</li>
-            <li>Placer either polls the Task to note acceptance and changes or uses a subscription to determine the same</li>
-            <li>Fulfiller POSTs an event resource to its own system or to a queue server system</li>
-            <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
-            <li>Placer system becomes aware of the update via polling or subscription</li>
-            <li>Placer system retrieves the event</li>
-            <li>Placer system marks the request as "complete"</li>
-        </ol>
         <h4>Querying the status of a workflow using REST</h4>
         <ol>
             <li>Placer sends query for Task(s) that have a focus of the request of interest to a system (placer system, queue server or filler) that holds tasks related to their request.</li>
