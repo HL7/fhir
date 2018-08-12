@@ -33,7 +33,7 @@
     <content value="complete"/>
     <concept>
         <code value="temp"/>
-        <display value="temp"/>
+        <display value="Temporary Value"/>
         <definition
             value="To be completed"
         />

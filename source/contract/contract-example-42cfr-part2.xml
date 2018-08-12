@@ -63,16 +63,11 @@
     </offer>
     
     <asset>
-      <dataPeriod>
+      <period>
         <start value="2013-11-01T21:18:27-04:00"/>
         <end value="2019-11-01T21:18:27-04:00"/>
-      </dataPeriod>
-      <data>
-        <meaning value="instance"/>
-        <reference>
-          <display value="Some data"/>
-        </reference>
-      </data>
+      </period>
+      <!--
       <securityLabel>
         <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
         <code value="R"/>
@@ -117,50 +112,52 @@
         <code value="NORDSCLCD"/>
         <display value="no redisclosure without consent directive"/>
       </securityLabel>
+    -->
     </asset>
 
-    <agent>
-      <actor>
-        <reference value="Organization/f001"/>
-        <display value="VA Ann Arbor Healthcare System"/>
-      </actor>
-      <role>
-        <coding>
-          <system value="http://org.mdhhs.fhir.consent-actor-type"/>
-          <code value="IR"/>
-          <display value="Recipient"/>
-        </coding>
-        <text value="Recipient of restricted health information"/>
-      </role>
-    </agent>
-    <agent>
-      <actor>
-        <reference value="Organization/2"/>
-        <display value="Community Mental Health Clinic"/>
-      </actor>
-      <role>
-        <coding>
-          <system value="http://org.mdhhs.fhir.consent-actor-type"/>
-          <code value="IS"/>
-          <display value="Sender"/>
-        </coding>
-        <text value="Sender of restricted health information"/>
-      </role>
-    </agent>
-
     <action>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/contractaction"/>
-        <code value="action-a"/>
-      </coding>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/contractaction"/>
+          <code value="action-a"/>
+        </coding>
+      </type>
+      <subject>
+        <reference>
+          <reference value="Organization/f001"/>
+          <display value="VA Ann Arbor Healthcare System"/>
+        </reference>
+        <role>
+          <coding>
+            <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+            <code value="IR"/>
+            <display value="Recipient"/>
+          </coding>
+          <text value="Recipient of restricted health information"/>
+        </role>
+      </subject>
+      <subject>
+        <reference>
+          <reference value="Organization/2"/>
+          <display value="Community Mental Health Clinic"/>
+        </reference>
+        <role>
+          <coding>
+            <system value="http://org.mdhhs.fhir.consent-actor-type"/>
+            <code value="IS"/>
+            <display value="Sender"/>
+          </coding>
+          <text value="Sender of restricted health information"/>
+        </role>
+      </subject>
+      <intent>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+          <code value="HPRGRP"/>
+        </coding>
+      </intent>
     </action>
     
-    <actionReason>
-      <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-        <code value="HPRGRP"/>
-      </coding>
-    </actionReason>
 
   </term>
 

@@ -73,11 +73,6 @@
         value="Withhold this order and any results or related objects from specified nurse provider."
       />
     </offer>
-    <agent>
-      <actor>
-        <reference value="Patient/f001"/>
-      </actor>
-    </agent>
   </term>
 
   <signer>
