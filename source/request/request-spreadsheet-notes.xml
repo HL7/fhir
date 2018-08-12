@@ -20,12 +20,12 @@
   <a name="fulfillment"></a>
   <h2>Fulfillment/Execution information</h2>
   <p>
-    Request resources describe what activity is desired/authorized.  They don't describe what activity has actually
-    occurred against the request.  I.e. The request resource will not indicate actual performer, actual performance
+    Request resources describe what activity is desired/authorized.  Requests do not track the execution/fulfillment 
+    of the plan, proposal or order.  I.e. the request resource will not indicate actual performer, actual performance
     time, actual action performed, etc.  Information about what action (if any) has occurred against the request is
     tracked using the corresponding <a href="event.html">Event</a> resource(s).  Events that are associated with
     the request should have a <code>basedOn</code> link referencing the request.  In addition, a linkage can be
-    established (and information about progress in execution) may be found in <a href="task.html">Task</a> resources
+    established (and information about progress of execution) may be found in <a href="task.html">Task</a> resources
     that have a focus of this request.
   </p>
 
