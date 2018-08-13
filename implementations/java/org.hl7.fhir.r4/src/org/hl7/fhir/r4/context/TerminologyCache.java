@@ -301,8 +301,8 @@ public class TerminologyCache {
 
   private void load() throws FileNotFoundException, IOException, FHIRException {
     for (String fn : new File(folder).list()) {
-      if (fn.endsWith(".cache")) {
-        System.out.println("Load "+fn);
+      if (fn.endsWith(".cache") && !fn.equals("validation.cache")) {
+        //  System.out.println("Load "+fn);
         String title = fn.substring(0, fn.lastIndexOf("."));
         NamedCache nc = new NamedCache();
         nc.name = title;

@@ -8885,7 +8885,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     workerContext = new BuildWorkerContext(definitions, client, definitions.getCodeSystems(), definitions.getValuesets(), conceptMaps, profiles, guides, folders.rootDir);
     workerContext.setDefinitions(definitions);
     workerContext.setLogger(this);
+    log("Load Terminology Cache from "+Utilities.path(folders.rootDir, "vscache"), LogMessageType.Process);
     workerContext.initTS(Utilities.path(folders.rootDir, "vscache"));
+    log("  .. loaded", LogMessageType.Process);
     vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups(), definitions.getStyleExemptions());
     breadCrumbManager.setContext(workerContext);
 
