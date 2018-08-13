@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -56,7 +56,7 @@ public class ResearchStudy extends DomainResource {
         ACTIVE, 
         /**
          * Study is completed prematurely and will not resume; patients are no longer examined nor treated.
-Tagged
+Tagged.
          */
         ADMINISTRATIVELYCOMPLETED, 
         /**
@@ -165,7 +165,7 @@ or intervention but are still being followed according to the primary objective 
         public String getDefinition() {
           switch (this) {
             case ACTIVE: return "Study is opened for accrual.";
-            case ADMINISTRATIVELYCOMPLETED: return "Study is completed prematurely and will not resume; patients are no longer examined nor treated.\nTagged";
+            case ADMINISTRATIVELYCOMPLETED: return "Study is completed prematurely and will not resume; patients are no longer examined nor treated.\nTagged.";
             case APPROVED: return "Protocol is approved by the review board.";
             case CLOSEDTOACCRUAL: return "Study is closed for accrual; patients can be examined and treated.";
             case CLOSEDTOACCRUALANDINTERVENTION: return "Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study.";

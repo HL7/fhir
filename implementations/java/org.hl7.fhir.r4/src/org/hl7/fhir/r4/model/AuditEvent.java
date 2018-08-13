@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -487,14 +487,14 @@ public class AuditEvent extends DomainResource {
          * Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.
          */
         @Child(name = "altId", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Alternative User id e.g. authentication", formalDefinition="Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available." )
+        @Description(shortDefinition="Alternative User identity", formalDefinition="Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available." )
         protected StringType altId;
 
         /**
          * Human-meaningful name for the agent.
          */
         @Child(name = "name", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Human-meaningful name for the agent", formalDefinition="Human-meaningful name for the agent." )
+        @Description(shortDefinition="Human friendly name for the agent", formalDefinition="Human-meaningful name for the agent." )
         protected StringType name;
 
         /**
@@ -3836,17 +3836,17 @@ public class AuditEvent extends DomainResource {
  /**
    * Search parameter: <b>altid</b>
    * <p>
-   * Description: <b>Alternative User id e.g. authentication</b><br>
+   * Description: <b>Alternative User identity</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.agent.altId</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="altid", path="AuditEvent.agent.altId", description="Alternative User id e.g. authentication", type="token" )
+  @SearchParamDefinition(name="altid", path="AuditEvent.agent.altId", description="Alternative User identity", type="token" )
   public static final String SP_ALTID = "altid";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>altid</b>
    * <p>
-   * Description: <b>Alternative User id e.g. authentication</b><br>
+   * Description: <b>Alternative User identity</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.agent.altId</b><br>
    * </p>
@@ -3876,17 +3876,17 @@ public class AuditEvent extends DomainResource {
  /**
    * Search parameter: <b>agent-name</b>
    * <p>
-   * Description: <b>Human-meaningful name for the agent</b><br>
+   * Description: <b>Human friendly name for the agent</b><br>
    * Type: <b>string</b><br>
    * Path: <b>AuditEvent.agent.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent-name", path="AuditEvent.agent.name", description="Human-meaningful name for the agent", type="string" )
+  @SearchParamDefinition(name="agent-name", path="AuditEvent.agent.name", description="Human friendly name for the agent", type="string" )
   public static final String SP_AGENT_NAME = "agent-name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent-name</b>
    * <p>
-   * Description: <b>Human-meaningful name for the agent</b><br>
+   * Description: <b>Human friendly name for the agent</b><br>
    * Type: <b>string</b><br>
    * Path: <b>AuditEvent.agent.name</b><br>
    * </p>
@@ -3941,7 +3941,7 @@ public class AuditEvent extends DomainResource {
    * Path: <b>AuditEvent.agent.who, AuditEvent.entity.what</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="AuditEvent.agent.who | AuditEvent.entity.what", description="Identifier of who", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="AuditEvent.agent.who.where(resolve() is Patient) | AuditEvent.entity.what.where(resolve() is Patient)", description="Identifier of who", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

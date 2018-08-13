@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Endpoint extends DomainResource {
 
     public enum EndpointStatus {
         /**
-         * This endpoint is expected to be active and can be used
+         * This endpoint is expected to be active and can be used.
          */
         ACTIVE, 
         /**
-         * This endpoint is temporarily unavailable
+         * This endpoint is temporarily unavailable.
          */
         SUSPENDED, 
         /**
-         * This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken
+         * This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken.
          */
         ERROR, 
         /**
-         * This endpoint is no longer to be used
+         * This endpoint is no longer to be used.
          */
         OFF, 
         /**
@@ -122,10 +122,10 @@ public class Endpoint extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "This endpoint is expected to be active and can be used";
-            case SUSPENDED: return "This endpoint is temporarily unavailable";
-            case ERROR: return "This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken";
-            case OFF: return "This endpoint is no longer to be used";
+            case ACTIVE: return "This endpoint is expected to be active and can be used.";
+            case SUSPENDED: return "This endpoint is temporarily unavailable.";
+            case ERROR: return "This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken.";
+            case OFF: return "This endpoint is no longer to be used.";
             case ENTEREDINERROR: return "This instance should not have been part of this patient's medical record.";
             case TEST: return "This endpoint is not intended for production usage.";
             default: return "?";
@@ -1157,7 +1157,7 @@ public class Endpoint extends DomainResource {
    * Path: <b>Endpoint.managingOrganization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="Endpoint.managingOrganization", description="The organization that is managing the endpoint", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="organization", path="Endpoint.managingOrganization.where(resolve() is Organization)", description="The organization that is managing the endpoint", type="reference", target={Organization.class } )
   public static final String SP_ORGANIZATION = "organization";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>organization</b>

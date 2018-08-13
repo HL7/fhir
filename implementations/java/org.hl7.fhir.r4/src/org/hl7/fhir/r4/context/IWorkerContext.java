@@ -286,7 +286,7 @@ public interface IWorkerContext {
     }
 
     public boolean isOk() {
-      return definition != null;
+      return severity == null || severity == IssueSeverity.INFORMATION || severity == IssueSeverity.WARNING;
     }
 
     public String getDisplay() {
@@ -313,6 +313,16 @@ public interface IWorkerContext {
 
     public TerminologyServiceErrorClass getErrorClass() {
       return errorClass;
+    }
+
+    public ValidationResult setSeverity(IssueSeverity severity) {
+      this.severity = severity;
+      return this;
+    }
+
+    public ValidationResult setMessage(String message) {
+      this.message = message;
+      return this;
     }
     
     
@@ -348,6 +358,7 @@ public interface IWorkerContext {
    * @return
    */
   public ValidationResult validateCode(String system, String code, String display, ValueSet vs);
+  public ValidationResult validateCode(String code, ValueSet vs);
   public ValidationResult validateCode(Coding code, ValueSet vs);
   public ValidationResult validateCode(CodeableConcept code, ValueSet vs);
   

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -158,15 +158,15 @@ public class ListResource extends DomainResource {
 
     public enum ListMode {
         /**
-         * This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes
+         * This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.
          */
         WORKING, 
         /**
-         * This list was prepared as a snapshot. It should not be assumed to be current
+         * This list was prepared as a snapshot. It should not be assumed to be current.
          */
         SNAPSHOT, 
         /**
-         * A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter
+         * A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter.
          */
         CHANGES, 
         /**
@@ -205,9 +205,9 @@ public class ListResource extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case WORKING: return "This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes";
-            case SNAPSHOT: return "This list was prepared as a snapshot. It should not be assumed to be current";
-            case CHANGES: return "A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter";
+            case WORKING: return "This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes.";
+            case SNAPSHOT: return "This list was prepared as a snapshot. It should not be assumed to be current.";
+            case CHANGES: return "A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter.";
             default: return "?";
           }
         }
@@ -1719,17 +1719,17 @@ public class ListResource extends DomainResource {
  /**
    * Search parameter: <b>notes</b>
    * <p>
-   * Description: <b>The annotation  - text content</b><br>
+   * Description: <b>The annotation  - text content (as markdown)</b><br>
    * Type: <b>string</b><br>
    * Path: <b>List.note.text</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="notes", path="List.note.text", description="The annotation  - text content", type="string" )
+  @SearchParamDefinition(name="notes", path="List.note.text", description="The annotation  - text content (as markdown)", type="string" )
   public static final String SP_NOTES = "notes";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>notes</b>
    * <p>
-   * Description: <b>The annotation  - text content</b><br>
+   * Description: <b>The annotation  - text content (as markdown)</b><br>
    * Type: <b>string</b><br>
    * Path: <b>List.note.text</b><br>
    * </p>
@@ -1770,7 +1770,7 @@ public class ListResource extends DomainResource {
    * Path: <b>List.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="List.subject", description="If all resources have the same subject", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="List.subject.where(resolve() is Patient)", description="If all resources have the same subject", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

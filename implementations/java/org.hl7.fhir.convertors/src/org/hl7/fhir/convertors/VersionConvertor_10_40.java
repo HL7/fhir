@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu2.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.model.Annotation;
+import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
@@ -773,7 +774,10 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.Coding t : src.getType())
       tgt.addType(convertCoding(t));
     tgt.setWhen(src.getWhen());
-    tgt.setWho(convertType(src.getWho()));
+    if (src.hasWhoUriType())
+      tgt.setWho(new org.hl7.fhir.r4.model.Reference(src.getWhoUriType().getValue()));
+    else
+      tgt.setWho(convertReference(src.getWhoReference()));
     tgt.setSigFormat(src.getContentType());
     tgt.setData(src.getBlob());
     return tgt;
@@ -2980,7 +2984,7 @@ public class VersionConvertor_10_40 {
     case DRAFT: return org.hl7.fhir.r4.model.CarePlan.CarePlanStatus.DRAFT;
     case ACTIVE: return org.hl7.fhir.r4.model.CarePlan.CarePlanStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.r4.model.CarePlan.CarePlanStatus.COMPLETED;
-    case CANCELLED: return org.hl7.fhir.r4.model.CarePlan.CarePlanStatus.CANCELLED;
+    case CANCELLED: return org.hl7.fhir.r4.model.CarePlan.CarePlanStatus.REVOKED;
     default: return org.hl7.fhir.r4.model.CarePlan.CarePlanStatus.NULL;
     }
   }
@@ -2993,7 +2997,7 @@ public class VersionConvertor_10_40 {
     case DRAFT: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.DRAFT;
     case ACTIVE: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.COMPLETED;
-    case CANCELLED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.CANCELLED;
+    case REVOKED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.CANCELLED;
     default: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.NULL;
     }
   }
@@ -3352,9 +3356,9 @@ public class VersionConvertor_10_40 {
     switch (src) {
     case INPROGRESS: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.COMPLETED;
-    case SUSPENDED: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.SUSPENDED;
+    case SUSPENDED: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.ONHOLD;
     case REJECTED: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.ENTEREDINERROR;
-    case FAILED: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.ABORTED;
+    case FAILED: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.NOTDONE;
     default: return org.hl7.fhir.r4.model.Communication.CommunicationStatus.NULL;
     }
   }
@@ -3365,9 +3369,9 @@ public class VersionConvertor_10_40 {
     switch (src) {
     case INPROGRESS: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.COMPLETED;
-    case SUSPENDED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.SUSPENDED;
+    case ONHOLD: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.SUSPENDED;
     case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.REJECTED;
-    case ABORTED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.FAILED;
+    case NOTDONE: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.FAILED;
     default: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.NULL;
     }
   }
@@ -3481,7 +3485,7 @@ public class VersionConvertor_10_40 {
     case ACCEPTED: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
     case INPROGRESS: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.COMPLETED;
-    case SUSPENDED: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.SUSPENDED;
+    case SUSPENDED: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.ONHOLD;
     case REJECTED: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.ENTEREDINERROR;
 //    case FAILED: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.FAILED;
     default: return org.hl7.fhir.r4.model.CommunicationRequest.CommunicationRequestStatus.NULL;
@@ -3499,7 +3503,7 @@ public class VersionConvertor_10_40 {
 //    case ACCEPTED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.ACCEPTED;
     case ACTIVE: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.COMPLETED;
-    case SUSPENDED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.SUSPENDED;
+    case ONHOLD: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.SUSPENDED;
     case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.REJECTED;
 //    case FAILED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.FAILED;
     default: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.NULL;
@@ -3533,7 +3537,7 @@ public class VersionConvertor_10_40 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setClass_(convertCodeableConcept(src.getClass_()));
+    tgt.addCategory(convertCodeableConcept(src.getClass_()));
     tgt.setTitle(src.getTitle());
     tgt.setStatus(convertCompositionStatus(src.getStatus()));
     try {
@@ -3564,7 +3568,8 @@ public class VersionConvertor_10_40 {
     if (src.hasDate())
       tgt.setDate(src.getDate());
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setClass_(convertCodeableConcept(src.getClass_()));
+    if (src.hasCategory())
+      tgt.setClass_(convertCodeableConcept(src.getCategoryFirstRep()));
     tgt.setTitle(src.getTitle());
     tgt.setStatus(convertCompositionStatus(src.getStatus()));
     tgt.setConfidentiality(src.getConfidentiality().toCode());
@@ -4778,293 +4783,293 @@ public class VersionConvertor_10_40 {
     }
   }
 
-  public org.hl7.fhir.r4.model.Contract convertContract(org.hl7.fhir.dstu2.model.Contract src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract tgt = new org.hl7.fhir.r4.model.Contract();
-    copyDomainResource(src, tgt);
-    tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setIssued(src.getIssued());
-    tgt.setApplies(convertPeriod(src.getApplies()));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getSubject())
-      tgt.addSubject(convertReference(t));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getAuthority())
-      tgt.addAuthority(convertReference(t));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getDomain())
-      tgt.addDomain(convertReference(t));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getSubType())
-      tgt.addSubType(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu2.model.Contract.SignatoryComponent t : src.getSigner())
-      tgt.addSigner(convertSignatoryComponent(t));
-    for (org.hl7.fhir.dstu2.model.Contract.TermComponent t : src.getTerm())
-      tgt.addTerm(convertTermComponent(t));
-    for (org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent t : src.getFriendly())
-      tgt.addFriendly(convertFriendlyLanguageComponent(t));
-    for (org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent t : src.getLegal())
-      tgt.addLegal(convertLegalLanguageComponent(t));
-    for (org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent t : src.getRule())
-      tgt.setRule(convertComputableLanguageComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract convertContract(org.hl7.fhir.r4.model.Contract src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract tgt = new org.hl7.fhir.dstu2.model.Contract();
-    copyDomainResource(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
-    tgt.setIssued(src.getIssued());
-    tgt.setApplies(convertPeriod(src.getApplies()));
-    for (org.hl7.fhir.r4.model.Reference t : src.getSubject())
-      tgt.addSubject(convertReference(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getAuthority())
-      tgt.addAuthority(convertReference(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getDomain())
-      tgt.addDomain(convertReference(t));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getSubType())
-      tgt.addSubType(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.Contract.SignatoryComponent t : src.getSigner())
-      tgt.addSigner(convertSignatoryComponent(t));
-    for (org.hl7.fhir.r4.model.Contract.TermComponent t : src.getTerm())
-      tgt.addTerm(convertTermComponent(t));
-    for (org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent t : src.getFriendly())
-      tgt.addFriendly(convertFriendlyLanguageComponent(t));
-    for (org.hl7.fhir.r4.model.Contract.LegalLanguageComponent t : src.getLegal())
-      tgt.addLegal(convertLegalLanguageComponent(t));
-    if (src.hasRule())
-      tgt.addRule(convertComputableLanguageComponent(src.getRule()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.AgentComponent convertAgentComponent(org.hl7.fhir.dstu2.model.Contract.ActorComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.AgentComponent tgt = new org.hl7.fhir.r4.model.Contract.AgentComponent();
-    copyElement(src, tgt);
-    tgt.setActor(convertReference(src.getEntity()));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getRole())
-      tgt.addRole(convertCodeableConcept(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.ActorComponent convertAgentComponent(org.hl7.fhir.r4.model.Contract.AgentComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.ActorComponent tgt = new org.hl7.fhir.dstu2.model.Contract.ActorComponent();
-    copyElement(src, tgt);
-    tgt.setEntity(convertReference(src.getActor()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getRole())
-      tgt.addRole(convertCodeableConcept(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.SignatoryComponent convertSignatoryComponent(org.hl7.fhir.dstu2.model.Contract.SignatoryComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.SignatoryComponent tgt = new org.hl7.fhir.r4.model.Contract.SignatoryComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setParty(convertReference(src.getParty()));
-    if (src.hasSignature())
-      tgt.addSignature(new org.hl7.fhir.r4.model.Signature().setData(src.getSignature().getBytes()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.SignatoryComponent convertSignatoryComponent(org.hl7.fhir.r4.model.Contract.SignatoryComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.SignatoryComponent tgt = new org.hl7.fhir.dstu2.model.Contract.SignatoryComponent();
-    copyElement(src, tgt);
-    tgt.setType(convertCoding(src.getType()));
-    tgt.setParty(convertReference(src.getParty()));
-    for (org.hl7.fhir.r4.model.Signature t : src.getSignature())
-      tgt.setSignature(Base64.encodeBase64String(t.getData()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.ValuedItemComponent convertValuedItemComponent(org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.ValuedItemComponent tgt = new org.hl7.fhir.r4.model.Contract.ValuedItemComponent();
-    copyElement(src, tgt);
-    tgt.setEntity(convertType(src.getEntity()));
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setEffectiveTime(src.getEffectiveTime());
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-    tgt.setFactor(src.getFactor());
-    tgt.setPoints(src.getPoints());
-    tgt.setNet(convertMoney(src.getNet()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent convertValuedItemComponent(org.hl7.fhir.r4.model.Contract.ValuedItemComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent tgt = new org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent();
-    copyElement(src, tgt);
-    tgt.setEntity(convertType(src.getEntity()));
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setEffectiveTime(src.getEffectiveTime());
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-    tgt.setFactor(src.getFactor());
-    tgt.setPoints(src.getPoints());
-    tgt.setNet(convertMoney(src.getNet()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.TermComponent convertTermComponent(org.hl7.fhir.dstu2.model.Contract.TermComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.TermComponent tgt = new org.hl7.fhir.r4.model.Contract.TermComponent();
-    copyElement(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setIssued(src.getIssued());
-    tgt.setApplies(convertPeriod(src.getApplies()));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setSubType(convertCodeableConcept(src.getSubType()));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getAction())
-      tgt.addAction(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getActionReason())
-      tgt.addActionReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu2.model.Contract.TermActorComponent t : src.getActor())
-      tgt.addAgent(convertTermAgentComponent(t));
-    for (org.hl7.fhir.dstu2.model.Contract.TermComponent t : src.getGroup())
-      tgt.addGroup(convertTermComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.TermComponent convertTermComponent(org.hl7.fhir.r4.model.Contract.TermComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.TermComponent tgt = new org.hl7.fhir.dstu2.model.Contract.TermComponent();
-    copyElement(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setIssued(src.getIssued());
-    tgt.setApplies(convertPeriod(src.getApplies()));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setSubType(convertCodeableConcept(src.getSubType()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getAction())
-      tgt.addAction(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getActionReason())
-      tgt.addActionReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.Contract.AgentComponent t : src.getAgent())
-      tgt.addActor(convertTermAgentComponent(t));
-    for (org.hl7.fhir.r4.model.Contract.TermComponent t : src.getGroup())
-      tgt.addGroup(convertTermComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.AgentComponent convertTermAgentComponent(org.hl7.fhir.dstu2.model.Contract.TermActorComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.AgentComponent tgt = new org.hl7.fhir.r4.model.Contract.AgentComponent();
-    copyElement(src, tgt);
-    tgt.setActor(convertReference(src.getEntity()));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getRole())
-      tgt.addRole(convertCodeableConcept(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.TermActorComponent convertTermAgentComponent(org.hl7.fhir.r4.model.Contract.AgentComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.TermActorComponent tgt = new org.hl7.fhir.dstu2.model.Contract.TermActorComponent();
-    copyElement(src, tgt);
-    tgt.setEntity(convertReference(src.getActor()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getRole())
-      tgt.addRole(convertCodeableConcept(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.ValuedItemComponent convertTermValuedItemComponent(org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.ValuedItemComponent tgt = new org.hl7.fhir.r4.model.Contract.ValuedItemComponent();
-    copyElement(src, tgt);
-    tgt.setEntity(convertType(src.getEntity()));
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setEffectiveTime(src.getEffectiveTime());
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-    tgt.setFactor(src.getFactor());
-    tgt.setPoints(src.getPoints());
-    tgt.setNet(convertMoney(src.getNet()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent convertTermValuedItemComponent(org.hl7.fhir.r4.model.Contract.ValuedItemComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent tgt = new org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent();
-    copyElement(src, tgt);
-    tgt.setEntity(convertType(src.getEntity()));
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setEffectiveTime(src.getEffectiveTime());
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
-    tgt.setFactor(src.getFactor());
-    tgt.setPoints(src.getPoints());
-    tgt.setNet(convertMoney(src.getNet()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent convertFriendlyLanguageComponent(org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent tgt = new org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent();
-    copyElement(src, tgt);
-    tgt.setContent(convertType(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent convertFriendlyLanguageComponent(org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent tgt = new org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent();
-    copyElement(src, tgt);
-    tgt.setContent(convertType(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.LegalLanguageComponent convertLegalLanguageComponent(org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.LegalLanguageComponent tgt = new org.hl7.fhir.r4.model.Contract.LegalLanguageComponent();
-    copyElement(src, tgt);
-    tgt.setContent(convertType(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent convertLegalLanguageComponent(org.hl7.fhir.r4.model.Contract.LegalLanguageComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent tgt = new org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent();
-    copyElement(src, tgt);
-    tgt.setContent(convertType(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent convertComputableLanguageComponent(org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent tgt = new org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent();
-    copyElement(src, tgt);
-    tgt.setContent(convertType(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent convertComputableLanguageComponent(org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent tgt = new org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent();
-    copyElement(src, tgt);
-    tgt.setContent(convertType(src.getContent()));
-    return tgt;
-  }
+//  public org.hl7.fhir.r4.model.Contract convertContract(org.hl7.fhir.dstu2.model.Contract src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract tgt = new org.hl7.fhir.r4.model.Contract();
+//    copyDomainResource(src, tgt);
+//    tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setIssued(src.getIssued());
+//    tgt.setApplies(convertPeriod(src.getApplies()));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getSubject())
+//      tgt.addSubject(convertReference(t));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getAuthority())
+//      tgt.addAuthority(convertReference(t));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getDomain())
+//      tgt.addDomain(convertReference(t));
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getSubType())
+//      tgt.addSubType(convertCodeableConcept(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.SignatoryComponent t : src.getSigner())
+//      tgt.addSigner(convertSignatoryComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.TermComponent t : src.getTerm())
+//      tgt.addTerm(convertTermComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent t : src.getFriendly())
+//      tgt.addFriendly(convertFriendlyLanguageComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent t : src.getLegal())
+//      tgt.addLegal(convertLegalLanguageComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent t : src.getRule())
+//      tgt.setRule(convertComputableLanguageComponent(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract convertContract(org.hl7.fhir.r4.model.Contract src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract tgt = new org.hl7.fhir.dstu2.model.Contract();
+//    copyDomainResource(src, tgt);
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
+//    tgt.setIssued(src.getIssued());
+//    tgt.setApplies(convertPeriod(src.getApplies()));
+//    for (org.hl7.fhir.r4.model.Reference t : src.getSubject())
+//      tgt.addSubject(convertReference(t));
+//    for (org.hl7.fhir.r4.model.Reference t : src.getAuthority())
+//      tgt.addAuthority(convertReference(t));
+//    for (org.hl7.fhir.r4.model.Reference t : src.getDomain())
+//      tgt.addDomain(convertReference(t));
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getSubType())
+//      tgt.addSubType(convertCodeableConcept(t));
+//    for (org.hl7.fhir.r4.model.Contract.SignatoryComponent t : src.getSigner())
+//      tgt.addSigner(convertSignatoryComponent(t));
+//    for (org.hl7.fhir.r4.model.Contract.TermComponent t : src.getTerm())
+//      tgt.addTerm(convertTermComponent(t));
+//    for (org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent t : src.getFriendly())
+//      tgt.addFriendly(convertFriendlyLanguageComponent(t));
+//    for (org.hl7.fhir.r4.model.Contract.LegalLanguageComponent t : src.getLegal())
+//      tgt.addLegal(convertLegalLanguageComponent(t));
+//    if (src.hasRule())
+//      tgt.addRule(convertComputableLanguageComponent(src.getRule()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.AgentComponent convertAgentComponent(org.hl7.fhir.dstu2.model.Contract.ActorComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.AgentComponent tgt = new org.hl7.fhir.r4.model.Contract.AgentComponent();
+//    copyElement(src, tgt);
+//    tgt.setActor(convertReference(src.getEntity()));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getRole())
+//      tgt.addRole(convertCodeableConcept(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.ActorComponent convertAgentComponent(org.hl7.fhir.r4.model.Contract.AgentComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.ActorComponent tgt = new org.hl7.fhir.dstu2.model.Contract.ActorComponent();
+//    copyElement(src, tgt);
+//    tgt.setEntity(convertReference(src.getActor()));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getRole())
+//      tgt.addRole(convertCodeableConcept(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.SignatoryComponent convertSignatoryComponent(org.hl7.fhir.dstu2.model.Contract.SignatoryComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.SignatoryComponent tgt = new org.hl7.fhir.r4.model.Contract.SignatoryComponent();
+//    copyElement(src, tgt);
+//    tgt.setType(convertCoding(src.getType()));
+//    tgt.setParty(convertReference(src.getParty()));
+//    if (src.hasSignature())
+//      tgt.addSignature(new org.hl7.fhir.r4.model.Signature().setData(src.getSignature().getBytes()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.SignatoryComponent convertSignatoryComponent(org.hl7.fhir.r4.model.Contract.SignatoryComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.SignatoryComponent tgt = new org.hl7.fhir.dstu2.model.Contract.SignatoryComponent();
+//    copyElement(src, tgt);
+//    tgt.setType(convertCoding(src.getType()));
+//    tgt.setParty(convertReference(src.getParty()));
+//    for (org.hl7.fhir.r4.model.Signature t : src.getSignature())
+//      tgt.setSignature(Base64.encodeBase64String(t.getData()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.ValuedItemComponent convertValuedItemComponent(org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.ValuedItemComponent tgt = new org.hl7.fhir.r4.model.Contract.ValuedItemComponent();
+//    copyElement(src, tgt);
+//    tgt.setEntity(convertType(src.getEntity()));
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setEffectiveTime(src.getEffectiveTime());
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
+//    tgt.setFactor(src.getFactor());
+//    tgt.setPoints(src.getPoints());
+//    tgt.setNet(convertMoney(src.getNet()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent convertValuedItemComponent(org.hl7.fhir.r4.model.Contract.ValuedItemComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent tgt = new org.hl7.fhir.dstu2.model.Contract.ValuedItemComponent();
+//    copyElement(src, tgt);
+//    tgt.setEntity(convertType(src.getEntity()));
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setEffectiveTime(src.getEffectiveTime());
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
+//    tgt.setFactor(src.getFactor());
+//    tgt.setPoints(src.getPoints());
+//    tgt.setNet(convertMoney(src.getNet()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.TermComponent convertTermComponent(org.hl7.fhir.dstu2.model.Contract.TermComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.TermComponent tgt = new org.hl7.fhir.r4.model.Contract.TermComponent();
+//    copyElement(src, tgt);
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setIssued(src.getIssued());
+//    tgt.setApplies(convertPeriod(src.getApplies()));
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setSubType(convertCodeableConcept(src.getSubType()));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getAction())
+//      tgt.addAction(convertCodeableConcept(t));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getActionReason())
+//      tgt.addActionReason(convertCodeableConcept(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.TermActorComponent t : src.getActor())
+//      tgt.addAgent(convertTermAgentComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Contract.TermComponent t : src.getGroup())
+//      tgt.addGroup(convertTermComponent(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.TermComponent convertTermComponent(org.hl7.fhir.r4.model.Contract.TermComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.TermComponent tgt = new org.hl7.fhir.dstu2.model.Contract.TermComponent();
+//    copyElement(src, tgt);
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setIssued(src.getIssued());
+//    tgt.setApplies(convertPeriod(src.getApplies()));
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setSubType(convertCodeableConcept(src.getSubType()));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getAction())
+//      tgt.addAction(convertCodeableConcept(t));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getActionReason())
+//      tgt.addActionReason(convertCodeableConcept(t));
+//    for (org.hl7.fhir.r4.model.Contract.AgentComponent t : src.getAgent())
+//      tgt.addActor(convertTermAgentComponent(t));
+//    for (org.hl7.fhir.r4.model.Contract.TermComponent t : src.getGroup())
+//      tgt.addGroup(convertTermComponent(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.AgentComponent convertTermAgentComponent(org.hl7.fhir.dstu2.model.Contract.TermActorComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.AgentComponent tgt = new org.hl7.fhir.r4.model.Contract.AgentComponent();
+//    copyElement(src, tgt);
+//    tgt.setActor(convertReference(src.getEntity()));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getRole())
+//      tgt.addRole(convertCodeableConcept(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.TermActorComponent convertTermAgentComponent(org.hl7.fhir.r4.model.Contract.AgentComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.TermActorComponent tgt = new org.hl7.fhir.dstu2.model.Contract.TermActorComponent();
+//    copyElement(src, tgt);
+//    tgt.setEntity(convertReference(src.getActor()));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getRole())
+//      tgt.addRole(convertCodeableConcept(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.ValuedItemComponent convertTermValuedItemComponent(org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.ValuedItemComponent tgt = new org.hl7.fhir.r4.model.Contract.ValuedItemComponent();
+//    copyElement(src, tgt);
+//    tgt.setEntity(convertType(src.getEntity()));
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setEffectiveTime(src.getEffectiveTime());
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
+//    tgt.setFactor(src.getFactor());
+//    tgt.setPoints(src.getPoints());
+//    tgt.setNet(convertMoney(src.getNet()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent convertTermValuedItemComponent(org.hl7.fhir.r4.model.Contract.ValuedItemComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent tgt = new org.hl7.fhir.dstu2.model.Contract.TermValuedItemComponent();
+//    copyElement(src, tgt);
+//    tgt.setEntity(convertType(src.getEntity()));
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setEffectiveTime(src.getEffectiveTime());
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setUnitPrice(convertMoney(src.getUnitPrice()));
+//    tgt.setFactor(src.getFactor());
+//    tgt.setPoints(src.getPoints());
+//    tgt.setNet(convertMoney(src.getNet()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent convertFriendlyLanguageComponent(org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent tgt = new org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent();
+//    copyElement(src, tgt);
+//    tgt.setContent(convertType(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent convertFriendlyLanguageComponent(org.hl7.fhir.r4.model.Contract.FriendlyLanguageComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent tgt = new org.hl7.fhir.dstu2.model.Contract.FriendlyLanguageComponent();
+//    copyElement(src, tgt);
+//    tgt.setContent(convertType(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.LegalLanguageComponent convertLegalLanguageComponent(org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.LegalLanguageComponent tgt = new org.hl7.fhir.r4.model.Contract.LegalLanguageComponent();
+//    copyElement(src, tgt);
+//    tgt.setContent(convertType(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent convertLegalLanguageComponent(org.hl7.fhir.r4.model.Contract.LegalLanguageComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent tgt = new org.hl7.fhir.dstu2.model.Contract.LegalLanguageComponent();
+//    copyElement(src, tgt);
+//    tgt.setContent(convertType(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent convertComputableLanguageComponent(org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent tgt = new org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent();
+//    copyElement(src, tgt);
+//    tgt.setContent(convertType(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent convertComputableLanguageComponent(org.hl7.fhir.r4.model.Contract.ComputableLanguageComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent tgt = new org.hl7.fhir.dstu2.model.Contract.ComputableLanguageComponent();
+//    copyElement(src, tgt);
+//    tgt.setContent(convertType(src.getContent()));
+//    return tgt;
+//  }
 
 
   public org.hl7.fhir.r4.model.StructureDefinition convertDataElement(org.hl7.fhir.dstu2.model.DataElement src) throws FHIRException {
@@ -5303,183 +5308,183 @@ public class VersionConvertor_10_40 {
     return tgt;
   }
 
-  public org.hl7.fhir.r4.model.Device convertDevice(org.hl7.fhir.dstu2.model.Device src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Device tgt = new org.hl7.fhir.r4.model.Device();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setUdi((new org.hl7.fhir.r4.model.Device.DeviceUdiComponent()).setDeviceIdentifier(src.getUdi()));
-    tgt.setStatus(convertDeviceStatus(src.getStatus()));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setLotNumber(src.getLotNumber());
-    tgt.setManufacturer(src.getManufacturer());
-    tgt.setManufactureDate(src.getManufactureDate());
-    tgt.setExpirationDate(src.getExpiry());
-    tgt.setModel(src.getModel());
-    tgt.setVersion(src.getVersion());
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setOwner(convertReference(src.getOwner()));
-    for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getContact())
-      tgt.addContact(convertContactPoint(t));
-    tgt.setLocation(convertReference(src.getLocation()));
-    tgt.setUrl(src.getUrl());
-    for (org.hl7.fhir.dstu2.model.Annotation t : src.getNote())
-      tgt.addNote(convertAnnotation(t));
-    return tgt;
-  }
+//  public org.hl7.fhir.r4.model.Device convertDevice(org.hl7.fhir.dstu2.model.Device src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Device tgt = new org.hl7.fhir.r4.model.Device();
+//    copyDomainResource(src, tgt);
+//    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
+//      tgt.addIdentifier(convertIdentifier(t));
+//    tgt.setUdi((new org.hl7.fhir.r4.model.Device.DeviceUdiComponent()).setDeviceIdentifier(src.getUdi()));
+//    tgt.setStatus(convertDeviceStatus(src.getStatus()));
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setLotNumber(src.getLotNumber());
+//    tgt.setManufacturer(src.getManufacturer());
+//    tgt.setManufactureDate(src.getManufactureDate());
+//    tgt.setExpirationDate(src.getExpiry());
+//    tgt.setModel(src.getModel());
+//    tgt.setVersion(src.getVersion());
+//    tgt.setPatient(convertReference(src.getPatient()));
+//    tgt.setOwner(convertReference(src.getOwner()));
+//    for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getContact())
+//      tgt.addContact(convertContactPoint(t));
+//    tgt.setLocation(convertReference(src.getLocation()));
+//    tgt.setUrl(src.getUrl());
+//    for (org.hl7.fhir.dstu2.model.Annotation t : src.getNote())
+//      tgt.addNote(convertAnnotation(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Device convertDevice(org.hl7.fhir.r4.model.Device src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Device tgt = new org.hl7.fhir.dstu2.model.Device();
+//    copyDomainResource(src, tgt);
+//    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
+//      tgt.addIdentifier(convertIdentifier(t));
+//    if (src.hasUdi())
+//      tgt.setUdi(src.getUdi().getDeviceIdentifier());
+//    tgt.setStatus(convertDeviceStatus(src.getStatus()));
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setLotNumber(src.getLotNumber());
+//    tgt.setManufacturer(src.getManufacturer());
+//    tgt.setManufactureDate(src.getManufactureDate());
+//    tgt.setExpiry(src.getExpirationDate());
+//    tgt.setModel(src.getModel());
+//    tgt.setVersion(src.getVersion());
+//    tgt.setPatient(convertReference(src.getPatient()));
+//    tgt.setOwner(convertReference(src.getOwner()));
+//    for (org.hl7.fhir.r4.model.ContactPoint t : src.getContact())
+//      tgt.addContact(convertContactPoint(t));
+//    tgt.setLocation(convertReference(src.getLocation()));
+//    tgt.setUrl(src.getUrl());
+//    for (org.hl7.fhir.r4.model.Annotation t : src.getNote())
+//      tgt.addNote(convertAnnotation(t));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Device.FHIRDeviceStatus convertDeviceStatus(org.hl7.fhir.dstu2.model.Device.DeviceStatus src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case AVAILABLE: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.ACTIVE;
+//    case NOTAVAILABLE: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.INACTIVE;
+//    case ENTEREDINERROR: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.ENTEREDINERROR;
+//    default: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Device.DeviceStatus convertDeviceStatus(org.hl7.fhir.r4.model.Device.FHIRDeviceStatus src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case ACTIVE: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.AVAILABLE;
+//    case INACTIVE: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.NOTAVAILABLE;
+//    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.ENTEREDINERROR;
+//    default: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.r4.model.DeviceComponent convertDeviceComponent(org.hl7.fhir.dstu2.model.DeviceComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.DeviceComponent tgt = new org.hl7.fhir.r4.model.DeviceComponent();
+//    copyDomainResource(src, tgt);
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
+//    tgt.setLastSystemChange(src.getLastSystemChange());
+//    tgt.setSource(convertReference(src.getSource()));
+//    tgt.setParent(convertReference(src.getParent()));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getOperationalStatus())
+//      tgt.addOperationalStatus(convertCodeableConcept(t));
+//    tgt.setParameterGroup(convertCodeableConcept(src.getParameterGroup()));
+//    tgt.setMeasurementPrinciple(convertMeasmntPrinciple(src.getMeasurementPrinciple()));
+//    for (org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent t : src.getProductionSpecification())
+//      tgt.addProductionSpecification(convertDeviceComponentProductionSpecificationComponent(t));
+//    tgt.setLanguageCode(convertCodeableConcept(src.getLanguageCode()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.DeviceComponent convertDeviceComponent(org.hl7.fhir.r4.model.DeviceComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.DeviceComponent tgt = new org.hl7.fhir.dstu2.model.DeviceComponent();
+//    copyDomainResource(src, tgt);
+//    tgt.setType(convertCodeableConcept(src.getType()));
+//    tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
+//    tgt.setLastSystemChange(src.getLastSystemChange());
+//    tgt.setSource(convertReference(src.getSource()));
+//    tgt.setParent(convertReference(src.getParent()));
+//    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getOperationalStatus())
+//      tgt.addOperationalStatus(convertCodeableConcept(t));
+//    tgt.setParameterGroup(convertCodeableConcept(src.getParameterGroup()));
+//    tgt.setMeasurementPrinciple(convertMeasmntPrinciple(src.getMeasurementPrinciple()));
+//    for (org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent t : src.getProductionSpecification())
+//      tgt.addProductionSpecification(convertDeviceComponentProductionSpecificationComponent(t));
+//    tgt.setLanguageCode(convertCodeableConcept(src.getLanguageCode()));
+//    return tgt;
+//  }
 
-  public org.hl7.fhir.dstu2.model.Device convertDevice(org.hl7.fhir.r4.model.Device src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Device tgt = new org.hl7.fhir.dstu2.model.Device();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasUdi())
-      tgt.setUdi(src.getUdi().getDeviceIdentifier());
-    tgt.setStatus(convertDeviceStatus(src.getStatus()));
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setLotNumber(src.getLotNumber());
-    tgt.setManufacturer(src.getManufacturer());
-    tgt.setManufactureDate(src.getManufactureDate());
-    tgt.setExpiry(src.getExpirationDate());
-    tgt.setModel(src.getModel());
-    tgt.setVersion(src.getVersion());
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setOwner(convertReference(src.getOwner()));
-    for (org.hl7.fhir.r4.model.ContactPoint t : src.getContact())
-      tgt.addContact(convertContactPoint(t));
-    tgt.setLocation(convertReference(src.getLocation()));
-    tgt.setUrl(src.getUrl());
-    for (org.hl7.fhir.r4.model.Annotation t : src.getNote())
-      tgt.addNote(convertAnnotation(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Device.FHIRDeviceStatus convertDeviceStatus(org.hl7.fhir.dstu2.model.Device.DeviceStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case AVAILABLE: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.ACTIVE;
-    case NOTAVAILABLE: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.INACTIVE;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.r4.model.Device.FHIRDeviceStatus.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.Device.DeviceStatus convertDeviceStatus(org.hl7.fhir.r4.model.Device.FHIRDeviceStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.AVAILABLE;
-    case INACTIVE: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.NOTAVAILABLE;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.dstu2.model.Device.DeviceStatus.NULL;
-    }
-  }
-
-  public org.hl7.fhir.r4.model.DeviceComponent convertDeviceComponent(org.hl7.fhir.dstu2.model.DeviceComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.DeviceComponent tgt = new org.hl7.fhir.r4.model.DeviceComponent();
-    copyDomainResource(src, tgt);
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setLastSystemChange(src.getLastSystemChange());
-    tgt.setSource(convertReference(src.getSource()));
-    tgt.setParent(convertReference(src.getParent()));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getOperationalStatus())
-      tgt.addOperationalStatus(convertCodeableConcept(t));
-    tgt.setParameterGroup(convertCodeableConcept(src.getParameterGroup()));
-    tgt.setMeasurementPrinciple(convertMeasmntPrinciple(src.getMeasurementPrinciple()));
-    for (org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent t : src.getProductionSpecification())
-      tgt.addProductionSpecification(convertDeviceComponentProductionSpecificationComponent(t));
-    tgt.setLanguageCode(convertCodeableConcept(src.getLanguageCode()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.DeviceComponent convertDeviceComponent(org.hl7.fhir.r4.model.DeviceComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.DeviceComponent tgt = new org.hl7.fhir.dstu2.model.DeviceComponent();
-    copyDomainResource(src, tgt);
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
-    tgt.setLastSystemChange(src.getLastSystemChange());
-    tgt.setSource(convertReference(src.getSource()));
-    tgt.setParent(convertReference(src.getParent()));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getOperationalStatus())
-      tgt.addOperationalStatus(convertCodeableConcept(t));
-    tgt.setParameterGroup(convertCodeableConcept(src.getParameterGroup()));
-    tgt.setMeasurementPrinciple(convertMeasmntPrinciple(src.getMeasurementPrinciple()));
-    for (org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent t : src.getProductionSpecification())
-      tgt.addProductionSpecification(convertDeviceComponentProductionSpecificationComponent(t));
-    tgt.setLanguageCode(convertCodeableConcept(src.getLanguageCode()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple convertMeasmntPrinciple(org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case OTHER: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.OTHER; 
-    case CHEMICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.CHEMICAL;
-    case ELECTRICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.ELECTRICAL;
-    case IMPEDANCE: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.IMPEDANCE;
-    case NUCLEAR: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.NUCLEAR;
-    case OPTICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.OPTICAL;
-    case THERMAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.THERMAL;
-    case BIOLOGICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.BIOLOGICAL;
-    case MECHANICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.MECHANICAL;
-    case ACOUSTICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.ACOUSTICAL;
-    case MANUAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.MANUAL;
-    default: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple convertMeasmntPrinciple(org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case OTHER: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.OTHER;
-    case CHEMICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.CHEMICAL;
-    case ELECTRICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.ELECTRICAL;
-    case IMPEDANCE: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.IMPEDANCE;
-    case NUCLEAR: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.NUCLEAR;
-    case OPTICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.OPTICAL;
-    case THERMAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.THERMAL;
-    case BIOLOGICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.BIOLOGICAL;
-    case MECHANICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.MECHANICAL;
-    case ACOUSTICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.ACOUSTICAL;
-    case MANUAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.MANUAL;
-    default: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.NULL;
-    }
-  }
-
-  public org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent convertDeviceComponentProductionSpecificationComponent(org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent tgt = new org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent();
-    copyElement(src, tgt);
-    tgt.setSpecType(convertCodeableConcept(src.getSpecType()));
-    tgt.setComponentId(convertIdentifier(src.getComponentId()));
-    tgt.setProductionSpec(src.getProductionSpec());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent convertDeviceComponentProductionSpecificationComponent(org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent tgt = new org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent();
-    copyElement(src, tgt);
-    tgt.setSpecType(convertCodeableConcept(src.getSpecType()));
-    tgt.setComponentId(convertIdentifier(src.getComponentId()));
-    tgt.setProductionSpec(src.getProductionSpec());
-    return tgt;
-  }
-
+//  public org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple convertMeasmntPrinciple(org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case OTHER: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.OTHER; 
+//    case CHEMICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.CHEMICAL;
+//    case ELECTRICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.ELECTRICAL;
+//    case IMPEDANCE: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.IMPEDANCE;
+//    case NUCLEAR: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.NUCLEAR;
+//    case OPTICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.OPTICAL;
+//    case THERMAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.THERMAL;
+//    case BIOLOGICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.BIOLOGICAL;
+//    case MECHANICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.MECHANICAL;
+//    case ACOUSTICAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.ACOUSTICAL;
+//    case MANUAL: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.MANUAL;
+//    default: return org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple convertMeasmntPrinciple(org.hl7.fhir.r4.model.DeviceComponent.MeasmntPrinciple src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case OTHER: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.OTHER;
+//    case CHEMICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.CHEMICAL;
+//    case ELECTRICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.ELECTRICAL;
+//    case IMPEDANCE: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.IMPEDANCE;
+//    case NUCLEAR: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.NUCLEAR;
+//    case OPTICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.OPTICAL;
+//    case THERMAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.THERMAL;
+//    case BIOLOGICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.BIOLOGICAL;
+//    case MECHANICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.MECHANICAL;
+//    case ACOUSTICAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.ACOUSTICAL;
+//    case MANUAL: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.MANUAL;
+//    default: return org.hl7.fhir.dstu2.model.DeviceComponent.MeasmntPrinciple.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent convertDeviceComponentProductionSpecificationComponent(org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent tgt = new org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent();
+//    copyElement(src, tgt);
+//    tgt.setSpecType(convertCodeableConcept(src.getSpecType()));
+//    tgt.setComponentId(convertIdentifier(src.getComponentId()));
+//    tgt.setProductionSpec(src.getProductionSpec());
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent convertDeviceComponentProductionSpecificationComponent(org.hl7.fhir.r4.model.DeviceComponent.DeviceComponentProductionSpecificationComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent tgt = new org.hl7.fhir.dstu2.model.DeviceComponent.DeviceComponentProductionSpecificationComponent();
+//    copyElement(src, tgt);
+//    tgt.setSpecType(convertCodeableConcept(src.getSpecType()));
+//    tgt.setComponentId(convertIdentifier(src.getComponentId()));
+//    tgt.setProductionSpec(src.getProductionSpec());
+//    return tgt;
+//  }
+//
   public org.hl7.fhir.r4.model.DeviceMetric convertDeviceMetric(org.hl7.fhir.dstu2.model.DeviceMetric src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
@@ -5984,12 +5989,12 @@ public class VersionConvertor_10_40 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setClass_(convertCodeableConcept(src.getClass_()));
+    tgt.addCategory(convertCodeableConcept(src.getClass_()));
 //    for (org.hl7.fhir.dstu2.model.Reference t : src.getAuthor())
 //      tgt.addAuthor(convertReference(t));
     tgt.setCustodian(convertReference(src.getCustodian()));
     tgt.setAuthenticator(convertReference(src.getAuthenticator()));
-    tgt.setCreated(src.getCreated());
+    tgt.setDate(src.getCreated());
     tgt.setStatus(convertDocumentReferenceStatus(src.getStatus()));
     tgt.setDocStatus(convertDocStatus(src.getDocStatus()));
     for (org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceRelatesToComponent t : src.getRelatesTo())
@@ -6038,12 +6043,12 @@ public class VersionConvertor_10_40 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setClass_(convertCodeableConcept(src.getClass_()));
+    tgt.setClass_(convertCodeableConcept(src.getCategoryFirstRep()));
 //    for (org.hl7.fhir.r4.model.Reference t : src.getAuthor())
 //      tgt.addAuthor(convertReference(t));
     tgt.setCustodian(convertReference(src.getCustodian()));
     tgt.setAuthenticator(convertReference(src.getAuthenticator()));
-    tgt.setCreated(src.getCreated());
+    tgt.setCreated(src.getDate());
     tgt.setStatus(convertDocumentReferenceStatus(src.getStatus()));
     tgt.setDocStatus(convertDocStatus(src.getDocStatus()));
     for (org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceRelatesToComponent t : src.getRelatesTo())
@@ -6128,7 +6133,7 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextComponent tgt = new org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextComponent();
     copyElement(src, tgt);
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.addEncounter(convertReference(src.getEncounter()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getEvent())
       tgt.addEvent(convertCodeableConcept(t));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
@@ -6145,35 +6150,35 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextComponent tgt = new org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextComponent();
     copyElement(src, tgt);
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    if (src.hasEncounter())
+      tgt.setEncounter(convertReference(src.getEncounterFirstRep()));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getEvent())
       tgt.addEvent(convertCodeableConcept(t));
     tgt.setPeriod(convertPeriod(src.getPeriod()));
     tgt.setFacilityType(convertCodeableConcept(src.getFacilityType()));
     tgt.setPracticeSetting(convertCodeableConcept(src.getPracticeSetting()));
     tgt.setSourcePatientInfo(convertReference(src.getSourcePatientInfo()));
-    for (org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextRelatedComponent t : src.getRelated())
+    for (org.hl7.fhir.r4.model.Reference t : src.getRelated())
       tgt.addRelated(convertDocumentReferenceContextRelatedComponent(t));
     return tgt;
   }
 
-  public org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextRelatedComponent convertDocumentReferenceContextRelatedComponent(org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextRelatedComponent src) throws FHIRException {
+  public org.hl7.fhir.r4.model.Reference convertDocumentReferenceContextRelatedComponent(org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextRelatedComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextRelatedComponent tgt = new org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextRelatedComponent();
+    org.hl7.fhir.r4.model.Reference tgt = convertReference(src.getRef());
     copyElement(src, tgt);
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setRef(convertReference(src.getRef()));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextRelatedComponent convertDocumentReferenceContextRelatedComponent(org.hl7.fhir.r4.model.DocumentReference.DocumentReferenceContextRelatedComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextRelatedComponent convertDocumentReferenceContextRelatedComponent(org.hl7.fhir.r4.model.Reference src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextRelatedComponent tgt = new org.hl7.fhir.dstu2.model.DocumentReference.DocumentReferenceContextRelatedComponent();
     copyElement(src, tgt);
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
-    tgt.setRef(convertReference(src.getRef()));
+    tgt.setRef(convertReference(src));
     return tgt;
   }
 
@@ -6607,7 +6612,7 @@ public class VersionConvertor_10_40 {
     tgt.setStatus(convertFamilyHistoryStatus(src.getStatus()));
     tgt.setName(src.getName());
     tgt.setRelationship(convertCodeableConcept(src.getRelationship()));
-    tgt.setGender(convertAdministrativeGender(src.getGender()));
+//    tgt.setGender(convertAdministrativeGender(src.getGender()));
     tgt.setBorn(convertType(src.getBorn()));
     tgt.setAge(convertType(src.getAge()));
     tgt.setDeceased(convertType(src.getDeceased()));
@@ -6630,7 +6635,7 @@ public class VersionConvertor_10_40 {
     tgt.setStatus(convertFamilyHistoryStatus(src.getStatus()));
     tgt.setName(src.getName());
     tgt.setRelationship(convertCodeableConcept(src.getRelationship()));
-    tgt.setGender(convertAdministrativeGender(src.getGender()));
+//    tgt.setGender(convertAdministrativeGender(src.getGender()));
     tgt.setBorn(convertType(src.getBorn()));
     tgt.setAge(convertType(src.getAge()));
     tgt.setDeceased(convertType(src.getDeceased()));
@@ -9909,7 +9914,7 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     tgt.setLinkId(src.getLinkId());
     tgt.setText(src.getText());
-    tgt.setSubject(convertReference(src.getSubject()));
+//    tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.dstu2.model.QuestionnaireResponse.GroupComponent t : src.getGroup())
       tgt.addItem(convertQuestionnaireResponseGroupComponent(t));
     for (org.hl7.fhir.dstu2.model.QuestionnaireResponse.QuestionComponent t : src.getQuestion())
@@ -9936,7 +9941,7 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     tgt.setLinkId(src.getLinkId());
     tgt.setText(src.getText());
-    tgt.setSubject(convertReference(src.getSubject()));
+//    tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.r4.model.QuestionnaireResponse.QuestionnaireResponseItemComponent t : src.getItem())
       if (t.hasAnswer())
         tgt.addQuestion(convertQuestionnaireItemToQuestion(t));
@@ -11476,7 +11481,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setImmutable(src.getImmutable());
     tgt.setPurpose(src.getRequirements());
     tgt.setCopyright(src.getCopyright());
-    tgt.setExtensible(src.getExtensible());
+    if (src.hasExtensible())
+      tgt.addExtension("http://hl7.org/fhir/StructureDefinition/valueset-extensible", new BooleanType(src.getExtensible()));
     if (src.hasCompose()) {
       tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
       tgt.getCompose().setLockedDate(src.getLockedDate());
@@ -11485,7 +11491,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       org.hl7.fhir.r4.model.CodeSystem tgtcs = new org.hl7.fhir.r4.model.CodeSystem();
       copyDomainResource(src, tgtcs);
       tgtcs.setUrl(src.getCodeSystem().getSystem());
-      tgtcs.setIdentifier(convertIdentifier(src.getIdentifier()));
+      tgtcs.addIdentifier(convertIdentifier(src.getIdentifier()));
       tgtcs.setVersion(src.getCodeSystem().getVersion());
       tgtcs.setName(src.getName()+" Code System");
       tgtcs.setStatus(convertConformanceResourceStatus(src.getStatus()));
@@ -11582,7 +11588,8 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     tgt.setImmutable(src.getImmutable());
     tgt.setRequirements(src.getPurpose());
     tgt.setCopyright(src.getCopyright());
-    tgt.setExtensible(src.getExtensible());
+    if (src.hasExtension("http://hl7.org/fhir/StructureDefinition/valueset-extensible"))
+      tgt.setExtensible(((BooleanType) src.getExtensionByUrl("http://hl7.org/fhir/StructureDefinition/valueset-extensible").getValue()).booleanValue());
     org.hl7.fhir.r4.model.CodeSystem srcCS = (CodeSystem) src.getUserData("r2-cs");
     if (srcCS == null)
       srcCS = advisor.getCodeSystem(src);
@@ -12018,16 +12025,16 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertCondition((org.hl7.fhir.dstu2.model.Condition) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Conformance)
       return convertConformance((org.hl7.fhir.dstu2.model.Conformance) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.Contract)
-      return convertContract((org.hl7.fhir.dstu2.model.Contract) src);
+//    if (src instanceof org.hl7.fhir.dstu2.model.Contract)
+//      return convertContract((org.hl7.fhir.dstu2.model.Contract) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DataElement)
       return convertDataElement((org.hl7.fhir.dstu2.model.DataElement) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DetectedIssue)
       return convertDetectedIssue((org.hl7.fhir.dstu2.model.DetectedIssue) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.Device)
-      return convertDevice((org.hl7.fhir.dstu2.model.Device) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.DeviceComponent)
-      return convertDeviceComponent((org.hl7.fhir.dstu2.model.DeviceComponent) src);
+//    if (src instanceof org.hl7.fhir.dstu2.model.Device)
+//      return convertDevice((org.hl7.fhir.dstu2.model.Device) src);
+//    if (src instanceof org.hl7.fhir.dstu2.model.DeviceComponent)
+//      return convertDeviceComponent((org.hl7.fhir.dstu2.model.DeviceComponent) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DeviceMetric)
       return convertDeviceMetric((org.hl7.fhir.dstu2.model.DeviceMetric) src);
     if (src instanceof org.hl7.fhir.dstu2.model.DeviceUseStatement)
@@ -12152,14 +12159,14 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertCondition((org.hl7.fhir.r4.model.Condition) src);
     if (src instanceof org.hl7.fhir.r4.model.CapabilityStatement)
       return convertConformance((org.hl7.fhir.r4.model.CapabilityStatement) src);
-    if (src instanceof org.hl7.fhir.r4.model.Contract)
-      return convertContract((org.hl7.fhir.r4.model.Contract) src);
+//    if (src instanceof org.hl7.fhir.r4.model.Contract)
+//      return convertContract((org.hl7.fhir.r4.model.Contract) src);
     if (src instanceof org.hl7.fhir.r4.model.DetectedIssue)
       return convertDetectedIssue((org.hl7.fhir.r4.model.DetectedIssue) src);
-    if (src instanceof org.hl7.fhir.r4.model.Device)
-      return convertDevice((org.hl7.fhir.r4.model.Device) src);
-    if (src instanceof org.hl7.fhir.r4.model.DeviceComponent)
-      return convertDeviceComponent((org.hl7.fhir.r4.model.DeviceComponent) src);
+//    if (src instanceof org.hl7.fhir.r4.model.Device)
+//      return convertDevice((org.hl7.fhir.r4.model.Device) src);
+//    if (src instanceof org.hl7.fhir.r4.model.DeviceComponent)
+//      return convertDeviceComponent((org.hl7.fhir.r4.model.DeviceComponent) src);
     if (src instanceof org.hl7.fhir.r4.model.DeviceMetric)
       return convertDeviceMetric((org.hl7.fhir.r4.model.DeviceMetric) src);
     if (src instanceof org.hl7.fhir.r4.model.DeviceUseStatement)

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -51,23 +51,23 @@ public class EntryDefinition extends DomainResource {
 
     public enum EntryDefinitionRelationType {
         /**
-         * the related entry represents an item to be provided as input to the current item
+         * the related entry represents an item to be provided as input to the current item.
          */
         HASINPUT, 
         /**
-         * the related entry represents an item produced as out put of the current item
+         * the related entry represents an item produced as out put of the current item.
          */
         HASOUTPUT, 
         /**
-         * the related entry represents an item (product or material or substance) used by the current item
+         * the related entry represents an item (product or material or substance) used by the current item.
          */
         USES, 
         /**
-         * the related entry represents an activity that may be triggered by the current item
+         * the related entry represents an activity that may be triggered by the current item.
          */
         TRIGGERS, 
         /**
-         * the related entry represents an item that replaces the current retired item
+         * the related entry represents an item that replaces the current retired item.
          */
         ISREPLACEDBY, 
         /**
@@ -114,11 +114,11 @@ public class EntryDefinition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case HASINPUT: return "the related entry represents an item to be provided as input to the current item";
-            case HASOUTPUT: return "the related entry represents an item produced as out put of the current item";
-            case USES: return "the related entry represents an item (product or material or substance) used by the current item";
-            case TRIGGERS: return "the related entry represents an activity that may be triggered by the current item";
-            case ISREPLACEDBY: return "the related entry represents an item that replaces the current retired item";
+            case HASINPUT: return "the related entry represents an item to be provided as input to the current item.";
+            case HASOUTPUT: return "the related entry represents an item produced as out put of the current item.";
+            case USES: return "the related entry represents an item (product or material or substance) used by the current item.";
+            case TRIGGERS: return "the related entry represents an activity that may be triggered by the current item.";
+            case ISREPLACEDBY: return "the related entry represents an item that replaces the current retired item.";
             default: return "?";
           }
         }

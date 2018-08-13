@@ -132,7 +132,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     super(codeSystems, valueSets, maps, profiles, guides);
     this.definitions = definitions;
     this.txServer = client;
-    this.cacheValidation = true;
     setExpansionProfile(buildExpansionProfile());
     this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
   }
@@ -343,8 +342,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (!triedServer || serverOk) {
       triedServer = true;
       HttpClient httpclient = new DefaultHttpClient();
-       HttpGet httpget = new HttpGet("http://tx.fhir.org/r4/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); 
-//      HttpGet httpget = new HttpGet("http://local.fhir.org:960/r4/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
+//       HttpGet httpget = new HttpGet("http://tx.fhir.org/r4/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); 
+      HttpGet httpget = new HttpGet("http://local.fhir.org:960/r4/snomed/tool/"+SNOMED_EDITION+"/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
       HttpResponse response = httpclient.execute(httpget);
       HttpEntity entity = response.getEntity();
       InputStream instream = entity.getContent();
@@ -619,46 +618,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       throw new Exception("Server is not available");
   }
 
-  @Override
-  public ValueSetExpansionOutcome expandOnServer(ValueSet vs, String cacheFn) throws Exception {
-    if (!triedServer || serverOk) {
-      JsonParser parser = new JsonParser();
-      try {
-        triedServer = true;
-        serverOk = false;
-        // for this, we use the FHIR client
-        if (txServer == null) {
-          txServer = new FHIRToolingClient(tsServer);
-        }
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
-        params.put("_incomplete", "true");
-        System.out.println("Use Tx Server from BWS for value set "+(vs.hasUrl() ? vs.getUrl() : "??")+" on "+systems(vs));
-        ValueSet result = txServer.expandValueset(vs, expParameters.setParameter("includeDefinition", false), params);
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(cacheFn);
-        parser.compose(s, result);
-        s.close();
-
-        return new ValueSetExpansionOutcome(result);
-      } catch (EFhirClientException e) {
-        serverOk = true;
-        FileOutputStream s = new FileOutputStream(cacheFn);
-        if (e.getServerErrors().isEmpty())
-          parser.compose(s, buildOO(e.getMessage()));
-        else
-          parser.compose(s, e.getServerErrors().get(0));
-        s.close();
-
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
-      } catch (Exception e) {
-        serverOk = false;
-        throw e;
-      }
-    } else
-      throw new Exception("Server is not available");
-  }
-
   private String systems(ValueSet vs) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (ConceptSetComponent inc : vs.getCompose().getInclude())
@@ -752,120 +711,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   public void saveCache() throws IOException {
-    saveValidationCache();
-  }
-
-  @Override
-  protected void loadValidationCache() throws JsonSyntaxException, Exception {
-    File dir = new File(validationCachePath);
-    if (!dir.exists())
-      return;
-    
-    if (new File(Utilities.path(validationCachePath, "noy-supported.txt")).exists())
-      for (String s : TextFile.fileToString(Utilities.path(validationCachePath, "not-supported.txt")).split("\\r?\\n"))
-        addNonSupportedCodeSystems(s);
-    
-    String[] files = dir.list();
-    for (String f : files) {
-      if (f.endsWith(".txt"))
-        break;
-      String fn = Utilities.path(validationCachePath, f);
-      com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
-      JsonObject json = (JsonObject) parser.parse(TextFile.fileToString(fn));
-      Map<String, ValidationResult> t = new HashMap<String, IWorkerContext.ValidationResult>();
-      for (JsonElement i : json.getAsJsonArray("outcomes")) {
-        JsonObject o = (JsonObject) i;
-        String s = o.get("hash").getAsString();
-        JsonElement j = o.get("message");
-        String m = null;
-        if (!(j instanceof JsonNull))
-          m = o.get("message").getAsString();
-        j = o.get("severity");
-        IssueSeverity sev = null;
-        if (!(j instanceof JsonNull))
-          sev = IssueSeverity.fromCode(j.getAsString());
-        ConceptDefinitionComponent def = null;
-        j = o.get("definition");
-        if (j != null && j instanceof JsonObject) {
-          def = new ConceptDefinitionComponent();
-          o = (JsonObject) j;
-          if (o.get("abstract").getAsBoolean())
-            CodeSystemUtilities.setNotSelectable(null, def);
-          if (!(o.get("code") instanceof JsonNull))
-            def.setCode(o.get("code").getAsString());
-          if (!(o.get("definition") instanceof JsonNull))
-            def.setDefinition(o.get("definition").getAsString());
-          if (!(o.get("display") instanceof JsonNull))
-            def.setDisplay(o.get("display").getAsString());
-        }
-        t.put(s, new ValidationResult(sev, m, def));
-      }
-      cacheVS(json, t);
-    }
-    
-  }
-
-
-  private void saveValidationCache() throws IOException {
-    if (noTerminologyServer)
-      return;
-    
-    File dir = new File(validationCachePath);
-    if (dir.exists())
-      Utilities.clearDirectory(validationCachePath);
-    else
-      dir.mkdir();
-
-    TextFile.stringToFile(listNonSupportedSystems(), Utilities.path(validationCachePath, "not-supported.txt"));
-
-    for (String s : validationCache.keySet()) {
-      String fn = Utilities.path(validationCachePath, makeFileName(s)+".json");
-      String cnt = "";
-      if (new File(fn).exists())
-        cnt = TextFile.fileToString(fn);
-      StringWriter st = new StringWriter();
-      JsonWriter gson = new JsonWriter(st);
-      gson.setIndent("  ");
-      gson.beginObject();
-      gson.name("url");
-      gson.value(s);
-      gson.name("outcomes");
-      gson.beginArray();
-      Map<String, ValidationResult> t = validationCache.get(s);
-      for (String sp : sorted(t.keySet())) {
-        ValidationResult vr = t.get(sp);
-        gson.beginObject();
-        gson.name("hash");
-        gson.value(sp);
-        gson.name("severity");
-        if (vr.getSeverity() == null)
-          gson.nullValue();
-        else
-          gson.value(vr.getSeverity().toCode());
-        gson.name("message");
-        gson.value(vr.getMessage());
-        if (vr.asConceptDefinition() != null) {
-          gson.name("definition");
-          gson.beginObject();
-          gson.name("abstract");
-          gson.value(CodeSystemUtilities.isNotSelectable(null, vr.asConceptDefinition()));
-          gson.name("code");
-          gson.value(vr.asConceptDefinition().getCode());
-          gson.name("definition");
-          gson.value(vr.asConceptDefinition().getDefinition());
-          gson.name("display");
-          gson.value(vr.asConceptDefinition().getDisplay());
-          gson.endObject();
-        }
-        gson.endObject();
-      }
-      gson.endArray();
-      gson.endObject();
-      gson.close();
-      String ncnt = st.toString();
-      if (!ncnt.equals(cnt))
-        TextFile.stringToFile(ncnt, fn);
-    }
+    txCache.save();
   }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -60,15 +60,15 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         TISSUE, 
         /**
-         * Body fluid
+         * Body fluid.
          */
         FLUID, 
         /**
-         * Collection of cells
+         * Collection of cells.
          */
         CELLS, 
         /**
-         * Biological agent of unspecified type
+         * Biological agent of unspecified type.
          */
         BIOLOGICALAGENT, 
         /**
@@ -117,9 +117,9 @@ public class BiologicallyDerivedProduct extends DomainResource {
           switch (this) {
             case ORGAN: return "A collection of tissues joined in a structural unit to serve a common function.";
             case TISSUE: return "An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a specific function.";
-            case FLUID: return "Body fluid";
-            case CELLS: return "Collection of cells";
-            case BIOLOGICALAGENT: return "Biological agent of unspecified type";
+            case FLUID: return "Body fluid.";
+            case CELLS: return "Collection of cells.";
+            case BIOLOGICALAGENT: return "Biological agent of unspecified type.";
             default: return "?";
           }
         }
@@ -284,15 +284,15 @@ public class BiologicallyDerivedProduct extends DomainResource {
 
     public enum BiologicallyDerivedProductStorageScale {
         /**
-         * Fahrenheit temperature scale
+         * Fahrenheit temperature scale.
          */
         FARENHEIT, 
         /**
-         * Celsius or centigrade temperature scale
+         * Celsius or centigrade temperature scale.
          */
         CELSIUS, 
         /**
-         * Kelvin absolute thermodynamic temperature scale
+         * Kelvin absolute thermodynamic temperature scale.
          */
         KELVIN, 
         /**
@@ -331,9 +331,9 @@ public class BiologicallyDerivedProduct extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case FARENHEIT: return "Fahrenheit temperature scale";
-            case CELSIUS: return "Celsius or centigrade temperature scale";
-            case KELVIN: return "Kelvin absolute thermodynamic temperature scale";
+            case FARENHEIT: return "Fahrenheit temperature scale.";
+            case CELSIUS: return "Celsius or centigrade temperature scale.";
+            case KELVIN: return "Kelvin absolute thermodynamic temperature scale.";
             default: return "?";
           }
         }

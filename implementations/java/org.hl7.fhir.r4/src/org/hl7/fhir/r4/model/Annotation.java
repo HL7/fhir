@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -49,7 +49,7 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * The individual responsible for making the annotation.
      */
-    @Child(name = "author", type = {Practitioner.class, Patient.class, RelatedPerson.class, StringType.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class, Patient.class, RelatedPerson.class, Organization.class, StringType.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Individual responsible for the annotation", formalDefinition="The individual responsible for making the annotation." )
     protected Type author;
 
@@ -231,7 +231,7 @@ public class Annotation extends Type implements ICompositeType {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, 1, author));
+        children.add(new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson|Organization)|string", "The individual responsible for making the annotation.", 0, 1, author));
         children.add(new Property("time", "dateTime", "Indicates when this particular annotation was made.", 0, 1, time));
         children.add(new Property("text", "markdown", "The text of the annotation in markdown format.", 0, 1, text));
       }
@@ -239,10 +239,10 @@ public class Annotation extends Type implements ICompositeType {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 1475597077: /*author[x]*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, 1, author);
-        case -1406328437: /*author*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, 1, author);
-        case 305515008: /*authorReference*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, 1, author);
-        case 290249084: /*authorString*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson)|string", "The individual responsible for making the annotation.", 0, 1, author);
+        case 1475597077: /*author[x]*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson|Organization)|string", "The individual responsible for making the annotation.", 0, 1, author);
+        case -1406328437: /*author*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson|Organization)|string", "The individual responsible for making the annotation.", 0, 1, author);
+        case 305515008: /*authorReference*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson|Organization)|string", "The individual responsible for making the annotation.", 0, 1, author);
+        case 290249084: /*authorString*/  return new Property("author[x]", "Reference(Practitioner|Patient|RelatedPerson|Organization)|string", "The individual responsible for making the annotation.", 0, 1, author);
         case 3560141: /*time*/  return new Property("time", "dateTime", "Indicates when this particular annotation was made.", 0, 1, time);
         case 3556653: /*text*/  return new Property("text", "markdown", "The text of the annotation in markdown format.", 0, 1, text);
         default: return super.getNamedProperty(_hash, _name, _checkValid);

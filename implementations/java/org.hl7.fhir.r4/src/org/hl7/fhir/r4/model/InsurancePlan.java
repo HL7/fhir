@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -46,11 +46,11 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Details of a Health Insurance product/plan provided by an organization.
  */
-@ResourceDef(name="ProductPlan", profile="http://hl7.org/fhir/Profile/ProductPlan")
-public class ProductPlan extends DomainResource {
+@ResourceDef(name="InsurancePlan", profile="http://hl7.org/fhir/Profile/InsurancePlan")
+public class InsurancePlan extends DomainResource {
 
     @Block()
-    public static class ProductPlanContactComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class InsurancePlanContactComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Indicates a purpose for which the contact can be reached.
          */
@@ -85,7 +85,7 @@ public class ProductPlan extends DomainResource {
     /**
      * Constructor
      */
-      public ProductPlanContactComponent() {
+      public InsurancePlanContactComponent() {
         super();
       }
 
@@ -95,7 +95,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getPurpose() { 
           if (this.purpose == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanContactComponent.purpose");
+              throw new Error("Attempt to auto-create InsurancePlanContactComponent.purpose");
             else if (Configuration.doAutoCreate())
               this.purpose = new CodeableConcept(); // cc
           return this.purpose;
@@ -108,7 +108,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #purpose} (Indicates a purpose for which the contact can be reached.)
          */
-        public ProductPlanContactComponent setPurpose(CodeableConcept value) { 
+        public InsurancePlanContactComponent setPurpose(CodeableConcept value) { 
           this.purpose = value;
           return this;
         }
@@ -119,7 +119,7 @@ public class ProductPlan extends DomainResource {
         public HumanName getName() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanContactComponent.name");
+              throw new Error("Attempt to auto-create InsurancePlanContactComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new HumanName(); // cc
           return this.name;
@@ -132,7 +132,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #name} (A name associated with the contact.)
          */
-        public ProductPlanContactComponent setName(HumanName value) { 
+        public InsurancePlanContactComponent setName(HumanName value) { 
           this.name = value;
           return this;
         }
@@ -149,7 +149,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanContactComponent setTelecom(List<ContactPoint> theTelecom) { 
+        public InsurancePlanContactComponent setTelecom(List<ContactPoint> theTelecom) { 
           this.telecom = theTelecom;
           return this;
         }
@@ -171,7 +171,7 @@ public class ProductPlan extends DomainResource {
           return t;
         }
 
-        public ProductPlanContactComponent addTelecom(ContactPoint t) { //3
+        public InsurancePlanContactComponent addTelecom(ContactPoint t) { //3
           if (t == null)
             return this;
           if (this.telecom == null)
@@ -196,7 +196,7 @@ public class ProductPlan extends DomainResource {
         public Address getAddress() { 
           if (this.address == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanContactComponent.address");
+              throw new Error("Attempt to auto-create InsurancePlanContactComponent.address");
             else if (Configuration.doAutoCreate())
               this.address = new Address(); // cc
           return this.address;
@@ -209,7 +209,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #address} (Visiting or postal addresses for the contact.)
          */
-        public ProductPlanContactComponent setAddress(Address value) { 
+        public InsurancePlanContactComponent setAddress(Address value) { 
           this.address = value;
           return this;
         }
@@ -326,8 +326,8 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanContactComponent copy() {
-        ProductPlanContactComponent dst = new ProductPlanContactComponent();
+      public InsurancePlanContactComponent copy() {
+        InsurancePlanContactComponent dst = new InsurancePlanContactComponent();
         copyValues(dst);
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.name = name == null ? null : name.copy();
@@ -344,9 +344,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanContactComponent))
+        if (!(other_ instanceof InsurancePlanContactComponent))
           return false;
-        ProductPlanContactComponent o = (ProductPlanContactComponent) other_;
+        InsurancePlanContactComponent o = (InsurancePlanContactComponent) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
            && compareDeep(address, o.address, true);
       }
@@ -355,9 +355,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanContactComponent))
+        if (!(other_ instanceof InsurancePlanContactComponent))
           return false;
-        ProductPlanContactComponent o = (ProductPlanContactComponent) other_;
+        InsurancePlanContactComponent o = (InsurancePlanContactComponent) other_;
         return true;
       }
 
@@ -367,14 +367,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.contact";
+    return "InsurancePlan.contact";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanCoverageComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class InsurancePlanCoverageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Type of coverage  (Medical; Dental; Mental Health; Substance Abuse; Vision; Drug; Short Term; Long Term Care; Hospice; Home Health).
          */
@@ -399,21 +399,21 @@ public class ProductPlan extends DomainResource {
          */
         @Child(name = "benefit", type = {}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of benefits", formalDefinition="Specific benefits under this type of coverage." )
-        protected List<ProductPlanCoverageBenefitComponent> benefit;
+        protected List<CoverageBenefitComponent> benefit;
 
-        private static final long serialVersionUID = -1381201025L;
+        private static final long serialVersionUID = -1186191877L;
 
     /**
      * Constructor
      */
-      public ProductPlanCoverageComponent() {
+      public InsurancePlanCoverageComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ProductPlanCoverageComponent(CodeableConcept type) {
+      public InsurancePlanCoverageComponent(CodeableConcept type) {
         super();
         this.type = type;
       }
@@ -424,7 +424,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanCoverageComponent.type");
+              throw new Error("Attempt to auto-create InsurancePlanCoverageComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -437,7 +437,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #type} (Type of coverage  (Medical; Dental; Mental Health; Substance Abuse; Vision; Drug; Short Term; Long Term Care; Hospice; Home Health).)
          */
-        public ProductPlanCoverageComponent setType(CodeableConcept value) { 
+        public InsurancePlanCoverageComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -454,7 +454,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanCoverageComponent setNetwork(List<Reference> theNetwork) { 
+        public InsurancePlanCoverageComponent setNetwork(List<Reference> theNetwork) { 
           this.network = theNetwork;
           return this;
         }
@@ -476,7 +476,7 @@ public class ProductPlan extends DomainResource {
           return t;
         }
 
-        public ProductPlanCoverageComponent addNetwork(Reference t) { //3
+        public InsurancePlanCoverageComponent addNetwork(Reference t) { //3
           if (t == null)
             return this;
           if (this.network == null)
@@ -520,16 +520,16 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #benefit} (Specific benefits under this type of coverage.)
          */
-        public List<ProductPlanCoverageBenefitComponent> getBenefit() { 
+        public List<CoverageBenefitComponent> getBenefit() { 
           if (this.benefit == null)
-            this.benefit = new ArrayList<ProductPlanCoverageBenefitComponent>();
+            this.benefit = new ArrayList<CoverageBenefitComponent>();
           return this.benefit;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanCoverageComponent setBenefit(List<ProductPlanCoverageBenefitComponent> theBenefit) { 
+        public InsurancePlanCoverageComponent setBenefit(List<CoverageBenefitComponent> theBenefit) { 
           this.benefit = theBenefit;
           return this;
         }
@@ -537,25 +537,25 @@ public class ProductPlan extends DomainResource {
         public boolean hasBenefit() { 
           if (this.benefit == null)
             return false;
-          for (ProductPlanCoverageBenefitComponent item : this.benefit)
+          for (CoverageBenefitComponent item : this.benefit)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ProductPlanCoverageBenefitComponent addBenefit() { //3
-          ProductPlanCoverageBenefitComponent t = new ProductPlanCoverageBenefitComponent();
+        public CoverageBenefitComponent addBenefit() { //3
+          CoverageBenefitComponent t = new CoverageBenefitComponent();
           if (this.benefit == null)
-            this.benefit = new ArrayList<ProductPlanCoverageBenefitComponent>();
+            this.benefit = new ArrayList<CoverageBenefitComponent>();
           this.benefit.add(t);
           return t;
         }
 
-        public ProductPlanCoverageComponent addBenefit(ProductPlanCoverageBenefitComponent t) { //3
+        public InsurancePlanCoverageComponent addBenefit(CoverageBenefitComponent t) { //3
           if (t == null)
             return this;
           if (this.benefit == null)
-            this.benefit = new ArrayList<ProductPlanCoverageBenefitComponent>();
+            this.benefit = new ArrayList<CoverageBenefitComponent>();
           this.benefit.add(t);
           return this;
         }
@@ -563,7 +563,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #benefit}, creating it if it does not already exist
          */
-        public ProductPlanCoverageBenefitComponent getBenefitFirstRep() { 
+        public CoverageBenefitComponent getBenefitFirstRep() { 
           if (getBenefit().isEmpty()) {
             addBenefit();
           }
@@ -593,7 +593,7 @@ public class ProductPlan extends DomainResource {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : this.network.toArray(new Base[this.network.size()]); // Reference
-        case -222710633: /*benefit*/ return this.benefit == null ? new Base[0] : this.benefit.toArray(new Base[this.benefit.size()]); // ProductPlanCoverageBenefitComponent
+        case -222710633: /*benefit*/ return this.benefit == null ? new Base[0] : this.benefit.toArray(new Base[this.benefit.size()]); // CoverageBenefitComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -609,7 +609,7 @@ public class ProductPlan extends DomainResource {
           this.getNetwork().add(castToReference(value)); // Reference
           return value;
         case -222710633: // benefit
-          this.getBenefit().add((ProductPlanCoverageBenefitComponent) value); // ProductPlanCoverageBenefitComponent
+          this.getBenefit().add((CoverageBenefitComponent) value); // CoverageBenefitComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -623,7 +623,7 @@ public class ProductPlan extends DomainResource {
         } else if (name.equals("network")) {
           this.getNetwork().add(castToReference(value));
         } else if (name.equals("benefit")) {
-          this.getBenefit().add((ProductPlanCoverageBenefitComponent) value);
+          this.getBenefit().add((CoverageBenefitComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -667,8 +667,8 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanCoverageComponent copy() {
-        ProductPlanCoverageComponent dst = new ProductPlanCoverageComponent();
+      public InsurancePlanCoverageComponent copy() {
+        InsurancePlanCoverageComponent dst = new InsurancePlanCoverageComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         if (network != null) {
@@ -677,8 +677,8 @@ public class ProductPlan extends DomainResource {
             dst.network.add(i.copy());
         };
         if (benefit != null) {
-          dst.benefit = new ArrayList<ProductPlanCoverageBenefitComponent>();
-          for (ProductPlanCoverageBenefitComponent i : benefit)
+          dst.benefit = new ArrayList<CoverageBenefitComponent>();
+          for (CoverageBenefitComponent i : benefit)
             dst.benefit.add(i.copy());
         };
         return dst;
@@ -688,9 +688,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanCoverageComponent))
+        if (!(other_ instanceof InsurancePlanCoverageComponent))
           return false;
-        ProductPlanCoverageComponent o = (ProductPlanCoverageComponent) other_;
+        InsurancePlanCoverageComponent o = (InsurancePlanCoverageComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(network, o.network, true) && compareDeep(benefit, o.benefit, true)
           ;
       }
@@ -699,9 +699,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanCoverageComponent))
+        if (!(other_ instanceof InsurancePlanCoverageComponent))
           return false;
-        ProductPlanCoverageComponent o = (ProductPlanCoverageComponent) other_;
+        InsurancePlanCoverageComponent o = (InsurancePlanCoverageComponent) other_;
         return true;
       }
 
@@ -710,14 +710,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.coverage";
+    return "InsurancePlan.coverage";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanCoverageBenefitComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class CoverageBenefitComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Type of benefit (primary care; speciality care; inpatient; outpatient).
          */
@@ -737,21 +737,21 @@ public class ProductPlan extends DomainResource {
          */
         @Child(name = "limit", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Benefit limits", formalDefinition="The specific limits on the benefit." )
-        protected List<ProductPlanCoverageBenefitLimitComponent> limit;
+        protected List<CoverageBenefitLimitComponent> limit;
 
-        private static final long serialVersionUID = 74403513L;
+        private static final long serialVersionUID = -113658449L;
 
     /**
      * Constructor
      */
-      public ProductPlanCoverageBenefitComponent() {
+      public CoverageBenefitComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ProductPlanCoverageBenefitComponent(CodeableConcept type) {
+      public CoverageBenefitComponent(CodeableConcept type) {
         super();
         this.type = type;
       }
@@ -762,7 +762,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanCoverageBenefitComponent.type");
+              throw new Error("Attempt to auto-create CoverageBenefitComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -775,7 +775,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #type} (Type of benefit (primary care; speciality care; inpatient; outpatient).)
          */
-        public ProductPlanCoverageBenefitComponent setType(CodeableConcept value) { 
+        public CoverageBenefitComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -786,7 +786,7 @@ public class ProductPlan extends DomainResource {
         public StringType getRequirementElement() { 
           if (this.requirement == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanCoverageBenefitComponent.requirement");
+              throw new Error("Attempt to auto-create CoverageBenefitComponent.requirement");
             else if (Configuration.doAutoCreate())
               this.requirement = new StringType(); // bb
           return this.requirement;
@@ -803,7 +803,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #requirement} (The referral requirements to have access/coverage for this benefit.). This is the underlying object with id, value and extensions. The accessor "getRequirement" gives direct access to the value
          */
-        public ProductPlanCoverageBenefitComponent setRequirementElement(StringType value) { 
+        public CoverageBenefitComponent setRequirementElement(StringType value) { 
           this.requirement = value;
           return this;
         }
@@ -818,7 +818,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value The referral requirements to have access/coverage for this benefit.
          */
-        public ProductPlanCoverageBenefitComponent setRequirement(String value) { 
+        public CoverageBenefitComponent setRequirement(String value) { 
           if (Utilities.noString(value))
             this.requirement = null;
           else {
@@ -832,16 +832,16 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #limit} (The specific limits on the benefit.)
          */
-        public List<ProductPlanCoverageBenefitLimitComponent> getLimit() { 
+        public List<CoverageBenefitLimitComponent> getLimit() { 
           if (this.limit == null)
-            this.limit = new ArrayList<ProductPlanCoverageBenefitLimitComponent>();
+            this.limit = new ArrayList<CoverageBenefitLimitComponent>();
           return this.limit;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanCoverageBenefitComponent setLimit(List<ProductPlanCoverageBenefitLimitComponent> theLimit) { 
+        public CoverageBenefitComponent setLimit(List<CoverageBenefitLimitComponent> theLimit) { 
           this.limit = theLimit;
           return this;
         }
@@ -849,25 +849,25 @@ public class ProductPlan extends DomainResource {
         public boolean hasLimit() { 
           if (this.limit == null)
             return false;
-          for (ProductPlanCoverageBenefitLimitComponent item : this.limit)
+          for (CoverageBenefitLimitComponent item : this.limit)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ProductPlanCoverageBenefitLimitComponent addLimit() { //3
-          ProductPlanCoverageBenefitLimitComponent t = new ProductPlanCoverageBenefitLimitComponent();
+        public CoverageBenefitLimitComponent addLimit() { //3
+          CoverageBenefitLimitComponent t = new CoverageBenefitLimitComponent();
           if (this.limit == null)
-            this.limit = new ArrayList<ProductPlanCoverageBenefitLimitComponent>();
+            this.limit = new ArrayList<CoverageBenefitLimitComponent>();
           this.limit.add(t);
           return t;
         }
 
-        public ProductPlanCoverageBenefitComponent addLimit(ProductPlanCoverageBenefitLimitComponent t) { //3
+        public CoverageBenefitComponent addLimit(CoverageBenefitLimitComponent t) { //3
           if (t == null)
             return this;
           if (this.limit == null)
-            this.limit = new ArrayList<ProductPlanCoverageBenefitLimitComponent>();
+            this.limit = new ArrayList<CoverageBenefitLimitComponent>();
           this.limit.add(t);
           return this;
         }
@@ -875,7 +875,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #limit}, creating it if it does not already exist
          */
-        public ProductPlanCoverageBenefitLimitComponent getLimitFirstRep() { 
+        public CoverageBenefitLimitComponent getLimitFirstRep() { 
           if (getLimit().isEmpty()) {
             addLimit();
           }
@@ -905,7 +905,7 @@ public class ProductPlan extends DomainResource {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 363387971: /*requirement*/ return this.requirement == null ? new Base[0] : new Base[] {this.requirement}; // StringType
-        case 102976443: /*limit*/ return this.limit == null ? new Base[0] : this.limit.toArray(new Base[this.limit.size()]); // ProductPlanCoverageBenefitLimitComponent
+        case 102976443: /*limit*/ return this.limit == null ? new Base[0] : this.limit.toArray(new Base[this.limit.size()]); // CoverageBenefitLimitComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -921,7 +921,7 @@ public class ProductPlan extends DomainResource {
           this.requirement = castToString(value); // StringType
           return value;
         case 102976443: // limit
-          this.getLimit().add((ProductPlanCoverageBenefitLimitComponent) value); // ProductPlanCoverageBenefitLimitComponent
+          this.getLimit().add((CoverageBenefitLimitComponent) value); // CoverageBenefitLimitComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -935,7 +935,7 @@ public class ProductPlan extends DomainResource {
         } else if (name.equals("requirement")) {
           this.requirement = castToString(value); // StringType
         } else if (name.equals("limit")) {
-          this.getLimit().add((ProductPlanCoverageBenefitLimitComponent) value);
+          this.getLimit().add((CoverageBenefitLimitComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -970,7 +970,7 @@ public class ProductPlan extends DomainResource {
           return this.type;
         }
         else if (name.equals("requirement")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.requirement");
+          throw new FHIRException("Cannot call addChild on a primitive type InsurancePlan.requirement");
         }
         else if (name.equals("limit")) {
           return addLimit();
@@ -979,14 +979,14 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanCoverageBenefitComponent copy() {
-        ProductPlanCoverageBenefitComponent dst = new ProductPlanCoverageBenefitComponent();
+      public CoverageBenefitComponent copy() {
+        CoverageBenefitComponent dst = new CoverageBenefitComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.requirement = requirement == null ? null : requirement.copy();
         if (limit != null) {
-          dst.limit = new ArrayList<ProductPlanCoverageBenefitLimitComponent>();
-          for (ProductPlanCoverageBenefitLimitComponent i : limit)
+          dst.limit = new ArrayList<CoverageBenefitLimitComponent>();
+          for (CoverageBenefitLimitComponent i : limit)
             dst.limit.add(i.copy());
         };
         return dst;
@@ -996,9 +996,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanCoverageBenefitComponent))
+        if (!(other_ instanceof CoverageBenefitComponent))
           return false;
-        ProductPlanCoverageBenefitComponent o = (ProductPlanCoverageBenefitComponent) other_;
+        CoverageBenefitComponent o = (CoverageBenefitComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(requirement, o.requirement, true) && compareDeep(limit, o.limit, true)
           ;
       }
@@ -1007,9 +1007,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanCoverageBenefitComponent))
+        if (!(other_ instanceof CoverageBenefitComponent))
           return false;
-        ProductPlanCoverageBenefitComponent o = (ProductPlanCoverageBenefitComponent) other_;
+        CoverageBenefitComponent o = (CoverageBenefitComponent) other_;
         return compareValues(requirement, o.requirement, true);
       }
 
@@ -1019,14 +1019,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.coverage.benefit";
+    return "InsurancePlan.coverage.benefit";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanCoverageBenefitLimitComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class CoverageBenefitLimitComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The maximum amount of a service item a plan will pay for a covered benefit.  For examples. wellness visits, or eyeglasses.
          */
@@ -1046,7 +1046,7 @@ public class ProductPlan extends DomainResource {
     /**
      * Constructor
      */
-      public ProductPlanCoverageBenefitLimitComponent() {
+      public CoverageBenefitLimitComponent() {
         super();
       }
 
@@ -1056,7 +1056,7 @@ public class ProductPlan extends DomainResource {
         public Quantity getValue() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanCoverageBenefitLimitComponent.value");
+              throw new Error("Attempt to auto-create CoverageBenefitLimitComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new Quantity(); // cc
           return this.value;
@@ -1069,7 +1069,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #value} (The maximum amount of a service item a plan will pay for a covered benefit.  For examples. wellness visits, or eyeglasses.)
          */
-        public ProductPlanCoverageBenefitLimitComponent setValue(Quantity value) { 
+        public CoverageBenefitLimitComponent setValue(Quantity value) { 
           this.value = value;
           return this;
         }
@@ -1080,7 +1080,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanCoverageBenefitLimitComponent.code");
+              throw new Error("Attempt to auto-create CoverageBenefitLimitComponent.code");
             else if (Configuration.doAutoCreate())
               this.code = new CodeableConcept(); // cc
           return this.code;
@@ -1093,7 +1093,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #code} (The specific limit on the benefit.)
          */
-        public ProductPlanCoverageBenefitLimitComponent setCode(CodeableConcept value) { 
+        public CoverageBenefitLimitComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
@@ -1183,8 +1183,8 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanCoverageBenefitLimitComponent copy() {
-        ProductPlanCoverageBenefitLimitComponent dst = new ProductPlanCoverageBenefitLimitComponent();
+      public CoverageBenefitLimitComponent copy() {
+        CoverageBenefitLimitComponent dst = new CoverageBenefitLimitComponent();
         copyValues(dst);
         dst.value = value == null ? null : value.copy();
         dst.code = code == null ? null : code.copy();
@@ -1195,9 +1195,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanCoverageBenefitLimitComponent))
+        if (!(other_ instanceof CoverageBenefitLimitComponent))
           return false;
-        ProductPlanCoverageBenefitLimitComponent o = (ProductPlanCoverageBenefitLimitComponent) other_;
+        CoverageBenefitLimitComponent o = (CoverageBenefitLimitComponent) other_;
         return compareDeep(value, o.value, true) && compareDeep(code, o.code, true);
       }
 
@@ -1205,9 +1205,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanCoverageBenefitLimitComponent))
+        if (!(other_ instanceof CoverageBenefitLimitComponent))
           return false;
-        ProductPlanCoverageBenefitLimitComponent o = (ProductPlanCoverageBenefitLimitComponent) other_;
+        CoverageBenefitLimitComponent o = (CoverageBenefitLimitComponent) other_;
         return true;
       }
 
@@ -1216,14 +1216,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.coverage.benefit.limit";
+    return "InsurancePlan.coverage.benefit.limit";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanPlanComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class InsurancePlanPlanComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Business identifiers assigned to this health insurance plan which remain constant as the resource is updated and propagates from server to server.
          */
@@ -1267,21 +1267,21 @@ public class ProductPlan extends DomainResource {
          */
         @Child(name = "generalCost", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Overall costs", formalDefinition="Overall costs associated with the plan." )
-        protected List<ProductPlanPlanGeneralCostComponent> generalCost;
+        protected List<InsurancePlanPlanGeneralCostComponent> generalCost;
 
         /**
          * Costs associated with the coverage provided by the product.
          */
         @Child(name = "specificCost", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Specific costs", formalDefinition="Costs associated with the coverage provided by the product." )
-        protected List<ProductPlanPlanSpecificCostComponent> specificCost;
+        protected List<InsurancePlanPlanSpecificCostComponent> specificCost;
 
-        private static final long serialVersionUID = 558484355L;
+        private static final long serialVersionUID = -2063324071L;
 
     /**
      * Constructor
      */
-      public ProductPlanPlanComponent() {
+      public InsurancePlanPlanComponent() {
         super();
       }
 
@@ -1297,7 +1297,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanComponent setIdentifier(List<Identifier> theIdentifier) { 
+        public InsurancePlanPlanComponent setIdentifier(List<Identifier> theIdentifier) { 
           this.identifier = theIdentifier;
           return this;
         }
@@ -1319,7 +1319,7 @@ public class ProductPlan extends DomainResource {
           return t;
         }
 
-        public ProductPlanPlanComponent addIdentifier(Identifier t) { //3
+        public InsurancePlanPlanComponent addIdentifier(Identifier t) { //3
           if (t == null)
             return this;
           if (this.identifier == null)
@@ -1344,7 +1344,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanComponent.type");
+              throw new Error("Attempt to auto-create InsurancePlanPlanComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -1357,7 +1357,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #type} (Type of plan. For example, "Platinum" or "High Deductable".)
          */
-        public ProductPlanPlanComponent setType(CodeableConcept value) { 
+        public InsurancePlanPlanComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -1374,7 +1374,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanComponent setCoverageArea(List<Reference> theCoverageArea) { 
+        public InsurancePlanPlanComponent setCoverageArea(List<Reference> theCoverageArea) { 
           this.coverageArea = theCoverageArea;
           return this;
         }
@@ -1396,7 +1396,7 @@ public class ProductPlan extends DomainResource {
           return t;
         }
 
-        public ProductPlanPlanComponent addCoverageArea(Reference t) { //3
+        public InsurancePlanPlanComponent addCoverageArea(Reference t) { //3
           if (t == null)
             return this;
           if (this.coverageArea == null)
@@ -1449,7 +1449,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanComponent setNetwork(List<Reference> theNetwork) { 
+        public InsurancePlanPlanComponent setNetwork(List<Reference> theNetwork) { 
           this.network = theNetwork;
           return this;
         }
@@ -1471,7 +1471,7 @@ public class ProductPlan extends DomainResource {
           return t;
         }
 
-        public ProductPlanPlanComponent addNetwork(Reference t) { //3
+        public InsurancePlanPlanComponent addNetwork(Reference t) { //3
           if (t == null)
             return this;
           if (this.network == null)
@@ -1515,16 +1515,16 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #generalCost} (Overall costs associated with the plan.)
          */
-        public List<ProductPlanPlanGeneralCostComponent> getGeneralCost() { 
+        public List<InsurancePlanPlanGeneralCostComponent> getGeneralCost() { 
           if (this.generalCost == null)
-            this.generalCost = new ArrayList<ProductPlanPlanGeneralCostComponent>();
+            this.generalCost = new ArrayList<InsurancePlanPlanGeneralCostComponent>();
           return this.generalCost;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanComponent setGeneralCost(List<ProductPlanPlanGeneralCostComponent> theGeneralCost) { 
+        public InsurancePlanPlanComponent setGeneralCost(List<InsurancePlanPlanGeneralCostComponent> theGeneralCost) { 
           this.generalCost = theGeneralCost;
           return this;
         }
@@ -1532,25 +1532,25 @@ public class ProductPlan extends DomainResource {
         public boolean hasGeneralCost() { 
           if (this.generalCost == null)
             return false;
-          for (ProductPlanPlanGeneralCostComponent item : this.generalCost)
+          for (InsurancePlanPlanGeneralCostComponent item : this.generalCost)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ProductPlanPlanGeneralCostComponent addGeneralCost() { //3
-          ProductPlanPlanGeneralCostComponent t = new ProductPlanPlanGeneralCostComponent();
+        public InsurancePlanPlanGeneralCostComponent addGeneralCost() { //3
+          InsurancePlanPlanGeneralCostComponent t = new InsurancePlanPlanGeneralCostComponent();
           if (this.generalCost == null)
-            this.generalCost = new ArrayList<ProductPlanPlanGeneralCostComponent>();
+            this.generalCost = new ArrayList<InsurancePlanPlanGeneralCostComponent>();
           this.generalCost.add(t);
           return t;
         }
 
-        public ProductPlanPlanComponent addGeneralCost(ProductPlanPlanGeneralCostComponent t) { //3
+        public InsurancePlanPlanComponent addGeneralCost(InsurancePlanPlanGeneralCostComponent t) { //3
           if (t == null)
             return this;
           if (this.generalCost == null)
-            this.generalCost = new ArrayList<ProductPlanPlanGeneralCostComponent>();
+            this.generalCost = new ArrayList<InsurancePlanPlanGeneralCostComponent>();
           this.generalCost.add(t);
           return this;
         }
@@ -1558,7 +1558,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #generalCost}, creating it if it does not already exist
          */
-        public ProductPlanPlanGeneralCostComponent getGeneralCostFirstRep() { 
+        public InsurancePlanPlanGeneralCostComponent getGeneralCostFirstRep() { 
           if (getGeneralCost().isEmpty()) {
             addGeneralCost();
           }
@@ -1568,16 +1568,16 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #specificCost} (Costs associated with the coverage provided by the product.)
          */
-        public List<ProductPlanPlanSpecificCostComponent> getSpecificCost() { 
+        public List<InsurancePlanPlanSpecificCostComponent> getSpecificCost() { 
           if (this.specificCost == null)
-            this.specificCost = new ArrayList<ProductPlanPlanSpecificCostComponent>();
+            this.specificCost = new ArrayList<InsurancePlanPlanSpecificCostComponent>();
           return this.specificCost;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanComponent setSpecificCost(List<ProductPlanPlanSpecificCostComponent> theSpecificCost) { 
+        public InsurancePlanPlanComponent setSpecificCost(List<InsurancePlanPlanSpecificCostComponent> theSpecificCost) { 
           this.specificCost = theSpecificCost;
           return this;
         }
@@ -1585,25 +1585,25 @@ public class ProductPlan extends DomainResource {
         public boolean hasSpecificCost() { 
           if (this.specificCost == null)
             return false;
-          for (ProductPlanPlanSpecificCostComponent item : this.specificCost)
+          for (InsurancePlanPlanSpecificCostComponent item : this.specificCost)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ProductPlanPlanSpecificCostComponent addSpecificCost() { //3
-          ProductPlanPlanSpecificCostComponent t = new ProductPlanPlanSpecificCostComponent();
+        public InsurancePlanPlanSpecificCostComponent addSpecificCost() { //3
+          InsurancePlanPlanSpecificCostComponent t = new InsurancePlanPlanSpecificCostComponent();
           if (this.specificCost == null)
-            this.specificCost = new ArrayList<ProductPlanPlanSpecificCostComponent>();
+            this.specificCost = new ArrayList<InsurancePlanPlanSpecificCostComponent>();
           this.specificCost.add(t);
           return t;
         }
 
-        public ProductPlanPlanComponent addSpecificCost(ProductPlanPlanSpecificCostComponent t) { //3
+        public InsurancePlanPlanComponent addSpecificCost(InsurancePlanPlanSpecificCostComponent t) { //3
           if (t == null)
             return this;
           if (this.specificCost == null)
-            this.specificCost = new ArrayList<ProductPlanPlanSpecificCostComponent>();
+            this.specificCost = new ArrayList<InsurancePlanPlanSpecificCostComponent>();
           this.specificCost.add(t);
           return this;
         }
@@ -1611,7 +1611,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #specificCost}, creating it if it does not already exist
          */
-        public ProductPlanPlanSpecificCostComponent getSpecificCostFirstRep() { 
+        public InsurancePlanPlanSpecificCostComponent getSpecificCostFirstRep() { 
           if (getSpecificCost().isEmpty()) {
             addSpecificCost();
           }
@@ -1649,8 +1649,8 @@ public class ProductPlan extends DomainResource {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1532328299: /*coverageArea*/ return this.coverageArea == null ? new Base[0] : this.coverageArea.toArray(new Base[this.coverageArea.size()]); // Reference
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : this.network.toArray(new Base[this.network.size()]); // Reference
-        case 878344405: /*generalCost*/ return this.generalCost == null ? new Base[0] : this.generalCost.toArray(new Base[this.generalCost.size()]); // ProductPlanPlanGeneralCostComponent
-        case -1205656545: /*specificCost*/ return this.specificCost == null ? new Base[0] : this.specificCost.toArray(new Base[this.specificCost.size()]); // ProductPlanPlanSpecificCostComponent
+        case 878344405: /*generalCost*/ return this.generalCost == null ? new Base[0] : this.generalCost.toArray(new Base[this.generalCost.size()]); // InsurancePlanPlanGeneralCostComponent
+        case -1205656545: /*specificCost*/ return this.specificCost == null ? new Base[0] : this.specificCost.toArray(new Base[this.specificCost.size()]); // InsurancePlanPlanSpecificCostComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1672,10 +1672,10 @@ public class ProductPlan extends DomainResource {
           this.getNetwork().add(castToReference(value)); // Reference
           return value;
         case 878344405: // generalCost
-          this.getGeneralCost().add((ProductPlanPlanGeneralCostComponent) value); // ProductPlanPlanGeneralCostComponent
+          this.getGeneralCost().add((InsurancePlanPlanGeneralCostComponent) value); // InsurancePlanPlanGeneralCostComponent
           return value;
         case -1205656545: // specificCost
-          this.getSpecificCost().add((ProductPlanPlanSpecificCostComponent) value); // ProductPlanPlanSpecificCostComponent
+          this.getSpecificCost().add((InsurancePlanPlanSpecificCostComponent) value); // InsurancePlanPlanSpecificCostComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1693,9 +1693,9 @@ public class ProductPlan extends DomainResource {
         } else if (name.equals("network")) {
           this.getNetwork().add(castToReference(value));
         } else if (name.equals("generalCost")) {
-          this.getGeneralCost().add((ProductPlanPlanGeneralCostComponent) value);
+          this.getGeneralCost().add((InsurancePlanPlanGeneralCostComponent) value);
         } else if (name.equals("specificCost")) {
-          this.getSpecificCost().add((ProductPlanPlanSpecificCostComponent) value);
+          this.getSpecificCost().add((InsurancePlanPlanSpecificCostComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -1754,8 +1754,8 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanPlanComponent copy() {
-        ProductPlanPlanComponent dst = new ProductPlanPlanComponent();
+      public InsurancePlanPlanComponent copy() {
+        InsurancePlanPlanComponent dst = new InsurancePlanPlanComponent();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -1774,13 +1774,13 @@ public class ProductPlan extends DomainResource {
             dst.network.add(i.copy());
         };
         if (generalCost != null) {
-          dst.generalCost = new ArrayList<ProductPlanPlanGeneralCostComponent>();
-          for (ProductPlanPlanGeneralCostComponent i : generalCost)
+          dst.generalCost = new ArrayList<InsurancePlanPlanGeneralCostComponent>();
+          for (InsurancePlanPlanGeneralCostComponent i : generalCost)
             dst.generalCost.add(i.copy());
         };
         if (specificCost != null) {
-          dst.specificCost = new ArrayList<ProductPlanPlanSpecificCostComponent>();
-          for (ProductPlanPlanSpecificCostComponent i : specificCost)
+          dst.specificCost = new ArrayList<InsurancePlanPlanSpecificCostComponent>();
+          for (InsurancePlanPlanSpecificCostComponent i : specificCost)
             dst.specificCost.add(i.copy());
         };
         return dst;
@@ -1790,9 +1790,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanComponent))
+        if (!(other_ instanceof InsurancePlanPlanComponent))
           return false;
-        ProductPlanPlanComponent o = (ProductPlanPlanComponent) other_;
+        InsurancePlanPlanComponent o = (InsurancePlanPlanComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(coverageArea, o.coverageArea, true)
            && compareDeep(network, o.network, true) && compareDeep(generalCost, o.generalCost, true) && compareDeep(specificCost, o.specificCost, true)
           ;
@@ -1802,9 +1802,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanComponent))
+        if (!(other_ instanceof InsurancePlanPlanComponent))
           return false;
-        ProductPlanPlanComponent o = (ProductPlanPlanComponent) other_;
+        InsurancePlanPlanComponent o = (InsurancePlanPlanComponent) other_;
         return true;
       }
 
@@ -1814,14 +1814,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.plan";
+    return "InsurancePlan.plan";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanPlanGeneralCostComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class InsurancePlanPlanGeneralCostComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Type of cost.
          */
@@ -1855,7 +1855,7 @@ public class ProductPlan extends DomainResource {
     /**
      * Constructor
      */
-      public ProductPlanPlanGeneralCostComponent() {
+      public InsurancePlanPlanGeneralCostComponent() {
         super();
       }
 
@@ -1865,7 +1865,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanGeneralCostComponent.type");
+              throw new Error("Attempt to auto-create InsurancePlanPlanGeneralCostComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -1878,7 +1878,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #type} (Type of cost.)
          */
-        public ProductPlanPlanGeneralCostComponent setType(CodeableConcept value) { 
+        public InsurancePlanPlanGeneralCostComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -1889,7 +1889,7 @@ public class ProductPlan extends DomainResource {
         public PositiveIntType getGroupSizeElement() { 
           if (this.groupSize == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanGeneralCostComponent.groupSize");
+              throw new Error("Attempt to auto-create InsurancePlanPlanGeneralCostComponent.groupSize");
             else if (Configuration.doAutoCreate())
               this.groupSize = new PositiveIntType(); // bb
           return this.groupSize;
@@ -1906,7 +1906,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #groupSize} (Number of participants enrolled in the plan.). This is the underlying object with id, value and extensions. The accessor "getGroupSize" gives direct access to the value
          */
-        public ProductPlanPlanGeneralCostComponent setGroupSizeElement(PositiveIntType value) { 
+        public InsurancePlanPlanGeneralCostComponent setGroupSizeElement(PositiveIntType value) { 
           this.groupSize = value;
           return this;
         }
@@ -1921,7 +1921,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value Number of participants enrolled in the plan.
          */
-        public ProductPlanPlanGeneralCostComponent setGroupSize(int value) { 
+        public InsurancePlanPlanGeneralCostComponent setGroupSize(int value) { 
             if (this.groupSize == null)
               this.groupSize = new PositiveIntType();
             this.groupSize.setValue(value);
@@ -1934,7 +1934,7 @@ public class ProductPlan extends DomainResource {
         public Money getCost() { 
           if (this.cost == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanGeneralCostComponent.cost");
+              throw new Error("Attempt to auto-create InsurancePlanPlanGeneralCostComponent.cost");
             else if (Configuration.doAutoCreate())
               this.cost = new Money(); // cc
           return this.cost;
@@ -1947,7 +1947,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #cost} (Value of the cost.)
          */
-        public ProductPlanPlanGeneralCostComponent setCost(Money value) { 
+        public InsurancePlanPlanGeneralCostComponent setCost(Money value) { 
           this.cost = value;
           return this;
         }
@@ -1958,7 +1958,7 @@ public class ProductPlan extends DomainResource {
         public StringType getCommentElement() { 
           if (this.comment == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanGeneralCostComponent.comment");
+              throw new Error("Attempt to auto-create InsurancePlanPlanGeneralCostComponent.comment");
             else if (Configuration.doAutoCreate())
               this.comment = new StringType(); // bb
           return this.comment;
@@ -1975,7 +1975,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #comment} (Additional information about the general costs associated with this plan.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public ProductPlanPlanGeneralCostComponent setCommentElement(StringType value) { 
+        public InsurancePlanPlanGeneralCostComponent setCommentElement(StringType value) { 
           this.comment = value;
           return this;
         }
@@ -1990,7 +1990,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value Additional information about the general costs associated with this plan.
          */
-        public ProductPlanPlanGeneralCostComponent setComment(String value) { 
+        public InsurancePlanPlanGeneralCostComponent setComment(String value) { 
           if (Utilities.noString(value))
             this.comment = null;
           else {
@@ -2099,21 +2099,21 @@ public class ProductPlan extends DomainResource {
           return this.type;
         }
         else if (name.equals("groupSize")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.groupSize");
+          throw new FHIRException("Cannot call addChild on a primitive type InsurancePlan.groupSize");
         }
         else if (name.equals("cost")) {
           this.cost = new Money();
           return this.cost;
         }
         else if (name.equals("comment")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.comment");
+          throw new FHIRException("Cannot call addChild on a primitive type InsurancePlan.comment");
         }
         else
           return super.addChild(name);
       }
 
-      public ProductPlanPlanGeneralCostComponent copy() {
-        ProductPlanPlanGeneralCostComponent dst = new ProductPlanPlanGeneralCostComponent();
+      public InsurancePlanPlanGeneralCostComponent copy() {
+        InsurancePlanPlanGeneralCostComponent dst = new InsurancePlanPlanGeneralCostComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.groupSize = groupSize == null ? null : groupSize.copy();
@@ -2126,9 +2126,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanGeneralCostComponent))
+        if (!(other_ instanceof InsurancePlanPlanGeneralCostComponent))
           return false;
-        ProductPlanPlanGeneralCostComponent o = (ProductPlanPlanGeneralCostComponent) other_;
+        InsurancePlanPlanGeneralCostComponent o = (InsurancePlanPlanGeneralCostComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(groupSize, o.groupSize, true) && compareDeep(cost, o.cost, true)
            && compareDeep(comment, o.comment, true);
       }
@@ -2137,9 +2137,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanGeneralCostComponent))
+        if (!(other_ instanceof InsurancePlanPlanGeneralCostComponent))
           return false;
-        ProductPlanPlanGeneralCostComponent o = (ProductPlanPlanGeneralCostComponent) other_;
+        InsurancePlanPlanGeneralCostComponent o = (InsurancePlanPlanGeneralCostComponent) other_;
         return compareValues(groupSize, o.groupSize, true) && compareValues(comment, o.comment, true);
       }
 
@@ -2149,14 +2149,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.plan.generalCost";
+    return "InsurancePlan.plan.generalCost";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanPlanSpecificCostComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class InsurancePlanPlanSpecificCostComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * General category of benefit (Medical; Dental; Vision; Drug; Mental Health; Substance Abuse; Hospice, Home Health).
          */
@@ -2169,21 +2169,21 @@ public class ProductPlan extends DomainResource {
          */
         @Child(name = "benefit", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Benefits list", formalDefinition="List of the specific benefits under this category of benefit." )
-        protected List<ProductPlanPlanSpecificCostBenefitComponent> benefit;
+        protected List<PlanBenefitComponent> benefit;
 
-        private static final long serialVersionUID = 1629436006L;
+        private static final long serialVersionUID = 922585525L;
 
     /**
      * Constructor
      */
-      public ProductPlanPlanSpecificCostComponent() {
+      public InsurancePlanPlanSpecificCostComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ProductPlanPlanSpecificCostComponent(CodeableConcept category) {
+      public InsurancePlanPlanSpecificCostComponent(CodeableConcept category) {
         super();
         this.category = category;
       }
@@ -2194,7 +2194,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getCategory() { 
           if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanSpecificCostComponent.category");
+              throw new Error("Attempt to auto-create InsurancePlanPlanSpecificCostComponent.category");
             else if (Configuration.doAutoCreate())
               this.category = new CodeableConcept(); // cc
           return this.category;
@@ -2207,7 +2207,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #category} (General category of benefit (Medical; Dental; Vision; Drug; Mental Health; Substance Abuse; Hospice, Home Health).)
          */
-        public ProductPlanPlanSpecificCostComponent setCategory(CodeableConcept value) { 
+        public InsurancePlanPlanSpecificCostComponent setCategory(CodeableConcept value) { 
           this.category = value;
           return this;
         }
@@ -2215,16 +2215,16 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #benefit} (List of the specific benefits under this category of benefit.)
          */
-        public List<ProductPlanPlanSpecificCostBenefitComponent> getBenefit() { 
+        public List<PlanBenefitComponent> getBenefit() { 
           if (this.benefit == null)
-            this.benefit = new ArrayList<ProductPlanPlanSpecificCostBenefitComponent>();
+            this.benefit = new ArrayList<PlanBenefitComponent>();
           return this.benefit;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanSpecificCostComponent setBenefit(List<ProductPlanPlanSpecificCostBenefitComponent> theBenefit) { 
+        public InsurancePlanPlanSpecificCostComponent setBenefit(List<PlanBenefitComponent> theBenefit) { 
           this.benefit = theBenefit;
           return this;
         }
@@ -2232,25 +2232,25 @@ public class ProductPlan extends DomainResource {
         public boolean hasBenefit() { 
           if (this.benefit == null)
             return false;
-          for (ProductPlanPlanSpecificCostBenefitComponent item : this.benefit)
+          for (PlanBenefitComponent item : this.benefit)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ProductPlanPlanSpecificCostBenefitComponent addBenefit() { //3
-          ProductPlanPlanSpecificCostBenefitComponent t = new ProductPlanPlanSpecificCostBenefitComponent();
+        public PlanBenefitComponent addBenefit() { //3
+          PlanBenefitComponent t = new PlanBenefitComponent();
           if (this.benefit == null)
-            this.benefit = new ArrayList<ProductPlanPlanSpecificCostBenefitComponent>();
+            this.benefit = new ArrayList<PlanBenefitComponent>();
           this.benefit.add(t);
           return t;
         }
 
-        public ProductPlanPlanSpecificCostComponent addBenefit(ProductPlanPlanSpecificCostBenefitComponent t) { //3
+        public InsurancePlanPlanSpecificCostComponent addBenefit(PlanBenefitComponent t) { //3
           if (t == null)
             return this;
           if (this.benefit == null)
-            this.benefit = new ArrayList<ProductPlanPlanSpecificCostBenefitComponent>();
+            this.benefit = new ArrayList<PlanBenefitComponent>();
           this.benefit.add(t);
           return this;
         }
@@ -2258,7 +2258,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #benefit}, creating it if it does not already exist
          */
-        public ProductPlanPlanSpecificCostBenefitComponent getBenefitFirstRep() { 
+        public PlanBenefitComponent getBenefitFirstRep() { 
           if (getBenefit().isEmpty()) {
             addBenefit();
           }
@@ -2285,7 +2285,7 @@ public class ProductPlan extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case -222710633: /*benefit*/ return this.benefit == null ? new Base[0] : this.benefit.toArray(new Base[this.benefit.size()]); // ProductPlanPlanSpecificCostBenefitComponent
+        case -222710633: /*benefit*/ return this.benefit == null ? new Base[0] : this.benefit.toArray(new Base[this.benefit.size()]); // PlanBenefitComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2298,7 +2298,7 @@ public class ProductPlan extends DomainResource {
           this.category = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -222710633: // benefit
-          this.getBenefit().add((ProductPlanPlanSpecificCostBenefitComponent) value); // ProductPlanPlanSpecificCostBenefitComponent
+          this.getBenefit().add((PlanBenefitComponent) value); // PlanBenefitComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2310,7 +2310,7 @@ public class ProductPlan extends DomainResource {
         if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("benefit")) {
-          this.getBenefit().add((ProductPlanPlanSpecificCostBenefitComponent) value);
+          this.getBenefit().add((PlanBenefitComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2349,13 +2349,13 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanPlanSpecificCostComponent copy() {
-        ProductPlanPlanSpecificCostComponent dst = new ProductPlanPlanSpecificCostComponent();
+      public InsurancePlanPlanSpecificCostComponent copy() {
+        InsurancePlanPlanSpecificCostComponent dst = new InsurancePlanPlanSpecificCostComponent();
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         if (benefit != null) {
-          dst.benefit = new ArrayList<ProductPlanPlanSpecificCostBenefitComponent>();
-          for (ProductPlanPlanSpecificCostBenefitComponent i : benefit)
+          dst.benefit = new ArrayList<PlanBenefitComponent>();
+          for (PlanBenefitComponent i : benefit)
             dst.benefit.add(i.copy());
         };
         return dst;
@@ -2365,9 +2365,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanSpecificCostComponent))
+        if (!(other_ instanceof InsurancePlanPlanSpecificCostComponent))
           return false;
-        ProductPlanPlanSpecificCostComponent o = (ProductPlanPlanSpecificCostComponent) other_;
+        InsurancePlanPlanSpecificCostComponent o = (InsurancePlanPlanSpecificCostComponent) other_;
         return compareDeep(category, o.category, true) && compareDeep(benefit, o.benefit, true);
       }
 
@@ -2375,9 +2375,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanSpecificCostComponent))
+        if (!(other_ instanceof InsurancePlanPlanSpecificCostComponent))
           return false;
-        ProductPlanPlanSpecificCostComponent o = (ProductPlanPlanSpecificCostComponent) other_;
+        InsurancePlanPlanSpecificCostComponent o = (InsurancePlanPlanSpecificCostComponent) other_;
         return true;
       }
 
@@ -2386,14 +2386,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.plan.specificCost";
+    return "InsurancePlan.plan.specificCost";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanPlanSpecificCostBenefitComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class PlanBenefitComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Type of specific benefit (preventative; primary care office visit; speciality office visit; hospitalization; emergency room; urgent care).
          */
@@ -2406,21 +2406,21 @@ public class ProductPlan extends DomainResource {
          */
         @Child(name = "cost", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="List of the costs", formalDefinition="List of the costs associated with a specific benefit." )
-        protected List<ProductPlanPlanSpecificCostBenefitCostComponent> cost;
+        protected List<PlanBenefitCostComponent> cost;
 
-        private static final long serialVersionUID = 1406391919L;
+        private static final long serialVersionUID = 792296200L;
 
     /**
      * Constructor
      */
-      public ProductPlanPlanSpecificCostBenefitComponent() {
+      public PlanBenefitComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ProductPlanPlanSpecificCostBenefitComponent(CodeableConcept type) {
+      public PlanBenefitComponent(CodeableConcept type) {
         super();
         this.type = type;
       }
@@ -2431,7 +2431,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanSpecificCostBenefitComponent.type");
+              throw new Error("Attempt to auto-create PlanBenefitComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -2444,7 +2444,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #type} (Type of specific benefit (preventative; primary care office visit; speciality office visit; hospitalization; emergency room; urgent care).)
          */
-        public ProductPlanPlanSpecificCostBenefitComponent setType(CodeableConcept value) { 
+        public PlanBenefitComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -2452,16 +2452,16 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #cost} (List of the costs associated with a specific benefit.)
          */
-        public List<ProductPlanPlanSpecificCostBenefitCostComponent> getCost() { 
+        public List<PlanBenefitCostComponent> getCost() { 
           if (this.cost == null)
-            this.cost = new ArrayList<ProductPlanPlanSpecificCostBenefitCostComponent>();
+            this.cost = new ArrayList<PlanBenefitCostComponent>();
           return this.cost;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanSpecificCostBenefitComponent setCost(List<ProductPlanPlanSpecificCostBenefitCostComponent> theCost) { 
+        public PlanBenefitComponent setCost(List<PlanBenefitCostComponent> theCost) { 
           this.cost = theCost;
           return this;
         }
@@ -2469,25 +2469,25 @@ public class ProductPlan extends DomainResource {
         public boolean hasCost() { 
           if (this.cost == null)
             return false;
-          for (ProductPlanPlanSpecificCostBenefitCostComponent item : this.cost)
+          for (PlanBenefitCostComponent item : this.cost)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ProductPlanPlanSpecificCostBenefitCostComponent addCost() { //3
-          ProductPlanPlanSpecificCostBenefitCostComponent t = new ProductPlanPlanSpecificCostBenefitCostComponent();
+        public PlanBenefitCostComponent addCost() { //3
+          PlanBenefitCostComponent t = new PlanBenefitCostComponent();
           if (this.cost == null)
-            this.cost = new ArrayList<ProductPlanPlanSpecificCostBenefitCostComponent>();
+            this.cost = new ArrayList<PlanBenefitCostComponent>();
           this.cost.add(t);
           return t;
         }
 
-        public ProductPlanPlanSpecificCostBenefitComponent addCost(ProductPlanPlanSpecificCostBenefitCostComponent t) { //3
+        public PlanBenefitComponent addCost(PlanBenefitCostComponent t) { //3
           if (t == null)
             return this;
           if (this.cost == null)
-            this.cost = new ArrayList<ProductPlanPlanSpecificCostBenefitCostComponent>();
+            this.cost = new ArrayList<PlanBenefitCostComponent>();
           this.cost.add(t);
           return this;
         }
@@ -2495,7 +2495,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #cost}, creating it if it does not already exist
          */
-        public ProductPlanPlanSpecificCostBenefitCostComponent getCostFirstRep() { 
+        public PlanBenefitCostComponent getCostFirstRep() { 
           if (getCost().isEmpty()) {
             addCost();
           }
@@ -2522,7 +2522,7 @@ public class ProductPlan extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case 3059661: /*cost*/ return this.cost == null ? new Base[0] : this.cost.toArray(new Base[this.cost.size()]); // ProductPlanPlanSpecificCostBenefitCostComponent
+        case 3059661: /*cost*/ return this.cost == null ? new Base[0] : this.cost.toArray(new Base[this.cost.size()]); // PlanBenefitCostComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2535,7 +2535,7 @@ public class ProductPlan extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 3059661: // cost
-          this.getCost().add((ProductPlanPlanSpecificCostBenefitCostComponent) value); // ProductPlanPlanSpecificCostBenefitCostComponent
+          this.getCost().add((PlanBenefitCostComponent) value); // PlanBenefitCostComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2547,7 +2547,7 @@ public class ProductPlan extends DomainResource {
         if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("cost")) {
-          this.getCost().add((ProductPlanPlanSpecificCostBenefitCostComponent) value);
+          this.getCost().add((PlanBenefitCostComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2586,13 +2586,13 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanPlanSpecificCostBenefitComponent copy() {
-        ProductPlanPlanSpecificCostBenefitComponent dst = new ProductPlanPlanSpecificCostBenefitComponent();
+      public PlanBenefitComponent copy() {
+        PlanBenefitComponent dst = new PlanBenefitComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         if (cost != null) {
-          dst.cost = new ArrayList<ProductPlanPlanSpecificCostBenefitCostComponent>();
-          for (ProductPlanPlanSpecificCostBenefitCostComponent i : cost)
+          dst.cost = new ArrayList<PlanBenefitCostComponent>();
+          for (PlanBenefitCostComponent i : cost)
             dst.cost.add(i.copy());
         };
         return dst;
@@ -2602,9 +2602,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanSpecificCostBenefitComponent))
+        if (!(other_ instanceof PlanBenefitComponent))
           return false;
-        ProductPlanPlanSpecificCostBenefitComponent o = (ProductPlanPlanSpecificCostBenefitComponent) other_;
+        PlanBenefitComponent o = (PlanBenefitComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(cost, o.cost, true);
       }
 
@@ -2612,9 +2612,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanSpecificCostBenefitComponent))
+        if (!(other_ instanceof PlanBenefitComponent))
           return false;
-        ProductPlanPlanSpecificCostBenefitComponent o = (ProductPlanPlanSpecificCostBenefitComponent) other_;
+        PlanBenefitComponent o = (PlanBenefitComponent) other_;
         return true;
       }
 
@@ -2623,14 +2623,14 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.plan.specificCost.benefit";
+    return "InsurancePlan.plan.specificCost.benefit";
 
   }
 
   }
 
     @Block()
-    public static class ProductPlanPlanSpecificCostBenefitCostComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class PlanBenefitCostComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Type of cost (copay; individual cap; family cap; coinsurance; deductible).
          */
@@ -2643,7 +2643,7 @@ public class ProductPlan extends DomainResource {
          */
         @Child(name = "applicability", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="in-network | out-of-network | other", formalDefinition="Whether the cost applies to in-network or out-of-network providers (in-network; out-of-network; other)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/productplan-applicability")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/insuranceplan-applicability")
         protected CodeableConcept applicability;
 
         /**
@@ -2665,14 +2665,14 @@ public class ProductPlan extends DomainResource {
     /**
      * Constructor
      */
-      public ProductPlanPlanSpecificCostBenefitCostComponent() {
+      public PlanBenefitCostComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ProductPlanPlanSpecificCostBenefitCostComponent(CodeableConcept type) {
+      public PlanBenefitCostComponent(CodeableConcept type) {
         super();
         this.type = type;
       }
@@ -2683,7 +2683,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanSpecificCostBenefitCostComponent.type");
+              throw new Error("Attempt to auto-create PlanBenefitCostComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -2696,7 +2696,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #type} (Type of cost (copay; individual cap; family cap; coinsurance; deductible).)
          */
-        public ProductPlanPlanSpecificCostBenefitCostComponent setType(CodeableConcept value) { 
+        public PlanBenefitCostComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -2707,7 +2707,7 @@ public class ProductPlan extends DomainResource {
         public CodeableConcept getApplicability() { 
           if (this.applicability == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanSpecificCostBenefitCostComponent.applicability");
+              throw new Error("Attempt to auto-create PlanBenefitCostComponent.applicability");
             else if (Configuration.doAutoCreate())
               this.applicability = new CodeableConcept(); // cc
           return this.applicability;
@@ -2720,7 +2720,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #applicability} (Whether the cost applies to in-network or out-of-network providers (in-network; out-of-network; other).)
          */
-        public ProductPlanPlanSpecificCostBenefitCostComponent setApplicability(CodeableConcept value) { 
+        public PlanBenefitCostComponent setApplicability(CodeableConcept value) { 
           this.applicability = value;
           return this;
         }
@@ -2737,7 +2737,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ProductPlanPlanSpecificCostBenefitCostComponent setQualifiers(List<CodeableConcept> theQualifiers) { 
+        public PlanBenefitCostComponent setQualifiers(List<CodeableConcept> theQualifiers) { 
           this.qualifiers = theQualifiers;
           return this;
         }
@@ -2759,7 +2759,7 @@ public class ProductPlan extends DomainResource {
           return t;
         }
 
-        public ProductPlanPlanSpecificCostBenefitCostComponent addQualifiers(CodeableConcept t) { //3
+        public PlanBenefitCostComponent addQualifiers(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.qualifiers == null)
@@ -2784,7 +2784,7 @@ public class ProductPlan extends DomainResource {
         public Quantity getValue() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProductPlanPlanSpecificCostBenefitCostComponent.value");
+              throw new Error("Attempt to auto-create PlanBenefitCostComponent.value");
             else if (Configuration.doAutoCreate())
               this.value = new Quantity(); // cc
           return this.value;
@@ -2797,7 +2797,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #value} (The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g. 10% coinsurance).)
          */
-        public ProductPlanPlanSpecificCostBenefitCostComponent setValue(Quantity value) { 
+        public PlanBenefitCostComponent setValue(Quantity value) { 
           this.value = value;
           return this;
         }
@@ -2914,8 +2914,8 @@ public class ProductPlan extends DomainResource {
           return super.addChild(name);
       }
 
-      public ProductPlanPlanSpecificCostBenefitCostComponent copy() {
-        ProductPlanPlanSpecificCostBenefitCostComponent dst = new ProductPlanPlanSpecificCostBenefitCostComponent();
+      public PlanBenefitCostComponent copy() {
+        PlanBenefitCostComponent dst = new PlanBenefitCostComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.applicability = applicability == null ? null : applicability.copy();
@@ -2932,9 +2932,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanSpecificCostBenefitCostComponent))
+        if (!(other_ instanceof PlanBenefitCostComponent))
           return false;
-        ProductPlanPlanSpecificCostBenefitCostComponent o = (ProductPlanPlanSpecificCostBenefitCostComponent) other_;
+        PlanBenefitCostComponent o = (PlanBenefitCostComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(applicability, o.applicability, true) && compareDeep(qualifiers, o.qualifiers, true)
            && compareDeep(value, o.value, true);
       }
@@ -2943,9 +2943,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlanPlanSpecificCostBenefitCostComponent))
+        if (!(other_ instanceof PlanBenefitCostComponent))
           return false;
-        ProductPlanPlanSpecificCostBenefitCostComponent o = (ProductPlanPlanSpecificCostBenefitCostComponent) other_;
+        PlanBenefitCostComponent o = (PlanBenefitCostComponent) other_;
         return true;
       }
 
@@ -2955,7 +2955,7 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan.plan.specificCost.benefit.cost";
+    return "InsurancePlan.plan.specificCost.benefit.cost";
 
   }
 
@@ -2981,7 +2981,7 @@ public class ProductPlan extends DomainResource {
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Kind of product", formalDefinition="The kind of health insurance product." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/productplan-type")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/insuranceplan-type")
     protected List<CodeableConcept> type;
 
     /**
@@ -3046,7 +3046,7 @@ public class ProductPlan extends DomainResource {
      */
     @Child(name = "contact", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contact for the product", formalDefinition="The contact for the health insurance product for a certain purpose." )
-    protected List<ProductPlanContactComponent> contact;
+    protected List<InsurancePlanContactComponent> contact;
 
     /**
      * The technical endpoints providing access to services operated for the health insurance product.
@@ -3077,21 +3077,21 @@ public class ProductPlan extends DomainResource {
      */
     @Child(name = "coverage", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Coverage details", formalDefinition="Details about the coverage offered by the insurance product." )
-    protected List<ProductPlanCoverageComponent> coverage;
+    protected List<InsurancePlanCoverageComponent> coverage;
 
     /**
      * Details about an insurance plan.
      */
     @Child(name = "plan", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Plan details", formalDefinition="Details about an insurance plan." )
-    protected List<ProductPlanPlanComponent> plan;
+    protected List<InsurancePlanPlanComponent> plan;
 
-    private static final long serialVersionUID = 210859967L;
+    private static final long serialVersionUID = -1910594688L;
 
   /**
    * Constructor
    */
-    public ProductPlan() {
+    public InsurancePlan() {
       super();
     }
 
@@ -3107,7 +3107,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setIdentifier(List<Identifier> theIdentifier) { 
+    public InsurancePlan setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -3129,7 +3129,7 @@ public class ProductPlan extends DomainResource {
       return t;
     }
 
-    public ProductPlan addIdentifier(Identifier t) { //3
+    public InsurancePlan addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -3154,7 +3154,7 @@ public class ProductPlan extends DomainResource {
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.status");
+          throw new Error("Attempt to auto-create InsurancePlan.status");
         else if (Configuration.doAutoCreate())
           this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
@@ -3171,7 +3171,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #status} (The current state of the health insurance product.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ProductPlan setStatusElement(Enumeration<PublicationStatus> value) { 
+    public InsurancePlan setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -3186,7 +3186,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value The current state of the health insurance product.
      */
-    public ProductPlan setStatus(PublicationStatus value) { 
+    public InsurancePlan setStatus(PublicationStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -3209,7 +3209,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setType(List<CodeableConcept> theType) { 
+    public InsurancePlan setType(List<CodeableConcept> theType) { 
       this.type = theType;
       return this;
     }
@@ -3231,7 +3231,7 @@ public class ProductPlan extends DomainResource {
       return t;
     }
 
-    public ProductPlan addType(CodeableConcept t) { //3
+    public InsurancePlan addType(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.type == null)
@@ -3256,7 +3256,7 @@ public class ProductPlan extends DomainResource {
     public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.name");
+          throw new Error("Attempt to auto-create InsurancePlan.name");
         else if (Configuration.doAutoCreate())
           this.name = new StringType(); // bb
       return this.name;
@@ -3273,7 +3273,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #name} (Official name of the health insurance product as designated by the owner.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public ProductPlan setNameElement(StringType value) { 
+    public InsurancePlan setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -3288,7 +3288,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value Official name of the health insurance product as designated by the owner.
      */
-    public ProductPlan setName(String value) { 
+    public InsurancePlan setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -3311,7 +3311,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setAlias(List<StringType> theAlias) { 
+    public InsurancePlan setAlias(List<StringType> theAlias) { 
       this.alias = theAlias;
       return this;
     }
@@ -3339,7 +3339,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #alias} (A list of alternate names that the product is known as, or was known as in the past.)
      */
-    public ProductPlan addAlias(String value) { //1
+    public InsurancePlan addAlias(String value) { //1
       StringType t = new StringType();
       t.setValue(value);
       if (this.alias == null)
@@ -3366,7 +3366,7 @@ public class ProductPlan extends DomainResource {
     public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.period");
+          throw new Error("Attempt to auto-create InsurancePlan.period");
         else if (Configuration.doAutoCreate())
           this.period = new Period(); // cc
       return this.period;
@@ -3379,7 +3379,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #period} (The period of time that the health insurance product is available.)
      */
-    public ProductPlan setPeriod(Period value) { 
+    public InsurancePlan setPeriod(Period value) { 
       this.period = value;
       return this;
     }
@@ -3390,7 +3390,7 @@ public class ProductPlan extends DomainResource {
     public Reference getOwnedBy() { 
       if (this.ownedBy == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.ownedBy");
+          throw new Error("Attempt to auto-create InsurancePlan.ownedBy");
         else if (Configuration.doAutoCreate())
           this.ownedBy = new Reference(); // cc
       return this.ownedBy;
@@ -3403,7 +3403,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #ownedBy} (The entity that is providing  the health insurance product and underwriting the risk.  This is typically an insurance carriers, other third-party payers, or health plan sponsors comonly referred to as 'payers'.)
      */
-    public ProductPlan setOwnedBy(Reference value) { 
+    public InsurancePlan setOwnedBy(Reference value) { 
       this.ownedBy = value;
       return this;
     }
@@ -3414,7 +3414,7 @@ public class ProductPlan extends DomainResource {
     public Organization getOwnedByTarget() { 
       if (this.ownedByTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.ownedBy");
+          throw new Error("Attempt to auto-create InsurancePlan.ownedBy");
         else if (Configuration.doAutoCreate())
           this.ownedByTarget = new Organization(); // aa
       return this.ownedByTarget;
@@ -3423,7 +3423,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #ownedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity that is providing  the health insurance product and underwriting the risk.  This is typically an insurance carriers, other third-party payers, or health plan sponsors comonly referred to as 'payers'.)
      */
-    public ProductPlan setOwnedByTarget(Organization value) { 
+    public InsurancePlan setOwnedByTarget(Organization value) { 
       this.ownedByTarget = value;
       return this;
     }
@@ -3434,7 +3434,7 @@ public class ProductPlan extends DomainResource {
     public Reference getAdministeredBy() { 
       if (this.administeredBy == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.administeredBy");
+          throw new Error("Attempt to auto-create InsurancePlan.administeredBy");
         else if (Configuration.doAutoCreate())
           this.administeredBy = new Reference(); // cc
       return this.administeredBy;
@@ -3447,7 +3447,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #administeredBy} (An organization which administer other services such as underwriting, customer service and/or claims processing on behalf of the health insurance product owner.)
      */
-    public ProductPlan setAdministeredBy(Reference value) { 
+    public InsurancePlan setAdministeredBy(Reference value) { 
       this.administeredBy = value;
       return this;
     }
@@ -3458,7 +3458,7 @@ public class ProductPlan extends DomainResource {
     public Organization getAdministeredByTarget() { 
       if (this.administeredByTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProductPlan.administeredBy");
+          throw new Error("Attempt to auto-create InsurancePlan.administeredBy");
         else if (Configuration.doAutoCreate())
           this.administeredByTarget = new Organization(); // aa
       return this.administeredByTarget;
@@ -3467,7 +3467,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #administeredBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An organization which administer other services such as underwriting, customer service and/or claims processing on behalf of the health insurance product owner.)
      */
-    public ProductPlan setAdministeredByTarget(Organization value) { 
+    public InsurancePlan setAdministeredByTarget(Organization value) { 
       this.administeredByTarget = value;
       return this;
     }
@@ -3484,7 +3484,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setCoverageArea(List<Reference> theCoverageArea) { 
+    public InsurancePlan setCoverageArea(List<Reference> theCoverageArea) { 
       this.coverageArea = theCoverageArea;
       return this;
     }
@@ -3506,7 +3506,7 @@ public class ProductPlan extends DomainResource {
       return t;
     }
 
-    public ProductPlan addCoverageArea(Reference t) { //3
+    public InsurancePlan addCoverageArea(Reference t) { //3
       if (t == null)
         return this;
       if (this.coverageArea == null)
@@ -3550,16 +3550,16 @@ public class ProductPlan extends DomainResource {
     /**
      * @return {@link #contact} (The contact for the health insurance product for a certain purpose.)
      */
-    public List<ProductPlanContactComponent> getContact() { 
+    public List<InsurancePlanContactComponent> getContact() { 
       if (this.contact == null)
-        this.contact = new ArrayList<ProductPlanContactComponent>();
+        this.contact = new ArrayList<InsurancePlanContactComponent>();
       return this.contact;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setContact(List<ProductPlanContactComponent> theContact) { 
+    public InsurancePlan setContact(List<InsurancePlanContactComponent> theContact) { 
       this.contact = theContact;
       return this;
     }
@@ -3567,25 +3567,25 @@ public class ProductPlan extends DomainResource {
     public boolean hasContact() { 
       if (this.contact == null)
         return false;
-      for (ProductPlanContactComponent item : this.contact)
+      for (InsurancePlanContactComponent item : this.contact)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public ProductPlanContactComponent addContact() { //3
-      ProductPlanContactComponent t = new ProductPlanContactComponent();
+    public InsurancePlanContactComponent addContact() { //3
+      InsurancePlanContactComponent t = new InsurancePlanContactComponent();
       if (this.contact == null)
-        this.contact = new ArrayList<ProductPlanContactComponent>();
+        this.contact = new ArrayList<InsurancePlanContactComponent>();
       this.contact.add(t);
       return t;
     }
 
-    public ProductPlan addContact(ProductPlanContactComponent t) { //3
+    public InsurancePlan addContact(InsurancePlanContactComponent t) { //3
       if (t == null)
         return this;
       if (this.contact == null)
-        this.contact = new ArrayList<ProductPlanContactComponent>();
+        this.contact = new ArrayList<InsurancePlanContactComponent>();
       this.contact.add(t);
       return this;
     }
@@ -3593,7 +3593,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
      */
-    public ProductPlanContactComponent getContactFirstRep() { 
+    public InsurancePlanContactComponent getContactFirstRep() { 
       if (getContact().isEmpty()) {
         addContact();
       }
@@ -3612,7 +3612,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setEndpoint(List<Reference> theEndpoint) { 
+    public InsurancePlan setEndpoint(List<Reference> theEndpoint) { 
       this.endpoint = theEndpoint;
       return this;
     }
@@ -3634,7 +3634,7 @@ public class ProductPlan extends DomainResource {
       return t;
     }
 
-    public ProductPlan addEndpoint(Reference t) { //3
+    public InsurancePlan addEndpoint(Reference t) { //3
       if (t == null)
         return this;
       if (this.endpoint == null)
@@ -3687,7 +3687,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setNetwork(List<Reference> theNetwork) { 
+    public InsurancePlan setNetwork(List<Reference> theNetwork) { 
       this.network = theNetwork;
       return this;
     }
@@ -3709,7 +3709,7 @@ public class ProductPlan extends DomainResource {
       return t;
     }
 
-    public ProductPlan addNetwork(Reference t) { //3
+    public InsurancePlan addNetwork(Reference t) { //3
       if (t == null)
         return this;
       if (this.network == null)
@@ -3753,16 +3753,16 @@ public class ProductPlan extends DomainResource {
     /**
      * @return {@link #coverage} (Details about the coverage offered by the insurance product.)
      */
-    public List<ProductPlanCoverageComponent> getCoverage() { 
+    public List<InsurancePlanCoverageComponent> getCoverage() { 
       if (this.coverage == null)
-        this.coverage = new ArrayList<ProductPlanCoverageComponent>();
+        this.coverage = new ArrayList<InsurancePlanCoverageComponent>();
       return this.coverage;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setCoverage(List<ProductPlanCoverageComponent> theCoverage) { 
+    public InsurancePlan setCoverage(List<InsurancePlanCoverageComponent> theCoverage) { 
       this.coverage = theCoverage;
       return this;
     }
@@ -3770,25 +3770,25 @@ public class ProductPlan extends DomainResource {
     public boolean hasCoverage() { 
       if (this.coverage == null)
         return false;
-      for (ProductPlanCoverageComponent item : this.coverage)
+      for (InsurancePlanCoverageComponent item : this.coverage)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public ProductPlanCoverageComponent addCoverage() { //3
-      ProductPlanCoverageComponent t = new ProductPlanCoverageComponent();
+    public InsurancePlanCoverageComponent addCoverage() { //3
+      InsurancePlanCoverageComponent t = new InsurancePlanCoverageComponent();
       if (this.coverage == null)
-        this.coverage = new ArrayList<ProductPlanCoverageComponent>();
+        this.coverage = new ArrayList<InsurancePlanCoverageComponent>();
       this.coverage.add(t);
       return t;
     }
 
-    public ProductPlan addCoverage(ProductPlanCoverageComponent t) { //3
+    public InsurancePlan addCoverage(InsurancePlanCoverageComponent t) { //3
       if (t == null)
         return this;
       if (this.coverage == null)
-        this.coverage = new ArrayList<ProductPlanCoverageComponent>();
+        this.coverage = new ArrayList<InsurancePlanCoverageComponent>();
       this.coverage.add(t);
       return this;
     }
@@ -3796,7 +3796,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #coverage}, creating it if it does not already exist
      */
-    public ProductPlanCoverageComponent getCoverageFirstRep() { 
+    public InsurancePlanCoverageComponent getCoverageFirstRep() { 
       if (getCoverage().isEmpty()) {
         addCoverage();
       }
@@ -3806,16 +3806,16 @@ public class ProductPlan extends DomainResource {
     /**
      * @return {@link #plan} (Details about an insurance plan.)
      */
-    public List<ProductPlanPlanComponent> getPlan() { 
+    public List<InsurancePlanPlanComponent> getPlan() { 
       if (this.plan == null)
-        this.plan = new ArrayList<ProductPlanPlanComponent>();
+        this.plan = new ArrayList<InsurancePlanPlanComponent>();
       return this.plan;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProductPlan setPlan(List<ProductPlanPlanComponent> thePlan) { 
+    public InsurancePlan setPlan(List<InsurancePlanPlanComponent> thePlan) { 
       this.plan = thePlan;
       return this;
     }
@@ -3823,25 +3823,25 @@ public class ProductPlan extends DomainResource {
     public boolean hasPlan() { 
       if (this.plan == null)
         return false;
-      for (ProductPlanPlanComponent item : this.plan)
+      for (InsurancePlanPlanComponent item : this.plan)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public ProductPlanPlanComponent addPlan() { //3
-      ProductPlanPlanComponent t = new ProductPlanPlanComponent();
+    public InsurancePlanPlanComponent addPlan() { //3
+      InsurancePlanPlanComponent t = new InsurancePlanPlanComponent();
       if (this.plan == null)
-        this.plan = new ArrayList<ProductPlanPlanComponent>();
+        this.plan = new ArrayList<InsurancePlanPlanComponent>();
       this.plan.add(t);
       return t;
     }
 
-    public ProductPlan addPlan(ProductPlanPlanComponent t) { //3
+    public InsurancePlan addPlan(InsurancePlanPlanComponent t) { //3
       if (t == null)
         return this;
       if (this.plan == null)
-        this.plan = new ArrayList<ProductPlanPlanComponent>();
+        this.plan = new ArrayList<InsurancePlanPlanComponent>();
       this.plan.add(t);
       return this;
     }
@@ -3849,7 +3849,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #plan}, creating it if it does not already exist
      */
-    public ProductPlanPlanComponent getPlanFirstRep() { 
+    public InsurancePlanPlanComponent getPlanFirstRep() { 
       if (getPlan().isEmpty()) {
         addPlan();
       }
@@ -3908,11 +3908,11 @@ public class ProductPlan extends DomainResource {
         case -1054743076: /*ownedBy*/ return this.ownedBy == null ? new Base[0] : new Base[] {this.ownedBy}; // Reference
         case 898770462: /*administeredBy*/ return this.administeredBy == null ? new Base[0] : new Base[] {this.administeredBy}; // Reference
         case -1532328299: /*coverageArea*/ return this.coverageArea == null ? new Base[0] : this.coverageArea.toArray(new Base[this.coverageArea.size()]); // Reference
-        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ProductPlanContactComponent
+        case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // InsurancePlanContactComponent
         case 1741102485: /*endpoint*/ return this.endpoint == null ? new Base[0] : this.endpoint.toArray(new Base[this.endpoint.size()]); // Reference
         case 1843485230: /*network*/ return this.network == null ? new Base[0] : this.network.toArray(new Base[this.network.size()]); // Reference
-        case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : this.coverage.toArray(new Base[this.coverage.size()]); // ProductPlanCoverageComponent
-        case 3443497: /*plan*/ return this.plan == null ? new Base[0] : this.plan.toArray(new Base[this.plan.size()]); // ProductPlanPlanComponent
+        case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : this.coverage.toArray(new Base[this.coverage.size()]); // InsurancePlanCoverageComponent
+        case 3443497: /*plan*/ return this.plan == null ? new Base[0] : this.plan.toArray(new Base[this.plan.size()]); // InsurancePlanPlanComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3950,7 +3950,7 @@ public class ProductPlan extends DomainResource {
           this.getCoverageArea().add(castToReference(value)); // Reference
           return value;
         case 951526432: // contact
-          this.getContact().add((ProductPlanContactComponent) value); // ProductPlanContactComponent
+          this.getContact().add((InsurancePlanContactComponent) value); // InsurancePlanContactComponent
           return value;
         case 1741102485: // endpoint
           this.getEndpoint().add(castToReference(value)); // Reference
@@ -3959,10 +3959,10 @@ public class ProductPlan extends DomainResource {
           this.getNetwork().add(castToReference(value)); // Reference
           return value;
         case -351767064: // coverage
-          this.getCoverage().add((ProductPlanCoverageComponent) value); // ProductPlanCoverageComponent
+          this.getCoverage().add((InsurancePlanCoverageComponent) value); // InsurancePlanCoverageComponent
           return value;
         case 3443497: // plan
-          this.getPlan().add((ProductPlanPlanComponent) value); // ProductPlanPlanComponent
+          this.getPlan().add((InsurancePlanPlanComponent) value); // InsurancePlanPlanComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3991,15 +3991,15 @@ public class ProductPlan extends DomainResource {
         } else if (name.equals("coverageArea")) {
           this.getCoverageArea().add(castToReference(value));
         } else if (name.equals("contact")) {
-          this.getContact().add((ProductPlanContactComponent) value);
+          this.getContact().add((InsurancePlanContactComponent) value);
         } else if (name.equals("endpoint")) {
           this.getEndpoint().add(castToReference(value));
         } else if (name.equals("network")) {
           this.getNetwork().add(castToReference(value));
         } else if (name.equals("coverage")) {
-          this.getCoverage().add((ProductPlanCoverageComponent) value);
+          this.getCoverage().add((InsurancePlanCoverageComponent) value);
         } else if (name.equals("plan")) {
-          this.getPlan().add((ProductPlanPlanComponent) value);
+          this.getPlan().add((InsurancePlanPlanComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -4055,16 +4055,16 @@ public class ProductPlan extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.status");
+          throw new FHIRException("Cannot call addChild on a primitive type InsurancePlan.status");
         }
         else if (name.equals("type")) {
           return addType();
         }
         else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.name");
+          throw new FHIRException("Cannot call addChild on a primitive type InsurancePlan.name");
         }
         else if (name.equals("alias")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.alias");
+          throw new FHIRException("Cannot call addChild on a primitive type InsurancePlan.alias");
         }
         else if (name.equals("period")) {
           this.period = new Period();
@@ -4101,12 +4101,12 @@ public class ProductPlan extends DomainResource {
       }
 
   public String fhirType() {
-    return "ProductPlan";
+    return "InsurancePlan";
 
   }
 
-      public ProductPlan copy() {
-        ProductPlan dst = new ProductPlan();
+      public InsurancePlan copy() {
+        InsurancePlan dst = new InsurancePlan();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -4134,8 +4134,8 @@ public class ProductPlan extends DomainResource {
             dst.coverageArea.add(i.copy());
         };
         if (contact != null) {
-          dst.contact = new ArrayList<ProductPlanContactComponent>();
-          for (ProductPlanContactComponent i : contact)
+          dst.contact = new ArrayList<InsurancePlanContactComponent>();
+          for (InsurancePlanContactComponent i : contact)
             dst.contact.add(i.copy());
         };
         if (endpoint != null) {
@@ -4149,19 +4149,19 @@ public class ProductPlan extends DomainResource {
             dst.network.add(i.copy());
         };
         if (coverage != null) {
-          dst.coverage = new ArrayList<ProductPlanCoverageComponent>();
-          for (ProductPlanCoverageComponent i : coverage)
+          dst.coverage = new ArrayList<InsurancePlanCoverageComponent>();
+          for (InsurancePlanCoverageComponent i : coverage)
             dst.coverage.add(i.copy());
         };
         if (plan != null) {
-          dst.plan = new ArrayList<ProductPlanPlanComponent>();
-          for (ProductPlanPlanComponent i : plan)
+          dst.plan = new ArrayList<InsurancePlanPlanComponent>();
+          for (InsurancePlanPlanComponent i : plan)
             dst.plan.add(i.copy());
         };
         return dst;
       }
 
-      protected ProductPlan typedCopy() {
+      protected InsurancePlan typedCopy() {
         return copy();
       }
 
@@ -4169,9 +4169,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ProductPlan))
+        if (!(other_ instanceof InsurancePlan))
           return false;
-        ProductPlan o = (ProductPlan) other_;
+        InsurancePlan o = (InsurancePlan) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(name, o.name, true) && compareDeep(alias, o.alias, true) && compareDeep(period, o.period, true)
            && compareDeep(ownedBy, o.ownedBy, true) && compareDeep(administeredBy, o.administeredBy, true)
@@ -4184,9 +4184,9 @@ public class ProductPlan extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ProductPlan))
+        if (!(other_ instanceof InsurancePlan))
           return false;
-        ProductPlan o = (ProductPlan) other_;
+        InsurancePlan o = (InsurancePlan) other_;
         return compareValues(status, o.status, true) && compareValues(name, o.name, true) && compareValues(alias, o.alias, true)
           ;
       }
@@ -4199,7 +4199,7 @@ public class ProductPlan extends DomainResource {
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.ProductPlan;
+    return ResourceType.InsurancePlan;
    }
 
  /**
@@ -4207,17 +4207,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>Any identifier for the organization (not the accreditation issuer's identifier)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.identifier</b><br>
+   * Path: <b>InsurancePlan.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ProductPlan.identifier", description="Any identifier for the organization (not the accreditation issuer's identifier)", type="token" )
+  @SearchParamDefinition(name="identifier", path="InsurancePlan.identifier", description="Any identifier for the organization (not the accreditation issuer's identifier)", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>Any identifier for the organization (not the accreditation issuer's identifier)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.identifier</b><br>
+   * Path: <b>InsurancePlan.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -4227,17 +4227,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address</b><br>
+   * Path: <b>InsurancePlan.contact.address</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address", path="ProductPlan.contact.address", description="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text", type="string" )
+  @SearchParamDefinition(name="address", path="InsurancePlan.contact.address", description="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text", type="string" )
   public static final String SP_ADDRESS = "address";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address</b>
    * <p>
    * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address</b><br>
+   * Path: <b>InsurancePlan.contact.address</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
@@ -4247,17 +4247,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A state specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.state</b><br>
+   * Path: <b>InsurancePlan.contact.address.state</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-state", path="ProductPlan.contact.address.state", description="A state specified in an address", type="string" )
+  @SearchParamDefinition(name="address-state", path="InsurancePlan.contact.address.state", description="A state specified in an address", type="string" )
   public static final String SP_ADDRESS_STATE = "address-state";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address-state</b>
    * <p>
    * Description: <b>A state specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.state</b><br>
+   * Path: <b>InsurancePlan.contact.address.state</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_STATE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_STATE);
@@ -4267,43 +4267,43 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>An organization of which this organization forms a part</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProductPlan.ownedBy</b><br>
+   * Path: <b>InsurancePlan.ownedBy</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="owned-by", path="ProductPlan.ownedBy", description="An organization of which this organization forms a part", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="owned-by", path="InsurancePlan.ownedBy", description="An organization of which this organization forms a part", type="reference", target={Organization.class } )
   public static final String SP_OWNED_BY = "owned-by";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>owned-by</b>
    * <p>
    * Description: <b>An organization of which this organization forms a part</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProductPlan.ownedBy</b><br>
+   * Path: <b>InsurancePlan.ownedBy</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam OWNED_BY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_OWNED_BY);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProductPlan:owned-by</b>".
+   * the path value of "<b>InsurancePlan:owned-by</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_OWNED_BY = new ca.uhn.fhir.model.api.Include("ProductPlan:owned-by").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_OWNED_BY = new ca.uhn.fhir.model.api.Include("InsurancePlan:owned-by").toLocked();
 
  /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>A code for the type of organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.type</b><br>
+   * Path: <b>InsurancePlan.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="ProductPlan.type", description="A code for the type of organization", type="token" )
+  @SearchParamDefinition(name="type", path="InsurancePlan.type", description="A code for the type of organization", type="token" )
   public static final String SP_TYPE = "type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
    * Description: <b>A code for the type of organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.type</b><br>
+   * Path: <b>InsurancePlan.type</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
@@ -4313,17 +4313,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A postal code specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.postalCode</b><br>
+   * Path: <b>InsurancePlan.contact.address.postalCode</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-postalcode", path="ProductPlan.contact.address.postalCode", description="A postal code specified in an address", type="string" )
+  @SearchParamDefinition(name="address-postalcode", path="InsurancePlan.contact.address.postalCode", description="A postal code specified in an address", type="string" )
   public static final String SP_ADDRESS_POSTALCODE = "address-postalcode";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address-postalcode</b>
    * <p>
    * Description: <b>A postal code specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.postalCode</b><br>
+   * Path: <b>InsurancePlan.contact.address.postalCode</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_POSTALCODE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_POSTALCODE);
@@ -4333,43 +4333,43 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>Product administrator</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProductPlan.administeredBy</b><br>
+   * Path: <b>InsurancePlan.administeredBy</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="administered-by", path="ProductPlan.administeredBy", description="Product administrator", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="administered-by", path="InsurancePlan.administeredBy", description="Product administrator", type="reference", target={Organization.class } )
   public static final String SP_ADMINISTERED_BY = "administered-by";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>administered-by</b>
    * <p>
    * Description: <b>Product administrator</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProductPlan.administeredBy</b><br>
+   * Path: <b>InsurancePlan.administeredBy</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ADMINISTERED_BY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ADMINISTERED_BY);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProductPlan:administered-by</b>".
+   * the path value of "<b>InsurancePlan:administered-by</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ADMINISTERED_BY = new ca.uhn.fhir.model.api.Include("ProductPlan:administered-by").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ADMINISTERED_BY = new ca.uhn.fhir.model.api.Include("InsurancePlan:administered-by").toLocked();
 
  /**
    * Search parameter: <b>address-country</b>
    * <p>
    * Description: <b>A country specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.country</b><br>
+   * Path: <b>InsurancePlan.contact.address.country</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-country", path="ProductPlan.contact.address.country", description="A country specified in an address", type="string" )
+  @SearchParamDefinition(name="address-country", path="InsurancePlan.contact.address.country", description="A country specified in an address", type="string" )
   public static final String SP_ADDRESS_COUNTRY = "address-country";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address-country</b>
    * <p>
    * Description: <b>A country specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.country</b><br>
+   * Path: <b>InsurancePlan.contact.address.country</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
@@ -4379,43 +4379,43 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>Technical endpoint</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProductPlan.endpoint</b><br>
+   * Path: <b>InsurancePlan.endpoint</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="endpoint", path="ProductPlan.endpoint", description="Technical endpoint", type="reference", target={Endpoint.class } )
+  @SearchParamDefinition(name="endpoint", path="InsurancePlan.endpoint", description="Technical endpoint", type="reference", target={Endpoint.class } )
   public static final String SP_ENDPOINT = "endpoint";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>endpoint</b>
    * <p>
    * Description: <b>Technical endpoint</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProductPlan.endpoint</b><br>
+   * Path: <b>InsurancePlan.endpoint</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENDPOINT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENDPOINT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProductPlan:endpoint</b>".
+   * the path value of "<b>InsurancePlan:endpoint</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENDPOINT = new ca.uhn.fhir.model.api.Include("ProductPlan:endpoint").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENDPOINT = new ca.uhn.fhir.model.api.Include("InsurancePlan:endpoint").toLocked();
 
  /**
    * Search parameter: <b>phonetic</b>
    * <p>
    * Description: <b>A portion of the organization's name using some kind of phonetic matching algorithm</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.name</b><br>
+   * Path: <b>InsurancePlan.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phonetic", path="ProductPlan.name", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
+  @SearchParamDefinition(name="phonetic", path="InsurancePlan.name", description="A portion of the organization's name using some kind of phonetic matching algorithm", type="string" )
   public static final String SP_PHONETIC = "phonetic";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>phonetic</b>
    * <p>
    * Description: <b>A portion of the organization's name using some kind of phonetic matching algorithm</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.name</b><br>
+   * Path: <b>InsurancePlan.name</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PHONETIC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PHONETIC);
@@ -4425,7 +4425,7 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A portion of the organization's name or alias</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.name, ProductPlan.alias</b><br>
+   * Path: <b>InsurancePlan.name, InsurancePlan.alias</b><br>
    * </p>
    */
   @SearchParamDefinition(name="name", path="name | alias", description="A portion of the organization's name or alias", type="string" )
@@ -4435,7 +4435,7 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A portion of the organization's name or alias</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.name, ProductPlan.alias</b><br>
+   * Path: <b>InsurancePlan.name, InsurancePlan.alias</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
@@ -4445,17 +4445,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A use code specified in an address</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.contact.address.use</b><br>
+   * Path: <b>InsurancePlan.contact.address.use</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-use", path="ProductPlan.contact.address.use", description="A use code specified in an address", type="token" )
+  @SearchParamDefinition(name="address-use", path="InsurancePlan.contact.address.use", description="A use code specified in an address", type="token" )
   public static final String SP_ADDRESS_USE = "address-use";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address-use</b>
    * <p>
    * Description: <b>A use code specified in an address</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.contact.address.use</b><br>
+   * Path: <b>InsurancePlan.contact.address.use</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ADDRESS_USE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ADDRESS_USE);
@@ -4465,17 +4465,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>A city specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.city</b><br>
+   * Path: <b>InsurancePlan.contact.address.city</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address-city", path="ProductPlan.contact.address.city", description="A city specified in an address", type="string" )
+  @SearchParamDefinition(name="address-city", path="InsurancePlan.contact.address.city", description="A city specified in an address", type="string" )
   public static final String SP_ADDRESS_CITY = "address-city";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address-city</b>
    * <p>
    * Description: <b>A city specified in an address</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>ProductPlan.contact.address.city</b><br>
+   * Path: <b>InsurancePlan.contact.address.city</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_CITY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_CITY);
@@ -4485,17 +4485,17 @@ public class ProductPlan extends DomainResource {
    * <p>
    * Description: <b>Is the Organization record active</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.status</b><br>
+   * Path: <b>InsurancePlan.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="ProductPlan.status", description="Is the Organization record active", type="token" )
+  @SearchParamDefinition(name="status", path="InsurancePlan.status", description="Is the Organization record active", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
    * Description: <b>Is the Organization record active</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProductPlan.status</b><br>
+   * Path: <b>InsurancePlan.status</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);

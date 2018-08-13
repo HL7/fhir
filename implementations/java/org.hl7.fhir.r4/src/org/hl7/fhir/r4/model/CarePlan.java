@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 17, 2018 10:49+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,27 +50,27 @@ public class CarePlan extends DomainResource {
 
     public enum CarePlanStatus {
         /**
-         * The request has been created but is not yet complete or ready for action
+         * The request has been created but is not yet complete or ready for action.
          */
         DRAFT, 
         /**
-         * The request is in force and ready to be acted upon
+         * The request is in force and ready to be acted upon.
          */
         ACTIVE, 
         /**
-         * The authorization/request to act has been temporarily withdrawn but is expected to resume in the future
+         * The authorization/request to act has been temporarily withdrawn but is expected to resume in the future.
          */
-        SUSPENDED, 
+        ONHOLD, 
         /**
-         * The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.
+         * The authorization/request to act has been terminated prior to the known full completion of the intended actions.  No further activity should occur.
          */
-        CANCELLED, 
+        REVOKED, 
         /**
-         * Activity against the request has been sufficiently completed to the satisfaction of the requester
+         * Activity against the request has been sufficiently completed to the satisfaction of the requester.
          */
         COMPLETED, 
         /**
-         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
+         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".).
          */
         ENTEREDINERROR, 
         /**
@@ -88,10 +88,10 @@ public class CarePlan extends DomainResource {
           return DRAFT;
         if ("active".equals(codeString))
           return ACTIVE;
-        if ("suspended".equals(codeString))
-          return SUSPENDED;
-        if ("cancelled".equals(codeString))
-          return CANCELLED;
+        if ("on-hold".equals(codeString))
+          return ONHOLD;
+        if ("revoked".equals(codeString))
+          return REVOKED;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
@@ -107,8 +107,8 @@ public class CarePlan extends DomainResource {
           switch (this) {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
-            case SUSPENDED: return "suspended";
-            case CANCELLED: return "cancelled";
+            case ONHOLD: return "on-hold";
+            case REVOKED: return "revoked";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
             case UNKNOWN: return "unknown";
@@ -119,8 +119,8 @@ public class CarePlan extends DomainResource {
           switch (this) {
             case DRAFT: return "http://hl7.org/fhir/request-status";
             case ACTIVE: return "http://hl7.org/fhir/request-status";
-            case SUSPENDED: return "http://hl7.org/fhir/request-status";
-            case CANCELLED: return "http://hl7.org/fhir/request-status";
+            case ONHOLD: return "http://hl7.org/fhir/request-status";
+            case REVOKED: return "http://hl7.org/fhir/request-status";
             case COMPLETED: return "http://hl7.org/fhir/request-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/request-status";
             case UNKNOWN: return "http://hl7.org/fhir/request-status";
@@ -129,12 +129,12 @@ public class CarePlan extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case DRAFT: return "The request has been created but is not yet complete or ready for action";
-            case ACTIVE: return "The request is in force and ready to be acted upon";
-            case SUSPENDED: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future";
-            case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
-            case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
-            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case DRAFT: return "The request has been created but is not yet complete or ready for action.";
+            case ACTIVE: return "The request is in force and ready to be acted upon.";
+            case ONHOLD: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future.";
+            case REVOKED: return "The authorization/request to act has been terminated prior to the known full completion of the intended actions.  No further activity should occur.";
+            case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester.";
+            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".).";
             case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.";
             default: return "?";
           }
@@ -143,8 +143,8 @@ public class CarePlan extends DomainResource {
           switch (this) {
             case DRAFT: return "Draft";
             case ACTIVE: return "Active";
-            case SUSPENDED: return "Suspended";
-            case CANCELLED: return "Cancelled";
+            case ONHOLD: return "On Hold";
+            case REVOKED: return "Revoked";
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered in Error";
             case UNKNOWN: return "Unknown";
@@ -162,10 +162,10 @@ public class CarePlan extends DomainResource {
           return CarePlanStatus.DRAFT;
         if ("active".equals(codeString))
           return CarePlanStatus.ACTIVE;
-        if ("suspended".equals(codeString))
-          return CarePlanStatus.SUSPENDED;
-        if ("cancelled".equals(codeString))
-          return CarePlanStatus.CANCELLED;
+        if ("on-hold".equals(codeString))
+          return CarePlanStatus.ONHOLD;
+        if ("revoked".equals(codeString))
+          return CarePlanStatus.REVOKED;
         if ("completed".equals(codeString))
           return CarePlanStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
@@ -186,10 +186,10 @@ public class CarePlan extends DomainResource {
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.DRAFT);
         if ("active".equals(codeString))
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.ACTIVE);
-        if ("suspended".equals(codeString))
-          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.SUSPENDED);
-        if ("cancelled".equals(codeString))
-          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.CANCELLED);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.ONHOLD);
+        if ("revoked".equals(codeString))
+          return new Enumeration<CarePlanStatus>(this, CarePlanStatus.REVOKED);
         if ("completed".equals(codeString))
           return new Enumeration<CarePlanStatus>(this, CarePlanStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
@@ -203,10 +203,10 @@ public class CarePlan extends DomainResource {
         return "draft";
       if (code == CarePlanStatus.ACTIVE)
         return "active";
-      if (code == CarePlanStatus.SUSPENDED)
-        return "suspended";
-      if (code == CarePlanStatus.CANCELLED)
-        return "cancelled";
+      if (code == CarePlanStatus.ONHOLD)
+        return "on-hold";
+      if (code == CarePlanStatus.REVOKED)
+        return "revoked";
       if (code == CarePlanStatus.COMPLETED)
         return "completed";
       if (code == CarePlanStatus.ENTEREDINERROR)
@@ -4845,7 +4845,7 @@ public class CarePlan extends DomainResource {
    * Path: <b>CarePlan.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="CarePlan.context", description="Created in context of", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="CarePlan.context.where(resolve() is Encounter)", description="Created in context of", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
@@ -4969,7 +4969,7 @@ public class CarePlan extends DomainResource {
    * Path: <b>CarePlan.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who the care plan is for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="CarePlan.subject.where(resolve() is Patient)", description="Who the care plan is for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -5016,17 +5016,17 @@ public class CarePlan extends DomainResource {
  /**
    * Search parameter: <b>activity-date</b>
    * <p>
-   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
+   * Description: <b>Specified date occurs within period specified by CarePlan.activity.detail.scheduled[x]</b><br>
    * Type: <b>date</b><br>
    * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="activity-date", path="CarePlan.activity.detail.scheduled", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
+  @SearchParamDefinition(name="activity-date", path="CarePlan.activity.detail.scheduled", description="Specified date occurs within period specified by CarePlan.activity.detail.scheduled[x]", type="date" )
   public static final String SP_ACTIVITY_DATE = "activity-date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>activity-date</b>
    * <p>
-   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
+   * Description: <b>Specified date occurs within period specified by CarePlan.activity.detail.scheduled[x]</b><br>
    * Type: <b>date</b><br>
    * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>

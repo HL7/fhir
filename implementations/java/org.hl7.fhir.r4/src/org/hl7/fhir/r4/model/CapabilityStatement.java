@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -333,15 +333,15 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getSystem() {
           switch (this) {
-            case READ: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case VREAD: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case UPDATE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case PATCH: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case DELETE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case HISTORYINSTANCE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case HISTORYTYPE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case CREATE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case SEARCHTYPE: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case READ: return "http://hl7.org/fhir/restful-interaction";
+            case VREAD: return "http://hl7.org/fhir/restful-interaction";
+            case UPDATE: return "http://hl7.org/fhir/restful-interaction";
+            case PATCH: return "http://hl7.org/fhir/restful-interaction";
+            case DELETE: return "http://hl7.org/fhir/restful-interaction";
+            case HISTORYINSTANCE: return "http://hl7.org/fhir/restful-interaction";
+            case HISTORYTYPE: return "http://hl7.org/fhir/restful-interaction";
+            case CREATE: return "http://hl7.org/fhir/restful-interaction";
+            case SEARCHTYPE: return "http://hl7.org/fhir/restful-interaction";
             default: return "?";
           }
         }
@@ -564,7 +564,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
     public enum ConditionalReadStatus {
         /**
-         * No support for conditional reads
+         * No support for conditional reads.
          */
         NOTSUPPORTED, 
         /**
@@ -619,7 +619,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getDefinition() {
           switch (this) {
-            case NOTSUPPORTED: return "No support for conditional reads";
+            case NOTSUPPORTED: return "No support for conditional reads.";
             case MODIFIEDSINCE: return "Conditional reads are supported, but only with the If-Modified-Since HTTP Header.";
             case NOTMATCH: return "Conditional reads are supported, but only with the If-None-Match HTTP Header.";
             case FULLSUPPORT: return "Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.";
@@ -796,23 +796,23 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
     public enum ReferenceHandlingPolicy {
         /**
-         * The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')
+         * The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced').
          */
         LITERAL, 
         /**
-         * The server allows logical references
+         * The server allows logical references (i.e. using Reference.identifier).
          */
         LOGICAL, 
         /**
-         * The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)
+         * The server will attempt to resolve logical references to literal references - i.e. converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical).
          */
         RESOLVES, 
         /**
-         * The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems
+         * The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems.
          */
         ENFORCED, 
         /**
-         * The server does not support references that point to other servers
+         * The server does not support references that point to other servers.
          */
         LOCAL, 
         /**
@@ -859,11 +859,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getDefinition() {
           switch (this) {
-            case LITERAL: return "The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see 'enforced')";
-            case LOGICAL: return "The server allows logical references";
-            case RESOLVES: return "The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)";
-            case ENFORCED: return "The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems";
-            case LOCAL: return "The server does not support references that point to other servers";
+            case LITERAL: return "The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced').";
+            case LOGICAL: return "The server allows logical references (i.e. using Reference.identifier).";
+            case RESOLVES: return "The server will attempt to resolve logical references to literal references - i.e. converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical).";
+            case ENFORCED: return "The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems.";
+            case LOCAL: return "The server does not support references that point to other servers.";
             default: return "?";
           }
         }
@@ -982,10 +982,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getSystem() {
           switch (this) {
-            case TRANSACTION: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case BATCH: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case SEARCHSYSTEM: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
-            case HISTORYSYSTEM: return "http://terminology.hl7.org/CodeSystem/restful-interaction";
+            case TRANSACTION: return "http://hl7.org/fhir/restful-interaction";
+            case BATCH: return "http://hl7.org/fhir/restful-interaction";
+            case SEARCHSYSTEM: return "http://hl7.org/fhir/restful-interaction";
+            case HISTORYSYSTEM: return "http://hl7.org/fhir/restful-interaction";
             default: return "?";
           }
         }
@@ -6841,7 +6841,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -6861,7 +6861,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public CapabilityStatement setUrlElement(UriType value) { 
       this.url = value;
@@ -6869,14 +6869,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this capability statement is (or will be) published.
+     * @return An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this capability statement is (or will be) published.
+     * @param value An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.
      */
     public CapabilityStatement setUrl(String value) { 
       if (Utilities.noString(value))
@@ -8130,7 +8130,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this capability statement is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.", 0, 1, url));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("title", "string", "A short, descriptive, user-friendly title for the capability statement.", 0, 1, title));
@@ -8161,7 +8161,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this capability statement is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers.", 0, 1, url);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case 110371416: /*title*/  return new Property("title", "string", "A short, descriptive, user-friendly title for the capability statement.", 0, 1, title);
@@ -8972,7 +8972,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * Path: <b>CapabilityStatement.useContext.valueQuantity, CapabilityStatement.useContext.valueRange</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="context-quantity", path="CapabilityStatement.useContext.value.as(Quantity) | CapabilityStatement.useContext.value.as(Range)", description="A quantity- or range-valued use context assigned to the capability statement", type="quantity" )
+  @SearchParamDefinition(name="context-quantity", path="(CapabilityStatement.useContext.value as Quantity) | (CapabilityStatement.useContext.value as Range)", description="A quantity- or range-valued use context assigned to the capability statement", type="quantity" )
   public static final String SP_CONTEXT_QUANTITY = "context-quantity";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
@@ -9032,7 +9032,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
    * Path: <b>CapabilityStatement.useContext.valueCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="context", path="CapabilityStatement.useContext.value.as(CodeableConcept)", description="A use context assigned to the capability statement", type="token" )
+  @SearchParamDefinition(name="context", path="(CapabilityStatement.useContext.value as CodeableConcept)", description="A use context assigned to the capability statement", type="token" )
   public static final String SP_CONTEXT = "context";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>context</b>

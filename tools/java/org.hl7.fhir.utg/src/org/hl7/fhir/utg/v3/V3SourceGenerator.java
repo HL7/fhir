@@ -167,7 +167,7 @@ public class V3SourceGenerator extends BaseGenerator {
     knownCS.add(cs.getUrl());
     cs.setName(item.getAttribute("name"));
     cs.setTitle(item.getAttribute("title"));
-    cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+item.getAttribute("codeSystemId"));
+    cs.getIdentifierFirstRep().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+item.getAttribute("codeSystemId"));
     cs.setUserData("oid", item.getAttribute("codeSystemId"));
     cs.setStatus(PublicationStatus.ACTIVE);
     Element child = XMLUtil.getFirstChild(item);
@@ -954,7 +954,7 @@ public class V3SourceGenerator extends BaseGenerator {
       if (child.getNodeName().equals("includeRelatedCodes")) {
         // common case: include a child and all or some of it's descendants
         ConceptSetFilterComponent f = new ValueSet.ConceptSetFilterComponent();
-        f.setOp("false".equals(child.getAttribute("includeHeadCode")) ? FilterOperator.DESCENDENTOF : FilterOperator.ISA);
+        f.setOp("false".equals(child.getAttribute("includeHeadCode")) ? FilterOperator.DESCENDANTOF : FilterOperator.ISA);
         f.setProperty("concept");
         f.setValue(code);
         cset.getFilter().add(f);

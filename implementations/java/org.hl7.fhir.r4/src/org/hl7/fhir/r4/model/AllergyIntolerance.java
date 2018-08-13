@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -166,7 +166,7 @@ public class AllergyIntolerance extends DomainResource {
          */
         CONFIRMED, 
         /**
-         * A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
+         * A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion.  This might or might not include testing or rechallenge.
          */
         REFUTED, 
         /**
@@ -215,7 +215,7 @@ public class AllergyIntolerance extends DomainResource {
           switch (this) {
             case UNCONFIRMED: return "A low level of certainty about the propensity for a reaction to the identified substance.";
             case CONFIRMED: return "A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge.";
-            case REFUTED: return "A propensity for a reaction to the identified substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.";
+            case REFUTED: return "A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion.  This might or might not include testing or rechallenge.";
             case ENTEREDINERROR: return "The statement was entered in error and is not valid.";
             default: return "?";
           }

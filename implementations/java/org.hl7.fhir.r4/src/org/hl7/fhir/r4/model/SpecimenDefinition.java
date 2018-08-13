@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,11 +50,11 @@ public class SpecimenDefinition extends DomainResource {
 
     public enum SpecimenContainedPreference {
         /**
-         * This type of contained specimen is preferred to collect this kind of specimen
+         * This type of contained specimen is preferred to collect this kind of specimen.
          */
         PREFERRED, 
         /**
-         * This type of conditioned specimen is an alternate
+         * This type of conditioned specimen is an alternate.
          */
         ALTERNATE, 
         /**
@@ -89,8 +89,8 @@ public class SpecimenDefinition extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PREFERRED: return "This type of contained specimen is preferred to collect this kind of specimen";
-            case ALTERNATE: return "This type of conditioned specimen is an alternate";
+            case PREFERRED: return "This type of contained specimen is preferred to collect this kind of specimen.";
+            case ALTERNATE: return "This type of conditioned specimen is an alternate.";
             default: return "?";
           }
         }
@@ -154,7 +154,7 @@ public class SpecimenDefinition extends DomainResource {
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of intended specimen", formalDefinition="The kind of specimen conditioned for testing expected by lab." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0487")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v2-0487")
         protected CodeableConcept type;
 
         /**
@@ -1178,7 +1178,7 @@ public class SpecimenDefinition extends DomainResource {
          */
         @Child(name = "additive", type = {CodeableConcept.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Additive associated with container", formalDefinition="Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0371")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v2-0371")
         protected Type additive;
 
         private static final long serialVersionUID = 1819209272L;
@@ -1766,7 +1766,7 @@ public class SpecimenDefinition extends DomainResource {
      */
     @Child(name = "typeCollected", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Kind of material to collect", formalDefinition="The kind of material to be collected." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0487")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v2-0487")
     protected CodeableConcept typeCollected;
 
     /**

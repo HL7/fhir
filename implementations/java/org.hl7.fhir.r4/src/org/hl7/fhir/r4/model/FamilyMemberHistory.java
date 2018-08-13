@@ -29,12 +29,11 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -653,12 +652,12 @@ public class FamilyMemberHistory extends DomainResource {
     protected CodeableConcept relationship;
 
     /**
-     * Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
+     * The birth sex of the family member.
      */
-    @Child(name = "gender", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="male | female | other | unknown", formalDefinition="Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/administrative-gender")
-    protected Enumeration<AdministrativeGender> gender;
+    @Child(name = "gender", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="male | female | unknown", formalDefinition="The birth sex of the family member." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/birth-sex")
+    protected CodeableConcept gender;
 
     /**
      * The actual or approximate date of birth of the relative.
@@ -722,7 +721,7 @@ public class FamilyMemberHistory extends DomainResource {
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = -1047805854L;
+    private static final long serialVersionUID = -1337103863L;
 
   /**
    * Constructor
@@ -850,7 +849,7 @@ public class FamilyMemberHistory extends DomainResource {
       if (this.instantiatesCanonical == null)
         return false;
       for (CanonicalType v : this.instantiatesCanonical)
-        if (v.getValue().equals(value)) // canonical(PlanDefinition|Questionnaire)
+        if (v.getValue().equals(value)) // canonical(PlanDefinition|Questionnaire|ActivityDefinition|Measure|OperationDefinition)
           return true;
       return false;
     }
@@ -1152,19 +1151,15 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #gender} (Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
+     * @return {@link #gender} (The birth sex of the family member.)
      */
-    public Enumeration<AdministrativeGender> getGenderElement() { 
+    public CodeableConcept getGender() { 
       if (this.gender == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create FamilyMemberHistory.gender");
         else if (Configuration.doAutoCreate())
-          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory()); // bb
+          this.gender = new CodeableConcept(); // cc
       return this.gender;
-    }
-
-    public boolean hasGenderElement() { 
-      return this.gender != null && !this.gender.isEmpty();
     }
 
     public boolean hasGender() { 
@@ -1172,31 +1167,10 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @param value {@link #gender} (Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
+     * @param value {@link #gender} (The birth sex of the family member.)
      */
-    public FamilyMemberHistory setGenderElement(Enumeration<AdministrativeGender> value) { 
+    public FamilyMemberHistory setGender(CodeableConcept value) { 
       this.gender = value;
-      return this;
-    }
-
-    /**
-     * @return Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
-     */
-    public AdministrativeGender getGender() { 
-      return this.gender == null ? null : this.gender.getValue();
-    }
-
-    /**
-     * @param value Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
-     */
-    public FamilyMemberHistory setGender(AdministrativeGender value) { 
-      if (value == null)
-        this.gender = null;
-      else {
-        if (this.gender == null)
-          this.gender = new Enumeration<AdministrativeGender>(new AdministrativeGenderEnumFactory());
-        this.gender.setValue(value);
-      }
       return this;
     }
 
@@ -1698,7 +1672,7 @@ public class FamilyMemberHistory extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("instantiatesCanonical", "canonical(PlanDefinition|Questionnaire)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
+        children.add(new Property("instantiatesCanonical", "canonical(PlanDefinition|Questionnaire|ActivityDefinition|Measure|OperationDefinition)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
         children.add(new Property("instantiatesUri", "uri", "The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri));
         children.add(new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, 1, status));
         children.add(new Property("dataAbsentReason", "CodeableConcept", "Describes why the family member's history is not available.", 0, 1, dataAbsentReason));
@@ -1706,7 +1680,7 @@ public class FamilyMemberHistory extends DomainResource {
         children.add(new Property("date", "dateTime", "The date (and possibly time) when the family member history was recorded or last updated.", 0, 1, date));
         children.add(new Property("name", "string", "This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".", 0, 1, name));
         children.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, 1, relationship));
-        children.add(new Property("gender", "code", "Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.", 0, 1, gender));
+        children.add(new Property("gender", "CodeableConcept", "The birth sex of the family member.", 0, 1, gender));
         children.add(new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, 1, born));
         children.add(new Property("age[x]", "Age|Range|string", "The age of the relative at the time the family member history is recorded.", 0, 1, age));
         children.add(new Property("estimatedAge", "boolean", "If true, indicates that the age value specified is an estimated value.", 0, 1, estimatedAge));
@@ -1721,7 +1695,7 @@ public class FamilyMemberHistory extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical(PlanDefinition|Questionnaire)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
+        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical(PlanDefinition|Questionnaire|ActivityDefinition|Measure|OperationDefinition)", "The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
         case -1926393373: /*instantiatesUri*/  return new Property("instantiatesUri", "uri", "The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri);
         case -892481550: /*status*/  return new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, 1, status);
         case 1034315687: /*dataAbsentReason*/  return new Property("dataAbsentReason", "CodeableConcept", "Describes why the family member's history is not available.", 0, 1, dataAbsentReason);
@@ -1729,7 +1703,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date (and possibly time) when the family member history was recorded or last updated.", 0, 1, date);
         case 3373707: /*name*/  return new Property("name", "string", "This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".", 0, 1, name);
         case -261851592: /*relationship*/  return new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, 1, relationship);
-        case -1249512767: /*gender*/  return new Property("gender", "code", "Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.", 0, 1, gender);
+        case -1249512767: /*gender*/  return new Property("gender", "CodeableConcept", "The birth sex of the family member.", 0, 1, gender);
         case 67532951: /*born[x]*/  return new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, 1, born);
         case 3029833: /*born*/  return new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, 1, born);
         case 1497711210: /*bornPeriod*/  return new Property("born[x]", "Period|date|string", "The actual or approximate date of birth of the relative.", 0, 1, born);
@@ -1769,7 +1743,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeableConcept
-        case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
+        case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // CodeableConcept
         case 3029833: /*born*/ return this.born == null ? new Base[0] : new Base[] {this.born}; // Type
         case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Type
         case 2130167587: /*estimatedAge*/ return this.estimatedAge == null ? new Base[0] : new Base[] {this.estimatedAge}; // BooleanType
@@ -1815,8 +1789,7 @@ public class FamilyMemberHistory extends DomainResource {
           this.relationship = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1249512767: // gender
-          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
-          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
+          this.gender = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 3029833: // born
           this.born = castToType(value); // Type
@@ -1869,8 +1842,7 @@ public class FamilyMemberHistory extends DomainResource {
         } else if (name.equals("relationship")) {
           this.relationship = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("gender")) {
-          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
-          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
+          this.gender = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("born[x]")) {
           this.born = castToType(value); // Type
         } else if (name.equals("age[x]")) {
@@ -1904,7 +1876,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 3076014:  return getDateElement();
         case 3373707:  return getNameElement();
         case -261851592:  return getRelationship(); 
-        case -1249512767:  return getGenderElement();
+        case -1249512767:  return getGender(); 
         case 67532951:  return getBorn(); 
         case 3029833:  return getBorn(); 
         case -1419716831:  return getAge(); 
@@ -1933,7 +1905,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 3076014: /*date*/ return new String[] {"dateTime"};
         case 3373707: /*name*/ return new String[] {"string"};
         case -261851592: /*relationship*/ return new String[] {"CodeableConcept"};
-        case -1249512767: /*gender*/ return new String[] {"code"};
+        case -1249512767: /*gender*/ return new String[] {"CodeableConcept"};
         case 3029833: /*born*/ return new String[] {"Period", "date", "string"};
         case 96511: /*age*/ return new String[] {"Age", "Range", "string"};
         case 2130167587: /*estimatedAge*/ return new String[] {"boolean"};
@@ -1980,7 +1952,8 @@ public class FamilyMemberHistory extends DomainResource {
           return this.relationship;
         }
         else if (name.equals("gender")) {
-          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.gender");
+          this.gender = new CodeableConcept();
+          return this.gender;
         }
         else if (name.equals("bornPeriod")) {
           this.born = new Period();
@@ -2131,8 +2104,8 @@ public class FamilyMemberHistory extends DomainResource {
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other_;
         return compareValues(instantiatesUri, o.instantiatesUri, true) && compareValues(status, o.status, true)
-           && compareValues(date, o.date, true) && compareValues(name, o.name, true) && compareValues(gender, o.gender, true)
-           && compareValues(estimatedAge, o.estimatedAge, true);
+           && compareValues(date, o.date, true) && compareValues(name, o.name, true) && compareValues(estimatedAge, o.estimatedAge, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -2235,7 +2208,7 @@ public class FamilyMemberHistory extends DomainResource {
    * Path: <b>FamilyMemberHistory.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="FamilyMemberHistory.patient", description="The identity of a subject to list family member history items for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="FamilyMemberHistory.patient.where(resolve() is Patient)", description="The identity of a subject to list family member history items for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -2261,7 +2234,7 @@ public class FamilyMemberHistory extends DomainResource {
    * Path: <b>FamilyMemberHistory.instantiatesCanonical</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="instantiates-canonical", path="FamilyMemberHistory.instantiatesCanonical", description="Instantiates FHIR protocol or definition", type="reference", target={PlanDefinition.class, Questionnaire.class } )
+  @SearchParamDefinition(name="instantiates-canonical", path="FamilyMemberHistory.instantiatesCanonical", description="Instantiates FHIR protocol or definition", type="reference", target={ActivityDefinition.class, Measure.class, OperationDefinition.class, PlanDefinition.class, Questionnaire.class } )
   public static final String SP_INSTANTIATES_CANONICAL = "instantiates-canonical";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>instantiates-canonical</b>

@@ -43,6 +43,7 @@ import org.hl7.fhir.dstu2016may.model.Reference;
 import org.hl7.fhir.dstu2016may.model.StructureMap;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
+import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
@@ -1010,7 +1011,10 @@ public class VersionConvertor_14_40 {
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getType())
       tgt.addType(convertCoding(t));
     tgt.setWhen(src.getWhen());
-    tgt.setWho(convertType(src.getWho()));
+    if (src.hasWhoUriType())
+      tgt.setWho(new org.hl7.fhir.r4.model.Reference(src.getWhoUriType().getValue()));
+    else
+      tgt.setWho(convertReference(src.getWhoReference()));
     if (src.hasContentType())
       tgt.setSigFormat(src.getContentType());
     if (src.hasBlob())
@@ -2601,7 +2605,8 @@ public class VersionConvertor_14_40 {
     copyDomainResource(src, tgt);
     if (src.hasUrl())
       tgt.setUrl(src.getUrl());
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    if (src.hasIdentifier())
+      tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
     if (src.hasVersion())
       tgt.setVersion(src.getVersion());
     if (src.hasName())
@@ -2666,7 +2671,8 @@ public class VersionConvertor_14_40 {
     copyDomainResource(src, tgt);
     if (src.hasUrl())
       tgt.setUrl(src.getUrl());
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    if (src.hasIdentifier())
+      tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
     if (src.hasVersion())
       tgt.setVersion(src.getVersion());
     if (src.hasName())
@@ -5341,7 +5347,7 @@ public class VersionConvertor_14_40 {
       tgt.setLinkId(src.getLinkId());
     if (src.hasText())
       tgt.setText(src.getText());
-    tgt.setSubject(convertReference(src.getSubject()));
+//    tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.dstu2016may.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent t : src.getAnswer())
       tgt.addAnswer(convertQuestionnaireResponseItemAnswerComponent(t));
     for (org.hl7.fhir.dstu2016may.model.QuestionnaireResponse.QuestionnaireResponseItemComponent t : src.getItem())
@@ -5358,7 +5364,7 @@ public class VersionConvertor_14_40 {
       tgt.setLinkId(src.getLinkId());
     if (src.hasText())
       tgt.setText(src.getText());
-    tgt.setSubject(convertReference(src.getSubject()));
+//    tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.r4.model.QuestionnaireResponse.QuestionnaireResponseItemAnswerComponent t : src.getAnswer())
       tgt.addAnswer(convertQuestionnaireResponseItemAnswerComponent(t));
     for (org.hl7.fhir.r4.model.QuestionnaireResponse.QuestionnaireResponseItemComponent t : src.getItem())
@@ -7300,7 +7306,7 @@ public class VersionConvertor_14_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasExtensible())
-      tgt.setExtensible(src.getExtensible());
+      tgt.addExtension("http://hl7.org/fhir/StructureDefinition/valueset-extensible", new BooleanType(src.getExtensible()));
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
     if (src.hasLockedDate())
       tgt.getCompose().setLockedDate(src.getLockedDate());
@@ -7345,8 +7351,8 @@ public class VersionConvertor_14_40 {
       tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
-    if (src.hasExtensible())
-      tgt.setExtensible(src.getExtensible());
+    if (src.hasExtension("http://hl7.org/fhir/StructureDefinition/valueset-extensible"))
+      tgt.setExtensible(((BooleanType) src.getExtensionByUrl("http://hl7.org/fhir/StructureDefinition/valueset-extensible").getValue()).booleanValue());
     tgt.setCompose(convertValueSetComposeComponent(src.getCompose()));
     if (src.hasExpansion())
       tgt.setExpansion(convertValueSetExpansionComponent(src.getExpansion()));

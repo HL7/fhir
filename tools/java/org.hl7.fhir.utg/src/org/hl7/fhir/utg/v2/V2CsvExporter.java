@@ -126,8 +126,8 @@ public class V2CsvExporter extends BaseExporter {
   }
 
   private String readOid(CodeSystem cs) {
-    if (cs.hasIdentifier() && cs.getIdentifier().getSystem().equals("urn:ietf:rfc:3986")) 
-      return cs.getIdentifier().getValue();
+    if (cs.hasIdentifier() && cs.getIdentifierFirstRep().getSystem().equals("urn:ietf:rfc:3986")) 
+      return cs.getIdentifierFirstRep().getValue();
     else
       return null;
   }

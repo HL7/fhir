@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,11 +50,11 @@ public class DataRequirement extends Type implements ICompositeType {
 
     public enum SortDirection {
         /**
-         * Sort by the value ascending, so that lower values appear first
+         * Sort by the value ascending, so that lower values appear first.
          */
         ASCENDING, 
         /**
-         * Sort by the value descending, so that lower values appear last
+         * Sort by the value descending, so that lower values appear last.
          */
         DESCENDING, 
         /**
@@ -89,8 +89,8 @@ public class DataRequirement extends Type implements ICompositeType {
         }
         public String getDefinition() {
           switch (this) {
-            case ASCENDING: return "Sort by the value ascending, so that lower values appear first";
-            case DESCENDING: return "Sort by the value descending, so that lower values appear last";
+            case ASCENDING: return "Sort by the value ascending, so that lower values appear first.";
+            case DESCENDING: return "Sort by the value descending, so that lower values appear last.";
             default: return "?";
           }
         }
@@ -1179,10 +1179,10 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     protected List<DataRequirementDateFilterComponent> dateFilter;
 
     /**
-     * Specifies a maximum number of results that are required.
+     * Specifies a maximum number of results that are required (uses the _count search parameter).
      */
     @Child(name = "limit", type = {PositiveIntType.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Number of results", formalDefinition="Specifies a maximum number of results that are required." )
+    @Description(shortDefinition="Number of results", formalDefinition="Specifies a maximum number of results that are required (uses the _count search parameter)." )
     protected PositiveIntType limit;
 
     /**
@@ -1542,7 +1542,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     }
 
     /**
-     * @return {@link #limit} (Specifies a maximum number of results that are required.). This is the underlying object with id, value and extensions. The accessor "getLimit" gives direct access to the value
+     * @return {@link #limit} (Specifies a maximum number of results that are required (uses the _count search parameter).). This is the underlying object with id, value and extensions. The accessor "getLimit" gives direct access to the value
      */
     public PositiveIntType getLimitElement() { 
       if (this.limit == null)
@@ -1562,7 +1562,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     }
 
     /**
-     * @param value {@link #limit} (Specifies a maximum number of results that are required.). This is the underlying object with id, value and extensions. The accessor "getLimit" gives direct access to the value
+     * @param value {@link #limit} (Specifies a maximum number of results that are required (uses the _count search parameter).). This is the underlying object with id, value and extensions. The accessor "getLimit" gives direct access to the value
      */
     public DataRequirement setLimitElement(PositiveIntType value) { 
       this.limit = value;
@@ -1570,14 +1570,14 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
     }
 
     /**
-     * @return Specifies a maximum number of results that are required.
+     * @return Specifies a maximum number of results that are required (uses the _count search parameter).
      */
     public int getLimit() { 
       return this.limit == null || this.limit.isEmpty() ? 0 : this.limit.getValue();
     }
 
     /**
-     * @param value Specifies a maximum number of results that are required.
+     * @param value Specifies a maximum number of results that are required (uses the _count search parameter).
      */
     public DataRequirement setLimit(int value) { 
         if (this.limit == null)
@@ -1647,7 +1647,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
         children.add(new Property("mustSupport", "string", "Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available. \n\nThe value of mustSupport SHALL be a FHIRPath resolveable on the type of the DataRequirement. The path SHALL consist only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details).", 0, java.lang.Integer.MAX_VALUE, mustSupport));
         children.add(new Property("codeFilter", "", "Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed.", 0, java.lang.Integer.MAX_VALUE, codeFilter));
         children.add(new Property("dateFilter", "", "Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed.", 0, java.lang.Integer.MAX_VALUE, dateFilter));
-        children.add(new Property("limit", "positiveInt", "Specifies a maximum number of results that are required.", 0, 1, limit));
+        children.add(new Property("limit", "positiveInt", "Specifies a maximum number of results that are required (uses the _count search parameter).", 0, 1, limit));
         children.add(new Property("sort", "", "Specifies the order of the results to be returned.", 0, java.lang.Integer.MAX_VALUE, sort));
       }
 
@@ -1663,7 +1663,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
         case -1402857082: /*mustSupport*/  return new Property("mustSupport", "string", "Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available. \n\nThe value of mustSupport SHALL be a FHIRPath resolveable on the type of the DataRequirement. The path SHALL consist only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details).", 0, java.lang.Integer.MAX_VALUE, mustSupport);
         case -1303674939: /*codeFilter*/  return new Property("codeFilter", "", "Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed.", 0, java.lang.Integer.MAX_VALUE, codeFilter);
         case 149531846: /*dateFilter*/  return new Property("dateFilter", "", "Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed.", 0, java.lang.Integer.MAX_VALUE, dateFilter);
-        case 102976443: /*limit*/  return new Property("limit", "positiveInt", "Specifies a maximum number of results that are required.", 0, 1, limit);
+        case 102976443: /*limit*/  return new Property("limit", "positiveInt", "Specifies a maximum number of results that are required (uses the _count search parameter).", 0, 1, limit);
         case 3536286: /*sort*/  return new Property("sort", "", "Specifies the order of the results to be returned.", 0, java.lang.Integer.MAX_VALUE, sort);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }

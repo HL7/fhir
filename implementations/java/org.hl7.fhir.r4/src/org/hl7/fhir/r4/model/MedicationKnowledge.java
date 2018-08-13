@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,15 +50,15 @@ public class MedicationKnowledge extends DomainResource {
 
     public enum MedicationKnowledgeStatus {
         /**
-         * The medication is available for use
+         * The medication is available for use.
          */
         ACTIVE, 
         /**
-         * The medication is not available for use
+         * The medication is not available for use.
          */
         INACTIVE, 
         /**
-         * The medication was entered in error
+         * The medication was entered in error.
          */
         ENTEREDINERROR, 
         /**
@@ -97,9 +97,9 @@ public class MedicationKnowledge extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "The medication is available for use";
-            case INACTIVE: return "The medication is not available for use";
-            case ENTEREDINERROR: return "The medication was entered in error";
+            case ACTIVE: return "The medication is available for use.";
+            case INACTIVE: return "The medication is not available for use.";
+            case ENTEREDINERROR: return "The medication was entered in error.";
             default: return "?";
           }
         }
@@ -647,10 +647,10 @@ public class MedicationKnowledge extends DomainResource {
         protected Type item;
 
         /**
-         * Indication of whether this ingredient affects the therapeutic action of the drug.
+         * Indication of whether this ingredient affects the therapeutic action of the drug.
          */
         @Child(name = "isActive", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Active ingredient indicator", formalDefinition="Indication of whether this ingredient affects the therapeutic action of the drug." )
+        @Description(shortDefinition="Active ingredient indicator", formalDefinition="Indication of whether this ingredient affects the therapeutic action of the drug." )
         protected BooleanType isActive;
 
         /**
@@ -729,7 +729,7 @@ public class MedicationKnowledge extends DomainResource {
         }
 
         /**
-         * @return {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
+         * @return {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
          */
         public BooleanType getIsActiveElement() { 
           if (this.isActive == null)
@@ -749,7 +749,7 @@ public class MedicationKnowledge extends DomainResource {
         }
 
         /**
-         * @param value {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
+         * @param value {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
          */
         public MedicationKnowledgeIngredientComponent setIsActiveElement(BooleanType value) { 
           this.isActive = value;
@@ -757,14 +757,14 @@ public class MedicationKnowledge extends DomainResource {
         }
 
         /**
-         * @return Indication of whether this ingredient affects the therapeutic action of the drug.
+         * @return Indication of whether this ingredient affects the therapeutic action of the drug.
          */
         public boolean getIsActive() { 
           return this.isActive == null || this.isActive.isEmpty() ? false : this.isActive.getValue();
         }
 
         /**
-         * @param value Indication of whether this ingredient affects the therapeutic action of the drug.
+         * @param value Indication of whether this ingredient affects the therapeutic action of the drug.
          */
         public MedicationKnowledgeIngredientComponent setIsActive(boolean value) { 
             if (this.isActive == null)
@@ -800,7 +800,7 @@ public class MedicationKnowledge extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("item[x]", "CodeableConcept|Reference(Substance)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item));
-          children.add(new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, 1, isActive));
+          children.add(new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, 1, isActive));
           children.add(new Property("strength", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.", 0, 1, strength));
         }
 
@@ -811,7 +811,7 @@ public class MedicationKnowledge extends DomainResource {
           case 3242771: /*item*/  return new Property("item[x]", "CodeableConcept|Reference(Substance)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
           case 106644494: /*itemCodeableConcept*/  return new Property("item[x]", "CodeableConcept|Reference(Substance)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
           case 1376364920: /*itemReference*/  return new Property("item[x]", "CodeableConcept|Reference(Substance)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, 1, item);
-          case -748916528: /*isActive*/  return new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, 1, isActive);
+          case -748916528: /*isActive*/  return new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, 1, isActive);
           case 1791316033: /*strength*/  return new Property("strength", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.", 0, 1, strength);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -3015,27 +3015,39 @@ public class MedicationKnowledge extends DomainResource {
     @Block()
     public static class MedicationKnowledgeRegulatoryComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * The authority that is specifying the regulations.
+         */
+        @Child(name = "regulatoryAuthority", type = {Organization.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Specifies the authority of the regulation", formalDefinition="The authority that is specifying the regulations." )
+        protected Reference regulatoryAuthority;
+
+        /**
+         * The actual object that is the target of the reference (The authority that is specifying the regulations.)
+         */
+        protected Organization regulatoryAuthorityTarget;
+
+        /**
          * Specifies if changes are allowed when dispensing a medication from a regulatory perspective.
          */
-        @Child(name = "substitution", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "substitution", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Specifies if changes are allowed when dispensing a medication from a regulatory perspective", formalDefinition="Specifies if changes are allowed when dispensing a medication from a regulatory perspective." )
         protected List<MedicationKnowledgeRegulatorySubstitutionComponent> substitution;
 
         /**
          * Specifies the schedule of a medication in jurisdiction.
          */
-        @Child(name = "schedule", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "schedule", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Specifies the schedule of a medication in jurisdiction", formalDefinition="Specifies the schedule of a medication in jurisdiction." )
         protected List<MedicationKnowledgeRegulatoryScheduleComponent> schedule;
 
         /**
          * The maximum number of units of the medicaton that can be dispensed in a period.
          */
-        @Child(name = "maxDispense", type = {}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "maxDispense", type = {}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The maximum number of units of the medicaton that can be dispensed in a period", formalDefinition="The maximum number of units of the medicaton that can be dispensed in a period." )
         protected MedicationKnowledgeRegulatoryMaxDispenseComponent maxDispense;
 
-        private static final long serialVersionUID = -1789072978L;
+        private static final long serialVersionUID = -1252605487L;
 
     /**
      * Constructor
@@ -3043,6 +3055,58 @@ public class MedicationKnowledge extends DomainResource {
       public MedicationKnowledgeRegulatoryComponent() {
         super();
       }
+
+    /**
+     * Constructor
+     */
+      public MedicationKnowledgeRegulatoryComponent(Reference regulatoryAuthority) {
+        super();
+        this.regulatoryAuthority = regulatoryAuthority;
+      }
+
+        /**
+         * @return {@link #regulatoryAuthority} (The authority that is specifying the regulations.)
+         */
+        public Reference getRegulatoryAuthority() { 
+          if (this.regulatoryAuthority == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationKnowledgeRegulatoryComponent.regulatoryAuthority");
+            else if (Configuration.doAutoCreate())
+              this.regulatoryAuthority = new Reference(); // cc
+          return this.regulatoryAuthority;
+        }
+
+        public boolean hasRegulatoryAuthority() { 
+          return this.regulatoryAuthority != null && !this.regulatoryAuthority.isEmpty();
+        }
+
+        /**
+         * @param value {@link #regulatoryAuthority} (The authority that is specifying the regulations.)
+         */
+        public MedicationKnowledgeRegulatoryComponent setRegulatoryAuthority(Reference value) { 
+          this.regulatoryAuthority = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #regulatoryAuthority} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The authority that is specifying the regulations.)
+         */
+        public Organization getRegulatoryAuthorityTarget() { 
+          if (this.regulatoryAuthorityTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationKnowledgeRegulatoryComponent.regulatoryAuthority");
+            else if (Configuration.doAutoCreate())
+              this.regulatoryAuthorityTarget = new Organization(); // aa
+          return this.regulatoryAuthorityTarget;
+        }
+
+        /**
+         * @param value {@link #regulatoryAuthority} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The authority that is specifying the regulations.)
+         */
+        public MedicationKnowledgeRegulatoryComponent setRegulatoryAuthorityTarget(Organization value) { 
+          this.regulatoryAuthorityTarget = value;
+          return this;
+        }
 
         /**
          * @return {@link #substitution} (Specifies if changes are allowed when dispensing a medication from a regulatory perspective.)
@@ -3176,6 +3240,7 @@ public class MedicationKnowledge extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
+          children.add(new Property("regulatoryAuthority", "Reference(Organization)", "The authority that is specifying the regulations.", 0, 1, regulatoryAuthority));
           children.add(new Property("substitution", "", "Specifies if changes are allowed when dispensing a medication from a regulatory perspective.", 0, java.lang.Integer.MAX_VALUE, substitution));
           children.add(new Property("schedule", "", "Specifies the schedule of a medication in jurisdiction.", 0, java.lang.Integer.MAX_VALUE, schedule));
           children.add(new Property("maxDispense", "", "The maximum number of units of the medicaton that can be dispensed in a period.", 0, 1, maxDispense));
@@ -3184,6 +3249,7 @@ public class MedicationKnowledge extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
+          case 711233419: /*regulatoryAuthority*/  return new Property("regulatoryAuthority", "Reference(Organization)", "The authority that is specifying the regulations.", 0, 1, regulatoryAuthority);
           case 826147581: /*substitution*/  return new Property("substitution", "", "Specifies if changes are allowed when dispensing a medication from a regulatory perspective.", 0, java.lang.Integer.MAX_VALUE, substitution);
           case -697920873: /*schedule*/  return new Property("schedule", "", "Specifies the schedule of a medication in jurisdiction.", 0, java.lang.Integer.MAX_VALUE, schedule);
           case -1977784607: /*maxDispense*/  return new Property("maxDispense", "", "The maximum number of units of the medicaton that can be dispensed in a period.", 0, 1, maxDispense);
@@ -3195,6 +3261,7 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case 711233419: /*regulatoryAuthority*/ return this.regulatoryAuthority == null ? new Base[0] : new Base[] {this.regulatoryAuthority}; // Reference
         case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : this.substitution.toArray(new Base[this.substitution.size()]); // MedicationKnowledgeRegulatorySubstitutionComponent
         case -697920873: /*schedule*/ return this.schedule == null ? new Base[0] : this.schedule.toArray(new Base[this.schedule.size()]); // MedicationKnowledgeRegulatoryScheduleComponent
         case -1977784607: /*maxDispense*/ return this.maxDispense == null ? new Base[0] : new Base[] {this.maxDispense}; // MedicationKnowledgeRegulatoryMaxDispenseComponent
@@ -3206,6 +3273,9 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case 711233419: // regulatoryAuthority
+          this.regulatoryAuthority = castToReference(value); // Reference
+          return value;
         case 826147581: // substitution
           this.getSubstitution().add((MedicationKnowledgeRegulatorySubstitutionComponent) value); // MedicationKnowledgeRegulatorySubstitutionComponent
           return value;
@@ -3222,7 +3292,9 @@ public class MedicationKnowledge extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("substitution")) {
+        if (name.equals("regulatoryAuthority")) {
+          this.regulatoryAuthority = castToReference(value); // Reference
+        } else if (name.equals("substitution")) {
           this.getSubstitution().add((MedicationKnowledgeRegulatorySubstitutionComponent) value);
         } else if (name.equals("schedule")) {
           this.getSchedule().add((MedicationKnowledgeRegulatoryScheduleComponent) value);
@@ -3236,6 +3308,7 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 711233419:  return getRegulatoryAuthority(); 
         case 826147581:  return addSubstitution(); 
         case -697920873:  return addSchedule(); 
         case -1977784607:  return getMaxDispense(); 
@@ -3247,6 +3320,7 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 711233419: /*regulatoryAuthority*/ return new String[] {"Reference"};
         case 826147581: /*substitution*/ return new String[] {};
         case -697920873: /*schedule*/ return new String[] {};
         case -1977784607: /*maxDispense*/ return new String[] {};
@@ -3257,7 +3331,11 @@ public class MedicationKnowledge extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("substitution")) {
+        if (name.equals("regulatoryAuthority")) {
+          this.regulatoryAuthority = new Reference();
+          return this.regulatoryAuthority;
+        }
+        else if (name.equals("substitution")) {
           return addSubstitution();
         }
         else if (name.equals("schedule")) {
@@ -3274,6 +3352,7 @@ public class MedicationKnowledge extends DomainResource {
       public MedicationKnowledgeRegulatoryComponent copy() {
         MedicationKnowledgeRegulatoryComponent dst = new MedicationKnowledgeRegulatoryComponent();
         copyValues(dst);
+        dst.regulatoryAuthority = regulatoryAuthority == null ? null : regulatoryAuthority.copy();
         if (substitution != null) {
           dst.substitution = new ArrayList<MedicationKnowledgeRegulatorySubstitutionComponent>();
           for (MedicationKnowledgeRegulatorySubstitutionComponent i : substitution)
@@ -3295,8 +3374,8 @@ public class MedicationKnowledge extends DomainResource {
         if (!(other_ instanceof MedicationKnowledgeRegulatoryComponent))
           return false;
         MedicationKnowledgeRegulatoryComponent o = (MedicationKnowledgeRegulatoryComponent) other_;
-        return compareDeep(substitution, o.substitution, true) && compareDeep(schedule, o.schedule, true)
-           && compareDeep(maxDispense, o.maxDispense, true);
+        return compareDeep(regulatoryAuthority, o.regulatoryAuthority, true) && compareDeep(substitution, o.substitution, true)
+           && compareDeep(schedule, o.schedule, true) && compareDeep(maxDispense, o.maxDispense, true);
       }
 
       @Override
@@ -3310,8 +3389,8 @@ public class MedicationKnowledge extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(substitution, schedule, maxDispense
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(regulatoryAuthority, substitution
+          , schedule, maxDispense);
       }
 
   public String fhirType() {
@@ -3550,25 +3629,13 @@ public class MedicationKnowledge extends DomainResource {
     @Block()
     public static class MedicationKnowledgeRegulatoryScheduleComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Specifies the jurisdiction of the regulation.
-         */
-        @Child(name = "jurisdiction", type = {Organization.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Specifies the jurisdiction of the regulation", formalDefinition="Specifies the jurisdiction of the regulation." )
-        protected Reference jurisdiction;
-
-        /**
-         * The actual object that is the target of the reference (Specifies the jurisdiction of the regulation.)
-         */
-        protected Organization jurisdictionTarget;
-
-        /**
          * Specifies the specific drug schedule.
          */
-        @Child(name = "schedule", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "schedule", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Specifies the specific drug schedule", formalDefinition="Specifies the specific drug schedule." )
         protected CodeableConcept schedule;
 
-        private static final long serialVersionUID = 1124313685L;
+        private static final long serialVersionUID = 1955520912L;
 
     /**
      * Constructor
@@ -3580,55 +3647,10 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationKnowledgeRegulatoryScheduleComponent(Reference jurisdiction, CodeableConcept schedule) {
+      public MedicationKnowledgeRegulatoryScheduleComponent(CodeableConcept schedule) {
         super();
-        this.jurisdiction = jurisdiction;
         this.schedule = schedule;
       }
-
-        /**
-         * @return {@link #jurisdiction} (Specifies the jurisdiction of the regulation.)
-         */
-        public Reference getJurisdiction() { 
-          if (this.jurisdiction == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationKnowledgeRegulatoryScheduleComponent.jurisdiction");
-            else if (Configuration.doAutoCreate())
-              this.jurisdiction = new Reference(); // cc
-          return this.jurisdiction;
-        }
-
-        public boolean hasJurisdiction() { 
-          return this.jurisdiction != null && !this.jurisdiction.isEmpty();
-        }
-
-        /**
-         * @param value {@link #jurisdiction} (Specifies the jurisdiction of the regulation.)
-         */
-        public MedicationKnowledgeRegulatoryScheduleComponent setJurisdiction(Reference value) { 
-          this.jurisdiction = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #jurisdiction} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Specifies the jurisdiction of the regulation.)
-         */
-        public Organization getJurisdictionTarget() { 
-          if (this.jurisdictionTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationKnowledgeRegulatoryScheduleComponent.jurisdiction");
-            else if (Configuration.doAutoCreate())
-              this.jurisdictionTarget = new Organization(); // aa
-          return this.jurisdictionTarget;
-        }
-
-        /**
-         * @param value {@link #jurisdiction} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Specifies the jurisdiction of the regulation.)
-         */
-        public MedicationKnowledgeRegulatoryScheduleComponent setJurisdictionTarget(Organization value) { 
-          this.jurisdictionTarget = value;
-          return this;
-        }
 
         /**
          * @return {@link #schedule} (Specifies the specific drug schedule.)
@@ -3656,14 +3678,12 @@ public class MedicationKnowledge extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("jurisdiction", "Reference(Organization)", "Specifies the jurisdiction of the regulation.", 0, 1, jurisdiction));
           children.add(new Property("schedule", "CodeableConcept", "Specifies the specific drug schedule.", 0, 1, schedule));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "Reference(Organization)", "Specifies the jurisdiction of the regulation.", 0, 1, jurisdiction);
           case -697920873: /*schedule*/  return new Property("schedule", "CodeableConcept", "Specifies the specific drug schedule.", 0, 1, schedule);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -3673,7 +3693,6 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : new Base[] {this.jurisdiction}; // Reference
         case -697920873: /*schedule*/ return this.schedule == null ? new Base[0] : new Base[] {this.schedule}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -3683,9 +3702,6 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -507075711: // jurisdiction
-          this.jurisdiction = castToReference(value); // Reference
-          return value;
         case -697920873: // schedule
           this.schedule = castToCodeableConcept(value); // CodeableConcept
           return value;
@@ -3696,9 +3712,7 @@ public class MedicationKnowledge extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("jurisdiction")) {
-          this.jurisdiction = castToReference(value); // Reference
-        } else if (name.equals("schedule")) {
+        if (name.equals("schedule")) {
           this.schedule = castToCodeableConcept(value); // CodeableConcept
         } else
           return super.setProperty(name, value);
@@ -3708,7 +3722,6 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -507075711:  return getJurisdiction(); 
         case -697920873:  return getSchedule(); 
         default: return super.makeProperty(hash, name);
         }
@@ -3718,7 +3731,6 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -507075711: /*jurisdiction*/ return new String[] {"Reference"};
         case -697920873: /*schedule*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -3727,11 +3739,7 @@ public class MedicationKnowledge extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("jurisdiction")) {
-          this.jurisdiction = new Reference();
-          return this.jurisdiction;
-        }
-        else if (name.equals("schedule")) {
+        if (name.equals("schedule")) {
           this.schedule = new CodeableConcept();
           return this.schedule;
         }
@@ -3742,7 +3750,6 @@ public class MedicationKnowledge extends DomainResource {
       public MedicationKnowledgeRegulatoryScheduleComponent copy() {
         MedicationKnowledgeRegulatoryScheduleComponent dst = new MedicationKnowledgeRegulatoryScheduleComponent();
         copyValues(dst);
-        dst.jurisdiction = jurisdiction == null ? null : jurisdiction.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
         return dst;
       }
@@ -3754,8 +3761,7 @@ public class MedicationKnowledge extends DomainResource {
         if (!(other_ instanceof MedicationKnowledgeRegulatoryScheduleComponent))
           return false;
         MedicationKnowledgeRegulatoryScheduleComponent o = (MedicationKnowledgeRegulatoryScheduleComponent) other_;
-        return compareDeep(jurisdiction, o.jurisdiction, true) && compareDeep(schedule, o.schedule, true)
-          ;
+        return compareDeep(schedule, o.schedule, true);
       }
 
       @Override
@@ -3769,7 +3775,7 @@ public class MedicationKnowledge extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(jurisdiction, schedule);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(schedule);
       }
 
   public String fhirType() {
@@ -6078,7 +6084,7 @@ public class MedicationKnowledge extends DomainResource {
    * Path: <b>MedicationKnowledge.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient", path="MedicationKnowledge.ingredient.item.as(Reference)", description="Medication(s) or substance(s) contained in the medication", type="reference", target={Substance.class } )
+  @SearchParamDefinition(name="ingredient", path="(MedicationKnowledge.ingredient.item as Reference)", description="Medication(s) or substance(s) contained in the medication", type="reference", target={Substance.class } )
   public static final String SP_INGREDIENT = "ingredient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
@@ -6210,7 +6216,7 @@ public class MedicationKnowledge extends DomainResource {
    * Path: <b>MedicationKnowledge.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient-code", path="MedicationKnowledge.ingredient.item.as(CodeableConcept)", description="Medication(s) or substance(s) contained in the medication", type="token" )
+  @SearchParamDefinition(name="ingredient-code", path="(MedicationKnowledge.ingredient.item as CodeableConcept)", description="Medication(s) or substance(s) contained in the medication", type="token" )
   public static final String SP_INGREDIENT_CODE = "ingredient-code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>

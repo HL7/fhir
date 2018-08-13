@@ -275,8 +275,8 @@ public class ValueSetValidator extends BaseValidator {
   }
 
   private String getOid(CodeSystem cs) {
-    if (cs.hasIdentifier() && cs.getIdentifier().getSystem().equals("urn:ietf:rfc:3986") && cs.getIdentifier().getValue().startsWith("urn:oid:")) {
-      return cs.getIdentifier().getValue().substring(8);
+    if (cs.hasIdentifier() && cs.getIdentifierFirstRep().getSystem().equals("urn:ietf:rfc:3986") && cs.getIdentifierFirstRep().getValue().startsWith("urn:oid:")) {
+      return cs.getIdentifierFirstRep().getValue().substring(8);
     }
     return null;
   }

@@ -83,16 +83,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
   private boolean canBeHeirarchy = true;
   private Set<String> excludeKeys = new HashSet<String>();
   private Set<String> excludeSystems = new HashSet<String>();
-  private ValueSetExpanderFactory factory;
   private ValueSet focus;
   private int maxExpansionSize = 500;
 
   private int total;
 
-  public ValueSetExpanderSimple(IWorkerContext context, ValueSetExpanderFactory factory) {
+  public ValueSetExpanderSimple(IWorkerContext context) {
     super();
     this.context = context;
-    this.factory = factory;
   }
 
   public void setMaxExpansionSize(int theMaxExpansionSize) {
@@ -247,41 +245,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
   @Override
   public ValueSetExpansionOutcome expand(ValueSet source, Parameters expParams) {
-
-    if (expParams == null)
-      expParams = makeDefaultExpansion();
     try {
-      source.checkNoModifiers("ValueSet", "expanding");
-      focus = source.copy();
-      focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
-      focus.getExpansion().setTimestampElement(DateTimeType.now());
-      focus.getExpansion().setIdentifier(Factory.createUUID());
-      for (ParametersParameterComponent p : expParams.getParameter()) {
-        if (Utilities.existsInList(p.getName(), "includeDesignations", "excludeNested"))
-          focus.getExpansion().addParameter().setName(p.getName()).setValue(p.getValue());
-      }
-
-      if (source.hasCompose())
-        handleCompose(source.getCompose(), focus.getExpansion().getParameter(), expParams, source.getUrl());
-
-      if (canBeHeirarchy) {
-        for (ValueSetExpansionContainsComponent c : roots) {
-          focus.getExpansion().getContains().add(c);
-        }
-      } else {
-        for (ValueSetExpansionContainsComponent c : codes) {
-          if (map.containsKey(key(c)) && !c.getAbstract()) { // we may have added abstract codes earlier while we still thought it might be heirarchical, but later we gave up, so now ignore them
-            focus.getExpansion().getContains().add(c);
-            c.getContains().clear(); // make sure any heirarchy is wiped
-          }
-        }
-      }
-
-      if (total > 0) {
-        focus.getExpansion().setTotal(total);
-      }
-
-      return new ValueSetExpansionOutcome(focus);
+      return doExpand(source, expParams);
     } catch (RuntimeException e) {
       // TODO: we should put something more specific instead of just Exception below, since
       // it swallows bugs.. what would be expected to be caught there?
@@ -289,12 +254,48 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     } catch (NoTerminologyServiceException e) {
       // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
       // that might fail too, but it might not, later.
-      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), TerminologyServiceErrorClass.NOSERVICE);
+      return new ValueSetExpansionOutcome(e.getMessage(), TerminologyServiceErrorClass.NOSERVICE);
     } catch (Exception e) {
       // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
       // that might fail too, but it might not, later.
-      return new ValueSetExpansionOutcome(new ValueSetCheckerSimple(source, factory, context), e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
+      return new ValueSetExpansionOutcome(e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
     }
+  }
+
+  public ValueSetExpansionOutcome doExpand(ValueSet source, Parameters expParams) throws FHIRException, ETooCostly, FileNotFoundException, IOException {
+    if (expParams == null)
+      expParams = makeDefaultExpansion();
+    source.checkNoModifiers("ValueSet", "expanding");
+    focus = source.copy();
+    focus.setExpansion(new ValueSet.ValueSetExpansionComponent());
+    focus.getExpansion().setTimestampElement(DateTimeType.now());
+    focus.getExpansion().setIdentifier(Factory.createUUID());
+    for (ParametersParameterComponent p : expParams.getParameter()) {
+      if (Utilities.existsInList(p.getName(), "includeDesignations", "excludeNested"))
+        focus.getExpansion().addParameter().setName(p.getName()).setValue(p.getValue());
+    }
+
+    if (source.hasCompose())
+      handleCompose(source.getCompose(), focus.getExpansion().getParameter(), expParams, source.getUrl());
+
+    if (canBeHeirarchy) {
+      for (ValueSetExpansionContainsComponent c : roots) {
+        focus.getExpansion().getContains().add(c);
+      }
+    } else {
+      for (ValueSetExpansionContainsComponent c : codes) {
+        if (map.containsKey(key(c)) && !c.getAbstract()) { // we may have added abstract codes earlier while we still thought it might be heirarchical, but later we gave up, so now ignore them
+          focus.getExpansion().getContains().add(c);
+          c.getContains().clear(); // make sure any heirarchy is wiped
+        }
+      }
+    }
+
+    if (total > 0) {
+      focus.getExpansion().setTotal(total);
+    }
+
+    return new ValueSetExpansionOutcome(focus);
   }
 
   private Parameters makeDefaultExpansion() {
@@ -353,11 +354,9 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     ValueSet vs = context.fetchResource(ValueSet.class, value);
     if (vs == null)
       throw new TerminologyServiceException("Unable to find imported value set " + value);
-    ValueSetExpansionOutcome vso = factory.getExpander().expand(vs, expParams);
+    ValueSetExpansionOutcome vso = new ValueSetExpanderSimple(context).expand(vs, expParams);
     if (vso.getError() != null)
       throw new TerminologyServiceException("Unable to expand imported value set: " + vso.getError());
-    if (vso.getService() != null)
-      throw new TerminologyServiceException("Unable to expand imported value set " + value);
     if (vs.hasVersion())
       if (!existsInParams(params, "version", new UriType(vs.getUrl() + "|" + vs.getVersion())))
         params.add(new ValueSetExpansionParameterComponent().setName("version").setValue(new UriType(vs.getUrl() + "|" + vs.getVersion())));
@@ -393,9 +392,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
       copyImportContains(base.getExpansion().getContains(), null, expParams, imports);
     } else {
       CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
-      if ((cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE) && context.supportsSystem(inc.getSystem())) {
-        addCodes(context.expandVS(inc, canBeHeirarchy), params, expParams, imports);
-        return;
+      if ((cs == null || cs.getContent() != CodeSystemContentMode.COMPLETE)) {
+        throw new FHIRException("Not supported - no full code system found for "+inc.getSystem());
       }
 
       if (cs == null) {
@@ -446,7 +444,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
             for (ConceptDefinitionComponent def : cs.getConcept()) {
               addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports, defEx);
             }
-        } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDENTOF) {
+        } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDANTOF) {
           // special: all codes in the target code system under the value
           ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
           if (def == null)

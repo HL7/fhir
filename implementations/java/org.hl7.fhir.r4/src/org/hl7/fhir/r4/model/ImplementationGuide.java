@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -47,1392 +47,1392 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  */
 @ResourceDef(name="ImplementationGuide", profile="http://hl7.org/fhir/Profile/ImplementationGuide")
-@ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "copyright", "packageId", "license", "fhirVersion", "dependsOn", "global", "definition", "manifest"})
+@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "copyright", "packageId", "license", "fhirVersion", "dependsOn", "global", "definition", "manifest"})
 public class ImplementationGuide extends MetadataResource {
 
     public enum SPDXLicense {
         /**
-         * Not an open source license
+         * Not an open source license.
          */
         NOTOPENSOURCE, 
         /**
-         * BSD Zero Clause License
+         * BSD Zero Clause License.
          */
         _0BSD, 
         /**
-         * Attribution Assurance License
+         * Attribution Assurance License.
          */
         AAL, 
         /**
-         * Abstyles License
+         * Abstyles License.
          */
         ABSTYLES, 
         /**
-         * Adobe Systems Incorporated Source Code License Agreement
+         * Adobe Systems Incorporated Source Code License Agreement.
          */
         ADOBE2006, 
         /**
-         * Adobe Glyph List License
+         * Adobe Glyph List License.
          */
         ADOBEGLYPH, 
         /**
-         * Amazon Digital Services License
+         * Amazon Digital Services License.
          */
         ADSL, 
         /**
-         * Academic Free License v1.1
+         * Academic Free License v1.1.
          */
         AFL1_1, 
         /**
-         * Academic Free License v1.2
+         * Academic Free License v1.2.
          */
         AFL1_2, 
         /**
-         * Academic Free License v2.0
+         * Academic Free License v2.0.
          */
         AFL2_0, 
         /**
-         * Academic Free License v2.1
+         * Academic Free License v2.1.
          */
         AFL2_1, 
         /**
-         * Academic Free License v3.0
+         * Academic Free License v3.0.
          */
         AFL3_0, 
         /**
-         * Afmparse License
+         * Afmparse License.
          */
         AFMPARSE, 
         /**
-         * Affero General Public License v1.0 only
+         * Affero General Public License v1.0 only.
          */
         AGPL1_0ONLY, 
         /**
-         * Affero General Public License v1.0 or later
+         * Affero General Public License v1.0 or later.
          */
         AGPL1_0ORLATER, 
         /**
-         * GNU Affero General Public License v3.0 only
+         * GNU Affero General Public License v3.0 only.
          */
         AGPL3_0ONLY, 
         /**
-         * GNU Affero General Public License v3.0 or later
+         * GNU Affero General Public License v3.0 or later.
          */
         AGPL3_0ORLATER, 
         /**
-         * Aladdin Free Public License
+         * Aladdin Free Public License.
          */
         ALADDIN, 
         /**
-         * AMD's plpa_map.c License
+         * AMD's plpa_map.c License.
          */
         AMDPLPA, 
         /**
-         * Apple MIT License
+         * Apple MIT License.
          */
         AML, 
         /**
-         * Academy of Motion Picture Arts and Sciences BSD
+         * Academy of Motion Picture Arts and Sciences BSD.
          */
         AMPAS, 
         /**
-         * ANTLR Software Rights Notice
+         * ANTLR Software Rights Notice.
          */
         ANTLRPD, 
         /**
-         * Apache License 1.0
+         * Apache License 1.0.
          */
         APACHE1_0, 
         /**
-         * Apache License 1.1
+         * Apache License 1.1.
          */
         APACHE1_1, 
         /**
-         * Apache License 2.0
+         * Apache License 2.0.
          */
         APACHE2_0, 
         /**
-         * Adobe Postscript AFM License
+         * Adobe Postscript AFM License.
          */
         APAFML, 
         /**
-         * Adaptive Public License 1.0
+         * Adaptive Public License 1.0.
          */
         APL1_0, 
         /**
-         * Apple Public Source License 1.0
+         * Apple Public Source License 1.0.
          */
         APSL1_0, 
         /**
-         * Apple Public Source License 1.1
+         * Apple Public Source License 1.1.
          */
         APSL1_1, 
         /**
-         * Apple Public Source License 1.2
+         * Apple Public Source License 1.2.
          */
         APSL1_2, 
         /**
-         * Apple Public Source License 2.0
+         * Apple Public Source License 2.0.
          */
         APSL2_0, 
         /**
-         * Artistic License 1.0 w/clause 8
+         * Artistic License 1.0 w/clause 8.
          */
         ARTISTIC1_0CL8, 
         /**
-         * Artistic License 1.0 (Perl)
+         * Artistic License 1.0 (Perl).
          */
         ARTISTIC1_0PERL, 
         /**
-         * Artistic License 1.0
+         * Artistic License 1.0.
          */
         ARTISTIC1_0, 
         /**
-         * Artistic License 2.0
+         * Artistic License 2.0.
          */
         ARTISTIC2_0, 
         /**
-         * Bahyph License
+         * Bahyph License.
          */
         BAHYPH, 
         /**
-         * Barr License
+         * Barr License.
          */
         BARR, 
         /**
-         * Beerware License
+         * Beerware License.
          */
         BEERWARE, 
         /**
-         * BitTorrent Open Source License v1.0
+         * BitTorrent Open Source License v1.0.
          */
         BITTORRENT1_0, 
         /**
-         * BitTorrent Open Source License v1.1
+         * BitTorrent Open Source License v1.1.
          */
         BITTORRENT1_1, 
         /**
-         * Borceux license
+         * Borceux license.
          */
         BORCEUX, 
         /**
-         * BSD 1-Clause License
+         * BSD 1-Clause License.
          */
         BSD1CLAUSE, 
         /**
-         * BSD 2-Clause FreeBSD License
+         * BSD 2-Clause FreeBSD License.
          */
         BSD2CLAUSEFREEBSD, 
         /**
-         * BSD 2-Clause NetBSD License
+         * BSD 2-Clause NetBSD License.
          */
         BSD2CLAUSENETBSD, 
         /**
-         * BSD-2-Clause Plus Patent License
+         * BSD-2-Clause Plus Patent License.
          */
         BSD2CLAUSEPATENT, 
         /**
-         * BSD 2-Clause "Simplified" License
+         * BSD 2-Clause "Simplified" License.
          */
         BSD2CLAUSE, 
         /**
-         * BSD with attribution
+         * BSD with attribution.
          */
         BSD3CLAUSEATTRIBUTION, 
         /**
-         * BSD 3-Clause Clear License
+         * BSD 3-Clause Clear License.
          */
         BSD3CLAUSECLEAR, 
         /**
-         * Lawrence Berkeley National Labs BSD variant license
+         * Lawrence Berkeley National Labs BSD variant license.
          */
         BSD3CLAUSELBNL, 
         /**
-         * BSD 3-Clause No Nuclear License 2014
+         * BSD 3-Clause No Nuclear License 2014.
          */
         BSD3CLAUSENONUCLEARLICENSE2014, 
         /**
-         * BSD 3-Clause No Nuclear License
+         * BSD 3-Clause No Nuclear License.
          */
         BSD3CLAUSENONUCLEARLICENSE, 
         /**
-         * BSD 3-Clause No Nuclear Warranty
+         * BSD 3-Clause No Nuclear Warranty.
          */
         BSD3CLAUSENONUCLEARWARRANTY, 
         /**
-         * BSD 3-Clause "New" or "Revised" License
+         * BSD 3-Clause "New" or "Revised" License.
          */
         BSD3CLAUSE, 
         /**
-         * BSD-4-Clause (University of California-Specific)
+         * BSD-4-Clause (University of California-Specific).
          */
         BSD4CLAUSEUC, 
         /**
-         * BSD 4-Clause "Original" or "Old" License
+         * BSD 4-Clause "Original" or "Old" License.
          */
         BSD4CLAUSE, 
         /**
-         * BSD Protection License
+         * BSD Protection License.
          */
         BSDPROTECTION, 
         /**
-         * BSD Source Code Attribution
+         * BSD Source Code Attribution.
          */
         BSDSOURCECODE, 
         /**
-         * Boost Software License 1.0
+         * Boost Software License 1.0.
          */
         BSL1_0, 
         /**
-         * bzip2 and libbzip2 License v1.0.5
+         * bzip2 and libbzip2 License v1.0.5.
          */
         BZIP21_0_5, 
         /**
-         * bzip2 and libbzip2 License v1.0.6
+         * bzip2 and libbzip2 License v1.0.6.
          */
         BZIP21_0_6, 
         /**
-         * Caldera License
+         * Caldera License.
          */
         CALDERA, 
         /**
-         * Computer Associates Trusted Open Source License 1.1
+         * Computer Associates Trusted Open Source License 1.1.
          */
         CATOSL1_1, 
         /**
-         * Creative Commons Attribution 1.0 Generic
+         * Creative Commons Attribution 1.0 Generic.
          */
         CCBY1_0, 
         /**
-         * Creative Commons Attribution 2.0 Generic
+         * Creative Commons Attribution 2.0 Generic.
          */
         CCBY2_0, 
         /**
-         * Creative Commons Attribution 2.5 Generic
+         * Creative Commons Attribution 2.5 Generic.
          */
         CCBY2_5, 
         /**
-         * Creative Commons Attribution 3.0 Unported
+         * Creative Commons Attribution 3.0 Unported.
          */
         CCBY3_0, 
         /**
-         * Creative Commons Attribution 4.0 International
+         * Creative Commons Attribution 4.0 International.
          */
         CCBY4_0, 
         /**
-         * Creative Commons Attribution Non Commercial 1.0 Generic
+         * Creative Commons Attribution Non Commercial 1.0 Generic.
          */
         CCBYNC1_0, 
         /**
-         * Creative Commons Attribution Non Commercial 2.0 Generic
+         * Creative Commons Attribution Non Commercial 2.0 Generic.
          */
         CCBYNC2_0, 
         /**
-         * Creative Commons Attribution Non Commercial 2.5 Generic
+         * Creative Commons Attribution Non Commercial 2.5 Generic.
          */
         CCBYNC2_5, 
         /**
-         * Creative Commons Attribution Non Commercial 3.0 Unported
+         * Creative Commons Attribution Non Commercial 3.0 Unported.
          */
         CCBYNC3_0, 
         /**
-         * Creative Commons Attribution Non Commercial 4.0 International
+         * Creative Commons Attribution Non Commercial 4.0 International.
          */
         CCBYNC4_0, 
         /**
-         * Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic
+         * Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic.
          */
         CCBYNCND1_0, 
         /**
-         * Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic
+         * Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic.
          */
         CCBYNCND2_0, 
         /**
-         * Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic
+         * Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic.
          */
         CCBYNCND2_5, 
         /**
-         * Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported
+         * Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported.
          */
         CCBYNCND3_0, 
         /**
-         * Creative Commons Attribution Non Commercial No Derivatives 4.0 International
+         * Creative Commons Attribution Non Commercial No Derivatives 4.0 International.
          */
         CCBYNCND4_0, 
         /**
-         * Creative Commons Attribution Non Commercial Share Alike 1.0 Generic
+         * Creative Commons Attribution Non Commercial Share Alike 1.0 Generic.
          */
         CCBYNCSA1_0, 
         /**
-         * Creative Commons Attribution Non Commercial Share Alike 2.0 Generic
+         * Creative Commons Attribution Non Commercial Share Alike 2.0 Generic.
          */
         CCBYNCSA2_0, 
         /**
-         * Creative Commons Attribution Non Commercial Share Alike 2.5 Generic
+         * Creative Commons Attribution Non Commercial Share Alike 2.5 Generic.
          */
         CCBYNCSA2_5, 
         /**
-         * Creative Commons Attribution Non Commercial Share Alike 3.0 Unported
+         * Creative Commons Attribution Non Commercial Share Alike 3.0 Unported.
          */
         CCBYNCSA3_0, 
         /**
-         * Creative Commons Attribution Non Commercial Share Alike 4.0 International
+         * Creative Commons Attribution Non Commercial Share Alike 4.0 International.
          */
         CCBYNCSA4_0, 
         /**
-         * Creative Commons Attribution No Derivatives 1.0 Generic
+         * Creative Commons Attribution No Derivatives 1.0 Generic.
          */
         CCBYND1_0, 
         /**
-         * Creative Commons Attribution No Derivatives 2.0 Generic
+         * Creative Commons Attribution No Derivatives 2.0 Generic.
          */
         CCBYND2_0, 
         /**
-         * Creative Commons Attribution No Derivatives 2.5 Generic
+         * Creative Commons Attribution No Derivatives 2.5 Generic.
          */
         CCBYND2_5, 
         /**
-         * Creative Commons Attribution No Derivatives 3.0 Unported
+         * Creative Commons Attribution No Derivatives 3.0 Unported.
          */
         CCBYND3_0, 
         /**
-         * Creative Commons Attribution No Derivatives 4.0 International
+         * Creative Commons Attribution No Derivatives 4.0 International.
          */
         CCBYND4_0, 
         /**
-         * Creative Commons Attribution Share Alike 1.0 Generic
+         * Creative Commons Attribution Share Alike 1.0 Generic.
          */
         CCBYSA1_0, 
         /**
-         * Creative Commons Attribution Share Alike 2.0 Generic
+         * Creative Commons Attribution Share Alike 2.0 Generic.
          */
         CCBYSA2_0, 
         /**
-         * Creative Commons Attribution Share Alike 2.5 Generic
+         * Creative Commons Attribution Share Alike 2.5 Generic.
          */
         CCBYSA2_5, 
         /**
-         * Creative Commons Attribution Share Alike 3.0 Unported
+         * Creative Commons Attribution Share Alike 3.0 Unported.
          */
         CCBYSA3_0, 
         /**
-         * Creative Commons Attribution Share Alike 4.0 International
+         * Creative Commons Attribution Share Alike 4.0 International.
          */
         CCBYSA4_0, 
         /**
-         * Creative Commons Zero v1.0 Universal
+         * Creative Commons Zero v1.0 Universal.
          */
         CC01_0, 
         /**
-         * Common Development and Distribution License 1.0
+         * Common Development and Distribution License 1.0.
          */
         CDDL1_0, 
         /**
-         * Common Development and Distribution License 1.1
+         * Common Development and Distribution License 1.1.
          */
         CDDL1_1, 
         /**
-         * Community Data License Agreement Permissive 1.0
+         * Community Data License Agreement Permissive 1.0.
          */
         CDLAPERMISSIVE1_0, 
         /**
-         * Community Data License Agreement Sharing 1.0
+         * Community Data License Agreement Sharing 1.0.
          */
         CDLASHARING1_0, 
         /**
-         * CeCILL Free Software License Agreement v1.0
+         * CeCILL Free Software License Agreement v1.0.
          */
         CECILL1_0, 
         /**
-         * CeCILL Free Software License Agreement v1.1
+         * CeCILL Free Software License Agreement v1.1.
          */
         CECILL1_1, 
         /**
-         * CeCILL Free Software License Agreement v2.0
+         * CeCILL Free Software License Agreement v2.0.
          */
         CECILL2_0, 
         /**
-         * CeCILL Free Software License Agreement v2.1
+         * CeCILL Free Software License Agreement v2.1.
          */
         CECILL2_1, 
         /**
-         * CeCILL-B Free Software License Agreement
+         * CeCILL-B Free Software License Agreement.
          */
         CECILLB, 
         /**
-         * CeCILL-C Free Software License Agreement
+         * CeCILL-C Free Software License Agreement.
          */
         CECILLC, 
         /**
-         * Clarified Artistic License
+         * Clarified Artistic License.
          */
         CLARTISTIC, 
         /**
-         * CNRI Jython License
+         * CNRI Jython License.
          */
         CNRIJYTHON, 
         /**
-         * CNRI Python Open Source GPL Compatible License Agreement
+         * CNRI Python Open Source GPL Compatible License Agreement.
          */
         CNRIPYTHONGPLCOMPATIBLE, 
         /**
-         * CNRI Python License
+         * CNRI Python License.
          */
         CNRIPYTHON, 
         /**
-         * Condor Public License v1.1
+         * Condor Public License v1.1.
          */
         CONDOR1_1, 
         /**
-         * Common Public Attribution License 1.0
+         * Common Public Attribution License 1.0.
          */
         CPAL1_0, 
         /**
-         * Common Public License 1.0
+         * Common Public License 1.0.
          */
         CPL1_0, 
         /**
-         * Code Project Open License 1.02
+         * Code Project Open License 1.02.
          */
         CPOL1_02, 
         /**
-         * Crossword License
+         * Crossword License.
          */
         CROSSWORD, 
         /**
-         * CrystalStacker License
+         * CrystalStacker License.
          */
         CRYSTALSTACKER, 
         /**
-         * CUA Office Public License v1.0
+         * CUA Office Public License v1.0.
          */
         CUAOPL1_0, 
         /**
-         * Cube License
+         * Cube License.
          */
         CUBE, 
         /**
-         * curl License
+         * curl License.
          */
         CURL, 
         /**
-         * Deutsche Freie Software Lizenz
+         * Deutsche Freie Software Lizenz.
          */
         DFSL1_0, 
         /**
-         * diffmark license
+         * diffmark license.
          */
         DIFFMARK, 
         /**
-         * DOC License
+         * DOC License.
          */
         DOC, 
         /**
-         * Dotseqn License
+         * Dotseqn License.
          */
         DOTSEQN, 
         /**
-         * DSDP License
+         * DSDP License.
          */
         DSDP, 
         /**
-         * dvipdfm License
+         * dvipdfm License.
          */
         DVIPDFM, 
         /**
-         * Educational Community License v1.0
+         * Educational Community License v1.0.
          */
         ECL1_0, 
         /**
-         * Educational Community License v2.0
+         * Educational Community License v2.0.
          */
         ECL2_0, 
         /**
-         * Eiffel Forum License v1.0
+         * Eiffel Forum License v1.0.
          */
         EFL1_0, 
         /**
-         * Eiffel Forum License v2.0
+         * Eiffel Forum License v2.0.
          */
         EFL2_0, 
         /**
-         * eGenix.com Public License 1.1.0
+         * eGenix.com Public License 1.1.0.
          */
         EGENIX, 
         /**
-         * Entessa Public License v1.0
+         * Entessa Public License v1.0.
          */
         ENTESSA, 
         /**
-         * Eclipse Public License 1.0
+         * Eclipse Public License 1.0.
          */
         EPL1_0, 
         /**
-         * Eclipse Public License 2.0
+         * Eclipse Public License 2.0.
          */
         EPL2_0, 
         /**
-         * Erlang Public License v1.1
+         * Erlang Public License v1.1.
          */
         ERLPL1_1, 
         /**
-         * EU DataGrid Software License
+         * EU DataGrid Software License.
          */
         EUDATAGRID, 
         /**
-         * European Union Public License 1.0
+         * European Union Public License 1.0.
          */
         EUPL1_0, 
         /**
-         * European Union Public License 1.1
+         * European Union Public License 1.1.
          */
         EUPL1_1, 
         /**
-         * European Union Public License 1.2
+         * European Union Public License 1.2.
          */
         EUPL1_2, 
         /**
-         * Eurosym License
+         * Eurosym License.
          */
         EUROSYM, 
         /**
-         * Fair License
+         * Fair License.
          */
         FAIR, 
         /**
-         * Frameworx Open License 1.0
+         * Frameworx Open License 1.0.
          */
         FRAMEWORX1_0, 
         /**
-         * FreeImage Public License v1.0
+         * FreeImage Public License v1.0.
          */
         FREEIMAGE, 
         /**
-         * FSF All Permissive License
+         * FSF All Permissive License.
          */
         FSFAP, 
         /**
-         * FSF Unlimited License
+         * FSF Unlimited License.
          */
         FSFUL, 
         /**
-         * FSF Unlimited License (with License Retention)
+         * FSF Unlimited License (with License Retention).
          */
         FSFULLR, 
         /**
-         * Freetype Project License
+         * Freetype Project License.
          */
         FTL, 
         /**
-         * GNU Free Documentation License v1.1 only
+         * GNU Free Documentation License v1.1 only.
          */
         GFDL1_1ONLY, 
         /**
-         * GNU Free Documentation License v1.1 or later
+         * GNU Free Documentation License v1.1 or later.
          */
         GFDL1_1ORLATER, 
         /**
-         * GNU Free Documentation License v1.2 only
+         * GNU Free Documentation License v1.2 only.
          */
         GFDL1_2ONLY, 
         /**
-         * GNU Free Documentation License v1.2 or later
+         * GNU Free Documentation License v1.2 or later.
          */
         GFDL1_2ORLATER, 
         /**
-         * GNU Free Documentation License v1.3 only
+         * GNU Free Documentation License v1.3 only.
          */
         GFDL1_3ONLY, 
         /**
-         * GNU Free Documentation License v1.3 or later
+         * GNU Free Documentation License v1.3 or later.
          */
         GFDL1_3ORLATER, 
         /**
-         * Giftware License
+         * Giftware License.
          */
         GIFTWARE, 
         /**
-         * GL2PS License
+         * GL2PS License.
          */
         GL2PS, 
         /**
-         * 3dfx Glide License
+         * 3dfx Glide License.
          */
         GLIDE, 
         /**
-         * Glulxe License
+         * Glulxe License.
          */
         GLULXE, 
         /**
-         * gnuplot License
+         * gnuplot License.
          */
         GNUPLOT, 
         /**
-         * GNU General Public License v1.0 only
+         * GNU General Public License v1.0 only.
          */
         GPL1_0ONLY, 
         /**
-         * GNU General Public License v1.0 or later
+         * GNU General Public License v1.0 or later.
          */
         GPL1_0ORLATER, 
         /**
-         * GNU General Public License v2.0 only
+         * GNU General Public License v2.0 only.
          */
         GPL2_0ONLY, 
         /**
-         * GNU General Public License v2.0 or later
+         * GNU General Public License v2.0 or later.
          */
         GPL2_0ORLATER, 
         /**
-         * GNU General Public License v3.0 only
+         * GNU General Public License v3.0 only.
          */
         GPL3_0ONLY, 
         /**
-         * GNU General Public License v3.0 or later
+         * GNU General Public License v3.0 or later.
          */
         GPL3_0ORLATER, 
         /**
-         * gSOAP Public License v1.3b
+         * gSOAP Public License v1.3b.
          */
         GSOAP1_3B, 
         /**
-         * Haskell Language Report License
+         * Haskell Language Report License.
          */
         HASKELLREPORT, 
         /**
-         * Historical Permission Notice and Disclaimer
+         * Historical Permission Notice and Disclaimer.
          */
         HPND, 
         /**
-         * IBM PowerPC Initialization and Boot Software
+         * IBM PowerPC Initialization and Boot Software.
          */
         IBMPIBS, 
         /**
-         * ICU License
+         * ICU License.
          */
         ICU, 
         /**
-         * Independent JPEG Group License
+         * Independent JPEG Group License.
          */
         IJG, 
         /**
-         * ImageMagick License
+         * ImageMagick License.
          */
         IMAGEMAGICK, 
         /**
-         * iMatix Standard Function Library Agreement
+         * iMatix Standard Function Library Agreement.
          */
         IMATIX, 
         /**
-         * Imlib2 License
+         * Imlib2 License.
          */
         IMLIB2, 
         /**
-         * Info-ZIP License
+         * Info-ZIP License.
          */
         INFOZIP, 
         /**
-         * Intel ACPI Software License Agreement
+         * Intel ACPI Software License Agreement.
          */
         INTELACPI, 
         /**
-         * Intel Open Source License
+         * Intel Open Source License.
          */
         INTEL, 
         /**
-         * Interbase Public License v1.0
+         * Interbase Public License v1.0.
          */
         INTERBASE1_0, 
         /**
-         * IPA Font License
+         * IPA Font License.
          */
         IPA, 
         /**
-         * IBM Public License v1.0
+         * IBM Public License v1.0.
          */
         IPL1_0, 
         /**
-         * ISC License
+         * ISC License.
          */
         ISC, 
         /**
-         * JasPer License
+         * JasPer License.
          */
         JASPER2_0, 
         /**
-         * JSON License
+         * JSON License.
          */
         JSON, 
         /**
-         * Licence Art Libre 1.2
+         * Licence Art Libre 1.2.
          */
         LAL1_2, 
         /**
-         * Licence Art Libre 1.3
+         * Licence Art Libre 1.3.
          */
         LAL1_3, 
         /**
-         * Latex2e License
+         * Latex2e License.
          */
         LATEX2E, 
         /**
-         * Leptonica License
+         * Leptonica License.
          */
         LEPTONICA, 
         /**
-         * GNU Library General Public License v2 only
+         * GNU Library General Public License v2 only.
          */
         LGPL2_0ONLY, 
         /**
-         * GNU Library General Public License v2 or later
+         * GNU Library General Public License v2 or later.
          */
         LGPL2_0ORLATER, 
         /**
-         * GNU Lesser General Public License v2.1 only
+         * GNU Lesser General Public License v2.1 only.
          */
         LGPL2_1ONLY, 
         /**
-         * GNU Lesser General Public License v2.1 or later
+         * GNU Lesser General Public License v2.1 or later.
          */
         LGPL2_1ORLATER, 
         /**
-         * GNU Lesser General Public License v3.0 only
+         * GNU Lesser General Public License v3.0 only.
          */
         LGPL3_0ONLY, 
         /**
-         * GNU Lesser General Public License v3.0 or later
+         * GNU Lesser General Public License v3.0 or later.
          */
         LGPL3_0ORLATER, 
         /**
-         * Lesser General Public License For Linguistic Resources
+         * Lesser General Public License For Linguistic Resources.
          */
         LGPLLR, 
         /**
-         * libpng License
+         * libpng License.
          */
         LIBPNG, 
         /**
-         * libtiff License
+         * libtiff License.
          */
         LIBTIFF, 
         /**
-         * Licence Libre du Québec – Permissive version 1.1
+         * Licence Libre du Québec – Permissive version 1.1.
          */
         LILIQP1_1, 
         /**
-         * Licence Libre du Québec – Réciprocité version 1.1
+         * Licence Libre du Québec – Réciprocité version 1.1.
          */
         LILIQR1_1, 
         /**
-         * Licence Libre du Québec – Réciprocité forte version 1.1
+         * Licence Libre du Québec – Réciprocité forte version 1.1.
          */
         LILIQRPLUS1_1, 
         /**
-         * Linux Kernel Variant of OpenIB.org license
+         * Linux Kernel Variant of OpenIB.org license.
          */
         LINUXOPENIB, 
         /**
-         * Lucent Public License Version 1.0
+         * Lucent Public License Version 1.0.
          */
         LPL1_0, 
         /**
-         * Lucent Public License v1.02
+         * Lucent Public License v1.02.
          */
         LPL1_02, 
         /**
-         * LaTeX Project Public License v1.0
+         * LaTeX Project Public License v1.0.
          */
         LPPL1_0, 
         /**
-         * LaTeX Project Public License v1.1
+         * LaTeX Project Public License v1.1.
          */
         LPPL1_1, 
         /**
-         * LaTeX Project Public License v1.2
+         * LaTeX Project Public License v1.2.
          */
         LPPL1_2, 
         /**
-         * LaTeX Project Public License v1.3a
+         * LaTeX Project Public License v1.3a.
          */
         LPPL1_3A, 
         /**
-         * LaTeX Project Public License v1.3c
+         * LaTeX Project Public License v1.3c.
          */
         LPPL1_3C, 
         /**
-         * MakeIndex License
+         * MakeIndex License.
          */
         MAKEINDEX, 
         /**
-         * MirOS License
+         * MirOS License.
          */
         MIROS, 
         /**
-         * MIT No Attribution
+         * MIT No Attribution.
          */
         MIT0, 
         /**
-         * Enlightenment License (e16)
+         * Enlightenment License (e16).
          */
         MITADVERTISING, 
         /**
-         * CMU License
+         * CMU License.
          */
         MITCMU, 
         /**
-         * enna License
+         * enna License.
          */
         MITENNA, 
         /**
-         * feh License
+         * feh License.
          */
         MITFEH, 
         /**
-         * MIT License
+         * MIT License.
          */
         MIT, 
         /**
-         * MIT +no-false-attribs license
+         * MIT +no-false-attribs license.
          */
         MITNFA, 
         /**
-         * Motosoto License
+         * Motosoto License.
          */
         MOTOSOTO, 
         /**
-         * mpich2 License
+         * mpich2 License.
          */
         MPICH2, 
         /**
-         * Mozilla Public License 1.0
+         * Mozilla Public License 1.0.
          */
         MPL1_0, 
         /**
-         * Mozilla Public License 1.1
+         * Mozilla Public License 1.1.
          */
         MPL1_1, 
         /**
-         * Mozilla Public License 2.0 (no copyleft exception)
+         * Mozilla Public License 2.0 (no copyleft exception).
          */
         MPL2_0NOCOPYLEFTEXCEPTION, 
         /**
-         * Mozilla Public License 2.0
+         * Mozilla Public License 2.0.
          */
         MPL2_0, 
         /**
-         * Microsoft Public License
+         * Microsoft Public License.
          */
         MSPL, 
         /**
-         * Microsoft Reciprocal License
+         * Microsoft Reciprocal License.
          */
         MSRL, 
         /**
-         * Matrix Template Library License
+         * Matrix Template Library License.
          */
         MTLL, 
         /**
-         * Multics License
+         * Multics License.
          */
         MULTICS, 
         /**
-         * Mup License
+         * Mup License.
          */
         MUP, 
         /**
-         * NASA Open Source Agreement 1.3
+         * NASA Open Source Agreement 1.3.
          */
         NASA1_3, 
         /**
-         * Naumen Public License
+         * Naumen Public License.
          */
         NAUMEN, 
         /**
-         * Net Boolean Public License v1
+         * Net Boolean Public License v1.
          */
         NBPL1_0, 
         /**
-         * University of Illinois/NCSA Open Source License
+         * University of Illinois/NCSA Open Source License.
          */
         NCSA, 
         /**
-         * Net-SNMP License
+         * Net-SNMP License.
          */
         NETSNMP, 
         /**
-         * NetCDF license
+         * NetCDF license.
          */
         NETCDF, 
         /**
-         * Newsletr License
+         * Newsletr License.
          */
         NEWSLETR, 
         /**
-         * Nethack General Public License
+         * Nethack General Public License.
          */
         NGPL, 
         /**
-         * Norwegian Licence for Open Government Data
+         * Norwegian Licence for Open Government Data.
          */
         NLOD1_0, 
         /**
-         * No Limit Public License
+         * No Limit Public License.
          */
         NLPL, 
         /**
-         * Nokia Open Source License
+         * Nokia Open Source License.
          */
         NOKIA, 
         /**
-         * Netizen Open Source License
+         * Netizen Open Source License.
          */
         NOSL, 
         /**
-         * Noweb License
+         * Noweb License.
          */
         NOWEB, 
         /**
-         * Netscape Public License v1.0
+         * Netscape Public License v1.0.
          */
         NPL1_0, 
         /**
-         * Netscape Public License v1.1
+         * Netscape Public License v1.1.
          */
         NPL1_1, 
         /**
-         * Non-Profit Open Software License 3.0
+         * Non-Profit Open Software License 3.0.
          */
         NPOSL3_0, 
         /**
-         * NRL License
+         * NRL License.
          */
         NRL, 
         /**
-         * NTP License
+         * NTP License.
          */
         NTP, 
         /**
-         * Open CASCADE Technology Public License
+         * Open CASCADE Technology Public License.
          */
         OCCTPL, 
         /**
-         * OCLC Research Public License 2.0
+         * OCLC Research Public License 2.0.
          */
         OCLC2_0, 
         /**
-         * ODC Open Database License v1.0
+         * ODC Open Database License v1.0.
          */
         ODBL1_0, 
         /**
-         * SIL Open Font License 1.0
+         * SIL Open Font License 1.0.
          */
         OFL1_0, 
         /**
-         * SIL Open Font License 1.1
+         * SIL Open Font License 1.1.
          */
         OFL1_1, 
         /**
-         * Open Group Test Suite License
+         * Open Group Test Suite License.
          */
         OGTSL, 
         /**
-         * Open LDAP Public License v1.1
+         * Open LDAP Public License v1.1.
          */
         OLDAP1_1, 
         /**
-         * Open LDAP Public License v1.2
+         * Open LDAP Public License v1.2.
          */
         OLDAP1_2, 
         /**
-         * Open LDAP Public License v1.3
+         * Open LDAP Public License v1.3.
          */
         OLDAP1_3, 
         /**
-         * Open LDAP Public License v1.4
+         * Open LDAP Public License v1.4.
          */
         OLDAP1_4, 
         /**
-         * Open LDAP Public License v2.0.1
+         * Open LDAP Public License v2.0.1.
          */
         OLDAP2_0_1, 
         /**
-         * Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)
+         * Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B).
          */
         OLDAP2_0, 
         /**
-         * Open LDAP Public License v2.1
+         * Open LDAP Public License v2.1.
          */
         OLDAP2_1, 
         /**
-         * Open LDAP Public License v2.2.1
+         * Open LDAP Public License v2.2.1.
          */
         OLDAP2_2_1, 
         /**
-         * Open LDAP Public License 2.2.2
+         * Open LDAP Public License 2.2.2.
          */
         OLDAP2_2_2, 
         /**
-         * Open LDAP Public License v2.2
+         * Open LDAP Public License v2.2.
          */
         OLDAP2_2, 
         /**
-         * Open LDAP Public License v2.3
+         * Open LDAP Public License v2.3.
          */
         OLDAP2_3, 
         /**
-         * Open LDAP Public License v2.4
+         * Open LDAP Public License v2.4.
          */
         OLDAP2_4, 
         /**
-         * Open LDAP Public License v2.5
+         * Open LDAP Public License v2.5.
          */
         OLDAP2_5, 
         /**
-         * Open LDAP Public License v2.6
+         * Open LDAP Public License v2.6.
          */
         OLDAP2_6, 
         /**
-         * Open LDAP Public License v2.7
+         * Open LDAP Public License v2.7.
          */
         OLDAP2_7, 
         /**
-         * Open LDAP Public License v2.8
+         * Open LDAP Public License v2.8.
          */
         OLDAP2_8, 
         /**
-         * Open Market License
+         * Open Market License.
          */
         OML, 
         /**
-         * OpenSSL License
+         * OpenSSL License.
          */
         OPENSSL, 
         /**
-         * Open Public License v1.0
+         * Open Public License v1.0.
          */
         OPL1_0, 
         /**
-         * OSET Public License version 2.1
+         * OSET Public License version 2.1.
          */
         OSETPL2_1, 
         /**
-         * Open Software License 1.0
+         * Open Software License 1.0.
          */
         OSL1_0, 
         /**
-         * Open Software License 1.1
+         * Open Software License 1.1.
          */
         OSL1_1, 
         /**
-         * Open Software License 2.0
+         * Open Software License 2.0.
          */
         OSL2_0, 
         /**
-         * Open Software License 2.1
+         * Open Software License 2.1.
          */
         OSL2_1, 
         /**
-         * Open Software License 3.0
+         * Open Software License 3.0.
          */
         OSL3_0, 
         /**
-         * ODC Public Domain Dedication & License 1.0
+         * ODC Public Domain Dedication & License 1.0.
          */
         PDDL1_0, 
         /**
-         * PHP License v3.0
+         * PHP License v3.0.
          */
         PHP3_0, 
         /**
-         * PHP License v3.01
+         * PHP License v3.01.
          */
         PHP3_01, 
         /**
-         * Plexus Classworlds License
+         * Plexus Classworlds License.
          */
         PLEXUS, 
         /**
-         * PostgreSQL License
+         * PostgreSQL License.
          */
         POSTGRESQL, 
         /**
-         * psfrag License
+         * psfrag License.
          */
         PSFRAG, 
         /**
-         * psutils License
+         * psutils License.
          */
         PSUTILS, 
         /**
-         * Python License 2.0
+         * Python License 2.0.
          */
         PYTHON2_0, 
         /**
-         * Qhull License
+         * Qhull License.
          */
         QHULL, 
         /**
-         * Q Public License 1.0
+         * Q Public License 1.0.
          */
         QPL1_0, 
         /**
-         * Rdisc License
+         * Rdisc License.
          */
         RDISC, 
         /**
-         * Red Hat eCos Public License v1.1
+         * Red Hat eCos Public License v1.1.
          */
         RHECOS1_1, 
         /**
-         * Reciprocal Public License 1.1
+         * Reciprocal Public License 1.1.
          */
         RPL1_1, 
         /**
-         * Reciprocal Public License 1.5
+         * Reciprocal Public License 1.5.
          */
         RPL1_5, 
         /**
-         * RealNetworks Public Source License v1.0
+         * RealNetworks Public Source License v1.0.
          */
         RPSL1_0, 
         /**
-         * RSA Message-Digest License
+         * RSA Message-Digest License.
          */
         RSAMD, 
         /**
-         * Ricoh Source Code Public License
+         * Ricoh Source Code Public License.
          */
         RSCPL, 
         /**
-         * Ruby License
+         * Ruby License.
          */
         RUBY, 
         /**
-         * Sax Public Domain Notice
+         * Sax Public Domain Notice.
          */
         SAXPD, 
         /**
-         * Saxpath License
+         * Saxpath License.
          */
         SAXPATH, 
         /**
-         * SCEA Shared Source License
+         * SCEA Shared Source License.
          */
         SCEA, 
         /**
-         * Sendmail License
+         * Sendmail License.
          */
         SENDMAIL, 
         /**
-         * SGI Free Software License B v1.0
+         * SGI Free Software License B v1.0.
          */
         SGIB1_0, 
         /**
-         * SGI Free Software License B v1.1
+         * SGI Free Software License B v1.1.
          */
         SGIB1_1, 
         /**
-         * SGI Free Software License B v2.0
+         * SGI Free Software License B v2.0.
          */
         SGIB2_0, 
         /**
-         * Simple Public License 2.0
+         * Simple Public License 2.0.
          */
         SIMPL2_0, 
         /**
-         * Sun Industry Standards Source License v1.2
+         * Sun Industry Standards Source License v1.2.
          */
         SISSL1_2, 
         /**
-         * Sun Industry Standards Source License v1.1
+         * Sun Industry Standards Source License v1.1.
          */
         SISSL, 
         /**
-         * Sleepycat License
+         * Sleepycat License.
          */
         SLEEPYCAT, 
         /**
-         * Standard ML of New Jersey License
+         * Standard ML of New Jersey License.
          */
         SMLNJ, 
         /**
-         * Secure Messaging Protocol Public License
+         * Secure Messaging Protocol Public License.
          */
         SMPPL, 
         /**
-         * SNIA Public License 1.1
+         * SNIA Public License 1.1.
          */
         SNIA, 
         /**
-         * Spencer License 86
+         * Spencer License 86.
          */
         SPENCER86, 
         /**
-         * Spencer License 94
+         * Spencer License 94.
          */
         SPENCER94, 
         /**
-         * Spencer License 99
+         * Spencer License 99.
          */
         SPENCER99, 
         /**
-         * Sun Public License v1.0
+         * Sun Public License v1.0.
          */
         SPL1_0, 
         /**
-         * SugarCRM Public License v1.1.3
+         * SugarCRM Public License v1.1.3.
          */
         SUGARCRM1_1_3, 
         /**
-         * Scheme Widget Library (SWL) Software License Agreement
+         * Scheme Widget Library (SWL) Software License Agreement.
          */
         SWL, 
         /**
-         * TCL/TK License
+         * TCL/TK License.
          */
         TCL, 
         /**
-         * TCP Wrappers License
+         * TCP Wrappers License.
          */
         TCPWRAPPERS, 
         /**
-         * TMate Open Source License
+         * TMate Open Source License.
          */
         TMATE, 
         /**
-         * TORQUE v2.5+ Software License v1.1
+         * TORQUE v2.5+ Software License v1.1.
          */
         TORQUE1_1, 
         /**
-         * Trusster Open Source License
+         * Trusster Open Source License.
          */
         TOSL, 
         /**
-         * Unicode License Agreement - Data Files and Software (2015)
+         * Unicode License Agreement - Data Files and Software (2015).
          */
         UNICODEDFS2015, 
         /**
-         * Unicode License Agreement - Data Files and Software (2016)
+         * Unicode License Agreement - Data Files and Software (2016).
          */
         UNICODEDFS2016, 
         /**
-         * Unicode Terms of Use
+         * Unicode Terms of Use.
          */
         UNICODETOU, 
         /**
-         * The Unlicense
+         * The Unlicense.
          */
         UNLICENSE, 
         /**
-         * Universal Permissive License v1.0
+         * Universal Permissive License v1.0.
          */
         UPL1_0, 
         /**
-         * Vim License
+         * Vim License.
          */
         VIM, 
         /**
-         * VOSTROM Public License for Open Source
+         * VOSTROM Public License for Open Source.
          */
         VOSTROM, 
         /**
-         * Vovida Software License v1.0
+         * Vovida Software License v1.0.
          */
         VSL1_0, 
         /**
-         * W3C Software Notice and License (1998-07-20)
+         * W3C Software Notice and License (1998-07-20).
          */
         W3C19980720, 
         /**
-         * W3C Software Notice and Document License (2015-05-13)
+         * W3C Software Notice and Document License (2015-05-13).
          */
         W3C20150513, 
         /**
-         * W3C Software Notice and License (2002-12-31)
+         * W3C Software Notice and License (2002-12-31).
          */
         W3C, 
         /**
-         * Sybase Open Watcom Public License 1.0
+         * Sybase Open Watcom Public License 1.0.
          */
         WATCOM1_0, 
         /**
-         * Wsuipa License
+         * Wsuipa License.
          */
         WSUIPA, 
         /**
-         * Do What The F*ck You Want To Public License
+         * Do What The F*ck You Want To Public License.
          */
         WTFPL, 
         /**
-         * X11 License
+         * X11 License.
          */
         X11, 
         /**
-         * Xerox License
+         * Xerox License.
          */
         XEROX, 
         /**
-         * XFree86 License 1.1
+         * XFree86 License 1.1.
          */
         XFREE861_1, 
         /**
-         * xinetd License
+         * xinetd License.
          */
         XINETD, 
         /**
-         * X.Net License
+         * X.Net License.
          */
         XNET, 
         /**
-         * XPP License
+         * XPP License.
          */
         XPP, 
         /**
-         * XSkat License
+         * XSkat License.
          */
         XSKAT, 
         /**
-         * Yahoo! Public License v1.0
+         * Yahoo! Public License v1.0.
          */
         YPL1_0, 
         /**
-         * Yahoo! Public License v1.1
+         * Yahoo! Public License v1.1.
          */
         YPL1_1, 
         /**
-         * Zed License
+         * Zed License.
          */
         ZED, 
         /**
-         * Zend License v2.0
+         * Zend License v2.0.
          */
         ZEND2_0, 
         /**
-         * Zimbra Public License v1.3
+         * Zimbra Public License v1.3.
          */
         ZIMBRA1_3, 
         /**
-         * Zimbra Public License v1.4
+         * Zimbra Public License v1.4.
          */
         ZIMBRA1_4, 
         /**
-         * zlib/libpng License with Acknowledgement
+         * zlib/libpng License with Acknowledgement.
          */
         ZLIBACKNOWLEDGEMENT, 
         /**
-         * zlib License
+         * zlib License.
          */
         ZLIB, 
         /**
-         * Zope Public License 1.1
+         * Zope Public License 1.1.
          */
         ZPL1_1, 
         /**
-         * Zope Public License 2.0
+         * Zope Public License 2.0.
          */
         ZPL2_0, 
         /**
-         * Zope Public License 2.1
+         * Zope Public License 2.1.
          */
         ZPL2_1, 
         /**
@@ -2843,352 +2843,352 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case NOTOPENSOURCE: return "Not an open source license";
-            case _0BSD: return "BSD Zero Clause License";
-            case AAL: return "Attribution Assurance License";
-            case ABSTYLES: return "Abstyles License";
-            case ADOBE2006: return "Adobe Systems Incorporated Source Code License Agreement";
-            case ADOBEGLYPH: return "Adobe Glyph List License";
-            case ADSL: return "Amazon Digital Services License";
-            case AFL1_1: return "Academic Free License v1.1";
-            case AFL1_2: return "Academic Free License v1.2";
-            case AFL2_0: return "Academic Free License v2.0";
-            case AFL2_1: return "Academic Free License v2.1";
-            case AFL3_0: return "Academic Free License v3.0";
-            case AFMPARSE: return "Afmparse License";
-            case AGPL1_0ONLY: return "Affero General Public License v1.0 only";
-            case AGPL1_0ORLATER: return "Affero General Public License v1.0 or later";
-            case AGPL3_0ONLY: return "GNU Affero General Public License v3.0 only";
-            case AGPL3_0ORLATER: return "GNU Affero General Public License v3.0 or later";
-            case ALADDIN: return "Aladdin Free Public License";
-            case AMDPLPA: return "AMD's plpa_map.c License";
-            case AML: return "Apple MIT License";
-            case AMPAS: return "Academy of Motion Picture Arts and Sciences BSD";
-            case ANTLRPD: return "ANTLR Software Rights Notice";
-            case APACHE1_0: return "Apache License 1.0";
-            case APACHE1_1: return "Apache License 1.1";
-            case APACHE2_0: return "Apache License 2.0";
-            case APAFML: return "Adobe Postscript AFM License";
-            case APL1_0: return "Adaptive Public License 1.0";
-            case APSL1_0: return "Apple Public Source License 1.0";
-            case APSL1_1: return "Apple Public Source License 1.1";
-            case APSL1_2: return "Apple Public Source License 1.2";
-            case APSL2_0: return "Apple Public Source License 2.0";
-            case ARTISTIC1_0CL8: return "Artistic License 1.0 w/clause 8";
-            case ARTISTIC1_0PERL: return "Artistic License 1.0 (Perl)";
-            case ARTISTIC1_0: return "Artistic License 1.0";
-            case ARTISTIC2_0: return "Artistic License 2.0";
-            case BAHYPH: return "Bahyph License";
-            case BARR: return "Barr License";
-            case BEERWARE: return "Beerware License";
-            case BITTORRENT1_0: return "BitTorrent Open Source License v1.0";
-            case BITTORRENT1_1: return "BitTorrent Open Source License v1.1";
-            case BORCEUX: return "Borceux license";
-            case BSD1CLAUSE: return "BSD 1-Clause License";
-            case BSD2CLAUSEFREEBSD: return "BSD 2-Clause FreeBSD License";
-            case BSD2CLAUSENETBSD: return "BSD 2-Clause NetBSD License";
-            case BSD2CLAUSEPATENT: return "BSD-2-Clause Plus Patent License";
-            case BSD2CLAUSE: return "BSD 2-Clause \"Simplified\" License";
-            case BSD3CLAUSEATTRIBUTION: return "BSD with attribution";
-            case BSD3CLAUSECLEAR: return "BSD 3-Clause Clear License";
-            case BSD3CLAUSELBNL: return "Lawrence Berkeley National Labs BSD variant license";
-            case BSD3CLAUSENONUCLEARLICENSE2014: return "BSD 3-Clause No Nuclear License 2014";
-            case BSD3CLAUSENONUCLEARLICENSE: return "BSD 3-Clause No Nuclear License";
-            case BSD3CLAUSENONUCLEARWARRANTY: return "BSD 3-Clause No Nuclear Warranty";
-            case BSD3CLAUSE: return "BSD 3-Clause \"New\" or \"Revised\" License";
-            case BSD4CLAUSEUC: return "BSD-4-Clause (University of California-Specific)";
-            case BSD4CLAUSE: return "BSD 4-Clause \"Original\" or \"Old\" License";
-            case BSDPROTECTION: return "BSD Protection License";
-            case BSDSOURCECODE: return "BSD Source Code Attribution";
-            case BSL1_0: return "Boost Software License 1.0";
-            case BZIP21_0_5: return "bzip2 and libbzip2 License v1.0.5";
-            case BZIP21_0_6: return "bzip2 and libbzip2 License v1.0.6";
-            case CALDERA: return "Caldera License";
-            case CATOSL1_1: return "Computer Associates Trusted Open Source License 1.1";
-            case CCBY1_0: return "Creative Commons Attribution 1.0 Generic";
-            case CCBY2_0: return "Creative Commons Attribution 2.0 Generic";
-            case CCBY2_5: return "Creative Commons Attribution 2.5 Generic";
-            case CCBY3_0: return "Creative Commons Attribution 3.0 Unported";
-            case CCBY4_0: return "Creative Commons Attribution 4.0 International";
-            case CCBYNC1_0: return "Creative Commons Attribution Non Commercial 1.0 Generic";
-            case CCBYNC2_0: return "Creative Commons Attribution Non Commercial 2.0 Generic";
-            case CCBYNC2_5: return "Creative Commons Attribution Non Commercial 2.5 Generic";
-            case CCBYNC3_0: return "Creative Commons Attribution Non Commercial 3.0 Unported";
-            case CCBYNC4_0: return "Creative Commons Attribution Non Commercial 4.0 International";
-            case CCBYNCND1_0: return "Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic";
-            case CCBYNCND2_0: return "Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic";
-            case CCBYNCND2_5: return "Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic";
-            case CCBYNCND3_0: return "Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported";
-            case CCBYNCND4_0: return "Creative Commons Attribution Non Commercial No Derivatives 4.0 International";
-            case CCBYNCSA1_0: return "Creative Commons Attribution Non Commercial Share Alike 1.0 Generic";
-            case CCBYNCSA2_0: return "Creative Commons Attribution Non Commercial Share Alike 2.0 Generic";
-            case CCBYNCSA2_5: return "Creative Commons Attribution Non Commercial Share Alike 2.5 Generic";
-            case CCBYNCSA3_0: return "Creative Commons Attribution Non Commercial Share Alike 3.0 Unported";
-            case CCBYNCSA4_0: return "Creative Commons Attribution Non Commercial Share Alike 4.0 International";
-            case CCBYND1_0: return "Creative Commons Attribution No Derivatives 1.0 Generic";
-            case CCBYND2_0: return "Creative Commons Attribution No Derivatives 2.0 Generic";
-            case CCBYND2_5: return "Creative Commons Attribution No Derivatives 2.5 Generic";
-            case CCBYND3_0: return "Creative Commons Attribution No Derivatives 3.0 Unported";
-            case CCBYND4_0: return "Creative Commons Attribution No Derivatives 4.0 International";
-            case CCBYSA1_0: return "Creative Commons Attribution Share Alike 1.0 Generic";
-            case CCBYSA2_0: return "Creative Commons Attribution Share Alike 2.0 Generic";
-            case CCBYSA2_5: return "Creative Commons Attribution Share Alike 2.5 Generic";
-            case CCBYSA3_0: return "Creative Commons Attribution Share Alike 3.0 Unported";
-            case CCBYSA4_0: return "Creative Commons Attribution Share Alike 4.0 International";
-            case CC01_0: return "Creative Commons Zero v1.0 Universal";
-            case CDDL1_0: return "Common Development and Distribution License 1.0";
-            case CDDL1_1: return "Common Development and Distribution License 1.1";
-            case CDLAPERMISSIVE1_0: return "Community Data License Agreement Permissive 1.0";
-            case CDLASHARING1_0: return "Community Data License Agreement Sharing 1.0";
-            case CECILL1_0: return "CeCILL Free Software License Agreement v1.0";
-            case CECILL1_1: return "CeCILL Free Software License Agreement v1.1";
-            case CECILL2_0: return "CeCILL Free Software License Agreement v2.0";
-            case CECILL2_1: return "CeCILL Free Software License Agreement v2.1";
-            case CECILLB: return "CeCILL-B Free Software License Agreement";
-            case CECILLC: return "CeCILL-C Free Software License Agreement";
-            case CLARTISTIC: return "Clarified Artistic License";
-            case CNRIJYTHON: return "CNRI Jython License";
-            case CNRIPYTHONGPLCOMPATIBLE: return "CNRI Python Open Source GPL Compatible License Agreement";
-            case CNRIPYTHON: return "CNRI Python License";
-            case CONDOR1_1: return "Condor Public License v1.1";
-            case CPAL1_0: return "Common Public Attribution License 1.0";
-            case CPL1_0: return "Common Public License 1.0";
-            case CPOL1_02: return "Code Project Open License 1.02";
-            case CROSSWORD: return "Crossword License";
-            case CRYSTALSTACKER: return "CrystalStacker License";
-            case CUAOPL1_0: return "CUA Office Public License v1.0";
-            case CUBE: return "Cube License";
-            case CURL: return "curl License";
-            case DFSL1_0: return "Deutsche Freie Software Lizenz";
-            case DIFFMARK: return "diffmark license";
-            case DOC: return "DOC License";
-            case DOTSEQN: return "Dotseqn License";
-            case DSDP: return "DSDP License";
-            case DVIPDFM: return "dvipdfm License";
-            case ECL1_0: return "Educational Community License v1.0";
-            case ECL2_0: return "Educational Community License v2.0";
-            case EFL1_0: return "Eiffel Forum License v1.0";
-            case EFL2_0: return "Eiffel Forum License v2.0";
-            case EGENIX: return "eGenix.com Public License 1.1.0";
-            case ENTESSA: return "Entessa Public License v1.0";
-            case EPL1_0: return "Eclipse Public License 1.0";
-            case EPL2_0: return "Eclipse Public License 2.0";
-            case ERLPL1_1: return "Erlang Public License v1.1";
-            case EUDATAGRID: return "EU DataGrid Software License";
-            case EUPL1_0: return "European Union Public License 1.0";
-            case EUPL1_1: return "European Union Public License 1.1";
-            case EUPL1_2: return "European Union Public License 1.2";
-            case EUROSYM: return "Eurosym License";
-            case FAIR: return "Fair License";
-            case FRAMEWORX1_0: return "Frameworx Open License 1.0";
-            case FREEIMAGE: return "FreeImage Public License v1.0";
-            case FSFAP: return "FSF All Permissive License";
-            case FSFUL: return "FSF Unlimited License";
-            case FSFULLR: return "FSF Unlimited License (with License Retention)";
-            case FTL: return "Freetype Project License";
-            case GFDL1_1ONLY: return "GNU Free Documentation License v1.1 only";
-            case GFDL1_1ORLATER: return "GNU Free Documentation License v1.1 or later";
-            case GFDL1_2ONLY: return "GNU Free Documentation License v1.2 only";
-            case GFDL1_2ORLATER: return "GNU Free Documentation License v1.2 or later";
-            case GFDL1_3ONLY: return "GNU Free Documentation License v1.3 only";
-            case GFDL1_3ORLATER: return "GNU Free Documentation License v1.3 or later";
-            case GIFTWARE: return "Giftware License";
-            case GL2PS: return "GL2PS License";
-            case GLIDE: return "3dfx Glide License";
-            case GLULXE: return "Glulxe License";
-            case GNUPLOT: return "gnuplot License";
-            case GPL1_0ONLY: return "GNU General Public License v1.0 only";
-            case GPL1_0ORLATER: return "GNU General Public License v1.0 or later";
-            case GPL2_0ONLY: return "GNU General Public License v2.0 only";
-            case GPL2_0ORLATER: return "GNU General Public License v2.0 or later";
-            case GPL3_0ONLY: return "GNU General Public License v3.0 only";
-            case GPL3_0ORLATER: return "GNU General Public License v3.0 or later";
-            case GSOAP1_3B: return "gSOAP Public License v1.3b";
-            case HASKELLREPORT: return "Haskell Language Report License";
-            case HPND: return "Historical Permission Notice and Disclaimer";
-            case IBMPIBS: return "IBM PowerPC Initialization and Boot Software";
-            case ICU: return "ICU License";
-            case IJG: return "Independent JPEG Group License";
-            case IMAGEMAGICK: return "ImageMagick License";
-            case IMATIX: return "iMatix Standard Function Library Agreement";
-            case IMLIB2: return "Imlib2 License";
-            case INFOZIP: return "Info-ZIP License";
-            case INTELACPI: return "Intel ACPI Software License Agreement";
-            case INTEL: return "Intel Open Source License";
-            case INTERBASE1_0: return "Interbase Public License v1.0";
-            case IPA: return "IPA Font License";
-            case IPL1_0: return "IBM Public License v1.0";
-            case ISC: return "ISC License";
-            case JASPER2_0: return "JasPer License";
-            case JSON: return "JSON License";
-            case LAL1_2: return "Licence Art Libre 1.2";
-            case LAL1_3: return "Licence Art Libre 1.3";
-            case LATEX2E: return "Latex2e License";
-            case LEPTONICA: return "Leptonica License";
-            case LGPL2_0ONLY: return "GNU Library General Public License v2 only";
-            case LGPL2_0ORLATER: return "GNU Library General Public License v2 or later";
-            case LGPL2_1ONLY: return "GNU Lesser General Public License v2.1 only";
-            case LGPL2_1ORLATER: return "GNU Lesser General Public License v2.1 or later";
-            case LGPL3_0ONLY: return "GNU Lesser General Public License v3.0 only";
-            case LGPL3_0ORLATER: return "GNU Lesser General Public License v3.0 or later";
-            case LGPLLR: return "Lesser General Public License For Linguistic Resources";
-            case LIBPNG: return "libpng License";
-            case LIBTIFF: return "libtiff License";
-            case LILIQP1_1: return "Licence Libre du Québec – Permissive version 1.1";
-            case LILIQR1_1: return "Licence Libre du Québec – Réciprocité version 1.1";
-            case LILIQRPLUS1_1: return "Licence Libre du Québec – Réciprocité forte version 1.1";
-            case LINUXOPENIB: return "Linux Kernel Variant of OpenIB.org license";
-            case LPL1_0: return "Lucent Public License Version 1.0";
-            case LPL1_02: return "Lucent Public License v1.02";
-            case LPPL1_0: return "LaTeX Project Public License v1.0";
-            case LPPL1_1: return "LaTeX Project Public License v1.1";
-            case LPPL1_2: return "LaTeX Project Public License v1.2";
-            case LPPL1_3A: return "LaTeX Project Public License v1.3a";
-            case LPPL1_3C: return "LaTeX Project Public License v1.3c";
-            case MAKEINDEX: return "MakeIndex License";
-            case MIROS: return "MirOS License";
-            case MIT0: return "MIT No Attribution";
-            case MITADVERTISING: return "Enlightenment License (e16)";
-            case MITCMU: return "CMU License";
-            case MITENNA: return "enna License";
-            case MITFEH: return "feh License";
-            case MIT: return "MIT License";
-            case MITNFA: return "MIT +no-false-attribs license";
-            case MOTOSOTO: return "Motosoto License";
-            case MPICH2: return "mpich2 License";
-            case MPL1_0: return "Mozilla Public License 1.0";
-            case MPL1_1: return "Mozilla Public License 1.1";
-            case MPL2_0NOCOPYLEFTEXCEPTION: return "Mozilla Public License 2.0 (no copyleft exception)";
-            case MPL2_0: return "Mozilla Public License 2.0";
-            case MSPL: return "Microsoft Public License";
-            case MSRL: return "Microsoft Reciprocal License";
-            case MTLL: return "Matrix Template Library License";
-            case MULTICS: return "Multics License";
-            case MUP: return "Mup License";
-            case NASA1_3: return "NASA Open Source Agreement 1.3";
-            case NAUMEN: return "Naumen Public License";
-            case NBPL1_0: return "Net Boolean Public License v1";
-            case NCSA: return "University of Illinois/NCSA Open Source License";
-            case NETSNMP: return "Net-SNMP License";
-            case NETCDF: return "NetCDF license";
-            case NEWSLETR: return "Newsletr License";
-            case NGPL: return "Nethack General Public License";
-            case NLOD1_0: return "Norwegian Licence for Open Government Data";
-            case NLPL: return "No Limit Public License";
-            case NOKIA: return "Nokia Open Source License";
-            case NOSL: return "Netizen Open Source License";
-            case NOWEB: return "Noweb License";
-            case NPL1_0: return "Netscape Public License v1.0";
-            case NPL1_1: return "Netscape Public License v1.1";
-            case NPOSL3_0: return "Non-Profit Open Software License 3.0";
-            case NRL: return "NRL License";
-            case NTP: return "NTP License";
-            case OCCTPL: return "Open CASCADE Technology Public License";
-            case OCLC2_0: return "OCLC Research Public License 2.0";
-            case ODBL1_0: return "ODC Open Database License v1.0";
-            case OFL1_0: return "SIL Open Font License 1.0";
-            case OFL1_1: return "SIL Open Font License 1.1";
-            case OGTSL: return "Open Group Test Suite License";
-            case OLDAP1_1: return "Open LDAP Public License v1.1";
-            case OLDAP1_2: return "Open LDAP Public License v1.2";
-            case OLDAP1_3: return "Open LDAP Public License v1.3";
-            case OLDAP1_4: return "Open LDAP Public License v1.4";
-            case OLDAP2_0_1: return "Open LDAP Public License v2.0.1";
-            case OLDAP2_0: return "Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)";
-            case OLDAP2_1: return "Open LDAP Public License v2.1";
-            case OLDAP2_2_1: return "Open LDAP Public License v2.2.1";
-            case OLDAP2_2_2: return "Open LDAP Public License 2.2.2";
-            case OLDAP2_2: return "Open LDAP Public License v2.2";
-            case OLDAP2_3: return "Open LDAP Public License v2.3";
-            case OLDAP2_4: return "Open LDAP Public License v2.4";
-            case OLDAP2_5: return "Open LDAP Public License v2.5";
-            case OLDAP2_6: return "Open LDAP Public License v2.6";
-            case OLDAP2_7: return "Open LDAP Public License v2.7";
-            case OLDAP2_8: return "Open LDAP Public License v2.8";
-            case OML: return "Open Market License";
-            case OPENSSL: return "OpenSSL License";
-            case OPL1_0: return "Open Public License v1.0";
-            case OSETPL2_1: return "OSET Public License version 2.1";
-            case OSL1_0: return "Open Software License 1.0";
-            case OSL1_1: return "Open Software License 1.1";
-            case OSL2_0: return "Open Software License 2.0";
-            case OSL2_1: return "Open Software License 2.1";
-            case OSL3_0: return "Open Software License 3.0";
-            case PDDL1_0: return "ODC Public Domain Dedication & License 1.0";
-            case PHP3_0: return "PHP License v3.0";
-            case PHP3_01: return "PHP License v3.01";
-            case PLEXUS: return "Plexus Classworlds License";
-            case POSTGRESQL: return "PostgreSQL License";
-            case PSFRAG: return "psfrag License";
-            case PSUTILS: return "psutils License";
-            case PYTHON2_0: return "Python License 2.0";
-            case QHULL: return "Qhull License";
-            case QPL1_0: return "Q Public License 1.0";
-            case RDISC: return "Rdisc License";
-            case RHECOS1_1: return "Red Hat eCos Public License v1.1";
-            case RPL1_1: return "Reciprocal Public License 1.1";
-            case RPL1_5: return "Reciprocal Public License 1.5";
-            case RPSL1_0: return "RealNetworks Public Source License v1.0";
-            case RSAMD: return "RSA Message-Digest License";
-            case RSCPL: return "Ricoh Source Code Public License";
-            case RUBY: return "Ruby License";
-            case SAXPD: return "Sax Public Domain Notice";
-            case SAXPATH: return "Saxpath License";
-            case SCEA: return "SCEA Shared Source License";
-            case SENDMAIL: return "Sendmail License";
-            case SGIB1_0: return "SGI Free Software License B v1.0";
-            case SGIB1_1: return "SGI Free Software License B v1.1";
-            case SGIB2_0: return "SGI Free Software License B v2.0";
-            case SIMPL2_0: return "Simple Public License 2.0";
-            case SISSL1_2: return "Sun Industry Standards Source License v1.2";
-            case SISSL: return "Sun Industry Standards Source License v1.1";
-            case SLEEPYCAT: return "Sleepycat License";
-            case SMLNJ: return "Standard ML of New Jersey License";
-            case SMPPL: return "Secure Messaging Protocol Public License";
-            case SNIA: return "SNIA Public License 1.1";
-            case SPENCER86: return "Spencer License 86";
-            case SPENCER94: return "Spencer License 94";
-            case SPENCER99: return "Spencer License 99";
-            case SPL1_0: return "Sun Public License v1.0";
-            case SUGARCRM1_1_3: return "SugarCRM Public License v1.1.3";
-            case SWL: return "Scheme Widget Library (SWL) Software License Agreement";
-            case TCL: return "TCL/TK License";
-            case TCPWRAPPERS: return "TCP Wrappers License";
-            case TMATE: return "TMate Open Source License";
-            case TORQUE1_1: return "TORQUE v2.5+ Software License v1.1";
-            case TOSL: return "Trusster Open Source License";
-            case UNICODEDFS2015: return "Unicode License Agreement - Data Files and Software (2015)";
-            case UNICODEDFS2016: return "Unicode License Agreement - Data Files and Software (2016)";
-            case UNICODETOU: return "Unicode Terms of Use";
-            case UNLICENSE: return "The Unlicense";
-            case UPL1_0: return "Universal Permissive License v1.0";
-            case VIM: return "Vim License";
-            case VOSTROM: return "VOSTROM Public License for Open Source";
-            case VSL1_0: return "Vovida Software License v1.0";
-            case W3C19980720: return "W3C Software Notice and License (1998-07-20)";
-            case W3C20150513: return "W3C Software Notice and Document License (2015-05-13)";
-            case W3C: return "W3C Software Notice and License (2002-12-31)";
-            case WATCOM1_0: return "Sybase Open Watcom Public License 1.0";
-            case WSUIPA: return "Wsuipa License";
-            case WTFPL: return "Do What The F*ck You Want To Public License";
-            case X11: return "X11 License";
-            case XEROX: return "Xerox License";
-            case XFREE861_1: return "XFree86 License 1.1";
-            case XINETD: return "xinetd License";
-            case XNET: return "X.Net License";
-            case XPP: return "XPP License";
-            case XSKAT: return "XSkat License";
-            case YPL1_0: return "Yahoo! Public License v1.0";
-            case YPL1_1: return "Yahoo! Public License v1.1";
-            case ZED: return "Zed License";
-            case ZEND2_0: return "Zend License v2.0";
-            case ZIMBRA1_3: return "Zimbra Public License v1.3";
-            case ZIMBRA1_4: return "Zimbra Public License v1.4";
-            case ZLIBACKNOWLEDGEMENT: return "zlib/libpng License with Acknowledgement";
-            case ZLIB: return "zlib License";
-            case ZPL1_1: return "Zope Public License 1.1";
-            case ZPL2_0: return "Zope Public License 2.0";
-            case ZPL2_1: return "Zope Public License 2.1";
+            case NOTOPENSOURCE: return "Not an open source license.";
+            case _0BSD: return "BSD Zero Clause License.";
+            case AAL: return "Attribution Assurance License.";
+            case ABSTYLES: return "Abstyles License.";
+            case ADOBE2006: return "Adobe Systems Incorporated Source Code License Agreement.";
+            case ADOBEGLYPH: return "Adobe Glyph List License.";
+            case ADSL: return "Amazon Digital Services License.";
+            case AFL1_1: return "Academic Free License v1.1.";
+            case AFL1_2: return "Academic Free License v1.2.";
+            case AFL2_0: return "Academic Free License v2.0.";
+            case AFL2_1: return "Academic Free License v2.1.";
+            case AFL3_0: return "Academic Free License v3.0.";
+            case AFMPARSE: return "Afmparse License.";
+            case AGPL1_0ONLY: return "Affero General Public License v1.0 only.";
+            case AGPL1_0ORLATER: return "Affero General Public License v1.0 or later.";
+            case AGPL3_0ONLY: return "GNU Affero General Public License v3.0 only.";
+            case AGPL3_0ORLATER: return "GNU Affero General Public License v3.0 or later.";
+            case ALADDIN: return "Aladdin Free Public License.";
+            case AMDPLPA: return "AMD's plpa_map.c License.";
+            case AML: return "Apple MIT License.";
+            case AMPAS: return "Academy of Motion Picture Arts and Sciences BSD.";
+            case ANTLRPD: return "ANTLR Software Rights Notice.";
+            case APACHE1_0: return "Apache License 1.0.";
+            case APACHE1_1: return "Apache License 1.1.";
+            case APACHE2_0: return "Apache License 2.0.";
+            case APAFML: return "Adobe Postscript AFM License.";
+            case APL1_0: return "Adaptive Public License 1.0.";
+            case APSL1_0: return "Apple Public Source License 1.0.";
+            case APSL1_1: return "Apple Public Source License 1.1.";
+            case APSL1_2: return "Apple Public Source License 1.2.";
+            case APSL2_0: return "Apple Public Source License 2.0.";
+            case ARTISTIC1_0CL8: return "Artistic License 1.0 w/clause 8.";
+            case ARTISTIC1_0PERL: return "Artistic License 1.0 (Perl).";
+            case ARTISTIC1_0: return "Artistic License 1.0.";
+            case ARTISTIC2_0: return "Artistic License 2.0.";
+            case BAHYPH: return "Bahyph License.";
+            case BARR: return "Barr License.";
+            case BEERWARE: return "Beerware License.";
+            case BITTORRENT1_0: return "BitTorrent Open Source License v1.0.";
+            case BITTORRENT1_1: return "BitTorrent Open Source License v1.1.";
+            case BORCEUX: return "Borceux license.";
+            case BSD1CLAUSE: return "BSD 1-Clause License.";
+            case BSD2CLAUSEFREEBSD: return "BSD 2-Clause FreeBSD License.";
+            case BSD2CLAUSENETBSD: return "BSD 2-Clause NetBSD License.";
+            case BSD2CLAUSEPATENT: return "BSD-2-Clause Plus Patent License.";
+            case BSD2CLAUSE: return "BSD 2-Clause \"Simplified\" License.";
+            case BSD3CLAUSEATTRIBUTION: return "BSD with attribution.";
+            case BSD3CLAUSECLEAR: return "BSD 3-Clause Clear License.";
+            case BSD3CLAUSELBNL: return "Lawrence Berkeley National Labs BSD variant license.";
+            case BSD3CLAUSENONUCLEARLICENSE2014: return "BSD 3-Clause No Nuclear License 2014.";
+            case BSD3CLAUSENONUCLEARLICENSE: return "BSD 3-Clause No Nuclear License.";
+            case BSD3CLAUSENONUCLEARWARRANTY: return "BSD 3-Clause No Nuclear Warranty.";
+            case BSD3CLAUSE: return "BSD 3-Clause \"New\" or \"Revised\" License.";
+            case BSD4CLAUSEUC: return "BSD-4-Clause (University of California-Specific).";
+            case BSD4CLAUSE: return "BSD 4-Clause \"Original\" or \"Old\" License.";
+            case BSDPROTECTION: return "BSD Protection License.";
+            case BSDSOURCECODE: return "BSD Source Code Attribution.";
+            case BSL1_0: return "Boost Software License 1.0.";
+            case BZIP21_0_5: return "bzip2 and libbzip2 License v1.0.5.";
+            case BZIP21_0_6: return "bzip2 and libbzip2 License v1.0.6.";
+            case CALDERA: return "Caldera License.";
+            case CATOSL1_1: return "Computer Associates Trusted Open Source License 1.1.";
+            case CCBY1_0: return "Creative Commons Attribution 1.0 Generic.";
+            case CCBY2_0: return "Creative Commons Attribution 2.0 Generic.";
+            case CCBY2_5: return "Creative Commons Attribution 2.5 Generic.";
+            case CCBY3_0: return "Creative Commons Attribution 3.0 Unported.";
+            case CCBY4_0: return "Creative Commons Attribution 4.0 International.";
+            case CCBYNC1_0: return "Creative Commons Attribution Non Commercial 1.0 Generic.";
+            case CCBYNC2_0: return "Creative Commons Attribution Non Commercial 2.0 Generic.";
+            case CCBYNC2_5: return "Creative Commons Attribution Non Commercial 2.5 Generic.";
+            case CCBYNC3_0: return "Creative Commons Attribution Non Commercial 3.0 Unported.";
+            case CCBYNC4_0: return "Creative Commons Attribution Non Commercial 4.0 International.";
+            case CCBYNCND1_0: return "Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic.";
+            case CCBYNCND2_0: return "Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic.";
+            case CCBYNCND2_5: return "Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic.";
+            case CCBYNCND3_0: return "Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported.";
+            case CCBYNCND4_0: return "Creative Commons Attribution Non Commercial No Derivatives 4.0 International.";
+            case CCBYNCSA1_0: return "Creative Commons Attribution Non Commercial Share Alike 1.0 Generic.";
+            case CCBYNCSA2_0: return "Creative Commons Attribution Non Commercial Share Alike 2.0 Generic.";
+            case CCBYNCSA2_5: return "Creative Commons Attribution Non Commercial Share Alike 2.5 Generic.";
+            case CCBYNCSA3_0: return "Creative Commons Attribution Non Commercial Share Alike 3.0 Unported.";
+            case CCBYNCSA4_0: return "Creative Commons Attribution Non Commercial Share Alike 4.0 International.";
+            case CCBYND1_0: return "Creative Commons Attribution No Derivatives 1.0 Generic.";
+            case CCBYND2_0: return "Creative Commons Attribution No Derivatives 2.0 Generic.";
+            case CCBYND2_5: return "Creative Commons Attribution No Derivatives 2.5 Generic.";
+            case CCBYND3_0: return "Creative Commons Attribution No Derivatives 3.0 Unported.";
+            case CCBYND4_0: return "Creative Commons Attribution No Derivatives 4.0 International.";
+            case CCBYSA1_0: return "Creative Commons Attribution Share Alike 1.0 Generic.";
+            case CCBYSA2_0: return "Creative Commons Attribution Share Alike 2.0 Generic.";
+            case CCBYSA2_5: return "Creative Commons Attribution Share Alike 2.5 Generic.";
+            case CCBYSA3_0: return "Creative Commons Attribution Share Alike 3.0 Unported.";
+            case CCBYSA4_0: return "Creative Commons Attribution Share Alike 4.0 International.";
+            case CC01_0: return "Creative Commons Zero v1.0 Universal.";
+            case CDDL1_0: return "Common Development and Distribution License 1.0.";
+            case CDDL1_1: return "Common Development and Distribution License 1.1.";
+            case CDLAPERMISSIVE1_0: return "Community Data License Agreement Permissive 1.0.";
+            case CDLASHARING1_0: return "Community Data License Agreement Sharing 1.0.";
+            case CECILL1_0: return "CeCILL Free Software License Agreement v1.0.";
+            case CECILL1_1: return "CeCILL Free Software License Agreement v1.1.";
+            case CECILL2_0: return "CeCILL Free Software License Agreement v2.0.";
+            case CECILL2_1: return "CeCILL Free Software License Agreement v2.1.";
+            case CECILLB: return "CeCILL-B Free Software License Agreement.";
+            case CECILLC: return "CeCILL-C Free Software License Agreement.";
+            case CLARTISTIC: return "Clarified Artistic License.";
+            case CNRIJYTHON: return "CNRI Jython License.";
+            case CNRIPYTHONGPLCOMPATIBLE: return "CNRI Python Open Source GPL Compatible License Agreement.";
+            case CNRIPYTHON: return "CNRI Python License.";
+            case CONDOR1_1: return "Condor Public License v1.1.";
+            case CPAL1_0: return "Common Public Attribution License 1.0.";
+            case CPL1_0: return "Common Public License 1.0.";
+            case CPOL1_02: return "Code Project Open License 1.02.";
+            case CROSSWORD: return "Crossword License.";
+            case CRYSTALSTACKER: return "CrystalStacker License.";
+            case CUAOPL1_0: return "CUA Office Public License v1.0.";
+            case CUBE: return "Cube License.";
+            case CURL: return "curl License.";
+            case DFSL1_0: return "Deutsche Freie Software Lizenz.";
+            case DIFFMARK: return "diffmark license.";
+            case DOC: return "DOC License.";
+            case DOTSEQN: return "Dotseqn License.";
+            case DSDP: return "DSDP License.";
+            case DVIPDFM: return "dvipdfm License.";
+            case ECL1_0: return "Educational Community License v1.0.";
+            case ECL2_0: return "Educational Community License v2.0.";
+            case EFL1_0: return "Eiffel Forum License v1.0.";
+            case EFL2_0: return "Eiffel Forum License v2.0.";
+            case EGENIX: return "eGenix.com Public License 1.1.0.";
+            case ENTESSA: return "Entessa Public License v1.0.";
+            case EPL1_0: return "Eclipse Public License 1.0.";
+            case EPL2_0: return "Eclipse Public License 2.0.";
+            case ERLPL1_1: return "Erlang Public License v1.1.";
+            case EUDATAGRID: return "EU DataGrid Software License.";
+            case EUPL1_0: return "European Union Public License 1.0.";
+            case EUPL1_1: return "European Union Public License 1.1.";
+            case EUPL1_2: return "European Union Public License 1.2.";
+            case EUROSYM: return "Eurosym License.";
+            case FAIR: return "Fair License.";
+            case FRAMEWORX1_0: return "Frameworx Open License 1.0.";
+            case FREEIMAGE: return "FreeImage Public License v1.0.";
+            case FSFAP: return "FSF All Permissive License.";
+            case FSFUL: return "FSF Unlimited License.";
+            case FSFULLR: return "FSF Unlimited License (with License Retention).";
+            case FTL: return "Freetype Project License.";
+            case GFDL1_1ONLY: return "GNU Free Documentation License v1.1 only.";
+            case GFDL1_1ORLATER: return "GNU Free Documentation License v1.1 or later.";
+            case GFDL1_2ONLY: return "GNU Free Documentation License v1.2 only.";
+            case GFDL1_2ORLATER: return "GNU Free Documentation License v1.2 or later.";
+            case GFDL1_3ONLY: return "GNU Free Documentation License v1.3 only.";
+            case GFDL1_3ORLATER: return "GNU Free Documentation License v1.3 or later.";
+            case GIFTWARE: return "Giftware License.";
+            case GL2PS: return "GL2PS License.";
+            case GLIDE: return "3dfx Glide License.";
+            case GLULXE: return "Glulxe License.";
+            case GNUPLOT: return "gnuplot License.";
+            case GPL1_0ONLY: return "GNU General Public License v1.0 only.";
+            case GPL1_0ORLATER: return "GNU General Public License v1.0 or later.";
+            case GPL2_0ONLY: return "GNU General Public License v2.0 only.";
+            case GPL2_0ORLATER: return "GNU General Public License v2.0 or later.";
+            case GPL3_0ONLY: return "GNU General Public License v3.0 only.";
+            case GPL3_0ORLATER: return "GNU General Public License v3.0 or later.";
+            case GSOAP1_3B: return "gSOAP Public License v1.3b.";
+            case HASKELLREPORT: return "Haskell Language Report License.";
+            case HPND: return "Historical Permission Notice and Disclaimer.";
+            case IBMPIBS: return "IBM PowerPC Initialization and Boot Software.";
+            case ICU: return "ICU License.";
+            case IJG: return "Independent JPEG Group License.";
+            case IMAGEMAGICK: return "ImageMagick License.";
+            case IMATIX: return "iMatix Standard Function Library Agreement.";
+            case IMLIB2: return "Imlib2 License.";
+            case INFOZIP: return "Info-ZIP License.";
+            case INTELACPI: return "Intel ACPI Software License Agreement.";
+            case INTEL: return "Intel Open Source License.";
+            case INTERBASE1_0: return "Interbase Public License v1.0.";
+            case IPA: return "IPA Font License.";
+            case IPL1_0: return "IBM Public License v1.0.";
+            case ISC: return "ISC License.";
+            case JASPER2_0: return "JasPer License.";
+            case JSON: return "JSON License.";
+            case LAL1_2: return "Licence Art Libre 1.2.";
+            case LAL1_3: return "Licence Art Libre 1.3.";
+            case LATEX2E: return "Latex2e License.";
+            case LEPTONICA: return "Leptonica License.";
+            case LGPL2_0ONLY: return "GNU Library General Public License v2 only.";
+            case LGPL2_0ORLATER: return "GNU Library General Public License v2 or later.";
+            case LGPL2_1ONLY: return "GNU Lesser General Public License v2.1 only.";
+            case LGPL2_1ORLATER: return "GNU Lesser General Public License v2.1 or later.";
+            case LGPL3_0ONLY: return "GNU Lesser General Public License v3.0 only.";
+            case LGPL3_0ORLATER: return "GNU Lesser General Public License v3.0 or later.";
+            case LGPLLR: return "Lesser General Public License For Linguistic Resources.";
+            case LIBPNG: return "libpng License.";
+            case LIBTIFF: return "libtiff License.";
+            case LILIQP1_1: return "Licence Libre du Québec – Permissive version 1.1.";
+            case LILIQR1_1: return "Licence Libre du Québec – Réciprocité version 1.1.";
+            case LILIQRPLUS1_1: return "Licence Libre du Québec – Réciprocité forte version 1.1.";
+            case LINUXOPENIB: return "Linux Kernel Variant of OpenIB.org license.";
+            case LPL1_0: return "Lucent Public License Version 1.0.";
+            case LPL1_02: return "Lucent Public License v1.02.";
+            case LPPL1_0: return "LaTeX Project Public License v1.0.";
+            case LPPL1_1: return "LaTeX Project Public License v1.1.";
+            case LPPL1_2: return "LaTeX Project Public License v1.2.";
+            case LPPL1_3A: return "LaTeX Project Public License v1.3a.";
+            case LPPL1_3C: return "LaTeX Project Public License v1.3c.";
+            case MAKEINDEX: return "MakeIndex License.";
+            case MIROS: return "MirOS License.";
+            case MIT0: return "MIT No Attribution.";
+            case MITADVERTISING: return "Enlightenment License (e16).";
+            case MITCMU: return "CMU License.";
+            case MITENNA: return "enna License.";
+            case MITFEH: return "feh License.";
+            case MIT: return "MIT License.";
+            case MITNFA: return "MIT +no-false-attribs license.";
+            case MOTOSOTO: return "Motosoto License.";
+            case MPICH2: return "mpich2 License.";
+            case MPL1_0: return "Mozilla Public License 1.0.";
+            case MPL1_1: return "Mozilla Public License 1.1.";
+            case MPL2_0NOCOPYLEFTEXCEPTION: return "Mozilla Public License 2.0 (no copyleft exception).";
+            case MPL2_0: return "Mozilla Public License 2.0.";
+            case MSPL: return "Microsoft Public License.";
+            case MSRL: return "Microsoft Reciprocal License.";
+            case MTLL: return "Matrix Template Library License.";
+            case MULTICS: return "Multics License.";
+            case MUP: return "Mup License.";
+            case NASA1_3: return "NASA Open Source Agreement 1.3.";
+            case NAUMEN: return "Naumen Public License.";
+            case NBPL1_0: return "Net Boolean Public License v1.";
+            case NCSA: return "University of Illinois/NCSA Open Source License.";
+            case NETSNMP: return "Net-SNMP License.";
+            case NETCDF: return "NetCDF license.";
+            case NEWSLETR: return "Newsletr License.";
+            case NGPL: return "Nethack General Public License.";
+            case NLOD1_0: return "Norwegian Licence for Open Government Data.";
+            case NLPL: return "No Limit Public License.";
+            case NOKIA: return "Nokia Open Source License.";
+            case NOSL: return "Netizen Open Source License.";
+            case NOWEB: return "Noweb License.";
+            case NPL1_0: return "Netscape Public License v1.0.";
+            case NPL1_1: return "Netscape Public License v1.1.";
+            case NPOSL3_0: return "Non-Profit Open Software License 3.0.";
+            case NRL: return "NRL License.";
+            case NTP: return "NTP License.";
+            case OCCTPL: return "Open CASCADE Technology Public License.";
+            case OCLC2_0: return "OCLC Research Public License 2.0.";
+            case ODBL1_0: return "ODC Open Database License v1.0.";
+            case OFL1_0: return "SIL Open Font License 1.0.";
+            case OFL1_1: return "SIL Open Font License 1.1.";
+            case OGTSL: return "Open Group Test Suite License.";
+            case OLDAP1_1: return "Open LDAP Public License v1.1.";
+            case OLDAP1_2: return "Open LDAP Public License v1.2.";
+            case OLDAP1_3: return "Open LDAP Public License v1.3.";
+            case OLDAP1_4: return "Open LDAP Public License v1.4.";
+            case OLDAP2_0_1: return "Open LDAP Public License v2.0.1.";
+            case OLDAP2_0: return "Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B).";
+            case OLDAP2_1: return "Open LDAP Public License v2.1.";
+            case OLDAP2_2_1: return "Open LDAP Public License v2.2.1.";
+            case OLDAP2_2_2: return "Open LDAP Public License 2.2.2.";
+            case OLDAP2_2: return "Open LDAP Public License v2.2.";
+            case OLDAP2_3: return "Open LDAP Public License v2.3.";
+            case OLDAP2_4: return "Open LDAP Public License v2.4.";
+            case OLDAP2_5: return "Open LDAP Public License v2.5.";
+            case OLDAP2_6: return "Open LDAP Public License v2.6.";
+            case OLDAP2_7: return "Open LDAP Public License v2.7.";
+            case OLDAP2_8: return "Open LDAP Public License v2.8.";
+            case OML: return "Open Market License.";
+            case OPENSSL: return "OpenSSL License.";
+            case OPL1_0: return "Open Public License v1.0.";
+            case OSETPL2_1: return "OSET Public License version 2.1.";
+            case OSL1_0: return "Open Software License 1.0.";
+            case OSL1_1: return "Open Software License 1.1.";
+            case OSL2_0: return "Open Software License 2.0.";
+            case OSL2_1: return "Open Software License 2.1.";
+            case OSL3_0: return "Open Software License 3.0.";
+            case PDDL1_0: return "ODC Public Domain Dedication & License 1.0.";
+            case PHP3_0: return "PHP License v3.0.";
+            case PHP3_01: return "PHP License v3.01.";
+            case PLEXUS: return "Plexus Classworlds License.";
+            case POSTGRESQL: return "PostgreSQL License.";
+            case PSFRAG: return "psfrag License.";
+            case PSUTILS: return "psutils License.";
+            case PYTHON2_0: return "Python License 2.0.";
+            case QHULL: return "Qhull License.";
+            case QPL1_0: return "Q Public License 1.0.";
+            case RDISC: return "Rdisc License.";
+            case RHECOS1_1: return "Red Hat eCos Public License v1.1.";
+            case RPL1_1: return "Reciprocal Public License 1.1.";
+            case RPL1_5: return "Reciprocal Public License 1.5.";
+            case RPSL1_0: return "RealNetworks Public Source License v1.0.";
+            case RSAMD: return "RSA Message-Digest License.";
+            case RSCPL: return "Ricoh Source Code Public License.";
+            case RUBY: return "Ruby License.";
+            case SAXPD: return "Sax Public Domain Notice.";
+            case SAXPATH: return "Saxpath License.";
+            case SCEA: return "SCEA Shared Source License.";
+            case SENDMAIL: return "Sendmail License.";
+            case SGIB1_0: return "SGI Free Software License B v1.0.";
+            case SGIB1_1: return "SGI Free Software License B v1.1.";
+            case SGIB2_0: return "SGI Free Software License B v2.0.";
+            case SIMPL2_0: return "Simple Public License 2.0.";
+            case SISSL1_2: return "Sun Industry Standards Source License v1.2.";
+            case SISSL: return "Sun Industry Standards Source License v1.1.";
+            case SLEEPYCAT: return "Sleepycat License.";
+            case SMLNJ: return "Standard ML of New Jersey License.";
+            case SMPPL: return "Secure Messaging Protocol Public License.";
+            case SNIA: return "SNIA Public License 1.1.";
+            case SPENCER86: return "Spencer License 86.";
+            case SPENCER94: return "Spencer License 94.";
+            case SPENCER99: return "Spencer License 99.";
+            case SPL1_0: return "Sun Public License v1.0.";
+            case SUGARCRM1_1_3: return "SugarCRM Public License v1.1.3.";
+            case SWL: return "Scheme Widget Library (SWL) Software License Agreement.";
+            case TCL: return "TCL/TK License.";
+            case TCPWRAPPERS: return "TCP Wrappers License.";
+            case TMATE: return "TMate Open Source License.";
+            case TORQUE1_1: return "TORQUE v2.5+ Software License v1.1.";
+            case TOSL: return "Trusster Open Source License.";
+            case UNICODEDFS2015: return "Unicode License Agreement - Data Files and Software (2015).";
+            case UNICODEDFS2016: return "Unicode License Agreement - Data Files and Software (2016).";
+            case UNICODETOU: return "Unicode Terms of Use.";
+            case UNLICENSE: return "The Unlicense.";
+            case UPL1_0: return "Universal Permissive License v1.0.";
+            case VIM: return "Vim License.";
+            case VOSTROM: return "VOSTROM Public License for Open Source.";
+            case VSL1_0: return "Vovida Software License v1.0.";
+            case W3C19980720: return "W3C Software Notice and License (1998-07-20).";
+            case W3C20150513: return "W3C Software Notice and Document License (2015-05-13).";
+            case W3C: return "W3C Software Notice and License (2002-12-31).";
+            case WATCOM1_0: return "Sybase Open Watcom Public License 1.0.";
+            case WSUIPA: return "Wsuipa License.";
+            case WTFPL: return "Do What The F*ck You Want To Public License.";
+            case X11: return "X11 License.";
+            case XEROX: return "Xerox License.";
+            case XFREE861_1: return "XFree86 License 1.1.";
+            case XINETD: return "xinetd License.";
+            case XNET: return "X.Net License.";
+            case XPP: return "XPP License.";
+            case XSKAT: return "XSkat License.";
+            case YPL1_0: return "Yahoo! Public License v1.0.";
+            case YPL1_1: return "Yahoo! Public License v1.1.";
+            case ZED: return "Zed License.";
+            case ZEND2_0: return "Zend License v2.0.";
+            case ZIMBRA1_3: return "Zimbra Public License v1.3.";
+            case ZIMBRA1_4: return "Zimbra Public License v1.4.";
+            case ZLIBACKNOWLEDGEMENT: return "zlib/libpng License with Acknowledgement.";
+            case ZLIB: return "zlib License.";
+            case ZPL1_1: return "Zope Public License 1.1.";
+            case ZPL2_0: return "Zope Public License 2.0.";
+            case ZPL2_1: return "Zope Public License 2.1.";
             default: return "?";
           }
         }
@@ -5648,19 +5648,19 @@ public class ImplementationGuide extends MetadataResource {
 
     public enum GuidePageGeneration {
         /**
-         * Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing
+         * Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing.
          */
         HTML, 
         /**
-         * Page is markdown with templating.  Will use the template to create a file that imports the markdown file prior to post-processing
+         * Page is markdown with templating.  Will use the template to create a file that imports the markdown file prior to post-processing.
          */
         MARKDOWN, 
         /**
-         * Page is xml with templating.  Will use the template to create a file that imports the source file and run the nominated XSLT transform (see parameters) if present prior to post-processing
+         * Page is xml with templating.  Will use the template to create a file that imports the source file and run the nominated XSLT transform (see parameters) if present prior to post-processing.
          */
         XML, 
         /**
-         * Page will be generated by the publication process - no source to bring across
+         * Page will be generated by the publication process - no source to bring across.
          */
         GENERATED, 
         /**
@@ -5703,10 +5703,10 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case HTML: return "Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing";
-            case MARKDOWN: return "Page is markdown with templating.  Will use the template to create a file that imports the markdown file prior to post-processing";
-            case XML: return "Page is xml with templating.  Will use the template to create a file that imports the source file and run the nominated XSLT transform (see parameters) if present prior to post-processing";
-            case GENERATED: return "Page will be generated by the publication process - no source to bring across";
+            case HTML: return "Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing.";
+            case MARKDOWN: return "Page is markdown with templating.  Will use the template to create a file that imports the markdown file prior to post-processing.";
+            case XML: return "Page is xml with templating.  Will use the template to create a file that imports the source file and run the nominated XSLT transform (see parameters) if present prior to post-processing.";
+            case GENERATED: return "Page will be generated by the publication process - no source to bring across.";
             default: return "?";
           }
         }
@@ -5772,47 +5772,47 @@ public class ImplementationGuide extends MetadataResource {
 
     public enum GuideParameterCode {
         /**
-         * If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version
+         * If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version.
          */
         APPLYBUSINESSVERSION, 
         /**
-         * If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction
+         * If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction.
          */
         APPLYJURISDICTION, 
         /**
-         * The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type
+         * The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type.
          */
         PATHRESOURCE, 
         /**
-         * The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder
+         * The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder.
          */
         PATHPAGES, 
         /**
-         * The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control
+         * The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control.
          */
         PATHTXCACHE, 
         /**
-         * The value of this string 0..1 parameter is a path to the ExpansionProfile used when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT
+         * The value of this string 0..* parameter is a parameter (name=value) when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT.
          */
-        EXPANSIONPROFILE, 
+        EXPANSIONPARAMETER, 
         /**
-         * The value of this string 0..1 parameter is either "warning" or "error" (default = "error"). If the value is "warning" then IG build tools allow the IG to be considered successfully build even when there is no internal broken links
+         * The value of this string 0..1 parameter is either "warning" or "error" (default = "error"). If the value is "warning" then IG build tools allow the IG to be considered successfully build even when there is no internal broken links.
          */
         RULEBROKENLINKS, 
         /**
-         * The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML
+         * The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML.
          */
         GENERATEXML, 
         /**
-         * The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON
+         * The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON.
          */
         GENERATEJSON, 
         /**
-         * The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle
+         * The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle.
          */
         GENERATETURTLE, 
         /**
-         * The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating)
+         * The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating).
          */
         HTMLTEMPLATE, 
         /**
@@ -5832,8 +5832,8 @@ public class ImplementationGuide extends MetadataResource {
           return PATHPAGES;
         if ("path-tx-cache".equals(codeString))
           return PATHTXCACHE;
-        if ("expansion-profile".equals(codeString))
-          return EXPANSIONPROFILE;
+        if ("expansion-parameter".equals(codeString))
+          return EXPANSIONPARAMETER;
         if ("rule-broken-links".equals(codeString))
           return RULEBROKENLINKS;
         if ("generate-xml".equals(codeString))
@@ -5856,7 +5856,7 @@ public class ImplementationGuide extends MetadataResource {
             case PATHRESOURCE: return "path-resource";
             case PATHPAGES: return "path-pages";
             case PATHTXCACHE: return "path-tx-cache";
-            case EXPANSIONPROFILE: return "expansion-profile";
+            case EXPANSIONPARAMETER: return "expansion-parameter";
             case RULEBROKENLINKS: return "rule-broken-links";
             case GENERATEXML: return "generate-xml";
             case GENERATEJSON: return "generate-json";
@@ -5872,7 +5872,7 @@ public class ImplementationGuide extends MetadataResource {
             case PATHRESOURCE: return "http://hl7.org/fhir/guide-parameter-code";
             case PATHPAGES: return "http://hl7.org/fhir/guide-parameter-code";
             case PATHTXCACHE: return "http://hl7.org/fhir/guide-parameter-code";
-            case EXPANSIONPROFILE: return "http://hl7.org/fhir/guide-parameter-code";
+            case EXPANSIONPARAMETER: return "http://hl7.org/fhir/guide-parameter-code";
             case RULEBROKENLINKS: return "http://hl7.org/fhir/guide-parameter-code";
             case GENERATEXML: return "http://hl7.org/fhir/guide-parameter-code";
             case GENERATEJSON: return "http://hl7.org/fhir/guide-parameter-code";
@@ -5883,17 +5883,17 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case APPLYBUSINESSVERSION: return "If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version";
-            case APPLYJURISDICTION: return "If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction";
-            case PATHRESOURCE: return "The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type";
-            case PATHPAGES: return "The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder";
-            case PATHTXCACHE: return "The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control";
-            case EXPANSIONPROFILE: return "The value of this string 0..1 parameter is a path to the ExpansionProfile used when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT";
-            case RULEBROKENLINKS: return "The value of this string 0..1 parameter is either \"warning\" or \"error\" (default = \"error\"). If the value is \"warning\" then IG build tools allow the IG to be considered successfully build even when there is no internal broken links";
-            case GENERATEXML: return "The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML";
-            case GENERATEJSON: return "The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON";
-            case GENERATETURTLE: return "The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle";
-            case HTMLTEMPLATE: return "The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating)";
+            case APPLYBUSINESSVERSION: return "If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version.";
+            case APPLYJURISDICTION: return "If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction.";
+            case PATHRESOURCE: return "The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type.";
+            case PATHPAGES: return "The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder.";
+            case PATHTXCACHE: return "The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control.";
+            case EXPANSIONPARAMETER: return "The value of this string 0..* parameter is a parameter (name=value) when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT.";
+            case RULEBROKENLINKS: return "The value of this string 0..1 parameter is either \"warning\" or \"error\" (default = \"error\"). If the value is \"warning\" then IG build tools allow the IG to be considered successfully build even when there is no internal broken links.";
+            case GENERATEXML: return "The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML.";
+            case GENERATEJSON: return "The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON.";
+            case GENERATETURTLE: return "The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle.";
+            case HTMLTEMPLATE: return "The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating).";
             default: return "?";
           }
         }
@@ -5904,7 +5904,7 @@ public class ImplementationGuide extends MetadataResource {
             case PATHRESOURCE: return "Resource Path";
             case PATHPAGES: return "Pages Path";
             case PATHTXCACHE: return "Terminology Cache Path";
-            case EXPANSIONPROFILE: return "Expansion Profile";
+            case EXPANSIONPARAMETER: return "Expansion Profile";
             case RULEBROKENLINKS: return "Broken Links Rule";
             case GENERATEXML: return "Generate XML";
             case GENERATEJSON: return "Generate JSON";
@@ -5930,8 +5930,8 @@ public class ImplementationGuide extends MetadataResource {
           return GuideParameterCode.PATHPAGES;
         if ("path-tx-cache".equals(codeString))
           return GuideParameterCode.PATHTXCACHE;
-        if ("expansion-profile".equals(codeString))
-          return GuideParameterCode.EXPANSIONPROFILE;
+        if ("expansion-parameter".equals(codeString))
+          return GuideParameterCode.EXPANSIONPARAMETER;
         if ("rule-broken-links".equals(codeString))
           return GuideParameterCode.RULEBROKENLINKS;
         if ("generate-xml".equals(codeString))
@@ -5962,8 +5962,8 @@ public class ImplementationGuide extends MetadataResource {
           return new Enumeration<GuideParameterCode>(this, GuideParameterCode.PATHPAGES);
         if ("path-tx-cache".equals(codeString))
           return new Enumeration<GuideParameterCode>(this, GuideParameterCode.PATHTXCACHE);
-        if ("expansion-profile".equals(codeString))
-          return new Enumeration<GuideParameterCode>(this, GuideParameterCode.EXPANSIONPROFILE);
+        if ("expansion-parameter".equals(codeString))
+          return new Enumeration<GuideParameterCode>(this, GuideParameterCode.EXPANSIONPARAMETER);
         if ("rule-broken-links".equals(codeString))
           return new Enumeration<GuideParameterCode>(this, GuideParameterCode.RULEBROKENLINKS);
         if ("generate-xml".equals(codeString))
@@ -5987,8 +5987,8 @@ public class ImplementationGuide extends MetadataResource {
         return "path-pages";
       if (code == GuideParameterCode.PATHTXCACHE)
         return "path-tx-cache";
-      if (code == GuideParameterCode.EXPANSIONPROFILE)
-        return "expansion-profile";
+      if (code == GuideParameterCode.EXPANSIONPARAMETER)
+        return "expansion-parameter";
       if (code == GuideParameterCode.RULEBROKENLINKS)
         return "rule-broken-links";
       if (code == GuideParameterCode.GENERATEXML)
@@ -6191,7 +6191,7 @@ public class ImplementationGuide extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("uri", "canonical", "The canonical URL of the Implementation guide for the dependency.", 0, 1, uri));
+          children.add(new Property("uri", "canonical(ImplementationGuide)", "The canonical URL of the Implementation guide for the dependency.", 0, 1, uri));
           children.add(new Property("packageId", "id", "The NPM package name for the Implementation Guide that this IG depends on.", 0, 1, packageId));
           children.add(new Property("version", "string", "The version of the IG that is depended on, when the correct version is required to understand the IG correctly.", 0, 1, version));
         }
@@ -6199,7 +6199,7 @@ public class ImplementationGuide extends MetadataResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 116076: /*uri*/  return new Property("uri", "canonical", "The canonical URL of the Implementation guide for the dependency.", 0, 1, uri);
+          case 116076: /*uri*/  return new Property("uri", "canonical(ImplementationGuide)", "The canonical URL of the Implementation guide for the dependency.", 0, 1, uri);
           case 1802060801: /*packageId*/  return new Property("packageId", "id", "The NPM package name for the Implementation Guide that this IG depends on.", 0, 1, packageId);
           case 351608024: /*version*/  return new Property("version", "string", "The version of the IG that is depended on, when the correct version is required to understand the IG correctly.", 0, 1, version);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -6312,8 +6312,7 @@ public class ImplementationGuide extends MetadataResource {
         if (!(other_ instanceof ImplementationGuideDependsOnComponent))
           return false;
         ImplementationGuideDependsOnComponent o = (ImplementationGuideDependsOnComponent) other_;
-        return compareValues(uri, o.uri, true) && compareValues(packageId, o.packageId, true) && compareValues(version, o.version, true)
-          ;
+        return compareValues(packageId, o.packageId, true) && compareValues(version, o.version, true);
       }
 
       public boolean isEmpty() {
@@ -6581,7 +6580,7 @@ public class ImplementationGuide extends MetadataResource {
          * A logical group of resources. Logical groups can be used when building pages.
          */
         @Child(name = "package", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Group of resources as used in .page.package", formalDefinition="A logical group of resources. Logical groups can be used when building pages." )
+        @Description(shortDefinition="Grouping used to present related resources in the IG", formalDefinition="A logical group of resources. Logical groups can be used when building pages." )
         protected List<ImplementationGuideDefinitionPackageComponent> package_;
 
         /**
@@ -7043,10 +7042,10 @@ public class ImplementationGuide extends MetadataResource {
     @Block()
     public static class ImplementationGuideDefinitionPackageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.
+         * The human-readable title to display for the package of resources when rendering the implementation guide.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Name used .resource.package and .page.package", formalDefinition="The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package." )
+        @Description(shortDefinition="Descriptive name for the package", formalDefinition="The human-readable title to display for the package of resources when rendering the implementation guide." )
         protected StringType name;
 
         /**
@@ -7074,7 +7073,7 @@ public class ImplementationGuide extends MetadataResource {
       }
 
         /**
-         * @return {@link #name} (The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #name} (The human-readable title to display for the package of resources when rendering the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
           if (this.name == null)
@@ -7094,7 +7093,7 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @param value {@link #name} (The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (The human-readable title to display for the package of resources when rendering the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public ImplementationGuideDefinitionPackageComponent setNameElement(StringType value) { 
           this.name = value;
@@ -7102,14 +7101,14 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @return The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.
+         * @return The human-readable title to display for the package of resources when rendering the implementation guide.
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.
+         * @param value The human-readable title to display for the package of resources when rendering the implementation guide.
          */
         public ImplementationGuideDefinitionPackageComponent setName(String value) { 
             if (this.name == null)
@@ -7169,14 +7168,14 @@ public class ImplementationGuide extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("name", "string", "The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.", 0, 1, name));
+          children.add(new Property("name", "string", "The human-readable title to display for the package of resources when rendering the implementation guide.", 0, 1, name));
           children.add(new Property("description", "string", "Human readable text describing the package.", 0, 1, description));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3373707: /*name*/  return new Property("name", "string", "The name for the group, as used in ImplementationGuide.definition.resource.package and ImplementationGuide.definition.page.package.", 0, 1, name);
+          case 3373707: /*name*/  return new Property("name", "string", "The human-readable title to display for the package of resources when rendering the implementation guide.", 0, 1, name);
           case -1724546052: /*description*/  return new Property("description", "string", "Human readable text describing the package.", 0, 1, description);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -8176,10 +8175,10 @@ public class ImplementationGuide extends MetadataResource {
     @Block()
     public static class ImplementationGuideDefinitionParameterComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+         * apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template", formalDefinition="apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template." )
+        @Description(shortDefinition="apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template", formalDefinition="apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/guide-parameter-code")
         protected Enumeration<GuideParameterCode> code;
 
@@ -8209,7 +8208,7 @@ public class ImplementationGuide extends MetadataResource {
       }
 
         /**
-         * @return {@link #code} (apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #code} (apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public Enumeration<GuideParameterCode> getCodeElement() { 
           if (this.code == null)
@@ -8229,7 +8228,7 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @param value {@link #code} (apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #code} (apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public ImplementationGuideDefinitionParameterComponent setCodeElement(Enumeration<GuideParameterCode> value) { 
           this.code = value;
@@ -8237,14 +8236,14 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @return apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+         * @return apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
         public GuideParameterCode getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
-         * @param value apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+         * @param value apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
         public ImplementationGuideDefinitionParameterComponent setCode(GuideParameterCode value) { 
             if (this.code == null)
@@ -8300,14 +8299,14 @@ public class ImplementationGuide extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("code", "code", "apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code));
+          children.add(new Property("code", "code", "apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code));
           children.add(new Property("value", "string", "Value for named type.", 0, 1, value));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code);
+          case 3059181: /*code*/  return new Property("code", "code", "apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code);
           case 111972721: /*value*/  return new Property("value", "string", "Value for named type.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -8754,14 +8753,14 @@ public class ImplementationGuide extends MetadataResource {
          */
         @Child(name = "resource", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Resource in the implementation guide", formalDefinition="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource." )
-        protected List<ImplementationGuideManifestResourceComponent> resource;
+        protected List<ManifestResourceComponent> resource;
 
         /**
          * Information about a page within the IG.
          */
         @Child(name = "page", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="HTML page within the parent IG", formalDefinition="Information about a page within the IG." )
-        protected List<ImplementationGuideManifestPageComponent> page;
+        protected List<ManifestPageComponent> page;
 
         /**
          * Indicates a relative path to an image that exists within the IG.
@@ -8777,7 +8776,7 @@ public class ImplementationGuide extends MetadataResource {
         @Description(shortDefinition="Additional linkable file in IG", formalDefinition="Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG." )
         protected List<StringType> other;
 
-        private static final long serialVersionUID = -212447764L;
+        private static final long serialVersionUID = 1881327712L;
 
     /**
      * Constructor
@@ -8838,16 +8837,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #resource} (A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.)
          */
-        public List<ImplementationGuideManifestResourceComponent> getResource() { 
+        public List<ManifestResourceComponent> getResource() { 
           if (this.resource == null)
-            this.resource = new ArrayList<ImplementationGuideManifestResourceComponent>();
+            this.resource = new ArrayList<ManifestResourceComponent>();
           return this.resource;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ImplementationGuideManifestComponent setResource(List<ImplementationGuideManifestResourceComponent> theResource) { 
+        public ImplementationGuideManifestComponent setResource(List<ManifestResourceComponent> theResource) { 
           this.resource = theResource;
           return this;
         }
@@ -8855,25 +8854,25 @@ public class ImplementationGuide extends MetadataResource {
         public boolean hasResource() { 
           if (this.resource == null)
             return false;
-          for (ImplementationGuideManifestResourceComponent item : this.resource)
+          for (ManifestResourceComponent item : this.resource)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ImplementationGuideManifestResourceComponent addResource() { //3
-          ImplementationGuideManifestResourceComponent t = new ImplementationGuideManifestResourceComponent();
+        public ManifestResourceComponent addResource() { //3
+          ManifestResourceComponent t = new ManifestResourceComponent();
           if (this.resource == null)
-            this.resource = new ArrayList<ImplementationGuideManifestResourceComponent>();
+            this.resource = new ArrayList<ManifestResourceComponent>();
           this.resource.add(t);
           return t;
         }
 
-        public ImplementationGuideManifestComponent addResource(ImplementationGuideManifestResourceComponent t) { //3
+        public ImplementationGuideManifestComponent addResource(ManifestResourceComponent t) { //3
           if (t == null)
             return this;
           if (this.resource == null)
-            this.resource = new ArrayList<ImplementationGuideManifestResourceComponent>();
+            this.resource = new ArrayList<ManifestResourceComponent>();
           this.resource.add(t);
           return this;
         }
@@ -8881,7 +8880,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return The first repetition of repeating field {@link #resource}, creating it if it does not already exist
          */
-        public ImplementationGuideManifestResourceComponent getResourceFirstRep() { 
+        public ManifestResourceComponent getResourceFirstRep() { 
           if (getResource().isEmpty()) {
             addResource();
           }
@@ -8891,16 +8890,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #page} (Information about a page within the IG.)
          */
-        public List<ImplementationGuideManifestPageComponent> getPage() { 
+        public List<ManifestPageComponent> getPage() { 
           if (this.page == null)
-            this.page = new ArrayList<ImplementationGuideManifestPageComponent>();
+            this.page = new ArrayList<ManifestPageComponent>();
           return this.page;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ImplementationGuideManifestComponent setPage(List<ImplementationGuideManifestPageComponent> thePage) { 
+        public ImplementationGuideManifestComponent setPage(List<ManifestPageComponent> thePage) { 
           this.page = thePage;
           return this;
         }
@@ -8908,25 +8907,25 @@ public class ImplementationGuide extends MetadataResource {
         public boolean hasPage() { 
           if (this.page == null)
             return false;
-          for (ImplementationGuideManifestPageComponent item : this.page)
+          for (ManifestPageComponent item : this.page)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public ImplementationGuideManifestPageComponent addPage() { //3
-          ImplementationGuideManifestPageComponent t = new ImplementationGuideManifestPageComponent();
+        public ManifestPageComponent addPage() { //3
+          ManifestPageComponent t = new ManifestPageComponent();
           if (this.page == null)
-            this.page = new ArrayList<ImplementationGuideManifestPageComponent>();
+            this.page = new ArrayList<ManifestPageComponent>();
           this.page.add(t);
           return t;
         }
 
-        public ImplementationGuideManifestComponent addPage(ImplementationGuideManifestPageComponent t) { //3
+        public ImplementationGuideManifestComponent addPage(ManifestPageComponent t) { //3
           if (t == null)
             return this;
           if (this.page == null)
-            this.page = new ArrayList<ImplementationGuideManifestPageComponent>();
+            this.page = new ArrayList<ManifestPageComponent>();
           this.page.add(t);
           return this;
         }
@@ -8934,7 +8933,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return The first repetition of repeating field {@link #page}, creating it if it does not already exist
          */
-        public ImplementationGuideManifestPageComponent getPageFirstRep() { 
+        public ManifestPageComponent getPageFirstRep() { 
           if (getPage().isEmpty()) {
             addPage();
           }
@@ -9089,8 +9088,8 @@ public class ImplementationGuide extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 1839654540: /*rendering*/ return this.rendering == null ? new Base[0] : new Base[] {this.rendering}; // UrlType
-        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // ImplementationGuideManifestResourceComponent
-        case 3433103: /*page*/ return this.page == null ? new Base[0] : this.page.toArray(new Base[this.page.size()]); // ImplementationGuideManifestPageComponent
+        case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // ManifestResourceComponent
+        case 3433103: /*page*/ return this.page == null ? new Base[0] : this.page.toArray(new Base[this.page.size()]); // ManifestPageComponent
         case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // StringType
         case 106069776: /*other*/ return this.other == null ? new Base[0] : this.other.toArray(new Base[this.other.size()]); // StringType
         default: return super.getProperty(hash, name, checkValid);
@@ -9105,10 +9104,10 @@ public class ImplementationGuide extends MetadataResource {
           this.rendering = castToUrl(value); // UrlType
           return value;
         case -341064690: // resource
-          this.getResource().add((ImplementationGuideManifestResourceComponent) value); // ImplementationGuideManifestResourceComponent
+          this.getResource().add((ManifestResourceComponent) value); // ManifestResourceComponent
           return value;
         case 3433103: // page
-          this.getPage().add((ImplementationGuideManifestPageComponent) value); // ImplementationGuideManifestPageComponent
+          this.getPage().add((ManifestPageComponent) value); // ManifestPageComponent
           return value;
         case 100313435: // image
           this.getImage().add(castToString(value)); // StringType
@@ -9126,9 +9125,9 @@ public class ImplementationGuide extends MetadataResource {
         if (name.equals("rendering")) {
           this.rendering = castToUrl(value); // UrlType
         } else if (name.equals("resource")) {
-          this.getResource().add((ImplementationGuideManifestResourceComponent) value);
+          this.getResource().add((ManifestResourceComponent) value);
         } else if (name.equals("page")) {
-          this.getPage().add((ImplementationGuideManifestPageComponent) value);
+          this.getPage().add((ManifestPageComponent) value);
         } else if (name.equals("image")) {
           this.getImage().add(castToString(value));
         } else if (name.equals("other")) {
@@ -9190,13 +9189,13 @@ public class ImplementationGuide extends MetadataResource {
         copyValues(dst);
         dst.rendering = rendering == null ? null : rendering.copy();
         if (resource != null) {
-          dst.resource = new ArrayList<ImplementationGuideManifestResourceComponent>();
-          for (ImplementationGuideManifestResourceComponent i : resource)
+          dst.resource = new ArrayList<ManifestResourceComponent>();
+          for (ManifestResourceComponent i : resource)
             dst.resource.add(i.copy());
         };
         if (page != null) {
-          dst.page = new ArrayList<ImplementationGuideManifestPageComponent>();
-          for (ImplementationGuideManifestPageComponent i : page)
+          dst.page = new ArrayList<ManifestPageComponent>();
+          for (ManifestPageComponent i : page)
             dst.page.add(i.copy());
         };
         if (image != null) {
@@ -9247,7 +9246,7 @@ public class ImplementationGuide extends MetadataResource {
   }
 
     @Block()
-    public static class ImplementationGuideManifestResourceComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ManifestResourceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Where this resource is found.
          */
@@ -9279,14 +9278,14 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * Constructor
      */
-      public ImplementationGuideManifestResourceComponent() {
+      public ManifestResourceComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ImplementationGuideManifestResourceComponent(Reference reference) {
+      public ManifestResourceComponent(Reference reference) {
         super();
         this.reference = reference;
       }
@@ -9297,7 +9296,7 @@ public class ImplementationGuide extends MetadataResource {
         public Reference getReference() { 
           if (this.reference == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideManifestResourceComponent.reference");
+              throw new Error("Attempt to auto-create ManifestResourceComponent.reference");
             else if (Configuration.doAutoCreate())
               this.reference = new Reference(); // cc
           return this.reference;
@@ -9310,7 +9309,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #reference} (Where this resource is found.)
          */
-        public ImplementationGuideManifestResourceComponent setReference(Reference value) { 
+        public ManifestResourceComponent setReference(Reference value) { 
           this.reference = value;
           return this;
         }
@@ -9325,7 +9324,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #reference} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where this resource is found.)
          */
-        public ImplementationGuideManifestResourceComponent setReferenceTarget(Resource value) { 
+        public ManifestResourceComponent setReferenceTarget(Resource value) { 
           this.referenceTarget = value;
           return this;
         }
@@ -9374,7 +9373,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
-        public ImplementationGuideManifestResourceComponent setExample(Type value) { 
+        public ManifestResourceComponent setExample(Type value) { 
           if (value != null && !(value instanceof BooleanType || value instanceof CanonicalType))
             throw new Error("Not the right type for ImplementationGuide.manifest.resource.example[x]: "+value.fhirType());
           this.example = value;
@@ -9387,7 +9386,7 @@ public class ImplementationGuide extends MetadataResource {
         public UrlType getRelativePathElement() { 
           if (this.relativePath == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideManifestResourceComponent.relativePath");
+              throw new Error("Attempt to auto-create ManifestResourceComponent.relativePath");
             else if (Configuration.doAutoCreate())
               this.relativePath = new UrlType(); // bb
           return this.relativePath;
@@ -9404,7 +9403,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #relativePath} (The relative path for primary page for this resource within the IG.). This is the underlying object with id, value and extensions. The accessor "getRelativePath" gives direct access to the value
          */
-        public ImplementationGuideManifestResourceComponent setRelativePathElement(UrlType value) { 
+        public ManifestResourceComponent setRelativePathElement(UrlType value) { 
           this.relativePath = value;
           return this;
         }
@@ -9419,7 +9418,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value The relative path for primary page for this resource within the IG.
          */
-        public ImplementationGuideManifestResourceComponent setRelativePath(String value) { 
+        public ManifestResourceComponent setRelativePath(String value) { 
           if (Utilities.noString(value))
             this.relativePath = null;
           else {
@@ -9536,8 +9535,8 @@ public class ImplementationGuide extends MetadataResource {
           return super.addChild(name);
       }
 
-      public ImplementationGuideManifestResourceComponent copy() {
-        ImplementationGuideManifestResourceComponent dst = new ImplementationGuideManifestResourceComponent();
+      public ManifestResourceComponent copy() {
+        ManifestResourceComponent dst = new ManifestResourceComponent();
         copyValues(dst);
         dst.reference = reference == null ? null : reference.copy();
         dst.example = example == null ? null : example.copy();
@@ -9549,9 +9548,9 @@ public class ImplementationGuide extends MetadataResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ImplementationGuideManifestResourceComponent))
+        if (!(other_ instanceof ManifestResourceComponent))
           return false;
-        ImplementationGuideManifestResourceComponent o = (ImplementationGuideManifestResourceComponent) other_;
+        ManifestResourceComponent o = (ManifestResourceComponent) other_;
         return compareDeep(reference, o.reference, true) && compareDeep(example, o.example, true) && compareDeep(relativePath, o.relativePath, true)
           ;
       }
@@ -9560,9 +9559,9 @@ public class ImplementationGuide extends MetadataResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ImplementationGuideManifestResourceComponent))
+        if (!(other_ instanceof ManifestResourceComponent))
           return false;
-        ImplementationGuideManifestResourceComponent o = (ImplementationGuideManifestResourceComponent) other_;
+        ManifestResourceComponent o = (ManifestResourceComponent) other_;
         return compareValues(relativePath, o.relativePath, true);
       }
 
@@ -9579,7 +9578,7 @@ public class ImplementationGuide extends MetadataResource {
   }
 
     @Block()
-    public static class ImplementationGuideManifestPageComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ManifestPageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Relative path to the page.
          */
@@ -9606,14 +9605,14 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * Constructor
      */
-      public ImplementationGuideManifestPageComponent() {
+      public ManifestPageComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public ImplementationGuideManifestPageComponent(StringType name) {
+      public ManifestPageComponent(StringType name) {
         super();
         this.name = name;
       }
@@ -9624,7 +9623,7 @@ public class ImplementationGuide extends MetadataResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideManifestPageComponent.name");
+              throw new Error("Attempt to auto-create ManifestPageComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -9641,7 +9640,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #name} (Relative path to the page.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ImplementationGuideManifestPageComponent setNameElement(StringType value) { 
+        public ManifestPageComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -9656,7 +9655,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value Relative path to the page.
          */
-        public ImplementationGuideManifestPageComponent setName(String value) { 
+        public ManifestPageComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -9669,7 +9668,7 @@ public class ImplementationGuide extends MetadataResource {
         public StringType getTitleElement() { 
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideManifestPageComponent.title");
+              throw new Error("Attempt to auto-create ManifestPageComponent.title");
             else if (Configuration.doAutoCreate())
               this.title = new StringType(); // bb
           return this.title;
@@ -9686,7 +9685,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #title} (Label for the page intended for human display.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public ImplementationGuideManifestPageComponent setTitleElement(StringType value) { 
+        public ManifestPageComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -9701,7 +9700,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value Label for the page intended for human display.
          */
-        public ImplementationGuideManifestPageComponent setTitle(String value) { 
+        public ManifestPageComponent setTitle(String value) { 
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -9724,7 +9723,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ImplementationGuideManifestPageComponent setAnchor(List<StringType> theAnchor) { 
+        public ManifestPageComponent setAnchor(List<StringType> theAnchor) { 
           this.anchor = theAnchor;
           return this;
         }
@@ -9752,7 +9751,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #anchor} (The name of an anchor available on the page.)
          */
-        public ImplementationGuideManifestPageComponent addAnchor(String value) { //1
+        public ManifestPageComponent addAnchor(String value) { //1
           StringType t = new StringType();
           t.setValue(value);
           if (this.anchor == null)
@@ -9869,8 +9868,8 @@ public class ImplementationGuide extends MetadataResource {
           return super.addChild(name);
       }
 
-      public ImplementationGuideManifestPageComponent copy() {
-        ImplementationGuideManifestPageComponent dst = new ImplementationGuideManifestPageComponent();
+      public ManifestPageComponent copy() {
+        ManifestPageComponent dst = new ManifestPageComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.title = title == null ? null : title.copy();
@@ -9886,9 +9885,9 @@ public class ImplementationGuide extends MetadataResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof ImplementationGuideManifestPageComponent))
+        if (!(other_ instanceof ManifestPageComponent))
           return false;
-        ImplementationGuideManifestPageComponent o = (ImplementationGuideManifestPageComponent) other_;
+        ManifestPageComponent o = (ManifestPageComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(title, o.title, true) && compareDeep(anchor, o.anchor, true)
           ;
       }
@@ -9897,9 +9896,9 @@ public class ImplementationGuide extends MetadataResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof ImplementationGuideManifestPageComponent))
+        if (!(other_ instanceof ManifestPageComponent))
           return false;
-        ImplementationGuideManifestPageComponent o = (ImplementationGuideManifestPageComponent) other_;
+        ManifestPageComponent o = (ManifestPageComponent) other_;
         return compareValues(name, o.name, true) && compareValues(title, o.title, true) && compareValues(anchor, o.anchor, true)
           ;
       }
@@ -9938,10 +9937,10 @@ public class ImplementationGuide extends MetadataResource {
     protected Enumeration<SPDXLicense> license;
 
     /**
-     * The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.
+     * The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.
      */
     @Child(name = "fhirVersion", type = {IdType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="FHIR Version this Implementation Guide targets", formalDefinition="The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version." )
+    @Description(shortDefinition="FHIR Version this Implementation Guide targets", formalDefinition="The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
     protected IdType fhirVersion;
 
@@ -9993,7 +9992,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -10013,7 +10012,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ImplementationGuide setUrlElement(UriType value) { 
       this.url = value;
@@ -10021,14 +10020,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.
+     * @return An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.
+     * @param value An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.
      */
     public ImplementationGuide setUrl(String value) { 
         if (this.url == null)
@@ -10128,6 +10127,55 @@ public class ImplementationGuide extends MetadataResource {
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #title} (A short, descriptive, user-friendly title for the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ImplementationGuide.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (A short, descriptive, user-friendly title for the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public ImplementationGuide setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return A short, descriptive, user-friendly title for the implementation guide.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value A short, descriptive, user-friendly title for the implementation guide.
+     */
+    public ImplementationGuide setTitle(String value) { 
+      if (Utilities.noString(value))
+        this.title = null;
+      else {
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
+      }
       return this;
     }
 
@@ -10675,7 +10723,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #fhirVersion} (The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
+     * @return {@link #fhirVersion} (The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
     public IdType getFhirVersionElement() { 
       if (this.fhirVersion == null)
@@ -10695,7 +10743,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
+     * @param value {@link #fhirVersion} (The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
     public ImplementationGuide setFhirVersionElement(IdType value) { 
       this.fhirVersion = value;
@@ -10703,14 +10751,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.
+     * @return The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.
      */
     public String getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
-     * @param value The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.
+     * @param value The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.
      */
     public ImplementationGuide setFhirVersion(String value) { 
       if (Utilities.noString(value))
@@ -10879,9 +10927,10 @@ public class ImplementationGuide extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.", 0, 1, url));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
+        children.add(new Property("title", "string", "A short, descriptive, user-friendly title for the implementation guide.", 0, 1, title));
         children.add(new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, 1, status));
         children.add(new Property("experimental", "boolean", "A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.", 0, 1, experimental));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.", 0, 1, date));
@@ -10893,7 +10942,7 @@ public class ImplementationGuide extends MetadataResource {
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.", 0, 1, copyright));
         children.add(new Property("packageId", "id", "The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.", 0, 1, packageId));
         children.add(new Property("license", "code", "The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.", 0, 1, license));
-        children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.", 0, 1, fhirVersion));
+        children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.", 0, 1, fhirVersion));
         children.add(new Property("dependsOn", "", "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.", 0, java.lang.Integer.MAX_VALUE, dependsOn));
         children.add(new Property("global", "", "A set of profiles that all resources covered by this implementation guide must conform to.", 0, java.lang.Integer.MAX_VALUE, global));
         children.add(new Property("definition", "", "The information needed by an IG publisher tool to publish the whole implementation guide.", 0, 1, definition));
@@ -10903,9 +10952,10 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.", 0, 1, url);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
+        case 110371416: /*title*/  return new Property("title", "string", "A short, descriptive, user-friendly title for the implementation guide.", 0, 1, title);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, 1, status);
         case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.", 0, 1, experimental);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.", 0, 1, date);
@@ -10917,7 +10967,7 @@ public class ImplementationGuide extends MetadataResource {
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.", 0, 1, copyright);
         case 1802060801: /*packageId*/  return new Property("packageId", "id", "The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.", 0, 1, packageId);
         case 166757441: /*license*/  return new Property("license", "code", "The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.", 0, 1, license);
-        case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0 for this version.", 0, 1, fhirVersion);
+        case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this ImplementationGuide is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.4.0. for this version.", 0, 1, fhirVersion);
         case -1109214266: /*dependsOn*/  return new Property("dependsOn", "", "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.", 0, java.lang.Integer.MAX_VALUE, dependsOn);
         case -1243020381: /*global*/  return new Property("global", "", "A set of profiles that all resources covered by this implementation guide must conform to.", 0, java.lang.Integer.MAX_VALUE, global);
         case -1014418093: /*definition*/  return new Property("definition", "", "The information needed by an IG publisher tool to publish the whole implementation guide.", 0, 1, definition);
@@ -10933,6 +10983,7 @@ public class ImplementationGuide extends MetadataResource {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
@@ -10965,6 +11016,9 @@ public class ImplementationGuide extends MetadataResource {
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
+          return value;
+        case 110371416: // title
+          this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
           value = new PublicationStatusEnumFactory().fromType(castToCode(value));
@@ -11029,6 +11083,8 @@ public class ImplementationGuide extends MetadataResource {
           this.version = castToString(value); // StringType
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
+        } else if (name.equals("title")) {
+          this.title = castToString(value); // StringType
         } else if (name.equals("status")) {
           value = new PublicationStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<PublicationStatus>
@@ -11074,6 +11130,7 @@ public class ImplementationGuide extends MetadataResource {
         case 116079:  return getUrlElement();
         case 351608024:  return getVersionElement();
         case 3373707:  return getNameElement();
+        case 110371416:  return getTitleElement();
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
         case 3076014:  return getDateElement();
@@ -11101,6 +11158,7 @@ public class ImplementationGuide extends MetadataResource {
         case 116079: /*url*/ return new String[] {"uri"};
         case 351608024: /*version*/ return new String[] {"string"};
         case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -404562712: /*experimental*/ return new String[] {"boolean"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
@@ -11132,6 +11190,9 @@ public class ImplementationGuide extends MetadataResource {
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuide.name");
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuide.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuide.status");
@@ -11198,6 +11259,7 @@ public class ImplementationGuide extends MetadataResource {
         dst.url = url == null ? null : url.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
+        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
@@ -11295,30 +11357,50 @@ public class ImplementationGuide extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>depends-on</b>
+   * Search parameter: <b>context-type-value</b>
    * <p>
-   * Description: <b>Identity of the IG that this depends on</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ImplementationGuide.dependsOn.uri</b><br>
+   * Description: <b>A use context type and value assigned to the implementation guide</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="ImplementationGuide.dependsOn.uri", description="Identity of the IG that this depends on", type="reference" )
-  public static final String SP_DEPENDS_ON = "depends-on";
+  @SearchParamDefinition(name="context-type-value", path="ImplementationGuide.useContext", description="A use context type and value assigned to the implementation guide", type="composite", compositeOf={"context-type", "context"} )
+  public static final String SP_CONTEXT_TYPE_VALUE = "context-type-value";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-value</b>
    * <p>
-   * Description: <b>Identity of the IG that this depends on</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ImplementationGuide.dependsOn.uri</b><br>
+   * Description: <b>A use context type and value assigned to the implementation guide</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEPENDS_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEPENDS_ON);
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CONTEXT_TYPE_VALUE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CONTEXT_TYPE_VALUE);
+
+ /**
+   * Search parameter: <b>resource</b>
+   * <p>
+   * Description: <b>Location of the resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.definition.resource.reference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="resource", path="ImplementationGuide.definition.resource.reference", description="Location of the resource", type="reference" )
+  public static final String SP_RESOURCE = "resource";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>resource</b>
+   * <p>
+   * Description: <b>Location of the resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.definition.resource.reference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESOURCE);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ImplementationGuide:depends-on</b>".
+   * the path value of "<b>ImplementationGuide:resource</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEPENDS_ON = new ca.uhn.fhir.model.api.Include("ImplementationGuide:depends-on").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCE = new ca.uhn.fhir.model.api.Include("ImplementationGuide:resource").toLocked();
 
  /**
    * Search parameter: <b>jurisdiction</b>
@@ -11341,26 +11423,6 @@ public class ImplementationGuide extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="ImplementationGuide.name", description="Computationally friendly name of the implementation guide", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>description</b>
    * <p>
    * Description: <b>The description of the implementation guide</b><br>
@@ -11381,24 +11443,24 @@ public class ImplementationGuide extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.publisher</b><br>
+   * Description: <b>A type of use context assigned to the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.useContext.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="ImplementationGuide.publisher", description="Name of the publisher of the implementation guide", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="context-type", path="ImplementationGuide.useContext.code", description="A type of use context assigned to the implementation guide", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.publisher</b><br>
+   * Description: <b>A type of use context assigned to the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.useContext.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>experimental</b>
@@ -11419,6 +11481,52 @@ public class ImplementationGuide extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
+
+ /**
+   * Search parameter: <b>global</b>
+   * <p>
+   * Description: <b>Profile that all resources must conform to</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.global.profile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="global", path="ImplementationGuide.global.profile", description="Profile that all resources must conform to", type="reference", target={StructureDefinition.class } )
+  public static final String SP_GLOBAL = "global";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>global</b>
+   * <p>
+   * Description: <b>Profile that all resources must conform to</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.global.profile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam GLOBAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_GLOBAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImplementationGuide:global</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_GLOBAL = new ca.uhn.fhir.model.api.Include("ImplementationGuide:global").toLocked();
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>The human-friendly name of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="ImplementationGuide.title", description="The human-friendly name of the implementation guide", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>The human-friendly name of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>
@@ -11459,6 +11567,132 @@ public class ImplementationGuide extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the implementation guide</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>ImplementationGuide.useContext.valueQuantity, ImplementationGuide.useContext.valueRange</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-quantity", path="(ImplementationGuide.useContext.value as Quantity) | (ImplementationGuide.useContext.value as Range)", description="A quantity- or range-valued use context assigned to the implementation guide", type="quantity" )
+  public static final String SP_CONTEXT_QUANTITY = "context-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the implementation guide</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>ImplementationGuide.useContext.valueQuantity, ImplementationGuide.useContext.valueRange</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam CONTEXT_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_CONTEXT_QUANTITY);
+
+ /**
+   * Search parameter: <b>depends-on</b>
+   * <p>
+   * Description: <b>Identity of the IG that this depends on</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.dependsOn.uri</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="depends-on", path="ImplementationGuide.dependsOn.uri", description="Identity of the IG that this depends on", type="reference", target={ImplementationGuide.class } )
+  public static final String SP_DEPENDS_ON = "depends-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
+   * <p>
+   * Description: <b>Identity of the IG that this depends on</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.dependsOn.uri</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEPENDS_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEPENDS_ON);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImplementationGuide:depends-on</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEPENDS_ON = new ca.uhn.fhir.model.api.Include("ImplementationGuide:depends-on").toLocked();
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="ImplementationGuide.name", description="Computationally friendly name of the implementation guide", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="(ImplementationGuide.useContext.value as CodeableConcept)", description="A use context assigned to the implementation guide", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="ImplementationGuide.publisher", description="Name of the publisher of the implementation guide", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the implementation guide</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-quantity", path="ImplementationGuide.useContext", description="A use context type and quantity- or range-based value assigned to the implementation guide", type="composite", compositeOf={"context-type", "context-quantity"} )
+  public static final String SP_CONTEXT_TYPE_QUANTITY = "context-type-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the implementation guide</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CONTEXT_TYPE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CONTEXT_TYPE_QUANTITY);
 
  /**
    * Search parameter: <b>status</b>

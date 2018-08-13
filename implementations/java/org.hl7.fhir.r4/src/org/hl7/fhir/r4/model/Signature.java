@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -66,16 +66,26 @@ public class Signature extends Type implements ICompositeType {
     /**
      * A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).
      */
-    @Child(name = "who", type = {UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "who", type = {Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who signed", formalDefinition="A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key)." )
-    protected Type who;
+    protected Reference who;
+
+    /**
+     * The actual object that is the target of the reference (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
+     */
+    protected Resource whoTarget;
 
     /**
      * A reference to an application-usable description of the identity that is represented by the signature.
      */
-    @Child(name = "onBehalfOf", type = {UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "onBehalfOf", type = {Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The party represented", formalDefinition="A reference to an application-usable description of the identity that is represented by the signature." )
-    protected Type onBehalfOf;
+    protected Reference onBehalfOf;
+
+    /**
+     * The actual object that is the target of the reference (A reference to an application-usable description of the identity that is represented by the signature.)
+     */
+    protected Resource onBehalfOfTarget;
 
     /**
      * A mime type that indicates the technical format of the target resources signed by the signature.
@@ -100,7 +110,7 @@ public class Signature extends Type implements ICompositeType {
     @Description(shortDefinition="The actual signature content (XML DigSig. JWS, picture, etc.)", formalDefinition="The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty." )
     protected Base64BinaryType data;
 
-    private static final long serialVersionUID = -2138326797L;
+    private static final long serialVersionUID = 1587325823L;
 
   /**
    * Constructor
@@ -112,7 +122,7 @@ public class Signature extends Type implements ICompositeType {
   /**
    * Constructor
    */
-    public Signature(InstantType when, Type who) {
+    public Signature(InstantType when, Reference who) {
       super();
       this.when = when;
       this.who = who;
@@ -219,38 +229,13 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return {@link #who} (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
      */
-    public Type getWho() { 
+    public Reference getWho() { 
+      if (this.who == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Signature.who");
+        else if (Configuration.doAutoCreate())
+          this.who = new Reference(); // cc
       return this.who;
-    }
-
-    /**
-     * @return {@link #who} (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
-     */
-    public UriType getWhoUriType() throws FHIRException { 
-      if (this.who == null)
-        return null;
-      if (!(this.who instanceof UriType))
-        throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.who.getClass().getName()+" was encountered");
-      return (UriType) this.who;
-    }
-
-    public boolean hasWhoUriType() { 
-      return this != null && this.who instanceof UriType;
-    }
-
-    /**
-     * @return {@link #who} (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
-     */
-    public Reference getWhoReference() throws FHIRException { 
-      if (this.who == null)
-        return null;
-      if (!(this.who instanceof Reference))
-        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.who.getClass().getName()+" was encountered");
-      return (Reference) this.who;
-    }
-
-    public boolean hasWhoReference() { 
-      return this != null && this.who instanceof Reference;
     }
 
     public boolean hasWho() { 
@@ -260,48 +245,36 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @param value {@link #who} (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
      */
-    public Signature setWho(Type value) { 
-      if (value != null && !(value instanceof UriType || value instanceof Reference))
-        throw new Error("Not the right type for Signature.who[x]: "+value.fhirType());
+    public Signature setWho(Reference value) { 
       this.who = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #who} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
+     */
+    public Resource getWhoTarget() { 
+      return this.whoTarget;
+    }
+
+    /**
+     * @param value {@link #who} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).)
+     */
+    public Signature setWhoTarget(Resource value) { 
+      this.whoTarget = value;
       return this;
     }
 
     /**
      * @return {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
      */
-    public Type getOnBehalfOf() { 
+    public Reference getOnBehalfOf() { 
+      if (this.onBehalfOf == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Signature.onBehalfOf");
+        else if (Configuration.doAutoCreate())
+          this.onBehalfOf = new Reference(); // cc
       return this.onBehalfOf;
-    }
-
-    /**
-     * @return {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
-     */
-    public UriType getOnBehalfOfUriType() throws FHIRException { 
-      if (this.onBehalfOf == null)
-        return null;
-      if (!(this.onBehalfOf instanceof UriType))
-        throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.onBehalfOf.getClass().getName()+" was encountered");
-      return (UriType) this.onBehalfOf;
-    }
-
-    public boolean hasOnBehalfOfUriType() { 
-      return this != null && this.onBehalfOf instanceof UriType;
-    }
-
-    /**
-     * @return {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
-     */
-    public Reference getOnBehalfOfReference() throws FHIRException { 
-      if (this.onBehalfOf == null)
-        return null;
-      if (!(this.onBehalfOf instanceof Reference))
-        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.onBehalfOf.getClass().getName()+" was encountered");
-      return (Reference) this.onBehalfOf;
-    }
-
-    public boolean hasOnBehalfOfReference() { 
-      return this != null && this.onBehalfOf instanceof Reference;
     }
 
     public boolean hasOnBehalfOf() { 
@@ -311,10 +284,23 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @param value {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
      */
-    public Signature setOnBehalfOf(Type value) { 
-      if (value != null && !(value instanceof UriType || value instanceof Reference))
-        throw new Error("Not the right type for Signature.onBehalfOf[x]: "+value.fhirType());
+    public Signature setOnBehalfOf(Reference value) { 
       this.onBehalfOf = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to an application-usable description of the identity that is represented by the signature.)
+     */
+    public Resource getOnBehalfOfTarget() { 
+      return this.onBehalfOfTarget;
+    }
+
+    /**
+     * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to an application-usable description of the identity that is represented by the signature.)
+     */
+    public Signature setOnBehalfOfTarget(Resource value) { 
+      this.onBehalfOfTarget = value;
       return this;
     }
 
@@ -469,8 +455,8 @@ public class Signature extends Type implements ICompositeType {
         super.listChildren(children);
         children.add(new Property("type", "Coding", "An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.", 0, java.lang.Integer.MAX_VALUE, type));
         children.add(new Property("when", "instant", "When the digital signature was signed.", 0, 1, when));
-        children.add(new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who));
-        children.add(new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf));
+        children.add(new Property("who", "Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who));
+        children.add(new Property("onBehalfOf", "Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf));
         children.add(new Property("targetFormat", "code", "A mime type that indicates the technical format of the target resources signed by the signature.", 0, 1, targetFormat));
         children.add(new Property("sigFormat", "code", "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.", 0, 1, sigFormat));
         children.add(new Property("data", "base64Binary", "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.", 0, 1, data));
@@ -481,14 +467,8 @@ public class Signature extends Type implements ICompositeType {
         switch (_hash) {
         case 3575610: /*type*/  return new Property("type", "Coding", "An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.", 0, java.lang.Integer.MAX_VALUE, type);
         case 3648314: /*when*/  return new Property("when", "instant", "When the digital signature was signed.", 0, 1, when);
-        case -788654078: /*who[x]*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who);
-        case 117694: /*who*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who);
-        case -788660018: /*whoUri*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who);
-        case 1017243949: /*whoReference*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who);
-        case 418120340: /*onBehalfOf[x]*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf);
-        case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf);
-        case 418114400: /*onBehalfOfUri*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf);
-        case -1136255425: /*onBehalfOfReference*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf);
+        case 117694: /*who*/  return new Property("who", "Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).", 0, 1, who);
+        case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, 1, onBehalfOf);
         case -917363480: /*targetFormat*/  return new Property("targetFormat", "code", "A mime type that indicates the technical format of the target resources signed by the signature.", 0, 1, targetFormat);
         case -58720216: /*sigFormat*/  return new Property("sigFormat", "code", "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.", 0, 1, sigFormat);
         case 3076010: /*data*/  return new Property("data", "base64Binary", "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.", 0, 1, data);
@@ -502,8 +482,8 @@ public class Signature extends Type implements ICompositeType {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // Coding
         case 3648314: /*when*/ return this.when == null ? new Base[0] : new Base[] {this.when}; // InstantType
-        case 117694: /*who*/ return this.who == null ? new Base[0] : new Base[] {this.who}; // Type
-        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Type
+        case 117694: /*who*/ return this.who == null ? new Base[0] : new Base[] {this.who}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         case -917363480: /*targetFormat*/ return this.targetFormat == null ? new Base[0] : new Base[] {this.targetFormat}; // CodeType
         case -58720216: /*sigFormat*/ return this.sigFormat == null ? new Base[0] : new Base[] {this.sigFormat}; // CodeType
         case 3076010: /*data*/ return this.data == null ? new Base[0] : new Base[] {this.data}; // Base64BinaryType
@@ -522,10 +502,10 @@ public class Signature extends Type implements ICompositeType {
           this.when = castToInstant(value); // InstantType
           return value;
         case 117694: // who
-          this.who = castToType(value); // Type
+          this.who = castToReference(value); // Reference
           return value;
         case -14402964: // onBehalfOf
-          this.onBehalfOf = castToType(value); // Type
+          this.onBehalfOf = castToReference(value); // Reference
           return value;
         case -917363480: // targetFormat
           this.targetFormat = castToCode(value); // CodeType
@@ -547,10 +527,10 @@ public class Signature extends Type implements ICompositeType {
           this.getType().add(castToCoding(value));
         } else if (name.equals("when")) {
           this.when = castToInstant(value); // InstantType
-        } else if (name.equals("who[x]")) {
-          this.who = castToType(value); // Type
-        } else if (name.equals("onBehalfOf[x]")) {
-          this.onBehalfOf = castToType(value); // Type
+        } else if (name.equals("who")) {
+          this.who = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
         } else if (name.equals("targetFormat")) {
           this.targetFormat = castToCode(value); // CodeType
         } else if (name.equals("sigFormat")) {
@@ -567,9 +547,7 @@ public class Signature extends Type implements ICompositeType {
         switch (hash) {
         case 3575610:  return addType(); 
         case 3648314:  return getWhenElement();
-        case -788654078:  return getWho(); 
         case 117694:  return getWho(); 
-        case 418120340:  return getOnBehalfOf(); 
         case -14402964:  return getOnBehalfOf(); 
         case -917363480:  return getTargetFormatElement();
         case -58720216:  return getSigFormatElement();
@@ -584,8 +562,8 @@ public class Signature extends Type implements ICompositeType {
         switch (hash) {
         case 3575610: /*type*/ return new String[] {"Coding"};
         case 3648314: /*when*/ return new String[] {"instant"};
-        case 117694: /*who*/ return new String[] {"uri", "Reference"};
-        case -14402964: /*onBehalfOf*/ return new String[] {"uri", "Reference"};
+        case 117694: /*who*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         case -917363480: /*targetFormat*/ return new String[] {"code"};
         case -58720216: /*sigFormat*/ return new String[] {"code"};
         case 3076010: /*data*/ return new String[] {"base64Binary"};
@@ -602,19 +580,11 @@ public class Signature extends Type implements ICompositeType {
         else if (name.equals("when")) {
           throw new FHIRException("Cannot call addChild on a primitive type Signature.when");
         }
-        else if (name.equals("whoUri")) {
-          this.who = new UriType();
-          return this.who;
-        }
-        else if (name.equals("whoReference")) {
+        else if (name.equals("who")) {
           this.who = new Reference();
           return this.who;
         }
-        else if (name.equals("onBehalfOfUri")) {
-          this.onBehalfOf = new UriType();
-          return this.onBehalfOf;
-        }
-        else if (name.equals("onBehalfOfReference")) {
+        else if (name.equals("onBehalfOf")) {
           this.onBehalfOf = new Reference();
           return this.onBehalfOf;
         }

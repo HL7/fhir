@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -2238,7 +2238,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="Condition.context", description="Encounter when condition first asserted", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="Condition.context.where(resolve() is Encounter)", description="Encounter when condition first asserted", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
@@ -2370,7 +2370,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Condition.subject", description="Who has the condition?", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="Condition.subject.where(resolve() is Patient)", description="Who has the condition?", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

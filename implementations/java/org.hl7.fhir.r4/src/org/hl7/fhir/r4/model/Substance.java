@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,15 +50,15 @@ public class Substance extends DomainResource {
 
     public enum FHIRSubstanceStatus {
         /**
-         * The substance is considered for use or reference
+         * The substance is considered for use or reference.
          */
         ACTIVE, 
         /**
-         * The substance is considered for reference, but not for use
+         * The substance is considered for reference, but not for use.
          */
         INACTIVE, 
         /**
-         * The substance was entered in error
+         * The substance was entered in error.
          */
         ENTEREDINERROR, 
         /**
@@ -97,9 +97,9 @@ public class Substance extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case ACTIVE: return "The substance is considered for use or reference";
-            case INACTIVE: return "The substance is considered for reference, but not for use";
-            case ENTEREDINERROR: return "The substance was entered in error";
+            case ACTIVE: return "The substance is considered for use or reference.";
+            case INACTIVE: return "The substance is considered for reference, but not for use.";
+            case ENTEREDINERROR: return "The substance was entered in error.";
             default: return "?";
           }
         }
@@ -1338,7 +1338,7 @@ public class Substance extends DomainResource {
    * Path: <b>Substance.code, Substance.ingredient.substanceCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="Substance.code | Substance.ingredient.substance.as(CodeableConcept)", description="The code of the substance or ingredient", type="token" )
+  @SearchParamDefinition(name="code", path="Substance.code | (Substance.ingredient.substance as CodeableConcept)", description="The code of the substance or ingredient", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
@@ -1378,7 +1378,7 @@ public class Substance extends DomainResource {
    * Path: <b>Substance.ingredient.substanceReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="substance-reference", path="Substance.ingredient.substance.as(Reference)", description="A component of the substance", type="reference", target={Substance.class } )
+  @SearchParamDefinition(name="substance-reference", path="(Substance.ingredient.substance as Reference)", description="A component of the substance", type="reference", target={Substance.class } )
   public static final String SP_SUBSTANCE_REFERENCE = "substance-reference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>substance-reference</b>

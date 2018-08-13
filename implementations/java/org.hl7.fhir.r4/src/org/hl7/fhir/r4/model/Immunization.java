@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1220,16 +1220,23 @@ public class Immunization extends DomainResource {
     protected Type occurrence;
 
     /**
+     * The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.
+     */
+    @Child(name = "recorded", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="When the immunization was first captured in the subject's record", formalDefinition="The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event." )
+    protected DateTimeType recorded;
+
+    /**
      * An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.
      */
-    @Child(name = "primarySource", type = {BooleanType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "primarySource", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Indicates context the data was recorded in", formalDefinition="An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded." )
     protected BooleanType primarySource;
 
     /**
      * The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.
      */
-    @Child(name = "reportOrigin", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reportOrigin", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Indicates the source of a secondarily reported record", formalDefinition="The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-origin")
     protected CodeableConcept reportOrigin;
@@ -1237,7 +1244,7 @@ public class Immunization extends DomainResource {
     /**
      * The service delivery location where the vaccine administration occurred.
      */
-    @Child(name = "location", type = {Location.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "location", type = {Location.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Where immunization occurred", formalDefinition="The service delivery location where the vaccine administration occurred." )
     protected Reference location;
 
@@ -1249,7 +1256,7 @@ public class Immunization extends DomainResource {
     /**
      * Name of vaccine manufacturer.
      */
-    @Child(name = "manufacturer", type = {Organization.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "manufacturer", type = {Organization.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Vaccine manufacturer", formalDefinition="Name of vaccine manufacturer." )
     protected Reference manufacturer;
 
@@ -1261,21 +1268,21 @@ public class Immunization extends DomainResource {
     /**
      * Lot number of the  vaccine product.
      */
-    @Child(name = "lotNumber", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "lotNumber", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Vaccine lot number", formalDefinition="Lot number of the  vaccine product." )
     protected StringType lotNumber;
 
     /**
      * Date vaccine batch expires.
      */
-    @Child(name = "expirationDate", type = {DateType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "expirationDate", type = {DateType.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Vaccine expiration date", formalDefinition="Date vaccine batch expires." )
     protected DateType expirationDate;
 
     /**
      * Body site where vaccine was administered.
      */
-    @Child(name = "site", type = {CodeableConcept.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "site", type = {CodeableConcept.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Body site vaccine  was administered", formalDefinition="Body site where vaccine was administered." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-site")
     protected CodeableConcept site;
@@ -1283,7 +1290,7 @@ public class Immunization extends DomainResource {
     /**
      * The path by which the vaccine product is taken into the body.
      */
-    @Child(name = "route", type = {CodeableConcept.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "route", type = {CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="How vaccine entered body", formalDefinition="The path by which the vaccine product is taken into the body." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-route")
     protected CodeableConcept route;
@@ -1291,28 +1298,28 @@ public class Immunization extends DomainResource {
     /**
      * The quantity of vaccine product that was administered.
      */
-    @Child(name = "doseQuantity", type = {SimpleQuantity.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "doseQuantity", type = {SimpleQuantity.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Amount of vaccine administered", formalDefinition="The quantity of vaccine product that was administered." )
     protected SimpleQuantity doseQuantity;
 
     /**
      * Indicates who performed the immunization event.
      */
-    @Child(name = "performer", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "performer", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who performed event", formalDefinition="Indicates who performed the immunization event." )
     protected List<ImmunizationPerformerComponent> performer;
 
     /**
      * Extra information about the immunization that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {Annotation.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Additional immunization notes", formalDefinition="Extra information about the immunization that is not conveyed by the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Reasons why the vaccine was administered.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why immunization occurred", formalDefinition="Reasons why the vaccine was administered." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-reason")
     protected List<CodeableConcept> reasonCode;
@@ -1320,7 +1327,7 @@ public class Immunization extends DomainResource {
     /**
      * Condition, Observation or DiagnosticReport that supports why the immunization was administered.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why immunization occurred", formalDefinition="Condition, Observation or DiagnosticReport that supports why the immunization was administered." )
     protected List<Reference> reasonReference;
     /**
@@ -1332,14 +1339,14 @@ public class Immunization extends DomainResource {
     /**
      * Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent.
      */
-    @Child(name = "isSubpotent", type = {BooleanType.class}, order=20, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "isSubpotent", type = {BooleanType.class}, order=21, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="Dose potency", formalDefinition="Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent." )
     protected BooleanType isSubpotent;
 
     /**
      * Reason why a dose is considered to be subpotent.
      */
-    @Child(name = "subpotentReason", type = {CodeableConcept.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "subpotentReason", type = {CodeableConcept.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason for being subpotent", formalDefinition="Reason why a dose is considered to be subpotent." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-subpotent-reason")
     protected List<CodeableConcept> subpotentReason;
@@ -1347,14 +1354,14 @@ public class Immunization extends DomainResource {
     /**
      * Educational material presented to the patient (or guardian) at the time of vaccine administration.
      */
-    @Child(name = "education", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "education", type = {}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Educational material presented to patient", formalDefinition="Educational material presented to the patient (or guardian) at the time of vaccine administration." )
     protected List<ImmunizationEducationComponent> education;
 
     /**
      * Indicates a patient's eligibility for a funding program.
      */
-    @Child(name = "programEligibility", type = {CodeableConcept.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "programEligibility", type = {CodeableConcept.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Patient eligibility for a vaccination program", formalDefinition="Indicates a patient's eligibility for a funding program." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-program-eligibility")
     protected List<CodeableConcept> programEligibility;
@@ -1362,7 +1369,7 @@ public class Immunization extends DomainResource {
     /**
      * Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).
      */
-    @Child(name = "fundingSource", type = {CodeableConcept.class}, order=24, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "fundingSource", type = {CodeableConcept.class}, order=25, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Funding source for the vaccine", formalDefinition="Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-funding-source")
     protected CodeableConcept fundingSource;
@@ -1370,11 +1377,11 @@ public class Immunization extends DomainResource {
     /**
      * The protocol (set of recommendations) being followed by the provider who administered the dose.
      */
-    @Child(name = "protocolApplied", type = {}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "protocolApplied", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Protocol followed by the provider", formalDefinition="The protocol (set of recommendations) being followed by the provider who administered the dose." )
     protected List<ImmunizationProtocolAppliedComponent> protocolApplied;
 
-    private static final long serialVersionUID = 123820665L;
+    private static final long serialVersionUID = 608582282L;
 
   /**
    * Constructor
@@ -1676,6 +1683,55 @@ public class Immunization extends DomainResource {
       if (value != null && !(value instanceof DateTimeType || value instanceof StringType))
         throw new Error("Not the right type for Immunization.occurrence[x]: "+value.fhirType());
       this.occurrence = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #recorded} (The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.). This is the underlying object with id, value and extensions. The accessor "getRecorded" gives direct access to the value
+     */
+    public DateTimeType getRecordedElement() { 
+      if (this.recorded == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Immunization.recorded");
+        else if (Configuration.doAutoCreate())
+          this.recorded = new DateTimeType(); // bb
+      return this.recorded;
+    }
+
+    public boolean hasRecordedElement() { 
+      return this.recorded != null && !this.recorded.isEmpty();
+    }
+
+    public boolean hasRecorded() { 
+      return this.recorded != null && !this.recorded.isEmpty();
+    }
+
+    /**
+     * @param value {@link #recorded} (The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.). This is the underlying object with id, value and extensions. The accessor "getRecorded" gives direct access to the value
+     */
+    public Immunization setRecordedElement(DateTimeType value) { 
+      this.recorded = value;
+      return this;
+    }
+
+    /**
+     * @return The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.
+     */
+    public Date getRecorded() { 
+      return this.recorded == null ? null : this.recorded.getValue();
+    }
+
+    /**
+     * @param value The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.
+     */
+    public Immunization setRecorded(Date value) { 
+      if (value == null)
+        this.recorded = null;
+      else {
+        if (this.recorded == null)
+          this.recorded = new DateTimeType();
+        this.recorded.setValue(value);
+      }
       return this;
     }
 
@@ -2518,6 +2574,7 @@ public class Immunization extends DomainResource {
         children.add(new Property("patient", "Reference(Patient)", "The patient who either received or did not receive the immunization.", 0, 1, patient));
         children.add(new Property("encounter", "Reference(Encounter)", "The visit or admission or other contact between patient and health care provider the immunization was performed as part of.", 0, 1, encounter));
         children.add(new Property("occurrence[x]", "dateTime|string", "Date vaccine administered or was to be administered.", 0, 1, occurrence));
+        children.add(new Property("recorded", "dateTime", "The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.", 0, 1, recorded));
         children.add(new Property("primarySource", "boolean", "An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.", 0, 1, primarySource));
         children.add(new Property("reportOrigin", "CodeableConcept", "The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.", 0, 1, reportOrigin));
         children.add(new Property("location", "Reference(Location)", "The service delivery location where the vaccine administration occurred.", 0, 1, location));
@@ -2552,6 +2609,7 @@ public class Immunization extends DomainResource {
         case 1687874001: /*occurrence*/  return new Property("occurrence[x]", "dateTime|string", "Date vaccine administered or was to be administered.", 0, 1, occurrence);
         case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|string", "Date vaccine administered or was to be administered.", 0, 1, occurrence);
         case 1496896834: /*occurrenceString*/  return new Property("occurrence[x]", "dateTime|string", "Date vaccine administered or was to be administered.", 0, 1, occurrence);
+        case -799233872: /*recorded*/  return new Property("recorded", "dateTime", "The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event.", 0, 1, recorded);
         case -528721731: /*primarySource*/  return new Property("primarySource", "boolean", "An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.", 0, 1, primarySource);
         case 486750586: /*reportOrigin*/  return new Property("reportOrigin", "CodeableConcept", "The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.", 0, 1, reportOrigin);
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The service delivery location where the vaccine administration occurred.", 0, 1, location);
@@ -2586,6 +2644,7 @@ public class Immunization extends DomainResource {
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
+        case -799233872: /*recorded*/ return this.recorded == null ? new Base[0] : new Base[] {this.recorded}; // DateTimeType
         case -528721731: /*primarySource*/ return this.primarySource == null ? new Base[0] : new Base[] {this.primarySource}; // BooleanType
         case 486750586: /*reportOrigin*/ return this.reportOrigin == null ? new Base[0] : new Base[] {this.reportOrigin}; // CodeableConcept
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
@@ -2634,6 +2693,9 @@ public class Immunization extends DomainResource {
           return value;
         case 1687874001: // occurrence
           this.occurrence = castToType(value); // Type
+          return value;
+        case -799233872: // recorded
+          this.recorded = castToDateTime(value); // DateTimeType
           return value;
         case -528721731: // primarySource
           this.primarySource = castToBoolean(value); // BooleanType
@@ -2714,6 +2776,8 @@ public class Immunization extends DomainResource {
           this.encounter = castToReference(value); // Reference
         } else if (name.equals("occurrence[x]")) {
           this.occurrence = castToType(value); // Type
+        } else if (name.equals("recorded")) {
+          this.recorded = castToDateTime(value); // DateTimeType
         } else if (name.equals("primarySource")) {
           this.primarySource = castToBoolean(value); // BooleanType
         } else if (name.equals("reportOrigin")) {
@@ -2768,6 +2832,7 @@ public class Immunization extends DomainResource {
         case 1524132147:  return getEncounter(); 
         case -2022646513:  return getOccurrence(); 
         case 1687874001:  return getOccurrence(); 
+        case -799233872:  return getRecordedElement();
         case -528721731:  return getPrimarySourceElement();
         case 486750586:  return getReportOrigin(); 
         case 1901043637:  return getLocation(); 
@@ -2802,6 +2867,7 @@ public class Immunization extends DomainResource {
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "string"};
+        case -799233872: /*recorded*/ return new String[] {"dateTime"};
         case -528721731: /*primarySource*/ return new String[] {"boolean"};
         case 486750586: /*reportOrigin*/ return new String[] {"CodeableConcept"};
         case 1901043637: /*location*/ return new String[] {"Reference"};
@@ -2857,6 +2923,9 @@ public class Immunization extends DomainResource {
         else if (name.equals("occurrenceString")) {
           this.occurrence = new StringType();
           return this.occurrence;
+        }
+        else if (name.equals("recorded")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Immunization.recorded");
         }
         else if (name.equals("primarySource")) {
           throw new FHIRException("Cannot call addChild on a primitive type Immunization.primarySource");
@@ -2945,6 +3014,7 @@ public class Immunization extends DomainResource {
         dst.patient = patient == null ? null : patient.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.occurrence = occurrence == null ? null : occurrence.copy();
+        dst.recorded = recorded == null ? null : recorded.copy();
         dst.primarySource = primarySource == null ? null : primarySource.copy();
         dst.reportOrigin = reportOrigin == null ? null : reportOrigin.copy();
         dst.location = location == null ? null : location.copy();
@@ -3012,7 +3082,7 @@ public class Immunization extends DomainResource {
         Immunization o = (Immunization) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
            && compareDeep(vaccineCode, o.vaccineCode, true) && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true)
-           && compareDeep(occurrence, o.occurrence, true) && compareDeep(primarySource, o.primarySource, true)
+           && compareDeep(occurrence, o.occurrence, true) && compareDeep(recorded, o.recorded, true) && compareDeep(primarySource, o.primarySource, true)
            && compareDeep(reportOrigin, o.reportOrigin, true) && compareDeep(location, o.location, true) && compareDeep(manufacturer, o.manufacturer, true)
            && compareDeep(lotNumber, o.lotNumber, true) && compareDeep(expirationDate, o.expirationDate, true)
            && compareDeep(site, o.site, true) && compareDeep(route, o.route, true) && compareDeep(doseQuantity, o.doseQuantity, true)
@@ -3030,17 +3100,17 @@ public class Immunization extends DomainResource {
         if (!(other_ instanceof Immunization))
           return false;
         Immunization o = (Immunization) other_;
-        return compareValues(status, o.status, true) && compareValues(primarySource, o.primarySource, true)
+        return compareValues(status, o.status, true) && compareValues(recorded, o.recorded, true) && compareValues(primarySource, o.primarySource, true)
            && compareValues(lotNumber, o.lotNumber, true) && compareValues(expirationDate, o.expirationDate, true)
            && compareValues(isSubpotent, o.isSubpotent, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, statusReason
-          , vaccineCode, patient, encounter, occurrence, primarySource, reportOrigin, location
-          , manufacturer, lotNumber, expirationDate, site, route, doseQuantity, performer
-          , note, reasonCode, reasonReference, isSubpotent, subpotentReason, education, programEligibility
-          , fundingSource, protocolApplied);
+          , vaccineCode, patient, encounter, occurrence, recorded, primarySource, reportOrigin
+          , location, manufacturer, lotNumber, expirationDate, site, route, doseQuantity
+          , performer, note, reasonCode, reasonReference, isSubpotent, subpotentReason, education
+          , programEligibility, fundingSource, protocolApplied);
       }
 
   @Override

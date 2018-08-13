@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -390,34 +390,48 @@ public class MedicinalProductIngredient extends DomainResource {
         protected Ratio presentation;
 
         /**
+         * A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.
+         */
+        @Child(name = "presentationLowLimit", type = {Ratio.class}, order=2, min=0, max=1, modifier=true, summary=true)
+        @Description(shortDefinition="A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit", formalDefinition="A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit." )
+        protected Ratio presentationLowLimit;
+
+        /**
          * The strength per unitary volume (or mass).
          */
-        @Child(name = "concentration", type = {Ratio.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "concentration", type = {Ratio.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The strength per unitary volume (or mass)", formalDefinition="The strength per unitary volume (or mass)." )
         protected Ratio concentration;
 
         /**
+         * A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.
+         */
+        @Child(name = "concentrationLowLimit", type = {Ratio.class}, order=4, min=0, max=1, modifier=true, summary=true)
+        @Description(shortDefinition="A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit", formalDefinition="A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit." )
+        protected Ratio concentrationLowLimit;
+
+        /**
          * For when strength is measured at a particular point or distance.
          */
-        @Child(name = "measurementPoint", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "measurementPoint", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="For when strength is measured at a particular point or distance", formalDefinition="For when strength is measured at a particular point or distance." )
         protected StringType measurementPoint;
 
         /**
          * The country or countries for which the strength range applies.
          */
-        @Child(name = "country", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "country", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="The country or countries for which the strength range applies", formalDefinition="The country or countries for which the strength range applies." )
         protected List<CodeableConcept> country;
 
         /**
          * Strength expressed in terms of a reference substance.
          */
-        @Child(name = "referenceStrength", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "referenceStrength", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Strength expressed in terms of a reference substance", formalDefinition="Strength expressed in terms of a reference substance." )
         protected List<MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent> referenceStrength;
 
-        private static final long serialVersionUID = 7852307L;
+        private static final long serialVersionUID = 1981438822L;
 
     /**
      * Constructor
@@ -459,6 +473,30 @@ public class MedicinalProductIngredient extends DomainResource {
         }
 
         /**
+         * @return {@link #presentationLowLimit} (A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.)
+         */
+        public Ratio getPresentationLowLimit() { 
+          if (this.presentationLowLimit == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicinalProductIngredientSpecifiedSubstanceStrengthComponent.presentationLowLimit");
+            else if (Configuration.doAutoCreate())
+              this.presentationLowLimit = new Ratio(); // cc
+          return this.presentationLowLimit;
+        }
+
+        public boolean hasPresentationLowLimit() { 
+          return this.presentationLowLimit != null && !this.presentationLowLimit.isEmpty();
+        }
+
+        /**
+         * @param value {@link #presentationLowLimit} (A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.)
+         */
+        public MedicinalProductIngredientSpecifiedSubstanceStrengthComponent setPresentationLowLimit(Ratio value) { 
+          this.presentationLowLimit = value;
+          return this;
+        }
+
+        /**
          * @return {@link #concentration} (The strength per unitary volume (or mass).)
          */
         public Ratio getConcentration() { 
@@ -479,6 +517,30 @@ public class MedicinalProductIngredient extends DomainResource {
          */
         public MedicinalProductIngredientSpecifiedSubstanceStrengthComponent setConcentration(Ratio value) { 
           this.concentration = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #concentrationLowLimit} (A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.)
+         */
+        public Ratio getConcentrationLowLimit() { 
+          if (this.concentrationLowLimit == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicinalProductIngredientSpecifiedSubstanceStrengthComponent.concentrationLowLimit");
+            else if (Configuration.doAutoCreate())
+              this.concentrationLowLimit = new Ratio(); // cc
+          return this.concentrationLowLimit;
+        }
+
+        public boolean hasConcentrationLowLimit() { 
+          return this.concentrationLowLimit != null && !this.concentrationLowLimit.isEmpty();
+        }
+
+        /**
+         * @param value {@link #concentrationLowLimit} (A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.)
+         */
+        public MedicinalProductIngredientSpecifiedSubstanceStrengthComponent setConcentrationLowLimit(Ratio value) { 
+          this.concentrationLowLimit = value;
           return this;
         }
 
@@ -640,7 +702,9 @@ public class MedicinalProductIngredient extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("presentation", "Ratio", "The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item.", 0, 1, presentation));
+          children.add(new Property("presentationLowLimit", "Ratio", "A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.", 0, 1, presentationLowLimit));
           children.add(new Property("concentration", "Ratio", "The strength per unitary volume (or mass).", 0, 1, concentration));
+          children.add(new Property("concentrationLowLimit", "Ratio", "A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.", 0, 1, concentrationLowLimit));
           children.add(new Property("measurementPoint", "string", "For when strength is measured at a particular point or distance.", 0, 1, measurementPoint));
           children.add(new Property("country", "CodeableConcept", "The country or countries for which the strength range applies.", 0, java.lang.Integer.MAX_VALUE, country));
           children.add(new Property("referenceStrength", "", "Strength expressed in terms of a reference substance.", 0, java.lang.Integer.MAX_VALUE, referenceStrength));
@@ -650,7 +714,9 @@ public class MedicinalProductIngredient extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 696975130: /*presentation*/  return new Property("presentation", "Ratio", "The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item.", 0, 1, presentation);
+          case -819112447: /*presentationLowLimit*/  return new Property("presentationLowLimit", "Ratio", "A lower limit for the quantity of substance in the unit of presentation. For use when there is a range of strengths, this is the lower limit, with the presentation attribute becoming the upper limit.", 0, 1, presentationLowLimit);
           case -410557331: /*concentration*/  return new Property("concentration", "Ratio", "The strength per unitary volume (or mass).", 0, 1, concentration);
+          case -484132780: /*concentrationLowLimit*/  return new Property("concentrationLowLimit", "Ratio", "A lower limit for the strength per unitary volume (or mass), for when there is a range. The concentration attribute then becomes the upper limit.", 0, 1, concentrationLowLimit);
           case 235437876: /*measurementPoint*/  return new Property("measurementPoint", "string", "For when strength is measured at a particular point or distance.", 0, 1, measurementPoint);
           case 957831062: /*country*/  return new Property("country", "CodeableConcept", "The country or countries for which the strength range applies.", 0, java.lang.Integer.MAX_VALUE, country);
           case 1943566508: /*referenceStrength*/  return new Property("referenceStrength", "", "Strength expressed in terms of a reference substance.", 0, java.lang.Integer.MAX_VALUE, referenceStrength);
@@ -663,7 +729,9 @@ public class MedicinalProductIngredient extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 696975130: /*presentation*/ return this.presentation == null ? new Base[0] : new Base[] {this.presentation}; // Ratio
+        case -819112447: /*presentationLowLimit*/ return this.presentationLowLimit == null ? new Base[0] : new Base[] {this.presentationLowLimit}; // Ratio
         case -410557331: /*concentration*/ return this.concentration == null ? new Base[0] : new Base[] {this.concentration}; // Ratio
+        case -484132780: /*concentrationLowLimit*/ return this.concentrationLowLimit == null ? new Base[0] : new Base[] {this.concentrationLowLimit}; // Ratio
         case 235437876: /*measurementPoint*/ return this.measurementPoint == null ? new Base[0] : new Base[] {this.measurementPoint}; // StringType
         case 957831062: /*country*/ return this.country == null ? new Base[0] : this.country.toArray(new Base[this.country.size()]); // CodeableConcept
         case 1943566508: /*referenceStrength*/ return this.referenceStrength == null ? new Base[0] : this.referenceStrength.toArray(new Base[this.referenceStrength.size()]); // MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent
@@ -678,8 +746,14 @@ public class MedicinalProductIngredient extends DomainResource {
         case 696975130: // presentation
           this.presentation = castToRatio(value); // Ratio
           return value;
+        case -819112447: // presentationLowLimit
+          this.presentationLowLimit = castToRatio(value); // Ratio
+          return value;
         case -410557331: // concentration
           this.concentration = castToRatio(value); // Ratio
+          return value;
+        case -484132780: // concentrationLowLimit
+          this.concentrationLowLimit = castToRatio(value); // Ratio
           return value;
         case 235437876: // measurementPoint
           this.measurementPoint = castToString(value); // StringType
@@ -699,8 +773,12 @@ public class MedicinalProductIngredient extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("presentation")) {
           this.presentation = castToRatio(value); // Ratio
+        } else if (name.equals("presentationLowLimit")) {
+          this.presentationLowLimit = castToRatio(value); // Ratio
         } else if (name.equals("concentration")) {
           this.concentration = castToRatio(value); // Ratio
+        } else if (name.equals("concentrationLowLimit")) {
+          this.concentrationLowLimit = castToRatio(value); // Ratio
         } else if (name.equals("measurementPoint")) {
           this.measurementPoint = castToString(value); // StringType
         } else if (name.equals("country")) {
@@ -716,7 +794,9 @@ public class MedicinalProductIngredient extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 696975130:  return getPresentation(); 
+        case -819112447:  return getPresentationLowLimit(); 
         case -410557331:  return getConcentration(); 
+        case -484132780:  return getConcentrationLowLimit(); 
         case 235437876:  return getMeasurementPointElement();
         case 957831062:  return addCountry(); 
         case 1943566508:  return addReferenceStrength(); 
@@ -729,7 +809,9 @@ public class MedicinalProductIngredient extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 696975130: /*presentation*/ return new String[] {"Ratio"};
+        case -819112447: /*presentationLowLimit*/ return new String[] {"Ratio"};
         case -410557331: /*concentration*/ return new String[] {"Ratio"};
+        case -484132780: /*concentrationLowLimit*/ return new String[] {"Ratio"};
         case 235437876: /*measurementPoint*/ return new String[] {"string"};
         case 957831062: /*country*/ return new String[] {"CodeableConcept"};
         case 1943566508: /*referenceStrength*/ return new String[] {};
@@ -744,9 +826,17 @@ public class MedicinalProductIngredient extends DomainResource {
           this.presentation = new Ratio();
           return this.presentation;
         }
+        else if (name.equals("presentationLowLimit")) {
+          this.presentationLowLimit = new Ratio();
+          return this.presentationLowLimit;
+        }
         else if (name.equals("concentration")) {
           this.concentration = new Ratio();
           return this.concentration;
+        }
+        else if (name.equals("concentrationLowLimit")) {
+          this.concentrationLowLimit = new Ratio();
+          return this.concentrationLowLimit;
         }
         else if (name.equals("measurementPoint")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicinalProductIngredient.measurementPoint");
@@ -765,7 +855,9 @@ public class MedicinalProductIngredient extends DomainResource {
         MedicinalProductIngredientSpecifiedSubstanceStrengthComponent dst = new MedicinalProductIngredientSpecifiedSubstanceStrengthComponent();
         copyValues(dst);
         dst.presentation = presentation == null ? null : presentation.copy();
+        dst.presentationLowLimit = presentationLowLimit == null ? null : presentationLowLimit.copy();
         dst.concentration = concentration == null ? null : concentration.copy();
+        dst.concentrationLowLimit = concentrationLowLimit == null ? null : concentrationLowLimit.copy();
         dst.measurementPoint = measurementPoint == null ? null : measurementPoint.copy();
         if (country != null) {
           dst.country = new ArrayList<CodeableConcept>();
@@ -787,7 +879,8 @@ public class MedicinalProductIngredient extends DomainResource {
         if (!(other_ instanceof MedicinalProductIngredientSpecifiedSubstanceStrengthComponent))
           return false;
         MedicinalProductIngredientSpecifiedSubstanceStrengthComponent o = (MedicinalProductIngredientSpecifiedSubstanceStrengthComponent) other_;
-        return compareDeep(presentation, o.presentation, true) && compareDeep(concentration, o.concentration, true)
+        return compareDeep(presentation, o.presentation, true) && compareDeep(presentationLowLimit, o.presentationLowLimit, true)
+           && compareDeep(concentration, o.concentration, true) && compareDeep(concentrationLowLimit, o.concentrationLowLimit, true)
            && compareDeep(measurementPoint, o.measurementPoint, true) && compareDeep(country, o.country, true)
            && compareDeep(referenceStrength, o.referenceStrength, true);
       }
@@ -803,8 +896,9 @@ public class MedicinalProductIngredient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(presentation, concentration
-          , measurementPoint, country, referenceStrength);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(presentation, presentationLowLimit
+          , concentration, concentrationLowLimit, measurementPoint, country, referenceStrength
+          );
       }
 
   public String fhirType() {

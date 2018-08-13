@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Aug 7, 2018 16:40+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -304,7 +304,7 @@ public class SearchParameter extends MetadataResource {
             case EQ: return "Equals";
             case NE: return "Not Equals";
             case GT: return "Greater Than";
-            case LT: return "Less Then";
+            case LT: return "Less Than";
             case GE: return "Greater or Equals";
             case LE: return "Less of Equal";
             case SA: return "Starts After";
@@ -438,11 +438,11 @@ public class SearchParameter extends MetadataResource {
         /**
          * The search parameter applies to the identifier on the resource, not the reference.
          */
-        IDENTIFIER,
+        IDENTIFIER, 
         /**
          * The search parameter has the format system|code|value, where the system and code refer to a Identifier.type.coding.system and .code, and match if any of the type codes match. All 3 parts must be present.
          */
-        OFTYPE,
+        OFTYPE, 
         /**
          * added to help the parsers with the generic types
          */

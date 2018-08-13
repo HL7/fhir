@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -44,10 +44,10 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * This resource provides eligibility and plan details from the processing of an Eligibility resource.
+ * This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.
  */
-@ResourceDef(name="EligibilityResponse", profile="http://hl7.org/fhir/Profile/EligibilityResponse")
-public class EligibilityResponse extends DomainResource {
+@ResourceDef(name="CoverageEligibilityResponse", profile="http://hl7.org/fhir/Profile/CoverageEligibilityResponse")
+public class CoverageEligibilityResponse extends DomainResource {
 
     public enum EligibilityResponseStatus {
         /**
@@ -173,7 +173,7 @@ public class EligibilityResponse extends DomainResource {
       }
     }
 
-    public enum EligibilityResponseUse {
+    public enum EligibilityResponsePurpose {
         /**
          * The prior authorization requirements for the listed, or discovered if specified, converages for the categories of service and/or specifed biling codes are requested.
          */
@@ -194,7 +194,7 @@ public class EligibilityResponse extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static EligibilityResponseUse fromCode(String codeString) throws FHIRException {
+        public static EligibilityResponsePurpose fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("auth-requirements".equals(codeString))
@@ -208,7 +208,7 @@ public class EligibilityResponse extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown EligibilityResponseUse code '"+codeString+"'");
+          throw new FHIRException("Unknown EligibilityResponsePurpose code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -221,10 +221,10 @@ public class EligibilityResponse extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case AUTHREQUIREMENTS: return "http://hl7.org/fhir/eligibilityresponse-use";
-            case BENEFITS: return "http://hl7.org/fhir/eligibilityresponse-use";
-            case DISCOVERY: return "http://hl7.org/fhir/eligibilityresponse-use";
-            case VALIDATION: return "http://hl7.org/fhir/eligibilityresponse-use";
+            case AUTHREQUIREMENTS: return "http://hl7.org/fhir/eligibilityresponse-purpose";
+            case BENEFITS: return "http://hl7.org/fhir/eligibilityresponse-purpose";
+            case DISCOVERY: return "http://hl7.org/fhir/eligibilityresponse-purpose";
+            case VALIDATION: return "http://hl7.org/fhir/eligibilityresponse-purpose";
             default: return "?";
           }
         }
@@ -248,51 +248,51 @@ public class EligibilityResponse extends DomainResource {
         }
     }
 
-  public static class EligibilityResponseUseEnumFactory implements EnumFactory<EligibilityResponseUse> {
-    public EligibilityResponseUse fromCode(String codeString) throws IllegalArgumentException {
+  public static class EligibilityResponsePurposeEnumFactory implements EnumFactory<EligibilityResponsePurpose> {
+    public EligibilityResponsePurpose fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("auth-requirements".equals(codeString))
-          return EligibilityResponseUse.AUTHREQUIREMENTS;
+          return EligibilityResponsePurpose.AUTHREQUIREMENTS;
         if ("benefits".equals(codeString))
-          return EligibilityResponseUse.BENEFITS;
+          return EligibilityResponsePurpose.BENEFITS;
         if ("discovery".equals(codeString))
-          return EligibilityResponseUse.DISCOVERY;
+          return EligibilityResponsePurpose.DISCOVERY;
         if ("validation".equals(codeString))
-          return EligibilityResponseUse.VALIDATION;
-        throw new IllegalArgumentException("Unknown EligibilityResponseUse code '"+codeString+"'");
+          return EligibilityResponsePurpose.VALIDATION;
+        throw new IllegalArgumentException("Unknown EligibilityResponsePurpose code '"+codeString+"'");
         }
-        public Enumeration<EligibilityResponseUse> fromType(Base code) throws FHIRException {
+        public Enumeration<EligibilityResponsePurpose> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<EligibilityResponseUse>(this);
+            return new Enumeration<EligibilityResponsePurpose>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("auth-requirements".equals(codeString))
-          return new Enumeration<EligibilityResponseUse>(this, EligibilityResponseUse.AUTHREQUIREMENTS);
+          return new Enumeration<EligibilityResponsePurpose>(this, EligibilityResponsePurpose.AUTHREQUIREMENTS);
         if ("benefits".equals(codeString))
-          return new Enumeration<EligibilityResponseUse>(this, EligibilityResponseUse.BENEFITS);
+          return new Enumeration<EligibilityResponsePurpose>(this, EligibilityResponsePurpose.BENEFITS);
         if ("discovery".equals(codeString))
-          return new Enumeration<EligibilityResponseUse>(this, EligibilityResponseUse.DISCOVERY);
+          return new Enumeration<EligibilityResponsePurpose>(this, EligibilityResponsePurpose.DISCOVERY);
         if ("validation".equals(codeString))
-          return new Enumeration<EligibilityResponseUse>(this, EligibilityResponseUse.VALIDATION);
-        throw new FHIRException("Unknown EligibilityResponseUse code '"+codeString+"'");
+          return new Enumeration<EligibilityResponsePurpose>(this, EligibilityResponsePurpose.VALIDATION);
+        throw new FHIRException("Unknown EligibilityResponsePurpose code '"+codeString+"'");
         }
-    public String toCode(EligibilityResponseUse code) {
-      if (code == EligibilityResponseUse.AUTHREQUIREMENTS)
+    public String toCode(EligibilityResponsePurpose code) {
+      if (code == EligibilityResponsePurpose.AUTHREQUIREMENTS)
         return "auth-requirements";
-      if (code == EligibilityResponseUse.BENEFITS)
+      if (code == EligibilityResponsePurpose.BENEFITS)
         return "benefits";
-      if (code == EligibilityResponseUse.DISCOVERY)
+      if (code == EligibilityResponsePurpose.DISCOVERY)
         return "discovery";
-      if (code == EligibilityResponseUse.VALIDATION)
+      if (code == EligibilityResponsePurpose.VALIDATION)
         return "validation";
       return "?";
       }
-    public String toSystem(EligibilityResponseUse code) {
+    public String toSystem(EligibilityResponsePurpose code) {
       return code.getSystem();
       }
     }
@@ -333,11 +333,11 @@ public class EligibilityResponse extends DomainResource {
         /**
          * Benefits and optionally current balances by Category or Service.
          */
-        @Child(name = "detail", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "item", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Benefits and Authorization requirements by Category or Service", formalDefinition="Benefits and optionally current balances by Category or Service." )
-        protected List<DetailsComponent> detail;
+        protected List<ItemsComponent> item;
 
-        private static final long serialVersionUID = 2038377942L;
+        private static final long serialVersionUID = -633294702L;
 
     /**
      * Constructor
@@ -480,56 +480,56 @@ public class EligibilityResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #detail} (Benefits and optionally current balances by Category or Service.)
+         * @return {@link #item} (Benefits and optionally current balances by Category or Service.)
          */
-        public List<DetailsComponent> getDetail() { 
-          if (this.detail == null)
-            this.detail = new ArrayList<DetailsComponent>();
-          return this.detail;
+        public List<ItemsComponent> getItem() { 
+          if (this.item == null)
+            this.item = new ArrayList<ItemsComponent>();
+          return this.item;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public InsuranceComponent setDetail(List<DetailsComponent> theDetail) { 
-          this.detail = theDetail;
+        public InsuranceComponent setItem(List<ItemsComponent> theItem) { 
+          this.item = theItem;
           return this;
         }
 
-        public boolean hasDetail() { 
-          if (this.detail == null)
+        public boolean hasItem() { 
+          if (this.item == null)
             return false;
-          for (DetailsComponent item : this.detail)
+          for (ItemsComponent item : this.item)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public DetailsComponent addDetail() { //3
-          DetailsComponent t = new DetailsComponent();
-          if (this.detail == null)
-            this.detail = new ArrayList<DetailsComponent>();
-          this.detail.add(t);
+        public ItemsComponent addItem() { //3
+          ItemsComponent t = new ItemsComponent();
+          if (this.item == null)
+            this.item = new ArrayList<ItemsComponent>();
+          this.item.add(t);
           return t;
         }
 
-        public InsuranceComponent addDetail(DetailsComponent t) { //3
+        public InsuranceComponent addItem(ItemsComponent t) { //3
           if (t == null)
             return this;
-          if (this.detail == null)
-            this.detail = new ArrayList<DetailsComponent>();
-          this.detail.add(t);
+          if (this.item == null)
+            this.item = new ArrayList<ItemsComponent>();
+          this.item.add(t);
           return this;
         }
 
         /**
-         * @return The first repetition of repeating field {@link #detail}, creating it if it does not already exist
+         * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
          */
-        public DetailsComponent getDetailFirstRep() { 
-          if (getDetail().isEmpty()) {
-            addDetail();
+        public ItemsComponent getItemFirstRep() { 
+          if (getItem().isEmpty()) {
+            addItem();
           }
-          return getDetail().get(0);
+          return getItem().get(0);
         }
 
         protected void listChildren(List<Property> children) {
@@ -537,7 +537,7 @@ public class EligibilityResponse extends DomainResource {
           children.add(new Property("coverage", "Reference(Coverage)", "A suite of updated or additional Coverages from the Insurer.", 0, 1, coverage));
           children.add(new Property("contract", "Reference(Contract)", "The contract resource which may provide more detailed information.", 0, 1, contract));
           children.add(new Property("inforce", "boolean", "Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.", 0, 1, inforce));
-          children.add(new Property("detail", "", "Benefits and optionally current balances by Category or Service.", 0, java.lang.Integer.MAX_VALUE, detail));
+          children.add(new Property("item", "", "Benefits and optionally current balances by Category or Service.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
         @Override
@@ -546,7 +546,7 @@ public class EligibilityResponse extends DomainResource {
           case -351767064: /*coverage*/  return new Property("coverage", "Reference(Coverage)", "A suite of updated or additional Coverages from the Insurer.", 0, 1, coverage);
           case -566947566: /*contract*/  return new Property("contract", "Reference(Contract)", "The contract resource which may provide more detailed information.", 0, 1, contract);
           case 1945431270: /*inforce*/  return new Property("inforce", "boolean", "Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.", 0, 1, inforce);
-          case -1335224239: /*detail*/  return new Property("detail", "", "Benefits and optionally current balances by Category or Service.", 0, java.lang.Integer.MAX_VALUE, detail);
+          case 3242771: /*item*/  return new Property("item", "", "Benefits and optionally current balances by Category or Service.", 0, java.lang.Integer.MAX_VALUE, item);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -558,7 +558,7 @@ public class EligibilityResponse extends DomainResource {
         case -351767064: /*coverage*/ return this.coverage == null ? new Base[0] : new Base[] {this.coverage}; // Reference
         case -566947566: /*contract*/ return this.contract == null ? new Base[0] : new Base[] {this.contract}; // Reference
         case 1945431270: /*inforce*/ return this.inforce == null ? new Base[0] : new Base[] {this.inforce}; // BooleanType
-        case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // DetailsComponent
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // ItemsComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -576,8 +576,8 @@ public class EligibilityResponse extends DomainResource {
         case 1945431270: // inforce
           this.inforce = castToBoolean(value); // BooleanType
           return value;
-        case -1335224239: // detail
-          this.getDetail().add((DetailsComponent) value); // DetailsComponent
+        case 3242771: // item
+          this.getItem().add((ItemsComponent) value); // ItemsComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -592,8 +592,8 @@ public class EligibilityResponse extends DomainResource {
           this.contract = castToReference(value); // Reference
         } else if (name.equals("inforce")) {
           this.inforce = castToBoolean(value); // BooleanType
-        } else if (name.equals("detail")) {
-          this.getDetail().add((DetailsComponent) value);
+        } else if (name.equals("item")) {
+          this.getItem().add((ItemsComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -605,7 +605,7 @@ public class EligibilityResponse extends DomainResource {
         case -351767064:  return getCoverage(); 
         case -566947566:  return getContract(); 
         case 1945431270:  return getInforceElement();
-        case -1335224239:  return addDetail(); 
+        case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -617,7 +617,7 @@ public class EligibilityResponse extends DomainResource {
         case -351767064: /*coverage*/ return new String[] {"Reference"};
         case -566947566: /*contract*/ return new String[] {"Reference"};
         case 1945431270: /*inforce*/ return new String[] {"boolean"};
-        case -1335224239: /*detail*/ return new String[] {};
+        case 3242771: /*item*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -634,10 +634,10 @@ public class EligibilityResponse extends DomainResource {
           return this.contract;
         }
         else if (name.equals("inforce")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.inforce");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.inforce");
         }
-        else if (name.equals("detail")) {
-          return addDetail();
+        else if (name.equals("item")) {
+          return addItem();
         }
         else
           return super.addChild(name);
@@ -649,10 +649,10 @@ public class EligibilityResponse extends DomainResource {
         dst.coverage = coverage == null ? null : coverage.copy();
         dst.contract = contract == null ? null : contract.copy();
         dst.inforce = inforce == null ? null : inforce.copy();
-        if (detail != null) {
-          dst.detail = new ArrayList<DetailsComponent>();
-          for (DetailsComponent i : detail)
-            dst.detail.add(i.copy());
+        if (item != null) {
+          dst.item = new ArrayList<ItemsComponent>();
+          for (ItemsComponent i : item)
+            dst.item.add(i.copy());
         };
         return dst;
       }
@@ -665,7 +665,7 @@ public class EligibilityResponse extends DomainResource {
           return false;
         InsuranceComponent o = (InsuranceComponent) other_;
         return compareDeep(coverage, o.coverage, true) && compareDeep(contract, o.contract, true) && compareDeep(inforce, o.inforce, true)
-           && compareDeep(detail, o.detail, true);
+           && compareDeep(item, o.item, true);
       }
 
       @Override
@@ -680,18 +680,18 @@ public class EligibilityResponse extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(coverage, contract, inforce
-          , detail);
+          , item);
       }
 
   public String fhirType() {
-    return "EligibilityResponse.insurance";
+    return "CoverageEligibilityResponse.insurance";
 
   }
 
   }
 
     @Block()
-    public static class DetailsComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ItemsComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * High-level Dental, Vision, Medical, Pharmacy, Rehab etc. and detailed types of services: Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
          */
@@ -703,10 +703,10 @@ public class EligibilityResponse extends DomainResource {
         /**
          * A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
          */
-        @Child(name = "service", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "billcode", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Billing Code", formalDefinition="A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/service-uscls")
-        protected CodeableConcept service;
+        protected CodeableConcept billcode;
 
         /**
          * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
@@ -743,10 +743,10 @@ public class EligibilityResponse extends DomainResource {
         protected StringType name;
 
         /**
-         * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         * A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.
          */
         @Child(name = "description", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Description of the benefit or services covered", formalDefinition="A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'." )
+        @Description(shortDefinition="Description of the benefit or services covered", formalDefinition="A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'." )
         protected StringType description;
 
         /**
@@ -766,18 +766,18 @@ public class EligibilityResponse extends DomainResource {
         protected CodeableConcept unit;
 
         /**
-         * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
+         * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.
          */
         @Child(name = "term", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'." )
+        @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-term")
         protected CodeableConcept term;
 
         /**
-         * Benefits Used to date.
+         * Benefits used to date.
          */
         @Child(name = "benefit", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits Used to date." )
+        @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits used to date." )
         protected List<BenefitComponent> benefit;
 
         /**
@@ -801,12 +801,12 @@ public class EligibilityResponse extends DomainResource {
         @Description(shortDefinition="Pre-authorization requirements", formalDefinition="A descriptive document location." )
         protected UriType authorizationUrl;
 
-        private static final long serialVersionUID = 550920545L;
+        private static final long serialVersionUID = -950511602L;
 
     /**
      * Constructor
      */
-      public DetailsComponent() {
+      public ItemsComponent() {
         super();
       }
 
@@ -816,7 +816,7 @@ public class EligibilityResponse extends DomainResource {
         public CodeableConcept getCategory() { 
           if (this.category == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.category");
+              throw new Error("Attempt to auto-create ItemsComponent.category");
             else if (Configuration.doAutoCreate())
               this.category = new CodeableConcept(); // cc
           return this.category;
@@ -829,32 +829,32 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #category} (High-level Dental, Vision, Medical, Pharmacy, Rehab etc. and detailed types of services: Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.)
          */
-        public DetailsComponent setCategory(CodeableConcept value) { 
+        public ItemsComponent setCategory(CodeableConcept value) { 
           this.category = value;
           return this;
         }
 
         /**
-         * @return {@link #service} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
+         * @return {@link #billcode} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
          */
-        public CodeableConcept getService() { 
-          if (this.service == null)
+        public CodeableConcept getBillcode() { 
+          if (this.billcode == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.service");
+              throw new Error("Attempt to auto-create ItemsComponent.billcode");
             else if (Configuration.doAutoCreate())
-              this.service = new CodeableConcept(); // cc
-          return this.service;
+              this.billcode = new CodeableConcept(); // cc
+          return this.billcode;
         }
 
-        public boolean hasService() { 
-          return this.service != null && !this.service.isEmpty();
+        public boolean hasBillcode() { 
+          return this.billcode != null && !this.billcode.isEmpty();
         }
 
         /**
-         * @param value {@link #service} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
+         * @param value {@link #billcode} (A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).)
          */
-        public DetailsComponent setService(CodeableConcept value) { 
-          this.service = value;
+        public ItemsComponent setBillcode(CodeableConcept value) { 
+          this.billcode = value;
           return this;
         }
 
@@ -870,7 +870,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public DetailsComponent setModifier(List<CodeableConcept> theModifier) { 
+        public ItemsComponent setModifier(List<CodeableConcept> theModifier) { 
           this.modifier = theModifier;
           return this;
         }
@@ -892,7 +892,7 @@ public class EligibilityResponse extends DomainResource {
           return t;
         }
 
-        public DetailsComponent addModifier(CodeableConcept t) { //3
+        public ItemsComponent addModifier(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.modifier == null)
@@ -917,7 +917,7 @@ public class EligibilityResponse extends DomainResource {
         public Reference getProvider() { 
           if (this.provider == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.provider");
+              throw new Error("Attempt to auto-create ItemsComponent.provider");
             else if (Configuration.doAutoCreate())
               this.provider = new Reference(); // cc
           return this.provider;
@@ -930,7 +930,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
          */
-        public DetailsComponent setProvider(Reference value) { 
+        public ItemsComponent setProvider(Reference value) { 
           this.provider = value;
           return this;
         }
@@ -945,7 +945,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
          */
-        public DetailsComponent setProviderTarget(Resource value) { 
+        public ItemsComponent setProviderTarget(Resource value) { 
           this.providerTarget = value;
           return this;
         }
@@ -956,7 +956,7 @@ public class EligibilityResponse extends DomainResource {
         public BooleanType getExcludedElement() { 
           if (this.excluded == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.excluded");
+              throw new Error("Attempt to auto-create ItemsComponent.excluded");
             else if (Configuration.doAutoCreate())
               this.excluded = new BooleanType(); // bb
           return this.excluded;
@@ -973,7 +973,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #excluded} (True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.). This is the underlying object with id, value and extensions. The accessor "getExcluded" gives direct access to the value
          */
-        public DetailsComponent setExcludedElement(BooleanType value) { 
+        public ItemsComponent setExcludedElement(BooleanType value) { 
           this.excluded = value;
           return this;
         }
@@ -988,7 +988,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.
          */
-        public DetailsComponent setExcluded(boolean value) { 
+        public ItemsComponent setExcluded(boolean value) { 
             if (this.excluded == null)
               this.excluded = new BooleanType();
             this.excluded.setValue(value);
@@ -1001,7 +1001,7 @@ public class EligibilityResponse extends DomainResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.name");
+              throw new Error("Attempt to auto-create ItemsComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -1018,7 +1018,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #name} (A short name or tag for the benefit, for example MED01, or DENT2.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public DetailsComponent setNameElement(StringType value) { 
+        public ItemsComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -1033,7 +1033,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value A short name or tag for the benefit, for example MED01, or DENT2.
          */
-        public DetailsComponent setName(String value) { 
+        public ItemsComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -1045,12 +1045,12 @@ public class EligibilityResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @return {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.description");
+              throw new Error("Attempt to auto-create ItemsComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -1065,24 +1065,24 @@ public class EligibilityResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         * @param value {@link #description} (A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public DetailsComponent setDescriptionElement(StringType value) { 
+        public ItemsComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
 
         /**
-         * @return A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         * @return A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.
          */
         public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
-         * @param value A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.
+         * @param value A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.
          */
-        public DetailsComponent setDescription(String value) { 
+        public ItemsComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1099,7 +1099,7 @@ public class EligibilityResponse extends DomainResource {
         public CodeableConcept getNetwork() { 
           if (this.network == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.network");
+              throw new Error("Attempt to auto-create ItemsComponent.network");
             else if (Configuration.doAutoCreate())
               this.network = new CodeableConcept(); // cc
           return this.network;
@@ -1112,7 +1112,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #network} (Network designation.)
          */
-        public DetailsComponent setNetwork(CodeableConcept value) { 
+        public ItemsComponent setNetwork(CodeableConcept value) { 
           this.network = value;
           return this;
         }
@@ -1123,7 +1123,7 @@ public class EligibilityResponse extends DomainResource {
         public CodeableConcept getUnit() { 
           if (this.unit == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.unit");
+              throw new Error("Attempt to auto-create ItemsComponent.unit");
             else if (Configuration.doAutoCreate())
               this.unit = new CodeableConcept(); // cc
           return this.unit;
@@ -1136,18 +1136,18 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #unit} (Unit designation: individual or family.)
          */
-        public DetailsComponent setUnit(CodeableConcept value) { 
+        public ItemsComponent setUnit(CodeableConcept value) { 
           this.unit = value;
           return this;
         }
 
         /**
-         * @return {@link #term} (The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.)
+         * @return {@link #term} (The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.)
          */
         public CodeableConcept getTerm() { 
           if (this.term == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.term");
+              throw new Error("Attempt to auto-create ItemsComponent.term");
             else if (Configuration.doAutoCreate())
               this.term = new CodeableConcept(); // cc
           return this.term;
@@ -1158,15 +1158,15 @@ public class EligibilityResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #term} (The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.)
+         * @param value {@link #term} (The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.)
          */
-        public DetailsComponent setTerm(CodeableConcept value) { 
+        public ItemsComponent setTerm(CodeableConcept value) { 
           this.term = value;
           return this;
         }
 
         /**
-         * @return {@link #benefit} (Benefits Used to date.)
+         * @return {@link #benefit} (Benefits used to date.)
          */
         public List<BenefitComponent> getBenefit() { 
           if (this.benefit == null)
@@ -1177,7 +1177,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public DetailsComponent setBenefit(List<BenefitComponent> theBenefit) { 
+        public ItemsComponent setBenefit(List<BenefitComponent> theBenefit) { 
           this.benefit = theBenefit;
           return this;
         }
@@ -1199,7 +1199,7 @@ public class EligibilityResponse extends DomainResource {
           return t;
         }
 
-        public DetailsComponent addBenefit(BenefitComponent t) { //3
+        public ItemsComponent addBenefit(BenefitComponent t) { //3
           if (t == null)
             return this;
           if (this.benefit == null)
@@ -1224,7 +1224,7 @@ public class EligibilityResponse extends DomainResource {
         public BooleanType getAuthorizationRequiredElement() { 
           if (this.authorizationRequired == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.authorizationRequired");
+              throw new Error("Attempt to auto-create ItemsComponent.authorizationRequired");
             else if (Configuration.doAutoCreate())
               this.authorizationRequired = new BooleanType(); // bb
           return this.authorizationRequired;
@@ -1241,7 +1241,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #authorizationRequired} (A boolean flag indicating whether a prior authorization or pre-authorization is required prior to actual service delivery.). This is the underlying object with id, value and extensions. The accessor "getAuthorizationRequired" gives direct access to the value
          */
-        public DetailsComponent setAuthorizationRequiredElement(BooleanType value) { 
+        public ItemsComponent setAuthorizationRequiredElement(BooleanType value) { 
           this.authorizationRequired = value;
           return this;
         }
@@ -1256,7 +1256,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value A boolean flag indicating whether a prior authorization or pre-authorization is required prior to actual service delivery.
          */
-        public DetailsComponent setAuthorizationRequired(boolean value) { 
+        public ItemsComponent setAuthorizationRequired(boolean value) { 
             if (this.authorizationRequired == null)
               this.authorizationRequired = new BooleanType();
             this.authorizationRequired.setValue(value);
@@ -1275,7 +1275,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public DetailsComponent setAuthorizationSupporting(List<CodeableConcept> theAuthorizationSupporting) { 
+        public ItemsComponent setAuthorizationSupporting(List<CodeableConcept> theAuthorizationSupporting) { 
           this.authorizationSupporting = theAuthorizationSupporting;
           return this;
         }
@@ -1297,7 +1297,7 @@ public class EligibilityResponse extends DomainResource {
           return t;
         }
 
-        public DetailsComponent addAuthorizationSupporting(CodeableConcept t) { //3
+        public ItemsComponent addAuthorizationSupporting(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.authorizationSupporting == null)
@@ -1322,7 +1322,7 @@ public class EligibilityResponse extends DomainResource {
         public UriType getAuthorizationUrlElement() { 
           if (this.authorizationUrl == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailsComponent.authorizationUrl");
+              throw new Error("Attempt to auto-create ItemsComponent.authorizationUrl");
             else if (Configuration.doAutoCreate())
               this.authorizationUrl = new UriType(); // bb
           return this.authorizationUrl;
@@ -1339,7 +1339,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value {@link #authorizationUrl} (A descriptive document location.). This is the underlying object with id, value and extensions. The accessor "getAuthorizationUrl" gives direct access to the value
          */
-        public DetailsComponent setAuthorizationUrlElement(UriType value) { 
+        public ItemsComponent setAuthorizationUrlElement(UriType value) { 
           this.authorizationUrl = value;
           return this;
         }
@@ -1354,7 +1354,7 @@ public class EligibilityResponse extends DomainResource {
         /**
          * @param value A descriptive document location.
          */
-        public DetailsComponent setAuthorizationUrl(String value) { 
+        public ItemsComponent setAuthorizationUrl(String value) { 
           if (Utilities.noString(value))
             this.authorizationUrl = null;
           else {
@@ -1368,16 +1368,16 @@ public class EligibilityResponse extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("category", "CodeableConcept", "High-level Dental, Vision, Medical, Pharmacy, Rehab etc. and detailed types of services: Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, 1, category));
-          children.add(new Property("service", "CodeableConcept", "A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).", 0, 1, service));
+          children.add(new Property("billcode", "CodeableConcept", "A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).", 0, 1, billcode));
           children.add(new Property("modifier", "CodeableConcept", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier));
           children.add(new Property("provider", "Reference(Practitioner|PractitionerRole)", "The practitioner who is responsible for the services rendered to the patient.", 0, 1, provider));
           children.add(new Property("excluded", "boolean", "True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.", 0, 1, excluded));
           children.add(new Property("name", "string", "A short name or tag for the benefit, for example MED01, or DENT2.", 0, 1, name));
-          children.add(new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.", 0, 1, description));
+          children.add(new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.", 0, 1, description));
           children.add(new Property("network", "CodeableConcept", "Network designation.", 0, 1, network));
           children.add(new Property("unit", "CodeableConcept", "Unit designation: individual or family.", 0, 1, unit));
-          children.add(new Property("term", "CodeableConcept", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.", 0, 1, term));
-          children.add(new Property("benefit", "", "Benefits Used to date.", 0, java.lang.Integer.MAX_VALUE, benefit));
+          children.add(new Property("term", "CodeableConcept", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.", 0, 1, term));
+          children.add(new Property("benefit", "", "Benefits used to date.", 0, java.lang.Integer.MAX_VALUE, benefit));
           children.add(new Property("authorizationRequired", "boolean", "A boolean flag indicating whether a prior authorization or pre-authorization is required prior to actual service delivery.", 0, 1, authorizationRequired));
           children.add(new Property("authorizationSupporting", "CodeableConcept", "Codes or comments regarding information or actions assciated with the pre-authorization.", 0, java.lang.Integer.MAX_VALUE, authorizationSupporting));
           children.add(new Property("authorizationUrl", "uri", "A descriptive document location.", 0, 1, authorizationUrl));
@@ -1387,16 +1387,16 @@ public class EligibilityResponse extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 50511102: /*category*/  return new Property("category", "CodeableConcept", "High-level Dental, Vision, Medical, Pharmacy, Rehab etc. and detailed types of services: Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, 1, category);
-          case 1984153269: /*service*/  return new Property("service", "CodeableConcept", "A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).", 0, 1, service);
+          case 890074740: /*billcode*/  return new Property("billcode", "CodeableConcept", "A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).", 0, 1, billcode);
           case -615513385: /*modifier*/  return new Property("modifier", "CodeableConcept", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.", 0, java.lang.Integer.MAX_VALUE, modifier);
           case -987494927: /*provider*/  return new Property("provider", "Reference(Practitioner|PractitionerRole)", "The practitioner who is responsible for the services rendered to the patient.", 0, 1, provider);
           case 1994055114: /*excluded*/  return new Property("excluded", "boolean", "True if the indicated class of service is excluded from the plan, missing or False indicated the service is included in the coverage.", 0, 1, excluded);
           case 3373707: /*name*/  return new Property("name", "string", "A short name or tag for the benefit, for example MED01, or DENT2.", 0, 1, name);
-          case -1724546052: /*description*/  return new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.", 0, 1, description);
+          case -1724546052: /*description*/  return new Property("description", "string", "A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'.", 0, 1, description);
           case 1843485230: /*network*/  return new Property("network", "CodeableConcept", "Network designation.", 0, 1, network);
           case 3594628: /*unit*/  return new Property("unit", "CodeableConcept", "Unit designation: individual or family.", 0, 1, unit);
-          case 3556460: /*term*/  return new Property("term", "CodeableConcept", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.", 0, 1, term);
-          case -222710633: /*benefit*/  return new Property("benefit", "", "Benefits Used to date.", 0, java.lang.Integer.MAX_VALUE, benefit);
+          case 3556460: /*term*/  return new Property("term", "CodeableConcept", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'.", 0, 1, term);
+          case -222710633: /*benefit*/  return new Property("benefit", "", "Benefits used to date.", 0, java.lang.Integer.MAX_VALUE, benefit);
           case 374204216: /*authorizationRequired*/  return new Property("authorizationRequired", "boolean", "A boolean flag indicating whether a prior authorization or pre-authorization is required prior to actual service delivery.", 0, 1, authorizationRequired);
           case -1931146484: /*authorizationSupporting*/  return new Property("authorizationSupporting", "CodeableConcept", "Codes or comments regarding information or actions assciated with the pre-authorization.", 0, java.lang.Integer.MAX_VALUE, authorizationSupporting);
           case 1409445430: /*authorizationUrl*/  return new Property("authorizationUrl", "uri", "A descriptive document location.", 0, 1, authorizationUrl);
@@ -1409,7 +1409,7 @@ public class EligibilityResponse extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case 1984153269: /*service*/ return this.service == null ? new Base[0] : new Base[] {this.service}; // CodeableConcept
+        case 890074740: /*billcode*/ return this.billcode == null ? new Base[0] : new Base[] {this.billcode}; // CodeableConcept
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
         case 1994055114: /*excluded*/ return this.excluded == null ? new Base[0] : new Base[] {this.excluded}; // BooleanType
@@ -1433,8 +1433,8 @@ public class EligibilityResponse extends DomainResource {
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case 1984153269: // service
-          this.service = castToCodeableConcept(value); // CodeableConcept
+        case 890074740: // billcode
+          this.billcode = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -615513385: // modifier
           this.getModifier().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1481,8 +1481,8 @@ public class EligibilityResponse extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("service")) {
-          this.service = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("billcode")) {
+          this.billcode = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("modifier")) {
           this.getModifier().add(castToCodeableConcept(value));
         } else if (name.equals("provider")) {
@@ -1516,7 +1516,7 @@ public class EligibilityResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102:  return getCategory(); 
-        case 1984153269:  return getService(); 
+        case 890074740:  return getBillcode(); 
         case -615513385:  return addModifier(); 
         case -987494927:  return getProvider(); 
         case 1994055114:  return getExcludedElement();
@@ -1538,7 +1538,7 @@ public class EligibilityResponse extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
-        case 1984153269: /*service*/ return new String[] {"CodeableConcept"};
+        case 890074740: /*billcode*/ return new String[] {"CodeableConcept"};
         case -615513385: /*modifier*/ return new String[] {"CodeableConcept"};
         case -987494927: /*provider*/ return new String[] {"Reference"};
         case 1994055114: /*excluded*/ return new String[] {"boolean"};
@@ -1562,9 +1562,9 @@ public class EligibilityResponse extends DomainResource {
           this.category = new CodeableConcept();
           return this.category;
         }
-        else if (name.equals("service")) {
-          this.service = new CodeableConcept();
-          return this.service;
+        else if (name.equals("billcode")) {
+          this.billcode = new CodeableConcept();
+          return this.billcode;
         }
         else if (name.equals("modifier")) {
           return addModifier();
@@ -1574,13 +1574,13 @@ public class EligibilityResponse extends DomainResource {
           return this.provider;
         }
         else if (name.equals("excluded")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.excluded");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.excluded");
         }
         else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.name");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.name");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.description");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.description");
         }
         else if (name.equals("network")) {
           this.network = new CodeableConcept();
@@ -1598,23 +1598,23 @@ public class EligibilityResponse extends DomainResource {
           return addBenefit();
         }
         else if (name.equals("authorizationRequired")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.authorizationRequired");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.authorizationRequired");
         }
         else if (name.equals("authorizationSupporting")) {
           return addAuthorizationSupporting();
         }
         else if (name.equals("authorizationUrl")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.authorizationUrl");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.authorizationUrl");
         }
         else
           return super.addChild(name);
       }
 
-      public DetailsComponent copy() {
-        DetailsComponent dst = new DetailsComponent();
+      public ItemsComponent copy() {
+        ItemsComponent dst = new ItemsComponent();
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
-        dst.service = service == null ? null : service.copy();
+        dst.billcode = billcode == null ? null : billcode.copy();
         if (modifier != null) {
           dst.modifier = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : modifier)
@@ -1646,10 +1646,10 @@ public class EligibilityResponse extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof DetailsComponent))
+        if (!(other_ instanceof ItemsComponent))
           return false;
-        DetailsComponent o = (DetailsComponent) other_;
-        return compareDeep(category, o.category, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
+        ItemsComponent o = (ItemsComponent) other_;
+        return compareDeep(category, o.category, true) && compareDeep(billcode, o.billcode, true) && compareDeep(modifier, o.modifier, true)
            && compareDeep(provider, o.provider, true) && compareDeep(excluded, o.excluded, true) && compareDeep(name, o.name, true)
            && compareDeep(description, o.description, true) && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true)
            && compareDeep(term, o.term, true) && compareDeep(benefit, o.benefit, true) && compareDeep(authorizationRequired, o.authorizationRequired, true)
@@ -1661,22 +1661,22 @@ public class EligibilityResponse extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof DetailsComponent))
+        if (!(other_ instanceof ItemsComponent))
           return false;
-        DetailsComponent o = (DetailsComponent) other_;
+        ItemsComponent o = (ItemsComponent) other_;
         return compareValues(excluded, o.excluded, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
            && compareValues(authorizationRequired, o.authorizationRequired, true) && compareValues(authorizationUrl, o.authorizationUrl, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, service, modifier
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, billcode, modifier
           , provider, excluded, name, description, network, unit, term, benefit, authorizationRequired
           , authorizationSupporting, authorizationUrl);
       }
 
   public String fhirType() {
-    return "EligibilityResponse.insurance.detail";
+    return "CoverageEligibilityResponse.insurance.item";
 
   }
 
@@ -1685,10 +1685,10 @@ public class EligibilityResponse extends DomainResource {
     @Block()
     public static class BenefitComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Deductable, visits, benefit amount.
+         * Deductible, visits, benefit amount.
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Deductable, visits, benefit amount", formalDefinition="Deductable, visits, benefit amount." )
+        @Description(shortDefinition="Deductible, visits, benefit amount", formalDefinition="Deductible, visits, benefit amount." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/benefit-type")
         protected CodeableConcept type;
 
@@ -1724,7 +1724,7 @@ public class EligibilityResponse extends DomainResource {
       }
 
         /**
-         * @return {@link #type} (Deductable, visits, benefit amount.)
+         * @return {@link #type} (Deductible, visits, benefit amount.)
          */
         public CodeableConcept getType() { 
           if (this.type == null)
@@ -1740,7 +1740,7 @@ public class EligibilityResponse extends DomainResource {
         }
 
         /**
-         * @param value {@link #type} (Deductable, visits, benefit amount.)
+         * @param value {@link #type} (Deductible, visits, benefit amount.)
          */
         public BenefitComponent setType(CodeableConcept value) { 
           this.type = value;
@@ -1808,7 +1808,7 @@ public class EligibilityResponse extends DomainResource {
          */
         public BenefitComponent setAllowed(Type value) { 
           if (value != null && !(value instanceof UnsignedIntType || value instanceof StringType || value instanceof Money))
-            throw new Error("Not the right type for EligibilityResponse.insurance.detail.benefit.allowed[x]: "+value.fhirType());
+            throw new Error("Not the right type for CoverageEligibilityResponse.insurance.item.benefit.allowed[x]: "+value.fhirType());
           this.allowed = value;
           return this;
         }
@@ -1859,14 +1859,14 @@ public class EligibilityResponse extends DomainResource {
          */
         public BenefitComponent setUsed(Type value) { 
           if (value != null && !(value instanceof UnsignedIntType || value instanceof Money))
-            throw new Error("Not the right type for EligibilityResponse.insurance.detail.benefit.used[x]: "+value.fhirType());
+            throw new Error("Not the right type for CoverageEligibilityResponse.insurance.item.benefit.used[x]: "+value.fhirType());
           this.used = value;
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("type", "CodeableConcept", "Deductable, visits, benefit amount.", 0, 1, type));
+          children.add(new Property("type", "CodeableConcept", "Deductible, visits, benefit amount.", 0, 1, type));
           children.add(new Property("allowed[x]", "unsignedInt|string|Money", "Benefits allowed.", 0, 1, allowed));
           children.add(new Property("used[x]", "unsignedInt|Money", "Benefits used.", 0, 1, used));
         }
@@ -1874,7 +1874,7 @@ public class EligibilityResponse extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Deductable, visits, benefit amount.", 0, 1, type);
+          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Deductible, visits, benefit amount.", 0, 1, type);
           case -1336663592: /*allowed[x]*/  return new Property("allowed[x]", "unsignedInt|string|Money", "Benefits allowed.", 0, 1, allowed);
           case -911343192: /*allowed*/  return new Property("allowed[x]", "unsignedInt|string|Money", "Benefits allowed.", 0, 1, allowed);
           case 1668802034: /*allowedUnsignedInt*/  return new Property("allowed[x]", "unsignedInt|string|Money", "Benefits allowed.", 0, 1, allowed);
@@ -2019,7 +2019,7 @@ public class EligibilityResponse extends DomainResource {
       }
 
   public String fhirType() {
-    return "EligibilityResponse.insurance.detail.benefit";
+    return "CoverageEligibilityResponse.insurance.item.benefit";
 
   }
 
@@ -2179,7 +2179,7 @@ public class EligibilityResponse extends DomainResource {
       }
 
   public String fhirType() {
-    return "EligibilityResponse.error";
+    return "CoverageEligibilityResponse.error";
 
   }
 
@@ -2203,10 +2203,10 @@ public class EligibilityResponse extends DomainResource {
     /**
      * Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.
      */
-    @Child(name = "use", type = {CodeType.class}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "purpose", type = {CodeType.class}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="auth-requirements | benefits | discovery | validation", formalDefinition="Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/eligibilityresponse-use")
-    protected List<Enumeration<EligibilityResponseUse>> use;
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose")
+    protected List<Enumeration<EligibilityResponsePurpose>> purpose;
 
     /**
      * Patient Resource.
@@ -2249,14 +2249,14 @@ public class EligibilityResponse extends DomainResource {
     /**
      * Original request resource reference.
      */
-    @Child(name = "request", type = {EligibilityRequest.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "request", type = {CoverageEligibilityRequest.class}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Eligibility reference", formalDefinition="Original request resource reference." )
     protected Reference request;
 
     /**
      * The actual object that is the target of the reference (Original request resource reference.)
      */
-    protected EligibilityRequest requestTarget;
+    protected CoverageEligibilityRequest requestTarget;
 
     /**
      * Transaction status: error, complete.
@@ -2314,12 +2314,12 @@ public class EligibilityResponse extends DomainResource {
     @Description(shortDefinition="Processing errors", formalDefinition="Mutually exclusive with Services Provided (Item)." )
     protected List<ErrorsComponent> error;
 
-    private static final long serialVersionUID = 324331478L;
+    private static final long serialVersionUID = -2068729296L;
 
   /**
    * Constructor
    */
-    public EligibilityResponse() {
+    public CoverageEligibilityResponse() {
       super();
     }
 
@@ -2335,7 +2335,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public EligibilityResponse setIdentifier(List<Identifier> theIdentifier) { 
+    public CoverageEligibilityResponse setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -2357,7 +2357,7 @@ public class EligibilityResponse extends DomainResource {
       return t;
     }
 
-    public EligibilityResponse addIdentifier(Identifier t) { //3
+    public CoverageEligibilityResponse addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -2382,7 +2382,7 @@ public class EligibilityResponse extends DomainResource {
     public Enumeration<EligibilityResponseStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.status");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.status");
         else if (Configuration.doAutoCreate())
           this.status = new Enumeration<EligibilityResponseStatus>(new EligibilityResponseStatusEnumFactory()); // bb
       return this.status;
@@ -2399,7 +2399,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #status} (The status of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public EligibilityResponse setStatusElement(Enumeration<EligibilityResponseStatus> value) { 
+    public CoverageEligibilityResponse setStatusElement(Enumeration<EligibilityResponseStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2414,7 +2414,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value The status of the resource instance.
      */
-    public EligibilityResponse setStatus(EligibilityResponseStatus value) { 
+    public CoverageEligibilityResponse setStatus(EligibilityResponseStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -2426,61 +2426,61 @@ public class EligibilityResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #use} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
+     * @return {@link #purpose} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
      */
-    public List<Enumeration<EligibilityResponseUse>> getUse() { 
-      if (this.use == null)
-        this.use = new ArrayList<Enumeration<EligibilityResponseUse>>();
-      return this.use;
+    public List<Enumeration<EligibilityResponsePurpose>> getPurpose() { 
+      if (this.purpose == null)
+        this.purpose = new ArrayList<Enumeration<EligibilityResponsePurpose>>();
+      return this.purpose;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public EligibilityResponse setUse(List<Enumeration<EligibilityResponseUse>> theUse) { 
-      this.use = theUse;
+    public CoverageEligibilityResponse setPurpose(List<Enumeration<EligibilityResponsePurpose>> thePurpose) { 
+      this.purpose = thePurpose;
       return this;
     }
 
-    public boolean hasUse() { 
-      if (this.use == null)
+    public boolean hasPurpose() { 
+      if (this.purpose == null)
         return false;
-      for (Enumeration<EligibilityResponseUse> item : this.use)
+      for (Enumeration<EligibilityResponsePurpose> item : this.purpose)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #use} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
+     * @return {@link #purpose} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
      */
-    public Enumeration<EligibilityResponseUse> addUseElement() {//2 
-      Enumeration<EligibilityResponseUse> t = new Enumeration<EligibilityResponseUse>(new EligibilityResponseUseEnumFactory());
-      if (this.use == null)
-        this.use = new ArrayList<Enumeration<EligibilityResponseUse>>();
-      this.use.add(t);
+    public Enumeration<EligibilityResponsePurpose> addPurposeElement() {//2 
+      Enumeration<EligibilityResponsePurpose> t = new Enumeration<EligibilityResponsePurpose>(new EligibilityResponsePurposeEnumFactory());
+      if (this.purpose == null)
+        this.purpose = new ArrayList<Enumeration<EligibilityResponsePurpose>>();
+      this.purpose.add(t);
       return t;
     }
 
     /**
-     * @param value {@link #use} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
+     * @param value {@link #purpose} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
      */
-    public EligibilityResponse addUse(EligibilityResponseUse value) { //1
-      Enumeration<EligibilityResponseUse> t = new Enumeration<EligibilityResponseUse>(new EligibilityResponseUseEnumFactory());
+    public CoverageEligibilityResponse addPurpose(EligibilityResponsePurpose value) { //1
+      Enumeration<EligibilityResponsePurpose> t = new Enumeration<EligibilityResponsePurpose>(new EligibilityResponsePurposeEnumFactory());
       t.setValue(value);
-      if (this.use == null)
-        this.use = new ArrayList<Enumeration<EligibilityResponseUse>>();
-      this.use.add(t);
+      if (this.purpose == null)
+        this.purpose = new ArrayList<Enumeration<EligibilityResponsePurpose>>();
+      this.purpose.add(t);
       return this;
     }
 
     /**
-     * @param value {@link #use} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
+     * @param value {@link #purpose} (Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.)
      */
-    public boolean hasUse(EligibilityResponseUse value) { 
-      if (this.use == null)
+    public boolean hasPurpose(EligibilityResponsePurpose value) { 
+      if (this.purpose == null)
         return false;
-      for (Enumeration<EligibilityResponseUse> v : this.use)
+      for (Enumeration<EligibilityResponsePurpose> v : this.purpose)
         if (v.getValue().equals(value)) // code
           return true;
       return false;
@@ -2492,7 +2492,7 @@ public class EligibilityResponse extends DomainResource {
     public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.patient");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.patient");
         else if (Configuration.doAutoCreate())
           this.patient = new Reference(); // cc
       return this.patient;
@@ -2505,7 +2505,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #patient} (Patient Resource.)
      */
-    public EligibilityResponse setPatient(Reference value) { 
+    public CoverageEligibilityResponse setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -2516,7 +2516,7 @@ public class EligibilityResponse extends DomainResource {
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.patient");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.patient");
         else if (Configuration.doAutoCreate())
           this.patientTarget = new Patient(); // aa
       return this.patientTarget;
@@ -2525,7 +2525,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public EligibilityResponse setPatientTarget(Patient value) { 
+    public CoverageEligibilityResponse setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -2574,9 +2574,9 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #serviced} (The date or dates when the enclosed suite of services are proposed and for which coverage details are requested.)
      */
-    public EligibilityResponse setServiced(Type value) { 
+    public CoverageEligibilityResponse setServiced(Type value) { 
       if (value != null && !(value instanceof DateType || value instanceof Period))
-        throw new Error("Not the right type for EligibilityResponse.serviced[x]: "+value.fhirType());
+        throw new Error("Not the right type for CoverageEligibilityResponse.serviced[x]: "+value.fhirType());
       this.serviced = value;
       return this;
     }
@@ -2587,7 +2587,7 @@ public class EligibilityResponse extends DomainResource {
     public DateTimeType getCreatedElement() { 
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.created");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.created");
         else if (Configuration.doAutoCreate())
           this.created = new DateTimeType(); // bb
       return this.created;
@@ -2604,7 +2604,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public EligibilityResponse setCreatedElement(DateTimeType value) { 
+    public CoverageEligibilityResponse setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -2619,7 +2619,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public EligibilityResponse setCreated(Date value) { 
+    public CoverageEligibilityResponse setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -2636,7 +2636,7 @@ public class EligibilityResponse extends DomainResource {
     public Reference getRequestProvider() { 
       if (this.requestProvider == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.requestProvider");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.requestProvider");
         else if (Configuration.doAutoCreate())
           this.requestProvider = new Reference(); // cc
       return this.requestProvider;
@@ -2649,7 +2649,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} (The provider who is responsible for the services rendered to the patient.)
      */
-    public EligibilityResponse setRequestProvider(Reference value) { 
+    public CoverageEligibilityResponse setRequestProvider(Reference value) { 
       this.requestProvider = value;
       return this;
     }
@@ -2664,7 +2664,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The provider who is responsible for the services rendered to the patient.)
      */
-    public EligibilityResponse setRequestProviderTarget(Resource value) { 
+    public CoverageEligibilityResponse setRequestProviderTarget(Resource value) { 
       this.requestProviderTarget = value;
       return this;
     }
@@ -2675,7 +2675,7 @@ public class EligibilityResponse extends DomainResource {
     public Reference getRequest() { 
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.request");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.request");
         else if (Configuration.doAutoCreate())
           this.request = new Reference(); // cc
       return this.request;
@@ -2688,7 +2688,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #request} (Original request resource reference.)
      */
-    public EligibilityResponse setRequest(Reference value) { 
+    public CoverageEligibilityResponse setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -2696,19 +2696,19 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public EligibilityRequest getRequestTarget() { 
+    public CoverageEligibilityRequest getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.request");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.request");
         else if (Configuration.doAutoCreate())
-          this.requestTarget = new EligibilityRequest(); // aa
+          this.requestTarget = new CoverageEligibilityRequest(); // aa
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public EligibilityResponse setRequestTarget(EligibilityRequest value) { 
+    public CoverageEligibilityResponse setRequestTarget(CoverageEligibilityRequest value) { 
       this.requestTarget = value;
       return this;
     }
@@ -2719,7 +2719,7 @@ public class EligibilityResponse extends DomainResource {
     public Enumeration<RemittanceOutcome> getOutcomeElement() { 
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.outcome");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.outcome");
         else if (Configuration.doAutoCreate())
           this.outcome = new Enumeration<RemittanceOutcome>(new RemittanceOutcomeEnumFactory()); // bb
       return this.outcome;
@@ -2736,7 +2736,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public EligibilityResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) { 
+    public CoverageEligibilityResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) { 
       this.outcome = value;
       return this;
     }
@@ -2751,7 +2751,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value Transaction status: error, complete.
      */
-    public EligibilityResponse setOutcome(RemittanceOutcome value) { 
+    public CoverageEligibilityResponse setOutcome(RemittanceOutcome value) { 
       if (value == null)
         this.outcome = null;
       else {
@@ -2768,7 +2768,7 @@ public class EligibilityResponse extends DomainResource {
     public StringType getDispositionElement() { 
       if (this.disposition == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.disposition");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.disposition");
         else if (Configuration.doAutoCreate())
           this.disposition = new StringType(); // bb
       return this.disposition;
@@ -2785,7 +2785,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public EligibilityResponse setDispositionElement(StringType value) { 
+    public CoverageEligibilityResponse setDispositionElement(StringType value) { 
       this.disposition = value;
       return this;
     }
@@ -2800,7 +2800,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value A description of the status of the adjudication.
      */
-    public EligibilityResponse setDisposition(String value) { 
+    public CoverageEligibilityResponse setDisposition(String value) { 
       if (Utilities.noString(value))
         this.disposition = null;
       else {
@@ -2817,7 +2817,7 @@ public class EligibilityResponse extends DomainResource {
     public Reference getInsurer() { 
       if (this.insurer == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.insurer");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.insurer");
         else if (Configuration.doAutoCreate())
           this.insurer = new Reference(); // cc
       return this.insurer;
@@ -2830,7 +2830,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #insurer} (The Insurer who produced this adjudicated response.)
      */
-    public EligibilityResponse setInsurer(Reference value) { 
+    public CoverageEligibilityResponse setInsurer(Reference value) { 
       this.insurer = value;
       return this;
     }
@@ -2841,7 +2841,7 @@ public class EligibilityResponse extends DomainResource {
     public Organization getInsurerTarget() { 
       if (this.insurerTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.insurer");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.insurer");
         else if (Configuration.doAutoCreate())
           this.insurerTarget = new Organization(); // aa
       return this.insurerTarget;
@@ -2850,7 +2850,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #insurer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public EligibilityResponse setInsurerTarget(Organization value) { 
+    public CoverageEligibilityResponse setInsurerTarget(Organization value) { 
       this.insurerTarget = value;
       return this;
     }
@@ -2867,7 +2867,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public EligibilityResponse setInsurance(List<InsuranceComponent> theInsurance) { 
+    public CoverageEligibilityResponse setInsurance(List<InsuranceComponent> theInsurance) { 
       this.insurance = theInsurance;
       return this;
     }
@@ -2889,7 +2889,7 @@ public class EligibilityResponse extends DomainResource {
       return t;
     }
 
-    public EligibilityResponse addInsurance(InsuranceComponent t) { //3
+    public CoverageEligibilityResponse addInsurance(InsuranceComponent t) { //3
       if (t == null)
         return this;
       if (this.insurance == null)
@@ -2914,7 +2914,7 @@ public class EligibilityResponse extends DomainResource {
     public StringType getPreAuthRefElement() { 
       if (this.preAuthRef == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.preAuthRef");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.preAuthRef");
         else if (Configuration.doAutoCreate())
           this.preAuthRef = new StringType(); // bb
       return this.preAuthRef;
@@ -2931,7 +2931,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #preAuthRef} (A reference from the Insurer to which these services pertain.). This is the underlying object with id, value and extensions. The accessor "getPreAuthRef" gives direct access to the value
      */
-    public EligibilityResponse setPreAuthRefElement(StringType value) { 
+    public CoverageEligibilityResponse setPreAuthRefElement(StringType value) { 
       this.preAuthRef = value;
       return this;
     }
@@ -2946,7 +2946,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value A reference from the Insurer to which these services pertain.
      */
-    public EligibilityResponse setPreAuthRef(String value) { 
+    public CoverageEligibilityResponse setPreAuthRef(String value) { 
       if (Utilities.noString(value))
         this.preAuthRef = null;
       else {
@@ -2963,7 +2963,7 @@ public class EligibilityResponse extends DomainResource {
     public CodeableConcept getForm() { 
       if (this.form == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EligibilityResponse.form");
+          throw new Error("Attempt to auto-create CoverageEligibilityResponse.form");
         else if (Configuration.doAutoCreate())
           this.form = new CodeableConcept(); // cc
       return this.form;
@@ -2976,7 +2976,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #form} (The form to be used for printing the content.)
      */
-    public EligibilityResponse setForm(CodeableConcept value) { 
+    public CoverageEligibilityResponse setForm(CodeableConcept value) { 
       this.form = value;
       return this;
     }
@@ -2993,7 +2993,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public EligibilityResponse setError(List<ErrorsComponent> theError) { 
+    public CoverageEligibilityResponse setError(List<ErrorsComponent> theError) { 
       this.error = theError;
       return this;
     }
@@ -3015,7 +3015,7 @@ public class EligibilityResponse extends DomainResource {
       return t;
     }
 
-    public EligibilityResponse addError(ErrorsComponent t) { //3
+    public CoverageEligibilityResponse addError(ErrorsComponent t) { //3
       if (t == null)
         return this;
       if (this.error == null)
@@ -3038,12 +3038,12 @@ public class EligibilityResponse extends DomainResource {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "The status of the resource instance.", 0, 1, status));
-        children.add(new Property("use", "code", "Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.", 0, java.lang.Integer.MAX_VALUE, use));
+        children.add(new Property("purpose", "code", "Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.", 0, java.lang.Integer.MAX_VALUE, purpose));
         children.add(new Property("patient", "Reference(Patient)", "Patient Resource.", 0, 1, patient));
         children.add(new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services are proposed and for which coverage details are requested.", 0, 1, serviced));
         children.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created));
         children.add(new Property("requestProvider", "Reference(Practitioner|PractitionerRole|Organization)", "The provider who is responsible for the services rendered to the patient.", 0, 1, requestProvider));
-        children.add(new Property("request", "Reference(EligibilityRequest)", "Original request resource reference.", 0, 1, request));
+        children.add(new Property("request", "Reference(CoverageEligibilityRequest)", "Original request resource reference.", 0, 1, request));
         children.add(new Property("outcome", "code", "Transaction status: error, complete.", 0, 1, outcome));
         children.add(new Property("disposition", "string", "A description of the status of the adjudication.", 0, 1, disposition));
         children.add(new Property("insurer", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, 1, insurer));
@@ -3058,7 +3058,7 @@ public class EligibilityResponse extends DomainResource {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "The status of the resource instance.", 0, 1, status);
-        case 116103: /*use*/  return new Property("use", "code", "Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.", 0, java.lang.Integer.MAX_VALUE, use);
+        case -220463842: /*purpose*/  return new Property("purpose", "code", "Specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for th patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified.", 0, java.lang.Integer.MAX_VALUE, purpose);
         case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "Patient Resource.", 0, 1, patient);
         case -1927922223: /*serviced[x]*/  return new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services are proposed and for which coverage details are requested.", 0, 1, serviced);
         case 1379209295: /*serviced*/  return new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services are proposed and for which coverage details are requested.", 0, 1, serviced);
@@ -3066,7 +3066,7 @@ public class EligibilityResponse extends DomainResource {
         case 1534966512: /*servicedPeriod*/  return new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services are proposed and for which coverage details are requested.", 0, 1, serviced);
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, 1, created);
         case 1601527200: /*requestProvider*/  return new Property("requestProvider", "Reference(Practitioner|PractitionerRole|Organization)", "The provider who is responsible for the services rendered to the patient.", 0, 1, requestProvider);
-        case 1095692943: /*request*/  return new Property("request", "Reference(EligibilityRequest)", "Original request resource reference.", 0, 1, request);
+        case 1095692943: /*request*/  return new Property("request", "Reference(CoverageEligibilityRequest)", "Original request resource reference.", 0, 1, request);
         case -1106507950: /*outcome*/  return new Property("outcome", "code", "Transaction status: error, complete.", 0, 1, outcome);
         case 583380919: /*disposition*/  return new Property("disposition", "string", "A description of the status of the adjudication.", 0, 1, disposition);
         case 1957615864: /*insurer*/  return new Property("insurer", "Reference(Organization)", "The Insurer who produced this adjudicated response.", 0, 1, insurer);
@@ -3084,7 +3084,7 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<EligibilityResponseStatus>
-        case 116103: /*use*/ return this.use == null ? new Base[0] : this.use.toArray(new Base[this.use.size()]); // Enumeration<EligibilityResponseUse>
+        case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : this.purpose.toArray(new Base[this.purpose.size()]); // Enumeration<EligibilityResponsePurpose>
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 1379209295: /*serviced*/ return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
@@ -3112,9 +3112,9 @@ public class EligibilityResponse extends DomainResource {
           value = new EligibilityResponseStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<EligibilityResponseStatus>
           return value;
-        case 116103: // use
-          value = new EligibilityResponseUseEnumFactory().fromType(castToCode(value));
-          this.getUse().add((Enumeration) value); // Enumeration<EligibilityResponseUse>
+        case -220463842: // purpose
+          value = new EligibilityResponsePurposeEnumFactory().fromType(castToCode(value));
+          this.getPurpose().add((Enumeration) value); // Enumeration<EligibilityResponsePurpose>
           return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -3165,9 +3165,9 @@ public class EligibilityResponse extends DomainResource {
         } else if (name.equals("status")) {
           value = new EligibilityResponseStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<EligibilityResponseStatus>
-        } else if (name.equals("use")) {
-          value = new EligibilityResponseUseEnumFactory().fromType(castToCode(value));
-          this.getUse().add((Enumeration) value);
+        } else if (name.equals("purpose")) {
+          value = new EligibilityResponsePurposeEnumFactory().fromType(castToCode(value));
+          this.getPurpose().add((Enumeration) value);
         } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
         } else if (name.equals("serviced[x]")) {
@@ -3203,7 +3203,7 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -892481550:  return getStatusElement();
-        case 116103:  return addUseElement();
+        case -220463842:  return addPurposeElement();
         case -791418107:  return getPatient(); 
         case -1927922223:  return getServiced(); 
         case 1379209295:  return getServiced(); 
@@ -3227,7 +3227,7 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
-        case 116103: /*use*/ return new String[] {"code"};
+        case -220463842: /*purpose*/ return new String[] {"code"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case 1379209295: /*serviced*/ return new String[] {"date", "Period"};
         case 1028554472: /*created*/ return new String[] {"dateTime"};
@@ -3251,10 +3251,10 @@ public class EligibilityResponse extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.status");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.status");
         }
-        else if (name.equals("use")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.use");
+        else if (name.equals("purpose")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.purpose");
         }
         else if (name.equals("patient")) {
           this.patient = new Reference();
@@ -3269,7 +3269,7 @@ public class EligibilityResponse extends DomainResource {
           return this.serviced;
         }
         else if (name.equals("created")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.created");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.created");
         }
         else if (name.equals("requestProvider")) {
           this.requestProvider = new Reference();
@@ -3280,10 +3280,10 @@ public class EligibilityResponse extends DomainResource {
           return this.request;
         }
         else if (name.equals("outcome")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.outcome");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.outcome");
         }
         else if (name.equals("disposition")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.disposition");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.disposition");
         }
         else if (name.equals("insurer")) {
           this.insurer = new Reference();
@@ -3293,7 +3293,7 @@ public class EligibilityResponse extends DomainResource {
           return addInsurance();
         }
         else if (name.equals("preAuthRef")) {
-          throw new FHIRException("Cannot call addChild on a primitive type EligibilityResponse.preAuthRef");
+          throw new FHIRException("Cannot call addChild on a primitive type CoverageEligibilityResponse.preAuthRef");
         }
         else if (name.equals("form")) {
           this.form = new CodeableConcept();
@@ -3307,12 +3307,12 @@ public class EligibilityResponse extends DomainResource {
       }
 
   public String fhirType() {
-    return "EligibilityResponse";
+    return "CoverageEligibilityResponse";
 
   }
 
-      public EligibilityResponse copy() {
-        EligibilityResponse dst = new EligibilityResponse();
+      public CoverageEligibilityResponse copy() {
+        CoverageEligibilityResponse dst = new CoverageEligibilityResponse();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -3320,10 +3320,10 @@ public class EligibilityResponse extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
-        if (use != null) {
-          dst.use = new ArrayList<Enumeration<EligibilityResponseUse>>();
-          for (Enumeration<EligibilityResponseUse> i : use)
-            dst.use.add(i.copy());
+        if (purpose != null) {
+          dst.purpose = new ArrayList<Enumeration<EligibilityResponsePurpose>>();
+          for (Enumeration<EligibilityResponsePurpose> i : purpose)
+            dst.purpose.add(i.copy());
         };
         dst.patient = patient == null ? null : patient.copy();
         dst.serviced = serviced == null ? null : serviced.copy();
@@ -3348,7 +3348,7 @@ public class EligibilityResponse extends DomainResource {
         return dst;
       }
 
-      protected EligibilityResponse typedCopy() {
+      protected CoverageEligibilityResponse typedCopy() {
         return copy();
       }
 
@@ -3356,10 +3356,10 @@ public class EligibilityResponse extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof EligibilityResponse))
+        if (!(other_ instanceof CoverageEligibilityResponse))
           return false;
-        EligibilityResponse o = (EligibilityResponse) other_;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(use, o.use, true)
+        CoverageEligibilityResponse o = (CoverageEligibilityResponse) other_;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(purpose, o.purpose, true)
            && compareDeep(patient, o.patient, true) && compareDeep(serviced, o.serviced, true) && compareDeep(created, o.created, true)
            && compareDeep(requestProvider, o.requestProvider, true) && compareDeep(request, o.request, true)
            && compareDeep(outcome, o.outcome, true) && compareDeep(disposition, o.disposition, true) && compareDeep(insurer, o.insurer, true)
@@ -3371,23 +3371,23 @@ public class EligibilityResponse extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof EligibilityResponse))
+        if (!(other_ instanceof CoverageEligibilityResponse))
           return false;
-        EligibilityResponse o = (EligibilityResponse) other_;
-        return compareValues(status, o.status, true) && compareValues(use, o.use, true) && compareValues(created, o.created, true)
+        CoverageEligibilityResponse o = (CoverageEligibilityResponse) other_;
+        return compareValues(status, o.status, true) && compareValues(purpose, o.purpose, true) && compareValues(created, o.created, true)
            && compareValues(outcome, o.outcome, true) && compareValues(disposition, o.disposition, true) && compareValues(preAuthRef, o.preAuthRef, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, use
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, purpose
           , patient, serviced, created, requestProvider, request, outcome, disposition, insurer
           , insurance, preAuthRef, form, error);
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.EligibilityResponse;
+    return ResourceType.CoverageEligibilityResponse;
    }
 
  /**
@@ -3395,17 +3395,17 @@ public class EligibilityResponse extends DomainResource {
    * <p>
    * Description: <b>The business identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.identifier</b><br>
+   * Path: <b>CoverageEligibilityResponse.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="EligibilityResponse.identifier", description="The business identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="CoverageEligibilityResponse.identifier", description="The business identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>The business identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.identifier</b><br>
+   * Path: <b>CoverageEligibilityResponse.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -3415,43 +3415,43 @@ public class EligibilityResponse extends DomainResource {
    * <p>
    * Description: <b>The EligibilityRequest reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.request</b><br>
+   * Path: <b>CoverageEligibilityResponse.request</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="request", path="EligibilityResponse.request", description="The EligibilityRequest reference", type="reference", target={EligibilityRequest.class } )
+  @SearchParamDefinition(name="request", path="CoverageEligibilityResponse.request", description="The EligibilityRequest reference", type="reference", target={CoverageEligibilityRequest.class } )
   public static final String SP_REQUEST = "request";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>request</b>
    * <p>
    * Description: <b>The EligibilityRequest reference</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.request</b><br>
+   * Path: <b>CoverageEligibilityResponse.request</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUEST = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUEST);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:request</b>".
+   * the path value of "<b>CoverageEligibilityResponse:request</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST = new ca.uhn.fhir.model.api.Include("EligibilityResponse:request").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST = new ca.uhn.fhir.model.api.Include("CoverageEligibilityResponse:request").toLocked();
 
  /**
    * Search parameter: <b>disposition</b>
    * <p>
    * Description: <b>The contents of the disposition message</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>EligibilityResponse.disposition</b><br>
+   * Path: <b>CoverageEligibilityResponse.disposition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="disposition", path="EligibilityResponse.disposition", description="The contents of the disposition message", type="string" )
+  @SearchParamDefinition(name="disposition", path="CoverageEligibilityResponse.disposition", description="The contents of the disposition message", type="string" )
   public static final String SP_DISPOSITION = "disposition";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>disposition</b>
    * <p>
    * Description: <b>The contents of the disposition message</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>EligibilityResponse.disposition</b><br>
+   * Path: <b>CoverageEligibilityResponse.disposition</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DISPOSITION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DISPOSITION);
@@ -3461,69 +3461,69 @@ public class EligibilityResponse extends DomainResource {
    * <p>
    * Description: <b>The reference to the patient</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.patient</b><br>
+   * Path: <b>CoverageEligibilityResponse.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EligibilityResponse.patient", description="The reference to the patient", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="CoverageEligibilityResponse.patient", description="The reference to the patient", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>The reference to the patient</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.patient</b><br>
+   * Path: <b>CoverageEligibilityResponse.patient</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:patient</b>".
+   * the path value of "<b>CoverageEligibilityResponse:patient</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EligibilityResponse:patient").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CoverageEligibilityResponse:patient").toLocked();
 
  /**
    * Search parameter: <b>insurer</b>
    * <p>
    * Description: <b>The organization which generated this resource</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.insurer</b><br>
+   * Path: <b>CoverageEligibilityResponse.insurer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="insurer", path="EligibilityResponse.insurer", description="The organization which generated this resource", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="insurer", path="CoverageEligibilityResponse.insurer", description="The organization which generated this resource", type="reference", target={Organization.class } )
   public static final String SP_INSURER = "insurer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>insurer</b>
    * <p>
    * Description: <b>The organization which generated this resource</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.insurer</b><br>
+   * Path: <b>CoverageEligibilityResponse.insurer</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INSURER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INSURER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:insurer</b>".
+   * the path value of "<b>CoverageEligibilityResponse:insurer</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSURER = new ca.uhn.fhir.model.api.Include("EligibilityResponse:insurer").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSURER = new ca.uhn.fhir.model.api.Include("CoverageEligibilityResponse:insurer").toLocked();
 
  /**
    * Search parameter: <b>created</b>
    * <p>
    * Description: <b>The creation date</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>EligibilityResponse.created</b><br>
+   * Path: <b>CoverageEligibilityResponse.created</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="created", path="EligibilityResponse.created", description="The creation date", type="date" )
+  @SearchParamDefinition(name="created", path="CoverageEligibilityResponse.created", description="The creation date", type="date" )
   public static final String SP_CREATED = "created";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>created</b>
    * <p>
    * Description: <b>The creation date</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>EligibilityResponse.created</b><br>
+   * Path: <b>CoverageEligibilityResponse.created</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
@@ -3533,43 +3533,43 @@ public class EligibilityResponse extends DomainResource {
    * <p>
    * Description: <b>The EligibilityRequest provider</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestProvider</b><br>
+   * Path: <b>CoverageEligibilityResponse.requestProvider</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="request-provider", path="EligibilityResponse.requestProvider", description="The EligibilityRequest provider", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class, PractitionerRole.class } )
+  @SearchParamDefinition(name="request-provider", path="CoverageEligibilityResponse.requestProvider", description="The EligibilityRequest provider", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class, PractitionerRole.class } )
   public static final String SP_REQUEST_PROVIDER = "request-provider";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>request-provider</b>
    * <p>
    * Description: <b>The EligibilityRequest provider</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>EligibilityResponse.requestProvider</b><br>
+   * Path: <b>CoverageEligibilityResponse.requestProvider</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUEST_PROVIDER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUEST_PROVIDER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EligibilityResponse:request-provider</b>".
+   * the path value of "<b>CoverageEligibilityResponse:request-provider</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST_PROVIDER = new ca.uhn.fhir.model.api.Include("EligibilityResponse:request-provider").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUEST_PROVIDER = new ca.uhn.fhir.model.api.Include("CoverageEligibilityResponse:request-provider").toLocked();
 
  /**
    * Search parameter: <b>outcome</b>
    * <p>
    * Description: <b>The processing outcome</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.outcome</b><br>
+   * Path: <b>CoverageEligibilityResponse.outcome</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="outcome", path="EligibilityResponse.outcome", description="The processing outcome", type="token" )
+  @SearchParamDefinition(name="outcome", path="CoverageEligibilityResponse.outcome", description="The processing outcome", type="token" )
   public static final String SP_OUTCOME = "outcome";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>outcome</b>
    * <p>
    * Description: <b>The processing outcome</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.outcome</b><br>
+   * Path: <b>CoverageEligibilityResponse.outcome</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam OUTCOME = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OUTCOME);
@@ -3579,17 +3579,17 @@ public class EligibilityResponse extends DomainResource {
    * <p>
    * Description: <b>The EligibilityRequest status</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.status</b><br>
+   * Path: <b>CoverageEligibilityResponse.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="EligibilityResponse.status", description="The EligibilityRequest status", type="token" )
+  @SearchParamDefinition(name="status", path="CoverageEligibilityResponse.status", description="The EligibilityRequest status", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
    * Description: <b>The EligibilityRequest status</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EligibilityResponse.status</b><br>
+   * Path: <b>CoverageEligibilityResponse.status</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);

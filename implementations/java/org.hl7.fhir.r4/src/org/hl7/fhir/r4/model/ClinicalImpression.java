@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -858,15 +858,15 @@ public class ClinicalImpression extends DomainResource {
 
 
     /**
-     * Action taken as part of assessment procedure.
+     * Information supporting the clinical impression.
      */
-    @Child(name = "action", type = {ServiceRequest.class, Procedure.class, MedicationRequest.class, Appointment.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Action taken as part of assessment procedure", formalDefinition="Action taken as part of assessment procedure." )
-    protected List<Reference> action;
+    @Child(name = "supportingInfo", type = {Reference.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Information supporting the clinical impression", formalDefinition="Information supporting the clinical impression." )
+    protected List<Reference> supportingInfo;
     /**
-     * The actual objects that are the target of the reference (Action taken as part of assessment procedure.)
+     * The actual objects that are the target of the reference (Information supporting the clinical impression.)
      */
-    protected List<Resource> actionTarget;
+    protected List<Resource> supportingInfoTarget;
 
 
     /**
@@ -876,7 +876,7 @@ public class ClinicalImpression extends DomainResource {
     @Description(shortDefinition="Comments made about the ClinicalImpression", formalDefinition="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1125002658L;
+    private static final long serialVersionUID = -242312564L;
 
   /**
    * Constructor
@@ -1763,66 +1763,66 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #action} (Action taken as part of assessment procedure.)
+     * @return {@link #supportingInfo} (Information supporting the clinical impression.)
      */
-    public List<Reference> getAction() { 
-      if (this.action == null)
-        this.action = new ArrayList<Reference>();
-      return this.action;
+    public List<Reference> getSupportingInfo() { 
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<Reference>();
+      return this.supportingInfo;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ClinicalImpression setAction(List<Reference> theAction) { 
-      this.action = theAction;
+    public ClinicalImpression setSupportingInfo(List<Reference> theSupportingInfo) { 
+      this.supportingInfo = theSupportingInfo;
       return this;
     }
 
-    public boolean hasAction() { 
-      if (this.action == null)
+    public boolean hasSupportingInfo() { 
+      if (this.supportingInfo == null)
         return false;
-      for (Reference item : this.action)
+      for (Reference item : this.supportingInfo)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addAction() { //3
+    public Reference addSupportingInfo() { //3
       Reference t = new Reference();
-      if (this.action == null)
-        this.action = new ArrayList<Reference>();
-      this.action.add(t);
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<Reference>();
+      this.supportingInfo.add(t);
       return t;
     }
 
-    public ClinicalImpression addAction(Reference t) { //3
+    public ClinicalImpression addSupportingInfo(Reference t) { //3
       if (t == null)
         return this;
-      if (this.action == null)
-        this.action = new ArrayList<Reference>();
-      this.action.add(t);
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<Reference>();
+      this.supportingInfo.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #action}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #supportingInfo}, creating it if it does not already exist
      */
-    public Reference getActionFirstRep() { 
-      if (getAction().isEmpty()) {
-        addAction();
+    public Reference getSupportingInfoFirstRep() { 
+      if (getSupportingInfo().isEmpty()) {
+        addSupportingInfo();
       }
-      return getAction().get(0);
+      return getSupportingInfo().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getActionTarget() { 
-      if (this.actionTarget == null)
-        this.actionTarget = new ArrayList<Resource>();
-      return this.actionTarget;
+    public List<Resource> getSupportingInfoTarget() { 
+      if (this.supportingInfoTarget == null)
+        this.supportingInfoTarget = new ArrayList<Resource>();
+      return this.supportingInfoTarget;
     }
 
     /**
@@ -1898,7 +1898,7 @@ public class ClinicalImpression extends DomainResource {
         children.add(new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding));
         children.add(new Property("prognosisCodeableConcept", "CodeableConcept", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisCodeableConcept));
         children.add(new Property("prognosisReference", "Reference(RiskAssessment)", "RiskAssessment expressing likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisReference));
-        children.add(new Property("action", "Reference(ServiceRequest|Procedure|MedicationRequest|Appointment)", "Action taken as part of assessment procedure.", 0, java.lang.Integer.MAX_VALUE, action));
+        children.add(new Property("supportingInfo", "Reference(Any)", "Information supporting the clinical impression.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         children.add(new Property("note", "Annotation", "Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
@@ -1926,7 +1926,7 @@ public class ClinicalImpression extends DomainResource {
         case -853173367: /*finding*/  return new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding);
         case -676337953: /*prognosisCodeableConcept*/  return new Property("prognosisCodeableConcept", "CodeableConcept", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisCodeableConcept);
         case -587137783: /*prognosisReference*/  return new Property("prognosisReference", "Reference(RiskAssessment)", "RiskAssessment expressing likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisReference);
-        case -1422950858: /*action*/  return new Property("action", "Reference(ServiceRequest|Procedure|MedicationRequest|Appointment)", "Action taken as part of assessment procedure.", 0, java.lang.Integer.MAX_VALUE, action);
+        case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Information supporting the clinical impression.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.", 0, java.lang.Integer.MAX_VALUE, note);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
@@ -1954,7 +1954,7 @@ public class ClinicalImpression extends DomainResource {
         case -853173367: /*finding*/ return this.finding == null ? new Base[0] : this.finding.toArray(new Base[this.finding.size()]); // ClinicalImpressionFindingComponent
         case -676337953: /*prognosisCodeableConcept*/ return this.prognosisCodeableConcept == null ? new Base[0] : this.prognosisCodeableConcept.toArray(new Base[this.prognosisCodeableConcept.size()]); // CodeableConcept
         case -587137783: /*prognosisReference*/ return this.prognosisReference == null ? new Base[0] : this.prognosisReference.toArray(new Base[this.prognosisReference.size()]); // Reference
-        case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // Reference
+        case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2019,8 +2019,8 @@ public class ClinicalImpression extends DomainResource {
         case -587137783: // prognosisReference
           this.getPrognosisReference().add(castToReference(value)); // Reference
           return value;
-        case -1422950858: // action
-          this.getAction().add(castToReference(value)); // Reference
+        case 1922406657: // supportingInfo
+          this.getSupportingInfo().add(castToReference(value)); // Reference
           return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
@@ -2069,8 +2069,8 @@ public class ClinicalImpression extends DomainResource {
           this.getPrognosisCodeableConcept().add(castToCodeableConcept(value));
         } else if (name.equals("prognosisReference")) {
           this.getPrognosisReference().add(castToReference(value));
-        } else if (name.equals("action")) {
-          this.getAction().add(castToReference(value));
+        } else if (name.equals("supportingInfo")) {
+          this.getSupportingInfo().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else
@@ -2100,7 +2100,7 @@ public class ClinicalImpression extends DomainResource {
         case -853173367:  return addFinding(); 
         case -676337953:  return addPrognosisCodeableConcept(); 
         case -587137783:  return addPrognosisReference(); 
-        case -1422950858:  return addAction(); 
+        case 1922406657:  return addSupportingInfo(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
@@ -2128,7 +2128,7 @@ public class ClinicalImpression extends DomainResource {
         case -853173367: /*finding*/ return new String[] {};
         case -676337953: /*prognosisCodeableConcept*/ return new String[] {"CodeableConcept"};
         case -587137783: /*prognosisReference*/ return new String[] {"Reference"};
-        case -1422950858: /*action*/ return new String[] {"Reference"};
+        case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -2202,8 +2202,8 @@ public class ClinicalImpression extends DomainResource {
         else if (name.equals("prognosisReference")) {
           return addPrognosisReference();
         }
-        else if (name.equals("action")) {
-          return addAction();
+        else if (name.equals("supportingInfo")) {
+          return addSupportingInfo();
         }
         else if (name.equals("note")) {
           return addNote();
@@ -2266,10 +2266,10 @@ public class ClinicalImpression extends DomainResource {
           for (Reference i : prognosisReference)
             dst.prognosisReference.add(i.copy());
         };
-        if (action != null) {
-          dst.action = new ArrayList<Reference>();
-          for (Reference i : action)
-            dst.action.add(i.copy());
+        if (supportingInfo != null) {
+          dst.supportingInfo = new ArrayList<Reference>();
+          for (Reference i : supportingInfo)
+            dst.supportingInfo.add(i.copy());
         };
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
@@ -2296,7 +2296,7 @@ public class ClinicalImpression extends DomainResource {
            && compareDeep(assessor, o.assessor, true) && compareDeep(previous, o.previous, true) && compareDeep(problem, o.problem, true)
            && compareDeep(investigation, o.investigation, true) && compareDeep(protocol, o.protocol, true)
            && compareDeep(summary, o.summary, true) && compareDeep(finding, o.finding, true) && compareDeep(prognosisCodeableConcept, o.prognosisCodeableConcept, true)
-           && compareDeep(prognosisReference, o.prognosisReference, true) && compareDeep(action, o.action, true)
+           && compareDeep(prognosisReference, o.prognosisReference, true) && compareDeep(supportingInfo, o.supportingInfo, true)
            && compareDeep(note, o.note, true);
       }
 
@@ -2315,7 +2315,7 @@ public class ClinicalImpression extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, statusReason
           , code, description, subject, context, effective, date, assessor, previous, problem
           , investigation, protocol, summary, finding, prognosisCodeableConcept, prognosisReference
-          , action, note);
+          , supportingInfo, note);
       }
 
   @Override
@@ -2521,7 +2521,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ClinicalImpression.subject", description="Patient or group assessed", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="ClinicalImpression.subject.where(resolve() is Patient)", description="Patient or group assessed", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -2538,6 +2538,32 @@ public class ClinicalImpression extends DomainResource {
    * the path value of "<b>ClinicalImpression:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ClinicalImpression:patient").toLocked();
+
+ /**
+   * Search parameter: <b>supporting-info</b>
+   * <p>
+   * Description: <b>Information supporting the clinical impression</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.supportingInfo</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="supporting-info", path="ClinicalImpression.supportingInfo", description="Information supporting the clinical impression", type="reference" )
+  public static final String SP_SUPPORTING_INFO = "supporting-info";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>supporting-info</b>
+   * <p>
+   * Description: <b>Information supporting the clinical impression</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ClinicalImpression.supportingInfo</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUPPORTING_INFO = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUPPORTING_INFO);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ClinicalImpression:supporting-info</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUPPORTING_INFO = new ca.uhn.fhir.model.api.Include("ClinicalImpression:supporting-info").toLocked();
 
  /**
    * Search parameter: <b>context</b>
@@ -2590,32 +2616,6 @@ public class ClinicalImpression extends DomainResource {
    * the path value of "<b>ClinicalImpression:investigation</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_INVESTIGATION = new ca.uhn.fhir.model.api.Include("ClinicalImpression:investigation").toLocked();
-
- /**
-   * Search parameter: <b>action</b>
-   * <p>
-   * Description: <b>Action taken as part of assessment procedure</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.action</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Action taken as part of assessment procedure", type="reference", target={Appointment.class, MedicationRequest.class, Procedure.class, ServiceRequest.class } )
-  public static final String SP_ACTION = "action";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>action</b>
-   * <p>
-   * Description: <b>Action taken as part of assessment procedure</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ClinicalImpression.action</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ACTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ACTION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ClinicalImpression:action</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTION = new ca.uhn.fhir.model.api.Include("ClinicalImpression:action").toLocked();
 
  /**
    * Search parameter: <b>status</b>

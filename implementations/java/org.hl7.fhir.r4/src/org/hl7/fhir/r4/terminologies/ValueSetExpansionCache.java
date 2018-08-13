@@ -61,7 +61,7 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	    String cacheKey = makeCacheKey(source, expParams);
 	  	if (expansions.containsKey(cacheKey))
 	  		return expansions.get(cacheKey);
-	  	ValueSetExpander vse = new ValueSetExpanderSimple(context, ValueSetExpansionCache.this);
+	  	ValueSetExpander vse = new ValueSetExpanderSimple(context);
 	  	ValueSetExpansionOutcome vso = vse.expand(source, expParams);
 	  	if (vso.getError() != null) {
 	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally

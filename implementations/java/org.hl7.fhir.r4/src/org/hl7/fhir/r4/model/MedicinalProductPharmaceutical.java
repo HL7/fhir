@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1276,13 +1276,13 @@ public class MedicinalProductPharmaceutical extends DomainResource {
     /**
      * Accompanying device.
      */
-    @Child(name = "device", type = {MedicinalProductDeviceSpec.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "device", type = {MedicinalProductDeviceSpec.class, DeviceDefinition.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Accompanying device", formalDefinition="Accompanying device." )
     protected List<Reference> device;
     /**
      * The actual objects that are the target of the reference (Accompanying device.)
      */
-    protected List<MedicinalProductDeviceSpec> deviceTarget;
+    protected List<Resource> deviceTarget;
 
 
     /**
@@ -1299,7 +1299,7 @@ public class MedicinalProductPharmaceutical extends DomainResource {
     @Description(shortDefinition="The path by which the pharmaceutical product is taken into or makes contact with the body", formalDefinition="The path by which the pharmaceutical product is taken into or makes contact with the body." )
     protected List<MedicinalProductPharmaceuticalRouteOfAdministrationComponent> routeOfAdministration;
 
-    private static final long serialVersionUID = -1339713555L;
+    private static final long serialVersionUID = 920439689L;
 
   /**
    * Constructor
@@ -1549,22 +1549,10 @@ public class MedicinalProductPharmaceutical extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<MedicinalProductDeviceSpec> getDeviceTarget() { 
+    public List<Resource> getDeviceTarget() { 
       if (this.deviceTarget == null)
-        this.deviceTarget = new ArrayList<MedicinalProductDeviceSpec>();
+        this.deviceTarget = new ArrayList<Resource>();
       return this.deviceTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public MedicinalProductDeviceSpec addDeviceTarget() { 
-      MedicinalProductDeviceSpec r = new MedicinalProductDeviceSpec();
-      if (this.deviceTarget == null)
-        this.deviceTarget = new ArrayList<MedicinalProductDeviceSpec>();
-      this.deviceTarget.add(r);
-      return r;
     }
 
     /**
@@ -1679,7 +1667,7 @@ public class MedicinalProductPharmaceutical extends DomainResource {
         children.add(new Property("administrableDoseForm", "CodeableConcept", "The administrable dose form, after necessary reconstitution.", 0, 1, administrableDoseForm));
         children.add(new Property("unitOfPresentation", "CodeableConcept", "Todo.", 0, 1, unitOfPresentation));
         children.add(new Property("ingredient", "Reference(MedicinalProductIngredient)", "Ingredient.", 0, java.lang.Integer.MAX_VALUE, ingredient));
-        children.add(new Property("device", "Reference(MedicinalProductDeviceSpec)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device));
+        children.add(new Property("device", "Reference(MedicinalProductDeviceSpec|DeviceDefinition)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device));
         children.add(new Property("characteristics", "", "Characteristics e.g. a products onset of action.", 0, java.lang.Integer.MAX_VALUE, characteristics));
         children.add(new Property("routeOfAdministration", "", "The path by which the pharmaceutical product is taken into or makes contact with the body.", 0, java.lang.Integer.MAX_VALUE, routeOfAdministration));
       }
@@ -1691,7 +1679,7 @@ public class MedicinalProductPharmaceutical extends DomainResource {
         case 1446105202: /*administrableDoseForm*/  return new Property("administrableDoseForm", "CodeableConcept", "The administrable dose form, after necessary reconstitution.", 0, 1, administrableDoseForm);
         case -1427765963: /*unitOfPresentation*/  return new Property("unitOfPresentation", "CodeableConcept", "Todo.", 0, 1, unitOfPresentation);
         case -206409263: /*ingredient*/  return new Property("ingredient", "Reference(MedicinalProductIngredient)", "Ingredient.", 0, java.lang.Integer.MAX_VALUE, ingredient);
-        case -1335157162: /*device*/  return new Property("device", "Reference(MedicinalProductDeviceSpec)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device);
+        case -1335157162: /*device*/  return new Property("device", "Reference(MedicinalProductDeviceSpec|DeviceDefinition)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device);
         case -1529171400: /*characteristics*/  return new Property("characteristics", "", "Characteristics e.g. a products onset of action.", 0, java.lang.Integer.MAX_VALUE, characteristics);
         case 1742084734: /*routeOfAdministration*/  return new Property("routeOfAdministration", "", "The path by which the pharmaceutical product is taken into or makes contact with the body.", 0, java.lang.Integer.MAX_VALUE, routeOfAdministration);
         default: return super.getNamedProperty(_hash, _name, _checkValid);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -295,13 +295,13 @@ public class MedicinalProductPackaged extends DomainResource {
         /**
          * A device accompanying a medicinal product.
          */
-        @Child(name = "device", type = {MedicinalProductDeviceSpec.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "device", type = {MedicinalProductDeviceSpec.class, DeviceDefinition.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="A device accompanying a medicinal product", formalDefinition="A device accompanying a medicinal product." )
         protected List<Reference> device;
         /**
          * The actual objects that are the target of the reference (A device accompanying a medicinal product.)
          */
-        protected List<MedicinalProductDeviceSpec> deviceTarget;
+        protected List<Resource> deviceTarget;
 
 
         /**
@@ -356,7 +356,7 @@ public class MedicinalProductPackaged extends DomainResource {
         protected List<Organization> manufacturerTarget;
 
 
-        private static final long serialVersionUID = 1676682022L;
+        private static final long serialVersionUID = -712776950L;
 
     /**
      * Constructor
@@ -638,22 +638,10 @@ public class MedicinalProductPackaged extends DomainResource {
          * @deprecated Use Reference#setResource(IBaseResource) instead
          */
         @Deprecated
-        public List<MedicinalProductDeviceSpec> getDeviceTarget() { 
+        public List<Resource> getDeviceTarget() { 
           if (this.deviceTarget == null)
-            this.deviceTarget = new ArrayList<MedicinalProductDeviceSpec>();
+            this.deviceTarget = new ArrayList<Resource>();
           return this.deviceTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public MedicinalProductDeviceSpec addDeviceTarget() { 
-          MedicinalProductDeviceSpec r = new MedicinalProductDeviceSpec();
-          if (this.deviceTarget == null)
-            this.deviceTarget = new ArrayList<MedicinalProductDeviceSpec>();
-          this.deviceTarget.add(r);
-          return r;
         }
 
         /**
@@ -996,7 +984,7 @@ public class MedicinalProductPackaged extends DomainResource {
           children.add(new Property("quantity", "Quantity", "The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.", 0, 1, quantity));
           children.add(new Property("material", "CodeableConcept", "Material type of the package item.", 0, java.lang.Integer.MAX_VALUE, material));
           children.add(new Property("alternateMaterial", "CodeableConcept", "A possible alternate material for the packaging.", 0, java.lang.Integer.MAX_VALUE, alternateMaterial));
-          children.add(new Property("device", "Reference(MedicinalProductDeviceSpec)", "A device accompanying a medicinal product.", 0, java.lang.Integer.MAX_VALUE, device));
+          children.add(new Property("device", "Reference(MedicinalProductDeviceSpec|DeviceDefinition)", "A device accompanying a medicinal product.", 0, java.lang.Integer.MAX_VALUE, device));
           children.add(new Property("manufacturedItem", "Reference(MedicinalProductManufactured)", "The manufactured item as contained in the packaged medicinal product.", 0, java.lang.Integer.MAX_VALUE, manufacturedItem));
           children.add(new Property("packageItem", "@MedicinalProductPackaged.packageItem", "Allows containers within containers.", 0, java.lang.Integer.MAX_VALUE, packageItem));
           children.add(new Property("physicalCharacteristics", "ProdCharacteristic", "Dimensions, color etc.", 0, 1, physicalCharacteristics));
@@ -1013,7 +1001,7 @@ public class MedicinalProductPackaged extends DomainResource {
           case -1285004149: /*quantity*/  return new Property("quantity", "Quantity", "The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.", 0, 1, quantity);
           case 299066663: /*material*/  return new Property("material", "CodeableConcept", "Material type of the package item.", 0, java.lang.Integer.MAX_VALUE, material);
           case -1021448255: /*alternateMaterial*/  return new Property("alternateMaterial", "CodeableConcept", "A possible alternate material for the packaging.", 0, java.lang.Integer.MAX_VALUE, alternateMaterial);
-          case -1335157162: /*device*/  return new Property("device", "Reference(MedicinalProductDeviceSpec)", "A device accompanying a medicinal product.", 0, java.lang.Integer.MAX_VALUE, device);
+          case -1335157162: /*device*/  return new Property("device", "Reference(MedicinalProductDeviceSpec|DeviceDefinition)", "A device accompanying a medicinal product.", 0, java.lang.Integer.MAX_VALUE, device);
           case 62093686: /*manufacturedItem*/  return new Property("manufacturedItem", "Reference(MedicinalProductManufactured)", "The manufactured item as contained in the packaged medicinal product.", 0, java.lang.Integer.MAX_VALUE, manufacturedItem);
           case 908628089: /*packageItem*/  return new Property("packageItem", "@MedicinalProductPackaged.packageItem", "Allows containers within containers.", 0, java.lang.Integer.MAX_VALUE, packageItem);
           case -1599676319: /*physicalCharacteristics*/  return new Property("physicalCharacteristics", "ProdCharacteristic", "Dimensions, color etc.", 0, 1, physicalCharacteristics);

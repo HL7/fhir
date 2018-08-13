@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -302,7 +302,7 @@ public class Task extends DomainResource {
 
     public enum TaskIntent {
         /**
-         * The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously
+         * The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously.
          */
         UNKNOWN, 
         /**
@@ -397,7 +397,7 @@ public class Task extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case UNKNOWN: return "The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously";
+            case UNKNOWN: return "The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously.";
             case PROPOSAL: return "";
             case PLAN: return "";
             case ORDER: return "";
@@ -506,19 +506,19 @@ public class Task extends DomainResource {
 
     public enum TaskPriority {
         /**
-         * The request has normal priority
+         * The request has normal priority.
          */
         ROUTINE, 
         /**
-         * The request should be actioned promptly - higher priority than routine
+         * The request should be actioned promptly - higher priority than routine.
          */
         URGENT, 
         /**
-         * The request should be actioned as soon as possible - higher priority than urgent
+         * The request should be actioned as soon as possible - higher priority than urgent.
          */
         ASAP, 
         /**
-         * The request should be actioned immediately - highest possible priority.  E.g. an emergency
+         * The request should be actioned immediately - highest possible priority.  E.g. an emergency.
          */
         STAT, 
         /**
@@ -561,10 +561,10 @@ public class Task extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case ROUTINE: return "The request has normal priority";
-            case URGENT: return "The request should be actioned promptly - higher priority than routine";
-            case ASAP: return "The request should be actioned as soon as possible - higher priority than urgent";
-            case STAT: return "The request should be actioned immediately - highest possible priority.  E.g. an emergency";
+            case ROUTINE: return "The request has normal priority.";
+            case URGENT: return "The request should be actioned promptly - higher priority than routine.";
+            case ASAP: return "The request should be actioned as soon as possible - higher priority than urgent.";
+            case STAT: return "The request should be actioned immediately - highest possible priority.  E.g. an emergency.";
             default: return "?";
           }
         }
@@ -1810,16 +1810,23 @@ public class Task extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.
+     * The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
      */
-    @Child(name = "instantiates", type = {UriType.class, ActivityDefinition.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Formal definition of task", formalDefinition="A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc." )
-    protected Type instantiates;
+    @Child(name = "instantiatesCanonical", type = {CanonicalType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Formal definition of task", formalDefinition="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task." )
+    protected CanonicalType instantiatesCanonical;
+
+    /**
+     * The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
+     */
+    @Child(name = "instantiatesUri", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Formal definition of task", formalDefinition="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task." )
+    protected UriType instantiatesUri;
 
     /**
      * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
      */
-    @Child(name = "basedOn", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Request fulfilled by this task", formalDefinition="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient." )
     protected List<Reference> basedOn;
     /**
@@ -1831,14 +1838,14 @@ public class Task extends DomainResource {
     /**
      * An identifier that links together multiple tasks and other requests that were created in the same context.
      */
-    @Child(name = "groupIdentifier", type = {Identifier.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "groupIdentifier", type = {Identifier.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Requisition or grouper id", formalDefinition="An identifier that links together multiple tasks and other requests that were created in the same context." )
     protected Identifier groupIdentifier;
 
     /**
      * Task that this particular task is part of.
      */
-    @Child(name = "partOf", type = {Task.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "partOf", type = {Task.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Composite task", formalDefinition="Task that this particular task is part of." )
     protected List<Reference> partOf;
     /**
@@ -1850,7 +1857,7 @@ public class Task extends DomainResource {
     /**
      * The current status of the task.
      */
-    @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | requested | received | accepted | +", formalDefinition="The current status of the task." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-status")
     protected Enumeration<TaskStatus> status;
@@ -1858,21 +1865,21 @@ public class Task extends DomainResource {
     /**
      * An explanation as to why this task is held, failed, was refused, etc.
      */
-    @Child(name = "statusReason", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "statusReason", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reason for current status", formalDefinition="An explanation as to why this task is held, failed, was refused, etc." )
     protected CodeableConcept statusReason;
 
     /**
      * Contains business-specific nuances of the business state.
      */
-    @Child(name = "businessStatus", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "businessStatus", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="E.g. \"Specimen collected\", \"IV prepped\"", formalDefinition="Contains business-specific nuances of the business state." )
     protected CodeableConcept businessStatus;
 
     /**
      * Indicates the "level" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.
      */
-    @Child(name = "intent", type = {CodeType.class}, order=8, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "intent", type = {CodeType.class}, order=9, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option", formalDefinition="Indicates the \"level\" of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-intent")
     protected Enumeration<TaskIntent> intent;
@@ -1880,29 +1887,29 @@ public class Task extends DomainResource {
     /**
      * Indicates how quickly the Task should be addressed with respect to other requests.
      */
-    @Child(name = "priority", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="normal | urgent | asap | stat", formalDefinition="Indicates how quickly the Task should be addressed with respect to other requests." )
+    @Child(name = "priority", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="routine | urgent | asap | stat", formalDefinition="Indicates how quickly the Task should be addressed with respect to other requests." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
     protected Enumeration<TaskPriority> priority;
 
     /**
      * A name or code (or both) briefly describing what the task involves.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Task Type", formalDefinition="A name or code (or both) briefly describing what the task involves." )
     protected CodeableConcept code;
 
     /**
      * A free-text description of what is to be performed.
      */
-    @Child(name = "description", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Human-readable explanation of task", formalDefinition="A free-text description of what is to be performed." )
     protected StringType description;
 
     /**
      * The request being actioned or the resource being manipulated by this task.
      */
-    @Child(name = "focus", type = {Reference.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "focus", type = {Reference.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What task is acting on", formalDefinition="The request being actioned or the resource being manipulated by this task." )
     protected Reference focus;
 
@@ -1914,7 +1921,7 @@ public class Task extends DomainResource {
     /**
      * The entity who benefits from the performance of the service specified in the task (e.g., the patient).
      */
-    @Child(name = "for", type = {Reference.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "for", type = {Reference.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Beneficiary of the Task", formalDefinition="The entity who benefits from the performance of the service specified in the task (e.g., the patient)." )
     protected Reference for_;
 
@@ -1926,7 +1933,7 @@ public class Task extends DomainResource {
     /**
      * The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Healthcare event during which this task originated", formalDefinition="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created." )
     protected Reference context;
 
@@ -1938,28 +1945,28 @@ public class Task extends DomainResource {
     /**
      * Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end).
      */
-    @Child(name = "executionPeriod", type = {Period.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "executionPeriod", type = {Period.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Start and end time of execution", formalDefinition="Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end)." )
     protected Period executionPeriod;
 
     /**
      * The date and time this task was created.
      */
-    @Child(name = "authoredOn", type = {DateTimeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "authoredOn", type = {DateTimeType.class}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Task Creation Date", formalDefinition="The date and time this task was created." )
     protected DateTimeType authoredOn;
 
     /**
      * The date and time of last modification to this task.
      */
-    @Child(name = "lastModified", type = {DateTimeType.class}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "lastModified", type = {DateTimeType.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Task Last Modified Date", formalDefinition="The date and time of last modification to this task." )
     protected DateTimeType lastModified;
 
     /**
      * The creator of the task.
      */
-    @Child(name = "requester", type = {Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requester", type = {Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class}, order=19, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who is asking for task to be done", formalDefinition="The creator of the task." )
     protected Reference requester;
 
@@ -1971,7 +1978,7 @@ public class Task extends DomainResource {
     /**
      * The type of participant that can execute the task.
      */
-    @Child(name = "performerType", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "performerType", type = {CodeableConcept.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer", formalDefinition="The type of participant that can execute the task." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/task-performer-type")
     protected List<CodeableConcept> performerType;
@@ -1979,7 +1986,7 @@ public class Task extends DomainResource {
     /**
      * Individual organization or Device currently responsible for task execution.
      */
-    @Child(name = "owner", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class, HealthcareService.class, Patient.class, Device.class, RelatedPerson.class}, order=20, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "owner", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class, HealthcareService.class, Patient.class, Device.class, RelatedPerson.class}, order=21, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible individual", formalDefinition="Individual organization or Device currently responsible for task execution." )
     protected Reference owner;
 
@@ -1991,7 +1998,7 @@ public class Task extends DomainResource {
     /**
      * The principal physical location where the this task is performed.
      */
-    @Child(name = "location", type = {Location.class}, order=21, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "location", type = {Location.class}, order=22, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Where task occurs", formalDefinition="The principal physical location where the this task is performed." )
     protected Reference location;
 
@@ -2003,14 +2010,14 @@ public class Task extends DomainResource {
     /**
      * A description or code indicating why this task needs to be performed.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=22, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=23, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why task is needed", formalDefinition="A description or code indicating why this task needs to be performed." )
     protected CodeableConcept reasonCode;
 
     /**
      * A resource reference indicating why this task needs to be performed.
      */
-    @Child(name = "reasonReference", type = {Reference.class}, order=23, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Reference.class}, order=24, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why task is needed", formalDefinition="A resource reference indicating why this task needs to be performed." )
     protected Reference reasonReference;
 
@@ -2022,7 +2029,7 @@ public class Task extends DomainResource {
     /**
      * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task.
      */
-    @Child(name = "insurance", type = {Coverage.class, ClaimResponse.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "insurance", type = {Coverage.class, ClaimResponse.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Associated insurance coverage", formalDefinition="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task." )
     protected List<Reference> insurance;
     /**
@@ -2034,14 +2041,14 @@ public class Task extends DomainResource {
     /**
      * Free-text information captured about the task as it progresses.
      */
-    @Child(name = "note", type = {Annotation.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the task", formalDefinition="Free-text information captured about the task as it progresses." )
     protected List<Annotation> note;
 
     /**
      * Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=27, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Key events in history of the Task", formalDefinition="Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task." )
     protected List<Reference> relevantHistory;
     /**
@@ -2053,25 +2060,25 @@ public class Task extends DomainResource {
     /**
      * If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned.
      */
-    @Child(name = "restriction", type = {}, order=27, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "restriction", type = {}, order=28, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Constraints on fulfillment tasks", formalDefinition="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned." )
     protected TaskRestrictionComponent restriction;
 
     /**
      * Additional information that may be needed in the execution of the task.
      */
-    @Child(name = "input", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "input", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information used to perform task", formalDefinition="Additional information that may be needed in the execution of the task." )
     protected List<ParameterComponent> input;
 
     /**
      * Outputs produced by the Task.
      */
-    @Child(name = "output", type = {}, order=29, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "output", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information produced as part of task", formalDefinition="Outputs produced by the Task." )
     protected List<TaskOutputComponent> output;
 
-    private static final long serialVersionUID = -739633078L;
+    private static final long serialVersionUID = -995373407L;
 
   /**
    * Constructor
@@ -2143,53 +2150,100 @@ public class Task extends DomainResource {
     }
 
     /**
-     * @return {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
+     * @return {@link #instantiatesCanonical} (The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.). This is the underlying object with id, value and extensions. The accessor "getInstantiatesCanonical" gives direct access to the value
      */
-    public Type getInstantiates() { 
-      return this.instantiates;
+    public CanonicalType getInstantiatesCanonicalElement() { 
+      if (this.instantiatesCanonical == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.instantiatesCanonical");
+        else if (Configuration.doAutoCreate())
+          this.instantiatesCanonical = new CanonicalType(); // bb
+      return this.instantiatesCanonical;
+    }
+
+    public boolean hasInstantiatesCanonicalElement() { 
+      return this.instantiatesCanonical != null && !this.instantiatesCanonical.isEmpty();
+    }
+
+    public boolean hasInstantiatesCanonical() { 
+      return this.instantiatesCanonical != null && !this.instantiatesCanonical.isEmpty();
     }
 
     /**
-     * @return {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
+     * @param value {@link #instantiatesCanonical} (The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.). This is the underlying object with id, value and extensions. The accessor "getInstantiatesCanonical" gives direct access to the value
      */
-    public UriType getInstantiatesUriType() throws FHIRException { 
-      if (this.instantiates == null)
-        return null;
-      if (!(this.instantiates instanceof UriType))
-        throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.instantiates.getClass().getName()+" was encountered");
-      return (UriType) this.instantiates;
-    }
-
-    public boolean hasInstantiatesUriType() { 
-      return this != null && this.instantiates instanceof UriType;
+    public Task setInstantiatesCanonicalElement(CanonicalType value) { 
+      this.instantiatesCanonical = value;
+      return this;
     }
 
     /**
-     * @return {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
+     * @return The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
      */
-    public Reference getInstantiatesReference() throws FHIRException { 
-      if (this.instantiates == null)
-        return null;
-      if (!(this.instantiates instanceof Reference))
-        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.instantiates.getClass().getName()+" was encountered");
-      return (Reference) this.instantiates;
-    }
-
-    public boolean hasInstantiatesReference() { 
-      return this != null && this.instantiates instanceof Reference;
-    }
-
-    public boolean hasInstantiates() { 
-      return this.instantiates != null && !this.instantiates.isEmpty();
+    public String getInstantiatesCanonical() { 
+      return this.instantiatesCanonical == null ? null : this.instantiatesCanonical.getValue();
     }
 
     /**
-     * @param value {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
+     * @param value The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
      */
-    public Task setInstantiates(Type value) { 
-      if (value != null && !(value instanceof UriType || value instanceof Reference))
-        throw new Error("Not the right type for Task.instantiates[x]: "+value.fhirType());
-      this.instantiates = value;
+    public Task setInstantiatesCanonical(String value) { 
+      if (Utilities.noString(value))
+        this.instantiatesCanonical = null;
+      else {
+        if (this.instantiatesCanonical == null)
+          this.instantiatesCanonical = new CanonicalType();
+        this.instantiatesCanonical.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #instantiatesUri} (The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.). This is the underlying object with id, value and extensions. The accessor "getInstantiatesUri" gives direct access to the value
+     */
+    public UriType getInstantiatesUriElement() { 
+      if (this.instantiatesUri == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.instantiatesUri");
+        else if (Configuration.doAutoCreate())
+          this.instantiatesUri = new UriType(); // bb
+      return this.instantiatesUri;
+    }
+
+    public boolean hasInstantiatesUriElement() { 
+      return this.instantiatesUri != null && !this.instantiatesUri.isEmpty();
+    }
+
+    public boolean hasInstantiatesUri() { 
+      return this.instantiatesUri != null && !this.instantiatesUri.isEmpty();
+    }
+
+    /**
+     * @param value {@link #instantiatesUri} (The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.). This is the underlying object with id, value and extensions. The accessor "getInstantiatesUri" gives direct access to the value
+     */
+    public Task setInstantiatesUriElement(UriType value) { 
+      this.instantiatesUri = value;
+      return this;
+    }
+
+    /**
+     * @return The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
+     */
+    public String getInstantiatesUri() { 
+      return this.instantiatesUri == null ? null : this.instantiatesUri.getValue();
+    }
+
+    /**
+     * @param value The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.
+     */
+    public Task setInstantiatesUri(String value) { 
+      if (Utilities.noString(value))
+        this.instantiatesUri = null;
+      else {
+        if (this.instantiatesUri == null)
+          this.instantiatesUri = new UriType();
+        this.instantiatesUri.setValue(value);
+      }
       return this;
     }
 
@@ -3416,7 +3470,8 @@ public class Task extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "The business identifier for this task.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("instantiates[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, 1, instantiates));
+        children.add(new Property("instantiatesCanonical", "canonical(ActivityDefinition)", "The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.", 0, 1, instantiatesCanonical));
+        children.add(new Property("instantiatesUri", "uri", "The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.", 0, 1, instantiatesUri));
         children.add(new Property("basedOn", "Reference(Any)", "BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("groupIdentifier", "Identifier", "An identifier that links together multiple tasks and other requests that were created in the same context.", 0, 1, groupIdentifier));
         children.add(new Property("partOf", "Reference(Task)", "Task that this particular task is part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
@@ -3451,10 +3506,8 @@ public class Task extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "The business identifier for this task.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -1926387433: /*instantiates[x]*/  return new Property("instantiates[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, 1, instantiates);
-        case -246883639: /*instantiates*/  return new Property("instantiates[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, 1, instantiates);
-        case -1926393373: /*instantiatesUri*/  return new Property("instantiates[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, 1, instantiates);
-        case -1744595326: /*instantiatesReference*/  return new Property("instantiates[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, 1, instantiates);
+        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical(ActivityDefinition)", "The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.", 0, 1, instantiatesCanonical);
+        case -1926393373: /*instantiatesUri*/  return new Property("instantiatesUri", "uri", "The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task.", 0, 1, instantiatesUri);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(Any)", "BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -445338488: /*groupIdentifier*/  return new Property("groupIdentifier", "Identifier", "An identifier that links together multiple tasks and other requests that were created in the same context.", 0, 1, groupIdentifier);
         case -995410646: /*partOf*/  return new Property("partOf", "Reference(Task)", "Task that this particular task is part of.", 0, java.lang.Integer.MAX_VALUE, partOf);
@@ -3492,7 +3545,8 @@ public class Task extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : new Base[] {this.instantiates}; // Type
+        case 8911915: /*instantiatesCanonical*/ return this.instantiatesCanonical == null ? new Base[0] : new Base[] {this.instantiatesCanonical}; // CanonicalType
+        case -1926393373: /*instantiatesUri*/ return this.instantiatesUri == null ? new Base[0] : new Base[] {this.instantiatesUri}; // UriType
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -445338488: /*groupIdentifier*/ return this.groupIdentifier == null ? new Base[0] : new Base[] {this.groupIdentifier}; // Identifier
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
@@ -3532,8 +3586,11 @@ public class Task extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
-        case -246883639: // instantiates
-          this.instantiates = castToType(value); // Type
+        case 8911915: // instantiatesCanonical
+          this.instantiatesCanonical = castToCanonical(value); // CanonicalType
+          return value;
+        case -1926393373: // instantiatesUri
+          this.instantiatesUri = castToUri(value); // UriType
           return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
@@ -3631,8 +3688,10 @@ public class Task extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("instantiates[x]")) {
-          this.instantiates = castToType(value); // Type
+        } else if (name.equals("instantiatesCanonical")) {
+          this.instantiatesCanonical = castToCanonical(value); // CanonicalType
+        } else if (name.equals("instantiatesUri")) {
+          this.instantiatesUri = castToUri(value); // UriType
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
         } else if (name.equals("groupIdentifier")) {
@@ -3701,8 +3760,8 @@ public class Task extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -1926387433:  return getInstantiates(); 
-        case -246883639:  return getInstantiates(); 
+        case 8911915:  return getInstantiatesCanonicalElement();
+        case -1926393373:  return getInstantiatesUriElement();
         case -332612366:  return addBasedOn(); 
         case -445338488:  return getGroupIdentifier(); 
         case -995410646:  return addPartOf(); 
@@ -3740,7 +3799,8 @@ public class Task extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -246883639: /*instantiates*/ return new String[] {"uri", "Reference"};
+        case 8911915: /*instantiatesCanonical*/ return new String[] {"canonical"};
+        case -1926393373: /*instantiatesUri*/ return new String[] {"uri"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
         case -995410646: /*partOf*/ return new String[] {"Reference"};
@@ -3779,13 +3839,11 @@ public class Task extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("instantiatesUri")) {
-          this.instantiates = new UriType();
-          return this.instantiates;
+        else if (name.equals("instantiatesCanonical")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Task.instantiatesCanonical");
         }
-        else if (name.equals("instantiatesReference")) {
-          this.instantiates = new Reference();
-          return this.instantiates;
+        else if (name.equals("instantiatesUri")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Task.instantiatesUri");
         }
         else if (name.equals("basedOn")) {
           return addBasedOn();
@@ -3902,7 +3960,8 @@ public class Task extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        dst.instantiates = instantiates == null ? null : instantiates.copy();
+        dst.instantiatesCanonical = instantiatesCanonical == null ? null : instantiatesCanonical.copy();
+        dst.instantiatesUri = instantiatesUri == null ? null : instantiatesUri.copy();
         if (basedOn != null) {
           dst.basedOn = new ArrayList<Reference>();
           for (Reference i : basedOn)
@@ -3977,12 +4036,13 @@ public class Task extends DomainResource {
         if (!(other_ instanceof Task))
           return false;
         Task o = (Task) other_;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
-           && compareDeep(basedOn, o.basedOn, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
-           && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
-           && compareDeep(businessStatus, o.businessStatus, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
-           && compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(focus, o.focus, true)
-           && compareDeep(for_, o.for_, true) && compareDeep(context, o.context, true) && compareDeep(executionPeriod, o.executionPeriod, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(instantiatesCanonical, o.instantiatesCanonical, true)
+           && compareDeep(instantiatesUri, o.instantiatesUri, true) && compareDeep(basedOn, o.basedOn, true)
+           && compareDeep(groupIdentifier, o.groupIdentifier, true) && compareDeep(partOf, o.partOf, true)
+           && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true) && compareDeep(businessStatus, o.businessStatus, true)
+           && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true) && compareDeep(code, o.code, true)
+           && compareDeep(description, o.description, true) && compareDeep(focus, o.focus, true) && compareDeep(for_, o.for_, true)
+           && compareDeep(context, o.context, true) && compareDeep(executionPeriod, o.executionPeriod, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(lastModified, o.lastModified, true)
            && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
            && compareDeep(owner, o.owner, true) && compareDeep(location, o.location, true) && compareDeep(reasonCode, o.reasonCode, true)
@@ -3998,17 +4058,19 @@ public class Task extends DomainResource {
         if (!(other_ instanceof Task))
           return false;
         Task o = (Task) other_;
-        return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
-           && compareValues(description, o.description, true) && compareValues(authoredOn, o.authoredOn, true)
-           && compareValues(lastModified, o.lastModified, true);
+        return compareValues(instantiatesUri, o.instantiatesUri, true) && compareValues(status, o.status, true)
+           && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true) && compareValues(description, o.description, true)
+           && compareValues(authoredOn, o.authoredOn, true) && compareValues(lastModified, o.lastModified, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, basedOn
-          , groupIdentifier, partOf, status, statusReason, businessStatus, intent, priority
-          , code, description, focus, for_, context, executionPeriod, authoredOn, lastModified
-          , requester, performerType, owner, location, reasonCode, reasonReference, insurance
-          , note, relevantHistory, restriction, input, output);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiatesCanonical
+          , instantiatesUri, basedOn, groupIdentifier, partOf, status, statusReason, businessStatus
+          , intent, priority, code, description, focus, for_, context, executionPeriod
+          , authoredOn, lastModified, requester, performerType, owner, location, reasonCode
+          , reasonReference, insurance, note, relevantHistory, restriction, input, output
+          );
       }
 
   @Override
@@ -4360,7 +4422,7 @@ public class Task extends DomainResource {
    * Path: <b>Task.for</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Task.for", description="Search by patient", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="Task.for.where(resolve() is Patient)", description="Search by patient", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

@@ -614,9 +614,9 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setStatus(PublicationStatus.ACTIVE);
     cs.setExperimental(false);
     if (tv.csoid != null) {
-      cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
+      cs.getIdentifierFirstRep().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
       if (objects.containsKey(tv.csoid))
-        cs.getIdentifier().getValueElement().addExtension("http://healthintersections.com.au/fhir/StructureDefinition/identifier-display", new StringType(objects.get(tv.csoid).display));
+        cs.getIdentifierFirstRep().getValueElement().addExtension("http://healthintersections.com.au/fhir/StructureDefinition/identifier-display", new StringType(objects.get(tv.csoid).display));
     }
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
@@ -684,7 +684,7 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.setTitle("V2 Table: "+t.name);
     cs.setStatus(PublicationStatus.ACTIVE);
     cs.setExperimental(false);
-    cs.getIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
+    cs.getIdentifierFirstRep().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+tv.csoid);
     cs.setDateElement(new DateTimeType(currentVersionDate, TemporalPrecisionEnum.DAY));
     cs.setPublisher("HL7, Inc");
     cs.addContact().addTelecom().setSystem(ContactPointSystem.URL).setValue("https://github.com/grahamegrieve/vocab-poc");

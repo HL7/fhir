@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -49,35 +49,35 @@ public class TriggerDefinition extends Type implements ICompositeType {
 
     public enum TriggerType {
         /**
-         * The trigger occurs in response to a specific named event, and no other information about the trigger is specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not provided
+         * The trigger occurs in response to a specific named event, and no other information about the trigger is specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not provided.
          */
         NAMEDEVENT, 
         /**
-         * The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event
+         * The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event.
          */
         PERIODIC, 
         /**
-         * The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed
+         * The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed.
          */
         DATACHANGED, 
         /**
-         * The trigger occurs whenever data of a particular type is added
+         * The trigger occurs whenever data of a particular type is added.
          */
         DATAADDED, 
         /**
-         * The trigger occurs whenever data of a particular type is modified
+         * The trigger occurs whenever data of a particular type is modified.
          */
         DATAMODIFIED, 
         /**
-         * The trigger occurs whenever data of a particular type is removed
+         * The trigger occurs whenever data of a particular type is removed.
          */
         DATAREMOVED, 
         /**
-         * The trigger occurs whenever data of a particular type is accessed
+         * The trigger occurs whenever data of a particular type is accessed.
          */
         DATAACCESSED, 
         /**
-         * The trigger occurs whenever access to data of a particular type is completed
+         * The trigger occurs whenever access to data of a particular type is completed.
          */
         DATAACCESSENDED, 
         /**
@@ -136,14 +136,14 @@ public class TriggerDefinition extends Type implements ICompositeType {
         }
         public String getDefinition() {
           switch (this) {
-            case NAMEDEVENT: return "The trigger occurs in response to a specific named event, and no other information about the trigger is specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not provided";
-            case PERIODIC: return "The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event";
-            case DATACHANGED: return "The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed";
-            case DATAADDED: return "The trigger occurs whenever data of a particular type is added";
-            case DATAMODIFIED: return "The trigger occurs whenever data of a particular type is modified";
-            case DATAREMOVED: return "The trigger occurs whenever data of a particular type is removed";
-            case DATAACCESSED: return "The trigger occurs whenever data of a particular type is accessed";
-            case DATAACCESSENDED: return "The trigger occurs whenever access to data of a particular type is completed";
+            case NAMEDEVENT: return "The trigger occurs in response to a specific named event, and no other information about the trigger is specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not provided.";
+            case PERIODIC: return "The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event.";
+            case DATACHANGED: return "The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed.";
+            case DATAADDED: return "The trigger occurs whenever data of a particular type is added.";
+            case DATAMODIFIED: return "The trigger occurs whenever data of a particular type is modified.";
+            case DATAREMOVED: return "The trigger occurs whenever data of a particular type is removed.";
+            case DATAACCESSED: return "The trigger occurs whenever data of a particular type is accessed.";
+            case DATAACCESSENDED: return "The trigger occurs whenever access to data of a particular type is completed.";
             default: return "?";
           }
         }

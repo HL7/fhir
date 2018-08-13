@@ -36,8 +36,8 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestPageComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ManifestPageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Reference;
@@ -100,7 +100,7 @@ public class SpecNPMPackageGenerator {
     ig.setPackageId("hl7.fhir.core");
     ig.getManifest().setRendering(url);
     for (ResourceEntry e : reslist) {
-      ImplementationGuideManifestResourceComponent r = ig.getManifest().addResource();
+      ManifestResourceComponent r = ig.getManifest().addResource();
       r.setReference(new Reference(e.type+"/"+e.id));
       if (e.conf)
         r.setExample(new BooleanType(true));
@@ -112,9 +112,9 @@ public class SpecNPMPackageGenerator {
       else if (k.endsWith(".css"))
         ig.getManifest().addOther(k);
     }
-    Map<String, ImplementationGuideManifestPageComponent> map = new HashMap<String, ImplementationGuideManifestPageComponent>();
+    Map<String, ManifestPageComponent> map = new HashMap<String, ManifestPageComponent>();
     for (String k : spm.getPages()) {
-      ImplementationGuideManifestPageComponent pp = ig.getManifest().addPage();
+      ManifestPageComponent pp = ig.getManifest().addPage();
       pp.setName(k).setTitle(spm.getPage(k));
       map.put(pp.getName(), pp);      
     }
@@ -126,7 +126,7 @@ public class SpecNPMPackageGenerator {
         f = k.substring(k.indexOf("#")+1);
       } else
         n = k;
-      ImplementationGuideManifestPageComponent p = map.get(n);
+      ManifestPageComponent p = map.get(n);
       if (p == null) {
         p = ig.getManifest().addPage();
         p.setName(n);

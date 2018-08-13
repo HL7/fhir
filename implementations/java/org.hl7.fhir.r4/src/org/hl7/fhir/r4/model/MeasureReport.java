@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Jul 25, 2018 16:56+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -50,15 +50,15 @@ public class MeasureReport extends DomainResource {
 
     public enum MeasureReportStatus {
         /**
-         * The report is complete and ready for use
+         * The report is complete and ready for use.
          */
         COMPLETE, 
         /**
-         * The report is currently being generated
+         * The report is currently being generated.
          */
         PENDING, 
         /**
-         * An error occurred attempting to generate the report
+         * An error occurred attempting to generate the report.
          */
         ERROR, 
         /**
@@ -97,9 +97,9 @@ public class MeasureReport extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case COMPLETE: return "The report is complete and ready for use";
-            case PENDING: return "The report is currently being generated";
-            case ERROR: return "An error occurred attempting to generate the report";
+            case COMPLETE: return "The report is complete and ready for use.";
+            case PENDING: return "The report is currently being generated.";
+            case ERROR: return "An error occurred attempting to generate the report.";
             default: return "?";
           }
         }
@@ -158,19 +158,19 @@ public class MeasureReport extends DomainResource {
 
     public enum MeasureReportType {
         /**
-         * An individual report that provides information on the performance for a given measure with respect to a single subject
+         * An individual report that provides information on the performance for a given measure with respect to a single subject.
          */
         INDIVIDUAL, 
         /**
-         * A subject list report that includes a listing of subjects that satisfied each population criteria in the measure
+         * A subject list report that includes a listing of subjects that satisfied each population criteria in the measure.
          */
         SUBJECTLIST, 
         /**
-         * A summary report that returns the number of members in each population criteria for the measure
+         * A summary report that returns the number of members in each population criteria for the measure.
          */
         SUMMARY, 
         /**
-         * A data collection report that contains data-of-interest for the measure
+         * A data collection report that contains data-of-interest for the measure.
          */
         DATACOLLECTION, 
         /**
@@ -213,10 +213,10 @@ public class MeasureReport extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case INDIVIDUAL: return "An individual report that provides information on the performance for a given measure with respect to a single subject";
-            case SUBJECTLIST: return "A subject list report that includes a listing of subjects that satisfied each population criteria in the measure";
-            case SUMMARY: return "A summary report that returns the number of members in each population criteria for the measure";
-            case DATACOLLECTION: return "A data collection report that contains data-of-interest for the measure";
+            case INDIVIDUAL: return "An individual report that provides information on the performance for a given measure with respect to a single subject.";
+            case SUBJECTLIST: return "A subject list report that includes a listing of subjects that satisfied each population criteria in the measure.";
+            case SUMMARY: return "A summary report that returns the number of members in each population criteria for the measure.";
+            case DATACOLLECTION: return "A data collection report that contains data-of-interest for the measure.";
             default: return "?";
           }
         }
@@ -282,11 +282,11 @@ public class MeasureReport extends DomainResource {
 
     public enum MeasureImprovementNotation {
         /**
-         * Improvement in the measure is noted as an increase in the measure score
+         * Improvement in the measure is noted as an increase in the measure score.
          */
         INCREASE, 
         /**
-         * Improvement in the measure is noted as a decrease in the measure score
+         * Improvement in the measure is noted as a decrease in the measure score.
          */
         DECREASE, 
         /**
@@ -321,8 +321,8 @@ public class MeasureReport extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case INCREASE: return "Improvement in the measure is noted as an increase in the measure score";
-            case DECREASE: return "Improvement in the measure is noted as a decrease in the measure score";
+            case INCREASE: return "Improvement in the measure is noted as an increase in the measure score.";
+            case DECREASE: return "Improvement in the measure is noted as a decrease in the measure score.";
             default: return "?";
           }
         }
@@ -2819,7 +2819,7 @@ public class MeasureReport extends DomainResource {
    * Path: <b>MeasureReport.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="MeasureReport.subject", description="The identity of a patient to search for individual measure report results for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="MeasureReport.subject.where(resolve() is Patient)", description="The identity of a patient to search for individual measure report results for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

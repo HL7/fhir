@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -51,27 +51,27 @@ public class ChargeItem extends DomainResource {
 
     public enum ChargeItemStatus {
         /**
-         * The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization
+         * The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization.
          */
         PLANNED, 
         /**
-         * The charge item is ready for billing
+         * The charge item is ready for billing.
          */
         BILLABLE, 
         /**
-         * The charge item has been determined to be not billable (e.g. due to rules associated with the billing code)
+         * The charge item has been determined to be not billable (e.g. due to rules associated with the billing code).
          */
         NOTBILLABLE, 
         /**
-         * The processing of the charge was aborted
+         * The processing of the charge was aborted.
          */
         ABORTED, 
         /**
-         * The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices
+         * The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices.
          */
         BILLED, 
         /**
-         * The charge item has been entered in error and should not be processed for billing
+         * The charge item has been entered in error and should not be processed for billing.
          */
         ENTEREDINERROR, 
         /**
@@ -130,12 +130,12 @@ public class ChargeItem extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PLANNED: return "The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization";
-            case BILLABLE: return "The charge item is ready for billing";
-            case NOTBILLABLE: return "The charge item has been determined to be not billable (e.g. due to rules associated with the billing code)";
-            case ABORTED: return "The processing of the charge was aborted";
-            case BILLED: return "The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices";
-            case ENTEREDINERROR: return "The charge item has been entered in error and should not be processed for billing";
+            case PLANNED: return "The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization.";
+            case BILLABLE: return "The charge item is ready for billing.";
+            case NOTBILLABLE: return "The charge item has been determined to be not billable (e.g. due to rules associated with the billing code).";
+            case ABORTED: return "The processing of the charge was aborted.";
+            case BILLED: return "The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices.";
+            case ENTEREDINERROR: return "The charge item has been entered in error and should not be processed for billing.";
             case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this charge item  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
@@ -554,14 +554,14 @@ public class ChargeItem extends DomainResource {
     /**
      * The financial cost center permits the tracking of charge attribution.
      */
-    @Child(name = "costCenter", type = {Organization.class, OrganizationRole.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "costCenter", type = {Organization.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Organization that has ownership of the (potential, future) revenue", formalDefinition="The financial cost center permits the tracking of charge attribution." )
     protected Reference costCenter;
 
     /**
      * The actual object that is the target of the reference (The financial cost center permits the tracking of charge attribution.)
      */
-    protected Resource costCenterTarget;
+    protected Organization costCenterTarget;
 
     /**
      * Quantity of which the charge item has been serviced.
@@ -677,7 +677,7 @@ public class ChargeItem extends DomainResource {
     protected List<Resource> supportingInformationTarget;
 
 
-    private static final long serialVersionUID = -2130389213L;
+    private static final long serialVersionUID = 1177477896L;
 
   /**
    * Constructor
@@ -1266,14 +1266,19 @@ public class ChargeItem extends DomainResource {
     /**
      * @return {@link #costCenter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The financial cost center permits the tracking of charge attribution.)
      */
-    public Resource getCostCenterTarget() { 
+    public Organization getCostCenterTarget() { 
+      if (this.costCenterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ChargeItem.costCenter");
+        else if (Configuration.doAutoCreate())
+          this.costCenterTarget = new Organization(); // aa
       return this.costCenterTarget;
     }
 
     /**
      * @param value {@link #costCenter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The financial cost center permits the tracking of charge attribution.)
      */
-    public ChargeItem setCostCenterTarget(Resource value) { 
+    public ChargeItem setCostCenterTarget(Organization value) { 
       this.costCenterTarget = value;
       return this;
     }
@@ -1954,7 +1959,7 @@ public class ChargeItem extends DomainResource {
         children.add(new Property("performer", "", "Indicates who or what performed or participated in the charged service.", 0, java.lang.Integer.MAX_VALUE, performer));
         children.add(new Property("performingOrganization", "Reference(Organization)", "The organization requesting the service.", 0, 1, performingOrganization));
         children.add(new Property("requestingOrganization", "Reference(Organization)", "The organization performing the service.", 0, 1, requestingOrganization));
-        children.add(new Property("costCenter", "Reference(Organization|OrganizationRole)", "The financial cost center permits the tracking of charge attribution.", 0, 1, costCenter));
+        children.add(new Property("costCenter", "Reference(Organization)", "The financial cost center permits the tracking of charge attribution.", 0, 1, costCenter));
         children.add(new Property("quantity", "Quantity", "Quantity of which the charge item has been serviced.", 0, 1, quantity));
         children.add(new Property("bodysite", "CodeableConcept", "The anatomical location where the related service has been applied.", 0, java.lang.Integer.MAX_VALUE, bodysite));
         children.add(new Property("factorOverride", "decimal", "Factor overriding the factor determined by the rules associated with the code.", 0, 1, factorOverride));
@@ -1988,7 +1993,7 @@ public class ChargeItem extends DomainResource {
         case 481140686: /*performer*/  return new Property("performer", "", "Indicates who or what performed or participated in the charged service.", 0, java.lang.Integer.MAX_VALUE, performer);
         case 1273192628: /*performingOrganization*/  return new Property("performingOrganization", "Reference(Organization)", "The organization requesting the service.", 0, 1, performingOrganization);
         case 1279054790: /*requestingOrganization*/  return new Property("requestingOrganization", "Reference(Organization)", "The organization performing the service.", 0, 1, requestingOrganization);
-        case -593192318: /*costCenter*/  return new Property("costCenter", "Reference(Organization|OrganizationRole)", "The financial cost center permits the tracking of charge attribution.", 0, 1, costCenter);
+        case -593192318: /*costCenter*/  return new Property("costCenter", "Reference(Organization)", "The financial cost center permits the tracking of charge attribution.", 0, 1, costCenter);
         case -1285004149: /*quantity*/  return new Property("quantity", "Quantity", "Quantity of which the charge item has been serviced.", 0, 1, quantity);
         case 1703573481: /*bodysite*/  return new Property("bodysite", "CodeableConcept", "The anatomical location where the related service has been applied.", 0, java.lang.Integer.MAX_VALUE, bodysite);
         case -451233221: /*factorOverride*/  return new Property("factorOverride", "decimal", "Factor overriding the factor determined by the rules associated with the code.", 0, 1, factorOverride);
@@ -2662,7 +2667,7 @@ public class ChargeItem extends DomainResource {
    * Path: <b>ChargeItem.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ChargeItem.subject", description="Individual service was done for/to", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="ChargeItem.subject.where(resolve() is Patient)", description="Individual service was done for/to", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>

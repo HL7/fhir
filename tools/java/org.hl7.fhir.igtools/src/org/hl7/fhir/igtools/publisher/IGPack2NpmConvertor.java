@@ -29,7 +29,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
@@ -168,7 +168,7 @@ public class IGPack2NpmConvertor {
             ig.getManifest().addResource().setReference(convertToReference(k));
         }
         for (ImplementationGuideDefinitionResourceComponent rd : ig.getDefinition().getResource()) {
-          ImplementationGuideManifestResourceComponent ra = getMatchingResource(rd.getReference().getReference(), ig);
+          ManifestResourceComponent ra = getMatchingResource(rd.getReference().getReference(), ig);
           if (ra != null) {
             ra.setExample(rd.getExample());
             if (rd.hasExtension("http://hl7.org/fhir/StructureDefinition/implementationguide-page")) {
@@ -246,7 +246,7 @@ public class IGPack2NpmConvertor {
     for (String s : spm.getPathUrls()) {
       if (s.startsWith(canonical)) {
         String r = s.equals(canonical) ? "" : s.substring(canonical.length() + 1);
-        ImplementationGuideManifestResourceComponent ra = getMatchingResource(r, ig);
+        ManifestResourceComponent ra = getMatchingResource(r, ig);
         if (ra != null && !ra.hasRelativePath())
           ra.setRelativePath(spm.getPath(s));
       }
@@ -264,8 +264,8 @@ public class IGPack2NpmConvertor {
 
   }
 
-  private ImplementationGuideManifestResourceComponent getMatchingResource(String r, ImplementationGuide ig) {
-    for (ImplementationGuideManifestResourceComponent t : ig.getManifest().getResource()) 
+  private ManifestResourceComponent getMatchingResource(String r, ImplementationGuide ig) {
+    for (ManifestResourceComponent t : ig.getManifest().getResource()) 
       if (r.equals(t.getReference().getReference()))
         return t;
     return null;

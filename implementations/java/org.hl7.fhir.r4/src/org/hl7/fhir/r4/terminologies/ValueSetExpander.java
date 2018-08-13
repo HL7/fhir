@@ -31,41 +31,33 @@ public interface ValueSetExpander {
    */
   public class ValueSetExpansionOutcome {
     private ValueSet valueset;
-    private ValueSetChecker service;
     private String error;
     private TerminologyServiceErrorClass errorClass;
     
     public ValueSetExpansionOutcome(ValueSet valueset) {
       super();
       this.valueset = valueset;
-      this.service = null;
       this.error = null;
     }
     public ValueSetExpansionOutcome(ValueSet valueset, String error, TerminologyServiceErrorClass errorClass) {
       super();
       this.valueset = valueset;
-      this.service = null;
       this.error = error;
       this.errorClass = errorClass;
     }
     public ValueSetExpansionOutcome(ValueSetChecker service, String error, TerminologyServiceErrorClass errorClass) {
       super();
       this.valueset = null;
-      this.service = service;
       this.error = error;
       this.errorClass = errorClass;
     }
     public ValueSetExpansionOutcome(String error, TerminologyServiceErrorClass errorClass) {
       this.valueset = null;
-      this.service = null;
       this.error = error;
       this.errorClass = errorClass;
     }
     public ValueSet getValueset() {
       return valueset;
-    }
-    public ValueSetChecker getService() {
-      return service;
     }
     public String getError() {
       return error;

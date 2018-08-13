@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Jul 3, 2018 02:25+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -49,13 +49,17 @@ public class Expression extends Type implements ICompositeType {
 
     public enum ExpressionLanguage {
         /**
-         * Clinical Quality Language
+         * Clinical Quality Language.
          */
         TEXT_CQL, 
         /**
-         * FHIRPath
+         * FHIRPath.
          */
         TEXT_FHIRPATH, 
+        /**
+         * FHIR's RESTful query syntax - typically independent of base URL.
+         */
+        APPLICATION_XFHIRQUERY, 
         /**
          * added to help the parsers with the generic types
          */
@@ -67,6 +71,8 @@ public class Expression extends Type implements ICompositeType {
           return TEXT_CQL;
         if ("text/fhirpath".equals(codeString))
           return TEXT_FHIRPATH;
+        if ("application/x-fhir-query".equals(codeString))
+          return APPLICATION_XFHIRQUERY;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -76,6 +82,7 @@ public class Expression extends Type implements ICompositeType {
           switch (this) {
             case TEXT_CQL: return "text/cql";
             case TEXT_FHIRPATH: return "text/fhirpath";
+            case APPLICATION_XFHIRQUERY: return "application/x-fhir-query";
             default: return "?";
           }
         }
@@ -83,13 +90,15 @@ public class Expression extends Type implements ICompositeType {
           switch (this) {
             case TEXT_CQL: return "http://hl7.org/fhir/expression-language";
             case TEXT_FHIRPATH: return "http://hl7.org/fhir/expression-language";
+            case APPLICATION_XFHIRQUERY: return "http://hl7.org/fhir/expression-language";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case TEXT_CQL: return "Clinical Quality Language";
-            case TEXT_FHIRPATH: return "FHIRPath";
+            case TEXT_CQL: return "Clinical Quality Language.";
+            case TEXT_FHIRPATH: return "FHIRPath.";
+            case APPLICATION_XFHIRQUERY: return "FHIR's RESTful query syntax - typically independent of base URL.";
             default: return "?";
           }
         }
@@ -97,6 +106,7 @@ public class Expression extends Type implements ICompositeType {
           switch (this) {
             case TEXT_CQL: return "CQL";
             case TEXT_FHIRPATH: return "FHIRPath";
+            case APPLICATION_XFHIRQUERY: return "FHIR Query";
             default: return "?";
           }
         }
@@ -111,6 +121,8 @@ public class Expression extends Type implements ICompositeType {
           return ExpressionLanguage.TEXT_CQL;
         if ("text/fhirpath".equals(codeString))
           return ExpressionLanguage.TEXT_FHIRPATH;
+        if ("application/x-fhir-query".equals(codeString))
+          return ExpressionLanguage.APPLICATION_XFHIRQUERY;
         throw new IllegalArgumentException("Unknown ExpressionLanguage code '"+codeString+"'");
         }
         public Enumeration<ExpressionLanguage> fromType(Base code) throws FHIRException {
@@ -125,6 +137,8 @@ public class Expression extends Type implements ICompositeType {
           return new Enumeration<ExpressionLanguage>(this, ExpressionLanguage.TEXT_CQL);
         if ("text/fhirpath".equals(codeString))
           return new Enumeration<ExpressionLanguage>(this, ExpressionLanguage.TEXT_FHIRPATH);
+        if ("application/x-fhir-query".equals(codeString))
+          return new Enumeration<ExpressionLanguage>(this, ExpressionLanguage.APPLICATION_XFHIRQUERY);
         throw new FHIRException("Unknown ExpressionLanguage code '"+codeString+"'");
         }
     public String toCode(ExpressionLanguage code) {
@@ -132,6 +146,8 @@ public class Expression extends Type implements ICompositeType {
         return "text/cql";
       if (code == ExpressionLanguage.TEXT_FHIRPATH)
         return "text/fhirpath";
+      if (code == ExpressionLanguage.APPLICATION_XFHIRQUERY)
+        return "application/x-fhir-query";
       return "?";
       }
     public String toSystem(ExpressionLanguage code) {
@@ -149,15 +165,15 @@ public class Expression extends Type implements ICompositeType {
     /**
      * A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.
      */
-    @Child(name = "name", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "name", type = {IdType.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Short name assigned to expression for reuse", formalDefinition="A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined." )
-    protected CodeType name;
+    protected IdType name;
 
     /**
      * The media type of the language for the expression.
      */
     @Child(name = "language", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="text/cql | text/fhirpath | etc.", formalDefinition="The media type of the language for the expression." )
+    @Description(shortDefinition="text/cql | text/fhirpath | application/x-fhir-query | etc.", formalDefinition="The media type of the language for the expression." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/expression-language")
     protected Enumeration<ExpressionLanguage> language;
 
@@ -175,7 +191,7 @@ public class Expression extends Type implements ICompositeType {
     @Description(shortDefinition="Where the expression is found", formalDefinition="A URI that defines where the expression is found." )
     protected UriType reference;
 
-    private static final long serialVersionUID = 763523320L;
+    private static final long serialVersionUID = -941986742L;
 
   /**
    * Constructor
@@ -244,12 +260,12 @@ public class Expression extends Type implements ICompositeType {
     /**
      * @return {@link #name} (A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public CodeType getNameElement() { 
+    public IdType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Expression.name");
         else if (Configuration.doAutoCreate())
-          this.name = new CodeType(); // bb
+          this.name = new IdType(); // bb
       return this.name;
     }
 
@@ -264,7 +280,7 @@ public class Expression extends Type implements ICompositeType {
     /**
      * @param value {@link #name} (A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Expression setNameElement(CodeType value) { 
+    public Expression setNameElement(IdType value) { 
       this.name = value;
       return this;
     }
@@ -284,7 +300,7 @@ public class Expression extends Type implements ICompositeType {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new CodeType();
+          this.name = new IdType();
         this.name.setValue(value);
       }
       return this;
@@ -436,7 +452,7 @@ public class Expression extends Type implements ICompositeType {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("description", "string", "A brief, natural language description of the condition that effectively communicates the intended semantics.", 0, 1, description));
-        children.add(new Property("name", "code", "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.", 0, 1, name));
+        children.add(new Property("name", "id", "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.", 0, 1, name));
         children.add(new Property("language", "code", "The media type of the language for the expression.", 0, 1, language));
         children.add(new Property("expression", "string", "An expression in the specified language that returns a value.", 0, 1, expression));
         children.add(new Property("reference", "uri", "A URI that defines where the expression is found.", 0, 1, reference));
@@ -446,7 +462,7 @@ public class Expression extends Type implements ICompositeType {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1724546052: /*description*/  return new Property("description", "string", "A brief, natural language description of the condition that effectively communicates the intended semantics.", 0, 1, description);
-        case 3373707: /*name*/  return new Property("name", "code", "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.", 0, 1, name);
+        case 3373707: /*name*/  return new Property("name", "id", "A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined.", 0, 1, name);
         case -1613589672: /*language*/  return new Property("language", "code", "The media type of the language for the expression.", 0, 1, language);
         case -1795452264: /*expression*/  return new Property("expression", "string", "An expression in the specified language that returns a value.", 0, 1, expression);
         case -925155509: /*reference*/  return new Property("reference", "uri", "A URI that defines where the expression is found.", 0, 1, reference);
@@ -459,7 +475,7 @@ public class Expression extends Type implements ICompositeType {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // CodeType
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // IdType
         case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // Enumeration<ExpressionLanguage>
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case -925155509: /*reference*/ return this.reference == null ? new Base[0] : new Base[] {this.reference}; // UriType
@@ -475,7 +491,7 @@ public class Expression extends Type implements ICompositeType {
           this.description = castToString(value); // StringType
           return value;
         case 3373707: // name
-          this.name = castToCode(value); // CodeType
+          this.name = castToId(value); // IdType
           return value;
         case -1613589672: // language
           value = new ExpressionLanguageEnumFactory().fromType(castToCode(value));
@@ -497,7 +513,7 @@ public class Expression extends Type implements ICompositeType {
         if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("name")) {
-          this.name = castToCode(value); // CodeType
+          this.name = castToId(value); // IdType
         } else if (name.equals("language")) {
           value = new ExpressionLanguageEnumFactory().fromType(castToCode(value));
           this.language = (Enumeration) value; // Enumeration<ExpressionLanguage>
@@ -527,7 +543,7 @@ public class Expression extends Type implements ICompositeType {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1724546052: /*description*/ return new String[] {"string"};
-        case 3373707: /*name*/ return new String[] {"code"};
+        case 3373707: /*name*/ return new String[] {"id"};
         case -1613589672: /*language*/ return new String[] {"code"};
         case -1795452264: /*expression*/ return new String[] {"string"};
         case -925155509: /*reference*/ return new String[] {"uri"};

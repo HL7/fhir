@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Jul 19, 2018 23:17+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -56,19 +56,19 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapModelMode {
         /**
-         * This structure describes an instance passed to the mapping engine that is used a source of data
+         * This structure describes an instance passed to the mapping engine that is used a source of data.
          */
         SOURCE, 
         /**
-         * This structure describes an instance that the mapping engine may ask for that is used a source of data
+         * This structure describes an instance that the mapping engine may ask for that is used a source of data.
          */
         QUERIED, 
         /**
-         * This structure describes an instance passed to the mapping engine that is used a target of data
+         * This structure describes an instance passed to the mapping engine that is used a target of data.
          */
         TARGET, 
         /**
-         * This structure describes an instance that the mapping engine may ask to create that is used a target of data
+         * This structure describes an instance that the mapping engine may ask to create that is used a target of data.
          */
         PRODUCED, 
         /**
@@ -111,10 +111,10 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case SOURCE: return "This structure describes an instance passed to the mapping engine that is used a source of data";
-            case QUERIED: return "This structure describes an instance that the mapping engine may ask for that is used a source of data";
-            case TARGET: return "This structure describes an instance passed to the mapping engine that is used a target of data";
-            case PRODUCED: return "This structure describes an instance that the mapping engine may ask to create that is used a target of data";
+            case SOURCE: return "This structure describes an instance passed to the mapping engine that is used a source of data.";
+            case QUERIED: return "This structure describes an instance that the mapping engine may ask for that is used a source of data.";
+            case TARGET: return "This structure describes an instance passed to the mapping engine that is used a target of data.";
+            case PRODUCED: return "This structure describes an instance that the mapping engine may ask to create that is used a target of data.";
             default: return "?";
           }
         }
@@ -180,15 +180,15 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapGroupTypeMode {
         /**
-         * This group is not a default group for the types
+         * This group is not a default group for the types.
          */
         NONE, 
         /**
-         * This group is a default mapping group for the specified types and for the primary source type
+         * This group is a default mapping group for the specified types and for the primary source type.
          */
         TYPES, 
         /**
-         * This group is a default mapping group for the specified types
+         * This group is a default mapping group for the specified types.
          */
         TYPEANDTYPES, 
         /**
@@ -227,9 +227,9 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case NONE: return "This group is not a default group for the types";
-            case TYPES: return "This group is a default mapping group for the specified types and for the primary source type";
-            case TYPEANDTYPES: return "This group is a default mapping group for the specified types";
+            case NONE: return "This group is not a default group for the types.";
+            case TYPES: return "This group is a default mapping group for the specified types and for the primary source type.";
+            case TYPEANDTYPES: return "This group is a default mapping group for the specified types.";
             default: return "?";
           }
         }
@@ -288,11 +288,11 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapInputMode {
         /**
-         * Names an input instance used a source for mapping
+         * Names an input instance used a source for mapping.
          */
         SOURCE, 
         /**
-         * Names an instance that is being populated
+         * Names an instance that is being populated.
          */
         TARGET, 
         /**
@@ -327,8 +327,8 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case SOURCE: return "Names an input instance used a source for mapping";
-            case TARGET: return "Names an instance that is being populated";
+            case SOURCE: return "Names an input instance used a source for mapping.";
+            case TARGET: return "Names an instance that is being populated.";
             default: return "?";
           }
         }
@@ -380,23 +380,23 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapSourceListMode {
         /**
-         * Only process this rule for the first in the list
+         * Only process this rule for the first in the list.
          */
         FIRST, 
         /**
-         * Process this rule for all but the first
+         * Process this rule for all but the first.
          */
         NOTFIRST, 
         /**
-         * Only process this rule for the last in the list
+         * Only process this rule for the last in the list.
          */
         LAST, 
         /**
-         * Process this rule for all but the last
+         * Process this rule for all but the last.
          */
         NOTLAST, 
         /**
-         * Only process this rule is there is only item
+         * Only process this rule is there is only item.
          */
         ONLYONE, 
         /**
@@ -443,11 +443,11 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case FIRST: return "Only process this rule for the first in the list";
-            case NOTFIRST: return "Process this rule for all but the first";
-            case LAST: return "Only process this rule for the last in the list";
-            case NOTLAST: return "Process this rule for all but the last";
-            case ONLYONE: return "Only process this rule is there is only item";
+            case FIRST: return "Only process this rule for the first in the list.";
+            case NOTFIRST: return "Process this rule for all but the first.";
+            case LAST: return "Only process this rule for the last in the list.";
+            case NOTLAST: return "Process this rule for all but the last.";
+            case ONLYONE: return "Only process this rule is there is only item.";
             default: return "?";
           }
         }
@@ -520,11 +520,11 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapContextType {
         /**
-         * The context specifies a type
+         * The context specifies a type.
          */
         TYPE, 
         /**
-         * The context specifies a variable
+         * The context specifies a variable.
          */
         VARIABLE, 
         /**
@@ -559,8 +559,8 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case TYPE: return "The context specifies a type";
-            case VARIABLE: return "The context specifies a variable";
+            case TYPE: return "The context specifies a type.";
+            case VARIABLE: return "The context specifies a variable.";
             default: return "?";
           }
         }
@@ -612,19 +612,19 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapTargetListMode {
         /**
-         * when the target list is being assembled, the items for this rule go first. If more than one rule defines a first item (for a given instance of mapping) then this is an error
+         * when the target list is being assembled, the items for this rule go first. If more than one rule defines a first item (for a given instance of mapping) then this is an error.
          */
         FIRST, 
         /**
-         * the target instance is shared with the target instances generated by another rule (up to the first common n items, then create new ones)
+         * the target instance is shared with the target instances generated by another rule (up to the first common n items, then create new ones).
          */
         SHARE, 
         /**
-         * when the target list is being assembled, the items for this rule go last. If more than one rule defines a last item (for a given instance of mapping) then this is an error
+         * when the target list is being assembled, the items for this rule go last. If more than one rule defines a last item (for a given instance of mapping) then this is an error.
          */
         LAST, 
         /**
-         * re-use the first item in the list, and keep adding content to it
+         * re-use the first item in the list, and keep adding content to it.
          */
         COLLATE, 
         /**
@@ -667,10 +667,10 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case FIRST: return "when the target list is being assembled, the items for this rule go first. If more than one rule defines a first item (for a given instance of mapping) then this is an error";
-            case SHARE: return "the target instance is shared with the target instances generated by another rule (up to the first common n items, then create new ones)";
-            case LAST: return "when the target list is being assembled, the items for this rule go last. If more than one rule defines a last item (for a given instance of mapping) then this is an error";
-            case COLLATE: return "re-use the first item in the list, and keep adding content to it";
+            case FIRST: return "when the target list is being assembled, the items for this rule go first. If more than one rule defines a first item (for a given instance of mapping) then this is an error.";
+            case SHARE: return "the target instance is shared with the target instances generated by another rule (up to the first common n items, then create new ones).";
+            case LAST: return "when the target list is being assembled, the items for this rule go last. If more than one rule defines a last item (for a given instance of mapping) then this is an error.";
+            case COLLATE: return "re-use the first item in the list, and keep adding content to it.";
             default: return "?";
           }
         }
@@ -736,71 +736,71 @@ public class StructureMap extends MetadataResource {
 
     public enum StructureMapTransform {
         /**
-         * create(type : string) - type is passed through to the application on the standard API, and must be known by it
+         * create(type : string) - type is passed through to the application on the standard API, and must be known by it.
          */
         CREATE, 
         /**
-         * copy(source)
+         * copy(source).
          */
         COPY, 
         /**
-         * truncate(source, length) - source must be stringy type
+         * truncate(source, length) - source must be stringy type.
          */
         TRUNCATE, 
         /**
-         * escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped
+         * escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped.
          */
         ESCAPE, 
         /**
-         * cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known
+         * cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known.
          */
         CAST, 
         /**
-         * append(source...) - source is element or string
+         * append(source...) - source is element or string.
          */
         APPEND, 
         /**
-         * translate(source, uri_of_map) - use the translate operation
+         * translate(source, uri_of_map) - use the translate operation.
          */
         TRANSLATE, 
         /**
-         * reference(source : object) - return a string that references the provided tree properly
+         * reference(source : object) - return a string that references the provided tree properly.
          */
         REFERENCE, 
         /**
-         * Perform a date operation. *Parameters to be documented*
+         * Perform a date operation. *Parameters to be documented*.
          */
         DATEOP, 
         /**
-         * Generate a random UUID (in lowercase). No Parameters
+         * Generate a random UUID (in lowercase). No Parameters.
          */
         UUID, 
         /**
-         * Return the appropriate string to put in a reference that refers to the resource provided as a parameter
+         * Return the appropriate string to put in a reference that refers to the resource provided as a parameter.
          */
         POINTER, 
         /**
-         * Execute the supplied FHIRPath expression and use the value returned by that
+         * Execute the supplied FHIRPath expression and use the value returned by that.
          */
         EVALUATE, 
         /**
-         * Create a CodeableConcept. Parameters = (text) or (system. Code[, display])
+         * Create a CodeableConcept. Parameters = (text) or (system. Code[, display]).
          */
         CC, 
         /**
-         * Create a Coding. Parameters = (system. Code[, display])
+         * Create a Coding. Parameters = (system. Code[, display]).
          */
         C, 
         /**
-         * Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit
+         * Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit.
          */
         QTY, 
         /**
-         * Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set
+         * Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set.
          */
         ID, 
         /**
-         * Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value
+         * Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value.
          */
         CP, 
         /**
@@ -895,23 +895,23 @@ public class StructureMap extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case CREATE: return "create(type : string) - type is passed through to the application on the standard API, and must be known by it";
-            case COPY: return "copy(source)";
-            case TRUNCATE: return "truncate(source, length) - source must be stringy type";
-            case ESCAPE: return "escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped";
-            case CAST: return "cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known";
-            case APPEND: return "append(source...) - source is element or string";
-            case TRANSLATE: return "translate(source, uri_of_map) - use the translate operation";
-            case REFERENCE: return "reference(source : object) - return a string that references the provided tree properly";
-            case DATEOP: return "Perform a date operation. *Parameters to be documented*";
-            case UUID: return "Generate a random UUID (in lowercase). No Parameters";
-            case POINTER: return "Return the appropriate string to put in a reference that refers to the resource provided as a parameter";
-            case EVALUATE: return "Execute the supplied FHIRPath expression and use the value returned by that";
-            case CC: return "Create a CodeableConcept. Parameters = (text) or (system. Code[, display])";
-            case C: return "Create a Coding. Parameters = (system. Code[, display])";
-            case QTY: return "Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit";
-            case ID: return "Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set";
-            case CP: return "Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value";
+            case CREATE: return "create(type : string) - type is passed through to the application on the standard API, and must be known by it.";
+            case COPY: return "copy(source).";
+            case TRUNCATE: return "truncate(source, length) - source must be stringy type.";
+            case ESCAPE: return "escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped.";
+            case CAST: return "cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known.";
+            case APPEND: return "append(source...) - source is element or string.";
+            case TRANSLATE: return "translate(source, uri_of_map) - use the translate operation.";
+            case REFERENCE: return "reference(source : object) - return a string that references the provided tree properly.";
+            case DATEOP: return "Perform a date operation. *Parameters to be documented*.";
+            case UUID: return "Generate a random UUID (in lowercase). No Parameters.";
+            case POINTER: return "Return the appropriate string to put in a reference that refers to the resource provided as a parameter.";
+            case EVALUATE: return "Execute the supplied FHIRPath expression and use the value returned by that.";
+            case CC: return "Create a CodeableConcept. Parameters = (text) or (system. Code[, display]).";
+            case C: return "Create a Coding. Parameters = (system. Code[, display]).";
+            case QTY: return "Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit.";
+            case ID: return "Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set.";
+            case CP: return "Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value.";
             default: return "?";
           }
         }
@@ -3053,10 +3053,10 @@ public class StructureMap extends MetadataResource {
         protected StringType check;
 
         /**
-         * A message to put in the transform log when content matching the source rule is found.
+         * A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.
          */
         @Child(name = "logMessage", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Message to put in log if source exists", formalDefinition="A message to put in the transform log when content matching the source rule is found." )
+        @Description(shortDefinition="Message to put in log if source exists (FHIRPath)", formalDefinition="A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found." )
         protected StringType logMessage;
 
         private static final long serialVersionUID = 736427977L;
@@ -3529,7 +3529,7 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #logMessage} (A message to put in the transform log when content matching the source rule is found.). This is the underlying object with id, value and extensions. The accessor "getLogMessage" gives direct access to the value
+         * @return {@link #logMessage} (A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.). This is the underlying object with id, value and extensions. The accessor "getLogMessage" gives direct access to the value
          */
         public StringType getLogMessageElement() { 
           if (this.logMessage == null)
@@ -3549,7 +3549,7 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @param value {@link #logMessage} (A message to put in the transform log when content matching the source rule is found.). This is the underlying object with id, value and extensions. The accessor "getLogMessage" gives direct access to the value
+         * @param value {@link #logMessage} (A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.). This is the underlying object with id, value and extensions. The accessor "getLogMessage" gives direct access to the value
          */
         public StructureMapGroupRuleSourceComponent setLogMessageElement(StringType value) { 
           this.logMessage = value;
@@ -3557,14 +3557,14 @@ public class StructureMap extends MetadataResource {
         }
 
         /**
-         * @return A message to put in the transform log when content matching the source rule is found.
+         * @return A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.
          */
         public String getLogMessage() { 
           return this.logMessage == null ? null : this.logMessage.getValue();
         }
 
         /**
-         * @param value A message to put in the transform log when content matching the source rule is found.
+         * @param value A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.
          */
         public StructureMapGroupRuleSourceComponent setLogMessage(String value) { 
           if (Utilities.noString(value))
@@ -3589,7 +3589,7 @@ public class StructureMap extends MetadataResource {
           children.add(new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable));
           children.add(new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, 1, condition));
           children.add(new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, 1, check));
-          children.add(new Property("logMessage", "string", "A message to put in the transform log when content matching the source rule is found.", 0, 1, logMessage));
+          children.add(new Property("logMessage", "string", "A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.", 0, 1, logMessage));
         }
 
         @Override
@@ -3642,7 +3642,7 @@ public class StructureMap extends MetadataResource {
           case -1249586564: /*variable*/  return new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable);
           case -861311717: /*condition*/  return new Property("condition", "string", "FHIRPath expression  - must be true or the rule does not apply.", 0, 1, condition);
           case 94627080: /*check*/  return new Property("check", "string", "FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.", 0, 1, check);
-          case -1067155421: /*logMessage*/  return new Property("logMessage", "string", "A message to put in the transform log when content matching the source rule is found.", 0, 1, logMessage);
+          case -1067155421: /*logMessage*/  return new Property("logMessage", "string", "A FHIRPath expression which specifies a message to put in the transform log when content matching the source rule is found.", 0, 1, logMessage);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -5374,7 +5374,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this structure map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -5394,7 +5394,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this structure map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public StructureMap setUrlElement(UriType value) { 
       this.url = value;
@@ -5402,14 +5402,14 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this structure map is (or will be) published.
+     * @return An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this structure map is (or will be) published.
+     * @param value An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.
      */
     public StructureMap setUrl(String value) { 
         if (this.url == null)
@@ -6277,7 +6277,7 @@ public class StructureMap extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this structure map is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.", 0, 1, url));
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
@@ -6300,7 +6300,7 @@ public class StructureMap extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this structure map is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure map is stored on different servers.", 0, 1, url);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
@@ -6702,6 +6702,26 @@ public class StructureMap extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the structure map</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-value", path="StructureMap.useContext", description="A use context type and value assigned to the structure map", type="composite", compositeOf={"context-type", "context"} )
+  public static final String SP_CONTEXT_TYPE_VALUE = "context-type-value";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-value</b>
+   * <p>
+   * Description: <b>A use context type and value assigned to the structure map</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CONTEXT_TYPE_VALUE = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CONTEXT_TYPE_VALUE);
+
+ /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
    * Description: <b>Intended jurisdiction for the structure map</b><br>
@@ -6720,26 +6740,6 @@ public class StructureMap extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the structure map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="StructureMap.name", description="Computationally friendly name of the structure map", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the structure map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
    * Search parameter: <b>description</b>
@@ -6762,24 +6762,24 @@ public class StructureMap extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the structure map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.publisher</b><br>
+   * Description: <b>A type of use context assigned to the structure map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.useContext.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="StructureMap.publisher", description="Name of the publisher of the structure map", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="context-type", path="StructureMap.useContext.code", description="A type of use context assigned to the structure map", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the structure map</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>StructureMap.publisher</b><br>
+   * Description: <b>A type of use context assigned to the structure map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.useContext.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>title</b>
@@ -6840,6 +6840,106 @@ public class StructureMap extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the structure map</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>StructureMap.useContext.valueQuantity, StructureMap.useContext.valueRange</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-quantity", path="(StructureMap.useContext.value as Quantity) | (StructureMap.useContext.value as Range)", description="A quantity- or range-valued use context assigned to the structure map", type="quantity" )
+  public static final String SP_CONTEXT_QUANTITY = "context-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-quantity</b>
+   * <p>
+   * Description: <b>A quantity- or range-valued use context assigned to the structure map</b><br>
+   * Type: <b>quantity</b><br>
+   * Path: <b>StructureMap.useContext.valueQuantity, StructureMap.useContext.valueRange</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.QuantityClientParam CONTEXT_QUANTITY = new ca.uhn.fhir.rest.gclient.QuantityClientParam(SP_CONTEXT_QUANTITY);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the structure map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="StructureMap.name", description="Computationally friendly name of the structure map", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the structure map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the structure map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="(StructureMap.useContext.value as CodeableConcept)", description="A use context assigned to the structure map", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the structure map</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureMap.useContext.valueCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the structure map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="StructureMap.publisher", description="Name of the publisher of the structure map", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the structure map</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>StructureMap.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the structure map</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type-quantity", path="StructureMap.useContext", description="A use context type and quantity- or range-based value assigned to the structure map", type="composite", compositeOf={"context-type", "context-quantity"} )
+  public static final String SP_CONTEXT_TYPE_QUANTITY = "context-type-quantity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type-quantity</b>
+   * <p>
+   * Description: <b>A use context type and quantity- or range-based value assigned to the structure map</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> CONTEXT_TYPE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_CONTEXT_TYPE_QUANTITY);
 
  /**
    * Search parameter: <b>status</b>

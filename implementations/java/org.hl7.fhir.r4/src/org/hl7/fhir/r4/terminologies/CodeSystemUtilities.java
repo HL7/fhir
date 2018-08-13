@@ -154,9 +154,9 @@ public class CodeSystemUtilities {
     if (!oid.startsWith("urn:oid:"))
        oid = "urn:oid:" + oid;
     if (!cs.hasIdentifier())
-      cs.setIdentifier(new Identifier().setSystem("urn:ietf:rfc:3986").setValue(oid));
-    else if ("urn:ietf:rfc:3986".equals(cs.getIdentifier().getSystem()) && cs.getIdentifier().hasValue() && cs.getIdentifier().getValue().startsWith("urn:oid:"))
-      cs.getIdentifier().setValue(oid);
+      cs.addIdentifier(new Identifier().setSystem("urn:ietf:rfc:3986").setValue(oid));
+    else if ("urn:ietf:rfc:3986".equals(cs.getIdentifierFirstRep().getSystem()) && cs.getIdentifierFirstRep().hasValue() && cs.getIdentifierFirstRep().getValue().startsWith("urn:oid:"))
+      cs.getIdentifierFirstRep().setValue(oid);
     else
       throw new Error("unable to set OID on code system");
     
@@ -167,8 +167,8 @@ public class CodeSystemUtilities {
   }
 
   public static String getOID(CodeSystem cs) {
-    if (cs.hasIdentifier() && "urn:ietf:rfc:3986".equals(cs.getIdentifier().getSystem()) && cs.getIdentifier().hasValue() && cs.getIdentifier().getValue().startsWith("urn:oid:"))
-        return cs.getIdentifier().getValue().substring(8);
+    if (cs.hasIdentifier() && "urn:ietf:rfc:3986".equals(cs.getIdentifierFirstRep().getSystem()) && cs.getIdentifierFirstRep().hasValue() && cs.getIdentifierFirstRep().getValue().startsWith("urn:oid:"))
+        return cs.getIdentifierFirstRep().getValue().substring(8);
     return null;
   }
 
