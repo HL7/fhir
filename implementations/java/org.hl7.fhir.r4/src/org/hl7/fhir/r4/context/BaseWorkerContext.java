@@ -159,7 +159,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       bndCodeSystems = other.bndCodeSystems;
       canRunWithoutTerminology = other.canRunWithoutTerminology;
       noTerminologyServer = other.noTerminologyServer;
-      txCache = other.txCache.copy();
+      if (other.txCache != null)
+        txCache = other.txCache.copy();
       expandCodesLimit = other.expandCodesLimit;
       logger = other.logger;
       expParameters = other.expParameters;
