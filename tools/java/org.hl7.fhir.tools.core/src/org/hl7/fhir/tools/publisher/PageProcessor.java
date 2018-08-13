@@ -1665,7 +1665,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (int i = 5; i >= 0; i--) {
       b.append("<p><b>Level ");
       b.append(i);
-      b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+      b.append("</b></p>\r\n<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
       for (String rn : res) {
         if (rn.startsWith(Integer.toString(i))) {
           String r = rn.substring(2);
@@ -1700,7 +1700,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           if (first) {
             b.append("<p><b>");
             b.append(next.toDisplay());
-            b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+            b.append("</b></p>\r\n<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
             first = false;
           }
           if (rd.getNormativePackage() != null)
@@ -1733,7 +1733,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           if (first) {
             b.append("<p><b>");
             b.append(Utilities.escapeXml(wg.getName()));
-            b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+            b.append("</b></p>\r\n<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
             first = false;
           }
 
