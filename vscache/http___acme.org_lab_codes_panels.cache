@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/panels",
+  "code" : "60790"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/panels"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/panels",
+  "code" : "60418"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/panels"
+}
+-------------------------------------------------------------------------------------

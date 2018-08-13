@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes",
+  "code" : "POSITIVE"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://sonomacounty.ca.gov/Health/Public-Health/Laboratory/result-codes"
+}
+-------------------------------------------------------------------------------------

@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://fhir.de/CodeSystem/kbv/ebm-attribute",
+  "code" : "gesamt-euro"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://fhir.de/CodeSystem/kbv/ebm-attribute"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://fhir.de/CodeSystem/kbv/ebm-attribute",
+  "code" : "gesamt-punkte"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://fhir.de/CodeSystem/kbv/ebm-attribute"
+}
+-------------------------------------------------------------------------------------

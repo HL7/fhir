@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarmuscletone",
+  "code" : "0"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarmuscletone"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarmuscletone",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarmuscletone"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarmuscletone",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarmuscletone"
+}
+-------------------------------------------------------------------------------------

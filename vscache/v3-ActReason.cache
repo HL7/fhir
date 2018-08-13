@@ -1,0 +1,23 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+  "code" : "ETREAT"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "PurposeOfUse"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Emergency Treatment",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

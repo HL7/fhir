@@ -1,0 +1,111 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "GMST"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "MNY"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "WBCS"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "MOD"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "GPR"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "GPCCH"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "GNR"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "GROWTH"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "AMPMIC"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "CIPMIC"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://acme.org/codes",
+  "code" : "CULTID"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://acme.org/codes"
+}
+-------------------------------------------------------------------------------------

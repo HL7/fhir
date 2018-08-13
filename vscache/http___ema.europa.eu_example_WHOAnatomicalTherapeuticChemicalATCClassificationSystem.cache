@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem",
+  "code" : "WHOAnatomicalTherapeuticChemicalATCClassificationSystem|B01AF02"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/WHOAnatomicalTherapeuticChemicalATCClassificationSystem"
+}
+-------------------------------------------------------------------------------------

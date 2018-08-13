@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ec/codes",
+  "code" : "5"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ec/codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ec/codes",
+  "code" : "4"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ec/codes"
+}
+-------------------------------------------------------------------------------------

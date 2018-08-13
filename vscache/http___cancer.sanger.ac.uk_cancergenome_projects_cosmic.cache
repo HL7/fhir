@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"
+    }]
+  }
+}}
+####
+e: {
+  "error" : "Error unmarshalling resource: Unable to provide support for code system http://cancer.sanger.ac.uk/cancergenome/projects/cosmic"
+}
+-------------------------------------------------------------------------------------

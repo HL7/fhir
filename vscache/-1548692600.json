@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","expansion":{"extension":[{"url":"http://hl7.org/fhir/StructureDefinition/valueset-unclosed","valueBoolean":true}],"identifier":"urn:uuid:d7461607-75d6-441a-9727-d4ba14c53be8","timestamp":"2018-08-08T11:27:38.655Z","parameter":[{"name":"limitedExpansion","valueString":"-1"},{"name":"includeDesignations","valueString":"-1"}]}}

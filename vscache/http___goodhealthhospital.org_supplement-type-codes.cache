@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://goodhealthhospital.org/supplement-type-codes",
+  "code" : "1040"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://goodhealthhospital.org/supplement-type-codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://goodhealthhospital.org/supplement-type-codes",
+  "code" : "1010"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://goodhealthhospital.org/supplement-type-codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://goodhealthhospital.org/supplement-type-codes",
+  "code" : "1000"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://goodhealthhospital.org/supplement-type-codes"
+}
+-------------------------------------------------------------------------------------

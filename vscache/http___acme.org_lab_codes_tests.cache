@@ -1,0 +1,221 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "ORGANISM"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "CULTPOSNEG"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60504"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60512"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60516"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60527"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "61203"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60532"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60533"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60536"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "61007"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60699"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "61204"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60551"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60552"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60697"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60555"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60558"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60561"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60563"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "2099930"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/tests",
+  "code" : "60036"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/tests"
+}
+-------------------------------------------------------------------------------------

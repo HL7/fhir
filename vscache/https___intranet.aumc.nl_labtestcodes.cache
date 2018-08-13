@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://intranet.aumc.nl/labtestcodes",
+  "code" : "20005"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://intranet.aumc.nl/labtestcodes"
+}
+-------------------------------------------------------------------------------------

@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarrespiratoryeffort",
+  "code" : "0"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarrespiratoryeffort"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarrespiratoryeffort",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarrespiratoryeffort"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarrespiratoryeffort",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarrespiratoryeffort"
+}
+-------------------------------------------------------------------------------------

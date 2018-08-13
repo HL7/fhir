@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.ebi.ac.uk/ipd/imgt/hla"
+    }]
+  }
+}}
+####
+e: {
+  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ebi.ac.uk/ipd/imgt/hla"
+}
+-------------------------------------------------------------------------------------

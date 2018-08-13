@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/intendedeffect",
+  "code" : "PRYLX"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/intendedeffect"
+}
+-------------------------------------------------------------------------------------

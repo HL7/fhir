@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ncbi.nlm.nih.gov/nuccore/",
+  "code" : "NM_000059.3"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore/"
+}
+-------------------------------------------------------------------------------------

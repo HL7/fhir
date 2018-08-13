@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://org.mdhhs.fhir.consentdirective-type",
+  "code" : "OPTIN"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consentdirective-type"
+}
+-------------------------------------------------------------------------------------

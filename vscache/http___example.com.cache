@@ -1,0 +1,71 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "3"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "4"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "5"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "6"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://example.com",
+  "code" : "7"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://example.com"
+}
+-------------------------------------------------------------------------------------

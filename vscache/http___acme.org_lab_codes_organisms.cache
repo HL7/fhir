@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://acme.org/lab/codes/organisms",
+  "code" : "Staaur"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://acme.org/lab/codes/organisms"
+}
+-------------------------------------------------------------------------------------

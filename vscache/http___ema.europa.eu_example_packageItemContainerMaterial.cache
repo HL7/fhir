@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/packageItemContainerMaterial",
+  "code" : "PVC"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/packageItemContainerMaterial"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/packageItemContainerMaterial",
+  "code" : "PVDC"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/packageItemContainerMaterial"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/packageItemContainerMaterial",
+  "code" : "alu"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/packageItemContainerMaterial"
+}
+-------------------------------------------------------------------------------------

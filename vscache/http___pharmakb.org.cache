@@ -1,0 +1,41 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://pharmakb.org",
+  "code" : "PA165971587"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://pharmakb.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://pharmakb.org",
+  "code" : "PA16581679"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://pharmakb.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://pharmakb.org",
+  "code" : "PA166128347"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://pharmakb.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://pharmakb.org",
+  "code" : "PA166128353"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://pharmakb.org"
+}
+-------------------------------------------------------------------------------------

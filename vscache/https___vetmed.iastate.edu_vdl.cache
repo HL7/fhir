@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://vetmed.iastate.edu/vdl",
+  "code" : "Serum sample, pooled"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://vetmed.iastate.edu/vdl"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://vetmed.iastate.edu/vdl",
+  "code" : "RTT"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://vetmed.iastate.edu/vdl"
+}
+-------------------------------------------------------------------------------------

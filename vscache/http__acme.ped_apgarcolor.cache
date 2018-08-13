@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarcolor",
+  "code" : "0"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarcolor"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarcolor",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarcolor"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarcolor",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarcolor"
+}
+-------------------------------------------------------------------------------------

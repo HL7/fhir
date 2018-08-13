@@ -1,0 +1,47 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "https://precision.fda.gov/files/"
+    }]
+  }
+}}
+####
+e: {
+  "error" : "Error unmarshalling resource: Unable to provide support for code system https://precision.fda.gov/files/"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://precision.fda.gov/files/",
+  "code" : "file-Bk50V4Q0qVb65P0v2VPbfYPZ"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://precision.fda.gov/files/"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "https://precision.fda.gov/files/",
+  "code" : "file-BkZxBZ00bpJVk2q6x43b1YBx"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://precision.fda.gov/files/"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "https://precision.fda.gov/files/"
+    }]
+  }
+}}
+####
+e: {
+  "error" : "Error unmarshalling resource: Unable to provide support for code system https://precision.fda.gov/files/"
+}
+-------------------------------------------------------------------------------------

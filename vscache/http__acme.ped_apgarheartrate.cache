@@ -1,0 +1,31 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarheartrate",
+  "code" : "0"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarheartrate"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarheartrate",
+  "code" : "1"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarheartrate"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http:/acme.ped/apgarheartrate",
+  "code" : "2"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http:/acme.ped/apgarheartrate"
+}
+-------------------------------------------------------------------------------------

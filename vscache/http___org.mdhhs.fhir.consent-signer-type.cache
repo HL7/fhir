@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://org.mdhhs.fhir.consent-signer-type",
+  "code" : "SELF"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consent-signer-type"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://org.mdhhs.fhir.consent-signer-type",
+  "code" : "SELF"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/contractsignertypecodes"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://org.mdhhs.fhir.consent-signer-type"
+}
+-------------------------------------------------------------------------------------

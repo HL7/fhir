@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/comorbidity",
+  "code" : "Hipsurgery"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/comorbidity"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/comorbidity",
+  "code" : "Hepaticdisease"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://ema.europa.eu/example/comorbidity"
+}
+-------------------------------------------------------------------------------------

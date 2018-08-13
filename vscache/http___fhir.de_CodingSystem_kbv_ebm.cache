@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://fhir.de/CodingSystem/kbv/ebm",
+  "code" : "30110"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://fhir.de/CodingSystem/kbv/ebm"
+}
+-------------------------------------------------------------------------------------

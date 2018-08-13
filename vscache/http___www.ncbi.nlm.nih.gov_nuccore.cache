@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://www.ncbi.nlm.nih.gov/nuccore"
+    }]
+  }
+}}
+####
+e: {
+  "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ncbi.nlm.nih.gov/nuccore",
+  "code" : "NC_000009.11"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ncbi.nlm.nih.gov/nuccore",
+  "code" : "NC_000001.11"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ncbi.nlm.nih.gov/nuccore",
+  "code" : "NC_000002.12"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ncbi.nlm.nih.gov/nuccore",
+  "code" : "NG_007726.3"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ncbi.nlm.nih.gov/nuccore",
+  "code" : "NT_007592.15"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system http://www.ncbi.nlm.nih.gov/nuccore"
+}
+-------------------------------------------------------------------------------------
