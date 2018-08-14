@@ -435,6 +435,9 @@ public class Publisher implements URIResolver, SectionNumberer {
   private PublisherTestSuites tester;
   private List<FHIRPathUsage> fpUsages = new ArrayList<FHIRPathUsage>();
   private List<ConceptMap> statusCodeConceptMaps = new ArrayList<ConceptMap>();
+  private int cscounter = 0;
+  private int vscounter = 0;
+  private int cmcounter = 0;
 
   private ProfileGenerator pgen;
 
@@ -4467,6 +4470,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private Set<String> examplesProcessed = new HashSet<String>();
+
+  
   private void processExample(Example e, ResourceDefn resn, StructureDefinition profile, Profile pack, ImplementationGuideDefn ig) throws Exception {
     if (e.getType() == ExampleType.Tool)
       return;
@@ -6132,7 +6137,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       } catch (Exception e) {
         throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
       }
-      sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ValueSetUtilities.getOID(vs)), ig == null ? 0 : 1, null, ig);
+      sf = addSectionNumbers(n + ".html", "template-valueset", sf, vsCounter(), ig == null ? 0 : 1, null, ig);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
       try {
@@ -6167,6 +6172,16 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   }
 
+
+  private String vsCounter() {
+    vscounter++;
+    return String.valueOf(vscounter);
+  }
+
+  private String cmCounter() {
+    cmcounter++;
+    return String.valueOf(cmcounter);
+  }
 
   private WorkGroup wg(DomainResource dr, String wg) {
     String code = ToolingExtensions.readStringExtension(dr, ToolingExtensions.EXT_WORKGROUP);
@@ -6205,7 +6220,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       } catch (Exception e) {
         throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
       }
-      sf = addSectionNumbers(n + ".html", "template-codesystem", sf, Utilities.oidTail(CodeSystemUtilities.getOID(cs)), ig == null ? 0 : 1, null, ig);
+      sf = addSectionNumbers(n + ".html", "template-codesystem", sf, csCounter(), ig == null ? 0 : 1, null, ig);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
       try {
@@ -6238,6 +6253,11 @@ public class Publisher implements URIResolver, SectionNumberer {
       ttlToXhtml(n, "Definition for Code System " + cs.getName(), resource2Ttl(cs), "codesystem-instance", "Code System", null, wg);
     }
   }
+private String csCounter() {
+    cscounter ++;
+    return String.valueOf(cscounter);
+  }
+
 //  if (vs.hasCodeSystem()) {
 //    if (ToolingExtensions.getOID(vs.getCodeSystem()) == null && !Utilities.noString(vs.getUserString("csoid")))
 //      ToolingExtensions.setOID(vs.getCodeSystem(), "urn:oid:"+vs.getUserString("csoid"));
