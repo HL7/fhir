@@ -14,100 +14,7 @@ e: {
   "resourceType" : "ValueSet",
   "id" : "action-participant-role",
   "meta" : {
-    "lastUpdated" : "2018-08-13T15:28:02.004-07:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
-  },
-  "text" : {
-    "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This value set contains 0 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display</b></td></tr></table></div>"
-  },
-  "url" : "http://hl7.org/fhir/ValueSet/action-participant-role",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.4.642.3.796"
-  }],
-  "version" : "3.4.0",
-  "name" : "ActionParticipantRole",
-  "status" : "draft",
-  "experimental" : true,
-  "date" : "2017-02-15T16:33:00.000-07:00",
-  "description" : "Value Set Contents (Expansion) for ActionParticipantRole at Tue, Aug 14, 2018 08:31+1000",
-  "expansion" : {
-    "identifier" : "urn:uuid:c2bd770b-2745-44a8-9090-bc576944c48e",
-    "timestamp" : "2018-08-13T22:31:11.623Z",
-    "parameter" : [{
-      "name" : "expansion-source",
-      "valueString" : "ValueSet/action-participant-role"
-    },
-    {
-      "name" : "limitedExpansion",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "includeDesignations",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "expansion-source",
-      "valueString" : "ValueSet/practitioner-role"
-    },
-    {
-      "name" : "limitedExpansion",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "includeDesignations",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role?version=3.4.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role?version=3.4.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role?version=3.4.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role?version=3.4.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role?version=3.4.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://terminology.hl7.org/CodeSystem/practitioner-role?version=3.4.0"
-    },
-    {
-      "name" : "version",
-      "valueString" : "http://snomed.info/sct?version=http://snomed.info/sct/20611000087101/version/20161031"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://hl7.org/fhir/ValueSet/practitioner-role",
-      "http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"]
-    }]
-  }
-}}
-####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "id" : "action-participant-role",
-  "meta" : {
-    "lastUpdated" : "2018-08-13T15:28:02.004-07:00",
+    "lastUpdated" : "2018-08-13T17:18:33.259-07:00",
     "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
   },
   "url" : "http://hl7.org/fhir/ValueSet/action-participant-role",
@@ -121,8 +28,8 @@ e: {
   "experimental" : true,
   "date" : "2017-02-15T16:33:00.000-07:00",
   "expansion" : {
-    "identifier" : "urn:uuid:3e290329-9f96-421b-ac4b-2a5075520161",
-    "timestamp" : "2018-08-13T22:33:33.709Z",
+    "identifier" : "urn:uuid:138ad3da-10c4-4bae-b550-b4eef3abb653",
+    "timestamp" : "2018-08-14T00:20:25.002Z",
     "parameter" : [{
       "name" : "expansion-source",
       "valueString" : "ValueSet/action-participant-role"
@@ -133,10 +40,6 @@ e: {
     },
     {
       "name" : "includeDesignations",
-      "valueString" : "-1"
-    },
-    {
-      "name" : "excludeNested",
       "valueString" : "-1"
     },
     {
