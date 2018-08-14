@@ -35,6 +35,7 @@ Where there is a need to implement an automated MRN Identifier created for a pat
 <p>The <i>link</i> element is used to assert that patient resources refer to the same patient. This element is used
 to support the following scenarios where multiple patient records exist:</p>
 
+<a name="dup-records"></a>
 <h3>Duplicate Patient records</h3>
 <p>Managing Patient registration is a well-known difficult problem. Around 2% of registrations are in error, 
 mostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much 
@@ -44,12 +45,14 @@ be used instead. Note that the record pointed to may in its turn have been ident
 to yet another Patient resource. Records that replace another record <i>may</i> use a link type of 'replaces' pointing to the old record.
 </p>
 
+<a name="rec-ind"></a>
 <h3>Patient record in a Patient index</h3>
 <p>A Patient record may be present in a system that acts as a Patient Index: it maintains a (summary of) patient data and
 a list of one or more servers that are known to hold a more comprehensive and/or authoritative record of the same patient.
 The link type 'refer' is used to denote such a link. Note that linked records may contain contradictory information. The
 record referred to does not point back to the referring record.</p>
 
+<a name="distributed"></a>
 <h3>Distributed Patient record</h3>
 <p>In a distributed architecture, multiple systems keep separate patient records concerning the same patient. These
 records are not considered duplicates, but contain a distributed, potentially overlapping view of the patient's data.

@@ -1,9 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="defined"></a>
 <h3>Operations defined as part of this Specification</h3>
 
 <%operationslist%>
 
+<a name="desc"></a>
 <h3>Describing Operation Parameters</h3>
 
 <p>
@@ -45,11 +47,13 @@ The operation definition would still list the parameters directly to save applic
 an <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI document</a>) from parsing and interpreting the profile.
 </p>
 
+<a name="exec"></a>
 <h3>Executing Operations</h3>
 <p>
 OperationDefinitions with <code>kind = operation</code> are executed as defined in the <a href="operations.html">Operations Framework</a>.
 </p>
 
+<a name="equeries"></a>
 <h3>Executing Named Queries</h3>
 
 <p>
@@ -67,6 +71,7 @@ resources, not data types.
 For named queries, all the standard search parameters are automatically in scope (though servers do not need to support them unless explicitly documented).
 </p>
 
+<a name="passing"></a>
 <h3>Passing Resources to Operations</h3> 
 
 <p>
@@ -138,6 +143,7 @@ Some operations can take either form; in that case, two distinct parameters
 must be defined, one for a resource as a direct parameter, and one for a reference.
 </p>
 
+<a name="renaming"></a>
 <h3>Renaming OperationDefinition.name</h3>
 
 <p>
@@ -184,6 +190,7 @@ operation, it can look at the server's <a href="capabilitystatement.html">Capabi
 definition URI and then execute the name given in the capability statement.
 </p>
 
+<a name="system"></a>
 <h3>Determining System Compatibility</h3>
 
 <p>
@@ -200,6 +207,7 @@ In the same sense, a 3rd party tool can examine a server's CapabilityStatement a
 those two system are interoperable or not.
 </p>
 
+<a name="forms"></a>
 <h3>Dynamically Generating Forms</h3>
 
 <p>

@@ -37,6 +37,7 @@ background and concepts described in <a href="profiling.html">Profiling FHIR</a>
 before working with this resource.
 </p>
 
+<a name="metadata"></a>
 <h3>Metadata</h3>
 <p>
 The StructureDefinition resource has a set of metadata that is mostly shared with the <a href="valueset.html">Value Set</a>,

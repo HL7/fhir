@@ -312,6 +312,7 @@ be the same). If expansions are shared, users need to be aware of how expansion 
 server specific) work.  
 </p>
 
+<a name="search"></a>
 <h3>Searching for codes in value sets</h3>
 <p>
 The search parameters defined on ValueSet include the <code>code</code> parameter. This is intended

@@ -1,7 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="interpretation"></a>
-
 <h2>Interpretation Notes:</h2>
 
 <ul>
@@ -22,6 +21,7 @@ When profiling a resource and only one type is specified, the name of the elemen
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 </ul>
 
+<a name="uses"></a>
 <h3>Different Uses for StructureDefinition</h3>
 <p>
 The base structure definition is used in a number of different ways to support
@@ -136,11 +136,13 @@ On this list, structure definitions of type 1, 3, and 5 can only be defined by t
 are (or may be) created by the specification but can also be defined by other implementers.
 </p>
 
+<a name="rules"></a>
 <h3>Rules for Constrained Types</h3>
 <p>
 When the structure is a constraint (<code>derivation</code> = <code>constraint</code>), see <a href="profiling.html#resources">Extending and Restricting Resources</a> for the rules that apply.
 </p>
 
+<a name="mappings"></a>
 <h3>Common Mapping Targets</h3>
 <p>
 Structures are able to map elements to concepts in other definition systems. Generally, these are used to

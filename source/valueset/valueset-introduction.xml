@@ -50,6 +50,7 @@ This is one very common area where significant clinical safety risks occur in pr
 should be familiar with the content in <a href="terminologies.html">Using Codes in Resources</a>.
 </p>
 
+<a name="ident"></a>
 <h3>ValueSet Identification</h3>
 <p>
 A value set has 3 identifiers:

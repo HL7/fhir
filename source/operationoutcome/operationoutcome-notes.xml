@@ -17,6 +17,7 @@ Grahame's OAuth extensions:
 -->
 <a name="oo"></a>
 
+<a name="using"></a>
 <h2>Using Operation Outcome Resources</h2>
 <p>
 On the RESTful interface, operation outcome resources are only relevant when a level of computable detail is required that is more granular than that provided by the HTTP response codes.
@@ -73,6 +74,7 @@ but this is not:
   "expression" : "Patient.identifier.where(system.value='http://example.com/mrn').value"
 </pre>
 
+<a name="reporting"></a>
 <h3>Reporting Errors in the HTTP Headers</h3>
 <p>
 Servers may also need to report errors in the HTTP headers - especially 

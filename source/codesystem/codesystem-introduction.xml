@@ -76,6 +76,7 @@ This is one very common area where significant clinical safety risks occur in pr
 should be familiar with the content in <a href="terminologies.html">Using Codes in Resources</a>.
 </p>
 
+<a name="ident"></a>
 <h3>CodeSystem Identification</h3>
 <p>
 A code system has three identifiers. The first two can be used to reference the code system in the FHIR context:

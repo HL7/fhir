@@ -25,6 +25,7 @@ When the <code>CodeSystem.versionNeeded</code> is 'true', then the version ident
 Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use as the version string the date (expressed in FHIR date format) on which the version of the code system that is being used was officially published.
 </p>
 
+<a name="parts"></a>
 <h2>Multi-part Code Systems</h2>
 
 <p>
