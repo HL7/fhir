@@ -1,5 +1,6 @@
 package org.hl7.fhir.r4.terminologies;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.exceptions.FHIRException;
@@ -32,9 +33,38 @@ public class ValueSetCheckerSimple implements ValueSetChecker {
     this.context = context;
   }
 
-  public ValidationResult validateCode(CodeableConcept code) {
-    // TODO Auto-generated method stub
-    return null;
+  public ValidationResult validateCode(CodeableConcept code) throws FHIRException {
+    // first, we validate the codings themselves
+    List<String> errors = new ArrayList<String>();
+    List<String> warnings = new ArrayList<String>();
+    for (Coding c : code.getCoding()) {
+      if (!c.hasSystem())
+        warnings.add("Coding has no system");
+      CodeSystem cs = context.fetchCodeSystem(c.getSystem());
+      if (cs == null)
+        throw new FHIRException("Unsupported system "+c.getSystem()+" - system is not specified or implicit");
+      if (cs.getContent() != CodeSystemContentMode.COMPLETE)
+        throw new FHIRException("Unable to resolve system "+c.getSystem()+" - system is not complete");
+      ValidationResult res = validateCode(c, cs);
+      if (!res.isOk())
+        errors.add(res.getMessage());
+      else if (res.getMessage() != null)
+        warnings.add(res.getMessage());
+    }
+    if (valueset != null) {
+      boolean ok = false;
+      for (Coding c : code.getCoding()) {
+        ok = ok || codeInValueSet(c.getSystem(), c.getCode());
+      }
+      if (!ok)
+        errors.add(0, "None of the provided codes are in the value set "+valueset.getUrl());
+    }
+    if (errors.size() > 0)
+      return new ValidationResult(IssueSeverity.ERROR, errors.toString());
+    else if (warnings.size() > 0)
+      return new ValidationResult(IssueSeverity.WARNING, warnings.toString());
+    else 
+      return new ValidationResult(IssueSeverity.INFORMATION, null);
   }
 
   public ValidationResult validateCode(Coding code) throws FHIRException {

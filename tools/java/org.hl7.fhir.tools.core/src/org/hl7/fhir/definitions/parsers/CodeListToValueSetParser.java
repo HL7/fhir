@@ -154,7 +154,8 @@ public class CodeListToValueSetParser {
     cm.setUserData("path", cm.getId()+".html");
     cm.setUserData("generate", true);
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
-    cm.setName("v2 map for " + vs.getName());
+    cm.setName("v2."+vs.getName());
+    cm.setTitle("v2 map for " + vs.getTitle());
     cm.setPublisher("HL7 (FHIR Project)");
     for (ContactDetail cc : vs.getContact()) {
       ContactDetail cd = cm.addContact();
@@ -246,7 +247,8 @@ public class CodeListToValueSetParser {
     cm.setUserData("path", cm.getId()+".html");
     cm.setUserData("generate", true);
     cm.setUrl("http://hl7.org/fhir/ConceptMap/" + cm.getId());
-    cm.setName("v3 map for " + vs.getName());
+    cm.setName("v3." + vs.getName());
+    cm.setTitle("v3 map for " + vs.getTitle());
     cm.setPublisher("HL7 (FHIR Project)");
     for (ContactDetail cc : vs.getContact()) {
       ContactDetail cd = cm.addContact();

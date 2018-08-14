@@ -19,3 +19,95 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+    "code" : "840",
+    "display" : "United States of America"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system urn:iso:std:iso:3166:-2"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+    "code" : "001"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system urn:iso:std:iso:3166:-2"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+    "code" : "009",
+    "display" : "Oceania"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:3166"
+    },
+    {
+      "system" : "urn:iso:std:iso:3166:-2"
+    },
+    {
+      "system" : "http://unstats.un.org/unsd/methods/m49/m49.htm",
+      "filter" : [{
+        "property" : "class",
+        "op" : "=",
+        "value" : "region"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system urn:iso:std:iso:3166:-2"
+}
+-------------------------------------------------------------------------------------

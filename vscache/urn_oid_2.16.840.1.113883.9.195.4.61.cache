@@ -9,3 +9,23 @@ v: {
   "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.9.195.4.61"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:oid:2.16.840.1.113883.9.195.4.61",
+    "code" : "RSLT",
+    "display" : "Result"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.9.195.4.61"
+}
+-------------------------------------------------------------------------------------

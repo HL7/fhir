@@ -9,3 +9,24 @@ v: {
   "error" : "Unable to provide support for code system https://www.acmeonline.com"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "https://www.acmeonline.com",
+    "code" : "4503",
+    "display" : "Biopsy without Microscopic Description (1 Site/Lesion)-Standard"
+  }],
+  "text" : "Biopsy without Microscopic Description (1 Site/Lesion)-Standard"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system https://www.acmeonline.com"
+}
+-------------------------------------------------------------------------------------

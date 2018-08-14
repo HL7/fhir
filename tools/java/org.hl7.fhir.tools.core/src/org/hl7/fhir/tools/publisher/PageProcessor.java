@@ -431,8 +431,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4"; 
-  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
+  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4"; 
+//  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
@@ -3513,14 +3513,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     for (ConceptMap cm : getConceptMaps().values()) {
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
-        b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+        b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.present()).append("</a> ").append("</li>\r\n");
       } else if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
         b.append(" <li>ConceptMap: Translation source in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
     }
     for (ConceptMap cm : getConceptMaps().values()) {
       if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
-        b.append(" <li>ConceptMap: Translation target in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
+        b.append(" <li>ConceptMap: Translation target in <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.present()).append("</a> ").append("</li>\r\n");
       } else if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
         b.append(" <li>ConceptMap: Translation target ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }

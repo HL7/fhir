@@ -165,3 +165,43 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system urn:iso:std:iso:11073:10101"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:11073:10101",
+    "code" : "150456",
+    "display" : "MDC_PULS_OXIM_SAT_O2"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "urn:iso:std:iso:11073:10101",
+    "code" : "262688",
+    "display" : "MDC_DIM_PERCENT"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:iso:std:iso:11073:10101"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "Unable to provide support for code system urn:iso:std:iso:11073:10101"
+}
+-------------------------------------------------------------------------------------

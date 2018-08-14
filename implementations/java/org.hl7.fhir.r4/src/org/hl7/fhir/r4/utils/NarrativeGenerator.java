@@ -2191,6 +2191,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       addMarkdown(x, cm.getDescription());
 
     x.br();
+    CodeSystem cs = context.fetchCodeSystem("http://hl7.org/fhir/concept-map-equivalence");
+    String eqpath = cs.getUserString("path");
 
     for (ConceptMapGroupComponent grp : cm.getGroup()) {
       String src = grp.getSource();
@@ -2253,34 +2255,38 @@ public class NarrativeGenerator implements INarrativeGenerator {
         XhtmlNode tbl = x.table( "grid");
         XhtmlNode tr = tbl.tr();
         XhtmlNode td;
-        tr.td().colspan(Integer.toString(sources.size())).b().tx("Source Concept");
+        tr.td().colspan(Integer.toString(sources.size())).b().tx("Source Concept Details");
         tr.td().b().tx("Equivalence");
-        tr.td().colspan(Integer.toString(targets.size())).b().tx("Destination Concept");
+        tr.td().colspan(Integer.toString(targets.size())).b().tx("Destination Concept Details");
         if (comment)
           tr.td().b().tx("Comment");
         tr = tbl.tr();
-        if (sources.get("code").size() == 1)
-          tr.td().b().tx("Code "+sources.get("code").toString()+"");
-        else
+        if (sources.get("code").size() == 1) {
+          String url = sources.get("code").iterator().next();
+          renderCSDetailsLink(tr, url);           
+        } else
           tr.td().b().tx("Code");
         for (String s : sources.keySet()) {
           if (!s.equals("code")) {
-            if (sources.get(s).size() == 1)
-              tr.td().b().addText(getDescForConcept(s) +" "+sources.get(s).toString());
-            else
+            if (sources.get(s).size() == 1) {
+              String url = sources.get(s).iterator().next();
+              renderCSDetailsLink(tr, url);           
+            } else
               tr.td().b().addText(getDescForConcept(s));
           }
         }
         tr.td();
-        if (targets.get("code").size() == 1)
-          tr.td().b().tx("Code "+targets.get("code").toString());
-        else
+        if (targets.get("code").size() == 1) {
+          String url = targets.get("code").iterator().next();
+          renderCSDetailsLink(tr, url);           
+        } else
           tr.td().b().tx("Code");
         for (String s : targets.keySet()) {
           if (!s.equals("code")) {
-            if (targets.get(s).size() == 1)
-              tr.td().b().addText(getDescForConcept(s) +" "+targets.get(s).toString()+"");
-            else
+            if (targets.get(s).size() == 1) {
+              String url = targets.get(s).iterator().next();
+              renderCSDetailsLink(tr, url);           
+            } else
               tr.td().b().addText(getDescForConcept(s));
           }
         }
@@ -2288,56 +2294,83 @@ public class NarrativeGenerator implements INarrativeGenerator {
           tr.td();
 
         for (SourceElementComponent ccl : grp.getElement()) {
-          tr = tbl.tr();
-          td = tr.td();
-          if (sources.get("code").size() == 1)
-            td.addText(ccl.getCode());
-          else
-            td.addText(grp.getSource()+" / "+ccl.getCode());
-          display = getDisplayForConcept(grp.getSource(), ccl.getCode());
-          if (display != null)
-            td.tx(" ("+display+")");
-
-          TargetElementComponent ccm = ccl.getTarget().get(0);
-          for (String s : sources.keySet()) {
-            if (!s.equals("code")) {
-              td = tr.td();
-              td.addText(getValue(ccm.getDependsOn(), s, sources.get(s).size() != 1));
-              display = getDisplay(ccm.getDependsOn(), s);
+          boolean first = true;
+          for (int ti = 0; ti < ccl.getTarget().size(); ti++) {
+            TargetElementComponent ccm = ccl.getTarget().get(ti);
+            boolean last = ti == ccl.getTarget().size();
+            tr = tbl.tr();
+            td = tr.td();
+            if (!first && !last)
+              td.setAttribute("style", "border-top-style: none; border-bottom-style: none");
+            else if (!first)
+              td.setAttribute("style", "border-top-style: none");
+            else if (!last)
+              td.setAttribute("style", "border-bottom-style: none");
+            if (first) {
+              if (sources.get("code").size() == 1)
+                td.addText(ccl.getCode());
+              else
+                td.addText(grp.getSource()+" / "+ccl.getCode());
+              display = getDisplayForConcept(grp.getSource(), ccl.getCode());
               if (display != null)
                 td.tx(" ("+display+")");
             }
-          }
-          if (!ccm.hasEquivalence())
-            tr.td().tx(":"+"("+ConceptMapEquivalence.EQUIVALENT.toCode()+")");
-          else
-            tr.td().tx(":"+ccm.getEquivalence().toCode());
-          td = tr.td();
-          if (targets.get("code").size() == 1)
-            td.addText(ccm.getCode());
-          else
-            td.addText(grp.getTarget()+" / "+ccm.getCode());
-          display = getDisplayForConcept(grp.getTarget(), ccm.getCode());
-          if (display != null)
-            td.tx(" ("+display+")");
-
-          for (String s : targets.keySet()) {
-            if (!s.equals("code")) {
-              td = tr.td();
-              td.addText(getValue(ccm.getProduct(), s, targets.get(s).size() != 1));
-              display = getDisplay(ccm.getProduct(), s);
-              if (display != null)
-                td.tx(" ("+display+")");
+            for (String s : sources.keySet()) {
+              if (!s.equals("code")) {
+                td = tr.td();
+                if (first) {
+                  td.addText(getValue(ccm.getDependsOn(), s, sources.get(s).size() != 1));
+                  display = getDisplay(ccm.getDependsOn(), s);
+                  if (display != null)
+                    td.tx(" ("+display+")");
+                }
+              }
             }
+            first = false;
+            if (!ccm.hasEquivalence())
+              tr.td().tx(":"+"("+ConceptMapEquivalence.EQUIVALENT.toCode()+")");
+            else
+              tr.td().ah(eqpath+"#"+ccm.getEquivalence().toCode()).tx(ccm.getEquivalence().toCode());
+            td = tr.td();
+            if (targets.get("code").size() == 1)
+              td.addText(ccm.getCode());
+            else
+              td.addText(grp.getTarget()+" / "+ccm.getCode());
+            display = getDisplayForConcept(grp.getTarget(), ccm.getCode());
+            if (display != null)
+              td.tx(" ("+display+")");
+  
+            for (String s : targets.keySet()) {
+              if (!s.equals("code")) {
+                td = tr.td();
+                td.addText(getValue(ccm.getProduct(), s, targets.get(s).size() != 1));
+                display = getDisplay(ccm.getProduct(), s);
+                if (display != null)
+                  td.tx(" ("+display+")");
+              }
+            }
+            if (comment)
+              tr.td().addText(ccm.getComment());
           }
-          if (comment)
-            tr.td().addText(ccm.getComment());
         }
       }
     }
 
     inject(cm, x, NarrativeStatus.GENERATED);
     return true;
+  }
+
+  public void renderCSDetailsLink(XhtmlNode tr, String url) {
+    CodeSystem cs;
+    XhtmlNode td;
+    cs = context.fetchCodeSystem(url);
+    td = tr.td();
+    td.b().tx("Code");
+    td.tx(" from ");
+    if (cs == null)
+      td.tx(url);
+    else
+      td.ah(cs.getUserString("path")).attribute("title", url).tx(cs.present());
   }
 
 

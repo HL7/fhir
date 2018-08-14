@@ -1031,6 +1031,13 @@ public abstract class MetadataResource extends DomainResource {
         return fhirType()+"["+getUrl()+"]";
       }
 
+      public String present() {
+        if (hasTitle())
+          return getTitle();
+        if (hasName())
+          return getName();
+        return toString();
+      }
 // end addition
 
 }
