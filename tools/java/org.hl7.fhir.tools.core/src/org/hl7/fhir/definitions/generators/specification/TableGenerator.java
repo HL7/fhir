@@ -218,7 +218,10 @@ public class TableGenerator extends BaseGenerator {
           Cell c = gen.new Cell();
           choicerow.getCells().add(c);
           if (ADD_REFERENCE_TO_TABLE) {
-            c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
+            if (tr.getName().equals("canonical"))
+              c.getPieces().add(gen.new Piece(prefix+"datatypes.html#canonical", "canonical", null));
+            else
+              c.getPieces().add(gen.new Piece(prefix+"references.html#Reference", "Reference", null));
             c.getPieces().add(gen.new Piece(null, "(", null));
           }
           boolean first = true;

@@ -1985,6 +1985,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     load("OperationDefinition");
     load("CapabilityStatement");
     load("Questionnaire");
+    checkProfiles();
     generateSnapshots();
     generateLogicalMaps();
     load("StructureMap");
@@ -1992,6 +1993,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     executeTransforms();
     validateExpressions();
   }
+
+  private void checkProfiles() {
+    log(LogCategory.PROGRESS, "check profiles");
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getElement().fhirType().equals("StructureDefinition")) {
+          log(LogCategory.PROGRESS, "process profile: "+r.getId());
+          MetadataResource bc = (MetadataResource) r.getResource();
+          f.getErrors().addAll(pvalidator.validate((StructureDefinition)bc, false));
+        }
+      }
+    }
+  }
+
 
   private void executeTransforms() throws FHIRException, Exception {
     if ("true".equals(ostr(configuration, "do-transforms"))) {
@@ -2317,9 +2332,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
               context.cacheResource(bc);
             } catch (Exception e) {
               throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
-            }
-            if (bc instanceof StructureDefinition) {
-              f.getErrors().addAll(pvalidator.validate((StructureDefinition)bc, false));
             }
           }
         }

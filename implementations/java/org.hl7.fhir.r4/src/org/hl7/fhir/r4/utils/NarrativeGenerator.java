@@ -2293,11 +2293,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
         if (comment)
           tr.td();
 
-        for (SourceElementComponent ccl : grp.getElement()) {
+        for (int si = 0; si < grp.getElement().size(); si++) {
+          SourceElementComponent ccl = grp.getElement().get(si);
+          boolean slast = si == grp.getElement().size()-1;
           boolean first = true;
           for (int ti = 0; ti < ccl.getTarget().size(); ti++) {
             TargetElementComponent ccm = ccl.getTarget().get(ti);
-            boolean last = ti == ccl.getTarget().size();
+            boolean last = ti == ccl.getTarget().size()-1;
             tr = tbl.tr();
             td = tr.td();
             if (!first && !last)
