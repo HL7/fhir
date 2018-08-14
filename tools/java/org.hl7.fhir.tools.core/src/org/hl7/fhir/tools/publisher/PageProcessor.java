@@ -6995,7 +6995,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (ref.equals(name))
       return "itself";
     else
-      return "<a href=\""+definitions.getSrcFile(name)+".html#"+ref+"\">"+ref+"</a>";
+      return "<a href=\""+definitions.getSrcFile(ref)+".html#"+ref+"\">"+ref+"</a>";
   }
 
   private String asLinks(List<String> refs, String name) {
@@ -8479,7 +8479,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
         src = s1+processor.process(Utilities.escapeXml(ed.getDescription()), "Definition on "+ed.getId())+s3;
-      else if (com[0].equals("status"))
+      else if (com[0].equals("ext-comments")) {
+        if (ed.getDifferential().getElementFirstRep().hasComment())
+          src = s1+"<p><b>Comment</b>: "+processor.process(Utilities.escapeXml(ed.getDifferential().getElementFirstRep().getComment()), "Definition on "+ed.getId())+"</p>"+s3;
+        else
+          src = s1+s3;
+      } else if (com[0].equals("status"))
         src = s1+(ed.getStatus() == null ? "??" : ed.getStatus().toCode())+s3;
       else if (com[0].equals("author"))
         src = s1+Utilities.escapeXml(ed.getPublisher())+s3;

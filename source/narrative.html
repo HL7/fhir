@@ -307,6 +307,74 @@ It SHOULD be safe to view the narrative without these additional styling feature
 Note that there are additional rules around styling for <a href="documents.html#css">documents</a> presentation.
 </p>
 
+<a name="linking"></a>
+<h3>Linking between Data and Narrative</h3>
+<p>
+In some contexts, it is useful to link between the two representations of the same content: structured data, and human readable narrative.
+This can be used to assert that the text is a representation of the data, or specifically that the data is derived from some particular text. 
+This specification defines the extensions <a href="extension-narrativelink.html">narrativeLink</a> and <a href="extension-originaltext.html">originalText</a> 
+to establish these links. Here's an example of using
+originalText:
+</p>
+<pre class="json">
+{
+  "resourceType" : "Condition",
+  "text" : {
+    "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;There is a history of &lt;span id=\"a1\"&gt;Asthma&lt;/span&gt;&lt;/div&gt;" 
+  },
+  "code" : {
+    "coding" : {
+      "system" : "http://snomed.info/sct",
+      "code" : "195967001",
+      "display" : "Asthma (disorder)"
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/originalText",
+      "valueUrl" : "#a1"
+    }]
+  }
+}
+</pre>
+<p>
+This indicates that the word "Asthma" in the narrative is the original text from which the SNOMED CT code "asthma"
+was derived by some text processing method. Typically, this method is associated with resources built from 
+CDA documents. The same method can be used to reference across resource boundaries, e.g. between a resource
+and the composition that represents it:
+</p>
+<pre class="xml">
+&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
+  &lt;entry&gt;
+    &lt;fullUrl value="http://example.org/fhir/Composition/abcdefghij"/&gt;
+    &lt;Composition&gt;
+      &lt;id value="c1"/&gt;
+      &lt;text&gt;
+        &lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;
+          ...
+          &lt;p&gt;There is a history of &lt;span id=\"a1\"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
+          ...
+        &lt;/div&gt;
+      &lt;/text&gt;
+    &lt;/Composition&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;Condition&gt;
+      &lt;code&gt;
+        &lt;extension url="http://hl7.org/fhir/StructureDefinition/originalText"&gt;
+          &lt;valueUrl value="http://example.org/fhir/Composition/abcdefghij#a1"/&gt;
+        &lt;/extension&gt;
+        &lt;coding&gt;
+          &lt;system value="http://snomed.info/sct"/&gt;
+          &lt;code value="195967001"/&gt;
+          &lt;display value="Asthma (disorder)"/&gt;
+        &lt;/coding&gt;
+      &lt;/code&gt;
+    &lt;/Condition&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
+
+
+
 <a name="safety"></a>
 <h3>Clinical Safety Concerns</h3>
 <p>
