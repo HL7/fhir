@@ -295,7 +295,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           return false;
         if (bndCodeSystems == null) {
           try {
-            tlog("Terminology server: Check for supported code systems for "+system);
+            log("Terminology server: Check for supported code systems for "+system);
             bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content-mode=not-present&_summary=true&_count=1000");
           } catch (Exception e) {
             if (canRunWithoutTerminology) {
@@ -338,7 +338,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
 
   protected void tlog(String msg) {
-    System.out.println("-tx: "+msg);
+    System.out.println("-tx cache miss: "+msg);
   }
 
   // --- expansion support ------------------------------------------------------------------------------------------------------------
@@ -411,7 +411,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       Map<String, String> params = new HashMap<String, String>();
       params.put("_limit", Integer.toString(expandCodesLimit ));
       params.put("_incomplete", "true");
-      tlog("Terminology Server: $expand on "+txCache.summary(vs));
+      tlog("$expand on "+txCache.summary(vs));
       try {
         ValueSet result = txServer.expandValueset(vs, p, params);
         res = new ValueSetExpansionOutcome(result);  
@@ -479,7 +479,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (noTerminologyServer)
       return new ValidationResult(IssueSeverity.ERROR,  "Error validating code: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
     String csumm = txCache.summary(code);
-    tlog("Terminology Server: $validate "+csumm+" for "+ txCache.summary(vs));
+    tlog("$validate "+csumm+" for "+ txCache.summary(vs));
     try {
       Parameters pIn = new Parameters();
       pIn.addParameter().setName("coding").setValue(code);
@@ -512,7 +512,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     // if that failed, we try to validate on the server
     if (noTerminologyServer)
       return new ValidationResult(IssueSeverity.ERROR, "Error validating code: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
-    tlog("Terminology Server: $validate "+txCache.summary(code)+" for "+ txCache.summary(vs));
+    tlog("$validate "+txCache.summary(code)+" for "+ txCache.summary(vs));
     try {
       Parameters pIn = new Parameters();
       pIn.addParameter().setName("codeableConcept").setValue(code);
@@ -1011,6 +1011,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public void setOverrideVersionNs(String value) {
     overrideVersionNs = value;
+  }
+
+  @Override
+  public ILoggingService getLogger() {
+    return logger;
   }
 
   

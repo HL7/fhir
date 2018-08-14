@@ -402,6 +402,7 @@ public interface IWorkerContext {
   }
 
   public void setLogger(ILoggingService logger);
+  public ILoggingService getLogger();
 
   public boolean isNoTerminologyServer();
 
