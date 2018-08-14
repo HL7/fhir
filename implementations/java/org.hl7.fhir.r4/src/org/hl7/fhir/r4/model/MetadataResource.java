@@ -744,18 +744,7 @@ public abstract class MetadataResource extends DomainResource {
     }
 
       protected void listChildren(List<Property> children) {
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this metadata resource when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this metadata resource is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the metadata resource is stored on different servers.", 0, 1, url));
-        children.add(new Property("version", "string", "The identifier that is used to identify this version of the metadata resource when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the metadata resource author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
-        children.add(new Property("name", "string", "A natural language name identifying the metadata resource. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
-        children.add(new Property("title", "string", "A short, descriptive, user-friendly title for the metadata resource.", 0, 1, title));
-        children.add(new Property("status", "code", "The status of this metadata resource. Enables tracking the life-cycle of the content.", 0, 1, status));
-        children.add(new Property("experimental", "boolean", "A Boolean value to indicate that this metadata resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.", 0, 1, experimental));
-        children.add(new Property("date", "dateTime", "The date  (and optionally time) when the metadata resource was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the metadata resource changes.", 0, 1, date));
-        children.add(new Property("publisher", "string", "The name of the organization or individual that published the metadata resource.", 0, 1, publisher));
-        children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        children.add(new Property("description", "markdown", "A free text natural language description of the metadata resource from a consumer's perspective.", 0, 1, description));
-        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate metadata resource instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the metadata resource is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
+        // todo: add a flag to decide whether to do this... super.listChildren(children);
       }
 
       @Override

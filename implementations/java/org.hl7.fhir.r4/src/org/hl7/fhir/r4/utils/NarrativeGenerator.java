@@ -827,6 +827,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
         throw new Error("Access single value, but value count is "+getValues().size());
       return getValues().get(0);
     }
+    
+    public String toString() {
+      return "#."+wrapped.toString();
+    }
   }
 
   private class BaseWrapperDirect implements BaseWrapper {
@@ -946,6 +950,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private int headerLevelContext;
   private List<ConceptMapRenderInstructions> renderingMaps = new ArrayList<ConceptMapRenderInstructions>();
   private boolean pretty;
+  private boolean canonicalUrlsAsLinks;
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context) {
     super();
@@ -1365,7 +1370,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof ContactPoint) {
       renderContactPoint((ContactPoint) e, x);
     } else if (e instanceof UriType) {
-      renderUri((UriType) e, x);
+      renderUri((UriType) e, x, defn.getPath(), rc.resourceResource != null ? rc.resourceResource.getId() : null);
     } else if (e instanceof Timing) {
       renderTiming((Timing) e, x);
     } else if (e instanceof Range) {
@@ -1891,8 +1896,31 @@ public class NarrativeGenerator implements INarrativeGenerator {
     x.addText(displayContactPoint(contact));
   }
 
-  private void renderUri(UriType uri, XhtmlNode x) {
-    x.ah(uri.getValue()).addText(uri.getValue());
+  private void renderUri(UriType uri, XhtmlNode x, String path, String id) {
+    String url = uri.getValue();
+    if (isCanonical(path)) {
+      MetadataResource mr = context.fetchResource(null, url);
+      if (mr != null) {
+        if (path.startsWith(mr.fhirType()+".") && mr.getId().equals(id)) {
+          url = null; // don't link to self whatever
+        } else if (mr.hasUserData("path"))
+          url = mr.getUserString("path");
+      } else if (!canonicalUrlsAsLinks)
+        url = null;
+    }
+    if (url == null)
+      x.b().tx(uri.getValue());
+    else
+      x.ah(uri.getValue()).addText(uri.getValue());
+  }
+
+  private boolean isCanonical(String path) {
+    if (!path.endsWith(".url")) 
+      return false;
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+path.substring(0, path.length()-4));
+    if (sd == null)
+      return false;
+    return sd.getBaseDefinitionElement().hasExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super");
   }
 
   private void renderSampledData(SampledData sampledData, XhtmlNode x) {
@@ -2374,8 +2402,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
     else
       td.ah(cs.getUserString("path")).attribute("title", url).tx(cs.present());
   }
-
-
 
   private boolean isSameCodeAndDisplay(String code, String display) {
     String c = code.replace(" ", "").replace("-", "").toLowerCase();
@@ -4581,6 +4607,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   public void setPretty(boolean pretty) {
     this.pretty = pretty;
+  }
+
+  public boolean isCanonicalUrlsAsLinks() {
+    return canonicalUrlsAsLinks;
+  }
+
+  @Override
+  public void setCanonicalUrlsAsLinks(boolean canonicalUrlsAsLinks) {
+    this.canonicalUrlsAsLinks = canonicalUrlsAsLinks;
   }
 
   
