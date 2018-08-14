@@ -1271,23 +1271,46 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private SpecificationPackage loadCorePackage() throws Exception {
     NpmPackage pi = null;
     
+    String v = version.equals(Constants.VERSION) ? "current" : version;
+
     if (Utilities.noString(igPack)) {
-      pi = pcm.loadPackageCache("hl7.fhir.core", version);
-      if (pi == null && version.equals(Constants.VERSION))
-          pi = pcm.loadPackageCache("hl7.fhir.core", "current");
+      pi = pcm.loadPackageCache("hl7.fhir.core", v);
     } else
       pi = pcm.extractLocally(igPack);
     if (pi == null) {
       String url = getMasterSource();
-      InputStream src = fetchFromSource("hl7.fhir.core-"+version, url);
-      if (version.equals(Constants.VERSION)) 
-        pi = pcm.addPackageToCache("hl7.fhir.core", "current", src);
-      else
-        pi = pcm.addPackageToCache("hl7.fhir.core", version, src);
+      InputStream src = fetchFromSource("hl7.fhir.core-"+v, url);
+      pi = pcm.addPackageToCache("hl7.fhir.core", version, src);
     }
-    log("Load hl7.fhir.core-"+version+" package from "+pi.description());
+    if (v.equals("current")) {
+      // currency of the current core package is a problem, since its not really version controlled.
+      // we'll check for a specified version...
+      log("Checking hl7.fhir.core-"+v+" currency");
+      int cacheVersion = getBuildVersionForCorePackage(pi);
+      int lastAcceptableVersion = getLastOkCoreVersion();
+      if (cacheVersion < lastAcceptableVersion) {
+        log("Updating hl7.fhir.core-"+version+" package from source (too old - is "+cacheVersion+", must be "+lastAcceptableVersion);
+        pi = pcm.addPackageToCache("hl7.fhir.core", "current", fetchFromSource("hl7.fhir.core-"+v, getMasterSource()));
+      } else {
+        log("   ...  ok: is "+cacheVersion+", must be "+lastAcceptableVersion);
+      }
+    }
+    log("Load hl7.fhir.core-"+v+" package from "+pi.description());
     return loadPack(pi);
   }
+
+  private int getLastOkCoreVersion() throws IOException {
+    JsonObject json = fetchJson("http://build.fhir.org/package-min-ver.json");
+    return Integer.valueOf(json.get("build").getAsString());
+  }
+
+
+  private int getBuildVersionForCorePackage(NpmPackage pi) throws IOException {
+    String json = TextFile.streamToString(pi.load("other", "spec.internals"));
+    JsonObject info = (JsonObject) new com.google.gson.JsonParser().parse(json);
+    return Integer.valueOf(info.get("tool-build").getAsString());
+  }
+
 
   private String getMasterSource() {
     if ("1.0.2".equals(version)) return "http://hl7.org/fhir/DSTU2/package.tgz";
