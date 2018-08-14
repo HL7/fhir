@@ -1,0 +1,430 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "FTH",
+    "display" : "father"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "PRN"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "TWIN"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "father",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "MTH",
+    "display" : "mother"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "PRN"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "TWIN"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "mother",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "NMTH",
+    "display" : "natural mother"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "PRN"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "TWIN"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "natural mother",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "NFTH",
+    "display" : "natural father"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "PRN"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "TWIN"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "natural father",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "NSIS",
+    "display" : "natural sister"
+  }],
+  "text" : "natural sister"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "SIB"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "natural sister",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "MTH",
+    "display" : "mother"
+  }],
+  "text" : "mother"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "PRN"
+      }]
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "TWIN"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "mother",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "NBRO",
+    "display" : "natural brother"
+  }],
+  "text" : "natural brother"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "SIB"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "natural brother",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "RNEU",
+    "display" : "Neuroradiology unit"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "concept" : [{
+        "code" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Neuroradiology unit",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "AMB",
+    "display" : "Ambulance"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "concept" : [{
+        "code" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Ambulance",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "PTRES",
+    "display" : "Patient's Residence"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "concept" : [{
+        "code" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Patient's Residence",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "PHARM",
+    "display" : "Pharmacy"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "concept" : [{
+        "code" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Pharmacy",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "SLEEP",
+    "display" : "Sleep disorders unit"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }],
+    "exclude" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "concept" : [{
+        "code" : "_ServiceDeliveryLocationRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Sleep disorders unit",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "SIGOTHR"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0131"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_PersonalRelationshipRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "significant other",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+    "code" : "NMTH",
+    "display" : "natural mother"
+  }],
+  "text" : "Natural Mother"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v2-0131"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-a",
+        "value" : "_PersonalRelationshipRoleType"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "natural mother",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

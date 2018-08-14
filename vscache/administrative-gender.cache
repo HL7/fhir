@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://hl7.org/fhir/administrative-gender",
+    "code" : "male",
+    "display" : "Male"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/administrative-gender",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-not-a",
+        "value" : "other"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The filter \"concept is-not-a other\" was not understood in the context of http://hl7.org/fhir/administrative-gender"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://hl7.org/fhir/administrative-gender",
+    "code" : "female",
+    "display" : "Female"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://hl7.org/fhir/administrative-gender",
+      "filter" : [{
+        "property" : "concept",
+        "op" : "is-not-a",
+        "value" : "other"
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The filter \"concept is-not-a other\" was not understood in the context of http://hl7.org/fhir/administrative-gender"
+}
+-------------------------------------------------------------------------------------
