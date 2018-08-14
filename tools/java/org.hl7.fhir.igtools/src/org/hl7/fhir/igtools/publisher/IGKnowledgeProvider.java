@@ -11,6 +11,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService.LogCategory;
 import org.hl7.fhir.r4.elementmodel.ParserBase;
 import org.hl7.fhir.r4.elementmodel.Property;
 import org.hl7.fhir.r4.formats.FormatUtilities;
@@ -72,8 +73,9 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     defaultConfig = igs.getAsJsonObject("defaults");
     resourceConfig = igs.getAsJsonObject("resources");
     if (resourceConfig == null)
-      throw new Exception("You must provide a list of resources in the json file");
-    for (Entry<String, JsonElement> pp : resourceConfig.entrySet()) {
+      context.getLogger().logDebugMessage(LogCategory.PROGRESS, "No resources found in json file");
+    else
+      for (Entry<String, JsonElement> pp : resourceConfig.entrySet()) {
       if (pp.getKey().equals("*")) {
         autoPath = true;
       } else if (!pp.getKey().startsWith("_")) {
