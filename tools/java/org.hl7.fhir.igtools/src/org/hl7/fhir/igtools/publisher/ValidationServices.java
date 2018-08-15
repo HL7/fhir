@@ -8,6 +8,7 @@ import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.terminologies.ImplicitValueSets;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.Questionnaire;
@@ -47,7 +48,11 @@ public class ValidationServices implements IValidatorResourceFetcher {
       else
         return new ObjectConverter(context).convert(res);
     }
-   
+
+    ValueSet vs = ImplicitValueSets.build(url);
+    if (vs != null)
+      return new ObjectConverter(context).convert(vs);
+    
     String[] parts = url.split("\\/");
     
     if (appContext != null) {
