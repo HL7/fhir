@@ -664,16 +664,22 @@ public class Quantity extends Type implements ICompositeType {
       public Quantity copy() {
         Quantity dst = new Quantity();
         copyValues(dst);
+        return dst;
+      }
+      
+      protected Quantity typedCopy() {
+        return copy();
+      }
+      
+      @Override
+      public void copyValues(Element dstEl) {
+        super.copyValues(dstEl);
+        Quantity dst = (Quantity) dstEl;
         dst.value = value == null ? null : value.copy();
         dst.comparator = comparator == null ? null : comparator.copy();
         dst.unit = unit == null ? null : unit.copy();
         dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
-        return dst;
-      }
-
-      protected Quantity typedCopy() {
-        return copy();
       }
 
       @Override
