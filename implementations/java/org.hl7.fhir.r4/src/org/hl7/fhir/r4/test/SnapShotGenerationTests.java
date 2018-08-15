@@ -321,7 +321,9 @@ public class SnapShotGenerationTests {
         if (sd.getType().equals("Extension")) {
           if (TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getUrl()) == null) {
             sd.setUserData("path", "test-"+sd.getId()+".html");
-              TestingUtilities.context.cacheResource(sd);
+            StructureDefinition extd = TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
+            new ProfileUtilities(TestingUtilities.context, null, null).generateSnapshot(extd, sd, sd.getUrl(), sd.getName());
+            TestingUtilities.context.cacheResource(sd);
           }
         }
       }
@@ -378,7 +380,8 @@ public class SnapShotGenerationTests {
         }
       } else if (action.hasAssert()) {
         SetupActionAssertComponent a = action.getAssert();
-        Assert.assertTrue(a.getLabel()+": "+a.getDescription(), fp.evaluateToBoolean(new StructureDefinition(), new StructureDefinition(), a.getExpression()));
+        boolean ok = fp.evaluateToBoolean(new StructureDefinition(), new StructureDefinition(), a.getExpression());
+        Assert.assertTrue(a.getLabel()+": "+a.getDescription(), ok);
       }
     }
     } catch (Exception e) {

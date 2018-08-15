@@ -3401,7 +3401,7 @@
     <action>
       <assert>
         <label value="test34"/>
-        <description value="something"/>
+        <description value="There must be 2 elements on Basic.identifier.extension in the snapshot"/>
         <direction value="response"/>
         <expression value="fixture('t34o').snapshot.element.where(path = 'Basic.identifier.extension').count() = 2"/>
         <warningOnly value="false"/>
@@ -3410,7 +3410,7 @@
     <action>
       <assert>
         <label value="test34a"/>
-        <description value="something"/>
+        <description value="The narrative must mention the extension URL"/>
         <direction value="response"/>
         <expression value="fixture('t34o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
         <warningOnly value="false"/>
@@ -3436,7 +3436,7 @@
     <action>
       <assert>
         <label value="test35"/>
-        <description value="something"/>
+        <description value="There must be 2 elements on Basic.identifier.extension in the snapshot"/>
         <direction value="response"/>
         <expression value="fixture('t35o').snapshot.element.where(path = 'Basic.identifier.extension').count() = 2"/>
         <warningOnly value="false"/>
@@ -3445,7 +3445,7 @@
     <action>
       <assert>
         <label value="test35a"/>
-        <description value="something"/>
+        <description value="The narrative must mention the extension URL"/>
         <direction value="response"/>
         <expression value="fixture('t35o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
         <warningOnly value="false"/>
