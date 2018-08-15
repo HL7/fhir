@@ -163,43 +163,61 @@
 <p>The following fragment shows a simple referral creation action from an example order set for suicide risk assessment and management:</p>
 
 <pre><code>&lt;action&gt;
-  &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
   &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-  &lt;definition&gt;
-    &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-  &lt;/definition&gt;
+  &lt;definition value=&quot;#referralToMentalHealthCare&quot;/&gt;
   &lt;dynamicValue&gt;
     &lt;path value=&quot;timing.event&quot;/&gt;
-    &lt;expression value=&quot;Now()&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;Now()&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
     &lt;path value=&quot;specialty&quot;/&gt;
-    &lt;expression value=&quot;Code &apos;261QM0850X&apos; from &amp;quot;urn:oid:2.16.840.1.113883.11.19462&amp;quot;&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;Code '261QM0850X' from SuicideRiskLogic.&quot;NUCC Provider Taxonomy&quot; display 'Adult Mental Health'&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
-    &lt;path value=&quot;fulfillmentTime&quot;/&gt;
-    &lt;expression value=&quot;ReferralRequestFulfillmentTime&quot;/&gt;
+    &lt;path value=&quot;occurrenceDateTime&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;SuicideRiskLogic.ServiceRequestFulfillmentTime&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
-    &lt;path value=&quot;patient&quot;/&gt;
-    &lt;expression value=&quot;Patient&quot;/&gt;
+    &lt;path value=&quot;subject&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;SuicideRiskLogic.Patient&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
-    &lt;path value=&quot;requester&quot;/&gt;
-    &lt;expression value=&quot;Practitioner&quot;/&gt;
+    &lt;path value=&quot;requester.agent&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;SuicideRiskLogic.Practitioner&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
-   &lt;path value=&quot;reason&quot;/&gt;
-    &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+    &lt;path value=&quot;reasonCode&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;SuicideRiskLogic.RiskAssessmentScore&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
-    &lt;path value=&quot;supportingInformation&quot;/&gt;
-    &lt;expression value=&quot;RiskAssessment&quot;/&gt;
+    &lt;path value=&quot;reasonReference&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;SuicideRiskLogic.RiskAssessment&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/dynamicValue&gt;
 &lt;/action&gt;
 </code></pre>
 
-<p>The example describes how to create a <code>ReferralRequest</code> resource using information available from the context in which the order set is applied. The definition includes expressions for retrieving contextual information using the <code>dynamicValue</code> element of the <code>ActivityDefinition</code> resource. For more information on using expressions to provide dynamic values as part of a definition, refer to the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> topic in this module.</p>
+<p>The example describes how to create a <code>ServiceRequest</code> resource using information available from the context in which the order set is applied. The definition includes expressions for retrieving contextual information using the <code>dynamicValue</code> element of the <code>ActivityDefinition</code> resource. For more information on using expressions to provide dynamic values as part of a definition, refer to the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> topic in this module.</p>
 
 <a name="action-type"> </a>
 <h6>Action Type</h6>
@@ -224,37 +242,37 @@
 
 <ul>
 	<li>Named Event</li>
-	<li>Scheduled Event</li>
+	<li>Periodic Event</li>
 	<li>Data Event</li>
 </ul>
 
-<p>A named event is an event identified by the implementation environment. This type of event allows Event-Condition-Action (ECA) rules to be triggered by any event generated within the implementation environment. A scheduled event occurs on a fixed or periodic schedule. And finally, a data event occurs in response to some data-related event in the integrated environment such as a record being added or updated.</p>
+<p>A named event is an event identified by the implementation environment. This type of event allows Event-Condition-Action (ECA) rules to be triggered by any event generated within the implementation environment. A periodic event occurs on a fixed or periodic schedule. And finally, a data event occurs in response to some data-related event in the integrated environment such as a record being added or updated.</p>
+
+<p>For triggered PlanDefinitions, the event means the PlanDefinition apply process should be performed. How that actually happens within an implementation is not prescribed.</p>
 
 <p>As examples, the following fragments illustrate the use of a named event, a scheduled event, and a data event as part of an ECA rule definition:</p>
 
 <pre><code>&lt;trigger&gt;
   &lt;type value=&quot;named-event&quot;/&gt;
-  &lt;eventName value=&quot;Admission&quot;/&gt;
+  &lt;name value=&quot;Admission&quot;/&gt;
 &lt;/trigger&gt;
 </code></pre>
 
 <pre><code>&lt;trigger&gt;
-  &lt;type value=&quot;scheduled-event&quot;/&gt;
-  &lt;eventTimingDate&gt;10/12/2015&lt;/eventTimingDate&gt;
+  &lt;type value=&quot;periodic&quot;/&gt;
+  &lt;timingDate&gt;10/12/2015&lt;/timingDate&gt;
 &lt;/trigger&gt;
 </code></pre>
 
 <pre><code>&lt;trigger&gt;
   &lt;type value=&quot;data-added&quot;/&gt;
-  &lt;eventData&gt;
-    &lt;dataRequirement&gt;
-      &lt;type value=&quot;Condition&quot;/&gt;
-      &lt;codeFilter&gt;
-        &lt;path value="code"/&gt;
-        &lt;valueSetString value=&quot;Other Female Reproductive Conditions&quot;/&gt;
-      &lt;/codeFilter&gt;
-    &lt;/dataRequirement&gt;
-  &lt;/eventData&gt;
+  &lt;data&gt;
+    &lt;type value=&quot;Condition&quot;/&gt;
+    &lt;codeFilter&gt;
+      &lt;path value=&quot;code&quot;/&gt;
+      &lt;valueSet value=&quot;http://example.org/fhir/ValueSet/other-female-reproductive-conditions&quot;/&gt;
+    &lt;/codeFilter&gt;
+  &lt;/data&gt;
 &lt;/trigger&gt;
 </code></pre>
 
@@ -266,11 +284,11 @@
 <p>For example, the following fragment shows the condition element of an action definition used in an ECA rule. The condition references the named expression "NoScreening":</p>
 
 <pre><code>&lt;condition&gt;
-	&lt;kind value=&quot;applicability&quot;/&gt;
-	&lt;expression&gt;
-		&lt;language value=&quot;text/cql&quot;/&gt;
-	  &lt;expression value=&quot;NoScreening&quot;/&gt;
-	&lt;/expression&gt;
+  &lt;kind value=&quot;applicability&quot;/&gt;
+  &lt;expression&gt;
+    &lt;language value=&quot;text/cql&quot;/&gt;
+    &lt;expression value=&quot;NoScreening&quot;/&gt;
+  &lt;/expression&gt;
 &lt;/condition&gt;
 </code></pre>
 
@@ -305,37 +323,35 @@
   &lt;id value=&quot;example&quot;/&gt;
   &lt;identifier&gt;
     &lt;use value=&quot;official&quot;/&gt;
-    &lt;value value=&quot;ChlamydiaScreening_Common&quot;/&gt;
+    &lt;value value=&quot;ChalmydiaScreening_Common&quot;/&gt;
   &lt;/identifier&gt;
   &lt;version value=&quot;2.0.0&quot;/&gt;
   &lt;title value=&quot;Chlamydia Screening Common Library&quot;/&gt;
-  &lt;type&gt;
-  &lt;coding&gt;
-    &lt;code value=&quot;logic-library&quot;/&gt;
-  &lt;/coding&gt;
-  &lt;/type&gt;
   &lt;status value=&quot;draft&quot;/&gt;
+  &lt;type&gt;
+    &lt;coding&gt;
+      &lt;code value=&quot;logic-library&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/type&gt;
+  &lt;date value=&quot;2015-07-22&quot;/&gt;
   &lt;description value=&quot;Common Logic for adherence to Chlamydia Screening guidelines&quot;/&gt;
-  &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
   &lt;topic&gt;
     &lt;text value=&quot;Chlamydia Screening&quot;/&gt;
   &lt;/topic&gt;
   &lt;relatedArtifact&gt;
     &lt;type value=&quot;depends-on&quot;/&gt;
-    &lt;resource&gt;
-      &lt;reference value=&quot;Library/library-quick-model-definition&quot;/&gt;
-    &lt;/resource&gt;
+    &lt;resource value=&quot;Library/library-quick-model-definition&quot;/&gt;
   &lt;/relatedArtifact&gt;
   &lt;dataRequirement&gt;
     &lt;type value=&quot;Condition&quot;/&gt;
     &lt;codeFilter&gt;
       &lt;path value=&quot;code&quot;/&gt;
-      &lt;valueSetString value=&quot;Other Female Reproductive Conditions&quot;/&gt;
+      &lt;valueSet value=&quot;urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006&quot;/&gt;
     &lt;/codeFilter&gt;
   &lt;/dataRequirement&gt;
   &lt;content&gt;
     &lt;contentType value=&quot;text/cql&quot;/&gt;
-    &lt;url value=&quot;http://cqlrepository.org/ChlamydiaScreening_Common.cql&quot;/&gt;
+    &lt;url value=&quot;library-example-content.cql&quot;/&gt;
   &lt;/content&gt;
 &lt;/Library&gt;
 </code></pre>
@@ -358,28 +374,29 @@
     &lt;value value=&quot;ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
   &lt;/identifier&gt;
   &lt;version value=&quot;2.0.0&quot;/&gt;
-  &lt;title value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
+  &lt;title value=&quot;Chalmydia Screening CDS Example Using Common&quot;/&gt;
   &lt;status value=&quot;draft&quot;/&gt;
+  &lt;date value=&quot;2015-07-22&quot;/&gt;
   &lt;description value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
-  &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
   &lt;topic&gt;
     &lt;text value=&quot;Chlamydia Screening&quot;/&gt;
   &lt;/topic&gt;
-  &lt;library&gt;
-    &lt;reference value=&quot;Library/ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
-  &lt;/library&gt;
+  &lt;library value=&quot;Library/example&quot;/&gt;
   &lt;action&gt;
     &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
-    &lt;trigger&gt;
-      &lt;type value=&quot;scheduled-event&quot;/&gt;
-      &lt;eventTimingDate&gt;10/12/2015&lt;/eventTimingDate&gt;
-    &lt;/trigger&gt;
     &lt;condition&gt;
-      &lt;expression value=&quot;NoScreening&quot;/&gt;
+    &lt;kind value=&quot;applicability&quot;/&gt;
+    &lt;expression&gt;
+        &lt;language value=&quot;text/cql&quot;/&gt;
+        &lt;expression value=&quot;NoScreening&quot;/&gt;
+      &lt;/expression&gt;
     &lt;/condition&gt;
     &lt;dynamicValue&gt;
-      &lt;path value=&quot;this&quot;/&gt;
-      &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
+      &lt;path value=&quot;$this&quot;/&gt;
+      &lt;expression&gt;
+        &lt;language value=&quot;text/cql&quot;/&gt;
+        &lt;expression value=&quot;ChlamydiaScreeningRequest&quot;/&gt;
+      &lt;/expression&gt;
     &lt;/dynamicValue&gt;
   &lt;/action&gt;
 &lt;/PlanDefinition&gt;
@@ -401,31 +418,35 @@
 <pre><code>&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
 &lt;action&gt;
   &lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
-  &lt;!-- Consults and Referrals --&gt;
   &lt;action&gt;
     &lt;title value=&quot;Consults and Referrals&quot;/&gt;
     &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
     &lt;selectionBehavior value=&quot;any&quot;/&gt;
     &lt;action&gt;
-      &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
-      &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-      &lt;definition&gt;
-        &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-      &lt;/definition&gt;
+      &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health
+       conditions now&quot;/&gt;
+      &lt;definition value=&quot;#referralToMentalHealthCare&quot;/&gt;
       &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
     &lt;/action&gt;
   &lt;/action&gt;
-  &lt;!-- Medications --&gt;
   &lt;action&gt;
     &lt;title value=&quot;Medications&quot;/&gt;
     &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
     &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
     &lt;action&gt;
-      &lt;!-- First-Line Antidepressants --&gt;
       &lt;title value=&quot;First-Line Antidepressants&quot;/&gt;
-      &lt;documentation&gt;
-        &lt;type value=&quot;justification&quot;/&gt;
-        &lt;document&gt;
+        &lt;documentation&gt;
+          &lt;type value=&quot;citation&quot;/&gt;
+          &lt;document&gt;
+          &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence&quot;&gt;
+      &lt;valueCodeableConcept&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/evidence-quality&quot;/&gt;
+          &lt;code value=&quot;high&quot;/&gt;
+        &lt;/coding&gt;
+        &lt;text value=&quot;High Quality&quot;/&gt;
+      &lt;/valueCodeableConcept&gt;
+          &lt;/extension&gt;
           &lt;contentType value=&quot;text/html&quot;/&gt;
           &lt;url value=&quot;http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf&quot;/&gt;
           &lt;title value=&quot;Practice Guideline for the Treatment of Patients with Major Depressive Disorder&quot;/&gt;
@@ -434,10 +455,9 @@
       &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
       &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
       &lt;action&gt;
-        &lt;!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
         &lt;title value=&quot;Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)&quot;/&gt;
         &lt;documentation&gt;
-          &lt;type value=&quot;justification&quot;/&gt;
+          &lt;type value=&quot;citation&quot;/&gt;
           &lt;document&gt;
             &lt;contentType value=&quot;text/html&quot;/&gt;
             &lt;url value=&quot;http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01&quot;/&gt;
@@ -447,48 +467,31 @@
         &lt;groupingBehavior value=&quot;logical-group&quot;/&gt;
         &lt;selectionBehavior value=&quot;at-most-one&quot;/&gt;
         &lt;action&gt;
-          &lt;!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)&quot;/&gt;
-          &lt;definition&gt;
-            &lt;reference value=&quot;#citalopramPrescription&quot;/&gt;
-          &lt;/definition&gt;
+          &lt;definition value=&quot;#citalopramPrescription&quot;/&gt;
           &lt;dynamicValue&gt;...&lt;/dynamicValue&gt;
         &lt;/action&gt;
         &lt;action&gt;
-          &lt;!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-          &lt;!-- Follows pattern established above --&gt;
         &lt;/action&gt;
         &lt;action&gt;
-          &lt;!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-          &lt;!-- Follows pattern established above --&gt;
         &lt;/action&gt;
         &lt;action&gt;
-          &lt;!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-          &lt;!-- Follows pattern established above --&gt;
         &lt;/action&gt;
         &lt;action&gt;
-          &lt;!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) --&gt;
           &lt;textEquivalent value=&quot;sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)&quot;/&gt;
-          &lt;!-- Follows pattern established above --&gt;
         &lt;/action&gt;
       &lt;/action&gt;
       &lt;action&gt;
-        &lt;!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) --&gt;
         &lt;textEquivalent value=&quot;Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)&quot;/&gt;
-        &lt;!-- Follows pattern established above --&gt;
       &lt;/action&gt;
       &lt;action&gt;
-        &lt;!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) --&gt;
         &lt;textEquivalent value=&quot;Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)&quot;/&gt;
-        &lt;!-- Follows pattern established above --&gt;
       &lt;/action&gt;
       &lt;action&gt;
-        &lt;!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) --&gt;
         &lt;textEquivalent value=&quot;Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)&quot;/&gt;
-        &lt;!-- Follows pattern established above --&gt;
       &lt;/action&gt;
     &lt;/action&gt;
   &lt;/action&gt;
@@ -525,24 +528,38 @@
 <p>As a simple example, the following fragment shows a portion of a BMI Assessment protocol:</p>
 
 <pre><code>&lt;action&gt;
-  &lt;!--step label--&gt;
-  &lt;label value=&quot;Measure BMI&quot;/&gt;
-  &lt;title value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
-  &lt;!--description of activity--&gt;
-  &lt;description value=&quot;Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients&quot;/&gt;
-
-  &lt;!--Rules prior to execution--&gt;
+  &lt;!--  step title  --&gt;
+  &lt;title value=&quot;Measure BMI&quot;/&gt;
+  &lt;description value=&quot;Measure, Weight, Height, Waist, Circumference; Calculate BMI&quot;/&gt;
+  &lt;!--  description of activity  --&gt;
+  &lt;textEquivalent value=&quot;Weight must be measured so that the BMI can be calculated. Most charts are based on weights
+    obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated
+    (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference
+    is important because evidence suggests that abdominal fat is a particularly strong determinant
+    of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference
+    can also be a marker of increased risk even in persons of normal weight. The technique
+    for measuring waist circumference is described in the text. A nutrition assessment will
+    also help to assess the diet and physical activity habits of overweight patients&quot;/&gt;
+  &lt;goalId value=&quot;reduce-bmi-ratio&quot;/&gt;
   &lt;condition&gt;
-    &lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight. While a technical definition is provided, a simple question such as 'Have you ever been overweight?' will accomplish the same goal. Questions directed towards weight history, dietary habits, physical activities, and medications may provide useful information about the origins of obesity in particular patients.
-
-For those who have not been overweight, a 2 year interval is appropriate for the reassessment of BMI. While this time span is not evidence-based, it is believed to be a reasonable compromise between the need to identify weight gain at an early stage and the need to limit the time, effort, and cost of repeated measurements.&quot;/&gt;
-    &lt;expression value=&quot;Observation of Obesity or BMI Measured in Past 2 Years&quot;/&gt;
-    &lt;!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) --&gt;
+    &lt;kind value=&quot;applicability&quot;/&gt;
+    &lt;expression&gt;
+      &lt;description value=&quot;The practitioner must seek to determine whether the patient has ever been overweight.
+        While a technical definition is provided, a simple question such as 'Have you ever been
+        overweight?' will accomplish the same goal. Questions directed towards weight history,
+        dietary habits, physical activities, and medications may provide useful information about
+        the origins of obesity in particular patients. For those who have not been overweight,
+        a 2 year interval is appropriate for the reassessment of BMI. While this time span is
+        not evidence-based, it is believed to be a reasonable compromise between the need to identify
+        weight gain at an early stage and the need to limit the time, effort, and cost of repeated
+        measurements.&quot;/&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;exists ([Condition: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today())&quot;/&gt;
+    &lt;/expression&gt;
   &lt;/condition&gt;
-  &lt;!--  Activities that occur within timepoint--&gt;
-  &lt;definition&gt;
-    &lt;reference value=&quot;#procedure&quot;/&gt;
-  &lt;/definition&gt;
+  &lt;requiredBehavior value=&quot;must-unless-documented&quot;/&gt;
+  &lt;cardinalityBehavior value=&quot;single&quot;/&gt;
+  &lt;definition value=&quot;#procedure&quot;/&gt;
 &lt;/action&gt;
 </code></pre>
 
@@ -560,21 +577,20 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 <p>The following fragment taken from that example illustrates the use of the cqlExpression extension to calculate the TotalScore answer for a PHQ-9 Depression Assessment instrument:</p>
 
 <pre><code>&lt;item&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-cqlExpression&quot;&gt;
-    &lt;valueString value=&quot;CalculateTotalScore&quot;/&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;
+    &lt;valueExpression&gt;
+      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;expression value=&quot;CalculateTotalScore&quot;/&gt;
+    &lt;/valueExpression&gt;
   &lt;/extension&gt;
   &lt;linkId value=&quot;TotalScore&quot;/&gt;
-  &lt;concept&gt;
+  &lt;code&gt;
     &lt;system value=&quot;http://loinc.org&quot;/&gt;
     &lt;code value=&quot;44261-6&quot;/&gt;
-  &lt;/concept&gt;
+  &lt;/code&gt;
   &lt;text value=&quot;Total score&quot;/&gt;
-  &lt;type value=&quot;choice&quot;/&gt;
+  &lt;type value=&quot;integer&quot;/&gt;
   &lt;required value=&quot;true&quot;/&gt;
-  &lt;options&gt;
-    &lt;reference value=&quot;ValueSet/http://loinc.org/vs/LL358-3&quot;/&gt;
-    &lt;display value=&quot;Patient Health Questionnaire (PHQ-9) Not at all/Several days/More than half the days/Nearly every day&quot;/&gt;
-  &lt;/options&gt;
 &lt;/item&gt;
 </code></pre>
 
@@ -596,42 +612,22 @@ For those who have not been overweight, a 2 year interval is appropriate for the
       &lt;code value=&quot;57024-2&quot;/&gt;
     &lt;/coding&gt;
   &lt;/topic&gt;
-  &lt;library&gt;
-    &lt;reference value=&quot;Library/cbp-logic&quot;/&gt;
-  &lt;/library&gt;
+  &lt;library value=&quot;Library/cbp-logic&quot;/&gt;
   &lt;group&gt;
-    &lt;identifier&gt;
-      &lt;value value=&quot;CBP-cohort&quot;/&gt;
-    &lt;/identifier&gt;
     &lt;population&gt;
-      &lt;type value=&quot;initial-population&quot;/&gt;
-      &lt;identifier&gt;
-        &lt;value value=&quot;cbp-cohort&quot;/&gt;
-      &lt;/identifier&gt;
+      &lt;code value=&quot;initial-population&quot;/&gt;
       &lt;criteria value=&quot;In Demographic&quot;/&gt;
     &lt;/population&gt;
   &lt;/group&gt;
   &lt;group&gt;
-    &lt;identifier&gt;
-      &lt;value value=&quot;BP-systolic&quot;/&gt;
-    &lt;/identifier&gt;
     &lt;population&gt;
-      &lt;type value=&quot;initial-population&quot;/&gt;
-      &lt;identifier&gt;
-        &lt;value value=&quot;bp-systolic&quot;/&gt;
-      &lt;/identifier&gt;
+      &lt;code value=&quot;initial-population&quot;/&gt;
       &lt;criteria value=&quot;BP: Systolic&quot;/&gt;
     &lt;/population&gt;
   &lt;/group&gt;
   &lt;group&gt;
-    &lt;identifier&gt;
-      &lt;value value=&quot;BP-diastolic&quot;/&gt;
-    &lt;/identifier&gt;
     &lt;population&gt;
-      &lt;type value=&quot;initial-population&quot;/&gt;
-      &lt;identifier&gt;
-        &lt;value value=&quot;bp-diastolic&quot;/&gt;
-      &lt;/identifier&gt;
+      &lt;code value=&quot;initial-population&quot;/&gt;
       &lt;criteria value=&quot;BP: Diastolic&quot;/&gt;
     &lt;/population&gt;
   &lt;/group&gt;
