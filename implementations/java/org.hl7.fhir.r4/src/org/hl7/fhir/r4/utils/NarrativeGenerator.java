@@ -1370,7 +1370,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof ContactPoint) {
       renderContactPoint((ContactPoint) e, x);
     } else if (e instanceof UriType) {
-      renderUri((UriType) e, x, defn.getPath(), rc.resourceResource != null ? rc.resourceResource.getId() : null);
+      renderUri((UriType) e, x, defn.getPath(), rc != null && rc.resourceResource != null ? rc.resourceResource.getId() : null);
     } else if (e instanceof Timing) {
       renderTiming((Timing) e, x);
     } else if (e instanceof Range) {

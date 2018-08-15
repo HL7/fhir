@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 
 import javax.sql.rowset.spi.XmlWriter;
@@ -35,6 +36,8 @@ import org.hl7.fhir.r4.utils.formats.XmlLocationData;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.ElementDecoration;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -49,6 +52,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
+
+import com.sun.webkit.ContextMenu.ShowContext;
 
 public class XmlParser extends ParserBase {
   private boolean allowXsiLocation;
@@ -65,7 +70,6 @@ public class XmlParser extends ParserBase {
   public void setAllowXsiLocation(boolean allowXsiLocation) {
     this.allowXsiLocation = allowXsiLocation;
   }
-
 
   public Element parse(InputStream stream) throws FHIRFormatError, DefinitionException, FHIRException, IOException {
 		Document doc = null;
@@ -427,7 +431,7 @@ public class XmlParser extends ParserBase {
 
 	@Override
   public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws IOException, FHIRException {
-    XMLWriter xml = new XMLWriter(stream, "UTF-8");
+	  XMLWriter xml = new XMLWriter(stream, "UTF-8");
     xml.setSortAttributes(false);
     xml.setPretty(style == OutputStyle.PRETTY);
     xml.start();
@@ -458,6 +462,13 @@ public class XmlParser extends ParserBase {
   }
 
   private void composeElement(IXMLWriter xml, Element element, String elementName, boolean root) throws IOException, FHIRException {
+    if (showDecorations) {
+      @SuppressWarnings("unchecked")
+      List<ElementDecoration> decorations = (List<ElementDecoration>) element.getUserData("fhir.decorations");
+      if (decorations != null)
+        for (ElementDecoration d : decorations)
+          xml.decorate(d);
+    }
     for (String s : element.getComments()) {
       xml.comment(s, true);
     }

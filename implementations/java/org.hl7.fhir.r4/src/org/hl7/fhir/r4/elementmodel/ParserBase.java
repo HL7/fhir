@@ -3,7 +3,9 @@ package org.hl7.fhir.r4.elementmodel;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.FormatUtilities;
@@ -42,7 +44,8 @@ public abstract class ParserBase {
 	protected ValidationPolicy policy;
   protected List<ValidationMessage> errors;
   protected ILinkResolver linkResolver;
-
+  protected boolean showDecorations;
+  
 	public ParserBase(IWorkerContext context) {
 		super();
 		this.context = context;
@@ -118,5 +121,14 @@ public abstract class ParserBase {
     this.linkResolver = linkResolver;
     return this;
   }
-  
+
+  public boolean isShowDecorations() {
+    return showDecorations;
+  }
+
+  public void setShowDecorations(boolean showDecorations) {
+    this.showDecorations = showDecorations;
+  }
+
+
 }

@@ -270,9 +270,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             }
           }
         }
-        return null;
       }
-      throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveReference("+appContext.toString()+", \""+url+"\")");
+      if (Utilities.isAbsoluteUrl(url)) {
+        if (url.startsWith(igpkp.getCanonical())) {
+          url = url.substring(igpkp.getCanonical().length());
+          if (url.startsWith("/"))
+            url = url.substring(1);
+        } else
+          return null;;
+      }
+      for (FetchedFile f : fileList) {
+        for (FetchedResource r : f.getResources()) {
+          if (r.getElement() != null && url.equals(r.getElement().fhirType()+"/"+r.getId()))
+            return r.getElement();
+        }
+      }
+      return null;
     }
 
     @Override
@@ -3985,6 +3998,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       XmlXHtmlRenderer x = new XmlXHtmlRenderer();
       org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
+//      xp.setShowDecorations(true);
       xp.compose(r.getElement(), x);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames(), r, vars, "xml");
     }

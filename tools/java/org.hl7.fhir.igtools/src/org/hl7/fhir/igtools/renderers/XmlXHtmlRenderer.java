@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.utilities.ElementDecoration;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.IXMLWriter;
 import org.hl7.fhir.utilities.xml.XMLNamespace;
@@ -13,7 +14,6 @@ import org.hl7.fhir.utilities.xml.XMLWriterState;
 import org.hl7.fhir.utilities.xml.XMLWriterStateStack;
 
 public class XmlXHtmlRenderer implements IXMLWriter {
-
   private StringBuilder b;
   
 
@@ -26,6 +26,8 @@ public class XmlXHtmlRenderer implements IXMLWriter {
   private String[] specialAttributeNames = new String[] {"id", "name" };
   private int attributeLineWrap = 80;
   private String href;
+  private List<ElementDecoration> decorations1 = new ArrayList<ElementDecoration>();
+  private List<ElementDecoration> decorations2 = new ArrayList<ElementDecoration>();
   
   protected boolean condition(boolean bTest, String message) throws IOException {
     if (!bTest)
@@ -200,7 +202,6 @@ public class XmlXHtmlRenderer implements IXMLWriter {
 
   // -- namespaces ---------------------------------------------
 
-
   private void defineNamespace(String namespace, String abbrev) throws IOException {
     checkStarted();
     if (namespace != null && !namespace.equals("")) {
@@ -354,7 +355,18 @@ public class XmlXHtmlRenderer implements IXMLWriter {
       writePretty();
   }
 
-
+  
+  private void writeDecorations() throws IOException {
+    if (decorations2.size() > 0) {
+      for (ElementDecoration d : decorations2) {
+        if (d.hasLink()) 
+          b.append(" <a href=\"\"><img title=\""+Utilities.escapeXml(d.getText())+"\" src=\""+d.getIcon()+"\"/></a>");
+        else
+          b.append(" <img title=\""+Utilities.escapeXml(d.getText())+"\" src=\""+d.getIcon()+"\"/>");
+      }
+      decorations2.clear();
+    }    
+  }
   private void writePendingComment() throws IOException {
     if (pendingComment != null) {
       if (isPretty())
@@ -387,10 +399,12 @@ public class XmlXHtmlRenderer implements IXMLWriter {
     checkStarted();
     if (pendingClose) { 
       b.append("&gt;");
+      writeDecorations();
       writePendingComment();
       pendingClose = false;
     }
-
+    decorations2.addAll(decorations1);
+    decorations1.clear();
     if (name == null) {
       throw new IOException("name is null");
     }
@@ -489,6 +503,7 @@ public class XmlXHtmlRenderer implements IXMLWriter {
     } else {
       if (pendingClose) { 
         b.append("/&gt;");
+        writeDecorations();
         writePendingComment();
         pendingClose = false;
       } else {
@@ -588,6 +603,7 @@ public class XmlXHtmlRenderer implements IXMLWriter {
     if (content != null) {
       if (pendingClose) { 
         b.append("&gt;");
+        writeDecorations();
         writePendingComment();
         pendingClose = false;
       }
@@ -614,6 +630,7 @@ public class XmlXHtmlRenderer implements IXMLWriter {
     checkInElement();
     if (pendingClose) { 
       b.append("&gt;");
+      writeDecorations();
       writePendingComment();
       pendingClose = false;
     }
@@ -687,7 +704,10 @@ public class XmlXHtmlRenderer implements IXMLWriter {
 
   @Override
   public void escapedText(String content) throws IOException {
-    b.append("\r\n");
+    if (decorations2.isEmpty())
+      b.append("\r\n");
+    else
+      writeDecorations();
     for (int i = 0; i < levels.size(); i++)
       b.append("  ");
     int i = content.length();
@@ -713,6 +733,11 @@ public class XmlXHtmlRenderer implements IXMLWriter {
   @Override
   public String toString() {
     return b.toString();
+  }
+
+  @Override
+  public void decorate(ElementDecoration decoration) throws IOException {
+    decorations1.add(decoration);
   }
 
 

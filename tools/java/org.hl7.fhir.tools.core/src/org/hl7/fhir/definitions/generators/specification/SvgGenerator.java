@@ -864,7 +864,7 @@ public class SvgGenerator extends BaseGenerator {
       }
     }
     return item;  
-  } 
+  }    
 
   private String getXsi(DefinedCode primitive) {
     String xs = ((PrimitiveType) primitive).getSchemaType();

@@ -142,16 +142,18 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     @Override
     public boolean conformsToProfile(Object appContext, Base item, String url) throws FHIRException {
-      IResourceValidator val = new InstanceValidator(TestingUtilities.context, this);
+      IResourceValidator val = new InstanceValidator(context, this);
       List<ValidationMessage> valerrors = new ArrayList<ValidationMessage>();
       if (item instanceof Resource) {
         val.validate(appContext, valerrors, (Resource) item, url);
-        boolean ok = true;
-        for (ValidationMessage v : valerrors)
-          ok = ok && v.getLevel().isError();
-        return ok;
-      }
-      throw new NotImplementedException("Not done yet (ValidatorHostServices.conformsToProfile), when item is element");
+      } else if (item instanceof Element) {
+        val.validate(appContext, valerrors, (Element) item);
+      } else
+        throw new NotImplementedException("Not done yet (ValidatorHostServices.conformsToProfile), when item is element");
+      boolean ok = true;
+      for (ValidationMessage v : valerrors)
+        ok = ok && v.getLevel().isError();
+      return ok;
     }
 
   }
@@ -3281,7 +3283,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private void validateElement(ValidatorHostContext hostContext, List<ValidationMessage> errors, StructureDefinition profile, ElementDefinition definition, StructureDefinition cprofile, ElementDefinition context,
       Element resource, Element element, String actualType, NodeStack stack, boolean inCodeableConcept) throws FHIRException, FHIRException, IOException {
-    element.markValidation(profile, definition);
+    // element.markValidation(profile, definition);
 
     //		System.out.println("  "+stack.getLiteralPath()+" "+Long.toString((System.nanoTime() - time) / 1000000));
     //		time = System.nanoTime();
@@ -3551,6 +3553,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         assert(eiPath.equals(localStackLiterapPath)) : "ei.path: " + ei.path + "  -  localStack.getLiteralPath: " + localStackLiterapPath;
         boolean thisIsCodeableConcept = false;
 
+        ei.element.markValidation(profile, ei.definition);
         if (type != null) {
           if (isPrimitiveType(type)) {
             checkPrimitive(hostContext, errors, ei.path, type, ei.definition, ei.element, profile);

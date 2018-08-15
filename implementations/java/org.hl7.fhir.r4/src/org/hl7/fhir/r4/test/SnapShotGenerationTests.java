@@ -310,7 +310,8 @@ public class SnapShotGenerationTests {
 
   @SuppressWarnings("deprecation")
   @Test
-  public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException, EOperationOutcome {
+  public void test() throws FHIRException {
+    try {
     if (TestingUtilities.context == null) {
       TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
     }
@@ -320,7 +321,7 @@ public class SnapShotGenerationTests {
         if (sd.getType().equals("Extension")) {
           if (TestingUtilities.context.fetchResource(StructureDefinition.class, sd.getUrl()) == null) {
             sd.setUserData("path", "test-"+sd.getId()+".html");
-            TestingUtilities.context.cacheResource(sd);
+              TestingUtilities.context.cacheResource(sd);
           }
         }
       }
@@ -379,6 +380,10 @@ public class SnapShotGenerationTests {
         SetupActionAssertComponent a = action.getAssert();
         Assert.assertTrue(a.getLabel()+": "+a.getDescription(), fp.evaluateToBoolean(new StructureDefinition(), new StructureDefinition(), a.getExpression()));
       }
+    }
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new FHIRException(e);
     }
   }
 
