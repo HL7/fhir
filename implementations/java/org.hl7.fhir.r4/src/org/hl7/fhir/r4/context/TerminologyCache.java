@@ -299,45 +299,49 @@ public class TerminologyCache {
     }
   }
 
-  private void load() throws FileNotFoundException, IOException, FHIRException {
+  private void load() throws FHIRException {
     for (String fn : new File(folder).list()) {
       if (fn.endsWith(".cache") && !fn.equals("validation.cache")) {
-        //  System.out.println("Load "+fn);
-        String title = fn.substring(0, fn.lastIndexOf("."));
-        NamedCache nc = new NamedCache();
-        nc.name = title;
-        caches.put(title, nc);
-        String src = TextFile.fileToString(Utilities.path(folder, fn));
-        int i = src.indexOf(ENTRY_MARKER); 
-        while (i > -1) {
-          String s = src.substring(0, i);
-          src = src.substring(i+ENTRY_MARKER.length()+2);
-          i = src.indexOf(ENTRY_MARKER);
-          if (!Utilities.noString(s)) {
-            int j = s.indexOf(BREAK);
-            String q = s.substring(0, j);
-            String p = s.substring(j+BREAK.length()+2);
-            CacheEntry ce = new CacheEntry();
-            ce.persistent = true;
-            ce.request = q;
-            boolean e = p.charAt(0) == 'e';
-            p = p.substring(3);
-            JsonObject o = (JsonObject) new com.google.gson.JsonParser().parse(p);
-            String error = loadJS(o.get("error"));
-            if (e) {
-              if (o.has("valueSet"))
-                ce.e = new ValueSetExpansionOutcome((ValueSet) new JsonParser().parse(o.getAsJsonObject("valueSet")), error, TerminologyServiceErrorClass.UNKNOWN);
-              else
-                ce.e = new ValueSetExpansionOutcome(error, TerminologyServiceErrorClass.UNKNOWN);
-            } else {
-              IssueSeverity severity = o.get("severity") instanceof JsonNull ? null :  IssueSeverity.fromCode(o.get("severity").getAsString());
-              String display = loadJS(o.get("display"));
-              ce.v = new ValidationResult(severity, error, new ConceptDefinitionComponent().setDisplay(display));
+        try {
+          //  System.out.println("Load "+fn);
+          String title = fn.substring(0, fn.lastIndexOf("."));
+          NamedCache nc = new NamedCache();
+          nc.name = title;
+          caches.put(title, nc);
+          String src = TextFile.fileToString(Utilities.path(folder, fn));
+          int i = src.indexOf(ENTRY_MARKER); 
+          while (i > -1) {
+            String s = src.substring(0, i);
+            src = src.substring(i+ENTRY_MARKER.length()+1);
+            i = src.indexOf(ENTRY_MARKER);
+            if (!Utilities.noString(s)) {
+              int j = s.indexOf(BREAK);
+              String q = s.substring(0, j);
+              String p = s.substring(j+BREAK.length()+1).trim();
+              CacheEntry ce = new CacheEntry();
+              ce.persistent = true;
+              ce.request = q;
+              boolean e = p.charAt(0) == 'e';
+              p = p.substring(3);
+              JsonObject o = (JsonObject) new com.google.gson.JsonParser().parse(p);
+              String error = loadJS(o.get("error"));
+              if (e) {
+                if (o.has("valueSet"))
+                  ce.e = new ValueSetExpansionOutcome((ValueSet) new JsonParser().parse(o.getAsJsonObject("valueSet")), error, TerminologyServiceErrorClass.UNKNOWN);
+                else
+                  ce.e = new ValueSetExpansionOutcome(error, TerminologyServiceErrorClass.UNKNOWN);
+              } else {
+                IssueSeverity severity = o.get("severity") instanceof JsonNull ? null :  IssueSeverity.fromCode(o.get("severity").getAsString());
+                String display = loadJS(o.get("display"));
+                ce.v = new ValidationResult(severity, error, new ConceptDefinitionComponent().setDisplay(display));
+              }
+              nc.map.put(String.valueOf(hashNWS(ce.request)), ce);
+              nc.list.add(ce);
             }
-            nc.map.put(String.valueOf(hashNWS(ce.request)), ce);
-            nc.list.add(ce);
-          }
-        }        
+          }        
+        } catch (Exception e) {
+          throw new FHIRException("Error loading "+fn+": "+e.getMessage(), e);
+        }
       }
     }
   }
