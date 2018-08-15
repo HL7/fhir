@@ -1924,7 +1924,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           }
         } else
           c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().get(0).getValue().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
-      } else if (pkp.hasLinkFor(t.getCode())) {
+      } else if (pkp != null && pkp.hasLinkFor(t.getCode())) {
         c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, t.getCode()), t.getCode(), null)));
       } else
         c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
@@ -2209,8 +2209,8 @@ public class ProfileUtilities extends TranslatingUtilities {
       }
       if (element.hasSlicing()) {
         if (standardExtensionSlicing(element)) {
-          used.used = element.hasType() && element.getType().get(0).hasProfile();
-          showMissing = false;
+          used.used = true; // doesn't matter whether we have a type, we're used if we're setting up slicing ... element.hasType() && element.getType().get(0).hasProfile();
+          showMissing = false; //?
         } else {
           row.setIcon("icon_slice.png", HierarchicalTableGenerator.TEXT_ICON_SLICE);
           row.getCells().get(2).getPieces().clear();
@@ -2423,14 +2423,39 @@ public class ProfileUtilities extends TranslatingUtilities {
           String fullUrl = url.startsWith("#") ? baseURL+url : url;
           StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
           String ref = null;
+          String ref2 = null;
+          String fixedUrl = null;
           if (ed != null) {
             String p = ed.getUserString("path");
             if (p != null) {
               ref = p.startsWith("http:") || igmode ? p : Utilities.pathURL(corePath, p);
+            }             
+            fixedUrl = getFixedUrl(ed);
+            if (fixedUrl != null) {// if its null, we guess that it's not a profiled extension? 
+              if (fixedUrl.equals(url))
+                fixedUrl = null;
+              else {
+                StructureDefinition ed2 = context.fetchResource(StructureDefinition.class, fixedUrl);
+                if (ed2 != null) {
+                  String p2 = ed2.getUserString("path");
+                  if (p2 != null) {
+                    ref2 = p2.startsWith("http:") || igmode ? p2 : Utilities.pathURL(corePath, p2);
+                  }                              
+                }
+              }
             }
           }
-          c.getPieces().add(gen.new Piece(null, translate("sd.table", "URL")+": ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(ref, fullUrl, null));
+          if (fixedUrl == null) {
+            c.getPieces().add(gen.new Piece(null, translate("sd.table", "URL")+": ", null).addStyle("font-weight:bold"));
+            c.getPieces().add(gen.new Piece(ref, fullUrl, null));
+          } else { 
+            // reference to a profile take on the extension show the base URL
+            c.getPieces().add(gen.new Piece(null, translate("sd.table", "URL")+": ", null).addStyle("font-weight:bold"));
+            c.getPieces().add(gen.new Piece(ref2, fixedUrl, null));
+            c.getPieces().add(gen.new Piece(null, translate("sd.table", " profiled by ")+" ", null).addStyle("font-weight:bold"));
+            c.getPieces().add(gen.new Piece(ref, fullUrl, null));
+          
+          }
         }
 
         if (definition.hasSlicing()) {
@@ -2520,6 +2545,17 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     return c;
   }
+
+  private String getFixedUrl(StructureDefinition sd) {
+    for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+      if (ed.getPath().equals("Extension.url")) {
+        if (ed.hasFixed() && ed.getFixed() instanceof UriType)
+          return ed.getFixed().primitiveValue();
+      }
+    }
+    return null;
+  }
+
 
   private Piece describeCoded(HierarchicalTableGenerator gen, Type fixed) {
     if (fixed instanceof Coding) {

@@ -1612,7 +1612,159 @@
       </differential>
     </StructureDefinition>
   </contained>
-  <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
+  <contained>
+    <!-- extension definition for test 34 -->
+    <StructureDefinition xmlns="http://hl7.org/fhir">
+      <id value="extension-identifier-status"/>
+      <url value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status"/>
+      <name value="IdentifierStatus"/>
+      <title value="VhDir Identifier Status"/>
+      <context>
+        <type value="element"/>
+        <expression value="Identifier"/>
+      </context>
+      <type value="Extension"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Extension">
+          <path value="Extension"/>
+          <short value="Status"/>
+          <max value="1"/>
+          <isModifier value="false"/>
+        </element>
+        <element id="Extension.url">
+          <path value="Extension.url"/>
+          <fixedUri value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status"/>
+        </element>
+        <element id="Extension.valueCode">
+          <path value="Extension.valueCode"/>
+          <label value="status"/>
+          <short value="active|inactive|issued in error|revoked|pending"/>
+          <definition value="Describes the status of an identifier"/>
+          <min value="1"/>
+          <type>
+            <code value="code"/>
+          </type>
+          <binding>
+            <strength value="preferred"/>
+            <valueSet value="http://www.fhir.org/guides/test3/ValueSet/blah-codes"/>
+          </binding>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+  <contained>
+    <StructureDefinition>
+      <id value="t34"/>
+      <url value="urn:uuid:0fefeab4-abd9-4ea6-b9c7-8a07a04f600c"/>
+      <name value="t34"/>
+      <status value="draft"/>
+      <description value="fixture for #34: Referencing a custom extension"/>
+      <kind value="resource"/>
+      <type value="Basic"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Basic">
+          <path value="Basic"/>
+        </element>
+        <element id="Basic.identifier">
+          <path value="Basic.identifier"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Identifier"/>
+          </type>
+          <mustSupport value="true"/>
+          <isModifier value="false"/>
+        </element>
+        <element id="Basic.identifier.extension:foo">
+          <path value="Basic.identifier.extension"/>
+          <sliceName value="foo"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Extension"/>
+            <profile value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status"/>
+          </type>
+          <mustSupport value="true"/>
+          <isModifier value="false"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+  <contained>
+    <!-- extension definition for test 35 - a profile on an existing extension -->
+    <StructureDefinition xmlns="http://hl7.org/fhir">
+      <id value="extension-identifier-status2"/>
+      <url value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-statu2"/>
+      <name value="IdentifierStatus"/>
+      <title value="VhDir Identifier Status"/>
+      <context>
+        <type value="element"/>
+        <expression value="Identifier"/>
+      </context>
+      <type value="Extension"/>
+      <baseDefinition value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Extension">
+          <path value="Extension"/>
+          <short value="Status"/>
+          <max value="1"/>
+          <isModifier value="false"/>
+        </element>
+        <element id="Extension.valueCode">
+          <path value="Extension.valueCode"/>
+          <binding>
+            <strength value="required"/>
+            <valueSet value="http://www.fhir.org/guides/test3/ValueSet/blah-codes"/>
+          </binding>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>  
+  <contained>
+    <StructureDefinition>
+      <id value="t35"/>
+      <url value="urn:uuid:b22b108f-20f0-4a9e-8bb6-3a8041c8b7b3"/>
+      <name value="t35"/>
+      <status value="draft"/>
+      <description value="fixture for #35: Referencing a profiled custom extension"/>
+      <kind value="resource"/>
+      <type value="Basic"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Basic">
+          <path value="Basic"/>
+        </element>
+        <element id="Basic.identifier">
+          <path value="Basic.identifier"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Identifier"/>
+          </type>
+          <mustSupport value="true"/>
+          <isModifier value="false"/>
+        </element>
+        <element id="Basic.identifier.extension:foo">
+          <path value="Basic.identifier.extension"/>
+          <sliceName value="foo"/>
+          <min value="1"/>
+          <max value="1"/>
+          <type>
+            <code value="Extension"/>
+            <profile value="http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-statu2"/>
+          </type>
+          <mustSupport value="true"/>
+          <isModifier value="false"/>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>  <url value="http://hl7.org/fhir/tests/snapshotgeneration"/>
   <name value="SnapshotGenerationTests"/>
   <title value="Snapshot generation test script"/>
   <status value="draft"/>
@@ -3200,7 +3352,7 @@
         <description value="Snapshot Questionnaire.item element has slicing'"/>
         <direction value="response"/>
         <expression value="fixture('t32o').snapshot.element.where(id = 'Questionnaire.item').slicing.count().trace('t32o item slicing count')=1"/>
-        <warningOnly value="true"/>
+        <warningOnly value="false"/>
       </assert>
     </action>
   </test>
@@ -3226,7 +3378,77 @@
         <description value="Snapshot contains referenced item children with correct path'"/>
         <direction value="response"/>
         <expression value="fixture('t33o').snapshot.element.where(id = 'ExplanationOfBenefit.addItem.adjudication.extension').exists()"/>
-        <warningOnly value="true"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+  </test>
+  <test>
+    <name value="Test34"/>
+    <description value="Test custom extension"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <encodeRequestUrl value="false"/>
+        <params value="sort=true"/>
+        <responseId value="t34o"/>
+        <sourceId value="t34"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test34"/>
+        <description value="something"/>
+        <direction value="response"/>
+        <expression value="fixture('t34o').snapshot.element.where(path = 'Basic.identifier.extension').count() = 2"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <label value="test34a"/>
+        <description value="something"/>
+        <direction value="response"/>
+        <expression value="fixture('t34o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+  </test>
+  <test>
+    <name value="Test35"/>
+    <description value="Test profiled custom extension"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <encodeRequestUrl value="false"/>
+        <params value="sort=true"/>
+        <responseId value="t35o"/>
+        <sourceId value="t35"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test35"/>
+        <description value="something"/>
+        <direction value="response"/>
+        <expression value="fixture('t35o').snapshot.element.where(path = 'Basic.identifier.extension').count() = 2"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <label value="test35a"/>
+        <description value="something"/>
+        <direction value="response"/>
+        <expression value="fixture('t35o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
+        <warningOnly value="false"/>
       </assert>
     </action>
   </test>

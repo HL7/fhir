@@ -4597,8 +4597,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return pkp;
   }
 
-  public void setPkp(ProfileKnowledgeProvider pkp) {
+  public NarrativeGenerator setPkp(ProfileKnowledgeProvider pkp) {
     this.pkp = pkp;
+    return this;
   }
 
   public boolean isPretty() {
