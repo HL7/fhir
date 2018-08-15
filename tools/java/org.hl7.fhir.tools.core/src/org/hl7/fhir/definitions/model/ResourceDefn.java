@@ -41,6 +41,21 @@ import org.w3c.dom.Element;
 
 public class ResourceDefn  {
 
+  public enum FMGApproval { 
+    APPROVED, PENDING, NOPROPOSAL;
+    
+    public static FMGApproval fromCode(String s) {
+      if (Utilities.noString(s))
+        return NOPROPOSAL;
+      if (s.equals("approved"))
+        return FMGApproval.APPROVED;
+      if (s.equals("pending"))
+        return FMGApproval.PENDING;
+      return NOPROPOSAL;
+    }
+
+  }
+
   public static class PointSpec {
     private double x;
     private double y;
@@ -88,6 +103,7 @@ public class ResourceDefn  {
   private Map<String, PointSpec> layout = new HashMap<String, PointSpec>();
   
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
+  public FMGApproval approval;
 
   public String getName()
   {
@@ -353,6 +369,14 @@ public class ResourceDefn  {
       }
     }
     return null;
+  }
+
+  public FMGApproval getApproval() {
+    return approval;
+  }
+
+  public void setApproval(FMGApproval approval) {
+    this.approval = approval;
   }
   
   

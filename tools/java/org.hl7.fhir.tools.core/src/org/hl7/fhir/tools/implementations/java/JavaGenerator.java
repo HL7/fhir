@@ -153,11 +153,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     Utilities.createDirectory(implDir+"org.hl7.fhir.convertors"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"convertors");
     this.definitions = definitions;
 
-    for (String n : definitions.getDeletedResources()) {
-      File f = new File(implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+n+".java");
-      if (f.exists())
-        f.delete();
-    }
     JavaFactoryGenerator jFactoryGen = new JavaFactoryGenerator(new FileOutputStream(javaDir+"ResourceFactory.java"));
 
     generateResourceTypeEnum(version, svnRevision, genDate);

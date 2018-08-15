@@ -170,7 +170,6 @@ public class Definitions {
   private Set<String> styleExemptions = new HashSet<String>();
 
   // other miscellaineous lists
-  private List<String> deletedResources = new ArrayList<String>();
   private List<String> shared = new ArrayList<String>(); 
   private List<String> aggregationEndpoints = new ArrayList<String>();
   private Map<String, EventDefn> events = new HashMap<String, EventDefn>();
@@ -364,10 +363,6 @@ public class Definitions {
       e.printStackTrace();
       return false;
     }
-  }
-
-  public List<String> getDeletedResources() {
-    return deletedResources;
   }
 
   public Map<String, String> getDiagrams() {
@@ -811,7 +806,6 @@ public class Definitions {
     extraValuesets = null;
     styleExemptions = null;
 
-    deletedResources = null;
     aggregationEndpoints = null;
     events = null;
     diagrams = null;

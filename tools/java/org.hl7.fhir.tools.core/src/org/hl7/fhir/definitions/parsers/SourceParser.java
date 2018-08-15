@@ -76,6 +76,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.ResourceDefn.FMGApproval;
 import org.hl7.fhir.definitions.model.ResourceDefn.PointSpec;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -217,9 +218,6 @@ public class SourceParser {
     
     for (String id : ini.getPropertyNames("valueset-fixup"))
       definitions.getVsFixups().add(id);
-
-    for (String n : ini.getPropertyNames("removed-resources"))
-      definitions.getDeletedResources().add(n);
 
     for (String n : ini.getPropertyNames("infrastructure"))
       loadCompositeType(n, definitions.getInfrastructure(), "5");
@@ -1115,6 +1113,7 @@ public class SourceParser {
     root.setWg(wg);
     root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
     root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
+    root.setApproval(FMGApproval.fromCode(ini.getStringProperty("fmg-approval", root.getName())));
 
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());

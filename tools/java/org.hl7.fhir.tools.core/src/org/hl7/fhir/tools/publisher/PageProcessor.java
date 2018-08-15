@@ -104,6 +104,7 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.ResourceDefn.FMGApproval;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
@@ -1298,6 +1299,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
+      else if (com[0].equals("res-list-fmg"))
+        src = s1+buildResListByFMG()+s3;
       else if (com[0].equals("res-list-ballot"))
         src = s1+buildResListByBallot()+s3;
       else if (com[0].equals("res-list-committee"))
@@ -1651,6 +1654,35 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         "Once normative, it will lose it's Maturity Level, and <a href=\"versions.html#change\">breaking changes</a> will no longer be made. The few parts of this page that are not normative are clearly marked\r\n" + 
         "</p>\r\n" + 
         "";
+  }
+
+  private String buildResListByFMG() throws FHIRException {
+    List<String> res = new ArrayList<String>();
+    for (ResourceDefn rd : definitions.getBaseResources().values())
+      res.add(rd.getName());
+    for (ResourceDefn rd : definitions.getResources().values())
+      res.add(rd.getName());
+    Collections.sort(res);
+    
+    StringBuilder b = new StringBuilder();
+    listByApprovalStatus(b, res, FMGApproval.NOPROPOSAL, "Not yet proposed");
+    listByApprovalStatus(b, res, FMGApproval.PENDING, "Pending");
+    listByApprovalStatus(b, res, FMGApproval.APPROVED, "Approved");
+    return b.toString();
+  }
+
+  private void listByApprovalStatus(StringBuilder b, List<String> res, FMGApproval state, String title) throws FHIRException {
+    b.append("<p><b>"+title+"</b></p>\r\n");
+    b.append("<ul style=\"width: 90%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+    for (String rn : res) {
+      ResourceDefn rd = definitions.getResourceByName(rn);
+      if (rd.getApproval() == state)
+        if (rd.getNormativePackage() != null)
+          b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"  title=\"Normative Content\" class=\"normative-flag\">N</a></li>\r\n");
+        else
+          b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
+    }
+    b.append("</ul>\r\n");
   }
 
   private String buildResListByMaturity() throws FHIRException {
@@ -5696,6 +5728,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genR3MapsSummary() + s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
+      else if (com[0].equals("res-list-fmg"))
+        src = s1+buildResListByFMG()+s3;
       else if (com[0].equals("res-list-ballot"))
         src = s1+buildResListByBallot()+s3;
       else if (com[0].equals("res-list-committee"))
