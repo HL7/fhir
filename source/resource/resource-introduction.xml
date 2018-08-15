@@ -48,7 +48,7 @@ The following optional elements and properties are defined for all resources:
  <li>A reference to "Implicit Rules"</li>
 </ul>
 <p>
-Most resources are derived from <a href="domainresource.html">Domain Resources</a> - so they also can contain text, contained resources, extensions,
+Most resources are derived from <a href="domainresource.html">DomainResource</a> - so they also can contain text, contained resources, extensions,
 and data elements specific to the particular domain of the resource. There is a special type of resource called <a href="bundle.html">Bundle</a> for collections of resources. 
 </p>
 <p>
