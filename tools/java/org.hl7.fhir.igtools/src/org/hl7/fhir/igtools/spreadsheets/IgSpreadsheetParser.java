@@ -1084,7 +1084,7 @@ public class IgSpreadsheetParser {
     ex.setTitle(sheet.getColumn(row, "Display"));
     ElementDefinition exe = ex.getDifferential().addElement();
     exe.setPath("Extension");
-    exe.setSliceName(sheet.getColumn(row, "Code"));
+//    exe.setSliceName(sheet.getColumn(row, "Code"));
 
     ElementDefinition exu = ex.getDifferential().addElement();
     exu.setPath("Extension.url");
