@@ -42,7 +42,7 @@ import org.w3c.dom.Element;
 public class ResourceDefn  {
 
   public enum FMGApproval { 
-    APPROVED, PENDING, NOPROPOSAL;
+    APPROVED, PENDING, NOPROPOSAL, NOTRELEVANT;
     
     public static FMGApproval fromCode(String s) {
       if (Utilities.noString(s))
@@ -51,6 +51,8 @@ public class ResourceDefn  {
         return FMGApproval.APPROVED;
       if (s.equals("pending"))
         return FMGApproval.PENDING;
+      if (s.equals("n/a"))
+        return FMGApproval.NOTRELEVANT;
       return NOPROPOSAL;
     }
 
