@@ -140,14 +140,14 @@
 <a name="continuous-variable-measures"> </a>
 <h6>Continuous Variable Measures</h6>
 
-<p>Continuous variable measures may include a measure observation section. This section defines variables (for example, time from check-in to time of antibiotic administration) used to measure particular aspects of a process or outcome. Note that measure observations are not population criteria in that they do not filter the population in any way. Rather, measure observations are data elements, to be collected from each patient that satisfies the population criteria, which are used to calculate the results for each member of the population.</p>
+<p>Continuous variable measures may include a measure observation section. This section defines variables (for example, time from check-in to time of antibiotic administration) used to measure particular aspects of a process or outcome. Note that measure observations are not population criteria in that they do not filter the population in any way. Rather, measure observations are data elements, to be collected from each subject that satisfies the population criteria, which are used to calculate the results for each member of the population.</p>
 
 <a name="stratification-and-supplemental-data"> </a>
 <h5>Stratification and Supplemental Data</h5>
 
 <p>Stratifiers and supplemental data are specified using the <code>stratifier</code> and <code>supplementalData</code> elements of the <a href="measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.gender</code>). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path. For example, specifying Patient.gender will yield four stratification groups since FHIR has four gender codes: male, female, other, and unknown.</p>
 
-<p>Supplemental data elements are also specified using FHIR resource paths, however, supplemental data does not result in groups in the measure report, rather supplemental data elements are reported as Observation resources and included in the evaluateResources bundle for the patient-level report.</p>
+<p>Supplemental data elements are also specified using FHIR resource paths, however, supplemental data does not result in groups in the measure report, rather supplemental data elements are reported as Observation resources and included in the evaluateResources bundle for the individual-level report.</p>
 
 <a name="Data Criteria"> </a>
 <h6>Data Criteria</h6>
@@ -182,7 +182,7 @@
 <p>The $evaluate-measure operation has the following properties:</p>
 
 <ul>
-<li><b>Idempotent</b> The operation may be invoked multiple times without side effects. Note that the result of invoking the operation may vary over time if patient data used in the eMeasure changes between invocations. Note also that the parameters supplied with the operation invocation can affect the results. 
+<li><b>Idempotent</b> The operation may be invoked multiple times without side effects. Note that the result of invoking the operation may vary over time if clinical data used in the eMeasure changes between invocations. Note also that the parameters supplied with the operation invocation can affect the results. 
 </li>
 <li><b>InvocationTarget</b> The operation can be invoked on instances of the MeasureArtifact resource that represent a particular eMeasure or on the type of the resource with a parameter that specifies the eMeasure to calculate.
 </li>
@@ -219,7 +219,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represents both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in two flavors: <a href="http://wiki.hl7.org/index.php?title=Quality_Reporting_Document_Architecture_Category_1">Category I</a> for individual patient reports and <a href="http://wiki.hl7.org/index.php?title=Quality_Reporting_Document_Architecture_Category_3">Category III</a> for population reports.</p>
 
-<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the <a href="operationdefinition.html">OperationDefinition</a> described above. Meanwhile, the responses are represented as <a href="measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
+<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="measure.html">Measure</a> resource, and the request is an <code>HTTP GET</code> conforming to the <a href="operationdefinition.html">OperationDefinition</a> described above. Meanwhile, the responses are represented as <a href="measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (subject-list), and Category III (population) reports.</p>
 
 <a name="reporting-population-data"> </a>
 <h5>Reporting Population Data</h5>
@@ -246,7 +246,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <img alt="Subject-List Measure Report" src="clinicalreasoning-measure-report-patient-list.png" style="width:650px;height:550px"/>
 
-<p>For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the patients that make up that population. For each of those patients, the List will contain a reference to an individual-level report for that patient. Note that for very large populations, implementations MAY decide to limit the size of the result, either by returning an error indicating the request is too costly, or by returning a partial result, so long as there is an indication that the report is only a partial response. In addition, we are actively seeking feedback on how best to approach evaluation of quality measures on large populations, including the use of <a href="formats.html#bulk">bulk data</a> formats.</p>
+<p>For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the subjects that make up that population. For each of those subjects, the List will contain a reference to an individual-level report for that subject. Note that for very large populations, implementations MAY decide to limit the size of the result, either by returning an error indicating the request is too costly, or by returning a partial result, so long as there is an indication that the report is only a partial response. In addition, we are actively seeking feedback on how best to approach evaluation of quality measures on large populations, including the use of <a href="formats.html#bulk">bulk data</a> formats.</p>
 
 <a name="references"> </a>
 <h4>References</h4>
