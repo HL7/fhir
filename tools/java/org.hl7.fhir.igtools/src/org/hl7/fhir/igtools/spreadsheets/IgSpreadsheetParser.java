@@ -316,6 +316,20 @@ public class IgSpreadsheetParser {
     sd.setUrl(base+"/StructureDefinition/"+sd.getId());
     bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
 
+    // Changed the default from metadata to Short because the former caused problems when there are multiple sheets in a workbook
+    if (sd.getDifferential().getElementFirstRep().hasShort())
+      sd.setName(sd.getDifferential().getElementFirstRep().getShort());
+    else if (hasMetadata("name"))
+      sd.setName(metadata("name"));
+    else
+      sd.setName("UNKNOWN");
+    if (!sd.hasName())
+      sd.setName("Profile "+sd.getId());
+    if (sheet.hasColumn(0, "Profile.name"))
+      sd.setName(sheet.getColumn(0, "Profile.name"));
+    if (sheet.hasColumn(0, "Profile.title"))
+      sd.setTitle(sheet.getColumn(0, "Profile.title"));
+
     sheet = loadSheet(n + "-Extensions");
     if (sheet != null) {
       int row = 0;
@@ -326,6 +340,7 @@ public class IgSpreadsheetParser {
           row = processExtension(sheet, row, metadata("extension.uri"), issues, invariants);
       }
     }
+
     sheet = loadSheet(n+"-Search");
     if (sheet != null) {
       readSearchParams(sd, sheet, true);
@@ -350,19 +365,6 @@ public class IgSpreadsheetParser {
       }
     }
 
-    // Changed the default from metadata to Short because the former caused problems when there are multiple sheets in a workbook
-    if (sd.getDifferential().getElementFirstRep().hasShort())
-      sd.setName(sd.getDifferential().getElementFirstRep().getShort());
-    else if (hasMetadata("name"))
-      sd.setName(metadata("name"));
-    else
-      sd.setName("UNKNOWN");
-    if (!sd.hasName())
-      sd.setName("Profile "+sd.getId());
-    if (sheet.hasColumn(0, "Profile.name"))
-      sd.setName(sheet.getColumn(0, "Profile.name"));
-    if (sheet.hasColumn(0, "Profile.title"))
-      sd.setTitle(sheet.getColumn(0, "Profile.title"));
     sd.setPublisher(metadata("author.name"));
     if (hasMetadata("author.reference"))
       sd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, metadata("author.reference")));
@@ -730,6 +732,9 @@ public class IgSpreadsheetParser {
       for (String d : discriminator.split("\\,"))
         if (!Utilities.noString(d))
           e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d.trim(), false));
+      if (e.hasSliceName()) {
+        throw new Error("Slice name '"+profileName+"' on a root which has slicing: "+e.getPath());
+      }
     }
     doAliases(sheet, row, e);
 
