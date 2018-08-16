@@ -246,7 +246,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <img alt="Subject-List Measure Report" src="clinicalreasoning-measure-report-patient-list.png" style="width:650px;height:550px"/>
 
-<p>For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the patients that make up that population. For each of those patients, the List will contain a reference to an individual-level report for that patient.</p>
+<p>For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the patients that make up that population. For each of those patients, the List will contain a reference to an individual-level report for that patient. Note that for very large populations, implementations MAY decide to limit the size of the result, either by returning an error indicating the request is too costly, or by returning a partial result, so long as there is an indication that the report is only a partial response. In addition, we are actively seeking feedback on how best to approach evaluation of quality measures on large populations, including the use of <a href="formats.html#bulk">bulk data</a> formats.</p>
 
 <a name="references"> </a>
 <h4>References</h4>
