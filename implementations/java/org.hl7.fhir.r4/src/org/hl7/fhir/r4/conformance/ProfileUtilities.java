@@ -1737,7 +1737,15 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     Row r = gen.new Row();
     model.getRows().add(r);
-    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), ed.getSnapshot().getElement().get(0).getIsModifier() ? "modifierExtension" : "extension", null, null));
+    String en;
+    if (!full)
+      en = ed.getName();
+    else if (ed.getSnapshot().getElement().get(0).getIsModifier())
+      en = "modifierExtension";
+    else 
+      en = "extension";
+    
+    r.getCells().add(gen.new Cell(null, defFile == null ? "" : defFile+"-definitions.html#extension."+ed.getName(), en, null, null));
     r.getCells().add(gen.new Cell());
     r.getCells().add(gen.new Cell(null, null, describeCardinality(ed.getSnapshot().getElement().get(0), null, new UnusedTracker()), null, null));
 
