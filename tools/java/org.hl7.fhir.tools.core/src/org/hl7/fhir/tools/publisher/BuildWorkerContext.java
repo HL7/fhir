@@ -696,20 +696,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 //      throw new Exception("Server is not available");
 //  }
   
-  
-  @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heirarchy) {
-    ValueSet vs = new ValueSet();
-    vs.setCompose(new ValueSetComposeComponent());
-    vs.getCompose().getInclude().add(inc);
-    ValueSetExpansionOutcome vse = expandVS(vs, true, heirarchy);
-    if (vse.getValueset() == null) {
-      System.out.println("Error expanding from "+inc.getSystem()+": " +vse.getError());
-      return null;
-    } else
-      return vse.getValueset().getExpansion();
-  }
-
+ 
   public void saveCache() throws IOException {
     txCache.save();
   }

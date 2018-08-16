@@ -361,15 +361,36 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
   
   @Override
-  public ValueSetExpansionComponent expandVS(ConceptSetComponent inc, boolean heirachical) throws TerminologyServiceException {
+  public ValueSetExpansionOutcome expandVS(ConceptSetComponent inc, boolean heirachical) throws TerminologyServiceException {
     ValueSet vs = new ValueSet();
     vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().getInclude().add(inc);
-    ValueSetExpansionOutcome vse = expandVS(vs, true, heirachical);
-    ValueSet valueset = vse.getValueset();
-    if (valueset == null)
-      throw new TerminologyServiceException("Error Expanding ValueSet: "+vse.getError());
-    return valueset.getExpansion();
+    CacheToken cacheToken = txCache.generateExpandToken(vs, heirachical);
+    ValueSetExpansionOutcome res;
+    res = txCache.getExpansion(cacheToken);
+    if (res != null)
+      return res;
+    Parameters p = expParameters.copy(); 
+    p.setParameter("includeDefinition", false);
+    p.setParameter("excludeNested", !heirachical);
+    
+    if (noTerminologyServer)
+      return new ValueSetExpansionOutcome("Error expanding ValueSet: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
+    Map<String, String> params = new HashMap<String, String>();
+    params.put("_limit", Integer.toString(expandCodesLimit ));
+    params.put("_incomplete", "true");
+    tlog("$expand on "+txCache.summary(vs));
+    try {
+      ValueSet result = txServer.expandValueset(vs, p, params);
+      res = new ValueSetExpansionOutcome(result);  
+    } catch (Exception e) {
+      res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
+    }
+    txCache.cacheExpansion(cacheToken, res, TerminologyCache.PERMANENT);
+    return res;
+
+
+
   }
 
   @Override

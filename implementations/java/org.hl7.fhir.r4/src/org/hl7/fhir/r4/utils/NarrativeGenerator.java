@@ -3757,7 +3757,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (!context.hasCache()) {
       ValueSetExpansionComponent vse;
       try {
-        vse = context.expandVS(inc, false);
+        ValueSetExpansionOutcome vso = context.expandVS(inc, false);   
+        ValueSet valueset = vso.getValueset();
+        if (valueset == null)
+          throw new TerminologyServiceException("Error Expanding ValueSet: "+vso.getError());
+        vse = valueset.getExpansion();        
+
       } catch (TerminologyServiceException e1) {
         return null;
       }
