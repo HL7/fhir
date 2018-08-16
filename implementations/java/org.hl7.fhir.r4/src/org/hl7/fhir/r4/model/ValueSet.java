@@ -98,7 +98,7 @@ public class ValueSet extends MetadataResource {
           return EQUAL;
         if ("is-a".equals(codeString))
           return ISA;
-        if ("descendant-of".equals(codeString))
+        if ("descendent-of".equals(codeString))
           return DESCENDANTOF;
         if ("is-not-a".equals(codeString))
           return ISNOTA;
@@ -121,7 +121,7 @@ public class ValueSet extends MetadataResource {
           switch (this) {
             case EQUAL: return "=";
             case ISA: return "is-a";
-            case DESCENDANTOF: return "descendant-of";
+            case DESCENDANTOF: return "descendent-of";
             case ISNOTA: return "is-not-a";
             case REGEX: return "regex";
             case IN: return "in";
@@ -184,7 +184,7 @@ public class ValueSet extends MetadataResource {
           return FilterOperator.EQUAL;
         if ("is-a".equals(codeString))
           return FilterOperator.ISA;
-        if ("descendant-of".equals(codeString))
+        if ("descendent-of".equals(codeString))
           return FilterOperator.DESCENDANTOF;
         if ("is-not-a".equals(codeString))
           return FilterOperator.ISNOTA;
@@ -212,7 +212,7 @@ public class ValueSet extends MetadataResource {
           return new Enumeration<FilterOperator>(this, FilterOperator.EQUAL);
         if ("is-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
-        if ("descendant-of".equals(codeString))
+        if ("descendent-of".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.DESCENDANTOF);
         if ("is-not-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
@@ -234,7 +234,7 @@ public class ValueSet extends MetadataResource {
       if (code == FilterOperator.ISA)
         return "is-a";
       if (code == FilterOperator.DESCENDANTOF)
-        return "descendant-of";
+        return "descendent-of";
       if (code == FilterOperator.ISNOTA)
         return "is-not-a";
       if (code == FilterOperator.REGEX)
@@ -1782,7 +1782,7 @@ public class ValueSet extends MetadataResource {
          * The kind of operation to perform as a part of the filter criteria.
          */
         @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="= | is-a | descendant-of | is-not-a | regex | in | not-in | generalizes | exists", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
+        @Description(shortDefinition="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
         protected Enumeration<FilterOperator> op;
 
