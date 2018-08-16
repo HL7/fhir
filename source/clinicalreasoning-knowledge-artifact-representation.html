@@ -283,7 +283,7 @@
 <a name="expression-logic"> </a>
 <h6>Expression Logic</h6>
 
-<p>Each action may have associated conditions that specify whether the action is applicable, or when it should be started and stopped. The $apply operation is used to apply a plan definition, and the parameters to apply are available as context to expressions within the plan definition, including the applicable condition and the dynamic value expressions.</p>
+<p>Each action may have associated conditions that specify whether the action is applicable, or when it should be started and stopped. The <code>$apply</code> operation is used to apply a plan definition, and the parameters to apply are available as context to expressions within the plan definition, including the applicable condition and the dynamic value expressions.</p>
 
 <p>For example, the following fragment shows the condition element of an action definition used in an ECA rule. The condition references the named expression "NoScreening":</p>
 
@@ -406,7 +406,59 @@
 &lt;/PlanDefinition&gt;
 </code></pre>
 
-<p>Note that the use of the tilde (<code>this</code>) in the <code>path</code> element here indicates that the result of the expression is the entire result for the action, rather than providing the value for a specific element of the result. In other words, the <code>ChlamydiaScreeningRequest</code> expression will result in an entire ProcedureRequest resource, which is the action to be performed.</p>
+<p>Note that the use of <code>$this</code>in the <code>path</code> element here indicates that the result of the expression is the entire result for the action, rather than providing the value for a specific element of the result. In other words, the <code>ChlamydiaScreeningRequest</code> expression will result in an entire ServiceRequest resource, which is the action to be performed.</p>
+
+<p>The following is an example of a possible result when invoking the <code>$apply</code> operation on the above ECA Rule:</p>
+
+<pre><code>&lt;CarePlan&gt;
+  &lt;id value=&quot;chlamydia-screening-intervention-cp&quot;/&gt;
+  &lt;contained&gt;
+    &lt;RequestGroup&gt;
+      &lt;id value=&quot;chlamydia-screening-intervention-rg&quot;/&gt;
+      &lt;contained&gt;
+        &lt;ServiceRequest&gt;
+          &lt;id value=&quot;chlamydia-screening-service-request&quot;/&gt;
+          &lt;status value=&quot;active&quot;/&gt;
+          &lt;intent value=&quot;order&quot;/&gt;
+          &lt;code&gt;
+            &lt;coding&gt;
+              &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+              &lt;code value=&quot;412761009&quot;/&gt;
+              &lt;display value=&quot;Urine screen for chlamydia (procedure)&quot;/&gt;
+            &lt;/coding&gt;
+          &lt;/code&gt;
+          &lt;subject&gt;
+            &lt;reference value=&quot;Patient/example&quot;/&gt;
+          &lt;/subject&gt;
+        &lt;/ServiceRequest&gt;
+      &lt;/contained&gt;
+      &lt;status value=&quot;active&quot;/&gt;
+      &lt;intent value=&quot;order&quot;/&gt;
+      &lt;action&gt;
+        &lt;type&gt;
+          &lt;coding&gt;
+            &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/action-type&quot;/&gt;
+            &lt;code value=&quot;create&quot;/&gt;
+          &lt;/coding&gt;
+        &lt;/type&gt;
+        &lt;resource&gt;
+          &lt;reference value=&quot;#chlamydia-screening-service-request&quot;/&gt;
+        &lt;/resource&gt;
+      &lt;/action&gt;
+    &lt;/RequestGroup&gt;
+  &lt;/contained&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;intent value=&quot;order&quot;/&gt;
+  &lt;subject&gt;
+    &lt;reference value=&quot;Patient/example&quot;/&gt;
+  &lt;/subject&gt;
+  &lt;activity&gt;
+    &lt;reference&gt;
+      &lt;reference value=&quot;#chlamydia-screening-intervention-rg&quot;/&gt;
+    &lt;/reference&gt;
+  &lt;activity&gt;
+&lt;/CarePlan&gt;
+</code></pre>
 
 <a name="order-set"> </a>
 <h4>Order Set</h4>
