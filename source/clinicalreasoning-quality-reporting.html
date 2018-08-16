@@ -147,7 +147,14 @@
 
 <p>Stratifiers and supplemental data are specified using the <code>stratifier</code> and <code>supplementalData</code> elements of the <a href="measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.gender</code>). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path. For example, specifying Patient.gender will yield four stratification groups since FHIR has four gender codes: male, female, other, and unknown.</p>
 
-<p>Supplemental data elements are also specified using FHIR resource paths, however, supplemental data does not result in groups in the measure report, rather supplemental data elements are reported as Observation resources and included in the evaluateResources bundle for the individual-level report.</p>
+<p>Supplemental data elements are also specified using FHIR resource paths, however, supplemental data only results in groups in the summary measure report. For individual-level reports, supplemental data elements are reported as Observation resources and included by reference in the evaluateResource for the individual-level report.</p>
+
+<p>The CMS146 example measure illustrates the stratification and supplemental data described above:</p>
+
+<ul>
+  <li><b>Measure:</b> <a href="measure-cms146-example.html">measure-cms146-example</a></li>
+  <li><b>MeasureReport:</b> <a href="measurereport-cms146-cat3-example.html">measurereport-cms146-cat3-example</a></li>
+</ul>
 
 <a name="Data Criteria"> </a>
 <h6>Data Criteria</h6>
