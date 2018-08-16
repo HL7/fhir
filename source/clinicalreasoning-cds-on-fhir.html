@@ -23,6 +23,7 @@
 
 <p>Note that this topic is a very high-level approach to using CDS Hooks to support these two use cases. It is not a normative description of any of the CDS Hooks content. Please refer to the <a href="https://cds-hooks.org">CDS Hooks</a> specification itself for more details.</p>
 
+<a name="consuming-decision-support"> </a>
 <h4>Consuming Decision Support Using CDS Hooks</h4>
 
 <p>CDS Hooks is an open source specification focused on user-facing remote clinical decision support. CDS Hooks can use FHIR to represent patient information and recommendations, but is architecturally an independent specification. The basic components of CDS Hooks are:</p>
@@ -42,6 +43,7 @@
   </tr>
 </table>
 
+<a name="configuration"> </a>
 <h5>Configuration</h5>
 
 <p>The first phase in consuming a CDS Service using CDS Hooks is to configure the integration from the EHR. The CDS Service publishes a set of endpoints to advertise available functionality using the <a href="http://cds-hooks.org/specification/1.0/#discovery"><i>discovery</i></a> endpoint. For each endpoint, the service declares the <i>hook</i> during which it expects to be invoked, and optionally, any <i>prefetch</i> information that could be provided to the service.</p>
@@ -74,6 +76,7 @@
     },
 }</code></pre>
 
+<a name="evaluation"> </a>
 <h5>Evaluation</h5>
 
 <p>The second phase is the actual request/response call to the CDS Service. Once the integration has been configured using the above information, the EHR can make requests to decision support services at the appropriate times based on the <i>hooks</i> it supports. To make a request, the EHR prepares a <a href="http://cds-hooks.org/specification/1.0/#http-request_1"><i>request</i></a> object containing the contextual information required for the hook, as well as any additional prefetch information.</p>
@@ -197,6 +200,7 @@
 
 <p>Note that these examples all assume a FHIR DSTU2 service is being used. This is because most EHRs currently support DSTU2 in their production versions.</p>
 
+<a name="surfacing-clinical-decision-support"> </a>
 <h4>Surfacing Clinical Decision Support Guidance Using CDS Hooks</h4>
 
 <p>In addition to supporting the user-facing remote decision support use case, CDS Hooks can be used to surface clinical decision support behavior represented by knowledge artifacts in the Clinical Reasoning module. In this use case, a FHIR server functioning as a knowledge provider exposes CDS Hooks Services using the discovery endpoint, and provides guidance using the CDS Service endpoint. To support this, several mappings from Clinical Reasoning functionality to CDS Hooks services are used:</p>
@@ -207,6 +211,7 @@
   <li><b>Prefetch</b> - Prefetch templates in CDS Hooks are mapped to the DataRequirement structure in FHIR</li>
 </ol>
 
+<a name="representing-hooks"> </a>
 <h5>Representing Hooks in FHIR</h5>
 
 <p>A <i>hook</i> in CDS Hooks is a pre-defined point in the workflow of a clinical information system such as an EHR. Each hook defines <i>context</i>, which is the information available as part of the current activity in the system. Each hook represents a point in the workflow that can be augmented by decision support from an external system. Within CDS Hooks, each hook defines the set of available context values, along with whether or not that context value can be used as a prefetch token.</p>
@@ -225,6 +230,7 @@
 
 <p>Note that using TriggerDefinition to represent hook information requires that hook details be duplicated everywhere they are used. Another approach would be to use the EventDefinition resource to capture the hook information once, and then reuse that by reference wherever it is needed.</p>
 
+<a name="representing-services"> </a>
 <h5>Representing Services in FHIR</h5>
 
 <p>A <i>service</i> in CDS Hooks is a clinical decision support service that can be used to provide guidance to users at pre-defined points in a workflow. The PlanDefinition resource can be used to describe the behavior of decision support functionality, which can then be exposed via a CDS Hooks service. In the simplest case, there is a one-to-one correspondence between a PlanDefinition and a CDS Service:</p>
@@ -258,6 +264,7 @@
 
 <p>This prefetch data can be automatically determined from the data requirements of the PlanDefinition, and provided as part of the service definition to the CDS Hooks discovery response.</p>
 
+<a name="processing-requests"> </a>
 <h5>Processing CDS Hooks Requests</h5>
 
 <p>Once the available PlanDefinition resources are advertised through the discovery endpoint, a CDS Hooks endpoint can be used to perform the actual evaluation, as illustrated in the following diagram:</p>

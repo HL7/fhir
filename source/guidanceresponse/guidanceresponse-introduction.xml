@@ -2,22 +2,28 @@
 
 <div>
 <a name="bnc"></a>
+    <blockquote class="stu-note">
+      <a name="scope">
+      </a>
+      <a name="dstu">
+      </a>
+      <p>
+        <b>Note to balloters</b> The Clinical Decision Support workgroup is seeking feedback on the use of the GuidanceResponse resource as a persistent resource for keeping a record of past service requests, as well as for passing to downstream processing functionality. Specifically, are there implementations using GuidanceResponse for this purpose, and what gaps exist in the resource when used in this context.
+      </p>
+    </blockquote>
 <h2>Scope and Usage</h2>
-<p>The GuidanceResponse resource is used to represent the result of invoking a decision support service. It provides a container for the status of the response, any warnings or messages returned by the service, as well as the output data of the module and any suggested actions to be performed.</p>
+<p>The GuidanceResponse resource is used to represent the result of invoking a decision support service. It provides a container for the status of the response, any warnings or messages returned by the service, as well as any output data from the service and any suggested actions to be performed.</p>
 
 <p>Use cases for the GuidanceResponse resource include:</p>
 
 <ul>
 	<li>Keeping a record of past service requests, including the ability to reference the context of the request such as the disease state</li>
 	<li>Representing additional data requirements for subsequent service requests</li>
-	<li>Enabling selection and grouping behavior for the structure of service responses</li>
-	<li>Communicating suggestions and additional data requirements to decision support services</li>
-	<li>Supporting additional behavior customization through the use of profiles and extensions as part of implementation guidance</li>
 	<li>Representing Public Health case reporting and recording</li>
 	<li>Sharing the results of decision support guidance and determination of reportability with clinicians and public health agencies</li>
 </ul>
 
-<p>In addition, the GuidanceResponse resource is aligned with the CDS Hooks response structure and so provides a mechanism to record the results of CDS Hooks interactions. For a detailed discussion of the evaluation process, refer to the <a href="clinicalreasoning-cds-on-fhir.html#guidance-request">Guidance Request</a> topic in the Clinical Reasoning module.</p>
+<p>In addition, the GuidanceResponse resource is aligned with the CDS Hooks response structure and so provides a mechanism to record the results of CDS Hooks interactions. For a detailed discussion of how the GuidanceResponse resource can be used for this purpose, refer to the <a href="clinicalreasoning-cds-on-fhir.html#evaluation">Evaluation</a> topic in the Clinical Reasoning module.</p>
 
 </div>
 
