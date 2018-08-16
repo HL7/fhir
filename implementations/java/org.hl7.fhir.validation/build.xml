@@ -161,6 +161,7 @@
         <pathelement location="../../../tools/java/imports/commons-httpclient-3.0.1.jar"/>
         <pathelement location="../../../tools/java/imports/javaparser-1.0.11.jar"/>
         <pathelement location="../../../tools/java/imports/org.everit.json.schema-1.9.1.jar"/>
+        <pathelement location="../../../tools/java/imports/json-20171018.jar"/>
         <path refid="org.hl7.fhir.dstu14.classpath"/>
         <path refid="org.hl7.fhir.dstu2.classpath"/>
         <path refid="org.hl7.fhir.dstu3.classpath"/>
