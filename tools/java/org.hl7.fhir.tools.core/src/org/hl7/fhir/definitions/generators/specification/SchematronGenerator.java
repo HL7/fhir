@@ -33,7 +33,8 @@ public class SchematronGenerator {
 	public void generate(OutputStream out, Definitions definitions) throws Exception {
     SchematronWriter sch = new SchematronWriter(out, SchematronType.ALL_RESOURCES, "All Resources");
     insertGlobalRules(sch);
-    for (ResourceDefn root : definitions.getResources().values()) {
+    for (String rn : definitions.sortedResourceNames()) {
+      ResourceDefn root = definitions.getResources().get(rn);
       Section s = sch.section(root.getName());
       ArrayList<String> parents = new ArrayList<String>();
       generateInvariants(s, null, root.getRoot(), definitions, parents, root.getName());
@@ -110,7 +111,7 @@ public class SchematronGenerator {
 	  if (name.contains("("))
 	    name = name.substring(0, name.indexOf("("));
     if (ed.getElements().size() > 0) {
-	    path = path == null ? "f:"+name : path + "/f:"+name;
+	    path = path == null ? "f:"+name : path + (recursesToSelf(ed) ? "/" : "") + "/f:"+name;
 	    genInvs(section, path, ed);
 	    genChildren(section, path, null, ed, definitions, parents);
 	  } else {
@@ -138,6 +139,20 @@ public class SchematronGenerator {
 	    }
 	  }
 	}
+
+  private boolean recursesToSelf(ElementDefn ed) {
+    return recursesToSelf("@"+ed.getPath(), ed.getElements());
+  }
+
+  private boolean recursesToSelf(String path, List<ElementDefn> elements) {
+    for (ElementDefn ed : elements) {
+      if (path.equals(ed.typeCode()))
+        return true;
+     if (recursesToSelf(path, ed.getElements()))
+       return true;
+    }
+    return false;
+  }
 
   private List<TypeRef> allTypes() {
     return new ArrayList<TypeRef>();
