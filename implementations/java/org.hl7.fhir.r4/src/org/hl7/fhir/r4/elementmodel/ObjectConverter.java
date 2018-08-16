@@ -86,7 +86,7 @@ public class ObjectConverter  {
     ByteArrayOutputStream bo = new ByteArrayOutputStream();
     try {
       new JsonParser(context).compose(element, bo, OutputStyle.NORMAL, null);
-      TextFile.bytesToFile(bo.toByteArray(), "c:\\temp\\json.json");
+//      TextFile.bytesToFile(bo.toByteArray(), "c:\\temp\\json.json");
       return new org.hl7.fhir.r4.formats.JsonParser().parse(bo.toByteArray());
     } catch (IOException e) {
       // won't happen
