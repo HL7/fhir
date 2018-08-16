@@ -359,6 +359,10 @@ public class IgSpreadsheetParser {
       sd.setName("UNKNOWN");
     if (!sd.hasName())
       sd.setName("Profile "+sd.getId());
+    if (sheet.hasColumn(0, "Profile.name"))
+      sd.setName(sheet.getColumn(0, "Profile.name"));
+    if (sheet.hasColumn(0, "Profile.title"))
+      sd.setTitle(sheet.getColumn(0, "Profile.title"));
     sd.setPublisher(metadata("author.name"));
     if (hasMetadata("author.reference"))
       sd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, metadata("author.reference")));
@@ -1113,6 +1117,11 @@ public class IgSpreadsheetParser {
     if (!Utilities.noString(sl) && (!sl.contains("|") || !ex.hasName()))
       ex.setName(sl);
 //    ex.setName("Extension "+ex.getId()+(ex.hasDisplay() ? " "+ex.getDisplay() : ""));
+    if (sheet.hasColumn(0, "Profile.name"))
+      ex.setName(sheet.getColumn(0, "Profile.name"));
+    if (sheet.hasColumn(0, "Profile.title"))
+      ex.setTitle(sheet.getColumn(0, "Profile.title"));
+
     if (!ex.hasName())
       throw new Exception("Extension "+ex.getUrl()+" missing name at "+getLocation(row));
     ex.setDescription(exe.getDefinition());
