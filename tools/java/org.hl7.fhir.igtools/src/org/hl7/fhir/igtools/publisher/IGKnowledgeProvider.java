@@ -214,6 +214,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 	return getProperty(r, "defns");
   }
 
+  // base specification only
   public void loadSpecPaths(SpecMapManager paths) throws Exception {
     this.specPaths = paths;
     for (MetadataResource bc : context.allConformanceResources()) {

@@ -148,6 +148,8 @@ public class IGPack2NpmConvertor {
   }
 
   private void processValidatorPack(File f) throws IOException {
+    if (true)
+      throw new Error("this needs debugging (see todo further in)");
     System.out.println("Processing "+f.getAbsolutePath());
     try {
       Map<String, byte[]> files = loadZip(new FileInputStream(f));
@@ -180,7 +182,7 @@ public class IGPack2NpmConvertor {
 
         if (files.containsKey("spec.internals"))
           loadSpecInternals(ig, files.get("spec.internals"), version, canonical, files);
-        NPMPackageGenerator npm = new NPMPackageGenerator(dest != null ? dest : Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, PackageType.IG, ig);
+        NPMPackageGenerator npm = new NPMPackageGenerator(dest != null ? dest : Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, "todo", PackageType.IG, ig);
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
         npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());

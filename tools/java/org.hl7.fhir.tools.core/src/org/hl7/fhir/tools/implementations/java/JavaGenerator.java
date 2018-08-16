@@ -437,7 +437,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
 
   @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues, boolean forWeb) throws Exception {
     logger.log(" .... build validator", LogMessageType.Process);
     // now, we pack a jar with what we need for testing:
     Manifest manifest = new Manifest();
@@ -497,7 +497,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     ig.setPublisher("http://hl7.org/fhir");
     ig.setFhirVersion(Constants.VERSION);
         
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folders.dstDir, "validator.tgz"), ig.getUrl(), PackageType.TOOL, ig );
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folders.dstDir, "validator.tgz"), ig.getUrl(), forWeb ? "http://hl7.org/fhir" : "http://build.fhir.org", PackageType.TOOL, ig );
     npm.addFile(Category.TOOL, "org.hl7.fhir.validator.jar", TextFile.fileToBytes(Utilities.path(folders.dstDir, "org.hl7.fhir.validator.jar")));
     npm.finish();
     return true;

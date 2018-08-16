@@ -154,6 +154,7 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities.StructureMapAnalysis;
 import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.r4.utils.formats.Turtle;
+import org.hl7.fhir.r4.validation.CodeSystemValidator;
 import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.r4.validation.ProfileValidator;
 import org.hl7.fhir.utilities.CSFile;
@@ -385,6 +386,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private SimpleWorkerContext context; // 
   private InstanceValidator validator;
   private ProfileValidator pvalidator;
+  private CodeSystemValidator csvalidator;
   private IGKnowledgeProvider igpkp;
   private List<SpecMapManager> specMaps = new ArrayList<SpecMapManager>();
   private boolean first;
@@ -1066,6 +1068,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     pvalidator = new ProfileValidator();
     pvalidator.setContext(context);
+    csvalidator = new CodeSystemValidator();
     if (configuration.has("check-aggregation") && configuration.get("check-aggregation").getAsBoolean())
       pvalidator.setCheckAggregation(true);
     if (configuration.has("check-mustSupport") && configuration.get("check-mustSupport").getAsBoolean())
@@ -1693,7 +1696,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (mode == null)
       return "file:"+outputDir;
     switch (mode) {
-    case AUTOBUILD: return targetOutput;
+    case AUTOBUILD: return targetOutput == null ? "https://build.fhir.org/ig/[org]/[repo]" : targetOutput;
     case MANUAL: return "file:"+outputDir;
     case WEBSERVER: return "http://unknown";
     default: return igpkp.getCanonical();
@@ -2036,7 +2039,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     load("OperationDefinition");
     load("CapabilityStatement");
     load("Questionnaire");
-    checkProfiles();
+    checkConformanceResources();
     generateSnapshots();
     generateLogicalMaps();
     load("StructureMap");
@@ -2045,14 +2048,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validateExpressions();
   }
 
-  private void checkProfiles() {
+  private void checkConformanceResources() {
     log(LogCategory.PROGRESS, "check profiles");
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals("StructureDefinition")) {
           log(LogCategory.PROGRESS, "process profile: "+r.getId());
-          MetadataResource bc = (MetadataResource) r.getResource();
-          f.getErrors().addAll(pvalidator.validate((StructureDefinition)bc, false));
+          StructureDefinition sd = (StructureDefinition) r.getResource();
+          f.getErrors().addAll(pvalidator.validate(sd, false));
+        }
+        if (r.getElement().fhirType().equals("CodeSystem")) {
+          log(LogCategory.PROGRESS, "process CodeSystem: "+r.getId());
+          CodeSystem cs = (CodeSystem) r.getResource();
+          f.getErrors().addAll(csvalidator.validate(cs, false));
         }
       }
     }
@@ -4263,7 +4271,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       new ProfileUtilities(context, errors, igpkp).generateXlsx(new FileOutputStream(path), sd, true);
     }
 
-    if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {
+    if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, "sch")) {
       String path = Utilities.path(tempDir, r.getId()+".sch");
       f.getOutputNames().add(path);
       new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);

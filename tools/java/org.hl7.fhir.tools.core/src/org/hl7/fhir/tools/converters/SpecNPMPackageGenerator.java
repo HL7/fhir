@@ -70,10 +70,10 @@ public class SpecNPMPackageGenerator {
 
   private static void generateForVersion(String folder, String url) throws Exception {
     SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-    self.generate(folder, url);
+    self.generate(folder, url, false);
   }
   
-  public void generate(String folder, String url) throws Exception {
+  public void generate(String folder, String url, boolean forWeb) throws Exception {
     System.out.println("Generate Package for "+folder);
     
     Map<String, byte[]> files = loadZip(new FileInputStream(Utilities.path(folder, "igpack.zip")));
@@ -139,7 +139,7 @@ public class SpecNPMPackageGenerator {
     
     System.out.println(" .. Building NPM Package");
 
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), "http://hl7.org/fhir", PackageType.CORE, ig);
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folder, "package.tgz"), "http://hl7.org/fhir", url, PackageType.CORE, ig);
     
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);

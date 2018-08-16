@@ -116,11 +116,7 @@ public class JsonGenerator  {
       JsonObject rt = new JsonObject();
       props.add("resourceType", rt);
       rt.addProperty("description", "This is a "+root.getName()+" resource");
-//      rt.addProperty("type", "string"); - everit bug?
       rt.addProperty("const", root.getName());
-//      JsonArray enums = new JsonArray();
-//      enums.add(new JsonPrimitive(root.getName()));
-//      rt.add("enum", enums);
       required.add("resourceType");
     }
     r.addProperty("additionalProperties", false);
@@ -176,7 +172,7 @@ public class JsonGenerator  {
         type = def.getJsonType();
         pattern = def.getRegex();
         if (!Utilities.noString(pattern))
-          property.addProperty("pattern", pattern);
+          property.addProperty("pattern","^"+pattern+"$");
 
         property.addProperty("type", type);
         property_ = new JsonObject();
@@ -219,7 +215,7 @@ public class JsonGenerator  {
 						type = def.getJsonType();
 						pattern = def.getRegex();
 						if (!Utilities.noString(pattern))
-							property.addProperty("pattern", pattern);
+							property.addProperty("pattern", "^"+pattern+"$");
 						
 						property.addProperty("type", type);
 						property_ = new JsonObject();
@@ -296,7 +292,7 @@ public class JsonGenerator  {
         if (!Utilities.noString(type))
           property.addProperty("type", type);
         if (!Utilities.noString(pattern))
-          property.addProperty("pattern", pattern);
+          property.addProperty("pattern", "^"+pattern+"$");
         if (!Utilities.noString(tref))
           property_.addProperty("$ref", tref);
       } else if("div".equals(e.getName()) && "xhtml".equals(type)) {
@@ -407,7 +403,7 @@ public class JsonGenerator  {
     String tn = type.getJsonType();
     String pattern = type.getRegex();
     if (pattern != null && !type.getCode().equals("base64Binary"))
-      t.addProperty("pattern", pattern);  
+      t.addProperty("pattern", "^"+pattern+"$");  
     t.addProperty("type", tn);
     t.addProperty("description", type.getDefinition());    
   }

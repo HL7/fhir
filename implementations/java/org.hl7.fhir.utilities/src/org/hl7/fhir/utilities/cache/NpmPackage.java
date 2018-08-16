@@ -250,5 +250,12 @@ import com.google.gson.JsonObject;
       this.path = path;
     }
 
+    public String getWebLocation() {
+      if (npm.has("url"))
+        return npm.get("url").getAsString();
+      else
+        return npm.get("canonical").getAsString();
+    }
+
 
   }

@@ -65,7 +65,7 @@ public interface PlatformGenerator {
    * @return true if the compile succeeded
    * @throws Exception 
    */
-  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception;
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues, boolean forWeb) throws Exception;
   
 
   /**

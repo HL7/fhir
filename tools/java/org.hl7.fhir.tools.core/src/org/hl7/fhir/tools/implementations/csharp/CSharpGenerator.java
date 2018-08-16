@@ -53,7 +53,7 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues, boolean forWeb) throws Exception {
     return false;
   }
 }

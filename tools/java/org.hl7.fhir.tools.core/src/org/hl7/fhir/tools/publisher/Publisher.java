@@ -2208,7 +2208,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (gen.doesCompile()) {
           page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
           gen.setSvnRevision(page.getSvnRevision());
-          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors())) {
+          if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors(), page.isForPublication())) {
             // Must always be able to compile Java to go on. Also, if we're
             // building
             // the web build, all generators that can compile, must compile
@@ -2932,7 +2932,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
 
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-      self.generate(page.getFolders().dstDir, page.getBaseURL());
+      self.generate(page.getFolders().dstDir, page.getBaseURL(), false);
 
 
       page.log(" ...zips", LogMessageType.Process);
