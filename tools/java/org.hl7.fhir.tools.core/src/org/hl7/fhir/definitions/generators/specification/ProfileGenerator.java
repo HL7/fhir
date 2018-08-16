@@ -920,16 +920,16 @@ public class ProfileGenerator {
     paths.clear();
   }
 
-  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuideDefn usage, List<ValidationMessage> issues) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, ImplementationGuideDefn usage, List<ValidationMessage> issues, ResourceDefn baseResource) throws Exception {
 
     try {
-      return generate(pack, profile, resource, id, null, usage, issues);
+      return generate(pack, profile, resource, id, null, usage, issues, baseResource);
     } catch (Exception e) {
       throw new Exception("Error processing profile '"+id+"': "+e.getMessage(), e);
     }
   }
 
-  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuideDefn usage, List<ValidationMessage> issues) throws Exception {
+  public StructureDefinition generate(Profile pack, ConstraintStructure profile, ResourceDefn resource, String id, String html, ImplementationGuideDefn usage, List<ValidationMessage> issues, ResourceDefn baseResource) throws Exception {
     if (profile.getResource() != null)
       return profile.getResource();
 
@@ -956,7 +956,6 @@ public class ProfileGenerator {
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
-    ToolingExtensions.setStandardsStatus(p, resource.getStatus());
 
     if (pack.hasMetadata("summary-"+profile.getTitle()))
       ToolingExtensions.addMarkdownExtension(p, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary", pack.metadata("summary-"+profile.getTitle()));
@@ -982,8 +981,22 @@ public class ProfileGenerator {
 
     if (pack.hasMetadata("fmm-level"))
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(pack.getFmmLevel()));
+    else if (pack.hasMetadata("fmm"))
+      ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(pack.metadata("fmm")));
+    else if (!Utilities.noString(resource.getFmmLevel()))
+      ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(resource.getFmmLevel()));
+    else if (baseResource != null && !Utilities.noString(baseResource.getFmmLevel()))
+      ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(baseResource.getFmmLevel()));
     if (pack.hasMetadata("workgroup"))
       ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, pack.getWg());
+    else if (resource.getWg() != null) 
+      ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, resource.getWg().getCode());      
+    else if (baseResource != null && baseResource.getWg() != null) 
+      ToolingExtensions.setCodeExtension(p, ToolingExtensions.EXT_WORKGROUP, baseResource.getWg().getCode());      
+    if (pack.hasMetadata("Standards-Status")) 
+      ToolingExtensions.setStandardsStatus(p, StandardsStatus.fromCode(pack.metadata("Standards-Status")));
+    else
+      ToolingExtensions.setStandardsStatus(p, resource.getStatus());
     
     if (pack.hasMetadata("status")) 
       p.setStatus(PublicationStatus.fromCode(pack.metadata("status")));

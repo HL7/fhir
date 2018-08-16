@@ -925,7 +925,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 //          page.log(" ...  resource "+r.getName(), LogMessageType.Process);
 //        logged = true;
         for (ConstraintStructure p : ap.getProfiles())
-          processProfile(ap, p, ap.getId());
+          processProfile(ap, p, ap.getId(), r);
       }
     }
 
@@ -934,7 +934,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (Profile ap : page.getDefinitions().getPackList()) {
 //      page.log(" ...  pack "+ap.getId(), LogMessageType.Process);
       for (ConstraintStructure p : ap.getProfiles())
-        processProfile(ap, p, ap.getId());
+        processProfile(ap, p, ap.getId(), null);
     }
 
     page.log(" ...process logical models", LogMessageType.Process);
@@ -1062,14 +1062,15 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private void processProfile(Profile ap, ConstraintStructure profile, String filename) throws Exception {
+  private void processProfile(Profile ap, ConstraintStructure profile, String filename, ResourceDefn baseResource) throws Exception {
 //    page.log(" ...   profile "+profile.getId(), LogMessageType.Process);
 
     // they've either been loaded from spreadsheets, or from profile declarations
     // what we're going to do:
     //  create StructureDefinition structures if needed (create differential definitions from spreadsheets)
     if (profile.getResource() == null) {
-      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir).generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors());
+      StructureDefinition p = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages, page.getFolders().rootDir)
+          .generate(ap, profile, profile.getDefn(), profile.getId(), profile.getUsage(), page.getValidationErrors(), baseResource);
       p.setUserData("pack", ap);
       profile.setResource(p);
       if (profile.getResourceInfo() != null) {

@@ -1426,6 +1426,8 @@ public class SpreadsheetParser {
 	            throw new Exception("Error: published structure names must start with the implementation guide code ("+ig.getCode()+"-)");
 	          String fmm = ap.metadata("fmm-"+n);
 	          if (Utilities.noString(fmm)) 
+	            fmm = ap.metadata("fmm");
+	          if (Utilities.noString(fmm)) 
 	            fmm = "1"; // default fmm value
 	          ap.getProfiles().add(parseProfileSheet(definitions, ap, n, namedSheets, true, usage, issues, wg, fmm));
 	        }
@@ -1435,6 +1437,8 @@ public class SpreadsheetParser {
 	    int i = 0;
 	    while (i < namedSheets.size()) {
         String fmm = ap.metadata("fmm-"+namedSheets.get(i));
+        if (Utilities.noString(fmm)) 
+          fmm = ap.metadata("fmm");
         if (Utilities.noString(fmm)) 
           fmm = "1"; // default fmm value
 	      ap.getProfiles().add(parseProfileSheet(definitions, ap, namedSheets.get(i), namedSheets, false, usage, issues, wg, fmm));

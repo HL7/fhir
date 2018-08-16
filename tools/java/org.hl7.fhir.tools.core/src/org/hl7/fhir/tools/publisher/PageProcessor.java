@@ -8114,10 +8114,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         else
           src = s1+ "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group"+s3;
       } else if (com[0].equals("fmm-style")) {
-        String fmm = profile.getFmm();
-        if (Utilities.noString(fmm))
-            fmm = pack.getFmmLevel();
-        src = s1+"colsi"+s3;
+        String fmm = ToolingExtensions.readStringExtension(profile.getResource(), ToolingExtensions.EXT_FMM_LEVEL);
+        StandardsStatus ss = ToolingExtensions.getStandardsStatus(profile.getResource());
+        src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = profile.getFmm();
         if (Utilities.noString(fmm))
