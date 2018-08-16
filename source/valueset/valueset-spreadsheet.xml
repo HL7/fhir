@@ -15,7 +15,7 @@
   
   
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3523,7 +3523,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4025,7 +4024,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">ValueSet.expansion.contains.code | ValueSet.compose.include.concept.code</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">ValueSet.expansion.contains.code | ValueSet.expansion.contains.descendents().code  | ValueSet.compose.include.concept.code</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">This special parameter searches for codes in the value set. See additional notes on the ValueSet resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6600,15 +6599,15 @@
     <Cell ss:StyleID="s170"><Data ss:Type="String">The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, use descendant-of</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s168"><Data ss:Type="String">descendant-of</Data></Cell>
+    <Cell ss:StyleID="s168"><Data ss:Type="String">descendent-of</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s169"/>
-    <Cell ss:StyleID="s169"><Data ss:Type="String">Descendant Of (by subsumption)</Data></Cell>
+    <Cell ss:StyleID="s169"><Data ss:Type="String">Descendent Of (by subsumption)</Data></Cell>
     <Cell ss:StyleID="s169"><Data ss:Type="String">Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only)</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s139"/>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The definition of is-a is that all the properties of the value are true for the specified property of the code</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The definition of is-a is that all the properties of the value are true for the specified property of the code. &#10;&#10;Spelling note: "descendant" is a more correct spelling, but the spelling "descendent" is maintained in the code for backwards compatibility reasons</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s168"><Data ss:Type="String">is-not-a</Data></Cell>
@@ -7141,6 +7140,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
