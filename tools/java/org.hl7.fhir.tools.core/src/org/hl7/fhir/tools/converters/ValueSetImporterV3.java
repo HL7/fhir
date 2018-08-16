@@ -284,7 +284,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         Element di = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "appInfo"), "deprecationInfo");
         if (di != null) {
           String dd = di.getAttribute("deprecationEffectiveVersion");
-          ci.deprecated = DateTimeType.parseV3(dd.substring(dd.indexOf("-")+1));
+          if (dd.contains("-"))
+            ci.deprecated = DateTimeType.parseV3(dd.substring(dd.indexOf("-")+1));
         }
         List<Element> pl = new ArrayList<Element>();
         XMLUtil.getNamedChildren(c, "conceptRelationship", pl);
@@ -401,13 +402,13 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       }
 
       if (e.getNodeName().equals("codeSystem")) {
-        Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
         if (!ini.getBooleanProperty("Exclude", e.getAttribute("name")) && !deprecated(e)) {
           String id = e.getAttribute("name");
           if (cslist.contains(id))
             throw new Exception("Duplicate v3 name: "+id);
           cslist.add(id);
-          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", id)) {
+          Element rv = XMLUtil.getNamedChild(e, "releasedVersion");
+          if (rv != null && (rv.getAttribute("hl7MaintainedIndicator").equals("true") || ini.getBooleanProperty("CodeSystems", id))) {
             String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
             VSPack vp = new VSPack();
             buildV3CodeSystem(vp, id, dt, e, e.getAttribute("codeSystemId"), vsOid, getNLcS(nl, id));
@@ -665,8 +666,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     while (e != null) {
       if (e.getNodeName().equals("codeSystem")) {
         if (!ini.getBooleanProperty("Exclude", e.getAttribute("name")) && !deprecated(e)) {
-          Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", e.getAttribute("name"))) {
+          Element rv = XMLUtil.getNamedChild(e, "releasedVersion");
+          if (rv != null && (rv.getAttribute("hl7MaintainedIndicator").equals("true") || ini.getBooleanProperty("CodeSystems",  e.getAttribute("name")))) {
             String id = e.getAttribute("name");
             Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
             Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
@@ -683,7 +684,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
              System.out.println("no match for http://terminology.hl7.org/ValueSet/v3-"+mid);
             }
             CodeSystem cs = (CodeSystem) vs.getUserData("cs");
-
+            
             String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-cs.html");
             String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "cs.html", cs, null, null, "V3 CodeSystem", null, null, wg());
             sf = sects.addSectionNumbers(Utilities.path("v3", id, "cs.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);

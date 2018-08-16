@@ -24,7 +24,7 @@
   the value set and published in a future version."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
     </include>
   </compose>
 </ValueSet>
