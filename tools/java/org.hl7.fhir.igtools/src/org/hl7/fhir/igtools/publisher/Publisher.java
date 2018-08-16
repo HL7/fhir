@@ -460,6 +460,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private boolean templateLoaded ;
 
   private String packagesFolder;
+  private String targetOutput;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -1398,6 +1399,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (ostr(dep, "package") == null && packageId != null)
       dep.addProperty("package", packageId);
 
+    String webref = pi.getWebLocation();
+    
     SpecMapManager igm = new SpecMapManager(TextFile.streamToBytes(pi.load("other", "spec.internals")), pi.getNpm().getAsJsonObject("dependencies").get("hl7.fhir.core").getAsString());
     igm.setName(name);
     igm.setBase(canonical);
@@ -1433,7 +1436,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
               String p = igm.getPath(u);
               if (p == null)
                 throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
-              r.setUserData("path", canonical+"/"+ igpkp.doReplacements(p, r, null, null));
+              r.setUserData("path", webref+"/"+ igpkp.doReplacements(p, r, null, null));
               String v = ((MetadataResource) r).getVersion();
               if (v!=null) {
                 u = u + "|" + v;
@@ -1681,10 +1684,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (!dep.hasPackageId()) 
         throw new FHIRException("Unknown package id for "+dep.getUri());
     }
-    npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), PackageType.IG,  publishedIg);
+    npm = new NPMPackageGenerator(Utilities.path(outputDir, "package.tgz"), igpkp.getCanonical(), targetUrl(), PackageType.IG,  publishedIg);
     execTime = Calendar.getInstance();
     return needToBuild;
   }
+
+  private String targetUrl() {
+    if (mode == null)
+      return "file:"+outputDir;
+    switch (mode) {
+    case AUTOBUILD: return targetOutput;
+    case MANUAL: return "file:"+outputDir;
+    case WEBSERVER: return "http://unknown";
+    default: return igpkp.getCanonical();
+    }
+  }
+
 
   private void loadTemplate(String src) throws Exception {
     log("Fetch Template: "+src);
@@ -3155,7 +3170,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 	    else
 	      exec.execute(org.apache.commons.exec.CommandLine.parse(jekyllCommand+" build --destination \""+outputDir+"\""));
     } catch (IOException ioex) {
-    	log("Complete output from Jekyll: " + pumpHandler.getBufferString());
+    	log("Jekyll has failed - not installed (correcty?). Complete output from running Jekyll: " + pumpHandler.getBufferString());
     	throw ioex;
     }
 
@@ -4644,8 +4659,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       self.setTxServer(getNamedParam(args, "-tx"));
       self.setPackagesFolder(getNamedParam(args, "-packages"));
-      if (hasNamedParam(args, "-auto-ig-build"))
-      self.setMode(IGBuildMode.AUTOBUILD);
+      if (hasNamedParam(args, "-auto-ig-build")) {
+        self.setMode(IGBuildMode.AUTOBUILD);
+        self.targetOutput = getNamedParam(args, "-target");
+      }
       self.watch = hasParam(args, "-watch");
       self.debug = hasParam(args, "-debug");
       self.cacheVersion = hasParam(args, "-cacheVersion");
