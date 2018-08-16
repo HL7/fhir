@@ -12161,6 +12161,8 @@ public class VersionConvertor_30_40 {
       tgt.setExample(true);
     } else if (src.hasExampleBooleanType()) 
       tgt.setExample(src.getExampleBooleanType().getValue());
+    else 
+      tgt.setExample(false);
     if (src.hasName())
       tgt.setName(src.getName());
     if (src.hasDescription())
