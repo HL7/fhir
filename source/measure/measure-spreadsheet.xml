@@ -5248,7 +5248,7 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Evaluate Measure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The evaluate-measure operation is used to calculate an eMeasure and obtain the results</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$evaluate-measure-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$evaluate-measure-response.txt</Data></Cell>
    </Row>
@@ -5446,7 +5446,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Collect Data</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The collect-data operation is used to collect the data-of-interest for the given measure.</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is to gather the data required to perform an evaluation of the measure. If the lastReceivedOn parameter is supplied, only data that is new or has been changed since the lastReceivedOn date is included in the response</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is to gather the data required to perform an evaluation of the measure. If the lastReceivedOn parameter is supplied, only data that is new or has been changed since the lastReceivedOn date is included in the response. Note that the resulting MeasureReport is a transient resource</Data></Cell>
     <Cell><Data ss:Type="String">$collect-data-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$collect-data-response.txt</Data></Cell>
    </Row>
@@ -5556,7 +5556,7 @@
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Care Gaps</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The care-gaps operation is used to determine gaps-in-care based on the results of quality measures</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET</Data></Cell>
     <Cell><Data ss:Type="String">$care-gaps-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$care-gaps-response.txt</Data></Cell>
    </Row>
@@ -5872,9 +5872,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
