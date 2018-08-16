@@ -167,8 +167,16 @@ public class IgSpreadsheetParser {
       loadMetadata(f);
       loadExtensions(f.getErrors());
       List<String> namedSheets = new ArrayList<String>();
-      if (hasMetadata("name"))
-        f.setTitle(metadata("name"));
+      if (hasMetadata("title")) {
+        f.setName(metadata("title"));
+        if (hasMetadata("name"))
+          f.setName(metadata("name"));
+      } else {
+        if (hasMetadata("name")) {
+          f.setTitle(metadata("name"));
+          f.setName(metadata("name"));
+        }
+      }
 
       StructureDefinition first = null;
       if (hasMetadata("published.structure")) {
