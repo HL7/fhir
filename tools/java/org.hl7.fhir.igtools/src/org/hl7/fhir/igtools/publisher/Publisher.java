@@ -973,7 +973,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igName = Utilities.path(resourceDirs.get(0), str(configuration, "source", "ig.xml"));
 
     inspector = new HTLMLInspector(outputDir, specMaps, this);
-    inspector.getManual().add(Utilities.path(outputDir, "full-ig.zip"));
+    inspector.getManual().add("full-ig.zip");
     historyPage = ostr(paths, "history");
     if (historyPage != null)
       inspector.getManual().add(historyPage);
