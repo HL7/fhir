@@ -932,7 +932,7 @@ public class IgSpreadsheetParser {
     if (e.getType().size() != 1)
       throw new Exception("Unable to process "+column+" unless a single type is specified @ "+getLocation(row)+", type = \""+e.typeSummary()+"\", column = "+column);
     String type = e.getType().get(0).getCode();
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
+    StructureDefinition sd = context.fetchTypeDefinition(type);
     if (sd != null && sd.hasBaseDefinition() && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
       type = sd.getType();
 
@@ -1233,7 +1233,7 @@ public class IgSpreadsheetParser {
         ec.setExpression("Resource");
 
       String[] parts = ec.getExpression().split("\\.");
-      StructureDefinition sd = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+      StructureDefinition sd = this.context.fetchTypeDefinition(parts[0]);
       if (sd != null) {
         for (ElementDefinition ed : sd.getSnapshot().getElement())
           if (ed.getPath().equals(ec.getExpression()))

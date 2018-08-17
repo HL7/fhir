@@ -445,7 +445,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public final static String CI_PUB_NOTICE =
       "<p style=\"background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
-          "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
+          "This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>\r\n"+
           "</p>\r\n";
 
   public static final String CODE_LIMIT_EXPANSION = "1000";
@@ -964,7 +964,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           updateDiffEngineDefinitions();
           src = s1+diffEngine.getDiffAsHtml(this)+s3;
         } else {
-          StructureDefinition sd = workerContext.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+com[1]);
+          StructureDefinition sd = workerContext.fetchTypeDefinition(com[1]);
           if (sd == null)
             throw new Exception("diff-analysis not found: "+com[1]);
           src = s1+diffEngine.getDiffAsHtml(this, sd)+s3;
@@ -5503,7 +5503,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           updateDiffEngineDefinitions();
           src = s1+diffEngine.getDiffAsHtml(this)+s3;
         } else {
-          StructureDefinition sd = workerContext.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+com[1]);
+          StructureDefinition sd = workerContext.fetchTypeDefinition(com[1]);
           if (sd == null)
             throw new Exception("diff-analysis not found: "+com[1]);
           src = s1+diffEngine.getDiffAsHtml(this, sd)+s3;
@@ -6927,7 +6927,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(t);
       b.append("</a>");
       if (!Utilities.noString(st)) {
-        b.append("(<a href=\""+prefix+"search.html#");
+        b.append("<br/>(<a href=\""+prefix+"search.html#");
         b.append(st);
         b.append("\">");
         b.append(st);

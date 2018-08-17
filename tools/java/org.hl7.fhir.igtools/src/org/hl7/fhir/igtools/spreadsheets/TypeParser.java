@@ -193,7 +193,7 @@ public class TypeParser {
           list.add(new TypeRefComponent().setCode("Element"));
         ToolingExtensions.addStringExtension(ed, "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name", t.getName().substring(1));
       } else {
-        StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getName());
+        StructureDefinition sd = context.fetchTypeDefinition(t.getName());
         if (sd == null)
           throw new Exception("Unknown type '"+t.getName()+"'");
         TypeRefComponent tc = getTypeComponent(list, sd.getType());

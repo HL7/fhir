@@ -1448,7 +1448,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private boolean hasResource(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    StructureDefinition sd = context.fetchTypeDefinition(code);
     return sd != null && sd.getKind() == StructureDefinitionKind.RESOURCE;
   }
 
@@ -1472,7 +1472,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private boolean isPrimitive(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    StructureDefinition sd = context.fetchTypeDefinition(code);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 

@@ -53,7 +53,7 @@ public class ObjectConverter  {
     if (base == null)
       return null;
     String tn = base.fhirType();
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+tn);
+    StructureDefinition sd = context.fetchTypeDefinition(tn);
     if (sd == null)
       throw new FHIRException("Unable to find definition for type "+tn);
     Element res = new Element(property.getName(), property);

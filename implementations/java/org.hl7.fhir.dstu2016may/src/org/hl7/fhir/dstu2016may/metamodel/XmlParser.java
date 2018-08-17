@@ -310,7 +310,7 @@ public class XmlParser extends ParserBase {
 	private void parseResource(String string, org.w3c.dom.Element container, Element parent) throws Exception {
 		org.w3c.dom.Element res = XMLUtil.getFirstChild(container);
 		String name = res.getLocalName();
-		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
+		StructureDefinition sd = context.fetchTypeDefinition(name);
 		if (sd == null)
 			throw new FHIRFormatError("Contained resource does not appear to be a FHIR resource (unknown name '"+res.getLocalName()+"')");
 		parent.updateProperty(new Property(context, sd.getSnapshot().getElement().get(0), sd), parent.getProperty().getName().equals("contained") ? SpecialElement.CONTAINED : SpecialElement.BUNDLE_ENTRY);

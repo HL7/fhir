@@ -136,7 +136,7 @@ public class Property {
 	public boolean isPrimitive(String code) {
     return org.hl7.fhir.dstu3.utils.TypesUtilities.isPrimitive(code);
    // was this... but this can be very inefficient compared to hard coding the list
-//		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+//		StructureDefinition sd = context.fetchTypeDefinition(code);
 //    return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
@@ -178,7 +178,7 @@ public class Property {
   		return false;
   	StructureDefinition sd = context.fetchResource(StructureDefinition.class, structure.getUrl().substring(0, structure.getUrl().lastIndexOf("/")+1)+getType(name));
   	if (sd == null)
-  	  sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+getType(name));
+  	  sd = context.fetchTypeDefinition(getType(name));
     if (sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
       return true;
   	if (sd == null || sd.getKind() != StructureDefinitionKind.LOGICAL)

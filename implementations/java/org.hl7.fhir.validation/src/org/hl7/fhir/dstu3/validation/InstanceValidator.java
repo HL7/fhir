@@ -1989,7 +1989,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private boolean isPrimitiveType(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    StructureDefinition sd = context.fetchTypeDefinition(code);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 

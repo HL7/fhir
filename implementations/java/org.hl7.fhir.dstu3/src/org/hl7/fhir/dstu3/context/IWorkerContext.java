@@ -351,5 +351,6 @@ public interface IWorkerContext {
   public void setLogger(ILoggingService logger);
 
   public boolean isNoTerminologyServer();
+  public StructureDefinition fetchTypeDefinition(String typeName);
 
 }

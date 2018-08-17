@@ -967,5 +967,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     this.allowLoadingDuplicates = allowLoadingDuplicates;
   }
 
+  @Override
+  public StructureDefinition fetchTypeDefinition(String typeName) {
+    return fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+typeName);
+  }
+
 
 }

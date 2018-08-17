@@ -412,4 +412,6 @@ public interface IWorkerContext {
 
   public String getOverrideVersionNs();
   public void setOverrideVersionNs(String value);
+
+  public StructureDefinition fetchTypeDefinition(String typeName);
 }

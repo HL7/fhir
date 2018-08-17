@@ -2720,13 +2720,13 @@ public class FHIRPathEngine {
     if (m != null && hasDataType(m.definition)) {
       if (m.fixedType != null)
       {
-        StructureDefinition dt = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+m.fixedType);
+        StructureDefinition dt = worker.fetchTypeDefinition(m.fixedType);
         if (dt == null)
           throw new DefinitionException("unknown data type "+m.fixedType);
         sdl.add(dt);
       } else
         for (TypeRefComponent t : m.definition.getType()) {
-          StructureDefinition dt = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getCode());
+          StructureDefinition dt = worker.fetchTypeDefinition(t.getCode());
           if (dt == null)
             throw new DefinitionException("unknown data type "+t.getCode());
           sdl.add(dt);
@@ -2830,7 +2830,7 @@ public class FHIRPathEngine {
         // now we walk into the type.
         if (ed.getType().size() > 1)  // if there's more than one type, the test above would fail this
           throw new PathEngineException("Internal typing issue....");
-        StructureDefinition nsd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
+        StructureDefinition nsd = worker.fetchTypeDefinition(ed.getType().get(0).getCode());
   	    if (nsd == null)
   	      throw new PathEngineException("Unknown type "+ed.getType().get(0).getCode());
         return getElementDefinition(nsd, nsd.getId()+path.substring(ed.getPath().length()), allowTypedName);

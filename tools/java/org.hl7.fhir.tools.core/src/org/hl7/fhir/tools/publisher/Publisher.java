@@ -3390,10 +3390,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       String[] pair = page.getIni().getStringProperty(n, "pair"+Integer.toString(i)).split(",");
       if (pair.length != 2)
         throw new Exception("Didn't find a pair for "+n+".pair"+Integer.toString(i));
-      StructureDefinition sdl = page.getWorkerContext().fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+pair[0]);
+      StructureDefinition sdl = page.getWorkerContext().fetchTypeDefinition(pair[0]);
       if (sdl == null)
         throw new Exception("Unable to find structure "+pair[0]);
-      StructureDefinition sdr = page.getWorkerContext().fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+pair[1]);
+      StructureDefinition sdr = page.getWorkerContext().fetchTypeDefinition(pair[1]);
       if (sdr == null)
         throw new Exception("Unable to find structure "+pair[1]);
       pc.compareProfiles(sdl, sdr);

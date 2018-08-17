@@ -289,5 +289,6 @@ public interface IWorkerContext {
 
 	public String oid2Uri(String code);
 
+  public StructureDefinition fetchTypeDefinition(String typeName);
 
 }

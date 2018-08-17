@@ -1957,7 +1957,7 @@ public class SpreadsheetParser {
       if (definitions.getConstraints().containsKey(type))
         type = definitions.getConstraints().get(type).getBaseType();
     } else {
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
+      StructureDefinition sd = context.fetchTypeDefinition(type);
       if (sd != null) // not loaded yet?
         type = sd.getType();
       if (type.equals("SimpleQuantity"))

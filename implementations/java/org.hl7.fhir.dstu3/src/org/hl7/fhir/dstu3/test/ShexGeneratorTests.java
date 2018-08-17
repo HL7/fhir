@@ -24,7 +24,7 @@ public class ShexGeneratorTests {
       Path path = FileSystems.getDefault().getPath(workingDirectory, "validation-min.xml.zip");
       TestingUtilities.context = SimpleWorkerContext.fromPack(path.toString());
     }
-    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
+    StructureDefinition sd = TestingUtilities.context.fetchTypeDefinition(name);
     if(sd == null) {
       throw new FHIRException("StructuredDefinition for " + name + "was null");
     }

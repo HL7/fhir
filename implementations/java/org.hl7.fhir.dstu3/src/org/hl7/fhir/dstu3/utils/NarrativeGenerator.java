@@ -272,7 +272,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (p == null)
         p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
       if (p == null)
-        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
+        p = context.fetchTypeDefinition(r.getResourceType().toString().toLowerCase());
       if (p != null)
         return generateByProfile(r, p, true);
       else
@@ -415,7 +415,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     private boolean isPrimitive(String code) {
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      StructureDefinition sd = context.fetchTypeDefinition(code);
       return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
     }
 
@@ -669,7 +669,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
         for (Element e : children) {
           Element c = XMLUtil.getFirstChild(e);
-          list.add(new ResurceWrapperElement(c, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
+          list.add(new ResurceWrapperElement(c, context.fetchTypeDefinition(c.getNodeName())));
         }
       }
       return list;
@@ -1342,7 +1342,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof ElementDefinition) {
       x.tx("todo-bundle");
     } else if (e != null && !(e instanceof Attachment) && !(e instanceof Narrative) && !(e instanceof Meta)) {
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+e.fhirType());
+      StructureDefinition sd = context.fetchTypeDefinition(e.fhirType());
       if (sd == null)
         throw new NotImplementedException("type "+e.getClass().getName()+" not handled yet, and no structure found");
       else
@@ -3739,7 +3739,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      String[] parts = link.split("\\#");
 	      StructureDefinition p = context.fetchResource(StructureDefinition.class, parts[0]);
 	      if (p == null)
-	        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	        p = context.fetchTypeDefinition(parts[0]);
 	      if (p == null)
 	        p = context.fetchResource(StructureDefinition.class, link);
 	      if (p != null) {

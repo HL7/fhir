@@ -1039,5 +1039,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return logger;
   }
 
+  @Override
+  public StructureDefinition fetchTypeDefinition(String typeName) {
+    return fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+typeName);
+  }
+
   
 }

@@ -268,7 +268,7 @@ public class JsonParser extends ParserBase {
 			logError(line(res), col(res), npath, IssueType.INVALID, "Unable to find resourceType property", IssueSeverity.FATAL);
 		} else {
 			String name = rt.getAsString();
-			StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
+			StructureDefinition sd = context.fetchTypeDefinition(name);
 			if (sd == null)
 				throw new FHIRFormatError("Contained resource does not appear to be a FHIR resource (unknown name '"+name+"')");
 			parent.updateProperty(new Property(context, sd.getSnapshot().getElement().get(0), sd), SpecialElement.fromProperty(parent.getProperty()), elementProperty);

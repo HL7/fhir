@@ -946,7 +946,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (type.hasProfile() && !type.getCode().equals("Reference"))  
       sd = context.fetchResource(StructureDefinition.class, type.getProfile()); 
     if (sd == null)
-      sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type.getCode());
+      sd = context.fetchTypeDefinition(type.getCode());
     if (sd == null)
       System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
     return sd;
@@ -2620,7 +2620,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
   private boolean isDataType(String value) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+value);
+    StructureDefinition sd = context.fetchTypeDefinition(value);
     return sd != null && sd.getKind() == StructureDefinitionKind.COMPLEXTYPE;
   }
 
@@ -2629,7 +2629,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
   public boolean isPrimitive(String value) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+value);
+    StructureDefinition sd = context.fetchTypeDefinition(value);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 
@@ -2844,12 +2844,12 @@ public class ProfileUtilities extends TranslatingUtilities {
           else
           ccmp = new ElementDefinitionComparer(true, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
         } else if (ed.getType().size() == 1 && !ed.getType().get(0).getCode().equals("*")) {
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode());
+          StructureDefinition profile = context.fetchTypeDefinition(ed.getType().get(0).getCode());
           if (profile==null)
             throw new FHIRException("Unable to resolve profile " + "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode() + " in element " + ed.getPath());
           ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), ed.getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
         } else if (child.getSelf().getType().size() == 1) {
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+child.getSelf().getType().get(0).getCode());
+          StructureDefinition profile = context.fetchTypeDefinition(child.getSelf().getType().get(0).getCode());
           if (profile==null)
             throw new FHIRException("Unable to resolve profile " + "http://hl7.org/fhir/StructureDefinition/"+ed.getType().get(0).getCode() + " in element " + ed.getPath());
           ccmp = new ElementDefinitionComparer(false, profile.getSnapshot().getElement(), child.getSelf().getType().get(0).getCode(), child.getSelf().getPath().length(), cmp.name);
@@ -2857,7 +2857,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           String edLastNode = ed.getPath().replaceAll("(.*\\.)*(.*)", "$2");
           String childLastNode = child.getSelf().getPath().replaceAll("(.*\\.)*(.*)", "$2");
           String p = childLastNode.substring(edLastNode.length()-3);
-          StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+p);
+          StructureDefinition sd = context.fetchTypeDefinition(p);
           if (sd == null)
             throw new Error("Unable to find profile "+p);
           ccmp = new ElementDefinitionComparer(false, sd.getSnapshot().getElement(), p, child.getSelf().getPath().length(), cmp.name);

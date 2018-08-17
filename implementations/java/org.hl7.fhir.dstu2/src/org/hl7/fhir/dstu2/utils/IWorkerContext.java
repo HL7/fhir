@@ -289,5 +289,6 @@ public interface IWorkerContext {
 
   public List<StructureDefinition> allStructures();
 
+  public StructureDefinition fetchTypeDefinition(String typeName);
 
 }

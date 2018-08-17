@@ -318,7 +318,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
         for (Element e : children) {
           Element c = XMLUtil.getFirstChild(e);
-          list.add(new ResurceWrapperElement(c, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
+          list.add(new ResurceWrapperElement(c, context.fetchTypeDefinition(c.getNodeName())));
         }
       }
       return list;
@@ -580,7 +580,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (p == null)
         p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
       if (p == null)
-        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
+        p = context.fetchTypeDefinition(r.getResourceType().toString().toLowerCase());
       if (p != null)
         generateByProfile(r, p, true);
     }
@@ -2853,7 +2853,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      String[] parts = link.split("\\#");
 	      StructureDefinition p = context.fetchResource(StructureDefinition.class, parts[0]);
 	      if (p == null)
-	        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	        p = context.fetchTypeDefinition(parts[0]);
 	      if (p == null)
 	        p = context.fetchResource(StructureDefinition.class, link);
 	      if (p != null) {

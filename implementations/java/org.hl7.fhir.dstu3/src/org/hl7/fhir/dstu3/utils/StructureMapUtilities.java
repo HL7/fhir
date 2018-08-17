@@ -2498,7 +2498,7 @@ public class StructureMapUtilities {
     if (t.equals(code))
       return true;
     if (t.equals("string")) {
-      StructureDefinition sd = worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      StructureDefinition sd = worker.fetchTypeDefinition(code);
       if (sd != null && sd.getBaseDefinition().equals("http://hl7.org/fhir/StructureDefinition/string"))
         return true;
     }

@@ -243,7 +243,7 @@ public class VersionTransformMapBuilder {
     }
     String rt = "StructureDefinition";
     System.out.println(rt);
-    StructureDefinition sd = contextR4.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+rt);
+    StructureDefinition sd = contextR4.fetchTypeDefinition(rt);
     processComplexType(sd);
     
     System.out.println("All Done");
@@ -856,7 +856,7 @@ public class VersionTransformMapBuilder {
   }
 
   private ElementDefinition getDefinition(SimpleWorkerContext ctxt, String type, String path, boolean canBePolyMorphic, Node n) {
-    StructureDefinition sd = ctxt.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
+    StructureDefinition sd = ctxt.fetchTypeDefinition(type);
     if (sd == null)
       throw new Error("Unable to find type "+type);
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {

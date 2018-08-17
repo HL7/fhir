@@ -328,7 +328,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (p == null)
         p = context.fetchResource(StructureDefinition.class, r.getResourceType().toString());
       if (p == null)
-        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+r.getResourceType().toString().toLowerCase());
+        p = context.fetchTypeDefinition(r.getResourceType().toString().toLowerCase());
       if (p != null)
         return generateByProfile(rcontext, p, true);
       else
@@ -464,7 +464,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
 
     private boolean isPrimitive(String code) {
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+      StructureDefinition sd = context.fetchTypeDefinition(code);
       return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
     }
 
@@ -717,7 +717,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         list = new ArrayList<NarrativeGenerator.ResourceWrapper>();
         for (Element e : children) {
           Element c = XMLUtil.getFirstChild(e);
-          list.add(new ResourceWrapperElement(c, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+c.getNodeName())));
+          list.add(new ResourceWrapperElement(c, context.fetchTypeDefinition(c.getNodeName())));
         }
       }
       return list;
@@ -1417,7 +1417,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (e instanceof ElementDefinition) {
       x.tx("todo-bundle");
     } else if (e != null && !(e instanceof Attachment) && !(e instanceof Narrative) && !(e instanceof Meta)) {
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+e.fhirType());
+      StructureDefinition sd = context.fetchTypeDefinition(e.fhirType());
       if (sd == null)
         throw new NotImplementedException("type "+e.getClass().getName()+" not handled yet, and no structure found");
       else
@@ -1917,7 +1917,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean isCanonical(String path) {
     if (!path.endsWith(".url")) 
       return false;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+path.substring(0, path.length()-4));
+    StructureDefinition sd = context.fetchTypeDefinition(path.substring(0, path.length()-4));
     if (sd == null)
       return false;
     return sd.getBaseDefinitionElement().hasExtension("http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super");
@@ -4038,10 +4038,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
 		XhtmlNode tr;
       tr = tbl.tr();
       tr.td().addText(p.getUse().toString());
-		tr.td().addText(path+p.getName());
+      tr.td().addText(path+p.getName());
       tr.td().addText(Integer.toString(p.getMin())+".."+p.getMax());
-      tr.td().addText(p.hasType() ? p.getType() : "");
       XhtmlNode td = tr.td();
+      StructureDefinition sd = context.fetchTypeDefinition(p.getType());
+      if (sd != null)
+        td.ah(sd.getUserString("path")).tx(p.hasType() ? p.getType() : "");
+      else
+        td.tx(p.hasType() ? p.getType() : "");
+      if (p.hasSearchType()) {
+        td.br();
+        td.tx("(");
+        td.ah(Utilities.pathURL(corePath, "search.html#"+p.getSearchType().toCode())).tx(p.getSearchType().toCode());       
+        td.tx(")");
+      }
+      td = tr.td();
       if (p.hasBinding() && p.getBinding().hasValueSet()) {
         AddVsRef(rcontext, p.getBinding().getValueSet(), td);
         td.tx(" ("+p.getBinding().getStrength().getDisplay()+")");
@@ -4065,7 +4076,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      String[] parts = link.split("\\#");
 	      StructureDefinition p = context.fetchResource(StructureDefinition.class, parts[0]);
 	      if (p == null)
-	        p = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
+	        p = context.fetchTypeDefinition(parts[0]);
 	      if (p == null)
 	        p = context.fetchResource(StructureDefinition.class, link);
 	      if (p != null) {

@@ -675,7 +675,7 @@ public class QuestionnaireBuilder {
 
   private boolean isPrimitive(TypeRefComponent t) {
     String code = t.getCode();
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    StructureDefinition sd = context.fetchTypeDefinition(code);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 

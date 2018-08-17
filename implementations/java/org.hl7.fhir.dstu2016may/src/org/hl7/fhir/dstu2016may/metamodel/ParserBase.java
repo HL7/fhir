@@ -142,7 +142,7 @@ public abstract class ParserBase {
 				}
 			}
 			if (!"xhtml".equals(t)) {
-				sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t);
+				sd = context.fetchTypeDefinition(t);
 				if (sd == null)
 					throw new DefinitionException("Unable to find class '"+t+"' for name '"+elementName+"' on property "+property.getDefinition().getPath());
 				children = ProfileUtilities.getChildMap(sd, sd.getSnapshot().getElement().get(0));

@@ -1080,7 +1080,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         System.out.println("Failed to find referenced profile: " + type.getProfile());
     }
     if (sd == null)
-      sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type.getCode());
+      sd = context.fetchTypeDefinition(type.getCode());
     if (sd == null)
       System.out.println("XX: failed to find profle for type: " + type.getCode()); // debug GJM
     return sd;
@@ -2794,13 +2794,13 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
   private boolean isDataType(String value) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+value);
+    StructureDefinition sd = context.fetchTypeDefinition(value);
     return sd != null && sd.getKind() == StructureDefinitionKind.COMPLEXTYPE;
   }
 
 
   public boolean isPrimitive(String value) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+value);
+    StructureDefinition sd = context.fetchTypeDefinition(value);
     return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
   }
 
@@ -3952,7 +3952,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (!epath.contains("."))
       return null;
     String type = epath.substring(0, epath.indexOf("."));
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
+    StructureDefinition sd = context.fetchTypeDefinition(type);
     if (sd == null)
       return null;
     ElementDefinition ed = null;

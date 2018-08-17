@@ -33,6 +33,7 @@ import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander.ValueSetExpansion
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient;
+import org.hl7.fhir.dstu2016may.model.StructureDefinition;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -412,6 +413,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
   public Set<String> getNonSupportedCodeSystems() {
     return nonSupportedCodeSystems;
+  }
+
+  @Override
+  public StructureDefinition fetchTypeDefinition(String typeName) {
+    return fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+typeName);
   }
 
   

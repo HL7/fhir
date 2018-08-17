@@ -261,7 +261,7 @@ public class ExpressionNode {
         if (types.contains(t))
           return true;
       for (String t: tn) {
-        StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t);
+        StructureDefinition sd = context.fetchTypeDefinition(t);
         while (sd != null) {
           if (types.contains(sd.getId()))
             return true;

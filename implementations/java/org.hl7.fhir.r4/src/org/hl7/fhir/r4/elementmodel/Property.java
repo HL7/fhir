@@ -141,7 +141,7 @@ public class Property {
 	public boolean isPrimitive(String code) {
 	  return TypesUtilities.isPrimitive(code);
 	 // was this... but this can be very inefficient compared to hard coding the list
-//		StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+//		StructureDefinition sd = context.fetchTypeDefinition(code);
 //      return sd != null && sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE;
 	}
 
