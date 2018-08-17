@@ -2704,10 +2704,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         throw new Exception("Cannot run in watch mode when IG has a nested IG.");
       }
       String childConfig = configuration.get("nestedIgConfig").getAsString();
-      if (!configuration.has("nestedIgOutput")) {
-        throw new Exception("If nestedIgConfig is specified, then nestedIgOutput must also be specified.");
+      if (!configuration.has("nestedIgOutput") || !configuration.has("igArtifactsPage")) {
+        throw new Exception("If nestedIgConfig is specified, then nestedIgOutput and igArtifactsPage must also be specified.");
       }
       childOutput = configuration.get("nestedIgOutput").getAsString();
+      String igArtifactsPage = configuration.get("igArtifactsPage").getAsString();
       inspector.setAltRootFolder(childOutput);
       log("");
       log("**************************");
@@ -2729,6 +2730,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         log("Publishing Child IG Failed: " + childConfig);
         throw e;
       }
+      createToc(childPublisher.getSourceIg().getDefinition().getPage(), igArtifactsPage, childOutput);
     }
     
     if (runTool()) {
@@ -3535,14 +3537,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
+    
   private void createToc() throws IOException, FHIRException {
+    createToc(null, null, null);
+  }
+  
+  private void createToc(ImplementationGuideDefinitionPageComponent insertPage, String insertAfterName, String insertOffset) throws IOException, FHIRException {
     String s = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><div style=\"col-12\"><table style=\"border:0px;font-size:11px;font-family:verdana;vertical-align:top;\" cellpadding=\"0\" border=\"0\" cellspacing=\"0\"><tbody>";
-    s = s + createTocPage(sourceIg.getDefinition().getPage(), "", "0", false);
+    s = s + createTocPage(sourceIg.getDefinition().getPage(), insertPage, insertAfterName, insertOffset, null, "", "0", false);
     s = s + "</tbody></table></div>";
     TextFile.stringToFile(s, Utilities.path(tempDir, "_includes", "toc.xml"));
   }
 
-  private String createTocPage(ImplementationGuideDefinitionPageComponent page, String indents, String label, boolean last) throws FHIRException {
+  private String createTocPage(ImplementationGuideDefinitionPageComponent page, ImplementationGuideDefinitionPageComponent insertPage, String insertAfterName, String insertOffset, String currentOffset, String indents, String label, boolean last) throws FHIRException {
     String s = "<tr style=\"border:0px;padding:0px;vertical-align:top;background-color:white;\">";
     s = s + "<td style=\"vertical-align:top;text-align:left;background-color:white;padding:0px 4px 0px 4px;white-space:nowrap;background-image:url(tbl_bck0.png)\" class=\"hierarchy\">";
     s = s + "<img style=\"background-color:inherit\" alt=\".\" class=\"hierarchy\" src=\"tbl_spacer.png\"/>";
@@ -3554,7 +3561,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         s = s + "<img style=\"background-color:inherit\" alt=\".\" class=\"hierarchy\" src=\"tbl_vjoin.png\"/>";
     }
     s = s + "<img style=\"background-color:white;background-color:inherit\" alt=\".\" class=\"hierarchy\" src=\"icon_page.gif\"/>";
-    s = s + "<a title=\"" + Utilities.escapeXml(page.getTitle()) + "\" href=\"" + page.getNameUrlType().getValue() +"\">" + label + " " + Utilities.escapeXml(page.getTitle()) + "</a></td></tr>";
+    s = s + "<a title=\"" + Utilities.escapeXml(page.getTitle()) + "\" href=\"" + (currentOffset!=null ? currentOffset + "/" : "") + page.getNameUrlType().getValue() +"\">" + label + " " + Utilities.escapeXml(page.getTitle()) + "</a></td></tr>";
 
     int total = page.getPage().size();
     int i = 1;
@@ -3566,8 +3573,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         else
           newIndents = newIndents + "<img style=\"background-color:inherit\" alt=\".\" class=\"hierarchy\" src=\"tbl_vline.png\"/>";
       }
-      s = s + createTocPage(childPage, newIndents, (label.equals("0") ? "" : label+".") + Integer.toString(i), i==total);
+      if (insertAfterName!=null && childPage.getNameUrlType().getValue().equals(insertAfterName)) {
+        total++;
+      }
+      
+      s = s + createTocPage(childPage, insertPage, insertAfterName, insertOffset, currentOffset, newIndents, (label.equals("0") ? "" : label+".") + Integer.toString(i), i==total);
       i++;
+      if (insertAfterName!=null && childPage.getNameUrlType().getValue().equals(insertAfterName)) {
+        s = s + createTocPage(insertPage, null, null, "", insertOffset, newIndents, (label.equals("0") ? "" : label+".") + Integer.toString(i), i==total);
+        i++;
+      }
     }
     return s;
   }
@@ -4900,5 +4915,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   public List<FetchedFile> getFileList() {
     return fileList;
+  }
+
+  public ImplementationGuide getSourceIg() {
+    return sourceIg;
   }
 }
