@@ -4021,7 +4021,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       XmlXHtmlRenderer x = new XmlXHtmlRenderer();
       org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
       xp.setLinkResolver(igpkp);
-//      xp.setShowDecorations(true);
+      xp.setShowDecorations(false);
       xp.compose(r.getElement(), x);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-xml-html", x.toString(), f.getOutputNames(), r, vars, "xml");
     }

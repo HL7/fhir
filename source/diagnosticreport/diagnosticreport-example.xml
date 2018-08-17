@@ -255,7 +255,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -301,7 +301,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -351,7 +351,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 						<code value="H"/>
 					</coding>
 				</interpretation>
@@ -519,7 +519,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 						<code value="LL"/>
 					</coding>
 				</interpretation>
@@ -599,7 +599,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 						<code value="L"/>
 					</coding>
 				</interpretation>
@@ -753,7 +753,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				</valueQuantity>
 				<interpretation>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+						<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 						<code value="HH"/>
 					</coding>
 				</interpretation>

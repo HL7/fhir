@@ -45,7 +45,7 @@
         of an observation that has no value if it has "COMP" (component)
         observations   --><interpretation>
 		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 			<code value="L"/>
 			<display value="low"/>
 		</coding>
@@ -85,7 +85,7 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			<code value="mm[Hg]"/>
 		</valueQuantity><!--   an interpretation for the individual composite observation --><interpretation>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 				<code value="N"/>
 				<display value="normal"/>
 			</coding>
@@ -104,7 +104,7 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			<code value="mm[Hg]"/>
 		</valueQuantity><!--   an interpretation for the individual composite observation --><interpretation>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 				<code value="L"/>
 				<display value="low"/>
 			</coding>

@@ -3374,7 +3374,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               }
           }
           if (match) {
-            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition == null || ei.definition == slicer, "Profile " + profile.getUrl() + ", Element matches more than one slice - " + (ei.definition==null || !ei.definition.hasSliceName() ? "" : ei.definition.getSliceName()) + ", " + (ed.hasSliceName() ? ed.getSliceName() : ""))) {
+            boolean isOk = ei.definition == null || ei.definition == slicer;
+            if (rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, isOk, "Profile " + profile.getUrl() + ", Element matches more than one slice - " + (ei.definition==null || !ei.definition.hasSliceName() ? "" : ei.definition.getSliceName()) + ", " + (ed.hasSliceName() ? ed.getSliceName() : ""))) {
               ei.definition = ed;
               if (ei.slice == null) {
                 ei.index = i;

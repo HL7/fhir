@@ -33,7 +33,7 @@
 	</valueQuantity>
 	<interpretation>
 		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 			<code value="H"/>
 			<display value="High"/>
 		</coding>

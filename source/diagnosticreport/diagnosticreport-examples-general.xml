@@ -655,7 +655,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -866,7 +866,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -1241,7 +1241,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="LL"/>
 								</coding>
 							</interpretation>
@@ -1769,7 +1769,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -1857,7 +1857,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -1986,7 +1986,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -2033,7 +2033,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -2080,7 +2080,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -2127,7 +2127,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -2461,7 +2461,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="L"/>
 								</coding>
 							</interpretation>
@@ -3030,7 +3030,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -3159,7 +3159,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -3206,7 +3206,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -3253,7 +3253,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -3628,7 +3628,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="LL"/>
 								</coding>
 							</interpretation>
@@ -4196,7 +4196,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -4325,7 +4325,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -4372,7 +4372,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -4788,7 +4788,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="LL"/>
 								</coding>
 							</interpretation>
@@ -5394,7 +5394,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -5441,7 +5441,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -5488,7 +5488,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -5535,7 +5535,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -5582,7 +5582,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -5629,7 +5629,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -5963,7 +5963,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -6488,7 +6488,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -6535,7 +6535,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -6582,7 +6582,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -6629,7 +6629,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -6676,7 +6676,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -6723,7 +6723,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -6770,7 +6770,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -7104,7 +7104,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -7629,7 +7629,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -7676,7 +7676,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -7723,7 +7723,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -7770,7 +7770,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -7817,7 +7817,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -7864,7 +7864,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -8198,7 +8198,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -8245,7 +8245,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -8773,7 +8773,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -8984,7 +8984,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -9358,7 +9358,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="LL"/>
 								</coding>
 							</interpretation>
@@ -9845,7 +9845,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -9933,7 +9933,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -10062,7 +10062,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -10109,7 +10109,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -10156,7 +10156,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -10203,7 +10203,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -10537,7 +10537,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="L"/>
 								</coding>
 							</interpretation>
@@ -11106,7 +11106,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -11235,7 +11235,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -11282,7 +11282,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -11329,7 +11329,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -11704,7 +11704,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="LL"/>
 								</coding>
 							</interpretation>
@@ -12272,7 +12272,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -12401,7 +12401,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -12448,7 +12448,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -12864,7 +12864,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="LL"/>
 								</coding>
 							</interpretation>
@@ -13470,7 +13470,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -13517,7 +13517,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -13564,7 +13564,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -13611,7 +13611,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -13658,7 +13658,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -13705,7 +13705,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -14039,7 +14039,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -14564,7 +14564,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -14611,7 +14611,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -14658,7 +14658,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -14705,7 +14705,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -14752,7 +14752,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -14799,7 +14799,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -14846,7 +14846,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -15180,7 +15180,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -15705,7 +15705,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -15752,7 +15752,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -15799,7 +15799,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -15846,7 +15846,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -15893,7 +15893,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -15940,7 +15940,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="HH"/>
 								</coding>
 							</interpretation>
@@ -16274,7 +16274,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -16321,7 +16321,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="H"/>
 								</coding>
 							</interpretation>
@@ -16556,7 +16556,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16589,7 +16589,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="R"/>
 								</coding>
 							</interpretation>
@@ -16623,7 +16623,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16657,7 +16657,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16691,7 +16691,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16725,7 +16725,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16759,7 +16759,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16793,7 +16793,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16827,7 +16827,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16861,7 +16861,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16895,7 +16895,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16929,7 +16929,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16962,7 +16962,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -16996,7 +16996,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -17030,7 +17030,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
@@ -17064,7 +17064,7 @@
 							</valueQuantity>
 							<interpretation>
 								<coding>
-									<system value="http://terminology.hl7.org/CodeSystem/v2-0078"/>
+									<system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
 									<code value="S"/>
 								</coding>
 							</interpretation>
