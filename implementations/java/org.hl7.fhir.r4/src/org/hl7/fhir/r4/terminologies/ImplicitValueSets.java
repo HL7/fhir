@@ -39,6 +39,7 @@ public class ImplicitValueSets {
       vs.setName("LoincVSAll");
       vs.setTitle("Loinc Implicit ValueSet : all codes");
       // todo: populate the compose for the terminology server
+      return vs;   
     } else {
       return null;
     }
