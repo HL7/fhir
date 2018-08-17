@@ -2082,7 +2082,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
     if (list.isEmpty()) 
-      throw new FHIRException((diff ? "Differential" : "Snapshot") + " is empty generating heirarchical table for "+profile.getUrl());
+      throw new FHIRException((diff ? "Differential" : "Snapshot") + " is empty generating hierarchical table for "+profile.getUrl());
     genElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list), allInvariants);
     try {
       return gen.generate(model, imagePath, 0, outputTracker);
