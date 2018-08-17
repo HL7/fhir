@@ -362,13 +362,13 @@ public class HTLMLInspector {
           page = filename;
         } else if (page.contains("#")) {
           name = page.substring(page.indexOf("#")+1);
-          if (filename.startsWith(altRootFolder))
+          if (altRootFolder != null && filename.startsWith(altRootFolder))
             page = Utilities.path(altRootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
           else
             page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
         } else {
           String folder = Utilities.getDirectoryForFile(filename);
-          page = Utilities.path(folder == null ? (filename.startsWith(altRootFolder)? altRootFolder : rootFolder) : folder, page.replace("/", File.separator));
+          page = Utilities.path(folder == null ? (altRootFolder != null && filename.startsWith(altRootFolder) ? altRootFolder : rootFolder) : folder, page.replace("/", File.separator));
         }
         LoadedFile f = cache.get(page);
         if (f != null) {

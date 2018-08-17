@@ -4182,7 +4182,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       try {
         fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(otherFilesRun), f.getOutputNames(), r, vars, null);
       } catch (Exception e) {
-        fragmentError(vs.getId()+"-cld", e.getMessage(), f.getOutputNames());
+        fragmentError(vs.getId()+"-cld", e.getMessage(), null, f.getOutputNames());
       }
 
     if (igpkp.wantGen(r, "xref"))
@@ -4201,15 +4201,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         String html = new XhtmlComposer(XhtmlComposer.XML).compose(exp.getValueset().getText().getDiv());
         fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames(), r, vars, null);
         
-      } else if (exp.getError() != null)
-        fragmentError("ValueSet-"+vs.getId()+"-expansion", exp.getError(), f.getOutputNames());
-      else
-        fragmentError("ValueSet-"+vs.getId()+"-expansion", "Unknown Error", f.getOutputNames());
+      } else {
+        if (exp.getError() != null) { 
+          fragmentError("ValueSet-"+vs.getId()+"-expansion", "No Expansion for this valueset (not supported by Publication Tooling)", "Publication Tooling Error: "+exp.getError(), f.getOutputNames());
+          f.getErrors().add(new ValidationMessage(Source.TerminologyEngine, IssueType.EXCEPTION, vs.getId(), exp.getError(), IssueSeverity.ERROR));
+        } else {
+          fragmentError("ValueSet-"+vs.getId()+"-expansion", "No Expansion for this valueset (not supported by Publication Tooling)", "Unknown Error", f.getOutputNames());
+          f.getErrors().add(new ValidationMessage(Source.TerminologyEngine, IssueType.EXCEPTION, vs.getId(), "Unknown Error expanding ValueSet", IssueSeverity.ERROR));
+        }
+      }
     }
   }
 
-  private void fragmentError(String name, String error, Set<String> outputTracker) throws IOException, FHIRException {
-    fragment(name, "<p style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</p>\r\n", outputTracker);
+  private void fragmentError(String name, String error, String overlay, Set<String> outputTracker) throws IOException, FHIRException {
+    if (Utilities.noString(overlay))
+      fragment(name, "<p><span style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
+    else
+      fragment(name, "<p><span style=\"color: maroon; font-weight: bold\" title=\""+overlay+"\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
   }
 
   /**
@@ -4222,11 +4230,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
    */
   private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm, Map<String, String> vars) throws IOException, FHIRException {
     if (igpkp.wantGen(r, "summary"))
-      fragmentError("ConceptMap-"+cm.getId()+"-summary", "yet to be done: concept map summary", f.getOutputNames());
+      fragmentError("ConceptMap-"+cm.getId()+"-summary", "yet to be done: concept map summary", null, f.getOutputNames());
     if (igpkp.wantGen(r, "content"))
-      fragmentError("ConceptMap-"+cm.getId()+"-content", "yet to be done: table presentation of the concept map", f.getOutputNames());
+      fragmentError("ConceptMap-"+cm.getId()+"-content", "yet to be done: table presentation of the concept map", null, f.getOutputNames());
     if (igpkp.wantGen(r, "xref"))
-      fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", f.getOutputNames());
+      fragmentError("ConceptMap-"+cm.getId()+"-xref", "yet to be done: list of all places where concept map is used", null, f.getOutputNames());
   }
 
   private void generateOutputsCapabilityStatement(FetchedFile f, FetchedResource r, CapabilityStatement cpbs, Map<String, String> vars) throws Exception {
@@ -4248,7 +4256,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     boolean includeHeadings = !configuration.has("includeHeadings") || configuration.get("includeHeadings").getAsBoolean();
     // todo : generate shex itself
     if (igpkp.wantGen(r, "shex"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", null, f.getOutputNames());
 
     // todo : generate json schema itself. JSON Schema generator
 //    if (igpkp.wantGen(r, ".schema.json")) {
@@ -4257,7 +4265,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 //      new ProfileUtilities(context, errors, igpkp).generateSchematrons(new FileOutputStream(path), sd);
 //    }
     if (igpkp.wantGen(r, "json-schema"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-json-schema", "yet to be done: json schema as html", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-json-schema", "yet to be done: json schema as html", null, f.getOutputNames());
 
     StructureDefinitionRenderer sdr = new StructureDefinitionRenderer(context, checkAppendSlash(specPath), sd, Utilities.path(tempDir), igpkp, specMaps, markdownEngine);
     if (igpkp.wantGen(r, "summary"))
@@ -4271,13 +4279,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "grid"))
       fragment("StructureDefinition-"+sd.getId()+"-grid", sdr.grid(igpkp.getDefinitionsName(r), otherFilesRun), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "pseudo-xml"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", null, f.getOutputNames());
     if (igpkp.wantGen(r, "pseudo-json"))
       fragment("StructureDefinition-"+sd.getId()+"-pseudo-json", sdr.pseudoJson(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "pseudo-ttl"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-ttl", "yet to be done: Turtle template", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-ttl", "yet to be done: Turtle template", null, f.getOutputNames());
     if (igpkp.wantGen(r, "uml"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-uml", "yet to be done: UML as SVG", null, f.getOutputNames());
     if (igpkp.wantGen(r, "tx"))
       fragment("StructureDefinition-"+sd.getId()+"-tx", sdr.tx(includeHeadings), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "inv"))
@@ -4291,7 +4299,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "maps"))
       fragment("StructureDefinition-"+sd.getId()+"-maps-all", sdr.mappings(true), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "xref"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", null, f.getOutputNames());
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "span"))
       fragment("StructureDefinition-"+sd.getId()+"-span", sdr.span(true, igpkp.getCanonical(), otherFilesRun), f.getOutputNames(), r, vars, null);
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "spanall"))
@@ -4328,7 +4336,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       npm.addFile(Category.SCHEMATRON, r.getId()+".sch", IOUtils.toByteArray(Utilities.path(tempDir, r.getId()+".sch")));
     }
     if (igpkp.wantGen(r, "sch"))
-      fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", f.getOutputNames());
+      fragmentError("StructureDefinition-"+sd.getId()+"-sch", "yet to be done: schematron as html", null, f.getOutputNames());
   }
 
   private String checkAppendSlash(String s) {

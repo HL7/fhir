@@ -273,6 +273,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String definitionsTarget;
   private String corePath;
   private String destDir;
+  private String snomedEdition;
   private ProfileKnowledgeProvider pkp;
   private MarkDownProcessor markdown = new MarkDownProcessor(Dialect.COMMON_MARK);
   private ITypeParser parser; // when generating for an element model
@@ -2769,7 +2770,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private boolean isSource(ValueSet vs, Type source) {
-    return vs.getUrl().equals(source.primitiveValue());
+    return vs.hasUrl() && vs.getUrl().equals(source.primitiveValue());
   }
 
   private Integer countMembership(ValueSet vs) {
@@ -3258,7 +3259,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (isAbstract)
         td.i().setAttribute("title", ABSTRACT_CODE_HINT).addText(code);
       else if ("http://snomed.info/sct".equals(system)) {
-        td.ah("http://browser.ihtsdotools.org/?perspective=full&conceptId1="+code).addText(code);
+        td.ah(sctLink(code)).addText(code);
       } else if ("http://loinc.org".equals(system)) {
           td.ah("http://details.loinc.org/LOINC/"+code+".html").addText(code);
       } else        
@@ -3274,6 +3275,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
       else
         td.ah(href).addText(code);
     }
+  }
+
+  public String sctLink(String code) {
+//    if (snomedEdition != null)
+//      http://browser.ihtsdotools.org/?perspective=full&conceptId1=428041000124106&edition=us-edition&release=v20180301&server=https://prod-browser-exten.ihtsdotools.org/api/snomed&langRefset=900000000000509007
+    return "http://browser.ihtsdotools.org/?perspective=full&conceptId1="+code;
   }
 
   private class TargetElementComponentWrapper {
@@ -4622,8 +4629,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return pretty;
   }
 
-  public void setPretty(boolean pretty) {
+  public NarrativeGenerator setPretty(boolean pretty) {
     this.pretty = pretty;
+    return this;
   }
 
   public boolean isCanonicalUrlsAsLinks() {
@@ -4633,6 +4641,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
   @Override
   public void setCanonicalUrlsAsLinks(boolean canonicalUrlsAsLinks) {
     this.canonicalUrlsAsLinks = canonicalUrlsAsLinks;
+  }
+
+  public String getSnomedEdition() {
+    return snomedEdition;
+  }
+
+  public NarrativeGenerator setSnomedEdition(String snomedEdition) {
+    this.snomedEdition = snomedEdition;
+    return this;
   }
 
   

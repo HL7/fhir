@@ -407,6 +407,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (vs.hasExpansion()) {
       return new ValueSetExpansionOutcome(vs.copy());
     }
+    if (!vs.hasUrl())
+      throw new Error("no value set");
+    
       CacheToken cacheToken = txCache.generateExpandToken(vs, heirarchical);
       ValueSetExpansionOutcome res;
       if (cacheOk) {
@@ -421,6 +424,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       try {
         ValueSetExpanderSimple vse = new ValueSetExpanderSimple(this);
         res = vse.doExpand(vs, p);
+        if (!res.getValueset().hasUrl())
+          throw new Error("no url in expand value set");
         txCache.cacheExpansion(cacheToken, res, TerminologyCache.TRANSIENT);
         return res;
       } catch (Exception e) {
@@ -435,6 +440,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       tlog("$expand on "+txCache.summary(vs));
       try {
         ValueSet result = txServer.expandValueset(vs, p, params);
+        if (!result.hasUrl())
+          result.setUrl(vs.getUrl());
+        if (!result.hasUrl())
+          throw new Error("no url in expand value set 2");
         res = new ValueSetExpansionOutcome(result);  
       } catch (Exception e) {
         res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
