@@ -6939,7 +6939,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Codes representing the current status of the device - on, off, suspended, etc.</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">#device-status</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">#device-definition-status</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -9726,9 +9726,9 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="device-status">
+ <Worksheet ss:Name="device-definition-status">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='device-status'!R1C1:R1C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='device-definition-status'!R1C1:R1C9"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" ss:StyleID="s174" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s174" ss:Width="133.0"/>
