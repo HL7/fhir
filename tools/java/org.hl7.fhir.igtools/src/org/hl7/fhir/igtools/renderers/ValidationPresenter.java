@@ -32,15 +32,16 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private static final String INTERNAL_LINK = "internal";
   private String statedVersion;
   private IGKnowledgeProvider provider;
+  private IGKnowledgeProvider altProvider;
   int err = 0;
   int warn = 0;
   int info = 0;
 
-  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider) {
+  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider, IGKnowledgeProvider altProvider) {
     super();
     this.statedVersion = statedVersion;
     this.provider = provider;
-
+    this.altProvider = altProvider;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -371,7 +372,11 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("link", makelink(f));
     t.add("filename", f.getName());
     t.add("path", f.getPath());
-    t.add("xlink", provider.getLinkFor(f.getResources().get(0)));
+    String link = provider.getLinkFor(f.getResources().get(0));
+    if (link==null) {
+      link = altProvider.getLinkFor(f.getResources().get(0));
+    }
+    t.add("xlink", link);
     return t.render();
   }
   private String genStartInternal() {

@@ -122,6 +122,7 @@ public class HTLMLInspector {
 
   private boolean strict;
   private String rootFolder;
+  private String altRootFolder;
   private List<SpecMapManager> specs;
   private Map<String, LoadedFile> cache = new HashMap<String, LoadedFile>();
   private int iteration = 0;
@@ -136,6 +137,10 @@ public class HTLMLInspector {
     this.log = log;
   }
 
+  public void setAltRootFolder(String altRootFolder) throws IOException {
+    this.altRootFolder = Utilities.path(rootFolder, altRootFolder.replace("/", File.separator));
+  }
+  
   public List<ValidationMessage> check() throws IOException {
     iteration ++;
 
@@ -357,10 +362,13 @@ public class HTLMLInspector {
           page = filename;
         } else if (page.contains("#")) {
           name = page.substring(page.indexOf("#")+1);
-          page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
+          if (filename.startsWith(altRootFolder))
+            page = Utilities.path(altRootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
+          else
+            page = Utilities.path(rootFolder, page.substring(0, page.indexOf("#")).replace("/", File.separator));
         } else {
           String folder = Utilities.getDirectoryForFile(filename);
-          page = Utilities.path(folder == null ? rootFolder : folder, page.replace("/", File.separator));
+          page = Utilities.path(folder == null ? (filename.startsWith(altRootFolder)? altRootFolder : rootFolder) : folder, page.replace("/", File.separator));
         }
         LoadedFile f = cache.get(page);
         if (f != null) {

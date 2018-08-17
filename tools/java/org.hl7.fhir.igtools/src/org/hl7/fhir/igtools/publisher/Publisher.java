@@ -366,8 +366,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String igPack = "";
   private boolean watch;
   private boolean debug;
+  private boolean isChild;
   private boolean cacheVersion;
 
+  private Publisher childPublisher = null;
+  private String childOutput = "";
   private GenerationTool tool;
 
   private List<String> resourceDirs = new ArrayList<String>();
@@ -513,7 +516,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           generate();
           clean();
           long endTime = System.nanoTime();
-          ValidationPresenter val = new ValidationPresenter(version, igpkp);
+          ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp());
           log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
           recordOutcome(null, val);
         }
@@ -544,8 +547,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generate();
     long endTime = System.nanoTime();
     clean();
-    ValidationPresenter val = new ValidationPresenter(version, igpkp);
-    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+    ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp());
+    if (isChild()) {
+      log("Finished. "+presentDuration(endTime - startTime));      
+    } else {
+      log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+    }
     log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
     recordOutcome(null, val);
   }
@@ -966,6 +973,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igName = Utilities.path(resourceDirs.get(0), str(configuration, "source", "ig.xml"));
 
     inspector = new HTLMLInspector(outputDir, specMaps, this);
+    inspector.getManual().add(Utilities.path(outputDir, "full-ig.zip"));
     historyPage = ostr(paths, "history");
     if (historyPage != null)
       inspector.getManual().add(historyPage);
@@ -1587,7 +1595,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private boolean needFile(String s) {
-    if (s.endsWith(".css"))
+    if (s.endsWith(".css") && !isChild())
       return true;
     if (s.startsWith("tbl"))
       return true;
@@ -1595,6 +1603,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       return true;
     if (Utilities.existsInList(s, "modifier.png", "mustsupport.png", "summary.png", "lock.png", "external.png", "cc0.png", "target.png", "link.svg"))
       return true;
+    
     return false;
   }
 
@@ -2689,6 +2698,39 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     cleanOutput(tempDir);
     
     templateAfterGenerate();
+    
+    if (configuration.has("nestedIgConfig")) {
+      if (watch) {
+        throw new Exception("Cannot run in watch mode when IG has a nested IG.");
+      }
+      String childConfig = configuration.get("nestedIgConfig").getAsString();
+      if (!configuration.has("nestedIgOutput")) {
+        throw new Exception("If nestedIgConfig is specified, then nestedIgOutput must also be specified.");
+      }
+      childOutput = configuration.get("nestedIgOutput").getAsString();
+      inspector.setAltRootFolder(childOutput);
+      log("");
+      log("**************************");
+      log("Processing nested IG: " + childConfig);
+      childPublisher = new Publisher();
+      childPublisher.setConfigFile(Utilities.path(Utilities.getDirectoryForFile(this.getConfigFile()), childConfig));
+      childPublisher.setJekyllCommand(this.getJekyllCommand());
+      childPublisher.setTxServer(this.getTxServer());
+      childPublisher.setDebug(this.debug);
+      childPublisher.setCacheOption(this.getCacheOption());
+      childPublisher.setIsChild(true);
+      
+      try {
+        childPublisher.execute();
+        log("Done processing nested IG: " + childConfig);
+        log("**************************");
+        
+      } catch (Exception e) {
+        log("Publishing Child IG Failed: " + childConfig);
+        throw e;
+      }
+    }
+    
     if (runTool()) {
 
       if (!changeList.isEmpty()) {
@@ -2705,35 +2747,43 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         generateZips(df);
       }
     }
-    log("Checking Output HTML");
-    List<ValidationMessage> linkmsgs = inspector.check();
-    ValidationPresenter.filterMessages(linkmsgs, suppressedMessages, true);
-    int bl = 0;
-    int lf = 0;
-    for (ValidationMessage m : linkmsgs) {
-      if (m.getLevel() == IssueSeverity.ERROR) {
-        if (m.getType() == IssueType.NOTFOUND)
-          bl++;
-        else
-          lf++;
-      } else if (m.getLevel() == IssueSeverity.FATAL) {
-        throw new Exception(m.getMessage());
-      }
+    
+    if (childPublisher!=null) {
+      // Combine list of files so that the validation report will include everything
+      fileList.addAll(childPublisher.getFileList());
     }
-    log("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/(inspector.total() == 0 ? 1 : inspector.total()))+"%)");
-    log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
-    errors.addAll(linkmsgs);    
-    for (FetchedFile f : fileList)
-      ValidationPresenter.filterMessages(f.getErrors(), suppressedMessages, false);
-    log("Build final .zip");
-    if ("error".equals(ostr(configuration, "broken-links")) && linkmsgs.size() > 0)
-      throw new Error("Halting build because broken links have been found, and these are disallowed in the IG control file");
-    ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
-    zip.addFolder(outputDir, "site/", false);
-    zip.addFileSource("index.html", REDIRECT_SOURCE, false);
-    zip.close();
-    Utilities.copyFile(Utilities.path(tempDir, "full-ig.zip"), Utilities.path(outputDir, "full-ig.zip"));
-    log("Final .zip built");
+    
+    if (!isChild()) {
+      log("Checking Output HTML");
+      List<ValidationMessage> linkmsgs = inspector.check();
+      ValidationPresenter.filterMessages(linkmsgs, suppressedMessages, true);
+      int bl = 0;
+      int lf = 0;
+      for (ValidationMessage m : linkmsgs) {
+        if (m.getLevel() == IssueSeverity.ERROR) {
+          if (m.getType() == IssueType.NOTFOUND)
+            bl++;
+          else
+            lf++;
+        } else if (m.getLevel() == IssueSeverity.FATAL) {
+          throw new Exception(m.getMessage());
+        }
+      }
+      log("  ... "+Integer.toString(inspector.total())+" html "+checkPlural("file", inspector.total())+", "+Integer.toString(lf)+" "+checkPlural("page", lf)+" invalid xhtml ("+Integer.toString((lf*100)/(inspector.total() == 0 ? 1 : inspector.total()))+"%)");
+      log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
+      errors.addAll(linkmsgs);    
+      for (FetchedFile f : fileList)
+        ValidationPresenter.filterMessages(f.getErrors(), suppressedMessages, false);
+      log("Build final .zip");
+      if ("error".equals(ostr(configuration, "broken-links")) && linkmsgs.size() > 0)
+        throw new Error("Halting build because broken links have been found, and these are disallowed in the IG control file");
+      ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
+      zip.addFolder(outputDir, "site/", false);
+      zip.addFileSource("index.html", REDIRECT_SOURCE, false);
+      zip.close();
+      Utilities.copyFile(Utilities.path(tempDir, "full-ig.zip"), Utilities.path(outputDir, "full-ig.zip"));
+      log("Final .zip built");
+    }
   }
 
 
@@ -4398,6 +4448,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       txServer = s;
   }
 
+  String getTxServer() {
+    return txServer;
+  }
+
   private void setIgPack(String s) {
     if (!Utilities.noString(s))
       igPack = s;
@@ -4714,6 +4768,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
+  public String getJekyllCommand() {
+    return this.jekyllCommand;
+  }
+
+
 
   private static String determineActualIG(String ig) throws Exception {
     File f = new File(ig);
@@ -4815,5 +4874,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     this.webTxServer = webTxServer;
   }
 
+  public void setDebug(boolean theDebug) {
+    this.debug = theDebug;
+  }
+
+  public void setIsChild(boolean newIsChild) {
+    this.isChild = newIsChild;
+  }
   
+  public boolean isChild() {
+    return this.isChild;
+  }
+  
+  public IGKnowledgeProvider getIgpkp() {
+    return igpkp;
+  }
+
+  public List<FetchedFile> getFileList() {
+    return fileList;
+  }
 }
