@@ -1297,7 +1297,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (pi == null) {
       String url = getMasterSource();
       InputStream src = fetchFromSource("hl7.fhir.core-"+v, url);
-      pi = pcm.addPackageToCache("hl7.fhir.core", version, src);
+      pi = pcm.addPackageToCache("hl7.fhir.core", v, src);
     }
     if (v.equals("current")) {
       // currency of the current core package is a problem, since its not really version controlled.
@@ -4718,7 +4718,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private static String determineActualIG(String ig) throws Exception {
     File f = new File(ig);
     if (!f.exists())
-      throw new Exception("Unable to find the nominrated IG at "+f.getAbsolutePath());
+      throw new Exception("Unable to find the nominated IG at "+f.getAbsolutePath());
     if (f.isDirectory() && new File(Utilities.path(ig, "ig.json")).exists())
       return Utilities.path(ig, "ig.json");
     else

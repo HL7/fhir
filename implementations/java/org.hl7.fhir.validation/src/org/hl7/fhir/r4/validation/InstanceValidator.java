@@ -1052,8 +1052,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     StructureDefinition ex = context.fetchResource(StructureDefinition.class, url);
     sdTime = sdTime + (System.nanoTime() - t);
     if (ex == null) {
-      if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), "The extension " + url + " is unknown, and not allowed here"))
-        hint(errors, IssueType.STRUCTURE, element.line(), element.col(), path, isKnownExtension(url), "Unknown extension " + url);
+      if (!url.startsWith("http://hl7.org/fhir/4.0/StructureDefinition/extension-"))
+        if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, allowUnknownExtension(url), "The extension " + url + " is unknown, and not allowed here"))
+          hint(errors, IssueType.STRUCTURE, element.line(), element.col(), path, isKnownExtension(url), "Unknown extension " + url);
     } else {
       if (def.getIsModifier())
         rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", ex.getSnapshot().getElement().get(0).getIsModifier(),

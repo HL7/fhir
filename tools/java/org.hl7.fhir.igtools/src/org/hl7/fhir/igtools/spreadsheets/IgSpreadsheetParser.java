@@ -930,7 +930,7 @@ public class IgSpreadsheetParser {
     if (Utilities.noString(source))
       return null;
     if (e.getType().size() != 1)
-      throw new Exception("Unable to process "+column+" unless a single type is specified"+getLocation(row)+", column = "+column);
+      throw new Exception("Unable to process "+column+" unless a single type is specified @ "+getLocation(row)+", type = \""+e.typeSummary()+"\", column = "+column);
     String type = e.getType().get(0).getCode();
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
     if (sd != null && sd.hasBaseDefinition() && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)

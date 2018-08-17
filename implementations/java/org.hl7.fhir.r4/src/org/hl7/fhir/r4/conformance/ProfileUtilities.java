@@ -44,6 +44,7 @@ import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.PrimitiveType;
@@ -52,6 +53,7 @@ import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
@@ -3942,6 +3944,50 @@ public class ProfileUtilities extends TranslatingUtilities {
     case EXISTS: return t.getPath(); // determination of value vs. exists is based on whether there's only 2 slices - one with minOccurs=1 and other with maxOccur=0
     default: throw new FHIRException("Unable to represent "+t.getType().toCode()+":"+t.getPath()+" in R2");    
     }
+  }
+
+
+  public static StructureDefinition makeExtensionForVersionedURL(IWorkerContext context, String url) {
+    String epath = url.substring(54);
+    if (!epath.contains("."))
+      return null;
+    String type = epath.substring(0, epath.indexOf("."));
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type);
+    if (sd == null)
+      return null;
+    ElementDefinition ed = null;
+    for (ElementDefinition t : sd.getSnapshot().getElement()) {
+      if (t.getPath().equals(epath)) {
+        ed = t;
+        break;
+      }
+    }
+    if (ed == null)
+      return null;
+    if ("Element".equals(ed.typeSummary()) || "BackboneElement".equals(ed.typeSummary())) {
+      return null;
+    } else {
+      StructureDefinition template = context.fetchResource(StructureDefinition.class, "http://fhir-registry.smarthealthit.org/StructureDefinition/capabilities");
+      StructureDefinition ext = template.copy();
+      ext.setUrl(url);
+      ext.setId("extension-"+epath);
+      ext.setName("Extension-"+epath);
+      ext.setTitle("Extension for r4 "+epath);
+      ext.setStatus(sd.getStatus());
+      ext.setDate(sd.getDate());
+      ext.getContact().clear();
+      ext.getContact().addAll(sd.getContact());
+      ext.setFhirVersion(sd.getFhirVersion());
+      ext.setDescription(ed.getDefinition());
+      ext.getContext().clear();
+      ext.addContext().setType(ExtensionContextType.ELEMENT).setExpression(epath.substring(0, epath.lastIndexOf(".")));
+      ext.getDifferential().getElement().clear();
+      ext.getSnapshot().getElement().get(3).setFixed(new UriType(url));
+      ext.getSnapshot().getElement().set(4, ed.copy());
+      ext.getSnapshot().getElement().get(4).setPath("Extension.value"+Utilities.capitalize(ed.typeSummary()));
+      return ext;      
+    }
+
   }
 
 
