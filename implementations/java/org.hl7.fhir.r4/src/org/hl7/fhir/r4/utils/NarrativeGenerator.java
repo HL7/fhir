@@ -4049,7 +4049,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (p.hasSearchType()) {
         td.br();
         td.tx("(");
-        td.ah(Utilities.pathURL(corePath, "search.html#"+p.getSearchType().toCode())).tx(p.getSearchType().toCode());       
+        td.ah( corePath == null ? "search.html#"+p.getSearchType().toCode() : Utilities.pathURL(corePath, "search.html#"+p.getSearchType().toCode())).tx(p.getSearchType().toCode());       
         td.tx(")");
       }
       td = tr.td();

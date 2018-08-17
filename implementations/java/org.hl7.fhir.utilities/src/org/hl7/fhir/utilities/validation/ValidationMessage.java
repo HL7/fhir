@@ -48,6 +48,7 @@ public class ValidationMessage implements Comparator<ValidationMessage>, Compara
     Publisher, 
     Ontology, 
     ProfileComparer, 
+    TerminologyEngine,
     QuestionnaireResponseValidator
   }
 

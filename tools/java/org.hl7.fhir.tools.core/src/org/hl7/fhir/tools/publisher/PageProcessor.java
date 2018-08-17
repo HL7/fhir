@@ -6927,7 +6927,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(t);
       b.append("</a>");
       if (!Utilities.noString(st)) {
-        b.append("<br/>(<a href=\""+prefix+"search.html#");
+        b.append("<br/>(<a href=\""+(prefix == null ? "" : prefix)+"search.html#");
         b.append(st);
         b.append("\">");
         b.append(st);
