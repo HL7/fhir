@@ -1,4 +1,6 @@
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "d"
 }, "valueSet" :{
@@ -99,6 +101,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/pdf"
 }, "valueSet" :{
@@ -115,6 +119,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "image/jpeg"
 }, "valueSet" :{
@@ -131,6 +137,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/dicom"
 }, "valueSet" :{
@@ -147,6 +155,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "xml"
 }, "valueSet" :{
@@ -163,6 +173,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "json"
 }, "valueSet" :{
@@ -179,6 +191,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/xml-patch+xml"
 }, "valueSet" :{
@@ -195,6 +209,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/json-patch+json"
 }, "valueSet" :{
@@ -211,6 +227,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "EUR"
 }, "valueSet" :{
@@ -227,6 +245,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "USD"
 }, "valueSet" :{
@@ -243,6 +263,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "image/jpg"
 }, "valueSet" :{
@@ -259,6 +281,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "CAD"
 }, "valueSet" :{
@@ -275,6 +299,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/txt"
 }, "valueSet" :{
@@ -291,6 +317,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "en-US"
 }, "valueSet" :{
@@ -3067,6 +3095,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "s"
 }, "valueSet" :{
@@ -3167,6 +3197,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "en-AU"
 }, "valueSet" :{
@@ -5943,6 +5975,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "en"
 }, "valueSet" :{
@@ -8719,6 +8753,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "text/plain"
 }, "valueSet" :{
@@ -8735,6 +8771,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/hl7-v3+xml"
 }, "valueSet" :{
@@ -8751,6 +8789,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/fhir+xml"
 }, "valueSet" :{
@@ -8767,6 +8807,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/fhir+json"
 }, "valueSet" :{
@@ -8783,6 +8825,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/hl7-v2"
 }, "valueSet" :{
@@ -8799,6 +8843,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/hl7-sda+xml; variant=XDA/XDS"
 }, "valueSet" :{
@@ -8815,6 +8861,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/dicom; variant=DICOM WADO-RS"
 }, "valueSet" :{
@@ -8831,6 +8879,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/dicom; variant=DICOM QIDO-RS"
 }, "valueSet" :{
@@ -8847,6 +8897,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/dicom; variant=DICOM STOW-RS"
 }, "valueSet" :{
@@ -8863,6 +8915,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/dicom; variant=DICOM WADO-URI"
 }, "valueSet" :{
@@ -8879,6 +8933,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/dicom; variant=IHE IID"
 }, "valueSet" :{
@@ -8895,6 +8951,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "text/cql"
 }, "valueSet" :{
@@ -8911,6 +8969,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/xml"
 }, "valueSet" :{
@@ -8927,6 +8987,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/elm+xml"
 }, "valueSet" :{
@@ -8943,6 +9005,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "image/png"
 }, "valueSet" :{
@@ -8959,6 +9023,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "image/gif"
 }, "valueSet" :{
@@ -8975,6 +9041,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "audio/mpeg"
 }, "valueSet" :{
@@ -8991,6 +9059,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "application/signature+xml"
 }, "valueSet" :{
@@ -9007,6 +9077,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "h"
 }, "valueSet" :{
@@ -9107,6 +9179,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "wk"
 }, "valueSet" :{
@@ -9207,6 +9281,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "min"
 }, "valueSet" :{
@@ -9307,6 +9383,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "text/html"
 }, "valueSet" :{
@@ -9323,6 +9401,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "nl"
 }, "valueSet" :{
@@ -12099,6 +12179,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "de"
 }, "valueSet" :{
@@ -14875,6 +14957,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "it"
 }, "valueSet" :{
@@ -17651,6 +17735,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "pl"
 }, "valueSet" :{
@@ -20427,6 +20513,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "fr"
 }, "valueSet" :{
@@ -23203,6 +23291,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "zh"
 }, "valueSet" :{
@@ -25979,6 +26069,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "es"
 }, "valueSet" :{
@@ -28755,6 +28847,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "ru"
 }, "valueSet" :{
@@ -31531,6 +31625,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "da"
 }, "valueSet" :{
@@ -34307,6 +34403,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "code" : "MetadataResource"
 }, "valueSet" :{
@@ -34326,6 +34424,8 @@ v: {
   "error" : "Unable to provide support for code system "
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -34377,7 +34477,7 @@ e: {
   "status" : "draft",
   "experimental" : true,
   "date" : "2018-08-14T08:28:02+10:00",
-  "description" : "Value Set Contents (Expansion) for Immunization Status Reason Codes at Tue, Aug 14, 2018 13:36+1000",
+  "description" : "Value Set Contents (Expansion) for Immunization Status Reason Codes at Fri, Aug 17, 2018 11:00+1000",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-unclosed",
@@ -34561,6 +34661,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -34598,7 +34700,7 @@ e: {
   "status" : "draft",
   "experimental" : true,
   "date" : "2018-08-14T08:28:02+10:00",
-  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Tue, Aug 14, 2018 13:36+1000",
+  "description" : "Value Set Contents (Expansion) for DataElement SDC Object Class at Fri, Aug 17, 2018 11:00+1000",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
@@ -34623,6 +34725,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -34639,6 +34743,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system https://precision.fda.gov/apps/"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -34655,6 +34761,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://hl7.org/fhir/sid/cvx"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -34708,7 +34816,7 @@ e: {
   "status" : "draft",
   "experimental" : true,
   "date" : "2018-08-14T08:28:02+10:00",
-  "description" : "Value Set Contents (Expansion) for Consent Category Codes at Tue, Aug 14, 2018 13:36+1000",
+  "description" : "Value Set Contents (Expansion) for Consent Category Codes at Fri, Aug 17, 2018 11:00+1000",
   "immutable" : true,
   "expansion" : {
     "identifier" : "urn:uuid:02eaa72e-11be-4aaa-b535-9a215e36d58e",
@@ -34977,6 +35085,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -35056,7 +35166,7 @@ e: {
   "status" : "draft",
   "experimental" : true,
   "date" : "2018-08-14T08:28:02+10:00",
-  "description" : "Value Set Contents (Expansion) for Context of Use ValueSet at Tue, Aug 14, 2018 13:36+1000",
+  "description" : "Value Set Contents (Expansion) for Context of Use ValueSet at Fri, Aug 17, 2018 11:00+1000",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
@@ -40133,6 +40243,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -40163,6 +40275,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -40179,6 +40293,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ensembl.org"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -40218,7 +40334,7 @@ e: {
   "status" : "draft",
   "experimental" : true,
   "date" : "2018-08-14T08:28:02+10:00",
-  "description" : "Value Set Contents (Expansion) for Feeding Device Codes at Tue, Aug 14, 2018 13:37+1000",
+  "description" : "Value Set Contents (Expansion) for Feeding Device Codes at Fri, Aug 17, 2018 11:00+1000",
   "immutable" : true,
   "expansion" : {
     "extension" : [{
@@ -40619,6 +40735,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -40643,6 +40761,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system urn:iso:std:iso:3166:-2"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -40682,7 +40802,7 @@ e: {
   "status" : "draft",
   "experimental" : true,
   "date" : "2018-08-14T08:28:02+10:00",
-  "description" : "Value Set Contents (Expansion) for PractitionerRole at Tue, Aug 14, 2018 13:37+1000",
+  "description" : "Value Set Contents (Expansion) for PractitionerRole at Fri, Aug 17, 2018 11:00+1000",
   "immutable" : true,
   "expansion" : {
     "extension" : [{
@@ -43260,6 +43380,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -43564,6 +43686,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2.3"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -43798,6 +43922,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -43814,6 +43940,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://hl7.org/fhir/sid/cvx"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -44135,6 +44263,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -44151,6 +44281,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://www.ensembl.org"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -44167,6 +44299,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system https://precision.fda.gov/apps/"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -49322,6 +49456,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -49352,6 +49488,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -49376,6 +49514,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system urn:iso:std:iso:3166:-2"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -51992,6 +52132,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -52296,6 +52438,8 @@ e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2.3"
 }
 -------------------------------------------------------------------------------------
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -52335,7 +52479,7 @@ e: {
   "title" : "ObservationType",
   "status" : "active",
   "experimental" : false,
-  "description" : "Value Set Contents (Expansion) for ObservationType at Tue, Aug 14, 2018 13:39+1000",
+  "description" : "Value Set Contents (Expansion) for ObservationType at Fri, Aug 17, 2018 11:02+1000",
   "immutable" : false,
   "expansion" : {
     "extension" : [{
@@ -61351,6 +61495,8 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://loinc.org",
@@ -61420,6 +61566,8 @@ v: {
   "error" : "Unable to provide support for code system urn:iso:std:iso:11073:10101"
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://loinc.org",
@@ -61489,6 +61637,8 @@ v: {
   "error" : "Unable to provide support for code system http://acme.org/devices/clinical-codes"
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://snomed.info/sct",
@@ -61513,6 +61663,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://snomed.info/sct",
@@ -61537,6 +61689,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://snomed.info/sct",
@@ -61567,6 +61721,8 @@ v: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://snomed.info/sct",
@@ -61600,6 +61756,8 @@ v: {
   "error" : "The filter \"concept is-not-a O\" was not understood in the context of http://terminology.hl7.org/CodeSystem/v2-0131"
 }
 -------------------------------------------------------------------------------------
+
+
 {"code" : {
   "coding" : [{
     "system" : "http://snomed.info/sct",
@@ -61631,5 +61789,103 @@ v: {
   "display" : "",
   "severity" : "error",
   "error" : "The filter \"concept is-not-a O\" was not understood in the context of http://terminology.hl7.org/CodeSystem/v2-0131"
+}
+-------------------------------------------------------------------------------------
+
+{"code" : {
+  "coding" : [{
+    "system" : "http://snomed.info/sct",
+    "code" : "166698001",
+    "display" : "Serum bicarbonate level normal"
+  },
+  {
+    "system" : "http://terminology.hl7.org/CodeSystem/v2-0078",
+    "code" : "N"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "None of the codes provided (http://snomed.info/sct#166698001, http://terminology.hl7.org/CodeSystem/v2-0078#N) are  valid in the value set Observation Interpretation Codes"
+}
+-------------------------------------------------------------------------------------
+
+{"code" : {
+  "coding" : [{
+    "system" : "http://snomed.info/sct",
+    "code" : "166717003",
+    "display" : "Serum creatinine raised"
+  },
+  {
+    "system" : "http://terminology.hl7.org/CodeSystem/v2-0078",
+    "code" : "H"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "None of the codes provided (http://snomed.info/sct#166717003, http://terminology.hl7.org/CodeSystem/v2-0078#H) are  valid in the value set Observation Interpretation Codes"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://snomed.info/sct",
+    "code" : "166698001",
+    "display" : "Serum bicarbonate level normal"
+  },
+  {
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+    "code" : "N"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
+    }]
+  }
+}}####
+v: {
+  "display" : "Normal",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://snomed.info/sct",
+    "code" : "166717003",
+    "display" : "Serum creatinine raised"
+  },
+  {
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+    "code" : "H"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
+    }]
+  }
+}}####
+v: {
+  "display" : "High",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
