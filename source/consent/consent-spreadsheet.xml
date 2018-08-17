@@ -3788,7 +3788,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Consent</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IF Scope=privacy, there must be a patient</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">patient.exists() or scope.coding.where(system='something' and code='patient-privacy').exists().not() </Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='patient-privacy')))</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='patient-privacy'])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="Number">3</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3797,7 +3797,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Consent</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IF Scope=research, there must be a patient</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">patient.exists() or scope.coding.where(system='something' and code='research').exists().not() </Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='research')))</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='research'])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="Number">4</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3806,7 +3806,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Consent</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IF Scope=adr, there must be a patient</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">patient.exists() or scope.coding.where(system='something' and code='adr').exists().not() </Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='adr')))</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='adr'])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="Number">5</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3815,7 +3815,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Consent</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">IF Scope=treatment, there must be a patient</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">patient.exists() or scope.coding.where(system='something' and code='treatment').exists().not() </Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='treatment')))</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">exists(f:patient) or not(exists(f:scope/f:coding[f:system/@value='something' and f:code/@value='treatment'])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><NamedCell ss:Name="Invariantids"/></Cell>

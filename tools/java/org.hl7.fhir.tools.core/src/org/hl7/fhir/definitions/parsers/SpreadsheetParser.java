@@ -749,7 +749,6 @@ public class SpreadsheetParser {
         if (Utilities.noString(inv.getExpression()))
           throw new Exception("missing expression "+ getLocation(row));
 
-
 			  inv.setSeverity(sheet.getColumn(row, "Severity"));
         inv.setTurtle(sheet.getColumn(row, "RDF"));
 
