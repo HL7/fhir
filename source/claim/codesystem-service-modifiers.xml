@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-servicemodifier"/>
-  <name value="Example Service Modifier Codes"/>
+  <name value="ExampleServiceModifierCodes"/>
+  <title value="Example Service Modifier Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Service Modifier codes."/>

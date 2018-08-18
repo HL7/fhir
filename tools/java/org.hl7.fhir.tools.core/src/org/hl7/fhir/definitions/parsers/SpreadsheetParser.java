@@ -1288,6 +1288,8 @@ public class SpreadsheetParser {
 	    }
       result.setId(igSuffix(ig)+ref.substring(9));
       result.setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(9));
+      if (!result.hasTitle())
+        result.setTitle(Utilities.capitalize(Utilities.unCamelCase(result.getName())));
 	    result.setExperimental(true);
 	    if (!result.hasVersion())
 	      result.setVersion(version);

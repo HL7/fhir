@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Texture Modifier Codes"/>
+  <name value="TextureModifierCodes"/>
+  <title value="Texture Modifier Codes"/>
   <status value="draft"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>

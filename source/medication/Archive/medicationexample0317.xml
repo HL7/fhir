@@ -1,4 +1,4 @@
-<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+﻿<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://hl7.org/fhir ../schema/medication.xsd" xmlns="http://hl7.org/fhir">
    <id value="med0317"/>
    <isBrand value="false"/>

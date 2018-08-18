@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
  <url value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/> 
-  <name value="Bodystructure Location Qualifier"/>
+  <name value="BodystructureLocationQualifier"/>
+  <title value="Bodystructure Location Qualifier"/>
   <status value="draft"/>
   <publisher value="Order and Observation Workgroup"/>
 <!--   author Eric Haas, Health eData Inc.  -->

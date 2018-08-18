@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Contract Actor Role Codes"/>
+  <name value="ContractActorRoleCodes"/>
+  <title value="Contract Actor Role Codes"/>
   <status value="draft"/>
   <publisher value="CBCC"/>
   <contact>

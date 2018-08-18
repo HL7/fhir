@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/media-modality"/>
-  <name value="Media SubType"/>
+  <name value="MediaSubType"/>
+  <title value="Media SubType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it."/>

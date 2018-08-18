@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Claim Information Category Codes"/>
+  <name value="ClaimInformationCategoryCodes"/>
+  <title value="Claim Information Category Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>

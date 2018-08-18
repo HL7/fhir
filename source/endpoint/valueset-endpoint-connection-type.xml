@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-endpoint-connection-type"/>
   </meta>
-  <name value="Endpoint Connection Type"/>
+  <name value="EndpointConnectionType"/>
+  <title value="Endpoint Connection Type"/>
   <status value="draft"/>
   <publisher value="HL7 Patient Administration"/>
   <contact>

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/fm-conditions"/>
-  <name value="Conditions Codes"/>
+  <name value="ConditionsCodes"/>
+  <title value="Conditions Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Conditions codes."/>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/benefit-network"/>
-  <name value="Network Type Codes"/>
+  <name value="NetworkTypeCodes"/>
+  <title value="Network Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of Network type codes."/>

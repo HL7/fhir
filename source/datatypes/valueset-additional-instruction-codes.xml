@@ -3,7 +3,9 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   
-<name value="SNOMED CT Additional Dosage Instructions"/>
+<name value="SNOMEDCTAdditionalDosageInstructions"/>
+  <title value="SNOMED CT Additional Dosage Instructions"/>
+
   
 <status value="draft"/>
   

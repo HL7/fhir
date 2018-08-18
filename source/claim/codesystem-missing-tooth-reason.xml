@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/missingtoothreason"/>
-  <name value="Missing Tooth Reason Codes"/>
+  <name value="MissingToothReasonCodes"/>
+  <title value="Missing Tooth Reason Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Missing Tooth Reason codes."/>

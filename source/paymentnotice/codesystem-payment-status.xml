@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/paymentstatus"/>
-  <name value="Payment Status Codes"/>
+  <name value="PaymentStatusCodes"/>
+  <title value="Payment Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a sample set of Payment Status codes."/>

@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/valueset.xsd">
-	<name value="Observation Methods"/>
+	<name value="ObservationMethods"/>
+  <title value="Observation Methods"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project team"/>
 	<contact>

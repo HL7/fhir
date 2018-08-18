@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- remove this note!
   Actual exchanged FHIR resources aren't allowed to have a xsi namespace, nor the schema location. but putting it here makes
   editing the resource much easier, and it will get stripped out during the build process

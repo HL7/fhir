@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/substance-category"/>
-  <name value="Substance Category Codes"/>
+  <name value="SubstanceCategoryCodes"/>
+  <title value="Substance Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Substance category codes"/>

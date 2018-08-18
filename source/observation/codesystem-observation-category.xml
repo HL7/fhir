@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/observation-category"/>
-  <name value="Observation Category Codes"/>
+  <name value="ObservationCategoryCodes"/>
+  <title value="Observation Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Observation Category codes."/>

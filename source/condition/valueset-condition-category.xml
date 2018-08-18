@@ -5,7 +5,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/condition-category"/>
-  <name value="Condition Category Codes"/>
+  <name value="ConditionCategoryCodes"/>
+  <title value="Condition Category Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

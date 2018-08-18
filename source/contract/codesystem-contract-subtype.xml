@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/contractsubtypecodes"/>
-  <name value="Contract Subtype Codes"/>
+  <name value="ContractSubtypeCodes"/>
+  <title value="Contract Subtype Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Contract Subtype codes."/>

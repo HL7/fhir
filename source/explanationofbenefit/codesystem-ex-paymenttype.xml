@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-paymenttype"/>
-  <name value="Payment Type Codes"/>
+  <name value="PaymentTypeCodes"/>
+  <title value="Payment Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of Payment Type codes."/>

@@ -4643,6 +4643,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       conv.setPackageId(getNamedParam(args, "-npm-name"));
       conv.setVersionIg(getNamedParam(args, "-version"));
       conv.setLicense(getNamedParam(args, "-license"));
+      conv.setWebsite(getNamedParam(args, "-website"));
       conv.execute();
     } else if (hasParam(args, "-multi")) {
       int i = 1;

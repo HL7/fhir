@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
-  <name value="SNOMED CT Morphologic Abnormalities"/>
+  <name value="SNOMEDCTMorphologicAbnormalities"/>
+  <title value="SNOMED CT Morphologic Abnormalities"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

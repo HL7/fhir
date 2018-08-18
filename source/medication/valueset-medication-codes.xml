@@ -33,7 +33,8 @@
 
 <url value="http://hl7.org/fhir/ValueSet/medication-codes"/>
 	
-<name value="SNOMED CT Medication Codes"/>
+<name value="SNOMEDCTMedicationCodes"/>
+  <title value="SNOMED CT Medication Codes"/>
 	
 <status value="draft"/>
 

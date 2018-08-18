@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/flag-priority-code"/>
-  <name value="Flag Priority Codes"/>
+  <name value="FlagPriorityCodes"/>
+  <title value="Flag Priority Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal Flags, Alert Priority."/>

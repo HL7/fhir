@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-revenue-center"/>
-  <name value="Example Revenue Center Codes"/>
+  <name value="ExampleRevenueCenterCodes"/>
+  <title value="Example Revenue Center Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Revenue Center codes."/>

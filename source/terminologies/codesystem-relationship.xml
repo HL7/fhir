@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="relationship"/>
   <url value="http://hl7.org/fhir/relationship"/>
-  <name value="Beneficiary Relationship Codes"/>
+  <name value="BeneficiaryRelationshipCodes"/>
+  <title value="Beneficiary Relationship Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="This value set includes the Patient to subscriber relationship codes."/>

@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Supply Type"/>
+  <name value="SupplyType"/>
+  <title value="Supply Type"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

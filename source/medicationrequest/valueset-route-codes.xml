@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <text>
@@ -20,7 +20,8 @@
       <p>This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org</p>  
     </div>
   </text>
-  <name value="SNOMED CT Route Codes"/>
+  <name value="SNOMEDCTRouteCodes"/>
+  <title value="SNOMED CT Route Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

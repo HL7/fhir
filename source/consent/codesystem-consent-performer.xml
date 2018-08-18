@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/consentperformer"/>
-  <name value="Performer Role Codes"/>
+  <name value="PerformerRoleCodes"/>
+  <title value="Performer Role Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes example Consenting Party role codes."/>

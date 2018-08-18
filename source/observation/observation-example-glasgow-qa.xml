@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- 
+﻿<?xml version="1.0" encoding="UTF-8"?><!-- 
  This is an example of a Glasgow Coma Score using the .related to bundle the  measurements  will use contained elements for this example only but coudl just as easily use external or bundled elements..  source http://www.choa.org/~/media/CHOA/Documents/Services/Concussion/Concussion-glasgow-coma-scale.pdf
  --><Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
 	<id value="gcs-qa"/><!--  the mandatory quality flags:  --><status value="final"/><!-- 

@@ -497,8 +497,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-    vs.setName(id);
-    vs.setTitle(id);
+    vs.setName("v3."+id);
+    vs.setTitle("V3 Value Set"+id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
     if (r != null) {
@@ -547,8 +547,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-    vs.setName(id);
-    vs.setTitle(id);
+    vs.setName("v3."+id);
+    vs.setTitle("V3 Value Set"+id);
     Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
         "text");
     if (r != null) {

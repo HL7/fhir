@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<url value="http://hl7.org/fhir/secondary-finding"/>
-	<name value="Genetic Observation Secondary Findings"/>
+	<name value="GeneticObservationSecondaryFindings"/>
+  <title value="Genetic Observation Secondary Findings"/>
 	<status value="draft"/>
 	<experimental value="false"/>
 	<description value="Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding."/>

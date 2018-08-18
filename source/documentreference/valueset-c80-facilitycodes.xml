@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="valueset-xds-facilitycodes"/>
@@ -12,7 +12,8 @@
 		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>
 	</identifier>
   <version value="20091109"/>
-  <name value="Facility Type Code Value Set"/>
+  <name value="FacilityTypeCodeValueSet"/>
+  <title value="Facility Type Code Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HITSP"/>

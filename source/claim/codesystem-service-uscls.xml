@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-USCLS"/>
-  <name value="USCLS Codes"/>
+  <name value="USCLSCodes"/>
+  <title value="USCLS Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of USCLS codes."/>

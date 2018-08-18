@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 	<id value="care-team-category"/>
 	<url value="http://hl7.org/fhir/ValueSet/care-team-category"/>
-	<name value="Care Team category"/>
+	<name value="CareTeamCategory"/>
+  <title value="Care Team category"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project"/>
 	<description value="Indicates the type of care team."/>

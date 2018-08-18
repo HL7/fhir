@@ -1,4 +1,4 @@
-<CodeSystem xmlns="http://hl7.org/fhir">
+﻿<CodeSystem xmlns="http://hl7.org/fhir">
 	<id value="w3c-provenance-activity-type"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>

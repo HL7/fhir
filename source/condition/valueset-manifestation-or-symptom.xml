@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/manifestation-or-symptom"/>
-  <name value="Manifestation and Symptom Codes"/>
+  <name value="ManifestationAndSymptomCodes"/>
+  <title value="Manifestation and Symptom Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

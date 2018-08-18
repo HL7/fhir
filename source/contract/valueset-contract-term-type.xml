@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Contract Term Type Codes"/>
+  <name value="ContractTermTypeCodes"/>
+  <title value="Contract Term Type Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>

@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Consent Content Codes"/>
+  <name value="ConsentContentCodes"/>
+  <title value="Consent Content Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="CBCC"/>

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="sdc-object-class"/>
-  <name value="DataElement SDC Object Class"/>
+  <name value="DataElementSDCObjectClass"/>
+  <title value="DataElement SDC Object Class"/>
   <status value="draft"/>
   <publisher value="Office of the National Coordinator for Health IT"/>
   <contact>

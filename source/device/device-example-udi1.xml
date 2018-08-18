@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--The use case illustrates the use of an  UDI for an implant  is built with GS-1 format UDI data-->
 <Device xmlns="http://hl7.org/fhir">
 

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/additionalmaterials"/>
-  <name value="Additional Material Codes"/>
+  <name value="AdditionalMaterialCodes"/>
+  <title value="Additional Material Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample additional material type codes."/>

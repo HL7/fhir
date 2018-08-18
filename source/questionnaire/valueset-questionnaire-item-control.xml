@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
-  <name value="Questionnaire Item UI Control Codes"/>
+  <name value="QuestionnaireItemUIControlCodes"/>
+  <title value="Questionnaire Item UI Control Codes"/>
   <status value="draft"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>

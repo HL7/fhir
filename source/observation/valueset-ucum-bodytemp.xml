@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="false"/>
 	</extension>
 	<id value="valueset-ucum-bodytemp"/>
 	<url value="http://hl7.org/fhir/ValueSet/ucum-bodytemp"/>
-	<name value="Body Temperature Units"/>
+	<name value="BodyTemperatureUnits"/>
+  <title value="Body Temperature Units"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project"/>
 	<description value="UCUM units for recording Body Temperature"/>

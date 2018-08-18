@@ -1,8 +1,10 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="supply-item"/>
 	<url value="http://hl7.org/fhir/ValueSet/supply-item"/>
 	<version value="1.0"/>
-	<name value="SNOMED CT Supply Item"/>
+	<name value="SNOMEDCTSupplyItem"/>
+  <title value="SNOMED CT Supply Item"/>
+
 	<status value="draft"/>
 	<experimental value="true"/>
 	<date value="2016-05-18T16:57:59+00:00"/>

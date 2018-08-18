@@ -2,7 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status"/>
-  <name value="Immunization Evaluation Dose Status codes"/>
+  <name value="ImmunizationEvaluationDoseStatusCodes"/>
+  <title value="Immunization Evaluation Dose Status codes"/>
+
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This code system supports describing the validity of a dose relative to a particular recommended schedule."/>

@@ -5,7 +5,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
-  <name value="Condition Clinical Status Codes"/>
+  <name value="ConditionClinicalStatusCodes"/>
+  <title value="Condition Clinical Status Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

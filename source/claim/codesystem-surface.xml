@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/FDI-surface"/>
-  <name value="Surface Codes"/>
+  <name value="SurfaceCodes"/>
+  <title value="Surface Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of FDI tooth surface codes."/>

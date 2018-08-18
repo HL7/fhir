@@ -2,7 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason"/>
-  <name value="Immunization Event Subpotent Reason"/>
+  <name value="ImmunizationEventSubpotentReason"/>
+  <title value="Immunization Event Subpotent Reason"/>
+
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This code system supports describing the reason why a dose is considered to be subpotent."/>

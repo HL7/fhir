@@ -6,7 +6,8 @@
 
 <url value="http://hl7.org/fhir/ValueSet/administration-method-codes"/>
 
-<name value="SNOMED CT Administration Method Codes"/>
+<name value="SNOMEDCTAdministrationMethodCodes"/>
+  <title value="SNOMED CT Administration Method Codes"/>
   
 <status value="draft"/>
   

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="valueset-formatcodes"/>
@@ -12,7 +12,8 @@
 		<value value="urn:oid:1.3.6.1.4.1.19376.1.2.7.1"/>
 	</identifier>
   <version value="20150326"/>
-  <name value="DocumentReference Format Code Set"/>
+  <name value="DocumentReferenceFormatCodeSet"/>
+  <title value="DocumentReference Format Code Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="IHE"/>

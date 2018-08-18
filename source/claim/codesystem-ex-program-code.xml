@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
-  <name value="Example Program Codes"/>
+  <name value="ExampleProgramCodes"/>
+  <title value="Example Program Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Program reason codes."/>

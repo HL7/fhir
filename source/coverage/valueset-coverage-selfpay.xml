@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Coverage SelfPay Codes"/>
+  <name value="CoverageSelfPayCodes"/>
+  <title value="Coverage SelfPay Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
-  <name value="Condition Clinical Status Codes"/>
+  <name value="ConditionClinicalStatusCodes"/>
+  <title value="Condition Clinical Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Preferred value set for Condition Clinical Status."/>

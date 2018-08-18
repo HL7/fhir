@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship"/>
-  <name value="Example Related Claim Relationship Codes"/>
+  <name value="ExampleRelatedClaimRelationshipCodes"/>
+  <title value="Example Related Claim Relationship Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Related Claim Relationship codes."/>

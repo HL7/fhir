@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/processoutcomecodes"/>
-  <name value="Process Outcome Codes"/>
+  <name value="ProcessOutcomeCodes"/>
+  <title value="Process Outcome Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Process Outcome codes."/>

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-udi"/>
-  <name value="UDI Codes"/>
+  <name value="UDICodes"/>
+  <title value="UDI Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample UDI codes."/>

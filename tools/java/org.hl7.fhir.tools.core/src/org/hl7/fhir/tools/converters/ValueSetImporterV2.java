@@ -368,7 +368,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-    vs.setName("V2." + id);
+    vs.setName("v2." + id);
     if (!vs.hasTitle())
       vs.setTitle("v2 table " + id);
     if (!vs.hasPublisher())
@@ -528,7 +528,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/" + vs.getId());
-    vs.setName("V2." + id);
+    vs.setName("v2." + id);
     if (!vs.hasTitle())
       vs.setTitle("v2 table " + id);
     if (!vs.hasPublisher())
@@ -699,7 +699,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
     vs.setUrl("http://terminology.hl7.org/ValueSet/"+vs.getId());
-    vs.setName("V2." + id + "." + version);
+    vs.setName("v2." + id + "." + version);
     if (!vs.hasTitle())
       vs.setTitle("v2 table " + id + ", Version " + version);
     if (!vs.hasPublisher())

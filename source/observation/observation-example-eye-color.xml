@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- A very simple example to demonstrate using a string value and Observation to represent a physical characteristic --><Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+﻿<?xml version="1.0" encoding="UTF-8"?><!-- A very simple example to demonstrate using a string value and Observation to represent a physical characteristic --><Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="eye-color"/>
 	<status value="final"/>
 	<code>

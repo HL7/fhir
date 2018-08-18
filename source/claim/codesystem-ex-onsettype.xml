@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-onsettype"/>
-  <name value="Example Onset Reason Codes"/>
+  <name value="ExampleOnsetReasonCodes"/>
+  <title value="Example Onset Reason Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Onset reason which are used to identify the event for which the onset, starting date, is required."/>

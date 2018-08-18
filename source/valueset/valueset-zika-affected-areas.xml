@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 <!-- TODO: Had to take this valueset out of the build because it results in a NullPointerException in BaseValidator.splitByCamelCase. Without this in the build, I get an information warning on several of the CDS resources...
 -->
   <id value="zika-affected-areas"/>

@@ -2,7 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/immunization-funding-source"/>
-  <name value="Immunization Event Funding Source"/>
+  <name value="ImmunizationEventFundingSource"/>
+  <title value="Immunization Event Funding Source"/>
+
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This code system supports describing the source of the vaccine actually administered. This may be different than the patient eligbility (e.g. the patient may be eligibile for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>

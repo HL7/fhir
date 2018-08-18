@@ -3,7 +3,8 @@
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
-	<name value="Media Modality"/>
+	<name value="MediaModality"/>
+  <title value="Media Modality"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project team"/>
 	<contact>

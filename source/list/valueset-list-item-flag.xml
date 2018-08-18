@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -6,7 +6,8 @@
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/list-item-flag"/>
   <version value="1"/>
-  <name value="Patient Medicine Change Types"/>
+  <name value="PatientMedicineChangeTypes"/>
+  <title value="Patient Medicine Change Types"/>
   <status value="draft"/>
   <publisher value="National E-Health Transition Authority Ltd (NEHTA)"/>
   <contact>

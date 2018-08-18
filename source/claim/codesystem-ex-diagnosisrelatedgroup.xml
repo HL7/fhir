@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup"/>
-  <name value="Example Diagnosis Related Group Codes"/>
+  <name value="ExampleDiagnosisRelatedGroupCodes"/>
+  <title value="Example Diagnosis Related Group Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Diagnosis Related Group codes."/>

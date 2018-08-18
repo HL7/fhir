@@ -2,7 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-  <name value="Immunization Event Program Eligibility"/>
+  <name value="ImmunizationEventProgramEligibility"/>
+  <title value="Immunization Event Program Eligibility"/>
+
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This code system supports describing the source of the patient's eligibility for a vaccination program."/>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/supply-kind"/>
-  <name value="Supply Type"/>
+  <name value="SupplyType"/>
+  <title value="Supply Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value sets refers to a Category of supply."/>

@@ -193,7 +193,7 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 <h3>Rules for Round 2 Ballot (Follow up ballot)</h3>
 
 <p>
-This is the round 2 ballot for FHIR R4. As such,  The scope of this second ballot for the R4 cycle is limited to the changes 
+This is the round 2 ballot for FHIR R4. As such, the scope of this second ballot for the R4 cycle is limited to the changes 
 made from the 2018-May ballot cycle. Feedback not related to changes made will most likely be found "not related" and/or deferred to consideration as part of R5.
 </p>
 <p>
@@ -202,7 +202,17 @@ page and the task that prompted the change. Also, diff links are provided to ass
 changes. 
 </p>
 <p>
-For the Trial-Use ballot, the significant new content areas are indicated.
+For the Trial-Use ballot, the significant new content areas or changes are indicated.
+</p>
+
+<a name="maps"></a>
+<p>
+The specification has been updated to include R3/R4 maps and difference analysis, but 
+these have not been updated. This will be done proper to publication of the final 
+specification In the mean time, balloters are welcome to comment on suggested 
+improvements to the mappings and difference statements, but these cannot be the 
+basis for negative votes. Contributions may also be made directly 
+(join the <a href="https://chat.fhir.org/#narrow/stream/133-R3.2FR4-Conversion.20work">conversation at chat.fhir.org</a>).
 </p>
 
 <a name="diffs"></a>
@@ -259,7 +269,7 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
  <tr><td>Clarify about 406 and 415 status codes <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16329%]</td> <td>[%diff http.html Restful API%], [%diff formats.html Formats%]</td></tr>
  <tr><td>Rewrite intermediaries section, and refocus on custom headers</td> <td>FHIR-I: [%GF#14162%]</td> <td>[%diff http.html#custom RESTful API%]</td></tr> 
  <tr><td>Clarify version requirements in Location header</td> <td>FHIR-I: [%GF#13915%]</td> <td>[%diff http.html#create RESTful API%]</td></tr> 
- <tr><td>Decribe use of :below on reference for searching canonicsls</td> <td>FHIR-I: [%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
+ <tr><td>Decribe use of :below on reference for searching canonicals</td> <td>FHIR-I: [%GF#14195%]</td> <td>[%diff http.html#versions RESTful API%]</td></tr> 
  <tr><td>Change rules around optionality of Bundle.entry.request and .response <b style="color: maroon">Breaking change!</b></td><td>FHIR-I: [%GF#14551%]</td> <td>[%diff http.html#transaction RESTful API%]</td></tr> 
  <tr><td>Add _list parameter to history interaction</td><td>FHIR-I: [%GF#16022%]</td> <td>[%diff http.html#history RESTful API%]</td></tr> 
  <tr><td>Add conformance language about errors and operation outcome</td><td>FHIR-I: [%GF#14495%]</td> <td>[%diff http.html RESTful API%]</td></tr> 
@@ -400,7 +410,7 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
  <tr><td>Change the canonical url for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
  
 <tr>
-<td> Updated the definition of <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">subject</code> and added a note to the FHIR safety page about not being surprised by the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">focus</code>  element.</td>
+<td> Updated the definition of <code>subject</code> and added a note to the FHIR safety page about not being surprised by the <code>focus</code>  element.</td>
 <td>OO: [%GF#16136%]</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>
@@ -420,12 +430,12 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
 <td>[%diff observation.html Observation%]</td>
 </tr>
 <tr>
-<td>The code system for value set observation-interpretation is changed from HL7 Version 2 Table 0078 to v3-ObservationInterpretation as part of the HL7 <a href="http://wiki.hl7.org/index.php?title=Unified_Terminology_Governance_Project">Unified Terminology Governance Project</a>.   Added clarifying text to indicate that all use cases <em>where interpretations are relevant</em> might not be covered by the observation-interpretation value set. <strong>Breaking Change!</strong></td>
+<td>The code system for value set observation-interpretation is changed from HL7 Version 2 Table 0078 to v3-ObservationInterpretation as part of the HL7 <a href="http://wiki.hl7.org/index.php?title=Unified_Terminology_Governance_Project">Unified Terminology Governance Project</a>.   Added clarifying text to indicate that all use cases <em>where interpretations are relevant</em> might not be covered by the observation-interpretation value set. <b style="color: maroon">Breaking change!</b></td>
 <td>OO: [%GF#16186%], UTG Process</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>
 <tr>
-<td>Changed cardinality of <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.interpretation</code> and <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.component.interpretation</code> from 0..1 to 0..*</td>
+<td>Changed cardinality of <code>Observation.interpretation</code> and <code>Observation.component.interpretation</code> from 0..1 to 0..*</td>
 <td>OO: [%GF#16231%]</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>
@@ -435,7 +445,7 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
 <td>[%diff observation.html Observation%]</td>
 </tr>
 <tr>
-<td>Changed <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.context</code> to <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.encounter</code> and  changed type from <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Reference(EncounterIEpisodeOfCare)</code> to  <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Reference(Encounter)</code>.  Update search parameter definition and add a standard extension event-episodeOfCare.  <strong>Breaking Change!</strong></td>
+<td>Changed <code>Observation.context</code> to <code>Observation.encounter</code> and  changed type from <code>Reference(EncounterIEpisodeOfCare)</code> to  <code>Reference(Encounter)</code>.  Update search parameter definition and add a standard extension event-episodeOfCare.  <b style="color: maroon">Breaking change!</b></td>
 <td>OO: [%GF#17661%]</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>

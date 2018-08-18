@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
 	<id value="participant-role"/>
 	<url value="http://hl7.org/fhir/ValueSet/participant-role"/>
-	<name value="Participant Roles"/>
+	<name value="ParticipantRoles"/>
+  <title value="Participant Roles"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project"/>
 	<description value="Roles of Participants that may be included in a CarePlan.Participants, or in an EpisodeOfCare.team.  Defined as: Is a Person, Healthcare professional (occupation) or Healthcare related organization (qualifier value)."/>

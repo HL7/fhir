@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/valueset.xsd">
 <id value="focal-subject"></id>
-	<name value="Focal Subject Codes"/>
+	<name value="FocalSubjectCodes"/>
+  <title value="Focal Subject Codes"/>
 	<status value="draft"/>
 	<!--  Extension: Focal Subject	 Example value set composed from SNOMED CT f and V3 for observation targets donor, fetus, spouse as uses case arise may buidl on this .
   -->

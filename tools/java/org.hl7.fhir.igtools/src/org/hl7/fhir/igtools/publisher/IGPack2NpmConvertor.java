@@ -54,6 +54,7 @@ public class IGPack2NpmConvertor {
   private String source;
   private String dest;
   private String license;
+  private String website;
   
   public static void main(String[] args) throws FileNotFoundException, IOException, FHIRException {
     IGPack2NpmConvertor self = new IGPack2NpmConvertor();
@@ -120,6 +121,16 @@ public class IGPack2NpmConvertor {
   }
 
 
+  public String getWebsite() {
+    return website;
+  }
+
+
+  public void setWebsite(String website) {
+    this.website = website;
+  }
+
+
   public void execute() throws IOException {
     if (source == null)
       throw new IOException("A -source parameter is required");
@@ -148,8 +159,6 @@ public class IGPack2NpmConvertor {
   }
 
   private void processValidatorPack(File f) throws IOException {
-    if (true)
-      throw new Error("this needs debugging (see todo further in)");
     System.out.println("Processing "+f.getAbsolutePath());
     try {
       Map<String, byte[]> files = loadZip(new FileInputStream(f));
@@ -182,7 +191,7 @@ public class IGPack2NpmConvertor {
 
         if (files.containsKey("spec.internals"))
           loadSpecInternals(ig, files.get("spec.internals"), version, canonical, files);
-        NPMPackageGenerator npm = new NPMPackageGenerator(dest != null ? dest : Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, "todo", PackageType.IG, ig);
+        NPMPackageGenerator npm = new NPMPackageGenerator(dest != null ? dest : Utilities.path(Utilities.getDirectoryForFile(f.getAbsolutePath()), "package.tgz"), canonical, Utilities.noString(website) ? canonical : website, PackageType.IG, ig);
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
         npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());

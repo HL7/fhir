@@ -29,6 +29,9 @@ public class CodeSystemConvertor {
     if (new File(nname).exists()) {
       FileInputStream input = new FileInputStream(nname);
       CodeSystem cs = CodeSystemUtilities.makeShareable((CodeSystem) p.parse(input));
+      if (!cs.hasTitle())
+        cs.setTitle(Utilities.capitalize(Utilities.unCamelCase(cs.getName())));
+
       populate(cs, vs);
 //      if (codeSystems.containsKey(cs.getUrl())) 
 //        throw new Exception("Duplicate Code System: "+cs.getUrl());
@@ -55,6 +58,7 @@ public class CodeSystemConvertor {
     cs.setId(vs.getId());
     cs.setVersion(vs.getVersion());
     cs.setName(vs.getName());
+    cs.setTitle(vs.getTitle());
     cs.setStatus(vs.getStatus());
     cs.setExperimental(vs.getExperimental());
     cs.setPublisher(vs.getPublisher());

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"/>
-  <name value="Example Vision Prescription Product Codes"/>
+  <name value="ExampleVisionPrescriptionProductCodes"/>
+  <title value="Example Vision Prescription Product Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of Prescription Product codes."/>

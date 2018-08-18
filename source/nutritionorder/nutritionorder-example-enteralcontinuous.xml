@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supply.xsd"><!-- id = enteralcontinuous  file name = nutritionorder-example-enteralcontinuous.xml  Name= Enteral Continuous Feeding  Description = Nutrition Order Enteral Continuous Feeding Canonical Example
 editor Eric Haas Health eData Inc
 --><!-- Tube feedings given as continuous rate --><id value="enteralcontinuous"/>

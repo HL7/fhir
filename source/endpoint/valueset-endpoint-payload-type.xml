@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-endpoint-payload-type"/>
   </meta>
-  <name value="Endpoint Payload Type"/>
+  <name value="EndpointPayloadType"/>
+  <title value="Endpoint Payload Type"/>
   <status value="draft"/>
   <publisher value="HL7 Patient Administration"/>
   <contact>

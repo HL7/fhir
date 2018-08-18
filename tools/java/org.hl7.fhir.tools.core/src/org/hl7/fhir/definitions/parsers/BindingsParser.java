@@ -122,6 +122,7 @@ public class BindingsParser {
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
         cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         cd.getValueSet().setName(cd.getName());
+        cd.getValueSet().setTitle(cd.getName());
         cd.getValueSet().setDateElement(new DateTimeType(genDate));
         cd.getValueSet().setStatus(PublicationStatus.DRAFT);
         cd.getValueSet().setDescription(sheet.getColumn(row, "Description"));

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/benefit-term"/>
-  <name value="Benefit Term Codes"/>
+  <name value="BenefitTermCodes"/>
+  <title value="Benefit Term Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of Benefit Term codes."/>

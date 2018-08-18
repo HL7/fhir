@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-fdi"/>
-  <name value="Teeth Codes"/>
+  <name value="TeethCodes"/>
+  <title value="Teeth Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes the FDI Teeth codes."/>

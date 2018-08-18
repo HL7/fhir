@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<url value="http://hl7.org/fhir/questionnaire-item-control"/>
-	<name value="Questionnaire Item UI Control Codes"/>
+	<name value="QuestionnaireItemUIControlCodes"/>
+  <title value="Questionnaire Item UI Control Codes"/>
 	<status value="draft"/>
 	<experimental value="false"/>
 	<description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>

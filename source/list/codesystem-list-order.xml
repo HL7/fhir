@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/list-order"/>
-  <name value="List Order Codes"/>
+  <name value="ListOrderCodes"/>
+  <title value="List Order Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Base values for the order of the items in a list resource."/>

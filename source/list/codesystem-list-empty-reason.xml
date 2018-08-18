@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/list-empty-reason"/>
-  <name value="List Empty Reasons"/>
+  <name value="ListEmptyReasons"/>
+  <title value="List Empty Reasons"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)."/>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/flag-category"/>
-  <name value="Flag Category"/>
+  <name value="FlagCategory"/>
+  <title value="Flag Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Example list of detail codes for flagged issues. (Not complete or necessarily appropriate.)"/>

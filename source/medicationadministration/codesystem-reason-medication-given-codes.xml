@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/reason-medication-given"/>
-  <name value="Reason Medication Given Codes"/>
+  <name value="ReasonMedicationGivenCodes"/>
+  <title value="Reason Medication Given Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process."/>

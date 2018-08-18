@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="provenance-history-record-activity"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-record-activity"/>
 	</meta>
-	<name value="Provenance History Record Activity Codes"/>
+	<name value="ProvenanceHistoryRecordActivityCodes"/>
+  <title value="Provenance History Record Activity Codes"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<publisher value="HL7 (FHIR Project)"/>

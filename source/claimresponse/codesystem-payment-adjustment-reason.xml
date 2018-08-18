@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/payment-adjustment-reason"/>
-  <name value="Payment Adjustment Reason Codes"/>
+  <name value="PaymentAdjustmentReasonCodes"/>
+  <title value="Payment Adjustment Reason Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes smattering of Payment Adjustment Reason codes."/>

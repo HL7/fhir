@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/contractsignertypecodes"/>
-  <name value="Contract Signer Type Codes"/>
+  <name value="ContractSignerTypeCodes"/>
+  <title value="Contract Signer Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Contract Signer Type codes."/>

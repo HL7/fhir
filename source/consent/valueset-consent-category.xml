@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Consent Category Codes"/>
+  <name value="ConsentCategoryCodes"/>
+  <title value="Consent Category Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project (CBCC)"/>
   <contact>

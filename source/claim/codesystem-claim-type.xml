@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/claim-type"/>
-  <name value="Claim Type Codes"/>
+  <name value="ClaimTypeCodes"/>
+  <title value="Claim Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes Claim Type codes."/>

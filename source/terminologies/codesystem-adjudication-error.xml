@@ -3,7 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adjudication-error"/>
   <url value="http://terminology.hl7.org/CodeSystem/adjudication-error"/>
-  <name value="Adjudication Error Codes"/>
+  <name value="AdjudicationErrorCodes"/>
+  <title value="Adjudication Error Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="This value set includes a smattering of adjudication codes."/>

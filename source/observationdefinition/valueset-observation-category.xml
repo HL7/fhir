@@ -5,7 +5,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/observation-category"/>
-  <name value="Observation Category Codes"/>
+  <name value="ObservationCategoryCodes"/>
+  <title value="Observation Category Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

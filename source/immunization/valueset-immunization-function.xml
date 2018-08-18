@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="true"/>
 	</extension>
-  <name value="Immunization Function Codes"/>
+  <name value="ImmunizationFunctionCodes"/>
+  <title value="Immunization Function Codes"/>
+
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

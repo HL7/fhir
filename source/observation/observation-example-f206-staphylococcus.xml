@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- @version June 2013 @author Melchior Ferdinand Pot --><Observation xmlns="http://hl7.org/fhir">
+﻿<?xml version="1.0" encoding="UTF-8"?><!-- @version June 2013 @author Melchior Ferdinand Pot --><Observation xmlns="http://hl7.org/fhir">
 	<id value="f206"/>
 	<status value="final"/>
 	<code><!-- Kind of observation = Blood culture --><coding>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/risk-probability"/>
-  <name value="Risk Probability"/>
+  <name value="RiskProbability"/>
+  <title value="Risk Probability"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Codes representing the likelihood of a particular outcome in a risk assessment."/>

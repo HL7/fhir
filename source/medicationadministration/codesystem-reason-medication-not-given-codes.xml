@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/reason-medication-not-given"/>
-  <name value="Reason Medication Not Given Codes"/>
+  <name value="ReasonMedicationNotGivenCodes"/>
+  <title value="Reason Medication Not Given Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process."/>

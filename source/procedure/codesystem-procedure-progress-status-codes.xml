@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/procedure-progress-status-code"/>
-  <name value="Procedure Progress Status Codes"/>
+  <name value="ProcedureProgressStatusCodes"/>
+  <title value="Procedure Progress Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the procedure performance process."/>

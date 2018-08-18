@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 
 <ValueSet xmlns="http://hl7.org/fhir">
@@ -6,7 +6,9 @@
 
 <url value="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"/>
 
-<name value="SNOMED CT Reason Medication Not Given Codes"/>
+<name value="SNOMEDCTReasonMedicationNotGivenCodes"/>
+  <title value="SNOMED CT Reason Medication Not Given Codes"/>
+
   
 <status value="draft"/>
   

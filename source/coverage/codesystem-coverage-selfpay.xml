@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/coverage-selfpay"/>
-  <name value="Coverage Self Pay Codes"/>
+  <name value="CoverageSelfPayCodes"/>
+  <title value="Coverage Self Pay Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>

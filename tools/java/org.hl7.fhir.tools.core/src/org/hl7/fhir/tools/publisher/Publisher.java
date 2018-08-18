@@ -6166,9 +6166,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       xml.compose(s, vs);
       s.close();
 //      System.out.println(vs.getUrl());
-      cloneToXhtml(n, "Definition for Value Set" + vs.getName(), false, "valueset-instance", "Value Set", null, wg("vocab"));
-      jsonToXhtml(n, "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set", null, wg("vocab"));
-      ttlToXhtml(n, "Definition for Value Set" + vs.getName(), resource2Ttl(vs), "valueset-instance", "Value Set", null, wg("vocab"));
+      cloneToXhtml(n, "Definition for Value Set" + vs.present(), false, "valueset-instance", "Value Set", null, wg("vocab"));
+      jsonToXhtml(n, "Definition for Value Set" + vs.present(), resource2Json(vs), "valueset-instance", "Value Set", null, wg("vocab"));
+      ttlToXhtml(n, "Definition for Value Set" + vs.present(), resource2Ttl(vs), "valueset-instance", "Value Set", null, wg("vocab"));
     }
 
   }

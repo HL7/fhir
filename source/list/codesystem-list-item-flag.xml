@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="urn:oid:1.2.36.1.2001.1001.101.104.16592"/>
   <version value="1"/>
-  <name value="Patient Medicine Change Types"/>
+  <name value="PatientMedicineChangeTypes"/>
+  <title value="Patient Medicine Change Types"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation."/>

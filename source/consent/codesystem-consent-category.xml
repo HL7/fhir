@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/consentcategorycodes"/>
-  <name value="Consent Category Codes"/>
+  <name value="ConsentCategoryCodes"/>
+  <title value="Consent Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="FHIR Specific Example codes for Consent Category"/>

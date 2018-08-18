@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/claim-exception"/>
-  <name value="Exception Codes"/>
+  <name value="ExceptionCodes"/>
+  <title value="Exception Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Exception codes."/>

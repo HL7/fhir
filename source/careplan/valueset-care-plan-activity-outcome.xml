@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity-outcome"/>
-	<name value="Care Plan Activity Outcome"/>
+	<name value="CarePlanActivityOutcome"/>
+  <title value="Care Plan Activity Outcome"/>
 	<status value="draft"/>
 	<publisher value="HL7 International - Patient Care WG"/>
 	<contact>

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/procedure-followup"/>
-  <name value="Procedure Follow up Codes (SNOMED CT)"/>
+  <name value="ProcedureFollowUpCodes(SNOMEDCT)"/>
+  <title value="Procedure Follow up Codes (SNOMED CT)"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir">
+﻿<ValueSet xmlns="http://hl7.org/fhir">
 	<id value="provenance-activity-type"/>
 	<text>
 		<status value="generated"/>

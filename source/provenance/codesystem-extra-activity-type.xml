@@ -1,4 +1,4 @@
-<CodeSystem xmlns="http://hl7.org/fhir">
+﻿<CodeSystem xmlns="http://hl7.org/fhir">
 	<id value="extra-activity-type"/>
 
 	<url value="http://hl7.org/fhir/extra-activity-type"/>

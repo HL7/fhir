@@ -422,7 +422,7 @@ public class QuestionnaireBuilder {
   private ValueSet makeTypeList(StructureDefinition profile, List<TypeRefComponent> types, String path) {
     ValueSet vs = new ValueSet();
     vs.setName("Type options for "+path);
-    vs.setDescription(vs.getName());
+    vs.setDescription(vs.present());
 	  vs.setStatus(PublicationStatus.ACTIVE);
     vs.setExpansion(new ValueSetExpansionComponent());
     vs.getExpansion().setIdentifier(Factory.createUUID());

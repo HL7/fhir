@@ -14,7 +14,8 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="true"/>
 	</extension>
-  <name value="Contract Signer Type Codes"/>
+  <name value="ContractSignerTypeCodes"/>
+  <title value="Contract Signer Type Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <description value="This value set includes sample Contract Signer Type codes."/>

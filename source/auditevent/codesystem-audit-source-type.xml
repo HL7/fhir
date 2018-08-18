@@ -3,7 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
   <version value="20100826"/>
-  <name value="Audit Event Source Type"/>
+  <name value="AuditEventSourceType"/>
+  <title value="Audit Event Source Type"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2010-08-26T00:00:00+10:00"/>

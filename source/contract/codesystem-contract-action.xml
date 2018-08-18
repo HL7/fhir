@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/contractaction"/>
-  <name value="Contract Action Codes"/>
+  <name value="ContractActionCodes"/>
+  <title value="Contract Action Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Contract Action codes."/>

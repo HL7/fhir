@@ -5,7 +5,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/flag-category"/>
-  <name value="Flag Category"/>
+  <name value="FlagCategory"/>
+  <title value="Flag Category"/>
   <status value="draft"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>

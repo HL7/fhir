@@ -2,7 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason"/>
-  <name value="Immunization Evaluation Dose Status Reason codes"/>
+  <name value="ImmunizationEvaluationDoseStatusReasonCodes"/>
+  <title value="Immunization Evaluation Dose Status Reason codes"/>
+
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This code system supports describing the reason why an administered dose has been assigned a particular status. Often, this reason describes why a dose is considered invalid."/>

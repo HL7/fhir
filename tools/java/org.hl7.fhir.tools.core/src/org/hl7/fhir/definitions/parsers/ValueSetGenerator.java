@@ -302,6 +302,8 @@ public class ValueSetGenerator {
       vs.setExperimental(false);
     if (!vs.hasName())
       vs.setName(bs.getName());
+    if (!vs.hasTitle())
+      vs.setTitle(bs.getName());
     if (!vs.hasPublisher())
       vs.setPublisher("HL7 (FHIR Project)");
     if (!vs.hasContact()) {

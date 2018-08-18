@@ -1,4 +1,4 @@
-<Patient xmlns="http://hl7.org/fhir">
+﻿<Patient xmlns="http://hl7.org/fhir">
   <id value="glossy"/>
   <meta>
     <lastUpdated value="2014-11-13T11:41:00+11:00"/>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
 	<url value="http://terminology.hl7.org/CodeSystem/coverage-copay-type"/>
-	<name value="Coverage CoPay Type Codes"/>
+	<name value="CoverageCoPayTypeCodes"/>
+  <title value="Coverage CoPay Type Codes"/>
 	<status value="draft"/>
 	<publisher value="Financial Management"/>
 	<contact>

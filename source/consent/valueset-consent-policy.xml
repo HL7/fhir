@@ -3,7 +3,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Consent PolicyRule Codes"/>
+  <name value="ConsentPolicyRuleCodes"/>
+  <title value="Consent PolicyRule Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project (CBCC)"/>
   <contact>

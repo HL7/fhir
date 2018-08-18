@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="ICD-10 Codes"/>
+  <name value="ICD-10Codes"/>
+  <title value="ICD-10 Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
   <contact>

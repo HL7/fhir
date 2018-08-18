@@ -3,7 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://dicom.nema.org/resources/ontology/DCM/401"/>
   <version value="20100826"/>
-  <name value="Audit Event Sub-Type"/>
+  <name value="AuditEventSub-Type"/>
+  <title value="Audit Event Sub-Type"/>
   <status value="active"/>
   <date value="2010-08-26"/>
   <publisher value="NEMA/DICOM"/>

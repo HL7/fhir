@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/condition-category"/>
-  <name value="Condition Category Codes"/>
+  <name value="ConditionCategoryCodes"/>
+  <title value="Condition Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Example value set for Condition Categories."/>

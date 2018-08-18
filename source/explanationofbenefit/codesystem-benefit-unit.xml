@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/benefit-unit"/>
-  <name value="Unit Type Codes"/>
+  <name value="UnitTypeCodes"/>
+  <title value="Unit Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes a smattering of Unit type codes."/>

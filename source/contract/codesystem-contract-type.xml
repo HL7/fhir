@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/coverage-copay-type"/>
-  <name value="Contract Type Codes"/>
+  <name value="ContractTypeCodes"/>
+  <title value="Contract Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Contract Type codes."/>

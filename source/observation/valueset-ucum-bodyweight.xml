@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="false"/>
 	</extension>
 	<id value="valueset-ucum-bodyweight"/>
 	<url value="http://hl7.org/fhir/ValueSet/ucum-bodyweight"/>
-	<name value="Body Weight Units"/>
+	<name value="BodyWeightUnits"/>
+  <title value="Body Weight Units"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project"/>
 	<description value="UCUM units for recording Body Weight"/>

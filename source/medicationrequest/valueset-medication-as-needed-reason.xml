@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 
 <ValueSet xmlns="http://hl7.org/fhir">
@@ -6,7 +6,9 @@
 
 <url value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
 
-<name value="SNOMED CT Medication As Needed Reason Codes"/>
+<name value="SNOMEDCTMedicationAsNeededReasonCodes"/>
+  <title value="SNOMED CT Medication As Needed Reason Codes"/>
+
   
 <status value="draft"/>
   

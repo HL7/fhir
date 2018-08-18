@@ -5,7 +5,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/observation-category"/>
-  <name value="Substance Category Codes"/>
+  <name value="SubstanceCategoryCodes"/>
+  <title value="Substance Category Codes"/>
   <status value="draft"/>
   <publisher value="HL7 Orders and Observations Workgroup"/>
   <contact>

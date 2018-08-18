@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
 <url value="http://hl7.org/fhir/feeding-device"/>
-<name value="Feeding Device Codes"/>
+<name value="FeedingDeviceCodes"/>
+  <title value="Feeding Device Codes"/>
+
 <status value="draft"/>
 <experimental value="false"/>
 <description value="Materials used or needed to feed the patient. These values are provided as a suggestive example."/>

@@ -2,7 +2,8 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://terminology.hl7.org/CodeSystem/contractactorrole"/>
-  <name value="Contract Actor Role Codes"/>
+  <name value="ContractActorRoleCodes"/>
+  <title value="Contract Actor Role Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Contract Actor Role codes."/>
