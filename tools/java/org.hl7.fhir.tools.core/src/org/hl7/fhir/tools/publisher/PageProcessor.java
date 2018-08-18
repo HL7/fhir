@@ -1339,12 +1339,87 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+listCanonicalResources()+s3;
       else if (com[0].equals("special-search-parameters")) { 
         src = s1+listSpecialParameters()+s3;
+      } else if (com[0].equals("diff-links-all")) { 
+        src = s1+genDiffLinks()+s3;
       } else if (macros.containsKey(com[0])) {
         src = s1+macros.get(com[0])+s3;
       } else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String genDiffLinks() {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>\r\n");
+    pageDiffLinks(b, "resourcelist");
+    pageDiffLinks(b, "lifecycle");
+    pageDiffLinks(b, "compartmentdefinition");
+    pageDiffLinks(b, "rdf");
+    pageDiffLinks(b, "terminologies-systems");
+    pageDiffLinks(b, "mappings");
+    pageDiffLinks(b, "versioning");
+    pageDiffLinks(b, "history");
+    pageDiffLinks(b, "diff");
+    pageDiffLinks(b, "r3maps");
+    pageDiffLinks(b, "overview");
+    pageDiffLinks(b, "overview-dev");
+    pageDiffLinks(b, "overview-clinical");
+    pageDiffLinks(b, "overview-arch");
+    pageDiffLinks(b, "summary");
+    pageDiffLinks(b, "help");
+    pageDiffLinks(b, "license");
+    pageDiffLinks(b, "credits");
+    pageDiffLinks(b, "todo");
+    pageDiffLinks(b, "change");
+    pageDiffLinks(b, "async");
+    pageDiffLinks(b, "graphql");
+    pageDiffLinks(b, "documents");
+    pageDiffLinks(b, "messaging");
+    pageDiffLinks(b, "services");
+    pageDiffLinks(b, "storage");
+    pageDiffLinks(b, "dosage");
+    pageDiffLinks(b, "fivews");
+    pageDiffLinks(b, "event");
+    pageDiffLinks(b, "request");
+    pageDiffLinks(b, "definition");
+    pageDiffLinks(b, "downloads");
+    pageDiffLinks(b, "versioning");
+    pageDiffLinks(b, "validation");
+    pageDiffLinks(b, "best-practices");
+    pageDiffLinks(b, "mapping-language");
+    pageDiffLinks(b, "testing");
+    pageDiffLinks(b, "security");
+    pageDiffLinks(b, "safety");
+    pageDiffLinks(b, "managing");
+    pageDiffLinks(b, "resourceguide");
+    pageDiffLinks(b, "languages");
+    pageDiffLinks(b, "updates");
+    pageDiffLinks(b, "pushpull");
+    pageDiffLinks(b, "integrated-examples");
+    pageDiffLinks(b, "usecases");
+    pageDiffLinks(b, "comparison-v2");
+    pageDiffLinks(b, "comparison-v3");
+    pageDiffLinks(b, "comparison-cda");
+    pageDiffLinks(b, "comparison-other");
+    for (String n : definitions.sortedResourceNames()) {
+      resourceDiffLinks(b, n);
+    }
+    
+    b.append("</ul>\r\n");
+    return b.toString();
+  }
+
+  private void resourceDiffLinks(StringBuilder b, String n) {
+    b.append("<li>");
+    b.append("<a href=\""+n.toLowerCase()+".html\">"+n+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+n.toLowerCase()+".html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+n.toLowerCase()+".html\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>");
+    b.append(", <a href=\""+n.toLowerCase()+"-definitions.html\">Definitions</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+n.toLowerCase()+"-definitions.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+n.toLowerCase()+"-definitions.html\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>");
+    b.append(", <a href=\""+n.toLowerCase()+"-operations.html\">Operations</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+n.toLowerCase()+"-operations.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+n.toLowerCase()+"-operations.html\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a>");
+    b.append("</li>\r\n");    
+  }
+
+  private void pageDiffLinks(StringBuilder b, String p) {
+    b.append("<li><a href=\""+p+".html\">"+p+"</a> <a href=\"http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F2018May%2F"+p+".html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2F"+p+".html\" no-external=\"true\" style=\"border: 1px solid lightgrey; white-space: nowrap; background-color: #EDFDFE; padding: 2px 2px 2px 2px\">&Delta;B</a></li>\r\n");    
   }
 
   private String listSpecialParameters() throws FHIRException {
@@ -2833,10 +2908,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         return "Snomed CT";
       else
         return ref;
-    } else if (vs.hasTitle())
-      return vs.getTitle();
-    else
-      return vs.getName();
+    } else
+      return vs.present();
   }
 
   private String xreferencesForV2(String name, String level) {
@@ -3472,9 +3545,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           Cell cell = gen.new Cell(null, t.getLink(), nd+" "+td, t.getText()+" ", null);
           row.getCells().add(cell);
           if (np != null) {
-            cell.addPiece(gen.new Piece(null, ". ", null));
-            cell.addPiece(gen.new Piece("ballot-intro.html#"+np, "(Normative - "+Utilities.capitalize(np)+")", null));
-            row.setIcon("icon_page_n.gif", null);
+            cell.addPiece(gen.new Piece(null, " ", null));
+            cell.addPiece(gen.new Piece("ballot-intro.html#"+np, "(Normative / "+Utilities.capitalize(np)+")", null).addStyle("color: "));
+            if (np.equals("infrastructure"))
+              row.setIcon("icon_page_n_i.gif", null);
+            else if (np.equals("conformance"))
+              row.setIcon("icon_page_n_c.gif", null);
+            else if (np.equals("patient"))
+              row.setIcon("icon_page_n_p.gif", null);
+            else if (np.equals("observation"))
+              row.setIcon("icon_page_n_o.gif", null);
+            else 
+              row.setIcon("icon_page_n.gif", null);
+          } else {            
+            cell.addPiece(gen.new Piece(null, " ", null));
+            cell.addPiece(gen.new Piece("ballot-intro.html#stu", "(Trial Use)", null));
           }
           if (stack.isEmpty())
             model.getRows().add(row);

@@ -757,7 +757,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cm.setUrl("http://hl7.org/fhir/ConceptMap/"+cm.getId());
     cm.setVersion(page.getVersion());
     cm.setName(vs.getName()+"CanonicalMap");  
-    cm.setTitle("Canonical Mapping for \""+vs.getTitle()+"\""); 
+    cm.setTitle("Canonical Mapping for \""+vs.present()+"\""); 
     cm.setStatus(PublicationStatus.DRAFT);  
     cm.setDate(vs.getDate());  
     cm.setPublisher(vs.getPublisher());
