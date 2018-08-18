@@ -227,7 +227,8 @@ of a resource definition have their own representation of 'is modifier = true' s
 it is defined directly in a <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">ElementDefinition</a>.
 </p>
 <p>
-Is-Modifier elements SHALL be represented in the narrative summary of the resource.
+If a narrative summary is present, and the status is <code>generated</code>, Is-Modifier elements SHALL be represented in the narrative summary of the resource.
+If Narrative is present with some other status Is-modifier elements SHOULD be represented.
 </p>
 <p>
 If the value of a modifier element is not explicit in the instance, or known by the context,
