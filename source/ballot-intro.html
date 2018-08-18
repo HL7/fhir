@@ -14,11 +14,11 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the second round of the FHIR Release 4 (R4) ballot, which is the first FHIR Ballot that includes content on a normative track. 
-Note that the R4 version of FHIR will have content with different ballot status: 
+Welcome to the second round of the FHIR Release 4 (R4) ballot, which is working toward our first release planned to include normative content. 
+The R4 release of FHIR will have content with different ballot statuses: 
 </p>
 <ul>
- <li><span style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Normative</b></span>: Content that is subject to normative ballot rules. Once passed, breaking changes are no longer possible</li>
+ <li><span style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Normative</b></span>: Content that is subject to normative ballot rules. Once passed, <a href="versions.html#change">strict rules</a> are imposed on future change to help ensure inter-version compatibility</li>
  <li><span style="background-color: #fff5e6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Trial Use</b></span>: Content that is undergoing <a href="versions.html#maturity">FHIR maturity Model</a> based testing. In a future ballot cycle, once sufficiently mature, it will be balloted as normative</li>
  <li><span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>: Content that is advisory (e.g. implementers are not required to conform to the content), or navigational content - tables of contents, generated lists, etc.</li>
  <li><span style="background-color: #efefef; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Draft</b></span>: Content added late in the balloting process that has no formal standing, but is published for visibility. It might not be suitable for use in production systems.</li>
@@ -31,7 +31,10 @@ Note that the R4 version of FHIR will have content with different ballot status:
 
 <p>
 The FHIR R4 ballot process is significantly more complex than previous ballots because of the introduction of 
-content on the normative track. 3 ballot periods are anticipated:
+content on the normative track.
+</p>
+<p>
+Three ballot periods are anticipated:
 </p>
 <table class="grid">
  <tr>
@@ -41,14 +44,14 @@ content on the normative track. 3 ballot periods are anticipated:
      <ul>
        <li>The community to review the packaging and publication of the normative content</li>
        <li>The FHIR Management Group to hone ballot procedures</li>
-       <li>Ongoing review of the FHIR content - particularly that marked normative</li>
+       <li>Ongoing review of the FHIR content - particularly that marked as candidate-normative</li>
      </ul>  
    </td>
   </tr>
  <tr>
    <td>Full FHIR Ballot</td>
    <td>Apr 2018 - May 2018</td>
-   <td>The full R4 ballot. It includes:
+   <td>The full R4 ballot. It included:
      <ul>
        <li>Multiple packages of normative content (see below)</li>
        <li>The rest of the content balloted for "Trial Use"</li>
@@ -60,10 +63,10 @@ content on the normative track. 3 ballot periods are anticipated:
    <td>Aug 2018 - Sep 2018</td>
    <td>A follow up ballot
      <ul>
-       <li>Reballoting of normative content where substantitive changes are required</li>
+       <li>Reballoting of normative content where substantitive changes were required in response to ballot and implementer feedback</li>
        <li>Additional signficant new (added post the full FHIR ballot) or significantly revised content balloted for "Trial Use"</li>
      </ul>  
-     <b>We are at this ballot</b>
+     <b>This is the current ballot</b>
    </td>
   </tr>
 </table>
@@ -71,9 +74,9 @@ content on the normative track. 3 ballot periods are anticipated:
 <p>
 The key driver of this complexity is the introduction of normative content. HL7's 
 ballot rules for normative content require that if any substantiative changes are
-made as a result of ballot reconciliation, the content must be reballoted by the 
-same ballot pool. (Note that 'substantiative changes' means any change that will
-affect implementers - a very low bar). 
+made as a result of ballot reconciliation, the content must be reballoted.
+(Note that 'substantiative changes' means any change that is likely to change
+implementations - a very low bar). 
 </p>
 <p>
 In the past, normative ballots have undergone many cycles of balloting, a process
@@ -89,19 +92,19 @@ packages:
 </p>
 <table class="rows">
  <tr>
-   <td>Infrastructure</td>
+   <th>Infrastructure</th>
    <td>Abstract base types, data types, formats, the RESTful API, and content and typing rules</td>
   </tr>
  <tr>
-   <td>Terminology and Conformance</td>
+   <th>Terminology and Conformance</th>
    <td>The terminology infrastructure and the base resources that define FHIR implementations</td>
   </tr>
  <tr>
-   <td>Patient</td>
+   <th>Patient</th>
    <td>The Patient resource and related content</td>
   </tr>
  <tr>
-   <td>Observation</td>
+   <th>Observation</th>
    <td>The Observation resource and related content</td>
   </tr>
 </table>
@@ -119,8 +122,8 @@ In addition to these ballots of the core FHIR specification, several implementat
 
 <p>
 Release 4 of the FHIR specification provides thousands of significant changes and enhancements 
-from the third FHIR Draft Standard for Trial Use specification HL7 published in May, 2017.  
-These changes result from committee meetings, connectathons, over a thousand change proposals, and 
+from the third FHIR Standard for Trial Use specification HL7 published in May, 2017.  
+These changes resulted from committee meetings, connectathons, over a thousand change proposals, and 
 collaborations with other standards organizations.  A <a href="history.html#v1.6.0">summary of changes</a>  
 and a <a href="diff.html">complete list of changes to resources and data types</a> are available, along with 
 <a href="r3maps.html">transforms</a> between R3 and R4 for many resources.
@@ -141,7 +144,7 @@ A few notes to consider when balloting:
   from the early adopter community.</li>
   <li>While many applications have used the FHIR specification in production, the functionality it covers is not yet complete.  
   Resources may evolve and new ones will be introduced over time.  Refer to <a href="versions.html">FHIR 
-  Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification, or the road maps on the module pages.</li>
+  Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification.  Also look at the road maps on the module pages.</li>
 </ul>
 
 <h3>Balloting Guidelines</h3>
@@ -166,7 +169,7 @@ by end of day Eastern time on the designated ballot closure date for the comment
   and to use the spreadsheet only to list their tracker item numbers and votes.  (If you include additional information beyond tracker item and vote, we 
   need to cross-check to ensure the content is aligned, which eliminates any savings.  So if you keep additional columns for internal review, please wipe them before submission.)
   Tracker-based comment submission dramatically reduces administrative overhead in managing the ballot.
-  It also means that you can receive automatic notifications when your comment is scheduled for discussion, commented on or resolved.  
+  It also means that you can receive automatic notifications when your comment is scheduled for discussion, commented on, or resolved.  
 </p>
 
 <p>
@@ -191,7 +194,7 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 
 <p>
 This is the round 2 ballot for FHIR R4. As such,  The scope of this second ballot for the R4 cycle is limited to the changes 
-made from the 2018-May ballot cycle. Feedback not related to changes made will most likely be found not related.
+made from the 2018-May ballot cycle. Feedback not related to changes made will most likely be found "not related" and/or deferred to consideration as part of R5.
 </p>
 <p>
 To assist balloters, for the Normative ballot, each substantitive change made is listed, along with links to the 
