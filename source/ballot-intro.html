@@ -14,7 +14,7 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the first round of the FHIR Release 4 (R4) ballot, which is the first FHIR Ballot that includes content on a normative track. 
+Welcome to the second round of the FHIR Release 4 (R4) ballot, which is the first FHIR Ballot that includes content on a normative track. 
 Note that the R4 version of FHIR will have content with different ballot status: 
 </p>
 <ul>
@@ -56,13 +56,14 @@ content on the normative track. 3 ballot periods are anticipated:
    </td>
   </tr>
  <tr>
-   <td>Follow up Ballot</td>
+   <td><b>Follow up Ballot</b></td>
    <td>Aug 2018 - Sep 2018</td>
    <td>A follow up ballot
      <ul>
        <li>Reballoting of normative content where substantitive changes are required</li>
        <li>Additional signficant new (added post the full FHIR ballot) or significantly revised content balloted for "Trial Use"</li>
      </ul>  
+     <b>We are at this ballot</b>
    </td>
   </tr>
 </table>
@@ -106,8 +107,8 @@ packages:
 </table>
 <p>
 A full list of the pages that are in each normative package can be found below.
-Any content that is not in these packages is considered to be 
-part of the Trial Use Ballot.
+Any content that is not in these packages is considered to be part of the general 
+Trial Use Ballot.
 </p>
 <p>
 In addition to these ballots of the core FHIR specification, several implementation guides are undergoing ballot as well.
@@ -127,7 +128,7 @@ and a <a href="diff.html">complete list of changes to resources and data types</
 <p>
 The FHIR specification is presented as a series of interlinked HTML pages.  They can either be reviewed online or can be
 <a href="fhir-spec.zip">downloaded</a> for exploration on your own device.  (175MB zip, ~1GB unzipped). The scope of
-this FHIR Ballot is any page where the URL starts with http://hl7.org/fhir/2018May, though balloters must pay careful
+this FHIR Ballot is any page where the URL starts with http://hl7.org/fhir/2018Sep, though balloters must pay careful
 attention to which ballot package content is in (see below, or the <a href="toc.html">Table of Contents</a>).
 </p>
 <p>
@@ -143,7 +144,7 @@ A few notes to consider when balloting:
   Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification, or the road maps on the module pages.</li>
 </ul>
 
-<h3>Balloting Rules</h3>
+<h3>Balloting Guidelines</h3>
 <p>
 HL7 ballot rules require that participants sign up prior to opening of the ballot.  If you did not sign up in advance, you
 can still submit comments using the <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemAdd&amp;tracker_id=677">Propose a Change</a>
@@ -161,12 +162,11 @@ ballot spreadsheet along with a vote (negative, affirmative typo, etc.).  The ot
 by end of day Eastern time on the designated ballot closure date for the comments to be considered as part of ballot disposition.
 </p>
 <p style="background-color:yellow">
-  <b>IMPORTANT:</b> Because of the volume of feedback we expect this ballot cycle, we strongly ask (beg?) balloters to capture their comments using the gForge tool
+  <b>IMPORTANT:</b> We encourage  balloters to capture their comments using the gForge tool
   and to use the spreadsheet only to list their tracker item numbers and votes.  (If you include additional information beyond tracker item and vote, we 
-  need to cross-check to ensure the content is aligned, which eleminates any savings.  So if you keep additional columns for internal review, please wipe them before submission.)
+  need to cross-check to ensure the content is aligned, which eliminates any savings.  So if you keep additional columns for internal review, please wipe them before submission.)
   Tracker-based comment submission dramatically reduces administrative overhead in managing the ballot.
-  It also means that you can receive automatic notifications when your comment is scheduled for discussion, commented on or resolved.  This will be the last
-  ballot cycle where FHIR will permit spreadsheet-based ballot submissions, so you may as well get used to tracker-based balloting sooner rather than later...
+  It also means that you can receive automatic notifications when your comment is scheduled for discussion, commented on or resolved.  
 </p>
 
 <p>
@@ -186,8 +186,23 @@ the co-chairs of the FHIR Management Group: <a href="mailto:lloyd@lmckenzie.com"
 Thanks for taking the time to review the FHIR specification.  We appreciate any feedback you can provide.
 </p>
 
-<a name="self"></a>
-<h3>About the diffs</h3>
+<a name="round2"></a>
+<h3>Rules for Round 2 Ballot (Follow up ballot)</h3>
+
+<p>
+This is the round 2 ballot for FHIR R4. As such,  The scope of this second ballot for the R4 cycle is limited to the changes 
+made from the 2018-May ballot cycle. Feedback not related to changes made will most likely be found not related.
+</p>
+<p>
+To assist balloters, for the Normative ballot, each substantitive change made is listed, along with links to the 
+page and the task that prompted the change. Also, diff links are provided to assist with reviewing the non-substantitive
+changes. 
+</p>
+<p>
+For the Trial-Use ballot, the significant new content areas are indicated.
+</p>
+
+<a name="diffs"></a>
 <p>
 The lists below provide 2 "diff" links - these are links that ask a W3C differencing engine to compare the 2 pages of the specification. There are two different types of link:
 </p>
@@ -207,8 +222,12 @@ structures - e.g. when reviewing based on the diffs, review the definitions page
 
 <a name="infrastructure"></a>
 <h4>Infrastructure</h4>
-<a name="infrastructure"></a>
+
 <p>Abstract base types, data types, formats, the RESTful API, and content and typing rules</p>
+
+<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
+Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot.
+</p>
 
 [%normative-pages infrastructure%]
 
@@ -286,9 +305,13 @@ structures - e.g. when reviewing based on the diffs, review the definitions page
 </table>
 
 <a name="terminology"></a>
-<h4>Terminology and Conformance</h4>
 <a name="conformance"></a>
+<h4>Terminology and Conformance</h4>
 <p>The terminology infrastructure, and the base resources that specify content</p>
+
+<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
+Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot.
+</p>
 
 [%normative-pages conformance%]
 
@@ -339,8 +362,15 @@ structures - e.g. when reviewing based on the diffs, review the definitions page
 
 <a name="patient"></a>
 <h4>Patient</h4>
-<a name="patient"></a>
 <p>The Patient resource, and related content</p>
+
+<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
+Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot. 
+Patient is being reballoted solely because of changes driven by terminology standardization, 
+which means that the <a href="datatypes.html#Coding">Coding.system</a> values for 
+<a href="patient-definitions.html#Patient.maritalStatus">Patient.maritalStatus</a> and 
+<a href="patient-definitions.html#Patient.contact.relationship">Patient.contact.relationship</a>. There is no other change.
+</p>
 
 [%normative-pages patient%]
 
@@ -353,8 +383,11 @@ structures - e.g. when reviewing based on the diffs, review the definitions page
 
 <a name="observation"></a>
 <h4>Observation</h4>
-<a name="observation"></a>
 <p>The Observation resource, and related content</p>
+
+<p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; max-width: 790px">
+Please consult the <a href="#round2">Round 2 ballot guide above</a> before commenting on this ballot.
+</p>
 
 [%normative-pages observation%]
 <p><b>Substantive Changes since the first ballot</b></p>
@@ -364,7 +397,36 @@ structures - e.g. when reviewing based on the diffs, review the definitions page
  <tr><td>Change the canonical url for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
 </table>
 
-</div>
+
+<a name="stu"></a>
+<h4>Trial-Use R4</h4>
+<p>
+This ballot includes everything else not listed above, including 
+draft, informative and externally derived content. Balloters 
+are welcome to comment about these, though there is no difference
+between  ballot comments on these content and normal content. 
+</p>
+<p>
+There have been many changes to the content; balloters should
+use the "Ballot Comparison" link at the bottom of page to compare
+the differences. For implementer convenience, <b>some of the 
+more signficant</b> (not all) changes are listed here:
+</p>
+<ul>
+ <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
+ <li>Renamed Resources: <code>OrgnizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
+   <code>EligibilityResponse</code> to <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a>, and <code>ProductPlan</code> to <a href="insuranceplan.html">InsurancePlan</a></li>
+ <li>Significant rework around devices - in the <a href="device.html">Device</a> resource, remove <code>DeviceComponent</code> + new resource <a href="devicedefinition.html">DeviceDefinition</a></li>
+ <li>Update maps/diffs to R3 (see <a href="#maps">note</a> above)</li>
+ <li>New page listing <a href="best-practices.html">best practices</a></li>
+ <li>A sweeping change to code system and value set URLs to align with new terminology infrastructure</li>
+ <li>Add <a href="versioning.html">information</a> and <a href="capabilitystatement-operation-versions.html">operations</a> related to supporting multiple versions of FHIR</li>
+ <li>Rewrite <a href="async.html">Asynchronous Pattern Operation</a></li>
+ <li>New <a href="security.html">security notes</a> about suggested best practices, and new <a href="safety.html">safety notes</a> about deleting records</li>
+ <li>Lots of changes to <a href="financial-module.html">Financial Resources</a> (especially <a href="contract.html">Contract</a>)</li>
+</ul> 
+
+</div>   
 
 [%file newfooter%]
 

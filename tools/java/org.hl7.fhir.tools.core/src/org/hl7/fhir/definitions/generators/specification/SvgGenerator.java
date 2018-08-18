@@ -871,7 +871,7 @@ public class SvgGenerator extends BaseGenerator {
     if (!xs.startsWith("xs:"))
       xs = "xs:"+xs;
     return xs.replace(", ", "|");
-  }
+  } 
 
   private String baseUrl(String path) throws Exception {
     String root = path.contains(".") ? path.substring(0, path.indexOf(".")) : path;
