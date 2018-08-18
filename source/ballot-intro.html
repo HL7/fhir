@@ -399,59 +399,9 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
  <tr><td><b>Description</b></td> <td><b>Committee + Tasks</b></td> <td><b>Pages</b></td> </tr>
  <tr><td>Change the canonical url for all v2 and v3 CodeSystems and ValueSets to <code>http://terminology.hl7.org</code> (from the Unified Terminology Process)</td> <td>(no task: Vocab committee decision)</td> <td>todo</td> </tr>
  
- <tr>
-<td>Removed  <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">.related</code> (complex) element and added <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">.derivedFrom</code> and <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">.hasMember</code> elements and  standard extensions  <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">observation-sequel-to</code>, <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">observation-replaces</code>, and <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">observation-precondition</code>  <strong>Breaking Change!</strong></td>
-<td>OO: [%GF#10118%],[%GF#14034%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
 <tr>
-<td>Updated the observation-status code system by adding a hierarchy under 'amended'  for the code 'corrected'.  <strong>Breaking Change!</strong></td>
-<td>OO: [%GF#10300%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Replaced observation-valueabsentreason value set with data-absent-reason.  Updated the data-absent-reason code system by removing inaccurate hierarchy under 'not-applicable' and adding a hierarchy under 'error' for the floating point error codes: 'not-a-number', 'negative-infinity' and 'positive-infinity'. Updated definitions for the 'floating point' error codes. Remove inaccurate 'NA' RIM mappings for the error codes and 'not-performed'.  <strong>Breaking Change!</strong></td>
-<td>OO: [%GF#15567%], [%GF#10556%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Added choice of Timing to <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.effectiveTime</code> and remove the extension 'eventTiming'.</td>
-<td>OO: [%GF#12896%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Added guidance on using code value pairs to represent observations in FHIR.</td>
-<td>OO: [%GF#13318%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Removal the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Attachment</code> data type as a choice for <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">value[x]</code>.  Observations that require the attachment data types are represented by the Media resource. This change eliminates the ambiguity and duplication on how to represent multimedia observations.  Direct links to Media were added to elements  <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">derivedFrom</code> and  <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">hasMember</code>  <strong>Breaking Change!</strong></td>
-<td>OO: [%GF#13347%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Added valueInteger as a choice for <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.value[x]</code> and <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.component.value[x]</code>.</td>
-<td>OO: [%GF#13375%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Added valueBoolean as a choice for <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Observation.component.value[x]</code>.  This corrects an oversight in the STU3 specification.</td>
-<td>OO: [%GF#13703%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>changes to  fhirpath for <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">obs-7</code>  <strong>Breaking Change!</strong></td>
-<td>OO: [%GF#14073%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Promotion of the event-partOf extension to the inline element <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">partOf</code>. This allows a direct reference to an event in which the observation was made (for example a procedure).  <strong>Breaking Change!</strong></td>
-<td>OO: [%GF#14095%]</td>
-<td>[%diff observation.html Observation%]</td>
-</tr>
-<tr>
-<td>Promotion and expanded the definition of the focal-subject extension  to an inline <strong>DSTU</strong> element <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">focus</code> .  This element represents a direct reference to the actual focus of the observation is different from the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">subject</code> (or a sample of, part, or region of the subject).   Updated the definition of <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">subject</code> and added a note to the FHIR safety page about not being surprised by the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">focus</code>  element.</td>
-<td>OO: [%GF#16136%],[%GF#15825%],[%GF#15162%],[%GF#14863%],[%GF#14443%]</td>
+<td> Updated the definition of <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">subject</code> and added a note to the FHIR safety page about not being surprised by the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">focus</code>  element.</td>
+<td>OO: [%GF#16136%]</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>
 <tr>
@@ -461,7 +411,12 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
 </tr>
 <tr>
 <td>Created a standard extension event-supportingInfo to reference other resources <em>from the patient record</em>  that were used in creating the Observation instance.</td>
-<td>OO: [%GF#15824%]</td>
+<td>OO: [%GF#16172%]</td>
+<td>[%diff observation.html Observation%]</td>
+</tr>
+<tr>
+<td>Created a standard extension observation-precondition to reference other observations that must be known to correctly interpret the observation.</td>
+<td>OO: [%GF#17228%]</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>
 <tr>
@@ -475,7 +430,7 @@ Please consult the <a href="#round2">Round 2 ballot guide above</a> before comme
 <td>[%diff observation.html Observation%]</td>
 </tr>
 <tr>
-<td>Added guidance on how other observations or code translations provide addition context that may alter the semantics of the observation.</td>
+<td>Added guidance on how other observations or code translations provide additional context that may alter the semantics of the observation.</td>
 <td>OO: [%GF#17578%]</td>
 <td>[%diff observation.html Observation%]</td>
 </tr>
