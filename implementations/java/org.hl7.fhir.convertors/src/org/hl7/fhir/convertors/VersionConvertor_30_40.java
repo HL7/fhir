@@ -2778,6 +2778,8 @@ public class VersionConvertor_30_40 {
       return convertElementDefinition((org.hl7.fhir.dstu3.model.ElementDefinition) src);
     if (src instanceof org.hl7.fhir.dstu3.model.DataRequirement)
       return convertDataRequirement((org.hl7.fhir.dstu3.model.DataRequirement) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.TriggerDefinition)
+      return convertTriggerDefinition((org.hl7.fhir.dstu3.model.TriggerDefinition) src);
     throw new Error("Unknown type "+src.fhirType());
   }
 
@@ -2882,6 +2884,8 @@ public class VersionConvertor_30_40 {
       return convertElementDefinition((org.hl7.fhir.r4.model.ElementDefinition) src);
     if (src instanceof org.hl7.fhir.r4.model.DataRequirement)
       return convertDataRequirement((org.hl7.fhir.r4.model.DataRequirement) src);
+    if (src instanceof org.hl7.fhir.r4.model.TriggerDefinition)
+      return convertTriggerDefinition((org.hl7.fhir.r4.model.TriggerDefinition) src);
     throw new Error("Unknown type "+src.fhirType());
   }
 
