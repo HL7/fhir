@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -198,16 +198,16 @@ public class SpecimenDefinition extends DomainResource {
         /**
          * The capacity (volume or other measure) of this kind of container.
          */
-        @Child(name = "containerCapacity", type = {SimpleQuantity.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "containerCapacity", type = {Quantity.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Container capacity", formalDefinition="The capacity (volume or other measure) of this kind of container." )
-        protected SimpleQuantity containerCapacity;
+        protected Quantity containerCapacity;
 
         /**
          * The minimum volume to be conditioned in the container.
          */
-        @Child(name = "containerMinimumVolume", type = {SimpleQuantity.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "containerMinimumVolume", type = {Quantity.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Minimum volume", formalDefinition="The minimum volume to be conditioned in the container." )
-        protected SimpleQuantity containerMinimumVolume;
+        protected Quantity containerMinimumVolume;
 
         /**
          * Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.
@@ -252,7 +252,7 @@ public class SpecimenDefinition extends DomainResource {
         @Description(shortDefinition="Specimen handling before testing", formalDefinition="Set of instructions for conservation/transport of the specimen at a defined temperature interval, prior the testing process." )
         protected List<SpecimenDefinitionSpecimenToLabHandlingComponent> handling;
 
-        private static final long serialVersionUID = -239351274L;
+        private static final long serialVersionUID = -1688720170L;
 
     /**
      * Constructor
@@ -508,12 +508,12 @@ public class SpecimenDefinition extends DomainResource {
         /**
          * @return {@link #containerCapacity} (The capacity (volume or other measure) of this kind of container.)
          */
-        public SimpleQuantity getContainerCapacity() { 
+        public Quantity getContainerCapacity() { 
           if (this.containerCapacity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenDefinitionSpecimenToLabComponent.containerCapacity");
             else if (Configuration.doAutoCreate())
-              this.containerCapacity = new SimpleQuantity(); // cc
+              this.containerCapacity = new Quantity(); // cc
           return this.containerCapacity;
         }
 
@@ -524,7 +524,7 @@ public class SpecimenDefinition extends DomainResource {
         /**
          * @param value {@link #containerCapacity} (The capacity (volume or other measure) of this kind of container.)
          */
-        public SpecimenDefinitionSpecimenToLabComponent setContainerCapacity(SimpleQuantity value) { 
+        public SpecimenDefinitionSpecimenToLabComponent setContainerCapacity(Quantity value) { 
           this.containerCapacity = value;
           return this;
         }
@@ -532,12 +532,12 @@ public class SpecimenDefinition extends DomainResource {
         /**
          * @return {@link #containerMinimumVolume} (The minimum volume to be conditioned in the container.)
          */
-        public SimpleQuantity getContainerMinimumVolume() { 
+        public Quantity getContainerMinimumVolume() { 
           if (this.containerMinimumVolume == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenDefinitionSpecimenToLabComponent.containerMinimumVolume");
             else if (Configuration.doAutoCreate())
-              this.containerMinimumVolume = new SimpleQuantity(); // cc
+              this.containerMinimumVolume = new Quantity(); // cc
           return this.containerMinimumVolume;
         }
 
@@ -548,7 +548,7 @@ public class SpecimenDefinition extends DomainResource {
         /**
          * @param value {@link #containerMinimumVolume} (The minimum volume to be conditioned in the container.)
          */
-        public SpecimenDefinitionSpecimenToLabComponent setContainerMinimumVolume(SimpleQuantity value) { 
+        public SpecimenDefinitionSpecimenToLabComponent setContainerMinimumVolume(Quantity value) { 
           this.containerMinimumVolume = value;
           return this;
         }
@@ -886,8 +886,8 @@ public class SpecimenDefinition extends DomainResource {
         case 1966942043: /*containerType*/ return this.containerType == null ? new Base[0] : new Base[] {this.containerType}; // CodeableConcept
         case 2141642641: /*containerCap*/ return this.containerCap == null ? new Base[0] : new Base[] {this.containerCap}; // CodeableConcept
         case -1474644805: /*containerDescription*/ return this.containerDescription == null ? new Base[0] : new Base[] {this.containerDescription}; // StringType
-        case -574573477: /*containerCapacity*/ return this.containerCapacity == null ? new Base[0] : new Base[] {this.containerCapacity}; // SimpleQuantity
-        case -2037735993: /*containerMinimumVolume*/ return this.containerMinimumVolume == null ? new Base[0] : new Base[] {this.containerMinimumVolume}; // SimpleQuantity
+        case -574573477: /*containerCapacity*/ return this.containerCapacity == null ? new Base[0] : new Base[] {this.containerCapacity}; // Quantity
+        case -2037735993: /*containerMinimumVolume*/ return this.containerMinimumVolume == null ? new Base[0] : new Base[] {this.containerMinimumVolume}; // Quantity
         case -1733338259: /*containerAdditive*/ return this.containerAdditive == null ? new Base[0] : this.containerAdditive.toArray(new Base[this.containerAdditive.size()]); // SpecimenDefinitionSpecimenToLabContainerAdditiveComponent
         case -1065527466: /*containerPreparation*/ return this.containerPreparation == null ? new Base[0] : new Base[] {this.containerPreparation}; // StringType
         case 363387971: /*requirement*/ return this.requirement == null ? new Base[0] : new Base[] {this.requirement}; // StringType
@@ -925,10 +925,10 @@ public class SpecimenDefinition extends DomainResource {
           this.containerDescription = castToString(value); // StringType
           return value;
         case -574573477: // containerCapacity
-          this.containerCapacity = castToSimpleQuantity(value); // SimpleQuantity
+          this.containerCapacity = castToQuantity(value); // Quantity
           return value;
         case -2037735993: // containerMinimumVolume
-          this.containerMinimumVolume = castToSimpleQuantity(value); // SimpleQuantity
+          this.containerMinimumVolume = castToQuantity(value); // Quantity
           return value;
         case -1733338259: // containerAdditive
           this.getContainerAdditive().add((SpecimenDefinitionSpecimenToLabContainerAdditiveComponent) value); // SpecimenDefinitionSpecimenToLabContainerAdditiveComponent
@@ -971,9 +971,9 @@ public class SpecimenDefinition extends DomainResource {
         } else if (name.equals("containerDescription")) {
           this.containerDescription = castToString(value); // StringType
         } else if (name.equals("containerCapacity")) {
-          this.containerCapacity = castToSimpleQuantity(value); // SimpleQuantity
+          this.containerCapacity = castToQuantity(value); // Quantity
         } else if (name.equals("containerMinimumVolume")) {
-          this.containerMinimumVolume = castToSimpleQuantity(value); // SimpleQuantity
+          this.containerMinimumVolume = castToQuantity(value); // Quantity
         } else if (name.equals("containerAdditive")) {
           this.getContainerAdditive().add((SpecimenDefinitionSpecimenToLabContainerAdditiveComponent) value);
         } else if (name.equals("containerPreparation")) {
@@ -1065,11 +1065,11 @@ public class SpecimenDefinition extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type SpecimenDefinition.containerDescription");
         }
         else if (name.equals("containerCapacity")) {
-          this.containerCapacity = new SimpleQuantity();
+          this.containerCapacity = new Quantity();
           return this.containerCapacity;
         }
         else if (name.equals("containerMinimumVolume")) {
-          this.containerMinimumVolume = new SimpleQuantity();
+          this.containerMinimumVolume = new Quantity();
           return this.containerMinimumVolume;
         }
         else if (name.equals("containerAdditive")) {

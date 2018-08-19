@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -372,6 +372,8 @@ public class Binary extends BaseBinary implements IBaseBinary {
     return ResourceType.Binary;
    }
 
+// added from java-adornments.txt:
+ 
   @Override
   public byte[] getContent() {
     return getData();
@@ -387,6 +389,9 @@ public class Binary extends BaseBinary implements IBaseBinary {
     return getDataElement();
   }
 
+      
+
+// end addition
 
 }
 

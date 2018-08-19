@@ -133,8 +133,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       if (l || h || d || e) {
         if (l)
           write("import java.util.*;\r\n");
-        if (h)
+        if (h) {
+          write("import org.hl7.fhir.utilities.xhtml.NodeType;\r\n");
           write("import org.hl7.fhir.utilities.xhtml.XhtmlNode;\r\n");
+        }
         write("\r\n");
         if (d)
           write("import java.math.*;\r\n");
@@ -255,9 +257,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     } else if (root.getName().equals("Reference")) {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
       write("public class "+upFirst(name)+" extends BaseReference implements IBaseReference, ICompositeType ");
+    } else if (root.getName().equals("Expression")) {
+      write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
+      write("public class "+upFirst(name)+" extends Type implements ICompositeType ");
 		} else {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-			write("public class "+upFirst(name)+" extends "+(root.typeCode().equals("Structure") ? "BackboneType" : root.typeCode())+" implements ICompositeType ");
+			write("public class "+upFirst(name)+" extends "+(root.typeCode().equals("BackboneElement") ? "BackboneType" : root.typeCode())+" implements ICompositeType ");
 		}
 		
 		write("{\r\n");
@@ -991,7 +996,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
 	private void generateChildrenRegister(ElementDefn p, String indent, boolean isAbstract) throws Exception {
 	  write(indent+"  protected void listChildren(List<Property> children) {\r\n");
-	  if (!isAbstract)
+	  if (p.getName().equals("MetadataResource")) {
+      write(indent+" // todo: add a flag to decide whether to do this... super.listChildren(children);\r\n");
+	  } else {
+	  if (!Utilities.existsInList(p.getName(), "Resource", "Element"))
 	    write(indent+"    super.listChildren(children);\r\n");
 	  for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e) && !e.typeCode().equals("xhtml"))
@@ -1022,7 +1030,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
               write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
             }
           } else for (TypeRef tr : e.getTypes()) {
-            String tn = n + Utilities.capitalize(tr.getName());
+            String tn = n + Utilities.capitalize(checkConstraint(tr.getName()));
             write(indent+"    case "+propId(tn)+": /*"+tn+"*/ ");
             write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
           }
@@ -1031,6 +1039,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
     write(indent+"    default: return super.getNamedProperty(_hash, _name, _checkValid);\r\n");
     write(indent+"    }\r\n\r\n");  
+	  }
     write(indent+"  }\r\n\r\n");  
   }
 	
@@ -1043,6 +1052,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         String tn = typeNames.get(e);
         if (!e.typeCode().equals("xhtml")) {
           genPropMaker(indent, e, tn, e.getName());
+        } else {
+          write(indent+"    case "+propId("div")+": /*div*/\r\n");
+          write("          if (div == null)\r\n");
+          write("            div = new XhtmlNode(NodeType.Element, \"div\");\r\n");
+          write("          return new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer(true).composeEx(this.div));\r\n");
         }
         if (e.getName().endsWith("[x]"))
           genPropMaker(indent, e, tn, e.getName().replace("[x]", ""));
@@ -1093,7 +1107,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write(indent+"      value = new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(castToCode(value));\r\n");
           cn = "(Enumeration) value";
         } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
-          cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+          cn = "castTo"+upFirst(checkConstraint(e.getTypes().get(0).getName()))+"(value)";
         } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
           cn = "castToType(value)";
         }
@@ -1128,7 +1142,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write(indent+"      value = new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(castToCode(value));\r\n");
           cn = "(Enumeration) value";
         } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
-          cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
+          cn = "castTo"+upFirst(checkConstraint(e.getTypes().get(0).getName()))+"(value)";
         } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
           cn = "castToType(value)";
         }
@@ -1216,7 +1230,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
             for (TypeRef t : getTypes(e.getTypes())) {
               String tn = getTypename(t);
               String name = e.getName().replace("[x]", "");
-              String namet = e.getName().replace("[x]", upFirst(t.getName()));
+              String namet = e.getName().replace("[x]", upFirst(checkConstraint(t.getName())));
               first = generateChildAddItem(indent, parent, first, e, tn, name, namet);
             }
           }
@@ -1227,6 +1241,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write(indent+"    else\r\n");
     write(indent+"      return super.addChild(name);\r\n");
     write(indent+"  }\r\n\r\n");  
+  }
+
+  private String checkConstraint(String name) {
+    if ("SimpleQuantity".equals(name))
+      return "Quantity";
+    else
+      return name;
   }
 
   private boolean generateChildAddItem(String indent, String parent, boolean first, ElementDefn e, String tn, String name, String namet) throws IOException {

@@ -3744,7 +3744,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 		case NULL: return " ?? ";
 		case IN: return " in ";
 		case NOTIN: return " not in ";
-    case DESCENDANTOF: return " descends from ";
+    case DESCENDENTOF: return " descends from ";
     case EXISTS: return " exists ";
     case GENERALIZES: return " generalizes ";
     }

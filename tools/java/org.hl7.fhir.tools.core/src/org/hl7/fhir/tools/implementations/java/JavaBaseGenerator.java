@@ -107,6 +107,8 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 			return "StringType";
 		} else if (tn.equals("Any")) {
 			return "Reference";
+    } else if (tn.equals("SimpleQuantity")) {
+      return "Quantity";
     } else if (definitions.hasPrimitiveType(tn)) {
       return getTitle(tn)+"Type";
 		} else {

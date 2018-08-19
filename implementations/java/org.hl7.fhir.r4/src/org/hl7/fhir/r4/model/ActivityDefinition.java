@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1438,9 +1438,9 @@ public class ActivityDefinition extends MetadataResource {
     /**
      * Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).
      */
-    @Child(name = "quantity", type = {SimpleQuantity.class}, order=26, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "quantity", type = {Quantity.class}, order=26, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="How much is administered/consumed/supplied", formalDefinition="Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)." )
-    protected SimpleQuantity quantity;
+    protected Quantity quantity;
 
     /**
      * Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.
@@ -1507,7 +1507,7 @@ public class ActivityDefinition extends MetadataResource {
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = -1624717188L;
+    private static final long serialVersionUID = 1488459022L;
 
   /**
    * Constructor
@@ -3444,12 +3444,12 @@ public class ActivityDefinition extends MetadataResource {
     /**
      * @return {@link #quantity} (Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).)
      */
-    public SimpleQuantity getQuantity() { 
+    public Quantity getQuantity() { 
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.quantity");
         else if (Configuration.doAutoCreate())
-          this.quantity = new SimpleQuantity(); // cc
+          this.quantity = new Quantity(); // cc
       return this.quantity;
     }
 
@@ -3460,7 +3460,7 @@ public class ActivityDefinition extends MetadataResource {
     /**
      * @param value {@link #quantity} (Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).)
      */
-    public ActivityDefinition setQuantity(SimpleQuantity value) { 
+    public ActivityDefinition setQuantity(Quantity value) { 
       this.quantity = value;
       return this;
     }
@@ -4056,7 +4056,7 @@ public class ActivityDefinition extends MetadataResource {
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // ActivityDefinitionParticipantComponent
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // Dosage
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case 1498467355: /*specimenRequirement*/ return this.specimenRequirement == null ? new Base[0] : this.specimenRequirement.toArray(new Base[this.specimenRequirement.size()]); // Reference
@@ -4191,7 +4191,7 @@ public class ActivityDefinition extends MetadataResource {
           this.product = castToType(value); // Type
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -1326018889: // dosage
           this.getDosage().add(castToDosage(value)); // Dosage
@@ -4302,7 +4302,7 @@ public class ActivityDefinition extends MetadataResource {
         } else if (name.equals("product[x]")) {
           this.product = castToType(value); // Type
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("dosage")) {
           this.getDosage().add(castToDosage(value));
         } else if (name.equals("bodySite")) {
@@ -4584,7 +4584,7 @@ public class ActivityDefinition extends MetadataResource {
           return this.product;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("dosage")) {

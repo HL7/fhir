@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -995,16 +995,16 @@ public class MedicationDispense extends DomainResource {
     /**
      * The amount of medication that has been dispensed. Includes unit of measure.
      */
-    @Child(name = "quantity", type = {SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "quantity", type = {Quantity.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Amount dispensed", formalDefinition="The amount of medication that has been dispensed. Includes unit of measure." )
-    protected SimpleQuantity quantity;
+    protected Quantity quantity;
 
     /**
      * The amount of medication expressed as a timing amount.
      */
-    @Child(name = "daysSupply", type = {SimpleQuantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "daysSupply", type = {Quantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Amount of medication expressed as a timing amount", formalDefinition="The amount of medication expressed as a timing amount." )
-    protected SimpleQuantity daysSupply;
+    protected Quantity daysSupply;
 
     /**
      * The time when the dispensed product was packaged and reviewed.
@@ -1097,7 +1097,7 @@ public class MedicationDispense extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -1232014790L;
+    private static final long serialVersionUID = -804187042L;
 
   /**
    * Constructor
@@ -1703,12 +1703,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
      */
-    public SimpleQuantity getQuantity() { 
+    public Quantity getQuantity() { 
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.quantity");
         else if (Configuration.doAutoCreate())
-          this.quantity = new SimpleQuantity(); // cc
+          this.quantity = new Quantity(); // cc
       return this.quantity;
     }
 
@@ -1719,7 +1719,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @param value {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
      */
-    public MedicationDispense setQuantity(SimpleQuantity value) { 
+    public MedicationDispense setQuantity(Quantity value) { 
       this.quantity = value;
       return this;
     }
@@ -1727,12 +1727,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #daysSupply} (The amount of medication expressed as a timing amount.)
      */
-    public SimpleQuantity getDaysSupply() { 
+    public Quantity getDaysSupply() { 
       if (this.daysSupply == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.daysSupply");
         else if (Configuration.doAutoCreate())
-          this.daysSupply = new SimpleQuantity(); // cc
+          this.daysSupply = new Quantity(); // cc
       return this.daysSupply;
     }
 
@@ -1743,7 +1743,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @param value {@link #daysSupply} (The amount of medication expressed as a timing amount.)
      */
-    public MedicationDispense setDaysSupply(SimpleQuantity value) { 
+    public MedicationDispense setDaysSupply(Quantity value) { 
       this.daysSupply = value;
       return this;
     }
@@ -2365,8 +2365,8 @@ public class MedicationDispense extends DomainResource {
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case -1237557856: /*authorizingPrescription*/ return this.authorizingPrescription == null ? new Base[0] : this.authorizingPrescription.toArray(new Base[this.authorizingPrescription.size()]); // Reference
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
-        case 197175334: /*daysSupply*/ return this.daysSupply == null ? new Base[0] : new Base[] {this.daysSupply}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
+        case 197175334: /*daysSupply*/ return this.daysSupply == null ? new Base[0] : new Base[] {this.daysSupply}; // Quantity
         case -562837097: /*whenPrepared*/ return this.whenPrepared == null ? new Base[0] : new Base[] {this.whenPrepared}; // DateTimeType
         case -940241380: /*whenHandedOver*/ return this.whenHandedOver == null ? new Base[0] : new Base[] {this.whenHandedOver}; // DateTimeType
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
@@ -2423,10 +2423,10 @@ public class MedicationDispense extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case 197175334: // daysSupply
-          this.daysSupply = castToSimpleQuantity(value); // SimpleQuantity
+          this.daysSupply = castToQuantity(value); // Quantity
           return value;
         case -562837097: // whenPrepared
           this.whenPrepared = castToDateTime(value); // DateTimeType
@@ -2491,9 +2491,9 @@ public class MedicationDispense extends DomainResource {
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("daysSupply")) {
-          this.daysSupply = castToSimpleQuantity(value); // SimpleQuantity
+          this.daysSupply = castToQuantity(value); // Quantity
         } else if (name.equals("whenPrepared")) {
           this.whenPrepared = castToDateTime(value); // DateTimeType
         } else if (name.equals("whenHandedOver")) {
@@ -2634,11 +2634,11 @@ public class MedicationDispense extends DomainResource {
           return this.type;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("daysSupply")) {
-          this.daysSupply = new SimpleQuantity();
+          this.daysSupply = new Quantity();
           return this.daysSupply;
         }
         else if (name.equals("whenPrepared")) {

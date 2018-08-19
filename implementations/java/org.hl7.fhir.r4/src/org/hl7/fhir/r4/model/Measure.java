@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1595,7 +1595,7 @@ public class Measure extends MetadataResource {
      * Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence.
      */
     @Child(name = "rationale", type = {MarkdownType.class}, order=22, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Why does this measure exist", formalDefinition="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence." )
+    @Description(shortDefinition="Detailed description of why the measure exists", formalDefinition="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence." )
     protected MarkdownType rationale;
 
     /**

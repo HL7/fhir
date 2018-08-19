@@ -2473,7 +2473,7 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.r4.model.SimpleQuantity convertSimpleQuantity(org.hl7.fhir.dstu3.model.SimpleQuantity src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.Quantity convertSimpleQuantity(org.hl7.fhir.dstu3.model.SimpleQuantity src) throws FHIRException {
     if (src == null)
       return null;
     org.hl7.fhir.r4.model.SimpleQuantity tgt = new org.hl7.fhir.r4.model.SimpleQuantity();
@@ -2491,7 +2491,7 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.SimpleQuantity convertSimpleQuantity(org.hl7.fhir.r4.model.SimpleQuantity src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.SimpleQuantity convertSimpleQuantity(org.hl7.fhir.r4.model.Quantity src) throws FHIRException {
     if (src == null)
       return null;
     org.hl7.fhir.dstu3.model.SimpleQuantity tgt = new org.hl7.fhir.dstu3.model.SimpleQuantity();
@@ -6577,7 +6577,7 @@ public class VersionConvertor_30_40 {
     switch (src) {
     case EQUAL: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.EQUAL;
     case ISA: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.ISA;
-    case DESCENDENTOF: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.DESCENDANTOF;
+    case DESCENDENTOF: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.DESCENDENTOF;
     case ISNOTA: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.ISNOTA;
     case REGEX: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.REGEX;
     case IN: return org.hl7.fhir.r4.model.CodeSystem.FilterOperator.IN;
@@ -6594,7 +6594,7 @@ public class VersionConvertor_30_40 {
     switch (src) {
     case EQUAL: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.EQUAL;
     case ISA: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.ISA;
-    case DESCENDANTOF: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.DESCENDENTOF;
+    case DESCENDENTOF: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.DESCENDENTOF;
     case ISNOTA: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.ISNOTA;
     case REGEX: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.REGEX;
     case IN: return org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator.IN;
@@ -20443,7 +20443,7 @@ public class VersionConvertor_30_40 {
     switch (src) {
     case EQUAL: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.EQUAL;
     case ISA: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.ISA;
-    case DESCENDENTOF: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.DESCENDANTOF;
+    case DESCENDENTOF: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.DESCENDENTOF;
     case ISNOTA: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.ISNOTA;
     case REGEX: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.REGEX;
     case IN: return org.hl7.fhir.r4.model.ValueSet.FilterOperator.IN;
@@ -20460,7 +20460,7 @@ public class VersionConvertor_30_40 {
     switch (src) {
     case EQUAL: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.EQUAL;
     case ISA: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.ISA;
-    case DESCENDANTOF: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.DESCENDENTOF;
+    case DESCENDENTOF: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.DESCENDENTOF;
     case ISNOTA: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.ISNOTA;
     case REGEX: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.REGEX;
     case IN: return org.hl7.fhir.dstu3.model.ValueSet.FilterOperator.IN;

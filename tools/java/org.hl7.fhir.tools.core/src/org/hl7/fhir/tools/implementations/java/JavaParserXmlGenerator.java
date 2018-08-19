@@ -104,13 +104,13 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
-    for (ProfiledType n : definitions.getConstraints().values()) {
-      generateConstraint(n);
-      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
-    }
+//    for (ProfiledType n : definitions.getConstraints().values()) {
+//      generateConstraint(n);
+//      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+//      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+//      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+//    }
     for (ElementDefn n : definitions.getStructures().values()) {
       generate(n, JavaGenClass.Structure);
 //      regt.append("    else if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
@@ -289,6 +289,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
 
   private void generate(ElementDefn n, JavaGenClass clss) throws Exception {
+    if (n.getName().equals("SimpleQuantity"))
+      return;
     typeNames.clear();
     typeNameStrings.clear();
     enums.clear();
@@ -319,6 +321,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   }
 
   private void generateConstraint(ProfiledType cd) throws Exception {
+    if (cd.getName().equals("SimpleQuantity"))
+      return;
     typeNames.clear();
     typeNameStrings.clear();
     enums.clear();
@@ -544,7 +548,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         return root.getName();      
     } else if (elem.getTypes().size() == 0) {
         return typeNames.get(elem);
-    } else if (typeNames.containsKey(elem))
+    } else if (t.equals("SimpleQuantity"))
+      return "Quantity";
+    else if (typeNames.containsKey(elem))
       return typeNames.get(elem);
     else
       return upFirst(t);
@@ -575,8 +581,17 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("  private boolean nameIsTypeName(XmlPullParser xpp, String prefix) {\r\n");
     write("    "+regn.toString());
     write("    return false;\r\n");
-    write("  }\r\n");
+    write("  }\r\n\r\n");
     
+    write("  @Override\r\n");
+    write("    protected Type parseAnyType(XmlPullParser xpp, String type) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+    write("      if (type.equals(\"ElementDefinition\"))\r\n");
+    write("        return parseElementDefinition(xpp);\r\n");
+    write("      else if (type.equals(\"DataRequirement\"))\r\n");
+    write("        return parseDataRequirement(xpp);\r\n");
+    write("      else\r\n");
+    write("        return parseType(xpp, type);\r\n");
+    write("  }\r\n\r\n");    
   }
 
   private String getCodeListType(String binding) {
@@ -801,11 +816,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       //        regn.append("    if (xpp.getName().equals(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
-    for (ProfiledType n : definitions.getConstraints().values()) {
-      generateConstraintComposer(n);
-      regtp.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-//      regn.append("    if (xpp.getName().equals(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
-    }
+//    for (ProfiledType n : definitions.getConstraints().values()) {
+//      generateConstraintComposer(n);
+//      regtp.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+////      regn.append("    if (xpp.getName().equals(prefix+\""+n.getCode()+"\"))\r\n      return true;\r\n");
+//    }
     for (ElementDefn n : definitions.getStructures().values()) {
         generateComposer(n, JavaGenClass.Structure);
 //        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
@@ -935,6 +950,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 //  }
 
   private void generateComposer(ElementDefn n, JavaGenClass type) throws Exception {
+    if (n.getName().equals("SimpleQuantity"))
+      return;
     typeNames.clear();
     typeNameStrings.clear();
     enums.clear();
@@ -959,6 +976,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
   }
 
   private void generateConstraintComposer(ProfiledType cd) throws Exception {
+    if (cd.getName().equals("SimpleQuantity"))
+      return;
     typeNames.clear();
     typeNameStrings.clear();
     enums.clear();
@@ -1094,6 +1113,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         if (tn.contains("Reference(")) {
           comp = "composeReference";
           tn = "Reference";
+        } else if (tn.equals("SimpleQuantity")) {
+          comp = "composeQuantity";
+          tn = "Quantity";
         } else if (tn.contains("canonical(")) {
           comp = "composeCanonical";
           tn = "CanonicalType";
@@ -1122,7 +1144,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         if (en == null) {
           if (tn.equalsIgnoreCase("string"))
             tn = "StringType";
+          if (tn.equalsIgnoreCase("SimpleQuantity"))
+            tn = "Quantity";
           if (definitions.hasPrimitiveType(tn))
+            tn = upFirst(tn)+"Type";
+          if (tn.equals("DateTime"))
             tn = upFirst(tn)+"Type";
 
           write("      if (element.has"+upFirst(getElementName(name, false))+"()) { \r\n");

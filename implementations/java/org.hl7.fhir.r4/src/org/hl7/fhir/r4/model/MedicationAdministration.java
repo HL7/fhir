@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -449,7 +449,9 @@ public class MedicationAdministration extends DomainResource {
     @Block()
     public static class MedicationAdministrationDosageComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.The dosage instructions should reflect the dosage of the medication that was administered.
+         * Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+
+The dosage instructions should reflect the dosage of the medication that was administered.
          */
         @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Free text dosage instructions e.g. SIG", formalDefinition="Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.\r\rThe dosage instructions should reflect the dosage of the medication that was administered." )
@@ -482,18 +484,18 @@ public class MedicationAdministration extends DomainResource {
         /**
          * The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
          */
-        @Child(name = "dose", type = {SimpleQuantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "dose", type = {Quantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Amount of medication per dose", formalDefinition="The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection." )
-        protected SimpleQuantity dose;
+        protected Quantity dose;
 
         /**
          * Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
          */
-        @Child(name = "rate", type = {Ratio.class, SimpleQuantity.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "rate", type = {Ratio.class, Quantity.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Dose quantity per unit of time", formalDefinition="Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours." )
         protected Type rate;
 
-        private static final long serialVersionUID = 1316915516L;
+        private static final long serialVersionUID = 947835626L;
 
     /**
      * Constructor
@@ -503,7 +505,9 @@ public class MedicationAdministration extends DomainResource {
       }
 
         /**
-         * @return {@link #text} (Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.The dosage instructions should reflect the dosage of the medication that was administered.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
+         * @return {@link #text} (Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+
+The dosage instructions should reflect the dosage of the medication that was administered.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
         public StringType getTextElement() { 
           if (this.text == null)
@@ -523,7 +527,9 @@ public class MedicationAdministration extends DomainResource {
         }
 
         /**
-         * @param value {@link #text} (Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.The dosage instructions should reflect the dosage of the medication that was administered.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
+         * @param value {@link #text} (Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+
+The dosage instructions should reflect the dosage of the medication that was administered.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
         public MedicationAdministrationDosageComponent setTextElement(StringType value) { 
           this.text = value;
@@ -531,14 +537,18 @@ public class MedicationAdministration extends DomainResource {
         }
 
         /**
-         * @return Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.The dosage instructions should reflect the dosage of the medication that was administered.
+         * @return Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+
+The dosage instructions should reflect the dosage of the medication that was administered.
          */
         public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
-         * @param value Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.The dosage instructions should reflect the dosage of the medication that was administered.
+         * @param value Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.
+
+The dosage instructions should reflect the dosage of the medication that was administered.
          */
         public MedicationAdministrationDosageComponent setText(String value) { 
           if (Utilities.noString(value))
@@ -626,12 +636,12 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #dose} (The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.)
          */
-        public SimpleQuantity getDose() { 
+        public Quantity getDose() { 
           if (this.dose == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.dose");
             else if (Configuration.doAutoCreate())
-              this.dose = new SimpleQuantity(); // cc
+              this.dose = new Quantity(); // cc
           return this.dose;
         }
 
@@ -642,7 +652,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @param value {@link #dose} (The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.)
          */
-        public MedicationAdministrationDosageComponent setDose(SimpleQuantity value) { 
+        public MedicationAdministrationDosageComponent setDose(Quantity value) { 
           this.dose = value;
           return this;
         }
@@ -672,16 +682,16 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
+        public Quantity getRateQuantity() throws FHIRException { 
           if (this.rate == null)
             return null;
-          if (!(this.rate instanceof SimpleQuantity))
-            throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.rate.getClass().getName()+" was encountered");
-          return (SimpleQuantity) this.rate;
+          if (!(this.rate instanceof Quantity))
+            throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.rate.getClass().getName()+" was encountered");
+          return (Quantity) this.rate;
         }
 
-        public boolean hasRateSimpleQuantity() { 
-          return this != null && this.rate instanceof SimpleQuantity;
+        public boolean hasRateQuantity() { 
+          return this != null && this.rate instanceof Quantity;
         }
 
         public boolean hasRate() { 
@@ -692,7 +702,7 @@ public class MedicationAdministration extends DomainResource {
          * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public MedicationAdministrationDosageComponent setRate(Type value) { 
-          if (value != null && !(value instanceof Ratio || value instanceof SimpleQuantity))
+          if (value != null && !(value instanceof Ratio || value instanceof Quantity))
             throw new Error("Not the right type for MedicationAdministration.dosage.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;
@@ -719,7 +729,7 @@ public class MedicationAdministration extends DomainResource {
           case 983460768: /*rate[x]*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
           case 3493088: /*rate*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
           case 204021515: /*rateRatio*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
-          case -2121057955: /*rateSimpleQuantity*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
+          case -1085459061: /*rateQuantity*/  return new Property("rate[x]", "Ratio|SimpleQuantity", "Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.", 0, 1, rate);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -732,7 +742,7 @@ public class MedicationAdministration extends DomainResource {
         case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // CodeableConcept
         case 108704329: /*route*/ return this.route == null ? new Base[0] : new Base[] {this.route}; // CodeableConcept
         case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
-        case 3089437: /*dose*/ return this.dose == null ? new Base[0] : new Base[] {this.dose}; // SimpleQuantity
+        case 3089437: /*dose*/ return this.dose == null ? new Base[0] : new Base[] {this.dose}; // Quantity
         case 3493088: /*rate*/ return this.rate == null ? new Base[0] : new Base[] {this.rate}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -755,7 +765,7 @@ public class MedicationAdministration extends DomainResource {
           this.method = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 3089437: // dose
-          this.dose = castToSimpleQuantity(value); // SimpleQuantity
+          this.dose = castToQuantity(value); // Quantity
           return value;
         case 3493088: // rate
           this.rate = castToType(value); // Type
@@ -776,7 +786,7 @@ public class MedicationAdministration extends DomainResource {
         } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("dose")) {
-          this.dose = castToSimpleQuantity(value); // SimpleQuantity
+          this.dose = castToQuantity(value); // Quantity
         } else if (name.equals("rate[x]")) {
           this.rate = castToType(value); // Type
         } else
@@ -831,15 +841,15 @@ public class MedicationAdministration extends DomainResource {
           return this.method;
         }
         else if (name.equals("dose")) {
-          this.dose = new SimpleQuantity();
+          this.dose = new Quantity();
           return this.dose;
         }
         else if (name.equals("rateRatio")) {
           this.rate = new Ratio();
           return this.rate;
         }
-        else if (name.equals("rateSimpleQuantity")) {
-          this.rate = new SimpleQuantity();
+        else if (name.equals("rateQuantity")) {
+          this.rate = new Quantity();
           return this.rate;
         }
         else

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -2029,7 +2029,7 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).
          */
-        @Child(name = "characteristic", type = {CodeableConcept.class, SimpleQuantity.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "characteristic", type = {CodeableConcept.class, Quantity.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Specific characteristic that is relevant to the administration guideline", formalDefinition="Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender)." )
         protected Type characteristic;
 
@@ -2082,16 +2082,16 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #characteristic} (Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).)
          */
-        public SimpleQuantity getCharacteristicSimpleQuantity() throws FHIRException { 
+        public Quantity getCharacteristicQuantity() throws FHIRException { 
           if (this.characteristic == null)
             return null;
-          if (!(this.characteristic instanceof SimpleQuantity))
-            throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.characteristic.getClass().getName()+" was encountered");
-          return (SimpleQuantity) this.characteristic;
+          if (!(this.characteristic instanceof Quantity))
+            throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.characteristic.getClass().getName()+" was encountered");
+          return (Quantity) this.characteristic;
         }
 
-        public boolean hasCharacteristicSimpleQuantity() { 
-          return this != null && this.characteristic instanceof SimpleQuantity;
+        public boolean hasCharacteristicQuantity() { 
+          return this != null && this.characteristic instanceof Quantity;
         }
 
         public boolean hasCharacteristic() { 
@@ -2102,7 +2102,7 @@ public class MedicationKnowledge extends DomainResource {
          * @param value {@link #characteristic} (Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).)
          */
         public MedicationKnowledgeAdministrationGuidelinesPatientCharacteristicsComponent setCharacteristic(Type value) { 
-          if (value != null && !(value instanceof CodeableConcept || value instanceof SimpleQuantity))
+          if (value != null && !(value instanceof CodeableConcept || value instanceof Quantity))
             throw new Error("Not the right type for MedicationKnowledge.administrationGuidelines.patientCharacteristics.characteristic[x]: "+value.fhirType());
           this.characteristic = value;
           return this;
@@ -2181,7 +2181,7 @@ public class MedicationKnowledge extends DomainResource {
           case -654919419: /*characteristic[x]*/  return new Property("characteristic[x]", "CodeableConcept|SimpleQuantity", "Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).", 0, 1, characteristic);
           case 366313883: /*characteristic*/  return new Property("characteristic[x]", "CodeableConcept|SimpleQuantity", "Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).", 0, 1, characteristic);
           case -1259840378: /*characteristicCodeableConcept*/  return new Property("characteristic[x]", "CodeableConcept|SimpleQuantity", "Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).", 0, 1, characteristic);
-          case 1947142872: /*characteristicSimpleQuantity*/  return new Property("characteristic[x]", "CodeableConcept|SimpleQuantity", "Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).", 0, 1, characteristic);
+          case 1769373510: /*characteristicQuantity*/  return new Property("characteristic[x]", "CodeableConcept|SimpleQuantity", "Specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender).", 0, 1, characteristic);
           case 111972721: /*value*/  return new Property("value", "string", "The specific characteristic (e.g. height, weight, gender, etc).", 0, java.lang.Integer.MAX_VALUE, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -2250,8 +2250,8 @@ public class MedicationKnowledge extends DomainResource {
           this.characteristic = new CodeableConcept();
           return this.characteristic;
         }
-        else if (name.equals("characteristicSimpleQuantity")) {
-          this.characteristic = new SimpleQuantity();
+        else if (name.equals("characteristicQuantity")) {
+          this.characteristic = new Quantity();
           return this.characteristic;
         }
         else if (name.equals("value")) {
@@ -2555,11 +2555,11 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * The number of product units the package would contain if fully loaded.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The number of product units the package would contain if fully loaded", formalDefinition="The number of product units the package would contain if fully loaded." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
-        private static final long serialVersionUID = -216496823L;
+        private static final long serialVersionUID = -308052041L;
 
     /**
      * Constructor
@@ -2595,12 +2595,12 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #quantity} (The number of product units the package would contain if fully loaded.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationKnowledgePackagingComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -2611,7 +2611,7 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @param value {@link #quantity} (The number of product units the package would contain if fully loaded.)
          */
-        public MedicationKnowledgePackagingComponent setQuantity(SimpleQuantity value) { 
+        public MedicationKnowledgePackagingComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -2636,7 +2636,7 @@ public class MedicationKnowledge extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2649,7 +2649,7 @@ public class MedicationKnowledge extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2661,7 +2661,7 @@ public class MedicationKnowledge extends DomainResource {
         if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else
           return super.setProperty(name, value);
         return value;
@@ -2694,7 +2694,7 @@ public class MedicationKnowledge extends DomainResource {
           return this.type;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else
@@ -2752,7 +2752,7 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * Description of the characteristic.
          */
-        @Child(name = "value", type = {CodeableConcept.class, StringType.class, SimpleQuantity.class, Base64BinaryType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {CodeableConcept.class, StringType.class, Quantity.class, Base64BinaryType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of the characteristic", formalDefinition="Description of the characteristic." )
         protected Type value;
 
@@ -2829,16 +2829,16 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #value} (Description of the characteristic.)
          */
-        public SimpleQuantity getValueSimpleQuantity() throws FHIRException { 
+        public Quantity getValueQuantity() throws FHIRException { 
           if (this.value == null)
             return null;
-          if (!(this.value instanceof SimpleQuantity))
-            throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (SimpleQuantity) this.value;
+          if (!(this.value instanceof Quantity))
+            throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (Quantity) this.value;
         }
 
-        public boolean hasValueSimpleQuantity() { 
-          return this != null && this.value instanceof SimpleQuantity;
+        public boolean hasValueQuantity() { 
+          return this != null && this.value instanceof Quantity;
         }
 
         /**
@@ -2864,7 +2864,7 @@ public class MedicationKnowledge extends DomainResource {
          * @param value {@link #value} (Description of the characteristic.)
          */
         public MedicationKnowledgeDrugCharacteristicComponent setValue(Type value) { 
-          if (value != null && !(value instanceof CodeableConcept || value instanceof StringType || value instanceof SimpleQuantity || value instanceof Base64BinaryType))
+          if (value != null && !(value instanceof CodeableConcept || value instanceof StringType || value instanceof Quantity || value instanceof Base64BinaryType))
             throw new Error("Not the right type for MedicationKnowledge.drugCharacteristic.value[x]: "+value.fhirType());
           this.value = value;
           return this;
@@ -2884,7 +2884,7 @@ public class MedicationKnowledge extends DomainResource {
           case 111972721: /*value*/  return new Property("value[x]", "CodeableConcept|string|SimpleQuantity|base64Binary", "Description of the characteristic.", 0, 1, value);
           case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "CodeableConcept|string|SimpleQuantity|base64Binary", "Description of the characteristic.", 0, 1, value);
           case -1424603934: /*valueString*/  return new Property("value[x]", "CodeableConcept|string|SimpleQuantity|base64Binary", "Description of the characteristic.", 0, 1, value);
-          case -1723159506: /*valueSimpleQuantity*/  return new Property("value[x]", "CodeableConcept|string|SimpleQuantity|base64Binary", "Description of the characteristic.", 0, 1, value);
+          case -2029823716: /*valueQuantity*/  return new Property("value[x]", "CodeableConcept|string|SimpleQuantity|base64Binary", "Description of the characteristic.", 0, 1, value);
           case -1535024575: /*valueBase64Binary*/  return new Property("value[x]", "CodeableConcept|string|SimpleQuantity|base64Binary", "Description of the characteristic.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -2961,8 +2961,8 @@ public class MedicationKnowledge extends DomainResource {
           this.value = new StringType();
           return this.value;
         }
-        else if (name.equals("valueSimpleQuantity")) {
-          this.value = new SimpleQuantity();
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
           return this.value;
         }
         else if (name.equals("valueBase64Binary")) {
@@ -3790,9 +3790,9 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * The maximum number of units of the medicaton that can be dispensed.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The maximum number of units of the medicaton that can be dispensed", formalDefinition="The maximum number of units of the medicaton that can be dispensed." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * The period that applies to the maximum number of units.
@@ -3801,7 +3801,7 @@ public class MedicationKnowledge extends DomainResource {
         @Description(shortDefinition="The period that applies to the maximum number of units", formalDefinition="The period that applies to the maximum number of units." )
         protected Duration period;
 
-        private static final long serialVersionUID = -979376839L;
+        private static final long serialVersionUID = -441724185L;
 
     /**
      * Constructor
@@ -3813,7 +3813,7 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationKnowledgeRegulatoryMaxDispenseComponent(SimpleQuantity quantity) {
+      public MedicationKnowledgeRegulatoryMaxDispenseComponent(Quantity quantity) {
         super();
         this.quantity = quantity;
       }
@@ -3821,12 +3821,12 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #quantity} (The maximum number of units of the medicaton that can be dispensed.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationKnowledgeRegulatoryMaxDispenseComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -3837,7 +3837,7 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @param value {@link #quantity} (The maximum number of units of the medicaton that can be dispensed.)
          */
-        public MedicationKnowledgeRegulatoryMaxDispenseComponent setQuantity(SimpleQuantity value) { 
+        public MedicationKnowledgeRegulatoryMaxDispenseComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -3885,7 +3885,7 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Duration
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -3896,7 +3896,7 @@ public class MedicationKnowledge extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -991726143: // period
           this.period = castToDuration(value); // Duration
@@ -3909,7 +3909,7 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("period")) {
           this.period = castToDuration(value); // Duration
         } else
@@ -3940,7 +3940,7 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("period")) {
@@ -3995,16 +3995,16 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * The drug concentration measured at certain discrete points in time.
          */
-        @Child(name = "areaUnderCurve", type = {SimpleQuantity.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "areaUnderCurve", type = {Quantity.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The drug concentration measured at certain discrete points in time", formalDefinition="The drug concentration measured at certain discrete points in time." )
-        protected List<SimpleQuantity> areaUnderCurve;
+        protected List<Quantity> areaUnderCurve;
 
         /**
          * The median lethal dose of a drug.
          */
-        @Child(name = "lethalDose50", type = {SimpleQuantity.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "lethalDose50", type = {Quantity.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="The median lethal dose of a drug", formalDefinition="The median lethal dose of a drug." )
-        protected List<SimpleQuantity> lethalDose50;
+        protected List<Quantity> lethalDose50;
 
         /**
          * The time required for any specified property (e.g., the concentration of a substance in the body) to decrease by half.
@@ -4013,7 +4013,7 @@ public class MedicationKnowledge extends DomainResource {
         @Description(shortDefinition="Time required for concentration in the body to decrease by half", formalDefinition="The time required for any specified property (e.g., the concentration of a substance in the body) to decrease by half." )
         protected Duration halfLifePeriod;
 
-        private static final long serialVersionUID = -682391308L;
+        private static final long serialVersionUID = -206244264L;
 
     /**
      * Constructor
@@ -4025,16 +4025,16 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #areaUnderCurve} (The drug concentration measured at certain discrete points in time.)
          */
-        public List<SimpleQuantity> getAreaUnderCurve() { 
+        public List<Quantity> getAreaUnderCurve() { 
           if (this.areaUnderCurve == null)
-            this.areaUnderCurve = new ArrayList<SimpleQuantity>();
+            this.areaUnderCurve = new ArrayList<Quantity>();
           return this.areaUnderCurve;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public MedicationKnowledgeKineticsComponent setAreaUnderCurve(List<SimpleQuantity> theAreaUnderCurve) { 
+        public MedicationKnowledgeKineticsComponent setAreaUnderCurve(List<Quantity> theAreaUnderCurve) { 
           this.areaUnderCurve = theAreaUnderCurve;
           return this;
         }
@@ -4042,25 +4042,25 @@ public class MedicationKnowledge extends DomainResource {
         public boolean hasAreaUnderCurve() { 
           if (this.areaUnderCurve == null)
             return false;
-          for (SimpleQuantity item : this.areaUnderCurve)
+          for (Quantity item : this.areaUnderCurve)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public SimpleQuantity addAreaUnderCurve() { //3
-          SimpleQuantity t = new SimpleQuantity();
+        public Quantity addAreaUnderCurve() { //3
+          Quantity t = new Quantity();
           if (this.areaUnderCurve == null)
-            this.areaUnderCurve = new ArrayList<SimpleQuantity>();
+            this.areaUnderCurve = new ArrayList<Quantity>();
           this.areaUnderCurve.add(t);
           return t;
         }
 
-        public MedicationKnowledgeKineticsComponent addAreaUnderCurve(SimpleQuantity t) { //3
+        public MedicationKnowledgeKineticsComponent addAreaUnderCurve(Quantity t) { //3
           if (t == null)
             return this;
           if (this.areaUnderCurve == null)
-            this.areaUnderCurve = new ArrayList<SimpleQuantity>();
+            this.areaUnderCurve = new ArrayList<Quantity>();
           this.areaUnderCurve.add(t);
           return this;
         }
@@ -4068,7 +4068,7 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #areaUnderCurve}, creating it if it does not already exist
          */
-        public SimpleQuantity getAreaUnderCurveFirstRep() { 
+        public Quantity getAreaUnderCurveFirstRep() { 
           if (getAreaUnderCurve().isEmpty()) {
             addAreaUnderCurve();
           }
@@ -4078,16 +4078,16 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return {@link #lethalDose50} (The median lethal dose of a drug.)
          */
-        public List<SimpleQuantity> getLethalDose50() { 
+        public List<Quantity> getLethalDose50() { 
           if (this.lethalDose50 == null)
-            this.lethalDose50 = new ArrayList<SimpleQuantity>();
+            this.lethalDose50 = new ArrayList<Quantity>();
           return this.lethalDose50;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public MedicationKnowledgeKineticsComponent setLethalDose50(List<SimpleQuantity> theLethalDose50) { 
+        public MedicationKnowledgeKineticsComponent setLethalDose50(List<Quantity> theLethalDose50) { 
           this.lethalDose50 = theLethalDose50;
           return this;
         }
@@ -4095,25 +4095,25 @@ public class MedicationKnowledge extends DomainResource {
         public boolean hasLethalDose50() { 
           if (this.lethalDose50 == null)
             return false;
-          for (SimpleQuantity item : this.lethalDose50)
+          for (Quantity item : this.lethalDose50)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public SimpleQuantity addLethalDose50() { //3
-          SimpleQuantity t = new SimpleQuantity();
+        public Quantity addLethalDose50() { //3
+          Quantity t = new Quantity();
           if (this.lethalDose50 == null)
-            this.lethalDose50 = new ArrayList<SimpleQuantity>();
+            this.lethalDose50 = new ArrayList<Quantity>();
           this.lethalDose50.add(t);
           return t;
         }
 
-        public MedicationKnowledgeKineticsComponent addLethalDose50(SimpleQuantity t) { //3
+        public MedicationKnowledgeKineticsComponent addLethalDose50(Quantity t) { //3
           if (t == null)
             return this;
           if (this.lethalDose50 == null)
-            this.lethalDose50 = new ArrayList<SimpleQuantity>();
+            this.lethalDose50 = new ArrayList<Quantity>();
           this.lethalDose50.add(t);
           return this;
         }
@@ -4121,7 +4121,7 @@ public class MedicationKnowledge extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #lethalDose50}, creating it if it does not already exist
          */
-        public SimpleQuantity getLethalDose50FirstRep() { 
+        public Quantity getLethalDose50FirstRep() { 
           if (getLethalDose50().isEmpty()) {
             addLethalDose50();
           }
@@ -4173,8 +4173,8 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 1243936100: /*areaUnderCurve*/ return this.areaUnderCurve == null ? new Base[0] : this.areaUnderCurve.toArray(new Base[this.areaUnderCurve.size()]); // SimpleQuantity
-        case 302983216: /*lethalDose50*/ return this.lethalDose50 == null ? new Base[0] : this.lethalDose50.toArray(new Base[this.lethalDose50.size()]); // SimpleQuantity
+        case 1243936100: /*areaUnderCurve*/ return this.areaUnderCurve == null ? new Base[0] : this.areaUnderCurve.toArray(new Base[this.areaUnderCurve.size()]); // Quantity
+        case 302983216: /*lethalDose50*/ return this.lethalDose50 == null ? new Base[0] : this.lethalDose50.toArray(new Base[this.lethalDose50.size()]); // Quantity
         case -628810640: /*halfLifePeriod*/ return this.halfLifePeriod == null ? new Base[0] : new Base[] {this.halfLifePeriod}; // Duration
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -4185,10 +4185,10 @@ public class MedicationKnowledge extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1243936100: // areaUnderCurve
-          this.getAreaUnderCurve().add(castToSimpleQuantity(value)); // SimpleQuantity
+          this.getAreaUnderCurve().add(castToQuantity(value)); // Quantity
           return value;
         case 302983216: // lethalDose50
-          this.getLethalDose50().add(castToSimpleQuantity(value)); // SimpleQuantity
+          this.getLethalDose50().add(castToQuantity(value)); // Quantity
           return value;
         case -628810640: // halfLifePeriod
           this.halfLifePeriod = castToDuration(value); // Duration
@@ -4201,9 +4201,9 @@ public class MedicationKnowledge extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("areaUnderCurve")) {
-          this.getAreaUnderCurve().add(castToSimpleQuantity(value));
+          this.getAreaUnderCurve().add(castToQuantity(value));
         } else if (name.equals("lethalDose50")) {
-          this.getLethalDose50().add(castToSimpleQuantity(value));
+          this.getLethalDose50().add(castToQuantity(value));
         } else if (name.equals("halfLifePeriod")) {
           this.halfLifePeriod = castToDuration(value); // Duration
         } else
@@ -4253,13 +4253,13 @@ public class MedicationKnowledge extends DomainResource {
         MedicationKnowledgeKineticsComponent dst = new MedicationKnowledgeKineticsComponent();
         copyValues(dst);
         if (areaUnderCurve != null) {
-          dst.areaUnderCurve = new ArrayList<SimpleQuantity>();
-          for (SimpleQuantity i : areaUnderCurve)
+          dst.areaUnderCurve = new ArrayList<Quantity>();
+          for (Quantity i : areaUnderCurve)
             dst.areaUnderCurve.add(i.copy());
         };
         if (lethalDose50 != null) {
-          dst.lethalDose50 = new ArrayList<SimpleQuantity>();
-          for (SimpleQuantity i : lethalDose50)
+          dst.lethalDose50 = new ArrayList<Quantity>();
+          for (Quantity i : lethalDose50)
             dst.lethalDose50.add(i.copy());
         };
         dst.halfLifePeriod = halfLifePeriod == null ? null : halfLifePeriod.copy();
@@ -4338,9 +4338,9 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).
      */
-    @Child(name = "amount", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "amount", type = {Quantity.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Amount of drug in package", formalDefinition="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc)." )
-    protected SimpleQuantity amount;
+    protected Quantity amount;
 
     /**
      * Additional names for a medication, for example, the name(s) given to a medication in different countries.  For example, acetaminophen and paracetamol or salbutamol and albuterol.
@@ -4472,7 +4472,7 @@ public class MedicationKnowledge extends DomainResource {
     @Description(shortDefinition="The time course of drug absorption, distribution, metabolism and excretion of a medication from the body", formalDefinition="The time course of drug absorption, distribution, metabolism and excretion of a medication from the body." )
     protected List<MedicationKnowledgeKineticsComponent> kinetics;
 
-    private static final long serialVersionUID = 942679041L;
+    private static final long serialVersionUID = -1230067857L;
 
   /**
    * Constructor
@@ -4625,12 +4625,12 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * @return {@link #amount} (Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).)
      */
-    public SimpleQuantity getAmount() { 
+    public Quantity getAmount() { 
       if (this.amount == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationKnowledge.amount");
         else if (Configuration.doAutoCreate())
-          this.amount = new SimpleQuantity(); // cc
+          this.amount = new Quantity(); // cc
       return this.amount;
     }
 
@@ -4641,7 +4641,7 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * @param value {@link #amount} (Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).)
      */
-    public MedicationKnowledge setAmount(SimpleQuantity value) { 
+    public MedicationKnowledge setAmount(Quantity value) { 
       this.amount = value;
       return this;
     }
@@ -5629,7 +5629,7 @@ public class MedicationKnowledge extends DomainResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationKnowledgeStatus>
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // Reference
         case 1303858817: /*doseForm*/ return this.doseForm == null ? new Base[0] : new Base[] {this.doseForm}; // CodeableConcept
-        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // SimpleQuantity
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Quantity
         case -1742128133: /*synonym*/ return this.synonym == null ? new Base[0] : this.synonym.toArray(new Base[this.synonym.size()]); // StringType
         case 723067972: /*relatedMedicationKnowledge*/ return this.relatedMedicationKnowledge == null ? new Base[0] : this.relatedMedicationKnowledge.toArray(new Base[this.relatedMedicationKnowledge.size()]); // MedicationKnowledgeRelatedMedicationKnowledgeComponent
         case 1312779381: /*associatedMedication*/ return this.associatedMedication == null ? new Base[0] : this.associatedMedication.toArray(new Base[this.associatedMedication.size()]); // Reference
@@ -5669,7 +5669,7 @@ public class MedicationKnowledge extends DomainResource {
           this.doseForm = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1413853096: // amount
-          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          this.amount = castToQuantity(value); // Quantity
           return value;
         case -1742128133: // synonym
           this.getSynonym().add(castToString(value)); // StringType
@@ -5739,7 +5739,7 @@ public class MedicationKnowledge extends DomainResource {
         } else if (name.equals("doseForm")) {
           this.doseForm = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("amount")) {
-          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          this.amount = castToQuantity(value); // Quantity
         } else if (name.equals("synonym")) {
           this.getSynonym().add(castToString(value));
         } else if (name.equals("relatedMedicationKnowledge")) {
@@ -5857,7 +5857,7 @@ public class MedicationKnowledge extends DomainResource {
           return this.doseForm;
         }
         else if (name.equals("amount")) {
-          this.amount = new SimpleQuantity();
+          this.amount = new Quantity();
           return this.amount;
         }
         else if (name.equals("synonym")) {

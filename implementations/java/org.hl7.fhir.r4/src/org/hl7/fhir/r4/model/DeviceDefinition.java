@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -2018,16 +2018,9 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
     protected Quantity quantity;
 
     /**
-     * The device that this component can be part of - a parent device.
-     */
-    @Child(name = "partOf", type = {BackboneElement.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="The device that this component can be part of", formalDefinition="The device that this component can be part of - a parent device." )
-    protected List<BackboneElement> partOf;
-
-    /**
      * The parent device it can be part of.
      */
-    @Child(name = "parentDevice", type = {DeviceDefinition.class}, order=21, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "parentDevice", type = {DeviceDefinition.class}, order=20, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The parent device it can be part of", formalDefinition="The parent device it can be part of." )
     protected Reference parentDevice;
 
@@ -2039,11 +2032,11 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
     /**
      * A substance used to create the material(s) of which the device is made.
      */
-    @Child(name = "material", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "material", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A substance used to create the material(s) of which the device is made", formalDefinition="A substance used to create the material(s) of which the device is made." )
     protected List<DeviceDefinitionMaterialComponent> material;
 
-    private static final long serialVersionUID = -192756594L;
+    private static final long serialVersionUID = -2041532433L;
 
   /**
    * Constructor
@@ -3011,32 +3004,6 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
     }
 
     /**
-     * @return {@link #partOf} (The device that this component can be part of - a parent device.)
-     */
-    public List<BackboneElement> getPartOf() { 
-      if (this.partOf == null)
-        this.partOf = new ArrayList<BackboneElement>();
-      return this.partOf;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public DeviceDefinition setPartOf(List<BackboneElement> thePartOf) { 
-      this.partOf = thePartOf;
-      return this;
-    }
-
-    public boolean hasPartOf() { 
-      if (this.partOf == null)
-        return false;
-      for (BackboneElement item : this.partOf)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
      * @return {@link #parentDevice} (The parent device it can be part of.)
      */
     public Reference getParentDevice() { 
@@ -3155,7 +3122,6 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
         children.add(new Property("onlineInformation", "uri", "Access to on-line information about the device.", 0, 1, onlineInformation));
         children.add(new Property("note", "Annotation", "Descriptive information, usage information or implantation information that is not captured in an existing element.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("quantity", "Quantity", "The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product).", 0, 1, quantity));
-        children.add(new Property("partOf", "BackboneElement", "The device that this component can be part of - a parent device.", 0, java.lang.Integer.MAX_VALUE, partOf));
         children.add(new Property("parentDevice", "Reference(DeviceDefinition)", "The parent device it can be part of.", 0, 1, parentDevice));
         children.add(new Property("material", "", "A substance used to create the material(s) of which the device is made.", 0, java.lang.Integer.MAX_VALUE, material));
       }
@@ -3186,7 +3152,6 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
         case -788511527: /*onlineInformation*/  return new Property("onlineInformation", "uri", "Access to on-line information about the device.", 0, 1, onlineInformation);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Descriptive information, usage information or implantation information that is not captured in an existing element.", 0, java.lang.Integer.MAX_VALUE, note);
         case -1285004149: /*quantity*/  return new Property("quantity", "Quantity", "The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product).", 0, 1, quantity);
-        case -995410646: /*partOf*/  return new Property("partOf", "BackboneElement", "The device that this component can be part of - a parent device.", 0, java.lang.Integer.MAX_VALUE, partOf);
         case 620260256: /*parentDevice*/  return new Property("parentDevice", "Reference(DeviceDefinition)", "The parent device it can be part of.", 0, 1, parentDevice);
         case 299066663: /*material*/  return new Property("material", "", "A substance used to create the material(s) of which the device is made.", 0, java.lang.Integer.MAX_VALUE, material);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -3217,7 +3182,6 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
         case -788511527: /*onlineInformation*/ return this.onlineInformation == null ? new Base[0] : new Base[] {this.onlineInformation}; // UriType
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
-        case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // BackboneElement
         case 620260256: /*parentDevice*/ return this.parentDevice == null ? new Base[0] : new Base[] {this.parentDevice}; // Reference
         case 299066663: /*material*/ return this.material == null ? new Base[0] : this.material.toArray(new Base[this.material.size()]); // DeviceDefinitionMaterialComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -3404,7 +3368,6 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
         case -788511527: /*onlineInformation*/ return new String[] {"uri"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case -1285004149: /*quantity*/ return new String[] {"Quantity"};
-        case -995410646: /*partOf*/ return new String[] {"BackboneElement"};
         case 620260256: /*parentDevice*/ return new String[] {"Reference"};
         case 299066663: /*material*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -3570,11 +3533,6 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
             dst.note.add(i.copy());
         };
         dst.quantity = quantity == null ? null : quantity.copy();
-        if (partOf != null) {
-          dst.partOf = new ArrayList<BackboneElement>();
-          for (BackboneElement i : partOf)
-            dst.partOf.add(i.copy());
-        };
         dst.parentDevice = parentDevice == null ? null : parentDevice.copy();
         if (material != null) {
           dst.material = new ArrayList<DeviceDefinitionMaterialComponent>();
@@ -3602,8 +3560,8 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
            && compareDeep(physicalCharacteristics, o.physicalCharacteristics, true) && compareDeep(languageCode, o.languageCode, true)
            && compareDeep(capability, o.capability, true) && compareDeep(property, o.property, true) && compareDeep(owner, o.owner, true)
            && compareDeep(contact, o.contact, true) && compareDeep(url, o.url, true) && compareDeep(onlineInformation, o.onlineInformation, true)
-           && compareDeep(note, o.note, true) && compareDeep(quantity, o.quantity, true) && compareDeep(partOf, o.partOf, true)
-           && compareDeep(parentDevice, o.parentDevice, true) && compareDeep(material, o.material, true);
+           && compareDeep(note, o.note, true) && compareDeep(quantity, o.quantity, true) && compareDeep(parentDevice, o.parentDevice, true)
+           && compareDeep(material, o.material, true);
       }
 
       @Override
@@ -3621,8 +3579,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, udiDeviceIdentifier
           , manufacturer, deviceName, modelNumber, type, specialization, version, safety
           , shelfLifeStorage, physicalCharacteristics, languageCode, capability, property, owner
-          , contact, url, onlineInformation, note, quantity, partOf, parentDevice, material
-          );
+          , contact, url, onlineInformation, note, quantity, parentDevice, material);
       }
 
   @Override

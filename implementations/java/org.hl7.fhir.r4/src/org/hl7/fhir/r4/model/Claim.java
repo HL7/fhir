@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -3553,9 +3553,9 @@ public class Claim extends DomainResource {
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=13, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
@@ -3625,7 +3625,7 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
-        private static final long serialVersionUID = -887542848L;
+        private static final long serialVersionUID = -22581266L;
 
     /**
      * Constructor
@@ -4229,12 +4229,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -4245,7 +4245,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public ItemComponent setQuantity(SimpleQuantity value) { 
+        public ItemComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -4721,7 +4721,7 @@ public class Claim extends DomainResource {
         case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // CodeableConcept
         case 1379209295: /*serviced*/ return this.serviced == null ? new Base[0] : new Base[] {this.serviced}; // Type
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Type
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
@@ -4775,7 +4775,7 @@ public class Claim extends DomainResource {
           this.location = castToType(value); // Type
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
@@ -4833,7 +4833,7 @@ public class Claim extends DomainResource {
         } else if (name.equals("location[x]")) {
           this.location = castToType(value); // Type
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("unitPrice")) {
           this.unitPrice = castToMoney(value); // Money
         } else if (name.equals("factor")) {
@@ -4971,7 +4971,7 @@ public class Claim extends DomainResource {
           return this.location;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("unitPrice")) {
@@ -5169,9 +5169,9 @@ public class Claim extends DomainResource {
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
@@ -5213,7 +5213,7 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = -45101247L;
+        private static final long serialVersionUID = 1929138899L;
 
     /**
      * Constructor
@@ -5456,12 +5456,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -5472,7 +5472,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public DetailComponent setQuantity(SimpleQuantity value) { 
+        public DetailComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -5765,7 +5765,7 @@ public class Claim extends DomainResource {
         case 890074740: /*billcode*/ return this.billcode == null ? new Base[0] : new Base[] {this.billcode}; // CodeableConcept
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
         case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // CodeableConcept
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
@@ -5798,7 +5798,7 @@ public class Claim extends DomainResource {
           this.getProgramCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
@@ -5835,7 +5835,7 @@ public class Claim extends DomainResource {
         } else if (name.equals("programCode")) {
           this.getProgramCode().add(castToCodeableConcept(value));
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("unitPrice")) {
           this.unitPrice = castToMoney(value); // Money
         } else if (name.equals("factor")) {
@@ -5915,7 +5915,7 @@ public class Claim extends DomainResource {
           return addProgramCode();
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("unitPrice")) {
@@ -6062,9 +6062,9 @@ public class Claim extends DomainResource {
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=7, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * The fee for an addittional service or product or charge.
@@ -6099,7 +6099,7 @@ public class Claim extends DomainResource {
         protected List<Device> udiTarget;
 
 
-        private static final long serialVersionUID = -1111882528L;
+        private static final long serialVersionUID = -1901079154L;
 
     /**
      * Constructor
@@ -6342,12 +6342,12 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -6358,7 +6358,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SubDetailComponent setQuantity(SimpleQuantity value) { 
+        public SubDetailComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -6596,7 +6596,7 @@ public class Claim extends DomainResource {
         case 890074740: /*billcode*/ return this.billcode == null ? new Base[0] : new Base[] {this.billcode}; // CodeableConcept
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
         case 1010065041: /*programCode*/ return this.programCode == null ? new Base[0] : this.programCode.toArray(new Base[this.programCode.size()]); // CodeableConcept
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case -1282148017: /*factor*/ return this.factor == null ? new Base[0] : new Base[] {this.factor}; // DecimalType
         case 108957: /*net*/ return this.net == null ? new Base[0] : new Base[] {this.net}; // Money
@@ -6628,7 +6628,7 @@ public class Claim extends DomainResource {
           this.getProgramCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
@@ -6662,7 +6662,7 @@ public class Claim extends DomainResource {
         } else if (name.equals("programCode")) {
           this.getProgramCode().add(castToCodeableConcept(value));
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("unitPrice")) {
           this.unitPrice = castToMoney(value); // Money
         } else if (name.equals("factor")) {
@@ -6738,7 +6738,7 @@ public class Claim extends DomainResource {
           return addProgramCode();
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("unitPrice")) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -241,16 +241,16 @@ public class Observation extends DomainResource {
         /**
          * The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).
          */
-        @Child(name = "low", type = {SimpleQuantity.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "low", type = {Quantity.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Low Range, if relevant", formalDefinition="The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3)." )
-        protected SimpleQuantity low;
+        protected Quantity low;
 
         /**
          * The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).
          */
-        @Child(name = "high", type = {SimpleQuantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "high", type = {Quantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="High Range, if relevant", formalDefinition="The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3)." )
-        protected SimpleQuantity high;
+        protected Quantity high;
 
         /**
          * Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range.
@@ -282,7 +282,7 @@ public class Observation extends DomainResource {
         @Description(shortDefinition="Text based reference range in an observation", formalDefinition="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of \"Negative\" or a list or table of \"normals\"." )
         protected StringType text;
 
-        private static final long serialVersionUID = -955638831L;
+        private static final long serialVersionUID = -305128879L;
 
     /**
      * Constructor
@@ -294,12 +294,12 @@ public class Observation extends DomainResource {
         /**
          * @return {@link #low} (The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).)
          */
-        public SimpleQuantity getLow() { 
+        public Quantity getLow() { 
           if (this.low == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.low");
             else if (Configuration.doAutoCreate())
-              this.low = new SimpleQuantity(); // cc
+              this.low = new Quantity(); // cc
           return this.low;
         }
 
@@ -310,7 +310,7 @@ public class Observation extends DomainResource {
         /**
          * @param value {@link #low} (The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is <=2.3).)
          */
-        public ObservationReferenceRangeComponent setLow(SimpleQuantity value) { 
+        public ObservationReferenceRangeComponent setLow(Quantity value) { 
           this.low = value;
           return this;
         }
@@ -318,12 +318,12 @@ public class Observation extends DomainResource {
         /**
          * @return {@link #high} (The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).)
          */
-        public SimpleQuantity getHigh() { 
+        public Quantity getHigh() { 
           if (this.high == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ObservationReferenceRangeComponent.high");
             else if (Configuration.doAutoCreate())
-              this.high = new SimpleQuantity(); // cc
+              this.high = new Quantity(); // cc
           return this.high;
         }
 
@@ -334,7 +334,7 @@ public class Observation extends DomainResource {
         /**
          * @param value {@link #high} (The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is >=5 - <=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is >= 2.3).)
          */
-        public ObservationReferenceRangeComponent setHigh(SimpleQuantity value) { 
+        public ObservationReferenceRangeComponent setHigh(Quantity value) { 
           this.high = value;
           return this;
         }
@@ -516,8 +516,8 @@ public class Observation extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 107348: /*low*/ return this.low == null ? new Base[0] : new Base[] {this.low}; // SimpleQuantity
-        case 3202466: /*high*/ return this.high == null ? new Base[0] : new Base[] {this.high}; // SimpleQuantity
+        case 107348: /*low*/ return this.low == null ? new Base[0] : new Base[] {this.low}; // Quantity
+        case 3202466: /*high*/ return this.high == null ? new Base[0] : new Base[] {this.high}; // Quantity
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -2089924569: /*appliesTo*/ return this.appliesTo == null ? new Base[0] : this.appliesTo.toArray(new Base[this.appliesTo.size()]); // CodeableConcept
         case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Range
@@ -531,10 +531,10 @@ public class Observation extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 107348: // low
-          this.low = castToSimpleQuantity(value); // SimpleQuantity
+          this.low = castToQuantity(value); // Quantity
           return value;
         case 3202466: // high
-          this.high = castToSimpleQuantity(value); // SimpleQuantity
+          this.high = castToQuantity(value); // Quantity
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -556,9 +556,9 @@ public class Observation extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("low")) {
-          this.low = castToSimpleQuantity(value); // SimpleQuantity
+          this.low = castToQuantity(value); // Quantity
         } else if (name.equals("high")) {
-          this.high = castToSimpleQuantity(value); // SimpleQuantity
+          this.high = castToQuantity(value); // Quantity
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("appliesTo")) {
@@ -603,11 +603,11 @@ public class Observation extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("low")) {
-          this.low = new SimpleQuantity();
+          this.low = new Quantity();
           return this.low;
         }
         else if (name.equals("high")) {
-          this.high = new SimpleQuantity();
+          this.high = new Quantity();
           return this.high;
         }
         else if (name.equals("type")) {

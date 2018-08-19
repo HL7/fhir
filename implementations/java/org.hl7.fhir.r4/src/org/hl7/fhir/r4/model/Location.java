@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -2779,6 +2779,20 @@ Requires the near-distance parameter to be provided also</b><br>
    */
   @SearchParamDefinition(name="near", path="Location.position", description="Search for locations where the location.position is near to, or within a specified distance of, the provided coordinates expressed as [latitude]|[longitude]|[distance]|[units] (using the WGS84 datum, see notes).\nIf the units are omitted, then kms should be assumed. If the distance is omitted, then the server can use its own discression as to what distances should be considered near (and units are irrelevant)\n\nServers may search using various techniques that might have differing accuracies, depending on implementation efficiency.\n\nRequires the near-distance parameter to be provided also", type="special" )
   public static final String SP_NEAR = "near";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>near</b>
+   * <p>
+   * Description: <b>Search for locations where the location.position is near to, or within a specified distance of, the provided coordinates expressed as [latitude]|[longitude]|[distance]|[units] (using the WGS84 datum, see notes).
+If the units are omitted, then kms should be assumed. If the distance is omitted, then the server can use its own discression as to what distances should be considered near (and units are irrelevant)
+
+Servers may search using various techniques that might have differing accuracies, depending on implementation efficiency.
+
+Requires the near-distance parameter to be provided also</b><br>
+   * Type: <b>special</b><br>
+   * Path: <b>Location.position</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NEAR = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NEAR);
 
  /**
    * Search parameter: <b>address-city</b>

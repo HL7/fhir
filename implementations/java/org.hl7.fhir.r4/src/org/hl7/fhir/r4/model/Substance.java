@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -175,11 +175,11 @@ public class Substance extends DomainResource {
         /**
          * The amount of the substance.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "quantity", type = {Quantity.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Amount of substance in the package", formalDefinition="The amount of the substance." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
-        private static final long serialVersionUID = -794314734L;
+        private static final long serialVersionUID = -1474380480L;
 
     /**
      * Constructor
@@ -264,12 +264,12 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the substance.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -280,7 +280,7 @@ public class Substance extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount of the substance.)
          */
-        public SubstanceInstanceComponent setQuantity(SimpleQuantity value) { 
+        public SubstanceInstanceComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -308,7 +308,7 @@ public class Substance extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case -1289159373: /*expiry*/ return this.expiry == null ? new Base[0] : new Base[] {this.expiry}; // DateTimeType
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -324,7 +324,7 @@ public class Substance extends DomainResource {
           this.expiry = castToDateTime(value); // DateTimeType
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -338,7 +338,7 @@ public class Substance extends DomainResource {
         } else if (name.equals("expiry")) {
           this.expiry = castToDateTime(value); // DateTimeType
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else
           return super.setProperty(name, value);
         return value;
@@ -376,7 +376,7 @@ public class Substance extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type Substance.expiry");
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else

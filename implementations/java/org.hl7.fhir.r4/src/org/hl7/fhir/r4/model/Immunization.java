@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1298,9 +1298,9 @@ public class Immunization extends DomainResource {
     /**
      * The quantity of vaccine product that was administered.
      */
-    @Child(name = "doseQuantity", type = {SimpleQuantity.class}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "doseQuantity", type = {Quantity.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Amount of vaccine administered", formalDefinition="The quantity of vaccine product that was administered." )
-    protected SimpleQuantity doseQuantity;
+    protected Quantity doseQuantity;
 
     /**
      * Indicates who performed the immunization event.
@@ -1381,7 +1381,7 @@ public class Immunization extends DomainResource {
     @Description(shortDefinition="Protocol followed by the provider", formalDefinition="The protocol (set of recommendations) being followed by the provider who administered the dose." )
     protected List<ImmunizationProtocolAppliedComponent> protocolApplied;
 
-    private static final long serialVersionUID = 608582282L;
+    private static final long serialVersionUID = 1661334392L;
 
   /**
    * Constructor
@@ -2041,12 +2041,12 @@ public class Immunization extends DomainResource {
     /**
      * @return {@link #doseQuantity} (The quantity of vaccine product that was administered.)
      */
-    public SimpleQuantity getDoseQuantity() { 
+    public Quantity getDoseQuantity() { 
       if (this.doseQuantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Immunization.doseQuantity");
         else if (Configuration.doAutoCreate())
-          this.doseQuantity = new SimpleQuantity(); // cc
+          this.doseQuantity = new Quantity(); // cc
       return this.doseQuantity;
     }
 
@@ -2057,7 +2057,7 @@ public class Immunization extends DomainResource {
     /**
      * @param value {@link #doseQuantity} (The quantity of vaccine product that was administered.)
      */
-    public Immunization setDoseQuantity(SimpleQuantity value) { 
+    public Immunization setDoseQuantity(Quantity value) { 
       this.doseQuantity = value;
       return this;
     }
@@ -2653,7 +2653,7 @@ public class Immunization extends DomainResource {
         case -668811523: /*expirationDate*/ return this.expirationDate == null ? new Base[0] : new Base[] {this.expirationDate}; // DateType
         case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // CodeableConcept
         case 108704329: /*route*/ return this.route == null ? new Base[0] : new Base[] {this.route}; // CodeableConcept
-        case -2083618872: /*doseQuantity*/ return this.doseQuantity == null ? new Base[0] : new Base[] {this.doseQuantity}; // SimpleQuantity
+        case -2083618872: /*doseQuantity*/ return this.doseQuantity == null ? new Base[0] : new Base[] {this.doseQuantity}; // Quantity
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // ImmunizationPerformerComponent
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
@@ -2722,7 +2722,7 @@ public class Immunization extends DomainResource {
           this.route = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -2083618872: // doseQuantity
-          this.doseQuantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.doseQuantity = castToQuantity(value); // Quantity
           return value;
         case 481140686: // performer
           this.getPerformer().add((ImmunizationPerformerComponent) value); // ImmunizationPerformerComponent
@@ -2795,7 +2795,7 @@ public class Immunization extends DomainResource {
         } else if (name.equals("route")) {
           this.route = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("doseQuantity")) {
-          this.doseQuantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.doseQuantity = castToQuantity(value); // Quantity
         } else if (name.equals("performer")) {
           this.getPerformer().add((ImmunizationPerformerComponent) value);
         } else if (name.equals("note")) {
@@ -2957,7 +2957,7 @@ public class Immunization extends DomainResource {
           return this.route;
         }
         else if (name.equals("doseQuantity")) {
-          this.doseQuantity = new SimpleQuantity();
+          this.doseQuantity = new Quantity();
           return this.doseQuantity;
         }
         else if (name.equals("performer")) {

@@ -490,7 +490,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         for (ConceptDefinitionComponent def : cs.getConcept()) {
           addCodeAndDescendents(cs, inc.getSystem(), def, null, expParams, imports, defEx);
         }
-      } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDANTOF) {
+      } else if ("concept".equals(fc.getProperty()) && fc.getOp() == FilterOperator.DESCENDENTOF) {
         // special: all codes in the target code system under the value
         ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
         if (def == null)

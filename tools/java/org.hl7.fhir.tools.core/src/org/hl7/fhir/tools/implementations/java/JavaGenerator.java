@@ -340,6 +340,13 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   private String makeConstantsClass(String version, String svnRevision, Date genDate) {
+    StringBuilder rt = new StringBuilder();
+    boolean first = true;
+    for (String n : definitions.sortedResourceNames()) {
+      if (first) first = false; else rt.append("|");
+      rt.append(n);
+    }
+      
     String s =
         "package org.hl7.fhir.r4.model;\r\n"+
             "\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n"+
@@ -350,6 +357,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
             "  public final static String VERSION = \""+version+"\";\r\n"+
             "  public final static String REVISION = \""+svnRevision+"\";\r\n"+
             "  public final static String DATE = \""+genDate+"\";\r\n"+
+            "  public final static String URI_REGEX = \"((http|https)://([A-Za-z0-9\\\\\\\\\\\\.\\\\:\\\\%\\\\$]*\\\\/)*)?("+rt.toString()+")\\\\/[A-Za-z0-9\\\\-\\\\.]{1,64}(\\\\/_history\\\\/[A-Za-z0-9\\\\-\\\\.]{1,64})?\";\r\n"+
             "}\r\n";
     return s;
   }

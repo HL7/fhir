@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -982,9 +982,9 @@ public class CoverageEligibilityRequest extends DomainResource {
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Count of products or services", formalDefinition="The number of repetitions of a service or product." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * The fee for an additional service or product or charge.
@@ -1024,7 +1024,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         protected List<Resource> detailTarget;
 
 
-        private static final long serialVersionUID = 1048384758L;
+        private static final long serialVersionUID = -643370872L;
 
     /**
      * Constructor
@@ -1237,12 +1237,12 @@ public class CoverageEligibilityRequest extends DomainResource {
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1253,7 +1253,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public DetailsComponent setQuantity(SimpleQuantity value) { 
+        public DetailsComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -1477,7 +1477,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         case 890074740: /*billcode*/ return this.billcode == null ? new Base[0] : new Base[] {this.billcode}; // CodeableConcept
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -486196699: /*unitPrice*/ return this.unitPrice == null ? new Base[0] : new Base[] {this.unitPrice}; // Money
         case 501116579: /*facility*/ return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Reference
         case 1196993265: /*diagnosis*/ return this.diagnosis == null ? new Base[0] : this.diagnosis.toArray(new Base[this.diagnosis.size()]); // DiagnosisComponent
@@ -1506,7 +1506,7 @@ public class CoverageEligibilityRequest extends DomainResource {
           this.provider = castToReference(value); // Reference
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
@@ -1538,7 +1538,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         } else if (name.equals("provider")) {
           this.provider = castToReference(value); // Reference
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("unitPrice")) {
           this.unitPrice = castToMoney(value); // Money
         } else if (name.equals("facility")) {
@@ -1609,7 +1609,7 @@ public class CoverageEligibilityRequest extends DomainResource {
           return this.provider;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("unitPrice")) {

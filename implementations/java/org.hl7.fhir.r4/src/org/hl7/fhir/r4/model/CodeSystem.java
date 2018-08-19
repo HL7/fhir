@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -326,7 +326,7 @@ public class CodeSystem extends MetadataResource {
         /**
          * Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).
          */
-        DESCENDANTOF, 
+        DESCENDENTOF, 
         /**
          * The specified property of the code does not have an is-a relationship with the provided value.
          */
@@ -363,7 +363,7 @@ public class CodeSystem extends MetadataResource {
         if ("is-a".equals(codeString))
           return ISA;
         if ("descendent-of".equals(codeString))
-          return DESCENDANTOF;
+          return DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return ISNOTA;
         if ("regex".equals(codeString))
@@ -385,7 +385,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "=";
             case ISA: return "is-a";
-            case DESCENDANTOF: return "descendent-of";
+            case DESCENDENTOF: return "descendent-of";
             case ISNOTA: return "is-not-a";
             case REGEX: return "regex";
             case IN: return "in";
@@ -399,7 +399,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "http://hl7.org/fhir/filter-operator";
             case ISA: return "http://hl7.org/fhir/filter-operator";
-            case DESCENDANTOF: return "http://hl7.org/fhir/filter-operator";
+            case DESCENDENTOF: return "http://hl7.org/fhir/filter-operator";
             case ISNOTA: return "http://hl7.org/fhir/filter-operator";
             case REGEX: return "http://hl7.org/fhir/filter-operator";
             case IN: return "http://hl7.org/fhir/filter-operator";
@@ -413,7 +413,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "The specified property of the code equals the provided value.";
             case ISA: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self).";
-            case DESCENDANTOF: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).";
+            case DESCENDENTOF: return "Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).";
             case ISNOTA: return "The specified property of the code does not have an is-a relationship with the provided value.";
             case REGEX: return "The specified property of the code  matches the regex specified in the provided value.";
             case IN: return "The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).";
@@ -427,7 +427,7 @@ public class CodeSystem extends MetadataResource {
           switch (this) {
             case EQUAL: return "Equals";
             case ISA: return "Is A (by subsumption)";
-            case DESCENDANTOF: return "Descendant Of (by subsumption)";
+            case DESCENDENTOF: return "Descendent Of (by subsumption)";
             case ISNOTA: return "Not (Is A) (by subsumption)";
             case REGEX: return "Regular Expression";
             case IN: return "In Set";
@@ -449,7 +449,7 @@ public class CodeSystem extends MetadataResource {
         if ("is-a".equals(codeString))
           return FilterOperator.ISA;
         if ("descendent-of".equals(codeString))
-          return FilterOperator.DESCENDANTOF;
+          return FilterOperator.DESCENDENTOF;
         if ("is-not-a".equals(codeString))
           return FilterOperator.ISNOTA;
         if ("regex".equals(codeString))
@@ -477,7 +477,7 @@ public class CodeSystem extends MetadataResource {
         if ("is-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISA);
         if ("descendent-of".equals(codeString))
-          return new Enumeration<FilterOperator>(this, FilterOperator.DESCENDANTOF);
+          return new Enumeration<FilterOperator>(this, FilterOperator.DESCENDENTOF);
         if ("is-not-a".equals(codeString))
           return new Enumeration<FilterOperator>(this, FilterOperator.ISNOTA);
         if ("regex".equals(codeString))
@@ -497,7 +497,7 @@ public class CodeSystem extends MetadataResource {
         return "=";
       if (code == FilterOperator.ISA)
         return "is-a";
-      if (code == FilterOperator.DESCENDANTOF)
+      if (code == FilterOperator.DESCENDENTOF)
         return "descendent-of";
       if (code == FilterOperator.ISNOTA)
         return "is-not-a";

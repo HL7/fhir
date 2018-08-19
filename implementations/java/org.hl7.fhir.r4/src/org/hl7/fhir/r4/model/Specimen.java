@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -203,9 +203,9 @@ public class Specimen extends DomainResource {
         /**
          * The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The quantity of specimen collected", formalDefinition="The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * A coded value specifying the technique that is used to perform the procedure.
@@ -231,7 +231,7 @@ public class Specimen extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v2-0916")
         protected Type fastingStatus;
 
-        private static final long serialVersionUID = -1468000913L;
+        private static final long serialVersionUID = -1081279935L;
 
     /**
      * Constructor
@@ -362,12 +362,12 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #quantity} (The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenCollectionComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -378,7 +378,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #quantity} (The quantity of specimen collected; for instance the volume of a blood sample, or the physical measurement of an anatomic pathology sample.)
          */
-        public SpecimenCollectionComponent setQuantity(SimpleQuantity value) { 
+        public SpecimenCollectionComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -520,7 +520,7 @@ public class Specimen extends DomainResource {
         case 1883491469: /*collector*/ return this.collector == null ? new Base[0] : new Base[] {this.collector}; // Reference
         case 1883491145: /*collected*/ return this.collected == null ? new Base[0] : new Base[] {this.collected}; // Type
         case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // Duration
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
         case -701550184: /*fastingStatus*/ return this.fastingStatus == null ? new Base[0] : new Base[] {this.fastingStatus}; // Type
@@ -542,7 +542,7 @@ public class Specimen extends DomainResource {
           this.duration = castToDuration(value); // Duration
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
@@ -567,7 +567,7 @@ public class Specimen extends DomainResource {
         } else if (name.equals("duration")) {
           this.duration = castToDuration(value); // Duration
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("bodySite")) {
@@ -630,7 +630,7 @@ public class Specimen extends DomainResource {
           return this.duration;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("method")) {
@@ -1137,16 +1137,16 @@ public class Specimen extends DomainResource {
         /**
          * The capacity (volume or other measure) the container may contain.
          */
-        @Child(name = "capacity", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "capacity", type = {Quantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Container volume or size", formalDefinition="The capacity (volume or other measure) the container may contain." )
-        protected SimpleQuantity capacity;
+        protected Quantity capacity;
 
         /**
          * The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.
          */
-        @Child(name = "specimenQuantity", type = {SimpleQuantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "specimenQuantity", type = {Quantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Quantity of specimen within container", formalDefinition="The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type." )
-        protected SimpleQuantity specimenQuantity;
+        protected Quantity specimenQuantity;
 
         /**
          * Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.
@@ -1156,7 +1156,7 @@ public class Specimen extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://terminology.hl7.org/ValueSet/v2-0371")
         protected Type additive;
 
-        private static final long serialVersionUID = 187274879L;
+        private static final long serialVersionUID = -1608132325L;
 
     /**
      * Constructor
@@ -1294,12 +1294,12 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #capacity} (The capacity (volume or other measure) the container may contain.)
          */
-        public SimpleQuantity getCapacity() { 
+        public Quantity getCapacity() { 
           if (this.capacity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.capacity");
             else if (Configuration.doAutoCreate())
-              this.capacity = new SimpleQuantity(); // cc
+              this.capacity = new Quantity(); // cc
           return this.capacity;
         }
 
@@ -1310,7 +1310,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #capacity} (The capacity (volume or other measure) the container may contain.)
          */
-        public SpecimenContainerComponent setCapacity(SimpleQuantity value) { 
+        public SpecimenContainerComponent setCapacity(Quantity value) { 
           this.capacity = value;
           return this;
         }
@@ -1318,12 +1318,12 @@ public class Specimen extends DomainResource {
         /**
          * @return {@link #specimenQuantity} (The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.)
          */
-        public SimpleQuantity getSpecimenQuantity() { 
+        public Quantity getSpecimenQuantity() { 
           if (this.specimenQuantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SpecimenContainerComponent.specimenQuantity");
             else if (Configuration.doAutoCreate())
-              this.specimenQuantity = new SimpleQuantity(); // cc
+              this.specimenQuantity = new Quantity(); // cc
           return this.specimenQuantity;
         }
 
@@ -1334,7 +1334,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #specimenQuantity} (The quantity of specimen in the container; may be volume, dimensions, or other appropriate measurements, depending on the specimen type.)
          */
-        public SpecimenContainerComponent setSpecimenQuantity(SimpleQuantity value) { 
+        public SpecimenContainerComponent setSpecimenQuantity(Quantity value) { 
           this.specimenQuantity = value;
           return this;
         }
@@ -1423,8 +1423,8 @@ public class Specimen extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -67824454: /*capacity*/ return this.capacity == null ? new Base[0] : new Base[] {this.capacity}; // SimpleQuantity
-        case 1485980595: /*specimenQuantity*/ return this.specimenQuantity == null ? new Base[0] : new Base[] {this.specimenQuantity}; // SimpleQuantity
+        case -67824454: /*capacity*/ return this.capacity == null ? new Base[0] : new Base[] {this.capacity}; // Quantity
+        case 1485980595: /*specimenQuantity*/ return this.specimenQuantity == null ? new Base[0] : new Base[] {this.specimenQuantity}; // Quantity
         case -1226589236: /*additive*/ return this.additive == null ? new Base[0] : new Base[] {this.additive}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1444,10 +1444,10 @@ public class Specimen extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -67824454: // capacity
-          this.capacity = castToSimpleQuantity(value); // SimpleQuantity
+          this.capacity = castToQuantity(value); // Quantity
           return value;
         case 1485980595: // specimenQuantity
-          this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.specimenQuantity = castToQuantity(value); // Quantity
           return value;
         case -1226589236: // additive
           this.additive = castToType(value); // Type
@@ -1466,9 +1466,9 @@ public class Specimen extends DomainResource {
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("capacity")) {
-          this.capacity = castToSimpleQuantity(value); // SimpleQuantity
+          this.capacity = castToQuantity(value); // Quantity
         } else if (name.equals("specimenQuantity")) {
-          this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.specimenQuantity = castToQuantity(value); // Quantity
         } else if (name.equals("additive[x]")) {
           this.additive = castToType(value); // Type
         } else
@@ -1518,11 +1518,11 @@ public class Specimen extends DomainResource {
           return this.type;
         }
         else if (name.equals("capacity")) {
-          this.capacity = new SimpleQuantity();
+          this.capacity = new Quantity();
           return this.capacity;
         }
         else if (name.equals("specimenQuantity")) {
-          this.specimenQuantity = new SimpleQuantity();
+          this.specimenQuantity = new Quantity();
           return this.specimenQuantity;
         }
         else if (name.equals("additiveCodeableConcept")) {

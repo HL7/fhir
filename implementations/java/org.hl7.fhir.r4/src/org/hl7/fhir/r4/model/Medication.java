@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -820,9 +820,9 @@ public class Medication extends DomainResource {
     /**
      * Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).
      */
-    @Child(name = "amount", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "amount", type = {Quantity.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Amount of drug in package", formalDefinition="Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)." )
-    protected SimpleQuantity amount;
+    protected Quantity amount;
 
     /**
      * Identifies a particular constituent of interest in the product.
@@ -838,7 +838,7 @@ public class Medication extends DomainResource {
     @Description(shortDefinition="Details about packaged medications", formalDefinition="Information that only applies to packages (not products)." )
     protected MedicationBatchComponent batch;
 
-    private static final long serialVersionUID = -733624193L;
+    private static final long serialVersionUID = -482408531L;
 
   /**
    * Constructor
@@ -991,12 +991,12 @@ public class Medication extends DomainResource {
     /**
      * @return {@link #amount} (Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).)
      */
-    public SimpleQuantity getAmount() { 
+    public Quantity getAmount() { 
       if (this.amount == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.amount");
         else if (Configuration.doAutoCreate())
-          this.amount = new SimpleQuantity(); // cc
+          this.amount = new Quantity(); // cc
       return this.amount;
     }
 
@@ -1007,7 +1007,7 @@ public class Medication extends DomainResource {
     /**
      * @param value {@link #amount} (Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).)
      */
-    public Medication setAmount(SimpleQuantity value) { 
+    public Medication setAmount(Quantity value) { 
       this.amount = value;
       return this;
     }
@@ -1122,7 +1122,7 @@ public class Medication extends DomainResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatus>
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // Reference
         case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
-        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // SimpleQuantity
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Quantity
         case -206409263: /*ingredient*/ return this.ingredient == null ? new Base[0] : this.ingredient.toArray(new Base[this.ingredient.size()]); // MedicationIngredientComponent
         case 93509434: /*batch*/ return this.batch == null ? new Base[0] : new Base[] {this.batch}; // MedicationBatchComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -1147,7 +1147,7 @@ public class Medication extends DomainResource {
           this.form = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1413853096: // amount
-          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          this.amount = castToQuantity(value); // Quantity
           return value;
         case -206409263: // ingredient
           this.getIngredient().add((MedicationIngredientComponent) value); // MedicationIngredientComponent
@@ -1172,7 +1172,7 @@ public class Medication extends DomainResource {
         } else if (name.equals("form")) {
           this.form = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("amount")) {
-          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          this.amount = castToQuantity(value); // Quantity
         } else if (name.equals("ingredient")) {
           this.getIngredient().add((MedicationIngredientComponent) value);
         } else if (name.equals("batch")) {
@@ -1230,7 +1230,7 @@ public class Medication extends DomainResource {
           return this.form;
         }
         else if (name.equals("amount")) {
-          this.amount = new SimpleQuantity();
+          this.amount = new Quantity();
           return this.amount;
         }
         else if (name.equals("ingredient")) {

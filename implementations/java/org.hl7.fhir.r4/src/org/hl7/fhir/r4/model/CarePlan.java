@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1334,16 +1334,16 @@ public class CarePlan extends DomainResource {
         /**
          * Identifies the quantity expected to be consumed in a given day.
          */
-        @Child(name = "dailyAmount", type = {SimpleQuantity.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "dailyAmount", type = {Quantity.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="How to consume/day?", formalDefinition="Identifies the quantity expected to be consumed in a given day." )
-        protected SimpleQuantity dailyAmount;
+        protected Quantity dailyAmount;
 
         /**
          * Identifies the quantity expected to be supplied, administered or consumed by the subject.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="How much to administer/supply/consume", formalDefinition="Identifies the quantity expected to be supplied, administered or consumed by the subject." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
@@ -1352,7 +1352,7 @@ public class CarePlan extends DomainResource {
         @Description(shortDefinition="Extra info describing activity to perform", formalDefinition="This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc." )
         protected StringType description;
 
-        private static final long serialVersionUID = -1490769775L;
+        private static final long serialVersionUID = 1355568081L;
 
     /**
      * Constructor
@@ -2096,12 +2096,12 @@ public class CarePlan extends DomainResource {
         /**
          * @return {@link #dailyAmount} (Identifies the quantity expected to be consumed in a given day.)
          */
-        public SimpleQuantity getDailyAmount() { 
+        public Quantity getDailyAmount() { 
           if (this.dailyAmount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityDetailComponent.dailyAmount");
             else if (Configuration.doAutoCreate())
-              this.dailyAmount = new SimpleQuantity(); // cc
+              this.dailyAmount = new Quantity(); // cc
           return this.dailyAmount;
         }
 
@@ -2112,7 +2112,7 @@ public class CarePlan extends DomainResource {
         /**
          * @param value {@link #dailyAmount} (Identifies the quantity expected to be consumed in a given day.)
          */
-        public CarePlanActivityDetailComponent setDailyAmount(SimpleQuantity value) { 
+        public CarePlanActivityDetailComponent setDailyAmount(Quantity value) { 
           this.dailyAmount = value;
           return this;
         }
@@ -2120,12 +2120,12 @@ public class CarePlan extends DomainResource {
         /**
          * @return {@link #quantity} (Identifies the quantity expected to be supplied, administered or consumed by the subject.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CarePlanActivityDetailComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -2136,7 +2136,7 @@ public class CarePlan extends DomainResource {
         /**
          * @param value {@link #quantity} (Identifies the quantity expected to be supplied, administered or consumed by the subject.)
          */
-        public CarePlanActivityDetailComponent setQuantity(SimpleQuantity value) { 
+        public CarePlanActivityDetailComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -2260,8 +2260,8 @@ public class CarePlan extends DomainResource {
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
-        case -768908335: /*dailyAmount*/ return this.dailyAmount == null ? new Base[0] : new Base[] {this.dailyAmount}; // SimpleQuantity
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -768908335: /*dailyAmount*/ return this.dailyAmount == null ? new Base[0] : new Base[] {this.dailyAmount}; // Quantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2316,10 +2316,10 @@ public class CarePlan extends DomainResource {
           this.product = castToType(value); // Type
           return value;
         case -768908335: // dailyAmount
-          this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
+          this.dailyAmount = castToQuantity(value); // Quantity
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -2362,9 +2362,9 @@ public class CarePlan extends DomainResource {
         } else if (name.equals("product[x]")) {
           this.product = castToType(value); // Type
         } else if (name.equals("dailyAmount")) {
-          this.dailyAmount = castToSimpleQuantity(value); // SimpleQuantity
+          this.dailyAmount = castToQuantity(value); // Quantity
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else
@@ -2486,11 +2486,11 @@ public class CarePlan extends DomainResource {
           return this.product;
         }
         else if (name.equals("dailyAmount")) {
-          this.dailyAmount = new SimpleQuantity();
+          this.dailyAmount = new Quantity();
           return this.dailyAmount;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("description")) {

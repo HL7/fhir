@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -466,9 +466,9 @@ public class VisionPrescription extends DomainResource {
         /**
          * The recommended maximum wear period for the lens.
          */
-        @Child(name = "duration", type = {SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "duration", type = {Quantity.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Lens wear duration", formalDefinition="The recommended maximum wear period for the lens." )
-        protected SimpleQuantity duration;
+        protected Quantity duration;
 
         /**
          * Special color or pattern.
@@ -491,7 +491,7 @@ public class VisionPrescription extends DomainResource {
         @Description(shortDefinition="Notes for coatings", formalDefinition="Notes for special requirements such as coatings and lens materials." )
         protected List<Annotation> note;
 
-        private static final long serialVersionUID = -1539573506L;
+        private static final long serialVersionUID = 688924460L;
 
     /**
      * Constructor
@@ -1076,12 +1076,12 @@ public class VisionPrescription extends DomainResource {
         /**
          * @return {@link #duration} (The recommended maximum wear period for the lens.)
          */
-        public SimpleQuantity getDuration() { 
+        public Quantity getDuration() { 
           if (this.duration == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create VisionPrescriptionDispenseComponent.duration");
             else if (Configuration.doAutoCreate())
-              this.duration = new SimpleQuantity(); // cc
+              this.duration = new Quantity(); // cc
           return this.duration;
         }
 
@@ -1092,7 +1092,7 @@ public class VisionPrescription extends DomainResource {
         /**
          * @param value {@link #duration} (The recommended maximum wear period for the lens.)
          */
-        public VisionPrescriptionDispenseComponent setDuration(SimpleQuantity value) { 
+        public VisionPrescriptionDispenseComponent setDuration(Quantity value) { 
           this.duration = value;
           return this;
         }
@@ -1301,7 +1301,7 @@ public class VisionPrescription extends DomainResource {
         case 106858757: /*power*/ return this.power == null ? new Base[0] : new Base[] {this.power}; // DecimalType
         case 1309344840: /*backCurve*/ return this.backCurve == null ? new Base[0] : new Base[] {this.backCurve}; // DecimalType
         case -233204595: /*diameter*/ return this.diameter == null ? new Base[0] : new Base[] {this.diameter}; // DecimalType
-        case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // SimpleQuantity
+        case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // Quantity
         case 94842723: /*color*/ return this.color == null ? new Base[0] : new Base[] {this.color}; // StringType
         case 93997959: /*brand*/ return this.brand == null ? new Base[0] : new Base[] {this.brand}; // StringType
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
@@ -1345,7 +1345,7 @@ public class VisionPrescription extends DomainResource {
           this.diameter = castToDecimal(value); // DecimalType
           return value;
         case -1992012396: // duration
-          this.duration = castToSimpleQuantity(value); // SimpleQuantity
+          this.duration = castToQuantity(value); // Quantity
           return value;
         case 94842723: // color
           this.color = castToString(value); // StringType
@@ -1385,7 +1385,7 @@ public class VisionPrescription extends DomainResource {
         } else if (name.equals("diameter")) {
           this.diameter = castToDecimal(value); // DecimalType
         } else if (name.equals("duration")) {
-          this.duration = castToSimpleQuantity(value); // SimpleQuantity
+          this.duration = castToQuantity(value); // Quantity
         } else if (name.equals("color")) {
           this.color = castToString(value); // StringType
         } else if (name.equals("brand")) {
@@ -1475,7 +1475,7 @@ public class VisionPrescription extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type VisionPrescription.diameter");
         }
         else if (name.equals("duration")) {
-          this.duration = new SimpleQuantity();
+          this.duration = new Quantity();
           return this.duration;
         }
         else if (name.equals("color")) {

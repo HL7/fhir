@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -991,11 +991,11 @@ public class NutritionOrder extends DomainResource {
         /**
          * The quantity of the specified nutrient to include in diet.
          */
-        @Child(name = "amount", type = {SimpleQuantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "amount", type = {Quantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Quantity of the specified nutrient", formalDefinition="The quantity of the specified nutrient to include in diet." )
-        protected SimpleQuantity amount;
+        protected Quantity amount;
 
-        private static final long serialVersionUID = 465107295L;
+        private static final long serialVersionUID = 1042462093L;
 
     /**
      * Constructor
@@ -1031,12 +1031,12 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #amount} (The quantity of the specified nutrient to include in diet.)
          */
-        public SimpleQuantity getAmount() { 
+        public Quantity getAmount() { 
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientComponent.amount");
             else if (Configuration.doAutoCreate())
-              this.amount = new SimpleQuantity(); // cc
+              this.amount = new Quantity(); // cc
           return this.amount;
         }
 
@@ -1047,7 +1047,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #amount} (The quantity of the specified nutrient to include in diet.)
          */
-        public NutritionOrderOralDietNutrientComponent setAmount(SimpleQuantity value) { 
+        public NutritionOrderOralDietNutrientComponent setAmount(Quantity value) { 
           this.amount = value;
           return this;
         }
@@ -1072,7 +1072,7 @@ public class NutritionOrder extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : new Base[] {this.modifier}; // CodeableConcept
-        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // SimpleQuantity
+        case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Quantity
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1085,7 +1085,7 @@ public class NutritionOrder extends DomainResource {
           this.modifier = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1413853096: // amount
-          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          this.amount = castToQuantity(value); // Quantity
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1097,7 +1097,7 @@ public class NutritionOrder extends DomainResource {
         if (name.equals("modifier")) {
           this.modifier = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("amount")) {
-          this.amount = castToSimpleQuantity(value); // SimpleQuantity
+          this.amount = castToQuantity(value); // Quantity
         } else
           return super.setProperty(name, value);
         return value;
@@ -1130,7 +1130,7 @@ public class NutritionOrder extends DomainResource {
           return this.modifier;
         }
         else if (name.equals("amount")) {
-          this.amount = new SimpleQuantity();
+          this.amount = new Quantity();
           return this.amount;
         }
         else
@@ -1402,9 +1402,9 @@ public class NutritionOrder extends DomainResource {
         /**
          * The amount of the nutritional supplement to be given.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Amount of the nutritional supplement", formalDefinition="The amount of the nutritional supplement to be given." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * Free text or additional instructions or information pertaining to the oral supplement.
@@ -1413,7 +1413,7 @@ public class NutritionOrder extends DomainResource {
         @Description(shortDefinition="Instructions or additional information about the oral supplement", formalDefinition="Free text or additional instructions or information pertaining to the oral supplement." )
         protected StringType instruction;
 
-        private static final long serialVersionUID = 297545236L;
+        private static final long serialVersionUID = -37646618L;
 
     /**
      * Constructor
@@ -1551,12 +1551,12 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the nutritional supplement to be given.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderSupplementComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1567,7 +1567,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount of the nutritional supplement to be given.)
          */
-        public NutritionOrderSupplementComponent setQuantity(SimpleQuantity value) { 
+        public NutritionOrderSupplementComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -1649,7 +1649,7 @@ public class NutritionOrder extends DomainResource {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1491817446: /*productName*/ return this.productName == null ? new Base[0] : new Base[] {this.productName}; // StringType
         case -697920873: /*schedule*/ return this.schedule == null ? new Base[0] : this.schedule.toArray(new Base[this.schedule.size()]); // Timing
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case 301526158: /*instruction*/ return this.instruction == null ? new Base[0] : new Base[] {this.instruction}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1669,7 +1669,7 @@ public class NutritionOrder extends DomainResource {
           this.getSchedule().add(castToTiming(value)); // Timing
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case 301526158: // instruction
           this.instruction = castToString(value); // StringType
@@ -1688,7 +1688,7 @@ public class NutritionOrder extends DomainResource {
         } else if (name.equals("schedule")) {
           this.getSchedule().add(castToTiming(value));
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("instruction")) {
           this.instruction = castToString(value); // StringType
         } else
@@ -1735,7 +1735,7 @@ public class NutritionOrder extends DomainResource {
           return addSchedule();
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("instruction")) {
@@ -1829,9 +1829,9 @@ public class NutritionOrder extends DomainResource {
         /**
          * The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL.
          */
-        @Child(name = "caloricDensity", type = {SimpleQuantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "caloricDensity", type = {Quantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Amount of energy per specified volume that is required", formalDefinition="The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL." )
-        protected SimpleQuantity caloricDensity;
+        protected Quantity caloricDensity;
 
         /**
          * The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.
@@ -1851,9 +1851,9 @@ public class NutritionOrder extends DomainResource {
         /**
          * The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.
          */
-        @Child(name = "maxVolumeToDeliver", type = {SimpleQuantity.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "maxVolumeToDeliver", type = {Quantity.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Upper limit on formula volume per unit of time", formalDefinition="The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours." )
-        protected SimpleQuantity maxVolumeToDeliver;
+        protected Quantity maxVolumeToDeliver;
 
         /**
          * Free text formula administration, feeding instructions or additional instructions or information.
@@ -1862,7 +1862,7 @@ public class NutritionOrder extends DomainResource {
         @Description(shortDefinition="Formula feeding instructions expressed as text", formalDefinition="Free text formula administration, feeding instructions or additional instructions or information." )
         protected StringType administrationInstruction;
 
-        private static final long serialVersionUID = 292116061L;
+        private static final long serialVersionUID = -124511395L;
 
     /**
      * Constructor
@@ -2020,12 +2020,12 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #caloricDensity} (The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL.)
          */
-        public SimpleQuantity getCaloricDensity() { 
+        public Quantity getCaloricDensity() { 
           if (this.caloricDensity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.caloricDensity");
             else if (Configuration.doAutoCreate())
-              this.caloricDensity = new SimpleQuantity(); // cc
+              this.caloricDensity = new Quantity(); // cc
           return this.caloricDensity;
         }
 
@@ -2036,7 +2036,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #caloricDensity} (The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL.)
          */
-        public NutritionOrderEnteralFormulaComponent setCaloricDensity(SimpleQuantity value) { 
+        public NutritionOrderEnteralFormulaComponent setCaloricDensity(Quantity value) { 
           this.caloricDensity = value;
           return this;
         }
@@ -2121,12 +2121,12 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #maxVolumeToDeliver} (The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.)
          */
-        public SimpleQuantity getMaxVolumeToDeliver() { 
+        public Quantity getMaxVolumeToDeliver() { 
           if (this.maxVolumeToDeliver == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.maxVolumeToDeliver");
             else if (Configuration.doAutoCreate())
-              this.maxVolumeToDeliver = new SimpleQuantity(); // cc
+              this.maxVolumeToDeliver = new Quantity(); // cc
           return this.maxVolumeToDeliver;
         }
 
@@ -2137,7 +2137,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #maxVolumeToDeliver} (The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.)
          */
-        public NutritionOrderEnteralFormulaComponent setMaxVolumeToDeliver(SimpleQuantity value) { 
+        public NutritionOrderEnteralFormulaComponent setMaxVolumeToDeliver(Quantity value) { 
           this.maxVolumeToDeliver = value;
           return this;
         }
@@ -2228,10 +2228,10 @@ public class NutritionOrder extends DomainResource {
         case -1267705979: /*baseFormulaProductName*/ return this.baseFormulaProductName == null ? new Base[0] : new Base[] {this.baseFormulaProductName}; // StringType
         case -470746842: /*additiveType*/ return this.additiveType == null ? new Base[0] : new Base[] {this.additiveType}; // CodeableConcept
         case 488079534: /*additiveProductName*/ return this.additiveProductName == null ? new Base[0] : new Base[] {this.additiveProductName}; // StringType
-        case 186983261: /*caloricDensity*/ return this.caloricDensity == null ? new Base[0] : new Base[] {this.caloricDensity}; // SimpleQuantity
+        case 186983261: /*caloricDensity*/ return this.caloricDensity == null ? new Base[0] : new Base[] {this.caloricDensity}; // Quantity
         case -1710107042: /*routeofAdministration*/ return this.routeofAdministration == null ? new Base[0] : new Base[] {this.routeofAdministration}; // CodeableConcept
         case 1255702622: /*administration*/ return this.administration == null ? new Base[0] : this.administration.toArray(new Base[this.administration.size()]); // NutritionOrderEnteralFormulaAdministrationComponent
-        case 2017924652: /*maxVolumeToDeliver*/ return this.maxVolumeToDeliver == null ? new Base[0] : new Base[] {this.maxVolumeToDeliver}; // SimpleQuantity
+        case 2017924652: /*maxVolumeToDeliver*/ return this.maxVolumeToDeliver == null ? new Base[0] : new Base[] {this.maxVolumeToDeliver}; // Quantity
         case 427085136: /*administrationInstruction*/ return this.administrationInstruction == null ? new Base[0] : new Base[] {this.administrationInstruction}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2254,7 +2254,7 @@ public class NutritionOrder extends DomainResource {
           this.additiveProductName = castToString(value); // StringType
           return value;
         case 186983261: // caloricDensity
-          this.caloricDensity = castToSimpleQuantity(value); // SimpleQuantity
+          this.caloricDensity = castToQuantity(value); // Quantity
           return value;
         case -1710107042: // routeofAdministration
           this.routeofAdministration = castToCodeableConcept(value); // CodeableConcept
@@ -2263,7 +2263,7 @@ public class NutritionOrder extends DomainResource {
           this.getAdministration().add((NutritionOrderEnteralFormulaAdministrationComponent) value); // NutritionOrderEnteralFormulaAdministrationComponent
           return value;
         case 2017924652: // maxVolumeToDeliver
-          this.maxVolumeToDeliver = castToSimpleQuantity(value); // SimpleQuantity
+          this.maxVolumeToDeliver = castToQuantity(value); // Quantity
           return value;
         case 427085136: // administrationInstruction
           this.administrationInstruction = castToString(value); // StringType
@@ -2284,13 +2284,13 @@ public class NutritionOrder extends DomainResource {
         } else if (name.equals("additiveProductName")) {
           this.additiveProductName = castToString(value); // StringType
         } else if (name.equals("caloricDensity")) {
-          this.caloricDensity = castToSimpleQuantity(value); // SimpleQuantity
+          this.caloricDensity = castToQuantity(value); // Quantity
         } else if (name.equals("routeofAdministration")) {
           this.routeofAdministration = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("administration")) {
           this.getAdministration().add((NutritionOrderEnteralFormulaAdministrationComponent) value);
         } else if (name.equals("maxVolumeToDeliver")) {
-          this.maxVolumeToDeliver = castToSimpleQuantity(value); // SimpleQuantity
+          this.maxVolumeToDeliver = castToQuantity(value); // Quantity
         } else if (name.equals("administrationInstruction")) {
           this.administrationInstruction = castToString(value); // StringType
         } else
@@ -2349,7 +2349,7 @@ public class NutritionOrder extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type NutritionOrder.additiveProductName");
         }
         else if (name.equals("caloricDensity")) {
-          this.caloricDensity = new SimpleQuantity();
+          this.caloricDensity = new Quantity();
           return this.caloricDensity;
         }
         else if (name.equals("routeofAdministration")) {
@@ -2360,7 +2360,7 @@ public class NutritionOrder extends DomainResource {
           return addAdministration();
         }
         else if (name.equals("maxVolumeToDeliver")) {
-          this.maxVolumeToDeliver = new SimpleQuantity();
+          this.maxVolumeToDeliver = new Quantity();
           return this.maxVolumeToDeliver;
         }
         else if (name.equals("administrationInstruction")) {
@@ -2439,18 +2439,18 @@ public class NutritionOrder extends DomainResource {
         /**
          * The volume of formula to provide to the patient per the specified administration schedule.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The volume of formula to provide", formalDefinition="The volume of formula to provide to the patient per the specified administration schedule." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.
          */
-        @Child(name = "rate", type = {SimpleQuantity.class, Ratio.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "rate", type = {Quantity.class, Ratio.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Speed with which the formula is provided per period of time", formalDefinition="The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule." )
         protected Type rate;
 
-        private static final long serialVersionUID = 1895031997L;
+        private static final long serialVersionUID = 673093291L;
 
     /**
      * Constructor
@@ -2486,12 +2486,12 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #quantity} (The volume of formula to provide to the patient per the specified administration schedule.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaAdministrationComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -2502,7 +2502,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @param value {@link #quantity} (The volume of formula to provide to the patient per the specified administration schedule.)
          */
-        public NutritionOrderEnteralFormulaAdministrationComponent setQuantity(SimpleQuantity value) { 
+        public NutritionOrderEnteralFormulaAdministrationComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -2517,16 +2517,16 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
-        public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
+        public Quantity getRateQuantity() throws FHIRException { 
           if (this.rate == null)
             return null;
-          if (!(this.rate instanceof SimpleQuantity))
-            throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.rate.getClass().getName()+" was encountered");
-          return (SimpleQuantity) this.rate;
+          if (!(this.rate instanceof Quantity))
+            throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.rate.getClass().getName()+" was encountered");
+          return (Quantity) this.rate;
         }
 
-        public boolean hasRateSimpleQuantity() { 
-          return this != null && this.rate instanceof SimpleQuantity;
+        public boolean hasRateQuantity() { 
+          return this != null && this.rate instanceof Quantity;
         }
 
         /**
@@ -2552,7 +2552,7 @@ public class NutritionOrder extends DomainResource {
          * @param value {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
         public NutritionOrderEnteralFormulaAdministrationComponent setRate(Type value) { 
-          if (value != null && !(value instanceof SimpleQuantity || value instanceof Ratio))
+          if (value != null && !(value instanceof Quantity || value instanceof Ratio))
             throw new Error("Not the right type for NutritionOrder.enteralFormula.administration.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;
@@ -2572,7 +2572,7 @@ public class NutritionOrder extends DomainResource {
           case -1285004149: /*quantity*/  return new Property("quantity", "SimpleQuantity", "The volume of formula to provide to the patient per the specified administration schedule.", 0, 1, quantity);
           case 983460768: /*rate[x]*/  return new Property("rate[x]", "SimpleQuantity|Ratio", "The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.", 0, 1, rate);
           case 3493088: /*rate*/  return new Property("rate[x]", "SimpleQuantity|Ratio", "The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.", 0, 1, rate);
-          case -2121057955: /*rateSimpleQuantity*/  return new Property("rate[x]", "SimpleQuantity|Ratio", "The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.", 0, 1, rate);
+          case -1085459061: /*rateQuantity*/  return new Property("rate[x]", "SimpleQuantity|Ratio", "The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.", 0, 1, rate);
           case 204021515: /*rateRatio*/  return new Property("rate[x]", "SimpleQuantity|Ratio", "The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.", 0, 1, rate);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -2583,7 +2583,7 @@ public class NutritionOrder extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -697920873: /*schedule*/ return this.schedule == null ? new Base[0] : new Base[] {this.schedule}; // Timing
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case 3493088: /*rate*/ return this.rate == null ? new Base[0] : new Base[] {this.rate}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2597,7 +2597,7 @@ public class NutritionOrder extends DomainResource {
           this.schedule = castToTiming(value); // Timing
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case 3493088: // rate
           this.rate = castToType(value); // Type
@@ -2612,7 +2612,7 @@ public class NutritionOrder extends DomainResource {
         if (name.equals("schedule")) {
           this.schedule = castToTiming(value); // Timing
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("rate[x]")) {
           this.rate = castToType(value); // Type
         } else
@@ -2650,11 +2650,11 @@ public class NutritionOrder extends DomainResource {
           return this.schedule;
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
-        else if (name.equals("rateSimpleQuantity")) {
-          this.rate = new SimpleQuantity();
+        else if (name.equals("rateQuantity")) {
+          this.rate = new Quantity();
           return this.rate;
         }
         else if (name.equals("rateRatio")) {

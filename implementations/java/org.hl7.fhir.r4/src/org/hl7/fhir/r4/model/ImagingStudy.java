@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -1872,10 +1872,10 @@ public class ImagingStudy extends DomainResource {
 
 
     /**
-     * User-defined comments on the Performed Procedure Step.
+     * Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element.
      */
     @Child(name = "note", type = {Annotation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="User-defined comments", formalDefinition="User-defined comments on the Performed Procedure Step." )
+    @Description(shortDefinition="User-defined comments", formalDefinition="Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element." )
     protected List<Annotation> note;
 
     /**
@@ -2793,7 +2793,7 @@ public class ImagingStudy extends DomainResource {
     }
 
     /**
-     * @return {@link #note} (User-defined comments on the Performed Procedure Step.)
+     * @return {@link #note} (Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element.)
      */
     public List<Annotation> getNote() { 
       if (this.note == null)
@@ -2966,7 +2966,7 @@ public class ImagingStudy extends DomainResource {
         children.add(new Property("location", "Reference(Location)", "The principal physical location where the ImagingStudy was performed.", 0, 1, location));
         children.add(new Property("reasonCode", "CodeableConcept", "Description of clinical condition indicating why the ImagingStudy was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("reasonReference", "Reference(Condition|Observation|Media|DiagnosticReport|DocumentReference)", "Indicates another resource whose existence justifies this Study.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        children.add(new Property("note", "Annotation", "User-defined comments on the Performed Procedure Step.", 0, java.lang.Integer.MAX_VALUE, note));
+        children.add(new Property("note", "Annotation", "Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("description", "string", "The Imaging Manager description of the study. Institution-generated description or classification of the Study (component) performed.", 0, 1, description));
         children.add(new Property("series", "", "Each study has one or more series of images or other content.", 0, java.lang.Integer.MAX_VALUE, series));
       }
@@ -2991,7 +2991,7 @@ public class ImagingStudy extends DomainResource {
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The principal physical location where the ImagingStudy was performed.", 0, 1, location);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Description of clinical condition indicating why the ImagingStudy was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|Media|DiagnosticReport|DocumentReference)", "Indicates another resource whose existence justifies this Study.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
-        case 3387378: /*note*/  return new Property("note", "Annotation", "User-defined comments on the Performed Procedure Step.", 0, java.lang.Integer.MAX_VALUE, note);
+        case 3387378: /*note*/  return new Property("note", "Annotation", "Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element.", 0, java.lang.Integer.MAX_VALUE, note);
         case -1724546052: /*description*/  return new Property("description", "string", "The Imaging Manager description of the study. Institution-generated description or classification of the Study (component) performed.", 0, 1, description);
         case -905838985: /*series*/  return new Property("series", "", "Each study has one or more series of images or other content.", 0, java.lang.Integer.MAX_VALUE, series);
         default: return super.getNamedProperty(_hash, _name, _checkValid);

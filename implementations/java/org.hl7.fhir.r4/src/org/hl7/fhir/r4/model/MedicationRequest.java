@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 12, 2018 21:51+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
 
 import java.util.*;
 
@@ -549,9 +549,9 @@ public class MedicationRequest extends DomainResource {
         /**
          * The amount that is to be dispensed for one fill.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Amount of medication to supply per dispense", formalDefinition="The amount that is to be dispensed for one fill." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
@@ -572,7 +572,7 @@ public class MedicationRequest extends DomainResource {
          */
         protected Organization performerTarget;
 
-        private static final long serialVersionUID = 230972837L;
+        private static final long serialVersionUID = -1680129929L;
 
     /**
      * Constructor
@@ -701,12 +701,12 @@ public class MedicationRequest extends DomainResource {
         /**
          * @return {@link #quantity} (The amount that is to be dispensed for one fill.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationRequestDispenseRequestComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -717,7 +717,7 @@ public class MedicationRequest extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount that is to be dispensed for one fill.)
          */
-        public MedicationRequestDispenseRequestComponent setQuantity(SimpleQuantity value) { 
+        public MedicationRequestDispenseRequestComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -823,7 +823,7 @@ public class MedicationRequest extends DomainResource {
         case 757112130: /*dispenseInterval*/ return this.dispenseInterval == null ? new Base[0] : new Base[] {this.dispenseInterval}; // Duration
         case -1434195053: /*validityPeriod*/ return this.validityPeriod == null ? new Base[0] : new Base[] {this.validityPeriod}; // Period
         case -239736976: /*numberOfRepeatsAllowed*/ return this.numberOfRepeatsAllowed == null ? new Base[0] : new Base[] {this.numberOfRepeatsAllowed}; // UnsignedIntType
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -1910182789: /*expectedSupplyDuration*/ return this.expectedSupplyDuration == null ? new Base[0] : new Base[] {this.expectedSupplyDuration}; // Duration
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -847,7 +847,7 @@ public class MedicationRequest extends DomainResource {
           this.numberOfRepeatsAllowed = castToUnsignedInt(value); // UnsignedIntType
           return value;
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -1910182789: // expectedSupplyDuration
           this.expectedSupplyDuration = castToDuration(value); // Duration
@@ -871,7 +871,7 @@ public class MedicationRequest extends DomainResource {
         } else if (name.equals("numberOfRepeatsAllowed")) {
           this.numberOfRepeatsAllowed = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("expectedSupplyDuration")) {
           this.expectedSupplyDuration = castToDuration(value); // Duration
         } else if (name.equals("performer")) {
@@ -929,7 +929,7 @@ public class MedicationRequest extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationRequest.numberOfRepeatsAllowed");
         }
         else if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("expectedSupplyDuration")) {
@@ -998,9 +998,9 @@ public class MedicationRequest extends DomainResource {
         /**
          * The amount or quantity to provide as part of the first dispense.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "quantity", type = {Quantity.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="First fill quantity", formalDefinition="The amount or quantity to provide as part of the first dispense." )
-        protected SimpleQuantity quantity;
+        protected Quantity quantity;
 
         /**
          * The length of time that the first dispense is expected to last.
@@ -1009,7 +1009,7 @@ public class MedicationRequest extends DomainResource {
         @Description(shortDefinition="First fill duration", formalDefinition="The length of time that the first dispense is expected to last." )
         protected Duration duration;
 
-        private static final long serialVersionUID = -64897018L;
+        private static final long serialVersionUID = 1223227956L;
 
     /**
      * Constructor
@@ -1021,12 +1021,12 @@ public class MedicationRequest extends DomainResource {
         /**
          * @return {@link #quantity} (The amount or quantity to provide as part of the first dispense.)
          */
-        public SimpleQuantity getQuantity() { 
+        public Quantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationRequestDispenseRequestInitialFillComponent.quantity");
             else if (Configuration.doAutoCreate())
-              this.quantity = new SimpleQuantity(); // cc
+              this.quantity = new Quantity(); // cc
           return this.quantity;
         }
 
@@ -1037,7 +1037,7 @@ public class MedicationRequest extends DomainResource {
         /**
          * @param value {@link #quantity} (The amount or quantity to provide as part of the first dispense.)
          */
-        public MedicationRequestDispenseRequestInitialFillComponent setQuantity(SimpleQuantity value) { 
+        public MedicationRequestDispenseRequestInitialFillComponent setQuantity(Quantity value) { 
           this.quantity = value;
           return this;
         }
@@ -1085,7 +1085,7 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
         case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // Duration
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1096,7 +1096,7 @@ public class MedicationRequest extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1285004149: // quantity
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
           return value;
         case -1992012396: // duration
           this.duration = castToDuration(value); // Duration
@@ -1109,7 +1109,7 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("quantity")) {
-          this.quantity = castToSimpleQuantity(value); // SimpleQuantity
+          this.quantity = castToQuantity(value); // Quantity
         } else if (name.equals("duration")) {
           this.duration = castToDuration(value); // Duration
         } else
@@ -1140,7 +1140,7 @@ public class MedicationRequest extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("quantity")) {
-          this.quantity = new SimpleQuantity();
+          this.quantity = new Quantity();
           return this.quantity;
         }
         else if (name.equals("duration")) {
