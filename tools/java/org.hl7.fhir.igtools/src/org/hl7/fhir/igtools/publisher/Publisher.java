@@ -1342,7 +1342,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if ("1.4.0".equals(version)) return "http://hl7.org/fhir/2016May/package.tgz";
     if ("3.0.1".equals(version)) return "http://hl7.org/fhir/STU3/package.tgz";
     if (Constants.VERSION.equals(version)) return "http://build.fhir.org/package.tgz";
-    throw new Error("unknown version");
+    throw new Error("unknown version "+version);
   }
 
   private InputStream fetchFromSource(String id, String source) throws IOException {
