@@ -9,7 +9,112 @@
 }}
 ####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/insurance-plan-type"
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:b643fdb6-6770-4056-9d15-70805cffba89",
+    "timestamp" : "2018-08-19T10:37:49.404Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    }],
+    "contains" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "medical",
+      "display" : "Medical"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "dental",
+      "display" : "Dental"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "mental",
+      "display" : "Mental Health"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "subst-ab",
+      "display" : "Substance Abuse"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "vision",
+      "display" : "Vision"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "Drug",
+      "display" : "Drug"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "short-term",
+      "display" : "Short Term"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "long-term",
+      "display" : "Long Term Care"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "hospice",
+      "display" : "Hospice"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "home",
+      "display" : "Home Health"
+    }]
+  }
+},
+  "error" : ""
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -22,6 +127,115 @@ e: {
 }}
 ####
 e: {
-  "error" : "Error unmarshalling resource: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/insurance-plan-type"
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:f30692a1-9909-45cb-a8c4-373dc6e42813",
+    "timestamp" : "2018-08-19T10:43:27.903Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type?version=3.5.0"
+    }],
+    "contains" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "medical",
+      "display" : "Medical"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "dental",
+      "display" : "Dental"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "mental",
+      "display" : "Mental Health"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "subst-ab",
+      "display" : "Substance Abuse"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "vision",
+      "display" : "Vision"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "Drug",
+      "display" : "Drug"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "short-term",
+      "display" : "Short Term"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "long-term",
+      "display" : "Long Term Care"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "hospice",
+      "display" : "Hospice"
+    },
+    {
+      "system" : "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+      "code" : "home",
+      "display" : "Home Health"
+    }]
+  }
+},
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

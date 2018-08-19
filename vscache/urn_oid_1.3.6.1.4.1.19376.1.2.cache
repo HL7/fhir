@@ -1,4 +1,5 @@
 -------------------------------------------------------------------------------------
+
 {"code" : {
   "system" : "urn:oid:1.3.6.1.4.1.19376.1.2",
   "code" : "ITI-9"
@@ -9,6 +10,7 @@ v: {
   "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
 }
 -------------------------------------------------------------------------------------
+
 {"code" : {
   "system" : "urn:oid:1.3.6.1.4.1.19376.1.2",
   "code" : "ITI-32"
@@ -106,7 +108,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/restful-interaction"
+  "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -196,6 +198,6 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Unable to provide support for code system http://hl7.org/fhir/restful-interaction"
+  "error" : "Unable to provide support for code system urn:oid:1.3.6.1.4.1.19376.1.2"
 }
 -------------------------------------------------------------------------------------

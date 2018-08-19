@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 19:21+1000 for FHIR v3.5.0
 
 import java.util.*;
 
@@ -744,7 +744,7 @@ public abstract class MetadataResource extends DomainResource {
     }
 
       protected void listChildren(List<Property> children) {
-       // todo: add a flag to decide whether to do this... super.listChildren(children);      
+     // todo: add a flag to decide whether to do this... super.listChildren(children);
       }
 
       @Override
@@ -999,14 +999,14 @@ public abstract class MetadataResource extends DomainResource {
       public String toString() {
         return fhirType()+"["+getUrl()+"]";
       }
-
+      
       public String present() {
         if (hasTitle())
           return getTitle();
         if (hasName())
           return getName();
         return toString();
-      }
+      }      
 
 // end addition
 

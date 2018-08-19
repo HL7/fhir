@@ -49,7 +49,7 @@ public class SvgGenerator extends BaseGenerator {
   private static final int LINE_MAX = 70;
 
   private int nc = 0;
-  
+   
   private class Point {
     private PointKind kind;
     public Point(double x, double y, PointKind kind) {

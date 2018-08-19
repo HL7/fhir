@@ -1,4 +1,5 @@
 -------------------------------------------------------------------------------------
+
 {"code" : {
   "system" : "http://hl7.org.fhir/substance-category",
   "code" : "allergen"
@@ -9,6 +10,7 @@ v: {
   "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
 }
 -------------------------------------------------------------------------------------
+
 {"code" : {
   "system" : "http://hl7.org.fhir/substance-category",
   "code" : "chemical"
@@ -19,6 +21,7 @@ v: {
   "error" : "Unable to provide support for code system http://hl7.org.fhir/substance-category"
 }
 -------------------------------------------------------------------------------------
+
 {"code" : {
   "system" : "http://hl7.org.fhir/substance-category",
   "code" : "drug"

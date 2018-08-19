@@ -1,45 +1,56 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:ietf:rfc:3986",
-  "code" : "RicardianContract"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "valueSet" : ["http://hl7.org/fhir/ValueSet/formatcodes"]
-    },
-    {
-      "system" : "http://hl7.org/fhir/resource-types"
-    },
-    {
-      "system" : "urn:ietf:rfc:3986",
-      "concept" : [{
-        "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
-        "display" : "Lipid Lab Report"
-      }]
-    },
-    {
-      "system" : "urn:ietf:bcp:13",
-      "concept" : [{
-        "code" : "application/hl7-cda+xml",
-        "display" : "CDA Documents"
-      }]
-    }]
-  }
-}}####
-v: {
-  "display" : "",
-  "severity" : "error",
-  "error" : "Unable to provide support for code system http://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:ietf:rfc:3986",
   "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile"
 }, "valueSet" :null}####
 v: {
   "display" : "",
   "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:rfc:3986",
+      "concept" : [{
+        "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
+        "display" : "Lipid Lab Report"
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:4fb94017-a897-4bd5-bb87-db6b6b945884",
+    "timestamp" : "2018-08-19T10:33:14.586Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "urn:ietf:rfc:3986?version=n/a"
+    }],
+    "contains" : [{
+      "system" : "urn:ietf:rfc:3986",
+      "code" : "http://hl7.org/fhir/StructureDefinition/lipidprofile",
+      "display" : "Lipid Lab Report"
+    }]
+  }
+},
   "error" : ""
 }
 -------------------------------------------------------------------------------------

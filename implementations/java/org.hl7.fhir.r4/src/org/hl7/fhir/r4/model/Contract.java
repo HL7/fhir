@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 19, 2018 08:24+1000 for FHIR v3.4.0
+// Generated on Sun, Aug 19, 2018 19:21+1000 for FHIR v3.5.0
 
 import java.util.*;
 
@@ -3514,16 +3514,16 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = -732981989L;
 
-        /**
+    /**
      * Constructor
-         */
+     */
       public AnswerComponent() {
         super();
       }
 
-        /**
+    /**
      * Constructor
-         */
+     */
       public AnswerComponent(Type value) {
         super();
         this.value = value;
@@ -3566,9 +3566,9 @@ public class Contract extends DomainResource {
           return this != null && this.value instanceof DecimalType;
         }
 
-    /**
+        /**
          * @return {@link #value} (Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.)
-     */
+         */
         public IntegerType getValueIntegerType() throws FHIRException { 
           if (this.value == null)
             return null;
@@ -3579,7 +3579,7 @@ public class Contract extends DomainResource {
 
         public boolean hasValueIntegerType() { 
           return this != null && this.value instanceof IntegerType;
-      }
+        }
 
         /**
          * @return {@link #value} (Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.)
@@ -3680,7 +3680,7 @@ public class Contract extends DomainResource {
           if (!(this.value instanceof Coding))
             throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Coding) this.value;
-          }
+        }
 
         public boolean hasValueCoding() { 
           return this != null && this.value instanceof Coding;
@@ -3733,7 +3733,7 @@ public class Contract extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.", 0, 1, value));
-          }
+        }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
@@ -3753,7 +3753,7 @@ public class Contract extends DomainResource {
           case -2029823716: /*valueQuantity*/  return new Property("value[x]", "boolean|decimal|integer|date|dateTime|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.", 0, 1, value);
           case 1755241690: /*valueReference*/  return new Property("value[x]", "boolean|decimal|integer|date|dateTime|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
-        }
+          }
 
         }
 
@@ -3764,7 +3764,7 @@ public class Contract extends DomainResource {
         default: return super.getProperty(hash, name, checkValid);
         }
 
-        }
+      }
 
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
@@ -4021,7 +4021,7 @@ public class Contract extends DomainResource {
      */
       public ContractAssetComponent() {
         super();
-        }
+      }
 
         /**
          * @return {@link #scope} (Differentiates the kind of the asset .)
@@ -4037,7 +4037,7 @@ public class Contract extends DomainResource {
 
         public boolean hasScope() { 
           return this.scope != null && !this.scope.isEmpty();
-          }
+        }
 
         /**
          * @param value {@link #scope} (Differentiates the kind of the asset .)
@@ -4170,7 +4170,7 @@ public class Contract extends DomainResource {
           if (this.subtype == null)
             this.subtype = new ArrayList<CodeableConcept>();
           return this.subtype;
-          }
+        }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
@@ -4195,7 +4195,7 @@ public class Contract extends DomainResource {
             this.subtype = new ArrayList<CodeableConcept>();
           this.subtype.add(t);
           return t;
-      }
+        }
 
         public ContractAssetComponent addSubtype(CodeableConcept t) { //3
           if (t == null)
@@ -4212,9 +4212,9 @@ public class Contract extends DomainResource {
         public CodeableConcept getSubtypeFirstRep() { 
           if (getSubtype().isEmpty()) {
             addSubtype();
-      }
+          }
           return getSubtype().get(0);
-      }
+        }
 
         /**
          * @return {@link #relationship} (Specifies the applicability of the term to an asset resource instance, and instances it refers to orinstances that refer to it, and/or are owned by the offeree.)
@@ -4230,7 +4230,7 @@ public class Contract extends DomainResource {
 
         public boolean hasRelationship() { 
           return this.relationship != null && !this.relationship.isEmpty();
-      }
+        }
 
         /**
          * @param value {@link #relationship} (Specifies the applicability of the term to an asset resource instance, and instances it refers to orinstances that refer to it, and/or are owned by the offeree.)
@@ -4247,7 +4247,7 @@ public class Contract extends DomainResource {
           if (this.context == null)
             this.context = new ArrayList<AssetContextComponent>();
           return this.context;
-      }
+        }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
@@ -4255,16 +4255,16 @@ public class Contract extends DomainResource {
         public ContractAssetComponent setContext(List<AssetContextComponent> theContext) { 
           this.context = theContext;
           return this;
-      }
+        }
 
         public boolean hasContext() { 
           if (this.context == null)
-          return false;
+            return false;
           for (AssetContextComponent item : this.context)
             if (!item.isEmpty())
               return true;
           return false;
-      }
+        }
 
         public AssetContextComponent addContext() { //3
           AssetContextComponent t = new AssetContextComponent();
@@ -4272,7 +4272,7 @@ public class Contract extends DomainResource {
             this.context = new ArrayList<AssetContextComponent>();
           this.context.add(t);
           return t;
-      }
+        }
 
         public ContractAssetComponent addContext(AssetContextComponent t) { //3
           if (t == null)
@@ -4281,7 +4281,7 @@ public class Contract extends DomainResource {
             this.context = new ArrayList<AssetContextComponent>();
           this.context.add(t);
           return this;
-      }
+        }
 
         /**
          * @return The first repetition of repeating field {@link #context}, creating it if it does not already exist
@@ -4289,9 +4289,9 @@ public class Contract extends DomainResource {
         public AssetContextComponent getContextFirstRep() { 
           if (getContext().isEmpty()) {
             addContext();
-  }
+          }
           return getContext().get(0);
-  }
+        }
 
         /**
          * @return {@link #condition} (Description of the quality and completeness of the asset that imay be a factor in its valuation.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
@@ -4385,15 +4385,15 @@ public class Contract extends DomainResource {
           return this;
         }
 
-    /**
+        /**
          * @return The first repetition of repeating field {@link #periodType}, creating it if it does not already exist
-     */
+         */
         public CodeableConcept getPeriodTypeFirstRep() { 
           if (getPeriodType().isEmpty()) {
             addPeriodType();
           }
           return getPeriodType().get(0);
-      }
+        }
 
         /**
          * @return {@link #period} (Asset relevant contractual time period.)
@@ -4444,7 +4444,7 @@ public class Contract extends DomainResource {
         public Period getPeriodFirstRep() { 
           if (getPeriod().isEmpty()) {
             addPeriod();
-        }
+          }
           return getPeriod().get(0);
         }
 
@@ -7309,15 +7309,15 @@ public class Contract extends DomainResource {
 
         public boolean hasPerformerRole() { 
           return this.performerRole != null && !this.performerRole.isEmpty();
-      }
+        }
 
-    /**
+        /**
          * @param value {@link #performerRole} (The type of role or competency of an individual desired or required to perform or not perform the action.)
-     */
+         */
         public ActionComponent setPerformerRole(CodeableConcept value) { 
           this.performerRole = value;
           return this;
-      }
+        }
 
         /**
          * @return {@link #performer} (Indicates who or what is being asked to perform (or not perform) the ction.)

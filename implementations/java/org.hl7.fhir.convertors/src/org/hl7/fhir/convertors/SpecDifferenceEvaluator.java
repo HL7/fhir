@@ -703,7 +703,7 @@ public class SpecDifferenceEvaluator {
     if (ref != null) {
       if (Utilities.isAbsoluteUrl(ref)) {
         for (ValueSet ve : expansions.values()) {
-          if (ve.getUrl().equals(ref))
+          if (ref.equals(ve.getUrl()))
             return ve;
         }
       } else if (ref.startsWith("ValueSet/")) {

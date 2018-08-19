@@ -11,28 +11,10 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "id" : "currencies",
-  "meta" : {
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
-  },
-  "url" : "http://hl7.org/fhir/ValueSet/currencies",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.4.642.3.1025"
-  }],
-  "version" : "3.4.0",
-  "name" : "Currencies",
-  "status" : "draft",
-  "experimental" : true,
-  "date" : "2018-08-14T06:46:26+10:00",
   "expansion" : {
-    "identifier" : "urn:uuid:e80a786b-8186-4d85-97ba-1452b8cc7c5e",
-    "timestamp" : "2018-08-13T20:49:23.174Z",
+    "identifier" : "urn:uuid:e443c841-7cc6-4c98-8005-da312e8dba6c",
+    "timestamp" : "2018-08-19T10:27:04.361Z",
     "parameter" : [{
-      "name" : "expansion-source",
-      "valueString" : "ValueSet/currencies"
-    },
-    {
       "name" : "limitedExpansion",
       "valueString" : "-1"
     },
@@ -951,29 +933,10 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "id" : "currencies",
-  "meta" : {
-    "lastUpdated" : "2018-08-14T06:46:26.293+10:00",
-    "profile" : ["http://hl7.org/fhir/StructureDefinition/shareablevalueset"]
-  },
-  "url" : "http://hl7.org/fhir/ValueSet/currencies",
-  "identifier" : [{
-    "system" : "urn:ietf:rfc:3986",
-    "value" : "urn:oid:2.16.840.1.113883.4.642.3.1025"
-  }],
-  "version" : "3.4.0",
-  "name" : "Currencies",
-  "status" : "draft",
-  "experimental" : true,
-  "date" : "2018-08-14T06:46:26+10:00",
   "expansion" : {
-    "identifier" : "urn:uuid:271bb27c-1dea-4af8-9b20-7d6115689e66",
-    "timestamp" : "2018-08-13T20:50:57.221Z",
+    "identifier" : "urn:uuid:7c64d435-87b0-4f07-942e-d6abb0bcf7d3",
+    "timestamp" : "2018-08-19T10:32:13.204Z",
     "parameter" : [{
-      "name" : "expansion-source",
-      "valueString" : "ValueSet/currencies"
-    },
-    {
       "name" : "limitedExpansion",
       "valueString" : "-1"
     },
@@ -1873,57 +1836,6 @@ e: {
     }]
   }
 },
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:4217",
-  "code" : "EUR"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "urn:iso:std:iso:4217"
-    }]
-  }
-}}####
-v: {
-  "display" : "Euro",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:4217",
-  "code" : "USD"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "urn:iso:std:iso:4217"
-    }]
-  }
-}}####
-v: {
-  "display" : "United States dollar",
-  "severity" : null,
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:4217",
-  "code" : "CAD"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "urn:iso:std:iso:4217"
-    }]
-  }
-}}####
-v: {
-  "display" : "Canadian dollar",
-  "severity" : null,
   "error" : ""
 }
 -------------------------------------------------------------------------------------

@@ -36,7 +36,7 @@ v: {
 v: {
   "display" : "",
   "severity" : "error",
-  "error" : "Error sending HTTP Post/Put Payload"
+  "error" : "Unable to provide support for code system urn:oid:2.16.840.1.113883.3.26.1.1"
 }
 -------------------------------------------------------------------------------------
 {"code" : {

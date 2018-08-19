@@ -25,7 +25,7 @@ public class TableGenerator extends BaseGenerator {
     DATATYPE,
     RESOURCE,
     LOGICAL
-  }
+  } 
 
   private final boolean ADD_REFERENCE_TO_TABLE = true;
   
@@ -41,7 +41,7 @@ public class TableGenerator extends BaseGenerator {
     this.pageName = pageName;
     this.inlineGraphics = inlineGraphics;
   }
-
+ 
   protected boolean dictLinks() {
     return pageName != null;
   }
