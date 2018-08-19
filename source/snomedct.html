@@ -109,22 +109,33 @@ SNOMED CT distribution (e.g. 32506021000036107 for Australia).
 
 <h3>Display Terms for Specific Languages</h3>
 <p>
-Any number of terms in additional languages and dialects can be specified for a given code in the ValueSet 
-<a href="valueset.html#designations">'designation'</a> element (ValueSet.compose.include.concept.designation).  
-The language is specified as a <a href="http://tools.ietf.org/html/bcp47">BCP-47</a> 
-language code as required by the 'designation.language' Preferred but limited to 
-<a href="valueset-all-languages.html">All Languages</a> value set binding and would be mapped to a corresponding 
-SNOMED CT language refset.  The <a href="valueset-designation-use.html">type</a> of the term (e.g., the SNOMED CT code 
-for "Fully specified name", "Synonym" or "Definition") can be specified in 'designation.use'.  Note that to use 
-'concept.designation' the value set must be defined extensionally (i.e. as an enumerated list of concepts) rather than 
-intensionally (i.e. using one or more filters).
+In the ValueSet resource any number of terms 
+('<a href="http://build.fhir.org/valueset.html#designations">designations</a>') in additional languages and dialects 
+can be specified for a particular concept in a value set definition using the 
+<a href="http://build.fhir.org/codesystem-definitions.html#CodeSystem.concept.designation">ValueSet.compose.include.concept.designation</a> 
+element. The language is specified as a 
+<a href="http://tools.ietf.org/html/bcp47">BCP-47</a> language code as required by the 
+'<a href="http://build.fhir.org/valueset-definitions.html#ValueSet.compose.include.concept.designation.language">designation.language</a>' 
+element, with the value taken from the 'languageCode' field of the RF2 Descriptions file ('languageCode' is 
+ISO-639-1, a subset of BCP-47). The <a href="http://build.fhir.org/valueset-designation-use.html">type</a> of the 
+term (e.g., the SNOMED CT code for "Fully specified name", "Synonym" or "Definition") can be specified in 
+'<a href="http://build.fhir.org/valueset-definitions.html#ValueSet.compose.include.concept.designation.use">designation.use</a>'.
 </p>
 <p>
-This can be done in a similar way using the CodeSystem <a href="codesystem.html#designations">'designation'</a> element for 
-terms in a published national or other localized edition or in a <a href="codesystem.html#supplements">code system supplement</a>, 
-with the additional terms then being available to be returned in a <a href="valueset.html#expansion">value set expansion</a>, 
-controlled by the <a href="valueset-operation-expand.html#4.8.1.1">$expand</a> operation 'includeDesignations' input parameter 
-(if supported by the terminology server). 
+[Note that ValueSet.compose.include.concept is only used when the value set is defined extensionally (i.e. as an 
+enumerated list of concepts).  For intensionally defined value sets (i.e. using one or more filters) additional 
+terms could be added using CodeSystem.concept.designation, as noted below.]
+</p>
+<p>
+The CodeSystem resource can also similarly be used to specify additional terms 
+('<a href="http://build.fhir.org/codesystem.html#designations">designations</a>') for a concept using the 
+<a href="http://build.fhir.org/codesystem-definitions.html#CodeSystem.concept.designation">CodeSystem.concept.designation</a> 
+element (the additional terms may be from a published national or other localized SNOMED CT edition or provided in a 
+<a href="http://build.fhir.org/codesystem.html#supplements">code system supplement</a>).  If supported by the 
+terminology server, the additional terms are available to be returned in a 
+<a href="http://build.fhir.org/valueset.html#expansion">value set expansion</a> (controlled by the 
+<a href="http://build.fhir.org/valueset-operation-expand.html#4.8.1.1">$expand</a> operation 'includeDesignations' 
+input parameter).
 </p>
 
 <h3>SNOMED CT Expressions</h3>
