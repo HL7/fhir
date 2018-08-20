@@ -155,7 +155,7 @@ public class TypeParser {
           TypeRefComponent childType = getTypeComponent(list, t.getName());
           if (t.getVersioning() != null)
             childType.setVersioning(t.getVersioning());
-          if (t.getName().equals("Reference"))
+          if (t.getName().equals("Reference") || t.getName().equals("canonical") )
             childType.addTargetProfile(t.getProfile());
           else
             childType.addProfile(t.getProfile());
@@ -164,10 +164,11 @@ public class TypeParser {
             TypeRefComponent childType = getTypeComponent(list, t.getName());
             if (t.getVersioning() != null)
               childType.setVersioning(t.getVersioning());
+            String p = "Any".equals(param) ? "Resource" : param;
             if (t.getName().equals("Reference") || t.getName().equals("canonical"))
-              childType.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+param);
+              childType.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+p);
             else
-              childType.addProfile("http://hl7.org/fhir/StructureDefinition/"+param);
+              childType.addProfile("http://hl7.org/fhir/StructureDefinition/"+p);
           }
       } else if (t.isWildcardType()) {
         // this list is filled out manually because it may be running before the types referred to have been loaded
