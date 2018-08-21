@@ -2956,7 +2956,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             JsonObject jr = JSONUtil.parse(TextFile.fileToString(files[fi]));
             if (!jr.has("url")) {
               JsonObject meta = JSONUtil.forceObject(jr, "meta");
-              JsonArray labels = JSONUtil.forceArray(meta, "label");
+              JsonArray labels = JSONUtil.forceArray(meta, "tag");
               JsonObject label = JSONUtil.addObj(labels);
               label.addProperty("system", "http://hl7.org/fhir/v3/ActReason");
               label.addProperty("code", "HTEST");
