@@ -4663,11 +4663,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     Element root = xdoc.getDocumentElement();
     Element meta = XMLUtil.getNamedChild(root, "meta");
     if (meta == null) {
-      Element id = XMLUtil.getNamedChild(root, "meta");
+      Element id = XMLUtil.getNamedChild(root, "id");
       if (id == null)
         meta = XMLUtil.insertChild(xdoc, root, "meta", FormatUtilities.FHIR_NS, 2);
-      else 
-        meta = XMLUtil.insertChild(xdoc, root, "meta", FormatUtilities.FHIR_NS, id, 2);
+      else {
+        Element pid = XMLUtil.getNextSibling(id);
+        if (pid == null)
+          throw new Exception("not handled - id is last child in "+n);
+        else
+          meta = XMLUtil.insertChild(xdoc, root, "meta", FormatUtilities.FHIR_NS, pid, 2);
+      }
     }
     Element tag = XMLUtil.getNamedChild(meta, "tag");
     Element label = XMLUtil.insertChild(xdoc, meta, "security", FormatUtilities.FHIR_NS, tag, 4);

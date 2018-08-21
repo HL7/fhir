@@ -520,10 +520,16 @@ public class XMLUtil {
   }
 
   public static Element insertChild(Document doc, Element element, String name, String namespace, Node before, int indent) {
-    Node node = doc.createTextNode("\n"+Utilities.padLeft("", ' ', indent));
-    element.insertBefore(node, before);
+    if (before == null) {
+      Node node = doc.createTextNode("\n"+Utilities.padLeft("", ' ', indent));
+      element.insertBefore(node, before);
+    }
     Element child = doc.createElementNS(namespace, name);
     element.insertBefore(child, before);
+    if (before != null) {
+      Node node = doc.createTextNode("\n"+Utilities.padLeft("", ' ', indent));
+      element.insertBefore(node, before);
+    }
     return child;
   }
 
