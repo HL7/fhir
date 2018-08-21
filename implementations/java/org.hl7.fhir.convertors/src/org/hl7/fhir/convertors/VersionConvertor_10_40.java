@@ -1878,7 +1878,7 @@ public class VersionConvertor_10_40 {
       return convertMoney((org.hl7.fhir.dstu2.model.Money) src);
     if (src instanceof org.hl7.fhir.dstu2.model.SimpleQuantity)
       return convertSimpleQuantity((org.hl7.fhir.dstu2.model.SimpleQuantity) src);
-    throw new Error("Unknown type "+src.fhirType());
+    throw new FHIRException("Unknown type "+src.fhirType());
   }
 
   public org.hl7.fhir.dstu2.model.Type convertType(org.hl7.fhir.r4.model.Type src) throws FHIRException {
@@ -1968,7 +1968,7 @@ public class VersionConvertor_10_40 {
       return convertMoney((org.hl7.fhir.r4.model.Money) src);
     if (src instanceof org.hl7.fhir.r4.model.SimpleQuantity)
       return convertSimpleQuantity((org.hl7.fhir.r4.model.SimpleQuantity) src);
-    throw new Error("Unknown type "+src.fhirType());
+    throw new FHIRException("Unknown type "+src.fhirType());
   }
 
   public void copyDomainResource(org.hl7.fhir.dstu2.model.DomainResource src, org.hl7.fhir.r4.model.DomainResource tgt) throws FHIRException {
@@ -12123,7 +12123,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertTestScript((org.hl7.fhir.dstu2.model.TestScript) src);
     if (src instanceof org.hl7.fhir.dstu2.model.ValueSet)
       return convertValueSet((org.hl7.fhir.dstu2.model.ValueSet) src);
-    throw new Error("Unknown resource "+src.fhirType());
+    throw new FHIRException("Unknown resource "+src.fhirType());
   }
 
   public org.hl7.fhir.dstu2.model.Resource convertResource(org.hl7.fhir.r4.model.Resource src) throws FHIRException {
@@ -12255,7 +12255,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertTestScript((org.hl7.fhir.r4.model.TestScript) src);
     if (src instanceof org.hl7.fhir.r4.model.ValueSet)
       return convertValueSet((org.hl7.fhir.r4.model.ValueSet) src);
-    throw new Error("Unknown resource "+src.fhirType());
+    throw new FHIRException("Unknown resource "+src.fhirType());
   }
 
 }

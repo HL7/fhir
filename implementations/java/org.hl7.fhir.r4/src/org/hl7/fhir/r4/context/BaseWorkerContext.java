@@ -45,6 +45,7 @@ import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.r4.model.PlanDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.PrimitiveType;
 import org.hl7.fhir.r4.model.Questionnaire;
@@ -106,6 +107,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   private Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
   private Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
+  private Map<String, PlanDefinition> plans = new HashMap<String, PlanDefinition>();
   private List<NamingSystem> systems = new ArrayList<NamingSystem>();
   
   protected Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
@@ -123,17 +125,19 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private TranslationServices translator = new NullTranslator();
   protected TerminologyCache txCache;
   
-  public BaseWorkerContext() {
+  public BaseWorkerContext() throws FileNotFoundException, IOException, FHIRException {
     super();
+    txCache = new TerminologyCache(lock, null);
   }
 
-  public BaseWorkerContext(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides) {
+  public BaseWorkerContext(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides) throws FileNotFoundException, IOException, FHIRException {
     super();
     this.codeSystems = codeSystems;
     this.valueSets = valueSets;
     this.maps = maps;
     this.structures = profiles;
     this.guides = guides;
+    txCache = new TerminologyCache(lock, null);
   }
 
   protected void copy(BaseWorkerContext other) {
@@ -147,6 +151,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       transforms.putAll(other.transforms);
       structures.putAll(other.structures);
       searchParameters.putAll(other.searchParameters);
+      plans.putAll(other.plans);
       questionnaires.putAll(other.questionnaires);
       operations.putAll(other.operations);
       systems.addAll(other.systems);
@@ -191,6 +196,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           seeMetadataResource((ImplementationGuide) m, guides, false);
         else if (r instanceof SearchParameter)
           seeMetadataResource((SearchParameter) m, searchParameters, false);
+        else if (r instanceof PlanDefinition)
+          seeMetadataResource((PlanDefinition) m, plans, false);
         else if (r instanceof OperationDefinition)
           seeMetadataResource((OperationDefinition) m, operations, false);
         else if (r instanceof Questionnaire)
@@ -689,6 +696,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             return (T) operations.get(uri);
           if (searchParameters.containsKey(uri))
             return (T) searchParameters.get(uri);
+          if (plans.containsKey(uri))
+            return (T) plans.get(uri);
           if (maps.containsKey(uri))
             return (T) maps.get(uri);
           if (transforms.containsKey(uri))
@@ -706,6 +715,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           return (T) codeSystems.get(uri);
         } else if (class_ == ConceptMap.class) {
           return (T) maps.get(uri);
+        } else if (class_ == PlanDefinition.class) {
+          return (T) plans.get(uri);
         } else if (class_ == OperationDefinition.class) {
           OperationDefinition od = operations.get(uri);
           return (T) od;
@@ -925,6 +936,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       result.addAll(valueSets.values());
       result.addAll(maps.values());
       result.addAll(transforms.values());
+      result.addAll(plans.values());
       return result;
     }
   }

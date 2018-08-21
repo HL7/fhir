@@ -92,7 +92,8 @@ public class TerminologyCache {
     super();
     this.lock = lock;
     this.folder = folder;
-    load();
+    if (folder != null)
+      load();
   }
   
   public CacheToken generateValidationToken(Coding code, ValueSet vs) {
@@ -272,6 +273,9 @@ public class TerminologyCache {
   }
   
   private void save(NamedCache nc) {
+    if (folder == null)
+      return;
+    
     try {
       FileWriter sw = new FileWriter(new File(Utilities.path(folder, nc.name+".cache")));
       sw.write(ENTRY_MARKER+"\r\n");

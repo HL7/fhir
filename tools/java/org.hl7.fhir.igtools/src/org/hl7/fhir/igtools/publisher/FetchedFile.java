@@ -160,5 +160,9 @@ public class FetchedFile {
   public void setBundleType(FetchedBundleType bundleType) {
     this.bundleType = bundleType;
   }
+  @Override
+  public String toString() {
+    return "FetchedFile["+name+"]";
+  }
   
 }

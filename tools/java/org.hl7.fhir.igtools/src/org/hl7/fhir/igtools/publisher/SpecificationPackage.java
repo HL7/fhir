@@ -31,7 +31,7 @@ public class SpecificationPackage {
 //    return self;
 //  }
 
-  public SimpleWorkerContext makeContext() {
+  public SimpleWorkerContext makeContext() throws FileNotFoundException, IOException, FHIRException {
     return new SimpleWorkerContext(context);
   }
 

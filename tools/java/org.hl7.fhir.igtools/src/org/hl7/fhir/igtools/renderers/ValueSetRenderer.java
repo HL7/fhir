@@ -2,14 +2,20 @@ package org.hl7.fhir.igtools.renderers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.model.DataRequirement.DataRequirementCodeFilterComponent;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.MetadataResource;
+import org.hl7.fhir.r4.model.PlanDefinition;
+import org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionActionComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.TriggerDefinition;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
@@ -86,18 +92,19 @@ public class ValueSetRenderer extends BaseRenderer {
     StringBuilder b = new StringBuilder();
     boolean first = true;
     b.append("\r\n");
-    List<String> sdurls = new ArrayList<String>();
-    List<String> vsurls = new ArrayList<String>();
+    Set<String> sdurls = new HashSet<String>();
+    Set<String> vsurls = new HashSet<String>();
+    Set<String> pdurls = new HashSet<String>();
     for (MetadataResource sd : context.allConformanceResources()) {
       if (sd instanceof StructureDefinition)
         sdurls.add(sd.getUrl());
       if (sd instanceof ValueSet)
         vsurls.add(sd.getUrl());
+      if (sd instanceof PlanDefinition)
+        pdurls.add(sd.getUrl());
     }
-    Collections.sort(sdurls);
-    Collections.sort(vsurls);
     
-    for (String url : vsurls) {
+    for (String url : sorted(vsurls)) {
       ValueSet vc = context.fetchResource(ValueSet.class, url);
       for (ConceptSetComponent t : vc.getCompose().getInclude()) {
         for (UriType ed : t.getValueSet()) {
@@ -124,12 +131,7 @@ public class ValueSetRenderer extends BaseRenderer {
         }
       }
     }
-    List<String> distinctUrls = new ArrayList<String>();
-    for (String url : sdurls) {
-      if (!distinctUrls.contains(url))
-        distinctUrls.add(url);
-    }
-    for (String url : distinctUrls) {
+    for (String url : sorted(sdurls)) {
       StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
       for (ElementDefinition ed : sd.getSnapshot().getElement()) {
         if (ed.hasBinding() && ed.getBinding().hasValueSet()) {
@@ -138,10 +140,21 @@ public class ValueSetRenderer extends BaseRenderer {
               first = false;
               b.append("<ul>\r\n");
             }
-            b.append(" <li><a href=\""+sd.getUserString("path")+"\">"+Utilities.escapeXml(sd.getName())+"</a></li>\r\n");
+            b.append(" <li><a href=\""+sd.getUserString("path")+"\">"+Utilities.escapeXml(sd.present())+"</a></li>\r\n");
             break;
           }
         }
+      }
+    }
+    
+    for (String u : sorted(pdurls)) {
+      PlanDefinition pd = context.fetchResource(PlanDefinition.class, u);
+      if (referencesValueSet(pd)) {
+        if (first) {
+          first = false;
+          b.append("<ul>\r\n");
+        }
+        b.append(" <li>Used as a trigger criteria in <a href=\""+pd.getUserString("path")+"\">"+Utilities.escapeXml(pd.present())+"</a></li>\r\n");
       }
     }
     
@@ -150,6 +163,24 @@ public class ValueSetRenderer extends BaseRenderer {
     else
       b.append("</ul>\r\n");
     return b.toString();
+  }
+
+  private List<String> sorted(Collection<String> collection) {
+    List<String> res = new ArrayList<>();
+    res.addAll(collection);
+    Collections.sort(res);
+    return res;
+  }
+
+  private boolean referencesValueSet(PlanDefinition pd) {
+    for (PlanDefinitionActionComponent pda : pd.getAction()) {
+      for (TriggerDefinition td : pda.getTrigger()) {
+        for (DataRequirementCodeFilterComponent ed : td.getData().getCodeFilter())
+          if (ed.getValueSet().equals(vs.getUrl()))
+            return true;
+      }
+    }
+    return false;
   }
 
   

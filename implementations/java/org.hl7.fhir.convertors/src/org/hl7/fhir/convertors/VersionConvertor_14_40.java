@@ -2125,7 +2125,7 @@ public class VersionConvertor_14_40 {
       return convertMeta((org.hl7.fhir.dstu2016may.model.Meta) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.Timing)
       return convertTiming((org.hl7.fhir.dstu2016may.model.Timing) src);
-    throw new Error("Unknown type "+src.fhirType());
+    throw new FHIRException("Unknown type "+src.fhirType());
   }
 
   public static org.hl7.fhir.dstu2016may.model.Type convertType(org.hl7.fhir.r4.model.Type src) throws FHIRException {
@@ -2213,7 +2213,7 @@ public class VersionConvertor_14_40 {
       return convertMeta((org.hl7.fhir.r4.model.Meta) src);
     if (src instanceof org.hl7.fhir.r4.model.Timing)
       return convertTiming((org.hl7.fhir.r4.model.Timing) src);
-    throw new Error("Unknown type "+src.fhirType());
+    throw new FHIRException("Unknown type "+src.fhirType());
   }
 
   private static void copyDomainResource(org.hl7.fhir.dstu2016may.model.DomainResource src, org.hl7.fhir.r4.model.DomainResource tgt) throws FHIRException {
@@ -7806,7 +7806,7 @@ public class VersionConvertor_14_40 {
       return convertValueSet((org.hl7.fhir.dstu2016may.model.ValueSet) src);
 /*    if (src instanceof org.hl7.fhir.dstu2016may.model.VisionPrescription)
       return convertVisionPrescription((org.hl7.fhir.dstu2016may.model.VisionPrescription) src);*/
-    throw new Error("Unknown resource "+src.fhirType());
+    throw new FHIRException("Unknown resource "+src.fhirType());
   }
 
   public static org.hl7.fhir.dstu2016may.model.Resource convertResource(org.hl7.fhir.r4.model.Resource src) throws FHIRException {
@@ -7850,7 +7850,7 @@ public class VersionConvertor_14_40 {
       return convertValueSet((org.hl7.fhir.r4.model.ValueSet) src);
 /*    if (src instanceof org.hl7.fhir.r4.model.VisionPrescription)
       return convertVisionPrescription((org.hl7.fhir.r4.model.VisionPrescription) src);*/
-    throw new Error("Unknown resource "+src.fhirType());
+    throw new FHIRException("Unknown resource "+src.fhirType());
   }
 
 

@@ -94,11 +94,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private IValidatorFactory validatorFactory;
   private UcumService ucumService;
   
-  public SimpleWorkerContext() {
+  public SimpleWorkerContext() throws FileNotFoundException, IOException, FHIRException {
     super();
   }
   
-  public SimpleWorkerContext(SimpleWorkerContext other) {
+  public SimpleWorkerContext(SimpleWorkerContext other) throws FileNotFoundException, IOException, FHIRException {
     super();
     copy(other);
   }

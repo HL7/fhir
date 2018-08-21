@@ -2048,6 +2048,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     load("OperationDefinition");
     load("CapabilityStatement");
     load("Questionnaire");
+    load("PlanDefinition");
     checkConformanceResources();
     generateSnapshots();
     generateLogicalMaps();
@@ -2400,6 +2401,30 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
               context.cacheResource(bc);
             } catch (Exception e) {
               throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
+            }
+          }
+        } else if (r.getElement().fhirType().equals("Bundle")) {
+          Bundle b = (Bundle) r.getResource();
+          if (b == null) {
+            try {
+              b = (Bundle) convertFromElement(r.getElement());
+              r.setResource(b);
+            } catch (Exception e) { 
+              log(LogCategory.PROGRESS, "Ignoring conformance resources in Bundle "+f.getName()+" because :"+e.getMessage());
+            }
+          }
+          if (b != null) {
+            for (BundleEntryComponent be : b.getEntry()) {
+              if (be.hasResource() && be.getResource().fhirType().equals(type)) {
+                MetadataResource mr = (MetadataResource) be.getResource();
+                if (mr.hasUrl()) {
+                  if (!mr.hasUserData("path"))
+                    igpkp.checkForPath(f,  r,  mr);
+                  context.cacheResource(mr);
+                } else
+                  log(LogCategory.PROGRESS, "Ignoring resource "+type+"/"+mr.getId()+" in Bundle "+f.getName()+" because it has no canonical URL");
+                 
+              }
             }
           }
         }
@@ -2864,6 +2889,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
       ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
     return new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(bi);
+  }
+
+  private Resource convertFromElement(Element res) throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError, DefinitionException {
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new org.hl7.fhir.r4.elementmodel.JsonParser(context).compose(res, bs, OutputStyle.NORMAL, null);
+    ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
+    if (version.equals("3.0.1")) {
+      org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
+      return  VersionConvertor_30_40.convertResource(jp.parse(bi), false);
+    } else if (version.equals("1.4.0")) {
+      org.hl7.fhir.dstu2016may.formats.JsonParser jp = new org.hl7.fhir.dstu2016may.formats.JsonParser();
+      return  VersionConvertor_14_40.convertResource(jp.parse(bi));
+    } else if (version.equals("1.0.2")) {
+        org.hl7.fhir.dstu2.formats.JsonParser jp = new org.hl7.fhir.dstu2.formats.JsonParser();
+        return new VersionConvertor_10_40(null).convertResource(jp.parse(bi));
+    } else { // if (version.equals(Constants.VERSION)) {
+      org.hl7.fhir.r4.formats.JsonParser jp = new org.hl7.fhir.r4.formats.JsonParser();
+      return jp.parse(bi);
+    } 
   }
 
   private void cleanOutput(String folder) throws IOException {

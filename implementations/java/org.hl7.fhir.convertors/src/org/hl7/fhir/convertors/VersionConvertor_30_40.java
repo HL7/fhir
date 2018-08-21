@@ -2780,7 +2780,7 @@ public class VersionConvertor_30_40 {
       return convertDataRequirement((org.hl7.fhir.dstu3.model.DataRequirement) src);
     if (src instanceof org.hl7.fhir.dstu3.model.TriggerDefinition)
       return convertTriggerDefinition((org.hl7.fhir.dstu3.model.TriggerDefinition) src);
-    throw new Error("Unknown type "+src.fhirType());
+    throw new FHIRException("Unknown type "+src.fhirType());
   }
 
   public static org.hl7.fhir.dstu3.model.Type convertType(org.hl7.fhir.r4.model.Type src) throws FHIRException {
@@ -2886,7 +2886,7 @@ public class VersionConvertor_30_40 {
       return convertDataRequirement((org.hl7.fhir.r4.model.DataRequirement) src);
     if (src instanceof org.hl7.fhir.r4.model.TriggerDefinition)
       return convertTriggerDefinition((org.hl7.fhir.r4.model.TriggerDefinition) src);
-    throw new Error("Unknown type "+src.fhirType());
+    throw new FHIRException("Unknown type "+src.fhirType());
   }
 
   private static void copyDomainResource(org.hl7.fhir.dstu3.model.DomainResource src, org.hl7.fhir.r4.model.DomainResource tgt) throws FHIRException {
@@ -21423,6 +21423,159 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
+  public static org.hl7.fhir.r4.model.Library convertLibrary(org.hl7.fhir.dstu3.model.Library src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.r4.model.Library tgt = new org.hl7.fhir.r4.model.Library();
+    copyDomainResource(src, tgt);
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
+      tgt.addIdentifier(convertIdentifier(t));
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasTitle())
+      tgt.setTitle(src.getTitle());
+    if (src.hasStatus())
+      tgt.setStatus(convertPublicationStatus(src.getStatus()));
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasType())
+      tgt.setType(convertCodeableConcept(src.getType()));
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
+    for (org.hl7.fhir.dstu3.model.ContactDetail t : src.getContact())
+      tgt.addContact(convertContactDetail(t));
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    for (org.hl7.fhir.dstu3.model.UsageContext t : src.getUseContext())
+      tgt.addUseContext(convertUsageContext(t));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getJurisdiction())
+      tgt.addJurisdiction(convertCodeableConcept(t));
+    if (src.hasPurpose())
+      tgt.setPurpose(src.getPurpose());
+    if (src.hasUsage())
+      tgt.setUsage(src.getUsage());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasApprovalDate())
+      tgt.setApprovalDate(src.getApprovalDate());
+    if (src.hasLastReviewDate())
+      tgt.setLastReviewDate(src.getLastReviewDate());
+    if (src.hasEffectivePeriod())
+      tgt.setEffectivePeriod(convertPeriod(src.getEffectivePeriod()));
+    for (org.hl7.fhir.dstu3.model.Contributor t : src.getContributor()) {
+      if (t.getType() == ContributorType.AUTHOR)
+        for (ContactDetail c : t.getContact())
+          tgt.addAuthor(convertContactDetail(c));
+      if (t.getType() == ContributorType.EDITOR)
+        for (ContactDetail c : t.getContact())
+          tgt.addEditor(convertContactDetail(c));
+      if (t.getType() == ContributorType.REVIEWER)
+        for (ContactDetail c : t.getContact())
+          tgt.addReviewer(convertContactDetail(c));
+      if (t.getType() == ContributorType.ENDORSER)
+        for (ContactDetail c : t.getContact())
+          tgt.addEndorser(convertContactDetail(c));
+    }
+    
+    for (org.hl7.fhir.dstu3.model.RelatedArtifact t : src.getRelatedArtifact())
+      tgt.addRelatedArtifact(convertRelatedArtifact(t));
+    for (org.hl7.fhir.dstu3.model.ParameterDefinition t : src.getParameter())
+      tgt.addParameter(convertParameterDefinition(t));
+    for (org.hl7.fhir.dstu3.model.DataRequirement t : src.getDataRequirement())
+      tgt.addDataRequirement(convertDataRequirement(t));
+    for (org.hl7.fhir.dstu3.model.Attachment t : src.getContent())
+      tgt.addContent(convertAttachment(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.Library convertLibrary(org.hl7.fhir.r4.model.Library src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.Library tgt = new org.hl7.fhir.dstu3.model.Library();
+    copyDomainResource(src, tgt);
+    if (src.hasUrl())
+      tgt.setUrl(src.getUrl());
+    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
+      tgt.addIdentifier(convertIdentifier(t));
+    if (src.hasVersion())
+      tgt.setVersion(src.getVersion());
+    if (src.hasName())
+      tgt.setName(src.getName());
+    if (src.hasTitle())
+      tgt.setTitle(src.getTitle());
+    if (src.hasStatus())
+      tgt.setStatus(convertPublicationStatus(src.getStatus()));
+    if (src.hasExperimental())
+      tgt.setExperimental(src.getExperimental());
+    if (src.hasType())
+      tgt.setType(convertCodeableConcept(src.getType()));
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPublisher())
+      tgt.setPublisher(src.getPublisher());
+    for (org.hl7.fhir.r4.model.ContactDetail t : src.getContact())
+      tgt.addContact(convertContactDetail(t));
+    if (src.hasDescription())
+      tgt.setDescription(src.getDescription());
+    for (org.hl7.fhir.r4.model.UsageContext t : src.getUseContext())
+      tgt.addUseContext(convertUsageContext(t));
+    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getJurisdiction())
+      tgt.addJurisdiction(convertCodeableConcept(t));
+    if (src.hasPurpose())
+      tgt.setPurpose(src.getPurpose());
+    if (src.hasUsage())
+      tgt.setUsage(src.getUsage());
+    if (src.hasCopyright())
+      tgt.setCopyright(src.getCopyright());
+    if (src.hasApprovalDate())
+      tgt.setApprovalDate(src.getApprovalDate());
+    if (src.hasLastReviewDate())
+      tgt.setLastReviewDate(src.getLastReviewDate());
+    if (src.hasEffectivePeriod())
+      tgt.setEffectivePeriod(convertPeriod(src.getEffectivePeriod()));
+    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getTopic())
+      tgt.addTopic(convertCodeableConcept(t));
+    for (org.hl7.fhir.r4.model.ContactDetail t : src.getAuthor()) {
+      org.hl7.fhir.dstu3.model.Contributor c = new org.hl7.fhir.dstu3.model.Contributor();
+      c.setType(ContributorType.AUTHOR);
+      c.addContact(convertContactDetail(t));
+      tgt.addContributor(c);
+    }
+    for (org.hl7.fhir.r4.model.ContactDetail t : src.getEditor()) {
+      org.hl7.fhir.dstu3.model.Contributor c = new org.hl7.fhir.dstu3.model.Contributor();
+      c.setType(ContributorType.EDITOR);
+      c.addContact(convertContactDetail(t));
+      tgt.addContributor(c);
+    }
+    for (org.hl7.fhir.r4.model.ContactDetail t : src.getReviewer()) {
+      org.hl7.fhir.dstu3.model.Contributor c = new org.hl7.fhir.dstu3.model.Contributor();
+      c.setType(ContributorType.REVIEWER);
+      c.addContact(convertContactDetail(t));
+      tgt.addContributor(c);
+    }
+    for (org.hl7.fhir.r4.model.ContactDetail t : src.getEndorser()) {
+      org.hl7.fhir.dstu3.model.Contributor c = new org.hl7.fhir.dstu3.model.Contributor();
+      c.setType(ContributorType.ENDORSER);
+      c.addContact(convertContactDetail(t));
+      tgt.addContributor(c);
+    }
+    for (org.hl7.fhir.r4.model.RelatedArtifact t : src.getRelatedArtifact())
+      tgt.addRelatedArtifact(convertRelatedArtifact(t));
+    for (org.hl7.fhir.r4.model.ParameterDefinition t : src.getParameter())
+      tgt.addParameter(convertParameterDefinition(t));
+    for (org.hl7.fhir.r4.model.DataRequirement t : src.getDataRequirement())
+      tgt.addDataRequirement(convertDataRequirement(t));
+    for (org.hl7.fhir.r4.model.Attachment t : src.getContent())
+      tgt.addContent(convertAttachment(t));
+    return tgt;
+  }
+
 
 
   public static org.hl7.fhir.r4.model.Resource convertResource(org.hl7.fhir.dstu3.model.Resource src, boolean nullOk) throws FHIRException {
@@ -21516,6 +21669,8 @@ public class VersionConvertor_30_40 {
       return convertImmunization((org.hl7.fhir.dstu3.model.Immunization) src);
     if (src instanceof org.hl7.fhir.dstu3.model.ImplementationGuide)
       return convertImplementationGuide((org.hl7.fhir.dstu3.model.ImplementationGuide) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.Library)
+      return convertLibrary((org.hl7.fhir.dstu3.model.Library) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Linkage)
       return convertLinkage((org.hl7.fhir.dstu3.model.Linkage) src);
     if (src instanceof org.hl7.fhir.dstu3.model.ListResource)
@@ -21554,6 +21709,8 @@ public class VersionConvertor_30_40 {
       return convertPaymentNotice((org.hl7.fhir.dstu3.model.PaymentNotice) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Person)
       return convertPerson((org.hl7.fhir.dstu3.model.Person) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.PlanDefinition)
+      return convertPlanDefinition((org.hl7.fhir.dstu3.model.PlanDefinition) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Practitioner)
       return convertPractitioner((org.hl7.fhir.dstu3.model.Practitioner) src);
     if (src instanceof org.hl7.fhir.dstu3.model.PractitionerRole)
@@ -21595,7 +21752,7 @@ public class VersionConvertor_30_40 {
 //    if (src instanceof org.hl7.fhir.dstu3.model.VisionPrescription)
 //      return convertVisionPrescription((org.hl7.fhir.dstu3.model.VisionPrescription) src);
     if (!nullOk) 
-      throw new Error("Unknown resource "+src.fhirType());
+      throw new FHIRException("Unknown resource "+src.fhirType());
     else
       return null;
   }
@@ -21691,6 +21848,8 @@ public class VersionConvertor_30_40 {
       return convertImmunization((org.hl7.fhir.r4.model.Immunization) src);
     if (src instanceof org.hl7.fhir.r4.model.ImplementationGuide)
       return convertImplementationGuide((org.hl7.fhir.r4.model.ImplementationGuide) src);
+    if (src instanceof org.hl7.fhir.r4.model.Library)
+      return convertLibrary((org.hl7.fhir.r4.model.Library) src);
     if (src instanceof org.hl7.fhir.r4.model.Linkage)
       return convertLinkage((org.hl7.fhir.r4.model.Linkage) src);
     if (src instanceof org.hl7.fhir.r4.model.ListResource)
@@ -21729,6 +21888,8 @@ public class VersionConvertor_30_40 {
       return convertPaymentNotice((org.hl7.fhir.r4.model.PaymentNotice) src);
     if (src instanceof org.hl7.fhir.r4.model.Person)
       return convertPerson((org.hl7.fhir.r4.model.Person) src);
+    if (src instanceof org.hl7.fhir.r4.model.PlanDefinition)
+      return convertPlanDefinition((org.hl7.fhir.r4.model.PlanDefinition) src);
     if (src instanceof org.hl7.fhir.r4.model.Practitioner)
       return convertPractitioner((org.hl7.fhir.r4.model.Practitioner) src);
     if (src instanceof org.hl7.fhir.r4.model.PractitionerRole)
@@ -21772,7 +21933,7 @@ public class VersionConvertor_30_40 {
 //    if (src instanceof org.hl7.fhir.r4.model.VisionPrescription)
 //      return convertVisionPrescription((org.hl7.fhir.r4.model.VisionPrescription) src);
     if (!nullOk) 
-      throw new Error("Unknown resource "+src.fhirType());
+      throw new FHIRException("Unknown resource "+src.fhirType());
     else
      return null;
   }
