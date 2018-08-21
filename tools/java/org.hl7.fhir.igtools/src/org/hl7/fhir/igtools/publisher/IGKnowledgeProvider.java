@@ -245,12 +245,12 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       r.setConfig(e);
   }
   
-  public void checkForPath(FetchedFile f, FetchedResource r, MetadataResource bc) throws FHIRException {
+  public void checkForPath(FetchedFile f, FetchedResource r, MetadataResource bc, boolean inner) throws FHIRException {
     if (!bc.hasUrl())
       error(f.getPath(), "Resource has no url: "+bc.getId());
     else if (bc.getUrl().startsWith(canonical) && !bc.getUrl().endsWith("/"+bc.getId()))
       error(f.getPath(), "Resource id/url mismatch: "+bc.getId()+"/"+bc.getUrl());
-    if (!r.getId().equals(bc.getId()))
+    if (!inner && !r.getId().equals(bc.getId()))
       error(f.getPath(), "Resource id/id mismatch: "+r.getId()+"/"+bc.getUrl());
     if (r.getConfig() == null)
       findConfiguration(f, r);

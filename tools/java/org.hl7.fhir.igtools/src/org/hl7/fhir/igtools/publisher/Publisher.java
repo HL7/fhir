@@ -2395,7 +2395,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             }
             if (altered)
               r.setElement(convertToElement(bc));
-            igpkp.checkForPath(f, r, bc);
+            igpkp.checkForPath(f, r, bc, false);
             try {
               //            if (!(bc instanceof StructureDefinition))
               context.cacheResource(bc);
@@ -2419,7 +2419,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
                 MetadataResource mr = (MetadataResource) be.getResource();
                 if (mr.hasUrl()) {
                   if (!mr.hasUserData("path"))
-                    igpkp.checkForPath(f,  r,  mr);
+                    igpkp.checkForPath(f,  r,  mr, true);
                   context.cacheResource(mr);
                 } else
                   log(LogCategory.PROGRESS, "Ignoring resource "+type+"/"+mr.getId()+" in Bundle "+f.getName()+" because it has no canonical URL");
