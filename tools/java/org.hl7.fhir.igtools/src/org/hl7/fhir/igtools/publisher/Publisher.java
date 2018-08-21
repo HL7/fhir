@@ -334,7 +334,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  public enum IGBuildMode { MANUAL, AUTOBUILD, WEBSERVER }
+  public enum IGBuildMode { MANUAL, AUTOBUILD, WEBSERVER, PUBLICATION }
 
 
   public enum LinkTargetType {
@@ -466,6 +466,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private String packagesFolder;
   private String targetOutput;
+  private String targetOutputNested;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -871,7 +872,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public void initialize() throws Exception {
-    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL);
+    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL || mode == IGBuildMode.PUBLICATION);
+    if (mode == IGBuildMode.PUBLICATION)
+      log("Build Formal Publication package, intended for "+getTargetOutput());
+    
     templateManager = new TemplateManager(pcm);
     log("Package Cache: "+pcm.getFolder());
     if (packagesFolder != null) {
@@ -1708,6 +1712,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     case AUTOBUILD: return targetOutput == null ? "https://build.fhir.org/ig/[org]/[repo]" : targetOutput;
     case MANUAL: return "file:"+outputDir;
     case WEBSERVER: return "http://unknown";
+    case PUBLICATION: return targetOutput;
     default: return igpkp.getCanonical();
     }
   }
@@ -2745,6 +2750,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       childPublisher.setDebug(this.debug);
       childPublisher.setCacheOption(this.getCacheOption());
       childPublisher.setIsChild(true);
+      childPublisher.setMode(this.getMode());
+      childPublisher.setTargetOutput(this.getTargetOutputNested());
       
       try {
         childPublisher.execute();
@@ -2770,7 +2777,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             pcm.addPackageToCache(publishedIg.getPackageId(), publishedIg.getVersion(), new FileInputStream(npm.filename()));
           else
             pcm.addPackageToCache(publishedIg.getPackageId(), "dev", new FileInputStream(npm.filename()));        
-        }
+        } else if (mode == IGBuildMode.PUBLICATION)
+          pcm.addPackageToCache(publishedIg.getPackageId(), publishedIg.getVersion(), new FileInputStream(npm.filename()));
         generateZips(df);
       }
     }
@@ -4794,6 +4802,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       self.watch = hasParam(args, "-watch");
       self.debug = hasParam(args, "-debug");
       self.cacheVersion = hasParam(args, "-cacheVersion");
+      if (hasParam(args, "-publish")) {
+        self.setMode(IGBuildMode.PUBLICATION);
+        self.targetOutput = getNamedParam(args, "-publish");        
+        self.targetOutputNested = getNamedParam(args, "-nested");        
+      }
       if (hasParam(args, "-resetTx"))
         self.setCacheOption(CacheOption.CLEAR_ALL);
       else if (hasParam(args, "-resetTxErrors"))
@@ -4963,4 +4976,26 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   public ImplementationGuide getSourceIg() {
     return sourceIg;
   }
+
+
+  public String getTargetOutput() {
+    return targetOutput;
+  }
+
+
+  public void setTargetOutput(String targetOutput) {
+    this.targetOutput = targetOutput;
+  }
+
+
+  public String getTargetOutputNested() {
+    return targetOutputNested;
+  }
+
+
+  public void setTargetOutputNested(String targetOutputNested) {
+    this.targetOutputNested = targetOutputNested;
+  }
+  
+  
 }

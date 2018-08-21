@@ -1,5 +1,5 @@
 package org.hl7.fhir.definitions.generators.specification;
-
+ 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -41,7 +41,7 @@ public class TableGenerator extends BaseGenerator {
     this.pageName = pageName;
     this.inlineGraphics = inlineGraphics;
   }
- 
+  
   protected boolean dictLinks() {
     return pageName != null;
   }
