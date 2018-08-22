@@ -824,11 +824,15 @@ public class Utilities {
         b.append("\\r");
       else if (c == '\n')
         b.append("\\n");
+      else if (c == '\t')
+        b.append("\\t");
       else if (c == '"')
         b.append("\\\"");
       else if (c == '\\')
         b.append("\\\\");
-      else 
+      else if (((int) c) < 32)
+        b.append("\\u"+Utilities.padLeft(String.valueOf((int) c), '0', 4));  
+      else
         b.append(c);
     }   
     return b.toString();
