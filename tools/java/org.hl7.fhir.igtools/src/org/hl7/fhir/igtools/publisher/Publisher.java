@@ -1058,7 +1058,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 //      copyTemplate();
 //    
     loadSpecDetails(context.getBinaries().get("spec.internals"));
-    igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors, version.equals("1.0.2"));
+    igpkp = new IGKnowledgeProvider(context, checkAppendSlash(specPath), configuration, errors, version.equals("1.0.2"));
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
 
@@ -3660,7 +3660,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateDataFile() throws IOException, FHIRException {
     JsonObject data = new JsonObject();
-    data.addProperty("path", specPath);
+    data.addProperty("path", checkAppendSlash(specPath));
     data.addProperty("canonical", igpkp.getCanonical());
     data.addProperty("igId", sourceIg.getId());
     data.addProperty("igName", sourceIg.getName());

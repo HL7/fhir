@@ -22,6 +22,7 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -406,8 +407,11 @@ public class ProfileComparer {
       if (isExtension(left.path()))
         return compareExtensions(outcome, path, superset, subset, left, right);
 //      return true;
-      else
+      else {
+        ElementDefinitionSlicingComponent slicingL = left.current().getSlicing();
+        ElementDefinitionSlicingComponent slicingR = right.current().getSlicing();
         throw new DefinitionException("Slicing is not handled yet");
+      }
     // todo: name 
     }
 
