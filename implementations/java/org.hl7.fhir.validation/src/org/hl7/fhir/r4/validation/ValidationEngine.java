@@ -382,7 +382,7 @@ public class ValidationEngine {
       }
       String pid = pcm.getPackageId(src);
       if (!Utilities.noString(pid))
-        return fetchByPackage(pid+(v == null ? "" : "-"+v));
+        return fetchByPackage(pid+(v == null ? "" : "#"+v));
       else
         return fetchFromUrl(src+(v == null ? "" : "|"+v));
     }
@@ -511,9 +511,9 @@ public class ValidationEngine {
   private Map<String, byte[]> fetchByPackage(String src) throws Exception {
     String id = src;
     String version = null;
-    if (src.contains("-")) {
-      id = src.substring(0, src.indexOf("-"));
-      version = src.substring(src.indexOf("-")+1);
+    if (src.contains("#")) {
+      id = src.substring(0, src.indexOf("#"));
+      version = src.substring(src.indexOf("#")+1);
     }
     if (pcm == null) {
       log("Creating Package manager?");

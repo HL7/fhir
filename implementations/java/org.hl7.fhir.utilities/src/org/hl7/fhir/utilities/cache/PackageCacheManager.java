@@ -75,11 +75,11 @@ public class PackageCacheManager {
     }
   }
 
-  public static final String PACKAGE_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+$";
-  public static final String PACKAGE_VERSION_REGEX = "^[a-z][a-z0-9\\_]*(\\.[a-z0-9\\_]+)+\\-[a-z0-9\\-]+(\\.[a-z0-9\\-]+)*$";
+  public static final String PACKAGE_REGEX = "^[a-z][a-z0-9\\_\\-]*(\\.[a-z0-9\\_\\-]+)+$";
+  public static final String PACKAGE_VERSION_REGEX = "^[a-z][a-z0-9\\_\\-]*(\\.[a-z0-9\\_\\-]+)+\\#[a-z0-9\\-\\_]+(\\.[a-z0-9\\-\\_]+)*$";
 
   private static final int BUFFER_SIZE = 1024;
-  private static final String CACHE_VERSION = "1"; // first version
+  private static final String CACHE_VERSION = "2"; // second version - see wiki page
   private static final int ANALYSIS_VERSION = 2;
 
   private String cacheFolder;
@@ -100,6 +100,11 @@ public class PackageCacheManager {
       TextFile.stringToFile("[urls]\r\n\r\n[local]\r\n\r\n", Utilities.path(cacheFolder, "packages.ini"));  
     IniFile ini = new IniFile(Utilities.path(cacheFolder, "packages.ini"));
     boolean save = false;
+    if ("1".equals(ini.getStringProperty("cache", "version"))) {
+      convertPackageCacheFrom1To2();
+      ini.setStringProperty("cache", "version", "2", null);
+      save = true;
+    }
     if (!CACHE_VERSION.equals(ini.getStringProperty("cache", "version"))) {
       clearCache();
       ini.setStringProperty("cache", "version", CACHE_VERSION, null);
@@ -136,9 +141,24 @@ public class PackageCacheManager {
     save = checkIniHasMapping("hl7.fhir.uv.vhdir", "http://hl7.org/fhir/ig/vhdir", ini) || save;
     save = checkIniHasMapping("hl7.fhir.vn.base", "http://hl7.org/fhir/ig/vietnam", ini) || save;
     save = checkIniHasMapping("hl7.fhir.vocabpoc", "http://hl7.org/fhir/ig/vocab-poc", ini) || save;
-    ini.save();    
+    if (save)
+      ini.save();    
   }
   
+
+  private void convertPackageCacheFrom1To2() throws IOException {
+    for (File f : new File(cacheFolder).listFiles()) {
+      if (f.isDirectory() && f.getName().contains("-")) {
+        String s = f.getName();
+        int i = s.lastIndexOf("-");
+        s = s.substring(0, i)+"#"+s.substring(i+1);
+        File nf = new File(Utilities.path(cacheFolder, s));
+        if (!f.renameTo(nf))
+          throw new IOException("Unable to rename "+f.getAbsolutePath()+" to "+nf.getAbsolutePath());
+      }
+    }
+  }
+
 
   private boolean checkIniHasMapping(String pid, String curl, IniFile ini) {
     if (curl.equals(ini.getStringProperty("urls", pid)))
@@ -194,7 +214,7 @@ public class PackageCacheManager {
     List<String> l = sorted(new File(cacheFolder).list());
     for (int i = l.size()-1; i >= 0; i--) {
       String f = l.get(i);
-      if (f.startsWith(id+"-")) {
+      if (f.startsWith(id+"#")) {
         return loadPackageInfo(Utilities.path(cacheFolder, f)); 
       }
     }
@@ -208,7 +228,7 @@ public class PackageCacheManager {
     }
     String match = null;
     for (String f : sorted(new File(cacheFolder).list())) {
-      if (f.equals(id+"-"+version)) {
+      if (f.equals(id+"#"+version)) {
         return loadPackageInfo(Utilities.path(cacheFolder, f)); 
       }
     }
@@ -225,7 +245,7 @@ public class PackageCacheManager {
 
   public NpmPackage addPackageToCache(String id, String version, InputStream tgz) throws IOException {
     if (progress ) {
-      System.out.println("Installing "+id+"-"+(version == null ? "?" : version)+" to the package cache");
+      System.out.println("Installing "+id+"#"+(version == null ? "?" : version)+" to the package cache");
       System.out.print("  Fetching:");
     }
     List<PackageEntry> files = new ArrayList<PackageEntry>();
@@ -248,7 +268,7 @@ public class PackageCacheManager {
     if (version == null)
       version = npm.get("version").getAsString();
     
-    String packRoot = Utilities.path(cacheFolder, id+"-"+version);
+    String packRoot = Utilities.path(cacheFolder, id+"#"+version);
     Utilities.createDirectory(packRoot);
     Utilities.clearDirectory(packRoot);
       
@@ -495,7 +515,7 @@ public class PackageCacheManager {
         if (v.equals(vo.get("version").getAsString())) {
           InputStream stream = fetchFromUrlSpecific(Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"), true);
           if (stream == null)
-            throw new FHIRException("Unable to find the package source for '"+id+"-"+v+"' at "+Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"));
+            throw new FHIRException("Unable to find the package source for '"+id+"#"+v+"' at "+Utilities.pathURL(vo.get("path").getAsString(), "package.tgz"));
           return addPackageToCache(id, v, stream);
         }
       }
@@ -503,7 +523,7 @@ public class PackageCacheManager {
       if (id.equals("hl7.fhir.core") && v.equals(currentVersion)) {
         InputStream stream = fetchFromUrlSpecific(Utilities.pathURL("http://build.fhir.org", "package.tgz"), true);
         if (stream == null)
-          throw new FHIRException("Unable to find the package source for '"+id+"-"+v+"' at "+Utilities.pathURL("http://build.fhir.org", "package.tgz"));
+          throw new FHIRException("Unable to find the package source for '"+id+"#"+v+"' at "+Utilities.pathURL("http://build.fhir.org", "package.tgz"));
         return addPackageToCache(id, v, stream);
       }
       throw new FHIRException("Unable to resolve version "+v+" for package "+id);

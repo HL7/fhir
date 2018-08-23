@@ -28,9 +28,11 @@ POSSIBILITY OF SUCH DAMAGE.
 
 */
 
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -46,6 +48,8 @@ import java.util.Map;
 
 import javax.swing.UIManager;
 
+import org.hl7.fhir.r4.conformance.ProfileComparer;
+import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.r4.formats.XmlParser;
@@ -60,6 +64,9 @@ import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.validation.Validator.EngineMode;
+import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
 
@@ -175,6 +182,57 @@ public class Validator {
       System.out.println(" -snapshot");
       System.out.println("");
       System.out.println("-snapshot requires the parameters -defn, -txserver, -source, and -output. ig may be used to provide necessary base profiles");
+    } else if (hasParam(args, "-compare")) { 
+      String dest =  getParam(args, "-dest");
+      if (dest == null)
+        System.out.println("no -dest parameter provided");
+      else if (!new File(dest).isDirectory())
+        System.out.println("Specified destination (-dest parameter) is not valid: \""+dest+"\")");
+      else {
+        // first, prepare the context
+        String v = getParam(args, "-version");
+        if (v == null) v = Constants.VERSION;
+        else if ("1.0".equals(v)) v = "1.0.2";
+        else if ("1.4".equals(v)) v = "1.4.0";
+        else if ("3.0".equals(v)) v = "3.0.1";
+        else if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
+        String definitions = "hl7.fhir.core#"+v;
+        System.out.println("Loading (v = "+v+", tx server http://tx.fhir.org/r4)");
+        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org/r4");
+        for (int i = 0; i < args.length; i++) {
+          if ("-ig".equals(args[i])) {
+            if (i+1 == args.length)
+              throw new Error("Specified -ig without indicating ig file");
+            else {
+              String s = args[++i];
+              if (!s.startsWith("hl7.fhir.core-")) {
+                System.out.println("Load Package: "+s);
+                validator.loadIg(s);
+              }
+            }
+          }
+        }
+        // ok now set up the comparison
+        ProfileComparer pc = new ProfileComparer(validator.getContext());
+        String left = getParam(args, "-left");
+        String right = getParam(args, "-right");
+        StructureDefinition sdL = validator.getContext().fetchResource(StructureDefinition.class, left);
+        if (sdL == null) {
+          System.out.println("Unable to locate left profile " +left);
+        } else {
+          StructureDefinition sdR = validator.getContext().fetchResource(StructureDefinition.class, right);
+          if (sdR == null) {
+            System.out.println("Unable to locate right profile " +right);
+          } else {
+            System.out.println("Comparing "+left+" to "+right);
+            pc.compareProfiles(sdL, sdR);
+            System.out.println("Generating output...");
+            File htmlFile = new File(pc.generate(dest));
+            Desktop.getDesktop().browse(htmlFile.toURI());
+            System.out.println("Done");
+          }
+        }
+      }
     } else { 
       String definitions = "hl7.fhir.core-"+Constants.VERSION;
       String map = null;
@@ -203,7 +261,7 @@ public class Validator {
           if ("1.4".equals(v)) v = "1.4.0";
           if ("3.0".equals(v)) v = "3.0.1";
           if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
-          definitions = "hl7.fhir.core-"+v;
+          definitions = "hl7.fhir.core#"+v;
         } else if (args[i].equals("-output"))
           if (i+1 == args.length)
             throw new Error("Specified -output without indicating output file");
@@ -419,6 +477,13 @@ public class Validator {
       if (a.equals(param))
         return true;
     return false;
+  }
+
+  private static String getParam(String[] args, String param) {
+    for (int i = 0; i < args.length - 1; i++)
+      if (args[i].equals(param))
+        return args[i+1];
+    return null;
   }
 
 
