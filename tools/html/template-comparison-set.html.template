@@ -39,10 +39,10 @@
 
 <div class="col-12">
 
-<h2>Comparison <%pc.title%></h2>
+<h2>Comparison [%pc.title%]</h2>
 
 <p> 
-This is a comparison between the 2 implementation guides <%pc.left%> and <%pc.right%>, 
+This is a comparison between the 2 implementation guides [%pc.left%] and [%pc.right%], 
 generated to help compare the interoperability of implementations based on the two 
 implementation guides, or, alternatively, for implementers to understand what is required
 to conform to both implementation guides. 
@@ -61,11 +61,11 @@ implementers can review:
 
 <h3>Comparisons</h3>
 
-<%pc.table%>
+[%pc.table%]
 
 <h3>ValueSets</h3>
 
-<%pc.valuesets%>
+[%pc.valuesets%]
 
 
 </div>
@@ -81,7 +81,7 @@ implementers can review:
 		<div class="container">  <!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        &reg;&copy; HL7.org 2011+. Profile Comparison generated <%date%>. FHIR Version <%version%>. 
+        &reg;&copy; HL7.org 2011+. Profile Comparison generated [%date%]. FHIR Version [%version%]. 
         <span style="color: #FFFF77">|
                <a rel="license" style="color: #b8dcf9" href="http://build.fhir.org/license.html"><img src="http://build.fhir.org/cc0.png" alt="CC0" style="border-style: none;"/></a>  
         </span>
