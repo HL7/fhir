@@ -981,6 +981,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     historyPage = ostr(paths, "history");
     if (historyPage != null)
       inspector.getManual().add(historyPage);
+    inspector.getManual().add("qa.html");
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
     inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
     makeQA = mode == IGBuildMode.WEBSERVER ? false : !"true".equals(ostr(configuration, "suppress-qa"));

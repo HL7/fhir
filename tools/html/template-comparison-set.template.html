@@ -1,0 +1,110 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Profile Comparison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="http://build.fhir.org/fhir.css"/>
+  <link rel="stylesheet" href="http://build.fhir.org/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="http://build.fhir.org/assets/css/bootstrap-fhir.css"/>
+  <link rel="stylesheet" href="http://build.fhir.org/assets/css/project.css"/>
+  <link rel="stylesheet" href="http://build.fhir.org/assets/css/pygments-manni.css"/>
+	<link rel="stylesheet" href="http://build.fhir.org/jquery-ui.css"/>
+  <script src="http://build.fhir.org/assets/js/html5shiv.js"></script>
+  <script src="http://build.fhir.org/assets/js/respond.min.js"></script>
+</head>
+
+<body>
+	<div id="segment-header" class="segment">  <!-- segment-header -->	
+		<div class="container">  <!-- container -->
+			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir"/> </a>
+			<div id="hl7-status">
+				<b>Profile Comparison</b>
+			</div>       	
+			
+			<div id="hl7-nav">
+				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org">
+					<img src="./assets/images/hl7-logo.png" width="42" alt="visit the hl7 website" height="50"/>
+				</a> 
+			</div>       	
+			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://hl7.org/fhir/search.cfm"><img src="./assets/images/search.png" alt="Search FHIR"/></a></div> 
+		</div>
+		<div class="container">  <!-- container -->
+	</div></div>  <!-- /segment-header -->	
+
+	<div id="segment-content" class="segment">  <!-- segment-content -->
+	<div class="container">  <!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+
+<div class="col-12">
+
+<h2>Comparison <%pc.title%></h2>
+
+<p> 
+This is a comparison between the 2 implementation guides <%pc.left%> and <%pc.right%>, 
+generated to help compare the interoperability of implementations based on the two 
+implementation guides, or, alternatively, for implementers to understand what is required
+to conform to both implementation guides. 
+</p>
+
+<p>
+The comparison consists of a series of comparisons between the constraint 
+definitions defined in the implementation guide. For each comparison, 
+implementers can review:
+</p>
+<ul>
+ <li>A series of messages from the comparison algorithm. Errors indicate that solutions cannot be interoperable across both implementation guides (or that there are structural flaws in the definition of at least one)</li>
+ <li>The intersection of the 2 constraint statements. This is what resource authors (either client or server) would need to conform to produce content valid against both implementation guides</li>
+ <li>The union of the 2 constraint statements. This is what resource authors (either client or server) would need to be able to handle to accept content valid against either implementation guides</li>
+</ul>
+
+<h3>Comparisons</h3>
+
+<%pc.table%>
+
+<h3>ValueSets</h3>
+
+<%pc.valuesets%>
+
+
+</div>
+
+				</div>  <!-- /inner-wrapper -->
+            </div>  <!-- /row -->
+        </div>  <!-- /container -->
+        
+    </div>  <!-- /segment-content -->
+
+
+	<div id="segment-footer" class="segment">  <!-- segment-footer -->
+		<div class="container">  <!-- container -->
+			<div class="inner-wrapper">
+				<p>
+        &reg;&copy; HL7.org 2011+. Profile Comparison generated <%date%>. FHIR Version <%version%>. 
+        <span style="color: #FFFF77">|
+               <a rel="license" style="color: #b8dcf9" href="http://build.fhir.org/license.html"><img src="http://build.fhir.org/cc0.png" alt="CC0" style="border-style: none;"/></a>  
+        </span>
+        </p>
+			</div>  <!-- /inner-wrapper -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-footer -->
+  <!-- disqus thread -->
+  <!-- disqus -->
+  <!-- end disqus -->        
+	
+	<div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+		<div class="container">  <!-- container -->
+		</div>  <!-- /container -->
+	</div>  <!-- /segment-post-footer -->
+    
+<script src="http://build.fhir.org/assets/js/jquery.js"> </script>  
+<script src="http://build.fhir.org/dist/js/bootstrap.min.js"> </script>
+<script src="http://build.fhir.org/assets/js/respond.min.js"> </script>
+<script src="http://build.fhir.org/assets/js/fhir.js"> </script>
+
+
+
+
+</body>
+</html>
