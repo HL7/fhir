@@ -142,6 +142,11 @@
 		<translation lang="en">Catalog</translation>
 		<translation lang="it">Catalogo</translation>
 	</item>
+	<item id="CatalogEntry">
+		<translation lang="en">CatalogEntry</translation>
+		<translation lang="es">EntradaDeCatalogo</translation>
+		<translation lang="zh">条目定义</translation>
+	</item>
 	<item id="ChargeItem">
 		<translation lang="en">ChargeItem</translation>
 		<translation lang="es">CargoDeItem</translation>
@@ -342,11 +347,6 @@
 		<translation lang="it">RispostaIscrizione</translation>
 		<translation lang="es">RespuestaDeEnrolamiento</translation>
 		<translation lang="zh">保险注册响应</translation>
-	</item>
-	<item id="EntryDefinition">
-		<translation lang="en">EntryDefinition</translation>
-		<translation lang="es">DefinicionDeEntrada</translation>
-		<translation lang="zh">条目定义</translation>
 	</item>
 	<item id="EpisodeOfCare">
 		<translation lang="en">EpisodeOfCare</translation>

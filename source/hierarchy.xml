@@ -117,10 +117,10 @@ signatures.html
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
       <page type="resource" resource="List"/>
+      <page type="resource" resource="CatalogEntry"/>
       <page type="resource" resource="Composition"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DocumentManifest"/>
-      <page type="resource" resource="EntryDefinition"/>
       <page type="resource" resource="ItemInstance"/>
 
       <page type="resource" resource="OperationOutcome"/>
@@ -278,7 +278,7 @@ signatures.html
 	  <page type="resource" resource="ChargeItemDefinition"/>
   	  <page type="resource" resource="ObservationDefinition"/> 
   	  <page type="resource" resource="SpecimenDefinition"/>
-  	  <page type="resource" resource="EntryDefinition"/>
+  	  <page type="resource" resource="CatalogEntry"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>

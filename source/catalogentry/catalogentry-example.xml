@@ -7,8 +7,19 @@
   </text>
 
   <!-- insert contents here -->
-
-<purpose><text value="NoPurpose"/></purpose>
-<referencedItem><reference value="device001.123"/></referencedItem>
+  <identifier>
+    <system value="http://example.com/identifier"/>
+    <value value="123"/>
+  </identifier>
+  
+  <type>
+    <text value="Medication"/>
+  </type>
+  
+  <orderable value="true"/>
+  
+  <referencedItem>
+    <reference value="Medication/123"/>
+  </referencedItem>
   
 </CatalogEntry>
