@@ -39,7 +39,7 @@ public class TableGenerator extends BaseGenerator {
     this.definitions = page.getDefinitions();
     this.page = page;
     this.pageName = pageName;
-    this.inlineGraphics = inlineGraphics;
+    this.inlineGraphics = inlineGraphics; 
   }
   
   protected boolean dictLinks() {

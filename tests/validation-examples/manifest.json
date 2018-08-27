@@ -343,6 +343,10 @@
       "reference-bad-typed.xml" : {
           "validate" : "CHECK_EXISTS_AND_TYPE",
           "errorCount": 1
+      }, 
+      "qr.xml" : {
+        "questionnaire" : "q.xml",
+        "errorCount": 1
       }
 		}
 	}

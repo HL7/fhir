@@ -309,9 +309,14 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
     return sd != null && (sd.getKind() == StructureDefinitionKind.RESOURCE) && sd.getDerivation() == TypeDerivationRule.SPECIALIZATION;
   }
 
+  public boolean isLogical(String name) {
+    StructureDefinition sd = context.fetchTypeDefinition(name);
+    return sd != null && (sd.getKind() == StructureDefinitionKind.LOGICAL) && sd.getDerivation() == TypeDerivationRule.SPECIALIZATION;
+  }
+
   @Override
   public boolean hasLinkFor(String name) {
-    return isDatatype(name) || isResource(name);
+    return isDatatype(name) || isResource(name) || isLogical(name);
   }
 
   @Override

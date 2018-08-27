@@ -32,7 +32,7 @@ public class SvgGenerator extends BaseGenerator {
 
   private enum PointKind {
     unknown, left, right, top, bottom;
-  }
+  } 
 
   private static final String NS_SVG = "http://www.w3.org/2000/svg";
   private static final String NS_XLINK = "http://www.w3.org/1999/xlink";
