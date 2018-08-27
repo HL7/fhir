@@ -467,6 +467,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String packagesFolder;
   private String targetOutput;
   private String targetOutputNested;
+
+  private String folderToDelete;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -526,6 +528,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       log("Done");
     if (templateLoaded && new File(rootDir).exists())
       Utilities.clearDirectory(Utilities.path(rootDir, "template"));
+    if (folderToDelete != null) {
+      try {
+        Utilities.clearDirectory(folderToDelete);
+        new File(folderToDelete).delete();
+      } catch (Throwable e) {
+        // nothing
+      }
+    }
   }
 
 
@@ -4734,7 +4744,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       Publisher self = new Publisher();
       System.out.println("FHIR Implementation Guide Publisher (v"+self.getToolingVersion()+", gen-code v"+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
       System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
-      System.out.print(System.getProperty("user.dir"));
+      System.out.print("["+System.getProperty("user.dir")+"]");
       for (int i = 0; i < args.length; i++) {
           System.out.print(" "+args[i]);
       }      
@@ -4779,6 +4789,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           self.setConfigFile(Utilities.path(last, "ig.json"));
         else
           self.setConfigFile(last);
+      } else if (hasParam(args, "-simplifier")) {
+        if (!hasParam(args, "-destination"))
+          throw new Exception("A destination folder (-destination) must be provided for the output from processing the simplifier IG");
+        if (!hasParam(args, "-canonical"))
+          throw new Exception("A canonical URL (-canonical) must be provided in order to process a simplifier IG");
+        if (!hasParam(args, "-npm-name"))
+          throw new Exception("A package name (-npm-name) must be provided in order to process a simplifier IG");
+        if (!hasParam(args, "-license"))
+          throw new Exception("A license code (-license) must be provided in order to process a simplifier IG");
+        // create an appropriate ig.json in the specified folder
+        self.setConfigFile(generateIGFromSimplifier(getNamedParam(args, "-simplifier"), getNamedParam(args, "-destination"), getNamedParam(args, "-canonical"), getNamedParam(args, "-npm-name"), getNamedParam(args, "-license")));
+        self.folderToDelete = Utilities.getDirectoryForFile(self.getConfigFile());
       } else {
         self.setConfigFile(determineActualIG(getNamedParam(args, "-ig")));
         if (Utilities.noString(self.getConfigFile()))
@@ -4836,6 +4858,65 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     System.exit(exitCode);
   }
+
+  private static String generateIGFromSimplifier(String folder, String output, String canonical, String npmName, String license) throws Exception {
+    String ig = Utilities.path(System.getProperty("java.io.tmpdir"), "simplifier", UUID.randomUUID().toString().toLowerCase());
+    Utilities.createDirectory(ig);
+    String config = Utilities.path(ig, "ig.json");
+    String pages =  Utilities.path(ig, "pages");
+    String resources =  Utilities.path(ig, "resources");
+    Utilities.createDirectory(pages);
+    Utilities.createDirectory(resources);
+    Utilities.createDirectory(Utilities.path(ig, "temp"));
+    Utilities.createDirectory(Utilities.path(ig, "txCache"));
+    // now, copy the entire simplifer folder to pages
+    Utilities.copyDirectory(folder, pages, null);
+    // now, copy the resources to resources;
+    Utilities.copyDirectory(Utilities.path(folder, "artifacts"), resources, null);
+    JsonObject json = new JsonObject();
+    JsonObject paths = new JsonObject();
+    json.add("paths", paths);
+    JsonArray reslist = new JsonArray();
+    paths.add("resources", reslist);
+    reslist.add(new JsonPrimitive("resources"));
+    paths.addProperty("pages", "pages");
+    paths.addProperty("temp", "temp");
+    paths.addProperty("output", output);
+    paths.addProperty("qa", "qa");
+    paths.addProperty("specification", "http://build.fhir.org");
+    json.addProperty("version", "3.0.1");
+    json.addProperty("license", license);
+    json.addProperty("npm-name", npmName);
+    JsonObject defaults = new JsonObject();
+    json.add("defaults", defaults);
+    JsonObject any = new JsonObject();
+    defaults.add("Any", any);
+    any.addProperty("java", false);
+    any.addProperty("xml", false);
+    any.addProperty("json", false);
+    any.addProperty("ttl", false);
+    json.addProperty("canonicalBase", canonical);
+    json.addProperty("sct-edition", "http://snomed.info/sct/731000124108");
+    json.addProperty("source", determineSource(resources, Utilities.path(folder, "artifacts")));
+    json.addProperty("path-pattern", "[type]-[id].html");
+    JsonObject resn = new JsonObject();
+    json.add("resources", resn);
+    resn.addProperty("*", "*");
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    TextFile.stringToFile(gson.toJson(json), config);
+    return config;
+  }
+
+
+  private static String determineSource(String folder, String srcF) throws Exception {
+    for (File f : new File(folder).listFiles()) {
+      String src = TextFile.fileToString(f);
+      if (src.contains("<ImplementationGuide "))
+        return f.getName();
+    }
+    throw new Exception("Unable to find Implementation Guide in "+srcF); 
+  }
+
 
   private void setPackagesFolder(String value) {
     packagesFolder = value;    
