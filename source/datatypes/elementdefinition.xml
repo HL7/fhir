@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
@@ -15,8 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4269,7 +4268,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4482,8 +4480,8 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Element names should be simple alphanumerics, or code generation tools may be broken</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">path.matches('[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*)*')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*)*')</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">path.matches('[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*(\[x])?)*')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">21</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4768,6 +4766,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
