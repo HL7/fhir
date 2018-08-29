@@ -1783,7 +1783,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   private void loadIgPages(ImplementationGuideDefinitionPageComponent page, HashMap<String, ImplementationGuideDefinitionPageComponent> map) throws FHIRException {
-    map.put(page.getNameUrlType().getValue(), page);
+    if (page.hasName() && page.hasNameUrlType())
+      map.put(page.getNameUrlType().getValue(), page);
     for (ImplementationGuideDefinitionPageComponent childPage: page.getPage()) {
       loadIgPages(childPage, map);
     }
