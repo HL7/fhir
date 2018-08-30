@@ -1043,6 +1043,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       spec = loadCorePackage();
     
     context = spec.makeContext();
+    context.setIgnoreProfileErrors(true);
     context.setLogger(logger);
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
@@ -1401,15 +1402,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     String name = str(dep, "name");
     if (!Utilities.isToken(name))
       throw new Exception("IG Name must be a valid token ("+name+")");
-    String canonical = str(dep, "location");
-    if (Utilities.noString(canonical))
-      throw new Exception("You must specify a canonical URL for the IG "+name);
+    String canonical = ostr(dep, "location");
     String igver = ostr(dep, "version");
     if (Utilities.noString(igver))
       throw new Exception("You must specify a version for the IG "+name+" ("+canonical+")");
     String packageId = ostr(dep, "package");
     if (Utilities.noString(packageId))
       packageId = pcm.getPackageId(canonical);
+    if (Utilities.noString(canonical) && !Utilities.noString(packageId))
+      canonical = pcm.getPackageUrl(packageId);
+    if (Utilities.noString(canonical))
+      throw new Exception("You must specify a canonical URL for the IG "+name);
     
     NpmPackage pi = packageId == null ? null : pcm.loadPackageCache(packageId, igver);
     if (pi == null) {
@@ -2383,7 +2386,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             boolean altered = false;
             if (bc.hasUrl()) {
               if (adHocTmpDir == null && !listedURLExemptions.contains(bc.getUrl()) && !bc.getUrl().equals(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())))
-                throw new Exception("Error: conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")");            
+                f.getErrors().add(new ValidationMessage(Source.ProfileValidator, IssueType.INVALID, bc.getUrl(), "conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")", IssueSeverity.ERROR));
+                // throw new Exception("Error: conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")");            
             } else if (bc.hasId())
               bc.setUrl(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId()));
             else
@@ -4799,8 +4803,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           throw new Exception("A package name (-npm-name) must be provided in order to process a simplifier IG");
         if (!hasParam(args, "-license"))
           throw new Exception("A license code (-license) must be provided in order to process a simplifier IG");
+        List<String> packages = new ArrayList<String>();
+        for (int i = 0; i < args.length; i++) {
+          if (args[i].equals("-dependsOn")) 
+            packages.add(args[i+1]);
+        }
         // create an appropriate ig.json in the specified folder
-        self.setConfigFile(generateIGFromSimplifier(getNamedParam(args, "-simplifier"), getNamedParam(args, "-destination"), getNamedParam(args, "-canonical"), getNamedParam(args, "-npm-name"), getNamedParam(args, "-license")));
+        self.setConfigFile(generateIGFromSimplifier(getNamedParam(args, "-simplifier"), getNamedParam(args, "-destination"), getNamedParam(args, "-canonical"), getNamedParam(args, "-npm-name"), getNamedParam(args, "-license"), packages));
         self.folderToDelete = Utilities.getDirectoryForFile(self.getConfigFile());
       } else {
         self.setConfigFile(determineActualIG(getNamedParam(args, "-ig")));
@@ -4860,7 +4869,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     System.exit(exitCode);
   }
 
-  private static String generateIGFromSimplifier(String folder, String output, String canonical, String npmName, String license) throws Exception {
+  private static String generateIGFromSimplifier(String folder, String output, String canonical, String npmName, String license, List<String> packages) throws Exception {
     String ig = Utilities.path(System.getProperty("java.io.tmpdir"), "simplifier", UUID.randomUUID().toString().toLowerCase());
     Utilities.createDirectory(ig);
     String config = Utilities.path(ig, "ig.json");
@@ -4903,6 +4912,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     JsonObject resn = new JsonObject();
     json.add("resources", resn);
     resn.addProperty("*", "*");
+    JsonArray deplist = new JsonArray();
+    json.add("dependencyList", deplist);
+    for (String d : packages) {
+      String[] p = d.split("\\#");
+      JsonObject dep = new JsonObject();
+      deplist.add(dep);
+      dep.addProperty("package", p[0]);
+      dep.addProperty("version", p[1]);
+      dep.addProperty("name", "n"+deplist.size());
+    }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     TextFile.stringToFile(gson.toJson(json), config);
     return config;

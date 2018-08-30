@@ -93,6 +93,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private String date;
   private IValidatorFactory validatorFactory;
   private UcumService ucumService;
+  private boolean ignoreProfileErrors;
   
   public SimpleWorkerContext() throws FileNotFoundException, IOException, FHIRException {
     super();
@@ -554,12 +555,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
         List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
         List<String> errors = new ArrayList<String>();
         ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
+        pu.setThrowException(false);
         pu.sortDifferential(sd, p, p.getUrl(), errors);
         for (String err : errors)
           msgs.add(new ValidationMessage(Source.ProfileValidator, IssueType.EXCEPTION, p.getUserString("path"), "Error sorting Differential: "+err, ValidationMessage.IssueSeverity.ERROR));
         pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
         for (ValidationMessage msg : msgs) {
-          if (msg.getLevel() == ValidationMessage.IssueSeverity.ERROR || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
+          if ((!ignoreProfileErrors && msg.getLevel() == ValidationMessage.IssueSeverity.ERROR) || msg.getLevel() == ValidationMessage.IssueSeverity.FATAL)
             throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+"). Error generating snapshot: "+msg.getMessage());
         }
         if (!p.hasSnapshot())
@@ -576,6 +578,14 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
   public void setUcumService(UcumService ucumService) {
     this.ucumService = ucumService;
+  }
+
+  public boolean isIgnoreProfileErrors() {
+    return ignoreProfileErrors;
+  }
+
+  public void setIgnoreProfileErrors(boolean ignoreProfileErrors) {
+    this.ignoreProfileErrors = ignoreProfileErrors;
   }
 
 

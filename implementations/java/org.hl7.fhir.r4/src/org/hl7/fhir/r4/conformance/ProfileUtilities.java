@@ -172,6 +172,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   private List<String> snapshotStack = new ArrayList<String>();
   private ProfileKnowledgeProvider pkp;
   private boolean igmode;
+  private boolean exception;
 
   public ProfileUtilities(IWorkerContext context, List<ValidationMessage> messages, ProfileKnowledgeProvider pkp) {
     super();
@@ -390,8 +391,10 @@ public class ProfileUtilities extends TranslatingUtilities {
     for (ElementDefinition e : derived.getDifferential().getElement()) {
       if (!e.hasUserData(GENERATED_IN_SNAPSHOT)) {
         System.out.println("Error in snapshot generation: Differential for "+derived.getUrl()+" with id: " + e.getId()+" has an element that is not marked with a snapshot match");
-        throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain an element that matches an existing differential element that has id: " + e.getId());
-//        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
+        if (exception)
+          throw new DefinitionException("Snapshot for "+derived.getUrl()+" does not contain an element that matches an existing differential element that has id: " + e.getId());
+        else
+          messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.VALUE, url, "Snapshot for "+derived.getUrl()+" does not contain an element that matches an existing differential element that has id: " + e.getId(), ValidationMessage.IssueSeverity.ERROR));
       }
     }
     if (derived.getDerivation() == TypeDerivationRule.SPECIALIZATION) {
@@ -3375,9 +3378,12 @@ public class ProfileUtilities extends TranslatingUtilities {
       String bs = b.toString();
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
       ed.setId(bs);
-      if (idList.containsKey(bs))
-        throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
-      //System.out.println("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
+      if (idList.containsKey(bs)) {
+        if (exception)
+          throw new DefinitionException("Same id '"+bs+"'on multiple elements "+idList.get(bs)+"/"+ed.getPath()+" in "+name);
+        else
+          messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, name+"."+bs, "Duplicate Element id "+bs, ValidationMessage.IssueSeverity.ERROR));
+      }
       idList.put(bs, ed.getPath());
       if (ed.hasContentReference()) {
         String s = ed.getContentReference().substring(1);
@@ -3993,8 +3999,12 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
+  public boolean isThrowException() {
+    return exception;
+  }
 
 
-
-
+  public void setThrowException(boolean exception) {
+    this.exception = exception;
+  }
 }
