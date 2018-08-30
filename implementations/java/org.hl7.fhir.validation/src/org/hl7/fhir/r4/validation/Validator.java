@@ -234,7 +234,7 @@ public class Validator {
         }
       }
     } else { 
-      String definitions = "hl7.fhir.core-"+Constants.VERSION;
+      String definitions = "hl7.fhir.core#"+Constants.VERSION;
       String map = null;
       List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
@@ -332,8 +332,8 @@ public class Validator {
         throw new Exception("Must provide at least one source file");
       
       // Comment this out because definitions filename doesn't necessarily contain version (and many not even be 14 characters long).  Version gets spit out a couple of lines later after we've loaded the context
-//      System.out.println("  .. FHIR Version "+definitions.substring(14));
       System.out.println("  .. connect to tx server @ "+txServer);
+      System.out.println("  .. definitions from "+definitions);
       ValidationEngine validator = new ValidationEngine(definitions, txServer);
       System.out.println("    (v"+validator.getContext().getVersion()+")");
       for (String src : igs) {
