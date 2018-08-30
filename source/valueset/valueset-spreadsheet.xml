@@ -3618,7 +3618,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Status must = 'active' if expansion is present and compose is absent</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">status='active' or compose.exists() or expansion.empty()</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">f:status/@value='active' or exists(f:compose) or not(exists(f:expansion)</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">f:status/@value='active' or exists(f:compose) or not(exists(f:expansion))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s113"><NamedCell ss:Name="Invariantids"/></Cell>
