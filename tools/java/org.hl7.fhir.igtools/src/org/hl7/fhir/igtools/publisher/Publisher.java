@@ -18,6 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -959,7 +960,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     if (mode != IGBuildMode.WEBSERVER){
       tempDir = Utilities.path(rootDir, str(paths, "temp", "temp"));
-      outputDir = Utilities.path(rootDir, str(paths, "output", "output"));
+      String p = str(paths, "output", "output");
+      outputDir = Paths.get(p).isAbsolute() ? p : Utilities.path(rootDir, p);
     }
     
 	 qaDir = Utilities.path(rootDir, str(paths, "qa"));
@@ -2973,7 +2975,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           String uc = ((MetadataResource) r.getResource()).getUrl();
           if (uc != null && !u.equals(uc) && !isListedURLExemption(uc) && adHocTmpDir == null)
-            throw new Exception("URL Mismatch "+u+" vs "+uc);
+            f.getErrors().add(new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, f.getName(), "URL Mismatch "+u+" vs "+uc, IssueSeverity.ERROR));
           if (uc != null && !u.equals(uc))
             map.path(uc, igpkp.getLinkFor(r));
           String v = ((MetadataResource) r.getResource()).getVersion();
@@ -3450,7 +3452,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           }
 
   private void addPageData(JsonObject pages, ImplementationGuideDefinitionPageComponent page, String label, String breadcrumb) throws FHIRException {
-    addPageData(pages, page, page.getNameUrlType().getValue(), page.getTitle(), label, breadcrumb);
+    if (!page.hasNameUrlType())
+      errors.add(new ValidationMessage(Source.Publisher, IssueType.REQUIRED, "Base IG resource", "The page \""+page.getTitle()+"\" is missing a name/source element", IssueSeverity.ERROR));
+    else
+      addPageData(pages, page, page.getNameUrlType().getValue(), page.getTitle(), label, breadcrumb);
   }
 
   private void addPageData(JsonObject pages, ImplementationGuideDefinitionPageComponent page, String source, String title, String label, String breadcrumb) throws FHIRException {
@@ -3629,7 +3634,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         s = s + "<img style=\"background-color:inherit\" alt=\".\" class=\"hierarchy\" src=\"tbl_vjoin.png\"/>";
     }
     s = s + "<img style=\"background-color:white;background-color:inherit\" alt=\".\" class=\"hierarchy\" src=\"icon_page.gif\"/>";
-    s = s + "<a title=\"" + Utilities.escapeXml(page.getTitle()) + "\" href=\"" + (currentOffset!=null ? currentOffset + "/" : "") + page.getNameUrlType().getValue() +"\">" + label + " " + Utilities.escapeXml(page.getTitle()) + "</a></td></tr>";
+    s = s + "<a title=\"" + Utilities.escapeXml(page.getTitle()) + "\" href=\"" + (currentOffset!=null ? currentOffset + "/" : "") + (page.hasNameUrlType() ? page.getNameUrlType().getValue() : "?name?") +"\">" + label + " " + Utilities.escapeXml(page.getTitle()) + "</a></td></tr>";
 
     int total = page.getPage().size();
     int i = 1;

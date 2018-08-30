@@ -394,6 +394,8 @@ public class HTLMLInspector {
     links++;
     String tgtList = "";
     boolean resolved = Utilities.existsInList(ref);
+    if (ref.startsWith("data:"))
+      resolved = true;
     if (!resolved)
       resolved = manual.contains(ref);
     if (!resolved && specs != null){
