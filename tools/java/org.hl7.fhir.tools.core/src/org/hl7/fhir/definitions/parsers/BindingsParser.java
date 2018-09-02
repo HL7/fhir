@@ -71,8 +71,9 @@ public class BindingsParser {
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
   private Calendar genDate;
-
-  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Calendar genDate) {
+  private boolean exceptionIfExcelNotNormalised;
+  
+  public BindingsParser(InputStream file, String filename, String root, OIDRegistry registry, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Calendar genDate, boolean exceptionIfExcelNotNormalised) {
     this.file = file;
     this.filename = filename;
     this.root = root;
@@ -81,7 +82,7 @@ public class BindingsParser {
     this.codeSystems = codeSystems;
     this.maps = maps;
     this.genDate = genDate;
-    
+    this.exceptionIfExcelNotNormalised = exceptionIfExcelNotNormalised;
   }
 
   public List<BindingSpecification> parse() throws Exception {
@@ -92,7 +93,7 @@ public class BindingsParser {
     //		results.add(n);
 
     xls = new XLSXmlParser(file, filename);
-    new XLSXmlNormaliser(filename).go();
+    new XLSXmlNormaliser(filename, exceptionIfExcelNotNormalised).go();
     Sheet sheet = xls.getSheets().get("Bindings");
         
     for (int row = 0; row < sheet.rows.size(); row++) {

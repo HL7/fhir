@@ -445,6 +445,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean doValidate;
 
+  private boolean isCIBuild;
+
 
   public static void main(String[] args) throws Exception {
     //
@@ -482,6 +484,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     String dir = hasParam(args, "-folder") ? getNamedParam(args, "-folder") : System.getProperty("user.dir");
     pub.outputdir = hasParam(args, "-output") ? getNamedParam(args, "-output") : null; 
+    pub.isCIBuild = dir.contains("/ubuntu/agents/"); 
     pub.execute(dir);
   }
 
@@ -1776,7 +1779,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page, fpUsages);
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page, fpUsages, isCIBuild);
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
       page.getDiffEngine().loadFromIni(prsr.getIni());

@@ -88,9 +88,10 @@ return null;
   private OIDRegistry registry;
   private Map<String, ConceptMap> maps;
   private Map<String, WorkGroup> workgroups;
+  private boolean exceptionIfExcelNotNormalised;
 
 
-  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, OIDRegistry registry, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups) {
+  public IgParser(Logger logger, BuildWorkerContext context, Calendar genDate, ProfileKnowledgeProvider pkp, Map<String, BindingSpecification> commonBindings, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, OIDRegistry registry, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) {
     super();
     this.logger = logger;
     this.context = context;
@@ -104,6 +105,7 @@ return null;
     this.registry = registry;
     this.maps = maps;
     this.workgroups = workgroups;
+    this.exceptionIfExcelNotNormalised = exceptionIfExcelNotNormalised;
   }
 
   public void load(String rootDir, ImplementationGuideDefn igd, List<ValidationMessage> issues, Set<String> loadedIgs) throws Exception {
@@ -262,7 +264,7 @@ return null;
           pr.setSource(fn.getAbsolutePath());
           pr.setSourceType(ConformancePackageSourceType.Spreadsheet);
           SpreadsheetParser sparser = new SpreadsheetParser(pr.getCategory(), new CSFileInputStream(pr.getSource()), Utilities.noString(pr.getId()) ? pr.getSource() : pr.getId(), pr.getSource(), igd, 
-                rootDir, logger, registry, context.getVersion(), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups);
+                rootDir, logger, registry, context.getVersion(), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups, exceptionIfExcelNotNormalised);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
           sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues, null);
@@ -294,7 +296,7 @@ return null;
           if (s.endsWith("-spreadsheet.xml"))
             s = s.substring(0, s.length()-16);
           String id = igd.getCode()+"-"+s;
-          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, fn.getAbsolutePath(), igd, rootDir, logger, registry, context.getVersion(), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups);
+          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, fn.getAbsolutePath(), igd, rootDir, logger, registry, context.getVersion(), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups, exceptionIfExcelNotNormalised);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(fn.getAbsolutePath()));
           LogicalModel lm = sparser.parseLogicalModel();
