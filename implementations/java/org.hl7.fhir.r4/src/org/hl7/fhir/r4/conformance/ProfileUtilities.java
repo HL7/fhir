@@ -1289,29 +1289,30 @@ public class ProfileUtilities extends TranslatingUtilities {
     ElementDefinition base = dest;
     ElementDefinition derived = source;
     derived.setUserData(DERIVATION_POINTER, base);
+    boolean isExtension = checkExtensionDoco(base);
+
 
     // Before applying changes, apply them to what's in the profile
-    // TODO: follow Chris's rules
-    if (base.hasSliceName()) {
-      StructureDefinition profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile().get(0).getValue()) : null;
-      if (profile != null) {
-        ElementDefinition e = profile.getSnapshot().getElement().get(0);
-        base.setDefinition(e.getDefinition());
-        base.setShort(e.getShort());
-        if (e.hasCommentElement())
-          base.setCommentElement(e.getCommentElement());
-        if (e.hasRequirementsElement())
-          base.setRequirementsElement(e.getRequirementsElement());
-        base.getAlias().clear();
-        base.getAlias().addAll(e.getAlias());
-        base.getMapping().clear();
-        base.getMapping().addAll(e.getMapping());
-      }
-    }
-    
+    // TODO: follow Chris's rules - Done by Lloyd
+    StructureDefinition profile = null;
+    if (base.hasSliceName())
+      profile = base.getType().size() == 1 && base.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, base.getTypeFirstRep().getProfile().get(0).getValue()) : null;
+    if (profile==null)
+      profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile().get(0).getValue()) : null;
+    if (profile != null) {
+      ElementDefinition e = profile.getSnapshot().getElement().get(0);
+      base.setDefinition(e.getDefinition());
+      base.setShort(e.getShort());
+      if (e.hasCommentElement())
+        base.setCommentElement(e.getCommentElement());
+      if (e.hasRequirementsElement())
+        base.setRequirementsElement(e.getRequirementsElement());
+      base.getAlias().clear();
+      base.getAlias().addAll(e.getAlias());
+      base.getMapping().clear();
+      base.getMapping().addAll(e.getMapping());
+    } 
     if (derived != null) {
-      boolean isExtension = checkExtensionDoco(base);
-
       if (derived.hasSliceName()) {
         base.setSliceName(derived.getSliceName());
       }

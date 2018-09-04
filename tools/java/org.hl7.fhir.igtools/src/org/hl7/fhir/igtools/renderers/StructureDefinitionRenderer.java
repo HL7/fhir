@@ -485,7 +485,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             }
             b.append("<b>"+title+"</b>"+link(ec.getId())+"</span></td></tr>\r\n");
             ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
-            generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
+            generateElementInner(b, sd, ec, valueDefn == null ? 2 : 3, valueDefn);
+//            generateElementInner(b, extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
           }
         } else {
           String title = ec.getPath() + (!ec.hasSliceName() ? "" : "(" +ec.getSliceName() +")");

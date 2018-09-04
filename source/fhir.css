@@ -706,10 +706,10 @@ tr.diff-del-item {
   background-color: #fff4f4;
 }
 
-.self-link-parent a{
+.self-link-parent a.self-link{
   visibility:hidden;
 }
-.self-link-parent:hover a {
+.self-link-parent:hover a.self-link {
  visibility:visible;
 }
 
