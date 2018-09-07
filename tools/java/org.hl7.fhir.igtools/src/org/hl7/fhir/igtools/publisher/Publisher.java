@@ -988,16 +988,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     igName = Utilities.path(resourceDirs.get(0), str(configuration, "source", "ig.xml"));
 
-    inspector = new HTLMLInspector(outputDir, specMaps, this);
-    inspector.getManual().add("full-ig.zip");
-    historyPage = ostr(paths, "history");
-    if (historyPage != null)
-      inspector.getManual().add(historyPage);
-    inspector.getManual().add("qa.html");
-    allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
-    inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
-    makeQA = mode == IGBuildMode.WEBSERVER ? false : !"true".equals(ostr(configuration, "suppress-qa"));
-
     dlog(LogCategory.INIT, "Check folders");
     for (String s : resourceDirs) {
       dlog(LogCategory.INIT, "Source: "+s);
@@ -1050,6 +1040,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     context.setAllowLoadingDuplicates(true);
     context.setExpandCodesLimit(1000);
     context.setExpansionProfile(makeExpProfile());
+    try {
+      new ConfigFileConverter().convert(configFile, context, pcm);
+    } catch (Exception e) {
+      System.out.println("exception generating new IG");
+      e.printStackTrace();
+    }
     log("Load Terminology Cache from "+vsCache);
     context.initTS(vsCache);
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
@@ -1075,6 +1071,16 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
 
+    inspector = new HTLMLInspector(outputDir, specMaps, this, igpkp.getCanonical().contains("hl7.org/fhir"));
+    inspector.getManual().add("full-ig.zip");
+    historyPage = ostr(paths, "history");
+    if (historyPage != null)
+      inspector.getManual().add(historyPage);
+    inspector.getManual().add("qa.html");
+    allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
+    inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
+    makeQA = mode == IGBuildMode.WEBSERVER ? false : !"true".equals(ostr(configuration, "suppress-qa"));
+    
     JsonArray deps = configuration.getAsJsonArray("dependencyList");
     if (deps != null) {
       for (JsonElement dep : deps) {
@@ -3010,7 +3016,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     FileUtils.copyFile(new File(Utilities.path(outputDir, "validator.pack")),new File(Utilities.path(outputDir, "validator-" + sourceIg.getId() + ".pack")));
     generateCsvZip();
     generateExcelZip();
-//    generateRegistryUploadZip(df.getCanonicalPath());
+    generateRegistryUploadZip(df.getCanonicalPath());
   }
 
   private boolean supportsTurtle() {
@@ -3104,30 +3110,34 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateZipByExtension(Utilities.path(outputDir, "csvs.zip"), ".csv");
   }
 
-//  private void generateRegistryUploadZip(String specFile)  throws Exception {
-//    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "registry.fhir.org.zip"));
-//    zip.addFileName("spec.internals", specFile, false);
-//    zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
-//    StringBuilder ri = new StringBuilder();
-//    ri.append("[registry]\r\n");
-//    ri.append("toolversion="+getToolingVersion()+"\r\n");
-//    ri.append("fhirversion="+version+"\r\n");
-//    int i = 0;
-//    for (FetchedFile f : fileList) {
-//      for (FetchedResource r : f.getResources()) {
-//        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
-//          ByteArrayOutputStream bs = new ByteArrayOutputStream();
-//          new JsonParser().compose(bs, r.getResource());
-//          zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
-//          i++;
-//        }
-//      }
-//    }
-//    ri.append("resourcecount="+Integer.toString(i)+"\r\n");
-//    zip.addBytes("registry.info", ri.toString().getBytes(Charsets.UTF_8), false);
-//    zip.close();
-//  }
-//
+  private void generateRegistryUploadZip(String specFile)  throws Exception {
+    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "registry.fhir.org.zip"));
+    zip.addFileName("spec.internals", specFile, false);
+    StringBuilder ri = new StringBuilder();
+    ri.append("[registry]\r\n");
+    ri.append("toolversion="+getToolingVersion()+"\r\n");
+    ri.append("fhirversion="+version+"\r\n");
+    int i = 0;
+    for (FetchedFile f : fileList) {
+      for (FetchedResource r : f.getResources()) {
+        if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
+          try {
+            ByteArrayOutputStream bs = new ByteArrayOutputStream();
+            org.hl7.fhir.dstu3.model.Resource r3 = VersionConvertor_30_40.convertResource(r.getResource(), false);
+            new org.hl7.fhir.dstu3.formats.JsonParser().compose(bs, r3);
+            zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
+          } catch (Exception e) {
+            log("Can't store "+r.getElement().fhirType()+"-"+r.getId()+" in R3 format for registry.fhir.org");
+          }
+          i++;
+        }
+      }
+    }
+    ri.append("resourcecount="+Integer.toString(i)+"\r\n");
+    zip.addBytes("registry.info", ri.toString().getBytes(Charsets.UTF_8), false);
+    zip.close();
+  }
+
   private void generateValidationPack(String specFile)  throws Exception {
     String sch = makeTempZip(".sch");
     String js = makeTempZip(".schema.json");

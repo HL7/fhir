@@ -114,6 +114,15 @@ public class ToolingExtensions {
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
   public static final String EXT_WORKGROUP = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg";
   public static final String EXT_STANDARDS_STATUS = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status";
+  public static final String EXT_IGP_BASE = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-base";
+  public static final String EXT_IGP_DEFNS = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-defns";
+  public static final String EXT_IGP_FORMAT = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-format";
+  public static final String EXT_IGP_SOURCE = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-source";
+  public static final String EXT_IGP_VERSION = "http://hl7.org/fhir/StructureDefinition/igpublisher-res-version";
+  public static final String EXT_IGP_RESOURCES = "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-resource";
+  public static final String EXT_IGP_PAGES = "http://hl7.org/fhir/StructureDefinition/igpublisher-folder-pages";
+  public static final String EXT_IGP_SPREADSHEET = "http://hl7.org/fhir/StructureDefinition/igpublisher-spreadsheet";
+  public static final String EXT_IGP_BUNDLE = "http://hl7.org/fhir/StructureDefinition/igpublisher-bundle";
 
 
   // specific extension helpers
