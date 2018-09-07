@@ -1,6 +1,5 @@
 steps:
-- displayName: 'Build via build.sh'
-  bash: |
+- bash: |
    set -ev
    [ -d publish ] && rm -rf publish   
    
@@ -24,5 +23,4 @@ steps:
        exit 1
      fi
    }
-   
-   antBuild 
+   antBuild
