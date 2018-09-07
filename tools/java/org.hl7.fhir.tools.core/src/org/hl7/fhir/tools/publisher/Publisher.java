@@ -29,6 +29,7 @@ package org.hl7.fhir.tools.publisher;
 
  */
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -255,9 +256,6 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.stringtemplate.v4.ST;
-import org.tigris.subversion.javahl.ClientException;
-import org.tigris.subversion.javahl.SVNClient;
-import org.tigris.subversion.javahl.Status;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -429,7 +427,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private Map<String, Long> dates = new HashMap<String, Long>();
   private Map<String, Boolean> buildFlags = new HashMap<String, Boolean>();
   private IniFile cache;
-  private String svnStated;
   private String singleResource;
   private String singlePage;
   private PublisherTestSuites tester;
@@ -489,26 +486,28 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   /**
-   * Invokes the SVN API to find out the current revision number for SVN,
-   * returns ????
+   * Invokes the git to find out the current commit hash.
    *
    * @param folder
-   * @return the revision number, or "????" if SVN was not available
+   * @return the revision number, or "????" if git was not available
    */
   private static String checkSubversion(String folder) {
-    SVNClient svnClient = new SVNClient();
-    Status[] status;
+    String version = "";
     try {
-      status = svnClient.status(folder, true, false, true);
-      long revNumber = 0;
-      for (Status stat : status)
-        revNumber = (revNumber < stat.getRevisionNumber()) ? stat.getRevisionNumber() : revNumber;
-      return Long.toString(revNumber);
-    } catch (ClientException e) {
-      System.out.println("Warning @ Unable to read the SVN version number: " + e.getMessage() );
-      return "????";
+      String[] cmd = { "git", "describe", "--tags", "--always" };
+      Process p = Runtime.getRuntime().exec(cmd);
+      p.waitFor();
+      InputStreamReader isr = new InputStreamReader(p.getInputStream());  
+      BufferedReader br = new BufferedReader(isr);  
+      String line;  
+      while ((line = br.readLine()) != null) {  
+        version += line;  
+      }  
+    } catch (Exception e) {
+      System.out.println("Warning @ Unable to read the git commit: " + e.getMessage() );
+      version = "????";
     }
-
+    return version;
   }
 
   private static boolean hasParam(String[] args, String param) {
