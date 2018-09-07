@@ -94,12 +94,12 @@ public class ConfigFileConverter {
     ig.setFhirVersion(version);
     if (configuration.has("fixed-business-version")) {
       ig.setVersion(configuration.getAsJsonPrimitive("fixed-business-version").getAsString());
-      IGHelper.setParameter("apply-business-version", ig.getVersion());
+      IGHelper.setParameter(ig.getDefinition(), "apply-business-version", ig.getVersion());
     }
     if (configuration.has("license")) 
       ig.setLicense(SPDXLicense.fromCode(configuration.getAsJsonPrimitive("license").getAsString()));
     if (configuration.has("html-template")) 
-      IGHelper.setParameter("html-template", configuration.getAsJsonPrimitive("html-template").getAsString());
+      IGHelper.setParameter(ig.getDefinition(), "html-template", configuration.getAsJsonPrimitive("html-template").getAsString());
     for (String s : resourceDirs)
       ig.addExtension(ToolingExtensions.EXT_IGP_RESOURCES, new StringType(s));
     for (String s : pagesDirs)
@@ -119,7 +119,7 @@ public class ConfigFileConverter {
         if (vr.getDisplay() != null)
           c.setDisplay(vr.getDisplay());
       }
-      IGHelper.setParameter("apply-jurisdiction", true);
+      IGHelper.setParameter(ig.getDefinition(), "apply-jurisdiction", true);
     }
     Parameters p = new Parameters();
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
