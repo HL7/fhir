@@ -4,6 +4,12 @@
 *.bak
 *.class
 *.~*
+*.gen.svg
+holder.txt
+/schema/*.xsd
+/schema/codegen
+/schema/datatypes
+/implementations/javascript/app
 
 # Below here, default github template for Java projects
 
