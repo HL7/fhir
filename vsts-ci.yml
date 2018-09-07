@@ -1,3 +1,5 @@
+queue:
+  name: Default
 steps:
 - bash: |
    set -ev
