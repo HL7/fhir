@@ -5,6 +5,7 @@
 *.class
 *.~*
 *.gen.svg
+*.bck
 holder.txt
 /schema/*.xsd
 /schema/codegen
