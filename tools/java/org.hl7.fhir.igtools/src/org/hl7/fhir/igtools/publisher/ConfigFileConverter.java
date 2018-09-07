@@ -27,6 +27,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.ImplementationGuide.GuideParameterCode;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
@@ -94,12 +95,12 @@ public class ConfigFileConverter {
     ig.setFhirVersion(version);
     if (configuration.has("fixed-business-version")) {
       ig.setVersion(configuration.getAsJsonPrimitive("fixed-business-version").getAsString());
-      IGHelper.setParameter(ig.getDefinition(), "apply-business-version", ig.getVersion());
+      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLYBUSINESSVERSION, ig.getVersion());
     }
     if (configuration.has("license")) 
       ig.setLicense(SPDXLicense.fromCode(configuration.getAsJsonPrimitive("license").getAsString()));
     if (configuration.has("html-template")) 
-      IGHelper.setParameter(ig.getDefinition(), "html-template", configuration.getAsJsonPrimitive("html-template").getAsString());
+      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.HTMLTEMPLATE, configuration.getAsJsonPrimitive("html-template").getAsString());
     for (String s : resourceDirs)
       ig.addExtension(ToolingExtensions.EXT_IGP_RESOURCES, new StringType(s));
     for (String s : pagesDirs)
@@ -119,8 +120,12 @@ public class ConfigFileConverter {
         if (vr.getDisplay() != null)
           c.setDisplay(vr.getDisplay());
       }
-      IGHelper.setParameter(ig.getDefinition(), "apply-jurisdiction", true);
+      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLYJURISDICTION, true);
     }
+    IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEJSON, true);
+    IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEXML, true);
+    IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATETURTLE, true);
+    
     Parameters p = new Parameters();
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
     p.addParameter("system-version", "http://snomed.info/sct|"+sct);
@@ -149,6 +154,18 @@ public class ConfigFileConverter {
     if (paths.get("bundles") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("bundles"))
         ig.addExtension(ToolingExtensions.EXT_IGP_BUNDLE, new StringType(((JsonPrimitive) e).getAsString()));
+    }
+    JsonObject defaults = configuration.getAsJsonObject("defaults");
+    if (defaults != null) {
+      JsonObject any = defaults.getAsJsonObject("any");
+      if (any != null) {
+        if (any.has("xml"))
+          IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEXML, Boolean.parseBoolean(any.get("xml").getAsString()));          
+        if (any.has("json"))
+          IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEJSON, Boolean.parseBoolean(any.get("json").getAsString()));          
+        if (any.has("tl"))
+          IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATETURTLE, Boolean.parseBoolean(any.get("ttl").getAsString()));          
+      }
     }
     
     JsonArray deps = configuration.getAsJsonArray("dependencyList");

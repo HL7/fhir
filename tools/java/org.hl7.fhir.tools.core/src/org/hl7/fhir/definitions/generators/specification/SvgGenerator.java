@@ -47,7 +47,7 @@ public class SvgGenerator extends BaseGenerator {
   private static final double MARGIN_Y = 10;
   private static final double WRAP_INDENT = 20;
   private static final int LINE_MAX = 70;
-
+ 
   private int nc = 0;
    
   private class Point {
@@ -864,7 +864,7 @@ public class SvgGenerator extends BaseGenerator {
       }
     }
     return item;  
-  }
+  } 
 
   private String getXsi(DefinedCode primitive) {
     String xs = ((PrimitiveType) primitive).getSchemaType();

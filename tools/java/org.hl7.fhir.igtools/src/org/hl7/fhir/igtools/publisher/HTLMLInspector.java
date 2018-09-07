@@ -130,11 +130,13 @@ public class HTLMLInspector {
   private int links;
   private List<String> manual = new ArrayList<String>(); // pages that will be provided manually when published, so allowed to be broken links
   private ILoggingService log;
+  private boolean forHL7;
 
-  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log) {
+  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log, boolean forHL7) {
     this.rootFolder = rootFolder.replace("/", File.separator);
     this.specs = specs;
     this.log = log;
+    this.forHL7 = forHL7;
   }
 
   public void setAltRootFolder(String altRootFolder) throws IOException {
@@ -234,6 +236,9 @@ public class HTLMLInspector {
     if (x != null) {
       checkHtmlStructure(s, x, messages);
       listTargets(x, lf.getTargets());
+      if (forHL7) {
+        checkTemplatePoints(x, messages, s);
+      }
     }
     
     // ok, now check for XSS safety:
@@ -258,6 +263,40 @@ public class HTLMLInspector {
 //    } 
   }
 
+  private void checkTemplatePoints(XhtmlNode x, List<ValidationMessage> messages, String s) {
+    // first, look for the insertion point, which is <!--status-bar-->
+    if (!findStatusBarComment(x))
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "The html must include a comment \"<!--status-bar-->\" that marks the insertion point for the status bar", IssueSeverity.ERROR));
+    // now, look for a footer: a div tag with igtool=footer on it 
+    XhtmlNode footer = findFooterDiv(x);
+    if (footer == null) 
+      messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "The html must include a div with an attribute igtool=\"footer\" that marks the footer in the template", IssueSeverity.ERROR));
+    else {
+      // look in the footer for: .. nothing yet... 
+    }
+  }
+
+  private XhtmlNode findFooterDiv(XhtmlNode x) {
+    if (x.getNodeType() == NodeType.Element && "footer".equals(x.getAttribute("igtool")))
+      return x;
+    for (XhtmlNode c : x.getChildNodes()) {
+      XhtmlNode n = findFooterDiv(c);
+      if (n != null)
+        return n;
+    }
+    return null;
+  }
+
+  private boolean findStatusBarComment(XhtmlNode x) {
+    if (x.getNodeType() == NodeType.Comment && "status-bar".equals(x.getContent().trim()))
+      return true;
+    for (XhtmlNode c : x.getChildNodes()) {
+      if (findStatusBarComment(c))
+        return true;
+    }
+    return false;
+  }
+
   private void checkHtmlStructure(String s, XhtmlNode x, List<ValidationMessage> messages) {
     if (x.getNodeType() == NodeType.Document)
       x = x.getFirstElement();
@@ -265,6 +304,7 @@ public class HTLMLInspector {
       messages.add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, s, "Root node must be 'html' or 'div', but is "+x.getName(), IssueSeverity.ERROR));
     // We support div as well because with HTML 5, referenced files might just start with <div>
     // todo: check secure?
+    
   }
 
   private void listTargets(XhtmlNode x, Set<String> targets) {
@@ -441,7 +481,7 @@ public class HTLMLInspector {
   }
 
   public static void main(String[] args) throws Exception {
-    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null);
+    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null, true);
     inspector.setStrict(false);
     List<ValidationMessage> linkmsgs = inspector.check();
     int bl = 0;
