@@ -51,8 +51,8 @@ public abstract class BuildToolScriptedPageProcessor extends ScriptedPageProcess
       return ((ig == null || ig.isCore()) ? page.getBreadCrumbManager().makelist(name, type, genlevel(), title) : ig.makeList(name, type, genlevel(), title));      
     else if (com[0].equals("year"))
       return new SimpleDateFormat("yyyy").format(page.getGenDate());      
-    else if (com[0].equals("revision"))
-      return page.getSvnRevision();      
+    else if (com[0].equals("buildId"))
+      return page.getBuildId();      
     else if (com[0].equals("pub-type"))
       return page.getPublicationType();      
     else if (com[0].equals("pagepath"))

@@ -22,7 +22,7 @@ public interface PlatformGenerator {
   /**
    * @return a string description of what the reference implementation produces for an implementer, along with an estimate of status, and dependencies
    */
-  public String getDescription(String version, String svnRevision);
+  public String getDescription(String version, String buildId);
 
   /**
    * @return the URL for the download. In principle, the URL should be a link to a generated file with the format fhir-[version]-[title]-[reference impl version]
@@ -45,9 +45,9 @@ public interface PlatformGenerator {
    * @param version - the version of FHIR that is being published
    * @param genDate - the official date of publication (the start of the build process)
    * @param logger - so that the generator can log issues/errors/progress to the same place as the overall build process
-   * @param svnRevision TODO
+   * @param buildId TODO
    */
-  public void generate(Definitions definitions, String destDir, String implDir, String actualImplDir, String version, Date genDate, Logger logger, String svnRevision)  throws Exception;
+  public void generate(Definitions definitions, String destDir, String implDir, String actualImplDir, String version, Date genDate, Logger logger, String buildId)  throws Exception;
   
 
   /**
@@ -75,8 +75,8 @@ public interface PlatformGenerator {
   public boolean wantListAsDownload();
 
 
-  public String getSvnRevision();
+  public String getBuildId();
 
-  public void setSvnRevision(String svnRevision);
+  public void setBuildId(String buildId);
 
 }

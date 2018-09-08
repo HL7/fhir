@@ -137,13 +137,13 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
   @Override
-  public String getDescription(String version, String svnRevision) {
+  public String getDescription(String version, String buildId) {
     return "Resource Definitions, XML & Json parsers, & various utilities. "+
         "A Java client can be found at [https://github.com/cnanjo/FhirJavaReferenceClient](https://github.com/cnanjo/FhirJavaReferenceClient). HAPI also publishes a java reference implementation at [http://jamesagnew.github.io/hapi-fhir/](http://jamesagnew.github.io/hapi-fhir/)";
   }
 
   @Override
-  public void generate(Definitions definitions, String destDir, String actualImpl, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+  public void generate(Definitions definitions, String destDir, String actualImpl, String implDir, String version, Date genDate, Logger logger, String buildId) throws Exception {
     char sl = File.separatorChar;
     javaDir       =  implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl;
     javaParserDir =  implDir+"org.hl7.fhir.r4"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl;
@@ -155,7 +155,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
 
     JavaFactoryGenerator jFactoryGen = new JavaFactoryGenerator(new FileOutputStream(javaDir+"ResourceFactory.java"));
 
-    generateResourceTypeEnum(version, svnRevision, genDate);
+    generateResourceTypeEnum(version, buildId, genDate);
     JavaEnumerationsGenerator jEnums = new JavaEnumerationsGenerator(new FileOutputStream(javaDir+"Enumerations.java"), definitions, enumInfo);
     jEnums.generate(genDate, version);
 
@@ -269,7 +269,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jConv.generate(definitions, version, genDate);
     jConv.flush();
     jConv.close();
-    TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Constants.java");
+    TextFile.stringToFileNoPrefix(makeConstantsClass(version, buildId, genDate), implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl+"Constants.java");
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl, "org/hl7/fhir/r4/formats/", ".java", null);
     zip.addFiles(actualImpl+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl, "org/hl7/fhir/r4/model/", ".java", null);
@@ -339,7 +339,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       f.delete();
   }
 
-  private String makeConstantsClass(String version, String svnRevision, Date genDate) {
+  private String makeConstantsClass(String version, String buildId, Date genDate) {
     StringBuilder rt = new StringBuilder();
     boolean first = true;
     for (String n : definitions.sortedResourceNames()) {
@@ -355,14 +355,14 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
             "public class Constants {\r\n"+
             "\r\n"+
             "  public final static String VERSION = \""+version+"\";\r\n"+
-            "  public final static String REVISION = \""+svnRevision+"\";\r\n"+
+            "  public final static String BUILD_ID = \""+buildId+"\";\r\n"+
             "  public final static String DATE = \""+genDate+"\";\r\n"+
             "  public final static String URI_REGEX = \"((http|https)://([A-Za-z0-9\\\\\\\\\\\\.\\\\:\\\\%\\\\$]*\\\\/)*)?("+rt.toString()+")\\\\/[A-Za-z0-9\\\\-\\\\.]{1,64}(\\\\/_history\\\\/[A-Za-z0-9\\\\-\\\\.]{1,64})?\";\r\n"+
             "}\r\n";
     return s;
   }
 
-  private void generateResourceTypeEnum(String version, String svnRevision, Date genDate) throws Exception {
+  private void generateResourceTypeEnum(String version, String buildId, Date genDate) throws Exception {
 
     OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(javaDir+"ResourceType.java"), "UTF-8");
     output.write("package org.hl7.fhir.r4.model;\r\n");
@@ -496,7 +496,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     logger.log(" .... build validator package", LogMessageType.Process);
     ImplementationGuide ig = new ImplementationGuide();
     ig.setUrl("http://hl7.org/fhir/validator");
-    ig.setVersion(svnRevision);
+    ig.setVersion(buildId); // gh-todo
     ig.setName("FHIRValidator");
     ig.setTitle("FHIR Validator");
     ig.setStatus(PublicationStatus.ACTIVE);

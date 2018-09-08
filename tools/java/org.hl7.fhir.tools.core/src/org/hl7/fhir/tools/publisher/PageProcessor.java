@@ -389,7 +389,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final Calendar genDate = Calendar.getInstance();
   private final Date start = new Date();
   private final Map<String, String> prevSidebars = new HashMap<String, String>();
-  private String svnRevision;
+  private String buildId;
   private final List<String> orderedResources = new ArrayList<String>();
   private final Map<String, SectionTracker> sectionTrackerCache = new HashMap<String, SectionTracker>();
   private final Map<String, TocEntry> toc = new HashMap<String, TocEntry>();
@@ -611,7 +611,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
     }
     // s.append(SIDEBAR_SPACER);
-    s.append("<p><a href=\"http://gforge.hl7.org/gf/project/fhir/\" title=\"SVN Link\">Build "+svnRevision+"</a> (<a href=\"qa.html\">QA Page</a>)</p><p> <a href=\"http://hl7.org\"><img width=\"42\" height=\"50\" border=\"0\" src=\""+prefix+"hl7logo.png\"/></a></p>\r\n");
+    s.append("<p><a href=\"http://gforge.hl7.org/gf/project/fhir/\" title=\"GitHub Commit Hash\">Build "+buildId+"</a> (<a href=\"qa.html\">QA Page</a>)</p><p> <a href=\"http://hl7.org\"><img width=\"42\" height=\"50\" border=\"0\" src=\""+prefix+"hl7logo.png\"/></a></p>\r\n");
 
     s.append("</div>\r\n");
     prevSidebars.put(prefix, s.toString());
@@ -781,9 +781,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+resDesc(com[1])+s3;
       } else if (com[0].equals("rescat")) {
         src = s1+resCat(com.length == 1 ? null : s2.substring(7))+s3;
-      } else if (com[0].equals("sidebar"))
-        src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
-      else if (com[0].equals("svg"))
+      } else if (com[0].equals("svg"))
         src = s1+svgs.get(com[1])+s3;
       else if (com[0].equals("diagram"))
         src = s1+new SvgGenerator(this, genlevel(level), null, false, file.contains("datatypes")).generate(folders.srcDir+ com[1], com[2])+s3;
@@ -1161,8 +1159,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;
       } else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
-      else if (com[0].equals("revision"))
-        src = s1 + svnRevision + s3;
+      else if (com[0].equals("buildId"))
+        src = s1 + buildId + s3;
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;
       else if (com[0].equals("pub-notice"))
@@ -4998,7 +4996,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder s = new StringBuilder();
     for (PlatformGenerator gen : referenceImplementations) {
       if (gen.wantListAsDownload())
-        s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(location, gen.getDescription(version, svnRevision), "")+"</td></tr>\r\n");
+        s.append("<tr><td><a href=\""+gen.getReference(version)+"\">"+gen.getTitle()+"</a></td><td>"+processMarkdown(location, gen.getDescription(version, buildId), "")+"</td></tr>\r\n");
     }
     return s.toString();
   }
@@ -5071,9 +5069,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+resDesc(com[1])+s3;
       } else if (com[0].equals("rescat")) {
         src = s1+resCat(com.length == 1 ? null : s2.substring(7))+s3;
-      } else if (com[0].equals("sidebar"))
-        src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
-      else if (com[0].equals("w5"))
+      } else if (com[0].equals("w5"))
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("vs-warning"))
         src = s1 + vsWarning((ValueSet) resource) + s3;
@@ -5765,8 +5761,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;
       }else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
-      else if (com[0].equals("revision"))
-        src = s1 + svnRevision + s3;
+      else if (com[0].equals("buildId"))
+        src = s1 + buildId + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;
       else if (com[0].equals("piperesources"))
@@ -6188,8 +6184,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+abstractResHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("lmheader"))
         src = s1+lmHeader(name, resource.getName(), com.length > 1 ? com[1] : null, false)+s3;
-      else if (com[0].equals("sidebar"))
-        src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("settitle")) {
@@ -6324,8 +6318,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), workingTitle) : ig.makeList(name, type, genlevel(level), workingTitle)) + s3;
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
-      else if (com[0].equals("revision"))
-        src = s1 + svnRevision + s3;
+      else if (com[0].equals("buildId"))
+        src = s1 + buildId + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;
       else if (com[0].equals("atitle"))
@@ -8072,9 +8066,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com[0].equals("sidebar"))
-        src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
-      else if (com[0].equals("profileheader"))
+      if (com[0].equals("profileheader"))
         src = s1+profileHeader(fileid, com.length > 1 ? com[1] : "", hasExamples(pack))+s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
@@ -8152,8 +8144,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "profile:"+path, genlevel(0), profile.getResource().getName()) : ig.makeList(filename, "profile:"+path, genlevel(level), profile.getResource().getName())) + s3;
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
-      else if (com[0].equals("revision"))
-        src = s1 + svnRevision + s3;
+      else if (com[0].equals("buildId"))
+        src = s1 + buildId + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(0) + s3;
       else if (com[0].equals("pub-type"))
@@ -8573,9 +8565,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
-      if (com[0].equals("sidebar"))
-        src = s1+generateSideBar(com.length > 1 ? com[1] : "")+s3;
-      else if (com[0].equals("file"))
+      if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else if (com[0].equals("extDefnHeader"))
         src = s1+extDefnHeader(filename, com.length > 1 ? com[1] : null)+s3;
@@ -8655,8 +8645,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(filename, "extension:"+ed.getName(), genlevel(level), crumbTitle) : ig.makeList(filename, "extension:"+ed.getName(), genlevel(level), crumbTitle))+ s3;
       } else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
-      else if (com[0].equals("revision"))
-        src = s1 + svnRevision + s3;
+      else if (com[0].equals("buildId"))
+        src = s1 + buildId + s3;
       else if (com[0].equals("level"))
         src = s1 + genlevel(level) + s3;
       else if (com[0].equals("pub-type"))
@@ -9115,12 +9105,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return toc;
   }
 
-  public String getSvnRevision() {
-    return svnRevision;
+  public String getBuildId() {
+    return buildId;
   }
 
-  public void setSvnRevision(String svnRevision) {
-    this.svnRevision = svnRevision;
+  public void setBuildId(String buildId) {
+    this.buildId = buildId;
   }
 
   public Document getV2src() {
@@ -9533,8 +9523,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(pack.getId(), "profile:"+resourceName+"/"+pack.getId(), genlevel(level), pack.getTitle()): ig.makeList(pack.getId(), "profile:"+resourceName+"/"+pack.getId(), genlevel(level), pack.getTitle())) + s3;
       else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
-      else if (com[0].equals("revision"))
-        src = s1 + svnRevision + s3;
+      else if (com[0].equals("buildId"))
+        src = s1 + buildId + s3;
       else if (com[0].equals("pub-type"))
         src = s1 + publicationType + s3;
       else if (com[0].equals("pub-notice"))

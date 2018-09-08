@@ -4985,9 +4985,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     InputStream vis = Publisher.class.getResourceAsStream("/version.info");
     if (vis != null) {
       IniFile vi = new IniFile(vis);
-      return vi.getStringProperty("FHIR", "version")+"-"+vi.getStringProperty("FHIR", "revision");
+      if (vi.getStringProperty("FHIR", "buildId") != null)
+        return vi.getStringProperty("FHIR", "version")+"-"+vi.getStringProperty("FHIR", "buildId");
+      else
+        return vi.getStringProperty("FHIR", "version")+"-"+vi.getStringProperty("FHIR", "revision");
     }
-    return "?? (per svn?)";
+    return "?? (not a build IGPublisher?)";
   }
 
 

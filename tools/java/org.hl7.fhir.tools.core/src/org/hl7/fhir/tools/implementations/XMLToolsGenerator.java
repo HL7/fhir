@@ -29,12 +29,12 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public String getDescription(String version, String svnRevision) {
+  public String getDescription(String version, String buildId) {
     return "Document Rendering Stylesheet, supplementary implementation schemas";
   }
 
   @Override
-  public void generate(Definitions definitions, String destDir, String implDir, String actualImpl, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+  public void generate(Definitions definitions, String destDir, String implDir, String actualImpl, String version, Date genDate, Logger logger, String buildId) throws Exception {
     ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getReference(version)));
     zip.addFolder(Utilities.path(implDir, ""), "", false);
     zip.close();
