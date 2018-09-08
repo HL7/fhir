@@ -36,13 +36,13 @@ public class SpecMapManager {
   private Set<String> imageSet = new HashSet<String>();
   private String version;
 
-  public SpecMapManager(String npmName, String igVersion, String toolVersion, String toolRevision, Calendar genDate, String webUrl) {
+  public SpecMapManager(String npmName, String igVersion, String toolVersion, String buildId, Calendar genDate, String webUrl) {
     spec = new JsonObject();
     if (npmName != null)
       spec.addProperty("npm-name", npmName);
     spec.addProperty("ig-version", igVersion);
     spec.addProperty("tool-version", toolVersion);
-    spec.addProperty("tool-build", toolRevision);
+    spec.addProperty("tool-build", buildId);
     spec.addProperty("webUrl", webUrl);
     spec.addProperty("date", new SimpleDateFormat("yyyy-MM-dd").format(genDate.getTime()));
     spec.addProperty("date-time", new SimpleDateFormat("yyyyMMddhhmmssZ").format(genDate.getTime()));

@@ -29,6 +29,7 @@ package org.hl7.fhir.tools.publisher;
 
  */
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -217,10 +218,7 @@ import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
 import org.hl7.fhir.tools.converters.ValueSetImporterV3;
 import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
-import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
-import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
 import org.hl7.fhir.tools.implementations.java.JavaGenerator;
-import org.hl7.fhir.tools.implementations.javascript.JavaScriptGenerator;
 import org.hl7.fhir.tools.publisher.ExampleInspector.EValidationFailed;
 import org.hl7.fhir.tools.publisher.Publisher.ProfileBundleSorter;
 import org.hl7.fhir.utilities.CSFile;
@@ -255,9 +253,6 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.stringtemplate.v4.ST;
-import org.tigris.subversion.javahl.ClientException;
-import org.tigris.subversion.javahl.SVNClient;
-import org.tigris.subversion.javahl.Status;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -409,7 +404,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   // private BookMaker book;
 
   private JavaGenerator javaReferencePlatform;
-  private DelphiGenerator delphiReferencePlatform;
 
   private boolean isGenerate;
   private boolean noArchive;
@@ -429,7 +423,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private Map<String, Long> dates = new HashMap<String, Long>();
   private Map<String, Boolean> buildFlags = new HashMap<String, Boolean>();
   private IniFile cache;
-  private String svnStated;
   private String singleResource;
   private String singlePage;
   private PublisherTestSuites tester;
@@ -470,7 +463,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (hasParam(args, "-url"))
       pub.page.setBaseURL(getNamedParam(args, "-url"));
     if (hasParam(args, "-svn"))
-      pub.page.setSvnRevision(getNamedParam(args, "-svn"));
+      pub.page.setBuildId(getNamedParam(args, "-svn"));
 //    if (hasParam("args", "-noref"))
 //      pub.setNoReferenceImplementations(getNamedParam(args, "-noref"));
 //    if (hasParam(args, "-langfolder"))
@@ -486,29 +479,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     pub.outputdir = hasParam(args, "-output") ? getNamedParam(args, "-output") : null; 
     pub.isCIBuild = dir.contains("/ubuntu/agents/"); 
     pub.execute(dir);
-  }
-
-  /**
-   * Invokes the SVN API to find out the current revision number for SVN,
-   * returns ????
-   *
-   * @param folder
-   * @return the revision number, or "????" if SVN was not available
-   */
-  private static String checkSubversion(String folder) {
-    SVNClient svnClient = new SVNClient();
-    Status[] status;
-    try {
-      status = svnClient.status(folder, true, false, true);
-      long revNumber = 0;
-      for (Status stat : status)
-        revNumber = (revNumber < stat.getRevisionNumber()) ? stat.getRevisionNumber() : revNumber;
-      return Long.toString(revNumber);
-    } catch (ClientException e) {
-      System.out.println("Warning @ Unable to read the SVN version number: " + e.getMessage() );
-      return "????";
-    }
-
   }
 
   private static boolean hasParam(String[] args, String param) {
@@ -604,9 +574,9 @@ public class Publisher implements URIResolver, SectionNumberer {
           Utilities.tone(1200, 30);
         page.log("Full Build", LogMessageType.Process);
       }
-      if (isGenerate && page.getSvnRevision() == null)
-        page.setSvnRevision(checkSubversion(folder));
-      page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
+      if (isGenerate && page.getBuildId() == null)
+        page.setBuildId(getGitBuildId());
+      page.log("Version " + page.getVersion() + "-" + page.getBuildId(), LogMessageType.Hint);
       Utilities.createDirectory(page.getFolders().dstDir);
       Utilities.deleteTempFiles();
 
@@ -725,6 +695,25 @@ public class Publisher implements URIResolver, SectionNumberer {
       TextFile.stringToFile(e.getMessage(), Utilities.path(folder, "publish", "simple-error.txt"));
       System.exit(1);
     }
+  }
+
+  private String getGitBuildId() {
+    String version = "";
+    try {
+      String[] cmd = { "git", "describe", "--tags", "--always" };
+      Process p = Runtime.getRuntime().exec(cmd);
+      p.waitFor();
+      InputStreamReader isr = new InputStreamReader(p.getInputStream());  
+      BufferedReader br = new BufferedReader(isr);  
+      String line;  
+      while ((line = br.readLine()) != null) {  
+        version += line;  
+      }  
+    } catch (Exception e) {
+      System.out.println("Warning @ Unable to read the git commit: " + e.getMessage() );
+      version = "????";
+    }
+    return version;
   }
 
   private void generateSCMaps() throws Exception {
@@ -1500,7 +1489,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpd.setStatus(PublicationStatus.DRAFT);
     cpd.setDescription(c.getIdentity()+". "+c.getDescription());
     cpd.setExperimental(true);
-    cpd.setVersion(page.getVersion() + "-" + page.getSvnRevision());
+    cpd.setVersion(page.getVersion() + "-" + page.getBuildId());
     cpd.setDate(page.getGenDate().getTime());
     cpd.setPublisher("FHIR Project Team");
     cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.URL, "http://hl7.org/fhir"));
@@ -1546,7 +1535,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     CapabilityStatement cpbs = new CapabilityStatement();
     cpbs.setId(FormatUtilities.makeId(name));
     cpbs.setUrl("http://hl7.org/fhir/CapabilityStatement/" + name);
-    cpbs.setVersion(page.getVersion() + "-" + page.getSvnRevision());
+    cpbs.setVersion(page.getVersion() + "-" + page.getBuildId());
     cpbs.setName("Base FHIR Capability Statement " + (full ? "(Full)" : "(Empty)"));
     cpbs.setStatus(PublicationStatus.DRAFT);
     cpbs.setExperimental(true);
@@ -1737,15 +1726,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void registerReferencePlatforms() throws FileNotFoundException, IOException {
     javaReferencePlatform = new JavaGenerator(page.getFolders());
-    delphiReferencePlatform = new DelphiGenerator(page.getFolders());
     page.getReferenceImplementations().add(javaReferencePlatform);
-    page.getReferenceImplementations().add(delphiReferencePlatform);
-    page.getReferenceImplementations().add(new CSharpGenerator());
     page.getReferenceImplementations().add(new XMLToolsGenerator());
-    page.getReferenceImplementations().add(new JavaScriptGenerator());
-//    page.getReferenceImplementations().add(new EMFGenerator());
-
-    // page.getReferenceImplementations().add(new ECoreOclGenerator());
   }
 
   public boolean checkFile(String purpose, String dir, String file, List<String> errors, String category) throws IOException {
@@ -2206,12 +2188,12 @@ public class Publisher implements URIResolver, SectionNumberer {
         String tmpImplDir = Utilities.path(page.getFolders().tmpDir, gen.getName(), "");
         String actualImplDir = Utilities.path(page.getFolders().implDir(gen.getName()), "");
 
-        gen.generate(page.getDefinitions(), destDir, actualImplDir, tmpImplDir, page.getVersion(), page.getGenDate().getTime(), page, page.getSvnRevision());
+        gen.generate(page.getDefinitions(), destDir, actualImplDir, tmpImplDir, page.getVersion(), page.getGenDate().getTime(), page, page.getBuildId());
       }
       for (PlatformGenerator gen : page.getReferenceImplementations()) {
         if (gen.doesCompile()) {
           page.log("Compile " + gen.getName() + " Reference Implementation", LogMessageType.Process);
-          gen.setSvnRevision(page.getSvnRevision());
+          gen.setBuildId(page.getBuildId());
           if (!gen.compile(page.getFolders().rootDir, new ArrayList<String>(), page, page.getValidationErrors(), page.isForPublication())) {
             // Must always be able to compile Java to go on. Also, if we're
             // building
@@ -3096,7 +3078,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void produceSpecMap() throws IOException {
-    SpecMapManager spm = new SpecMapManager("hl7.fhir.core", page.getVersion(), page.getVersion(), page.getSvnRevision(), page.getGenDate(), CANONICAL_BASE);
+    SpecMapManager spm = new SpecMapManager("hl7.fhir.core", page.getVersion(), page.getVersion(), page.getBuildId(), page.getGenDate(), CANONICAL_BASE);
         
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path")) {
@@ -3733,8 +3715,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     page.log("Copy HTML templates", LogMessageType.Process);
     Utilities.copyDirectory(page.getFolders().rootDir + page.getIni().getStringProperty("html", "source"), page.getFolders().dstDir, page.getHTMLChecker());
-    TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "." + page.getSvnRevision() + "\r\nversion=" + page.getVersion()
-        + "\r\nrevision=" + page.getSvnRevision() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
+    TextFile.stringToFile("\r\n[FHIR]\r\nFhirVersion=" + page.getVersion() + "-" + page.getBuildId() + "\r\nversion=" + page.getVersion()
+        + "\r\nbuildId=" + page.getBuildId() + "\r\ndate=" + new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()),
         Utilities.path(page.getFolders().dstDir, "version.info"), false);
 
     for (String n : page.getDefinitions().getDiagrams().keySet()) {

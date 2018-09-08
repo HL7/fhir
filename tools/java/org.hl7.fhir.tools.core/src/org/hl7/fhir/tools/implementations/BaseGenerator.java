@@ -42,14 +42,14 @@ public abstract class BaseGenerator implements PlatformGenerator {
     return true;
   }
 
-  protected String svnRevision;
+  protected String buildId;
 
-  public String getSvnRevision() {
-    return svnRevision;
+  public String getBuildId() {
+    return buildId;
   }
 
-  public void setSvnRevision(String svnRevision) {
-    this.svnRevision = svnRevision;
+  public void setBuildId(String buildId) {
+    this.buildId = buildId;
   }
 
 }
