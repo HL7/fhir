@@ -570,4 +570,21 @@ public class PackageCacheManager {
     return ciList;
   }
 
+
+  public boolean hasPackage(String id, String version) {
+    for (NpmPackage p : temporaryPackages) {
+      if (p.name().equals(id) && ("current".equals(version) || "dev".equals(version) || p.version().equals(version)))
+        return true;
+    }
+    for (String f : sorted(new File(cacheFolder).list())) {
+      if (f.equals(id+"#"+version)) {
+        return true; 
+      }
+    }
+    if ("dev".equals(version))
+      return hasPackage(id, "current");
+    else
+      return false;
+  }
+
 }
