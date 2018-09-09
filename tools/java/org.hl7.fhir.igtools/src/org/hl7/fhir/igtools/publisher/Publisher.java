@@ -895,11 +895,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     fetcher.setResourceDirs(resourceDirs);
     first = true;
-    boolean copyTemplate = false;
     if (configuration == null) {
       if (configFile == null) {
+        adHocTmpDir = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-scratch");
+        log("Using inbuilt IG template in "+sourceDir);
+        copyDefaultTemplate();
         buildConfigFile();
-        copyTemplate = true;
       } else
         log("Load Configuration from "+configFile);
       try {
@@ -1062,10 +1063,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else 
       checkTSVersion(vsCache, context.connectToTSServer(webTxServer));
     
-// commented out GDG - talk to me if you want this back
-//    if (copyTemplate)
-//      copyTemplate();
-//    
+    
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, checkAppendSlash(specPath), configuration, errors, version.equals("1.0.2"));
     igpkp.loadSpecPaths(specMaps.get(0));
@@ -1269,9 +1267,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void copyTemplate() throws IOException {
-    byte[] template = context.getBinaries().get("ig-template.zip");
-    ZipInputStream zip = new ZipInputStream(new ByteArrayInputStream(template));
+  private void copyDefaultTemplate() throws IOException, FHIRException {
+    if (!new File(adHocTmpDir).exists())
+      Utilities.createDirectory(adHocTmpDir);
+    Utilities.clearDirectory(adHocTmpDir);
+
+    PackageCacheManager pcm = new PackageCacheManager(true);
+    
+    NpmPackage npm = null; 
+    if (pcm.hasPackage("hl7.fhir.core", Constants.VERSION))
+        npm = pcm.loadPackageCache("hl7.fhir.core", Constants.VERSION);
+    else
+      npm = pcm.resolvePackage("hl7.fhir.core", Constants.VERSION, Constants.VERSION);
+    
+    ZipInputStream zip = new ZipInputStream(npm.load("other", "ig-template.zip"));
     byte[] buffer = new byte[2048];
     ZipEntry entry;
     while((entry = zip.getNextEntry())!=null) {
@@ -1285,22 +1294,17 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       output.close();
     }
     zip.close();
-    // replace config
-    configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
   }
 
   private void buildConfigFile() throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError {
-    log("Process Resources from "+sourceDir);
-    adHocTmpDir = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-scratch");
-    if (!new File(adHocTmpDir).exists())
-      Utilities.createDirectory(adHocTmpDir);
-    Utilities.clearDirectory(adHocTmpDir);
     configFile = Utilities.path(adHocTmpDir, "ig.json");
     // temporary config, until full ig template is in place
     TextFile.stringToFile(
             "{\r\n"+
             "  \"tool\" : \"jekyll\",\r\n"+
             "  \"canonicalBase\" : \"http://hl7.org/fhir/ig\",\r\n"+
+            "  \"npm-name\" : \"hl7.fhir.test.ig\",\r\n"+
+            "  \"license\" : \"not-open-source\",\r\n"+
             "  \"resources\" : {},\r\n"+
             "  \"paths\" : {\r\n"+
             "    \"resources\" : \"resources\",\r\n"+
@@ -1659,7 +1663,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
 
     if (!configuration.has("npm-name"))
-      throw new Exception("A package name (npm-name) is required to pubish implementation guides. For further information, see http://wiki.hl7.org/index.php?title=FHIR_NPM_Package_Spec#Package_name");
+      throw new Exception("A package name (npm-name) is required to publish implementation guides. For further information, see http://wiki.hl7.org/index.php?title=FHIR_NPM_Package_Spec#Package_name");
     publishedIg = sourceIg.copy();
     if (!publishedIg.hasLicense())
       publishedIg.setLicense(licenseAsEnum());
