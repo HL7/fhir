@@ -119,7 +119,7 @@ public class OldVersionRedirector {
       
       File ff = new CSFile(Utilities.path(dir.getAbsolutePath(), f)); 
       if (ff.isDirectory()) {
-        if (!f.startsWith(".")) // ignore .svn...
+        if (!f.startsWith(".")) // ignore .git...
           listAllFiles(filenames, ff);
       } else if (f.endsWith(".html") || f.endsWith(".htm")) {
         filenames.add(ff.getAbsolutePath());

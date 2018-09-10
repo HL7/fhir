@@ -197,7 +197,7 @@ public class Utilities {
    String[] files = src.list();
    for (String f : files) {
      if (new CSFile(sourceFolder+File.separator+f).isDirectory()) {
-       if (!f.startsWith(".")) // ignore .svn...
+       if (!f.startsWith(".")) // ignore .git files...
          copyDirectory(sourceFolder+File.separator+f, destFolder+File.separator+f, notifier);
      } else {
        if (notifier != null)
