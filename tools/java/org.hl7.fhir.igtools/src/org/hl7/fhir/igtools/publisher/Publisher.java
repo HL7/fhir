@@ -168,6 +168,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -1340,7 +1341,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       // we'll check for a specified version...
       log("Checking hl7.fhir.core-"+v+" currency");
       int cacheVersion = getBuildVersionForCorePackage(pi);
-      int lastAcceptableVersion = getLastOkCoreVersion();
+      int lastAcceptableVersion = ToolsVersion.TOOLS_VERSION;
       if (cacheVersion < lastAcceptableVersion) {
         log("Updating hl7.fhir.core-"+version+" package from source (too old - is "+cacheVersion+", must be "+lastAcceptableVersion);
         pi = pcm.addPackageToCache("hl7.fhir.core", "current", fetchFromSource("hl7.fhir.core-"+v, getMasterSource()));
@@ -1352,16 +1353,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return loadPack(pi);
   }
 
-  private int getLastOkCoreVersion() throws IOException {
-    JsonObject json = fetchJson("http://build.fhir.org/package-min-ver.json");
-    return Integer.valueOf(json.get("build").getAsString());
-  }
-
 
   private int getBuildVersionForCorePackage(NpmPackage pi) throws IOException {
-    String json = TextFile.streamToString(pi.load("other", "spec.internals"));
-    JsonObject info = (JsonObject) new com.google.gson.JsonParser().parse(json);
-    return Integer.valueOf(info.get("tool-build").getAsString());
+    if (!pi.getNpm().has("tools-version"))
+      return 0;
+    return pi.getNpm().get("tools-version").getAsInt();
   }
 
 

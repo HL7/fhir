@@ -229,6 +229,7 @@ import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.NDJsonWriter;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.cache.PackageGenerator;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 import org.hl7.fhir.utilities.json.JSONUtil;
 import org.hl7.fhir.utilities.TextFile;
@@ -3068,6 +3069,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     
     npm.name("fhir");
     npm.version(Constants.VERSION);
+    npm.toolsVersion(ToolsVersion.TOOLS_VERSION);
     npm.description("Base FHIR specification Package");
     npm.license("CC0-1.0");
     npm.author("HL7, Inc", null, "http://hl7.org");

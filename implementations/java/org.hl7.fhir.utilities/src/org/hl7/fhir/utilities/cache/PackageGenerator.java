@@ -71,6 +71,11 @@ public class PackageGenerator {
     return this;
   }
   
+  public PackageGenerator toolsVersion(int value) {
+    object.addProperty("tools-version", value);
+    return this;
+  }
+  
   public PackageGenerator description(String value) {
     object.addProperty("description", value);
     return this;    
