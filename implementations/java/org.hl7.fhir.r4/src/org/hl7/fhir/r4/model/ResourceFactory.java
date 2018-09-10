@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Aug 19, 2018 19:21+1000 for FHIR v3.5.0
+// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -42,6 +42,8 @@ public class ResourceFactory extends Factory {
             return new Account();
         if ("Invoice".equals(name))
             return new Invoice();
+        if ("CatalogEntry".equals(name))
+            return new CatalogEntry();
         if ("EventDefinition".equals(name))
             return new EventDefinition();
         if ("DocumentManifest".equals(name))
@@ -66,8 +68,6 @@ public class ResourceFactory extends Factory {
             return new Measure();
         if ("ResearchSubject".equals(name))
             return new ResearchSubject();
-        if ("EntryDefinition".equals(name))
-            return new EntryDefinition();
         if ("Subscription".equals(name))
             return new Subscription();
         if ("MedicinalProductClinicals".equals(name))
@@ -472,6 +472,7 @@ public class ResourceFactory extends Factory {
         case -871422185: return new CapabilityStatement();
         case 57208314: return new CarePlan();
         case 57320750: return new CareTeam();
+        case -1007602695: return new CatalogEntry();
         case -883723257: return new ChargeItem();
         case -315725638: return new ChargeItemDefinition();
         case 65189916: return new Claim();
@@ -513,7 +514,6 @@ public class ResourceFactory extends Factory {
         case 1805746613: return new Endpoint();
         case -1377846581: return new EnrollmentRequest();
         case 289362821: return new EnrollmentResponse();
-        case 1616800581: return new EntryDefinition();
         case -1093178557: return new EpisodeOfCare();
         case 1851868013: return new EventDefinition();
         case 1175230202: return new ExampleScenario();
