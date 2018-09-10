@@ -213,39 +213,42 @@ public class SimpleFetcher implements IFetchFile {
     List<FetchedFile> res = new ArrayList<>();
     for (String s : sources) {
       int count = 0;
-      for (File f : new File(s).listFiles()) {
-        if (!f.isDirectory()) {
-          String fn = f.getCanonicalPath();
-          String ext = Utilities.getFileExtension(fn);
-          if (!Utilities.existsInList(ext, "md", "txt") && !fn.endsWith(".gitignore")) {
-            boolean ok = false;
-            if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
-              try {
-                org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
-                addFile(res, f, "application/fhir+xml");
-                count++;
-                ok = true;
-              } catch (Exception e) {
-                log.logMessage(e.getMessage() +" loading "+f);
+      File file = new File(s);
+      if (file.exists()) {
+        for (File f : file.listFiles()) {
+          if (!f.isDirectory()) {
+            String fn = f.getCanonicalPath();
+            String ext = Utilities.getFileExtension(fn);
+            if (!Utilities.existsInList(ext, "md", "txt") && !fn.endsWith(".gitignore")) {
+              boolean ok = false;
+              if (!Utilities.existsInList(ext, "json", "ttl", "html", "txt"))
+                try {
+                  org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.XmlParser(context).parse(new FileInputStream(f));
+                  addFile(res, f, "application/fhir+xml");
+                  count++;
+                  ok = true;
+                } catch (Exception e) {
+                  log.logMessage(e.getMessage() +" loading "+f);
+                }
+              if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
+                try {
+                  org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
+                  addFile(res, f, "application/fhir+json");
+                  count++;
+                  ok = true;
+                } catch (Exception e) {
+                  log.logMessage(e.getMessage() +" loading "+f);
+                }
               }
-            if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
-              try {
-                org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.JsonParser(context).parse(new FileInputStream(fn));
-                addFile(res, f, "application/fhir+json");
-                count++;
-                ok = true;
-              } catch (Exception e) {
-                log.logMessage(e.getMessage() +" loading "+f);
-              }
-            }
-            if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
-              try {
-                org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
-                addFile(res, f, "application/fhir+turtle");
-                count++;
-                ok = true;
-              } catch (Exception e) {
-                log.logMessage(e.getMessage() +" loading "+f);
+              if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
+                try {
+                  org.hl7.fhir.r4.elementmodel.Element e = new org.hl7.fhir.r4.elementmodel.TurtleParser(context).parse(new FileInputStream(fn));
+                  addFile(res, f, "application/fhir+turtle");
+                  count++;
+                  ok = true;
+                } catch (Exception e) {
+                  log.logMessage(e.getMessage() +" loading "+f);
+                }
               }
             }
           }
