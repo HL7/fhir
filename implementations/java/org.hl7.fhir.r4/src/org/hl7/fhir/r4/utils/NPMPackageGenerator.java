@@ -23,6 +23,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnCom
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.omg.IOP.TAG_ALTERNATE_IIOP_ADDRESS;
 
 import com.google.gson.Gson;
@@ -88,6 +89,7 @@ public class NPMPackageGenerator {
     JsonObject npm = new JsonObject();
     npm.addProperty("name", ig.getPackageId());
     npm.addProperty("version", ig.getVersion());
+    npm.addProperty("tools-version", ToolsVersion.TOOLS_VERSION);
     npm.addProperty("type", kind.getCode());
     if (ig.hasLicense())
       npm.addProperty("license", ig.getLicense().toCode());
