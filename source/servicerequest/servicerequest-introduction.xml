@@ -3,49 +3,6 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<a name="dstu"></a>
-[%stu-note%]
-In terms of scope and usage, the Patient Care and Orders and Observations workgroups wish to
-draw the attention of reviewers and implementers to the following issues:
-</p>
-			<ol>
-				<li>
-ReferralRequest and ProcedureRequest have been merged into ServiceRequest since their content was nearly identical and no clear distinction was identified for managing the transfer of care responsibility from one practitioner/organization to another (Note that for STU3 DiagnosticRequest and ProcedureRequest were merged).  We are seeking input on:
-
-				<ul>
-					<li> How to represent whether a transfer of care is being requested</li>
-					<li> Which elements if any in the ServiceRequest resource might not be applicable for a referral.</li>
-				</ul>
-				</li>
-				<li>The following elements have been added to this resource:
-				<ul>
-					<li>
-						<a href="servicerequest-definitions.html#ServiceRequest.orderDetail">orderDetail</a>
-					</li>
-					<li>
-						<a href="servicerequest-definitions.html#ServiceRequest.patientInstruction">patientInstruction</a>
-					</li>
-					<li>
-						<a href="servicerequest-definitions.html#ServiceRequest.insurance">insurance</a>
-					</li>
-				</ul>
-				</li>
-				<li>Based on the workflow <a href="request.html">request</a> pattern changes, the following have been updated:
-				<ul>
-					<li>
-						The <code>definition</code> element was renamed to <a href="servicerequest-definitions.html#ServiceRequest.instantiates">instantiates</a>
-					</li>
-					<li>
-						The <code>requester</code> collapsed into a single element (<code>requester.agent</code> and <code>request.onBehalfOf</code> elements removed) and a reference to <a href="practitionerrole.html">PractitionerRole</a> added to the choices of reference targets
-					</li>
-					<li>
-						Additional reference targets added to the <code>performer</code>, and <code>reasonReference</code> elements.
-					</li>
-					<li>
-						Added a statusReason standard extension - We would like implementer input on whether extension should be promoted to an inline element.
-					</li>
-				</ul></li>
-			</ol>
-[%end-note-np%]
 		<p>
 			<strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
 		<p>
