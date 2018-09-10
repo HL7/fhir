@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sun, Aug 19, 2018 19:21+1000 for FHIR v3.5.0
+// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
 
 public enum ResourceType {
     Account,
@@ -20,6 +20,7 @@ public enum ResourceType {
     CapabilityStatement,
     CarePlan,
     CareTeam,
+    CatalogEntry,
     ChargeItem,
     ChargeItemDefinition,
     Claim,
@@ -50,7 +51,6 @@ public enum ResourceType {
     Endpoint,
     EnrollmentRequest,
     EnrollmentResponse,
-    EntryDefinition,
     EpisodeOfCare,
     EventDefinition,
     ExampleScenario,
@@ -182,6 +182,8 @@ public enum ResourceType {
       return "careplan";
     case CareTeam:
       return "careteam";
+    case CatalogEntry:
+      return "catalogentry";
     case ChargeItem:
       return "chargeitem";
     case ChargeItemDefinition:
@@ -242,8 +244,6 @@ public enum ResourceType {
       return "enrollmentrequest";
     case EnrollmentResponse:
       return "enrollmentresponse";
-    case EntryDefinition:
-      return "entrydefinition";
     case EpisodeOfCare:
       return "episodeofcare";
     case EventDefinition:
@@ -474,6 +474,8 @@ public enum ResourceType {
       return CarePlan;
     if ("CareTeam".equals(code))
       return CareTeam;
+    if ("CatalogEntry".equals(code))
+      return CatalogEntry;
     if ("ChargeItem".equals(code))
       return ChargeItem;
     if ("ChargeItemDefinition".equals(code))
@@ -534,8 +536,6 @@ public enum ResourceType {
       return EnrollmentRequest;
     if ("EnrollmentResponse".equals(code))
       return EnrollmentResponse;
-    if ("EntryDefinition".equals(code))
-      return EntryDefinition;
     if ("EpisodeOfCare".equals(code))
       return EpisodeOfCare;
     if ("EventDefinition".equals(code))
