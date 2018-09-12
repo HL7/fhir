@@ -471,6 +471,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String targetOutputNested;
 
   private String folderToDelete;
+
+  private String specifiedVersion;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -1300,12 +1302,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void buildConfigFile() throws IOException, org.hl7.fhir.exceptions.FHIRException, FHIRFormatError {
     configFile = Utilities.path(adHocTmpDir, "ig.json");
     // temporary config, until full ig template is in place
+    String v = specifiedVersion != null ? specifiedVersion : Constants.VERSION; 
+    String igs = v.equals("3.0.1") ? "ig3.xml" : "ig4.xml";
     TextFile.stringToFile(
             "{\r\n"+
             "  \"tool\" : \"jekyll\",\r\n"+
             "  \"canonicalBase\" : \"http://hl7.org/fhir/ig\",\r\n"+
             "  \"npm-name\" : \"hl7.fhir.test.ig\",\r\n"+
             "  \"license\" : \"not-open-source\",\r\n"+
+            "  \"version\" : \""+v+"\",\r\n"+
             "  \"resources\" : {},\r\n"+
             "  \"paths\" : {\r\n"+
             "    \"resources\" : \"resources\",\r\n"+
@@ -1316,7 +1321,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             "    \"specification\" : \"http://build.fhir.org/\"\r\n"+
             "  },\r\n"+
             "  \"sct-edition\": \"http://snomed.info/sct/900000000000207008\",\r\n"+
-            "  \"source\": \"ig.xml\"\r\n"+
+            "  \"source\": \""+igs+"\"\r\n"+
             "}\r\n", configFile, false);
     Utilities.createDirectory(Utilities.path(adHocTmpDir, "resources"));
     Utilities.createDirectory(Utilities.path(adHocTmpDir, "pages"));
@@ -4773,6 +4778,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         // run with standard template. this is publishing lite
         self.setSourceDir(getNamedParam(args, "-source"));
         self.setDestDir(getNamedParam(args, "-destination"));
+        self.specifiedVersion = getNamedParam(args, "-version");
       } else if(!hasParam(args, "-ig") && args.length == 1 && new File(args[0]).exists()) {
         self.setConfigFile(args[0]);
       } else if (hasParam(args, "-prompt")) {

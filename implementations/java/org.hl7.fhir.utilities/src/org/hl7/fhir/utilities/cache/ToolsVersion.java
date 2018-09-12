@@ -14,8 +14,9 @@ public class ToolsVersion {
    * this constant is checked 
    *  - when loading the current version package
    */
-  public final static int TOOLS_VERSION = 1;
+  public final static int TOOLS_VERSION = 2;
   
   // version history:
+  // 2: split auto-ig into r3/r4 content
   // arbitrarily started at 1 when changing to git
 }
