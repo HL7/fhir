@@ -1,0 +1,10 @@
+rules:
+  default:
+    protection:
+      enforce_admins: true
+      restrictions:
+        teams:
+        - fhir-committers-mergify
+      required_status_checks:
+        contexts:
+        - FHIR Pull Request Status
