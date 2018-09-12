@@ -23,14 +23,15 @@ import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 public class CodeSystemRenderer extends BaseRenderer {
 
   private CodeSystem cs;
 
-  public CodeSystemRenderer(IWorkerContext context, String prefix, CodeSystem cs, IGKnowledgeProvider igp, List<SpecMapManager> maps, MarkDownProcessor markdownEngine) {
-    super(context, prefix, igp, maps, markdownEngine);
+  public CodeSystemRenderer(IWorkerContext context, String prefix, CodeSystem cs, IGKnowledgeProvider igp, List<SpecMapManager> maps, MarkDownProcessor markdownEngine, NpmPackage packge) {
+    super(context, prefix, igp, maps, markdownEngine, packge);
     this.cs = cs;
   }
 

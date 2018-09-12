@@ -54,6 +54,7 @@ import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
@@ -67,8 +68,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private StructureDefinition sd;
   private String destDir;
 
-  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, IGKnowledgeProvider igp, List<SpecMapManager> maps, MarkDownProcessor markdownEngine) {
-    super(context, prefix, igp, maps, markdownEngine);
+  public StructureDefinitionRenderer(IWorkerContext context, String prefix, StructureDefinition sd, String destDir, IGKnowledgeProvider igp, List<SpecMapManager> maps, MarkDownProcessor markdownEngine, NpmPackage packge) {
+    super(context, prefix, igp, maps, markdownEngine, packge);
     this.sd = sd;
     this.destDir = destDir;
     utils = new ProfileUtilities(context, null, igp);
@@ -924,7 +925,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       StringBuilder s = new StringBuilder();
       for (StructureDefinitionMappingComponent map : sd.getMapping()) {
 
-        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+translate("sd.maps", "Mappings for %s (%s)", Utilities.escapeXml(gt(map.getNameElement())), map.getUri())+"</h3>");
+        String url = getUrlForUri(map.getUri());
+        if (url == null)
+          s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+translate("sd.maps", "Mappings for %s (%s)", Utilities.escapeXml(gt(map.getNameElement())), map.getUri())+"</h3>");
+        else
+          s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+translate("sd.maps", "Mappings for %s (<a href=\""+url+"\">%s</a>)", Utilities.escapeXml(gt(map.getNameElement())), map.getUri())+"</h3>");
         if (map.hasComment())
           s.append("<p>"+Utilities.escapeXml(gt(map.getCommentElement()))+"</p>");
 //        else if (specmaps != null && preambles.has(map.getUri()))   
@@ -947,6 +952,33 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
       return s.toString();
     }
+  }
+
+  private String getUrlForUri(String uri) {
+    if (Utilities.existsInList(uri,"http://clinicaltrials.gov",
+        "http://github.com/MDMI/ReferentIndexContent",
+        "http://loinc.org",
+        "http://metadata-standards.org/11179/",
+        "http://openehr.org",
+        "http://snomed.info/sct",
+        "http://wiki.ihe.net/index.php?title=Data_Element_Exchange",
+        "http://www.cda-adc.ca/en/services/cdanet/",
+        "http://www.cdisc.org/define-xml",
+        "http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm",
+        "http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378",
+        "http://www.ietf.org/rfc/rfc2445.txt",
+        "http://www.omg.org/spec/ServD/1.0/",
+        "http://www.pharmacists.ca/",
+        "http://www.w3.org/ns/prov"))
+      return uri;
+    if ("http://hl7.org/fhir/auditevent".equals(uri)) return "http://hl7.org/fhir/auditevent.html";
+    if ("http://hl7.org/fhir/provenance".equals(uri)) return "http://hl7.org/fhir/provenance.html";
+    if ("http://hl7.org/fhir/w5".equals(uri)) return "http://hl7.org/fhir/w5.html";
+    if ("http://hl7.org/fhir/workflow".equals(uri)) return "http://hl7.org/fhir/workflow.html";
+    if ("http://hl7.org/v2".equals(uri)) return "http://hl7.org/comparison-v2.html";
+    if ("http://hl7.org/v3".equals(uri)) return "http://hl7.org/comparison-v3.html";
+    if ("http://hl7.org/v3/cda".equals(uri)) return "http://hl7.org/comparison-cda.html";
+    return null;
   }
 
   private boolean hasMappings(ElementDefinition e, StructureDefinitionMappingComponent map) {
