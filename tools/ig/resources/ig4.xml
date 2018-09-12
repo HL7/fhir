@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Hidden IG for de facto IG publishing
+-->
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ig"/>
+  <url value="http://hl7.org/fhir/ig"/>
+  <name value="Implementation Guide Template"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project"/>
+  <definition>
+    <package>
+      <name value="base"/>
+    </package>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="Home Page"/>
+    </page>
+  </definition>
+</ImplementationGuide>
