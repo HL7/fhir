@@ -58,7 +58,7 @@ public class TableGenerator extends BaseGenerator {
     if (e.isModifier()) 
       gc.addStyledText("This element is a modifier element", "?!", null, null, prefix+"conformance-rules.html#isModifier", false);
     if (e.isSummary()) 
-      gc.addStyledText("This element is included in summaries", "Σ", null, null, prefix+"elementdefinition-definitions.html#ElementDefinition.isSummary", false);
+      gc.addStyledText("This element is included in summaries", "\u03A3", null, null, prefix+"elementdefinition-definitions.html#ElementDefinition.isSummary", false);
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 
       gc.addStyledText("This element has or is affected by some invariants", "I", null, null, prefix+"conformance-rules.html#constraints", false);
     if (rootStatus != null)
