@@ -1,8 +1,9 @@
 rules:
   default:
     protection:
-      required_pull_request_reviews:
-        required_approving_review_count: 1
+      restrictions:
+        teams:
+        - fhir-committers-mergify
       required_status_checks:
         contexts:
         - FHIR Pull Request Status
