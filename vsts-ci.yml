@@ -3,6 +3,7 @@ queue:
 steps:
 - bash: |
    set -ev
+   env
    [ -d publish ] && rm -rf publish   
    
    antBuild (){
