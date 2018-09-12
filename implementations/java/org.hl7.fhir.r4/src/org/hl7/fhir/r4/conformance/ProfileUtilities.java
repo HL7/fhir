@@ -2180,7 +2180,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       if (element != null && element.getMustSupport())
         checkForNoChange(element.getMustSupportElement(), gc.addStyledText(translate("sd.table", "This element must be supported"), "S", "white", "red", null, false));
       if (element != null && element.getIsSummary())
-        checkForNoChange(element.getIsSummaryElement(), gc.addStyledText(translate("sd.table", "This element is included in summaries"), "Σ", null, null, null, false));
+        checkForNoChange(element.getIsSummaryElement(), gc.addStyledText(translate("sd.table", "This element is included in summaries"), "\u03A3", null, null, null, false));
       if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty()))
         gc.addStyledText(translate("sd.table", "This element has or is affected by some invariants"), "I", null, null, null, false);
 
