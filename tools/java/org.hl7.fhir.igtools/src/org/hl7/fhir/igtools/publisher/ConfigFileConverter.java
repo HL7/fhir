@@ -274,7 +274,7 @@ public class ConfigFileConverter {
       else
         throw new Exception("Unable to determine file type for "+filename);
     } else
-      throw new Exception("Unsupported version "+version);
+      throw new Exception("Unsupported version "+version+" (current = "+Constants.VERSION+"-"+Constants.REVISION+")");
     
   }
   
