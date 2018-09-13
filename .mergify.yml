@@ -8,3 +8,4 @@ rules:
       required_status_checks:
         contexts:
         - FHIR Pull Request Status
+      required_pull_request_reviews: null
