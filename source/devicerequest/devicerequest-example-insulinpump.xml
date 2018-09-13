@@ -37,9 +37,9 @@
 <subject>
   <reference value="Patient/dicom"/>
 </subject>
-<context>
+<encounter>
   <display value="Encounter 1"/>
-</context>
+</encounter>
 <occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
 <authoredOn value="2013-05-08T09:33:27+07:00"/>
 <requester>
