@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MeasureReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
   <id value="measurereport-cms146-cat2-example"/>
   <text>
@@ -1547,6 +1547,7 @@
   <status value="complete"/>
   <type value="subject-list"/>
   <measure value="Measure/CMS146"/>
+  <date value="2014-04-01"/>
   <reporter>
     <reference value="#reporter"/>
   </reporter>

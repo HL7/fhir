@@ -1,4 +1,4 @@
-﻿<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
   <id value="zika-virus-intervention-logic"/>
   <text>
     <status value="generated"/>
@@ -19,6 +19,28 @@
   </type>
   <date value="2016-11-14"/>
   <description value="Decision support logic for managing zika virus infection"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueRange>
+      <low><value value="12"/><unit value="a"/></low>
+    </valueRange>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="user"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="309343006"/>
+        <display value="Physician"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
   <topic>
     <text value="Zika Virus Management"/>
   </topic>
