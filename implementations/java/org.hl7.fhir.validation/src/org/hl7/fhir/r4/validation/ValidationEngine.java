@@ -386,9 +386,6 @@ public class ValidationEngine {
       else
         return fetchFromUrl(src+(v == null ? "" : "|"+v));
     }
-    if ((src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) && !src.endsWith(".zip") && !src.endsWith(".tgz")) {
-      return fetchByPackage(src);
-    }
     
     File f = new File(src);
     if (f.exists()) {
@@ -412,6 +409,8 @@ public class ValidationEngine {
         res.put(Utilities.changeFileExt(src, "."+fmt.getExtension()), TextFile.fileToBytes(src));
         return res;
       }
+    } else if ((src.matches(PackageCacheManager.PACKAGE_REGEX) || src.matches(PackageCacheManager.PACKAGE_VERSION_REGEX)) && !src.endsWith(".zip") && !src.endsWith(".tgz")) {
+      return fetchByPackage(src);
     }
     throw new Exception("Unable to find/resolve/read -ig "+src);
   }
@@ -618,6 +617,8 @@ public class ValidationEngine {
     String canonical = null;
     Map<String, byte[]> source = loadIgSource(src);
     String version = Constants.VERSION;
+    if (this.version != null)
+      version = this.version;
     if (source.containsKey("version.info"))
       version = readInfoVersion(source.get("version.info"));
     
@@ -976,4 +977,13 @@ public class ValidationEngine {
     
   }
 
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  
 }
