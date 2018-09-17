@@ -247,6 +247,7 @@ public class Validator {
       String output = null;
       List<String> sources= new ArrayList<String>();
       Map<String, String> locations = new HashMap<String, String>();
+      String sv = null;
 
         // load the parameters - so order doesn't matter
       for (int i = 0; i < args.length; i++) {
@@ -256,12 +257,12 @@ public class Validator {
           else
             definitions = args[++i];
         else if (args[i].equals("-version"))  {
-          String v = args[++i];
-          if ("1.0".equals(v)) v = "1.0.2";
-          if ("1.4".equals(v)) v = "1.4.0";
-          if ("3.0".equals(v)) v = "3.0.1";
-          if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
-          definitions = "hl7.fhir.core#"+v;
+          sv = args[++i];
+          if ("1.0".equals(sv)) sv = "1.0.2";
+          if ("1.4".equals(sv)) sv = "1.4.0";
+          if ("3.0".equals(sv)) sv = "3.0.1";
+          if (sv.startsWith(Constants.VERSION)) sv = Constants.VERSION;
+          definitions = "hl7.fhir.core#"+sv;
         } else if (args[i].equals("-output"))
           if (i+1 == args.length)
             throw new Error("Specified -output without indicating output file");
@@ -336,6 +337,8 @@ public class Validator {
       System.out.println("  .. definitions from "+definitions);
       ValidationEngine validator = new ValidationEngine(definitions, txServer);
       System.out.println("    (v"+validator.getContext().getVersion()+")");
+      if (sv != null)
+        validator.setVersion(sv);
       for (String src : igs) {
         System.out.println("+  .. load IG from "+src);
           validator.loadIg(src);
