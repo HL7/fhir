@@ -70,7 +70,7 @@ public class OpenApiGenerator {
     if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
       resp.header("ETag").description("Version from Resource.meta.version as a weak ETag");
     if (isJson())
-      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema#/definitions/"+r.getType());
     if (isXml())
       resp.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
   }
@@ -85,7 +85,7 @@ public class OpenApiGenerator {
     if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
       resp.header("ETag").description("Version from Resource.meta.version as a weak ETag");
     if (isJson())
-      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/Bundle");
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema#/definitions/Bundle");
     if (isXml())
       resp.content("application/fhir+xml").schemaRef(specRef()+"/Bundle.xsd");
   }
@@ -100,7 +100,7 @@ public class OpenApiGenerator {
     if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
       resp.header("ETag").description("Version from Resource.meta.version as a weak ETag for that version");
     if (isJson())
-      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema#/definitions/"+r.getType());
     if (isXml())
       resp.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
   }
@@ -113,7 +113,7 @@ public class OpenApiGenerator {
     RequestBodyWriter req = op.request();
     req.description("The new state of the resource").required(true);
     if (isJson())
-      req.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+      req.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema#/definitions/"+r.getType());
     if (isXml())
       req.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
     
@@ -123,7 +123,7 @@ public class OpenApiGenerator {
     if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
       resp.header("ETag").description("Version from Resource.meta.version as a weak ETag");
     if (isJson())
-      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema#/definitions/"+r.getType());
     if (isXml())
       resp.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
   }
@@ -131,7 +131,7 @@ public class OpenApiGenerator {
   private void opOutcome(ResponseObjectWriter resp) {
     resp.description("Error, with details");
     if (isJson())
-      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/OperationOutcome");
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema#/definitions/OperationOutcome");
     if (isXml())
       resp.content("application/fhir+xml").schemaRef(specRef()+"/OperationOutcome.xsd");    
   }
