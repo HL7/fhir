@@ -60,17 +60,17 @@ public class NPMPackageGenerator {
   private BufferedOutputStream bufferedOutputStream;
   private GzipCompressorOutputStream gzipOutputStream;
   
-  public NPMPackageGenerator(String destFile, String canonical, String url, PackageType kind, ImplementationGuide ig) throws FHIRException, IOException {
+  public NPMPackageGenerator(String destFile, String canonical, String url, PackageType kind, ImplementationGuide ig, String genDate) throws FHIRException, IOException {
     super();
     System.out.println("create package file at "+destFile);
     this.destFile = destFile;
     this.ig = ig;
     start();
-    buildPackageJson(canonical, kind, url);
+    buildPackageJson(canonical, kind, url, genDate);
   }
   
   
-  private void buildPackageJson(String canonical, PackageType kind, String web) throws FHIRException, IOException {
+  private void buildPackageJson(String canonical, PackageType kind, String web, String genDate) throws FHIRException, IOException {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     if (!ig.hasPackageId())
       b.append("packageId");
@@ -98,7 +98,7 @@ public class NPMPackageGenerator {
     if (ig.hasTitle())
       npm.addProperty("title", ig.getTitle());
     if (ig.hasDescription())
-      npm.addProperty("description", ig.getDescription());
+      npm.addProperty("description", ig.getDescription()+ "(built "+genDate+")");
     JsonObject dep = new JsonObject();
     npm.add("dependencies", dep);
     dep.addProperty("hl7.fhir.core", ig.getFhirVersion());
