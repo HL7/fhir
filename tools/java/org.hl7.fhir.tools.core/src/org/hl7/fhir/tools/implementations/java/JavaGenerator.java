@@ -101,6 +101,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private Map<String, String> hashes = new HashMap<String, String>();
   private Map<String, String> adornments = new HashMap<String, String>();
   private Map<String, String> enumInfo = new HashMap<String, String>();
+
+  private Date genDate;
   
   public JavaGenerator(FolderManager folders) throws FileNotFoundException, IOException {
     super();
@@ -145,6 +147,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   @Override
   public void generate(Definitions definitions, String destDir, String actualImpl, String implDir, String version, Date genDate, Logger logger, String buildId) throws Exception {
     char sl = File.separatorChar;
+    this.genDate = genDate;
     javaDir       =  implDir+"org.hl7.fhir.r4"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"model"+sl;
     javaParserDir =  implDir+"org.hl7.fhir.r4"+sl+"src"+sl+"org"+sl+"hl7"+sl+"fhir"+sl+"r4"+sl+"formats"+sl;
     Utilities.createDirectory(javaDir);
@@ -505,7 +508,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     ig.setPublisher("http://hl7.org/fhir");
     ig.setFhirVersion(Constants.VERSION);
         
-    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folders.dstDir, "validator.tgz"), ig.getUrl(), forWeb ? "http://hl7.org/fhir" : "http://build.fhir.org", PackageType.TOOL, ig );
+    NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folders.dstDir, "validator.tgz"), ig.getUrl(), forWeb ? "http://hl7.org/fhir" : "http://build.fhir.org", PackageType.TOOL, ig, Config.DATE_FORMAT().format(genDate) );
     npm.addFile(Category.TOOL, "org.hl7.fhir.validator.jar", TextFile.fileToBytes(Utilities.path(folders.dstDir, "org.hl7.fhir.validator.jar")));
     npm.finish();
     return true;
