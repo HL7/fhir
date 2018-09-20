@@ -267,7 +267,10 @@ signatures.html
       <page type="resource" resource="Substance"/>
       <page type="resource" resource="SubstanceSpecification"/>
       <page type="resource" resource="SubstancePolymer"/>
+      <page type="resource" resource="SubstanceProtein"/>
+      <page type="resource" resource="SubstanceNucleicAcid"/>
       <page type="resource" resource="SubstanceReferenceInformation"/>
+      <page type="resource" resource="SubstanceSourceMaterial"/>
       <page type="resource" resource="Person"/>
       <page type="resource" resource="Linkage"/>
       <page type="resource" resource="Communication"/>
