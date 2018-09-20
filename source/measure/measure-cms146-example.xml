@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Measure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measure.xsd">
   <id value="measure-cms146-example"/>
   <text>
@@ -37,6 +37,16 @@
     <valueCodeableConcept>
       <text value="eligibile-provider"/>
     </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueRange>
+      <low><value value="3"/><unit value="a"/></low>
+      <high><value value="18"/><unit value="a"/></high>
+    </valueRange>
   </useContext>
   <jurisdiction>
     <coding>

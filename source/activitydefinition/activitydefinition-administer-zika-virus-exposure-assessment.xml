@@ -90,6 +90,15 @@
   <url value="http://example.org/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
   <status value="draft"/>
   <description value="Administer Zika Virus Exposure Assessment"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueRange>
+      <low><value value="12"/><unit value="a"/></low>
+    </valueRange>
+  </useContext>
   <relatedArtifact>
     <type value="derived-from"/>
     <url value="https://www.cdc.gov/zika/hc-providers/pregnant-woman.html"/>
