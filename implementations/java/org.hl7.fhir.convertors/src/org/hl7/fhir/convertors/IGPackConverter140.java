@@ -9,7 +9,6 @@ import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 public class IGPackConverter140 {
   
   public static void main(String[] args) throws Exception {
-    CKMImporter self = new CKMImporter();
     for (String s : new File("C:\\temp\\igpack").list()) {
 //      if (s.endsWith(".xml") && !s.contains("z-")) {
       if (s.equals("expansions.xml")) {

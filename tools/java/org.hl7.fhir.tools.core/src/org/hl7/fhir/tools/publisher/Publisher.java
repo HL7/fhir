@@ -2717,7 +2717,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
       produceComparisons();
-      generateNPMPackage();
       produceSpecMap();
       processRDF();
 
@@ -2919,7 +2918,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       javaReferencePlatform.buildIGPublisher(page.getFolders().dstDir + "igpack.zip");
 
       SpecNPMPackageGenerator self = new SpecNPMPackageGenerator();
-      self.generate(page.getFolders().dstDir, page.getBaseURL(), false);
+      self.generate(page.getFolders().dstDir, page.getBaseURL(), false, new SimpleDateFormat("yyyyMMddHHmmss").format(page.getGenDate().getTime()));
 
 
       page.log(" ...zips", LogMessageType.Process);
@@ -3062,20 +3061,6 @@ public class Publisher implements URIResolver, SectionNumberer {
               + "-version-maps.html", 0, null), page.getFolders().dstDir + n + "-version-maps.html");
       page.getHTMLChecker().registerFile(n + "-version-maps.html", "Version Maps for " + name, HTMLLinkChecker.XHTML_TYPE, true);
     }    
-  }
-
-  private void generateNPMPackage() throws Exception {
-    PackageGenerator npm = new PackageGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "package.json")));
-    
-    npm.name("fhir");
-    npm.version(Constants.VERSION);
-    npm.toolsVersion(ToolsVersion.TOOLS_VERSION);
-    npm.description("Base FHIR specification Package");
-    npm.license("CC0-1.0");
-    npm.author("HL7, Inc", null, "http://hl7.org");
-    npm.file("igpack.zip");
-    npm.kind(PackageType.CORE);
-    npm.commit();
   }
 
 
