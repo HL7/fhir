@@ -4342,7 +4342,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (Utilities.noString(overlay))
       fragment(name, "<p><span style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
     else
-      fragment(name, "<p><span style=\"color: maroon; font-weight: bold\" title=\""+overlay+"\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
+      fragment(name, "<p><span style=\"color: maroon; font-weight: bold\" title=\""+Utilities.escapeXml(overlay)+"\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
   }
 
   /**
