@@ -127,6 +127,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected Parameters expParameters;
   private TranslationServices translator = new NullTranslator();
   protected TerminologyCache txCache;
+
+  private boolean tlogging = true;
   
   public BaseWorkerContext() throws FileNotFoundException, IOException, FHIRException {
     super();
@@ -343,7 +345,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
 
   protected void tlog(String msg) {
-    System.out.println("-tx cache miss: "+msg);
+    if (tlogging )
+      System.out.println("-tx cache miss: "+msg);
   }
 
   // --- expansion support ------------------------------------------------------------------------------------------------------------
@@ -1071,6 +1074,14 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       return fetchResource(StructureDefinition.class, typeName);
     else
       return fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+typeName);
+  }
+
+  public boolean isTlogging() {
+    return tlogging;
+  }
+
+  public void setTlogging(boolean tlogging) {
+    this.tlogging = tlogging;
   }
 
   

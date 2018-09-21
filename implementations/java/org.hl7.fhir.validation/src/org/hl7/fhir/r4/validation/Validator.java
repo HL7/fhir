@@ -236,6 +236,12 @@ public class Validator {
         }
       }
     } else { 
+      System.out.println("FHIR Validator Build "+getGitBuild());
+      System.out.print("Arguments:");
+      for (String s : args) 
+        System.out.print(s.contains(" ") ? " \""+s+"\"" : " "+s);
+      System.out.println();
+        
       String definitions = "hl7.fhir.core#"+Constants.VERSION;
       String map = null;
       List<String> igs = new ArrayList<String>();
@@ -417,6 +423,10 @@ public class Validator {
         }
       }
     }
+  }
+
+  private static String getGitBuild() {
+    return "??";
   }
 
   private static void handleOutput(Resource r, String output) throws IOException {

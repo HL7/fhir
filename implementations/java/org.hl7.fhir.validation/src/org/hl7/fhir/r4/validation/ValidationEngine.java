@@ -595,10 +595,11 @@ public class ValidationEngine {
 	}
 
   public void connectToTSServer(String url, String log) throws URISyntaxException {
+    context.setTlogging(false);
     if (url == null) {
       context.setCanRunWithoutTerminology(true);
     } else
-    context.connectToTSServer(url, log);
+      context.connectToTSServer(url, log);
 	}
 
   public void loadProfile(String src) throws Exception {

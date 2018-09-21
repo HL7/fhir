@@ -1,4 +1,5 @@
 -------------------------------------------------------------------------------------
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -10,5 +11,16 @@
 ####
 e: {
   "error" : "Error unmarshalling resource: Unable to provide support for code system http://nucc.org/provider-taxonomy"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://nucc.org/provider-taxonomy",
+  "code" : "207RI0011X",
+  "display" : "Interventional Cardiology"
+}, "valueSet" :null}####
+v: {
+  "display" : "Interventional Cardiology",
+  "severity" : null,
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

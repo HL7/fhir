@@ -6,6 +6,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -161,6 +173,18 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5227,6 +5251,18 @@ e: {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : true, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -5268,6 +5304,18 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5617,6 +5665,18 @@ e: {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -5714,6 +5774,18 @@ e: {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -5795,6 +5867,18 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5910,6 +5994,18 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6076,6 +6172,18 @@ e: {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -6231,6 +6339,18 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6393,6 +6513,18 @@ e: {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -6548,6 +6680,18 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {"hierarchical" : false, "valueSet" :{
@@ -6706,6 +6850,18 @@ e: {
 }
 -------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -6720,7 +6876,7 @@ e: {
         "display" : "second",
         "designation" : [{
           "language" : "zh",
-          "value" : "秒"
+          "value" : "?"
         }]
       },
       {
@@ -6732,7 +6888,7 @@ e: {
         "display" : "minute",
         "designation" : [{
           "language" : "zh",
-          "value" : "分钟"
+          "value" : "??"
         }]
       },
       {
@@ -6744,7 +6900,7 @@ e: {
         "display" : "hour",
         "designation" : [{
           "language" : "zh",
-          "value" : "�?时"
+          "value" : "???"
         }]
       },
       {
@@ -6756,7 +6912,7 @@ e: {
         "display" : "day",
         "designation" : [{
           "language" : "zh",
-          "value" : "天"
+          "value" : "?"
         }]
       },
       {
@@ -6768,7 +6924,7 @@ e: {
         "display" : "week",
         "designation" : [{
           "language" : "zh",
-          "value" : "星期"
+          "value" : "??"
         }]
       },
       {
@@ -6780,7 +6936,7 @@ e: {
         "display" : "month",
         "designation" : [{
           "language" : "zh",
-          "value" : "月"
+          "value" : "?"
         }]
       },
       {
@@ -6792,7 +6948,7 @@ e: {
         "display" : "year",
         "designation" : [{
           "language" : "zh",
-          "value" : "年"
+          "value" : "?"
         }]
       }]
     }]
@@ -6805,6 +6961,1944 @@ e: {
   "expansion" : {
     "identifier" : "urn:uuid:da244020-2255-4270-a0e8-cd7ad1396e22",
     "timestamp" : "2018-09-10T00:30:18.926Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:39362592-8592-407e-86c2-300bd75073b6",
+    "timestamp" : "2018-09-12T15:01:19.891Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:faa709a1-0b00-4803-b099-c9c09fe56b50",
+    "timestamp" : "2018-09-19T11:43:43.817Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:933125b6-bef0-41c2-a424-7fc8018ccf16",
+    "timestamp" : "2018-09-19T12:13:31.770Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:89a2e0e7-21d8-4df9-927a-22d682302f92",
+    "timestamp" : "2018-09-19T12:23:23.520Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:59754416-c2cd-4215-afd8-263276f75641",
+    "timestamp" : "2018-09-19T12:31:08.083Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:8bb5600d-8bbd-4503-b4f4-63fad6afcaf5",
+    "timestamp" : "2018-09-19T12:46:33.145Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:841244e8-dca0-4ec9-9991-6ff1d9d69024",
+    "timestamp" : "2018-09-19T13:03:58.329Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:1d79c4dd-a45a-47aa-b178-0b15f6efea18",
+    "timestamp" : "2018-09-21T02:51:38.490Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:e3a5aa89-5c2a-4468-af11-28b4832a741a",
+    "timestamp" : "2018-09-21T03:06:08.090Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:5b4e8852-4de7-4cc4-95c5-40333e1e931b",
+    "timestamp" : "2018-09-21T03:57:52.765Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:90583c1d-a0ad-4419-ae08-df65fed3d7bd",
+    "timestamp" : "2018-09-21T04:09:11.640Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "includeDesignations",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "excludeNested",
+      "valueString" : "-1"
+    },
+    {
+      "name" : "version",
+      "valueString" : "http://unitsofmeasure.org?version=2.0.1"
+    }],
+    "contains" : [{
+      "system" : "http://unitsofmeasure.org",
+      "code" : "s",
+      "display" : "秒"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "min",
+      "display" : "分钟"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "h",
+      "display" : "�?时"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "d",
+      "display" : "天"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "wk",
+      "display" : "星期"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "mo",
+      "display" : "月"
+    },
+    {
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a",
+      "display" : "年"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://unitsofmeasure.org",
+      "concept" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "second"
+        }],
+        "code" : "s",
+        "display" : "second",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "minute"
+        }],
+        "code" : "min",
+        "display" : "minute",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "hour"
+        }],
+        "code" : "h",
+        "display" : "hour",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "???"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "day"
+        }],
+        "code" : "d",
+        "display" : "day",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "week"
+        }],
+        "code" : "wk",
+        "display" : "week",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "??"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "month"
+        }],
+        "code" : "mo",
+        "display" : "month",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+          "valueString" : "year"
+        }],
+        "code" : "a",
+        "display" : "year",
+        "designation" : [{
+          "language" : "zh",
+          "value" : "?"
+        }]
+      }]
+    }]
+  }
+}}
+####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "identifier" : "urn:uuid:767cfd34-ff7f-4226-9d68-05a57cdbbdfb",
+    "timestamp" : "2018-09-21T11:23:26.990Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -6899,7 +8993,7 @@ e: {
         "display" : "hour",
         "designation" : [{
           "language" : "zh",
-          "value" : "小时"
+          "value" : "�?时"
         }]
       },
       {
@@ -6958,8 +9052,8 @@ e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
   "expansion" : {
-    "identifier" : "urn:uuid:39362592-8592-407e-86c2-300bd75073b6",
-    "timestamp" : "2018-09-12T15:01:19.891Z",
+    "identifier" : "urn:uuid:634de118-6445-4ab4-8aeb-9bdf3958def9",
+    "timestamp" : "2018-09-21T11:32:29.215Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueString" : "-1"
@@ -6989,7 +9083,7 @@ e: {
     {
       "system" : "http://unitsofmeasure.org",
       "code" : "h",
-      "display" : "小时"
+      "display" : "�?时"
     },
     {
       "system" : "http://unitsofmeasure.org",
