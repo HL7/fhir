@@ -263,8 +263,8 @@ public class ValidationEngine {
     loadDefinitions(src);   
   }
   
-  public void setTerminologyServer(String src) throws Exception {
-    connectToTSServer(src);   
+  public void setTerminologyServer(String src, String log) throws Exception {
+    connectToTSServer(src, log);   
   }
   
   public boolean isHintAboutNonMustSupport() {
@@ -283,10 +283,10 @@ public class ValidationEngine {
     this.anyExtensionsAllowed = anyExtensionsAllowed;
   }
 
-  public ValidationEngine(String src, String txsrvr) throws Exception {
+  public ValidationEngine(String src, String txsrvr, String txLog) throws Exception {
     pcm = new PackageCacheManager(true);
     loadInitialDefinitions(src);
-    setTerminologyServer(txsrvr);
+    setTerminologyServer(txsrvr, txLog);
   }
   
   public ValidationEngine(String src) throws Exception {
@@ -594,11 +594,12 @@ public class ValidationEngine {
     return checkIsResource(new FileInputStream(path));
 	}
 
-  public void connectToTSServer(String url) throws URISyntaxException {
+  public void connectToTSServer(String url, String log) throws URISyntaxException {
+    context.setTlogging(false);
     if (url == null) {
       context.setCanRunWithoutTerminology(true);
     } else
-    context.connectToTSServer(url);
+      context.connectToTSServer(url, log);
 	}
 
   public void loadProfile(String src) throws Exception {

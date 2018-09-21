@@ -134,6 +134,8 @@ public class Validator {
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
       System.out.println("     Default value is http://tx.fhir.org/r4. This parameter can appear once");
       System.out.println("     To run without terminology value, specific n/a as the URL");
+      System.out.println("-txLog [file]: Produce a log of the terminology server operations in [file]");
+      System.out.println("     Default value is not to produce a log");
       System.out.println("-profile [url]: the canonical URL to validate against (same as if it was ");
       System.out.println("     specified in Resource.meta.profile). If no profile is specified, the ");
       System.out.println("     resource is validated against the base specification. This parameter ");
@@ -198,7 +200,7 @@ public class Validator {
         else if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
         String definitions = "hl7.fhir.core#"+v;
         System.out.println("Loading (v = "+v+", tx server http://tx.fhir.org/r4)");
-        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org/r4");
+        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org/r4", null);
         for (int i = 0; i < args.length; i++) {
           if ("-ig".equals(args[i])) {
             if (i+1 == args.length)
@@ -234,6 +236,12 @@ public class Validator {
         }
       }
     } else { 
+      System.out.println("FHIR Validator Build "+getGitBuild());
+      System.out.print("Arguments:");
+      for (String s : args) 
+        System.out.print(s.contains(" ") ? " \""+s+"\"" : " "+s);
+      System.out.println();
+        
       String definitions = "hl7.fhir.core#"+Constants.VERSION;
       String map = null;
       List<String> igs = new ArrayList<String>();
@@ -248,6 +256,7 @@ public class Validator {
       List<String> sources= new ArrayList<String>();
       Map<String, String> locations = new HashMap<String, String>();
       String sv = null;
+      String txLog = null;
 
         // load the parameters - so order doesn't matter
       for (int i = 0; i < args.length; i++) {
@@ -306,6 +315,11 @@ public class Validator {
             throw new Error("Specified -tx without indicating terminology server");
           else
             txServer = "n/a".equals(args[++i]) ? null : args[i];
+        else if (args[i].equals("-txLog"))
+          if (i+1 == args.length)
+            throw new Error("Specified -txLog without indicating file");
+          else
+            txLog = args[++i];
         else if (args[i].equals("-ig"))
           if (i+1 == args.length)
             throw new Error("Specified -ig without indicating ig file");
@@ -335,7 +349,7 @@ public class Validator {
       // Comment this out because definitions filename doesn't necessarily contain version (and many not even be 14 characters long).  Version gets spit out a couple of lines later after we've loaded the context
       System.out.println("  .. connect to tx server @ "+txServer);
       System.out.println("  .. definitions from "+definitions);
-      ValidationEngine validator = new ValidationEngine(definitions, txServer);
+      ValidationEngine validator = new ValidationEngine(definitions, txServer, txLog);
       System.out.println("    (v"+validator.getContext().getVersion()+")");
       if (sv != null)
         validator.setVersion(sv);
@@ -409,6 +423,10 @@ public class Validator {
         }
       }
     }
+  }
+
+  private static String getGitBuild() {
+    return "??";
   }
 
   private static void handleOutput(Resource r, String output) throws IOException {

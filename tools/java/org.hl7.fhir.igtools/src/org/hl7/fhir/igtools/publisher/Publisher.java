@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -475,6 +476,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String specifiedVersion;
 
   private NpmPackage packge;
+
+  private String txLog;
   
   private class PreProcessInfo {
     private String xsltName;
@@ -525,6 +528,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           generate();
           clean();
           long endTime = System.nanoTime();
+          processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
           ValidationPresenter val = new ValidationPresenter(version, igpkp, childPublisher == null? null : childPublisher.getIgpkp());
           log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
           recordOutcome(null, val);
@@ -542,6 +546,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         // nothing
       }
     }
+  }
+
+
+  private void processTxLog(String path) throws FileNotFoundException, IOException {
+    if (txLog != null) {
+      String tx = TextFile.fileToString(txLog);
+      PrintStream f = new PrintStream(new FileOutputStream(path));
+      String title = "Terminology Server Log";
+      f.println("<html><head><title>"+title+"</title></head><body><h2>"+title+"</h2>");
+      f.print(tx);
+      f.println("</head></html>");
+    }
+    
   }
 
 
@@ -568,6 +585,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (isChild()) {
       log("Finished. "+presentDuration(endTime - startTime));      
     } else {
+      processTxLog(Utilities.path(destDir != null ? destDir : outputDir, "qa-tx.html"));
       log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
     }
     log("Checking on package: the file "+Utilities.path(outputDir, "package.tgz")+" exists = "+(new File(Utilities.path(outputDir, "package.tgz")).exists()));
@@ -1056,17 +1074,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     context.initTS(vsCache);
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
     context.getExpansionParameters().addParameter("system-version", "http://snomed.info/sct|"+sct);
+    txLog = Utilities.createTempFile("fhir-ig-", ".log").getAbsolutePath();
     context.getExpansionParameters().addParameter("activeOnly", "true".equals(ostr(configuration, "activeOnly")));
     if (mode != IGBuildMode.WEBSERVER) {
       if (txServer == null || !txServer.contains(":")) {
         log("WARNING: Running without terminology server - terminology content will likely not publish correctly");
         context.setCanRunWithoutTerminology(true);
+        txLog = null;
       } else {
         log("Connect to Terminology Server at "+txServer);
-        checkTSVersion(vsCache, context.connectToTSServer(txServer));
+        checkTSVersion(vsCache, context.connectToTSServer(txServer, txLog));
       }
     } else 
-      checkTSVersion(vsCache, context.connectToTSServer(webTxServer));
+      checkTSVersion(vsCache, context.connectToTSServer(webTxServer, txLog));
     
     
     loadSpecDetails(context.getBinaries().get("spec.internals"));
@@ -1080,6 +1100,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (historyPage != null)
       inspector.getManual().add(historyPage);
     inspector.getManual().add("qa.html");
+    inspector.getManual().add("qa-tx.html");
     allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
     inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
     makeQA = mode == IGBuildMode.WEBSERVER ? false : !"true".equals(ostr(configuration, "suppress-qa"));
@@ -4308,10 +4329,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       } else {
         if (exp.getError() != null) { 
           fragmentError("ValueSet-"+vs.getId()+"-expansion", "No Expansion for this valueset (not supported by Publication Tooling)", "Publication Tooling Error: "+exp.getError(), f.getOutputNames());
-          f.getErrors().add(new ValidationMessage(Source.TerminologyEngine, IssueType.EXCEPTION, vs.getId(), exp.getError(), IssueSeverity.ERROR));
+          f.getErrors().add(new ValidationMessage(Source.TerminologyEngine, IssueType.EXCEPTION, vs.getId(), exp.getError(), IssueSeverity.ERROR).setTxLink(exp.getTxLink()));
         } else {
           fragmentError("ValueSet-"+vs.getId()+"-expansion", "No Expansion for this valueset (not supported by Publication Tooling)", "Unknown Error", f.getOutputNames());
-          f.getErrors().add(new ValidationMessage(Source.TerminologyEngine, IssueType.EXCEPTION, vs.getId(), "Unknown Error expanding ValueSet", IssueSeverity.ERROR));
+          f.getErrors().add(new ValidationMessage(Source.TerminologyEngine, IssueType.EXCEPTION, vs.getId(), "Unknown Error expanding ValueSet", IssueSeverity.ERROR).setTxLink(exp.getTxLink()));
         }
       }
     }
@@ -4321,7 +4342,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (Utilities.noString(overlay))
       fragment(name, "<p><span style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
     else
-      fragment(name, "<p><span style=\"color: maroon; font-weight: bold\" title=\""+overlay+"\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
+      fragment(name, "<p><span style=\"color: maroon; font-weight: bold\" title=\""+Utilities.escapeXml(overlay)+"\">"+Utilities.escapeXml(error)+"</span></p>\r\n", outputTracker);
   }
 
   /**

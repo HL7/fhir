@@ -41,3 +41,4 @@ hs_err_pid*
 /schema/fhir.schema.json
 /tests/graphql/simple.json.out
 /tests/resources/unicode.out.xml
+*.prefs

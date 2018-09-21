@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="tldc"/>
+  <url value="urn:oid:2.16.840.1.113883.3.1937.98.5.8"/>
+  <name value="TemplateStatusCodeLifeCycle"/>
+  <title value="TemplateStatusCode LifeCycle"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2013-12-05"/>
+  <publisher value="Art-Decor"/>
+  <description value="Life cycle of the Status Code of a Template Design (Version)"/>
+  <caseSensitive value="true"/>
+  <valueSet value="urn:oid:2.16.840.1.113883.3.1937.98.11.8"/>
+  <content value="complete"/>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="Design is under development (nascent)."/>
+  </concept>
+  <concept>
+    <code value="pending"/>
+    <display value="Under pre-publication review"/>
+    <definition value="Design is completed and is being reviewed."/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="active"/>
+    <definition value="Design has been deemed fit for the intended purpose and is published by the governance group."/>
+  </concept>
+  <concept>
+    <code value="review"/>
+    <display value="In Review"/>
+    <definition value="Design is active, but is under review. The review may result in a change to the design. The change may necessitate a new version to be created. This in turn may result in the prior version of the template to be retired. Alternatively, the review may result in a change to the design that does not require a new version to be created, or it may result in no change to the design at all."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="A drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published in an active state."/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="A previously drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published for consideration in a pending state."/>
+  </concept>
+  <concept>
+    <code value="retired"/>
+    <display value="retired"/>
+    <definition value="A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design may or may not exist. The design is published in the retired state."/>
+  </concept>
+  <concept>
+    <code value="terminated"/>
+    <display value="Terminated"/>
+    <definition value="A design is determined to be erroneous or not fit for the intended purpose and should no longer be used, even for historical purposes. No new designs can be developed for this template. The associated template no longer needs to be published, but if published, is shown in the terminated state."/>
+  </concept>
+</CodeSystem>

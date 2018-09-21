@@ -263,6 +263,7 @@ public interface IWorkerContext {
     private IssueSeverity severity;
     private String message;
     private TerminologyServiceErrorClass errorClass;
+    private String txLink;
     
     public ValidationResult(IssueSeverity severity, String message) {
       this.severity = severity;
@@ -322,6 +323,15 @@ public interface IWorkerContext {
 
     public ValidationResult setMessage(String message) {
       this.message = message;
+      return this;
+    }
+
+    public String getTxLink() {
+      return txLink;
+    }
+
+    public ValidationResult setTxLink(String txLink) {
+      this.txLink = txLink;
       return this;
     }
     

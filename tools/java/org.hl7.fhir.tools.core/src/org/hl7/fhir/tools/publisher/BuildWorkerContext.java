@@ -27,6 +27,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.r4.context.BaseWorkerContext;
+import org.hl7.fhir.r4.context.HTMLClientLogger;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.IParser;
 import org.hl7.fhir.r4.formats.JsonParser;
@@ -132,6 +133,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     super(codeSystems, valueSets, maps, profiles, guides);
     this.definitions = definitions;
     this.txServer = client;
+    this.txLog = new HTMLClientLogger(null);
     setExpansionProfile(buildExpansionProfile());
     this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
   }
@@ -596,6 +598,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         // for this, we use the FHIR client
         if (txServer == null) {
           txServer = new FHIRToolingClient(tsServer);
+          this.txLog = new HTMLClientLogger(null);
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("code", code);

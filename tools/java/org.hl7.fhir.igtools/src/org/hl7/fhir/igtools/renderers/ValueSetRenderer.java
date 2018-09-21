@@ -37,7 +37,7 @@ public class ValueSetRenderer extends BaseRenderer {
 
   public ValueSetRenderer(IWorkerContext context, String prefix, ValueSet vs, IGKnowledgeProvider igp, List<SpecMapManager> maps, MarkDownProcessor markdownEngine, NpmPackage packge) {
     super(context, prefix, igp, maps, markdownEngine, packge);
-    this.vs = vs;
+    this.vs = vs; 
   }
 
   public String summary(FetchedResource r, boolean xml, boolean json, boolean ttl) throws Exception {
