@@ -67,8 +67,8 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.fhir.ucum.UcumException;
-import org.hl7.fhir.convertors.misc.SpecDifferenceEvaluator;
-import org.hl7.fhir.convertors.misc.SpecDifferenceEvaluator.TypeLinkProvider;
+import org.hl7.fhir.convertors.SpecDifferenceEvaluator;
+import org.hl7.fhir.convertors.SpecDifferenceEvaluator.TypeLinkProvider;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.BaseGenerator;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
