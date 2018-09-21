@@ -1911,6 +1911,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     if (url == null)
       x.b().tx(uri.getValue());
+    else if (uri.getValue().startsWith("mailto:"))
+      x.ah(uri.getValue()).addText(uri.getValue().substring(7));
     else
       x.ah(uri.getValue()).addText(uri.getValue());
   }
