@@ -739,6 +739,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             return (T) res;
         }
       }
+      if (class_ == CodeSystem.class && codeSystems.containsKey(uri))
+        return (T) codeSystems.get(uri);
+      
       if (class_ == Questionnaire.class)
         return (T) questionnaires.get(uri);
       if (class_ == null) {
@@ -752,7 +755,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             return (T) res;
         }
         return null;      
-      }      
+      }    
+      if (supportedCodeSystems.contains(uri))
+        return null;
       throw new FHIRException("not done yet: can't fetch "+uri);
     }
   }
