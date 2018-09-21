@@ -10385,7 +10385,9 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
 
   public SpecDifferenceEvaluator getDiffEngine() {
-    return diffEngine;
+    if (diffEngine == null)
+      return null;
+    return diffEngine; 
   }
 
   public Bundle getTypeBundle() {
