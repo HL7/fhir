@@ -2577,7 +2577,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String url = cs.getNamedChildValue("url");
     String vsu = cs.getNamedChildValue("valueSet");
     if (!Utilities.noString(vsu)) {
-      ValueSet vs = context.fetchResource(ValueSet.class, vsu);
+      ValueSet vs;
+      try {
+        vs = context.fetchResourceWithException(ValueSet.class, vsu);
+      } catch (FHIRException e) {
+        vs = null;
+      }
       if (vs != null) {
         if (rule(errors, IssueType.BUSINESSRULE, stack.getLiteralPath(), vs.hasCompose() && !vs.hasExpansion(), "CodeSystem "+url+" has a 'all system' value set of "+vsu+", but it is an expansion"))
           if (rule(errors, IssueType.BUSINESSRULE, stack.getLiteralPath(), vs.getCompose().getInclude().size() == 1, "CodeSystem "+url+" has a 'all system' value set of "+vsu+", but doesn't have a single include"))
