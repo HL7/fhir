@@ -1,4 +1,4 @@
-package org.hl7.fhir.convertors;
+package org.hl7.fhir.convertors.misc;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,7 +22,8 @@ import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.convertors.VersionTransformMapBuilder.ElementTask;
+import org.hl7.fhir.convertors.R3ToR4Loader;
+import org.hl7.fhir.convertors.misc.VersionTransformMapBuilder.ElementTask;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;

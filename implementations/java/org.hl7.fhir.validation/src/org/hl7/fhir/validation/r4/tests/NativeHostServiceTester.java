@@ -13,7 +13,7 @@ public class NativeHostServiceTester {
     
     NativeHostServices svc = new NativeHostServices();
     svc.init("C:\\work\\org.hl7.fhir\\build\\publish\\igpack.zip");
-    svc.connectToTxSvc("http://tx.fhir.org/r3");
+    svc.connectToTxSvc("http://tx.fhir.org/r3", null);
     System.out.println("base: "+svc.status());
 
     svc.seeResource(TextFile.fileToBytes("C:\\work\\fhirserver\\resources\\dicom\\CID_2.xml"));

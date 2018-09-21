@@ -79,6 +79,10 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     b.append(genEnd());
     for (FetchedFile f : files) {
       b.append(genStart(f));
+      if (f.getErrors().size() > 0)
+        b.append(startTemplateErrors);
+      else
+        b.append(startTemplateNoErrors);
       for (ValidationMessage vm : removeDupMessages(f.getErrors())) {
         b.append(genDetails(vm));
         if (vm.getLevel().equals(ValidationMessage.IssueSeverity.FATAL)||vm.getLevel().equals(ValidationMessage.IssueSeverity.ERROR))
@@ -187,14 +191,26 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       "<hr/>\r\n"+
       "<a name=\"$link$\"> </a>\r\n"+
       "<h2><a href=\"$xlink$\">$path$</a></h2>\r\n"+
-      " <table class=\"grid\">\r\n"+
+      " <table class=\"grid\">\r\n";
+  
+  private final String startTemplateErrors = 
       "   <tr>\r\n"+
       "     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>\r\n"+
+      "   </tr>\r\n";
+
+  private final String startTemplateNoErrors = 
+      "   <tr>\r\n"+
+      "     <td>No Issues</td>\r\n"+
       "   </tr>\r\n";
 
   private final String detailsTemplate = 
       "   <tr style=\"background-color: $color$\">\r\n"+
       "     <td><b>$path$</b></td><td><b>$level$</b></td><td><b>$msg$</b></td>\r\n"+
+      "   </tr>\r\n";
+  
+  private final String detailsTemplateTx = 
+      "   <tr style=\"background-color: $color$\">\r\n"+
+      "     <td><b>$path$</b></td><td><b>$level$</b></td><td><b>$msg$</b> (<a href=\"$tx$\">see Tx log</a>)</td>\r\n"+
       "   </tr>\r\n";
   
   private final String detailsTemplateWithLink = 
@@ -406,12 +422,13 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     return t.render();
   }
   private String genDetails(ValidationMessage vm) {
-    ST t = template(vm.getLocationLink() != null ? detailsTemplateWithLink : detailsTemplate);
+    ST t = template(vm.getLocationLink() != null ? detailsTemplateWithLink : vm.getTxLink() != null ? detailsTemplateTx : detailsTemplate);
     t.add("path", vm.getLocation());
     t.add("pathlink", vm.getLocationLink());
     t.add("level", vm.getLevel().toCode());
     t.add("color", colorForLevel(vm.getLevel()));
     t.add("msg", vm.getHtml());
+    t.add("tx", "qa-tx.html#l"+vm.getTxLink());
     return t.render();
   }
 

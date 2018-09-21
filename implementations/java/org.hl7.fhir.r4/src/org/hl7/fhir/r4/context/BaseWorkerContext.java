@@ -55,6 +55,8 @@ import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureMap;
+import org.hl7.fhir.r4.model.TerminologyCapabilities;
+import org.hl7.fhir.r4.model.TerminologyCapabilities.TerminologyCapabilitiesCodeSystemComponent;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
@@ -98,7 +100,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private Map<String, Map<String, Resource>> allResourcesById = new HashMap<String, Map<String, Resource>>();
   // all maps are to the full URI
   private Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
-  private Set<String> nonSupportedCodeSystems = new HashSet<String>();
+  private Set<String> supportedCodeSystems = new HashSet<String>();
   private Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   private Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   private Map<String, StructureMap> transforms = new HashMap<String, StructureMap>();
@@ -116,7 +118,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private boolean allowLoadingDuplicates;
 
   protected FHIRToolingClient txServer;
-  private Bundle bndCodeSystems;
+  protected HTMLClientLogger txLog;
+  private TerminologyCapabilities txcaps;
   private boolean canRunWithoutTerminology;
   protected boolean noTerminologyServer;
   private int expandCodesLimit = 1000;
@@ -145,7 +148,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       allResourcesById.putAll(other.allResourcesById);
       translator = other.translator;
       codeSystems.putAll(other.codeSystems);
-      nonSupportedCodeSystems.addAll(other.nonSupportedCodeSystems);
+      txcaps = other.txcaps;
       valueSets.putAll(other.valueSets);
       maps.putAll(other.maps);
       transforms.putAll(other.transforms);
@@ -161,7 +164,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       tsServer = other.tsServer;
       name = other.name;
       txServer = other.txServer;
-      bndCodeSystems = other.bndCodeSystems;
+      txLog = other.txLog;
+      txcaps = other.txcaps;
       canRunWithoutTerminology = other.canRunWithoutTerminology;
       noTerminologyServer = other.noTerminologyServer;
       if (other.txCache != null)
@@ -293,17 +297,17 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     synchronized (lock) {
       if (codeSystems.containsKey(system))
         return true;
-      else if (nonSupportedCodeSystems.contains(system))
-        return false;
+      else if (supportedCodeSystems.contains(system))
+        return true;
       else if (system.startsWith("http://example.org") || system.startsWith("http://acme.com") || system.startsWith("http://hl7.org/fhir/valueset-") || system.startsWith("urn:oid:"))
         return false;
       else {
         if (noTerminologyServer)
           return false;
-        if (bndCodeSystems == null) {
+        if (txcaps == null) {
           try {
             log("Terminology server: Check for supported code systems for "+system);
-            bndCodeSystems = txServer.fetchFeed(txServer.getAddress()+"/CodeSystem?content-mode=not-present&_summary=true&_count=1000");
+            txcaps = txServer.getTerminologyCapabilities();
           } catch (Exception e) {
             if (canRunWithoutTerminology) {
               noTerminologyServer = true;
@@ -317,21 +321,15 @@ public abstract class BaseWorkerContext implements IWorkerContext {
             } else
               throw new TerminologyServiceException(e);
           }
-        }
-        if (bndCodeSystems != null) {
-          for (BundleEntryComponent be : bndCodeSystems.getEntry()) {
-            CodeSystem cs = (CodeSystem) be.getResource();
-//            if (cs == null)
-//              System.out.println("no resource for "+be.getFullUrl());
-            if (cs != null && !codeSystems.containsKey(cs.getUrl())) {
-              codeSystems.put(cs.getUrl(), null);
+          if (txcaps != null) {
+            for (TerminologyCapabilitiesCodeSystemComponent tccs : txcaps.getCodeSystem()) {
+              supportedCodeSystems.add(tccs.getUri());
             }
           }
+          if (supportedCodeSystems.contains(system))
+            return true;
         }
-        if (codeSystems.containsKey(system))
-          return true;
       }
-      nonSupportedCodeSystems.add(system);
       return false;
     }
   }
@@ -389,9 +387,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     tlog("$expand on "+txCache.summary(vs));
     try {
       ValueSet result = txServer.expandValueset(vs, p, params);
-      res = new ValueSetExpansionOutcome(result);  
+      res = new ValueSetExpansionOutcome(result).setTxLink(txLog.getLastId());  
     } catch (Exception e) {
-      res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
+      res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN).setTxLink(txLog.getLastId());
     }
     txCache.cacheExpansion(cacheToken, res, TerminologyCache.PERMANENT);
     return res;
@@ -451,9 +449,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
           result.setUrl(vs.getUrl());
         if (!result.hasUrl())
           throw new Error("no url in expand value set 2");
-        res = new ValueSetExpansionOutcome(result);  
+        res = new ValueSetExpansionOutcome(result).setTxLink(txLog.getLastId());  
       } catch (Exception e) {
-        res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN);
+        res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN).setTxLink(txLog.getLastId());
       }
       txCache.cacheExpansion(cacheToken, res, TerminologyCache.PERMANENT);
       return res;
@@ -498,8 +496,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
   
   public ValidationResult doValidateCode(Coding code, ValueSet vs, boolean implySystem) {
-    CacheToken cacheToken = txCache.generateValidationToken(code, vs);
-    ValidationResult res = txCache.getValidation(cacheToken);
+    CacheToken cacheToken = txCache != null ? txCache.generateValidationToken(code, vs) : null;
+    ValidationResult res = null;
+    if (txCache != null) 
+      res = txCache.getValidation(cacheToken);
     if (res != null)
       return res;
 
@@ -507,16 +507,20 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     try {
       ValueSetCheckerSimple vsc = new ValueSetCheckerSimple(vs, this); 
       res = vsc.validateCode(code);
-      txCache.cacheValidation(cacheToken, res, TerminologyCache.TRANSIENT);
+      if (txCache != null)
+        txCache.cacheValidation(cacheToken, res, TerminologyCache.TRANSIENT);
       return res;
     } catch (Exception e) {
     }
-
+    
     // if that failed, we try to validate on the server
     if (noTerminologyServer)
       return new ValidationResult(IssueSeverity.ERROR,  "Error validating code: running without terminology services", TerminologyServiceErrorClass.NOSERVICE);
-    String csumm = txCache.summary(code);
-    tlog("$validate "+csumm+" for "+ txCache.summary(vs));
+    String csumm =  txCache != null ? txCache.summary(code) : null;
+    if (txCache != null)
+      tlog("$validate "+csumm+" for "+ txCache.summary(vs));
+    else
+      tlog("$validate "+csumm+" before cache exists");
     try {
       Parameters pIn = new Parameters();
       pIn.addParameter().setName("coding").setValue(code);
@@ -524,9 +528,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         pIn.addParameter().setName("implySystem").setValue(new BooleanType(true));
       res = validateOnServer(vs, pIn);
     } catch (Exception e) {
-      res = new ValidationResult(IssueSeverity.ERROR, e.getMessage() == null ? e.getClass().getName() : e.getMessage());
+      res = new ValidationResult(IssueSeverity.ERROR, e.getMessage() == null ? e.getClass().getName() : e.getMessage()).setTxLink(txLog == null ? null : txLog.getLastId());
     }
-    txCache.cacheValidation(cacheToken, res, TerminologyCache.PERMANENT);
+    if (txCache != null)
+      txCache.cacheValidation(cacheToken, res, TerminologyCache.PERMANENT);
     return res;
   }
 
@@ -555,7 +560,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       pIn.addParameter().setName("codeableConcept").setValue(code);
       res = validateOnServer(vs, pIn);
     } catch (Exception e) {
-      res = new ValidationResult(IssueSeverity.ERROR, e.getMessage() == null ? e.getClass().getName() : e.getMessage());
+      res = new ValidationResult(IssueSeverity.ERROR, e.getMessage() == null ? e.getClass().getName() : e.getMessage()).setTxLink(txLog.getLastId());
     }
     txCache.cacheValidation(cacheToken, res, TerminologyCache.PERMANENT);
     return res;
@@ -570,6 +575,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (expParameters == null)
       throw new Error("No ExpansionProfile provided");
     pin.addParameter().setName("profile").setResource(expParameters);
+    txLog.clearLastId();
     Parameters pOut;
     if (vs == null)
       pOut = txServer.operateType(CodeSystem.class, "validate-code", pin);
@@ -598,13 +604,13 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       }
     }
     if (!ok)
-      return new ValidationResult(IssueSeverity.ERROR, message, err);
+      return new ValidationResult(IssueSeverity.ERROR, message, err).setTxLink(txLog.getLastId()).setTxLink(txLog.getLastId());
     else if (message != null && !message.equals("No Message returned")) 
-      return new ValidationResult(IssueSeverity.WARNING, message, new ConceptDefinitionComponent().setDisplay(display));
+      return new ValidationResult(IssueSeverity.WARNING, message, new ConceptDefinitionComponent().setDisplay(display)).setTxLink(txLog.getLastId()).setTxLink(txLog.getLastId());
     else if (display != null)
-      return new ValidationResult(new ConceptDefinitionComponent().setDisplay(display));
+      return new ValidationResult(new ConceptDefinitionComponent().setDisplay(display)).setTxLink(txLog.getLastId()).setTxLink(txLog.getLastId());
     else
-      return new ValidationResult(new ConceptDefinitionComponent());
+      return new ValidationResult(new ConceptDefinitionComponent()).setTxLink(txLog.getLastId()).setTxLink(txLog.getLastId());
   }
 
   // --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -941,16 +947,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
   
-  public void addNonSupportedCodeSystems(String s) {
-    synchronized (lock) {
-      nonSupportedCodeSystems.add(s);
-    }   
-   }
-
-  public String listNonSupportedSystems() {
+  public String listSupportedSystems() {
     synchronized (lock) {
       String sl = null;
-      for (String s : nonSupportedCodeSystems)
+      for (String s : supportedCodeSystems)
         sl = sl == null ? s : sl + "\r\n" + s;
       return sl;
     }

@@ -1,4 +1,4 @@
-package org.hl7.fhir.convertors;
+package org.hl7.fhir.convertors.misc;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

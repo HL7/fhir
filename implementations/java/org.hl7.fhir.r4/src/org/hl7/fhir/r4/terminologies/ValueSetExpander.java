@@ -33,6 +33,7 @@ public interface ValueSetExpander {
     private ValueSet valueset;
     private String error;
     private TerminologyServiceErrorClass errorClass;
+    private String txLink;
     
     public ValueSetExpansionOutcome(ValueSet valueset) {
       super();
@@ -64,6 +65,13 @@ public interface ValueSetExpander {
     }
     public TerminologyServiceErrorClass getErrorClass() {
       return errorClass;
+    }
+    public String getTxLink() {
+      return txLink;
+    }
+    public ValueSetExpansionOutcome setTxLink(String txLink) {
+      this.txLink = txLink;
+      return this;
     }
 
 

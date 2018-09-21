@@ -1,4 +1,4 @@
-package org.hl7.fhir.convertors;
+package org.hl7.fhir.convertors.misc;
 
 public class CcdaExtensions {
   public final static String DAF_NAME_RACE = "http://hl7.org/fhir/StructureDefinition/us-core-race";

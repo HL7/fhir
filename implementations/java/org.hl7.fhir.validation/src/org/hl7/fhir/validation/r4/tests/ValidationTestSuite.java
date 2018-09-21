@@ -94,7 +94,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       TestingUtilities.context = ctxt;
       ctxt.setExpansionProfile(makeExpProfile());
       try {
-        ctxt.connectToTSServer("http://tx.fhir.org/r4");
+        ctxt.connectToTSServer("http://tx.fhir.org/r4", null);
       } catch (Exception e) {
         ctxt.setCanRunWithoutTerminology(true);
       }
