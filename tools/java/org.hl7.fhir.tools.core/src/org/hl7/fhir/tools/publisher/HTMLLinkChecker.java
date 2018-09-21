@@ -159,7 +159,7 @@ public class HTMLLinkChecker implements FileNotifier {
       src = TextFile.fileToString(Utilities.path(page.getFolders().dstDir, filename));
       if (!src.contains("<!--!ns!-->") && !src.contains("<!-- !ns! -->"))
         reportError(filename, "File "+filename+" has no normative marker");
-      if (src.contains("may not") || src.contains("May not") && !(src.contains("Apache") || src.contains("TemplateStatusCode"))) // those words appear in the Apache license
+      if ((src.contains("may not") || src.contains("May not")) && !(src.contains("Apache") || src.contains("TemplateStatusCode"))) // those words appear in the Apache license
         if (!filename.contains("v2"+File.separator) && !filename.contains("v3"+File.separator) && !filename.contains("dicom") && !src.contains("http://terminology.hl7.org/CodeSystem/v3-") && !Utilities.existsInList(filename, "terminologies-valuesets.html"))
           reportError(filename, "File "+filename+" contains the prohibited words 'may not' - use 'might not' or 'SHALL not', or if the content is external, talk to the FHIR product Director");
 //      if (src.contains("should"))
