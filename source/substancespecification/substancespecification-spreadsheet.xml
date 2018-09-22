@@ -10,15 +10,15 @@
   <LastAuthor>Rik Smithies</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-09-21T08:46:49Z</LastSaved>
+  <LastSaved>2018-09-22T11:54:51Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4512</WindowHeight>
-  <WindowWidth>7476</WindowWidth>
+  <WindowHeight>8388</WindowHeight>
+  <WindowWidth>15360</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <TabRatio>837</TabRatio>
@@ -599,7 +599,7 @@
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:AutoFitWidth="0" ss:Width="436.79999999999995"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -623,6 +623,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -636,11 +637,11 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R75C24"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R78C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="75" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.4">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="78" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="369"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27"/>
@@ -735,30 +736,10 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">50;542</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0;550</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.comment</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Textual comment about this record of a substance</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.identifier</Data><NamedCell
@@ -891,6 +872,26 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.comment</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Textual comment about this record of a substance</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.moiety</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -916,7 +917,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">480;800</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0;820</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1042,13 +1043,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.moiety.amount</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.moiety.amount[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">string</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Quantity|string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1087,7 +1088,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">0;805</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">482;820</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1248,7 +1249,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">430;540</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">345;540</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1359,7 +1360,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">770;595</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">675;688</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1405,7 +1406,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.isotope.substitutionType</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.isotope.substitution</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1470,7 +1471,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">490;685</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">405;690</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1596,7 +1597,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.structure.structuralRepresentation</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.structure.representation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1621,13 +1622,13 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">770;450</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">722;580</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55.05">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.structuralRepresentation.type</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.representation.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1647,7 +1648,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.structuralRepresentation.representation</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.representation.representation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1667,7 +1668,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.structuralRepresentation.attachment</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.structure.representation.attachment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1687,7 +1688,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.substanceCode</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1712,13 +1713,13 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">300;800</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">212;820</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceCode.code</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.code.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1738,7 +1739,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceCode.status</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.code.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1758,7 +1759,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceCode.statusDate</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.code.statusDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1778,7 +1779,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceCode.comment</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.code.comment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1798,13 +1799,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55.05">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.substanceCode.referenceSource</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.code.referenceSource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(DocumentReference)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1828,7 +1829,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55.05">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.substanceName</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1853,13 +1854,13 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">232;350</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">300;350</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="96">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.name</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1879,7 +1880,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.type</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1899,7 +1900,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.status</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1919,7 +1920,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.preferred</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.preferred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1939,7 +1940,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.language</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.language</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1959,7 +1960,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.domain</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.domain</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1979,7 +1980,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.jurisdiction</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.jurisdiction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1999,13 +2000,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.synonym</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.synonym</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">@SubstanceSpecification.substanceName</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">@SubstanceSpecification.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2019,13 +2020,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.translation</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.translation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">@SubstanceSpecification.substanceName</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String" x:Ticked="1">@SubstanceSpecification.name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2039,7 +2040,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.substanceName.officialName</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.name.official</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2064,13 +2065,13 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">0;384</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">610;470</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.officialName.authority</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.official.authority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2090,7 +2091,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.officialName.status</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.official.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2110,7 +2111,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.substanceName.officialName.date</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.name.official.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2130,13 +2131,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55.05">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.substanceName.referenceSource</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SubstanceSpecification.name.referenceSource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">string</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(DocumentReference)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2215,7 +2216,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">480;350</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0;350</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2371,7 +2372,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="55.05" ss:StyleID="Default">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.relationship.source</Data><NamedCell
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.relationship.referenceSource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2401,6 +2402,16 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.nucleicAcid</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstanceNucleicAcid)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Data items specific to nucleic acids</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.polymer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2410,6 +2421,26 @@
     <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Data items specific to polymers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.protein</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstanceProtein)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Data items specific to proteins</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">SubstanceSpecification.sourceMaterial</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String" x:Ticked="1">Reference(SubstanceSourceMaterial)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Material or taxonomic/anatomical source for the substance </Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -2417,6 +2448,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -2428,7 +2460,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>66</TopRowBottomPane>
+   <TopRowBottomPane>26</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2445,7 +2477,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>76</ActiveRow>
+     <ActiveRow>32</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -2453,7 +2485,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R75C24"
+  <AutoFilter x:Range="R1C1:R78C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -2463,7 +2495,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="14.55">
    <Column ss:Index="2" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="124.2"/>
    <Column ss:StyleID="s77" ss:Width="58.8"/>
    <Column ss:StyleID="s77" ss:Width="175.2"/>
@@ -2950,6 +2982,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2989,7 +3022,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="76.2"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="61.199999999999996"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="117"/>
@@ -3194,6 +3227,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3233,7 +3267,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="139.80000000000001"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="133.20000000000002"/>
    <Column ss:StyleID="s91" ss:Width="25.8"/>
@@ -3827,6 +3861,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3863,7 +3898,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="88.800000000000011"
     ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="211.2"/>
@@ -4122,6 +4157,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4160,7 +4196,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="181.79999999999998"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="298.8"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="268.2"/>
@@ -4402,6 +4438,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4438,7 +4475,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s122" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s122" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s122" ss:AutoFitWidth="0" ss:Width="136.19999999999999"/>
    <Column ss:StyleID="s122" ss:Width="28.8"/>
    <Column ss:StyleID="s122" ss:Width="346.79999999999995"/>
@@ -4825,6 +4862,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4861,7 +4899,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="22" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="184.8"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="292.20000000000005"/>
    <Column ss:StyleID="s91" ss:Width="54"/>
@@ -5236,6 +5274,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
