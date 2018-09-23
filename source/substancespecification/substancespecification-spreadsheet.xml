@@ -17,8 +17,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8388</WindowHeight>
-  <WindowWidth>15360</WindowWidth>
+  <WindowHeight>8700</WindowHeight>
+  <WindowWidth>20160</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
   <TabRatio>837</TabRatio>
@@ -599,7 +599,7 @@
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:AutoFitWidth="0" ss:Width="436.79999999999995"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -623,6 +623,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -640,7 +641,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="78" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="369"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27"/>
@@ -2447,6 +2448,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -2496,7 +2498,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s77" ss:DefaultRowHeight="14.55">
    <Column ss:Index="2" ss:StyleID="s77" ss:AutoFitWidth="0" ss:Width="124.2"/>
    <Column ss:StyleID="s77" ss:Width="58.8"/>
    <Column ss:StyleID="s77" ss:Width="175.2"/>
@@ -2983,6 +2985,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3022,7 +3025,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="76.2"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="61.199999999999996"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="117"/>
@@ -3227,6 +3230,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3266,7 +3270,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="139.80000000000001"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="133.20000000000002"/>
    <Column ss:StyleID="s91" ss:Width="25.8"/>
@@ -3860,6 +3864,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3896,7 +3901,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="88.800000000000011"
     ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="211.2"/>
@@ -4155,6 +4160,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4193,7 +4199,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="181.79999999999998"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="298.8"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="268.2"/>
@@ -4435,6 +4441,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4471,7 +4478,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s122" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s122" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s122" ss:AutoFitWidth="0" ss:Width="136.19999999999999"/>
    <Column ss:StyleID="s122" ss:Width="28.8"/>
    <Column ss:StyleID="s122" ss:Width="346.79999999999995"/>
@@ -4858,6 +4865,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4894,7 +4902,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="22" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s91" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="184.8"/>
    <Column ss:StyleID="s91" ss:AutoFitWidth="0" ss:Width="292.20000000000005"/>
    <Column ss:StyleID="s91" ss:Width="54"/>
@@ -5269,6 +5277,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
