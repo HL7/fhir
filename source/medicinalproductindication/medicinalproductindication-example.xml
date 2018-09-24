@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductClinicals xmlns="http://hl7.org/fhir">
+<MedicinalProductIndication xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <undesirableEffects>
-    <symptomConditionEffect>
-      <coding>
-        <system value="http://ema.europa.eu/example/undesirableeffectassymptom-condition-effect"/>
-        <code value="Anaemia"/>
-      </coding>
-      <text value="Prevention of\nVTE in adult\npatients who have\nundergone\nelective hip or\nknee replacement\nsurgery (VTEp)"/>
-    </symptomConditionEffect>
-    <classification>
-      <coding>
-        <system value="http://ema.europa.eu/example/symptom-condition-effectclassification"/>
-        <code value="Bloodandlymphaticsystemdisorders"/>
-      </coding>
-    </classification>
-    <frequencyOfOccurrence>
-      <coding>
-        <system value="http://ema.europa.eu/example/frequencyofoccurrence"/>
-        <code value="Common"/>
-      </coding>
-    </frequencyOfOccurrence>
-  </undesirableEffects>
-  <therapeuticIndication>
     <diseaseSymptomProcedure>
       <coding>
         <system value="http://ema.europa.eu/example/indicationasdisease-symptom-procedure"/>
@@ -50,53 +28,4 @@
         </low>
       </ageRange>
     </population>
-  </therapeuticIndication>
-  <contraindication>
-    <disease>
-      <coding>
-        <system value="http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure"/>
-        <code value="Coagulopathiesandbleedingdiatheses(exclthrombocytopenic)"/>
-      </coding>
-      <text value="Hepatic disease associated with coagulopathy and clinically relevant bleeding risk"/>
-    </disease>
-    <comorbidity>
-      <coding>
-        <system value="http://ema.europa.eu/example/comorbidity"/>
-        <code value="Hepaticdisease"/>
-      </coding>
-    </comorbidity>
-  </contraindication>
-  <interactions>
-    <interaction value="Inhibitors of CYP3A4 and P-gp\nCoadministration of equixaban with ketoconazole (400 mg once a day), a strong inhibitor of both\nCYP3A4 and P-gp, led to a 2-fold increase in mean equixaban AUC and a 1.6-fold increase in mean\nequixaban Cmax.\nThe use of Eliquis is not recommended in patients receiving concomitant systemic treatment with\nstrong inhibitors of both CYP3A4 and P-gp, such as azole-antimycotics (e.g., ketoconazole,\nitraconazole, voriconazole and posaconazole) and HIV protease inhibitors (e.g., ritonavir) (see\nsection 4.4).\nActive substances which are not considered strong inhibitors of both CYP3A4 and P-gp,\n(e.g., diltiazem, naproxen, amiodarone, verapamil, quinidine) are expected to increase equixaban\nplasma concentration to a lesser extent. Diltiazem (360 mg once a day), for instance, considered a moderate CYP3A4 and a weak P-gp inhibitor, led to a 1.4-fold increase in mean equixaban AUC and a 1.3-fold increase in Cmax. Naproxen (500 mg, single dose) an inhibitor of P-gp but not an inhibitor of CYP3A4, led to a 1.5-fold and 1.6-fold increase in mean equixaban AUC and Cmax, respectively. No dose adjustment for equixaban is required when coadministered with less potent inhibitors of CYP3A4 and/or P-gp."/>
-    <interactant>
-      <coding>
-        <system value="http://ema.europa.eu/example/interactant"/>
-        <code value="ketoconazole"/>
-      </coding>
-    </interactant>
-    <interactant>
-      <coding>
-        <system value="http://ema.europa.eu/example/interactant"/>
-        <code value="itraconazole"/>
-      </coding>
-    </interactant>
-    <type>
-      <coding>
-        <system value="http://ema.europa.eu/example/interactionsType"/>
-        <code value="StrongInhibitorofCYP3A4"/>
-      </coding>
-    </type>
-    <effect>
-      <coding>
-        <system value="http://ema.europa.eu/example/interactionseffect"/>
-        <code value="Increasedplasmaconcentrations"/>
-      </coding>
-    </effect>
-    <management>
-      <coding>
-        <system value="http://ema.europa.eu/example/managementactions"/>
-        <code value="CoadministrationnotrecommendedinpatientsreceivingconcomitantsystemictreatmentstronginhibitorsofbothCYP3A4andP-gp"/>
-      </coding>
-    </management>
-  </interactions>
-</MedicinalProductClinicals>
+</MedicinalProductIndication>
