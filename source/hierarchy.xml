@@ -410,6 +410,8 @@ signatures.html
       <page type="resource" resource="RequestGroup"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
+      <page type="resource" resource="ResearchDefinition"/>
+      <page type="resource" resource="ResearchElementDefinition"/>
     </page>
   </page>
 
