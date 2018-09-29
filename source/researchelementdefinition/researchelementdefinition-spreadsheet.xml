@@ -17,8 +17,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>12</ActiveSheet>
+  <FirstVisibleSheet>6</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1671,14 +1671,14 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">This list initially included ExposureAlternative, but whether an element is an exposure or an alternative is a function of how it is used in a ResearchDefinition, rather than an intrinsic aspect of the element definition, right?</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">ResearchElementDefinition.outcomeType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ResearchElementDefinition.variableType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">OutcomeType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">VariableType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4446,7 +4446,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6925,11 +6924,11 @@
     <Cell ss:StyleID="s121"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s152"><Data ss:Type="String">OutcomeType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The possible types of outcomes (E.g. Dichotomous, Continuous, Descriptive)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">VariableType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">#outcome-type</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">#variable-type</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -8419,9 +8418,9 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="outcome-type">
+ <Worksheet ss:Name="variable-type">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='outcome-type'!R1C1:R1C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='variable-type'!R1C1:R1C9"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s143" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s143" ss:Width="80.0"/>
@@ -8448,7 +8447,7 @@
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Dichotomous</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">The outcome is dichotomous, such as present or absent</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">The variable is dichotomous, such as present or absent</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s146"/>
@@ -8459,7 +8458,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Continuous</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The outcome is a continuous result such as a quantity</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The variable is a continuous result such as a quantity</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s148"/>
@@ -8470,7 +8469,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Descriptive</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The outcome is described narratively rather than quantitatively</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The variable is described narratively rather than quantitatively</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s148"/>
@@ -9573,6 +9572,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
