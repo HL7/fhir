@@ -13145,8 +13145,8 @@ public class VersionConvertor_30_40 {
       tgt.addSupportingInformation(convertReference(t));
     if (src.hasAuthoredOn())
       tgt.setAuthoredOn(src.getAuthoredOn());
-//    if (src.hasRequester())
-//      tgt.setRequester(convertMedicationRequestRequesterComponent(src.getRequester()));
+    if (src.hasRequester())
+      tgt.setRequester(convertMedicationRequestRequesterComponent(src.getRequester()));
     if (src.hasRecorder())
       tgt.setRecorder(convertReference(src.getRecorder()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCode())
@@ -13201,8 +13201,8 @@ public class VersionConvertor_30_40 {
       tgt.addSupportingInformation(convertReference(t));
     if (src.hasAuthoredOn())
       tgt.setAuthoredOn(src.getAuthoredOn());
-//    if (src.hasRequester())
-//      tgt.setRequester(convertMedicationRequestRequesterComponent(src.getRequester()));
+    if (src.hasRequester())
+      tgt.setRequester(convertMedicationRequestRequesterComponent(src.getRequester()));
     if (src.hasRecorder())
       tgt.setRecorder(convertReference(src.getRecorder()));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonCode())
@@ -13305,30 +13305,23 @@ public class VersionConvertor_30_40 {
     default: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.NULL;
   }
 }
-//
-//  public static org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestRequesterComponent convertMedicationRequestRequesterComponent(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent src) throws FHIRException {
-//    if (src == null)
-//      return null;
-//    org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestRequesterComponent tgt = new org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestRequesterComponent();
-//    copyElement(src, tgt);
-//    if (src.hasAgent())
-//      tgt.setAgent(convertReference(src.getAgent()));
-//    if (src.hasOnBehalfOf())
-//      tgt.setOnBehalfOf(convertReference(src.getOnBehalfOf()));
-//    return tgt;
-//  }
-//
-//  public static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent convertMedicationRequestRequesterComponent(org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestRequesterComponent src) throws FHIRException {
-//    if (src == null)
-//      return null;
-//    org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent tgt = new org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent();
-//    copyElement(src, tgt);
-//    if (src.hasAgent())
-//      tgt.setAgent(convertReference(src.getAgent()));
-//    if (src.hasOnBehalfOf())
-//      tgt.setOnBehalfOf(convertReference(src.getOnBehalfOf()));
-//    return tgt;
-//  }
+
+  public static org.hl7.fhir.r4.model.Reference convertMedicationRequestRequesterComponent(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent src) throws FHIRException {
+    if (src == null || !src.hasAgent())
+      return null;
+    org.hl7.fhir.r4.model.Reference tgt = convertReference(src.getAgent());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent convertMedicationRequestRequesterComponent(org.hl7.fhir.r4.model.Reference src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent tgt = new org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent();
+    copyElement(src, tgt);
+    tgt.setAgent(convertReference(src));
+    return tgt;
+  }
 
   public static org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestDispenseRequestComponent convertMedicationRequestDispenseRequestComponent(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestDispenseRequestComponent src) throws FHIRException {
     if (src == null)
@@ -13419,8 +13412,8 @@ public class VersionConvertor_30_40 {
       tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getDerivedFrom())
       tgt.addDerivedFrom(convertReference(t));
-//    if (src.hasTaken())
-//      tgt.setTaken(convertMedicationStatementTaken(src.getTaken()));
+    if (src.hasTaken())
+      tgt.addExtension(convertMedicationStatementTaken(src.getTaken()));
 //    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotTaken())
 //      tgt.addReasonNotTaken(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCode())
@@ -13463,8 +13456,8 @@ public class VersionConvertor_30_40 {
       tgt.setSubject(convertReference(src.getSubject()));
     for (org.hl7.fhir.r4.model.Reference t : src.getDerivedFrom())
       tgt.addDerivedFrom(convertReference(t));
-//    if (src.hasTaken())
-//      tgt.setTaken(convertMedicationStatementTaken(src.getTaken()));
+    if (src.hasExtension(VersionConvertorConstants.MODIFIER_TAKEN))
+      tgt.setTaken(convertMedicationStatementTaken(src.getExtensionByUrl(VersionConvertorConstants.MODIFIER_TAKEN)));
 //    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonNotTaken())
 //      tgt.addReasonNotTaken(convertCodeableConcept(t));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonCode())
@@ -13505,30 +13498,18 @@ public class VersionConvertor_30_40 {
     default: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.NULL;
   }
 }
-//
-//  private static org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken convertMedicationStatementTaken(org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken src) throws FHIRException {
-//    if (src == null)
-//      return null;
-//    switch (src) {
-//    case Y: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken.Y;
-//    case N: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken.N;
-//    case UNK: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken.UNK;
-//    case NA: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken.NA;
-//    default: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken.NULL;
-//  }
-//}
-//
-//  private static org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken convertMedicationStatementTaken(org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementTaken src) throws FHIRException {
-//    if (src == null)
-//      return null;
-//    switch (src) {
-//    case Y: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken.Y;
-//    case N: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken.N;
-//    case UNK: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken.UNK;
-//    case NA: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken.NA;
-//    default: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken.NULL;
-//  }
-//}
+
+  private static org.hl7.fhir.r4.model.Extension convertMedicationStatementTaken(org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken src) throws FHIRException {
+    if (src == null)
+      return null;
+    return new org.hl7.fhir.r4.model.Extension(VersionConvertorConstants.MODIFIER_TAKEN).setValue(new org.hl7.fhir.r4.model.StringType(src.toCode()));
+  }
+
+  private static org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken convertMedicationStatementTaken(org.hl7.fhir.r4.model.Extension src) throws FHIRException {
+    if (src == null)
+      return null;
+    return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken.fromCode(src.getValueAsPrimitive().getValueAsString());
+  }
 
   public static org.hl7.fhir.r4.model.MessageDefinition convertMessageDefinition(org.hl7.fhir.dstu3.model.MessageDefinition src) throws FHIRException {
     if (src == null)

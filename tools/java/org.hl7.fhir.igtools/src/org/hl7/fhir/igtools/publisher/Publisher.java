@@ -668,6 +668,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     gen.setDestDir(Utilities.path(tempDir));
     gen.setPkp(igpkp);
     for (FetchedFile f : fileList) {
+      System.out.println(f.getName());
       for (FetchedResource r : f.getResources()) {
         dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
