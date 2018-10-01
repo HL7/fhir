@@ -508,6 +508,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
 		if (e.getStandardsStatus() != null && !path.contains("."))
       tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus()), getStandardsStatusStyle(e.getStandardsStatus()));
+    if (e.getStandardsStatus() == StandardsStatus.DEPRECATED && path.contains("."))
+      tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus()), getStandardsStatusStyle(e.getStandardsStatus()));
     tableRow("Element Id", null, e.getPath());
     tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));

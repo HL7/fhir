@@ -1381,6 +1381,9 @@ public class ProfileGenerator {
     elements.add(ce);
 //    todo ce.setId(path.substring(path.indexOf(".")+1));
 
+    if (e.getStandardsStatus() != null)
+      ToolingExtensions.setStandardsStatus(ce, e.getStandardsStatus());
+
     ce.setId(path);
     ce.setPath(path);
 
