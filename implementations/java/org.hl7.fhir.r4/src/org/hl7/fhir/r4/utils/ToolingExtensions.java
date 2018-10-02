@@ -444,6 +444,16 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
   }
 
+  public static void setStringExtension(Element resource, String uri, String value) {
+    if (Utilities.noString(value))
+      return;
+        Extension ext = getExtension(resource, uri);
+    if (ext != null)
+      ext.setValue(new StringType(value));
+    else
+      resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
+  }
+
   public static void setCodeExtension(DomainResource resource, String uri, String value) {
     if (Utilities.noString(value))
       return;
@@ -633,6 +643,13 @@ public class ToolingExtensions {
   }
 
   public static void setStandardsStatus(DomainResource dr, StandardsStatus status) {
+    if (status == null)
+      ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
+    else
+      ToolingExtensions.setStringExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toDisplay());
+  }
+
+  public static void setStandardsStatus(Element dr, StandardsStatus status) {
     if (status == null)
       ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
     else
