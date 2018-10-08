@@ -225,7 +225,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   public class IGPublisherHostServices implements IEvaluationContext {
 
     @Override
-    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
 //      if ("id".equals(name))
         return null;
 //      throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveConstant("+appContext.toString()+", \""+name+"\")");
@@ -409,7 +409,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private ImplementationGuide sourceIg;
   private ImplementationGuide publishedIg;
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-  private JsonObject configuration;
   private Calendar execTime = Calendar.getInstance();
   private Set<String> otherFilesStartup = new HashSet<String>();
   private Set<String> otherFilesRun = new HashSet<String>();
@@ -478,6 +477,21 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private NpmPackage packge;
 
   private String txLog;
+
+  private boolean includeHeadings;
+  private String openApiTemplate;
+  private Map<String, String> extraTemplates = new HashMap<>();
+  private String license;
+  private String htmlTemplate;
+  private String mdTemplate;
+  private boolean brokenLinksError;
+  private String nestedIgConfig;
+  private String igArtifactsPage;
+  private String nestedIgOutput;
+  private boolean genExamples;
+  private boolean doTransforms;
+  private List<String> spreadsheets = new ArrayList<>();
+  private List<String> bundles = new ArrayList<>();
   
   private class PreProcessInfo {
     private String xsltName;
@@ -671,7 +685,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       System.out.println(f.getName());
       for (FetchedResource r : f.getResources()) {
         dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
-        if (r.getResource() != null) {
+        if (r.getResource() != null && isConvertableResource(r.getResource().fhirType())) {
           boolean regen = false;
           gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
           if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
@@ -695,6 +709,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
   }
+
+  private boolean isConvertableResource(String t) {
+    return Utilities.existsInList(t, "StructureDefinition", "ValueSet", "CodeSystem", "Conformance", "CapabilityStatement", 
+        "ConceptMap", "OperationOutcome", "CompartmentDefinition", "OperationDefinition", "ImplementationGuide");
+  }
+
 
   private ITypeParser getTypeLoader(FetchedFile f, FetchedResource r) throws Exception {
     String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
@@ -919,33 +939,38 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     fetcher.setResourceDirs(resourceDirs);
     first = true;
-    if (configuration == null) {
-      if (configFile == null) {
-        adHocTmpDir = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-scratch");
-        log("Using inbuilt IG template in "+sourceDir);
-        copyDefaultTemplate();
-        buildConfigFile();
-      } else
-        log("Load Configuration from "+configFile);
-      try {
-        configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
-      } catch (Exception e) {
-        throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
-      }
-      if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
-        String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
-        log("Redirecting to Configuration from " + redirectFile);
-        configFile = redirectFile;
-        configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
-      }
-      if (configuration.has("logging")) {
-        for (JsonElement n : configuration.getAsJsonArray("logging")) {
-          String level = ((JsonPrimitive) n).getAsString();
-          System.out.println("Logging " + level);
-          logOptions.add(level);
-        }
+    initializeFromJson();   
+  }
+
+
+  private void initializeFromJson() throws Exception {
+    JsonObject configuration = null;
+    if (configFile == null) {
+      adHocTmpDir = Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-scratch");
+      log("Using inbuilt IG template in "+sourceDir);
+      copyDefaultTemplate();
+      buildConfigFile();
+    } else
+      log("Load Configuration from "+configFile);
+    try {
+      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    } catch (Exception e) {
+      throw new Exception("Error Reading JSON Config file at "+configFile+": "+e.getMessage(), e);
+    }
+    if (configuration.has("redirect")) { // redirect to support auto-build for complex projects with IG folder in subdirectory
+      String redirectFile = Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("redirect").getAsString());
+      log("Redirecting to Configuration from " + redirectFile);
+      configFile = redirectFile;
+      configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(redirectFile));
+    }
+    if (configuration.has("logging")) {
+      for (JsonElement n : configuration.getAsJsonArray("logging")) {
+        String level = ((JsonPrimitive) n).getAsString();
+        System.out.println("Logging " + level);
+        logOptions.add(level);
       }
     }
+
     if (configuration.has("tool") && !"jekyll".equals(str(configuration, "tool")))
       throw new Exception("Error: At present, configuration file must include a \"tool\" property with a value of 'jekyll'");
     tool = GenerationTool.Jekyll;
@@ -989,10 +1014,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       outputDir = Paths.get(p).isAbsolute() ? p : Utilities.path(rootDir, p);
     }
     
-	 qaDir = Utilities.path(rootDir, str(paths, "qa"));
+   qaDir = Utilities.path(rootDir, str(paths, "qa"));
    vsCache = ostr(paths, "txCache");
     
-	 if (mode == IGBuildMode.WEBSERVER) 
+   if (mode == IGBuildMode.WEBSERVER) 
       vsCache = Utilities.path(System.getProperty("java.io.tmpdir"), "fhircache");
     else if (vsCache != null)
       vsCache = Utilities.path(rootDir, vsCache);
@@ -1113,7 +1138,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     if (configuration.has("template"))
-      loadTemplate(str(configuration, "template"));
+      loadTemplate(configuration, str(configuration, "template"));
 
     // ;
     validator = new InstanceValidator(context, new IGPublisherHostServices()); // todo: host services for reference resolution....
@@ -1178,13 +1203,47 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         listedURLExemptions.add(url.getAsString());
       }
     }
-    
+    includeHeadings = !configuration.has("includeHeadings") || configuration.get("includeHeadings").getAsBoolean();
+    openApiTemplate = configuration.has("openapi-template") ? configuration.get("openapi-template").getAsString() : null;
+    license = ostr(configuration, "license");
+    htmlTemplate = configuration.has("html-template") ? str(configuration, "html-template") : null;
+    mdTemplate = configuration.has("md-template") ? str(configuration, "md-template") : null;
+    npmName = configuration.has("npm-name") ? configuration.get("npm-name").getAsString(): null;
+    brokenLinksError = "error".equals(ostr(configuration, "broken-links"));
+    nestedIgConfig = configuration.has("nestedIgConfig") ? configuration.get("nestedIgOutput").getAsString() : null;
+    nestedIgOutput = configuration.has("nestedIgOutput") ? configuration.get("nestedIgOutput").getAsString() : null;
+    igArtifactsPage = configuration.has("igArtifactsPage") ? configuration.get("igArtifactsPage").getAsString() : null;
+    genExamples = "true".equals(ostr(configuration, "gen-examples"));
+    doTransforms = "true".equals(ostr(configuration, "do-transforms"));
+    JsonArray array = configuration.getAsJsonArray("spreadsheets");
+    if (array != null) {
+      for (JsonElement be : array) 
+        spreadsheets.add(be.getAsString());
+    }
+    array = configuration.getAsJsonArray("bundles");
+    if (array != null) {
+      for (JsonElement be : array) 
+        bundles.add(be.getAsString());
+    }
+    JsonArray templates = configuration.getAsJsonArray("extraTemplates");
+    if (templates!=null) {
+      for (JsonElement template : templates) {
+        if (template.isJsonPrimitive())
+          extraTemplates.put(template.getAsString(), template.getAsString());
+        else {
+          if (!((JsonObject)template).has("name") || !((JsonObject)template).has("description"))
+            throw new Exception("extraTemplates must be an array of objects with 'name' and 'description' properties");
+          extraTemplates.put(((JsonObject)template).get("name").getAsString(), ((JsonObject)template).get("description").getAsString());
+        }
+      }
+    }
     log("Initialization complete");
     // now, do regeneration
     JsonArray regenlist = configuration.getAsJsonArray("regenerate");
     if (regenlist != null)
       for (JsonElement regen : regenlist)
         regenList.add(((JsonPrimitive) regen).getAsString());
+
   }
 
 
@@ -1688,13 +1747,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       altMap.get(IG_NAME).getResources().get(0).setResource(sourceIg);
     }
 
-    if (!configuration.has("npm-name"))
+    if (npmName == null)
       throw new Exception("A package name (npm-name) is required to publish implementation guides. For further information, see http://wiki.hl7.org/index.php?title=FHIR_NPM_Package_Spec#Package_name");
     publishedIg = sourceIg.copy();
     if (!publishedIg.hasLicense())
       publishedIg.setLicense(licenseAsEnum());
     if (!publishedIg.hasPackageId())
-      publishedIg.setPackageId(configuration.get("npm-name").getAsString());
+      publishedIg.setPackageId(npmName);
     if (!publishedIg.hasFhirVersion())
       publishedIg.setFhirVersion(version);
     if (!publishedIg.hasVersion() && businessVersion != null)
@@ -1770,7 +1829,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
 
-  private void loadTemplate(String src) throws Exception {
+  private void loadTemplate(JsonObject configuration, String src) throws Exception {
     log("Fetch Template: "+src);
     NpmPackage template = templateManager.fetch(src);
     if (!template.isType(PackageType.TEMPLATE))
@@ -1935,18 +1994,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private boolean loadBundles(boolean needToBuild, FetchedFile igf) throws Exception {
-    JsonArray bundles = configuration.getAsJsonArray("bundles");
-    if (bundles != null) {
-      for (JsonElement be : bundles) {
-        needToBuild = loadBundle((JsonPrimitive) be, needToBuild, igf);
-      }
+    for (String be : bundles) {
+      needToBuild = loadBundle(be, needToBuild, igf);
     }
     return needToBuild;
   }
 
-  private boolean loadBundle(JsonPrimitive be, boolean needToBuild, FetchedFile igf) throws Exception {
-    FetchedFile f = fetcher.fetch(new Reference().setReference("Bundle/"+be.getAsString()), igf);
-    boolean changed = noteFile("Bundle/"+be.getAsString(), f);
+  private boolean loadBundle(String name, boolean needToBuild, FetchedFile igf) throws Exception {
+    FetchedFile f = fetcher.fetch(new Reference().setReference("Bundle/"+name), igf);
+    boolean changed = noteFile("Bundle/"+name, f);
     if (changed) {
       f.setBundle(new FetchedResource());
       f.setBundleType(FetchedBundleType.NATIVE);
@@ -1968,9 +2024,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         igpkp.findConfiguration(f, r);
       }
     } else
-      f = altMap.get("Bundle/"+be.getAsString());
+      f = altMap.get("Bundle/"+name);
     ImplementationGuideDefinitionPackageComponent pck = publishedIg.getDefinition().addPackage().setName(f.getTitle());
-    pck.setId(be.getAsString());
+    pck.setId(name);
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuideDefinitionResourceComponent res = publishedIg.getDefinition().addResource();
@@ -2005,21 +2061,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private boolean loadSpreadsheets(boolean needToBuild, FetchedFile igf) throws Exception {
     Set<String> knownValueSetIds = new HashSet<>();
-    JsonArray spreadsheets = configuration.getAsJsonArray("spreadsheets");
-    if (spreadsheets != null) {
-      for (JsonElement be : spreadsheets) {
-        needToBuild = loadSpreadsheet((JsonPrimitive) be, needToBuild, igf, knownValueSetIds);
-      }
+    for (String s : spreadsheets) {
+      needToBuild = loadSpreadsheet(s, needToBuild, igf, knownValueSetIds);
     }
     return needToBuild;
   }
 
-  private boolean loadSpreadsheet(JsonPrimitive be, boolean needToBuild, FetchedFile igf, Set<String> knownValueSetIds) throws Exception {
-    if (be.getAsString().startsWith("!"))
+  private boolean loadSpreadsheet(String name, boolean needToBuild, FetchedFile igf, Set<String> knownValueSetIds) throws Exception {
+    if (name.startsWith("!"))
       return false;
 
-    FetchedFile f = fetcher.fetchResourceFile(be.getAsString());
-    boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
+    FetchedFile f = fetcher.fetchResourceFile(name);
+    boolean changed = noteFile("Spreadsheet/"+name, f);
     if (changed) {
       f.getValuesetsToLoad().clear();
       dlog(LogCategory.PROGRESS, "load "+f.getPath());
@@ -2036,7 +2089,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         igpkp.findConfiguration(f, r);
       }
     } else {
-      f = altMap.get("Spreadsheet/"+be.getAsString());
+      f = altMap.get("Spreadsheet/"+name);
     }
 
     for (String id : f.getValuesetsToLoad().keySet()) {
@@ -2066,7 +2119,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     ImplementationGuideDefinitionPackageComponent pck = publishedIg.getDefinition().addPackage().setName(f.getTitle());
-    pck.setId(be.getAsString());
+    pck.setId(name);
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuideDefinitionResourceComponent res = publishedIg.getDefinition().addResource();
@@ -2136,7 +2189,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   private void executeTransforms() throws FHIRException, Exception {
-    if ("true".equals(ostr(configuration, "do-transforms"))) {
+    if (doTransforms) {
       MappingServices services = new MappingServices(context, igpkp.getCanonical());
       StructureMapUtilities utils = new StructureMapUtilities(context, services, igpkp);
 
@@ -2496,7 +2549,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateAdditionalExamples() throws Exception {
-    if ("true".equals(ostr(configuration, "gen-examples"))) {
+    if (genExamples) {
       ProfileUtilities utils = new ProfileUtilities(context, null, null);
       for (FetchedFile f : changeList) {
         List<StructureDefinition> list = new ArrayList<StructureDefinition>();
@@ -2783,22 +2836,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     templateAfterGenerate();
     
-    if (configuration.has("nestedIgConfig")) {
+    if (nestedIgConfig != null) {
       if (watch) {
         throw new Exception("Cannot run in watch mode when IG has a nested IG.");
       }
-      String childConfig = configuration.get("nestedIgConfig").getAsString();
-      if (!configuration.has("nestedIgOutput") || !configuration.has("igArtifactsPage")) {
+      if (nestedIgOutput == null || igArtifactsPage == null) {
         throw new Exception("If nestedIgConfig is specified, then nestedIgOutput and igArtifactsPage must also be specified.");
       }
-      childOutput = configuration.get("nestedIgOutput").getAsString();
-      String igArtifactsPage = configuration.get("igArtifactsPage").getAsString();
-      inspector.setAltRootFolder(childOutput);
+      inspector.setAltRootFolder(nestedIgOutput);
       log("");
       log("**************************");
-      log("Processing nested IG: " + childConfig);
+      log("Processing nested IG: " + nestedIgConfig);
       childPublisher = new Publisher();
-      childPublisher.setConfigFile(Utilities.path(Utilities.getDirectoryForFile(this.getConfigFile()), childConfig));
+      childPublisher.setConfigFile(Utilities.path(Utilities.getDirectoryForFile(this.getConfigFile()), nestedIgConfig));
       childPublisher.setJekyllCommand(this.getJekyllCommand());
       childPublisher.setTxServer(this.getTxServer());
       childPublisher.setDebug(this.debug);
@@ -2809,14 +2859,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       
       try {
         childPublisher.execute();
-        log("Done processing nested IG: " + childConfig);
+        log("Done processing nested IG: " + nestedIgConfig);
         log("**************************");
         
       } catch (Exception e) {
-        log("Publishing Child IG Failed: " + childConfig);
+        log("Publishing Child IG Failed: " + nestedIgConfig);
         throw e;
       }
-      createToc(childPublisher.getSourceIg().getDefinition().getPage(), igArtifactsPage, childOutput);
+      createToc(childPublisher.getSourceIg().getDefinition().getPage(), igArtifactsPage, nestedIgOutput);
     }
     
     if (runTool()) {
@@ -2864,7 +2914,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (FetchedFile f : fileList)
         ValidationPresenter.filterMessages(f.getErrors(), suppressedMessages, false);
       log("Build final .zip");
-      if ("error".equals(ostr(configuration, "broken-links")) && linkmsgs.size() > 0)
+      if (brokenLinksError && linkmsgs.size() > 0)
         throw new Error("Halting build because broken links have been found, and these are disallowed in the IG control file");
       ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
       zip.addFolder(outputDir, "site/", false);
@@ -3004,7 +3054,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private File makeSpecFile() throws Exception {
-    SpecMapManager map = new SpecMapManager(configuration.has("npm-name") ? configuration.get("npm-name").getAsString(): null, version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
+    SpecMapManager map = new SpecMapManager(npmName, version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         String u = igpkp.getCanonical()+r.getUrlTail();
@@ -3415,9 +3465,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       TextFile.stringToFile(json, Utilities.path(tempDir, "_data", "pages.json"));
 
       createToc();
-      if (configuration.has("html-template") || configuration.has("md-template")) {
-        String htmlTemplate = configuration.has("html-template") ? str(configuration, "html-template") : null;
-        String mdTemplate = configuration.has("md-template") ? str(configuration, "md-template") : null;
+      if (htmlTemplate != null || mdTemplate != null) {
         applyPageTemplate(htmlTemplate, mdTemplate, sourceIg.getDefinition().getPage());
       }
     }
@@ -3425,7 +3473,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
 
   public String license() throws Exception {
-    String license = ostr(configuration, "license");
     if (Utilities.noString(license))
       throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"not-open-source\"");
     return license;
@@ -3523,25 +3570,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (page.hasGeneration() && page.getGeneration().equals(GuidePageGeneration.GENERATED) /*page.getKind().equals(ImplementationGuide.GuidePageKind.RESOURCE) */) {
         outputName = determineOutputName(igpkp.getProperty(r, "defns"), r, vars, null, "definitions");
         addPageDataRow(pages, outputName, page.getTitle() + " - Definitions", label, breadcrumb + breadCrumbForPage(page, false), null);
-        JsonArray templates = configuration.getAsJsonArray("extraTemplates");
-        if (templates!=null)
-          for (JsonElement template : templates) {
-            String templateName = null;
-            String templateDesc = null;
-            if (template.isJsonPrimitive()) {
-              templateName = template.getAsString();
-              templateDesc = templateName;
-            } else {
-              templateName = ((JsonObject)template).get("name").getAsString();
-              templateDesc = ((JsonObject)template).get("description").getAsString();
-            }
-            outputName = igpkp.getProperty(r, templateName);
-            if (outputName == null)
-              outputName = r.getElement().fhirType()+"-"+r.getId()+"-"+templateName+".html";
-            else
-              outputName = igpkp.doReplacements(outputName, r, vars, "");
-            addPageDataRow(pages, outputName, page.getTitle() + " - " + templateDesc, label, breadcrumb + breadCrumbForPage(page, false), null);
-          }
+        for (String templateName : extraTemplates.keySet()) {
+          String templateDesc = extraTemplates.get(templateName);
+          outputName = igpkp.getProperty(r, templateName);
+          if (outputName == null)
+            outputName = r.getElement().fhirType()+"-"+r.getId()+"-"+templateName+".html";
+          else
+            outputName = igpkp.doReplacements(outputName, r, vars, "");
+          addPageDataRow(pages, outputName, page.getTitle() + " - " + templateDesc, label, breadcrumb + breadCrumbForPage(page, false), null);
+        }
       }
     }
 
@@ -4160,23 +4197,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else
       genWrapper(f, r, igpkp.getProperty(r, "template-base"), baseName, f.getOutputNames(), vars, null, "");
     genWrapper(null, r, igpkp.getProperty(r, "template-defns"), igpkp.getProperty(r, "defns"), f.getOutputNames(), vars, null, "definitions");
-    JsonArray templates = configuration.getAsJsonArray("extraTemplates");
-    if (templates!=null)
-      for (JsonElement template : templates) {
-        String templateName = null;
-        String templateDesc = null;
-        if (template.isJsonPrimitive())
-          templateName = template.getAsString();
-        else {
-          if (!((JsonObject)template).has("name") || !((JsonObject)template).has("description"))
-            throw new Exception("extraTemplates must be an array of objects with 'name' and 'description' properties");
-          templateName = ((JsonObject)template).get("name").getAsString();
-        }
-        String output = igpkp.getProperty(r, templateName);
-        if (output == null)
-          output = r.getElement().fhirType()+"-"+r.getId()+"-"+templateName+".html";
-        genWrapper(null, r, igpkp.getProperty(r, "template-"+templateName), output, f.getOutputNames(), vars, null, templateName);
-      }
+    for (String templateName : extraTemplates.keySet()) {
+      String output = igpkp.getProperty(r, templateName);
+       if (output == null)
+        output = r.getElement().fhirType()+"-"+r.getId()+"-"+templateName+".html";
+      genWrapper(null, r, igpkp.getProperty(r, "template-"+templateName), output, f.getOutputNames(), vars, null, templateName);
+    }
 
     String template = igpkp.getProperty(r, "template-format");
     if (igpkp.wantGen(r, "xml")) {
@@ -4367,8 +4393,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "swagger")) {
 
       Writer oa = null;
-      if (configuration.has("openapi-template")) 
-        oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("npm-template").getAsString())));
+      if (openApiTemplate != null) 
+        oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), openApiTemplate)));
       else
         oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));
       new OpenApiGenerator(cpbs, oa).generate(license());
@@ -4379,7 +4405,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateOutputsStructureDefinition(FetchedFile f, FetchedResource r, StructureDefinition sd, Map<String, String> vars, boolean regen) throws Exception {
-    boolean includeHeadings = !configuration.has("includeHeadings") || configuration.get("includeHeadings").getAsBoolean();
     // todo : generate shex itself
     if (igpkp.wantGen(r, "shex"))
       fragmentError("StructureDefinition-"+sd.getId()+"-shex", "yet to be done: shex as html", null, f.getOutputNames());
@@ -5087,11 +5112,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   public void setConfigFileRootPath(String theConfigFileRootPath) {
     configFileRootPath = theConfigFileRootPath;
-  }
-
-
-  public void setConfiguration(JsonObject theConfiguration) {
-    configuration = theConfiguration;
   }
 
 

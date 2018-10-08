@@ -294,7 +294,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public class PageEvaluationContext implements IEvaluationContext {
 
     @Override
-    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
       return null;
     }
 

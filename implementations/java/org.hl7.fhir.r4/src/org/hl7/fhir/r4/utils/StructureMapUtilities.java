@@ -135,7 +135,7 @@ public class StructureMapUtilities {
 
 	private class FFHIRPathHostServices implements IEvaluationContext{
 
-    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
       Variables vars = (Variables) appContext;
       Base res = vars.get(VariableMode.INPUT, name);
       if (res == null)
