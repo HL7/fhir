@@ -9,7 +9,7 @@
     <valueCode value="fhir"/> 
   </extension> 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueString value="Trial-Use"/> 
+    <valueCode value="trial-Use"/> 
   </extension> 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/> 
