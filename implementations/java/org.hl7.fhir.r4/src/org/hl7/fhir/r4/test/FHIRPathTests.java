@@ -49,7 +49,7 @@ public class FHIRPathTests {
   public class FHIRPathTestEvaluationServices implements IEvaluationContext {
 
     @Override
-    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
       throw new NotImplementedException("Not done yet (FHIRPathTestEvaluationServices.resolveConstant), when item is element");
     }
 

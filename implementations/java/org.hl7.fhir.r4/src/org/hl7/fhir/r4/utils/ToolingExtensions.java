@@ -465,6 +465,17 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new CodeType(value)));
   }
 
+  public static void setCodeExtension(Element element, String uri, String value) {
+    if (Utilities.noString(value))
+      return;
+    
+    Extension ext = getExtension(element, uri);
+    if (ext != null)
+      ext.setValue(new CodeType(value));
+    else
+      element.getExtension().add(new Extension(new UriType(uri)).setValue(new CodeType(value)));
+  }
+
   public static void setIntegerExtension(DomainResource resource, String uri, int value) {
     Extension ext = getExtension(resource, uri);
     if (ext != null)
@@ -646,14 +657,14 @@ public class ToolingExtensions {
     if (status == null)
       ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
     else
-      ToolingExtensions.setStringExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toDisplay());
+      ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toCode());
   }
 
   public static void setStandardsStatus(Element dr, StandardsStatus status) {
     if (status == null)
       ToolingExtensions.removeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS);
     else
-      ToolingExtensions.setStringExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toDisplay());
+      ToolingExtensions.setCodeExtension(dr, ToolingExtensions.EXT_STANDARDS_STATUS, status.toCode());
   }
 
 //  public static boolean hasOID(ValueSet vs) {

@@ -103,7 +103,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
   private class ExampleHostServices implements IEvaluationContext {
 
     @Override
-    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
       return null;
     }
 

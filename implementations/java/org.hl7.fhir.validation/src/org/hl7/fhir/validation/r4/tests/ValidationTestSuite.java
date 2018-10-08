@@ -168,7 +168,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
   }
 
   @Override
-  public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+  public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
     return null;
   }
 

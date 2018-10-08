@@ -156,9 +156,10 @@ public class FHIRPathEngine {
      *  
      * @param appContext - content passed into the fluent path engine
      * @param name - name reference to resolve
+     * @param beforeContext - whether this is being called before the name is resolved locally, or not
      * @return the value of the reference (or null, if it's not valid, though can throw an exception if desired)
      */
-    public Base resolveConstant(Object appContext, String name)  throws PathEngineException;
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext)  throws PathEngineException;
     public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException;
     
     /**
@@ -1053,7 +1054,7 @@ public class FHIRPathEngine {
       work.addAll(work2);
       break;
     case Constant:
-      Base b = resolveConstant(context, exp.getConstant());
+      Base b = resolveConstant(context, exp.getConstant(), false);
       if (b != null)
         work.add(b);
       break;
@@ -1169,12 +1170,12 @@ public class FHIRPathEngine {
     return result;
   }
 
-  private Base resolveConstant(ExecutionContext context, Base constant) throws PathEngineException {
+  private Base resolveConstant(ExecutionContext context, Base constant, boolean beforeContext) throws PathEngineException {
     if (!(constant instanceof FHIRConstant))
       return constant;
     FHIRConstant c = (FHIRConstant) constant;
     if (c.getValue().startsWith("%")) {
-      return resolveConstant(context, c.getValue());
+      return resolveConstant(context, c.getValue(), beforeContext);
     } else if (c.getValue().startsWith("@")) {
       return processDateConstant(context.appInfo, c.getValue().substring(1));
     } else 
@@ -1200,7 +1201,7 @@ public class FHIRPathEngine {
   }
 
 
-  private Base resolveConstant(ExecutionContext context, String s) throws PathEngineException {
+  private Base resolveConstant(ExecutionContext context, String s, boolean beforeContext) throws PathEngineException {
     if (s.equals("%sct"))
       return new StringType("http://snomed.info/sct").noExtensions();
     else if (s.equals("%loinc"))
@@ -1224,7 +1225,7 @@ public class FHIRPathEngine {
     else if (hostServices == null)
       throw new PathEngineException("Unknown fixed constant '"+s+"'");
     else
-      return hostServices.resolveConstant(context.appInfo, s.substring(1));
+      return hostServices.resolveConstant(context.appInfo, s.substring(1), beforeContext);
   }
 
 
@@ -2068,15 +2069,24 @@ public class FHIRPathEngine {
 
 	private List<Base> execute(ExecutionContext context, Base item, ExpressionNode exp, boolean atEntry) throws FHIRException {
     List<Base> result = new ArrayList<Base>(); 
+    if (atEntry && context.appInfo != null && hostServices != null) {
+      // well, we didn't get a match on the name - we'll see if the name matches a constant known by the context.
+      // (if the name does match, and the user wants to get the constant value, they'll have to try harder...
+      Base temp = hostServices.resolveConstant(context.appInfo, exp.getName(), true);
+      if (temp != null) {
+        result.add(temp);
+        return result;
+      }
+    }
     if (atEntry && Character.isUpperCase(exp.getName().charAt(0))) {// special case for start up
       if (item.isResource() && item.fhirType().equals(exp.getName()))  
         result.add(item);
     } else 
       getChildrenByName(item, exp.getName(), result);
-    if (result.size() == 0 && atEntry && context.appInfo != null) {
+    if (atEntry && context.appInfo != null && hostServices != null) {
       // well, we didn't get a match on the name - we'll see if the name matches a constant known by the context.
       // (if the name does match, and the user wants to get the constant value, they'll have to try harder...
-      Base temp = hostServices.resolveConstant(context.appInfo, exp.getName());
+      Base temp = hostServices.resolveConstant(context.appInfo, exp.getName(), false);
       if (temp != null) {
         result.add(temp);
       }
