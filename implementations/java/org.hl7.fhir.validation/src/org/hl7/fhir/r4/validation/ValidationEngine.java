@@ -64,6 +64,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.OperationOutcome;
@@ -76,6 +77,8 @@ import org.hl7.fhir.r4.model.ResourceFactory;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.terminologies.ConceptMapEngine;
+import org.hl7.fhir.r4.terminologies.TerminologyClient;
+import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
@@ -91,6 +94,7 @@ import org.hl7.fhir.convertors.R2016MayToR4Loader;
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.convertors.R3ToR4Loader;
+import org.hl7.fhir.convertors.TerminologyClientFactory;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
@@ -115,7 +119,7 @@ import com.google.gson.JsonObject;
  * This is just a wrapper around the InstanceValidator class for convenient use 
  * 
  * The following resource formats are supported: XML, JSON, Turtle
- * The following versions are supported: 1.4.0, 1.6.0, and current
+ * The following versions are supported: 1.0.1, 1.4.0, 3.0.1, and current
  * 
  * Note: the validation engine is intended to be threadsafe
  * To Use:
@@ -263,8 +267,8 @@ public class ValidationEngine {
     loadDefinitions(src);   
   }
   
-  public void setTerminologyServer(String src, String log) throws Exception {
-    connectToTSServer(src, log);   
+  public void setTerminologyServer(String src, String log, FhirVersion version) throws Exception {
+    connectToTSServer(src, log, version);   
   }
   
   public boolean isHintAboutNonMustSupport() {
@@ -283,10 +287,10 @@ public class ValidationEngine {
     this.anyExtensionsAllowed = anyExtensionsAllowed;
   }
 
-  public ValidationEngine(String src, String txsrvr, String txLog) throws Exception {
+  public ValidationEngine(String src, String txsrvr, String txLog, FhirVersion version) throws Exception {
     pcm = new PackageCacheManager(true);
     loadInitialDefinitions(src);
-    setTerminologyServer(txsrvr, txLog);
+    setTerminologyServer(txsrvr, txLog, version);
   }
   
   public ValidationEngine(String src) throws Exception {
@@ -594,12 +598,12 @@ public class ValidationEngine {
     return checkIsResource(new FileInputStream(path));
 	}
 
-  public void connectToTSServer(String url, String log) throws URISyntaxException {
+  public void connectToTSServer(String url, String log, FhirVersion version) throws URISyntaxException, FHIRException {
     context.setTlogging(false);
     if (url == null) {
       context.setCanRunWithoutTerminology(true);
-    } else
-      context.connectToTSServer(url, log);
+    } else 
+      context.connectToTSServer(TerminologyClientFactory.makeClient(url, version), log);
 	}
 
   public void loadProfile(String src) throws Exception {

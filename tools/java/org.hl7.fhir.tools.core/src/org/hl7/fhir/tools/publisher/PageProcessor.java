@@ -181,6 +181,8 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r4.terminologies.TerminologyClient;
+import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
@@ -9010,9 +9012,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   public void setDefinitions(Definitions definitions) throws Exception {
     this.definitions = definitions;
     breadCrumbManager.setDefinitions(definitions);
-    FHIRToolingClient client;
+    TerminologyClient client;
     try {
-      client = new FHIRToolingClient(tsServer);
+      client = new TerminologyClientR4(tsServer);
       client.setTimeout(30000);
     } catch(Exception e) {
       System.out.println("Warning @ PageProcessor client initialize: " + e.getLocalizedMessage());

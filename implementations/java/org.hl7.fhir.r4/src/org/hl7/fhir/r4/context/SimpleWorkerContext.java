@@ -49,6 +49,7 @@ import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.r4.model.StructureMap.StructureMapStructureComponent;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.terminologies.TerminologyClient;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.r4.utils.INarrativeGenerator;
@@ -204,21 +205,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       loadBytes(name, stream);
   }
 
-  public String connectToTSServer(String url, String log) throws URISyntaxException {
-    tlog("Connect to "+url);
-    txServer = new FHIRToolingClient(url);
-    txServer.setTimeout(30000);
-    txLog = new HTMLClientLogger(log);
-    txServer.setLogger(txLog);
-    return txServer.getCapabilitiesStatementQuick().getSoftware().getVersion();
-  }
 
-  public String connectToTSServer(FHIRToolingClient client, String log) throws URISyntaxException {
+  public String connectToTSServer(TerminologyClient client, String log) throws URISyntaxException, FHIRException {
     tlog("Connect to "+client.getAddress());
-    txServer = client;
+    txClient = client;
     txLog = new HTMLClientLogger(log);
-    txServer.setLogger(txLog);
-    return txServer.getCapabilitiesStatementQuick().getSoftware().getVersion();
+    txClient.setLogger(txLog);
+    return txClient.getCapabilitiesStatementQuick().getSoftware().getVersion();
   }
 
 	public void loadFromFile(InputStream stream, String name, IContextResourceLoader loader) throws IOException, FHIRException {
