@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy"/>
+  <name value="MedicationRequest Course of Therapy Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/valueSet/medicationrequest-course-of-therapy"/>
+  <content value="complete"/>
+  <concept>
+    <code value="continuous"/>
+    <display value="Continuous long term therapy"/>
+    <definition value="A medication which is expected to be continued beyond the present order and which the patient should be assumed to be taking unless explicitly stopped."/>
+  </concept>
+  <concept>
+    <code value="acute"/>
+    <display value="Short course (acute) therapy"/>
+    <definition value="A medication which the patient is only expected to consume for the duration of the current order and which is not expected to be renewed."/>
+  </concept>
+  <concept>
+    <code value="seasonal"/>
+    <display value="Seasonal"/>
+    <definition value="A medication which is expected to be used on a part time basis at certain times of the year"/>
+  </concept>
+</CodeSystem>

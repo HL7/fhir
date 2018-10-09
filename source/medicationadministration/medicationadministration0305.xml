@@ -33,7 +33,13 @@
     </Medication>
   </contained>
   <instantiates value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
-  <status value="completed" />
+  <status>
+    <coding>
+    <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
+    <code value="completed"/>
+    <display value="Completed"/>
+    </coding>
+  </status>
   <medicationReference>
     <reference value="#med0306"/> 
   </medicationReference>

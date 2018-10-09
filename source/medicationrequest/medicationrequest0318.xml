@@ -20,8 +20,19 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <status value="active"/>
-    <intent value="order">
+    <status>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
+            <code value="active"/>
+            <display value="Active"/>
+        </coding>
+    </status>
+    <intent>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+            <code value="order"/>
+            <display value="Order"/>
+        </coding>
     </intent>
     <medicationReference> <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0301"/>

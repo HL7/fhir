@@ -7,7 +7,13 @@
   <partOf>
     <reference value="Observation/blood-pressure"></reference>
   </partOf>
-  <status value="completed" /> 
+  <status>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
+      <code value="completed"/>
+      <display value="Completed"/>
+    </coding>
+  </status>
   <medicationCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>

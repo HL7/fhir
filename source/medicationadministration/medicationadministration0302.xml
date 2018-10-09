@@ -61,7 +61,13 @@
   <partOf>
     <reference value="Procedure/biopsy"></reference>
   </partOf>
-  <status value="completed" />
+  <status>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
+      <code value="completed"/>
+      <display value="Completed"/>
+    </coding>
+  </status>
   <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/medication-admin-category"/>

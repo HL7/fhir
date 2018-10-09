@@ -1,0 +1,91 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-status",
+  "code" : "active"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/medicationrequest-status\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/medicationrequest-status#active) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-status",
+  "code" : "completed"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/medicationrequest-status\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/medicationrequest-status#completed) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-status",
+  "code" : "on-hold"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/medicationrequest-status\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/medicationrequest-status#on-hold) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-status",
+    "code" : "active",
+    "display" : "Active"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationRequest-status"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/medicationrequest-status\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/medicationrequest-status#active) is not  valid in the value set medicationrequest Status"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-status",
+    "code" : "completed",
+    "display" : "Completed"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationRequest-status"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/medicationrequest-status\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/medicationrequest-status#completed) is not  valid in the value set medicationrequest Status"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "coding" : [{
+    "system" : "http://terminology.hl7.org/CodeSystem/medicationrequest-status",
+    "code" : "on-hold",
+    "display" : "On Hold"
+  }]
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/medicationRequest-status"
+    }]
+  }
+}}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://terminology.hl7.org/CodeSystem/medicationrequest-status\" is not known; The code provided (http://terminology.hl7.org/CodeSystem/medicationrequest-status#on-hold) is not  valid in the value set medicationrequest Status"
+}
+-------------------------------------------------------------------------------------

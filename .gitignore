@@ -43,3 +43,5 @@ hs_err_pid*
 /tests/graphql/simple.json.out
 /tests/resources/unicode.out.xml
 *.prefs
+
+\.DS_Store

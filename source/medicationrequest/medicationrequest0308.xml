@@ -8,8 +8,19 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <status value="completed"/>
-    <intent value="order">
+    <status>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
+            <code value="completed"/>
+            <display value="Completed"/>
+        </coding>
+    </status>
+    <intent>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+            <code value="order"/>
+            <display value="Order"/>
+        </coding>
     </intent>
     <medicationCodeableConcept>
         <coding>

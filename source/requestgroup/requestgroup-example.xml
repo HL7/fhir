@@ -8,8 +8,20 @@
   <contained>
     <MedicationRequest>
       <id value="medicationrequest-1"/>
-      <status value="unknown"></status>
-        <intent value="proposal"/>
+      <status>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
+          <code value="unknown"/>
+          <display value="Unknown"/>
+        </coding>
+      </status>
+      <intent>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+          <code value="proposal"/>
+          <display value="Proposal"/>
+        </coding>
+      </intent>
       <medicationCodeableConcept>
         <text value="Medication 1"/>
       </medicationCodeableConcept>
@@ -21,8 +33,20 @@
   <contained>
     <MedicationRequest>
       <id value="medicationrequest-2"/>
-      <status value="unknown"></status>
-      <intent value="proposal"/>
+      <status>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
+          <code value="unknown"/>
+          <display value="Unknown"/>
+        </coding>
+      </status>
+      <intent>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+          <code value="proposal"/>
+          <display value="Proposal"/>
+        </coding>
+      </intent>
       <medicationCodeableConcept>
         <text value="Medication 2"/>
       </medicationCodeableConcept>
