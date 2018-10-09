@@ -9,6 +9,7 @@ import java.util.UUID;
 import org.hl7.fhir.dstu2016may.formats.JsonParser;
 import org.hl7.fhir.dstu2016may.formats.XmlParser;
 import org.hl7.fhir.dstu2016may.model.Resource;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
@@ -45,6 +46,7 @@ public class R2016MayToR4Loader implements IContextResourceLoader, VersionConver
       b.setType(BundleType.COLLECTION);
       b.addEntry().setResource(r4).setFullUrl(r4 instanceof MetadataResource ? ((MetadataResource) r4).getUrl() : null);
     }
+    
     for (CodeSystem cs : cslist) {
       BundleEntryComponent be = b.addEntry();
       be.setFullUrl(cs.getUrl());
@@ -61,10 +63,11 @@ public class R2016MayToR4Loader implements IContextResourceLoader, VersionConver
       }
       b.getEntry().removeAll(remove);
     }
-    if (patchUrls) {
-      for (BundleEntryComponent be : b.getEntry()) {
-        if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
-          StructureDefinition sd = (StructureDefinition) be.getResource();
+    for (BundleEntryComponent be : b.getEntry()) {
+      if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
+        StructureDefinition sd = (StructureDefinition) be.getResource();
+        new ProfileUtilities(null, null, null).setIds(sd, false);
+        if (patchUrls) {
           sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/2016May/"));
           sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("http://hl7.org/fhir"));
         }

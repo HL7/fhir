@@ -58,6 +58,7 @@ import org.hl7.fhir.convertors.IGR2ConvertorAdvisor;
 import org.hl7.fhir.convertors.R2016MayToR4Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.convertors.R3ToR4Loader;
+import org.hl7.fhir.convertors.TerminologyClientFactory;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
@@ -115,6 +116,7 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ExpressionNode;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
@@ -942,7 +944,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     initializeFromJson();   
   }
 
-
   private void initializeFromJson() throws Exception {
     JsonObject configuration = null;
     if (configFile == null) {
@@ -1109,10 +1110,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         txLog = null;
       } else {
         log("Connect to Terminology Server at "+txServer);
-        checkTSVersion(vsCache, context.connectToTSServer(txServer, txLog));
+        checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(txServer, FhirVersion.fromString(version)), txLog));
       }
     } else 
-      checkTSVersion(vsCache, context.connectToTSServer(webTxServer, txLog));
+      checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(webTxServer.getAddress(), FhirVersion.fromString(version)), txLog));
     
     
     loadSpecDetails(context.getBinaries().get("spec.internals"));

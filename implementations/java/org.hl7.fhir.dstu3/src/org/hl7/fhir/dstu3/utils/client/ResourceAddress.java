@@ -414,4 +414,8 @@ public class ResourceAddress {
         }
     }
 	
+  public URI resolveMetadataTxCaps() {
+    return baseServiceUri.resolve("metadata?mode=terminology");
+  }  
+
 }

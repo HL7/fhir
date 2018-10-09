@@ -31,6 +31,7 @@ import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
+import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
 import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
@@ -94,7 +95,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
       TestingUtilities.context = ctxt;
       ctxt.setExpansionProfile(makeExpProfile());
       try {
-        ctxt.connectToTSServer("http://tx.fhir.org/r4", null);
+        ctxt.connectToTSServer(new TerminologyClientR4("http://tx.fhir.org/r4"), null);
       } catch (Exception e) {
         ctxt.setCanRunWithoutTerminology(true);
       }

@@ -645,14 +645,20 @@ public class FHIRToolingClient {
     }
     return (Parameters) result.getPayload();
   }
-  public ValueSet expandValueset(ValueSet source, Map<String, String> params) {
+  public ValueSet expandValueset(ValueSet source, Parameters expParams,Map<String, String> params) {
     List<Header> headers = null;
+    
+    Parameters p = expParams == null ? new Parameters() : expParams.copy();
+    p.addParameter().setName("valueSet").setResource(source);
+    for (String n : params.keySet())
+      p.addParameter().setName(n).setValue(new StringType(params.get(n)));
+    
     ResourceRequest<Resource> result = ClientUtils.issuePostRequest(resourceAddress.resolveOperationUri(ValueSet.class, "expand", params), 
-        ClientUtils.getResourceAsByteArray(source, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
-    result.addErrorStatus(410);//gone
-    result.addErrorStatus(404);//unknown
+        ClientUtils.getResourceAsByteArray(p, false, isJson(getPreferredResourceFormat())), getPreferredResourceFormat(), headers, proxy);
+    result.addErrorStatus(410); //gone
+    result.addErrorStatus(404); //unknown
     result.addErrorStatus(405);
-    result.addErrorStatus(422);//Unprocessable Entity
+    result.addErrorStatus(422); //Unprocessable Entity
     result.addSuccessStatus(200);
     result.addSuccessStatus(201);
     if(result.isUnsuccessfulRequest()) {
@@ -701,6 +707,10 @@ public class FHIRToolingClient {
       throw new EFhirClientException("Server returned error code " + result.getHttpStatus(), (OperationOutcome)result.getPayload());
     }
     return (ConceptMap) result.getPayload();
+  }
+
+  public Parameters getTerminologyCapabilities() {
+    return (Parameters) ClientUtils.issueGetResourceRequest(resourceAddress.resolveMetadataTxCaps(), getPreferredResourceFormat(), proxy).getReference();
   }
 
 }

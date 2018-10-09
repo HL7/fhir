@@ -80,7 +80,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       params.put("_limit", "10000");
       params.put("_incomplete", "true");
       params.put("profile", "http://www.healthintersections.com.au/fhir/expansion/no-details");
-      ValueSet result = txServer.expandValueset(vs, params);
+      ValueSet result = txServer.expandValueset(vs, null, params);
       return new ValueSetExpansionOutcome(result);  
     } catch (Exception e) {
       return new ValueSetExpansionOutcome("Error expanding ValueSet \""+vs.getUrl()+": "+e.getMessage());

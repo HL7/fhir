@@ -765,4 +765,9 @@ public class FHIRToolingClient {
     utils.setPassword(password);
   }
 
+  
+  public Parameters getTerminologyCapabilities() {
+    return (Parameters) utils.issueGetResourceRequest(resourceAddress.resolveMetadataTxCaps(), getPreferredResourceFormat()).getReference();
+  }
+
 }
