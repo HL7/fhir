@@ -16,9 +16,9 @@
   </code>
   <status>
     <coding>
-    <system value="http://terminology.hl7.org/CodeSystem/medicationKnowledge-status"/>
-    <code value="active"/>
-    <display value="Active"/>
+      <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-status"/>
+      <code value="active"/>
+      <display value="Active"/>
     </coding>
   </status>
   <manufacturer>

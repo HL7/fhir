@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/ValueSet/medicationKnowledge-status"/>
+  <url value="http://hl7.org/fhir/ValueSet/medicationknowledge-status"/>
   <name value="medicationKnowledge Status Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -17,7 +17,7 @@
   <description value="MedicationKnowledge Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationKnowledge-status"/>
+      <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-status"/>
     </include>
   </compose>
 </ValueSet>
