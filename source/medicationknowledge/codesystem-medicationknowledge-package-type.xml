@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://terminology.hl7.org/CodeSystem/medicationKnowledge-package-type"/>
+  <url value="http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type"/>
   <name value="MedicationKnowledge Package Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medicationKnowledge-package-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-package-type"/>
   <content value="complete"/>
   <concept>
     <code value="amp"/>
