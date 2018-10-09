@@ -9,7 +9,9 @@
     "txCache" : "txCache",
     "specification" : "http://hl7.org/fhir/2016May"
   },
-	"canonicalBase": "http://hl7.org/fhir/test-ig-14",
+  "npm-name" : "hl7.fhir.test.ig14",
+  "license" : "CC0-1.0", 	
+  "canonicalBase": "http://hl7.org/fhir/test-ig-14",
   "version" : "1.4.0",
   "sct-edition" :  "http://snomed.info/sct/900000000000207008",
 	"spreadsheets": [

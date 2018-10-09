@@ -12,6 +12,10 @@ public enum FhirVersion {
       return FhirVersion.DSTU2;
     if ("1.0".equals(v))
       return FhirVersion.DSTU2;
+    if ("1.4.0".equals(v))
+      return FhirVersion.DST2016May;
+    if ("1.4".equals(v))
+      return FhirVersion.DST2016May;
     if ("3.0.1".equals(v))
       return FhirVersion.STU3;
     if ("3.0".equals(v))
