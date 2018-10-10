@@ -195,7 +195,7 @@ IdentifierName does  not  refer to the organization which  issued the identifier
 Vehicles). It is intended for use as a human-readable label when an identifier  is to  be displayed to a human 
 user where an OID would not be meaningful.
 The  identifier name has no computational value. IdentifierName can never modify the meaning of the root 
-attribute. The purpose of the identifer name is to assist an unaided human interpreter of an II value to interpret 
+attribute. The purpose of the identifier name is to assist an unaided human interpreter of an II value to interpret 
 the authority. Applications  shall not  attempt to perform any decision-making, matching, filtering or other 
 processing based on the presence or value of this property. It is for display and development assistance only. 
 All decision logic  shall  be based solely on the root and extension properties. Information  processing entities 

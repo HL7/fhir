@@ -4411,7 +4411,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Types must be unique by code</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">type.select(code).isDistinct()</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value))</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">14</Data><NamedCell ss:Name="Invariantids"/></Cell>

@@ -15,7 +15,7 @@
 			<value value="beep@coyote.acme.com"/>
 		</telecom>
 	</contact>
-	<description value="Limited implementation of the Populate Questionnaire implemenation"/>
+	<description value="Limited implementation of the Populate Questionnaire implementation"/>
 	<useContext>
     <code>
       <system value="http://build.fhir.org/codesystem-usage-context-type"/>

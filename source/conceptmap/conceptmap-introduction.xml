@@ -31,7 +31,7 @@ might not have a target for each concept.
 <p>
 A key concept for the ConceptMap resource is the <a href="conceptmap-operation-translate.html">$translate operation</a>. This operation 
 is a formal definition of an API by which a <a href="terminology-service.html">terminology server</a> can allow clients to ask for a 
-translation to be done based on the content in the ConceptMap resource. As such it is also provides useful perspective on the 
+translation to be done based on the content in the ConceptMap resource. As such it also provides useful perspective on the 
 operational use of ConceptMap resources in any context.
 </p>
 
