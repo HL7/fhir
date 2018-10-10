@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+  <name value="MedicationRequest Intent Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/valueSet/medicationrequest-intent"/>
+  <content value="complete"/>
+  <concept>
+    <code value="proposal"/>
+    <display value="Proposal"/>
+    <definition value="The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act"/>
+  </concept>
+  <concept>
+    <code value="plan"/>
+    <display value="Plan"/>
+    <definition value="The request represents an intention to ensure something occurs without providing an authorization for others to act."/>
+  </concept>
+  <concept>
+    <code value="order"/>
+    <display value="Order"/>
+    <definition value="The request represents a request/demand and authorization for action"/>
+  </concept>
+  <concept>
+    <code value="original-order"/>
+    <display value="Original Order"/>
+    <definition value="The request represents the original authorization for the medication request."/>
+  </concept>
+  <concept>
+    <code value="instance-order"/>
+    <display value="Instance Order"/>
+    <definition value="The request represents an instance for the particular order, for example a medication administration record."/>
+  </concept>
+  <concept>
+    <code value="option"/>
+    <display value="Option"/>
+    <definition value="The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or  other constraints among a set of requests."/>
+  </concept>
+</CodeSystem>

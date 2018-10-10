@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type"/>
+  <name value="MedicationKnowledge Package Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-package-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="amp"/>
+    <display value="Ampule"/>
+  </concept>
+  <concept>
+    <code value="bag"/>
+    <display value="Bag"/>
+  </concept>
+  <concept>
+    <code value="blstrpk"/>
+    <display value="Blister Pack"/>
+  </concept>
+  <concept>
+    <code value="bot"/>
+    <display value="Bottle"/>
+  </concept>
+  <concept>
+    <code value="box"/>
+    <display value="Box"/>
+  </concept>
+  <concept>
+    <code value="can"/>
+    <display value="Can"/>
+  </concept>
+  <concept>
+    <code value="cart"/>
+    <display value="Cartridge"/>
+  </concept>
+  <concept>
+    <code value="disk"/>
+    <display value="Disk"/>
+  </concept>
+  <concept>
+    <code value="doset"/>
+    <display value="Dosette"/>
+  </concept>
+  <concept>
+    <code value="jar"/>
+    <display value="Jar"/>
+  </concept>
+  <concept>
+    <code value="jug"/>
+    <display value="Jug"/>
+  </concept>
+  <concept>
+    <code value="minim"/>
+    <display value="Minim"/>
+  </concept>
+  <concept>
+    <code value="nebamp"/>
+    <display value="Nebule Amp"/>
+  </concept>
+  <concept>
+    <code value="ovul"/>
+    <display value="Ovule"/>
+  </concept>
+  <concept>
+    <code value="pch"/>
+    <display value="Pouch"/>
+  </concept>
+  <concept>
+    <code value="pkt"/>
+    <display value="Packet"/>
+  </concept>
+  <concept>
+    <code value="sash"/>
+    <display value="Sashet"/>
+  </concept>
+  <concept>
+    <code value="strip"/>
+    <display value="Strip"/>
+  </concept>
+  <concept>
+    <code value="tin"/>
+    <display value="Tin"/>
+  </concept>
+  <concept>
+    <code value="tub"/>
+    <display value="Tub"/>
+  </concept>
+  <concept>
+    <code value="tube"/>
+    <display value="Tube"/>
+  </concept>
+  <concept>
+    <code value="vial"/>
+    <display value="Vial"/>
+  </concept>
+</CodeSystem>

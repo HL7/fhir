@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Melva Peters</LastAuthor>
   <LastPrinted>2016-01-26T17:36:52Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-16T21:06:58Z</LastSaved>
+  <LastSaved>2018-10-06T19:33:45Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -16,8 +16,8 @@
   
   
   <TabRatio>732</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -985,7 +985,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1013,7 +1013,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This element changes the interpretation of all descriptive attributes. For example "the time the request is recommended to occur" vs. "the time the request is authorized to occur" or "who is recommended to perform the request" vs. "who is authorized to perform the request</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1069,7 +1069,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3878,7 +3878,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6162,7 +6162,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6270,12 +6269,12 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s123"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="32">
     <Cell ss:StyleID="s97"><Data ss:Type="String">MedicationRequestStatus</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">#medication-request-status</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-medicationrequest-status</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
@@ -6303,9 +6302,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s88"><Data ss:Type="String">MedicationRequestIntent</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The kind of medication order</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">#medication-request-intent</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-medicationrequest-intent</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
@@ -6393,9 +6392,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">MedicationRequestCategory</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment.</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">#medication-request-category</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-medicationrequest-category</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
@@ -6437,9 +6436,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s97"><Data ss:Type="String">MedicationRequestStatusReason</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the reasons for a given status</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">#med-request-status-reason</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">valueset-medicationrequest-status-reason</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
@@ -6451,10 +6450,10 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">MedicationRequestCourseOfTherapy</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the overall pattern of medication administration</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identifies the overall pattern of medication administratio</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">#course-of-therapy</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">valueset-medicationrequest-course-of-therapy</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
@@ -6612,6 +6611,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7955,6 +7955,10 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8139,6 +8143,10 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
    <TabColorIndex>9</TabColorIndex>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -8724,7 +8732,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <TopRowVisible>7</TopRowVisible>
+   <Print>
+    <ValidPrinterInfo/>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <TopRowVisible>4</TopRowVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/medicationdispense-performer-function"/>
+  <name value="Medication Dispense Performer Function Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-performer-function"/>
+  <content value="complete"/>
+  <concept>
+    <code value="dataenterer"/>
+    <display value="Data Enterer"/>
+    <definition value="Recorded the details of the request"/>
+  </concept>
+  <concept>
+    <code value="packager"/>
+    <display value="Packager"/>
+    <definition value="Prepared the medication."/>
+  </concept>
+  <concept>
+    <code value="checker"/>
+    <display value="Checker"/>
+    <definition value="Performed initial quality assurance on the prepared medication"/>
+  </concept>
+  <concept>
+    <code value="finalchecker"/>
+    <display value="Final Checker"/>
+    <definition value="Performed the final quality assurance on the prepared medication against the request. Typically, this is a pharmacist function."/>
+  </concept>
+</CodeSystem>

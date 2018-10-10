@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0318"/>
     <identifier>
@@ -8,7 +8,13 @@
         <system value="http://www.bmc.nl/portal/dispenses"/>
         <value value="12345689"/>
     </identifier>
-    <status value="in-progress"/>
+    <status>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
+            <code value="in-progress"/>
+            <display value="In Progress"/>
+        </coding>
+    </status>
     <medicationCodeableConcept>
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>

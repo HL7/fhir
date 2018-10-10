@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/medication-status"/>
+  <name value="Medication Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=""/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The medication is available for use."/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The medication is not available for use."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The medication was entered in error."/>
+  </concept>
+</CodeSystem>

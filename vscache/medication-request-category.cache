@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------------
+
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medication-request-category",
+  "code" : "inpatient"
+}, "valueSet" :null}####
+v: {
+  "display" : "Inpatient",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medication-request-category",
+  "code" : "outpatient"
+}, "valueSet" :null}####
+v: {
+  "display" : "Outpatient",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://terminology.hl7.org/CodeSystem/medication-request-category",
+  "code" : "inpatient",
+  "display" : "Inpatient"
+}, "valueSet" :null}####
+v: {
+  "display" : "Inpatient",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

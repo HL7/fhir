@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd">
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
 	<id value="example"/>
 	<!-- insert contents here -->
 	<text>
@@ -13,7 +15,13 @@
 			<p>to patient ref: a23</p>
 		</div>
 	</text>
-	<status value="completed"/>
+	<status>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
+			<code value="completed"/>
+			<display value="Completed"/>
+		</coding>
+	</status>
 	<medicationReference>
 		<reference value="Medication/example"/>
 	</medicationReference>

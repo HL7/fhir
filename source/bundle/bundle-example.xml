@@ -39,8 +39,19 @@
       <MedicationRequest>
         <id value="3123"/>
         <!-- snip -->
-        <status value="unknown"></status>
-        <intent value="order">
+        <status>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
+            <code value="unknown"/>
+            <display value="Unknown"/>
+          </coding>
+        </status>
+        <intent>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+            <code value="order"/>
+            <display value="Order"/>
+          </coding>
         </intent>
 	      <medicationReference>
           <reference value="Medication/example"/>

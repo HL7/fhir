@@ -51,7 +51,13 @@
       </signature>
     </Provenance>
   </contained>
-  <status value="in-progress" />
+  <status>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
+      <code value="in-progress"/>
+      <display value="In Progress"/>
+    </coding>
+  </status>
   <medicationReference>
     <reference value="#med0301"/> 
   </medicationReference>

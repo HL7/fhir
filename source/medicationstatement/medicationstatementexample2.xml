@@ -71,7 +71,12 @@
       </batch>
     </Medication>
   </contained>
-  <status value="active" />
+  <status><coding>
+    <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
+    <code value="active"/>
+    <display value="Active"/>
+  </coding>
+  </status>
   <statusReason>
     <coding>
       <system value="http://snomed.info/sct"/>

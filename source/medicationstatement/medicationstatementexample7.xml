@@ -24,7 +24,12 @@
       
     </Medication>
   </contained>
-  <status value="intended" />
+  <status><coding>
+    <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
+    <code value="intended"/>
+    <display value="Intended"/>
+  </coding>
+  </status>
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0315"/>
   </medicationReference>
