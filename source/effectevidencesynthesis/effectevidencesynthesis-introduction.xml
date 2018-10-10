@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p>
+The scope of the EffectEvidenceSynthesis resource is to describe the estimates of an effect of an exposure on an outcome where the effect estimates are derived from the combination of research studies. Effect estimates are a measure of difference between the exposure state and an alternative exposure state (often called the control or comparator state)
+
+Expressing effect estimates is done throughout reporting of biomedical research, systematic reviews, and clinical reference across all disciplines.
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+The EffectEvidenceSynthesis resource will reference:
+
+RiskEvidenceSynthesis
+EvidenceVariable
+Citation (an expected resource for future proposal)
+
+EffectEvidenceSynthesis is about the difference (or "effect") between an exposure and alternative exposure state on an outcome in a population. RiskEvidenceSynthesis is about the "risk" of an outcome with an exposure state in a population. RiskEvidenceSytnhesis does not include an alternative exposure state of difference between states.</p>
+</div>
+-->
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+The EffectEvidenceSynthesis resource describes:
+
+the point estimate for this effect estimate
+classification of the estimate type (relative risk, odds ratio, absolute risk difference, etc)
+a precision estimate (such as 95% confidence intervals)
+rating of certainty of the effect estimate
+descriptions of the population, exposure, alternative exposure, and outcome that the effect estimate is about
+descriptions of the source of the effect estimate (eg author, citation, type of research, sample size)
+</p>
+</div>
+-->
+
+</div>
