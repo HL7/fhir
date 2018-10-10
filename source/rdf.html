@@ -39,7 +39,7 @@ FHIR resources can be represented as an <a href="http://www.w3.org/RDF/">RDF gra
 <a href="https://www.w3.org/TR/turtle/">Turtle format</a>.
 The RDF format is defined to assist the process of bridging between operational data exchange and formal
 knowledge processing systems. While the RDF form offers a fully functional representation of FHIR
-resources, it has different operational characteristics to the <a href="json.html">JSON</a> and
+resources, it has different operational characteristics from the <a href="json.html">JSON</a> and
 <a href="xml.html">XML</a> representations, and would be implemented for different reasons.
 Systems focused on operational exchange of data would not generally choose to use RDF.
 </p>
@@ -58,12 +58,12 @@ This page describes:
 <p>
 Most of the major pieces of FHIR/RDF are now available in a complete
 enough form for developers to start trying them and providing feedback.
-Work still needed:
+Work still needed includes:
 </p>
 <ul>
-<li>Improved Documentation with regard to using the RDF format</li>
-<li>Reconcilation with the <a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">FHIR Ontology draft on W3C github</a>. </li>
-<li>Tutorial materials on using FHIR/RDF with other ontologies and <a href="http://shex.io/extensions/Map/">ShExMap</a> to translate other RDF data (non-FHIR) to/from FHIR/RDF. </li>
+<li>Improved documentation with regard to using the RDF format</li>
+<li>Reconcilation with the <a href="http://w3c.github.io/hcls-fhir-rdf/spec/ontology.html">FHIR Ontology draft on W3C github</a></li>
+<li>Tutorial materials on using FHIR/RDF with other ontologies and <a href="http://shex.io/extensions/Map/">ShExMap</a> to translate other RDF data (non-FHIR) to/from FHIR/RDF</li>
 </ul>
 
 <a name="ontologies"></a>
@@ -71,7 +71,7 @@ Work still needed:
 <p>
 This page documents an RDF format that can be used to exchange FHIR data,
 on the basis that RDF is a universal information representation.
-Using RDF enables FHIR data to be used with RDF-aware applications, to support
+Using RDF enables FHIR data to be used with RDF-aware applications to support
 inference, shared semantics across multiple standards and data formats,
 data integration, semantic data validation, 
 compliance enforcement, SPARQL queries and other uses. Implementers
@@ -80,7 +80,7 @@ the RDF format the the wider use of ontologies.
 </p>
 <p>
 The RDF format is based on the same abstract information model
-as the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats, 
+as the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> formats
 and carries the same information content. Resources are losslessly 
 round-trippable between XML, JSON and RDF formats and data expressed 
 in the RDF format corresponds closely to the XML and JSON formats in its look 
@@ -97,7 +97,7 @@ Many of the ontologies in the medical and life sciences domain are
 designed to capture facts about the world for research, such as the fact
 that the mitral valve is a kind of heart valve.  But FHIR was designed
 to support the day-to-day operations of healthcare providers exchanging
-electronic health records (EHRs), and in this context the orientation has
+electronic health records (EHRs), and in this context, the orientation has
 historically been different.  
 When using FHIR/RDF with other ontologies,
 impedence differences are likely to show up in two main ways:
@@ -108,7 +108,7 @@ impedence differences are likely to show up in two main ways:
 <b>Records versus facts.</b>  FHIR is oriented toward recording who did what ("Dr. Jones diagnosed patient x with viral pneumonia") rather than stating absolute medical facts ("patient x has viral pneumonia").  
 </li>
 <li>
-<b>Non-monotonicity.</b>  RDF was designed to be monotonic, whereas FHIR has a few design aspects that are would be non-monotonic if they were interpreted directly in RDF.  (Monotonicity means that new data cannot invalidate previous conclusions; non-monotonicity means that previous conclusions can be invalidated by new data.)  For example, a modifier extension indicates that the surrounding element's meaning will likely be misunderstood if the modifier extension is not understood.  
+<b>Non-monotonicity.</b>  RDF was designed to be monotonic, whereas FHIR has a few design aspects that would be non-monotonic if they were interpreted directly in RDF.  (Monotonicity means that new data cannot invalidate previous conclusions; non-monotonicity means that previous conclusions can be invalidated by new data.)  For example, a modifier extension indicates that the surrounding element's meaning will likely be misunderstood if the modifier extension is not understood.  
 </li>
 </ul>
 
@@ -124,7 +124,7 @@ Application developers should also be aware that some FHIR data attributes
 have a major impact on the interpretation of the enclosing data element:
 the meaning of the enclosing element cannot be determined in isolation.
 For example, a status of 'entered-in-error' means that the resource was 
-created accidentally, and should be ignored for most purposes.  
+created accidentally and should be ignored for most purposes.  
 </p>
 
 <a name="instance"></a>
@@ -173,7 +173,7 @@ Using this format:
  <li>Content within a resource is always represented with anonymous nodes - only resources can be identified</li>
  <li>Nodes are never empty. If an element is present in the resource, it SHALL have properties as defined for its type, or 1 or more <a href="extensibility.html">extensions</a></li>
  <li>The <span style="color: brown"><b>R!</b></span> denotes that a relationship is mandatory - it must be present (or in an array, at least one item must be present)</li>
- <li>Note that this specification produces Turtle that is nicely formatted and well laid out, but this is not required nor expected</li>
+ <li>Note that this specification produces Turtle that is nicely formatted and well laid out, but this is not required or expected</li>
  <li>The MIME-type for this format is <code>application/fhir+turtle</code>. Other MIME types: <code>text/shex</code> for the SHEX (RDF schemas)</li>
 </ul>
 
@@ -189,7 +189,7 @@ then that URL is its identity. Resources with no persistent identity (e.g. bundl
 Some resources can contain other resources. Given that the relationships can appear in any order, it
 cannot be assumed that the first encountered element represents the resource of interest that is being
 represented by the set of Turtle statements. The focal resource - where to start when parsing - is the
-resource with the relationship <code>fhir:nodeRole</code> to <code>fhir:treeRoot</code>. if there is
+resource with the relationship <code>fhir:nodeRole</code> to <code>fhir:treeRoot</code>. If there is
 more than one node labeled as a 'treeRoot' in a set of Turtle statements, it cannot be determined how
 to parse them as a single resource.
 </p>
@@ -379,7 +379,7 @@ and definitions is also published, for the following purposes:
 </p>
 <ul>
  <li>Providing the class definitions to support RDF based representation of resource instances</li>
- <li>Supporting knowledge based analysis of the FHIR specification itself</li>
+ <li>Supporting knowledge-based analysis of the FHIR specification itself</li>
  <li>Providing knowledge of use at run-time for converting between FHIR and other content models</li>
  <li>Supporting reasoning across the information/terminology model boundary</li>
 </ul>
@@ -407,7 +407,7 @@ Open source implementations that can perform this conversion include:
 <li><a href="https://hapifhir.io/">HAPI java Reference library</a> (Same code as used in the build)</li>
 <li><a href="http://fhir3.healthintersections.com.au/open">Reference Server</a> (based on <a href="http://github.com/grahamegrieve/fhirserver">Delphi reference implementation</a>)</li>
 <li><a href="https://github.com/mvdzel/fhir-net-api">fhir-net-api</a>, a .NET implementation. (should work on <a href="http://www.mono-project.com/">Mono</a>)</li>
-<li>Check the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 Open Source FHIR Implementations page,</a> in case new implementations have become available.</li>
+<li>Check the <a href="http://wiki.hl7.org/index.php?title=Open_Source_FHIR_implementations">HL7 Open Source FHIR Implementations page,</a> in case new implementations have become available</li>
 </ul>
 </li>
 <li><a href="downloads.html">Download</a> the FHIR ontology.
@@ -430,8 +430,7 @@ reasoning.
 
 <li> If you are creating FHIR/RDF then you might also wish to validate
 it, using <a href="http://shex.io/">ShEx</a>.
-If so, you can <a href="fhir.shex">download the ShEx schema</a> for FHIR/RDF.
-</li>
+If so, you can <a href="fhir.shex">download the ShEx schema</a> for FHIR/RDF</li>
 </ol>
 </p>
 

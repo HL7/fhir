@@ -759,7 +759,7 @@ record in centimeters. If no Stage III or Stage IV pressure ulcers, go to M1320.
 | ___ | ___ | . | ___ | (cm)
 (M1320) Status of Most Problematic (Observable) Pressure Ulcer:
 ⃞ 0 - Newly epithelialized
-⃞ 1 - Fully granulating
+⃞ 1 - Fully granularing
 ⃞ 2 - Early/partial granulation
 ⃞ 3 - Not healing
 ⃞ NA - No observable pressure ulcer
@@ -787,7 +787,7 @@ dressing) [ Go to M1340 ]
 ⃞ 4 - Four or more
 (M1334) Status of Most Problematic (Observable) Stasis Ulcer:
 ⃞ 0 - Newly epithelialized
-⃞ 1 - Fully granulating
+⃞ 1 - Fully granularing
 ⃞ 2 - Early/partial granulation
 ⃞ 3 - Not healing
 (M1340) Does this patient have a Surgical Wound?
@@ -796,7 +796,7 @@ dressing) [ Go to M1340 ]
 ⃞ 2 - Surgical wound known but not observable due to non-removable dressing [ Go to M1350 ]
 (M1342) Status of Most Problematic (Observable) Surgical Wound:
 ⃞ 0 - Newly epithelialized
-⃞ 1 - Fully granulating
+⃞ 1 - Fully granularing
 ⃞ 2 - Early/partial granulation
 ⃞ 3 - Not healing
 (M1350) Does this patient have a Skin Lesion or Open Wound, excluding bowel ostomy, other than those described

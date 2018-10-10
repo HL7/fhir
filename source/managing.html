@@ -33,7 +33,7 @@ or consumer.
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-The content on this page builds on the Normative <a href="resource.html#id">docuemntation about managing resource identification</a>.
+The content on this page builds on the Normative <a href="resource.html#id">documentation about managing resource identification</a>.
 </p>
 
 <p>
@@ -49,14 +49,14 @@ resources are identified with URLs needs to be managed carefully.
 </p>
 
 <p>
-Note that many resources also have an identifier element, and usually there can be
+Note that many resources also have an <code>identifier</code> element, and usually there can be
 multiple identifiers. This identifier is a logical identifier for the concept that
 the resource describes and is different from the identity discussed in this section,
 which is the literal identity of the resource. Note that there are often multiple
 resource instances that describe the same concept across multiple systems, e.g. each
 application keeps its own copy of the patient information in a
 <a href="patient.html">Patient</a> resource. This can even exist within a single
-system, such as in the case of <a href="patient.html#links">patient duplicates</a>).
+system, such as in the case of <a href="patient.html#links">patient duplicates</a>.
 </p>
 
 <p>
@@ -95,7 +95,7 @@ a logical id is always required, in order to enable seamless exchange amongst pa
 <h3>Copying Resources and Assigning new Ids</h3>
 <p>
 When resources are exchanged between systems, they may need to have new logical resource ids assigned.
-When a resource has a new logical id assigned, nothing in the resource change other than the <a href="resource-definitions.html#Resource.id">Resource.id</a>, 
+When a resource has a new logical id assigned, nothing in the resource changes other than the <a href="resource-definitions.html#Resource.id">Resource.id</a>, 
 but any references that point to the resource need to be updated. Whether new ids are required or not depends on the context, as does how resource
 references are updated.
 </p>
@@ -119,7 +119,7 @@ In some cases, however, the client may deal with multiple servers. In this case,
 resource is not guaranteed to be unique (unless all resources have a UUID for the logical id, which is
 allowed but not required). When the client cannot be sure that the resource identities are unique, it
 will have assign new ids to the resources. In practice this means that the client needs to keep some kind of
-identity translation table, and update references to the resources it has copied locally when other resources
+identity translation table and update references to the resources it has copied locally when other resources
 are received.
 </p>
 <p>

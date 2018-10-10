@@ -31,7 +31,7 @@ The XML representation for a resource is described using this format:
 <pre class="spec">
  &lt;<b>name</b> xmlns="http://hl7.org/fhir" (attrA="value")&gt;   <span style="float: right"><a title="Documentation for this format" href="xml.html"><img src="help.png" alt="doco"/></a></span>
    &lt;<u><b title="Formal Definition (must be supported or understood)">nameA</b></u>&gt;<font color="Gray">&lt;!-- </font><span title="Inv-5: Some rule apples to this element" style="color: brown"><b><img alt="??" src="lock.png"/> 1..1</b></span> <font color="Darkgreen">type</font> <font color="Navy">description of content</font> <font color="Gray"> --&gt;</font>&lt;nameA&gt;
-   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB&gt;
+   &lt;<b title="Formal Definition">nameB[x]</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">0..1</font> <font color="darkgreen">type1</font>|<font color="darkgreen">type1</font> <font color="Navy">description</font> <font color="Gray"> --&gt;</font>&lt;/nameB[x]&gt;
    &lt;<b>nameC</b>&gt; <font color="Brown"><font color="Gray">&lt;!-- </font> <b>1..*</b> --&gt;</font>
      &lt;<b>nameD</b>&gt;<font color="Gray">&lt;!-- </font><font color="brown">1..1</font> <font color="darkgreen">type</font>&gt;<font color="navy">Relevant elements</font> <font color="Gray"> --&gt;</font>&lt;/nameD&gt;
    &lt;/nameC&gt;
@@ -49,7 +49,7 @@ Using this format:
  <li>A few properties are represented as attributes: values of primitive types in a <code>value</code> attribute, extension URLs in the <code>url</code> attribute on an extension, and the <code>id</code> property on elements (but not on resources, where the resource id is an element)</li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
-   The only other namespace that occurs in FHIR resources is the XHTML namespace (<a href="narrative.html">XHTML is found in most resources</a>)</li>
+   The only other namespace that occurs in FHIR resources is the XHTML namespace - <a href="narrative.html">XHTML is found in most resources</a></li>
  <li>Infrastructural elements that are common to all resources are not shown in the XML representation. These must appear prior to any other defined child elements in the following order:
 	<ul>
 		<li>First, the elements from the <a href="resource.html">base resource</a>, in order</li>
@@ -111,7 +111,7 @@ their unknown elements behavior using <a href="capabilitystatement-definitions.h
 In addition to the validation schema, this specification provides a
 set of schemas suitable for code generation. These schemas describe
 the same XML syntax, but apply less validation to create 
-schemas that work with more code generation tooling. 
+schemas that work better with code generation tooling. 
 </p>
 <p>
 Specifically, these schemas are generated without any <code>xsd:choice</code> elements, 
@@ -121,7 +121,7 @@ use these schemas will need to enforce the correct usage of the
 support.
 </p>
 <p>
-Implementers making use of schema driven code generation tooling need
+Implementers making use of schema-driven code generation tooling need
 to consider how to handle the <a href="datatypes.html#decimal">decimal</a>
 data type. The decimal data type is defined to be precision aware - that 
 is, that implementers need to preserve the difference between "2.0" and
@@ -131,7 +131,7 @@ the base <a href="http://www.w3.org/TR/xmlschema-2/#decimal">W3C schema decimal 
 driven implementations vary as to how precision is handled. Implementers
 will need to determine how their generated code handles decimals/doubles and 
 consider changing the type for decimal in their schema from <code>xsd:decimal/double</code>
-to <code>xsd:string</code>. Specifically, implementers may wish to change 
+to <code>xsd:string</code>. Specifically, implementers may wish to change:
 </p>
 <pre>
   &lt;xs:simpleType name=&quot;decimal-primitive&quot;&gt;
@@ -178,7 +178,7 @@ XML:
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/xml</code>. The 
-following additional canonicalization URIS are also defined:
+following additional canonicalization URIs are also defined:
 </p>
 <table class="grid">
  <tr>

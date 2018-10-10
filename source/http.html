@@ -476,7 +476,7 @@ In addition, the search parameter <code>_summary</code> can be used when reading
 <p>
 This requests that only a subset of the resource content be returned,
 as specified in the <code>_summary</code> parameter, which can have the values
-<a href="search.html#summary"><code>true</code>, <code>false</code>, <code>text</code> &amp; <code>data</code></a>.
+<a href="search.html#summary"><code>true</code>, <code>false</code>, <code>text</code>, <code>count</code> and <code>data</code></a>.
 Note that a resource that only contains a subset of the data is
 not suitable for use as a base to update the resource, and might not
 be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both
@@ -732,7 +732,7 @@ The body of a PATCH operation SHALL be either:
 In either case, the server SHALL process its own copy of the resource in the format indicated, applying
 the operations specified in the document, following the relevant PATCH specification. When the operations
 have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
-operation; all the version and error handling etc. applies as specified, as does the <a href="#prefer">Prefer Header</a>.
+operation; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
 Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support

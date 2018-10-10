@@ -24,7 +24,7 @@ As an abstract resource, this resource is never created directly; instead, one o
 <h2>Boundaries and Relationships</h2>
 
 <p>
-This resource extends the base <a href="resource.html">resource</a>. All of the listed <a href="resourcelist.html">Resources</a>
+This resource extends the base <a href="resource.html">Resource</a>. All of the listed <a href="resourcelist.html">Resources</a>
 except <a href="bundle.html">Bundle</a>, <a href="parameters.html">Parameters</a> and <a href="binary.html">Binary</a> extend
 this resource.
 </p>

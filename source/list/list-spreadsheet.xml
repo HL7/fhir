@@ -3690,7 +3690,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Date/Working</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">List</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">A date can only be used if the mode of the list is "working"</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">An entry date can only be used if the mode of the list is "working"</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">mode = 'working' or entry.date.empty()</Data></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">(f:mode/@value = 'working') or not(exists(f:entry/f:date))</Data></Cell>
    </Row>
