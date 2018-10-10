@@ -201,7 +201,7 @@ non-patient tests would be non-conformant with FHIR because Patient.name is not 
 </p>
 <p>
 Whether an element is a modifier cannot be changed when element usage is described in a
- constraining <a href="structuredefinition.html">Structure Definition</a>).
+ constraining <a href="structuredefinition.html">Structure Definition</a>.
 When an element is labeled as Is-Modifier, the documentation must be clear about why
 it is a modifier.
 </p>
@@ -218,10 +218,10 @@ instance, in the following fragment of a resource definition:
 
 <p>
 The definition of an AllergyIntolerance is that it contains information about "Risk of harmful or undesirable, 
-physiological response which is unique to an individual and associated with exposure to a substance"
+physiological response which is unique to an individual and associated with exposure to a substance".
 If the value of the 'verificationStatus' element is set to <code>entered-in-error</code>, the
 entire resource does not actually contain valid information about any risk of exposure, and 
-is is not safe for applications to ignore this element. As a consequence, it is labeled as 'is modifier = true'. In this tabular representation of the resource,
+it is not safe for applications to ignore this element. As a consequence, it is labeled as 'is modifier = true'. In this tabular representation of the resource,
 this shows as the flag '?!'. The <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations
 of a resource definition have their own representation of 'is modifier = true' status, and
 it is defined directly in a <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">ElementDefinition</a>.

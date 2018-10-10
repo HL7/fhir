@@ -4,7 +4,12 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example006"/>
-  <status value="active" />
+  <status><coding>
+    <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
+    <code value="active"/>
+    <display value="Active"/>
+  </coding>
+  </status>
   <medicationCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>

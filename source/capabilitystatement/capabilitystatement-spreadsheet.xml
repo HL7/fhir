@@ -4297,7 +4297,7 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">CapabilityStatement.software.name</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Part of a the name of a software application</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Part of the name of a software application</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">fhirversion</Data></Cell>

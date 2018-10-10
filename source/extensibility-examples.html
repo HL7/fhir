@@ -64,7 +64,7 @@ extension</a>:
  <tr><td>Comment</td><td>URI is a literal reference to agreement text (html)</td></tr>
  <tr><td>Cardinality</td><td>1..* (patient cannot participate without at least one agreement)</td></tr>
  <tr><td>Type</td><td>uri</td></tr>
- <tr><td>XPaths</td><td>no Invariants</td></tr>
+ <tr><td>Invariants</td><td>no Invariants</td></tr>
  <tr><td>is Modifier</td><td>No (The participation agreements do not affect that interpretation of the elements of the patient, though they will likely influence how the system interacts with the patient)</td></tr>
  <tr><td>Binding</td><td>(No binding - not a coded value)</td></tr>
 </table>
@@ -125,7 +125,7 @@ Note that usually one would build the actual profile using a tool. This example 
 <p>
 This means the profile shown above that defines the extension is placed on the web somewhere.
 By preference, it will be hosted at a FHIR Profile endpoint, and the best location of all
-is the HL7 Profile registry (yet to be implemented).
+is the <a href="http://hl7.org/fhir/registry">HL7 Profile registry</a>.
 </p>
 <p>
 For this example, we assume that it has been uploaded to the PHR provider's own website at
@@ -151,7 +151,7 @@ fragment identifier.
 <a name="sliceextensions"></a>
 <h4>Using it in a Patient Profile</h4>
 <p>
-The profile definition above simply defines the extension "participation-agreement", and
+The extension definition above simply defines the extension "participation-agreement", and
 says that it is used with patient. But the profile above doesn't say that the server
 actually uses it. For the PHR provider to indicate that all Patient resources
 will use this resource, a StructureDefinition on the patient resource is used:
@@ -254,7 +254,7 @@ extension</a>:
  <tr><td>Comment</td><td>Used to indicate additional information about the name part and how it should be used</td></tr>
  <tr><td>Cardinality</td><td>0..* (this is always optional, but more than one can be used if required)</td></tr>
  <tr><td>Type</td><td>code</td></tr>
- <tr><td>XPaths</td><td>N/A</td></tr>
+ <tr><td>Invariants</td><td>N/A</td></tr>
  <tr><td>Is Modifier</td><td>No (Qualifiers do not change the fact that the part is a given or family name)</td></tr>
  <tr><td>RIM Mapping</td><td>ENXP.qualifier</td></tr>
  <tr><td>v2 Mapping</td><td>N/A</td></tr>
@@ -403,7 +403,7 @@ a URI where it will be published: http://hl7.org/fhir/StructureDefinition/patien
 Internally, in the extension, the cardinality of the value[x] element is set to 0 since it
 will not (and cannot) be used. The Extension.extension element is sliced by URL,
 and 3 slices are defined, each with a fixed relative URI which is the code from the table above.
-Tthe relevant parts of the definition of this extension are as follows:
+The relevant parts of the definition of this extension are as follows:
 </p>
 <pre class="xml">
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;

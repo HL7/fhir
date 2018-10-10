@@ -31,7 +31,7 @@ The corresponding reverse relationship from the target to the source exists in a
 not typically represented explicitly in the target resource. For external references, navigating these reverse relationships requires some
 external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such
 infrastructure by providing the ability to <a href="http.html#search">search</a> the reverse relationship by naming
-search parameters for the references, and by providing support for <a href="search.html#revinclude">reverse includes</a>).
+search parameters for the references and by providing support for <a href="search.html#revinclude">reverse includes</a>).
 </p>
 <p>
 Because resources are processed independently, relationships are not considered to be transitive.
@@ -43,8 +43,8 @@ subject is not "inherited", nor does it "conduct" along the relationship to cond
 The only exception to this is the case of contained resources (see below). Note that in
 practice, the relationships need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
-the same patient for their subjects, and profiles and/or implementation guides may make rules 
-about this (and see <a href="graphdefinition.html">GraphDefinition</a>).
+the same patient for their subjects. Profiles and/or implementation guides may make rules 
+about this (also see <a href="graphdefinition.html">GraphDefinition</a>).
 </p>
 <p>
 Resolving the references is discussed below. 

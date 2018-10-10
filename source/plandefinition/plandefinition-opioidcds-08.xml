@@ -118,7 +118,7 @@
         <condition>
             <kind value="applicability"/>
             <expression>
-              <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or a average MME greater than 50 mg/day."/>
+              <description value="Check whether the existing patient exhibits risk factors for opioid-related harms, such as concurrent use with benzodiazepine, a history of substance abuse, and/or an average MME greater than 50 mg/day."/>
               <language value="text/cql"/>
               <expression value="Inclusion Criteria"/>
             </expression>

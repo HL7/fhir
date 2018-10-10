@@ -901,7 +901,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Whether this organization affiliation record is in active use</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Whether this organization affiliation record is in active use</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Need to be able to mark a organization affiliation record as not to be used because it was created in error, or otherwise no longer in active use.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Need to be able to mark an organization affiliation record as not to be used because it was created in error, or otherwise no longer in active use.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.statusCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

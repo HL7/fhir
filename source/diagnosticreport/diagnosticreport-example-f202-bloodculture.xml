@@ -71,7 +71,7 @@
 				</subject>
 				<context>
 					<reference value="Encounter/f203"/>
-					<display value="Roel's encounter on March eleventh 2013"/>
+					<display value="Roel's encounter on March elevanth 2013"/>
 				</context>
 				<requester>
 						<reference value="Practitioner/f201"/>

@@ -4003,7 +4003,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s150"><Data ss:Type="String">EventStatus</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">Codes identifying the lifecycle stage of a event</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Codes identifying the lifecycle stage of an event</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">#event-status</Data></Cell>

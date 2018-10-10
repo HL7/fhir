@@ -51,7 +51,7 @@
         <reference value="Patient/test"/>
       </reference>
       <name value="Test Example"/>
-      <description value="A test example to show how a implementation guide works"/>
+      <description value="A test example to show how an implementation guide works"/>
       <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
     </resource>
     <page>

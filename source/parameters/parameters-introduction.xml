@@ -16,7 +16,7 @@ This special resource has no other use than for operation parameters, and there 
 For further information, see the <a href="operations.html">operations</a> page.
 </p>
 <p>
-<a href="operationdefinition.html">OperationDefinition</a> defines constraints on the Parameters resource instances that are used to convey the inputs and outputs of the operation
+<a href="operationdefinition.html">OperationDefinition</a> defines constraints on the Parameters resource instances that are used to convey the inputs and outputs of the operation.
 </p>
 </div>
 

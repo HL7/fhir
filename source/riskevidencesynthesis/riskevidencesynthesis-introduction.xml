@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p>
+The scope of the RiskEvidenceSynthesis resource is to describe the likelihood of an outcome in a population with an exposure where the risk estimate is derived from the combination of research studies. Risk estimates are not effects and do not represent a difference between exposure states.
+
+Expressing risk estimates is done throughout reporting of biomedical research, systematic reviews, and clinical reference across all disciplines.
+
+Risk estimates as a "synthesis" of research studies is a different concept for risk estimation than risk estimates for an individual person.
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+The RiskEvidenceSynthesis resource will reference:
+
+EvidenceVariable
+citation (an expected resource for future proposal)
+
+EffectEvidenceSynthesis is about the difference (or "effect") between an exposure and alternative exposure state on an outcome in a population. RiskEvidenceSynthesis is about the "risk" of an outcome with an exposure state in a population. RiskEvidenceSytnhesis does not include an alternative exposure state of difference between states.</p>
+</div>
+-->
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>The RiskEvidenceSynthesis resource describes:
+
+the point estimate for the risk or specific value with one exposure (without comparison to or difference from an alternative exposure)
+classification of the risk type (continuous or dichotomous, mean, median, proportion, etc.)
+a precision estimate (such as 95% confidence intervals)
+rating of certainty of the risk estimate
+descriptions of the population, exposure, and outcome that the risk estimate is about
+descriptions of the source of the risk estimate (eg author, citation, type of research, sample size)
+</p>
+</div>
+-->
+
+</div>

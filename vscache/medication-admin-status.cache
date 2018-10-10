@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/medication-admin-status",
+  "code" : "completed"
+}, "valueSet" :null}####
+v: {
+  "display" : "Completed",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/medication-admin-status",
+  "code" : "entered-in-error"
+}, "valueSet" :null}####
+v: {
+  "display" : "Entered in Error",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

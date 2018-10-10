@@ -57,7 +57,7 @@
   </subject>
   <context>
     <reference value="Encounter/f203"/>
-    <display value="Roel's encounter on March eleventh"/>
+    <display value="Roel's encounter on March elevanth"/>
   </context>
   <onsetDateTime value="2013-03-08"/>
   <recordedDate value="2013-03-11"/>

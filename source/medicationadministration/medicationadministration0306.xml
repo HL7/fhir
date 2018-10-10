@@ -15,8 +15,14 @@
         </code>
       </Medication>
   </contained>
-  <status value="completed" />
-  <medicationReference>
+  <status>  
+    <coding>
+    <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
+    <code value="completed"/>
+    <display value="Completed"/>
+  </coding>
+  </status>
+  <medicationReference>    
     <reference value="#med0306"/> 
   </medicationReference>
  <subject>

@@ -24,7 +24,7 @@ The JSON representation for a resource is based on the <a href="https://www.rfc-
 
 <pre class="spec">{
   "resourceType" : "<a title="The resource type being referenced" class="dict" href="resourcelist.html"><b>[Resource Type]</b></a>",
-  // from <a href="json.html">Source</a>: <a href="json.html">element #1</a>
+  // from <a href="json.html">Source</a>: <a href="json.html">property0</a>
   "<a title="long description" class="dict" href="json.html">property1</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html">[primitive]</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
   "<a title="long description" class="dict" href="json.html">property2</a>" : { <span style="color: darkgreen"><a href="datatypes.html">[Data Type]</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
   "<a title="long description" class="dict" href="json.html">property3</a>" : { <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Short Description</span>
@@ -85,7 +85,7 @@ The JSON format is similar to the XML format:
  <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
 </ul>
 
-<p>There are differences to XML:</p>
+<p>There are differences from XML:</p>
 <ul>
  <li>There are no namespaces in the JSON representation</li>
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
@@ -245,7 +245,7 @@ rarely used with primitive data types.
 
 <a name="complex"></a>
 
-<h3>JSON representation of Elements, and Complex Data types</h3>
+<h3>JSON representation of Elements and Complex Data types</h3>
 
 <p>
 Elements, and complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
@@ -281,7 +281,7 @@ converted to JSON member values, in the same manner as described for primitives.
 </pre>
 <p>Things to note here are:</p>
 <ul>
-<li>Both given is a repeating XML elements, so it is serialized as an Array whether or not it repeats in this instance</li>
+<li>Both given is a repeating XML elements, so it is serialized as an Array, whether or not it repeats in this instance</li>
 <li>In the family part of <code>name</code>, the <code>id</code> is added represented in <code>_family</code> as described above</li>
 <li>The XHTML content in the <code>div</code> element which is in the Narrative element <code>text</code> is represented
   as an escaped string in the value property in JSON. The xhtml root element needs to be a &lt;div&gt; in the xhtml namespace</li>
@@ -339,7 +339,7 @@ JSON:
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. The
-following additional canonicalization URIS are also defined:
+following additional canonicalization URIs are also defined:
 </p>
 <table class="grid">
  <tr>

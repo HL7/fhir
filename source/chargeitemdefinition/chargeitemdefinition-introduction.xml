@@ -35,7 +35,7 @@ A billing engine will apply the ChargeItemDefinitions to all ChargeItems within 
 		Billing Codes may be defined in a CodeSystem Resource, however, each of these codes - if it is used in a financial context - can have a large number of business rules and properties associated with it, that lay outside the scope of CodeSystem and may change in time independently from the underlying Code's validity period.
 		Even though CodeSystem can associate a concept with any number of additional properties, such a construct would be very hard to maintain. This is why the ChargItemDefinition has been introduced. It allows to maintain the attributes of each billing code independently and has a wider scope to also include business rules.
 		</p><p>
-		In most usecases, billing codes will be both defined as semantical concepts in a CodeSystem and as a financial artifact in ChargeItemDefinition.
+		In most use cases, billing codes will be both defined as semantical concepts in a CodeSystem and as a financial artifact in ChargeItemDefinition.
 		</p><p>
 		ChargeItemDefinitions that pertain to codes from the same CodeSystem may be aggregated using the Catalog profile for Composition.
 

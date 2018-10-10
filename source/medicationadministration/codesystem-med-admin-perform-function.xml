@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../Documents/GitHub/fhir/schema/codesystem.xsd"
+ xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/med-admin-perform-function"/>
+  <name value="MedicationAdministration Performer Function Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value=" "/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/med-admin-perform-function"/>
+  <content value="complete"/>
+  <concept>
+    <code value="performer"/>
+    <display value="Performer"/>
+    <definition value="A person, non-person living subject, organization or device that who actually and principally carries out the action"/>
+  </concept>
+  <concept>
+    <code value="verifier"/>
+    <display value="Verifier"/>
+    <definition value="A person who verifies the correctness and appropriateness of the service (plan, order, event, etc.) and hence takes on accountability."/>
+  </concept>
+  <concept>
+    <code value="witness"/>
+    <display value="Witness"/>
+    <definition value="A person witnessing the action happening without doing anything. A witness is not necessarily aware, much less approves of anything stated in the service event. Example for a witness is students watching an operation or an advanced directive witness."/>
+  </concept>
+</CodeSystem>

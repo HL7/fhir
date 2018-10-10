@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0324"/>
-    <status value="completed"/>
+    <status>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
+            <code value="completed"/>
+            <display value="Completed"/>
+        </coding>
+    </status>
     <medicationCodeableConcept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>

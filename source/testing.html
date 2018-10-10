@@ -150,7 +150,14 @@ The "assertion" evaluates the results of previous operations to determine if the
   The TestScript execution engine must implement the behavior of each assertion to determine if the response of the last operation meets the conditions of the assertion.
 </p>
 <p>
-  If the conditions of the assertion are met execution of the test continues. If the conditions of the assertion are not met, the test being executed fails and execution of the test is halted.
+  If the conditions of the assertion are met execution of the test continues. If the conditions of the assertion are not met, the test being executed fails and execution of the test is halted. Test execution will then continue with the next test.
+</p>
+<p><b>Conditional Asserts</b></p>
+<p>
+  The ability to conditionally evaluate an assert is not defined as part of the native behavior within the TestScript resource or execution engine. This means that all subsequent test asserts are not evaluated when a prior assert within the same test evaluates to a failure. The current workaround is to set warningOnly=true for those asserts that require conditional evaluation.
+</p>
+<p>
+  Another optional workaround is to provide the TestScript execution engine with access to an external Rules engine. The TestScript execution engine author is encouraged to build and publish this functionality within an appropriate FHIR <a href="implementationguide.html">ImplementationGuide</a>.
 </p>
 
 <style>
@@ -186,8 +193,8 @@ To mark a resource as a test resource, use the testing tag:
 &lt;/Patient&gt;
 </pre>
 <p>
-Not all testing resources need to explicitly marked as test, but it 
-may be necessary when performing testing on a production system, for 
+Not all testing resources need to explicitly marked as test, but it
+may be necessary when performing testing on a production system, for
 instance. Note: This is a security label because different access control rules may apply to test resources.
 </p>
 

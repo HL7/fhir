@@ -28,7 +28,7 @@ base address at which the instance is found, the resource type and the Logical I
 http://test.fhir.org/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
 When the location is an HTTP address, this address can generally be used to retrieve or manipulate the resource. 
 Note that implementations SHOULD NOT assume that the location of a resource is always resolvable 
-to a accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
+to an accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
 cases, it might not actually exist (e.g. use of resource outside a RESTful environment). 
 Resources reference each other by their location. These references are allowed to be absolute 
 or relative (see <a href="references.html">Resource References</a> for further discussion).
@@ -58,7 +58,7 @@ of using resources not associated with RESTful servers.
 <a name="identifiers"></a>
 <h4>"Business" Identifiers</h4>
 <p>
-Althugh the logical id of a resource changes as it moves from server to server, all copies 
+Although the logical id of a resource changes as it moves from server to server, all copies 
 of the resource refer to the same underlying concept, and this concept may also be represented 
 in other formats (variously, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>,
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, XDS, and many more). 
@@ -83,12 +83,12 @@ following query:
 </pre>
 <p>
 Most resources have a logical master server, the system on which the 
-record first is created, and whch manages the record directly. In 
+record first is created, and which manages the record directly. In 
 the master system, the <code>Logical ID</code> might be the same value 
 found in the business identifier since the master server can enforce 
 business practices that make for stable identifiers. This is usually 
 not a safe practice on secondary systems which are not in a position to 
-enforce ther required identifier consistency.
+enforce their required identifier consistency.
 </p>
 
 <a name="canonical"></a>
@@ -179,7 +179,7 @@ that matching entity source information means that the resources are identifying
 <p>
 A reference to a custom agreement that describes 
 how the resource is being used (e.g. an <a href="profiling.html#glossary">implementation guide</a>)  
-that was followed when the resource was constructed, where the implemenation guide must be 
+that was followed when the resource was constructed, where the implementation guide must be 
 known and understood in order to safely processing the content.
 </p>
 <p>
@@ -278,7 +278,7 @@ in particular implementations or contexts of use.
 	
   <tr>
    <td>profile (0..*)</td>
-   <td><a href="datatypes.html#uri">uri</a></td>
+   <td><a href="datatypes.html#canonical">canonical</a></td>
    <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>). See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
     Can be changed as profiles and value sets change or the system rechecks conformance. The profile can be used to 
     <a href="versioning.html#mp-version">indicate which version(s) of FHIR a resource conforms to</a>.
@@ -317,7 +317,7 @@ There are 3 different versions of interest for a resource:
 </p>
 <ol>
   <li>The Record Version: changes each time the resource changes (usually managed by a server)</li>
-  <li>The Business verson: changes each time the content in the resources changes (managed by a human author or by businss policy)</li>
+  <li>The Business version: changes each time the content in the resources changes (managed by a human author or by business policy)</li>
   <li>The FHIR Version: the version of FHIR in which the resource is represented (controlled by the author of the resource)</li>
 </ol>
 <p><b>Record (Resource) Version</b></p>
@@ -374,7 +374,7 @@ These 2 versions elements have quite different lifecycles. To illustrate, take t
   Then a typo is found in the definition, so this is fixed, but it's still v1 of the value set. This is PUT to [base]/ValueSet/x1. 
   Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 1 and ValueSet.meta.versionId = 2.
   <br/>
-  Later, another user creates a revised version of the value set, and this is called version 2. It is commmited to the server 
+  Later, another user creates a revised version of the value set, and this is called version 2. It is commited to the server 
   as an update (PUT [base]/ValueSet/x1). Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 2 and ValueSet.meta.versionId = 3
  </li> 
  <li>
@@ -450,7 +450,7 @@ scope of this specification.
 <p><b>FHIR Version</b></p>
 <p>
 All resources always have a FHIR version against which they were written. Note, however, that resources may be valid 
-against multiple different FHIR versions, and this becomes pregressively more likely as the <a href="versions.html#maturity">maturity
+against multiple different FHIR versions, and this becomes progressively more likely as the <a href="versions.html#maturity">maturity
 of the resource</a> progresses.
 </p>
 <p>
