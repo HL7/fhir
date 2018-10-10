@@ -645,7 +645,7 @@ When you slice, you define a name for each new slice. The name has to be unique 
 </p>
 <ol>
   <li>make a constraint on X with no ElementDefinition.sliceName - in which case the profile is adding constraints to all slices of X; or </li>
-  <li>make a constraint on X with a ElementDefinition.sliceName - in which case the profile is describing a specific slice on X, and the constraints only apply to that slice; or </li>
+  <li>make a constraint on X with an ElementDefinition.sliceName - in which case the profile is describing a specific slice on X, and the constraints only apply to that slice; or </li>
   <li>it can do both</li>
 </ol>
 <p>
@@ -662,7 +662,7 @@ Note that it is possible for Profile C to make rules that are incompatible with 
 </p>
 <p>
 In addition to the above, there are times when Profile C will need to further slice a slice defined in B.  In this case, there's a need to reference both the ElementDefinition.sliceName of the original
-slice from Profile B as well as to define a ElementDefinition.sliceName for the slice defined within Profile C.  This is done by separating the names using "/".  For example, if Profile B defines the slice "example", and
+slice from Profile B as well as to define an ElementDefinition.sliceName for the slice defined within Profile C.  This is done by separating the names using "/".  For example, if Profile B defines the slice "example", and
 profile C defines the slice "example/example1", then this is deemed to be "example1" slice of the example slice.  This process can continue indefinitely by separating each layer of slicing names with the "/" character.
 This pattern applies to @default too: @default/@default.
 </p>

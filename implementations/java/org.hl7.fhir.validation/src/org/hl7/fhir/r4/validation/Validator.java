@@ -69,6 +69,7 @@ import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
+import org.hl7.fhir.r4.model.FhirVersion;
 
 /**
  * A executable class that will validate one or more FHIR resources against 
@@ -132,7 +133,7 @@ public class Validator {
       System.out.println("     set of conformance resources.");
       System.out.println("     No default value. This parameter can appear any number of times");
       System.out.println("-tx [url]: the [base] url of a FHIR terminology service");
-      System.out.println("     Default value is http://tx.fhir.org/r4. This parameter can appear once");
+      System.out.println("     Default value is http://tx.fhir.org. This parameter can appear once");
       System.out.println("     To run without terminology value, specific n/a as the URL");
       System.out.println("-txLog [file]: Produce a log of the terminology server operations in [file]");
       System.out.println("     Default value is not to produce a log");
@@ -199,8 +200,8 @@ public class Validator {
         else if ("3.0".equals(v)) v = "3.0.1";
         else if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
         String definitions = "hl7.fhir.core#"+v;
-        System.out.println("Loading (v = "+v+", tx server http://tx.fhir.org/r4)");
-        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org/r4", null);
+        System.out.println("Loading (v = "+v+", tx server http://tx.fhir.org)");
+        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org", null, FhirVersion.fromString(v));
         for (int i = 0; i < args.length; i++) {
           if ("-ig".equals(args[i])) {
             if (i+1 == args.length)
@@ -246,7 +247,7 @@ public class Validator {
       String map = null;
       List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
-      String txServer = "http://tx.fhir.org/r4";
+      String txServer = "http://tx.fhir.org";
       boolean doNative = false;
       boolean anyExtensionsAllowed = true;
       boolean hintAboutNonMustSupport = false;
@@ -349,7 +350,7 @@ public class Validator {
       // Comment this out because definitions filename doesn't necessarily contain version (and many not even be 14 characters long).  Version gets spit out a couple of lines later after we've loaded the context
       System.out.println("  .. connect to tx server @ "+txServer);
       System.out.println("  .. definitions from "+definitions);
-      ValidationEngine validator = new ValidationEngine(definitions, txServer, txLog);
+      ValidationEngine validator = new ValidationEngine(definitions, txServer, txLog, FhirVersion.fromString(sv));
       System.out.println("    (v"+validator.getContext().getVersion()+")");
       if (sv != null)
         validator.setVersion(sv);

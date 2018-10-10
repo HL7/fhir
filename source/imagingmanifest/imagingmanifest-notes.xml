@@ -24,7 +24,7 @@ services that can be used to access the studies, series, or instances; for examp
 ImagingManifest.study.series.endpoint of a particular Endpoint.connectionType provides that service for that 
 series, and all contained instances. An ImagingManifest.study.endpoint of a particularconnection type provides 
 that service for all series in that study that do not have a specified Endpoint of that type, and their 
-contained instances. That is, an ImagingManifest.study.series.endpoint overrides a ImagingManifest.study.endpoint 
+contained instances. That is, an ImagingManifest.study.series.endpoint overrides an ImagingManifest.study.endpoint 
 of the same connection type. (Since each study, or individual series of a study can be stored on different imaging 
 archive servers, per-series endpoints are required. For the identified services and use cases, all instances within 
 a series would be stored together, and thus instance-level endpoints are not defined.)

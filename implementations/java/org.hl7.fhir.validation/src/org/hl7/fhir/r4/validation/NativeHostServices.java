@@ -35,6 +35,7 @@ import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
 import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.r4.model.CodeSystem;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -144,11 +145,11 @@ public class NativeHostServices {
   /** 
    * Set up the validator with a terminology service 
    * 
-   * @param txServer - the URL of the terminology service (http://tx.fhir.org/r3 default)
+   * @param txServer - the URL of the terminology service (http://tx.fhir.org/r4 default)
    * @throws Exception
    */
   public void connectToTxSvc(String txServer, String log) throws Exception {
-    validator.connectToTSServer(txServer, log);
+    validator.connectToTSServer(txServer, log, FhirVersion.R4);
   }
 
   /**

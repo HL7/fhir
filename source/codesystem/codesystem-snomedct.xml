@@ -3,7 +3,7 @@
 <!--
 SNOMED CT is a poly-versioned code system for which multiple 
 releases exist. This CodeSystem resource describes 'all of SCT'.
-For the relevent elements, there are notes about how they would 
+For the relevant elements, there are notes about how they would 
 change to describe specific editions, or specific versions.
 
 In addition to this general canonical SNOMED CT definition, 

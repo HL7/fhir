@@ -24,7 +24,7 @@ services that can be used to access the studies, series, or instances; for examp
 ImagingStudy.series.endpoint of a particular Endpoint.connectionType provides that service for that 
 series, and all contained instances. An ImagingStudy.endpoint of a particular connection type provides 
 that service for all series in that study that do not have a specified Endpoint of that type, and their 
-contained instances. That is, an ImagingStudy.series.endpoint overrides a ImagingStudy.endpoint 
+contained instances. That is, an ImagingStudy.series.endpoint overrides an ImagingStudy.endpoint 
 of the same connection type. 
 Systems can determine if a particular study, series, or instance is available or offline by interacting with the endpoint.
 Since each study, or individual series of a study can be stored on different imaging 

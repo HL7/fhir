@@ -32,6 +32,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.r4.model.CodeableConcept;
@@ -64,6 +65,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.terminologies.TerminologyClient;
 import org.hl7.fhir.r4.terminologies.ValueSetCheckerSimple;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.TerminologyServiceErrorClass;
@@ -117,7 +119,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected String name;
   private boolean allowLoadingDuplicates;
 
-  protected FHIRToolingClient txServer;
+  protected TerminologyClient txClient;
   protected HTMLClientLogger txLog;
   private TerminologyCapabilities txcaps;
   private boolean canRunWithoutTerminology;
@@ -165,7 +167,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       allowLoadingDuplicates = other.allowLoadingDuplicates;
       tsServer = other.tsServer;
       name = other.name;
-      txServer = other.txServer;
+      txClient = other.txClient;
       txLog = other.txLog;
       txcaps = other.txcaps;
       canRunWithoutTerminology = other.canRunWithoutTerminology;
@@ -309,13 +311,13 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         if (txcaps == null) {
           try {
             log("Terminology server: Check for supported code systems for "+system);
-            txcaps = txServer.getTerminologyCapabilities();
+            txcaps = txClient.getTerminologyCapabilities();
           } catch (Exception e) {
             if (canRunWithoutTerminology) {
               noTerminologyServer = true;
               log("==============!! Running without terminology server !! ==============");
-              if (txServer!=null) {
-                log("txServer = "+txServer.getAddress());
+              if (txClient!=null) {
+                log("txServer = "+txClient.getAddress());
                 log("Error = "+e.getMessage()+"");
               }
               log("=====================================================================");
@@ -389,7 +391,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     params.put("_incomplete", "true");
     tlog("$expand on "+txCache.summary(vs));
     try {
-      ValueSet result = txServer.expandValueset(vs, p, params);
+      ValueSet result = txClient.expandValueset(vs, p, params);
       res = new ValueSetExpansionOutcome(result).setTxLink(txLog.getLastId());  
     } catch (Exception e) {
       res = new ValueSetExpansionOutcome(e.getMessage() == null ? e.getClass().getName() : e.getMessage(), TerminologyServiceErrorClass.UNKNOWN).setTxLink(txLog.getLastId());
@@ -447,7 +449,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       params.put("_incomplete", "true");
       tlog("$expand on "+txCache.summary(vs));
       try {
-        ValueSet result = txServer.expandValueset(vs, p, params);
+        ValueSet result = txClient.expandValueset(vs, p, params);
         if (!result.hasUrl())
           result.setUrl(vs.getUrl());
         if (!result.hasUrl())
@@ -569,7 +571,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return res;
   }
 
-  private ValidationResult validateOnServer(ValueSet vs, Parameters pin) {
+  private ValidationResult validateOnServer(ValueSet vs, Parameters pin) throws FHIRException {
     if (vs != null)
       pin.addParameter().setName("valueSet").setResource(vs);
     for (ParametersParameterComponent pp : pin.getParameter())
@@ -581,9 +583,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     txLog.clearLastId();
     Parameters pOut;
     if (vs == null)
-      pOut = txServer.operateType(CodeSystem.class, "validate-code", pin);
+      pOut = txClient.validateCS(pin);
     else
-      pOut = txServer.operateType(ValueSet.class, "validate-code", pin);
+      pOut = txClient.validateVS(pin);
     boolean ok = false;
     String message = "No Message returned";
     String display = null;

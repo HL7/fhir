@@ -177,7 +177,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     if (clss == JavaGenClass.Resource) {
 		  
 		  if (!isAbstract) {
-		    write("@ResourceDef(name=\""+upFirst(name).replace("ListResource", "List")+"\", profile=\"http://hl7.org/fhir/Profile/"+upFirst(name)+"\")\r\n");
+		    write("@ResourceDef(name=\""+upFirst(name).replace("ListResource", "List")+"\", profile=\"http://hl7.org/fhir/StructureDefinition/"+upFirst(name)+"\")\r\n");
 		  }
 		  
 		  if (HAPI_16) {

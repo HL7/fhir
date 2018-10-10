@@ -92,10 +92,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private class ValidatorHostServices implements IEvaluationContext {
 
     @Override
-    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+    public Base resolveConstant(Object appContext, String name, boolean beforeContext) throws PathEngineException {
       ValidatorHostContext c = (ValidatorHostContext) appContext;
       if (externalHostServices != null)
-        return externalHostServices.resolveConstant(c.appContext, name);
+        return externalHostServices.resolveConstant(c.appContext, name, beforeContext);
       else
         return null;
     }

@@ -60,6 +60,8 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.r4.terminologies.TerminologyClient;
+import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.utils.INarrativeGenerator;
 import org.hl7.fhir.r4.utils.IResourceValidator;
@@ -129,10 +131,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
 
 
-  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException, FHIRException {
+  public BuildWorkerContext(Definitions definitions, TerminologyClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, Map<String, ImplementationGuide> guides, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException, FHIRException {
     super(codeSystems, valueSets, maps, profiles, guides);
     this.definitions = definitions;
-    this.txServer = client;
+    this.txClient = client;
     this.txLog = new HTMLClientLogger(null);
     setExpansionProfile(buildExpansionProfile());
     this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
@@ -149,11 +151,11 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   public boolean hasClient() {
-    return txServer != null;
+    return txClient != null;
   }
 
-  public FHIRToolingClient getClient() {
-    return txServer;
+  public TerminologyClient getClient() {
+    return txClient;
   }
 
   public StructureDefinition getExtensionStructure(StructureDefinition context, String url) throws Exception {
@@ -596,14 +598,14 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       try {
         triedServer = true;
         // for this, we use the FHIR client
-        if (txServer == null) {
-          txServer = new FHIRToolingClient(tsServer);
+        if (txClient == null) {
+          txClient = new TerminologyClientR4(tsServer);
           this.txLog = new HTMLClientLogger(null);
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("code", code);
         params.put("system", "http://loinc.org");
-        Parameters result = txServer.lookupCode(params);
+        Parameters result = txClient.lookupCode(params);
 
         for (ParametersParameterComponent p : result.getParameter()) {
           if (p.getName().equals("display"))

@@ -47,7 +47,7 @@
 		<system value="http://example.org/questionnaires"/>
 		<code value="CDE: Recent Travel to Zika Area"/>
     </code>
-	<text value="Have you recently traveled to a an area with active Zika transmission?"/>
+	<text value="Have you recently traveled to an area with active Zika transmission?"/>
 	<type value="boolean"/>
 	<enableWhen>
 		<question value="1"/>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?><!--
- This is an example of a cancelled standard blood pressure measurement. with a Observation/component/dataAbsentReason valued due to cancellation.
+ This is an example of a cancelled standard blood pressure measurement. with an Observation/component/dataAbsentReason valued due to cancellation.
 
  Blood Pressure is a regarded as a single observation, and
  presented that way in plain text: 120/80. Also, it is usually

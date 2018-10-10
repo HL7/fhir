@@ -5786,7 +5786,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void validationProcess() throws Exception {
 
-    runJUnitTests();
+    runJUnitTestsInProcess();
     page.log("Validating Examples", LogMessageType.Process);
     ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
     page.log(".. Loading", LogMessageType.Process);
@@ -5838,6 +5838,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       ei.validate("extension-definitions", "Bundle");
     }
     
+    runJUnitTestsEnd();
 
     if (buildFlags.get("all") && isGenerate)
       produceCoverageWarnings();
@@ -5849,15 +5850,13 @@ public class Publisher implements URIResolver, SectionNumberer {
     miscValidation();
   }
 
-  private void runJUnitTests() throws Exception {
+  private void runJUnitTestsInProcess() throws Exception {
     TestingUtilities.context = page.getWorkerContext();
     TestingUtilities.silent = true;
     TestingUtilities.fixedpath = page.getFolders().rootDir;
     TestingUtilities.contentpath = page.getFolders().dstDir;
-    ValidationEngineTests.inbuild = true;
     
 //    runJUnitClass(InstanceValidatorTests.class);
-//    runJUnitClass(ValidationEngineTests.class);
     runJUnitClass(FHIRPathTests.class);
     runJUnitClass(NarrativeGeneratorTests.class);
 //    runJUnitClass(TurtleTests.class);
@@ -5867,6 +5866,12 @@ public class Publisher implements URIResolver, SectionNumberer {
 //    runJUnitClass(ValidationTestSuite.class);
     runJUnitClass(GraphQLParserTests.class);
     runJUnitClass(GraphQLEngineTests.class);
+    checkAllOk();
+  }
+
+  private void runJUnitTestsEnd() throws Exception {
+    ValidationEngineTests.inbuild = true;
+    runJUnitClass(ValidationEngineTests.class);
     checkAllOk();
   }
 
