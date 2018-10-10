@@ -1,0 +1,40 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
+
+<p>The scope of the EvidenceVariable resource is to describe a "PICO" element that knowledge (evidence, assertion, recommendation) is about. PICO stands for:
+
+Population - the population within which exposures and outcomes are being considered
+Intervention - the conditional state or exposure state being described for which one is expressing the risk of or effect on an outcome
+Comparison - the alternative conditional state or alternative exposure state when one is comparing states for the effect on an outcome
+Outcome - the result or effect of an intervention or exposure in a population
+PICO (and its variants like PECO or PICOT) is a universal acronym used in evidence-based medicine communities to clearly express research questions and evidence findings.
+
+The EvidenceVariable resource allows expression of the components of a PICO question in codeable and reusable formats.</p>
+
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>Multiple resources describing evidence findings (Evidence, EffectEvidenceSynthesis, EffectEvidenceBit, RiskEvidenceSynthesis, RiskEvidenceBit) will reference EvidenceVariable to describe what the evidence findings are about.</p>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+This resource may describe the population for which a recommendation or evidence summary is applicable, or may describe the intervention or exposure for which a recommendation or evidence summary is applicable, or may describe the outcome that an evidence summary is about
+
+These descriptions could be used in coded specifications of recommendations from clinical practice guidelines to facilitate the translation from guidelines to clinical decision support artifacts.
+
+These descriptions could be used in Summary of Findings tables from systematic reviews to facilitate the representation of medical knowledge when creating recommendations.
+
+These descriptions could be used in classification of new evidence reports to facilitate recognition of signal for updating existing evidence summaries and recommendations.
+</p>
+</div>
+-->
+
+</div>
