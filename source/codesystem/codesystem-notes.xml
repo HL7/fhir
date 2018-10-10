@@ -88,7 +88,7 @@ rules might be proposed in future versions of this specification.
 <p>
 Concepts have both a <code>display</code> and a <code>definition</code>. The display is a short text that represents the meaning
 of the concept to human users, while the definition is a more formal statement of the meaning of the concept, which 
-is often longer. All concepts SHOULD have a a <code>display</code> and a <code>definition</code>, though it is not 
+is often longer. All concepts SHOULD have a <code>display</code> and a <code>definition</code>, though it is not 
 mandatory because there are many cases where no such properties are provided, in spite of their utility and importance
 for clear and safe communication.
 </p>
@@ -214,12 +214,12 @@ basic property URIs are defined:
 <p>
 Typically, Code systems are presented hierarchically, using nested <code>concept</code> properties, where the 
 hierarchy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
-The code system hierarchy is a single tree, where concepts have only one parents. Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
+The code system hierarchy is a single tree, where concepts have only one parent. Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
 These code systems are not usually presented in a hierarchical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
 then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
 </p>
 <p>
-The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation.
+The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation).
 </p>
 
 <a name="subsumption"></a>

@@ -180,7 +180,7 @@ How to resolve a reference in a Bundle:
  <li>If the reference is not an absolute reference, convert it to an absolute URL:
   <ul>
 	 <li>if the reference has the format [type]/[id], and</li>
-   <li>if the fullUrl for the bundle entry containing the resource is a a RESTful one (see the <a href="references.html#regex">RESTful URL regex</a>) 
+   <li>if the fullUrl for the bundle entry containing the resource is a RESTful one (see the <a href="references.html#regex">RESTful URL regex</a>) 
 	  <ul>
      <li>extract the [root] from the fullUrl, and append the reference (type/id) to it</li>
      <li>then try to resolve within the bundle as for a RESTful URL reference. </li>

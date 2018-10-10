@@ -719,7 +719,7 @@ noUpdateOrHistory(useablePeriod)
 ISO/FDIS 21090:2009(E)
 � ISO 2009 � All rights reserved  59
 7.7.4.6  ISO 22220 comments
-The various address parts defined by ISO 22220,  map to address part types, and the address type maps to 
+The various address parts defined by ISO 22220,  map to address part types and the address type maps to 
 the use attribute. The  start and end date accuracy indicators are partially supported by the precision of the 
 dates provided.
 7.7.4.7  Examples
@@ -1396,7 +1396,7 @@ p.qualifier->includes(EntityNamePartQualifier.LS))
 7.7.9.1  Description
 A flavour that constrains EN.
 7.7.9.2  Invariants
-none of the parts of a organization name can be FAM or GIV;
+none of the parts of an organization name can be FAM or GIV;
 the following qualifiers shall not be used in the name of an organization: I, P, ANON, A, R, DN and M.
 OCL for Invariants:
 inv "no parts are person types": part->forAll(p |
@@ -2038,7 +2038,7 @@ inv "no TS": (numerator.isNotNull implies not
 numerator.oclIsKindOf("TS")) and (denominator.isNotNull 
 implies not denominator.oclIsKindOf("TS"))
 7.8.8.5  Operations
-7.8.8.5.1  comparable(other : QTY):BL: This and other can be be compared if both the numerator and 
+7.8.8.5.1  comparable(other : QTY):BL: This and other can be compared if both the numerator and 
 denominator can be compared.
 7.8.8.6  Examples
 <example xsi:type="RTO">
@@ -2388,7 +2388,7 @@ ISO/FDIS 21090:2009(E)
 appropriate.
 7.8.13.4  Equality
 Two nonNull TS values are only equal if their time and precision are equal, or if their uncertainRanges are not 
-null and not nullFlavored  and equal. If both TS value have time zones, the values should be be corrected for 
+null and not nullFlavored  and equal. If both TS value have time zones, the values should be corrected for 
 timezone before comparison. If neither TS value has a timezone, then they may be compared for equality 
 without correction. If only one TS value has a timezone, then the equality is nullFlavor NI.
 7.8.13.5  Invariants
@@ -4801,7 +4801,7 @@ isNotNull implies parts->count > 0
 7.12.33.5  Operations
 7.12.33.5.1  asED() : ED: The SD.TITLE as an ED.  The parts  become the value of the ED.xml attribute 
 following the XML representation rules laid out in  Annex A. The language is populated from base.language, 
-the mediaType is is populated from base.language, the mediaType is "text/x -hl7-title+xml", the charset is 
+the mediaType is populated from base.language, the mediaType is "text/x -hl7-title+xml", the charset is 
 determined the context in which the SD.TITLE occurs, and the other properties of the ED result are null. 
 ISO/FDIS 21090:2009(E)
 � ISO 2009 � All rights reserved  163
@@ -4817,7 +4817,7 @@ The XML representation is created by a simple algorithm described below, and is 
 support for both schema validation and schema-based software development tools. A full schema for the XML 
 representation is provided in Annex  E. Although the schema is only informative, an information processing 
 entity that claims conformance with  this International Standard  shall  produce instances that are valid with 
-respect to the schema, though validity with respect to the schem a is not sufficient to claim that conformance 
+respect to the schema, though validity with respect to the schema is not sufficient to claim that conformance 
 has been demonstrated.
 A.2  Rules for XML representation
 Any  valid XML charset can be used as long as as it is consistent with the  string character set as 
