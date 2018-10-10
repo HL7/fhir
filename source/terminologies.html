@@ -95,7 +95,7 @@ this mixed list example from the previous paragraph, there are two code systems:
 and a local one (let's say it has been given the URL: http://example.com/codesystems/additional-test-codes).
 The application table is a single value set (a set of Code Pairs) that includes codes from each of
 those two namespaces. The value set itself is given its own URL as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes").
-This identifies the set of Code Pairs, but is never used as the namespace in a actual code pair, or in an instance.
+This identifies the set of Code Pairs, but is never used as the namespace in an actual code pair, or in an instance.
 In FHIR, Code Pairs are always represented as "code" and "system", except for the simple data type <a href="datatypes.html#code">code</a>
 where the namespace (e.g. the system element/property) is fixed in the schema and not
 represented explicitly.
