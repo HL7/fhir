@@ -5918,7 +5918,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           }
           for (ConceptSetFilterComponent c : cc.getFilter()) {
             if (c.getProperty().equals("concept")) {
-              String d = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue()).getDisplay();
+              ConceptDefinitionComponent def = workerContext.getCodeDefinition("http://snomed.info/sct", c.getValue());
+              if (def==null) {
+                throw new Exception("Unable to retrieve definition for SNOMED code: " + c.getValue());
+              }
+              String d = def.getDisplay();
               if (concepts.containsKey(c.getValue()))
                 concepts.get(c.getValue()).update(d, vs);
               else
