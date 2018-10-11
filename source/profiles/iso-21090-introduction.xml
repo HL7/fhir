@@ -38,16 +38,6 @@ included.
 <p>Where null flavors are not supported as part of the core specification, extensions can be defined that expose only those null flavors that are relevant.
 This approach is preferred over referencing the full null flavor specification.  (Note that the null flavor code system can be referenced in any value sets.)
 </p>
-<h4><a href="extension-iso21090-ordinal-value.html">ordinal-value</a></h4>
-<p>
-A numeric value that allows the comparison (less than, greater than) or other numerical 
-manipulation of a concept (e.g. Adding up components of a score). Assigning a value to a
-concept should generally be done in a formal code system that defines the value, or in 
-an applicable value set for the concept, but some concepts do not have a formal definition 
-(or are not even represented as a concept formally, especially in <a href="questionnaire.html">Questionnaires</a>), 
-so this extension is allowed to appear ouside those preferred contexts. The value may be constrained to an 
-integer in some contexts of use.
-</p>
 
 </div>
 
