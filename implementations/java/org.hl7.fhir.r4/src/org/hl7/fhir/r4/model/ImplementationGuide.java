@@ -5772,13 +5772,9 @@ public class ImplementationGuide extends MetadataResource {
 
     public enum GuideParameterCode {
         /**
-         * If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version.
+         * If the value of this string 0..* parameter is one of the metadata fields then all conformance resources will have any specified [Resource].[field] overwritten with the ImplementationGuide.[field], where field is one of: version, date, status, publisher, contact, copyright, experimental, jurisdiction, useContext.
          */
-        APPLYBUSINESSVERSION, 
-        /**
-         * If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction.
-         */
-        APPLYJURISDICTION, 
+        APPLY, 
         /**
          * The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type.
          */
@@ -5822,10 +5818,8 @@ public class ImplementationGuide extends MetadataResource {
         public static GuideParameterCode fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("apply-business-version".equals(codeString))
-          return APPLYBUSINESSVERSION;
-        if ("apply-jurisdiction".equals(codeString))
-          return APPLYJURISDICTION;
+        if ("apply".equals(codeString))
+          return APPLY;
         if ("path-resource".equals(codeString))
           return PATHRESOURCE;
         if ("path-pages".equals(codeString))
@@ -5851,8 +5845,7 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String toCode() {
           switch (this) {
-            case APPLYBUSINESSVERSION: return "apply-business-version";
-            case APPLYJURISDICTION: return "apply-jurisdiction";
+            case APPLY: return "apply";
             case PATHRESOURCE: return "path-resource";
             case PATHPAGES: return "path-pages";
             case PATHTXCACHE: return "path-tx-cache";
@@ -5867,8 +5860,7 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getSystem() {
           switch (this) {
-            case APPLYBUSINESSVERSION: return "http://hl7.org/fhir/guide-parameter-code";
-            case APPLYJURISDICTION: return "http://hl7.org/fhir/guide-parameter-code";
+            case APPLY: return "http://hl7.org/fhir/guide-parameter-code";
             case PATHRESOURCE: return "http://hl7.org/fhir/guide-parameter-code";
             case PATHPAGES: return "http://hl7.org/fhir/guide-parameter-code";
             case PATHTXCACHE: return "http://hl7.org/fhir/guide-parameter-code";
@@ -5883,8 +5875,7 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getDefinition() {
           switch (this) {
-            case APPLYBUSINESSVERSION: return "If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version.";
-            case APPLYJURISDICTION: return "If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction.";
+            case APPLY: return "If the value of this string 0..* parameter is one of the metadata fields then all conformance resources will have any specified [Resource].[field] overwritten with the ImplementationGuide.[field], where field is one of: version, date, status, publisher, contact, copyright, experimental, jurisdiction, useContext.";
             case PATHRESOURCE: return "The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type.";
             case PATHPAGES: return "The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder.";
             case PATHTXCACHE: return "The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control.";
@@ -5899,8 +5890,7 @@ public class ImplementationGuide extends MetadataResource {
         }
         public String getDisplay() {
           switch (this) {
-            case APPLYBUSINESSVERSION: return "Apply Business Version";
-            case APPLYJURISDICTION: return "Apply Jurisdiction";
+            case APPLY: return "Apply Metadata Value";
             case PATHRESOURCE: return "Resource Path";
             case PATHPAGES: return "Pages Path";
             case PATHTXCACHE: return "Terminology Cache Path";
@@ -5920,10 +5910,8 @@ public class ImplementationGuide extends MetadataResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("apply-business-version".equals(codeString))
-          return GuideParameterCode.APPLYBUSINESSVERSION;
-        if ("apply-jurisdiction".equals(codeString))
-          return GuideParameterCode.APPLYJURISDICTION;
+        if ("apply".equals(codeString))
+          return GuideParameterCode.APPLY;
         if ("path-resource".equals(codeString))
           return GuideParameterCode.PATHRESOURCE;
         if ("path-pages".equals(codeString))
@@ -5952,10 +5940,8 @@ public class ImplementationGuide extends MetadataResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("apply-business-version".equals(codeString))
-          return new Enumeration<GuideParameterCode>(this, GuideParameterCode.APPLYBUSINESSVERSION);
-        if ("apply-jurisdiction".equals(codeString))
-          return new Enumeration<GuideParameterCode>(this, GuideParameterCode.APPLYJURISDICTION);
+        if ("apply".equals(codeString))
+          return new Enumeration<GuideParameterCode>(this, GuideParameterCode.APPLY);
         if ("path-resource".equals(codeString))
           return new Enumeration<GuideParameterCode>(this, GuideParameterCode.PATHRESOURCE);
         if ("path-pages".equals(codeString))
@@ -5977,10 +5963,8 @@ public class ImplementationGuide extends MetadataResource {
         throw new FHIRException("Unknown GuideParameterCode code '"+codeString+"'");
         }
     public String toCode(GuideParameterCode code) {
-      if (code == GuideParameterCode.APPLYBUSINESSVERSION)
-        return "apply-business-version";
-      if (code == GuideParameterCode.APPLYJURISDICTION)
-        return "apply-jurisdiction";
+      if (code == GuideParameterCode.APPLY)
+        return "apply";
       if (code == GuideParameterCode.PATHRESOURCE)
         return "path-resource";
       if (code == GuideParameterCode.PATHPAGES)
