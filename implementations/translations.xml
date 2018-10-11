@@ -369,7 +369,7 @@
   </item>
   <item id="EvidenceVariable">
     <translation lang="en">EvidenceVariable</translation>
-  </item>
+	</item>
 	<item id="ExampleScenario">
 		<translation lang="en">ExampleScenario</translation>
 		<translation lang="es">EjemploDeEscenario</translation>
@@ -574,9 +574,6 @@
 	<item id="MedicinalProductAuthorization">
 		<translation lang="en">MedicinalProductAuthorization</translation>
 		<translation lang="it">AutorizzazioneProdottoMedicinale</translation>
-	</item>
-	<item id="MedicinalProductClinicals">
-		<translation lang="en">MedicinalProductClinicals</translation>
 	</item>
 	<item id="MedicinalProductContraindication">
 		<translation lang="en">MedicinalProductContraindication</translation>
