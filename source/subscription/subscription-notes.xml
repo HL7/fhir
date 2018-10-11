@@ -197,6 +197,7 @@ email. The email should be secured appropriately, such as using Direct, as speci
 by the rules of the applicable jurisdictions.
 </p>
 
+
 <p>SMS works very similarly:</p>
 
 <pre class="json" fragment="Subscription">
@@ -209,9 +210,11 @@ by the rules of the applicable jurisdictions.
 </pre>
 
 <p>
-Note: SMS messages are extremely limited in size, so payload should be set to false
-Irrespective of size, most servers will refuse to send payloads in SMS for security 
-reasons. 
+Note: SMS messages are extremely limited in size, so <code>channel.payload</code> will 
+usually be omitted (signifying that no payload is to be sent). The recipient may be 
+human, but this is not always the case. Irrespective of size, most servers will refuse 
+to send payloads in SMS for security reasons, and may refuse to send emails unless
+encrypted.
 </p>
 
 <h3>Messaging</h3>

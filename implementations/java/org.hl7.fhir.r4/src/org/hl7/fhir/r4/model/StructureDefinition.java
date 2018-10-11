@@ -1416,7 +1416,7 @@ public class StructureDefinition extends MetadataResource {
     @Child(name = "fhirVersion", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version this StructureDefinition targets", formalDefinition="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-    protected Enumeration<FHIRVersion> fhirVersion;
+    protected Enumeration<FhirVersion> fhirVersion;
 
     /**
      * An external specification that the content is mapped to.
@@ -2304,12 +2304,12 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public Enumeration<FHIRVersion> getFhirVersionElement() { 
+    public Enumeration<FhirVersion> getFhirVersionElement() { 
       if (this.fhirVersion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.fhirVersion");
         else if (Configuration.doAutoCreate())
-          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory()); // bb
+          this.fhirVersion = new Enumeration<FhirVersion>(new FhirVersionEnumFactory()); // bb
       return this.fhirVersion;
     }
 
@@ -2324,7 +2324,7 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public StructureDefinition setFhirVersionElement(Enumeration<FHIRVersion> value) { 
+    public StructureDefinition setFhirVersionElement(Enumeration<FhirVersion> value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -2332,19 +2332,19 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.
      */
-    public FHIRVersion getFhirVersion() { 
+    public FhirVersion getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.
      */
-    public StructureDefinition setFhirVersion(FHIRVersion value) { 
+    public StructureDefinition setFhirVersion(FhirVersion value) { 
       if (value == null)
         this.fhirVersion = null;
       else {
         if (this.fhirVersion == null)
-          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
+          this.fhirVersion = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
         this.fhirVersion.setValue(value);
       }
       return this;
@@ -2952,7 +2952,7 @@ public class StructureDefinition extends MetadataResource {
           this.getKeyword().add(castToCoding(value)); // Coding
           return value;
         case 461006061: // fhirVersion
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
           return value;
         case 837556430: // mapping
@@ -3028,7 +3028,7 @@ public class StructureDefinition extends MetadataResource {
         } else if (name.equals("keyword")) {
           this.getKeyword().add(castToCoding(value));
         } else if (name.equals("fhirVersion")) {
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
         } else if (name.equals("mapping")) {
           this.getMapping().add((StructureDefinitionMappingComponent) value);

@@ -64,7 +64,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.OperationOutcome;
@@ -267,7 +267,7 @@ public class ValidationEngine {
     loadDefinitions(src);   
   }
   
-  public void setTerminologyServer(String src, String log, FHIRVersion version) throws Exception {
+  public void setTerminologyServer(String src, String log, FhirVersion version) throws Exception {
     connectToTSServer(src, log, version);   
   }
   
@@ -287,7 +287,7 @@ public class ValidationEngine {
     this.anyExtensionsAllowed = anyExtensionsAllowed;
   }
 
-  public ValidationEngine(String src, String txsrvr, String txLog, FHIRVersion version) throws Exception {
+  public ValidationEngine(String src, String txsrvr, String txLog, FhirVersion version) throws Exception {
     pcm = new PackageCacheManager(true);
     loadInitialDefinitions(src);
     setTerminologyServer(txsrvr, txLog, version);
@@ -598,7 +598,7 @@ public class ValidationEngine {
     return checkIsResource(new FileInputStream(path));
 	}
 
-  public void connectToTSServer(String url, String log, FHIRVersion version) throws URISyntaxException, FHIRException {
+  public void connectToTSServer(String url, String log, FhirVersion version) throws URISyntaxException, FHIRException {
     context.setTlogging(false);
     if (url == null) {
       context.setCanRunWithoutTerminology(true);

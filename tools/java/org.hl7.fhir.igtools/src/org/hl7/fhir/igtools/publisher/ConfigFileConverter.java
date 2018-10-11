@@ -23,7 +23,7 @@ import org.hl7.fhir.r4.model.BaseReference;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
@@ -94,7 +94,7 @@ public class ConfigFileConverter {
     ImplementationGuide ig = (ImplementationGuide) parse(igName, version);
 
     // populating the IG from the config file
-    ig.addFhirVersion(FHIRVersion.fromCode(version));
+    ig.addFhirVersion(FhirVersion.fromCode(version));
     if (configuration.has("fixed-business-version")) {
       ig.setVersion(configuration.getAsJsonPrimitive("fixed-business-version").getAsString());
       IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLYBUSINESSVERSION, ig.getVersion());

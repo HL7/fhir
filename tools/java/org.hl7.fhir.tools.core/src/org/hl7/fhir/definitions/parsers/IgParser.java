@@ -29,7 +29,7 @@ import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
@@ -265,7 +265,7 @@ return null;
           pr.setSource(fn.getAbsolutePath());
           pr.setSourceType(ConformancePackageSourceType.Spreadsheet);
           SpreadsheetParser sparser = new SpreadsheetParser(pr.getCategory(), new CSFileInputStream(pr.getSource()), Utilities.noString(pr.getId()) ? pr.getSource() : pr.getId(), pr.getSource(), igd, 
-                rootDir, logger, registry, FHIRVersion.fromCode(context.getVersion()), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups, exceptionIfExcelNotNormalised);
+                rootDir, logger, registry, FhirVersion.fromCode(context.getVersion()), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups, exceptionIfExcelNotNormalised);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(pr.getSource()));
           sparser.parseConformancePackage(pr, null, Utilities.getDirectoryForFile(pr.getSource()), pr.getCategory(), issues, null);
@@ -297,7 +297,7 @@ return null;
           if (s.endsWith("-spreadsheet.xml"))
             s = s.substring(0, s.length()-16);
           String id = igd.getCode()+"-"+s;
-          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, fn.getAbsolutePath(), igd, rootDir, logger, registry, FHIRVersion.fromCode(context.getVersion()), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups, exceptionIfExcelNotNormalised);
+          SpreadsheetParser sparser = new SpreadsheetParser(igd.getCode(), new CSFileInputStream(fn), id, fn.getAbsolutePath(), igd, rootDir, logger, registry, FhirVersion.fromCode(context.getVersion()), context, genDate, false, pkp, false, committee, mappings, profileIds, codeSystems, maps, workgroups, exceptionIfExcelNotNormalised);
           sparser.getBindings().putAll(commonBindings);
           sparser.setFolder(Utilities.getDirectoryForFile(fn.getAbsolutePath()));
           LogicalModel lm = sparser.parseLogicalModel();

@@ -20,8 +20,4 @@
     <payload value="application/fhir+json"/>
     <header value="Authorization: Bearer secret-token-abc-123"/>
   </channel>  
-  <tag>
-    <system value="http://example.org/fhir/cs/internal"/>
-    <code value="bili-done"/>
-  </tag>
 </Subscription>

@@ -3376,7 +3376,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("implementation")) {
         res.setImplementation(parseCapabilityStatementCapabilityStatementImplementationComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("fhirVersion")) {
-        res.setFhirVersionElement(parseEnumeration(xpp, FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+        res.setFhirVersionElement(parseEnumeration(xpp, FhirVersion.NULL, new FhirVersionEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("format")) {
         res.getFormat().add(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("patchFormat")) {
@@ -11819,7 +11819,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("license")) {
         res.setLicenseElement(parseEnumeration(xpp, ImplementationGuide.SPDXLicense.NULL, new ImplementationGuide.SPDXLicenseEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("fhirVersion")) {
-        res.getFhirVersion().add(parseEnumeration(xpp, FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+        res.getFhirVersion().add(parseEnumeration(xpp, FhirVersion.NULL, new FhirVersionEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("dependsOn")) {
         res.getDependsOn().add(parseImplementationGuideImplementationGuideDependsOnComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("global")) {
@@ -11960,7 +11960,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
         res.setReference(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("fhirVersion")) {
-        res.getFhirVersion().add(parseEnumeration(xpp, FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+        res.getFhirVersion().add(parseEnumeration(xpp, FhirVersion.NULL, new FhirVersionEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
@@ -20286,7 +20286,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("keyword")) {
         res.getKeyword().add(parseCoding(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("fhirVersion")) {
-        res.setFhirVersionElement(parseEnumeration(xpp, FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+        res.setFhirVersionElement(parseEnumeration(xpp, FhirVersion.NULL, new FhirVersionEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("mapping")) {
         res.getMapping().add(parseStructureDefinitionStructureDefinitionMappingComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("kind")) {
@@ -28772,7 +28772,7 @@ public class XmlParser extends XmlParserBase {
         composeCapabilityStatementCapabilityStatementImplementationComponent("implementation", element.getImplementation());
       }
       if (element.hasFhirVersionElement())
-        composeEnumeration("fhirVersion", element.getFhirVersionElement(), new FHIRVersionEnumFactory());
+        composeEnumeration("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory());
       if (element.hasFormat()) { 
         for (CodeType e : element.getFormat()) 
           composeCode("format", e);
@@ -37864,8 +37864,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasLicenseElement())
         composeEnumeration("license", element.getLicenseElement(), new ImplementationGuide.SPDXLicenseEnumFactory());
         if (element.hasFhirVersion()) 
-          for (Enumeration<FHIRVersion> e : element.getFhirVersion()) 
-            composeEnumeration("fhirVersion", e, new FHIRVersionEnumFactory());
+          for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
+            composeEnumeration("fhirVersion", e, new FhirVersionEnumFactory());
       if (element.hasDependsOn()) { 
         for (ImplementationGuide.ImplementationGuideDependsOnComponent e : element.getDependsOn()) 
           composeImplementationGuideImplementationGuideDependsOnComponent("dependsOn", e);
@@ -37994,8 +37994,8 @@ public class XmlParser extends XmlParserBase {
         composeReference("reference", element.getReference());
       }
         if (element.hasFhirVersion()) 
-          for (Enumeration<FHIRVersion> e : element.getFhirVersion()) 
-            composeEnumeration("fhirVersion", e, new FHIRVersionEnumFactory());
+          for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
+            composeEnumeration("fhirVersion", e, new FhirVersionEnumFactory());
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
       }
@@ -46886,7 +46886,7 @@ public class XmlParser extends XmlParserBase {
           composeCoding("keyword", e);
       }
       if (element.hasFhirVersionElement())
-        composeEnumeration("fhirVersion", element.getFhirVersionElement(), new FHIRVersionEnumFactory());
+        composeEnumeration("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory());
       if (element.hasMapping()) { 
         for (StructureDefinition.StructureDefinitionMappingComponent e : element.getMapping()) 
           composeStructureDefinitionStructureDefinitionMappingComponent("mapping", e);

@@ -6774,7 +6774,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     @Child(name = "fhirVersion", type = {CodeType.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version the system uses", formalDefinition="The version of the FHIR specification on which this capability statement is based." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-    protected Enumeration<FHIRVersion> fhirVersion;
+    protected Enumeration<FhirVersion> fhirVersion;
 
     /**
      * A list of the formats supported by this implementation using their content types.
@@ -6832,7 +6832,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   /**
    * Constructor
    */
-    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, Enumeration<FHIRVersion> fhirVersion) {
+    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, Enumeration<FhirVersion> fhirVersion) {
       super();
       this.status = status;
       this.date = date;
@@ -7744,12 +7744,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this capability statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public Enumeration<FHIRVersion> getFhirVersionElement() { 
+    public Enumeration<FhirVersion> getFhirVersionElement() { 
       if (this.fhirVersion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CapabilityStatement.fhirVersion");
         else if (Configuration.doAutoCreate())
-          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory()); // bb
+          this.fhirVersion = new Enumeration<FhirVersion>(new FhirVersionEnumFactory()); // bb
       return this.fhirVersion;
     }
 
@@ -7764,7 +7764,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this capability statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public CapabilityStatement setFhirVersionElement(Enumeration<FHIRVersion> value) { 
+    public CapabilityStatement setFhirVersionElement(Enumeration<FhirVersion> value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -7772,16 +7772,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @return The version of the FHIR specification on which this capability statement is based.
      */
-    public FHIRVersion getFhirVersion() { 
+    public FhirVersion getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this capability statement is based.
      */
-    public CapabilityStatement setFhirVersion(FHIRVersion value) { 
+    public CapabilityStatement setFhirVersion(FhirVersion value) { 
         if (this.fhirVersion == null)
-          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
+          this.fhirVersion = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
         this.fhirVersion.setValue(value);
       return this;
     }
@@ -8289,7 +8289,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.implementation = (CapabilityStatementImplementationComponent) value; // CapabilityStatementImplementationComponent
           return value;
         case 461006061: // fhirVersion
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
           return value;
         case -1268779017: // format
@@ -8358,7 +8358,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         } else if (name.equals("implementation")) {
           this.implementation = (CapabilityStatementImplementationComponent) value; // CapabilityStatementImplementationComponent
         } else if (name.equals("fhirVersion")) {
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
         } else if (name.equals("format")) {
           this.getFormat().add(castToCode(value));

@@ -3450,7 +3450,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("implementation"))
       res.setImplementation(parseCapabilityStatementCapabilityStatementImplementationComponent(json.getAsJsonObject("implementation"), res));
     if (json.has("fhirVersion"))
-      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
     if (json.has("format")) {
@@ -13788,14 +13788,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("fhirVersion")) {
       JsonArray array = json.getAsJsonArray("fhirVersion");
       for (int i = 0; i < array.size(); i++) {
-        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
       }
     };
     if (json.has("_fhirVersion")) {
       JsonArray array = json.getAsJsonArray("_fhirVersion");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getFhirVersion().size())
-          res.getFhirVersion().add(parseEnumeration(null, FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+          res.getFhirVersion().add(parseEnumeration(null, FhirVersion.NULL, new FhirVersionEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getFhirVersion().get(i));
       }
@@ -13925,14 +13925,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("fhirVersion")) {
       JsonArray array = json.getAsJsonArray("fhirVersion");
       for (int i = 0; i < array.size(); i++) {
-        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
       }
     };
     if (json.has("_fhirVersion")) {
       JsonArray array = json.getAsJsonArray("_fhirVersion");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getFhirVersion().size())
-          res.getFhirVersion().add(parseEnumeration(null, FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+          res.getFhirVersion().add(parseEnumeration(null, FhirVersion.NULL, new FhirVersionEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getFhirVersion().get(i));
       }
@@ -23804,7 +23804,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("fhirVersion"))
-      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), FHIRVersion.NULL, new FHIRVersionEnumFactory()));
+      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
     if (json.has("mapping")) {
@@ -32613,8 +32613,8 @@ public class JsonParser extends JsonParserBase {
         composeCapabilityStatementCapabilityStatementImplementationComponent("implementation", element.getImplementation());
       }
       if (element.hasFhirVersionElement()) {
-        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new FHIRVersionEnumFactory(), false);
-        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new FHIRVersionEnumFactory(), false);
+        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
+        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
       }
       if (element.hasFormat()) {
         openArray("format");
@@ -43670,13 +43670,13 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasFhirVersion()) {
         openArray("fhirVersion");
-        for (Enumeration<FHIRVersion> e : element.getFhirVersion()) 
-          composeEnumerationCore(null, e, new FHIRVersionEnumFactory(), true);
+        for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
+          composeEnumerationCore(null, e, new FhirVersionEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getFhirVersion())) {
           openArray("_fhirVersion");
-          for (Enumeration<FHIRVersion> e : element.getFhirVersion()) 
-            composeEnumerationExtras(null, e, new FHIRVersionEnumFactory(), true);
+          for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
+            composeEnumerationExtras(null, e, new FhirVersionEnumFactory(), true);
           closeArray();
         }
       };
@@ -43818,13 +43818,13 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasFhirVersion()) {
         openArray("fhirVersion");
-        for (Enumeration<FHIRVersion> e : element.getFhirVersion()) 
-          composeEnumerationCore(null, e, new FHIRVersionEnumFactory(), true);
+        for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
+          composeEnumerationCore(null, e, new FhirVersionEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getFhirVersion())) {
           openArray("_fhirVersion");
-          for (Enumeration<FHIRVersion> e : element.getFhirVersion()) 
-            composeEnumerationExtras(null, e, new FHIRVersionEnumFactory(), true);
+          for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
+            composeEnumerationExtras(null, e, new FhirVersionEnumFactory(), true);
           closeArray();
         }
       };
@@ -54453,8 +54453,8 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasFhirVersionElement()) {
-        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new FHIRVersionEnumFactory(), false);
-        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new FHIRVersionEnumFactory(), false);
+        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
+        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
       }
       if (element.hasMapping()) {
         openArray("mapping");

@@ -11,7 +11,7 @@ import org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationCo
 import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.Expression.ExpressionLanguage;
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Contributor;
 import org.hl7.fhir.r4.model.Enumeration;
@@ -4618,7 +4618,7 @@ public class VersionConvertor_30_40 {
     if (src.hasImplementation())
       tgt.setImplementation(convertCapabilityStatementImplementationComponent(src.getImplementation()));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(FHIRVersion.fromCode(src.getFhirVersion()));
+      tgt.setFhirVersion(FhirVersion.fromCode(src.getFhirVersion()));
 //    if (src.hasAcceptUnknown())
 //      tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getFormat())
@@ -12012,7 +12012,7 @@ public class VersionConvertor_30_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
-      tgt.addFhirVersion(FHIRVersion.fromCode(src.getFhirVersion()));
+      tgt.addFhirVersion(FhirVersion.fromCode(src.getFhirVersion()));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
       tgt.addDependsOn(convertImplementationGuideDependencyComponent(t));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent t : src.getPackage())
@@ -12056,7 +12056,7 @@ public class VersionConvertor_30_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
-      for (Enumeration<FHIRVersion> v : src.getFhirVersion()) {
+      for (Enumeration<FhirVersion> v : src.getFhirVersion()) {
         tgt.setFhirVersion(v.asStringValue());
         break;
       }
@@ -17588,7 +17588,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.Coding t : src.getKeyword())
       tgt.addKeyword(convertCoding(t));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(FHIRVersion.fromCode(src.getFhirVersion()));
+      tgt.setFhirVersion(FhirVersion.fromCode(src.getFhirVersion()));
     for (org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     if (src.hasKind())

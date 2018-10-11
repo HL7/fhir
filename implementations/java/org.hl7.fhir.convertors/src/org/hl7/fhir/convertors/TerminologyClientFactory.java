@@ -2,14 +2,14 @@ package org.hl7.fhir.convertors;
 
 import java.net.URISyntaxException;
 
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.terminologies.TerminologyClient;
 import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.utilities.Utilities;
 
 public class TerminologyClientFactory {
 
-  public static TerminologyClient makeClient(String url, FHIRVersion v) throws URISyntaxException {
+  public static TerminologyClient makeClient(String url, FhirVersion v) throws URISyntaxException {
       switch (v) {
       case DSTU2016May: return new TerminologyClientR3(checkEndsWith("/r3", url)); // r3 is the least worst match 
       case DSTU1: throw new Error("The version "+v.toString()+" is not currently supported");

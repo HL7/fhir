@@ -35,7 +35,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
@@ -78,7 +78,7 @@ public class SpecNPMPackageGenerator {
     System.out.println("Generate Package for "+folder);
     
     Map<String, byte[]> files = loadZip(new FileInputStream(Utilities.path(folder, "igpack.zip")));
-    FHIRVersion version = determineVersion(files);    
+    FhirVersion version = determineVersion(files);    
     
     System.out.println(" .. Loading v"+version);
     SpecMapManager spm = new SpecMapManager(files.get("spec.internals"), version.toCode());    
@@ -404,10 +404,10 @@ public class SpecNPMPackageGenerator {
     return res;
   }
 
-  private FHIRVersion determineVersion(Map<String, byte[]> files) {
+  private FhirVersion determineVersion(Map<String, byte[]> files) {
     byte[] b = files.get("version.info");
     if (b == null)
-      return FHIRVersion.NULL;
+      return FhirVersion.NULL;
     String s = new String(b);
     s = Utilities.stripBOM(s).trim();
     while (s.charAt(0) != '[')
@@ -425,7 +425,7 @@ public class SpecNPMPackageGenerator {
       throw new Error("unable to determine version from "+new String(bytes));
     if ("3.0.0".equals(v))
       v = "3.0.1";
-    return FHIRVersion.fromCode(v);
+    return FhirVersion.fromCode(v);
   }
 
 

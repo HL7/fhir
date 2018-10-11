@@ -3,7 +3,7 @@ package org.hl7.fhir.validation.r4.tests;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
@@ -24,7 +24,7 @@ public class ValidationEngineTests {
   public void testCurrentXml() throws Exception {
     if (!TestingUtilities.silent) 
       System.out.println("Validate patient-example.xml in Current version");
-    ValidationEngine ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FHIRVersion.R4);
+    ValidationEngine ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FhirVersion.R4);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.content(),  "patient-example.xml"), null);
     int e = errors(op);
     int w = warnings(op);
@@ -44,7 +44,7 @@ public class ValidationEngineTests {
   public void testCurrentJson() throws Exception {
     if (!TestingUtilities.silent)
     System.out.println("Validate patient-example.json in Current version");
-    ValidationEngine ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FHIRVersion.R4);
+    ValidationEngine ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FhirVersion.R4);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.content(),  "patient-example.json"), null);
     int e = errors(op);
     int w = warnings(op);
@@ -64,7 +64,7 @@ public class ValidationEngineTests {
     }
     if (!TestingUtilities.silent)
       System.out.println("Validate patient-example.xml in v1.4.0 version");
-    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#1.4.0", DEF_TX, null, FHIRVersion.DSTU2016May);
+    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#1.4.0", DEF_TX, null, FhirVersion.DSTU2016May);
     ve.setNoInvariantChecks(true);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "tests", "validation-examples", "patient140.xml"), null);
     if (!TestingUtilities.silent)
@@ -89,7 +89,7 @@ public class ValidationEngineTests {
     }
     if (!TestingUtilities.silent)
       System.out.println("Validate patient-example.xml in v1.0.2 version");
-    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#1.0.2", DEF_TX, null, FHIRVersion.DSTU2);
+    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#1.0.2", DEF_TX, null, FhirVersion.DSTU2);
     ve.setNoInvariantChecks(true);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "tests", "validation-examples", "patient102.xml"), null);
     if (!TestingUtilities.silent)
@@ -113,7 +113,7 @@ public class ValidationEngineTests {
       System.out.println("Validate patient300.xml against USCore");
     if (!TestingUtilities.silent)
       System.out.println("  .. load FHIR from " +Utilities.path(TestingUtilities.home(),  "publish"));
-    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#3.0.1", DEF_TX, null, FHIRVersion.STU3);
+    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#3.0.1", DEF_TX, null, FhirVersion.STU3);
     if (!TestingUtilities.silent)
       System.out.println("  .. load USCore");
     ve.loadIg("hl7.fhir.us.core#1.0.1");

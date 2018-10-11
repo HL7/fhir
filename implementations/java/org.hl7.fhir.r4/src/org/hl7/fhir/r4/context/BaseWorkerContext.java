@@ -32,7 +32,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.r4.model.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.r4.model.CodeableConcept;

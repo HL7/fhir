@@ -7308,7 +7308,7 @@ public class ImplementationGuide extends MetadataResource {
         @Child(name = "fhirVersion", type = {CodeType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Versions this applies to (if different to IG)", formalDefinition="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-        protected List<Enumeration<FHIRVersion>> fhirVersion;
+        protected List<Enumeration<FhirVersion>> fhirVersion;
 
         /**
          * A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).
@@ -7397,16 +7397,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public List<Enumeration<FHIRVersion>> getFhirVersion() { 
+        public List<Enumeration<FhirVersion>> getFhirVersion() { 
           if (this.fhirVersion == null)
-            this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+            this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
           return this.fhirVersion;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ImplementationGuideDefinitionResourceComponent setFhirVersion(List<Enumeration<FHIRVersion>> theFhirVersion) { 
+        public ImplementationGuideDefinitionResourceComponent setFhirVersion(List<Enumeration<FhirVersion>> theFhirVersion) { 
           this.fhirVersion = theFhirVersion;
           return this;
         }
@@ -7414,7 +7414,7 @@ public class ImplementationGuide extends MetadataResource {
         public boolean hasFhirVersion() { 
           if (this.fhirVersion == null)
             return false;
-          for (Enumeration<FHIRVersion> item : this.fhirVersion)
+          for (Enumeration<FhirVersion> item : this.fhirVersion)
             if (!item.isEmpty())
               return true;
           return false;
@@ -7423,10 +7423,10 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public Enumeration<FHIRVersion> addFhirVersionElement() {//2 
-          Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
+        public Enumeration<FhirVersion> addFhirVersionElement() {//2 
+          Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
           if (this.fhirVersion == null)
-            this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+            this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
           this.fhirVersion.add(t);
           return t;
         }
@@ -7434,11 +7434,11 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public ImplementationGuideDefinitionResourceComponent addFhirVersion(FHIRVersion value) { //1
-          Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
+        public ImplementationGuideDefinitionResourceComponent addFhirVersion(FhirVersion value) { //1
+          Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
           t.setValue(value);
           if (this.fhirVersion == null)
-            this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+            this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
           this.fhirVersion.add(t);
           return this;
         }
@@ -7446,10 +7446,10 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public boolean hasFhirVersion(FHIRVersion value) { 
+        public boolean hasFhirVersion(FhirVersion value) { 
           if (this.fhirVersion == null)
             return false;
-          for (Enumeration<FHIRVersion> v : this.fhirVersion)
+          for (Enumeration<FhirVersion> v : this.fhirVersion)
             if (v.getValue().equals(value)) // code
               return true;
           return false;
@@ -7701,7 +7701,7 @@ public class ImplementationGuide extends MetadataResource {
           this.reference = castToReference(value); // Reference
           return value;
         case 461006061: // fhirVersion
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value); // Enumeration<FHIRVersion>
           return value;
         case 3373707: // name
@@ -7726,7 +7726,7 @@ public class ImplementationGuide extends MetadataResource {
         if (name.equals("reference")) {
           this.reference = castToReference(value); // Reference
         } else if (name.equals("fhirVersion")) {
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value);
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
@@ -7805,8 +7805,8 @@ public class ImplementationGuide extends MetadataResource {
         copyValues(dst);
         dst.reference = reference == null ? null : reference.copy();
         if (fhirVersion != null) {
-          dst.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
-          for (Enumeration<FHIRVersion> i : fhirVersion)
+          dst.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+          for (Enumeration<FhirVersion> i : fhirVersion)
             dst.fhirVersion.add(i.copy());
         };
         dst.name = name == null ? null : name.copy();
@@ -10032,7 +10032,7 @@ public class ImplementationGuide extends MetadataResource {
     @Child(name = "fhirVersion", type = {CodeType.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version(s) this Implementation Guide targets", formalDefinition="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-    protected List<Enumeration<FHIRVersion>> fhirVersion;
+    protected List<Enumeration<FhirVersion>> fhirVersion;
 
     /**
      * Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.
@@ -10812,16 +10812,16 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @return {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public List<Enumeration<FHIRVersion>> getFhirVersion() { 
+    public List<Enumeration<FhirVersion>> getFhirVersion() { 
       if (this.fhirVersion == null)
-        this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+        this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
       return this.fhirVersion;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ImplementationGuide setFhirVersion(List<Enumeration<FHIRVersion>> theFhirVersion) { 
+    public ImplementationGuide setFhirVersion(List<Enumeration<FhirVersion>> theFhirVersion) { 
       this.fhirVersion = theFhirVersion;
       return this;
     }
@@ -10829,7 +10829,7 @@ public class ImplementationGuide extends MetadataResource {
     public boolean hasFhirVersion() { 
       if (this.fhirVersion == null)
         return false;
-      for (Enumeration<FHIRVersion> item : this.fhirVersion)
+      for (Enumeration<FhirVersion> item : this.fhirVersion)
         if (!item.isEmpty())
           return true;
       return false;
@@ -10838,10 +10838,10 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @return {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public Enumeration<FHIRVersion> addFhirVersionElement() {//2 
-      Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
+    public Enumeration<FhirVersion> addFhirVersionElement() {//2 
+      Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
       if (this.fhirVersion == null)
-        this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+        this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
       this.fhirVersion.add(t);
       return t;
     }
@@ -10849,11 +10849,11 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @param value {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public ImplementationGuide addFhirVersion(FHIRVersion value) { //1
-      Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
+    public ImplementationGuide addFhirVersion(FhirVersion value) { //1
+      Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
       t.setValue(value);
       if (this.fhirVersion == null)
-        this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+        this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
       this.fhirVersion.add(t);
       return this;
     }
@@ -10861,10 +10861,10 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @param value {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public boolean hasFhirVersion(FHIRVersion value) { 
+    public boolean hasFhirVersion(FhirVersion value) { 
       if (this.fhirVersion == null)
         return false;
-      for (Enumeration<FHIRVersion> v : this.fhirVersion)
+      for (Enumeration<FhirVersion> v : this.fhirVersion)
         if (v.getValue().equals(value)) // code
           return true;
       return false;
@@ -11155,7 +11155,7 @@ public class ImplementationGuide extends MetadataResource {
           this.license = (Enumeration) value; // Enumeration<SPDXLicense>
           return value;
         case 461006061: // fhirVersion
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value); // Enumeration<FHIRVersion>
           return value;
         case -1109214266: // dependsOn
@@ -11210,7 +11210,7 @@ public class ImplementationGuide extends MetadataResource {
           value = new SPDXLicenseEnumFactory().fromType(castToCode(value));
           this.license = (Enumeration) value; // Enumeration<SPDXLicense>
         } else if (name.equals("fhirVersion")) {
-          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          value = new FhirVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value);
         } else if (name.equals("dependsOn")) {
           this.getDependsOn().add((ImplementationGuideDependsOnComponent) value);
@@ -11385,8 +11385,8 @@ public class ImplementationGuide extends MetadataResource {
         dst.packageId = packageId == null ? null : packageId.copy();
         dst.license = license == null ? null : license.copy();
         if (fhirVersion != null) {
-          dst.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
-          for (Enumeration<FHIRVersion> i : fhirVersion)
+          dst.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+          for (Enumeration<FhirVersion> i : fhirVersion)
             dst.fhirVersion.add(i.copy());
         };
         if (dependsOn != null) {

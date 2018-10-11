@@ -5,7 +5,7 @@ package org.hl7.fhir.r4.model;
  * @author graha
  *
  */
-public enum FHIRVersion {
+public enum FhirVersion {
   NULL,
   DSTU1,
   DSTU2,
@@ -13,29 +13,29 @@ public enum FHIRVersion {
   STU3,
   R4;
 
-  public static FHIRVersion fromCode(String v) {
+  public static FhirVersion fromCode(String v) {
     if ("1.0.2".equals(v))
-      return FHIRVersion.DSTU2;
+      return FhirVersion.DSTU2;
     if ("1.0".equals(v))
-      return FHIRVersion.DSTU2;
+      return FhirVersion.DSTU2;
     if ("1.4.0".equals(v))
-      return FHIRVersion.DSTU2016May;
+      return FhirVersion.DSTU2016May;
     if ("1.4".equals(v))
-      return FHIRVersion.DSTU2016May;
+      return FhirVersion.DSTU2016May;
     if ("3.0.1".equals(v))
-      return FHIRVersion.STU3;
+      return FhirVersion.STU3;
     if ("3.0".equals(v))
-      return FHIRVersion.STU3;
+      return FhirVersion.STU3;
     if ("3.5.0".equals(v))
-      return FHIRVersion.R4;
+      return FhirVersion.R4;
     if ("3.6.0".equals(v))
-      return FHIRVersion.R4;
+      return FhirVersion.R4;
     if ("3.5".equals(v))
-      return FHIRVersion.R4;
+      return FhirVersion.R4;
     if ("3.6".equals(v))
-      return FHIRVersion.R4;
+      return FhirVersion.R4;
     if ("1.0.0".equals(v))
-      return FHIRVersion.R4; // hack workaround build problem
+      return FhirVersion.R4; // hack workaround build problem
     return null;
   }
 
