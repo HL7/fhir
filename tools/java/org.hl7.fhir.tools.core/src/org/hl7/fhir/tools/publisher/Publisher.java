@@ -443,6 +443,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean isCIBuild;
 
+  private boolean isPostPR;
+
 
   public static void main(String[] args) throws Exception {
     //
@@ -457,6 +459,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     pub.diffProgram = getNamedParam(args, "-diff");
     pub.noSound =  (args.length > 1 && hasParam(args, "-nosound"));
     pub.noPartialBuild = (args.length > 1 && hasParam(args, "-nopartial"));
+    pub.isPostPR = (args.length > 1 && hasParam(args, "-post-pr")); 
     if (hasParam(args, "-resource"))
       pub.singleResource = getNamedParam(args, "-resource");
     if (hasParam(args, "-page"))
@@ -629,6 +632,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       if (doValidate)
         validationProcess();
+      page.saveSnomed();
+      page.getWorkerContext().saveCache();
       processWarnings(false);
       if (isGenerate && buildFlags.get("all"))
         produceQA();
@@ -5788,68 +5793,67 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void validationProcess() throws Exception {
 
-    runJUnitTestsInProcess();
-    page.log("Validating Examples", LogMessageType.Process);
-    ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
-    page.log(".. Loading", LogMessageType.Process);
-    ei.prepare();
-    
-    for (String rname : page.getDefinitions().sortedResourceNames()) {
-      ResourceDefn r = page.getDefinitions().getResources().get(rname);
-      if (wantBuild(rname)) {
-        for (Example e : r.getExamples()) {
-          String n = e.getTitle();
-          ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
-          if (ig != null)
-            n = ig.getCode()+File.separator+n;
-          ei.validate(n, rname);
-        }
+    if (!isPostPR) {
+      runJUnitTestsInProcess();
+      page.log("Validating Examples", LogMessageType.Process);
+      ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
+      page.log(".. Loading", LogMessageType.Process);
+      ei.prepare();
 
-        for (Profile e : r.getConformancePackages()) {
-          for (Example en : e.getExamples()) {
-            ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
-            String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
-            String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
-            ei.validate(n, rname, e.getProfiles().get(0).getResource());
+      for (String rname : page.getDefinitions().sortedResourceNames()) {
+        ResourceDefn r = page.getDefinitions().getResources().get(rname);
+        if (wantBuild(rname)) {
+          for (Example e : r.getExamples()) {
+            String n = e.getTitle();
+            ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
+            if (ig != null)
+              n = ig.getCode()+File.separator+n;
+            ei.validate(n, rname);
+          }
+
+          for (Profile e : r.getConformancePackages()) {
+            for (Example en : e.getExamples()) {
+              ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
+              String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
+              String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
+              ei.validate(n, rname, e.getProfiles().get(0).getResource());
+            }
           }
         }
       }
-    }
 
-    for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
-      String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
-      for (Example ex : ig.getExamples()) {
-        String n = ex.getTitle();
-        ei.validate(prefix+n, ex.getResourceName());
-      }
-      for (Profile pck : ig.getProfiles()) {
-        for (Example en : pck.getExamples()) {
-          ei.validate(prefix+Utilities.changeFileExt(en.getTitle(), ""), en.getResourceName(), pck.getProfiles().get(0).getResource());
+      for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
+        String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
+        for (Example ex : ig.getExamples()) {
+          String n = ex.getTitle();
+          ei.validate(prefix+n, ex.getResourceName());
+        }
+        for (Profile pck : ig.getProfiles()) {
+          for (Example en : pck.getExamples()) {
+            ei.validate(prefix+Utilities.changeFileExt(en.getTitle(), ""), en.getResourceName(), pck.getProfiles().get(0).getResource());
+          }
         }
       }
-    }
-    if (buildFlags.get("all")) {
-      ei.validate("v2-tables", "Bundle");
-      ei.validate("v3-codesystems", "Bundle");
-      ei.validate("valuesets", "Bundle");
-      ei.validate("conceptmaps", "Bundle");
-      ei.validate("profiles-types", "Bundle");
-      ei.validate("profiles-resources", "Bundle");
-      ei.validate("profiles-others", "Bundle");
-      ei.validate("search-parameters", "Bundle");
-      ei.validate("extension-definitions", "Bundle");
-    }
-    
-    runJUnitTestsEnd();
+      if (buildFlags.get("all")) {
+        ei.validate("v2-tables", "Bundle");
+        ei.validate("v3-codesystems", "Bundle");
+        ei.validate("valuesets", "Bundle");
+        ei.validate("conceptmaps", "Bundle");
+        ei.validate("profiles-types", "Bundle");
+        ei.validate("profiles-resources", "Bundle");
+        ei.validate("profiles-others", "Bundle");
+        ei.validate("search-parameters", "Bundle");
+        ei.validate("extension-definitions", "Bundle");
+      }
+      ei.summarise();
 
-    if (buildFlags.get("all") && isGenerate)
-      produceCoverageWarnings();
-    
-    page.saveSnomed();
-    page.getWorkerContext().saveCache();
+      runJUnitTestsEnd();
 
-    ei.summarise();
-    miscValidation();
+      if (buildFlags.get("all") && isGenerate)
+        produceCoverageWarnings();
+      miscValidation();
+    }    
+
   }
 
   private void runJUnitTestsInProcess() throws Exception {
