@@ -126,7 +126,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       if (handled.containsKey(code)) {
         if (owner == null)
           throw new Exception("Error handling poly-hierarchy - subsequent mention is on the root");
-        ToolingExtensions.addSubsumes(owner, code);
+        CodeSystemUtilities.addOtherChild(cs, owner, code);
         s.append(" <tr><td>").append(Integer.toString(lvl)).append("</td><td>");
         for (int i = 1; i < lvl; i++)
           s.append("&nbsp;&nbsp;");

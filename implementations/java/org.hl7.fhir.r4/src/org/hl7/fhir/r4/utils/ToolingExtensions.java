@@ -70,7 +70,6 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 public class ToolingExtensions {
 
   // validated
-  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/StructureDefinition/codesystem-subsumes"; 
 //  private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
 //  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
   public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
@@ -227,9 +226,6 @@ public class ToolingExtensions {
 //    setDeprecated(nc);   
 //  }
 //
-  public static void addSubsumes(ConceptDefinitionComponent nc, String code) {
-    nc.getExtension().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
-  }
 
   public static void addDefinition(Element nc, String definition) {
     if (!StringUtils.isBlank(definition))
@@ -358,16 +354,6 @@ public class ToolingExtensions {
 //  public static boolean hasDeprecated(Element c) {
 //    return findBooleanExtension(c, EXT_DEPRECATED);    
 //  }
-
-  public static List<CodeType> getSubsumes(ConceptDefinitionComponent c) {
-    List<CodeType> res = new ArrayList<CodeType>();
-
-    for (Extension e : c.getExtension()) {
-      if (EXT_SUBSUMES.equals(e.getUrl()))
-        res.add((CodeType) e.getValue());
-    }
-    return res;
-  }
 
   public static void addFlyOver(QuestionnaireItemComponent item, String text){
     if (!StringUtils.isBlank(text)) {
