@@ -64,7 +64,7 @@ public class ValidationEngineTests {
     }
     if (!TestingUtilities.silent)
       System.out.println("Validate patient-example.xml in v1.4.0 version");
-    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#1.4.0", DEF_TX, null, FhirVersion.DST2016May);
+    ValidationEngine ve = new ValidationEngine("hl7.fhir.core#1.4.0", DEF_TX, null, FhirVersion.DSTU2016May);
     ve.setNoInvariantChecks(true);
     OperationOutcome op = ve.validate(Utilities.path(TestingUtilities.home(),  "tests", "validation-examples", "patient140.xml"), null);
     if (!TestingUtilities.silent)

@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://ema.europa.eu/example/deviceMaterial",
+  "code" : "{Device.Material}"
+}, "valueSet" :null}####
+v: {
+  "display" : "",
+  "severity" : "error",
+  "error" : "The code system \"http://ema.europa.eu/example/deviceMaterial\" is not known; The code provided (http://ema.europa.eu/example/deviceMaterial#{Device.Material}) is not  valid in the value set All codes known to the system"
+}
+-------------------------------------------------------------------------------------

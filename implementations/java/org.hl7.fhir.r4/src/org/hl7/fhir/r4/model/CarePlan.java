@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
  */
-@ResourceDef(name="CarePlan", profile="http://hl7.org/fhir/Profile/CarePlan")
+@ResourceDef(name="CarePlan", profile="http://hl7.org/fhir/StructureDefinition/CarePlan")
 public class CarePlan extends DomainResource {
 
     public enum CarePlanStatus {
@@ -1881,7 +1881,7 @@ public class CarePlan extends DomainResource {
          */
         public Timing getScheduledTiming() throws FHIRException { 
           if (this.scheduled == null)
-            return null;
+            this.scheduled = new Timing();
           if (!(this.scheduled instanceof Timing))
             throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.scheduled.getClass().getName()+" was encountered");
           return (Timing) this.scheduled;
@@ -1896,7 +1896,7 @@ public class CarePlan extends DomainResource {
          */
         public Period getScheduledPeriod() throws FHIRException { 
           if (this.scheduled == null)
-            return null;
+            this.scheduled = new Period();
           if (!(this.scheduled instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.scheduled.getClass().getName()+" was encountered");
           return (Period) this.scheduled;
@@ -1911,7 +1911,7 @@ public class CarePlan extends DomainResource {
          */
         public StringType getScheduledStringType() throws FHIRException { 
           if (this.scheduled == null)
-            return null;
+            this.scheduled = new StringType();
           if (!(this.scheduled instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.scheduled.getClass().getName()+" was encountered");
           return (StringType) this.scheduled;
@@ -2054,7 +2054,7 @@ public class CarePlan extends DomainResource {
          */
         public CodeableConcept getProductCodeableConcept() throws FHIRException { 
           if (this.product == null)
-            return null;
+            this.product = new CodeableConcept();
           if (!(this.product instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.product.getClass().getName()+" was encountered");
           return (CodeableConcept) this.product;
@@ -2069,7 +2069,7 @@ public class CarePlan extends DomainResource {
          */
         public Reference getProductReference() throws FHIRException { 
           if (this.product == null)
-            return null;
+            this.product = new Reference();
           if (!(this.product instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.product.getClass().getName()+" was encountered");
           return (Reference) this.product;

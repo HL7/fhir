@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
  */
-@ResourceDef(name="Immunization", profile="http://hl7.org/fhir/Profile/Immunization")
+@ResourceDef(name="Immunization", profile="http://hl7.org/fhir/StructureDefinition/Immunization")
 public class Immunization extends DomainResource {
 
     public enum ImmunizationStatus {
@@ -955,7 +955,7 @@ public class Immunization extends DomainResource {
          */
         public PositiveIntType getDoseNumberPositiveIntType() throws FHIRException { 
           if (this.doseNumber == null)
-            return null;
+            this.doseNumber = new PositiveIntType();
           if (!(this.doseNumber instanceof PositiveIntType))
             throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.doseNumber.getClass().getName()+" was encountered");
           return (PositiveIntType) this.doseNumber;
@@ -970,7 +970,7 @@ public class Immunization extends DomainResource {
          */
         public StringType getDoseNumberStringType() throws FHIRException { 
           if (this.doseNumber == null)
-            return null;
+            this.doseNumber = new StringType();
           if (!(this.doseNumber instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.doseNumber.getClass().getName()+" was encountered");
           return (StringType) this.doseNumber;
@@ -1647,7 +1647,7 @@ public class Immunization extends DomainResource {
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new DateTimeType();
       if (!(this.occurrence instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (DateTimeType) this.occurrence;
@@ -1662,7 +1662,7 @@ public class Immunization extends DomainResource {
      */
     public StringType getOccurrenceStringType() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new StringType();
       if (!(this.occurrence instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (StringType) this.occurrence;

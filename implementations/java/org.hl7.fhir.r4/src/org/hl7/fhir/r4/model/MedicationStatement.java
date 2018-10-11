@@ -29,11 +29,10 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
-import org.hl7.fhir.utilities.Utilities;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -45,196 +44,8 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
  */
-@ResourceDef(name="MedicationStatement", profile="http://hl7.org/fhir/Profile/MedicationStatement")
+@ResourceDef(name="MedicationStatement", profile="http://hl7.org/fhir/StructureDefinition/MedicationStatement")
 public class MedicationStatement extends DomainResource {
-
-    public enum MedicationStatementStatus {
-        /**
-         * The medication is still being taken.
-         */
-        ACTIVE, 
-        /**
-         * The medication is no longer being taken.
-         */
-        COMPLETED, 
-        /**
-         * Some of the actions that are implied by the medication statement may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account.
-         */
-        ENTEREDINERROR, 
-        /**
-         * The medication may be taken at some time in the future.
-         */
-        INTENDED, 
-        /**
-         * Actions implied by the statement have been permanently halted, before all of them occurred. This should not be used if the statement was entered in error.
-         */
-        STOPPED, 
-        /**
-         * Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called "suspended".
-         */
-        ONHOLD, 
-        /**
-         * The state of the medication use is not currently known.
-         */
-        UNKNOWN, 
-        /**
-         * The medication was not consumed by the patient.
-         */
-        NOTTAKEN, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static MedicationStatementStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("completed".equals(codeString))
-          return COMPLETED;
-        if ("entered-in-error".equals(codeString))
-          return ENTEREDINERROR;
-        if ("intended".equals(codeString))
-          return INTENDED;
-        if ("stopped".equals(codeString))
-          return STOPPED;
-        if ("on-hold".equals(codeString))
-          return ONHOLD;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        if ("not-taken".equals(codeString))
-          return NOTTAKEN;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown MedicationStatementStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case ACTIVE: return "active";
-            case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered-in-error";
-            case INTENDED: return "intended";
-            case STOPPED: return "stopped";
-            case ONHOLD: return "on-hold";
-            case UNKNOWN: return "unknown";
-            case NOTTAKEN: return "not-taken";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/medication-statement-status";
-            case COMPLETED: return "http://hl7.org/fhir/medication-statement-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/medication-statement-status";
-            case INTENDED: return "http://hl7.org/fhir/medication-statement-status";
-            case STOPPED: return "http://hl7.org/fhir/medication-statement-status";
-            case ONHOLD: return "http://hl7.org/fhir/medication-statement-status";
-            case UNKNOWN: return "http://hl7.org/fhir/medication-statement-status";
-            case NOTTAKEN: return "http://hl7.org/fhir/medication-statement-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case ACTIVE: return "The medication is still being taken.";
-            case COMPLETED: return "The medication is no longer being taken.";
-            case ENTEREDINERROR: return "Some of the actions that are implied by the medication statement may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account.";
-            case INTENDED: return "The medication may be taken at some time in the future.";
-            case STOPPED: return "Actions implied by the statement have been permanently halted, before all of them occurred. This should not be used if the statement was entered in error.";
-            case ONHOLD: return "Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
-            case UNKNOWN: return "The state of the medication use is not currently known.";
-            case NOTTAKEN: return "The medication was not consumed by the patient.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case ACTIVE: return "Active";
-            case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered in Error";
-            case INTENDED: return "Intended";
-            case STOPPED: return "Stopped";
-            case ONHOLD: return "On Hold";
-            case UNKNOWN: return "Unknown";
-            case NOTTAKEN: return "Not Taken";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class MedicationStatementStatusEnumFactory implements EnumFactory<MedicationStatementStatus> {
-    public MedicationStatementStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("active".equals(codeString))
-          return MedicationStatementStatus.ACTIVE;
-        if ("completed".equals(codeString))
-          return MedicationStatementStatus.COMPLETED;
-        if ("entered-in-error".equals(codeString))
-          return MedicationStatementStatus.ENTEREDINERROR;
-        if ("intended".equals(codeString))
-          return MedicationStatementStatus.INTENDED;
-        if ("stopped".equals(codeString))
-          return MedicationStatementStatus.STOPPED;
-        if ("on-hold".equals(codeString))
-          return MedicationStatementStatus.ONHOLD;
-        if ("unknown".equals(codeString))
-          return MedicationStatementStatus.UNKNOWN;
-        if ("not-taken".equals(codeString))
-          return MedicationStatementStatus.NOTTAKEN;
-        throw new IllegalArgumentException("Unknown MedicationStatementStatus code '"+codeString+"'");
-        }
-        public Enumeration<MedicationStatementStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<MedicationStatementStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("active".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.ACTIVE);
-        if ("completed".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.COMPLETED);
-        if ("entered-in-error".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.ENTEREDINERROR);
-        if ("intended".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.INTENDED);
-        if ("stopped".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.STOPPED);
-        if ("on-hold".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.ONHOLD);
-        if ("unknown".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.UNKNOWN);
-        if ("not-taken".equals(codeString))
-          return new Enumeration<MedicationStatementStatus>(this, MedicationStatementStatus.NOTTAKEN);
-        throw new FHIRException("Unknown MedicationStatementStatus code '"+codeString+"'");
-        }
-    public String toCode(MedicationStatementStatus code) {
-      if (code == MedicationStatementStatus.ACTIVE)
-        return "active";
-      if (code == MedicationStatementStatus.COMPLETED)
-        return "completed";
-      if (code == MedicationStatementStatus.ENTEREDINERROR)
-        return "entered-in-error";
-      if (code == MedicationStatementStatus.INTENDED)
-        return "intended";
-      if (code == MedicationStatementStatus.STOPPED)
-        return "stopped";
-      if (code == MedicationStatementStatus.ONHOLD)
-        return "on-hold";
-      if (code == MedicationStatementStatus.UNKNOWN)
-        return "unknown";
-      if (code == MedicationStatementStatus.NOTTAKEN)
-        return "not-taken";
-      return "?";
-      }
-    public String toSystem(MedicationStatementStatus code) {
-      return code.getSystem();
-      }
-    }
 
     /**
      * External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
@@ -270,10 +81,10 @@ public class MedicationStatement extends DomainResource {
     /**
      * A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken", formalDefinition="A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-status")
-    protected Enumeration<MedicationStatementStatus> status;
+    protected CodeableConcept status;
 
     /**
      * Captures the reason for the current state of the MedicationStatement.
@@ -395,7 +206,7 @@ public class MedicationStatement extends DomainResource {
     @Description(shortDefinition="Details of how medication is/was taken or should be taken", formalDefinition="Indicates how the medication is/was or should be taken by the patient." )
     protected List<Dosage> dosage;
 
-    private static final long serialVersionUID = 1912813418L;
+    private static final long serialVersionUID = 635175206L;
 
   /**
    * Constructor
@@ -407,7 +218,7 @@ public class MedicationStatement extends DomainResource {
   /**
    * Constructor
    */
-    public MedicationStatement(Enumeration<MedicationStatementStatus> status, Type medication, Reference subject) {
+    public MedicationStatement(CodeableConcept status, Type medication, Reference subject) {
       super();
       this.status = status;
       this.medication = medication;
@@ -594,19 +405,15 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.)
      */
-    public Enumeration<MedicationStatementStatus> getStatusElement() { 
+    public CodeableConcept getStatus() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationStatement.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<MedicationStatementStatus>(new MedicationStatementStatusEnumFactory()); // bb
+          this.status = new CodeableConcept(); // cc
       return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
     }
 
     public boolean hasStatus() { 
@@ -614,27 +421,10 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.)
      */
-    public MedicationStatement setStatusElement(Enumeration<MedicationStatementStatus> value) { 
+    public MedicationStatement setStatus(CodeableConcept value) { 
       this.status = value;
-      return this;
-    }
-
-    /**
-     * @return A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
-     */
-    public MedicationStatementStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
-     */
-    public MedicationStatement setStatus(MedicationStatementStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<MedicationStatementStatus>(new MedicationStatementStatusEnumFactory());
-        this.status.setValue(value);
       return this;
     }
 
@@ -727,7 +517,7 @@ public class MedicationStatement extends DomainResource {
      */
     public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
       if (this.medication == null)
-        return null;
+        this.medication = new CodeableConcept();
       if (!(this.medication instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (CodeableConcept) this.medication;
@@ -742,7 +532,7 @@ public class MedicationStatement extends DomainResource {
      */
     public Reference getMedicationReference() throws FHIRException { 
       if (this.medication == null)
-        return null;
+        this.medication = new Reference();
       if (!(this.medication instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
@@ -856,7 +646,7 @@ public class MedicationStatement extends DomainResource {
      */
     public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new DateTimeType();
       if (!(this.effective instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (DateTimeType) this.effective;
@@ -871,7 +661,7 @@ public class MedicationStatement extends DomainResource {
      */
     public Period getEffectivePeriod() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new Period();
       if (!(this.effective instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
@@ -1273,7 +1063,7 @@ public class MedicationStatement extends DomainResource {
         children.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("basedOn", "Reference(MedicationRequest|CarePlan|ServiceRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("partOf", "Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
-        children.add(new Property("status", "code", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, 1, status));
+        children.add(new Property("status", "CodeableConcept", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, 1, status));
         children.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, statusReason));
         children.add(new Property("category", "CodeableConcept", "Indicates where the medication is expected to be consumed or administered.", 0, 1, category));
         children.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication));
@@ -1295,7 +1085,7 @@ public class MedicationStatement extends DomainResource {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(MedicationRequest|CarePlan|ServiceRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -995410646: /*partOf*/  return new Property("partOf", "Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf);
-        case -892481550: /*status*/  return new Property("status", "code", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "CodeableConcept", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, 1, status);
         case 2051346646: /*statusReason*/  return new Property("statusReason", "CodeableConcept", "Captures the reason for the current state of the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, statusReason);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Indicates where the medication is expected to be consumed or administered.", 0, 1, category);
         case 1458402129: /*medication[x]*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
@@ -1326,7 +1116,7 @@ public class MedicationStatement extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatementStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
         case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : this.statusReason.toArray(new Base[this.statusReason.size()]); // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
@@ -1358,8 +1148,7 @@ public class MedicationStatement extends DomainResource {
           this.getPartOf().add(castToReference(value)); // Reference
           return value;
         case -892481550: // status
-          value = new MedicationStatementStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<MedicationStatementStatus>
+          this.status = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 2051346646: // statusReason
           this.getStatusReason().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1414,8 +1203,7 @@ public class MedicationStatement extends DomainResource {
         } else if (name.equals("partOf")) {
           this.getPartOf().add(castToReference(value));
         } else if (name.equals("status")) {
-          value = new MedicationStatementStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<MedicationStatementStatus>
+          this.status = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("statusReason")) {
           this.getStatusReason().add(castToCodeableConcept(value));
         } else if (name.equals("category")) {
@@ -1453,7 +1241,7 @@ public class MedicationStatement extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -332612366:  return addBasedOn(); 
         case -995410646:  return addPartOf(); 
-        case -892481550:  return getStatusElement();
+        case -892481550:  return getStatus(); 
         case 2051346646:  return addStatusReason(); 
         case 50511102:  return getCategory(); 
         case 1458402129:  return getMedication(); 
@@ -1480,7 +1268,7 @@ public class MedicationStatement extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -995410646: /*partOf*/ return new String[] {"Reference"};
-        case -892481550: /*status*/ return new String[] {"code"};
+        case -892481550: /*status*/ return new String[] {"CodeableConcept"};
         case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
@@ -1511,7 +1299,8 @@ public class MedicationStatement extends DomainResource {
           return addPartOf();
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.status");
+          this.status = new CodeableConcept();
+          return this.status;
         }
         else if (name.equals("statusReason")) {
           return addStatusReason();
@@ -1661,7 +1450,7 @@ public class MedicationStatement extends DomainResource {
         if (!(other_ instanceof MedicationStatement))
           return false;
         MedicationStatement o = (MedicationStatement) other_;
-        return compareValues(status, o.status, true) && compareValues(dateAsserted, o.dateAsserted, true);
+        return compareValues(dateAsserted, o.dateAsserted, true);
       }
 
       public boolean isEmpty() {

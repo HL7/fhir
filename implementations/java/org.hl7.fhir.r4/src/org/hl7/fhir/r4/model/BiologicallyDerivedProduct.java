@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A material substance originating from a biological entity intended to be transplanted or infused
 into another (possibly the same) biological entity.
  */
-@ResourceDef(name="BiologicallyDerivedProduct", profile="http://hl7.org/fhir/Profile/BiologicallyDerivedProduct")
+@ResourceDef(name="BiologicallyDerivedProduct", profile="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct")
 public class BiologicallyDerivedProduct extends DomainResource {
 
     public enum BiologicallyDerivedProductCategory {
@@ -522,7 +522,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         public DateTimeType getCollectedDateTimeType() throws FHIRException { 
           if (this.collected == null)
-            return null;
+            this.collected = new DateTimeType();
           if (!(this.collected instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.collected.getClass().getName()+" was encountered");
           return (DateTimeType) this.collected;
@@ -537,7 +537,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         public Period getCollectedPeriod() throws FHIRException { 
           if (this.collected == null)
-            return null;
+            this.collected = new Period();
           if (!(this.collected instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.collected.getClass().getName()+" was encountered");
           return (Period) this.collected;
@@ -884,7 +884,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         public DateTimeType getTimeDateTimeType() throws FHIRException { 
           if (this.time == null)
-            return null;
+            this.time = new DateTimeType();
           if (!(this.time instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.time.getClass().getName()+" was encountered");
           return (DateTimeType) this.time;
@@ -899,7 +899,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         public Period getTimePeriod() throws FHIRException { 
           if (this.time == null)
-            return null;
+            this.time = new Period();
           if (!(this.time instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.time.getClass().getName()+" was encountered");
           return (Period) this.time;
@@ -1172,7 +1172,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         public DateTimeType getTimeDateTimeType() throws FHIRException { 
           if (this.time == null)
-            return null;
+            this.time = new DateTimeType();
           if (!(this.time instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.time.getClass().getName()+" was encountered");
           return (DateTimeType) this.time;
@@ -1187,7 +1187,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
          */
         public Period getTimePeriod() throws FHIRException { 
           if (this.time == null)
-            return null;
+            this.time = new Period();
           if (!(this.time instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.time.getClass().getName()+" was encountered");
           return (Period) this.time;

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes validation requirements, source(s), status and dates for one or more elements.
  */
-@ResourceDef(name="VerificationResult", profile="http://hl7.org/fhir/Profile/VerificationResult")
+@ResourceDef(name="VerificationResult", profile="http://hl7.org/fhir/StructureDefinition/VerificationResult")
 public class VerificationResult extends DomainResource {
 
     public enum Status {
@@ -1132,7 +1132,7 @@ public class VerificationResult extends DomainResource {
          */
         public StringType getSignedProxyRightStringType() throws FHIRException { 
           if (this.signedProxyRight == null)
-            return null;
+            this.signedProxyRight = new StringType();
           if (!(this.signedProxyRight instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.signedProxyRight.getClass().getName()+" was encountered");
           return (StringType) this.signedProxyRight;
@@ -1147,7 +1147,7 @@ public class VerificationResult extends DomainResource {
          */
         public UriType getSignedProxyRightUriType() throws FHIRException { 
           if (this.signedProxyRight == null)
-            return null;
+            this.signedProxyRight = new UriType();
           if (!(this.signedProxyRight instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.signedProxyRight.getClass().getName()+" was encountered");
           return (UriType) this.signedProxyRight;
@@ -1183,7 +1183,7 @@ public class VerificationResult extends DomainResource {
          */
         public StringType getSignedSourceAttestationStringType() throws FHIRException { 
           if (this.signedSourceAttestation == null)
-            return null;
+            this.signedSourceAttestation = new StringType();
           if (!(this.signedSourceAttestation instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.signedSourceAttestation.getClass().getName()+" was encountered");
           return (StringType) this.signedSourceAttestation;
@@ -1198,7 +1198,7 @@ public class VerificationResult extends DomainResource {
          */
         public UriType getSignedSourceAttestationUriType() throws FHIRException { 
           if (this.signedSourceAttestation == null)
-            return null;
+            this.signedSourceAttestation = new UriType();
           if (!(this.signedSourceAttestation instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.signedSourceAttestation.getClass().getName()+" was encountered");
           return (UriType) this.signedSourceAttestation;
@@ -1605,7 +1605,7 @@ public class VerificationResult extends DomainResource {
          */
         public StringType getSignedValidatorAttestationStringType() throws FHIRException { 
           if (this.signedValidatorAttestation == null)
-            return null;
+            this.signedValidatorAttestation = new StringType();
           if (!(this.signedValidatorAttestation instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.signedValidatorAttestation.getClass().getName()+" was encountered");
           return (StringType) this.signedValidatorAttestation;
@@ -1620,7 +1620,7 @@ public class VerificationResult extends DomainResource {
          */
         public UriType getSignedValidatorAttestationUriType() throws FHIRException { 
           if (this.signedValidatorAttestation == null)
-            return null;
+            this.signedValidatorAttestation = new UriType();
           if (!(this.signedValidatorAttestation instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.signedValidatorAttestation.getClass().getName()+" was encountered");
           return (UriType) this.signedValidatorAttestation;

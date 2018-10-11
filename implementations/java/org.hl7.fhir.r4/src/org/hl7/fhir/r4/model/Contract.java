@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement.
  */
-@ResourceDef(name="Contract", profile="http://hl7.org/fhir/Profile/Contract")
+@ResourceDef(name="Contract", profile="http://hl7.org/fhir/StructureDefinition/Contract")
 public class Contract extends DomainResource {
 
     public enum ContractStatus {
@@ -1350,7 +1350,7 @@ public class Contract extends DomainResource {
          */
         public CodeableConcept getTopicCodeableConcept() throws FHIRException { 
           if (this.topic == null)
-            return null;
+            this.topic = new CodeableConcept();
           if (!(this.topic instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.topic.getClass().getName()+" was encountered");
           return (CodeableConcept) this.topic;
@@ -1365,7 +1365,7 @@ public class Contract extends DomainResource {
          */
         public Reference getTopicReference() throws FHIRException { 
           if (this.topic == null)
-            return null;
+            this.topic = new Reference();
           if (!(this.topic instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.topic.getClass().getName()+" was encountered");
           return (Reference) this.topic;
@@ -3541,7 +3541,7 @@ public class Contract extends DomainResource {
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new BooleanType();
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
@@ -3556,7 +3556,7 @@ public class Contract extends DomainResource {
          */
         public DecimalType getValueDecimalType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new DecimalType();
           if (!(this.value instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DecimalType) this.value;
@@ -3571,7 +3571,7 @@ public class Contract extends DomainResource {
          */
         public IntegerType getValueIntegerType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new IntegerType();
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
@@ -3586,7 +3586,7 @@ public class Contract extends DomainResource {
          */
         public DateType getValueDateType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new DateType();
           if (!(this.value instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateType) this.value;
@@ -3601,7 +3601,7 @@ public class Contract extends DomainResource {
          */
         public DateTimeType getValueDateTimeType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new DateTimeType();
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
@@ -3616,7 +3616,7 @@ public class Contract extends DomainResource {
          */
         public TimeType getValueTimeType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new TimeType();
           if (!(this.value instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (TimeType) this.value;
@@ -3631,7 +3631,7 @@ public class Contract extends DomainResource {
          */
         public StringType getValueStringType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new StringType();
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
@@ -3646,7 +3646,7 @@ public class Contract extends DomainResource {
          */
         public UriType getValueUriType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new UriType();
           if (!(this.value instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (UriType) this.value;
@@ -3661,7 +3661,7 @@ public class Contract extends DomainResource {
          */
         public Attachment getValueAttachment() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Attachment();
           if (!(this.value instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Attachment) this.value;
@@ -3676,7 +3676,7 @@ public class Contract extends DomainResource {
          */
         public Coding getValueCoding() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Coding();
           if (!(this.value instanceof Coding))
             throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Coding) this.value;
@@ -3691,7 +3691,7 @@ public class Contract extends DomainResource {
          */
         public Quantity getValueQuantity() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Quantity();
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
@@ -3706,7 +3706,7 @@ public class Contract extends DomainResource {
          */
         public Reference getValueReference() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Reference();
           if (!(this.value instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Reference) this.value;
@@ -5588,7 +5588,7 @@ public class Contract extends DomainResource {
          */
         public CodeableConcept getEntityCodeableConcept() throws FHIRException { 
           if (this.entity == null)
-            return null;
+            this.entity = new CodeableConcept();
           if (!(this.entity instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (CodeableConcept) this.entity;
@@ -5603,7 +5603,7 @@ public class Contract extends DomainResource {
          */
         public Reference getEntityReference() throws FHIRException { 
           if (this.entity == null)
-            return null;
+            this.entity = new Reference();
           if (!(this.entity instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (Reference) this.entity;
@@ -7064,7 +7064,7 @@ public class Contract extends DomainResource {
          */
         public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
           if (this.occurrence == null)
-            return null;
+            this.occurrence = new DateTimeType();
           if (!(this.occurrence instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
           return (DateTimeType) this.occurrence;
@@ -7079,7 +7079,7 @@ public class Contract extends DomainResource {
          */
         public Period getOccurrencePeriod() throws FHIRException { 
           if (this.occurrence == null)
-            return null;
+            this.occurrence = new Period();
           if (!(this.occurrence instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
           return (Period) this.occurrence;
@@ -7094,7 +7094,7 @@ public class Contract extends DomainResource {
          */
         public Timing getOccurrenceTiming() throws FHIRException { 
           if (this.occurrence == null)
-            return null;
+            this.occurrence = new Timing();
           if (!(this.occurrence instanceof Timing))
             throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.occurrence.getClass().getName()+" was encountered");
           return (Timing) this.occurrence;
@@ -8834,7 +8834,7 @@ public class Contract extends DomainResource {
          */
         public Attachment getContentAttachment() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Attachment();
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
@@ -8849,7 +8849,7 @@ public class Contract extends DomainResource {
          */
         public Reference getContentReference() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Reference();
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
@@ -9028,7 +9028,7 @@ public class Contract extends DomainResource {
          */
         public Attachment getContentAttachment() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Attachment();
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
@@ -9043,7 +9043,7 @@ public class Contract extends DomainResource {
          */
         public Reference getContentReference() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Reference();
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
@@ -9222,7 +9222,7 @@ public class Contract extends DomainResource {
          */
         public Attachment getContentAttachment() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Attachment();
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
@@ -9237,7 +9237,7 @@ public class Contract extends DomainResource {
          */
         public Reference getContentReference() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Reference();
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
@@ -10674,7 +10674,7 @@ public class Contract extends DomainResource {
      */
     public CodeableConcept getTopicCodeableConcept() throws FHIRException { 
       if (this.topic == null)
-        return null;
+        this.topic = new CodeableConcept();
       if (!(this.topic instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.topic.getClass().getName()+" was encountered");
       return (CodeableConcept) this.topic;
@@ -10689,7 +10689,7 @@ public class Contract extends DomainResource {
      */
     public Reference getTopicReference() throws FHIRException { 
       if (this.topic == null)
-        return null;
+        this.topic = new Reference();
       if (!(this.topic instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.topic.getClass().getName()+" was encountered");
       return (Reference) this.topic;
@@ -11229,7 +11229,7 @@ public class Contract extends DomainResource {
      */
     public Attachment getLegallyBindingAttachment() throws FHIRException { 
       if (this.legallyBinding == null)
-        return null;
+        this.legallyBinding = new Attachment();
       if (!(this.legallyBinding instanceof Attachment))
         throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.legallyBinding.getClass().getName()+" was encountered");
       return (Attachment) this.legallyBinding;
@@ -11244,7 +11244,7 @@ public class Contract extends DomainResource {
      */
     public Reference getLegallyBindingReference() throws FHIRException { 
       if (this.legallyBinding == null)
-        return null;
+        this.legallyBinding = new Reference();
       if (!(this.legallyBinding instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.legallyBinding.getClass().getName()+" was encountered");
       return (Reference) this.legallyBinding;

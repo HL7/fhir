@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -116,7 +116,7 @@ public class UsageContext extends Type implements ICompositeType {
      */
     public CodeableConcept getValueCodeableConcept() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new CodeableConcept();
       if (!(this.value instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
       return (CodeableConcept) this.value;
@@ -131,7 +131,7 @@ public class UsageContext extends Type implements ICompositeType {
      */
     public Quantity getValueQuantity() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new Quantity();
       if (!(this.value instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Quantity) this.value;
@@ -146,7 +146,7 @@ public class UsageContext extends Type implements ICompositeType {
      */
     public Range getValueRange() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new Range();
       if (!(this.value instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Range) this.value;

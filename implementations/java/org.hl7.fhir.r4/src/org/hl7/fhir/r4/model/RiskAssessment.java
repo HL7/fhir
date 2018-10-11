@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
  */
-@ResourceDef(name="RiskAssessment", profile="http://hl7.org/fhir/Profile/RiskAssessment")
+@ResourceDef(name="RiskAssessment", profile="http://hl7.org/fhir/StructureDefinition/RiskAssessment")
 public class RiskAssessment extends DomainResource {
 
     public enum RiskAssessmentStatus {
@@ -327,7 +327,7 @@ public class RiskAssessment extends DomainResource {
          */
         public DecimalType getProbabilityDecimalType() throws FHIRException { 
           if (this.probability == null)
-            return null;
+            this.probability = new DecimalType();
           if (!(this.probability instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.probability.getClass().getName()+" was encountered");
           return (DecimalType) this.probability;
@@ -342,7 +342,7 @@ public class RiskAssessment extends DomainResource {
          */
         public Range getProbabilityRange() throws FHIRException { 
           if (this.probability == null)
-            return null;
+            this.probability = new Range();
           if (!(this.probability instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.probability.getClass().getName()+" was encountered");
           return (Range) this.probability;
@@ -469,7 +469,7 @@ public class RiskAssessment extends DomainResource {
          */
         public Period getWhenPeriod() throws FHIRException { 
           if (this.when == null)
-            return null;
+            this.when = new Period();
           if (!(this.when instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.when.getClass().getName()+" was encountered");
           return (Period) this.when;
@@ -484,7 +484,7 @@ public class RiskAssessment extends DomainResource {
          */
         public Range getWhenRange() throws FHIRException { 
           if (this.when == null)
-            return null;
+            this.when = new Range();
           if (!(this.when instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.when.getClass().getName()+" was encountered");
           return (Range) this.when;
@@ -1251,7 +1251,7 @@ public class RiskAssessment extends DomainResource {
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new DateTimeType();
       if (!(this.occurrence instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (DateTimeType) this.occurrence;
@@ -1266,7 +1266,7 @@ public class RiskAssessment extends DomainResource {
      */
     public Period getOccurrencePeriod() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new Period();
       if (!(this.occurrence instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Period) this.occurrence;

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A resource that represents the data of a single raw artifact as digital content accessible in its native format.  A Binary resource can contain any content, whether text, image, pdf, zip archive, etc.
  */
-@ResourceDef(name="Binary", profile="http://hl7.org/fhir/Profile/Binary")
+@ResourceDef(name="Binary", profile="http://hl7.org/fhir/StructureDefinition/Binary")
 public class Binary extends BaseBinary implements IBaseBinary {
 
     /**

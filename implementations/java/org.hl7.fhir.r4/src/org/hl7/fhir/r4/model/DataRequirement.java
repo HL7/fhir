@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -677,7 +677,7 @@ public class DataRequirement extends Type implements ICompositeType {
          */
         public DateTimeType getValueDateTimeType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new DateTimeType();
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
@@ -692,7 +692,7 @@ public class DataRequirement extends Type implements ICompositeType {
          */
         public Period getValuePeriod() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Period();
           if (!(this.value instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Period) this.value;
@@ -707,7 +707,7 @@ public class DataRequirement extends Type implements ICompositeType {
          */
         public Duration getValueDuration() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Duration();
           if (!(this.value instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Duration) this.value;
@@ -1327,7 +1327,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
      */
     public CodeableConcept getSubjectCodeableConcept() throws FHIRException { 
       if (this.subject == null)
-        return null;
+        this.subject = new CodeableConcept();
       if (!(this.subject instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.subject.getClass().getName()+" was encountered");
       return (CodeableConcept) this.subject;
@@ -1342,7 +1342,7 @@ The value of mustSupport SHALL be a FHIRPath resolveable on the type of the Data
      */
     public Reference getSubjectReference() throws FHIRException { 
       if (this.subject == null)
-        return null;
+        this.subject = new Reference();
       if (!(this.subject instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.subject.getClass().getName()+" was encountered");
       return (Reference) this.subject;

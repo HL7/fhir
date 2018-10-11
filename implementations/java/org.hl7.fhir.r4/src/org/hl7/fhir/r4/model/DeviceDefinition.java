@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The characteristics, operational status and capabilities of a medical-related component of a medical device.
  */
-@ResourceDef(name="DeviceDefinition", profile="http://hl7.org/fhir/Profile/DeviceDefinition")
+@ResourceDef(name="DeviceDefinition", profile="http://hl7.org/fhir/StructureDefinition/DeviceDefinition")
 public class DeviceDefinition extends DomainResource {
 
     public enum DeviceNameType {
@@ -2163,7 +2163,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
      */
     public StringType getManufacturerStringType() throws FHIRException { 
       if (this.manufacturer == null)
-        return null;
+        this.manufacturer = new StringType();
       if (!(this.manufacturer instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.manufacturer.getClass().getName()+" was encountered");
       return (StringType) this.manufacturer;
@@ -2178,7 +2178,7 @@ UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | 
      */
     public Reference getManufacturerReference() throws FHIRException { 
       if (this.manufacturer == null)
-        return null;
+        this.manufacturer = new Reference();
       if (!(this.manufacturer instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.manufacturer.getClass().getName()+" was encountered");
       return (Reference) this.manufacturer;

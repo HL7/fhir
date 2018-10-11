@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -293,7 +293,7 @@ public class SubstanceAmount extends BackboneType implements ICompositeType {
      */
     public Quantity getAmountQuantity() throws FHIRException { 
       if (this.amount == null)
-        return null;
+        this.amount = new Quantity();
       if (!(this.amount instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.amount.getClass().getName()+" was encountered");
       return (Quantity) this.amount;
@@ -308,7 +308,7 @@ public class SubstanceAmount extends BackboneType implements ICompositeType {
      */
     public Range getAmountRange() throws FHIRException { 
       if (this.amount == null)
-        return null;
+        this.amount = new Range();
       if (!(this.amount instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.amount.getClass().getName()+" was encountered");
       return (Range) this.amount;
@@ -323,7 +323,7 @@ public class SubstanceAmount extends BackboneType implements ICompositeType {
      */
     public StringType getAmountStringType() throws FHIRException { 
       if (this.amount == null)
-        return null;
+        this.amount = new StringType();
       if (!(this.amount instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.amount.getClass().getName()+" was encountered");
       return (StringType) this.amount;

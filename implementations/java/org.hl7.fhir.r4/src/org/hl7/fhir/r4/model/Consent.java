@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
  */
-@ResourceDef(name="Consent", profile="http://hl7.org/fhir/Profile/Consent")
+@ResourceDef(name="Consent", profile="http://hl7.org/fhir/StructureDefinition/Consent")
 public class Consent extends DomainResource {
 
     public enum ConsentState {
@@ -2941,7 +2941,7 @@ public class Consent extends DomainResource {
      */
     public Attachment getSourceAttachment() throws FHIRException { 
       if (this.source == null)
-        return null;
+        this.source = new Attachment();
       if (!(this.source instanceof Attachment))
         throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Attachment) this.source;
@@ -2956,7 +2956,7 @@ public class Consent extends DomainResource {
      */
     public Identifier getSourceIdentifier() throws FHIRException { 
       if (this.source == null)
-        return null;
+        this.source = new Identifier();
       if (!(this.source instanceof Identifier))
         throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Identifier) this.source;
@@ -2971,7 +2971,7 @@ public class Consent extends DomainResource {
      */
     public Reference getSourceReference() throws FHIRException { 
       if (this.source == null)
-        return null;
+        this.source = new Reference();
       if (!(this.source instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Reference) this.source;

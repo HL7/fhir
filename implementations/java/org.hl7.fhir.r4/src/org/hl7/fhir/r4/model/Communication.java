@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
  */
-@ResourceDef(name="Communication", profile="http://hl7.org/fhir/Profile/Communication")
+@ResourceDef(name="Communication", profile="http://hl7.org/fhir/StructureDefinition/Communication")
 public class Communication extends DomainResource {
 
     public enum CommunicationStatus {
@@ -398,7 +398,7 @@ public class Communication extends DomainResource {
          */
         public StringType getContentStringType() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new StringType();
           if (!(this.content instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.content.getClass().getName()+" was encountered");
           return (StringType) this.content;
@@ -413,7 +413,7 @@ public class Communication extends DomainResource {
          */
         public Attachment getContentAttachment() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Attachment();
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
@@ -428,7 +428,7 @@ public class Communication extends DomainResource {
          */
         public Reference getContentReference() throws FHIRException { 
           if (this.content == null)
-            return null;
+            this.content = new Reference();
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;

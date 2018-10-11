@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
  */
-@ResourceDef(name="FamilyMemberHistory", profile="http://hl7.org/fhir/Profile/FamilyMemberHistory")
+@ResourceDef(name="FamilyMemberHistory", profile="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory")
 public class FamilyMemberHistory extends DomainResource {
 
     public enum FamilyHistoryStatus {
@@ -281,7 +281,7 @@ public class FamilyMemberHistory extends DomainResource {
          */
         public Age getOnsetAge() throws FHIRException { 
           if (this.onset == null)
-            return null;
+            this.onset = new Age();
           if (!(this.onset instanceof Age))
             throw new FHIRException("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
           return (Age) this.onset;
@@ -296,7 +296,7 @@ public class FamilyMemberHistory extends DomainResource {
          */
         public Range getOnsetRange() throws FHIRException { 
           if (this.onset == null)
-            return null;
+            this.onset = new Range();
           if (!(this.onset instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
           return (Range) this.onset;
@@ -311,7 +311,7 @@ public class FamilyMemberHistory extends DomainResource {
          */
         public Period getOnsetPeriod() throws FHIRException { 
           if (this.onset == null)
-            return null;
+            this.onset = new Period();
           if (!(this.onset instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
           return (Period) this.onset;
@@ -326,7 +326,7 @@ public class FamilyMemberHistory extends DomainResource {
          */
         public StringType getOnsetStringType() throws FHIRException { 
           if (this.onset == null)
-            return null;
+            this.onset = new StringType();
           if (!(this.onset instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
           return (StringType) this.onset;
@@ -1186,7 +1186,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public Period getBornPeriod() throws FHIRException { 
       if (this.born == null)
-        return null;
+        this.born = new Period();
       if (!(this.born instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.born.getClass().getName()+" was encountered");
       return (Period) this.born;
@@ -1201,7 +1201,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public DateType getBornDateType() throws FHIRException { 
       if (this.born == null)
-        return null;
+        this.born = new DateType();
       if (!(this.born instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.born.getClass().getName()+" was encountered");
       return (DateType) this.born;
@@ -1216,7 +1216,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public StringType getBornStringType() throws FHIRException { 
       if (this.born == null)
-        return null;
+        this.born = new StringType();
       if (!(this.born instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.born.getClass().getName()+" was encountered");
       return (StringType) this.born;
@@ -1252,7 +1252,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public Age getAgeAge() throws FHIRException { 
       if (this.age == null)
-        return null;
+        this.age = new Age();
       if (!(this.age instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.age.getClass().getName()+" was encountered");
       return (Age) this.age;
@@ -1267,7 +1267,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public Range getAgeRange() throws FHIRException { 
       if (this.age == null)
-        return null;
+        this.age = new Range();
       if (!(this.age instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.age.getClass().getName()+" was encountered");
       return (Range) this.age;
@@ -1282,7 +1282,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public StringType getAgeStringType() throws FHIRException { 
       if (this.age == null)
-        return null;
+        this.age = new StringType();
       if (!(this.age instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.age.getClass().getName()+" was encountered");
       return (StringType) this.age;
@@ -1363,7 +1363,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public BooleanType getDeceasedBooleanType() throws FHIRException { 
       if (this.deceased == null)
-        return null;
+        this.deceased = new BooleanType();
       if (!(this.deceased instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (BooleanType) this.deceased;
@@ -1378,7 +1378,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public Age getDeceasedAge() throws FHIRException { 
       if (this.deceased == null)
-        return null;
+        this.deceased = new Age();
       if (!(this.deceased instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (Age) this.deceased;
@@ -1393,7 +1393,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public Range getDeceasedRange() throws FHIRException { 
       if (this.deceased == null)
-        return null;
+        this.deceased = new Range();
       if (!(this.deceased instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (Range) this.deceased;
@@ -1408,7 +1408,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public DateType getDeceasedDateType() throws FHIRException { 
       if (this.deceased == null)
-        return null;
+        this.deceased = new DateType();
       if (!(this.deceased instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (DateType) this.deceased;
@@ -1423,7 +1423,7 @@ public class FamilyMemberHistory extends DomainResource {
      */
     public StringType getDeceasedStringType() throws FHIRException { 
       if (this.deceased == null)
-        return null;
+        this.deceased = new StringType();
       if (!(this.deceased instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.deceased.getClass().getName()+" was encountered");
       return (StringType) this.deceased;

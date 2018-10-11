@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describe the undesirable effects of the medicinal product.
  */
-@ResourceDef(name="MedicinalProductUndesirableEffect", profile="http://hl7.org/fhir/Profile/MedicinalProductUndesirableEffect")
+@ResourceDef(name="MedicinalProductUndesirableEffect", profile="http://hl7.org/fhir/StructureDefinition/MedicinalProductUndesirableEffect")
 public class MedicinalProductUndesirableEffect extends DomainResource {
 
     @Block()
@@ -98,7 +98,7 @@ public class MedicinalProductUndesirableEffect extends DomainResource {
          */
         public Range getAgeRange() throws FHIRException { 
           if (this.age == null)
-            return null;
+            this.age = new Range();
           if (!(this.age instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.age.getClass().getName()+" was encountered");
           return (Range) this.age;
@@ -113,7 +113,7 @@ public class MedicinalProductUndesirableEffect extends DomainResource {
          */
         public CodeableConcept getAgeCodeableConcept() throws FHIRException { 
           if (this.age == null)
-            return null;
+            this.age = new CodeableConcept();
           if (!(this.age instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.age.getClass().getName()+" was encountered");
           return (CodeableConcept) this.age;

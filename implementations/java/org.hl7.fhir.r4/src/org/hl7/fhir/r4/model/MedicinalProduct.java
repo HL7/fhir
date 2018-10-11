@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).
  */
-@ResourceDef(name="MedicinalProduct", profile="http://hl7.org/fhir/Profile/MedicinalProduct")
+@ResourceDef(name="MedicinalProduct", profile="http://hl7.org/fhir/StructureDefinition/MedicinalProduct")
 public class MedicinalProduct extends DomainResource {
 
     @Block()

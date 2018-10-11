@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
  */
-@ResourceDef(name="CoverageEligibilityRequest", profile="http://hl7.org/fhir/Profile/CoverageEligibilityRequest")
+@ResourceDef(name="CoverageEligibilityRequest", profile="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest")
 public class CoverageEligibilityRequest extends DomainResource {
 
     public enum EligibilityRequestStatus {
@@ -605,7 +605,7 @@ public class CoverageEligibilityRequest extends DomainResource {
       }
 
   public String fhirType() {
-    return "CoverageEligibilityRequest.supportingInformation";
+    return "CoverageEligibilityRequest.supportingInfo";
 
   }
 
@@ -1729,7 +1729,7 @@ public class CoverageEligibilityRequest extends DomainResource {
          */
         public CodeableConcept getDiagnosisCodeableConcept() throws FHIRException { 
           if (this.diagnosis == null)
-            return null;
+            this.diagnosis = new CodeableConcept();
           if (!(this.diagnosis instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
           return (CodeableConcept) this.diagnosis;
@@ -1744,7 +1744,7 @@ public class CoverageEligibilityRequest extends DomainResource {
          */
         public Reference getDiagnosisReference() throws FHIRException { 
           if (this.diagnosis == null)
-            return null;
+            this.diagnosis = new Reference();
           if (!(this.diagnosis instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
           return (Reference) this.diagnosis;
@@ -1993,9 +1993,9 @@ public class CoverageEligibilityRequest extends DomainResource {
     /**
      * Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.
      */
-    @Child(name = "supportingInformation", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInfo", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Exceptions, special considerations, the condition, situation, prior or concurrent issues", formalDefinition="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required." )
-    protected List<InformationComponent> supportingInformation;
+    protected List<InformationComponent> supportingInfo;
 
     /**
      * Insurance policies which the patient has advised may be applicable for paying for health services.
@@ -2011,7 +2011,7 @@ public class CoverageEligibilityRequest extends DomainResource {
     @Description(shortDefinition="Service types, codes and supporting information", formalDefinition="A list of service types or billable services for which bebefit details and/or an authorization prior to service delivery may be required by the payor." )
     protected List<DetailsComponent> item;
 
-    private static final long serialVersionUID = -252633137L;
+    private static final long serialVersionUID = -1023039951L;
 
   /**
    * Constructor
@@ -2263,7 +2263,7 @@ public class CoverageEligibilityRequest extends DomainResource {
      */
     public DateType getServicedDateType() throws FHIRException { 
       if (this.serviced == null)
-        return null;
+        this.serviced = new DateType();
       if (!(this.serviced instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.serviced.getClass().getName()+" was encountered");
       return (DateType) this.serviced;
@@ -2278,7 +2278,7 @@ public class CoverageEligibilityRequest extends DomainResource {
      */
     public Period getServicedPeriod() throws FHIRException { 
       if (this.serviced == null)
-        return null;
+        this.serviced = new Period();
       if (!(this.serviced instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.serviced.getClass().getName()+" was encountered");
       return (Period) this.serviced;
@@ -2518,56 +2518,56 @@ public class CoverageEligibilityRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #supportingInformation} (Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
+     * @return {@link #supportingInfo} (Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.)
      */
-    public List<InformationComponent> getSupportingInformation() { 
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<InformationComponent>();
-      return this.supportingInformation;
+    public List<InformationComponent> getSupportingInfo() { 
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<InformationComponent>();
+      return this.supportingInfo;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CoverageEligibilityRequest setSupportingInformation(List<InformationComponent> theSupportingInformation) { 
-      this.supportingInformation = theSupportingInformation;
+    public CoverageEligibilityRequest setSupportingInfo(List<InformationComponent> theSupportingInfo) { 
+      this.supportingInfo = theSupportingInfo;
       return this;
     }
 
-    public boolean hasSupportingInformation() { 
-      if (this.supportingInformation == null)
+    public boolean hasSupportingInfo() { 
+      if (this.supportingInfo == null)
         return false;
-      for (InformationComponent item : this.supportingInformation)
+      for (InformationComponent item : this.supportingInfo)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public InformationComponent addSupportingInformation() { //3
+    public InformationComponent addSupportingInfo() { //3
       InformationComponent t = new InformationComponent();
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<InformationComponent>();
-      this.supportingInformation.add(t);
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<InformationComponent>();
+      this.supportingInfo.add(t);
       return t;
     }
 
-    public CoverageEligibilityRequest addSupportingInformation(InformationComponent t) { //3
+    public CoverageEligibilityRequest addSupportingInfo(InformationComponent t) { //3
       if (t == null)
         return this;
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<InformationComponent>();
-      this.supportingInformation.add(t);
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<InformationComponent>();
+      this.supportingInfo.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #supportingInfo}, creating it if it does not already exist
      */
-    public InformationComponent getSupportingInformationFirstRep() { 
-      if (getSupportingInformation().isEmpty()) {
-        addSupportingInformation();
+    public InformationComponent getSupportingInfoFirstRep() { 
+      if (getSupportingInfo().isEmpty()) {
+        addSupportingInfo();
       }
-      return getSupportingInformation().get(0);
+      return getSupportingInfo().get(0);
     }
 
     /**
@@ -2689,7 +2689,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         children.add(new Property("provider", "Reference(Practitioner|PractitionerRole|Organization)", "The provider who is responsible for the services rendered to the patient.", 0, 1, provider));
         children.add(new Property("insurer", "Reference(Organization)", "The Insurer who is target  of the request.", 0, 1, insurer));
         children.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, 1, facility));
-        children.add(new Property("supportingInformation", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        children.add(new Property("supportingInfo", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         children.add(new Property("insurance", "", "Insurance policies which the patient has advised may be applicable for paying for health services.", 0, java.lang.Integer.MAX_VALUE, insurance));
         children.add(new Property("item", "", "A list of service types or billable services for which bebefit details and/or an authorization prior to service delivery may be required by the payor.", 0, java.lang.Integer.MAX_VALUE, item));
       }
@@ -2711,7 +2711,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         case -987494927: /*provider*/  return new Property("provider", "Reference(Practitioner|PractitionerRole|Organization)", "The provider who is responsible for the services rendered to the patient.", 0, 1, provider);
         case 1957615864: /*insurer*/  return new Property("insurer", "Reference(Organization)", "The Insurer who is target  of the request.", 0, 1, insurer);
         case 501116579: /*facility*/  return new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, 1, facility);
-        case -1248768647: /*supportingInformation*/  return new Property("supportingInformation", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, supportingInformation);
+        case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "", "Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues. Often there are mutiple jurisdiction specific valuesets which are required.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
         case 73049818: /*insurance*/  return new Property("insurance", "", "Insurance policies which the patient has advised may be applicable for paying for health services.", 0, java.lang.Integer.MAX_VALUE, insurance);
         case 3242771: /*item*/  return new Property("item", "", "A list of service types or billable services for which bebefit details and/or an authorization prior to service delivery may be required by the payor.", 0, java.lang.Integer.MAX_VALUE, item);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -2733,7 +2733,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         case -987494927: /*provider*/ return this.provider == null ? new Base[0] : new Base[] {this.provider}; // Reference
         case 1957615864: /*insurer*/ return this.insurer == null ? new Base[0] : new Base[] {this.insurer}; // Reference
         case 501116579: /*facility*/ return this.facility == null ? new Base[0] : new Base[] {this.facility}; // Reference
-        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // InformationComponent
+        case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // InformationComponent
         case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // InsuranceComponent
         case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // DetailsComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -2779,8 +2779,8 @@ public class CoverageEligibilityRequest extends DomainResource {
         case 501116579: // facility
           this.facility = castToReference(value); // Reference
           return value;
-        case -1248768647: // supportingInformation
-          this.getSupportingInformation().add((InformationComponent) value); // InformationComponent
+        case 1922406657: // supportingInfo
+          this.getSupportingInfo().add((InformationComponent) value); // InformationComponent
           return value;
         case 73049818: // insurance
           this.getInsurance().add((InsuranceComponent) value); // InsuranceComponent
@@ -2819,8 +2819,8 @@ public class CoverageEligibilityRequest extends DomainResource {
           this.insurer = castToReference(value); // Reference
         } else if (name.equals("facility")) {
           this.facility = castToReference(value); // Reference
-        } else if (name.equals("supportingInformation")) {
-          this.getSupportingInformation().add((InformationComponent) value);
+        } else if (name.equals("supportingInfo")) {
+          this.getSupportingInfo().add((InformationComponent) value);
         } else if (name.equals("insurance")) {
           this.getInsurance().add((InsuranceComponent) value);
         } else if (name.equals("item")) {
@@ -2845,7 +2845,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         case -987494927:  return getProvider(); 
         case 1957615864:  return getInsurer(); 
         case 501116579:  return getFacility(); 
-        case -1248768647:  return addSupportingInformation(); 
+        case 1922406657:  return addSupportingInfo(); 
         case 73049818:  return addInsurance(); 
         case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
@@ -2867,7 +2867,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         case -987494927: /*provider*/ return new String[] {"Reference"};
         case 1957615864: /*insurer*/ return new String[] {"Reference"};
         case 501116579: /*facility*/ return new String[] {"Reference"};
-        case -1248768647: /*supportingInformation*/ return new String[] {};
+        case 1922406657: /*supportingInfo*/ return new String[] {};
         case 73049818: /*insurance*/ return new String[] {};
         case 3242771: /*item*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -2921,8 +2921,8 @@ public class CoverageEligibilityRequest extends DomainResource {
           this.facility = new Reference();
           return this.facility;
         }
-        else if (name.equals("supportingInformation")) {
-          return addSupportingInformation();
+        else if (name.equals("supportingInfo")) {
+          return addSupportingInfo();
         }
         else if (name.equals("insurance")) {
           return addInsurance();
@@ -2961,10 +2961,10 @@ public class CoverageEligibilityRequest extends DomainResource {
         dst.provider = provider == null ? null : provider.copy();
         dst.insurer = insurer == null ? null : insurer.copy();
         dst.facility = facility == null ? null : facility.copy();
-        if (supportingInformation != null) {
-          dst.supportingInformation = new ArrayList<InformationComponent>();
-          for (InformationComponent i : supportingInformation)
-            dst.supportingInformation.add(i.copy());
+        if (supportingInfo != null) {
+          dst.supportingInfo = new ArrayList<InformationComponent>();
+          for (InformationComponent i : supportingInfo)
+            dst.supportingInfo.add(i.copy());
         };
         if (insurance != null) {
           dst.insurance = new ArrayList<InsuranceComponent>();
@@ -2993,7 +2993,7 @@ public class CoverageEligibilityRequest extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true)
            && compareDeep(purpose, o.purpose, true) && compareDeep(patient, o.patient, true) && compareDeep(serviced, o.serviced, true)
            && compareDeep(created, o.created, true) && compareDeep(enterer, o.enterer, true) && compareDeep(provider, o.provider, true)
-           && compareDeep(insurer, o.insurer, true) && compareDeep(facility, o.facility, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(insurer, o.insurer, true) && compareDeep(facility, o.facility, true) && compareDeep(supportingInfo, o.supportingInfo, true)
            && compareDeep(insurance, o.insurance, true) && compareDeep(item, o.item, true);
       }
 
@@ -3011,7 +3011,7 @@ public class CoverageEligibilityRequest extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, priority
           , purpose, patient, serviced, created, enterer, provider, insurer, facility
-          , supportingInformation, insurance, item);
+          , supportingInfo, insurance, item);
       }
 
   @Override

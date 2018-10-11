@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
  */
-@ResourceDef(name="DeviceUseStatement", profile="http://hl7.org/fhir/Profile/DeviceUseStatement")
+@ResourceDef(name="DeviceUseStatement", profile="http://hl7.org/fhir/StructureDefinition/DeviceUseStatement")
 public class DeviceUseStatement extends DomainResource {
 
     public enum DeviceUseStatementStatus {
@@ -633,7 +633,7 @@ public class DeviceUseStatement extends DomainResource {
      */
     public Timing getTimingTiming() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new Timing();
       if (!(this.timing instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Timing) this.timing;
@@ -648,7 +648,7 @@ public class DeviceUseStatement extends DomainResource {
      */
     public Period getTimingPeriod() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new Period();
       if (!(this.timing instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Period) this.timing;
@@ -663,7 +663,7 @@ public class DeviceUseStatement extends DomainResource {
      */
     public DateTimeType getTimingDateTimeType() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new DateTimeType();
       if (!(this.timing instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (DateTimeType) this.timing;

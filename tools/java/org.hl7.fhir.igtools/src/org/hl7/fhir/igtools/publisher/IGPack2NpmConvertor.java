@@ -25,6 +25,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
@@ -284,10 +285,10 @@ public class IGPack2NpmConvertor {
 
   private void checkVersions(ImplementationGuide ig, String version, String filename) throws FHIRException, IOException {
     if ("STU3".equals(ig.getFhirVersion()))
-      ig.setFhirVersion("3.0.1");
+      ig.addFhirVersion(FhirVersion.STU3);
     
     if (!ig.hasFhirVersion())
-      ig.setFhirVersion(version);
+      ig.addFhirVersion(FhirVersion.fromCode(version));
     else if (!version.equals(ig.getFhirVersion()))
       throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
     

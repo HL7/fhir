@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
  */
-@ResourceDef(name="MedicinalProductContraindication", profile="http://hl7.org/fhir/Profile/MedicinalProductContraindication")
+@ResourceDef(name="MedicinalProductContraindication", profile="http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication")
 public class MedicinalProductContraindication extends DomainResource {
 
     @Block()
@@ -117,7 +117,7 @@ public class MedicinalProductContraindication extends DomainResource {
          */
         public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
           if (this.medication == null)
-            return null;
+            this.medication = new CodeableConcept();
           if (!(this.medication instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
           return (CodeableConcept) this.medication;
@@ -132,7 +132,7 @@ public class MedicinalProductContraindication extends DomainResource {
          */
         public Reference getMedicationReference() throws FHIRException { 
           if (this.medication == null)
-            return null;
+            this.medication = new Reference();
           if (!(this.medication instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
           return (Reference) this.medication;
@@ -341,7 +341,7 @@ public class MedicinalProductContraindication extends DomainResource {
          */
         public Range getAgeRange() throws FHIRException { 
           if (this.age == null)
-            return null;
+            this.age = new Range();
           if (!(this.age instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.age.getClass().getName()+" was encountered");
           return (Range) this.age;
@@ -356,7 +356,7 @@ public class MedicinalProductContraindication extends DomainResource {
          */
         public CodeableConcept getAgeCodeableConcept() throws FHIRException { 
           if (this.age == null)
-            return null;
+            this.age = new CodeableConcept();
           if (!(this.age instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.age.getClass().getName()+" was encountered");
           return (CodeableConcept) this.age;

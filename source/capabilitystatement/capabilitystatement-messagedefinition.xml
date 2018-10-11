@@ -22,8 +22,8 @@
     <description value="http://acem.com/fhir/message-drop"/>
   </implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
-    required. Note that this may be rescinded later?  -->
-	<fhirVersion value="1.0.0"/>
+    required.   -->
+	<fhirVersion value="3.6.0"/>
 	<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
 	<format value="xml"/>
 	<format value="json"/>

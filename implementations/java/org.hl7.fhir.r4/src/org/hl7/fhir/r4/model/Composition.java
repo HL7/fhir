@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
  */
-@ResourceDef(name="Composition", profile="http://hl7.org/fhir/Profile/Composition")
+@ResourceDef(name="Composition", profile="http://hl7.org/fhir/StructureDefinition/Composition")
 public class Composition extends DomainResource {
 
     public enum CompositionStatus {
@@ -1095,7 +1095,7 @@ public class Composition extends DomainResource {
          */
         public Identifier getTargetIdentifier() throws FHIRException { 
           if (this.target == null)
-            return null;
+            this.target = new Identifier();
           if (!(this.target instanceof Identifier))
             throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.target.getClass().getName()+" was encountered");
           return (Identifier) this.target;
@@ -1110,7 +1110,7 @@ public class Composition extends DomainResource {
          */
         public Reference getTargetReference() throws FHIRException { 
           if (this.target == null)
-            return null;
+            this.target = new Reference();
           if (!(this.target instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.target.getClass().getName()+" was encountered");
           return (Reference) this.target;

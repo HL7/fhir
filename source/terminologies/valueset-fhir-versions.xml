@@ -12,7 +12,7 @@
   <description value="A historical list of all published FHIR versions. These are the correct values to be used in CapabilityStatement.fhirVersion and StructureDefinition.fhirVersion across all published versions of the specification. Note that other versions have existed, but have not been retained on the HL7 website as they were not advertised milestones. This value set is labeled extensible because the list of published versions will change over time"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/fhir-versions"/>
+      <system value="http://hl7.org/fhir/fhir-versions"/>
     </include>
   </compose>
 </ValueSet>

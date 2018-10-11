@@ -114,12 +114,13 @@ import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
@@ -630,7 +631,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       j.addProperty("version", version);
       if (templatePck != null)
         j.addProperty("template", templatePck);
-      j.addProperty("tool", Constants.VERSION+"-"+Constants.REVISION);
+      j.addProperty("tool", Constants.VERSION+" ("+ToolsVersion.TOOLS_VERSION+")");
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
       String json = gson.toJson(j);
       TextFile.stringToFile(json, Utilities.path(destDir != null ? destDir : outputDir, "qa.json"));
@@ -1110,10 +1111,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         txLog = null;
       } else {
         log("Connect to Terminology Server at "+txServer);
-        checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(txServer, FhirVersion.fromString(version)), txLog));
+        checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(txServer, FhirVersion.fromCode(version)), txLog));
       }
     } else 
-      checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(webTxServer.getAddress(), FhirVersion.fromString(version)), txLog));
+      checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(webTxServer.getAddress(), FhirVersion.fromCode(version)), txLog));
     
     
     loadSpecDetails(context.getBinaries().get("spec.internals"));
@@ -1756,7 +1757,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!publishedIg.hasPackageId())
       publishedIg.setPackageId(npmName);
     if (!publishedIg.hasFhirVersion())
-      publishedIg.setFhirVersion(version);
+      publishedIg.addFhirVersion(FhirVersion.fromCode(version));
     if (!publishedIg.hasVersion() && businessVersion != null)
       publishedIg.setVersion(businessVersion);
     if (publishedIg.hasPackageId())
@@ -2026,12 +2027,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else
       f = altMap.get("Bundle/"+name);
-    ImplementationGuideDefinitionPackageComponent pck = publishedIg.getDefinition().addPackage().setName(f.getTitle());
+    ImplementationGuideDefinitionGroupingComponent pck = publishedIg.getDefinition().addGrouping().setName(f.getTitle());
     pck.setId(name);
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuideDefinitionResourceComponent res = publishedIg.getDefinition().addResource();
-      res.setPackage(pck.getId());
+      res.setGroupingId(pck.getId());
       res.setName(r.getId()).setReference(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
     }
     return changed || needToBuild;
@@ -2119,12 +2120,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         changed = changed || vrchanged || crchanged;
       }
     }
-    ImplementationGuideDefinitionPackageComponent pck = publishedIg.getDefinition().addPackage().setName(f.getTitle());
+    ImplementationGuideDefinitionGroupingComponent pck = publishedIg.getDefinition().addGrouping().setName(f.getTitle());
     pck.setId(name);
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuideDefinitionResourceComponent res = publishedIg.getDefinition().addResource();
-      res.setPackage(pck.getId());
+      res.setGroupingId(pck.getId());
       res.setName(r.getTitle()).setReference(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
     }
     return changed || needToBuild;
@@ -2595,7 +2596,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd, boolean close) throws Exception {
     boolean changed = false;
     dlog(LogCategory.PROGRESS, "Check Snapshot for "+sd.getUrl());
-    sd.setFhirVersion(version);
+    sd.setFhirVersion(FhirVersion.fromCode(version));
     ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
     StructureDefinition base = sd.hasBaseDefinition() ? fetchSnapshotted(sd.getBaseDefinition()) : null;
     utils.setIds(sd, true);
@@ -3055,7 +3056,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private File makeSpecFile() throws Exception {
-    SpecMapManager map = new SpecMapManager(npmName, version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
+    SpecMapManager map = new SpecMapManager(npmName, version, Constants.VERSION, Integer.toString(ToolsVersion.TOOLS_VERSION), execTime, igpkp.getCanonical());
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         String u = igpkp.getCanonical()+r.getUrlTail();
@@ -3768,8 +3769,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     data.addProperty("revision", specMaps.get(0).getBuild());
     data.addProperty("versionFull", specMaps.get(0).getVersion()+"-"+specMaps.get(0).getBuild());
     data.addProperty("toolingVersion", Constants.VERSION);
-    data.addProperty("toolingRevision", Constants.REVISION);
-    data.addProperty("toolingVersionFull", Constants.VERSION+"-"+Constants.REVISION);
+    data.addProperty("toolingRevision", ToolsVersion.TOOLS_VERSION_STR);
+    data.addProperty("toolingVersionFull", Constants.VERSION+" ("+ToolsVersion.TOOLS_VERSION_STR+")");
     data.addProperty("totalFiles", fileList.size());
     data.addProperty("processedFiles", changeList.size());
     data.addProperty("genDate", genTime());
@@ -3804,7 +3805,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ig.addProperty("date", sourceIg.getDateElement().asStringValue());
     ig.addProperty("description", sourceIg.getDescription());
     ig.addProperty("copyright", sourceIg.getCopyright());
-    ig.addProperty("fhirVersion", sourceIg.getFhirVersion());
+    for (Enumeration<FhirVersion> v : sourceIg.getFhirVersion()) {
+      ig.addProperty("fhirVersion", v.asStringValue());
+      break;
+    }
 
     for (SpecMapManager sm : specMaps) {
       if (sm.getName() != null)
@@ -4818,7 +4822,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else {
       Publisher self = new Publisher();
-      System.out.println("FHIR Implementation Guide Publisher (v"+self.getToolingVersion()+", gen-code v"+Constants.VERSION+"-"+Constants.REVISION+") @ "+nowAsString());
+      System.out.println("FHIR Implementation Guide Publisher (v"+self.getToolingVersion()+", gen-code v"+Constants.VERSION+" / "+ToolsVersion.TOOLS_VERSION_STR+") @ "+nowAsString());
       System.out.println("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch")+" ("+System.getProperty("sun.arch.data.model")+"bit). "+toMB(Runtime.getRuntime().maxMemory())+"MB available");
       System.out.print("["+System.getProperty("user.dir")+"]");
       for (int i = 0; i < args.length; i++) {

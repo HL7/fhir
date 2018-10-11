@@ -92,6 +92,7 @@ import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.Extension;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.InstantType;
 import org.hl7.fhir.r4.model.IntegerType;
@@ -154,7 +155,7 @@ public class ProfileGenerator {
   private final List<String> pathNames = new ArrayList<String>();
   private ProfileKnowledgeProvider pkp;
   private Calendar genDate;
-  private String version;
+  private FhirVersion version;
   private Bundle dataElements;
   private String rootFolder;
 
@@ -169,7 +170,7 @@ public class ProfileGenerator {
     this.context = context;
     this.pkp = pkp;
     this.genDate = genDate;
-    this.version = version;
+    this.version = FhirVersion.fromCode(version);
     this.dataElements = dataElements;
     this.fpUsages = fpUsages;
     this.rootFolder = rootFolder;

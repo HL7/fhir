@@ -35,6 +35,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
@@ -77,21 +78,21 @@ public class SpecNPMPackageGenerator {
     System.out.println("Generate Package for "+folder);
     
     Map<String, byte[]> files = loadZip(new FileInputStream(Utilities.path(folder, "igpack.zip")));
-    String version = determineVersion(files);    
+    FhirVersion version = determineVersion(files);    
     
     System.out.println(" .. Loading v"+version);
-    SpecMapManager spm = new SpecMapManager(files.get("spec.internals"), version);    
+    SpecMapManager spm = new SpecMapManager(files.get("spec.internals"), version.toCode());    
     System.out.println(" .. Conformance Resources");
-    List<ResourceEntry> reslist = makeResourceList(files, version);
+    List<ResourceEntry> reslist = makeResourceList(files, version.toCode());
     System.out.println(" .. Other Resources");
-    addToResList(folder, reslist, version);
+    addToResList(folder, reslist, version.toCode());
     
     System.out.println(" .. building IG");
     ImplementationGuide ig = new ImplementationGuide();
     ig.setId("fhir");
     ig.setUrl("http://hl7.org/fhir/ImplementationGuide/fhir");
-    ig.setVersion(version);
-    ig.setFhirVersion(version);
+    ig.setVersion(version.toCode());
+    ig.addFhirVersion(version);
     ig.setLicense(SPDXLicense.CC01_0);
     ig.setTitle("FHIR Core package");
     ig.setDescription("FHIR Core package - the NPM package that contains all the definitions for the base FHIR specification");
@@ -144,7 +145,7 @@ public class SpecNPMPackageGenerator {
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.NORMAL).compose(bs, ig);
     npm.addFile(Category.RESOURCE, "ig-r4.json", bs.toByteArray());
-    addConvertedIg(npm, ig, version);
+    addConvertedIg(npm, ig, version.toCode());
     for (ResourceEntry e : reslist) {
       npm.addFile(Category.RESOURCE, e.type+"-"+e.id+".json", e.json);
     }
@@ -403,10 +404,10 @@ public class SpecNPMPackageGenerator {
     return res;
   }
 
-  private String determineVersion(Map<String, byte[]> files) {
+  private FhirVersion determineVersion(Map<String, byte[]> files) {
     byte[] b = files.get("version.info");
     if (b == null)
-      return "n/a";
+      return FhirVersion.NULL;
     String s = new String(b);
     s = Utilities.stripBOM(s).trim();
     while (s.charAt(0) != '[')
@@ -424,7 +425,7 @@ public class SpecNPMPackageGenerator {
       throw new Error("unable to determine version from "+new String(bytes));
     if ("3.0.0".equals(v))
       v = "3.0.1";
-    return v;
+    return FhirVersion.fromCode(v);
   }
 
 

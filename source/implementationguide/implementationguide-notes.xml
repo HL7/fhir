@@ -1,5 +1,58 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="versions"></a>
+<h3>Multi-Version Implenetation Guides</h3>
+<p>
+Implementation Guides are published through the FHIR Package distribution system.
+For further details, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_NPM_Package_Spec">FHIR Wiki</a>.
+This content may be moved into the specification in a future version.
+</p>
+
+<a name="versions"></a>
+<h3>Multi-Version Implementation Guides</h3>
+<p>
+Most implementation guides target a single version - that is, they describe how to use a 
+particular version, and all the profiles, value sets and examples they contain etc are valid 
+for that particular version. 
+</p>
+<p>
+In other cases, however, implementation of an implementation guide is not confined to a single 
+version. Typically, the requirement to support multiple versions arises as implementation matures 
+and different implementation communities are stuck at different versions by regulation or 
+market dynamics. Applications may be stuck at different versions of the specification. 
+See <a href="versioning.html">Managing Multiple Versions</a> for further information about
+cross-version support.
+</p>
+<p>
+For this reason, implementation guides might describe how to use multiple different versions of 
+FHIR for the same purpose. The different versions might have different profiles, extensions, and 
+examples, while sharing common value set definitions, for example. For some reasons, profiles
+and examples could be common across all versions. And an implementation guide will generally have
+a lot of common narrative describing the problem, security approaches, and other deployment 
+information irrespective of specific FHIR versions. 
+</p>
+<p>
+An implementation guide specifies which versions of FHIR it describes in the
+<a href="implementationguide-definitions.html#ImplementationGuide.fhirVersion">ImplementationGuide.fhirVersion</a> property:
+</p>
+<div class="json">
+<pre>
+  "fhirVersion" : ["3.0", "4.0"],
+</pre>
+</div>
+<p>
+This specifies that the implementation guide applies to both <a href="http://hl7.org/fhir/STU3">release 3</a> and <a href="http://hl7.org/fhir/R4">Release 4</a>. 
+Note that the patch version (".1" for Release 3) is omitted, since the patch releases never make changes
+that make any difference to Implementation Guides.
+</p>
+<p>
+Note that it is possible to have an Implementation Guide that declares support for one version 
+and imports an Implementation Guide that declares support for a different version.  
+It is up to the importing IG ad/or the tooling that supports Implenentation Guides to determine 
+whether it's safe and/or appropriate to reference the different resources from the new IG, and
+what to make of this.
+</p>
+
 <a name="default"></a>
 <h3>Default Profiles</h3>
 <p>
