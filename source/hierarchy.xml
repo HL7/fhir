@@ -329,7 +329,6 @@ signatures.html
       <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="MedicinalProduct"/>
       <page type="resource" resource="MedicinalProductAuthorization"/>
-      <page type="resource" resource="MedicinalProductClinicals"/>
       <page type="resource" resource="MedicinalProductContraindication"/>
       <page type="resource" resource="MedicinalProductIndication"/>
       <page type="resource" resource="MedicinalProductInteraction"/>
