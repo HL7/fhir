@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
  */
-@ResourceDef(name="StructureDefinition", profile="http://hl7.org/fhir/Profile/StructureDefinition")
+@ResourceDef(name="StructureDefinition", profile="http://hl7.org/fhir/StructureDefinition/StructureDefinition")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "keyword", "fhirVersion", "mapping", "kind", "abstract", "context", "contextInvariant", "type", "baseDefinition", "derivation", "snapshot", "differential"})
 public class StructureDefinition extends MetadataResource {
 
@@ -1413,10 +1413,10 @@ public class StructureDefinition extends MetadataResource {
     /**
      * The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.
      */
-    @Child(name = "fhirVersion", type = {IdType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "fhirVersion", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version this StructureDefinition targets", formalDefinition="The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-    protected IdType fhirVersion;
+    protected Enumeration<FHIRVersion> fhirVersion;
 
     /**
      * An external specification that the content is mapped to.
@@ -1491,7 +1491,7 @@ public class StructureDefinition extends MetadataResource {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = -68406827L;
+    private static final long serialVersionUID = 316076774L;
 
   /**
    * Constructor
@@ -2304,12 +2304,12 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public IdType getFhirVersionElement() { 
+    public Enumeration<FHIRVersion> getFhirVersionElement() { 
       if (this.fhirVersion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.fhirVersion");
         else if (Configuration.doAutoCreate())
-          this.fhirVersion = new IdType(); // bb
+          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory()); // bb
       return this.fhirVersion;
     }
 
@@ -2324,7 +2324,7 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public StructureDefinition setFhirVersionElement(IdType value) { 
+    public StructureDefinition setFhirVersionElement(Enumeration<FHIRVersion> value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -2332,19 +2332,19 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.
      */
-    public String getFhirVersion() { 
+    public FHIRVersion getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.
      */
-    public StructureDefinition setFhirVersion(String value) { 
-      if (Utilities.noString(value))
+    public StructureDefinition setFhirVersion(FHIRVersion value) { 
+      if (value == null)
         this.fhirVersion = null;
       else {
         if (this.fhirVersion == null)
-          this.fhirVersion = new IdType();
+          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
         this.fhirVersion.setValue(value);
       }
       return this;
@@ -2816,7 +2816,7 @@ public class StructureDefinition extends MetadataResource {
         children.add(new Property("purpose", "markdown", "Explanation of why this structure definition is needed and why it has been designed as it has.", 0, 1, purpose));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure definition.", 0, 1, copyright));
         children.add(new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.", 0, java.lang.Integer.MAX_VALUE, keyword));
-        children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.", 0, 1, fhirVersion));
+        children.add(new Property("fhirVersion", "code", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.", 0, 1, fhirVersion));
         children.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         children.add(new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, 1, kind));
         children.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.", 0, 1, abstract_));
@@ -2848,7 +2848,7 @@ public class StructureDefinition extends MetadataResource {
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explanation of why this structure definition is needed and why it has been designed as it has.", 0, 1, purpose);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure definition.", 0, 1, copyright);
         case -814408215: /*keyword*/  return new Property("keyword", "Coding", "A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes.", 0, java.lang.Integer.MAX_VALUE, keyword);
-        case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.", 0, 1, fhirVersion);
+        case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "code", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.", 0, 1, fhirVersion);
         case 837556430: /*mapping*/  return new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping);
         case 3292052: /*kind*/  return new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, 1, kind);
         case 1732898850: /*abstract*/  return new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.", 0, 1, abstract_);
@@ -2883,7 +2883,7 @@ public class StructureDefinition extends MetadataResource {
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
         case -814408215: /*keyword*/ return this.keyword == null ? new Base[0] : this.keyword.toArray(new Base[this.keyword.size()]); // Coding
-        case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
+        case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // Enumeration<FHIRVersion>
         case 837556430: /*mapping*/ return this.mapping == null ? new Base[0] : this.mapping.toArray(new Base[this.mapping.size()]); // StructureDefinitionMappingComponent
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<StructureDefinitionKind>
         case 1732898850: /*abstract*/ return this.abstract_ == null ? new Base[0] : new Base[] {this.abstract_}; // BooleanType
@@ -2952,7 +2952,8 @@ public class StructureDefinition extends MetadataResource {
           this.getKeyword().add(castToCoding(value)); // Coding
           return value;
         case 461006061: // fhirVersion
-          this.fhirVersion = castToId(value); // IdType
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
           return value;
         case 837556430: // mapping
           this.getMapping().add((StructureDefinitionMappingComponent) value); // StructureDefinitionMappingComponent
@@ -3027,7 +3028,8 @@ public class StructureDefinition extends MetadataResource {
         } else if (name.equals("keyword")) {
           this.getKeyword().add(castToCoding(value));
         } else if (name.equals("fhirVersion")) {
-          this.fhirVersion = castToId(value); // IdType
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
         } else if (name.equals("mapping")) {
           this.getMapping().add((StructureDefinitionMappingComponent) value);
         } else if (name.equals("kind")) {
@@ -3109,7 +3111,7 @@ public class StructureDefinition extends MetadataResource {
         case -220463842: /*purpose*/ return new String[] {"markdown"};
         case 1522889671: /*copyright*/ return new String[] {"markdown"};
         case -814408215: /*keyword*/ return new String[] {"Coding"};
-        case 461006061: /*fhirVersion*/ return new String[] {"id"};
+        case 461006061: /*fhirVersion*/ return new String[] {"code"};
         case 837556430: /*mapping*/ return new String[] {};
         case 3292052: /*kind*/ return new String[] {"code"};
         case 1732898850: /*abstract*/ return new String[] {"boolean"};

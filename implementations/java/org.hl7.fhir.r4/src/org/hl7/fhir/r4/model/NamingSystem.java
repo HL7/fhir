@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
  */
-@ResourceDef(name="NamingSystem", profile="http://hl7.org/fhir/Profile/NamingSystem")
+@ResourceDef(name="NamingSystem", profile="http://hl7.org/fhir/StructureDefinition/NamingSystem")
 @ChildOrder(names={"name", "status", "kind", "date", "publisher", "contact", "responsible", "type", "description", "useContext", "jurisdiction", "usage", "uniqueId"})
 public class NamingSystem extends MetadataResource {
 

@@ -23,6 +23,7 @@ import org.hl7.fhir.r4.model.BaseReference;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
@@ -41,6 +42,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -92,7 +94,7 @@ public class ConfigFileConverter {
     ImplementationGuide ig = (ImplementationGuide) parse(igName, version);
 
     // populating the IG from the config file
-    ig.setFhirVersion(version);
+    ig.addFhirVersion(FHIRVersion.fromCode(version));
     if (configuration.has("fixed-business-version")) {
       ig.setVersion(configuration.getAsJsonPrimitive("fixed-business-version").getAsString());
       IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLYBUSINESSVERSION, ig.getVersion());
@@ -274,7 +276,7 @@ public class ConfigFileConverter {
       else
         throw new Exception("Unable to determine file type for "+filename);
     } else
-      throw new Exception("Unsupported version "+version+" (current = "+Constants.VERSION+"-"+Constants.REVISION+")");
+      throw new Exception("Unsupported version "+version+" (current = "+Constants.VERSION+" ("+ToolsVersion.TOOLS_VERSION+")");
     
   }
   

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.
  */
-@ResourceDef(name="Location", profile="http://hl7.org/fhir/Profile/Location")
+@ResourceDef(name="Location", profile="http://hl7.org/fhir/StructureDefinition/Location")
 public class Location extends DomainResource {
 
     public enum LocationStatus {
@@ -2792,7 +2792,7 @@ Requires the near-distance parameter to be provided also</b><br>
    * Path: <b>Location.position</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NEAR = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NEAR);
+//  public static final ca.uhn.fhir.rest.gclient.SpecialClientParam NEAR = new ca.uhn.fhir.rest.gclient.SpecialClientParam(SP_NEAR);
 
  /**
    * Search parameter: <b>address-city</b>

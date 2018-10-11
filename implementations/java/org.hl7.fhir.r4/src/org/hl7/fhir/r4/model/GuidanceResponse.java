@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
  */
-@ResourceDef(name="GuidanceResponse", profile="http://hl7.org/fhir/Profile/GuidanceResponse")
+@ResourceDef(name="GuidanceResponse", profile="http://hl7.org/fhir/StructureDefinition/GuidanceResponse")
 public class GuidanceResponse extends DomainResource {
 
     public enum GuidanceResponseStatus {
@@ -452,7 +452,7 @@ public class GuidanceResponse extends DomainResource {
      */
     public UriType getModuleUriType() throws FHIRException { 
       if (this.module == null)
-        return null;
+        this.module = new UriType();
       if (!(this.module instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.module.getClass().getName()+" was encountered");
       return (UriType) this.module;
@@ -467,7 +467,7 @@ public class GuidanceResponse extends DomainResource {
      */
     public CanonicalType getModuleCanonicalType() throws FHIRException { 
       if (this.module == null)
-        return null;
+        this.module = new CanonicalType();
       if (!(this.module instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.module.getClass().getName()+" was encountered");
       return (CanonicalType) this.module;
@@ -482,7 +482,7 @@ public class GuidanceResponse extends DomainResource {
      */
     public CodeableConcept getModuleCodeableConcept() throws FHIRException { 
       if (this.module == null)
-        return null;
+        this.module = new CodeableConcept();
       if (!(this.module instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.module.getClass().getName()+" was encountered");
       return (CodeableConcept) this.module;

@@ -334,7 +334,7 @@ public class FHIRPathEngine {
 	  }
 	}
 
-    return executeType(new ExecutionTypeContext(appContext, resourceType, context, types), types, expr, true);
+    return executeType(new ExecutionTypeContext(appContext, resourceType, types, types), types, expr, true);
   }
 
   public TypeDetails check(Object appContext, StructureDefinition sd, String context, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
@@ -357,7 +357,7 @@ public class FHIRPathEngine {
       }
     }
 
-    return executeType(new ExecutionTypeContext(appContext, sd.getUrl(), context, types), types, expr, true);
+    return executeType(new ExecutionTypeContext(appContext, sd.getUrl(), types, types), types, expr, true);
   }
 
   public TypeDetails check(Object appContext, StructureDefinition sd, ExpressionNode expr) throws FHIRLexerException, PathEngineException, DefinitionException {
@@ -685,12 +685,12 @@ public class FHIRPathEngine {
   private class ExecutionTypeContext {
     private Object appInfo; 
     private String resource;
-    private String context;
+    private TypeDetails context;
     private TypeDetails thisItem;
     private TypeDetails total;
 
 
-    public ExecutionTypeContext(Object appInfo, String resource, String context, TypeDetails thisItem) {
+    public ExecutionTypeContext(Object appInfo, String resource, TypeDetails context, TypeDetails thisItem) {
       super();
       this.appInfo = appInfo;
       this.resource = resource;
@@ -2050,7 +2050,7 @@ public class FHIRPathEngine {
         throw new PathEngineException("%resource cannot be used in this context");
       return new TypeDetails(CollectionStatus.SINGLETON, context.resource);
     } else if (s.equals("%context")) {
-      return new TypeDetails(CollectionStatus.SINGLETON, context.context);
+      return context.context;
     } else if (s.equals("%map-codes"))
       return new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_String);
     else if (s.equals("%us-zip"))
@@ -2121,7 +2121,7 @@ public class FHIRPathEngine {
       paramTypes.add(new TypeDetails(CollectionStatus.SINGLETON, TypeDetails.FP_String));
     else
       for (ExpressionNode expr : exp.getParameters()) {
-        if (exp.getFunction() == Function.Where || exp.getFunction() == Function.Select || exp.getFunction() == Function.Repeat || exp.getFunction() == Function.Aggregate)
+        if (exp.getFunction() == Function.Where || exp.getFunction() == Function.All || exp.getFunction() == Function.Select || exp.getFunction() == Function.Repeat || exp.getFunction() == Function.Aggregate)
           paramTypes.add(executeType(changeThis(context, focus), focus, expr, true));
         else
           paramTypes.add(executeType(context, focus, expr, true));

@@ -878,7 +878,7 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">FHIRVersions</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">FHIRVersion</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">All published FHIR Versions</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>

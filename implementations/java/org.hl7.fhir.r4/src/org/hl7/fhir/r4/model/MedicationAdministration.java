@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,180 +45,8 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
-@ResourceDef(name="MedicationAdministration", profile="http://hl7.org/fhir/Profile/MedicationAdministration")
+@ResourceDef(name="MedicationAdministration", profile="http://hl7.org/fhir/StructureDefinition/MedicationAdministration")
 public class MedicationAdministration extends DomainResource {
-
-    public enum MedicationAdministrationStatus {
-        /**
-         * The administration has started but has not yet completed.
-         */
-        INPROGRESS, 
-        /**
-         * The administration was terminated prior to any impact on the subject (though preparatory actions may have been taken).
-         */
-        NOTDONE, 
-        /**
-         * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
-         */
-        ONHOLD, 
-        /**
-         * All actions that are implied by the administration have occurred.
-         */
-        COMPLETED, 
-        /**
-         * The administration was entered in error and therefore nullified.
-         */
-        ENTEREDINERROR, 
-        /**
-         * Actions implied by the administration have been permanently halted, before all of them occurred.
-         */
-        STOPPED, 
-        /**
-         * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
-         */
-        UNKNOWN, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static MedicationAdministrationStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("in-progress".equals(codeString))
-          return INPROGRESS;
-        if ("not-done".equals(codeString))
-          return NOTDONE;
-        if ("on-hold".equals(codeString))
-          return ONHOLD;
-        if ("completed".equals(codeString))
-          return COMPLETED;
-        if ("entered-in-error".equals(codeString))
-          return ENTEREDINERROR;
-        if ("stopped".equals(codeString))
-          return STOPPED;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case INPROGRESS: return "in-progress";
-            case NOTDONE: return "not-done";
-            case ONHOLD: return "on-hold";
-            case COMPLETED: return "completed";
-            case ENTEREDINERROR: return "entered-in-error";
-            case STOPPED: return "stopped";
-            case UNKNOWN: return "unknown";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case INPROGRESS: return "http://hl7.org/fhir/medication-admin-status";
-            case NOTDONE: return "http://hl7.org/fhir/medication-admin-status";
-            case ONHOLD: return "http://hl7.org/fhir/medication-admin-status";
-            case COMPLETED: return "http://hl7.org/fhir/medication-admin-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/medication-admin-status";
-            case STOPPED: return "http://hl7.org/fhir/medication-admin-status";
-            case UNKNOWN: return "http://hl7.org/fhir/medication-admin-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case INPROGRESS: return "The administration has started but has not yet completed.";
-            case NOTDONE: return "The administration was terminated prior to any impact on the subject (though preparatory actions may have been taken).";
-            case ONHOLD: return "Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
-            case COMPLETED: return "All actions that are implied by the administration have occurred.";
-            case ENTEREDINERROR: return "The administration was entered in error and therefore nullified.";
-            case STOPPED: return "Actions implied by the administration have been permanently halted, before all of them occurred.";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case INPROGRESS: return "In Progress";
-            case NOTDONE: return "Not Done";
-            case ONHOLD: return "On Hold";
-            case COMPLETED: return "Completed";
-            case ENTEREDINERROR: return "Entered in Error";
-            case STOPPED: return "Stopped";
-            case UNKNOWN: return "Unknown";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class MedicationAdministrationStatusEnumFactory implements EnumFactory<MedicationAdministrationStatus> {
-    public MedicationAdministrationStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("in-progress".equals(codeString))
-          return MedicationAdministrationStatus.INPROGRESS;
-        if ("not-done".equals(codeString))
-          return MedicationAdministrationStatus.NOTDONE;
-        if ("on-hold".equals(codeString))
-          return MedicationAdministrationStatus.ONHOLD;
-        if ("completed".equals(codeString))
-          return MedicationAdministrationStatus.COMPLETED;
-        if ("entered-in-error".equals(codeString))
-          return MedicationAdministrationStatus.ENTEREDINERROR;
-        if ("stopped".equals(codeString))
-          return MedicationAdministrationStatus.STOPPED;
-        if ("unknown".equals(codeString))
-          return MedicationAdministrationStatus.UNKNOWN;
-        throw new IllegalArgumentException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
-        }
-        public Enumeration<MedicationAdministrationStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<MedicationAdministrationStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("in-progress".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.INPROGRESS);
-        if ("not-done".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.NOTDONE);
-        if ("on-hold".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.ONHOLD);
-        if ("completed".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.COMPLETED);
-        if ("entered-in-error".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.ENTEREDINERROR);
-        if ("stopped".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.STOPPED);
-        if ("unknown".equals(codeString))
-          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.UNKNOWN);
-        throw new FHIRException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
-        }
-    public String toCode(MedicationAdministrationStatus code) {
-      if (code == MedicationAdministrationStatus.INPROGRESS)
-        return "in-progress";
-      if (code == MedicationAdministrationStatus.NOTDONE)
-        return "not-done";
-      if (code == MedicationAdministrationStatus.ONHOLD)
-        return "on-hold";
-      if (code == MedicationAdministrationStatus.COMPLETED)
-        return "completed";
-      if (code == MedicationAdministrationStatus.ENTEREDINERROR)
-        return "entered-in-error";
-      if (code == MedicationAdministrationStatus.STOPPED)
-        return "stopped";
-      if (code == MedicationAdministrationStatus.UNKNOWN)
-        return "unknown";
-      return "?";
-      }
-    public String toSystem(MedicationAdministrationStatus code) {
-      return code.getSystem();
-      }
-    }
 
     @Block()
     public static class MedicationAdministrationPerformerComponent extends BackboneElement implements IBaseBackboneElement {
@@ -659,7 +487,7 @@ public class MedicationAdministration extends DomainResource {
          */
         public Ratio getRateRatio() throws FHIRException { 
           if (this.rate == null)
-            return null;
+            this.rate = new Ratio();
           if (!(this.rate instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Ratio) this.rate;
@@ -674,7 +502,7 @@ public class MedicationAdministration extends DomainResource {
          */
         public Quantity getRateQuantity() throws FHIRException { 
           if (this.rate == null)
-            return null;
+            this.rate = new Quantity();
           if (!(this.rate instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Quantity) this.rate;
@@ -921,10 +749,10 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown", formalDefinition="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-admin-status")
-    protected Enumeration<MedicationAdministrationStatus> status;
+    protected CodeableConcept status;
 
     /**
      * Indicates where the medication is expected to be consumed or administered.
@@ -1070,7 +898,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = 1082285009L;
+    private static final long serialVersionUID = 1441542920L;
 
   /**
    * Constructor
@@ -1082,7 +910,7 @@ public class MedicationAdministration extends DomainResource {
   /**
    * Constructor
    */
-    public MedicationAdministration(Enumeration<MedicationAdministrationStatus> status, Type medication, Reference subject, Type effective) {
+    public MedicationAdministration(CodeableConcept status, Type medication, Reference subject, Type effective) {
       super();
       this.status = status;
       this.medication = medication;
@@ -1268,19 +1096,15 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.)
      */
-    public Enumeration<MedicationAdministrationStatus> getStatusElement() { 
+    public CodeableConcept getStatus() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<MedicationAdministrationStatus>(new MedicationAdministrationStatusEnumFactory()); // bb
+          this.status = new CodeableConcept(); // cc
       return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
     }
 
     public boolean hasStatus() { 
@@ -1288,27 +1112,10 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.)
      */
-    public MedicationAdministration setStatusElement(Enumeration<MedicationAdministrationStatus> value) { 
+    public MedicationAdministration setStatus(CodeableConcept value) { 
       this.status = value;
-      return this;
-    }
-
-    /**
-     * @return Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
-     */
-    public MedicationAdministrationStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
-     */
-    public MedicationAdministration setStatus(MedicationAdministrationStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<MedicationAdministrationStatus>(new MedicationAdministrationStatusEnumFactory());
-        this.status.setValue(value);
       return this;
     }
 
@@ -1348,7 +1155,7 @@ public class MedicationAdministration extends DomainResource {
      */
     public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
       if (this.medication == null)
-        return null;
+        this.medication = new CodeableConcept();
       if (!(this.medication instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (CodeableConcept) this.medication;
@@ -1363,7 +1170,7 @@ public class MedicationAdministration extends DomainResource {
      */
     public Reference getMedicationReference() throws FHIRException { 
       if (this.medication == null)
-        return null;
+        this.medication = new Reference();
       if (!(this.medication instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
@@ -1540,7 +1347,7 @@ public class MedicationAdministration extends DomainResource {
      */
     public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new DateTimeType();
       if (!(this.effective instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (DateTimeType) this.effective;
@@ -1555,7 +1362,7 @@ public class MedicationAdministration extends DomainResource {
      */
     public Period getEffectivePeriod() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new Period();
       if (!(this.effective instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
@@ -2077,7 +1884,7 @@ public class MedicationAdministration extends DomainResource {
         children.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("instantiates", "uri", "A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, instantiates));
         children.add(new Property("partOf", "Reference(MedicationAdministration|Procedure)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
-        children.add(new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, 1, status));
+        children.add(new Property("status", "CodeableConcept", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, 1, status));
         children.add(new Property("category", "CodeableConcept", "Indicates where the medication is expected to be consumed or administered.", 0, 1, category));
         children.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication));
         children.add(new Property("subject", "Reference(Patient|Group)", "The person or animal or group receiving the medication.", 0, 1, subject));
@@ -2101,7 +1908,7 @@ public class MedicationAdministration extends DomainResource {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event. This identifier is particularly important when these records require updates.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, instantiates);
         case -995410646: /*partOf*/  return new Property("partOf", "Reference(MedicationAdministration|Procedure)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf);
-        case -892481550: /*status*/  return new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "CodeableConcept", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, 1, status);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Indicates where the medication is expected to be consumed or administered.", 0, 1, category);
         case 1458402129: /*medication[x]*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
         case 1998965455: /*medication*/  return new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, 1, medication);
@@ -2134,7 +1941,7 @@ public class MedicationAdministration extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // UriType
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationAdministrationStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
@@ -2168,8 +1975,7 @@ public class MedicationAdministration extends DomainResource {
           this.getPartOf().add(castToReference(value)); // Reference
           return value;
         case -892481550: // status
-          value = new MedicationAdministrationStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<MedicationAdministrationStatus>
+          this.status = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
@@ -2230,8 +2036,7 @@ public class MedicationAdministration extends DomainResource {
         } else if (name.equals("partOf")) {
           this.getPartOf().add(castToReference(value));
         } else if (name.equals("status")) {
-          value = new MedicationAdministrationStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<MedicationAdministrationStatus>
+          this.status = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("medication[x]")) {
@@ -2273,7 +2078,7 @@ public class MedicationAdministration extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -246883639:  return addInstantiatesElement();
         case -995410646:  return addPartOf(); 
-        case -892481550:  return getStatusElement();
+        case -892481550:  return getStatus(); 
         case 50511102:  return getCategory(); 
         case 1458402129:  return getMedication(); 
         case 1998965455:  return getMedication(); 
@@ -2302,7 +2107,7 @@ public class MedicationAdministration extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -246883639: /*instantiates*/ return new String[] {"uri"};
         case -995410646: /*partOf*/ return new String[] {"Reference"};
-        case -892481550: /*status*/ return new String[] {"code"};
+        case -892481550: /*status*/ return new String[] {"CodeableConcept"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
@@ -2335,7 +2140,8 @@ public class MedicationAdministration extends DomainResource {
           return addPartOf();
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.status");
+          this.status = new CodeableConcept();
+          return this.status;
         }
         else if (name.equals("category")) {
           this.category = new CodeableConcept();
@@ -2503,7 +2309,7 @@ public class MedicationAdministration extends DomainResource {
         if (!(other_ instanceof MedicationAdministration))
           return false;
         MedicationAdministration o = (MedicationAdministration) other_;
-        return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true);
+        return compareValues(instantiates, o.instantiates, true);
       }
 
       public boolean isEmpty() {

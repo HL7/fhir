@@ -95,6 +95,7 @@ import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.Composition;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
@@ -156,7 +157,7 @@ public class SourceParser {
   public String dtDir;
   private final String rootDir;
   private final OIDRegistry registry;
-  private final String version;
+  private final FHIRVersion version;
   private final BuildWorkerContext context;
   private final Calendar genDate;
   private final PageProcessor page;
@@ -169,7 +170,7 @@ public class SourceParser {
   private boolean exceptionIfExcelNotNormalised;
   
 
-  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages, boolean exceptionIfExcelNotNormalised) throws IOException, ParserConfigurationException, SAXException {
+  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, FHIRVersion version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages, boolean exceptionIfExcelNotNormalised) throws IOException, ParserConfigurationException, SAXException {
     this.logger = logger;
     this.forPublication = forPublication;
     this.registry = new OIDRegistry(root, forPublication);
@@ -188,7 +189,7 @@ public class SourceParser {
     dtDir = srcDir + "datatypes" + sl;
     imgDir = root + sl + "images" + sl;
     rootDir = root + sl;
-    vsGen = new ValueSetGenerator(definitions, version, genDate, context.translator());
+    vsGen = new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator());
     this.exceptionIfExcelNotNormalised = exceptionIfExcelNotNormalised;
   }
 
@@ -935,7 +936,7 @@ public class SourceParser {
   private void loadGlobalBindings() throws Exception {
     logger.log("Load Common Bindings", LogMessageType.Process);
 
-    BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version, 
+    BindingsParser parser = new BindingsParser(new CSFileInputStream(new CSFile(termDir + "bindings.xml")), termDir + "bindings.xml", srcDir, registry, version.toCode(), 
         definitions.getCodeSystems(), page.getConceptMaps(), genDate, exceptionIfExcelNotNormalised);
     List<BindingSpecification> cds = parser.parse();
 
@@ -1005,7 +1006,7 @@ public class SourceParser {
   private void genTypeProfile(org.hl7.fhir.definitions.model.TypeDefn t) throws Exception {
     StructureDefinition profile;
     try {
-      profile = new ProfileGenerator(definitions, context, page, genDate, version, null, fpUsages, page.getFolders().rootDir).generate(t);
+      profile = new ProfileGenerator(definitions, context, page, genDate, version.toCode(), null, fpUsages, page.getFolders().rootDir).generate(t);
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));

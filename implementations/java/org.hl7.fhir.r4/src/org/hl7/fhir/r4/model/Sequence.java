@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Raw data describing a biological sequence.
  */
-@ResourceDef(name="Sequence", profile="http://hl7.org/fhir/Profile/Sequence")
+@ResourceDef(name="Sequence", profile="http://hl7.org/fhir/StructureDefinition/Sequence")
 public class Sequence extends DomainResource {
 
     public enum SequenceType {
@@ -657,10 +657,10 @@ public class Sequence extends DomainResource {
         protected IntegerType windowStart;
 
         /**
-         * End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "windowEnd", type = {IntegerType.class}, order=9, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="End position of the window on the reference sequence", formalDefinition="End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="End position of the window on the reference sequence", formalDefinition="End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType windowEnd;
 
         private static final long serialVersionUID = 1368245163L;
@@ -1015,7 +1015,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #windowEnd} (End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getWindowEnd" gives direct access to the value
+         * @return {@link #windowEnd} (End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getWindowEnd" gives direct access to the value
          */
         public IntegerType getWindowEndElement() { 
           if (this.windowEnd == null)
@@ -1035,7 +1035,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #windowEnd} (End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getWindowEnd" gives direct access to the value
+         * @param value {@link #windowEnd} (End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getWindowEnd" gives direct access to the value
          */
         public SequenceReferenceSeqComponent setWindowEndElement(IntegerType value) { 
           this.windowEnd = value;
@@ -1043,14 +1043,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getWindowEnd() { 
           return this.windowEnd == null || this.windowEnd.isEmpty() ? 0 : this.windowEnd.getValue();
         }
 
         /**
-         * @param value End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public SequenceReferenceSeqComponent setWindowEnd(int value) { 
             if (this.windowEnd == null)
@@ -1069,7 +1069,7 @@ public class Sequence extends DomainResource {
           children.add(new Property("referenceSeqString", "string", "A string like \"ACGT\".", 0, 1, referenceSeqString));
           children.add(new Property("strand", "code", "An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm.", 0, 1, strand));
           children.add(new Property("windowStart", "integer", "Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, windowStart));
-          children.add(new Property("windowEnd", "integer", "End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, windowEnd));
+          children.add(new Property("windowEnd", "integer", "End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, windowEnd));
         }
 
         @Override
@@ -1083,7 +1083,7 @@ public class Sequence extends DomainResource {
           case -1648301499: /*referenceSeqString*/  return new Property("referenceSeqString", "string", "A string like \"ACGT\".", 0, 1, referenceSeqString);
           case -891993594: /*strand*/  return new Property("strand", "code", "An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm.", 0, 1, strand);
           case 1903685202: /*windowStart*/  return new Property("windowStart", "integer", "Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, windowStart);
-          case -217026869: /*windowEnd*/  return new Property("windowEnd", "integer", "End position of the window on the reference sequence. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, windowEnd);
+          case -217026869: /*windowEnd*/  return new Property("windowEnd", "integer", "End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, windowEnd);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1304,10 +1304,10 @@ public class Sequence extends DomainResource {
         protected IntegerType start;
 
         /**
-         * End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="End position of the variant on the reference sequence", formalDefinition="End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="End position of the variant on the reference sequence", formalDefinition="End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         /**
@@ -1398,7 +1398,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -1418,7 +1418,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public SequenceVariantComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -1426,14 +1426,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public SequenceVariantComponent setEnd(int value) { 
             if (this.end == null)
@@ -1636,7 +1636,7 @@ public class Sequence extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("start", "integer", "Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("end", "integer", "End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
           children.add(new Property("observedAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).  Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, observedAllele));
           children.add(new Property("referenceAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, referenceAllele));
           children.add(new Property("cigar", "string", "Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).", 0, 1, cigar));
@@ -1647,7 +1647,7 @@ public class Sequence extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 109757538: /*start*/  return new Property("start", "integer", "Start position of the variant on the  reference sequence.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "End position of the variant on the reference sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 100571: /*end*/  return new Property("end", "integer", "End position of the variant on the reference sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           case -1418745787: /*observedAllele*/  return new Property("observedAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)).  Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, observedAllele);
           case 364045960: /*referenceAllele*/  return new Property("referenceAllele", "string", "An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.", 0, 1, referenceAllele);
           case 94658738: /*cigar*/  return new Property("cigar", "string", "Extended CIGAR string for aligning the sequence with reference bases. See detailed documentation [here](http://support.illumina.com/help/SequencingAnalysisWorkflow/Content/Vault/Informatics/Sequencing_Analysis/CASAVA/swSEQ_mCA_ExtendedCIGARFormat.htm).", 0, 1, cigar);
@@ -1842,10 +1842,10 @@ public class Sequence extends DomainResource {
         protected IntegerType start;
 
         /**
-         * End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="End position of the sequence", formalDefinition="End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="End position of the sequence", formalDefinition="End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         /**
@@ -2058,7 +2058,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -2078,7 +2078,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public SequenceQualityComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -2086,14 +2086,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public SequenceQualityComponent setEnd(int value) { 
             if (this.end == null)
@@ -2715,7 +2715,7 @@ public class Sequence extends DomainResource {
           children.add(new Property("type", "code", "INDEL / SNP / Undefined variant.", 0, 1, type));
           children.add(new Property("standardSequence", "CodeableConcept", "Gold standard sequence used for comparing against.", 0, 1, standardSequence));
           children.add(new Property("start", "integer", "Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("end", "integer", "End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
           children.add(new Property("score", "Quantity", "The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).", 0, 1, score));
           children.add(new Property("method", "CodeableConcept", "Which method is used to get sequence quality.", 0, 1, method));
           children.add(new Property("truthTP", "decimal", "True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.", 0, 1, truthTP));
@@ -2735,7 +2735,7 @@ public class Sequence extends DomainResource {
           case 3575610: /*type*/  return new Property("type", "code", "INDEL / SNP / Undefined variant.", 0, 1, type);
           case -1861227106: /*standardSequence*/  return new Property("standardSequence", "CodeableConcept", "Gold standard sequence used for comparing against.", 0, 1, standardSequence);
           case 109757538: /*start*/  return new Property("start", "integer", "Start position of the sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "End position of the sequence.If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 100571: /*end*/  return new Property("end", "integer", "End position of the sequence.If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           case 109264530: /*score*/  return new Property("score", "Quantity", "The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).", 0, 1, score);
           case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Which method is used to get sequence quality.", 0, 1, method);
           case -1048421849: /*truthTP*/  return new Property("truthTP", "decimal", "True positives, from the perspective of the truth data, i.e. the number of sites in the Truth Call Set for which there are paths through the Query Call Set that are consistent with all of the alleles at this site, and for which there is an accurate genotype call for the event.", 0, 1, truthTP);
@@ -4714,10 +4714,10 @@ public class Sequence extends DomainResource {
         protected IntegerType start;
 
         /**
-         * Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Outer End", formalDefinition="Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="Structural Variant Outer End", formalDefinition="Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         private static final long serialVersionUID = -1798864889L;
@@ -4775,7 +4775,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -4795,7 +4795,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public SequenceStructureVariantOuterComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -4803,14 +4803,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public SequenceStructureVariantOuterComponent setEnd(int value) { 
             if (this.end == null)
@@ -4822,14 +4822,14 @@ public class Sequence extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("start", "integer", "Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("end", "integer", "Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 109757538: /*start*/  return new Property("start", "integer", "Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 100571: /*end*/  return new Property("end", "integer", "Structural Variant Outer End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4951,10 +4951,10 @@ public class Sequence extends DomainResource {
         protected IntegerType start;
 
         /**
-         * Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         @Child(name = "end", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Structural Variant Inner End", formalDefinition="Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
+        @Description(shortDefinition="Structural Variant Inner End", formalDefinition="Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position." )
         protected IntegerType end;
 
         private static final long serialVersionUID = -1798864889L;
@@ -5012,7 +5012,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return {@link #end} (Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @return {@link #end} (Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public IntegerType getEndElement() { 
           if (this.end == null)
@@ -5032,7 +5032,7 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @param value {@link #end} (Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
+         * @param value {@link #end} (Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
          */
         public SequenceStructureVariantInnerComponent setEndElement(IntegerType value) { 
           this.end = value;
@@ -5040,14 +5040,14 @@ public class Sequence extends DomainResource {
         }
 
         /**
-         * @return Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @return Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public int getEnd() { 
           return this.end == null || this.end.isEmpty() ? 0 : this.end.getValue();
         }
 
         /**
-         * @param value Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
+         * @param value Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.
          */
         public SequenceStructureVariantInnerComponent setEnd(int value) { 
             if (this.end == null)
@@ -5059,14 +5059,14 @@ public class Sequence extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("start", "integer", "Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start));
-          children.add(new Property("end", "integer", "Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
+          children.add(new Property("end", "integer", "Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 109757538: /*start*/  return new Property("start", "integer", "Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.", 0, 1, start);
-          case 100571: /*end*/  return new Property("end", "integer", "Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
+          case 100571: /*end*/  return new Property("end", "integer", "Structural Variant Inner End. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.", 0, 1, end);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 

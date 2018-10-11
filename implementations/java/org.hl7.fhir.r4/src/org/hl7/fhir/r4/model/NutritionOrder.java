@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
  */
-@ResourceDef(name="NutritionOrder", profile="http://hl7.org/fhir/Profile/NutritionOrder")
+@ResourceDef(name="NutritionOrder", profile="http://hl7.org/fhir/StructureDefinition/NutritionOrder")
 public class NutritionOrder extends DomainResource {
 
     public enum NutritionOrderStatus {
@@ -2519,7 +2519,7 @@ public class NutritionOrder extends DomainResource {
          */
         public Quantity getRateQuantity() throws FHIRException { 
           if (this.rate == null)
-            return null;
+            this.rate = new Quantity();
           if (!(this.rate instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Quantity) this.rate;
@@ -2534,7 +2534,7 @@ public class NutritionOrder extends DomainResource {
          */
         public Ratio getRateRatio() throws FHIRException { 
           if (this.rate == null)
-            return null;
+            this.rate = new Ratio();
           if (!(this.rate instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Ratio) this.rate;

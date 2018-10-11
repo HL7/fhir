@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
-@ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
+@ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/StructureDefinition/CapabilityStatement")
 @ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "imports", "software", "implementation", "fhirVersion", "format", "patchFormat", "implementationGuide", "rest", "messaging", "document"})
 public class CapabilityStatement extends MetadataResource implements IBaseConformance {
 
@@ -6771,10 +6771,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * The version of the FHIR specification on which this capability statement is based.
      */
-    @Child(name = "fhirVersion", type = {IdType.class}, order=7, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "fhirVersion", type = {CodeType.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version the system uses", formalDefinition="The version of the FHIR specification on which this capability statement is based." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-    protected IdType fhirVersion;
+    protected Enumeration<FHIRVersion> fhirVersion;
 
     /**
      * A list of the formats supported by this implementation using their content types.
@@ -6820,7 +6820,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<CapabilityStatementDocumentComponent> document;
 
-    private static final long serialVersionUID = -1192000348L;
+    private static final long serialVersionUID = -1050288843L;
 
   /**
    * Constructor
@@ -6832,7 +6832,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   /**
    * Constructor
    */
-    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, IdType fhirVersion) {
+    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, Enumeration<FHIRVersion> fhirVersion) {
       super();
       this.status = status;
       this.date = date;
@@ -7744,12 +7744,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this capability statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public IdType getFhirVersionElement() { 
+    public Enumeration<FHIRVersion> getFhirVersionElement() { 
       if (this.fhirVersion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CapabilityStatement.fhirVersion");
         else if (Configuration.doAutoCreate())
-          this.fhirVersion = new IdType(); // bb
+          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory()); // bb
       return this.fhirVersion;
     }
 
@@ -7764,7 +7764,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this capability statement is based.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public CapabilityStatement setFhirVersionElement(IdType value) { 
+    public CapabilityStatement setFhirVersionElement(Enumeration<FHIRVersion> value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -7772,16 +7772,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     /**
      * @return The version of the FHIR specification on which this capability statement is based.
      */
-    public String getFhirVersion() { 
+    public FHIRVersion getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this capability statement is based.
      */
-    public CapabilityStatement setFhirVersion(String value) { 
+    public CapabilityStatement setFhirVersion(FHIRVersion value) { 
         if (this.fhirVersion == null)
-          this.fhirVersion = new IdType();
+          this.fhirVersion = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
         this.fhirVersion.setValue(value);
       return this;
     }
@@ -8149,7 +8149,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         children.add(new Property("imports", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.", 0, java.lang.Integer.MAX_VALUE, imports));
         children.add(new Property("software", "", "Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.", 0, 1, software));
         children.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, 1, implementation));
-        children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion));
+        children.add(new Property("fhirVersion", "code", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion));
         children.add(new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format));
         children.add(new Property("patchFormat", "code", "A list of the patch formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, patchFormat));
         children.add(new Property("implementationGuide", "canonical(ImplementationGuide)", "A list of implementation guides that the server does (or should) support in their entirety.", 0, java.lang.Integer.MAX_VALUE, implementationGuide));
@@ -8180,7 +8180,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1926037870: /*imports*/  return new Property("imports", "canonical(CapabilityStatement)", "Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them.", 0, java.lang.Integer.MAX_VALUE, imports);
         case 1319330215: /*software*/  return new Property("software", "", "Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.", 0, 1, software);
         case 1683336114: /*implementation*/  return new Property("implementation", "", "Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, 1, implementation);
-        case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion);
+        case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "code", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion);
         case -1268779017: /*format*/  return new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format);
         case 172338783: /*patchFormat*/  return new Property("patchFormat", "code", "A list of the patch formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, patchFormat);
         case 156966506: /*implementationGuide*/  return new Property("implementationGuide", "canonical(ImplementationGuide)", "A list of implementation guides that the server does (or should) support in their entirety.", 0, java.lang.Integer.MAX_VALUE, implementationGuide);
@@ -8214,7 +8214,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1926037870: /*imports*/ return this.imports == null ? new Base[0] : this.imports.toArray(new Base[this.imports.size()]); // CanonicalType
         case 1319330215: /*software*/ return this.software == null ? new Base[0] : new Base[] {this.software}; // CapabilityStatementSoftwareComponent
         case 1683336114: /*implementation*/ return this.implementation == null ? new Base[0] : new Base[] {this.implementation}; // CapabilityStatementImplementationComponent
-        case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
+        case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // Enumeration<FHIRVersion>
         case -1268779017: /*format*/ return this.format == null ? new Base[0] : this.format.toArray(new Base[this.format.size()]); // CodeType
         case 172338783: /*patchFormat*/ return this.patchFormat == null ? new Base[0] : this.patchFormat.toArray(new Base[this.patchFormat.size()]); // CodeType
         case 156966506: /*implementationGuide*/ return this.implementationGuide == null ? new Base[0] : this.implementationGuide.toArray(new Base[this.implementationGuide.size()]); // CanonicalType
@@ -8289,7 +8289,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.implementation = (CapabilityStatementImplementationComponent) value; // CapabilityStatementImplementationComponent
           return value;
         case 461006061: // fhirVersion
-          this.fhirVersion = castToId(value); // IdType
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
           return value;
         case -1268779017: // format
           this.getFormat().add(castToCode(value)); // CodeType
@@ -8357,7 +8358,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         } else if (name.equals("implementation")) {
           this.implementation = (CapabilityStatementImplementationComponent) value; // CapabilityStatementImplementationComponent
         } else if (name.equals("fhirVersion")) {
-          this.fhirVersion = castToId(value); // IdType
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
+          this.fhirVersion = (Enumeration) value; // Enumeration<FHIRVersion>
         } else if (name.equals("format")) {
           this.getFormat().add(castToCode(value));
         } else if (name.equals("patchFormat")) {
@@ -8431,7 +8433,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1926037870: /*imports*/ return new String[] {"canonical"};
         case 1319330215: /*software*/ return new String[] {};
         case 1683336114: /*implementation*/ return new String[] {};
-        case 461006061: /*fhirVersion*/ return new String[] {"id"};
+        case 461006061: /*fhirVersion*/ return new String[] {"code"};
         case -1268779017: /*format*/ return new String[] {"code"};
         case 172338783: /*patchFormat*/ return new String[] {"code"};
         case 156966506: /*implementationGuide*/ return new String[] {"canonical"};
@@ -8721,17 +8723,17 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
  /**
    * Search parameter: <b>software</b>
    * <p>
-   * Description: <b>Part of a the name of a software application</b><br>
+   * Description: <b>Part of the name of a software application</b><br>
    * Type: <b>string</b><br>
    * Path: <b>CapabilityStatement.software.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="software", path="CapabilityStatement.software.name", description="Part of a the name of a software application", type="string" )
+  @SearchParamDefinition(name="software", path="CapabilityStatement.software.name", description="Part of the name of a software application", type="string" )
   public static final String SP_SOFTWARE = "software";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>software</b>
    * <p>
-   * Description: <b>Part of a the name of a software application</b><br>
+   * Description: <b>Part of the name of a software application</b><br>
    * Type: <b>string</b><br>
    * Path: <b>CapabilityStatement.software.name</b><br>
    * </p>

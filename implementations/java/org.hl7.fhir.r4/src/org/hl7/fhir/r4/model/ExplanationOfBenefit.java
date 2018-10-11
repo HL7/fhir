@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
  */
-@ResourceDef(name="ExplanationOfBenefit", profile="http://hl7.org/fhir/Profile/ExplanationOfBenefit")
+@ResourceDef(name="ExplanationOfBenefit", profile="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit")
 public class ExplanationOfBenefit extends DomainResource {
 
     public enum ExplanationOfBenefitStatus {
@@ -1113,7 +1113,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public DateType getTimingDateType() throws FHIRException { 
           if (this.timing == null)
-            return null;
+            this.timing = new DateType();
           if (!(this.timing instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (DateType) this.timing;
@@ -1128,7 +1128,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Period getTimingPeriod() throws FHIRException { 
           if (this.timing == null)
-            return null;
+            this.timing = new Period();
           if (!(this.timing instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (Period) this.timing;
@@ -1164,7 +1164,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new BooleanType();
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
@@ -1179,7 +1179,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public StringType getValueStringType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new StringType();
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
@@ -1194,7 +1194,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Quantity getValueQuantity() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Quantity();
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
@@ -1209,7 +1209,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Attachment getValueAttachment() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Attachment();
           if (!(this.value instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Attachment) this.value;
@@ -1224,7 +1224,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Reference getValueReference() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Reference();
           if (!(this.value instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Reference) this.value;
@@ -2014,7 +2014,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public CodeableConcept getDiagnosisCodeableConcept() throws FHIRException { 
           if (this.diagnosis == null)
-            return null;
+            this.diagnosis = new CodeableConcept();
           if (!(this.diagnosis instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
           return (CodeableConcept) this.diagnosis;
@@ -2029,7 +2029,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Reference getDiagnosisReference() throws FHIRException { 
           if (this.diagnosis == null)
-            return null;
+            this.diagnosis = new Reference();
           if (!(this.diagnosis instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.diagnosis.getClass().getName()+" was encountered");
           return (Reference) this.diagnosis;
@@ -2484,7 +2484,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public CodeableConcept getProcedureCodeableConcept() throws FHIRException { 
           if (this.procedure == null)
-            return null;
+            this.procedure = new CodeableConcept();
           if (!(this.procedure instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.procedure.getClass().getName()+" was encountered");
           return (CodeableConcept) this.procedure;
@@ -2499,7 +2499,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Reference getProcedureReference() throws FHIRException { 
           if (this.procedure == null)
-            return null;
+            this.procedure = new Reference();
           if (!(this.procedure instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.procedure.getClass().getName()+" was encountered");
           return (Reference) this.procedure;
@@ -3039,7 +3039,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Address getLocationAddress() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new Address();
           if (!(this.location instanceof Address))
             throw new FHIRException("Type mismatch: the type Address was expected, but "+this.location.getClass().getName()+" was encountered");
           return (Address) this.location;
@@ -3054,7 +3054,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Reference getLocationReference() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new Reference();
           if (!(this.location instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.location.getClass().getName()+" was encountered");
           return (Reference) this.location;
@@ -3902,7 +3902,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public DateType getServicedDateType() throws FHIRException { 
           if (this.serviced == null)
-            return null;
+            this.serviced = new DateType();
           if (!(this.serviced instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.serviced.getClass().getName()+" was encountered");
           return (DateType) this.serviced;
@@ -3917,7 +3917,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Period getServicedPeriod() throws FHIRException { 
           if (this.serviced == null)
-            return null;
+            this.serviced = new Period();
           if (!(this.serviced instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.serviced.getClass().getName()+" was encountered");
           return (Period) this.serviced;
@@ -3953,7 +3953,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public CodeableConcept getLocationCodeableConcept() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new CodeableConcept();
           if (!(this.location instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.location.getClass().getName()+" was encountered");
           return (CodeableConcept) this.location;
@@ -3968,7 +3968,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Address getLocationAddress() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new Address();
           if (!(this.location instanceof Address))
             throw new FHIRException("Type mismatch: the type Address was expected, but "+this.location.getClass().getName()+" was encountered");
           return (Address) this.location;
@@ -3983,7 +3983,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Reference getLocationReference() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new Reference();
           if (!(this.location instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.location.getClass().getName()+" was encountered");
           return (Reference) this.location;
@@ -7966,7 +7966,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public DateType getServicedDateType() throws FHIRException { 
           if (this.serviced == null)
-            return null;
+            this.serviced = new DateType();
           if (!(this.serviced instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.serviced.getClass().getName()+" was encountered");
           return (DateType) this.serviced;
@@ -7981,7 +7981,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Period getServicedPeriod() throws FHIRException { 
           if (this.serviced == null)
-            return null;
+            this.serviced = new Period();
           if (!(this.serviced instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.serviced.getClass().getName()+" was encountered");
           return (Period) this.serviced;
@@ -8017,7 +8017,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public CodeableConcept getLocationCodeableConcept() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new CodeableConcept();
           if (!(this.location instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.location.getClass().getName()+" was encountered");
           return (CodeableConcept) this.location;
@@ -8032,7 +8032,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Address getLocationAddress() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new Address();
           if (!(this.location instanceof Address))
             throw new FHIRException("Type mismatch: the type Address was expected, but "+this.location.getClass().getName()+" was encountered");
           return (Address) this.location;
@@ -8047,7 +8047,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Reference getLocationReference() throws FHIRException { 
           if (this.location == null)
-            return null;
+            this.location = new Reference();
           if (!(this.location instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.location.getClass().getName()+" was encountered");
           return (Reference) this.location;
@@ -11854,7 +11854,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public UnsignedIntType getAllowedUnsignedIntType() throws FHIRException { 
           if (this.allowed == null)
-            return null;
+            this.allowed = new UnsignedIntType();
           if (!(this.allowed instanceof UnsignedIntType))
             throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.allowed.getClass().getName()+" was encountered");
           return (UnsignedIntType) this.allowed;
@@ -11869,7 +11869,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public StringType getAllowedStringType() throws FHIRException { 
           if (this.allowed == null)
-            return null;
+            this.allowed = new StringType();
           if (!(this.allowed instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.allowed.getClass().getName()+" was encountered");
           return (StringType) this.allowed;
@@ -11884,7 +11884,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Money getAllowedMoney() throws FHIRException { 
           if (this.allowed == null)
-            return null;
+            this.allowed = new Money();
           if (!(this.allowed instanceof Money))
             throw new FHIRException("Type mismatch: the type Money was expected, but "+this.allowed.getClass().getName()+" was encountered");
           return (Money) this.allowed;
@@ -11920,7 +11920,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public UnsignedIntType getUsedUnsignedIntType() throws FHIRException { 
           if (this.used == null)
-            return null;
+            this.used = new UnsignedIntType();
           if (!(this.used instanceof UnsignedIntType))
             throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.used.getClass().getName()+" was encountered");
           return (UnsignedIntType) this.used;
@@ -11935,7 +11935,7 @@ public class ExplanationOfBenefit extends DomainResource {
          */
         public Money getUsedMoney() throws FHIRException { 
           if (this.used == null)
-            return null;
+            this.used = new Money();
           if (!(this.used instanceof Money))
             throw new FHIRException("Type mismatch: the type Money was expected, but "+this.used.getClass().getName()+" was encountered");
           return (Money) this.used;

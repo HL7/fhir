@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An action that is or was performed on or for a patient. This can be a physical intervention like an operation, or less invasive like long term services, counseling, or hypnotherapy.
  */
-@ResourceDef(name="Procedure", profile="http://hl7.org/fhir/Profile/Procedure")
+@ResourceDef(name="Procedure", profile="http://hl7.org/fhir/StructureDefinition/Procedure")
 public class Procedure extends DomainResource {
 
     public enum ProcedureStatus {
@@ -1553,7 +1553,7 @@ public class Procedure extends DomainResource {
      */
     public DateTimeType getPerformedDateTimeType() throws FHIRException { 
       if (this.performed == null)
-        return null;
+        this.performed = new DateTimeType();
       if (!(this.performed instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (DateTimeType) this.performed;
@@ -1568,7 +1568,7 @@ public class Procedure extends DomainResource {
      */
     public Period getPerformedPeriod() throws FHIRException { 
       if (this.performed == null)
-        return null;
+        this.performed = new Period();
       if (!(this.performed instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Period) this.performed;
@@ -1583,7 +1583,7 @@ public class Procedure extends DomainResource {
      */
     public StringType getPerformedStringType() throws FHIRException { 
       if (this.performed == null)
-        return null;
+        this.performed = new StringType();
       if (!(this.performed instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (StringType) this.performed;
@@ -1598,7 +1598,7 @@ public class Procedure extends DomainResource {
      */
     public Age getPerformedAge() throws FHIRException { 
       if (this.performed == null)
-        return null;
+        this.performed = new Age();
       if (!(this.performed instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Age) this.performed;
@@ -1613,7 +1613,7 @@ public class Procedure extends DomainResource {
      */
     public Range getPerformedRange() throws FHIRException { 
       if (this.performed == null)
-        return null;
+        this.performed = new Range();
       if (!(this.performed instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Range) this.performed;

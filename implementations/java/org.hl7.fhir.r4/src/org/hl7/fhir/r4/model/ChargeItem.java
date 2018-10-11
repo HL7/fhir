@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
  */
-@ResourceDef(name="ChargeItem", profile="http://hl7.org/fhir/Profile/ChargeItem")
+@ResourceDef(name="ChargeItem", profile="http://hl7.org/fhir/StructureDefinition/ChargeItem")
 public class ChargeItem extends DomainResource {
 
     public enum ChargeItemStatus {
@@ -1044,7 +1044,7 @@ public class ChargeItem extends DomainResource {
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new DateTimeType();
       if (!(this.occurrence instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (DateTimeType) this.occurrence;
@@ -1059,7 +1059,7 @@ public class ChargeItem extends DomainResource {
      */
     public Period getOccurrencePeriod() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new Period();
       if (!(this.occurrence instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Period) this.occurrence;
@@ -1074,7 +1074,7 @@ public class ChargeItem extends DomainResource {
      */
     public Timing getOccurrenceTiming() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new Timing();
       if (!(this.occurrence instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Timing) this.occurrence;
@@ -1716,7 +1716,7 @@ public class ChargeItem extends DomainResource {
      */
     public Reference getProductReference() throws FHIRException { 
       if (this.product == null)
-        return null;
+        this.product = new Reference();
       if (!(this.product instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.product.getClass().getName()+" was encountered");
       return (Reference) this.product;
@@ -1731,7 +1731,7 @@ public class ChargeItem extends DomainResource {
      */
     public CodeableConcept getProductCodeableConcept() throws FHIRException { 
       if (this.product == null)
-        return null;
+        this.product = new CodeableConcept();
       if (!(this.product instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.product.getClass().getName()+" was encountered");
       return (CodeableConcept) this.product;

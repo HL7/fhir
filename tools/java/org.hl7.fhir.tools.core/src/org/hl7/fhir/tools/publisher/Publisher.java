@@ -159,6 +159,7 @@ import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.Meta;
@@ -1546,7 +1547,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.setKind(CapabilityStatementKind.CAPABILITY);
     cpbs.setSoftware(new CapabilityStatementSoftwareComponent());
     cpbs.getSoftware().setName("Insert your software name here...");
-    cpbs.setFhirVersion(page.getVersion());
+    cpbs.setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
     cpbs.getFormat().add(Factory.newCode("xml"));
     cpbs.getFormat().add(Factory.newCode("json"));
     CapabilityStatementRestComponent rest = new CapabilityStatement.CapabilityStatementRestComponent();
@@ -1762,7 +1763,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.setIni(new IniFile(page.getFolders().rootDir + "publish.ini"));
       page.setVersion(page.getIni().getStringProperty("FHIR", "version"));
 
-      prsr = new SourceParser(page, folder, page.getDefinitions(), web, page.getVersion(), page.getWorkerContext(), page.getGenDate(), page, fpUsages, isCIBuild);
+      prsr = new SourceParser(page, folder, page.getDefinitions(), web, FHIRVersion.fromCode(page.getVersion()), page.getWorkerContext(), page.getGenDate(), page, fpUsages, isCIBuild);
       prsr.checkConditions(errors, dates);
       page.setRegistry(prsr.getRegistry());
       page.getDiffEngine().loadFromIni(prsr.getIni());
@@ -3592,7 +3593,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void buildSearchDefinition(ResourceDefn rd, SearchParameterDefn spd) throws Exception {
     StructureDefinition p = new StructureDefinition();
-    p.setFhirVersion(page.getVersion());
+    p.setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(true);
     p.setPublisher("Health Level Seven International (" + rd.getWg() + ")");
@@ -4488,7 +4489,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
         boolean wantSave = false;
         if (res instanceof CapabilityStatement) {
-          ((CapabilityStatement) res).setFhirVersion(page.getVersion());
+          ((CapabilityStatement) res).setFhirVersion(FHIRVersion.fromCode(page.getVersion()));
           if (res.hasText() && res.getText().hasDiv())
             wantSave = updateVersion(((CapabilityStatement) res).getText().getDiv());
         }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.
  */
-@ResourceDef(name="ChargeItemDefinition", profile="http://hl7.org/fhir/Profile/ChargeItemDefinition")
+@ResourceDef(name="ChargeItemDefinition", profile="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition")
 @ChildOrder(names={"url", "identifier", "version", "title", "derivedFromUri", "partOf", "replaces", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "copyright", "approvalDate", "lastReviewDate", "effectivePeriod", "code", "instance", "applicability", "propertyGroup"})
 public class ChargeItemDefinition extends MetadataResource {
 

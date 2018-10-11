@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.
  */
-@ResourceDef(name="ConceptMap", profile="http://hl7.org/fhir/Profile/ConceptMap")
+@ResourceDef(name="ConceptMap", profile="http://hl7.org/fhir/StructureDefinition/ConceptMap")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "source[x]", "target[x]", "group"})
 public class ConceptMap extends MetadataResource {
 
@@ -3116,7 +3116,7 @@ public class ConceptMap extends MetadataResource {
      */
     public UriType getSourceUriType() throws FHIRException { 
       if (this.source == null)
-        return null;
+        this.source = new UriType();
       if (!(this.source instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.source.getClass().getName()+" was encountered");
       return (UriType) this.source;
@@ -3131,7 +3131,7 @@ public class ConceptMap extends MetadataResource {
      */
     public CanonicalType getSourceCanonicalType() throws FHIRException { 
       if (this.source == null)
-        return null;
+        this.source = new CanonicalType();
       if (!(this.source instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.source.getClass().getName()+" was encountered");
       return (CanonicalType) this.source;
@@ -3167,7 +3167,7 @@ public class ConceptMap extends MetadataResource {
      */
     public UriType getTargetUriType() throws FHIRException { 
       if (this.target == null)
-        return null;
+        this.target = new UriType();
       if (!(this.target instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (UriType) this.target;
@@ -3182,7 +3182,7 @@ public class ConceptMap extends MetadataResource {
      */
     public CanonicalType getTargetCanonicalType() throws FHIRException { 
       if (this.target == null)
-        return null;
+        this.target = new CanonicalType();
       if (!(this.target instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (CanonicalType) this.target;

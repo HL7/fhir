@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
  */
-@ResourceDef(name="ImmunizationRecommendation", profile="http://hl7.org/fhir/Profile/ImmunizationRecommendation")
+@ResourceDef(name="ImmunizationRecommendation", profile="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation")
 public class ImmunizationRecommendation extends DomainResource {
 
     @Block()
@@ -536,7 +536,7 @@ public class ImmunizationRecommendation extends DomainResource {
          */
         public PositiveIntType getDoseNumberPositiveIntType() throws FHIRException { 
           if (this.doseNumber == null)
-            return null;
+            this.doseNumber = new PositiveIntType();
           if (!(this.doseNumber instanceof PositiveIntType))
             throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.doseNumber.getClass().getName()+" was encountered");
           return (PositiveIntType) this.doseNumber;
@@ -551,7 +551,7 @@ public class ImmunizationRecommendation extends DomainResource {
          */
         public StringType getDoseNumberStringType() throws FHIRException { 
           if (this.doseNumber == null)
-            return null;
+            this.doseNumber = new StringType();
           if (!(this.doseNumber instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.doseNumber.getClass().getName()+" was encountered");
           return (StringType) this.doseNumber;
@@ -587,7 +587,7 @@ public class ImmunizationRecommendation extends DomainResource {
          */
         public PositiveIntType getSeriesDosesPositiveIntType() throws FHIRException { 
           if (this.seriesDoses == null)
-            return null;
+            this.seriesDoses = new PositiveIntType();
           if (!(this.seriesDoses instanceof PositiveIntType))
             throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.seriesDoses.getClass().getName()+" was encountered");
           return (PositiveIntType) this.seriesDoses;
@@ -602,7 +602,7 @@ public class ImmunizationRecommendation extends DomainResource {
          */
         public StringType getSeriesDosesStringType() throws FHIRException { 
           if (this.seriesDoses == null)
-            return null;
+            this.seriesDoses = new StringType();
           if (!(this.seriesDoses instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.seriesDoses.getClass().getName()+" was encountered");
           return (StringType) this.seriesDoses;

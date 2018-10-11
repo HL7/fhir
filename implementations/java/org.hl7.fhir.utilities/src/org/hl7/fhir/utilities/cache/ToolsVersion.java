@@ -15,6 +15,7 @@ public class ToolsVersion {
    *  - when loading the current version package
    */
   public final static int TOOLS_VERSION = 2;
+  public final static String TOOLS_VERSION_STR = "2";
   
   // version history:
   // 2: split auto-ig into r3/r4 content

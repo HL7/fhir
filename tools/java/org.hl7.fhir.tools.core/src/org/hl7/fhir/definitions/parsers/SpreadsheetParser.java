@@ -95,6 +95,7 @@ import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DecimalType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Identifier;
@@ -159,7 +160,7 @@ public class SpreadsheetParser {
 	private String sheetname;
 	private OIDRegistry registry;
   private String dataTypesFolder;
-  private String version;
+  private FHIRVersion version;
   private BuildWorkerContext context;
   private Calendar genDate;
   private boolean isAbstract;
@@ -180,7 +181,7 @@ public class SpreadsheetParser {
   private String templateTitle;
   private List<String> errors = new ArrayList<String>();
   
-	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps, boolean exceptionIfExcelNotNormalised) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps, boolean exceptionIfExcelNotNormalised) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
   	xls = new XLSXmlParser(in, filename);
@@ -212,7 +213,7 @@ public class SpreadsheetParser {
 		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, FHIRVersion version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups, boolean exceptionIfExcelNotNormalised) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
@@ -1104,7 +1105,7 @@ public class SpreadsheetParser {
       String bindingName = sheet.getColumn(row, "Binding Name");
     }
 
-		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version, genDate, context.translator());
+		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator());
 
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  String bindingName = sheet.getColumn(row, "Binding Name");
@@ -1153,7 +1154,7 @@ public class SpreadsheetParser {
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         vsGen.updateHeader(cd, cd.getValueSet());
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")), getIsUtg(bindingName));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version.toCode(), codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")), getIsUtg(bindingName));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -1161,7 +1162,7 @@ public class SpreadsheetParser {
           cd.setValueSet(loadValueSet(ref));
       } else if (cd.getBinding() == BindingMethod.Special) {
         if ("#operation-outcome".equals(sheet.getColumn(row, "Reference")))
-          new ValueSetGenerator(definitions, version, genDate, context.translator()).loadOperationOutcomeValueSet(cd);
+          new ValueSetGenerator(definitions, version.toCode(), genDate, context.translator()).loadOperationOutcomeValueSet(cd);
         else
           throw new Exception("Special bindings are only allowed in bindings.xml");
       }
@@ -1292,7 +1293,7 @@ public class SpreadsheetParser {
         result.setTitle(Utilities.capitalize(Utilities.unCamelCase(result.getName())));
 	    result.setExperimental(true);
 	    if (!result.hasVersion())
-	      result.setVersion(version);
+	      result.setVersion(version.toCode());
       result.setUserData("filename", ref);
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       if (!result.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
@@ -1343,7 +1344,7 @@ public class SpreadsheetParser {
 
   private String processDefinition(String definition) {
 
-    return definition.replace("$version$", Utilities.appendPeriod(version));
+    return definition.replace("$version$", Utilities.appendPeriod(version.toCode()));
   }
 
 

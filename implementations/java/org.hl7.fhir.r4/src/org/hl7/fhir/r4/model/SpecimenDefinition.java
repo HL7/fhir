@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A kind of specimen with associated set of requirements.
  */
-@ResourceDef(name="SpecimenDefinition", profile="http://hl7.org/fhir/Profile/SpecimenDefinition")
+@ResourceDef(name="SpecimenDefinition", profile="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition")
 public class SpecimenDefinition extends DomainResource {
 
     public enum SpecimenContainedPreference {
@@ -515,7 +515,7 @@ public class SpecimenDefinition extends DomainResource {
             this.handling = new ArrayList<SpecimenDefinitionTypeTestedHandlingComponent>();
           this.handling.add(t);
           return t;
-          }
+        }
 
         public SpecimenDefinitionTypeTestedComponent addHandling(SpecimenDefinitionTypeTestedHandlingComponent t) { //3
           if (t == null)
@@ -756,9 +756,9 @@ public class SpecimenDefinition extends DomainResource {
   public String fhirType() {
     return "SpecimenDefinition.typeTested";
 
-        }
+  }
 
-        }
+  }
 
     @Block()
     public static class SpecimenDefinitionTypeTestedContainerComponent extends BackboneElement implements IBaseBackboneElement {
@@ -824,10 +824,10 @@ public class SpecimenDefinition extends DomainResource {
 
     /**
      * Constructor
-         */
+     */
       public SpecimenDefinitionTypeTestedContainerComponent() {
         super();
-        }
+      }
 
         /**
          * @return {@link #material} (The type of material of the container.)
@@ -1358,7 +1358,7 @@ public class SpecimenDefinition extends DomainResource {
          */
         public CodeableConcept getAdditiveCodeableConcept() throws FHIRException { 
           if (this.additive == null)
-            return null;
+            this.additive = new CodeableConcept();
           if (!(this.additive instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.additive.getClass().getName()+" was encountered");
           return (CodeableConcept) this.additive;
@@ -1373,7 +1373,7 @@ public class SpecimenDefinition extends DomainResource {
          */
         public Reference getAdditiveReference() throws FHIRException { 
           if (this.additive == null)
-            return null;
+            this.additive = new Reference();
           if (!(this.additive instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.additive.getClass().getName()+" was encountered");
           return (Reference) this.additive;

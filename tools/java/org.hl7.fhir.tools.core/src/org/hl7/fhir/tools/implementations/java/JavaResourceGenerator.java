@@ -2281,7 +2281,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
             String ttn = getTypename(t);
             write(indent+"public "+ttn+" get"+getTitle(getElementName(e.getName(), false))+ttn+"() throws FHIRException { \r\n");
             write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
-            write(indent+"    return null;\r\n");
+            write(indent+"    this."+getElementName(e.getName(), true)+" = new "+ttn+"();\r\n");
             write(indent+"  if (!(this."+getElementName(e.getName(), true)+" instanceof "+ttn+"))\r\n");
             write(indent+"    throw new FHIRException(\"Type mismatch: the type "+ttn+" was expected, but \"+this."+getElementName(e.getName(), true)+".getClass().getName()+\" was encountered\");\r\n");
             write(indent+"  return ("+ttn+") this."+getElementName(e.getName(), true)+";\r\n");

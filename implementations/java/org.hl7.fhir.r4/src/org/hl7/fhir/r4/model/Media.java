@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
  */
-@ResourceDef(name="Media", profile="http://hl7.org/fhir/Profile/Media")
+@ResourceDef(name="Media", profile="http://hl7.org/fhir/StructureDefinition/Media")
 public class Media extends DomainResource {
 
     public enum MediaStatus {
@@ -831,7 +831,7 @@ public class Media extends DomainResource {
      */
     public DateTimeType getCreatedDateTimeType() throws FHIRException { 
       if (this.created == null)
-        return null;
+        this.created = new DateTimeType();
       if (!(this.created instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.created.getClass().getName()+" was encountered");
       return (DateTimeType) this.created;
@@ -846,7 +846,7 @@ public class Media extends DomainResource {
      */
     public Period getCreatedPeriod() throws FHIRException { 
       if (this.created == null)
-        return null;
+        this.created = new Period();
       if (!(this.created instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.created.getClass().getName()+" was encountered");
       return (Period) this.created;

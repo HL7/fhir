@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
  */
-@ResourceDef(name="MessageHeader", profile="http://hl7.org/fhir/Profile/MessageHeader")
+@ResourceDef(name="MessageHeader", profile="http://hl7.org/fhir/StructureDefinition/MessageHeader")
 public class MessageHeader extends DomainResource {
 
     public enum ResponseType {
@@ -1439,7 +1439,7 @@ public class MessageHeader extends DomainResource {
      */
     public Coding getEventCoding() throws FHIRException { 
       if (this.event == null)
-        return null;
+        this.event = new Coding();
       if (!(this.event instanceof Coding))
         throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.event.getClass().getName()+" was encountered");
       return (Coding) this.event;
@@ -1454,7 +1454,7 @@ public class MessageHeader extends DomainResource {
      */
     public UriType getEventUriType() throws FHIRException { 
       if (this.event == null)
-        return null;
+        this.event = new UriType();
       if (!(this.event instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.event.getClass().getName()+" was encountered");
       return (UriType) this.event;

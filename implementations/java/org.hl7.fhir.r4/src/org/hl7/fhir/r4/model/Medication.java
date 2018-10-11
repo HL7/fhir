@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,116 +45,8 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
  */
-@ResourceDef(name="Medication", profile="http://hl7.org/fhir/Profile/Medication")
+@ResourceDef(name="Medication", profile="http://hl7.org/fhir/StructureDefinition/Medication")
 public class Medication extends DomainResource {
-
-    public enum MedicationStatus {
-        /**
-         * The medication is available for use.
-         */
-        ACTIVE, 
-        /**
-         * The medication is not available for use.
-         */
-        INACTIVE, 
-        /**
-         * The medication was entered in error.
-         */
-        ENTEREDINERROR, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static MedicationStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("inactive".equals(codeString))
-          return INACTIVE;
-        if ("entered-in-error".equals(codeString))
-          return ENTEREDINERROR;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown MedicationStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case ACTIVE: return "active";
-            case INACTIVE: return "inactive";
-            case ENTEREDINERROR: return "entered-in-error";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case ACTIVE: return "http://hl7.org/fhir/medication-status";
-            case INACTIVE: return "http://hl7.org/fhir/medication-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/medication-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case ACTIVE: return "The medication is available for use.";
-            case INACTIVE: return "The medication is not available for use.";
-            case ENTEREDINERROR: return "The medication was entered in error.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case ACTIVE: return "Active";
-            case INACTIVE: return "Inactive";
-            case ENTEREDINERROR: return "Entered in Error";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class MedicationStatusEnumFactory implements EnumFactory<MedicationStatus> {
-    public MedicationStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("active".equals(codeString))
-          return MedicationStatus.ACTIVE;
-        if ("inactive".equals(codeString))
-          return MedicationStatus.INACTIVE;
-        if ("entered-in-error".equals(codeString))
-          return MedicationStatus.ENTEREDINERROR;
-        throw new IllegalArgumentException("Unknown MedicationStatus code '"+codeString+"'");
-        }
-        public Enumeration<MedicationStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<MedicationStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("active".equals(codeString))
-          return new Enumeration<MedicationStatus>(this, MedicationStatus.ACTIVE);
-        if ("inactive".equals(codeString))
-          return new Enumeration<MedicationStatus>(this, MedicationStatus.INACTIVE);
-        if ("entered-in-error".equals(codeString))
-          return new Enumeration<MedicationStatus>(this, MedicationStatus.ENTEREDINERROR);
-        throw new FHIRException("Unknown MedicationStatus code '"+codeString+"'");
-        }
-    public String toCode(MedicationStatus code) {
-      if (code == MedicationStatus.ACTIVE)
-        return "active";
-      if (code == MedicationStatus.INACTIVE)
-        return "inactive";
-      if (code == MedicationStatus.ENTEREDINERROR)
-        return "entered-in-error";
-      return "?";
-      }
-    public String toSystem(MedicationStatus code) {
-      return code.getSystem();
-      }
-    }
 
     @Block()
     public static class MedicationIngredientComponent extends BackboneElement implements IBaseBackboneElement {
@@ -208,7 +100,7 @@ public class Medication extends DomainResource {
          */
         public CodeableConcept getItemCodeableConcept() throws FHIRException { 
           if (this.item == null)
-            return null;
+            this.item = new CodeableConcept();
           if (!(this.item instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.item.getClass().getName()+" was encountered");
           return (CodeableConcept) this.item;
@@ -223,7 +115,7 @@ public class Medication extends DomainResource {
          */
         public Reference getItemReference() throws FHIRException { 
           if (this.item == null)
-            return null;
+            this.item = new Reference();
           if (!(this.item instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.item.getClass().getName()+" was encountered");
           return (Reference) this.item;
@@ -792,10 +684,10 @@ public class Medication extends DomainResource {
     /**
      * A code to indicate if the medication is in active use.
      */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-status")
-    protected Enumeration<MedicationStatus> status;
+    protected CodeableConcept status;
 
     /**
      * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
@@ -838,7 +730,7 @@ public class Medication extends DomainResource {
     @Description(shortDefinition="Details about packaged medications", formalDefinition="Information that only applies to packages (not products)." )
     protected MedicationBatchComponent batch;
 
-    private static final long serialVersionUID = -482408531L;
+    private static final long serialVersionUID = -1328144026L;
 
   /**
    * Constructor
@@ -872,19 +764,15 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code to indicate if the medication is in active use.)
      */
-    public Enumeration<MedicationStatus> getStatusElement() { 
+    public CodeableConcept getStatus() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Medication.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<MedicationStatus>(new MedicationStatusEnumFactory()); // bb
+          this.status = new CodeableConcept(); // cc
       return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
     }
 
     public boolean hasStatus() { 
@@ -892,31 +780,10 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code to indicate if the medication is in active use.)
      */
-    public Medication setStatusElement(Enumeration<MedicationStatus> value) { 
+    public Medication setStatus(CodeableConcept value) { 
       this.status = value;
-      return this;
-    }
-
-    /**
-     * @return A code to indicate if the medication is in active use.
-     */
-    public MedicationStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value A code to indicate if the medication is in active use.
-     */
-    public Medication setStatus(MedicationStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<MedicationStatus>(new MedicationStatusEnumFactory());
-        this.status.setValue(value);
-      }
       return this;
     }
 
@@ -1092,7 +959,7 @@ public class Medication extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("code", "CodeableConcept", "A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, 1, code));
-        children.add(new Property("status", "code", "A code to indicate if the medication is in active use.", 0, 1, status));
+        children.add(new Property("status", "CodeableConcept", "A code to indicate if the medication is in active use.", 0, 1, status));
         children.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, 1, manufacturer));
         children.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, 1, form));
         children.add(new Property("amount", "SimpleQuantity", "Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).", 0, 1, amount));
@@ -1104,7 +971,7 @@ public class Medication extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, 1, code);
-        case -892481550: /*status*/  return new Property("status", "code", "A code to indicate if the medication is in active use.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "CodeableConcept", "A code to indicate if the medication is in active use.", 0, 1, status);
         case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, 1, manufacturer);
         case 3148996: /*form*/  return new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, 1, form);
         case -1413853096: /*amount*/  return new Property("amount", "SimpleQuantity", "Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.).", 0, 1, amount);
@@ -1119,7 +986,7 @@ public class Medication extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatus>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // Reference
         case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
         case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Quantity
@@ -1137,8 +1004,7 @@ public class Medication extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -892481550: // status
-          value = new MedicationStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<MedicationStatus>
+          this.status = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1969347631: // manufacturer
           this.manufacturer = castToReference(value); // Reference
@@ -1165,8 +1031,7 @@ public class Medication extends DomainResource {
         if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("status")) {
-          value = new MedicationStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<MedicationStatus>
+          this.status = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("manufacturer")) {
           this.manufacturer = castToReference(value); // Reference
         } else if (name.equals("form")) {
@@ -1186,7 +1051,7 @@ public class Medication extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); 
-        case -892481550:  return getStatusElement();
+        case -892481550:  return getStatus(); 
         case -1969347631:  return getManufacturer(); 
         case 3148996:  return getForm(); 
         case -1413853096:  return getAmount(); 
@@ -1201,7 +1066,7 @@ public class Medication extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -892481550: /*status*/ return new String[] {"code"};
+        case -892481550: /*status*/ return new String[] {"CodeableConcept"};
         case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         case 3148996: /*form*/ return new String[] {"CodeableConcept"};
         case -1413853096: /*amount*/ return new String[] {"SimpleQuantity"};
@@ -1219,7 +1084,8 @@ public class Medication extends DomainResource {
           return this.code;
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Medication.status");
+          this.status = new CodeableConcept();
+          return this.status;
         }
         else if (name.equals("manufacturer")) {
           this.manufacturer = new Reference();
@@ -1289,7 +1155,7 @@ public class Medication extends DomainResource {
         if (!(other_ instanceof Medication))
           return false;
         Medication o = (Medication) other_;
-        return compareValues(status, o.status, true);
+        return true;
       }
 
       public boolean isEmpty() {

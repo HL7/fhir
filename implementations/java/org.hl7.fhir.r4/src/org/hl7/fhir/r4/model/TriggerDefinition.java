@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -394,7 +394,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
      */
     public Timing getTimingTiming() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new Timing();
       if (!(this.timing instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Timing) this.timing;
@@ -409,7 +409,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
      */
     public Reference getTimingReference() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new Reference();
       if (!(this.timing instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Reference) this.timing;
@@ -424,7 +424,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
      */
     public DateType getTimingDateType() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new DateType();
       if (!(this.timing instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (DateType) this.timing;
@@ -439,7 +439,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
      */
     public DateTimeType getTimingDateTimeType() throws FHIRException { 
       if (this.timing == null)
-        return null;
+        this.timing = new DateTimeType();
       if (!(this.timing instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (DateTimeType) this.timing;

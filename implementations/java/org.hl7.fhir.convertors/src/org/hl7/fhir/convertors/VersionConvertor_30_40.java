@@ -11,8 +11,10 @@ import org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationCo
 import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.Expression.ExpressionLanguage;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Contributor;
+import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Type;
@@ -4616,7 +4618,7 @@ public class VersionConvertor_30_40 {
     if (src.hasImplementation())
       tgt.setImplementation(convertCapabilityStatementImplementationComponent(src.getImplementation()));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(src.getFhirVersion());
+      tgt.setFhirVersion(FHIRVersion.fromCode(src.getFhirVersion()));
 //    if (src.hasAcceptUnknown())
 //      tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getFormat())
@@ -4679,7 +4681,7 @@ public class VersionConvertor_30_40 {
     if (src.hasImplementation())
       tgt.setImplementation(convertCapabilityStatementImplementationComponent(src.getImplementation()));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(src.getFhirVersion());
+      tgt.setFhirVersion(src.getFhirVersion().toCode());
 //    if (src.hasAcceptUnknown())
 //      tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.r4.model.CodeType t : src.getFormat())
@@ -12010,11 +12012,11 @@ public class VersionConvertor_30_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(src.getFhirVersion());
+      tgt.addFhirVersion(FHIRVersion.fromCode(src.getFhirVersion()));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
       tgt.addDependsOn(convertImplementationGuideDependencyComponent(t));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent t : src.getPackage())
-      tgt.getDefinition().addPackage(convertImplementationGuidePackageComponent(tgt.getDefinition(), t));
+      tgt.getDefinition().addGrouping(convertImplementationGuidePackageComponent(tgt.getDefinition(), t));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuideGlobalComponent t : src.getGlobal())
       tgt.addGlobal(convertImplementationGuideGlobalComponent(t));
 //    for (org.hl7.fhir.dstu3.model.UriType t : src.getBinary())
@@ -12054,13 +12056,16 @@ public class VersionConvertor_30_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(src.getFhirVersion());
+      for (Enumeration<FHIRVersion> v : src.getFhirVersion()) {
+        tgt.setFhirVersion(v.asStringValue());
+        break;
+      }
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent t : src.getDependsOn())
       tgt.addDependency(convertImplementationGuideDependencyComponent(t));
-    for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent t : src.getDefinition().getPackage())
+    for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent t : src.getDefinition().getGrouping())
       tgt.addPackage(convertImplementationGuidePackageComponent(t));
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent t : src.getDefinition().getResource()) {
-      findPackage(tgt.getPackage(), t.getPackage()).addResource(convertImplementationGuidePackageResourceComponent(t));
+      findPackage(tgt.getPackage(), t.getGroupingId()).addResource(convertImplementationGuidePackageResourceComponent(t));
     }
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideGlobalComponent t : src.getGlobal())
       tgt.addGlobal(convertImplementationGuideGlobalComponent(t));
@@ -12103,11 +12108,11 @@ public class VersionConvertor_30_40 {
   }
 
 
-  public static org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent convertImplementationGuidePackageComponent(org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionComponent context, org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent convertImplementationGuidePackageComponent(org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionComponent context, org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent src) throws FHIRException {
     if (src == null)
       return null;
-    org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent();
-    tgt.setId("p"+(context.getPackage().size()+1));
+    org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent();
+    tgt.setId("p"+(context.getGrouping().size()+1));
     copyElement(src, tgt);
     if (src.hasName())
       tgt.setName(src.getName());
@@ -12115,13 +12120,13 @@ public class VersionConvertor_30_40 {
       tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent t : src.getResource()) {
       org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent tn = convertImplementationGuidePackageResourceComponent(t);
-      tn.setPackage(tgt.getId());
+      tn.setGroupingId(tgt.getId());
       context.addResource(tn);
     }
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent convertImplementationGuidePackageComponent(org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent convertImplementationGuidePackageComponent(org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent src) throws FHIRException {
     if (src == null)
       return null;
     org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent();
@@ -12655,27 +12660,28 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.Medication.MedicationStatus convertMedicationStatus(org.hl7.fhir.dstu3.model.Medication.MedicationStatus src) throws FHIRException {
+  private static org.hl7.fhir.r4.model.CodeableConcept convertMedicationStatus(org.hl7.fhir.dstu3.model.Medication.MedicationStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.r4.model.Medication.MedicationStatus.ACTIVE;
-    case INACTIVE: return org.hl7.fhir.r4.model.Medication.MedicationStatus.INACTIVE;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.Medication.MedicationStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.r4.model.Medication.MedicationStatus.NULL;
+    case ACTIVE: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("active"));
+    case INACTIVE: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("inactive"));
+    case ENTEREDINERROR: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("entered-in-error"));
+    default: return null;
   }
 }
 
-  private static org.hl7.fhir.dstu3.model.Medication.MedicationStatus convertMedicationStatus(org.hl7.fhir.r4.model.Medication.MedicationStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.Medication.MedicationStatus convertMedicationStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.ACTIVE;
-    case INACTIVE: return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.INACTIVE;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.ENTEREDINERROR;
-    default: return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.NULL;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-status", "active")) 
+      return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.ACTIVE; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-status", "inactive")) 
+      return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.INACTIVE; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-status", "entered-in-error")) 
+      return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.ENTEREDINERROR; 
+    return org.hl7.fhir.dstu3.model.Medication.MedicationStatus.NULL;
   }
-}
 
   public static org.hl7.fhir.r4.model.Medication.MedicationIngredientComponent convertMedicationIngredientComponent(org.hl7.fhir.dstu3.model.Medication.MedicationIngredientComponent src) throws FHIRException {
     if (src == null)
@@ -12826,33 +12832,38 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus convertMedicationAdministrationStatus(org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus src) throws FHIRException {
+  private static org.hl7.fhir.r4.model.CodeableConcept convertMedicationAdministrationStatus(org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case INPROGRESS: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.INPROGRESS;
-    case ONHOLD: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.ONHOLD;
-    case COMPLETED: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.STOPPED;
-    case UNKNOWN: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.UNKNOWN;
-    default: return org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus.NULL;
+    case INPROGRESS: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-admin-status").setCode("in-progress"));
+    case ONHOLD: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-admin-status").setCode("on-hold"));
+    case COMPLETED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-admin-status").setCode("completed"));
+    case ENTEREDINERROR: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-admin-status").setCode("entered-in-error"));
+    case STOPPED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-admin-status").setCode("stopped"));
+    case UNKNOWN: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-admin-status").setCode("unknown"));
+    default: return null;
   }
 }
 
-  private static org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus convertMedicationAdministrationStatus(org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus convertMedicationAdministrationStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case INPROGRESS: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.INPROGRESS;
-    case ONHOLD: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.ONHOLD;
-    case COMPLETED: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.STOPPED;
-    case UNKNOWN: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.UNKNOWN;
-    default: return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.NULL;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-admin-status", "in-progress")) 
+      return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.INPROGRESS; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-admin-status", "on-hold")) 
+      return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.ONHOLD; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-admin-status", "completed")) 
+      return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.COMPLETED; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-admin-status", "entered-in-error")) 
+      return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.ENTEREDINERROR; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-admin-status", "stopped")) 
+      return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.STOPPED; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medication-admin-status", "unknown")) 
+      return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.UNKNOWN; 
+    return org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationStatus.NULL;
   }
-}
+
 
   public static org.hl7.fhir.r4.model.MedicationAdministration.MedicationAdministrationPerformerComponent convertMedicationAdministrationPerformerComponent(org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationPerformerComponent src) throws FHIRException {
     if (src == null)
@@ -13030,33 +13041,37 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus convertMedicationDispenseStatus(org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.CodeableConcept convertMedicationDispenseStatus(org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case PREPARATION: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.PREPARATION;
-    case INPROGRESS: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.INPROGRESS;
-    case ONHOLD: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.ONHOLD;
-    case COMPLETED: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.STOPPED;
-    default: return org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus.NULL;
+    case PREPARATION: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationdispense-status").setCode("preparation"));
+    case INPROGRESS: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationdispense-status").setCode("in-progress"));
+    case ONHOLD: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationdispense-status").setCode("on-hold"));
+    case COMPLETED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationdispense-status").setCode("completed"));
+    case ENTEREDINERROR: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationdispense-status").setCode("entered-in-error"));
+    case STOPPED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationdispense-status").setCode("stopped"));
+    default: return null;
+    }
   }
-}
 
-  private static org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus convertMedicationDispenseStatus(org.hl7.fhir.r4.model.MedicationDispense.MedicationDispenseStatus src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus convertMedicationDispenseStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case PREPARATION: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.PREPARATION;
-    case INPROGRESS: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.INPROGRESS;
-    case ONHOLD: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.ONHOLD;
-    case COMPLETED: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.STOPPED;
-    default: return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.NULL;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "preparation")) 
+      return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.PREPARATION;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "in-progress")) 
+      return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.INPROGRESS;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "on-hold")) 
+      return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.ONHOLD;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "completed")) 
+      return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.COMPLETED;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "entered-in-error")) 
+      return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.ENTEREDINERROR;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "stopped")) 
+      return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.STOPPED;
+    return org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispenseStatus.NULL;
   }
-}
 
   public static org.hl7.fhir.r4.model.MedicationDispense.MedicationDispensePerformerComponent convertMedicationDispensePerformerComponent(org.hl7.fhir.dstu3.model.MedicationDispense.MedicationDispensePerformerComponent src) throws FHIRException {
     if (src == null)
@@ -13226,85 +13241,97 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus convertMedicationRequestStatus(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus src) throws FHIRException {
+  private static org.hl7.fhir.r4.model.CodeableConcept convertMedicationRequestStatus(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.ACTIVE;
-    case ONHOLD: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.ONHOLD;
-    case CANCELLED: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.CANCELLED;
-    case COMPLETED: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.STOPPED;
-    case DRAFT: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.DRAFT;
-    case UNKNOWN: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.UNKNOWN;
-    default: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus.NULL;
+    case ACTIVE: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("active"));
+    case ONHOLD: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("on-hold"));
+    case CANCELLED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("cancelled"));
+    case COMPLETED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("completed"));
+    case ENTEREDINERROR: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("entered-in-error"));
+    case STOPPED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("stopped"));
+    case DRAFT: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("draft"));
+    case UNKNOWN: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-status").setCode("unknown"));
+    default: return null;
   }
 }
 
-  private static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus convertMedicationRequestStatus(org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestStatus src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus convertMedicationRequestStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
+    if (src == null)
+      return null;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "active")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.ACTIVE; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "on-hold")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.ONHOLD; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "cancelled")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.CANCELLED; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "completed")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.COMPLETED; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "entered-in-error")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.ENTEREDINERROR; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "stopped")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.STOPPED; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "draft")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.DRAFT; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "unknown")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.UNKNOWN; 
+    return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.NULL;
+  }
+
+
+  private static org.hl7.fhir.r4.model.CodeableConcept convertMedicationRequestIntent(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.ACTIVE;
-    case ONHOLD: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.ONHOLD;
-    case CANCELLED: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.CANCELLED;
-    case COMPLETED: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.ENTEREDINERROR;
-    case STOPPED: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.STOPPED;
-    case DRAFT: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.DRAFT;
-    case UNKNOWN: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.UNKNOWN;
-    default: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestStatus.NULL;
+    case PROPOSAL: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-intent").setCode("proposal"));
+    case PLAN: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-intent").setCode("plan"));
+    case ORDER: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-intent").setCode("order"));
+    case INSTANCEORDER: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medicationrequest-intent").setCode("instance-order"));
+    default: return null;
   }
 }
 
-  private static org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent convertMedicationRequestIntent(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent convertMedicationRequestIntent(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
+    if (src == null)
+      return null;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "proposal")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.PROPOSAL; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "plan")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.PLAN; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "order")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.ORDER; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationrequest-status", "instance-order")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.INSTANCEORDER; 
+    return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.NULL;
+  }
+
+  private static org.hl7.fhir.r4.model.CodeableConcept convertMedicationRequestPriority(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSAL: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent.PROPOSAL;
-    case PLAN: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent.PLAN;
-    case ORDER: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent.ORDER;
-    case INSTANCEORDER: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent.INSTANCEORDER;
-    default: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent.NULL;
+    case ROUTINE: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/request-priority").setCode("routine"));
+    case URGENT: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/request-priority").setCode("urgent"));
+    case STAT: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/request-priority").setCode("stat"));
+    case ASAP: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/request-priority").setCode("asap"));
+    default: return null;
   }
 }
 
-  private static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent convertMedicationRequestIntent(org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestIntent src) throws FHIRException {
+  private static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority convertMedicationRequestPriority(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case PROPOSAL: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.PROPOSAL;
-    case PLAN: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.PLAN;
-    case ORDER: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.ORDER;
-    case INSTANCEORDER: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.INSTANCEORDER;
-    default: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestIntent.NULL;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/request-priority", "routine")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.ROUTINE; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/request-priority", "urgent")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.URGENT; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/request-priority", "stat")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.STAT; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/request-priority", "asap")) 
+      return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.ASAP; 
+    return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.NULL;
   }
-}
 
-  private static org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority convertMedicationRequestPriority(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ROUTINE: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority.ROUTINE;
-    case URGENT: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority.URGENT;
-    case STAT: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority.STAT;
-    case ASAP: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority.ASAP;
-    default: return org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority.NULL;
-  }
-}
-
-  private static org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority convertMedicationRequestPriority(org.hl7.fhir.r4.model.MedicationRequest.MedicationRequestPriority src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ROUTINE: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.ROUTINE;
-    case URGENT: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.URGENT;
-    case STAT: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.STAT;
-    case ASAP: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.ASAP;
-    default: return org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestPriority.NULL;
-  }
-}
 
   public static org.hl7.fhir.r4.model.Reference convertMedicationRequestRequesterComponent(org.hl7.fhir.dstu3.model.MedicationRequest.MedicationRequestRequesterComponent src) throws FHIRException {
     if (src == null || !src.hasAgent())
@@ -13471,33 +13498,37 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus convertMedicationStatementStatus(org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.CodeableConcept convertMedicationStatementStatus(org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case ACTIVE: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.ACTIVE;
-    case COMPLETED: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.ENTEREDINERROR;
-    case INTENDED: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.INTENDED;
-    case STOPPED: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.STOPPED;
-    case ONHOLD: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.ONHOLD;
-    default: return org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus.NULL;
+    case ACTIVE: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("active"));
+    case COMPLETED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("completed"));
+    case ENTEREDINERROR: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("entered-in-error"));
+    case INTENDED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("intended"));
+    case STOPPED: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("stopped"));
+    case ONHOLD: return new org.hl7.fhir.r4.model.CodeableConcept(new org.hl7.fhir.r4.model.Coding().setSystem("http://terminology.hl7.org/CodeSystem/medication-statement-status").setCode("on-hold"));
+    default: return null;
+    }
   }
-}
 
-  private static org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus convertMedicationStatementStatus(org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus src) throws FHIRException {
+  public static org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus convertMedicationStatementStatus(org.hl7.fhir.r4.model.CodeableConcept src) throws FHIRException {
     if (src == null)
       return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.ACTIVE;
-    case COMPLETED: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.COMPLETED;
-    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.ENTEREDINERROR;
-    case INTENDED: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.INTENDED;
-    case STOPPED: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.STOPPED;
-    case ONHOLD: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.ONHOLD;
-    default: return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.NULL;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "active")) 
+      return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.ACTIVE; 
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "completed")) 
+      return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.COMPLETED;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "entered-in-error")) 
+      return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.ENTEREDINERROR;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "intended")) 
+      return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.INTENDED;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "stopped")) 
+      return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.STOPPED;
+    if (src.hasCoding("http://terminology.hl7.org/CodeSystem/medicationdispense-status", "on-hold")) 
+      return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.ONHOLD;
+    return org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus.NULL;
   }
-}
 
   private static org.hl7.fhir.r4.model.Extension convertMedicationStatementTaken(org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementTaken src) throws FHIRException {
     if (src == null)
@@ -17557,7 +17588,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.Coding t : src.getKeyword())
       tgt.addKeyword(convertCoding(t));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(src.getFhirVersion());
+      tgt.setFhirVersion(FHIRVersion.fromCode(src.getFhirVersion()));
     for (org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     if (src.hasKind())
@@ -17629,7 +17660,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.r4.model.Coding t : src.getKeyword())
       tgt.addKeyword(convertCoding(t));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(src.getFhirVersion());
+      tgt.setFhirVersion(src.getFhirVersion().toCode());
     for (org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     if (src.hasKind())
@@ -19145,10 +19176,6 @@ public class VersionConvertor_30_40 {
       tgt.addProfile(convertReference(t));
     for (org.hl7.fhir.dstu3.model.TestScript.TestScriptVariableComponent t : src.getVariable())
       tgt.addVariable(convertTestScriptVariableComponent(t));
-    for (org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent t : src.getRule())
-      tgt.addRule(convertTestScriptRuleComponent(t));
-    for (org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent t : src.getRuleset())
-      tgt.addRuleset(convertTestScriptRulesetComponent(t));
     if (src.hasSetup())
       tgt.setSetup(convertTestScriptSetupComponent(src.getSetup()));
     for (org.hl7.fhir.dstu3.model.TestScript.TestScriptTestComponent t : src.getTest())
@@ -19205,10 +19232,6 @@ public class VersionConvertor_30_40 {
       tgt.addProfile(convertReference(t));
     for (org.hl7.fhir.r4.model.TestScript.TestScriptVariableComponent t : src.getVariable())
       tgt.addVariable(convertTestScriptVariableComponent(t));
-    for (org.hl7.fhir.r4.model.TestScript.TestScriptRuleComponent t : src.getRule())
-      tgt.addRule(convertTestScriptRuleComponent(t));
-    for (org.hl7.fhir.r4.model.TestScript.TestScriptRulesetComponent t : src.getRuleset())
-      tgt.addRuleset(convertTestScriptRulesetComponent(t));
     if (src.hasSetup())
       tgt.setSetup(convertTestScriptSetupComponent(src.getSetup()));
     for (org.hl7.fhir.r4.model.TestScript.TestScriptTestComponent t : src.getTest())
@@ -19434,126 +19457,6 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.r4.model.TestScript.TestScriptRuleComponent convertTestScriptRuleComponent(org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.TestScriptRuleComponent tgt = new org.hl7.fhir.r4.model.TestScript.TestScriptRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasResource())
-      tgt.setResource(convertReference(src.getResource()));
-    for (org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent t : src.getParam())
-      tgt.addParam(convertRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent convertTestScriptRuleComponent(org.hl7.fhir.r4.model.TestScript.TestScriptRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasResource())
-      tgt.setResource(convertReference(src.getResource()));
-    for (org.hl7.fhir.r4.model.TestScript.RuleParamComponent t : src.getParam())
-      tgt.addParam(convertRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.RuleParamComponent convertRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.RuleParamComponent tgt = new org.hl7.fhir.r4.model.TestScript.RuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent convertRuleParamComponent(org.hl7.fhir.r4.model.TestScript.RuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.RuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.TestScriptRulesetComponent convertTestScriptRulesetComponent(org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.TestScriptRulesetComponent tgt = new org.hl7.fhir.r4.model.TestScript.TestScriptRulesetComponent();
-    copyElement(src, tgt);
-    if (src.hasResource())
-      tgt.setResource(convertReference(src.getResource()));
-    for (org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent t : src.getRule())
-      tgt.addRule(convertRulesetRuleComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent convertTestScriptRulesetComponent(org.hl7.fhir.r4.model.TestScript.TestScriptRulesetComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.TestScriptRulesetComponent();
-    copyElement(src, tgt);
-    if (src.hasResource())
-      tgt.setResource(convertReference(src.getResource()));
-    for (org.hl7.fhir.r4.model.TestScript.RulesetRuleComponent t : src.getRule())
-      tgt.addRule(convertRulesetRuleComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.RulesetRuleComponent convertRulesetRuleComponent(org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.RulesetRuleComponent tgt = new org.hl7.fhir.r4.model.TestScript.RulesetRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasRuleId())
-      tgt.setRuleId(src.getRuleId());
-    for (org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent t : src.getParam())
-      tgt.addParam(convertRulesetRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent convertRulesetRuleComponent(org.hl7.fhir.r4.model.TestScript.RulesetRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.RulesetRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasRuleId())
-      tgt.setRuleId(src.getRuleId());
-    for (org.hl7.fhir.r4.model.TestScript.RulesetRuleParamComponent t : src.getParam())
-      tgt.addParam(convertRulesetRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.RulesetRuleParamComponent convertRulesetRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.RulesetRuleParamComponent tgt = new org.hl7.fhir.r4.model.TestScript.RulesetRuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent convertRulesetRuleParamComponent(org.hl7.fhir.r4.model.TestScript.RulesetRuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.RulesetRuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
   public static org.hl7.fhir.r4.model.TestScript.TestScriptSetupComponent convertTestScriptSetupComponent(org.hl7.fhir.dstu3.model.TestScript.TestScriptSetupComponent src) throws FHIRException {
     if (src == null)
       return null;
@@ -19765,10 +19668,6 @@ public class VersionConvertor_30_40 {
       tgt.setResponse(convertAssertionResponseTypes(src.getResponse()));
     if (src.hasResponseCode())
       tgt.setResponseCode(src.getResponseCode());
-    if (src.hasRule())
-      tgt.setRule(convertActionAssertRuleComponent(src.getRule()));
-    if (src.hasRuleset())
-      tgt.setRuleset(convertActionAssertRulesetComponent(src.getRuleset()));
     if (src.hasSourceId())
       tgt.setSourceId(src.getSourceId());
     if (src.hasValidateProfileId())
@@ -19821,10 +19720,6 @@ public class VersionConvertor_30_40 {
       tgt.setResponse(convertAssertionResponseTypes(src.getResponse()));
     if (src.hasResponseCode())
       tgt.setResponseCode(src.getResponseCode());
-    if (src.hasRule())
-      tgt.setRule(convertActionAssertRuleComponent(src.getRule()));
-    if (src.hasRuleset())
-      tgt.setRuleset(convertActionAssertRulesetComponent(src.getRuleset()));
     if (src.hasSourceId())
       tgt.setSourceId(src.getSourceId());
     if (src.hasValidateProfileId())
@@ -19960,126 +19855,6 @@ public class VersionConvertor_30_40 {
     case UNPROCESSABLE: return org.hl7.fhir.dstu3.model.TestScript.AssertionResponseTypes.UNPROCESSABLE;
     default: return org.hl7.fhir.dstu3.model.TestScript.AssertionResponseTypes.NULL;
   }
-}
-
-  public static org.hl7.fhir.r4.model.TestScript.ActionAssertRuleComponent convertActionAssertRuleComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.ActionAssertRuleComponent tgt = new org.hl7.fhir.r4.model.TestScript.ActionAssertRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasRuleId())
-      tgt.setRuleId(src.getRuleId());
-    for (org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent t : src.getParam())
-      tgt.addParam(convertActionAssertRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent convertActionAssertRuleComponent(org.hl7.fhir.r4.model.TestScript.ActionAssertRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasRuleId())
-      tgt.setRuleId(src.getRuleId());
-    for (org.hl7.fhir.r4.model.TestScript.ActionAssertRuleParamComponent t : src.getParam())
-      tgt.addParam(convertActionAssertRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.ActionAssertRuleParamComponent convertActionAssertRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.ActionAssertRuleParamComponent tgt = new org.hl7.fhir.r4.model.TestScript.ActionAssertRuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent convertActionAssertRuleParamComponent(org.hl7.fhir.r4.model.TestScript.ActionAssertRuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetComponent convertActionAssertRulesetComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetComponent tgt = new org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetComponent();
-    copyElement(src, tgt);
-    if (src.hasRulesetId())
-      tgt.setRulesetId(src.getRulesetId());
-    for (org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent t : src.getRule())
-      tgt.addRule(convertActionAssertRulesetRuleComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent convertActionAssertRulesetComponent(org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetComponent();
-    copyElement(src, tgt);
-    if (src.hasRulesetId())
-      tgt.setRulesetId(src.getRulesetId());
-    for (org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleComponent t : src.getRule())
-      tgt.addRule(convertActionAssertRulesetRuleComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleComponent convertActionAssertRulesetRuleComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleComponent tgt = new org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasRuleId())
-      tgt.setRuleId(src.getRuleId());
-    for (org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent t : src.getParam())
-      tgt.addParam(convertActionAssertRulesetRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent convertActionAssertRulesetRuleComponent(org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleComponent();
-    copyElement(src, tgt);
-    if (src.hasRuleId())
-      tgt.setRuleId(src.getRuleId());
-    for (org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleParamComponent t : src.getParam())
-      tgt.addParam(convertActionAssertRulesetRuleParamComponent(t));
-    return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleParamComponent convertActionAssertRulesetRuleParamComponent(org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleParamComponent tgt = new org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent convertActionAssertRulesetRuleParamComponent(org.hl7.fhir.r4.model.TestScript.ActionAssertRulesetRuleParamComponent src) throws FHIRException {
-    if (src == null)
-      return null;
-    org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent tgt = new org.hl7.fhir.dstu3.model.TestScript.ActionAssertRulesetRuleParamComponent();
-    copyElement(src, tgt);
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasValue())
-      tgt.setValue(src.getValue());
-    return tgt;
   }
 
   public static org.hl7.fhir.r4.model.TestScript.TestScriptTestComponent convertTestScriptTestComponent(org.hl7.fhir.dstu3.model.TestScript.TestScriptTestComponent src) throws FHIRException {

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
  */
-@ResourceDef(name="ServiceRequest", profile="http://hl7.org/fhir/Profile/ServiceRequest")
+@ResourceDef(name="ServiceRequest", profile="http://hl7.org/fhir/StructureDefinition/ServiceRequest")
 public class ServiceRequest extends DomainResource {
 
     public enum ServiceRequestStatus {
@@ -1516,7 +1516,7 @@ public class ServiceRequest extends DomainResource {
      */
     public Quantity getQuantityQuantity() throws FHIRException { 
       if (this.quantity == null)
-        return null;
+        this.quantity = new Quantity();
       if (!(this.quantity instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.quantity.getClass().getName()+" was encountered");
       return (Quantity) this.quantity;
@@ -1531,7 +1531,7 @@ public class ServiceRequest extends DomainResource {
      */
     public Ratio getQuantityRatio() throws FHIRException { 
       if (this.quantity == null)
-        return null;
+        this.quantity = new Ratio();
       if (!(this.quantity instanceof Ratio))
         throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.quantity.getClass().getName()+" was encountered");
       return (Ratio) this.quantity;
@@ -1546,7 +1546,7 @@ public class ServiceRequest extends DomainResource {
      */
     public Range getQuantityRange() throws FHIRException { 
       if (this.quantity == null)
-        return null;
+        this.quantity = new Range();
       if (!(this.quantity instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.quantity.getClass().getName()+" was encountered");
       return (Range) this.quantity;
@@ -1660,7 +1660,7 @@ public class ServiceRequest extends DomainResource {
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new DateTimeType();
       if (!(this.occurrence instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (DateTimeType) this.occurrence;
@@ -1675,7 +1675,7 @@ public class ServiceRequest extends DomainResource {
      */
     public Period getOccurrencePeriod() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new Period();
       if (!(this.occurrence instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Period) this.occurrence;
@@ -1690,7 +1690,7 @@ public class ServiceRequest extends DomainResource {
      */
     public Timing getOccurrenceTiming() throws FHIRException { 
       if (this.occurrence == null)
-        return null;
+        this.occurrence = new Timing();
       if (!(this.occurrence instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Timing) this.occurrence;
@@ -1726,7 +1726,7 @@ public class ServiceRequest extends DomainResource {
      */
     public BooleanType getAsNeededBooleanType() throws FHIRException { 
       if (this.asNeeded == null)
-        return null;
+        this.asNeeded = new BooleanType();
       if (!(this.asNeeded instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
       return (BooleanType) this.asNeeded;
@@ -1741,7 +1741,7 @@ public class ServiceRequest extends DomainResource {
      */
     public CodeableConcept getAsNeededCodeableConcept() throws FHIRException { 
       if (this.asNeeded == null)
-        return null;
+        this.asNeeded = new CodeableConcept();
       if (!(this.asNeeded instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.asNeeded.getClass().getName()+" was encountered");
       return (CodeableConcept) this.asNeeded;

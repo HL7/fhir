@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Financial instrument which may be used to reimburse or pay for health care products and services.
  */
-@ResourceDef(name="Coverage", profile="http://hl7.org/fhir/Profile/Coverage")
+@ResourceDef(name="Coverage", profile="http://hl7.org/fhir/StructureDefinition/Coverage")
 public class Coverage extends DomainResource {
 
     public enum CoverageStatus {
@@ -777,10 +777,10 @@ public class Coverage extends DomainResource {
 
 
     /**
-     * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+     * A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
      */
     @Child(name = "class", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Additional coverage classifications", formalDefinition="A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan." )
+    @Description(shortDefinition="Additional coverage classifications", formalDefinition="A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan." )
     protected List<ClassComponent> class_;
 
     /**
@@ -798,10 +798,10 @@ public class Coverage extends DomainResource {
     protected StringType network;
 
     /**
-     * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+     * A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
      */
     @Child(name = "copay", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Patient payments for services/products", formalDefinition="A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan." )
+    @Description(shortDefinition="Patient payments for services/products", formalDefinition="A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan." )
     protected List<CoPayComponent> copay;
 
     /**
@@ -1283,7 +1283,7 @@ public class Coverage extends DomainResource {
     }
 
     /**
-     * @return {@link #class_} (A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
+     * @return {@link #class_} (A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
      */
     public List<ClassComponent> getClass_() { 
       if (this.class_ == null)
@@ -1430,7 +1430,7 @@ public class Coverage extends DomainResource {
     }
 
     /**
-     * @return {@link #copay} (A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
+     * @return {@link #copay} (A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
      */
     public List<CoPayComponent> getCopay() { 
       if (this.copay == null)
@@ -1570,10 +1570,10 @@ public class Coverage extends DomainResource {
         children.add(new Property("relationship", "CodeableConcept", "The relationship of beneficiary (patient) to the subscriber.", 0, 1, relationship));
         children.add(new Property("period", "Period", "Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.", 0, 1, period));
         children.add(new Property("payor", "Reference(Organization|Patient|RelatedPerson)", "The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).", 0, java.lang.Integer.MAX_VALUE, payor));
-        children.add(new Property("class", "", "A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, class_));
+        children.add(new Property("class", "", "A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, class_));
         children.add(new Property("order", "positiveInt", "The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care.", 0, 1, order));
         children.add(new Property("network", "string", "The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply.", 0, 1, network));
-        children.add(new Property("copay", "", "A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, copay));
+        children.add(new Property("copay", "", "A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, copay));
         children.add(new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract));
       }
 
@@ -1591,10 +1591,10 @@ public class Coverage extends DomainResource {
         case -261851592: /*relationship*/  return new Property("relationship", "CodeableConcept", "The relationship of beneficiary (patient) to the subscriber.", 0, 1, relationship);
         case -991726143: /*period*/  return new Property("period", "Period", "Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.", 0, 1, period);
         case 106443915: /*payor*/  return new Property("payor", "Reference(Organization|Patient|RelatedPerson)", "The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).", 0, java.lang.Integer.MAX_VALUE, payor);
-        case 94742904: /*class*/  return new Property("class", "", "A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, class_);
+        case 94742904: /*class*/  return new Property("class", "", "A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, class_);
         case 106006350: /*order*/  return new Property("order", "positiveInt", "The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care.", 0, 1, order);
         case 1843485230: /*network*/  return new Property("network", "string", "The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply.", 0, 1, network);
-        case 94846140: /*copay*/  return new Property("copay", "", "A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, copay);
+        case 94846140: /*copay*/  return new Property("copay", "", "A suite of underwriter specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, copay);
         case -566947566: /*contract*/  return new Property("contract", "Reference(Contract)", "The policy(s) which constitute this insurance coverage.", 0, java.lang.Integer.MAX_VALUE, contract);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }

@@ -41,6 +41,7 @@ import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ExpressionNode;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.IntegerType;
@@ -2689,7 +2690,7 @@ public class StructureMapUtilities {
     }
     profile.setDate(map.getDate());
     profile.setCopyright(map.getCopyright());
-    profile.setFhirVersion(Constants.VERSION);
+    profile.setFhirVersion(FHIRVersion.fromCode(Constants.VERSION));
     profile.setKind(prop.getBaseProperty().getStructure().getKind());
     profile.setAbstract(false);
     ElementDefinition ed = profile.getDifferential().addElement();

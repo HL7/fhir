@@ -58,6 +58,7 @@ import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r4.model.FHIRVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.test.ToolsHelper;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
@@ -506,7 +507,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     ig.setLicense(SPDXLicense.CC01_0);
     ig.setPackageId("hl7.fhir.tools.validator");
     ig.setPublisher("http://hl7.org/fhir");
-    ig.setFhirVersion(Constants.VERSION);
+    ig.addFhirVersion(FHIRVersion.fromCode(Constants.VERSION));
         
     NPMPackageGenerator npm = new NPMPackageGenerator(Utilities.path(folders.dstDir, "validator.tgz"), ig.getUrl(), forWeb ? "http://hl7.org/fhir" : "http://build.fhir.org", PackageType.TOOL, ig, Config.DATE_FORMAT().format(genDate) );
     npm.addFile(Category.TOOL, "org.hl7.fhir.validator.jar", TextFile.fileToBytes(Utilities.path(folders.dstDir, "org.hl7.fhir.validator.jar")));

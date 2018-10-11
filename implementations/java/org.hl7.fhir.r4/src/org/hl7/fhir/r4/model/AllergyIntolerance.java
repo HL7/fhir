@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
  */
-@ResourceDef(name="AllergyIntolerance", profile="http://hl7.org/fhir/Profile/AllergyIntolerance")
+@ResourceDef(name="AllergyIntolerance", profile="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance")
 public class AllergyIntolerance extends DomainResource {
 
     public enum AllergyIntoleranceClinicalStatus {
@@ -1874,7 +1874,7 @@ public class AllergyIntolerance extends DomainResource {
      */
     public DateTimeType getOnsetDateTimeType() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new DateTimeType();
       if (!(this.onset instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (DateTimeType) this.onset;
@@ -1889,7 +1889,7 @@ public class AllergyIntolerance extends DomainResource {
      */
     public Age getOnsetAge() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new Age();
       if (!(this.onset instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Age) this.onset;
@@ -1904,7 +1904,7 @@ public class AllergyIntolerance extends DomainResource {
      */
     public Period getOnsetPeriod() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new Period();
       if (!(this.onset instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Period) this.onset;
@@ -1919,7 +1919,7 @@ public class AllergyIntolerance extends DomainResource {
      */
     public Range getOnsetRange() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new Range();
       if (!(this.onset instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Range) this.onset;
@@ -1934,7 +1934,7 @@ public class AllergyIntolerance extends DomainResource {
      */
     public StringType getOnsetStringType() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new StringType();
       if (!(this.onset instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (StringType) this.onset;

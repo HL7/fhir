@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
  */
-@ResourceDef(name="Goal", profile="http://hl7.org/fhir/Profile/Goal")
+@ResourceDef(name="Goal", profile="http://hl7.org/fhir/StructureDefinition/Goal")
 public class Goal extends DomainResource {
 
     public enum GoalStatus {
@@ -385,7 +385,7 @@ public class Goal extends DomainResource {
          */
         public Quantity getDetailQuantity() throws FHIRException { 
           if (this.detail == null)
-            return null;
+            this.detail = new Quantity();
           if (!(this.detail instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.detail.getClass().getName()+" was encountered");
           return (Quantity) this.detail;
@@ -400,7 +400,7 @@ public class Goal extends DomainResource {
          */
         public Range getDetailRange() throws FHIRException { 
           if (this.detail == null)
-            return null;
+            this.detail = new Range();
           if (!(this.detail instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.detail.getClass().getName()+" was encountered");
           return (Range) this.detail;
@@ -415,7 +415,7 @@ public class Goal extends DomainResource {
          */
         public CodeableConcept getDetailCodeableConcept() throws FHIRException { 
           if (this.detail == null)
-            return null;
+            this.detail = new CodeableConcept();
           if (!(this.detail instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.detail.getClass().getName()+" was encountered");
           return (CodeableConcept) this.detail;
@@ -451,7 +451,7 @@ public class Goal extends DomainResource {
          */
         public DateType getDueDateType() throws FHIRException { 
           if (this.due == null)
-            return null;
+            this.due = new DateType();
           if (!(this.due instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.due.getClass().getName()+" was encountered");
           return (DateType) this.due;
@@ -466,7 +466,7 @@ public class Goal extends DomainResource {
          */
         public Duration getDueDuration() throws FHIRException { 
           if (this.due == null)
-            return null;
+            this.due = new Duration();
           if (!(this.due instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.due.getClass().getName()+" was encountered");
           return (Duration) this.due;
@@ -1051,7 +1051,7 @@ public class Goal extends DomainResource {
      */
     public DateType getStartDateType() throws FHIRException { 
       if (this.start == null)
-        return null;
+        this.start = new DateType();
       if (!(this.start instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.start.getClass().getName()+" was encountered");
       return (DateType) this.start;
@@ -1066,7 +1066,7 @@ public class Goal extends DomainResource {
      */
     public CodeableConcept getStartCodeableConcept() throws FHIRException { 
       if (this.start == null)
-        return null;
+        this.start = new CodeableConcept();
       if (!(this.start instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.start.getClass().getName()+" was encountered");
       return (CodeableConcept) this.start;

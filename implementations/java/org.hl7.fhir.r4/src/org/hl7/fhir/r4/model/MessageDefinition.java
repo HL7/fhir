@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
  */
-@ResourceDef(name="MessageDefinition", profile="http://hl7.org/fhir/Profile/MessageDefinition")
+@ResourceDef(name="MessageDefinition", profile="http://hl7.org/fhir/StructureDefinition/MessageDefinition")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "replaces", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "base", "parent", "event[x]", "category", "focus", "responseRequired", "allowedResponse", "graph"})
 public class MessageDefinition extends MetadataResource {
 
@@ -1949,7 +1949,7 @@ public class MessageDefinition extends MetadataResource {
      */
     public Coding getEventCoding() throws FHIRException { 
       if (this.event == null)
-        return null;
+        this.event = new Coding();
       if (!(this.event instanceof Coding))
         throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.event.getClass().getName()+" was encountered");
       return (Coding) this.event;
@@ -1964,7 +1964,7 @@ public class MessageDefinition extends MetadataResource {
      */
     public UriType getEventUriType() throws FHIRException { 
       if (this.event == null)
-        return null;
+        this.event = new UriType();
       if (!(this.event instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.event.getClass().getName()+" was encountered");
       return (UriType) this.event;

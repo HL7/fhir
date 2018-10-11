@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An ingredient of a manufactured item or pharmaceutical product.
  */
-@ResourceDef(name="MedicinalProductIngredient", profile="http://hl7.org/fhir/Profile/MedicinalProductIngredient")
+@ResourceDef(name="MedicinalProductIngredient", profile="http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient")
 public class MedicinalProductIngredient extends DomainResource {
 
     @Block()
@@ -911,10 +911,10 @@ public class MedicinalProductIngredient extends DomainResource {
     @Block()
     public static class MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Relevent refrerence substance.
+         * Relevant refrerence substance.
          */
         @Child(name = "substance", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Relevent refrerence substance", formalDefinition="Relevent refrerence substance." )
+        @Description(shortDefinition="Relevant refrerence substance", formalDefinition="Relevant refrerence substance." )
         protected CodeableConcept substance;
 
         /**
@@ -956,7 +956,7 @@ public class MedicinalProductIngredient extends DomainResource {
       }
 
         /**
-         * @return {@link #substance} (Relevent refrerence substance.)
+         * @return {@link #substance} (Relevant refrerence substance.)
          */
         public CodeableConcept getSubstance() { 
           if (this.substance == null)
@@ -972,7 +972,7 @@ public class MedicinalProductIngredient extends DomainResource {
         }
 
         /**
-         * @param value {@link #substance} (Relevent refrerence substance.)
+         * @param value {@link #substance} (Relevant refrerence substance.)
          */
         public MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent setSubstance(CodeableConcept value) { 
           this.substance = value;
@@ -1107,7 +1107,7 @@ public class MedicinalProductIngredient extends DomainResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("substance", "CodeableConcept", "Relevent refrerence substance.", 0, 1, substance));
+          children.add(new Property("substance", "CodeableConcept", "Relevant refrerence substance.", 0, 1, substance));
           children.add(new Property("strength", "Ratio", "Strength expressed in terms of a reference substance.", 0, 1, strength));
           children.add(new Property("measurementPoint", "string", "For when strength is measured at a particular point or distance.", 0, 1, measurementPoint));
           children.add(new Property("country", "CodeableConcept", "The country or countries for which the strength range applies.", 0, java.lang.Integer.MAX_VALUE, country));
@@ -1116,7 +1116,7 @@ public class MedicinalProductIngredient extends DomainResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 530040176: /*substance*/  return new Property("substance", "CodeableConcept", "Relevent refrerence substance.", 0, 1, substance);
+          case 530040176: /*substance*/  return new Property("substance", "CodeableConcept", "Relevant refrerence substance.", 0, 1, substance);
           case 1791316033: /*strength*/  return new Property("strength", "Ratio", "Strength expressed in terms of a reference substance.", 0, 1, strength);
           case 235437876: /*measurementPoint*/  return new Property("measurementPoint", "string", "For when strength is measured at a particular point or distance.", 0, 1, measurementPoint);
           case 957831062: /*country*/  return new Property("country", "CodeableConcept", "The country or countries for which the strength range applies.", 0, java.lang.Integer.MAX_VALUE, country);

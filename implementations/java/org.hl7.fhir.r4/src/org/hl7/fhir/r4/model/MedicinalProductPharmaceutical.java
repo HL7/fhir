@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A pharmaceutical product described in terms of its composition and dose form.
  */
-@ResourceDef(name="MedicinalProductPharmaceutical", profile="http://hl7.org/fhir/Profile/MedicinalProductPharmaceutical")
+@ResourceDef(name="MedicinalProductPharmaceutical", profile="http://hl7.org/fhir/StructureDefinition/MedicinalProductPharmaceutical")
 public class MedicinalProductPharmaceutical extends DomainResource {
 
     @Block()
@@ -1276,13 +1276,13 @@ public class MedicinalProductPharmaceutical extends DomainResource {
     /**
      * Accompanying device.
      */
-    @Child(name = "device", type = {MedicinalProductDeviceSpec.class, DeviceDefinition.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "device", type = {DeviceDefinition.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Accompanying device", formalDefinition="Accompanying device." )
     protected List<Reference> device;
     /**
      * The actual objects that are the target of the reference (Accompanying device.)
      */
-    protected List<Resource> deviceTarget;
+    protected List<DeviceDefinition> deviceTarget;
 
 
     /**
@@ -1299,7 +1299,7 @@ public class MedicinalProductPharmaceutical extends DomainResource {
     @Description(shortDefinition="The path by which the pharmaceutical product is taken into or makes contact with the body", formalDefinition="The path by which the pharmaceutical product is taken into or makes contact with the body." )
     protected List<MedicinalProductPharmaceuticalRouteOfAdministrationComponent> routeOfAdministration;
 
-    private static final long serialVersionUID = 920439689L;
+    private static final long serialVersionUID = -1201548050L;
 
   /**
    * Constructor
@@ -1549,10 +1549,22 @@ public class MedicinalProductPharmaceutical extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getDeviceTarget() { 
+    public List<DeviceDefinition> getDeviceTarget() { 
       if (this.deviceTarget == null)
-        this.deviceTarget = new ArrayList<Resource>();
+        this.deviceTarget = new ArrayList<DeviceDefinition>();
       return this.deviceTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public DeviceDefinition addDeviceTarget() { 
+      DeviceDefinition r = new DeviceDefinition();
+      if (this.deviceTarget == null)
+        this.deviceTarget = new ArrayList<DeviceDefinition>();
+      this.deviceTarget.add(r);
+      return r;
     }
 
     /**
@@ -1667,7 +1679,7 @@ public class MedicinalProductPharmaceutical extends DomainResource {
         children.add(new Property("administrableDoseForm", "CodeableConcept", "The administrable dose form, after necessary reconstitution.", 0, 1, administrableDoseForm));
         children.add(new Property("unitOfPresentation", "CodeableConcept", "Todo.", 0, 1, unitOfPresentation));
         children.add(new Property("ingredient", "Reference(MedicinalProductIngredient)", "Ingredient.", 0, java.lang.Integer.MAX_VALUE, ingredient));
-        children.add(new Property("device", "Reference(MedicinalProductDeviceSpec|DeviceDefinition)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device));
+        children.add(new Property("device", "Reference(DeviceDefinition)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device));
         children.add(new Property("characteristics", "", "Characteristics e.g. a products onset of action.", 0, java.lang.Integer.MAX_VALUE, characteristics));
         children.add(new Property("routeOfAdministration", "", "The path by which the pharmaceutical product is taken into or makes contact with the body.", 0, java.lang.Integer.MAX_VALUE, routeOfAdministration));
       }
@@ -1679,7 +1691,7 @@ public class MedicinalProductPharmaceutical extends DomainResource {
         case 1446105202: /*administrableDoseForm*/  return new Property("administrableDoseForm", "CodeableConcept", "The administrable dose form, after necessary reconstitution.", 0, 1, administrableDoseForm);
         case -1427765963: /*unitOfPresentation*/  return new Property("unitOfPresentation", "CodeableConcept", "Todo.", 0, 1, unitOfPresentation);
         case -206409263: /*ingredient*/  return new Property("ingredient", "Reference(MedicinalProductIngredient)", "Ingredient.", 0, java.lang.Integer.MAX_VALUE, ingredient);
-        case -1335157162: /*device*/  return new Property("device", "Reference(MedicinalProductDeviceSpec|DeviceDefinition)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device);
+        case -1335157162: /*device*/  return new Property("device", "Reference(DeviceDefinition)", "Accompanying device.", 0, java.lang.Integer.MAX_VALUE, device);
         case -1529171400: /*characteristics*/  return new Property("characteristics", "", "Characteristics e.g. a products onset of action.", 0, java.lang.Integer.MAX_VALUE, characteristics);
         case 1742084734: /*routeOfAdministration*/  return new Property("routeOfAdministration", "", "The path by which the pharmaceutical product is taken into or makes contact with the body.", 0, java.lang.Integer.MAX_VALUE, routeOfAdministration);
         default: return super.getNamedProperty(_hash, _name, _checkValid);

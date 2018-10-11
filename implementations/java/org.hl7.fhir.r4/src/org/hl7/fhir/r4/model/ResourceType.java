@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 public enum ResourceType {
     Account,
@@ -47,12 +47,15 @@ public enum ResourceType {
     DiagnosticReport,
     DocumentManifest,
     DocumentReference,
+    EffectEvidenceSynthesis,
     Encounter,
     Endpoint,
     EnrollmentRequest,
     EnrollmentResponse,
     EpisodeOfCare,
     EventDefinition,
+    Evidence,
+    EvidenceVariable,
     ExampleScenario,
     ExplanationOfBenefit,
     FamilyMemberHistory,
@@ -121,9 +124,12 @@ public enum ResourceType {
     QuestionnaireResponse,
     RelatedPerson,
     RequestGroup,
+    ResearchDefinition,
+    ResearchElementDefinition,
     ResearchStudy,
     ResearchSubject,
     RiskAssessment,
+    RiskEvidenceSynthesis,
     Schedule,
     SearchParameter,
     Sequence,
@@ -135,8 +141,11 @@ public enum ResourceType {
     StructureMap,
     Subscription,
     Substance,
+    SubstanceNucleicAcid,
     SubstancePolymer,
+    SubstanceProtein,
     SubstanceReferenceInformation,
+    SubstanceSourceMaterial,
     SubstanceSpecification,
     SupplyDelivery,
     SupplyRequest,
@@ -236,6 +245,8 @@ public enum ResourceType {
       return "documentmanifest";
     case DocumentReference:
       return "documentreference";
+    case EffectEvidenceSynthesis:
+      return "effectevidencesynthesis";
     case Encounter:
       return "encounter";
     case Endpoint:
@@ -248,6 +259,10 @@ public enum ResourceType {
       return "episodeofcare";
     case EventDefinition:
       return "eventdefinition";
+    case Evidence:
+      return "evidence";
+    case EvidenceVariable:
+      return "evidencevariable";
     case ExampleScenario:
       return "examplescenario";
     case ExplanationOfBenefit:
@@ -384,12 +399,18 @@ public enum ResourceType {
       return "relatedperson";
     case RequestGroup:
       return "requestgroup";
+    case ResearchDefinition:
+      return "researchdefinition";
+    case ResearchElementDefinition:
+      return "researchelementdefinition";
     case ResearchStudy:
       return "researchstudy";
     case ResearchSubject:
       return "researchsubject";
     case RiskAssessment:
       return "riskassessment";
+    case RiskEvidenceSynthesis:
+      return "riskevidencesynthesis";
     case Schedule:
       return "schedule";
     case SearchParameter:
@@ -412,10 +433,16 @@ public enum ResourceType {
       return "subscription";
     case Substance:
       return "substance";
+    case SubstanceNucleicAcid:
+      return "substancenucleicacid";
     case SubstancePolymer:
       return "substancepolymer";
+    case SubstanceProtein:
+      return "substanceprotein";
     case SubstanceReferenceInformation:
       return "substancereferenceinformation";
+    case SubstanceSourceMaterial:
+      return "substancesourcematerial";
     case SubstanceSpecification:
       return "substancespecification";
     case SupplyDelivery:
@@ -528,6 +555,8 @@ public enum ResourceType {
       return DocumentManifest;
     if ("DocumentReference".equals(code))
       return DocumentReference;
+    if ("EffectEvidenceSynthesis".equals(code))
+      return EffectEvidenceSynthesis;
     if ("Encounter".equals(code))
       return Encounter;
     if ("Endpoint".equals(code))
@@ -540,6 +569,10 @@ public enum ResourceType {
       return EpisodeOfCare;
     if ("EventDefinition".equals(code))
       return EventDefinition;
+    if ("Evidence".equals(code))
+      return Evidence;
+    if ("EvidenceVariable".equals(code))
+      return EvidenceVariable;
     if ("ExampleScenario".equals(code))
       return ExampleScenario;
     if ("ExplanationOfBenefit".equals(code))
@@ -676,12 +709,18 @@ public enum ResourceType {
       return RelatedPerson;
     if ("RequestGroup".equals(code))
       return RequestGroup;
+    if ("ResearchDefinition".equals(code))
+      return ResearchDefinition;
+    if ("ResearchElementDefinition".equals(code))
+      return ResearchElementDefinition;
     if ("ResearchStudy".equals(code))
       return ResearchStudy;
     if ("ResearchSubject".equals(code))
       return ResearchSubject;
     if ("RiskAssessment".equals(code))
       return RiskAssessment;
+    if ("RiskEvidenceSynthesis".equals(code))
+      return RiskEvidenceSynthesis;
     if ("Schedule".equals(code))
       return Schedule;
     if ("SearchParameter".equals(code))
@@ -704,10 +743,16 @@ public enum ResourceType {
       return Subscription;
     if ("Substance".equals(code))
       return Substance;
+    if ("SubstanceNucleicAcid".equals(code))
+      return SubstanceNucleicAcid;
     if ("SubstancePolymer".equals(code))
       return SubstancePolymer;
+    if ("SubstanceProtein".equals(code))
+      return SubstanceProtein;
     if ("SubstanceReferenceInformation".equals(code))
       return SubstanceReferenceInformation;
+    if ("SubstanceSourceMaterial".equals(code))
+      return SubstanceSourceMaterial;
     if ("SubstanceSpecification".equals(code))
       return SubstanceSpecification;
     if ("SupplyDelivery".equals(code))

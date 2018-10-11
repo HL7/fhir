@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -5284,7 +5284,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public DateType getMinValueDateType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new DateType();
       if (!(this.minValue instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (DateType) this.minValue;
@@ -5299,7 +5299,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public DateTimeType getMinValueDateTimeType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new DateTimeType();
       if (!(this.minValue instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (DateTimeType) this.minValue;
@@ -5314,7 +5314,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public InstantType getMinValueInstantType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new InstantType();
       if (!(this.minValue instanceof InstantType))
         throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (InstantType) this.minValue;
@@ -5329,7 +5329,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public TimeType getMinValueTimeType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new TimeType();
       if (!(this.minValue instanceof TimeType))
         throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (TimeType) this.minValue;
@@ -5344,7 +5344,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public DecimalType getMinValueDecimalType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new DecimalType();
       if (!(this.minValue instanceof DecimalType))
         throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (DecimalType) this.minValue;
@@ -5359,7 +5359,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public IntegerType getMinValueIntegerType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new IntegerType();
       if (!(this.minValue instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (IntegerType) this.minValue;
@@ -5374,7 +5374,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public PositiveIntType getMinValuePositiveIntType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new PositiveIntType();
       if (!(this.minValue instanceof PositiveIntType))
         throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (PositiveIntType) this.minValue;
@@ -5389,7 +5389,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public UnsignedIntType getMinValueUnsignedIntType() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new UnsignedIntType();
       if (!(this.minValue instanceof UnsignedIntType))
         throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (UnsignedIntType) this.minValue;
@@ -5404,7 +5404,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public Quantity getMinValueQuantity() throws FHIRException { 
       if (this.minValue == null)
-        return null;
+        this.minValue = new Quantity();
       if (!(this.minValue instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (Quantity) this.minValue;
@@ -5440,7 +5440,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public DateType getMaxValueDateType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new DateType();
       if (!(this.maxValue instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (DateType) this.maxValue;
@@ -5455,7 +5455,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public DateTimeType getMaxValueDateTimeType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new DateTimeType();
       if (!(this.maxValue instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (DateTimeType) this.maxValue;
@@ -5470,7 +5470,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public InstantType getMaxValueInstantType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new InstantType();
       if (!(this.maxValue instanceof InstantType))
         throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (InstantType) this.maxValue;
@@ -5485,7 +5485,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public TimeType getMaxValueTimeType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new TimeType();
       if (!(this.maxValue instanceof TimeType))
         throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (TimeType) this.maxValue;
@@ -5500,7 +5500,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public DecimalType getMaxValueDecimalType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new DecimalType();
       if (!(this.maxValue instanceof DecimalType))
         throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (DecimalType) this.maxValue;
@@ -5515,7 +5515,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public IntegerType getMaxValueIntegerType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new IntegerType();
       if (!(this.maxValue instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (IntegerType) this.maxValue;
@@ -5530,7 +5530,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public PositiveIntType getMaxValuePositiveIntType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new PositiveIntType();
       if (!(this.maxValue instanceof PositiveIntType))
         throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (PositiveIntType) this.maxValue;
@@ -5545,7 +5545,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public UnsignedIntType getMaxValueUnsignedIntType() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new UnsignedIntType();
       if (!(this.maxValue instanceof UnsignedIntType))
         throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (UnsignedIntType) this.maxValue;
@@ -5560,7 +5560,7 @@ public class ElementDefinition extends BackboneType implements ICompositeType {
      */
     public Quantity getMaxValueQuantity() throws FHIRException { 
       if (this.maxValue == null)
-        return null;
+        this.maxValue = new Quantity();
       if (!(this.maxValue instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (Quantity) this.maxValue;

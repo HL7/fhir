@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The regulatory authorization of a medicinal product.
  */
-@ResourceDef(name="MedicinalProductAuthorization", profile="http://hl7.org/fhir/Profile/MedicinalProductAuthorization")
+@ResourceDef(name="MedicinalProductAuthorization", profile="http://hl7.org/fhir/StructureDefinition/MedicinalProductAuthorization")
 public class MedicinalProductAuthorization extends DomainResource {
 
     @Block()
@@ -556,7 +556,7 @@ public class MedicinalProductAuthorization extends DomainResource {
          */
         public Period getDatePeriod() throws FHIRException { 
           if (this.date == null)
-            return null;
+            this.date = new Period();
           if (!(this.date instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.date.getClass().getName()+" was encountered");
           return (Period) this.date;
@@ -571,7 +571,7 @@ public class MedicinalProductAuthorization extends DomainResource {
          */
         public DateTimeType getDateDateTimeType() throws FHIRException { 
           if (this.date == null)
-            return null;
+            this.date = new DateTimeType();
           if (!(this.date instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.date.getClass().getName()+" was encountered");
           return (DateTimeType) this.date;

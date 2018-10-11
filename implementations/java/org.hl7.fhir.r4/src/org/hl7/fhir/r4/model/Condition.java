@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
  */
-@ResourceDef(name="Condition", profile="http://hl7.org/fhir/Profile/Condition")
+@ResourceDef(name="Condition", profile="http://hl7.org/fhir/StructureDefinition/Condition")
 public class Condition extends DomainResource {
 
     @Block()
@@ -1125,7 +1125,7 @@ public class Condition extends DomainResource {
      */
     public DateTimeType getOnsetDateTimeType() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new DateTimeType();
       if (!(this.onset instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (DateTimeType) this.onset;
@@ -1140,7 +1140,7 @@ public class Condition extends DomainResource {
      */
     public Age getOnsetAge() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new Age();
       if (!(this.onset instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Age) this.onset;
@@ -1155,7 +1155,7 @@ public class Condition extends DomainResource {
      */
     public Period getOnsetPeriod() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new Period();
       if (!(this.onset instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Period) this.onset;
@@ -1170,7 +1170,7 @@ public class Condition extends DomainResource {
      */
     public Range getOnsetRange() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new Range();
       if (!(this.onset instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Range) this.onset;
@@ -1185,7 +1185,7 @@ public class Condition extends DomainResource {
      */
     public StringType getOnsetStringType() throws FHIRException { 
       if (this.onset == null)
-        return null;
+        this.onset = new StringType();
       if (!(this.onset instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (StringType) this.onset;
@@ -1221,7 +1221,7 @@ public class Condition extends DomainResource {
      */
     public DateTimeType getAbatementDateTimeType() throws FHIRException { 
       if (this.abatement == null)
-        return null;
+        this.abatement = new DateTimeType();
       if (!(this.abatement instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (DateTimeType) this.abatement;
@@ -1236,7 +1236,7 @@ public class Condition extends DomainResource {
      */
     public Age getAbatementAge() throws FHIRException { 
       if (this.abatement == null)
-        return null;
+        this.abatement = new Age();
       if (!(this.abatement instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Age) this.abatement;
@@ -1251,7 +1251,7 @@ public class Condition extends DomainResource {
      */
     public Period getAbatementPeriod() throws FHIRException { 
       if (this.abatement == null)
-        return null;
+        this.abatement = new Period();
       if (!(this.abatement instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Period) this.abatement;
@@ -1266,7 +1266,7 @@ public class Condition extends DomainResource {
      */
     public Range getAbatementRange() throws FHIRException { 
       if (this.abatement == null)
-        return null;
+        this.abatement = new Range();
       if (!(this.abatement instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Range) this.abatement;
@@ -1281,7 +1281,7 @@ public class Condition extends DomainResource {
      */
     public StringType getAbatementStringType() throws FHIRException { 
       if (this.abatement == null)
-        return null;
+        this.abatement = new StringType();
       if (!(this.abatement instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (StringType) this.abatement;

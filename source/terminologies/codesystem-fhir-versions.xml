@@ -2,7 +2,7 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="fhir-versions"/>
-  <url value="http://terminology.hl7.org/CodeSystem/fhir-versions"/>
+  <url value="http://hl7.org/fhir/fhir-versions"/>
   <name value="AllPublishedFHIRVersions"/>
   <title value="All Published FHIR versions"/>
   <status value="draft"/>
@@ -101,6 +101,16 @@
     <code value="3.0.1"/>
     <display value="3.0.1"/>
     <definition value="FHIR Release 3 (STU) with 1 technical errata"/>
+  </concept>
+  <concept>
+    <code value="3.3.0"/>
+    <display value="3.3.0"/>
+    <definition value="R4 Ballot #1"/>
+  </concept>
+  <concept>
+    <code value="3.5.0"/>
+    <display value="3.5.0"/>
+    <definition value="R4 Ballot #2"/>
   </concept>
   <concept>
     <code value="3.6.0"/>

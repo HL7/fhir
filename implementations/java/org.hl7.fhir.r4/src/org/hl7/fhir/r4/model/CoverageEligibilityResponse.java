@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource.
  */
-@ResourceDef(name="CoverageEligibilityResponse", profile="http://hl7.org/fhir/Profile/CoverageEligibilityResponse")
+@ResourceDef(name="CoverageEligibilityResponse", profile="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse")
 public class CoverageEligibilityResponse extends DomainResource {
 
     public enum EligibilityResponseStatus {
@@ -1759,7 +1759,7 @@ public class CoverageEligibilityResponse extends DomainResource {
          */
         public UnsignedIntType getAllowedUnsignedIntType() throws FHIRException { 
           if (this.allowed == null)
-            return null;
+            this.allowed = new UnsignedIntType();
           if (!(this.allowed instanceof UnsignedIntType))
             throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.allowed.getClass().getName()+" was encountered");
           return (UnsignedIntType) this.allowed;
@@ -1774,7 +1774,7 @@ public class CoverageEligibilityResponse extends DomainResource {
          */
         public StringType getAllowedStringType() throws FHIRException { 
           if (this.allowed == null)
-            return null;
+            this.allowed = new StringType();
           if (!(this.allowed instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.allowed.getClass().getName()+" was encountered");
           return (StringType) this.allowed;
@@ -1789,7 +1789,7 @@ public class CoverageEligibilityResponse extends DomainResource {
          */
         public Money getAllowedMoney() throws FHIRException { 
           if (this.allowed == null)
-            return null;
+            this.allowed = new Money();
           if (!(this.allowed instanceof Money))
             throw new FHIRException("Type mismatch: the type Money was expected, but "+this.allowed.getClass().getName()+" was encountered");
           return (Money) this.allowed;
@@ -1825,7 +1825,7 @@ public class CoverageEligibilityResponse extends DomainResource {
          */
         public UnsignedIntType getUsedUnsignedIntType() throws FHIRException { 
           if (this.used == null)
-            return null;
+            this.used = new UnsignedIntType();
           if (!(this.used instanceof UnsignedIntType))
             throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.used.getClass().getName()+" was encountered");
           return (UnsignedIntType) this.used;
@@ -1840,7 +1840,7 @@ public class CoverageEligibilityResponse extends DomainResource {
          */
         public Money getUsedMoney() throws FHIRException { 
           if (this.used == null)
-            return null;
+            this.used = new Money();
           if (!(this.used instanceof Money))
             throw new FHIRException("Type mismatch: the type Money was expected, but "+this.used.getClass().getName()+" was encountered");
           return (Money) this.used;
@@ -2542,7 +2542,7 @@ public class CoverageEligibilityResponse extends DomainResource {
      */
     public DateType getServicedDateType() throws FHIRException { 
       if (this.serviced == null)
-        return null;
+        this.serviced = new DateType();
       if (!(this.serviced instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.serviced.getClass().getName()+" was encountered");
       return (DateType) this.serviced;
@@ -2557,7 +2557,7 @@ public class CoverageEligibilityResponse extends DomainResource {
      */
     public Period getServicedPeriod() throws FHIRException { 
       if (this.serviced == null)
-        return null;
+        this.serviced = new Period();
       if (!(this.serviced instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.serviced.getClass().getName()+" was encountered");
       return (Period) this.serviced;

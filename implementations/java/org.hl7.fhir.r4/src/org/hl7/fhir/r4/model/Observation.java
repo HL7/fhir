@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -45,7 +45,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Measurements and simple assertions made about a patient, device or other subject.
  */
-@ResourceDef(name="Observation", profile="http://hl7.org/fhir/Profile/Observation")
+@ResourceDef(name="Observation", profile="http://hl7.org/fhir/StructureDefinition/Observation")
 public class Observation extends DomainResource {
 
     public enum ObservationStatus {
@@ -771,7 +771,7 @@ public class Observation extends DomainResource {
          */
         public Quantity getValueQuantity() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Quantity();
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
@@ -786,7 +786,7 @@ public class Observation extends DomainResource {
          */
         public CodeableConcept getValueCodeableConcept() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new CodeableConcept();
           if (!(this.value instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
           return (CodeableConcept) this.value;
@@ -801,7 +801,7 @@ public class Observation extends DomainResource {
          */
         public StringType getValueStringType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new StringType();
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
@@ -816,7 +816,7 @@ public class Observation extends DomainResource {
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new BooleanType();
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
@@ -831,7 +831,7 @@ public class Observation extends DomainResource {
          */
         public IntegerType getValueIntegerType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new IntegerType();
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
@@ -846,7 +846,7 @@ public class Observation extends DomainResource {
          */
         public Range getValueRange() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Range();
           if (!(this.value instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Range) this.value;
@@ -861,7 +861,7 @@ public class Observation extends DomainResource {
          */
         public Ratio getValueRatio() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Ratio();
           if (!(this.value instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Ratio) this.value;
@@ -876,7 +876,7 @@ public class Observation extends DomainResource {
          */
         public SampledData getValueSampledData() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new SampledData();
           if (!(this.value instanceof SampledData))
             throw new FHIRException("Type mismatch: the type SampledData was expected, but "+this.value.getClass().getName()+" was encountered");
           return (SampledData) this.value;
@@ -891,7 +891,7 @@ public class Observation extends DomainResource {
          */
         public TimeType getValueTimeType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new TimeType();
           if (!(this.value instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (TimeType) this.value;
@@ -906,7 +906,7 @@ public class Observation extends DomainResource {
          */
         public DateTimeType getValueDateTimeType() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new DateTimeType();
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
@@ -921,7 +921,7 @@ public class Observation extends DomainResource {
          */
         public Period getValuePeriod() throws FHIRException { 
           if (this.value == null)
-            return null;
+            this.value = new Period();
           if (!(this.value instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Period) this.value;
@@ -2008,7 +2008,7 @@ public class Observation extends DomainResource {
      */
     public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new DateTimeType();
       if (!(this.effective instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (DateTimeType) this.effective;
@@ -2023,7 +2023,7 @@ public class Observation extends DomainResource {
      */
     public Period getEffectivePeriod() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new Period();
       if (!(this.effective instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
@@ -2038,7 +2038,7 @@ public class Observation extends DomainResource {
      */
     public Timing getEffectiveTiming() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new Timing();
       if (!(this.effective instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Timing) this.effective;
@@ -2053,7 +2053,7 @@ public class Observation extends DomainResource {
      */
     public InstantType getEffectiveInstantType() throws FHIRException { 
       if (this.effective == null)
-        return null;
+        this.effective = new InstantType();
       if (!(this.effective instanceof InstantType))
         throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (InstantType) this.effective;
@@ -2201,7 +2201,7 @@ public class Observation extends DomainResource {
      */
     public Quantity getValueQuantity() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new Quantity();
       if (!(this.value instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Quantity) this.value;
@@ -2216,7 +2216,7 @@ public class Observation extends DomainResource {
      */
     public CodeableConcept getValueCodeableConcept() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new CodeableConcept();
       if (!(this.value instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
       return (CodeableConcept) this.value;
@@ -2231,7 +2231,7 @@ public class Observation extends DomainResource {
      */
     public StringType getValueStringType() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new StringType();
       if (!(this.value instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (StringType) this.value;
@@ -2246,7 +2246,7 @@ public class Observation extends DomainResource {
      */
     public BooleanType getValueBooleanType() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new BooleanType();
       if (!(this.value instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (BooleanType) this.value;
@@ -2261,7 +2261,7 @@ public class Observation extends DomainResource {
      */
     public IntegerType getValueIntegerType() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new IntegerType();
       if (!(this.value instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (IntegerType) this.value;
@@ -2276,7 +2276,7 @@ public class Observation extends DomainResource {
      */
     public Range getValueRange() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new Range();
       if (!(this.value instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Range) this.value;
@@ -2291,7 +2291,7 @@ public class Observation extends DomainResource {
      */
     public Ratio getValueRatio() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new Ratio();
       if (!(this.value instanceof Ratio))
         throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Ratio) this.value;
@@ -2306,7 +2306,7 @@ public class Observation extends DomainResource {
      */
     public SampledData getValueSampledData() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new SampledData();
       if (!(this.value instanceof SampledData))
         throw new FHIRException("Type mismatch: the type SampledData was expected, but "+this.value.getClass().getName()+" was encountered");
       return (SampledData) this.value;
@@ -2321,7 +2321,7 @@ public class Observation extends DomainResource {
      */
     public TimeType getValueTimeType() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new TimeType();
       if (!(this.value instanceof TimeType))
         throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (TimeType) this.value;
@@ -2336,7 +2336,7 @@ public class Observation extends DomainResource {
      */
     public DateTimeType getValueDateTimeType() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new DateTimeType();
       if (!(this.value instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (DateTimeType) this.value;
@@ -2351,7 +2351,7 @@ public class Observation extends DomainResource {
      */
     public Period getValuePeriod() throws FHIRException { 
       if (this.value == null)
-        return null;
+        this.value = new Period();
       if (!(this.value instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Period) this.value;

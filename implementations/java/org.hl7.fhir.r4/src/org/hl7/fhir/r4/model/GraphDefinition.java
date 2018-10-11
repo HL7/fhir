@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Sep 10, 2018 09:32+1000 for FHIR v3.6.0
+// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -46,7 +46,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
  */
-@ResourceDef(name="GraphDefinition", profile="http://hl7.org/fhir/Profile/GraphDefinition")
+@ResourceDef(name="GraphDefinition", profile="http://hl7.org/fhir/StructureDefinition/GraphDefinition")
 @ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "start", "profile", "link"})
 public class GraphDefinition extends MetadataResource {
 

@@ -8,7 +8,7 @@
   <experimental value="false"/>
   <publisher value="HL7 EHR-FM"/>
   <definition>
-    <package>
+    <grouping>
       <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
         <valueUri value="auditevent-profile-ehrs-rle-spreadsheet.xml"/>
       </extension>
@@ -16,7 +16,7 @@
         <valueUri value="provenance-profile-ehrs-rle-spreadsheet.xml"/>
       </extension>
       <name value="base"/>
-    </package>
+    </grouping>
     <resource>
       <exampleBoolean value="true"/>
       <name value="EHRS FM Record Lifecycle Event"/>
