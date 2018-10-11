@@ -452,7 +452,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Publisher pub = new Publisher();
     pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
-    pub.doValidate = true; // !(args.length > 1 && hasParam(args, "-nocheck"));  
+    pub.doValidate = true;   
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.page.setForPublication(pub.web);

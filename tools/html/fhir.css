@@ -830,21 +830,57 @@ div.informative-content {
 
 div.draft-content {
   border: 1px grey solid; 
-  background-color: #fff5e6; 
+  background-color: #efefef; 
   padding: 10px; 
 }  
 
 td.draft-content {
-  background-color: #fff5e6; 
+  background-color: #efefef; 
 }  
 
 tr.draft-content {
-  background-color: #fff5e6; 
+  background-color: #efefef; 
 }  
 
 a.normative-flag {
   border: 1px grey solid; 
   background-color: #e6ffe6; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: black; 
+  font-weight: bold
+}
+
+a.informative-flag {
+  border: 1px grey solid; 
+  background-color: #ffffe6; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: black; 
+  font-weight: bold
+}
+
+a.draft-flag {
+  border: 1px grey solid; 
+  background-color: #efefef; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: black; 
+  font-weight: bold
+}
+
+a.trial-use-flag {
+  border: 1px grey solid; 
+  background-color: #fff5e6; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: black; 
+  font-weight: bold
+}
+
+a.deprecated-flag {
+  border: 1px grey solid; 
+  background-color: #ffcccc; 
   padding-left: 3px; 
   padding-right: 3px; 
   color: black; 

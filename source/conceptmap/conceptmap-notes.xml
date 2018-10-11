@@ -86,28 +86,13 @@ maps:
 <p>
 Though these resources are not explicitly defining code systems, they do define 'concept's that
 can still usefully be treated as code systems for the sake of subsetting (e.g. <a href="valueset.html">ValueSet</a>)
-and defining relationships (e.g. <code>ConceptMap</code>). Note that this is different from
-<a href="structuremap.html">StructureMap</a> because that is intended to define an
-executional transform between structures, not a conceptual model.
+and defining relationships (e.g. <code>ConceptMap</code>). See <a href="codesystem.html#implicit">Implicit Code Systems</a> for further information.
 </p>
 <p>
-This table summarizes how to treat these items as a terminology:
+Note that this is different from <a href="structuremap.html">StructureMap</a> because 
+that is intended to define an executional transform between structures, not a conceptual 
+model.
 </p>
-<table class="grid">
- <tr>
-  <td>StructureDefinition</td>
-  <td>The <code>StructureDefinition.url</code> (canonical URL) is the <code>system</code>. Each <code>.snapshot.element.id</code> in the snapshot is a code in the code system</td>
- </tr>
- <tr>
-  <td>Questionnaire</td>
-  <td>The <code>Questionnaire.url</code> (canonical URL) is the <code>system</code>. Each <code>.item.linkId</code> in the snapshot is a code in the code system. Items with no linkId cannot be addressed</td>
- </tr>
- <tr>
-  <td>Medication</td>
-  <td>Medication resources are a bit different, since they don't have a canonical URL, and
-    there are not multiple items in a resource. So to refer to a medication resource, the system
-    is [base]/Medication, where base is the server address. The <a href="resource.html#id">Logical Id</a> of the resource is the code</td>
- </tr>
-</table>
+
 
 </div>

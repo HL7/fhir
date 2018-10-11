@@ -6817,9 +6817,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("<tr><td><a href=\""+resource.getName().toLowerCase()+"-operation-"+ op.getName()+".html\">$"+Utilities.escapeXml(op.getName())+"</a></td><td>"+Utilities.escapeXml(op.getTitle())+"</td>");
       if (resource.getStatus() == StandardsStatus.NORMATIVE) {
         if (op.getStandardsStatus() == null)
-          b.append("<td><a href=\"versions.html#std-process\">"+resource.getStatus().toDisplay()+"</a></td>");
+          b.append("<td><a class=\""+resource.getStatus().toCode()+"-flag\" href=\"versions.html#std-process\">"+resource.getStatus().toDisplay()+"</a></td>");
         else
-          b.append("<td><a href=\"versions.html#std-process\">"+op.getStandardsStatus().toDisplay()+"</a></td>");
+          b.append("<td><a class=\""+op.getStandardsStatus().toCode()+"-flag\" href=\"versions.html#std-process\">"+op.getStandardsStatus().toDisplay()+"</a></td>");
       }
       
       b.append("</tr>\r\n");
@@ -6849,7 +6849,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("<h3>").append(Utilities.escapeXml(op.getTitle())).append("<a name=\"").append(op.getName()).append("\"> </a></h3>\r\n");
     if (mixed)
       b.append(opStandardsStatusNotice(n, op.getStandardsStatus(), resStatus, np, prefix)+"\r\n");
-    b.append(processMarkdown(n, op.getDoco(), prefix)+"\r\n");
+    b.append(processMarkdown(n, op.getDoco(), prefix, true)+"\r\n");
     b.append("<p>The official URL for this operation definition is</p>\r\n<pre> http://hl7.org/fhir/OperationDefinition/"+n+"-"+op.getName()+"</pre>\r\n");
     b.append("<p><a href=\"operation-"+id+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\""+prefix+"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
     if (op.isSystem())
@@ -9268,10 +9268,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   public String processMarkdown(String location, String text, String prefix) throws Exception {
+    return processMarkdown(location, text, prefix, false);
+  }
+  
+  public String processMarkdown(String location, String text, String prefix, boolean enforceFullStop) throws Exception {
     if (text == null)
       return "";
     // 1. custom FHIR extensions
     text = MarkDownPreProcessor.process(definitions, workerContext, validationErrors, text, location, prefix);
+    if (enforceFullStop && !text.endsWith("."))
+      text = text + ".";
 
     // 2. markdown
     String s = processor.process(checkEscape(text), location);
@@ -10006,7 +10012,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
           if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(cs))
             b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
-          b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
+          b.append("    <td>"+(cs.hasTitle() ? cs.getTitle()+": " : "")+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
           b.append("    <td>"+(oid == null ? "" : oid)+"</td>\r\n");
           b.append("  </tr>\r\n");
@@ -10030,7 +10036,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
           if (StandardsStatus.NORMATIVE == ToolingExtensions.getStandardsStatus(cs))
             b.append(" <a href=\"ballot-intro.html#conformance\" title=\"Normative Content\" class=\"normative-flag\">N</a>");
           b.append("</td>\r\n");
-          b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
+          b.append("    <td>"+(cs.hasTitle() ? cs.getTitle()+": " : "")+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
           b.append("    <td>"+(oid == null ? "" : oid)+"</td>\r\n");
           b.append("  </tr>\r\n");

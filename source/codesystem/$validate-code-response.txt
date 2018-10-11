@@ -1,3 +1,5 @@
+// When the request can be processed ok
+
 HTTP/1.1 200 OK
 [other headers]
 
@@ -16,5 +18,32 @@ HTTP/1.1 200 OK
     "name" : "display",
     "valueString" : "Bicarbonate [Moles/volume] in Serum"
   }
+  ]
+}
+
+
+
+--------------------------------------
+// when the validation cannot be performed. An error like this not returned if the code is not valid, but when the server is unable to determine whether the code is valid
+
+
+HTTP/1.1 400 Bad Request
+[other headers]
+
+{
+  "resourceType": "OperationOutcome",
+  "id": "exception",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No system parameter provided in request</div>"
+  },
+  "issue": [
+    {
+      "severity": "error",
+      "code": "required",
+      "details": {
+        "text": "No system parameter provided in request"
+      }
+    }
   ]
 }

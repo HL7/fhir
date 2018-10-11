@@ -19,18 +19,33 @@ Value sets have 2 aspects:
 </ul>
 <p>
 The <code>ValueSet</code> resource can carry either the <code>.compose</code> or the <code>.expansion</code>,
-or both. There is an <a href="valueset-operation-expand.html">"$expand" operation</a> which can be used to ask a server to generate
-an expansion given the composition rules, in a particular context. 
+both of them, or neither of them (if only the metadata is being represented). There is an <a href="valueset-operation-expand.html">"$expand" operation</a> which can be used to ask a server to generate
+an expansion given the composition rules, in a particular context, and a <a href="valueset-operation-validate-code.html">"$validate-code" operation</a> which can be used to ask a server to 
+check whether a given code or concept is in the value set in a particular context.
 </p>
 </div>
 
 <div>
 <a name="relationships"></a>
 <h2>Boundaries and Relationships</h2>
+<p>
+Value Sets are used by many resources:
+</p>
 <ul>
  <li>Value sets use <a href="codesystem.html">CodeSystem</a> resources by referring to them via their canonical URI (sometimes called "canonical URL").</li>
- <li>Value sets are used in <a href="elementdefinition.html">ElementDefinition</a> and <a href="questionnaire.html">Questionnaire</a> resources to specify the allowable contents for coded elements</li>
+ <li>Value sets are used in <a href="structuredefinition.html">StructureDefinition</a>,  
+   <a href="operationdefinition.html#OperationDefinition">OperationDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and other resources 
+   to specify the allowable contents for coded elements, or business rules for data processing</li>
  <li><a href="conceptmap.html">ConceptMap resources</a> describe mappings between value sets</li>
+ <li><a href="metadatatypes.html#DataRequirement">DataRequirement</a> data types to specify data processing conditions</li>
+</ul>
+<p>
+For a full list of uses, see below.
+</p>
+<p>
+The Characteristics of the <code>ValueSet</code> resource are derived from Formal Value Set Definitions:
+</p>
+<ul> 
  <li>The ValueSet resource design is based on the functionality described in the <a href="http://www.omg.org/spec/CTS2/1.0/">OMG CTS 2</a> specification, along 
  with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
  value set or code system instances.</li>

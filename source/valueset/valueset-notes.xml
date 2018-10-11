@@ -43,7 +43,17 @@ using the facilities provided by the code system. For these value sets:
  <li>Value sets may include abstract codes - that is, codes designated by the underlying code system as 
    not for use as a selectable concept in a particular context. These abstract codes are typically used as a grouping/searching mechanism,
    and can be included either by enumerating them, or by using a filter.</li>
+ <li>Any compose.exclude SHALL be processed such that excluded codes are not found in the expansion</li>
 </ul>
+<a name="designations"></a>
+<h2>Display and Designations</h2>
+<p>
+Concepts used in ValueSets can have a <code>display</code>, which is a short text that represents the meaning
+of the concept to human users in the context of the value set (which often has narrower meaning and therefore
+is amenable to shorter displays. If a display is not provided, the value set uses the 
+<a href="codesystem.html#designations">display from the code system</a> (which is the preferred approach,
+because overriding the display can lead to very unsafe outcomes).
+</p>
 <p>
 When a value set enumerates codes, it is sometimes useful to define an alternative display for 
 the code that is to be used wherever the value set is expanded and used in a UI. This 
@@ -68,16 +78,6 @@ even if a value set is referenced explicitly in the Coding (e.g. by an extension
 specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, 
 perhaps appended to the UI label for the matching data element.
 </p>
- 
-<a name="designations"></a>
-<h2>Display and Designations</h2>
-<p>
-Concepts used in ValueSets can have a <code>display</code>, which is a short text that represents the meaning
-of the concept to human users in the context of the value set (which often has narrower meaning and therefore
-is amenable to shorter displays. If a display is not provided, the value set uses the 
-<a href="codesystem.html#designations">display from the code system</a> (which is the preferred approach,
-because overriding the display can lead to very unsafe outcomes).
-</p>
 <p>
 In addition to the display, a concept can have one or more <code>designation</code> elements. 
 The display is equivalent to a special designation with an implied <code>designation.use</code> of "primary code" 
@@ -86,7 +86,7 @@ additional displays for other language, as well as designations for other purpos
 When using concepts, applications use the <code>display</code> unless the language or usage in context provide a reason
 to use one of the designations.
 </p>
-
+ 
 <a name="multiples"></a>
 <h2>Value Sets with multiple code systems</h2> 
 <p>
@@ -152,8 +152,8 @@ the following process should be followed:
 <ul>
  <li>If the value set already has an expansion (e.g., a stored expansion):
    <ul>
-    <li>Check that the parameters associated with the $expand operation are consistent with the parameters recorded in the expansion</li>
-    <li>If the parameters are inconsistent, then either generate a new composition, or, if there is no definition (<code>.compose</code>), return an error</li>
+    <li>Check that the parameters associated with the <a href="valueset-operation-expand.html">$expand</a> operation are consistent with the parameters recorded in the expansion</li>
+    <li>If the parameters are inconsistent, then either generate a new expansion, or, if there is no definition (<code>.compose</code>), return an error</li>
     <li>Additional parameters may be applied to an existing expansion if the server has validated that the result will be the same as if the expansion 
     was generated directly from the value set definition (e.g. text filter, designations included).</li>
    </ul>
@@ -163,7 +163,7 @@ the following process should be followed:
    <li>If there is a system, identify the correct version of the code system, and then:
      <ul>
       <li>If there are no codes or filters, add every code in the code system to the result set.</li>   
-      <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the parameters to the $expand operation may be used to control whether active codes are included).</li>
+      <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the parameters to the <a href="valueset-operation-expand.html">$expand</a> operation may be used to control whether active codes are included).</li>
       <li>If any filters are present, process them in order (as explained above), and add the intersection of their results to the result set.</li>
    </ul></li>
    <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$url=[compose.include.valueSet]), and add it to the result set. This means that expansion across imports is a recursive process.</li>
@@ -234,7 +234,7 @@ produced must be clearly identified so that there is no confusion. The following
 <ul>
  <li>The canonical URL for the expansion is the same as the value set it was expanded from</li>
  <li>Each expansion SHALL have a unique identifier in <code>ValueSet.expansion.identifier</code></li>
- <li>The result of an $expand operation may use the same identifier in ValueSet.expansion.identifier as a 
+ <li>The result of an <a href="valueset-operation-expand.html">$expand</a> operation may use the same identifier in ValueSet.expansion.identifier as a 
    previous expansion, but if it does, the canonical representation of the value set expansion SHALL be identical (e.g. a cached response)</li>
 </ul>
 
@@ -245,13 +245,13 @@ The expansion contains a set of parameters in <code>ValueSet.expansion.parameter
 These parameters may be used by users of expanded value sets to check whether the expansion 
 is suitable for a particular purpose, or to pick the correct expansion. The server decides which 
 parameters to include here, but at a minimum, the list SHOULD include all of the parameters that 
-affect the $expand operation. If the expansion will be persisted all of these parameters SHALL 
+affect the <a href="valueset-operation-expand.html">$expand</a> operation. If the expansion will be persisted all of these parameters SHALL 
 be included. If the codeSystem on the server has a specified 
 version then this version SHALL be provided as a parameter in the expansion (note that not all 
 code systems have a version). 
 </p>
 <p>
-The following parameters are predefined by the $expand operation, and are suitable for use in the
+The following parameters are predefined by the <a href="valueset-operation-expand.html">$expand</a> operation, and are suitable for use in the
 expansion parameters:
 </p>
 [%shortparameterlist ValueSet/$expand:filter,date,offset,count,includeDesignations,designation,includeDefinition,activeOnly,excludeNested,excludeNotForUI,excludePostCoordinated,displayLanguage,exclude-system,system-version,check-system-version,force-system-version%]
@@ -334,10 +334,10 @@ Use cases for the different combinations:
  </li>
  <li><code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code> only:
  Provides the value set expansion, which might or might not be persisted (see <a href="valueset.html#expansion">4.8.7 Value Set Expansion</a> above).
- The "expansion only" format may be returned in the $expand operation output (at the terminology server's discretion). 
+ The "expansion only" format may be returned in the <a href="valueset-operation-expand.html">$expand</a> operation output (at the terminology server's discretion). 
  </li>
  <li>Both <code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code> and <code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
- The terminology server often may include the definition as well as the expansion in the $expand operation output.  
+ The terminology server often may include the definition as well as the expansion in the <a href="valueset-operation-expand.html">$expand</a> operation output.  
  The resource instance including the expansion might or might not be persisted. 
  </li>
  <li>Neither <code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code> nor <code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
