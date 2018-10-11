@@ -3460,13 +3460,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
           td.i().tx("("+mapping.comp.getComment()+")");
       }
     }
-    for (CodeType e : ToolingExtensions.getSubsumes(c)) {
-      hasExtensions = true;
+    for (String e : CodeSystemUtilities.getOtherChildren(cs, c)) {
       tr = t.tr();
       td = tr.td();
       String s = Utilities.padLeft("", '.', i*2);
       td.addText(s);
-      a = td.ah("#"+Utilities.nmtokenize(e.getValue()));
+      a = td.ah("#"+Utilities.nmtokenize(e));
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {

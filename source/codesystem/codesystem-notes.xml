@@ -208,25 +208,37 @@ basic property URIs are defined:
  <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in
    the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
 </table>
+<p>
+The parent and child properties are used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation),
+and when using properties to indicate parent/child relationships (see below).
+</p>
 
 <a name="hierarchy"></a>
 <h3>Concept Hierarchy</h3>
 <p>
-Typically, Code systems are presented hierarchically, using nested <code>concept</code> properties, where the 
+Code systems may be presented hierarchically, using nested <code>concept</code> elements, where the 
 hierarchy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
-The code system hierarchy is a single tree, where concepts have only one parent. Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
-These code systems are not usually presented in a hierarchical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
-then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
+The code system hierarchy is a single tree, where concepts have only one parent. 
 </p>
 <p>
-The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation).
+Some code systems define concepts that have multiple parents.
+If a code system has concepts like this (typically, concepts that are subsumed by 
+more than one other concept), the code system SHOULD NOT be represented using the hierarchy structure in 
+the Code System resource, and the relationships between resources should be defined using <a href="#properties">properties</a>. 
+If the hierarchy is used, implementers SHALL use a property to indicate 
+additional parents that are not represented in the structural (nested concepts) hierarchy. 
+</p>
+<p>
+Operations based on the codeSystem resource SHALL have the same result whether or not the 
+relationships are represented explicitly as properties or implicitly using the CodeSystem 
+resource hierarchy.
 </p>
 
 <a name="subsumption"></a>
 <h3>Subsumption Testing</h3>
 <p>
 The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy  (i.e. the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>) identified for the code system that is being represented by the CodeSystem resource.
-Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if subsumption is declared explicitly using the <a href="extension-codesystem-subsumes.html">subsumes extension</a>).
+Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if a parent/child relationship is declared in the properties, and the hierarchyMeaning is "is-a").
 </p>
 <p>
 Where a CodeSystem does not declare its hierarchy meaning directly, then the code system documentation must be consulted manually to determine how subsumption is determined. If there is no definition, none of the subsumption based features can be used with the code system.

@@ -14,12 +14,12 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <filter>
-      <!--   Snomed description types   -->
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="900000000000446008"/>
-      </filter>
+      <concept>
+        <code value="900000000000003001"/>
+      </concept>
+      <concept>
+        <code value="900000000000013009"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

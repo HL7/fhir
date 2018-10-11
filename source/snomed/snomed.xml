@@ -16349,6 +16349,10 @@
     <display value="Fully specified name"/>
     <display value="Fully specified name (core metadata concept)"/>
   </concept>
+  <concept id="900000000000013009" display="Synonym">
+    <display value="Synonym (core metadata concept)"/>
+    <display value="Synonym"/>
+  </concept>
   <concept id="900000000000446008" display="Description type">
     <display value="Description type (core metadata concept)"/>
     <display value="Description type"/>

@@ -3252,7 +3252,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private boolean checkMetaData(StructureDefinition sd) {
     check(tail(sd.getUrl()).equals(sd.getId()), sd, "id must equal tail of URL");
-    check(page.getVersion().equals(sd.getFhirVersion()), sd, "FHIRVersion is wrong (should be "+page.getVersion()+", is "+sd.getFhirVersion()+")");
+    check(page.getVersion().equals(sd.getFhirVersion().toCode()), sd, "FhirVersion is wrong (should be "+page.getVersion()+", is "+sd.getFhirVersion().toCode()+")");
     switch (sd.getKind()) {
     case COMPLEXTYPE: return checkDataType(sd);
     case PRIMITIVETYPE: return checkDataType(sd);

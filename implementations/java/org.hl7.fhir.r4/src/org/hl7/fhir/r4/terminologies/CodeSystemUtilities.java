@@ -1,5 +1,6 @@
 package org.hl7.fhir.r4.terminologies;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -76,6 +77,14 @@ public class CodeSystemUtilities {
 
   private static void defineDeprecatedProperty(CodeSystem cs) {
     defineCodeSystemProperty(cs, "deprecationDate", "The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged", PropertyType.DATETIME);
+  }
+
+  public static void defineParentProperty(CodeSystem cs) {
+    defineCodeSystemProperty(cs, "parent", "The concept identified in this property is a parent of the concept on which it is a property. The property type will be 'code'. The meaning of parent/child relationships is defined by the hierarchyMeaning attribute", PropertyType.CODE);
+  }
+
+  public static void defineChildProperty(CodeSystem cs) {
+    defineCodeSystemProperty(cs, "child", "The concept identified in this property is a child of the concept on which it is a property. The property type will be 'code'. The meaning of parent/child relationships is defined by the hierarchyMeaning attribute", PropertyType.CODE);
   }
 
   public static boolean isDeprecated(CodeSystem cs, ConceptDefinitionComponent def)  {
@@ -224,6 +233,24 @@ public class CodeSystemUtilities {
       if (p.getCode().equals(code))
         return p; 
     return null;
+  }
+
+  // see http://hl7.org/fhir/R4/codesystem.html#hierachy
+  // returns additional parents not in the heirarchy
+  public static List<String> getOtherChildren(CodeSystem cs, ConceptDefinitionComponent c) {
+    List<String> res = new ArrayList<String>();
+    for (ConceptPropertyComponent p : c.getProperty()) {
+      if ("parent".equals(p.getCode())) {
+        res.add(p.getValue().primitiveValue());
+      }
+    }
+    return res;
+  }
+
+  // see http://hl7.org/fhir/R4/codesystem.html#hierachy
+  public static void addOtherChild(CodeSystem cs, ConceptDefinitionComponent owner, String code) {
+    defineChildProperty(cs);
+    owner.addProperty().setCode("child").setValue(new CodeType(code));
   }
 
 }
