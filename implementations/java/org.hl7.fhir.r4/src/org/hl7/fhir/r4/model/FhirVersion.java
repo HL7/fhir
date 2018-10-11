@@ -34,6 +34,8 @@ public enum FHIRVersion {
       return FHIRVersion.R4;
     if ("3.6".equals(v))
       return FHIRVersion.R4;
+    if ("1.0.0".equals(v))
+      return FHIRVersion.R4; // hack workaround build problem
     return null;
   }
 

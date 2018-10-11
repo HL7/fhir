@@ -9579,7 +9579,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">ValueSet/test-ig-vsext</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/test/ValueSet/test-ig-vsext</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"><Data ss:Type="String">2.16.840.1.114222.4.11.837</Data></Cell>
@@ -9630,7 +9630,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">The military service of the patient</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">ValueSet/test-ig-vsext</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/test/ValueSet/test-ig-vsext</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The military service and veteran status of the patient</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>

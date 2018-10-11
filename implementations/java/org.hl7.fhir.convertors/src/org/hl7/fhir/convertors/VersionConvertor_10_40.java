@@ -4218,7 +4218,8 @@ public class VersionConvertor_10_40 {
     tgt.setSoftware(convertConformanceSoftwareComponent(src.getSoftware()));
     if (src.hasImplementation())
       tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
-    tgt.setFhirVersion(src.getFhirVersion().toCode());
+    if (src.hasFhirVersion())
+      tgt.setFhirVersion(src.getFhirVersion().toCode());
 //    tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.r4.model.CodeType t : src.getFormat())
       tgt.addFormat(t.getValue());
@@ -10359,7 +10360,8 @@ public class VersionConvertor_10_40 {
     tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.r4.model.Coding t : src.getKeyword())
       tgt.addCode(convertCoding(t));
-    tgt.setFhirVersion(src.getFhirVersion().toCode());
+    if (src.hasFhirVersion())
+      tgt.setFhirVersion(src.getFhirVersion().toCode());
     for (org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     tgt.setKind(convertStructureDefinitionKind(src.getKind()));

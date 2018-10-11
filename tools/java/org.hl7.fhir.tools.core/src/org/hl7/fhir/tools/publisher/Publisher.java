@@ -211,6 +211,7 @@ import org.hl7.fhir.r4.validation.ProfileValidator;
 import org.hl7.fhir.r4.validation.XmlValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
+import org.hl7.fhir.igtools.tests.AllGuidesTests;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
 import org.hl7.fhir.tools.converters.DSTU2ValidationConvertor;
@@ -5858,13 +5859,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     TestingUtilities.contentpath = page.getFolders().dstDir;
     
 //    runJUnitClass(InstanceValidatorTests.class);
+//  runJUnitClass(ValidationTestSuite.class);
     runJUnitClass(FHIRPathTests.class);
     runJUnitClass(NarrativeGeneratorTests.class);
-//    runJUnitClass(TurtleTests.class);
     runJUnitClass(SnomedExpressionsTests.class);
     runJUnitClass(ResourceRoundTripTests.class);
     runJUnitClass(SnapShotGenerationTests.class);
-//    runJUnitClass(ValidationTestSuite.class);
     runJUnitClass(GraphQLParserTests.class);
     runJUnitClass(GraphQLEngineTests.class);
     checkAllOk();
@@ -5873,6 +5873,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void runJUnitTestsEnd() throws Exception {
     ValidationEngineTests.inbuild = true;
     runJUnitClass(ValidationEngineTests.class);
+    runJUnitClass(AllGuidesTests.class);
     checkAllOk();
   }
 

@@ -8,6 +8,8 @@
     "output" : "output",
     "specification" : "http://hl7.org/fhir"
   },
+  "npm-name" : "hl7.fhir.test.ig10",
+  "license" : "CC0-1.0",  
 	"canonicalBase": "http://hl7.org/fhir/test-ig-10",
   "sct-edition" :  "http://snomed.info/sct/900000000000207008",
   "version" : "1.0.2",
