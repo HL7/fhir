@@ -67,6 +67,39 @@ If a subscription nominates a fixed end date, the server automatically
 deletes it at the specified time.
 </p>
  
+<a name="tracking"></a>
+<h2>Tracking Subscription Notifications</h2>
+ 
+<p>
+Applications that wish to track whether notifications have been sent 
+for particular resources (or versions of resources) can look at the 
+AuditEvent resources. For example: 
+</p>
+<pre>
+GET [base]/AuditEvent?entity=Patient/103
+</pre>
+<p>
+This search will return all the AuditEvent resources that are about 
+<a href="patient.html">Patient</a> <code>103</code>. At this time 
+there is no deterministic way to tell say which of those AuditEvent
+resources come from the subscription sub-system that actually handles
+notifications. This is planned to be resolved in a future version 
+of this specification. In the mean time, servers are encouraged to 
+create AuditEvent records when performing notifications and document
+how clients can identify the relevant records when searching.
+</p>
+<p>
+In addition, servers might also create <a href="communication.html">Communication</a> 
+resources for some of the notifications that are sent in response to a 
+subscription, such as when sending emails.
+</p>
+<pre>
+GET [base]/Communication?based-on=Subscription/103
+</pre>
+<p>
+This returns a list of communications sent by a subscription. TODO:
+search on payload....
+</p>
 
 <a name="channels"></a>
 <h2>Channels</h2>
