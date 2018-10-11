@@ -66,8 +66,8 @@
       </page>
     </page>
     <parameter>
-      <code value="apply-business-version"/>
-      <value value="1.0"/>
+      <code value="apply"/>
+      <value value="version"/>
     </parameter>    
   </definition>
   <manifest>
