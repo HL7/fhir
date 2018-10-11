@@ -97,7 +97,7 @@ public class ConfigFileConverter {
     ig.addFhirVersion(FhirVersion.fromCode(version));
     if (configuration.has("fixed-business-version")) {
       ig.setVersion(configuration.getAsJsonPrimitive("fixed-business-version").getAsString());
-      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLYBUSINESSVERSION, ig.getVersion());
+      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLY, "version");
     }
     if (configuration.has("license")) 
       ig.setLicense(SPDXLicense.fromCode(configuration.getAsJsonPrimitive("license").getAsString()));
@@ -122,7 +122,7 @@ public class ConfigFileConverter {
         if (vr.getDisplay() != null)
           c.setDisplay(vr.getDisplay());
       }
-      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLYJURISDICTION, true);
+      IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLY, "jurisdiction");
     }
     IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEJSON, true);
     IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEXML, true);
