@@ -95,7 +95,7 @@
 			</coding>
 			<coding>
 				<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ordinal-value">
+				<extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
 					<!--  from Element: extension  -->
 					<valueDecimal value="5"/>
 					<!--  0..1 Value of extension  -->
@@ -125,7 +125,7 @@
 			</coding>
 			<coding>
 				<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ordinal-value">
+				<extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
 					<!--  from Element: extension  -->
 					<valueDecimal value="4"/>
 					<!--  0..1 Value of extension  -->
@@ -156,7 +156,7 @@
 			</coding>
 			<coding>
 				<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ordinal-value">
+				<extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
 					<!--  from Element: extension  -->
 					<valueDecimal value="4"/>
 					<!--  0..1 Value of extension  -->
