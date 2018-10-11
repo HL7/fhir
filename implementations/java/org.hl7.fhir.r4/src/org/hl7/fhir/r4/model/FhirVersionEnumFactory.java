@@ -3,6 +3,8 @@ package org.hl7.fhir.r4.model;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class FhirVersionEnumFactory implements EnumFactory<FhirVersion> {
+  private static final long serialVersionUID = 1L;
+  
   public FhirVersion fromCode(String codeString) throws IllegalArgumentException {
     if (codeString == null || "".equals(codeString))
       if (codeString == null || "".equals(codeString))
