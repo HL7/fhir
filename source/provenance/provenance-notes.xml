@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="using"> </a>
 <h3>Using the Provenance Resource</h3>
 
 <p>
@@ -20,6 +21,36 @@ resource has been updated? To avoid any such integrity problems, the target reso
 as a pair using a <a href="http.html#transaction">transaction</a>. 
 </p>
 
+<a name="header"> </a>
+<h4>HTTP Header</h4>
+
+<p>
+The custom header X-Provenance to provide a provenance resource when performing PUT or POST operations
+using the <a href="http.html">RESTful interface</a>:
+</p>
+<pre>
+POST [base]/Observation
+Content-Type: application/fhir+?
+X-Provenance: { "resourceType": "Provenance", "location": { "reference": "Location/1" }," agent" ... }
+
+[body]
+</pre>
+<p>
+The intent is that the server picks up the provenance, fills out the  <code>target</code>,
+and then stores the provenance information as it normally would.
+Notes:
+</p>
+<ul>
+ <li>Irrespective of the Content-Type or Accept headers, the Provenance resource is in the <a href="json.html">JSON format</a></li>
+ <li>The provenance SHALL not have a specified <code>Provenance.target</code>. The server will fill the <code>target</code> in as it processes 
+     the contents of the POST/PUT and determines the ids of the resource(s) to which the interaction applies</li>
+ <li>Servers MAY ignore the header, but SHOULD process it if they support provenance</li>
+ <li>Some server frameworks impose a length limit on individual HTTP headers, or on the the headers as a whole. Servers MAY reject a request if the X-Provenance header is too long</li>
+ <li>The use of the header is not documented for other HTTP methods (GET etc)</li>
+</ul>
+
+
+<a name="signature"> </a>
 <h3>Signatures</h3>
 
 <p>
@@ -30,6 +61,7 @@ when the signature is for simply proving that the resource content is the same a
 was updated or created.
 </p>
 
+<a name="removal"> </a>
 <h3>Provenance of Removal</h3>
 <p>
 A Provenance record can be recorded to indicate who deleted a Resource. If versioning is supported, 
