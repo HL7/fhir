@@ -34,8 +34,7 @@ is a formal definition of an API by which a <a href="terminology-service.html">t
 translation to be done based on the content in the ConceptMap resource. As such it also provides useful perspective on the 
 operational use of ConceptMap resources in any context.
 </p>
-
-</div> 
+</div>
 
 <div>
 <a name="bnr"></a>
@@ -52,6 +51,13 @@ resource. The ConceptMap resource defines relationships between concepts in thei
 along with grading of their equivalencies, while the StructureMap defines an executable 
 transform for instances that conform to a known structure.
 </p>
+<p>
+Both <a href="codesystem.html">Code System</a> supplements and Concept Maps may be used to define relationships between concepts 
+in different systems. ConceptMaps are assertions of the relationships between different concepts 
+that are associated with particular contexts of use, while CodeSystem supplements are used to 
+define inherent properties and semantics of the concepts in the code system
+</p>
+
 </div>
 
 <div>

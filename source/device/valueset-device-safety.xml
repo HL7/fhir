@@ -32,7 +32,7 @@
 			</extension>
 			<system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
 			<concept>
-				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-definition">
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
 					<valueString value="A device with demonstrated safety in the MR environment within defined conditions. At a minimum, address the conditions of the static magnetic field, the switched gradient magnetic field and the radiofrequency fields. Additional conditions, including specific configurations of the item, may be required. See ASTM F2503"/>
 				</extension>
 				<code value="C106046"/>
@@ -42,7 +42,7 @@
 				</designation>
 			</concept>
 			<concept>
-				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-definition">
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
 					<valueString value="The device poses no known hazards resulting from exposure to any MR environment. MR Safe items are composed of materials that are electrically nonconductive, nonmetallic, and nonmagnetic. See ASTM F2503"/>
 				</extension>
 				<code value="C106045"/>
@@ -52,7 +52,7 @@
 				</designation>
 			</concept>
 			<concept>
-				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-definition">
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
 					<valueString value="The device which poses unacceptable risks to the patient, medical staff or other persons within the MR environment. See ASTM F2503"/>
 				</extension>
 				<code value="C106047"/>
@@ -62,21 +62,21 @@
 				</designation>
 			</concept>
 			<concept>
-				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-definition">
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
 					<valueString value="Information on the safety of using a device in a magnetic resonance (MR) environment has not been provided in the labeling by the labeler."/>
 				</extension>
 				<code value="C113844"/>
 				<display value="Labeling does not Contain MRI Safety Information"/>
 			</concept>
 			<concept>
-				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-definition">
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
 					<valueString value="The device label indicates natural rubber latex as a component."/>
 				</extension>
 				<code value="C101673"/>
 				<display value="Labeled as Containing Natural Rubber Latex"/>
 			</concept>
 			<concept>
-				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-definition">
+				<extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
 					<valueString value="The composition of the materials of an item do not contain natural rubber latex."/>
 				</extension>
 				<code value="C106038"/>

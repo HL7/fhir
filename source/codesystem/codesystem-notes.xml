@@ -94,7 +94,7 @@ for clear and safe communication.
 </p>
 <p>
 In addition to the display and definition, a concept can have one or more <code>designation</code> elements. 
-The display and definitions are equivalent to a special designation with an implied <code>designation.use</code> of "primary code/designation" 
+The display and definitions are equivalent to a special designation with an implied <code>designation.use</code> meaning "primary code/designation" 
 and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide additional displays
 and definitions for other language, as well as designations for other purposes. 
 When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provide a reason
@@ -285,18 +285,52 @@ The following filters are defined for all code systems:
  </tr>
 </table>
 
-<div class="informative-content">
+<div class="draft-content">
 <p>
-This informative section about the relationships between rich terminologies and structured content is still undergoing review.
+This <a href="versions.html#std-process" title="Draft Content" class="draft-flag">draft section</a> about the relationships between rich terminologies and structured content is still undergoing review.
 </p>
 
+<a name="implicit"></a>
 <a name="detailed-metadata"></a>
-<h3>Code systems with detailed metadata</h3>
+<h3>Implicit Code Systems</h3>
 <p>
-Sometimes code systems may be used to represent more complex information than just
-code, display name and code system.  For example, a code system of drug information
-which contains information about the content of the medication, or a set of
-observation definitions, that contain methods, units, etc.
+Some other parts of the FHIR infrastructure define set of concepts that may also be treated 
+as code systems. This is most useful when mapping between systems using <a href="conceptmap.html">Concept Maps</a>,
+but might also be useful for other code system related functionality (e.g. subsetting use <a href="valueset.html">Value Sets</a>). 
+This table summarizes how to treat these items as a terminology:
+</p>
+<table class="grid">
+ <tr>
+  <td><a href="structuredefinition.html">StructureDefinition</a></td>
+  <td>The <code>StructureDefinition.url</code> (canonical URL) is the <code>system</code>. Each <code>.snapshot.element.id</code> in the snapshot is a code in the code system</td>
+ </tr>
+ <tr>
+  <td><a href="questionnaire.html">Questionnaire</a></td>
+  <td>The <code>Questionnaire.url</code> (canonical URL) is the <code>system</code>. Each <code>.item.linkId</code> in the snapshot is a code in the code system. Items with no linkId cannot be addressed</td>
+ </tr>
+ <tr>
+  <td><a href="medication.html">Medication</a></td>
+  <td>Medication resources are a bit different, since they don't have a canonical URL, and
+    there are not multiple items in a resource. So to refer to a medication resource, the system
+    is [base]/Medication, where base is the server address. The <a href="resource.html#id">Logical Id</a> of the resource is the code</td>
+ </tr>
+</table>
+<p>
+The use of these implicit code systems is not yet well tested, so this section remains
+informative.
+</p>
+
+<p>
+For medications, the relationship between the code system and the medication resource
+is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc) represent 
+more complex information than just code, display name and code system.  These often 
+contain information about the content of the medication
+A similar principle applies to observation definitions, which overlap significantly
+with LOINC and other related code systems, which contain a set of observation 
+definitions, that contain methods, units, etc. Other similar arrangements exist
+for <a href="location.html">Location</a> and many other kinds of resource.
+</p>
+<p>
 In FHIR, these are handled by splitting the concept into two distinct parts - the
 Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used to
 manage the codes, display names and relationships.  A separate "detail"
@@ -335,8 +369,7 @@ The linkage between the "detail" resource and the Terminology resources is accom
 "title" on the detail resource generally corresponds with the display name on the matching
 code.  Most detail resources will also have an "identifier" element.  This <i>can</i> be
 set to the same value and namespace as the code, but if the only identifier a resource has
-is its defining code, it may be better to omit the identifier entirely. For further
-information, see <a href="conceptmap.html#implicit">Implicit Code Systems</a>.
+is its defining code, it may be better to omit the identifier entirely. .
 </p>
 </div>
 

@@ -1,3 +1,5 @@
+// When the request can be processed ok
+
 HTTP/1.1 200 OK
 [other headers]
 
@@ -29,5 +31,29 @@ HTTP/1.1 200 OK
     }
     ]
   }
+  ]
+}
+
+--------------------------------------
+// an error - e.g. the requested code is not known
+
+HTTP/1.1 400 Bad Request
+[other headers]
+
+{
+  "resourceType": "OperationOutcome",
+  "id": "exception",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Code "ABC-23" not found</div>"
+  },
+  "issue": [
+    {
+      "severity": "error",
+      "code": "not-found",
+      "details": {
+        "text": "Code "ABC-23" not found"
+      }
+    }
   ]
 }

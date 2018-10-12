@@ -1,3 +1,5 @@
+// When the request can be processed ok
+
 HTTP/1.1 200 OK
 [other headers]
 
@@ -8,4 +10,29 @@ HTTP/1.1 200 OK
     "name" : "outcome",
     "valueCode" : "subsumed-by"
   }
+}
+
+--------------------------------------
+// when the subsumption cannot be tested
+
+
+HTTP/1.1 500 Error
+[other headers]
+
+{
+  "resourceType": "OperationOutcome",
+  "id": "exception",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Version "XXX" for http://acme.com/fhir/CodeSystem/some-id is no longer available</div>"
+  },
+  "issue": [
+    {
+      "severity": "error",
+      "code": "not-supported",
+      "details": {
+        "text": "Version "XXX" for http://acme.com/fhir/CodeSystem/some-id is no longer available"
+      }
+    }
+  ]
 }

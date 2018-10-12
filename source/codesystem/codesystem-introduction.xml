@@ -64,6 +64,12 @@ code system in use, and need to describe the use, but do not have the authority 
 Additionally, there may be multiple authoritative <code>NamingSystem</code> resources for a code system, but ideally there
 would be only one authoritative <code>CodeSystem</code> resource (identified by its canonical URI) that is provided by the code system publisher, with multiple copies distributed on additional FHIR servers or elsewhere and used where needed.
 </p>
+<p>
+Both Code System supplements and <a href="conceptmap.html">Concept Maps</a> may be used to define relationships between concepts 
+in different systems. ConceptMaps are assertions of the relationships between different concepts 
+that are associated with particular contexts of use, while CodeSystem supplements are used to 
+define inherent properties and semantics of the concepts in the code system
+</p>
 </div>
 
 <div>

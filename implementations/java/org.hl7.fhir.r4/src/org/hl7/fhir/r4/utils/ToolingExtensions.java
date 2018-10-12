@@ -72,9 +72,9 @@ public class ToolingExtensions {
   // validated
 //  private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
 //  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
-  public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
-  public static final String EXT_CS_COMMENT = "http://hl7.org/fhir/StructureDefinition/codesystem-comments";
-  public static final String EXT_VS_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
+  public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition";
+  public static final String EXT_CS_COMMENT = "http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments";
+  public static final String EXT_VS_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-concept-comments";
   private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/StructureDefinition/identifier";
   public static final String EXT_TRANSLATION = "http://hl7.org/fhir/StructureDefinition/translation";
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source";
