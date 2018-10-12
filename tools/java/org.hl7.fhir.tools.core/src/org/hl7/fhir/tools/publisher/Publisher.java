@@ -5794,7 +5794,8 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void validationProcess() throws Exception {
 
     if (!isPostPR) {
-      runJUnitTestsInProcess();
+      if (buildFlags.get("all"))
+        runJUnitTestsInProcess();
       page.log("Validating Examples", LogMessageType.Process);
       ExampleInspector ei = new ExampleInspector(page.getWorkerContext(), page, page.getFolders().dstDir, Utilities.path(page.getFolders().rootDir, "tools", "schematron"), page.getValidationErrors(), page.getDefinitions());
       page.log(".. Loading", LogMessageType.Process);
@@ -5847,11 +5848,13 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       ei.summarise();
 
-      runJUnitTestsEnd();
+      if (buildFlags.get("all"))
+        runJUnitTestsEnd();
 
       if (buildFlags.get("all") && isGenerate)
         produceCoverageWarnings();
-      miscValidation();
+      if (buildFlags.get("all"))
+        miscValidation();
     }    
 
   }
