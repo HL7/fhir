@@ -1,5 +1,8 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
-
+<p>
+In addition to this standard example, there are many 
+examples of the <code>Parameters</code> resource in the operation examples:
+</p>
+<%op-example-link Parameters%>
 </div>
