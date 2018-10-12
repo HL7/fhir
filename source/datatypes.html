@@ -150,11 +150,11 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>canonical<a name="canonical"></a></td>
-   <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
-    and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URls that are the target
-    of these references, but for the URLs that refer to them, and may have the version suffix in them. Canonical URLs may also have #fragment references</td>
+   <td>A URI that is refers to a <a href="references.html#canonical">resource by it's canonical URL</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, 
+    and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URLs that are the target
+    of these references, but for the URIs that refer to them, and may have the version suffix in them. Like other URIs, elements of type <code>canonical</code> may also have #fragment references</td>
     <td>xs:anyURI</td>
-   <td>A JSON string - a canonical URI</td>
+   <td>A JSON string - a canonical URL</td>
  </tr>
  <tr>
    <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
@@ -330,7 +330,7 @@ Notes:
      <li>They all contain URIs, but differ in how applications resolve the reference</li>
      <li>Although the <code>url</code> and <code>canonical</code> are specializations of <code>uri</code>, they are never substituted for each other</li>
      <li>They are all case sensitive for comparison purposes. Applications SHOULD not create URIs that only differ by case</li>
-     <li>A general URI may be either a URL or a canonical URI or some other kind of URI</li>
+     <li>A general URI may be either a URL or a canonical URL or some other kind of URI</li>
    </ul>
  </li>
  <li>About the markdown datatype:

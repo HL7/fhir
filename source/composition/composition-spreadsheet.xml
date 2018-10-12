@@ -4308,8 +4308,8 @@
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s119"/>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Canonical URL for a GraphDefinition</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Canonical URL for a GraphDefinition. If a URL is provided, it is the canonical URL for a [[[GraphDefinition]]] that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Canonical reference to a GraphDefinition</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [[[GraphDefinition]]] that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">

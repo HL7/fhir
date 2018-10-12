@@ -263,7 +263,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="47">
     <Cell><Data ss:Type="String">canonical</Data></Cell>
-    <Cell><Data ss:Type="String">A URI that is a reference to a canonical URI on a FHIR resource</Data></Cell>
+    <Cell><Data ss:Type="String">A URI that is a reference to a canonical URL on a FHIR resource</Data></Cell>
     <Cell><Data ss:Type="String">see [Canonical References](references.html#canonical)</Data></Cell>
     <Cell><Data ss:Type="String">uri</Data></Cell>
     <Cell><Data ss:Type="String">xs:anyURI+</Data></Cell>

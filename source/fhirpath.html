@@ -225,7 +225,7 @@ Note: the selector parameter is planned to be added to a future version of the b
 </p>
 
 <p><b>resolve() : collection</b></p>
-<p>For each item in the collection, if it is a string that is a URI or (canonical or URL), locate the target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, the item is ignored and nothing is added to the output collection.</p>
+<p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a> (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, the item is ignored and nothing is added to the output collection.</p>
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved.</p>
 
 <p><b>ofType(type : identifier) : collection</b></p>
@@ -391,7 +391,7 @@ This calls the <a href="terminology-service.html#expand">Terminology Service $ex
 Parameters:
 </p>
 <ul>
- <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URI</a> reference to a value set.</li>
+ <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
  <li><b>params</b>: a URL encoded string with other parameters for the expand operation (e.g. 'displayLanguage=en&amp;activeOnly=true')</li>
 </ul>
 <p>
@@ -430,7 +430,7 @@ This calls the <a href="terminology-service.html#expand">Terminology Service $va
 Parameters:
 </p>
 <ul>
- <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URI</a> reference to a value set.</li>
+ <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
  <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
  <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'date=2011-03-04&amp;displayLanguage=en')</li>
 </ul>
@@ -451,7 +451,7 @@ This calls the <a href="terminology-service.html#expand">Terminology Service $va
 Parameters:
 </p>
 <ul>
- <li><b>codeSystem</b>: either an actual <a href="codesystem.html">CodeSystem</a>, or a <a href="references.html#canonical">canonical URI</a> reference to a code system.</li>
+ <li><b>codeSystem</b>: either an actual <a href="codesystem.html">CodeSystem</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a code system.</li>
  <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
  <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'date=2011-03-04&amp;displayLanguage=en')</li>
 </ul>
@@ -492,7 +492,7 @@ This calls the <a href="terminology-service.html#translate">Terminology Service 
 Parameters:
 </p>
 <ul>
- <li><b>conceptMap</b>: either an actual <a href="conceptmap.html">ConceptMap</a>, or a <a href="references.html#canonical">canonical URI</a> reference to a value set.</li>
+ <li><b>conceptMap</b>: either an actual <a href="conceptmap.html">ConceptMap</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
  <li><b>coded</b>: The source to translate: a <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
  <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'source=http://acme.org/valueset/23&amp;target=http://acme.org/valueset/23')</li>
 </ul>

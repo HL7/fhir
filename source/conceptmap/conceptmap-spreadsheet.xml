@@ -1954,8 +1954,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Canonical URI for an additional ConceptMap to use for mapping if the source concept is unmapped</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The canonical URI of an additional ConceptMap resource instance to use for mapping if this ConceptMap resource contains no matching mapping for the source concept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">canonical reference to an additional ConceptMap to use for mapping if the source concept is unmapped</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The canonical reference to an additional ConceptMap resource instance to use for mapping if this ConceptMap resource contains no matching mapping for the source concept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4617,7 +4617,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">A canonical url for a concept map. The server must know the concept map (e.g. it is defined explicitly in the server's concept maps, or it is defined implicitly by some code system known to the server.</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">A canonical URL for a concept map. The server must know the concept map (e.g. it is defined explicitly in the server's concept maps, or it is defined implicitly by some code system known to the server.</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4893,7 +4893,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The canonical URI for the concept map from which this mapping comes from</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The canonical reference to the concept map from which this mapping comes from</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6754,7 +6754,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Other Map</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Use the map identified by the canonical URL in URL</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Use the map identified by the canonical URL in the url element</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>

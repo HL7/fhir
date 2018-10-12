@@ -46,7 +46,7 @@ declaring the filters and properties associated with those code systems.
 <h2>Boundaries and Relationships</h2>
 <ul>
  <li>Code systems are used in <a href="valueset.html">ValueSet</a> resources</li>
- <li>The <a href="datatypes.html#Coding">Coding</a> data type refers to CodeSystem resources by their canonical URI</li>
+ <li>The <a href="datatypes.html#Coding">Coding</a> data type refers to CodeSystem resources by their canonical URL</li>
  <li>The CodeSystem resource design is based, in part, on the code system functionality described in 
      the <a href="http://www.omg.org/spec/CTS2/1.0/">HL7 CTS 2</a> specification. 
      A CTS2 server can be used to maintain code systems which are then published using the CodeSystem resource</li>
@@ -62,7 +62,7 @@ by the owner or publisher of the code system, who can properly define the code s
 <code>NamingSystem</code> resources, on the other hand, are frequently defined by 3rd parties that encounter the
 code system in use, and need to describe the use, but do not have the authority to define the features and content. 
 Additionally, there may be multiple authoritative <code>NamingSystem</code> resources for a code system, but ideally there
-would be only one authoritative <code>CodeSystem</code> resource (identified by its canonical URI) that is provided by the code system publisher, with multiple copies distributed on additional FHIR servers or elsewhere and used where needed.
+would be only one authoritative <code>CodeSystem</code> resource (identified by its canonical URL) that is provided by the code system publisher, with multiple copies distributed on additional FHIR servers or elsewhere and used where needed.
 </p>
 <p>
 Both Code System supplements and <a href="conceptmap.html">Concept Maps</a> may be used to define relationships between concepts 
@@ -90,7 +90,7 @@ A code system has three identifiers. The first two can be used to reference the 
 <ul>
  <li><code>CodeSystem.id</code>: The <a href="resource.html#id">logical id</a> on the system that holds the CodeSystem resource instance - this typically is expected to change as the resource moves from server to server. The location URI is constructed by appending the logical id to the server base address where the instance is found and the resource type. This URI should be a resolvable URL by which the resource instance may be retrieved, usually from a FHIR server, and it may be a relative reference typically to the server base URL.
  </li>
- <li><code>CodeSystem.url</code>: The canonical URI (also sometimes called the "canonical URL") that never changes for this code system - it is the same in every copy. The element is named <code>url</code> rather than <code>uri</code> for legacy reasons and to strongly encourage providing a resolvable URL as the identifier whenever possible.  This canonical URI is used to refer to all instances of this particular code system across all servers and systems. Ideally, this URI should be a URL which resolves to the location of the master version of the code system, though this is not always possible.
+ <li><code>CodeSystem.url</code>: The canonical URL that never changes for this code system - it is the same in every copy. The element is named <code>url</code> rather than <code>uri</code> for legacy reasons and to strongly encourage providing a resolvable URL as the identifier whenever possible.  This canonical URL is used to refer to all instances of this particular code system across all servers and systems. Ideally, this URI should be a URL which resolves to the location of the master version of the code system, though this is not always possible.
  </li>
 </ul>
 <blockquote>
@@ -100,7 +100,7 @@ For example, the code systems published as part of the FHIR specification all ha
 </blockquote>
 <p>
 Because it is common practice to copy (cache) code systems locally, most 
-references to code systems can use either the canonical URI or the location ("literal") URL. 
+references to code systems can use either the canonical URL or the location ("literal") URL. 
 </p>
 <p>
 The third code system identifier is used typically for external references to the code system outside of FHIR:
@@ -114,8 +114,8 @@ For further information regarding resource identification, see <a href="resource
 
 <p>
 This means that each code system has 2 different URIs that can be used to reference it - 
-its canonical URI (the <code>url</code> element), and its local location from which it may be retrieved (which includes the <code>id</code> element). Because it is common practice to copy (cache) code systems locally, most references to 
-code systems use the canonical URI. 
+its canonical URL (the <code>url</code> element), and its local location from which it may be retrieved (which includes the <code>id</code> element). Because it is common practice to copy (cache) code systems locally, most references to 
+code systems use the canonical URL. 
 </p>
 <p>
 Alternatively, the <code>identifier</code> and <code>version</code> elements may be used to reference this code system in a 
@@ -123,7 +123,7 @@ design, a profile, a <a href="http://www.hl7.org/implement/standards/product_bri
 or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> message (in the CD data 
 type codeSystem and codeSystemVersion properties). These different contexts may make additional restrictions on the 
 possible values of these elements.  The <code>identifier</code> is generally not needed when using code systems in
-a FHIR context, where the canonical URI (or "canonical URL") is always the focus.
+a FHIR context, where the canonical URL is always the focus.
 </p>
 
 </div>

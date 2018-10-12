@@ -45,7 +45,7 @@
   </text>
   
 <!--   
-	  for this example, we use a real URI, since this example does have a canonical address
+	  for this example, we use a real URI, since this example does have a canonical URL
 		at which it's posted. Alternatively, We could have used an OID, or a UUID 
 
     note that since we give a literal URL here, there's an expectation 
