@@ -337,7 +337,6 @@ signatures.html
     	<page type="resource" resource="MedicinalProductManufactured"/>
     	<page type="resource" resource="MedicinalProductPackaged"/>
     	<page type="resource" resource="MedicinalProductPharmaceutical"/>
-      <page type="resource" resource="MedicinalProductDeviceSpec"/>
       <page type="resource" resource="Immunization"/>
       <page type="resource" resource="ImmunizationEvaluation"/>
      <page type="resource" resource="ImmunizationRecommendation"/>

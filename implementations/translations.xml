@@ -600,9 +600,6 @@
 	<item id="MedicinalProductPharmaceutical">
 		<translation lang="en">MedicinalProductPharmaceutical</translation>
 	</item>
-    <item id="MedicinalProductDeviceSpec">
-        <translation lang="en">MedicinalProductDeviceSpec</translation>
-    </item>
 	<item id="MessageDefinition">
 		<translation lang="en">MessageDefinition</translation>
 		<translation lang="it">DefinizioneMessaggio</translation>
