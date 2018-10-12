@@ -1,3 +1,5 @@
+// general pattern of response. Note: This specification also provides a file with 100s of expansions for code generators in both [JSON](expansions.json.zip) and [XML](expansions.xml.zip)
+
 HTTP/1.1 200 OK
 [other headers]
 
@@ -17,5 +19,3 @@ HTTP/1.1 200 OK
   </expansion>
 </ValueSet>
 
-----------------------------------------------
-// For further examples, this specification provides a file with 100s of expansions for code generators in both [JSON](expansions.json.zip) and [XML](expansions.xml.zip)
