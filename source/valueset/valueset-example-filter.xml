@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- shows how to use a filter defined in a code system resource -->
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="example-filter"/>
+
+  <url value="http://hl7.org/fhir/ValueSet/example-filter"/>
+  <name value="ACMECholCodesPlasma"/>
+  <title value="ACME Codes for Cholesterol: Plasma only"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2018-11-01"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="ACME Codes for Cholesterol: Plasma only - demonstrating the use of a filter defined in a CodeSystem"/>
+
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/example"/>
+      <!--  
+        Use the filter defined in the code system. Note that filters like
+        this need custom code to support them, and are generally only found
+        in high value published code systems (e.g. SNOMED CT). Unlike this example.        
+		  -->
+      <filter>
+        <property value="acme-plasma"/>
+        <op value="="/>
+        <value value="true"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>

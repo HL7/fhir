@@ -4089,7 +4089,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R26C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="28" ss:ExpandedRowCount="42" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="28" ss:ExpandedRowCount="43" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s84" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="79.0"/>
@@ -4975,9 +4975,18 @@
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">An alternative expression of the content of the value set</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">An alternative computable expression of the value set content</Data></Cell>
     <Cell><Data ss:Type="String">An expression that provides an alternative definition of the content of the value set. There are two different ways to use this expression extension: If both an expression and a compose element is present, the compose is understood the make the same statement as the expression. If there is no compose, the expression is the only definition of the value set, and the value set can only be processed by a server that understands the expression syntax, it that is computable</Data></Cell>
-    <Cell ss:Index="18"><Data ss:Type="String">The expression may be a reference or the actual expression, and it may just be a human statement of the rules if there is no computable definition</Data></Cell>
+    <Cell ss:Index="18"><Data ss:Type="String">The expression may be a reference or the actual expression, and ss expected to be a computable format (use the [rules-text extension](extension-valueset-rules-text.html) for a non-computable description)</Data></Cell>
+   </Row>
+   <Row ss:Height="90">
+    <Cell><Data ss:Type="String">rules-text</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">markdown</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">An alternative non-computable expression of the value set content</Data></Cell>
+    <Cell><Data ss:Type="String">An expression that provides an alternative definition of the content of the value set in some form that is not computable - e.g instructions that could only be followed by a human</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4996,9 +5005,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>41</TopRowBottomPane>
+   <TopRowBottomPane>42</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

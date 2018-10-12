@@ -8101,11 +8101,11 @@
     <Cell ss:StyleID="s168"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">BbSNP-variant-database</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">DbSNP-variant-database</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">NCBI database of variants </Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s184"><Data ss:Type="String">valueset-bbsnp</Data></Cell>
+    <Cell ss:StyleID="s184"><Data ss:Type="String">valueset-dbsnp</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">NCBI  central repository of variants, including germline and somatic variants</Data></Cell>
     <Cell ss:StyleID="s156"><Data ss:Type="String">2.16.840.1.113883.6.284</Data></Cell>
     <Cell ss:StyleID="s156"/>

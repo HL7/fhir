@@ -10,7 +10,7 @@ POST [base]/CodeSystem/$validate-code
   "ResourceType" : "Parameters",
   "parameter" : [
     {
-    "name" : "coding",
+    "name" : "codeableConcept",
     "valueCodeableConcept" : {
       "coding" : {
         "system" : "http://example.org",

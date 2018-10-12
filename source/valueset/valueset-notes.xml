@@ -6,26 +6,22 @@
 
 <p>
 A value set can be a simple list of included codes, or it can be some kind of general selection criteria 
-using the facilities provided by the code system. For these value sets:
+using the facilities provided by the <a href="codesystem.html">code system</a>. For these value sets:
 </p>
 <ul>
  <li>Multiple <code>include</code> statements are cumulative - e.g. the value set contains the union of all the includes</li>
  <li>Within an <code>include</code>, all the criterion apply -e.g. the value set contains the intersection of the criterion</li>
- <li>Within an <code>include</code>, a single system with selection criteria may be listed, and/or one or more value sets may be listed. Rules for
-     interpretation:
-    <ul>
-     <li><b><code>System</code> only</b>: Codes are 'selected' for inclusion if they are selected by the code system selection (see next point)</li>
-     <li><b><code>valueSet</code> only</b>: Codes are 'selected' for inclusion if they are in all the referenced value sets</li>
-     <li><b><code>System</code> and <code>valueSet</code></b>: Codes are 'selected' for inclusion if they are selected by the code system selection and if they are in all the referenced value sets</li>
-    </ul>
- </li>
- <li>If a system is specified, the following rules apply: 
+ <li>Within an <code>include</code>, a single system with selection criteria may be listed, and/or one or more value sets may be listed</li>
+ <li><b><code>valueSet</code>(s) only</b>: Codes are 'selected' for inclusion if they are in all the referenced value sets</li>
+ <li>If a <b><code>System</code> only</b> is specified, the following rules apply: 
     <ul>
      <li><b>no <code>concept</code> or <code>filter</code></b>: All codes in the system are included</li>
      <li><b><code>concept</code></b>: Only the enumerated codes are selected</li>
      <li><b><code>filter</code></b>: Any codes meeting the filter criteria are selected</li>
     </ul>
  </li>
+ <li><b><code>valueSet</code> and <code>System</code></b>: Codes are 'selected' for inclusion if they are selected by the code system selection 
+   (after checking for <code>concept</code> and <code>filter</code>) and if they are in all the referenced value sets</li>
  <li>If the system reference is not version specific and filters are present, then the contents of the value set are open and change 
     over time as the underlying code systems are updated</li>
  <li>The version reference may be the special value "<code>*</code>", which indicates that the value set includes codes from all versions of the code system.
@@ -72,11 +68,15 @@ For this reason, some contexts of use do not allow a display to be associated wi
 in a value set.
 </p>
 <p>
-Any display name for a concept provided in the value set is only used in the UI. The display in 
-a <a href="datatypes.html#Coding">Coding</a> must be taken from the underlying code system definition, 
-even if a value set is referenced explicitly in the Coding (e.g. by an extension). The alternative display 
-specified in the value set would go in <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, 
-perhaps appended to the UI label for the matching data element.
+Any display name for a concept provided in the value set is for display to a human user. 
+The display in the <a href="datatypes.html#Coding">Coding</a> that results from a user 
+selecting a concept from the expansion must be taken from the underlying code system 
+definition, even if a value set is referenced explicitly in the Coding (e.g. by an 
+<a href="extension-valueset-reference.html">extension</a>). The correct display for a 
+code can be determined by a <a href="codesystem-operation-lookup.html">$lookup operation</a>. 
+Any alternative display specified in the value set would go in 
+<a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, perhaps appended to 
+the UI label for the matching data element.
 </p>
 <p>
 In addition to the display, a concept can have one or more <code>designation</code> elements. 
@@ -160,7 +160,7 @@ the following process should be followed:
  </li>
  <li>Otherwise: For each <i>compose.include</i>:
   <ol>
-   <li>If there is a system, identify the correct version of the code system, and then:
+   <li>If there is a system, identify the correct version of the <a href="codesystem.html">code system</a>, and then:
      <ul>
       <li>If there are no codes or filters, add every code in the code system to the result set.</li>   
       <li>If codes are listed, check that they are valid, and check their active status, and if ok, add them to the result set (the parameters to the <a href="valueset-operation-expand.html">$expand</a> operation may be used to control whether active codes are included).</li>
@@ -181,7 +181,7 @@ alternative approaches that are more efficient, as long as the outcome is the sa
 </p>
 [%dragons-start%]
 <p class="warning">
-The impact of Code System supplements on <a href="valueset-operation-expand.html">value set expansion</a> - and 
+The impact of <a href="codesystem.html#supplements">Code System supplements</a> on <a href="valueset-operation-expand.html">value set expansion</a> - and 
 therefore <a href="valueset-operation-validate-code.html">value set validation</a> - is 
 subject to ongoing experimentation and implementation testing, and further clarification and additional
 rules might be proposed in future versions of this specification.
@@ -265,7 +265,7 @@ expansion is returned.
 Other parameters that servers may be required to use:
 </p>
 <table class="grid">
- <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the code system for the canonical URL. 
+ <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the <a href="codesystem.html">code system</a> for the canonical URL. 
    Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment" or " </td></tr>
  <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content
   of the expansion for the code system canonical1 (by influencing selection, or providing designations). Applications generating expansions SHALL use this parameter to record 

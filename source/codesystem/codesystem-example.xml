@@ -67,11 +67,12 @@
     system, not the version, if existing codes are redefined (e.g. don't do that!)  -->
   <version value="20160128"/>
 
-  <name value="ACME Codes for Cholesterol in Serum/Plasma"/>
+  <name value="ACMECholCodesBlood"/>
+  <title value="ACME Codes for Cholesterol in Serum/Plasma"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2016-01-28"/>
-  <publisher value="HL7 International"/>
+  <publisher value="Acme Co"/>
   <contact>
     <name value="FHIR project team"/>
     <telecom>
@@ -86,6 +87,21 @@
        So FHIR requires that it always be specified.   -->
   <caseSensitive value="true"/>
   <content value="complete"/>
+  
+  <!-- filter: Code Systems can define filters that value sets can 
+    use to select sets of codes. Note that value sets can also use
+    properties (see, e.g. the valueset-example-supplement example)
+    and this is always preferred because anything asserted as a 
+    filter in the code system will need custom code to make it work.
+    For this reason, filters are generally only defined in high value 
+    published code systems (unlike this extremely low value example)  -->
+  <filter>
+    <code value="acme-plasma"/>
+    <description value="An internal filter used to select codes that are only used with plasma"/>
+    <operator value="="/>
+    <value value="the value of this filter is either 'true' or 'false'"/>    
+  </filter>
+  
   <!--   
 			ACME's defined definitions. Note that these are not 
 			*good* definitions - but they are very commonly the kind 
