@@ -107,6 +107,16 @@ of release is not provided, the Terminology Service may default to the most rece
 SNOMED CT distribution (e.g. 32506021000036107 for Australia).
 </p>
 
+<p>
+In terms of the CodeSystem resource definitions, this means that SNOMED CT is distributed as a 
+set of overlapping fragments that contain different parts of the entire code system that is 
+SNOMED CT. Terminology servers and users always need to be aware of which fragment(s) are in 
+use at any time, though implementations can sometimes safely assume that a national distribution 
+is the only scope. Note that because of SNOMED CT's large size, there is no expectation that 
+implementers will ever use a CodeSystem resource instead of the SNOMED CT RF2 format 
+as a way to distribute SNOMED CT content. 
+</p>
+
 <h3>Display Terms for Specific Languages</h3>
 <p>
 In the ValueSet resource any number of terms 

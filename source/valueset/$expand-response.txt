@@ -11,8 +11,11 @@ HTTP/1.1 200 OK
   <expansion>
     <!-- when expanded -->
     <timestamp value="20141203T08:50:00+11:00"/>
-  <contains>
-    <!-- expansion contents -->
-  </contains>
+    <contains>
+      <!-- expansion contents -->
+    </contains>
   </expansion>
 </ValueSet>
+
+----------------------------------------------
+// For further examples, this specification provides a file with 100s of expansions for code generators in both [JSON](expansions.json.zip) and [XML](expansions.xml.zip)

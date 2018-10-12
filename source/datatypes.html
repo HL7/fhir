@@ -590,9 +590,10 @@ is a text representation of the code defined by the <code>system</code> and is u
 the meaning of the code by an application that is not aware of the <code>system</code>.
 </p>
 <p>
-Where the code system defines multiple possible display strings, one of these SHALL be used in <code>display</code>.
-If one is labeled as preferred, it SHOULD be used. If the code system does not define a text representation
-(e.g. SNOMED CT Expressions) then <code>display</code> cannot be populated, and the meaning of the code won't be
+If the 'display' element is populated, the string used in <code>display</code> SHALL be one of the display strings defined for 
+that code by the code system (code systems may define multiple display strings for a single code).  
+If one of the available display strings is labeled as preferred, it SHOULD be used. If the code system does not define a text representation 
+for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be populated, and the meaning of the code won't be 
 accessible to systems that don't understand the code expression.
 </p>
 

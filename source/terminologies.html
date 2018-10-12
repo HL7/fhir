@@ -184,7 +184,7 @@ There are a number of places in the specification where value sets are reference
  <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>Used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
  <tr><td><a href="questionnaire.html">Questionnaire</a>.group.question.options</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.import</td><td>The content of a value set includes the content in the imported value set too</td></tr>
- <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding</td><td>Used to bind a defined parameter to a value set</td></tr>
+ <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding.valueSet</td><td>Used to bind a defined parameter to a value set</td></tr>
  <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>
 </table>
 <p>
@@ -392,7 +392,7 @@ The following  rules apply when required bindings are used with the <a href="dat
 </ul>
 <p>
 When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, but cannot select new or additional codes for these elements.
+may state rules on which codes can be used, including removing codes from allowed use, but cannot specify new or additional codes for these elements.
 </p>
 
 <a name="extensible"></a>

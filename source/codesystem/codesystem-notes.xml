@@ -2,7 +2,7 @@
 
 
 <a name="versioning"></a>
-<h3>Versioning Code Systems</h3>
+<h2>Versioning Code Systems</h2>
 <p>
 Most code systems evolve over time, due to corrections, clarifications, and changes to approach or underlying knowledge or reality.
 If these changes lead to the meanings of existing codes changing significantly, then the interpretation of the code system becomes
@@ -94,9 +94,9 @@ for clear and safe communication.
 </p>
 <p>
 In addition to the display and definition, a concept can have one or more <code>designation</code> elements. 
-The display and definitions are equivalent to a special designation with an implied <code>designation.use</code> meaning "primary code/designation" 
+The display is equivalent to a special designation with an implied <code>designation.use</code> meaning "primary code/designation" 
 and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide additional displays
-and definitions for other language, as well as designations for other purposes. 
+for other language, as well as designations for other purposes. 
 When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provide a reason
 to use one of the designations.
 </p>
@@ -104,8 +104,8 @@ to use one of the designations.
 <a name="properties"></a>
 <h2>Properties</h2>
 <p>
-Each code system can have one or more properties. Each concept defined by the code system
-may have one or more values for each property defined by the code system. Typical uses for
+Each code system can define one or more concept properties. Each concept defined by the code system
+may have one or more values for each concept property defined by the code system. Typical uses for
 properties include:
 </p>
 <ul>
@@ -214,7 +214,7 @@ and when using properties to indicate parent/child relationships (see below).
 </p>
 
 <a name="hierarchy"></a>
-<h3>Concept Hierarchy</h3>
+<h2>Concept Hierarchy</h2>
 <p>
 Code systems may be presented hierarchically, using nested <code>concept</code> elements, where the 
 hierarchy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
@@ -235,7 +235,7 @@ resource hierarchy.
 </p>
 
 <a name="subsumption"></a>
-<h3>Subsumption Testing</h3>
+<h2>Subsumption Testing</h2>
 <p>
 The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy  (i.e. the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>) identified for the code system that is being represented by the CodeSystem resource.
 Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if a parent/child relationship is declared in the properties, and the hierarchyMeaning is "is-a").
@@ -256,7 +256,7 @@ Subsumption based logic arises explicitly or implicitly in the following places 
 </ul>
 
 <a name="filters"></a>
-<h3>Filters</h3>
+<h2>Filters</h2>
 
 <p>
 The following filters are defined for all code systems:
@@ -292,7 +292,7 @@ This <a href="versions.html#std-process" title="Draft Content" class="draft-flag
 
 <a name="implicit"></a>
 <a name="detailed-metadata"></a>
-<h3>Implicit Code Systems</h3>
+<h2>Implicit Code Systems</h2>
 <p>
 Some other parts of the FHIR infrastructure define set of concepts that may also be treated 
 as code systems. This is most useful when mapping between systems using <a href="conceptmap.html">Concept Maps</a>,
