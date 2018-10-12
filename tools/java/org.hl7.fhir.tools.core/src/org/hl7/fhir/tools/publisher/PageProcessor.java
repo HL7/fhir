@@ -6879,22 +6879,41 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(processMarkdown(n, op.getFooter(), prefix)).append("\r\n");
     if (op.getExamples().size() > 0) {
       b.append("<h4>Examples</h4>\r\n");
+      boolean needsHr = false;
+      boolean hasHr = false;
       for (OperationExample ex : op.getExamples())
-        if (!ex.isResponse())
+        if (!ex.isResponse()) {
+          needsHr = true;
           renderExample(b, ex, "Request");
+        }
+     
       for (OperationExample ex : op.getExamples())
-        if (ex.isResponse())
+        if (ex.isResponse()) {
+          if (needsHr && !hasHr) {
+            hasHr = true;
+            b.append("<hr/>\r\n");
+          }
           renderExample(b, ex, "Response");
+        }
     }
     if (!Utilities.noString(op.getFooter2())) {
       b.append(processMarkdown(n, op.getFooter2(), prefix)).append("\r\n");
+      boolean needsHr = false;
+      boolean hasHr = false;
       if (op.getExamples2().size() > 0) {
         for (OperationExample ex : op.getExamples2())
-          if (!ex.isResponse())
+          if (!ex.isResponse()) {
+            needsHr = true;
             renderExample(b, ex, "Request");
+          }
         for (OperationExample ex : op.getExamples2())
-          if (ex.isResponse())
+          if (ex.isResponse()) {
+            if (needsHr && !hasHr) {
+              hasHr = true;
+              b.append("<hr/>\r\n");
+            }
             renderExample(b, ex, "Response");
+          }            
       }      
     }
     b.append("<p>&nbsp;</p>");
@@ -6927,7 +6946,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (Utilities.noString(ex.getComment()))
       b.append("<p>"+type+":</p>\r\n");
     else
-      b.append("<p>"+Utilities.capitalize(ex.getComment())+" ("+type+"):</p>\r\n");
+      b.append("<p>"+ processMarkdown("op-example", type+": "+Utilities.capitalize(ex.getComment()), "")+"</p>\r\n");
 
     b.append("<pre>\r\n");
     String[] lines = ex.getContent().split("\\r\\n");
