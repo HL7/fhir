@@ -47,7 +47,8 @@ the same patient for their subjects. Profiles and/or implementation guides may m
 about this (also see <a href="graphdefinition.html">GraphDefinition</a>).
 </p>
 <p>
-Resolving the references is discussed below. 
+This specification describes the use of references to other resources that have the same FHIR version as the source of the reference.
+Expected behavior for references across FHIR versions is presently undefined.
 </p>
 <p>
 References are made to resource based on their identity; there are <a href="resource.html#id">several different identities</a> to refer to.
@@ -466,7 +467,8 @@ resource since more than one practitioner might have the same name.
 <p>
 In these circumstances, the resource is placed directly in-line in the resource. <b>This SHOULD NOT be
 done when the content can be identified properly, as once the identification is lost, it is extremely difficult
-(and context dependent) to restore it again.</b>
+(and context dependent) to restore it again.</b> The FHIR version of a contained resource SHALL always be the
+same as the resource that contains it.
 </p>
 <div class="example">
 <p>

@@ -96,7 +96,17 @@ communication between the operators of the systems being configured to interoper
 </p>
 
 <a name="mixed"></a>
-<h2>Mixed Normative Content</h2>
+<h3>Supporting Multiple Versions</h3>
+<p>
+Applications may implement multiple versions. If they do, then a <code>CapabilityStatement</code> 
+describes the system's support for a particular version of FHIR, and the system will have multiple 
+statements, one for each version it supports. For further information, see <a href="versioning.html">Managing  
+Multiple Versions</a>, and the <a href="capabilitystatement-operation-versions.html">$versions</a> operation.
+</p>
+
+
+<a name="mixed"></a>
+<h3>Mixed Normative Content</h3>
 <p>
 While the core of the <code>CapabilityStatement</code> resource is <a href="versions.html#std-process">Normative</a>, 
 many of the flags that indicate exactly how the system operates are marked as <code>trial-use</code>. Roughly,

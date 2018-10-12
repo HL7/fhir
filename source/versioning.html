@@ -56,14 +56,14 @@ resource. The sequence works this way:
   and checks that the server version is the same</li>
 <li>All interactions between the client and server use the same version</li>
 </ul>
-
 <p>
 Clients are advised to check the server’s capability statement before first using the 
 server, but how often is at the discretion of the implementer, and this varies 
 wildly. Some implementers only check the statement during the development cycle, 
 while others check on the first connection for each process. Which is appropriate 
 depends on a variety of circumstances, but implementers should note that the 
-CapabilityStatement can change over time - even changing versions, though this would not be recommended.
+CapabilityStatement can change over time - even changing FHIR versions as the 
+system is subject to ongoing development.
 </p>
 
 <a name="mt-version"> </a>
@@ -102,6 +102,10 @@ Notes:
    </pre>
  </li>
 </ul>
+
+<p>
+Clients can determine what versions a server supports by using the <a href="capabilitystatement-operation-versions.html">$versions</a> operation.
+</p>
 
 <p><b>Storage</b></p>
 
