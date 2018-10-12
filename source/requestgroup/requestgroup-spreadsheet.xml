@@ -1905,7 +1905,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">must | could | must-unless-documented</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Defines the requiredness behavior for the action</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Defines expectations around whether an action is required</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6459,7 +6459,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">ActionRequiredBehavior</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Defines requiredness behavior for selecting an action or an action group</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Defines expectations around whether an action or action group is required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:HRef="http://hl7.org/fhir/ValueSet/action-required-behavior" ss:StyleID="s147"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/action-required-behavior</Data></Cell>
