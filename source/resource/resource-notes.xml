@@ -94,13 +94,13 @@ enforce their required identifier consistency.
 <a name="canonical"></a>
 <h4>Canonical URLs</h4>
 <p>
-Some resource types have a defined element <code>url</code> which is the 'canonical URI' 
+Some resource types have a defined element <code>url</code> which is the 'canonical URL' 
 that always identifies the resource. This is a special kind of Business Identifier. 
 Note that the element actually contains a URI, but is named <code>url</code> for legacy reasons.
 </p>
 <p>
-The canonical URI serves as a stable logical identifier for the resource, and <b>is the preferred
-way to reference a conformance or knowledge resource</b>. The canonical URI SHOULD also resolve 
+The canonical URL serves as a stable logical identifier for the resource, and <b>is the preferred
+way to reference a conformance or knowledge resource</b>. The canonical URL SHOULD also resolve 
 to the location where the master copy of the artifact is found, though it is not always possible 
 to arrange this. The canonical URL SHALL NOT refer to some other resource (though it may resolve to a different 
 version of the same resource).

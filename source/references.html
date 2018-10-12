@@ -289,19 +289,22 @@ being referenced, not to more fully describe it.
 <a name="canonical"></a>
 <h3>Canonical URLs</h3>
 <p>
-Many resource types have a defined element "url" which is the canonical URI that always identifies the
-resource. The canonical <b>is the preferred way to reference a conformance or knowledge resource</b>. 
-See <a href="resource.html#canonical">Canonical Resource Identity</a> for further information.
+Many resource types have a defined element "url" which is the canonical URL that always identifies the
+resource across all contexts of use. Typically, <a href="terminology-module.html">terminology</a>, 
+<a href="conformance-module.html">conformance</a> or <a href="clinicalreasoning-module.html">knowledge</a> 
+resources have canonical URLs. The canonical URL <b>is the preferred way to reference a resource instance</b> 
+for the resource types on which it is defined. See <a href="resource.html#canonical">Canonical Resource 
+Identity</a> for further information.
 </p>
 <p>
-References to canonical URLs use the <a href="datatypes.html#canonical"><code>canonical</code></a> to refer to 
+References to canonical URLs use the <a href="datatypes.html#canonical"><code>canonical</code></a> type to refer to 
 the canonical URL (which has the type <a href="datatypes.html#uri">uri</a> not <a href="datatypes.html#canonical">canonical</a>):
 </p>
 <pre>
 &lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
 </pre>
 <p>
-References to canonical URLs may include a version, in order be precise about which version of the 
+References of type <code>canonical</code> may include a version, in order be precise about which version of the 
 resource is being referred to. To do this, append the version to the reference with a '|' like this:
 </p>
 <pre>
@@ -324,11 +327,11 @@ search. Additional notes about searching on versioned references to canonical UR
 <ul>
  <li>Search only regards the latest version for each different logical id</li>
  <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
- <li>This search only works for specific data elements of type of uri that act as canonical uri's (see list below)</li>
+ <li>This search only works for specific data elements of type of uri that act as canonical URL's (see list below)</li>
 </ul>
 <p>
 Systems resolving references to canonical URLs SHOULD first try to resolve the reference using 
-the canonical URL (e.g. search on a known registry of terminology, conformance, or knowledge
+the canonical reference (e.g. search on a known registry of terminology, conformance, or knowledge
 resources as appropriate), and then fall back to direct resolution using the URL as 
 a literal reference if a local version of the canonical resource cannot be found. 
 This approach is safe because the approaches must refer to the same 
@@ -347,7 +350,7 @@ which is shown as canonical(Any) in this specification. Such references SHALL on
 <a name="canonical-fragments"></a>
 <h3>Canonical Reference and Fragments</h3>
 <p>
-Canonical URLs may include a fragment when the reference is to a contained Contained Resources.
+Canonical references may include a fragment when the reference is to a contained Contained Resources.
 When the target of a canonical reference is a contained resource, the 
 canonical reference will have a fragment as part of the URL:
 </p>

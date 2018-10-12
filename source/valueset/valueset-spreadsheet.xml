@@ -4199,7 +4199,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">A canonical url for a value set. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">A canonical reference to a value set. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s138"/>
    </Row>

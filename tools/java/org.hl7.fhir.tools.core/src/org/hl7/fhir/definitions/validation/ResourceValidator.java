@@ -70,6 +70,8 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
+import net.sf.saxon.functions.StartsWith;
+
 
 /** todo
  * check code lists used in Codings have displays
@@ -293,7 +295,7 @@ public class ResourceValidator extends BaseValidator {
       hint(errors, IssueType.STRUCTURE, rd.getName(), searchNameOk(p.getCode()), "Search Parameter name '"+p.getCode()+"' does not follow the style guide");
       rule(errors, IssueType.STRUCTURE, rd.getName(), p.getCode().equals(p.getCode().toLowerCase()), "Search Parameter Names should be all lowercase (\""+p.getCode()+"\")");
       if (rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(p.getDescription()), "Search Parameter description is empty (\""+p.getCode()+"\")"))
-        rule(errors, IssueType.STRUCTURE, rd.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|"), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
+        rule(errors, IssueType.STRUCTURE, rd.getName(), Character.isUpperCase(p.getDescription().charAt(0)) || p.getDescription().startsWith("e.g. ") || p.getDescription().contains("|") || startsWithType(p.getDescription()), "Search Parameter descriptions should start with an uppercase character(\""+p.getDescription()+"\")");
       try {
         if (!Utilities.noString(p.getExpression()))
           fpUsages.add(new FHIRPathUsage(rd.getName()+"::"+p.getCode(), rd.getName(), rd.getName(), p.getDescription(), p.getExpression().replace("[x]", "")));
@@ -694,7 +696,7 @@ public class ResourceValidator extends BaseValidator {
     String sd = e.getShortDefn();
     if( sd.length() > 0)
 		{
-			rule(errors, IssueType.STRUCTURE, path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || sd.startsWith("e.g. ") || !Character.isLetter(sd.charAt(0)) || Utilities.isURL(sd) || sd.startsWith("e.g. "), "Short Description must start with an uppercase character ('"+sd+"')");
+			rule(errors, IssueType.STRUCTURE, path, sd.contains("|") || Character.isUpperCase(sd.charAt(0)) || sd.startsWith("e.g. ") || !Character.isLetter(sd.charAt(0)) || Utilities.isURL(sd) || sd.startsWith("e.g. ") || startsWithType(sd), "Short Description must start with an uppercase character ('"+sd+"')");
 		    rule(errors, IssueType.STRUCTURE, path, !sd.endsWith(".") || sd.endsWith("etc."), "Short Description must not end with a period ('"+sd+"')");
 		    rule(errors, IssueType.STRUCTURE, path, e.getDefinition().contains("|") || Character.isUpperCase(e.getDefinition().charAt(0)) || !Character.isLetter(e.getDefinition().charAt(0)), "Long Description must start with an uppercase character ('"+e.getDefinition()+"')");
 		}
@@ -800,7 +802,14 @@ public class ResourceValidator extends BaseValidator {
 		return vsWarnings;
 	}
 
-	private String checkPatternMap(ElementDefn ed, String map) {
+	private boolean startsWithType(String sd) {
+    for (String t : definitions.getPrimitives().keySet())
+      if (sd.startsWith(t))
+        return true;
+    return false;
+  }
+
+  private String checkPatternMap(ElementDefn ed, String map) {
 	  return null;
 //	  String[] parts = map.split("\\.");
 //    LogicalModel lm = definitions.getLogicalModel(parts[0].toLowerCase());
