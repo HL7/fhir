@@ -76,11 +76,11 @@ Notes:
 </ul>
 <div class="example">
 <p>
-Here is an example of an extension in XML:
+Here is an example of an extension in XML (<a href="extension-iso21090-en-use.html">see definition</a>):
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso-21090-name-use&quot; &gt;
+  &lt;extension url=&quot;<a href="extension-iso21090-en-use.html">http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use</a>&quot; &gt;
     &lt;valueCode value=&quot;I&quot; /&gt;
   &lt;/extension&gt;
   &lt;text value=&quot;Chief Red Cloud&quot;/&gt;
@@ -97,7 +97,7 @@ In JSON, extensions are represented similarly:
 <pre class="json" fragment="HumanName">
 {
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/iso-21090-name-use",
+    "url" : "<a href="extension-iso21090-en-use.html">http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use</a>",
     "valueCode" : "I"
   }],
   "text" : "Chief Red Cloud"
@@ -127,11 +127,11 @@ to the extension definition.
 <div class="example">
 
 <p>
-As an example, consider extending a patient with information about citizenship containing 2 fields: code and period. In XML:
+As an example, consider extending a patient with information about citizenship (<a href="extension-patient-citizenship.html">see definition</a>) containing 2 fields: code and period. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
+  &lt;extension url=&quot;<a href="extension-patient-citizenship.html">http://hl7.org/fhir/StructureDefinition/patient-citizenship</a>&quot; &gt;
     &lt;extension url=&quot;code&quot; &gt;
       &lt;valueCodeableConcept&gt;
         &lt;coding&gt;
@@ -156,7 +156,7 @@ Or in JSON:
 {
   "resourceType" : "Patient",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
+    "url" : "<a href="extension-patient-citizenship.html">http://hl7.org/fhir/StructureDefinition/patient-citizenship</a>",
     "extension" : [{
       "url" : "code",
       "valueCodeableConcept" : {
@@ -176,22 +176,18 @@ Or in JSON:
 </pre>
 </div>
 <p>
-As the URL suggests, <a href="extension-patient-citizenship.html">this extension is defined as part of this specification</a>.
-</p>
-
-<p>
 This extension can be extended again, by adding a "passport-number" extension:
 </p>
 <div class="example">
 <p>
 The passport number is defined as a separate extension (e.g. by
-an implementing organization) rather than part of the official citizenship extension.
+an implementing organization, not in this specification) rather than part of the official citizenship extension.
 The URL of the extension is thus different. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
+  &lt;extension url=&quot;<a href="extension-patient-citizenship.html">http://hl7.org/fhir/StructureDefinition/patient-citizenship</a>&quot; &gt;
     &lt;extension url=&quot;code&quot; &gt;
       &lt;valueCodeableConcept&gt;
         &lt;coding&gt;
@@ -220,7 +216,7 @@ or in JSON:
 {
   "resourceType" : "Patient",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
+    "url" : "<a href="extension-patient-citizenship.html">http://hl7.org/fhir/StructureDefinition/patient-citizenship</a>",
     "extension" : [{
       "url" : "code",
       "valueCodeableConcept" : {
@@ -503,7 +499,6 @@ might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "processing the resource"</li>
  <li>A system SHALL NOT modify a resource or element that contains "modifier" extensions it doesn't understand</li>
  <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
- <li>Systems that do not accept unknown extensions SHALL declare so in their CapabilityStatement resource instances</li>
 </ul>
 <p>
 The degree to which a system can retain unknown extensions is a function of the type of system

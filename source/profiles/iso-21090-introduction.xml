@@ -46,16 +46,23 @@ This approach is preferred over referencing the full null flavor specification. 
 <h3>Entity Name (EN)</h3>
 <p>These extensions apply to the <a href="datatypes.html#humanname">HumanName</a> data type.</p>
 <ul>
-  <li><a href="extension-iso21090-en-qualifier.html"><b>name-qualifier</b></a> - This extension to <code><a href="datatypes.html#humanname">HumanName</a>.part</code> allows distinguishing initials, middle names, call-me names and other types of names</li>
+  <li><a href="extension-iso21090-en-use.html"><b>EN-use</b></a> - allows a more refined statement of the intended use of a particular name</li>
+  <li><a href="extension-iso21090-en-representation.html"><b>EN-representation</b></a> - is for a subset of <code>EN-use</code> and indicates the representation form of the name (this has specific use in east Asian countries)</li>
 </ul>
 <p>
-Note, however, that implementer experience has led to a new set of extensions being defined for 
+This extension applies to <a href="datatypes.html#humanname">HumanName</a> parts - e.g. <code>family</code> and <code>given</code>: 
+</p>
+<ul>
+  <li><a href="extension-iso21090-en-qualifier.html"><b>EN-qualifier</b></a> - allows distinguishing initials, middle names, call-me names and other types of names</li>
+</ul>
+<p>
+Note, however, that subsequent implementer experience has led to a new set of extensions being defined for 
 most of the human name issues (see <a href="extension-humanname-own-name.html">own-name</a>, 
 <a href="extension-humanname-own-prefix.html">own-prefix</a>, 
 <a href="extension-humanname-partner-name.html">partner-name</a>, 
 <a href="extension-humanname-partner-prefix.html">partner-prefix</a>, 
 <a href="extension-humanname-fathers-family.html">fathers-family</a> and
-<a href="extension-humanname-mothers-family.html">mothers-family</a>), and these should be used in preference to the ISO 21090 extensions.</p>
+<a href="extension-humanname-mothers-family.html">mothers-family</a>), and these should be used in preference to the ISO 21090 extensions, which are defined only for backwards compatibility.</p>
 </div>
 
 <div>
