@@ -17,7 +17,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8124</WindowHeight>
+  <WindowHeight>8064</WindowHeight>
   <WindowWidth>20160</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
@@ -735,7 +735,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">A definition of a set of people that apply to some clinically related context, for example people contraindicated for a medication</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">A definition of a set of people that apply to some clinically related context, for example people contraindicated for a certain medication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">A populatioof people with some set of grouping criteria</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -854,7 +854,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
