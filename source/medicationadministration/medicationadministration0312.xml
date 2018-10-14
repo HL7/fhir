@@ -8,13 +8,7 @@
       <system value="http://www.bmc.nl/portal/administrations"/>
       <value value="12345689"/>
   </identifier>
-  <status>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
-      <code value="completed"/>
-      <display value="Completed"/>
-    </coding>
-  </status>
+  <status value="completed"/>
   <medicationCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>

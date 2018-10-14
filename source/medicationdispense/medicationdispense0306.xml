@@ -15,13 +15,7 @@
             </code>
         </Medication>
     </contained>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
-            <code value="in-progress"/>
-            <display value="In Progress"/>
-        </coding>
-    </status>
+    <status value="in-progress"/>
     <medicationReference>
         <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0303"/>

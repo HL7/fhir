@@ -8,20 +8,8 @@
   <contained>
     <MedicationRequest>
       <id value="1111"/>
-      <status>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
-          <code value="unknown"/>
-          <display value="Unknown"/>
-        </coding>
-      </status>
-      <intent>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
-          <code value="proposal"/>
-          <display value="Proposal"/>
-        </coding>
-      </intent>
+      <status value="unknown"/>
+      <intent value="proposal"/>
       <medicationCodeableConcept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
@@ -63,20 +51,8 @@
   <contained>
     <MedicationRequest>
       <id value="2222"/>
-      <status>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
-          <code value="unknown"/>
-          <display value="Unknown"/>
-        </coding>
-      </status>
-      <intent>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
-          <code value="proposal"/>
-          <display value="Proposal"/>
-        </coding>
-      </intent>
+      <status value="unknown"/>
+      <intent value="proposal"/>
       <medicationCodeableConcept>
         <coding>
           <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
