@@ -4617,7 +4617,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getHTMLChecker().registerExternal(prefix+n + ".json.html");
 
     String ttl = TextFile.fileToString(page.getFolders().dstDir + prefix+n + ".ttl");
-    ttl = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(ttl)
+    ttl = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"rdf\">\r\n" + Utilities.escapeXml(ttl)
     + "\r\n</pre>\r\n</div>\r\n";
     html = TextFile.fileToString(page.getFolders().srcDir + "template-example-ttl.html").replace("<%example%>", ttl);
     html = page.processPageIncludes(n + ".ttl.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null, resn, resn.getWg());
