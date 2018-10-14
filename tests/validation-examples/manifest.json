@@ -5,7 +5,7 @@
 				"errorCount": 0
 			},
 			"bundle-bad-empty.json": {
-				"errorCount": 1
+				"errorCount": 2
 			},
 			"group-choice-bad1.json": {
 				"errorCount": 2,
@@ -89,6 +89,10 @@
 			"list-xhtml-correct2.json": {
 				"errorCount": 0
 			},
+			"primitive-good-ws.json": {
+				"errorCount": 0,
+				"warningCount": 1
+			},
 			"list-xhtml-element.json": {
 				"errorCount": 2,
 				"errors": ["List.text.div (line 15, col4) Illegal element name in the XHTML ('object') ",
@@ -111,7 +115,7 @@
 				"errors": ["/List/text/div (line 7, col4) Error parsing XHTML: Malformed XHTML: Found a DocType declaration, and these are not allowed (XXE security vulnerability protection) "]
 			},
 			"synthea.json": {
-				"errorCount": 1
+				"errorCount": 2
 			}
 		},
 		"Xml": {
@@ -122,10 +126,10 @@
 				"errorCount": 0
       },
       "primitive-bad.xml" : {
-				"errorCount": 51
+				"errorCount": 49
       },
       "primitive-bad-empty.xml" : {
-				"errorCount": 1
+				"errorCount": 3
       },
 			"group-choice-bad1.xml": {
 				"errorCount": 2,
@@ -344,9 +348,13 @@
           "validate" : "CHECK_EXISTS_AND_TYPE",
           "errorCount": 1
       }, 
+      "primitive-good-ws.xml" : {
+ 			  "errorCount": 0,
+        "warningCount": 1
+      }, 
       "qr.xml" : {
         "questionnaire" : "q.xml",
-        "errorCount": 1
+        "errorCount": 2
       }
 		}
 	}

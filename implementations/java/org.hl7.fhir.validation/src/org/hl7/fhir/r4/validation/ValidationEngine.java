@@ -825,10 +825,7 @@ public class ValidationEngine {
       if (cntType == FhirFormat.TURTLE)
         validateSHEX(location, messages);
     }
-    InstanceValidator validator = new InstanceValidator(context, null);
-    validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
-    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
-    validator.setNoInvariantChecks(isNoInvariantChecks());
+    InstanceValidator validator = getValidator();
     validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
     return messagesToOutcome(messages);
   }
@@ -843,14 +840,10 @@ public class ValidationEngine {
       if (cntType == FhirFormat.TURTLE)
         validateSHEX(location, messages);
     }
-    InstanceValidator validator = new InstanceValidator(context, null);
-    validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
-    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
+    InstanceValidator validator = getValidator();
     validator.setResourceIdRule(resourceIdRule);
-    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setBestPracticeWarningLevel(bpWarnings);
     validator.setCheckDisplay(displayOption);   
-    validator.setNoInvariantChecks(isNoInvariantChecks());
     validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
     return messagesToOutcome(messages);
   }
@@ -988,6 +981,14 @@ public class ValidationEngine {
 
   public void setVersion(String version) {
     this.version = version;
+  }
+
+  public InstanceValidator getValidator() {
+    InstanceValidator validator = new InstanceValidator(context, null);
+    validator.setHintAboutNonMustSupport(hintAboutNonMustSupport);
+    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
+    validator.setNoInvariantChecks(isNoInvariantChecks());
+    return validator;
   }
 
   

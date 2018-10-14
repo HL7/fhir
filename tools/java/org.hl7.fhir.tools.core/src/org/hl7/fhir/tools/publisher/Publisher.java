@@ -5865,8 +5865,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     TestingUtilities.fixedpath = page.getFolders().rootDir;
     TestingUtilities.contentpath = page.getFolders().dstDir;
     
-//    runJUnitClass(InstanceValidatorTests.class);
-//  runJUnitClass(ValidationTestSuite.class);
+    runJUnitClass(ValidationTestSuite.class);
     runJUnitClass(FHIRPathTests.class);
     runJUnitClass(NarrativeGeneratorTests.class);
     runJUnitClass(SnomedExpressionsTests.class);

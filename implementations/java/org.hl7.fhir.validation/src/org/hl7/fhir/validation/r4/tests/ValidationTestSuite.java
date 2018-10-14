@@ -27,6 +27,7 @@ import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Constants;
+import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
@@ -38,6 +39,7 @@ import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.r4.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.r4.validation.InstanceValidator;
+import org.hl7.fhir.r4.validation.ValidationEngine;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -87,28 +89,30 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
     this.content = content;
   }
 
+  private static final String DEF_TX = "http://tx.fhir.org";
+  private static final String DBG_TX = "http://local.fhir.org:960";
+  private static ValidationEngine ve;
+  
   @SuppressWarnings("deprecation")
   @Test
   public void test() throws Exception {
-    if (TestingUtilities.context == null) {
-      SimpleWorkerContext ctxt = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
-      TestingUtilities.context = ctxt;
-      ctxt.setExpansionProfile(makeExpProfile());
-      try {
-        ctxt.connectToTSServer(new TerminologyClientR4("http://tx.fhir.org/r4"), null);
-      } catch (Exception e) {
-        ctxt.setCanRunWithoutTerminology(true);
-      }
+    if (ve == null) {
+      ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FhirVersion.R4);
+      ve.getContext().setCanRunWithoutTerminology(true);
+      TestingUtilities.context = ve.getContext();
     }
 
     if (content.has("use-test") && !content.get("use-test").getAsBoolean())
       return;
     
     String path = Utilities.path(TestingUtilities.home(), "tests", "validation-examples", name.substring(name.indexOf(".")+1));
-    InstanceValidator val = new InstanceValidator(TestingUtilities.context, this);
+    InstanceValidator val = ve.getValidator();
     if (content.has("allowed-extension-domain")) 
       val.getExtensionDomains().add(content.get("allowed-extension-domain").getAsString());
     val.setFetcher(this);
+    if (content.has("questionnaire")) {
+      ve.getContext().cacheResource(new XmlParser().parse(new FileInputStream(Utilities.path(TestingUtilities.home(), "tests", "validation-examples", content.get("questionnaire").getAsString()))));
+    }
     if (content.has("profile")) {
       List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
       JsonObject profile = content.getAsJsonObject("profile");
@@ -151,8 +155,10 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
         ec++;
         System.out.println(vm.getDisplay());
       }
-      if (vm.getLevel() == IssueSeverity.WARNING) 
+      if (vm.getLevel() == IssueSeverity.WARNING) { 
         wc++;
+        System.out.println("warning: "+vm.getDisplay());
+      }
     }
     if (TestingUtilities.context.isNoTerminologyServer() || !focus.has("tx-dependent")) {
       Assert.assertEquals("Expected "+Integer.toString(focus.get("errorCount").getAsInt())+" errors, but found "+Integer.toString(ec)+".", focus.get("errorCount").getAsInt(), ec);
