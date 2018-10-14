@@ -191,10 +191,10 @@ the defined meaning of Observation when ignoring the element</li>
 </ul>
 
 <p>
-The definition of is-modifier has a corollary: any element that meets the requirement that it could 
+The definition of <code>is-modifier</code> has a corollary: any element that meets the requirement that it could 
 cause the interpretation of the containing element or its descendants to diverge from their definition 
 SHALL explicitly declare how such divergence could occur and must be marked as a modifier element.  
-Any element not so marked and without that explanation SHALL NOT be used by an implementer in such a 
+Any element not marked <code>is-modifier</code> and without that explanation SHALL NOT be used by an implementer in such a 
 manner as to make the element behave as a modifier. For example, using a special "name" on a patient 
 to indicate that the subject isn’t a real patient, but is instead an artificial structure used for 
 non-patient tests would be non-conformant with FHIR because Patient.name is not a modifier element
