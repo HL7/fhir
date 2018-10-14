@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://terminology.hl7.org/CodeSystem/medicationKnowledge-characteristic"/>
+  <url value="http://terminology.hl7.org/CodeSystem/medicationknowledge-characteristic"/>
   <name value="MedicationKnowledge Characteristic Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value=""/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/medicationKnowledge-characteristic"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationknowledge-characteristic"/>
   <content value="complete"/>
   <concept>
     <code value="imprintcd"/>

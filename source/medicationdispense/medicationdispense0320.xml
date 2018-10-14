@@ -42,13 +42,7 @@
                 </ingredient>
         </Medication>
     </contained>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
-            <code value="completed"/>
-            <display value="Completed"/>
-        </coding>
-    </status>
+    <status value="completed"/>
     <medicationReference>
         <reference value="#med0318"></reference>
         <display value="TPN Solution"/>

@@ -8,27 +8,9 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
-            <code value="completed"/>
-            <display value="Completed"/>
-        </coding>
-    </status>
-    <intent>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
-            <code value="order"/>
-            <display value="Order"/>
-        </coding>
-    </intent>
-    <priority>
-        <coding>
-            <system value="http://hl7.org/fhir/request-priority"/>
-            <code value="routine"/>
-            <display value="Routine"/>
-        </coding>
-    </priority>
+    <status value="completed"/>
+    <intent value="order"/>
+    <priority value="routine"/>
     <medicationCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>

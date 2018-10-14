@@ -17,7 +17,7 @@
   <description value="MedicationRequest Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
+      <system value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
     </include>
   </compose>
 </ValueSet>

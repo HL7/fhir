@@ -8,13 +8,7 @@
         <system value="http://www.bmc.nl/portal/dispenses"/>
         <value value="12345689"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
-            <code value="in-progress"/>
-            <display value="In Progress"/>
-        </coding>
-    </status>
+    <status value="in-progress"/>
     <medicationCodeableConcept>
         <coding>
             <system value="http://hl7.org/fhir/sid/ndc"/>

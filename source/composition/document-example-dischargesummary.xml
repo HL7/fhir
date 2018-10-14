@@ -365,20 +365,8 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-       <status>
-         <coding>
-           <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
-           <code value="unknown"/>
-           <display value="unknown"/>
-         </coding>
-       </status>
-        <intent>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
-            <code value="order"/>
-            <display value="Order"/>
-          </coding>
-        </intent>
+        <status value='unknown'/>
+        <intent value="order"/>
         <medicationCodeableConcept>
           <coding>
             <system value="http://snomed.info/sct"/>
@@ -456,12 +444,7 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-        <status><coding>
-          <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
-          <code value="completed"/>
-          <display value="Completed"/>
-        </coding>
-        </status>
+        <status value='active'/>
 	<!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
         <statusReason>

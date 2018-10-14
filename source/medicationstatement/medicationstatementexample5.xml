@@ -8,12 +8,7 @@
     <reference value="CarePlan/gpvisit"></reference>
   </basedOn>
 
-  <status><coding>
-    <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
-    <code value="entered-in-error"/>
-    <display value="Entered in Error"/>
-  </coding>
-  </status>
+  <status value="entered-in-error"/>
   <medicationCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>

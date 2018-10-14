@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/ValueSet/medicationKnowledge-characteristic"/>
+  <url value="http://hl7.org/fhir/ValueSet/medicationknowledge-characteristic"/>
   <name value="medicationKnowledge Characteristic Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -17,7 +17,7 @@
   <description value="MedicationKnowledge Characteristic Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationKnowledge-characteristic"/>
+      <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-characteristic"/>
     </include>
   </compose>
 </ValueSet>
