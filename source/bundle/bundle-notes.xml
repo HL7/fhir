@@ -171,7 +171,7 @@ resource identity and resource references work.
 </p>
 <p>
 Applications reading a Bundle should always <a href="references.html#bundle-refs">look for a resource</a> 
-by its identity in the bundle first before trying to access it by its URL.
+by its identity in the bundle first before trying to access it by its URL externally.
 </p>
 <p>
 How to resolve a reference in a Bundle:
