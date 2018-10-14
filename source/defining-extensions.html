@@ -176,18 +176,25 @@ list provides guidance for the correct usage:
     <li>Mappings. these SHALL never be on url/value[x]</li>
   </ul>
  </li>
- <li>Extension.url
+ <li>Extension.url:
   <ul>
     <li>Cardinality = 1...1 (fixed)</li>
     <li>value = canonical URL (fixed)</li>
   </ul>
  </li>
- <li>Extension.value[x]
+ <li>Extension.value[x]:
   <ul>
     <li>Type</li>
-    <li>Cardinality for Simple extensions (not nested): 1...1. Use 0..0 if nested. Note that the actual extension cardinality is defined by the root element</li>
+    <li>Cardinality for Simple extensions (not nested): 1..1. Use 0..0 if nested. Note that the actual extension cardinality is defined by the root element</li>
     <li>Binding</li>
     <li>MaxLength, DefaultValue, Pattern, Example, MinValue, MaxValue</li>
+  </ul>
+ </li>
+ <li>Extension.extension:
+  <ul>
+    <li>Cardinality for Complex extensions (nested): 0..*, though at least one nested extension must be present. Use 0..0 if a simple (non-nested extension)</li>
+    <li>.extension is automatically sliced by <code>url</code></li>
+    <li>nested extensions can be defined in-line (as children elements of Extension.extension), or by reference (using .type.profile)</li>
   </ul>
  </li>
 </ul>
