@@ -93,7 +93,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   private String revision;
   private String date;
   private IValidatorFactory validatorFactory;
-  private UcumService ucumService;
   private boolean ignoreProfileErrors;
   
   public SimpleWorkerContext() throws FileNotFoundException, IOException, FHIRException {
@@ -567,14 +566,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       }
     }
     super.seeMetadataResource(r, map, addId);
-  }
-
-  public UcumService getUcumService() {
-    return ucumService;
-  }
-
-  public void setUcumService(UcumService ucumService) {
-    this.ucumService = ucumService;
   }
 
   public boolean isIgnoreProfileErrors() {

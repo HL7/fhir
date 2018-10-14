@@ -43,7 +43,8 @@ when describing references. Narrative for a resource SHOULD include summary info
 about any referenced resources that would be required for a consumer of the resource to
 be able to understand the key, essential information about a resource without retrieving
 any additional resources. If the <code>Narrative.status</code> = extensions, the narrative 
-SHALL reflect the impact of all modifier extensions. Narrative MAY <a href="references.html#rendering">include generated 
+SHALL reflect the impact of all modifier extensions that extend elements that are themselves 
+described by the narrative. Narrative MAY <a href="references.html#rendering">include generated 
 content</a> from other resources and still be considered generated.
 </p>
 <p>
@@ -348,9 +349,9 @@ and the composition that represents it:
     &lt;Composition&gt;
       &lt;id value="c1"/&gt;
       &lt;text&gt;
-        &lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;
+        &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
           ...
-          &lt;p&gt;There is a history of &lt;span id=\"a1\"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
+          &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
           ...
         &lt;/div&gt;
       &lt;/text&gt;

@@ -1004,6 +1004,12 @@ parameters may appear in both the URL and the body. Parameters have the same mea
 parameters can repeat, putting them in both places is the same as repeating them (which is valid for some 
 parameters and not for others).
 </p>
+<p>
+Note: Supporting <code>GET</code> means that PHI (Personal health information) might appear in search 
+parameters, and therefore in HTTP logs. For this reason logs should be regarded as being as sensitive 
+as the resources themselves. This is a general requirement irrespective of the use of <code>GET</code> 
+- see the <a href="security.html#audit">security page</a> for further commentary.
+</p>
 
 <p>
 All these search interactions take a series of parameters that

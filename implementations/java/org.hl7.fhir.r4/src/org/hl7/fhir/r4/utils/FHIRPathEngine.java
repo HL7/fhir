@@ -2984,7 +2984,11 @@ public class FHIRPathEngine {
 
   private List<Base> funcExists(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
     List<Base> result = new ArrayList<Base>();
-    result.add(new BooleanType(!ElementUtil.isEmpty(focus)).noExtensions());
+    boolean empty = true;
+    for (Base f : focus)
+      if (!f.isEmpty())
+        empty = false;
+    result.add(new BooleanType(!empty).noExtensions());
     return result;
   }
 

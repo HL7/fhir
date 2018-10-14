@@ -19,9 +19,12 @@ any specified content it not useful.
 Binary resources behave slightly differently from all other resources on the RESTful API:
 </p>
 <ul>
+ <li>When a read request is made with a FHIR type in the Accept header (e.g. "<code>application/fhir+xml</code>" or 
+   "<code>application/fhir+json</code>") the Binary resource is returned in the requested FHIR format. 
+   This applies even when the binary data itself has a FHIR mime type</li>
  <li>When a read request is made with a FHIR type in the <code>Accept</code> header (e.g. "application/fhir+xml" or "application/fhir+json")
    the binary resource is returned in the requested FHIR format. This applies even when the binary data itself has a FHIR mime type</li>
- <li>The binary resource is always represented in the native FHIR format when wrapped in a <a href="bundle.html">Bundle</a></li>
+ <li>The Binary resource is always represented in the native FHIR format when wrapped in a <a href="bundle.html">Bundle</a></li>
  <li>The <a href="http.html#format">_format</a> overrides the accept header and SHALL be interpreted as using the standard FHIR mime types, even if the more generic mime types are given as a value.</li>	 
 <li>When the read request has some other type in the <code>Accept</code> header, then the content should be returned with the content type stated in the resource in the <code>Content-Type</code> header. 
   E.g. if the content type in the resource is "application/pdf", then the content should be returned as a PDF directly. The _summary parameter does not apply in this case.
@@ -32,12 +35,12 @@ return type, which is why there is no hard rule about this. However, the intent 
 unless specifically requested, the FHIR XML/JSON representation is not returned
 </li>
 <li> 
-When a binary is written to the server (<a href="http.html#create">create</a>/<a href="http.html#update">update</a> - POST or PUT),
-the data is accepted as is and treated as the binary content of a <code>Binary</code>, including when the content type is "application/fhir+xml" or "application/fhir+json",
+When binary data is written to the server (<a href="http.html#create">create</a>/<a href="http.html#update">update</a> - POST or PUT),
+the data is accepted as is and treated as the content of a <code>Binary</code>, including when the content type is "application/fhir+xml" or "application/fhir+json",
 except for the special case where the content is actually a <code>Binary</code> resource.
 </li>
 <li> 
-Note that when client requests a binary resource using a generic mime type (application/xml, text/xml, or application/json),
+Note that when client requests a Binary resource using a generic mime type (application/xml, text/xml, or application/json),
 the server SHOULD return the content directly if the content-type format matches the 
 requested mime type (e.g. if the Accept header is application/json, and the <code>contentType</code>
 is vnd.xacml+json). However, servers might not always be able to interpret mime types correctly,
@@ -86,7 +89,7 @@ the Binary resource, such as:
 </p>
 <ul>
  <li>retrieving byte ranges</li>
- <li>Finding the size of the content before retrieving it (though see <a href="http.html#head">about HEAD</a>)</li>
+ <li>Finding the size of the content before retrieving it (hough this can be achieved using a <a href="http.html#head">HEAD request</a>)</li>
  <li>Stream content from Binary? </li>
  <li>generating content dynamically on the fly</li>
 </ul>

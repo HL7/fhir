@@ -746,8 +746,10 @@ public class SpecDifferenceEvaluator {
   private String analyseTypes(ElementDefinition rev, ElementDefinition orig) {
     if (rev.getType().size() == 1 && orig.getType().size() == 1) {
       String r = describeType(rev.getType().get(0));
-      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id", "Extension.url"))
+      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Element.id"))
         r = "string";        
+      if (Utilities.noString(r) && Utilities.existsInList(rev.getId(), "Extension.url"))
+        r = "uri";        
       String o = describeType(orig.getType().get(0));
       if ((r == null && o == null) || r.equals(o))
         return null;

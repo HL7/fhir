@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="versions"></a>
-<h3>Multi-Version Implenetation Guides</h3>
+<a name="packaging"></a>
+<h3>Distributing Implementation Guides</h3>
 <p>
 Implementation Guides are published through the FHIR Package distribution system.
 For further details, see the <a href="http://wiki.hl7.org/index.php?title=FHIR_NPM_Package_Spec">FHIR Wiki</a>.

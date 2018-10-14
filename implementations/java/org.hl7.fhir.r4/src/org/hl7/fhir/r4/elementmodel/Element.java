@@ -548,7 +548,7 @@ public class Element extends Base {
 
 	@Override
 	public boolean isEmpty() {
-		if (isNotBlank(value)) {
+		if (value != null && !"".equals(value)) {
 			return false;
 		}
 		for (Element next : getChildren()) {

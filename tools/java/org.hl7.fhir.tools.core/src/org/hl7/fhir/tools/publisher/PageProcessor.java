@@ -2580,7 +2580,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  <li><a href=\"#tabs-"+name+"-xml\">XML</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-json\">JSON</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-ttl\">Turtle</a></li>\r\n");
-    b.append("  <li><a href=\"#tabs-"+name+"-diff\">R2 Diff</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-diff\">R3 Diff</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-all\">All</a></li>\r\n");
     b.append(" </ul>\r\n");
     b.append(" <div id=\"tabs-"+name+"-struc\">\r\n");
