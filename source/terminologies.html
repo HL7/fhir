@@ -399,9 +399,10 @@ may state rules on which codes can be used, including removing codes from allowe
 <h3>Extensible</h3>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
-can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), an alternate
-<code>system/code</code> from outside the value set (i.e. from a different value set or chosen from a code system directly) may be 
-used instead.</i>
+can apply to the concept being communicated.  
+
+If the value set does not cover the concept (based on human review), an alternate concept (either <code>system</code>/<code>code</code> 
+pair, or <code>text</code>) may be used instead.</i>
 </p>
 <p>
 Note that it is the value set <b>binding</b> that is extensible, not the value set itself.
