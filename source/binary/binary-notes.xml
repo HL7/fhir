@@ -57,7 +57,9 @@ following elements of the resource have matching HTTP Headers:
  <li><b>Binary.meta.lastUpdated</b>: <code>Last-Modified</code></li>
  <li><b>Binary.meta.versionId</b>: <code>ETag header</code></li>
  <li><b>Binary.contentType</b>: <code>Content-Type</code></li>
- <li><b>Binary.securityContext</b>: <code>X-Security-Context</code> - this is a FHIR specific extension, primarily intended to allow the security context for a Binary resource to be specified when it is posted in native form</li>
+ <li><b>Binary.securityContext</b>: <code>X-Security-Context</code> - this is a FHIR specific extension, primarily intended to 
+ allow the security context for a Binary resource to be specified when it is posted in native form. The content of the header 
+ is <code>Binary.securityContext.reference</code></li>
 </ul>
 <p>
 </p>
