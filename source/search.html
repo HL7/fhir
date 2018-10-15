@@ -463,6 +463,8 @@ Notes about searching on Numbers:
  <li>When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the 
      implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
  <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
+ <li>Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in 
+     the search parameter value, excluding leading zeros. So 100 and 1.00e2 both have the same number of significant digits - three</li>
 </ul>
 
 <p>
