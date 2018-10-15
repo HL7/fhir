@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Group.xsd">
+  <id value="example-patientlist"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>All patients primarily attributed to Practitioner 123</p>
+    </div>
+  </text>
+  <type value="person"/>
+  <actual value="true"/>
+  <characteristic>
+    <code>
+      <coding>
+        <system value="http://example.org"/>
+        <code value="attributed-to"/>
+      </coding>
+      <text value="Patients primarily attributed to"/>
+    </code>
+    <valueReference>
+      <reference value="Practitioner/123"/>
+    </valueReference>
+    <exclude value="false"/>
+  </characteristic>
+</Group>
