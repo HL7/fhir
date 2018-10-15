@@ -191,6 +191,7 @@ import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
+import org.hl7.fhir.r4.utils.TypesUtilities.TypeClassification;
 import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.r4.utils.ResourceUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
@@ -10700,13 +10701,25 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   
   private String genWildcardTypeList() {
     StringBuilder b = new StringBuilder();
-    for (String s : TypesUtilities.wildcardTypes()) {
+    TypeClassification tc = null;
+    boolean first = true;
+    for (WildcardInformation wi : TypesUtilities.wildcards()) {
+      if (tc != wi.getClassification()) {
+        if (first)
+          first = false;
+        else
+          b.append("</ul>\r\n");
+        tc = wi.getClassification();
+        b.append("<b>"+Utilities.pluralize(tc.toDisplay(), 2)+"</b>\r\n");
+        b.append("<ul class=\"dense\">\r\n");
+      }
       b.append("<li><a href=\"");
-      b.append(definitions.getSrcFile(s)+".html#"+s);
+      b.append(definitions.getSrcFile(wi.getTypeName())+".html#"+wi.getTypeName());
       b.append("\">");
-      b.append(s);      
-      b.append("</a></li>");
+      b.append(wi.getTypeName());      
+      b.append("</a></li>\r\n");
     }
+    b.append("</ul>\r\n");
     return b.toString();
   }
   
