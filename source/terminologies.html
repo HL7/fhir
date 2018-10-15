@@ -399,23 +399,24 @@ may state rules on which codes can be used, including removing codes from allowe
 <h3>Extensible</h3>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
-can apply to the concept being communicated.  
-
-If the value set does not cover the concept (based on human review), an alternate concept (either <code>system</code>/<code>code</code> 
-pair, or <code>text</code>) may be used instead.</i>
+can apply to the concept being communicated.</i>
 </p>
 <p>
 Note that it is the value set <b>binding</b> that is extensible, not the value set itself.
 </p>
 <p>
-If there is at least one applicable concept in the extensibly bound value set with a meaning which includes but is more 
+If <b>there is no applicable concept</b> in  value set (based on human review), an alternate concept (either <code>system</code>/<code>code</code> 
+pair, or <code>text</code>) may be used instead. The alternate concept can have any level of specificity in an <code>is-a</code> hierarchy 
+(see <a href="terminologies-binding-examples.html#extensible.c2">Condition instance #2</a>).
+</p>
+<p>
+If <b>there is at least one applicable concept</b> in the extensibly bound value set with a meaning which includes but is more 
 general than the meaning that is intended to be represented by the element in the resource instance, then the code that is 
 used in the instance SHALL be taken from the value set and should be the closest available match for the intended element 
-instance meaning (i.e. neither more general or more specific).  Using a more specific code that more completely 
-represents the intended meaning but is outside the value set is <b>not</b> allowed.  However, the more specific code 
-<b>may also</b> be included in the instance as an additional Coding if the data type is CodeableConcept, but it cannot be 
-used <b>instead of</b> the code from the value set. This helps ensure that systems know which codes they should expect to 
-receive and build logic for and it facilitates interoperability.
+instance meaning (i.e. neither more general or more specific). However, a more specific code that more completely represents 
+the intended meaning <b>may also</b> be included in the instance as an additional Coding if the data type is CodeableConcept, 
+but it cannot be used <b>instead of</b> the code from the value set. This helps ensure that systems know which codes 
+they should expect to receive and build logic for and it facilitates interoperability.
 </p>
 <p>
 When a code for an applicable concept in the extensibly bound value set is used it should always be the closest available 
