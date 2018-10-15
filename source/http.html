@@ -1258,10 +1258,10 @@ then the transaction SHALL fail.
 
 <p>
 A transaction may include references from one resource to another in the bundle, including
-circular references where resources refer to each other. If the server assigns
-a new id to any resource in the bundle as part of the processing rules above,
-it SHALL also update any references to that resource in the same bundle as they
-are processed. References to resources that are not
+circular references where resources refer to each other. 
+When the server assigns a new id to any resource in the bundle which has a POST method
+as part of the processing rules above, it SHALL also update any references to that resource in the same bundle as they
+are processed  (see <a href="bundle.html#bundle-unique">about Ids in a bundle</a>). References to resources that are not
 part of the bundle are left untouched. Version-specific references should remain
 as version-specific references after the references have been updated. Note that 
 when building a transaction, a client can use arbitrarily chosen version references 
