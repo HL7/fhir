@@ -893,7 +893,8 @@ The syntax for the value follows the form:
 <p>
 The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how 
 precision and comparator/range operators are interpreted. Like a number parameter, the 
-number part of the search value can be a decimal in exponential format. Example searches:
+number part of the search value can be a decimal in exponential format. The <code>system</code> and <code>code</code>
+follow the same pattern as <a href="#token">token parameters</a> are also optional. Example searches:
 </p>
 
 <table>
@@ -901,6 +902,7 @@ number part of the search value can be a decimal in exponential format. Example 
  <tr><td><pre> GET [base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4(+/-0.05) mg where mg is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=5.40e-3|http://unitsofmeasure.org|g</pre></td><td>Search for all the observations with a value of 0.0054(+/-0.000005) g where g is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4(+/-0.05) mg where the unit - either the code (<code>code</code>) or the stated human unit (<code>unit</code>) are "mg"</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=5.4</pre></td><td>Search for all the observations with a value of 5.4(+/-0.05) irrespective of the unit</td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg exactly where mg is understood as a UCUM unit</td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit (typically, within 10% of the value - see above)</td></tr>
 </table>
