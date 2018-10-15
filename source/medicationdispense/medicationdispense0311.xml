@@ -3,13 +3,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medicationdispense.xsd"
  xmlns="http://hl7.org/fhir">
     <id value="meddisp0311"/>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
-            <code value="completed"/>
-            <display value="Completed"/>
-        </coding>
-    </status>
+    <status value="completed"/>
    <medicationCodeableConcept>
        <coding>
            <system value="http://hl7.org/fhir/sid/ndc"/>

@@ -99,7 +99,7 @@ public class FHIRPathTests {
 
   @Parameters(name = "{index}: file {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
-    Document dom = XMLUtil.parseFileToDom(Utilities.path(TestingUtilities. home(), "tests", "resources", "tests-fhir-r4.xml"));
+    Document dom = XMLUtil.parseFileToDom(Utilities.path(TestingUtilities.home(), "tests", "resources", "tests-fhir-r4.xml"));
 
     List<Element> list = new ArrayList<Element>();
     List<Element> groups = new ArrayList<Element>();
@@ -119,18 +119,19 @@ public class FHIRPathTests {
 
   private static Object getName(Element e) {
     String s = e.getAttribute("name");
-    if (Utilities.noString(s)) {
-      Element p = (Element) e.getParentNode();
-      int ndx = 0;
-      for (int i = 0; i < p.getChildNodes().getLength(); i++) {
-        Node c = p.getChildNodes().item(i);
-        if (c == e)
-          break;
-        else if (c instanceof Element)
-          ndx++;
-      }
-      s = p.getAttribute("name")+" - "+Integer.toString(ndx+1);
+    Element p = (Element) e.getParentNode();
+    int ndx = 0;
+    for (int i = 0; i < p.getChildNodes().getLength(); i++) {
+      Node c = p.getChildNodes().item(i);
+      if (c == e)
+        break;
+      else if (c instanceof Element)
+        ndx++;
     }
+    if (Utilities.noString(s)) 
+      s = "?? - G "+p.getAttribute("name")+"["+Integer.toString(ndx+1)+"]";
+    else
+      s = s + " - G "+p.getAttribute("name")+"["+Integer.toString(ndx+1)+"]";
     return s;
   }
 
@@ -148,9 +149,10 @@ public class FHIRPathTests {
   public void test() throws FileNotFoundException, IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException, UcumException {
     if (TestingUtilities.context == null) {
       SimpleWorkerContext wc = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.content(), "definitions.xml.zip"));
-      wc.setUcumService(new UcumEssenceService(Utilities.path(TestingUtilities.home(), "tests", "ucum-essence.xml")));
       TestingUtilities.context = wc;
     }
+    if (TestingUtilities.context.getUcumService() == null)
+      TestingUtilities.context.setUcumService(new UcumEssenceService(Utilities.path(TestingUtilities.home(), "tests", "ucum-essence.xml")));
     if (fp == null)
       fp = new FHIRPathEngine(TestingUtilities.context);
     fp.setHostServices(new FHIRPathTestEvaluationServices());

@@ -92,7 +92,7 @@
     </resource>
   </entry>
   
-  <!-- reference that doesn't resolve in this bundle -->
+  <!-- reference that doesn't resolve in this bundle and is resolved externally -->
   <entry>
     <fullUrl value="http://example.org/fhir/Observation/14"/>
     <resource>

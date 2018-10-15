@@ -1339,7 +1339,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private void checkPrimitive(Object appContext, List<ValidationMessage> errors, String path, String type, ElementDefinition context, Element e, StructureDefinition profile) throws FHIRException, IOException {
     if (isBlank(e.primitiveValue())) {
-      rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "primitive types must have a value or must have child extensions");
+      if (e.primitiveValue() == null)
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "Primitive types must have a value or must have child extensions");
+      else if (e.primitiveValue().length() == 0)
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "Primitive types must have a value that is not empty");
+      else if (StringUtils.isWhitespace(e.primitiveValue()))
+        warning(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "Primitive types should not only be whitespace");
       return;
     }
     String regex = context.getExtensionString(ToolingExtensions.EXT_REGEX);
@@ -2614,7 +2619,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       long t = System.nanoTime();
       Questionnaire qsrc = context.fetchResource(Questionnaire.class, questionnaire);
       sdTime = sdTime + (System.nanoTime() - t);
-      if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
+      if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire \""+questionnaire+"\" could not be resolved, so no validation can be performed against the base questionnaire")) {
         boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
         validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);
       }

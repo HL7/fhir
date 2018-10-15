@@ -15790,6 +15790,10 @@
     <display value="Collection of clean catch urine specimen"/>
     <display value="Urine specimen collection, clean catch (procedure)"/>
   </concept>
+  <concept id="734163000" display="Care plan">
+    <display value="Care plan (record artifact)"/>
+    <display value="Care plan"/>
+  </concept>
   <concept id="73644007" display="Hospital-based outpatient endocrinology clinic">
     <display value="Hospital-based outpatient endocrinology clinic"/>
     <display value="Hospital-based outpatient endocrinology clinic (environment)"/>

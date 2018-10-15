@@ -18,13 +18,7 @@
     <partOf>
         <reference value="Procedure/biopsy"></reference>
     </partOf>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
-            <code value="on-hold"/>
-            <display value="On Hold"/>
-        </coding>
-    </status>
+    <status value="on-hold"/>
     <category>
         <coding>
             <system value="http://terminology.hl7.org/CodeSystem/medication-dispense-category"/>

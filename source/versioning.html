@@ -65,6 +65,17 @@ depends on a variety of circumstances, but implementers should note that the
 CapabilityStatement can change over time - even changing FHIR versions as the 
 system is subject to ongoing development.
 </p>
+<p>
+Note that there are related places where the FHIR version in use can also be 
+stated, and these may be consulted at different points in the development cycle
+in place (or as well as) CapabilityStatement.fhirVersion:
+</p>
+<ul>
+ <li><a href="implementationguide.html#versions">ImplementationGuide.fhirVersion</a>: specifies which FHIR versions(s) apply for a particular solution. This may
+   imply a particular version for a server, or an exchange</li>
+ <li><a href="structuredefinition-definitions.html#StructureDefinition.fhirVersion">StructureDefinition.fhirVersion</a>: may specify which 
+   version a resource conforms to - or, at least, what version it should be expected to conform to</li>
+</ul>
 
 <a name="mt-version"> </a>
 <h3>Mime Type Parameter</h3>

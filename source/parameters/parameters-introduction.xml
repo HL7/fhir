@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-This special resource type is used to represent the <a href="operations.html">operation</a> request and response. 
+This resource is a non-persisted resource used to pass information into and back from an <a href="operations.html">operation</a>. 
 </p>
 </div>
 

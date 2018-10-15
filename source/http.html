@@ -417,7 +417,7 @@ or not makes no difference to the content, this is only of interest for developm
 tools, and servers MAY choose to support this parameter.
 </p>
  
-<a name="versioning"></a>
+<a name="versions"></a>
 <h4>Support for Versions</h4>
 <p>
 Servers that support this API SHOULD provide full version support - that is, populate and track
@@ -639,9 +639,11 @@ When the server processes this update, it performs a search using its standard
 on how many matches are found:
 </p>
 <ul>
- <li><b>No matches</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
- <li><b>One Match</b>: The server performs the update against the matching resource</li>
- <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
+ <li><b>No matches, no id provided</b>: The server creates the resource.</li>
+ <li><b>No matches, id provided</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
+ <li><b>One Match, no resource id provided OR (resource id provided and it matches the found resource)</b>: The server performs the update against the matching resource</li>
+ <li><b>One Match, resource id provided but does not match resource found</b>: The server returns a <code>400</code> Bad Request error indicating the client id specification was a problem preferably with an OperationOutcome</li>
+ <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough preferably with an OperationOutcome</li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to submit
@@ -1004,6 +1006,12 @@ parameters may appear in both the URL and the body. Parameters have the same mea
 parameters can repeat, putting them in both places is the same as repeating them (which is valid for some 
 parameters and not for others).
 </p>
+<p>
+Note: Supporting <code>GET</code> means that PHI (Personal health information) might appear in search 
+parameters, and therefore in HTTP logs. For this reason logs should be regarded as being as sensitive 
+as the resources themselves. This is a general requirement irrespective of the use of <code>GET</code> 
+- see the <a href="security.html#audit">security page</a> for further commentary.
+</p>
 
 <p>
 All these search interactions take a series of parameters that
@@ -1106,7 +1114,7 @@ on the value of the <code>mode</code> parameter:
 <table class="grid">
  <tr><td><code>full</code> (or mode not present)</td><td>A <a href="capabilitystatement.html">Capability Statement</a> that specifies which resource types and interactions are supported</td></tr>
  <tr><td><code>normative</code></td><td>As above, but only the normative portions of the Capability Statement</td></tr>
- <tr><td><code>terminology</code></td><td>A <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource that provides further information about terminologies are supported by the server</td></tr>
+ <tr><td><code>terminology</code></td><td>A <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource that provides further information about terminologies which are supported by the server</td></tr>
 </table>
 <p>
 Servers MAY ignore the mode parameter and return a CapabilityStatement resource. Note: servers might be required to support this parameter in further versions of this specification.
@@ -1238,8 +1246,8 @@ together and the order of the entries doesn't matter, there is a particular orde
 <ol>
  <li>Process any <code>DELETE</code> interactions</li>
  <li>Process any <code>POST</code> interactions</li>
- <li>Process any <code>PUT</code> interactions</li>
- <li>Process any <code>GET</code> interactions</li>
+ <li>Process any <code>PUT</code> or <code>PATCH</code> interactions</li>
+ <li>Process any <code>GET</code> or <code>HEAD</code> interactions</li>
  <li>Resolve any conditional references</li>
 </ol>
 <p>

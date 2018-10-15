@@ -697,7 +697,13 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("fill", "black");
     xml.attribute("id", "n"+(++nc));
     xml.attribute("class", "diagram-class-title");
-    xml.element("text", tn);
+    xml.enter("text");
+    xml.attribute("xlink:href", makeRel(definitions.getSrcFile(tn)+".html#"+tn));
+    xml.attribute("id", "n"+(++nc));
+    xml.enter("a");
+    xml.text(tn);
+    xml.exit("a");
+    xml.exit("text");
     
     if ("true".equals(ini.getStringProperty("diagram", "element-attributes")) || onlyElement) {
       xml.attribute("x1", Double.toString(item.left));
@@ -809,7 +815,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.enter("text");
       xml.text(tn);
       if (Utilities.noString(e.typeCode())) {
-        xml.text(" «Resource»");
+        xml.text(" \u00ABResource\u00BB");
       } else {
         xml.attribute("class", "diagram-class-title-link");
         xml.enter("tspan");

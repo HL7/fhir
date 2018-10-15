@@ -35,6 +35,7 @@ with an Extensible binding:</p>
 
 <p>This value set includes all SNOMED CT concepts that are clinical findings.</p> 
   
+<a name="extensible.c1"></a>
 <h3>Condition instance #1</h3>
 
 <pre class="json">{
@@ -57,6 +58,7 @@ with an Extensible binding:</p>
 
 <p>This concept (code = 39065001) is included in the value set so the instance is valid.</p>
   
+<a name="extensible.c2"></a>
 <h3>Condition instance #2</h3>
 
 <pre class="json">{
@@ -88,6 +90,7 @@ That also appears likely to be the case.  But that isn&#8217;t entirely clear, w
 
 <p>So this example is most likely valid (based on human review).</p>
 
+<a name="extensible.c3"></a>
 <h3>Condition instance #3</h3>
     
 <pre class="json">{
@@ -120,6 +123,7 @@ Yes, it does.  But since it was already determined that there is an applicable c
 used instead, this instance is not valid.</li>
 </ul>
 
+<a name="extensible.c4"></a>
 <h3>Condition instance #4</h3>
 <p>What if we would like to send our local code for &#8216;Severe pneumococcal pneumonia&#8217; in the instance along with
 the SNOMED CT code 233607000 for &#8216;Pneumococcal pneumonia&#8217;?  Because the data type for Condition.code is CodeableConcept, 
@@ -164,6 +168,7 @@ particular desires and needs and there are no specific conformance expectations 
 <a href="http://build.fhir.org/valueset-condition-code.html">http://hl7.org/fhir/ValueSet/condition-code</a>
 with a Preferred binding:</p>
 
+<a name="preferred.c1"></a>
 <h3>Condition.code with Preferred binding</h3>
 
 <pre class="json">{
@@ -179,6 +184,7 @@ with a Preferred binding:</p>
 <p>With the Preferred binding all of the following instances (and many other possibilities) are valid instances of the 
 Condition resource:</p>
 
+<a name="preferred.c2"></a>
 <h3>Condition instance #5</h3>
 
 <pre class="json">{
@@ -199,6 +205,7 @@ Condition resource:</p>
 }
 </pre>
 
+<a name="preferred.c4"></a>
 <h3>Condition instance #6</h3>
 
 <pre class="json">{
@@ -218,6 +225,7 @@ Condition resource:</p>
 }
 </pre>
 
+<a name="preferred.c5"></a>
 <h3>Condition instance #7</h3>
     
 <pre class="json">{
@@ -237,6 +245,7 @@ Condition resource:</p>
 }
 </pre>
 
+<a name="preferred.c6"></a>
 <h3>Condition instance #8</h3>
 
 <pre class="json">{

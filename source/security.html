@@ -109,7 +109,71 @@ consider a <a href="messaging.html">messaging</a> or <a href="implementation.htm
 some other kind of profiled REST interface.
 -->
 
-
+      <a name="SecPrivConsiderations"></a>
+      <h2>Security and Privacy Considerations</h2>
+      <p>
+            The appropriate protections for Privacy and Security are specific to the risks to Privacy and the risks to Security of that data being protected.
+            This concept of appropriate protections is a very specific thing to the actual data.
+            Any declaration of 'required' or 'optional' requirements that could be mentioned here are only recommendations for that kind of Resource
+            in general for the most common use of that Resource. Where one uses the Resource in a way that is different than this most common use, one will 
+            have different risks and thus need different protections. 
+      </p>
+      <p>
+            Most Resources will need some form of Access Control to Create, Update, or Delete. 
+            The following general guidance is given only as general guidance for READ and QUERY access:
+      </p>
+      <a name="Anonymous"></a>
+      <h3>
+            Anonymous READ Access Resources
+      </h3>
+      <p>
+            These resources tend to not contain any individual data, or business sensitive data. Most often these Resources will be available
+            for anonymous access, meaning there is no access control based on the user or system requesting. 
+            However these Resources do tend to contain important information that must be authenticated back to the source publishing them, and 
+            protected from integrity failures in communication. 
+            For this reason server authenticated https (TLS) is recommended to provide authentication of the server and integrity protection in transit.
+            This is normal web-server use of <a href="#http">https</a>. 
+      </p>
+      <a name="Business"></a>
+      <h3>Business Sensitive Resources</h3>
+      <p>
+            These Resources tend to not contain any individual data, but do have data that describe business or service sensitive data. 
+            The use of the term Business is not intended to only mean an incorporated business, but rather the more broad concept of an organization, 
+            location, or other group that is not identifable as individuals.
+            Often these resources will require some for of client authentication to assure that only authorized access is given.
+            The client access control may be to individuals, or may be to system identity. 
+            For this purpose possible client authentication methos such as: mutual-authenticated-TLS, APIKey, App signed JWT, or App OAuth client-id JWT
+            For example: a App that uses a Business protected Provider Directory to determine other business endpoint details. 
+      </p>
+      <a name="Individual"></a>
+      <h3>Individual Sensitive</h3>
+      <p>
+            These Resources do NOT contain Patient data, but do contain individual information about other participants. 
+            These other individuals are Practitioners, PractionerRole, CareTeam, or other users.
+            These identities are needed to enable the practice of healthcare. 
+            These identities are identities under general privacy regulations, and thus must consider Privacy risk. 
+            Often access to these other identities are covered by business relationships.
+            For this purpose access to these Resources will tend to be Role specific using methods such as RBAC or ABAC. 
+      </p>
+      <a name="Patient"></a>
+      <h3>Patient Sensitive</h3>
+      <p>
+            These Resources make up the bulk of FHIR and therefore are the most commonly understood. 
+            These Resources contain highly sesitive health information, or are closely linked to highly sensitive health information.
+            These Resources will often use the <a href="security-labels.html">security labels</a> to differentiate various confidentiality levels within this broad group of Patient Sensitive data.
+            Access to these Resources often requires a declared Purpose Of Use.
+            Access to these Resources is often controlled by a <a href="consent.html">Privacy Consent</a>.
+            See the section below on <a href="#binding">Authorization and Access Control</a>.
+      </p>
+      <a name="Unknowable"></a>
+      <h3>Not classified</h3>
+      <p>
+            Some Resources can be used for a wide scope of use-cases that span very sensitive to very non-sensitive. 
+            These Resources do not fall into any of the above classifications, as their sensitivity is highly variable.
+            These Resources will need special handling. 
+            These Resources often contain metadata that describes the content in a way that can be used for Access Control decisions.
+      </p> 
+      
 <a name="http"></a>
 <h2>
 Communications

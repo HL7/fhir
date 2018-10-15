@@ -75,12 +75,7 @@
     <system value="http://www.bmc.nl/portal/medstatements"/>
     <value value="12345689"/>
   </identifier>
-  <status><coding>
-    <system value="http://terminology.hl7.org/CodeSystem/medication-statement-status"/>
-    <code value="active"/>
-    <display value="Active"/>
-  </coding>
-  </status>
+  <status value="active"/>
   <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/medication-statement-category"/>

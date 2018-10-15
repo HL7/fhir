@@ -176,18 +176,25 @@ list provides guidance for the correct usage:
     <li>Mappings. these SHALL never be on url/value[x]</li>
   </ul>
  </li>
- <li>Extension.url
+ <li>Extension.url:
   <ul>
     <li>Cardinality = 1...1 (fixed)</li>
     <li>value = canonical URL (fixed)</li>
   </ul>
  </li>
- <li>Extension.value[x]
+ <li>Extension.value[x]:
   <ul>
     <li>Type</li>
-    <li>Cardinality for Simple extensions (not nested): 1...1. Use 0..0 if nested. Note that the actual extension cardinality is defined by the root element</li>
+    <li>Cardinality for Simple extensions (not nested): 1..1. Use 0..0 if nested. Note that the actual extension cardinality is defined by the root element</li>
     <li>Binding</li>
     <li>MaxLength, DefaultValue, Pattern, Example, MinValue, MaxValue</li>
+  </ul>
+ </li>
+ <li>Extension.extension:
+  <ul>
+    <li>Cardinality for Complex extensions (nested): 0..*, though at least one nested extension must be present. Use 0..0 if a simple (non-nested extension)</li>
+    <li>.extension is automatically sliced by <code>url</code></li>
+    <li>nested extensions can be defined in-line (as children elements of Extension.extension), or by reference (using .type.profile)</li>
   </ul>
  </li>
 </ul>
@@ -202,9 +209,7 @@ additional properties is allowed (see <a href="profiling.html#slicing">Profiling
 As well as defining the base element structure for resources, HL7 also publishes extensions, including as <a href="extensibility-registry.html">part of this specification</a>.
 HL7 publishes such data definitions as extensions rather than as part of the base resource structure
 to keep the base resource structure simple and concise, and to allow implementers freedom from needing to
-engage with an entire world's worth of functionality up front. Note that HL7 does not generally define
-"modifier" extensions - if HL7 publishes an element that modifies the meaning of other elements, it
-will generally be part of the resource content itself, since everyone has to understand the extension anyway.
+engage with an entire world's worth of functionality up front. 
 </p>
 <p>
 Before extensions can be used in instances, their definition SHALL be published.

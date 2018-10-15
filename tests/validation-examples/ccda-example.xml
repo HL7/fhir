@@ -73,7 +73,7 @@
     <event>
         <code>
             <coding>
-                <system value="http://hl7.org/fhir/v3/ActClass"/>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ActClass"/>
                 <code value="PCPR"/>
                 <display value="Care Provision"/>
             </coding>
@@ -130,7 +130,7 @@
         <mode value="snapshot"/>
         <orderedBy>
             <coding>
-                <system value="http://hl7.org/fhir/list-order"/>
+                <system value="http://terminology.hl7.org/CodeSystem/list-order"/>
                 <code value="event-date"/>
                 <display value="Sorted by Event Date"/>
             </coding>

@@ -90,8 +90,8 @@ different aspects of the specification.  They are as follows:
     </tr>
     <tr>
       <th style="background-color: #ffcccc; border: 1px grey solid; padding-left: 3px; padding-right: 3px;">Deprecated</th>
-      <td>This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. 
-         Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice</td>
+      <td>This portion of the specification is outdated and may be withdrawn in a future version.  Implementers who already support it should continue to do so for backward compatibility.  Implementers should avoid adding new uses of this portion of the specification.
+          The specification should include guidance on what implementers should use instead of the deprecated portion</td>
     </tr>
   </tbody>
 </table>
@@ -286,9 +286,17 @@ Additional notes:
 <a name="version-identification"></a>
 <h3>Version identification</h3>
 <p>
-There is no explicit version marker in the content of FHIR resource instances. Instead, the version supported by a given system is declared 
-using the <a href="conformance-module.html">conformance framework</a>. The resources <a href="capabilitystatement.html">CapabilityStatement</a> and <a href="structuredefinition.html">StructureDefinition</a>
-have properties for declaring the FHIR specification version, and these may be used to determine which version of FHIR an implementation is using to aid in validation and integration.
+The FHIR version is usually known implicitly, but can be specified/determined by one of three methods:
+</p>
+<ul>
+<li>The <a href="capabilitystatement-definitions.html#CapabilityStatement.fhirVersion">fhirVersion</a> element in the 
+   applicable <a href="capabilitystatement-definitions.html">CapabilityStatement</a>, <a href="structuredefinition.html">StructureDefinition</a>, 
+    or <a href="implementationguide.html">ImplementationGuide</a></li>
+<li>The <a href="http.html#version-parameter">fhirVersion parameter</a> on the MIME-type that applies to the resource</li>
+<li>Specifying a version specific profile on the resource itself in <a href="resource.html#Meta">Resource.meta</a></li>
+</ul>
+<p>
+For further information, see <a href="versioning.html">Managing Multiple FHIR Versions</a>.
 </p>
 
 <a name="change"></a>
