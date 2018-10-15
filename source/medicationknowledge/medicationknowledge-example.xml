@@ -14,13 +14,7 @@
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>
-  <status>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-status"/>
-      <code value="active"/>
-      <display value="Active"/>
-    </coding>
-  </status>
+<status value="active"/>
   <manufacturer>
     <reference value="#org4" />
   </manufacturer>

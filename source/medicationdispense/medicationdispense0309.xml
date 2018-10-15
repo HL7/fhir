@@ -15,13 +15,7 @@
             </code>
         </Medication>
     </contained>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationdispense-status"/>
-            <code value="entered-in-error"/>
-            <display value="Entered in Error"/>
-        </coding>
-    </status>
+    <status value="entered-in-error"/>
     <medicationReference>
         <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0312"/>

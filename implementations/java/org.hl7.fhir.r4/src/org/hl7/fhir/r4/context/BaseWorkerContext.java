@@ -16,6 +16,7 @@ import java.util.Set;
 
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.lang3.StringUtils;
+import org.fhir.ucum.UcumService;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.BaseWorkerContext.NullTranslator;
@@ -113,6 +114,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private Map<String, OperationDefinition> operations = new HashMap<String, OperationDefinition>();
   private Map<String, PlanDefinition> plans = new HashMap<String, PlanDefinition>();
   private List<NamingSystem> systems = new ArrayList<NamingSystem>();
+  private UcumService ucumService;
   
   protected Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
   protected String tsServer;
@@ -1086,5 +1088,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     this.tlogging = tlogging;
   }
 
+  public UcumService getUcumService() {
+    return ucumService;
+  }
+
+  public void setUcumService(UcumService ucumService) {
+    this.ucumService = ucumService;
+  }
   
 }

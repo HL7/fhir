@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-  <id value="example"/>
+<Parameters xmlns="http://hl7.org/fhir">
   <parameter>
-    <name value="start"/>
-    <valueDate value="2010-01-01"/>
-  </parameter> 
+    <name value="exact"/>
+    <valueBoolean value="true"/>
+  </parameter>
   <parameter>
-    <name value="end"/>
+    <name value="property"/>
+    <part>
+      <name value="code"/>
+      <valueCode value="focus"/>
+    </part>
+    <part>
+      <name value="value"/>
+      <valueCode value="top"/>
+    </part>
+  </parameter>
+  <parameter>
+    <name value="patient"/>
     <resource>
-      <Binary>
-        <contentType value="text/plain"/>
-        <data value="VGhpcyBpcyBhIHRlc3QgZXhhbXBsZQ=="/>
-      </Binary>
+      <Patient>
+        <id value="example"/>
+        <name>
+          <use value="official"/>
+          <family value="Chalmers"/>
+          <given value="Peter"/>
+          <given value="James"/>
+        </name>
+      </Patient>
     </resource>
-  </parameter> 
+  </parameter>
 </Parameters>

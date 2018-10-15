@@ -1,12 +1,12 @@
 // Request a list of versions supported by the server
 
-GET [base]/$version
+GET [base]/$versions
 Accept: application/json
 [other headers]
 
 or
 
-GET [base]/$version
+GET [base]/$versions
 Accept: application/xml
 [other headers]
 

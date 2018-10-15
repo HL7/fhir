@@ -14,11 +14,7 @@
 			
 		<ul>
 
-			<li>Include codes from http://snomed.info/sct where concept  is-a  410942007</li>
-				
-			<li>Include codes from http://snomed.info/sct where concept  is-a  373873005</li>
-			
-			<li>Include codes from http://snomed.info/sct where concept  is-a  106181007</li>
+			<li>Include codes from http://snomed.info/sct where concept  is-a 763158003</li>
 			
 		</ul>
 			
@@ -65,37 +61,14 @@
 
 		<filter>
 				
-			<!--   SNOMED CT - Children of 410942007 Drug or medicament (substance)   -->
+			<!--   SNOMED CT - Children of 763158003 Medicinal Product   -->
 				
 			<property value="concept"/>
 			<op value="is-a"/>
-			<value value="410942007"/>
+			<value value="763158003"/>
 		</filter>
 	</include>
-	<include>
-		<system value="http://snomed.info/sct"/>
-
-		<filter>
-				
-			<!--   SNOMED CT - Children of 373873005 Pharmaceutical/biologic product (product)   -->
-				
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="373873005"/>
-		</filter>
-	</include>
-	<include>
-		<system value="http://snomed.info/sct"/>
-		
-		<filter>
-			
-			<!--   SNOMED CT - Children of 106181007 Immunologic Substance (substance)   -->
-			
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="106181007"/>
-		</filter>
-	</include>
+	
 </compose>
 
 

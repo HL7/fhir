@@ -15,13 +15,7 @@
       </code>
     </Medication>
   </contained>
-  <status>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-admin-status"/>
-      <code value="on-hold"/>
-      <display value="On Hold"/>
-    </coding>
-  </status>
+  <status value="on-hold"/>
   <medicationReference>
     <reference value="#med0303"/> 
   </medicationReference>

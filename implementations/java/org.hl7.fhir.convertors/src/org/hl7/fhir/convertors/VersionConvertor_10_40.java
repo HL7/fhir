@@ -7,6 +7,8 @@ import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2.model.CodeableConcept;
 import org.hl7.fhir.dstu2.model.Reference;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
+import org.hl7.fhir.dstu2.model.Parameters;
+import org.hl7.fhir.dstu2.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu2.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
@@ -31,6 +33,7 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.TerminologyCapabilities;
 import org.hl7.fhir.r4.model.Immunization.ImmunizationPerformerComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemAnswerOptionComponent;
@@ -12266,6 +12269,15 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     if (src instanceof org.hl7.fhir.r4.model.ValueSet)
       return convertValueSet((org.hl7.fhir.r4.model.ValueSet) src);
     throw new FHIRException("Unknown resource "+src.fhirType());
+  }
+
+  public TerminologyCapabilities convertTerminologyCapabilities(Parameters src) {
+    TerminologyCapabilities res = new TerminologyCapabilities();
+    for (ParametersParameterComponent p : src.getParameter()) {
+      if (p.getName().equals("system"))
+        res.addCodeSystem().setUri(p.getValue().primitiveValue());
+    }
+    return res;
   }
 
 }

@@ -959,6 +959,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildCircularReferenceList(com[1].equals("null") ? null : Boolean.valueOf(com[1]))+s3;
       } else if (com[0].equals("shortparameterlist")) {
         src = s1+buildShortParameterList(com[1])+s3;
+      } else if (com[0].equals("op-example-link")) {
+        src = s1+buildOpReferenceList(com[1])+s3;       
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1357,6 +1359,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildOpReferenceList(String rt) {
+    StringBuilder b = new StringBuilder();
+    b.append("<ul>\r\n");
+    for (String rn : definitions.sortedResourceNames()) {
+      ResourceDefn rd = definitions.getResources().get(rn);
+      for (Operation op : rd.getOperations()) {
+        boolean ok = false;
+        for (OperationExample ex : op.getExamples()) {
+          if (ex.getContent().contains("&lt;"+rt) || ex.getContent().contains("\""+rt+"\""))
+            ok = true;
+        }
+        for (OperationExample ex : op.getExamples2()) {
+          if (ex.getContent().contains("<"+rt) || ex.getContent().contains("\""+rt+"\""))
+            ok = true;
+        }
+        if (ok) {
+          b.append(" <li><a href=\""+rn.toLowerCase()+"-operation-"+op.getName().toLowerCase()+".html#examples\">"+rn+"/$"+op.getName()+"</a></li>\r\n");
+        }
+      }
+    }
+    b.append("</ul>\r\n");
+    return b.toString();
   }
 
   private String genDiffLinks() {
@@ -2554,7 +2580,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("  <li><a href=\"#tabs-"+name+"-xml\">XML</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-json\">JSON</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-ttl\">Turtle</a></li>\r\n");
-    b.append("  <li><a href=\"#tabs-"+name+"-diff\">R2 Diff</a></li>\r\n");
+    b.append("  <li><a href=\"#tabs-"+name+"-diff\">R3 Diff</a></li>\r\n");
     b.append("  <li><a href=\"#tabs-"+name+"-all\">All</a></li>\r\n");
     b.append(" </ul>\r\n");
     b.append(" <div id=\"tabs-"+name+"-struc\">\r\n");
@@ -2594,7 +2620,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(" </div>\r\n");
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-ttl\">\r\n");
-    b.append("  <div id=\"json\">\r\n");
+    b.append("  <div id=\"ttl\">\r\n");
     b.append("   <p><b>Turtle Template</b></p>\r\n");
     b.append("   <div id=\"ttl-inner\">\r\n");
     b.append("    "+ttl+"\r\n");
@@ -4384,6 +4410,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(makeHeaderTab("Formats", pfx + "formats.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("XML", pfx + "xml.html", "xml".equals(mode)));
     b.append(makeHeaderTab("JSON", pfx + "json.html", "json".equals(mode)));
+    b.append(makeHeaderTab("ND-JSON", pfx + "nd-json.html", "ndjson".equals(mode)));
     b.append(makeHeaderTab("RDF", pfx + "rdf.html", "rdf".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
@@ -6293,7 +6320,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+resource.getRoot().getDefinition()+s3;
+        src = s1+processMarkdown("resource.definition", resource.getRoot().getDefinition(), "", true)+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
       else if (com[0].equals("json"))
@@ -6878,7 +6905,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     b.append(processMarkdown(n, op.getFooter(), prefix)).append("\r\n");
     if (op.getExamples().size() > 0) {
-      b.append("<h4>Examples</h4>\r\n");
+      b.append("<a name=\"examples\"> </a>\r\n<h4>Examples</h4>\r\n");
       boolean needsHr = false;
       boolean hasHr = false;
       for (OperationExample ex : op.getExamples())

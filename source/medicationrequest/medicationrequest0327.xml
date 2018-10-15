@@ -8,20 +8,8 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
-            <code value="active"/>
-            <display value="Active"/>
-        </coding>
-    </status>
-    <intent>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
-            <code value="plan"/>
-            <display value="Plan"/>
-        </coding>
-    </intent>
+    <status value="active"/>
+    <intent value="order"/>
     <medicationCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>

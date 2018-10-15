@@ -8,20 +8,8 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-status"/>
-            <code value="on-hold"/>
-            <display value="On Hold"/>
-        </coding>
-    </status>
-    <intent>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-intent"/>
-            <code value="order"/>
-            <display value="Order"/>
-        </coding>
-    </intent>
+    <status value="on-hold"/>
+    <intent value="order"/>
     <medicationCodeableConcept>
         <coding>
             <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>

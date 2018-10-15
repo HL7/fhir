@@ -90,8 +90,8 @@ different aspects of the specification.  They are as follows:
     </tr>
     <tr>
       <th style="background-color: #ffcccc; border: 1px grey solid; padding-left: 3px; padding-right: 3px;">Deprecated</th>
-      <td>This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. 
-         Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice</td>
+      <td>This portion of the specification is outdated and may be withdrawn in a future version.  Implementers who already support it should continue to do so for backward compatibility.  Implementers should avoid adding new uses of this portion of the specification.
+          The specification should include guidance on what implementers should use instead of the deprecated portion</td>
     </tr>
   </tbody>
 </table>
@@ -286,13 +286,30 @@ Additional notes:
 <a name="version-identification"></a>
 <h3>Version identification</h3>
 <p>
-There is no explicit version marker in the content of FHIR resource instances. Instead, the version supported by a given system is declared 
-using the <a href="conformance-module.html">conformance framework</a>. The resources <a href="capabilitystatement.html">CapabilityStatement</a> and <a href="structuredefinition.html">StructureDefinition</a>
-have properties for declaring the FHIR specification version, and these may be used to determine which version of FHIR an implementation is using to aid in validation and integration.
+The FHIR version is usually known implicitly, but can be specified/determined by one of three methods:
+</p>
+<ul>
+<li>The <a href="capabilitystatement-definitions.html#CapabilityStatement.fhirVersion">fhirVersion</a> element in the 
+   applicable <a href="capabilitystatement-definitions.html">CapabilityStatement</a>, <a href="structuredefinition.html">StructureDefinition</a>, 
+    or <a href="implementationguide.html">ImplementationGuide</a></li>
+<li>The <a href="http.html#version-parameter">fhirVersion parameter</a> on the MIME-type that applies to the resource</li>
+<li>Specifying a version specific profile on the resource itself in <a href="resource.html#Meta">Resource.meta</a></li>
+</ul>
+<p>
+For further information, see <a href="versioning.html">Managing Multiple FHIR Versions</a>.
 </p>
 
 <a name="change"></a>
 <h3>Rules for Inter-version change</h3>
+[%dragons-start%]
+<p>
+The intent of these rules is to ensure that applications that are conformant to an existing 
+specification are also conformant to subsequent versions. In practice, there are many subtle
+issues around inter-version change, and the exact rules are subject to further clarification 
+based on feedback from implementers.
+</p>
+[%dragons-end%]
+
 <p>
 The following kinds of changes may be made to the specification:
 </p>
@@ -355,7 +372,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Elements</td>
       <td>
-       New optional elements and/or content (e.g. XML attributes, etc.)
+       New optional elements and/or content (e.g. XML attributes, etc.) may be introduced
       at any location in resource and data type structures provided they do not constitute "isModifier" elements.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This means there will be no change to resource names and no changes to names assigned to slices and
@@ -366,8 +383,8 @@ The following rules apply once an artifact in the FHIR core specification or in 
       <td>Cardinality</td>
       <td>
       Minimum element cardinalities will not be changed.  Upper cardinality may change from 1 to * only in circumstances
-      where all elements except for the first repetition can be safely ignored.  (This may mean that an order is
-      assigned to the repeating items or that there is no preference as to which element is retained.)  Systems should
+      where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some syntaxes (e.g. JSON). This may mean that an order is
+      assigned to the repeating items or that there is no preference as to which element is retained.  Systems should
       follow the <a href="#f-compat">rules above</a> for unexpected elements.
       </td>
     </tr>
@@ -382,7 +399,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
       </td>
     </tr>
     <tr>
-      <td>Value Sets</td>
+      <td>Value Sets and Code Systems</td>
       <td>
         <p>
         The definition of any value set that is marked as <a href="valueset-definitions.html#ValueSet.immutable">immutable</a> will never change.  The expansions for
@@ -411,6 +428,11 @@ The following rules apply once an artifact in the FHIR core specification or in 
         break these rules.  For example, the code system containing the list of all resources may have codes 
         removed or renamed as non-normative resources are removed or renamed.
         </p>
+        <p>
+        These expectations only apply to Value Sets and Code Systems maintained as part of the FHIR specification.  HL7 
+        cannot enforce these rules on terminology artifacts maintained by other authorities 
+        - e.g. UCUM unit codes, ISO language codes, etc
+        </p>
       </td>
     </tr>
     <tr>
@@ -427,7 +449,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Data Types</td>
       <td>
-      Data types will not be removed or changed except as allowed above for elements.  New data types may be introduced.  Types declared on existing elements will not be 
+      Except as described in the preceding paragraph, Data types will not be removed or changed except as allowed above for elements.  New data types may be introduced.  Types declared on existing elements will not be 
       removed or changed, except for the special case that <code>string</code> may be changed to <code>markdown</code>.
       Additional data types may be added to elements which are already expressed as a choice of data types only if those elements are optional (minimum cardinality = 0).
       </td>

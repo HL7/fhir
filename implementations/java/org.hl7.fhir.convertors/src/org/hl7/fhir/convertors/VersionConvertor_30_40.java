@@ -9,6 +9,8 @@ import org.hl7.fhir.dstu3.model.Contributor.ContributorType;
 import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.ExpansionProfile.DesignationIncludeDesignationComponent;
 import org.hl7.fhir.dstu3.model.ExpansionProfile.SystemVersionProcessingMode;
+import org.hl7.fhir.dstu3.model.Parameters;
+import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.Expression.ExpressionLanguage;
 import org.hl7.fhir.r4.model.FhirVersion;
@@ -17,6 +19,7 @@ import org.hl7.fhir.r4.model.Contributor;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.TerminologyCapabilities;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.utilities.Utilities;
@@ -21692,6 +21695,15 @@ public class VersionConvertor_30_40 {
       throw new FHIRException("Unknown resource "+src.fhirType());
     else
      return null;
+  }
+
+  public static TerminologyCapabilities convertTerminologyCapabilities(Parameters src, boolean b) {
+    TerminologyCapabilities res = new TerminologyCapabilities();
+    for (ParametersParameterComponent p : src.getParameter()) {
+      if (p.getName().equals("system"))
+        res.addCodeSystem().setUri(p.getValue().primitiveValue());
+    }
+    return res;
   }
 
 

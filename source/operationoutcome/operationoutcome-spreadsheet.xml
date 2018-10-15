@@ -6421,7 +6421,7 @@
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Fatal</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The issue caused the action to fail, and no further checking could be performed.</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The issue caused the action to fail and no further checking could be performed.</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
