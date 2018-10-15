@@ -252,7 +252,7 @@ encrypted.
 <p>
 A mime/type of text/plain can be useful for email and sms along with some extension
 describing how to convert resources to a text representation. This specification 
-may provided supporting infrastructure for this in the future.
+may provide supporting infrastructure for this in the future.
 </p>
 
 <h3>Messaging</h3>
