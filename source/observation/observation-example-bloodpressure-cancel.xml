@@ -72,7 +72,7 @@
 		</coding>
 		<text value="Below low normal"/>
 	</interpretation>
-	<comment value="In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component"/><!-- for an observation with components, these cannot disagree with the flags on the components --><bodySite>
+	<note><text value="In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component"/></note><!-- for an observation with components, these cannot disagree with the flags on the components --><bodySite>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="368209003"/>
