@@ -23,7 +23,7 @@ public class TerminologyClientR3 implements TerminologyClient {
 
   @Override
   public TerminologyCapabilities getTerminologyCapabilities() throws FHIRException {
-    return (TerminologyCapabilities) VersionConvertor_30_40.convertResource(client.getTerminologyCapabilities(), false);
+    return (TerminologyCapabilities) VersionConvertor_30_40.convertTerminologyCapabilities(client.getTerminologyCapabilities(), false);
   }
 
   @Override
@@ -41,7 +41,9 @@ public class TerminologyClientR3 implements TerminologyClient {
 
   @Override
   public Parameters validateCS(Parameters pin) throws FHIRException {
-    throw new FHIRException("Code system validation not supported in R2"); // or else what do we do? 
+    org.hl7.fhir.dstu3.model.Parameters p2 = (org.hl7.fhir.dstu3.model.Parameters) VersionConvertor_30_40.convertResource(pin, false);
+    p2 = client.operateType(org.hl7.fhir.dstu3.model.CodeSystem.class, "validate-code", p2);
+    return (Parameters) VersionConvertor_30_40.convertResource(p2, false);
   }
 
   @Override

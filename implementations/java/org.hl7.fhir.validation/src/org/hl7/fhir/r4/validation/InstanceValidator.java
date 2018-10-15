@@ -728,7 +728,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           txWarning(errors, s.getTxLink(), IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
         return true;
       }
-      if (s.getSeverity() == IssueSeverity.INFORMATION)
+      if (s.getErrorClass().isInfrastructure())
+        txWarning(errors, s.getTxLink(), IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
+      else if (s.getSeverity() == IssueSeverity.INFORMATION)
         txHint(errors, s.getTxLink(), IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
       else if (s.getSeverity() == IssueSeverity.WARNING)
         txWarning(errors, s.getTxLink(), IssueType.CODEINVALID, element.line(), element.col(), path, s == null, s.getMessage());
