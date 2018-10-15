@@ -249,6 +249,11 @@ human, but this is not always the case. Irrespective of size, most servers will 
 to send payloads in SMS for security reasons, and may refuse to send emails unless
 encrypted.
 </p>
+<p>
+A mime/type of text/plain can be useful for email and sms along with some extension
+describing how to convert resources to a text representation. This specification 
+may provided supporting infrastructure for this in the future.
+</p>
 
 <h3>Messaging</h3>
 
