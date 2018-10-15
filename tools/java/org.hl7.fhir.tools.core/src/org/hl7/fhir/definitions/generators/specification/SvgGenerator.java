@@ -815,7 +815,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.enter("text");
       xml.text(tn);
       if (Utilities.noString(e.typeCode())) {
-        xml.text(" «Resource»");
+        xml.text(" \u00ABResource\u00BB");
       } else {
         xml.attribute("class", "diagram-class-title-link");
         xml.enter("tspan");
