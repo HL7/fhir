@@ -195,11 +195,11 @@ Another use of Slicing is for Blood Pressure Measurements, where the profile say
 </ul>
 
 <p>
-An example of an Observation resource that meets these rules:
+An example of an observation resource that conforms such constrained StructureDefinitions looks like this:
 </p>
 <pre class="xml">
 &lt;Observation&gt;                         
-... snip ...
+  ... 
   &lt;component&gt;                       
     &lt;code&gt;                       
       &lt;coding&gt;                       
@@ -208,12 +208,7 @@ An example of an Observation resource that meets these rules:
         &lt;display value=&quot;Systolic blood pressure&quot; /&gt;  
       &lt;/coding&gt;                       
     &lt;/code&gt;                       
-    &lt;valueQuantity&gt;                       
-      &lt;value value=&quot;120&quot; /&gt;  
-      &lt;unit value=&quot;mmHg&quot; /&gt;  
-      &lt;system value=&quot;http://unitsofmeasure.org&quot; /&gt;  
-      &lt;code value=&quot;mm[Hg]&quot; /&gt;  
-    &lt;/valueQuantity&gt;                       
+    &lt;valueQuantity ... /&gt;                       
   &lt;/component&gt;
   &lt;component&gt;                       
     &lt;code&gt;                       
@@ -223,12 +218,7 @@ An example of an Observation resource that meets these rules:
         &lt;display value=&quot;Diastolic blood pressure&quot; /&gt;  
       &lt;/coding&gt;                       
     &lt;/code&gt;                       
-    &lt;valueQuantity&gt;                       
-      &lt;value value=&quot;80&quot; /&gt;  
-      &lt;unit value=&quot;mmHg&quot; /&gt;  
-      &lt;system value=&quot;http://unitsofmeasure.org&quot; /&gt;  
-      &lt;code value=&quot;mm[Hg]&quot; /&gt;  
-    &lt;/valueQuantity&gt;                       
+    &lt;valueQuantity .../&gt;                       
   &lt;/component&gt;
 &lt;/Patient&gt;
 </pre>
