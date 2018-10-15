@@ -6320,7 +6320,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+resource.getRoot().getDefinition()+s3;
+        src = s1+processMarkdown("resource.definition", resource.getRoot().getDefinition(), "", true)+s3;
       else if (com[0].equals("xml"))
         src = s1+xml+s3;
       else if (com[0].equals("json"))
