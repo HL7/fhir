@@ -50,6 +50,30 @@ The FHIR framework for using coded values is based on the fundamental framework 
 including the separation between code systems and value sets.
 </p>
 
+<p>
+The general pattern for representing coded elements is using the following four elements: 
+</p>
+<table class="grid">
+ <tr> <td>system</td> <td>A URI that identifies the system (see <a href="#system">below</a>)</td> </tr>
+ <tr> <td>version</td> <td>Identifies the version of the system (see <a href="codesystem.html#versioning">Code System Versioning</a>)</td> </tr>
+ <tr> <td>code</td> <td>A string pattern that identifies a concept as defined by the code system </td> </tr>
+ <tr> <td>display</td> <td>A description of the concept as defined by the code system</td> </tr>
+</table>
+<div class="example">
+<p>
+The <a href="datatypes.html#Coding">Coding</a> data type represents this patern. This example shows a LOINC code with the 
+LOINC system, the version of LOINC used for the definition, and the display assigned by LOINC:
+</p> 
+<pre class="json">  
+{ 
+  "system" : "http://loinc.org",
+  "version" : "2.62",
+  "code" : "55423-8",
+  "display" : "Number of steps in unspecified time Pedometer"
+}
+</pre>
+</div>
+
 <table class="grid">
  <tr><td colspan="2">When codes are carried in resources, one of several different data types is used:</td></tr>
  <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
@@ -156,6 +180,46 @@ Note: if the code system is made available packaged inside a <a href="valueset.h
 correct URL for the <code>system</code> value is <i>ValueSet.codeSystem.system</i>, not <i>ValueSet.uri</i>.
 </p>
 
+<a name="grammar"></a>
+<h2>Complex Code Systems</h2>
+<p>
+All code systems define a set of concepts, assign specific codes to them, and provide definitional material to 
+guide implementers in the correct use and understanding of the codes. Many code systems define relationships
+between the different concepts - is-a, part-of, classifies-with, and many other relationships. These 
+features are represented in the <a href="codesystem.html">CodeSystem</a> resource, and exchanged using 
+one of the code data types described above. 
+</p>
+<p>
+Some code systems define rules for how complex expressions can be built using 
+the basic concepts defined by the code system. This is sometimes referred to as 
+"post-coordination". Some of the more notable code systems that define grammars
+for expressions are:
+</p>
+<ul>
+ <li><a href="snomedct.html">SNOMED CT</a></li>
+ <li><a href="ucum.html">UCUM</a></li>
+ <li><a href="http://tools.ietf.org/html/bcp13">Mime Types</a></li>
+ <li><a href="http://tools.ietf.org/html/bcp47">Language</a></li>
+ <li><a href="icd.html">ICD-[X]</a></li>
+</ul>
+<p>
+There are many others. Any expression defined by the code system is still regarded as a 'code'
+and represented as such. 
+</p>
+<div class="example">
+<p>
+This example shows a SNOMED CT expression:
+</p> 
+<pre class="json">  
+{ 
+  "system" : "http://snomed.info/sct",
+  "code" : "128045006:{363698007=56459004}"
+}
+</pre>
+<p>
+Note that there is no display defined for SNOMED CT expressions.
+</p>
+</div>
 
 <a name="binding"></a>
 <h2>Controlling the use of Coded Values</h2>
@@ -399,22 +463,24 @@ may state rules on which codes can be used, including removing codes from allowe
 <h3>Extensible</h3>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
-can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), an alternate
-<code>system/code</code> from outside the value set (i.e. from a different value set or chosen from a code system directly) may be 
-used instead.</i>
+can apply to the concept being communicated.</i>
 </p>
 <p>
 Note that it is the value set <b>binding</b> that is extensible, not the value set itself.
 </p>
 <p>
-If there is at least one applicable concept in the extensibly bound value set with a meaning which includes but is more 
+If <b>there is no applicable concept</b> in  value set (based on human review), an alternate concept (either <code>system</code>/<code>code</code> 
+pair, or <code>text</code>) may be used instead. The alternate concept can have any level of specificity in an <code>is-a</code> hierarchy 
+(see <a href="terminologies-binding-examples.html#extensible.c2">Condition instance #2</a>).
+</p>
+<p>
+If <b>there is at least one applicable concept</b> in the extensibly bound value set with a meaning which includes but is more 
 general than the meaning that is intended to be represented by the element in the resource instance, then the code that is 
 used in the instance SHALL be taken from the value set and should be the closest available match for the intended element 
-instance meaning (i.e. neither more general or more specific).  Using a more specific code that more completely 
-represents the intended meaning but is outside the value set is <b>not</b> allowed.  However, the more specific code 
-<b>may also</b> be included in the instance as an additional Coding if the data type is CodeableConcept, but it cannot be 
-used <b>instead of</b> the code from the value set. This helps ensure that systems know which codes they should expect to 
-receive and build logic for and it facilitates interoperability.
+instance meaning (i.e. neither more general or more specific). However, a more specific code that more completely represents 
+the intended meaning <b>may also</b> be included in the instance as an additional Coding if the data type is CodeableConcept, 
+but it cannot be used <b>instead of</b> the code from the value set. This helps ensure that systems know which codes 
+they should expect to receive and build logic for and it facilitates interoperability.
 </p>
 <p>
 When a code for an applicable concept in the extensibly bound value set is used it should always be the closest available 
@@ -458,9 +524,10 @@ Note that if the valueset-reference extension is being used and the code in the 
 bound value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
 reference is available the extension cannot be used in that instance).
 </p>
-<h4>Examples</h4>
+<h4>Examples for Extensible Bindings</h4>
 <p>
-Extensible binding <a href="terminologies-binding-examples.html#extensible">examples</a>
+See <a href="terminologies-binding-examples.html#extensible">examples</a> to help explain the 
+difficult but important subject of Extensible bindings.
 </p>                                                                                                                                                
     
 <a name="preferred"></a>
@@ -484,9 +551,9 @@ serve interoperability purposes in the future.
 When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
-<h4>Examples</h4>
+<h4>Examples for Preferred Bindings</h4>
 <p>
-Preferred binding <a href="terminologies-binding-examples.html#preferred">examples</a>
+See <a href="terminologies-binding-examples.html#preferred">examples</a> of how Preferred bindings work.
 </p>                                                                                                                                                
 
 <a name="example"></a>

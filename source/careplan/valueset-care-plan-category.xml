@@ -20,7 +20,7 @@
         <property value="concept"/>
         <op value="is-a"/>
         <!-- Care plan (qualifier value) -->
-        <value value="278448002"/>
+        <value value="734163000"/>
       </filter>
     </include>
   </compose>
