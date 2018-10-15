@@ -907,7 +907,8 @@ the created resource version:
 <p>
 where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version. 
 The Location header should be as specific as possible - if the server understands versioning, the version is 
-included. If a server does not track versions, the Location header will just contain [base]/[type]/[id].
+included. If a server does not track versions, the Location header will just contain [base]/[type]/[id]. The
+Location MAY be an absolute or relative URL.
 </p>
 <p>
 Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code> (if versioning is supported) and a <code>Last-Modified</code> header.
