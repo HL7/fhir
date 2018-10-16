@@ -1,11 +1,13 @@
 package org.hl7.fhir.r4.model;
 
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
+
 /**
  * This enumreation is special, and hand crafted. It only supports a subset of the actual published FHIR versions, those that are still supported.
  * @author graha
  *
  */
-public enum FhirVersion {
+public enum FhirPublication {
   NULL,
   DSTU1,
   DSTU2,
@@ -13,29 +15,29 @@ public enum FhirVersion {
   STU3,
   R4;
 
-  public static FhirVersion fromCode(String v) {
+  public static FhirPublication fromCode(String v) {
     if ("1.0.2".equals(v))
-      return FhirVersion.DSTU2;
+      return FhirPublication.DSTU2;
     if ("1.0".equals(v))
-      return FhirVersion.DSTU2;
+      return FhirPublication.DSTU2;
     if ("1.4.0".equals(v))
-      return FhirVersion.DSTU2016May;
+      return FhirPublication.DSTU2016May;
     if ("1.4".equals(v))
-      return FhirVersion.DSTU2016May;
+      return FhirPublication.DSTU2016May;
     if ("3.0.1".equals(v))
-      return FhirVersion.STU3;
+      return FhirPublication.STU3;
     if ("3.0".equals(v))
-      return FhirVersion.STU3;
+      return FhirPublication.STU3;
     if ("3.5.0".equals(v))
-      return FhirVersion.R4;
+      return FhirPublication.R4;
     if ("3.6.0".equals(v))
-      return FhirVersion.R4;
+      return FhirPublication.R4;
     if ("3.5".equals(v))
-      return FhirVersion.R4;
+      return FhirPublication.R4;
     if ("3.6".equals(v))
-      return FhirVersion.R4;
+      return FhirPublication.R4;
     if ("1.0.0".equals(v))
-      return FhirVersion.R4; // hack workaround build problem
+      return FhirPublication.R4; // hack workaround build problem
     return null;
   }
 
@@ -51,9 +53,8 @@ public enum FhirVersion {
     }
   }
 
-
-  public String getSystem() {
-    return "http://hl7.org/fhir/fhir-versions";
+  public static FhirPublication fromVersion(FHIRVersion v) {
+    return fromCode(v.toCode());
   }
 
 

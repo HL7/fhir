@@ -57,7 +57,6 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOperator;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
@@ -3360,7 +3359,7 @@ public class VersionConvertor_14_40 {
     tgt.setKind(convertConformanceStatementKind(src.getKind()));
     tgt.setSoftware(convertConformanceSoftwareComponent(src.getSoftware()));
     tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
-    tgt.setFhirVersion(FhirVersion.fromCode(src.getFhirVersion()));
+    tgt.setFhirVersion(org.hl7.fhir.r4.model.Enumerations.FHIRVersion.fromCode(src.getFhirVersion()));
 //    tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getFormat())
       tgt.addFormat(t.getValue());
@@ -4228,7 +4227,7 @@ public class VersionConvertor_14_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
-      tgt.addFhirVersion(FhirVersion.fromCode(src.getFhirVersion()));
+      tgt.addFhirVersion(org.hl7.fhir.r4.model.Enumerations.FHIRVersion.fromCode(src.getFhirVersion()));
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuideDependencyComponent t : src.getDependency())
       tgt.addDependsOn(convertImplementationGuideDependencyComponent(t));
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePackageComponent t : src.getPackage())
@@ -4269,7 +4268,7 @@ public class VersionConvertor_14_40 {
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
     if (src.hasFhirVersion())
-      for (Enumeration<FhirVersion> v : src.getFhirVersion()) {
+      for (Enumeration<org.hl7.fhir.r4.model.Enumerations.FHIRVersion> v : src.getFhirVersion()) {
         tgt.setFhirVersion(v.asStringValue());
       }
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent t : src.getDependsOn())
@@ -5565,7 +5564,7 @@ public class VersionConvertor_14_40 {
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getCode())
       tgt.addKeyword(convertCoding(t));
     if (src.hasFhirVersion())
-      tgt.setFhirVersion(FhirVersion.fromCode(src.getFhirVersion()));
+      tgt.setFhirVersion(org.hl7.fhir.r4.model.Enumerations.FHIRVersion.fromCode(src.getFhirVersion()));
     for (org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
     tgt.setKind(convertStructureDefinitionKind(src.getKind(), src.getName()));

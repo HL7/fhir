@@ -20,7 +20,7 @@ import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.Enumeration;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
@@ -103,7 +103,7 @@ public class NPMPackageGenerator {
       npm.addProperty("description", ig.getDescription()+ "(built "+genDate+")");
     JsonObject dep = new JsonObject();
     npm.add("dependencies", dep);
-    for (Enumeration<FhirVersion> v : ig.getFhirVersion()) { // TODO: fix for multiple versions
+    for (Enumeration<FHIRVersion> v : ig.getFhirVersion()) { // TODO: fix for multiple versions
       dep.addProperty("hl7.fhir.core", v.toString());
     }
     for (ImplementationGuideDependsOnComponent d : ig.getDependsOn()) {

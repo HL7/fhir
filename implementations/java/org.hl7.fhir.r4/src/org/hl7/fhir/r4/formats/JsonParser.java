@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -890,6 +890,25 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_data"), res.getDataElement());
   }
 
+  protected Population parsePopulation(JsonObject json) throws IOException, FHIRFormatError {
+    Population res = new Population();
+    parsePopulationProperties(json, res);
+    return res;
+  }
+
+  protected void parsePopulationProperties(JsonObject json, Population res) throws IOException, FHIRFormatError {
+    parseBackboneElementProperties(json, res);
+    Type age = parseType("age", json);
+    if (age != null)
+      res.setAge(age);
+    if (json.has("gender"))
+      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+    if (json.has("race"))
+      res.setRace(parseCodeableConcept(json.getAsJsonObject("race")));
+    if (json.has("physiologicalCondition"))
+      res.setPhysiologicalCondition(parseCodeableConcept(json.getAsJsonObject("physiologicalCondition")));
+  }
+
   protected Ratio parseRatio(JsonObject json) throws IOException, FHIRFormatError {
     Ratio res = new Ratio();
     parseRatioProperties(json, res);
@@ -967,8 +986,12 @@ public class JsonParser extends JsonParserBase {
     Type timing = parseType("timing", json);
     if (timing != null)
       res.setTiming(timing);
-    if (json.has("data"))
-      res.setData(parseDataRequirement(json.getAsJsonObject("data")));
+    if (json.has("data")) {
+      JsonArray array = json.getAsJsonArray("data");
+      for (int i = 0; i < array.size(); i++) {
+        res.getData().add(parseDataRequirement(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("condition"))
       res.setCondition(parseExpression(json.getAsJsonObject("condition")));
   }
@@ -3450,7 +3473,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("implementation"))
       res.setImplementation(parseCapabilityStatementCapabilityStatementImplementationComponent(json.getAsJsonObject("implementation"), res));
     if (json.has("fhirVersion"))
-      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
+      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), Enumerations.FHIRVersion.NULL, new Enumerations.FHIRVersionEnumFactory()));
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
     if (json.has("format")) {
@@ -10748,8 +10771,12 @@ public class JsonParser extends JsonParserBase {
         res.getRelatedArtifact().add(parseRelatedArtifact(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("trigger"))
-      res.setTrigger(parseTriggerDefinition(json.getAsJsonObject("trigger")));
+    if (json.has("trigger")) {
+      JsonArray array = json.getAsJsonArray("trigger");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTrigger().add(parseTriggerDefinition(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   protected Evidence parseEvidence(JsonObject json) throws IOException, FHIRFormatError {
@@ -12597,8 +12624,12 @@ public class JsonParser extends JsonParserBase {
     Type start = parseType("start", json);
     if (start != null)
       res.setStart(start);
-    if (json.has("target"))
-      res.setTarget(parseGoalGoalTargetComponent(json.getAsJsonObject("target"), res));
+    if (json.has("target")) {
+      JsonArray array = json.getAsJsonArray("target");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTarget().add(parseGoalGoalTargetComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
     if (json.has("statusDate"))
       res.setStatusDateElement(parseDate(json.get("statusDate").getAsString()));
     if (json.has("_statusDate"))
@@ -13788,14 +13819,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("fhirVersion")) {
       JsonArray array = json.getAsJsonArray("fhirVersion");
       for (int i = 0; i < array.size(); i++) {
-        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
+        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), Enumerations.FHIRVersion.NULL, new Enumerations.FHIRVersionEnumFactory()));
       }
     };
     if (json.has("_fhirVersion")) {
       JsonArray array = json.getAsJsonArray("_fhirVersion");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getFhirVersion().size())
-          res.getFhirVersion().add(parseEnumeration(null, FhirVersion.NULL, new FhirVersionEnumFactory()));
+          res.getFhirVersion().add(parseEnumeration(null, Enumerations.FHIRVersion.NULL, new Enumerations.FHIRVersionEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getFhirVersion().get(i));
       }
@@ -13925,14 +13956,14 @@ public class JsonParser extends JsonParserBase {
     if (json.has("fhirVersion")) {
       JsonArray array = json.getAsJsonArray("fhirVersion");
       for (int i = 0; i < array.size(); i++) {
-        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
+        res.getFhirVersion().add(parseEnumeration(array.get(i).getAsString(), Enumerations.FHIRVersion.NULL, new Enumerations.FHIRVersionEnumFactory()));
       }
     };
     if (json.has("_fhirVersion")) {
       JsonArray array = json.getAsJsonArray("_fhirVersion");
       for (int i = 0; i < array.size(); i++) {
         if (i == res.getFhirVersion().size())
-          res.getFhirVersion().add(parseEnumeration(null, FhirVersion.NULL, new FhirVersionEnumFactory()));
+          res.getFhirVersion().add(parseEnumeration(null, Enumerations.FHIRVersion.NULL, new Enumerations.FHIRVersionEnumFactory()));
         if (array.get(i) instanceof JsonObject) 
           parseElementProperties(array.get(i).getAsJsonObject(), res.getFhirVersion().get(i));
       }
@@ -15566,10 +15597,18 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseMedicationProperties(JsonObject json, Medication res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("status"))
-      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Medication.MedicationStatus.NULL, new Medication.MedicationStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("manufacturer"))
       res.setManufacturer(parseReference(json.getAsJsonObject("manufacturer")));
     if (json.has("form"))
@@ -15621,10 +15660,6 @@ public class JsonParser extends JsonParserBase {
       res.setExpirationDateElement(parseDateTime(json.get("expirationDate").getAsString()));
     if (json.has("_expirationDate"))
       parseElementProperties(json.getAsJsonObject("_expirationDate"), res.getExpirationDateElement());
-    if (json.has("serialNumber"))
-      res.setSerialNumberElement(parseString(json.get("serialNumber").getAsString()));
-    if (json.has("_serialNumber"))
-      parseElementProperties(json.getAsJsonObject("_serialNumber"), res.getSerialNumberElement());
   }
 
   protected MedicationAdministration parseMedicationAdministration(JsonObject json) throws IOException, FHIRFormatError {
@@ -15663,7 +15698,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+      res.setStatusElement(parseCode(json.get("status").getAsString()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     Type medication = parseType("medication", json);
@@ -15790,7 +15827,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+      res.setStatusElement(parseCode(json.get("status").getAsString()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("category"))
       res.setCategory(parseCodeableConcept(json.getAsJsonObject("category")));
     Type medication = parseType("medication", json);
@@ -15926,7 +15965,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("status"))
-      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+      res.setStatusElement(parseCode(json.get("status").getAsString()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("manufacturer"))
       res.setManufacturer(parseReference(json.getAsJsonObject("manufacturer")));
     if (json.has("doseForm"))
@@ -16350,9 +16391,13 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), MedicationRequest.MedicationRequestStatus.NULL, new MedicationRequest.MedicationRequestStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("intent"))
-      res.setIntent(parseCodeableConcept(json.getAsJsonObject("intent")));
+      res.setIntentElement(parseEnumeration(json.get("intent").getAsString(), MedicationRequest.MedicationRequestIntent.NULL, new MedicationRequest.MedicationRequestIntentEnumFactory()));
+    if (json.has("_intent"))
+      parseElementProperties(json.getAsJsonObject("_intent"), res.getIntentElement());
     if (json.has("category")) {
       JsonArray array = json.getAsJsonArray("category");
       for (int i = 0; i < array.size(); i++) {
@@ -16360,7 +16405,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("priority"))
-      res.setPriority(parseCodeableConcept(json.getAsJsonObject("priority")));
+      res.setPriorityElement(parseEnumeration(json.get("priority").getAsString(), MedicationRequest.MedicationRequestPriority.NULL, new MedicationRequest.MedicationRequestPriorityEnumFactory()));
+    if (json.has("_priority"))
+      parseElementProperties(json.getAsJsonObject("_priority"), res.getPriorityElement());
     if (json.has("doNotPerform"))
       res.setDoNotPerformElement(parseBoolean(json.get("doNotPerform").getAsBoolean()));
     if (json.has("_doNotPerform"))
@@ -16550,7 +16597,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("status"))
-      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), MedicationStatement.MedicationStatementStatus.NULL, new MedicationStatement.MedicationStatementStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("statusReason")) {
       JsonArray array = json.getAsJsonArray("statusReason");
       for (int i = 0; i < array.size(); i++) {
@@ -16979,204 +17028,6 @@ public class JsonParser extends JsonParserBase {
     };
   }
 
-  protected MedicinalProductClinicals parseMedicinalProductClinicals(JsonObject json) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals res = new MedicinalProductClinicals();
-    parseMedicinalProductClinicalsProperties(json, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsProperties(JsonObject json, MedicinalProductClinicals res) throws IOException, FHIRFormatError {
-    parseDomainResourceProperties(json, res);
-    if (json.has("undesirableEffects")) {
-      JsonArray array = json.getAsJsonArray("undesirableEffects");
-      for (int i = 0; i < array.size(); i++) {
-        res.getUndesirableEffects().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("therapeuticIndication")) {
-      JsonArray array = json.getAsJsonArray("therapeuticIndication");
-      for (int i = 0; i < array.size(); i++) {
-        res.getTherapeuticIndication().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("contraindication")) {
-      JsonArray array = json.getAsJsonArray("contraindication");
-      for (int i = 0; i < array.size(); i++) {
-        res.getContraindication().add(parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("interactions")) {
-      JsonArray array = json.getAsJsonArray("interactions");
-      for (int i = 0; i < array.size(); i++) {
-        res.getInteractions().add(parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-  }
-
-  protected MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent();
-    parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("symptomConditionEffect"))
-      res.setSymptomConditionEffect(parseCodeableConcept(json.getAsJsonObject("symptomConditionEffect")));
-    if (json.has("classification"))
-      res.setClassification(parseCodeableConcept(json.getAsJsonObject("classification")));
-    if (json.has("frequencyOfOccurrence"))
-      res.setFrequencyOfOccurrence(parseCodeableConcept(json.getAsJsonObject("frequencyOfOccurrence")));
-    if (json.has("population")) {
-      JsonArray array = json.getAsJsonArray("population");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent();
-    parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    Type age = parseType("age", json);
-    if (age != null)
-      res.setAge(age);
-    if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
-    if (json.has("race"))
-      res.setRace(parseCodeableConcept(json.getAsJsonObject("race")));
-    if (json.has("physiologicalCondition"))
-      res.setPhysiologicalCondition(parseCodeableConcept(json.getAsJsonObject("physiologicalCondition")));
-  }
-
-  protected MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent();
-    parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("diseaseSymptomProcedure"))
-      res.setDiseaseSymptomProcedure(parseCodeableConcept(json.getAsJsonObject("diseaseSymptomProcedure")));
-    if (json.has("diseaseStatus"))
-      res.setDiseaseStatus(parseCodeableConcept(json.getAsJsonObject("diseaseStatus")));
-    if (json.has("comorbidity")) {
-      JsonArray array = json.getAsJsonArray("comorbidity");
-      for (int i = 0; i < array.size(); i++) {
-        res.getComorbidity().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("intendedEffect"))
-      res.setIntendedEffect(parseCodeableConcept(json.getAsJsonObject("intendedEffect")));
-    if (json.has("duration"))
-      res.setDuration(parseQuantity(json.getAsJsonObject("duration")));
-    if (json.has("undesirableEffects")) {
-      JsonArray array = json.getAsJsonArray("undesirableEffects");
-      for (int i = 0; i < array.size(); i++) {
-        res.getUndesirableEffects().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("otherTherapy")) {
-      JsonArray array = json.getAsJsonArray("otherTherapy");
-      for (int i = 0; i < array.size(); i++) {
-        res.getOtherTherapy().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("population")) {
-      JsonArray array = json.getAsJsonArray("population");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent();
-    parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("therapyRelationshipType"))
-      res.setTherapyRelationshipType(parseCodeableConcept(json.getAsJsonObject("therapyRelationshipType")));
-    Type medication = parseType("medication", json);
-    if (medication != null)
-      res.setMedication(medication);
-  }
-
-  protected MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent();
-    parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("disease"))
-      res.setDisease(parseCodeableConcept(json.getAsJsonObject("disease")));
-    if (json.has("diseaseStatus"))
-      res.setDiseaseStatus(parseCodeableConcept(json.getAsJsonObject("diseaseStatus")));
-    if (json.has("comorbidity")) {
-      JsonArray array = json.getAsJsonArray("comorbidity");
-      for (int i = 0; i < array.size(); i++) {
-        res.getComorbidity().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("therapeuticIndication")) {
-      JsonArray array = json.getAsJsonArray("therapeuticIndication");
-      for (int i = 0; i < array.size(); i++) {
-        res.getTherapeuticIndication().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("otherTherapy")) {
-      JsonArray array = json.getAsJsonArray("otherTherapy");
-      for (int i = 0; i < array.size(); i++) {
-        res.getOtherTherapy().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("population")) {
-      JsonArray array = json.getAsJsonArray("population");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
-    MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent();
-    parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("interaction"))
-      res.setInteractionElement(parseString(json.get("interaction").getAsString()));
-    if (json.has("_interaction"))
-      parseElementProperties(json.getAsJsonObject("_interaction"), res.getInteractionElement());
-    if (json.has("interactant")) {
-      JsonArray array = json.getAsJsonArray("interactant");
-      for (int i = 0; i < array.size(); i++) {
-        res.getInteractant().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("effect"))
-      res.setEffect(parseCodeableConcept(json.getAsJsonObject("effect")));
-    if (json.has("incidence"))
-      res.setIncidence(parseCodeableConcept(json.getAsJsonObject("incidence")));
-    if (json.has("management"))
-      res.setManagement(parseCodeableConcept(json.getAsJsonObject("management")));
-  }
-
   protected MedicinalProductContraindication parseMedicinalProductContraindication(JsonObject json) throws IOException, FHIRFormatError {
     MedicinalProductContraindication res = new MedicinalProductContraindication();
     parseMedicinalProductContraindicationProperties(json, res);
@@ -17216,7 +17067,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("population")) {
       JsonArray array = json.getAsJsonArray("population");
       for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponent(array.get(i).getAsJsonObject(), res));
+        res.getPopulation().add(parsePopulation(array.get(i).getAsJsonObject()));
       }
     };
   }
@@ -17234,117 +17085,6 @@ public class JsonParser extends JsonParserBase {
     Type medication = parseType("medication", json);
     if (medication != null)
       res.setMedication(medication);
-  }
-
-  protected MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent parseMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponent(JsonObject json, MedicinalProductContraindication owner) throws IOException, FHIRFormatError {
-    MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent res = new MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent();
-    parseMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponentProperties(JsonObject json, MedicinalProductContraindication owner, MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    Type age = parseType("age", json);
-    if (age != null)
-      res.setAge(age);
-    if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
-    if (json.has("race"))
-      res.setRace(parseCodeableConcept(json.getAsJsonObject("race")));
-    if (json.has("physiologicalCondition"))
-      res.setPhysiologicalCondition(parseCodeableConcept(json.getAsJsonObject("physiologicalCondition")));
-  }
-
-  protected MedicinalProductDeviceSpec parseMedicinalProductDeviceSpec(JsonObject json) throws IOException, FHIRFormatError {
-    MedicinalProductDeviceSpec res = new MedicinalProductDeviceSpec();
-    parseMedicinalProductDeviceSpecProperties(json, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductDeviceSpecProperties(JsonObject json, MedicinalProductDeviceSpec res) throws IOException, FHIRFormatError {
-    parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
-    if (json.has("type"))
-      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
-    if (json.has("tradeName"))
-      res.setTradeNameElement(parseString(json.get("tradeName").getAsString()));
-    if (json.has("_tradeName"))
-      parseElementProperties(json.getAsJsonObject("_tradeName"), res.getTradeNameElement());
-    if (json.has("quantity"))
-      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
-    if (json.has("listingNumber"))
-      res.setListingNumberElement(parseString(json.get("listingNumber").getAsString()));
-    if (json.has("_listingNumber"))
-      parseElementProperties(json.getAsJsonObject("_listingNumber"), res.getListingNumberElement());
-    if (json.has("modelNumber"))
-      res.setModelNumberElement(parseString(json.get("modelNumber").getAsString()));
-    if (json.has("_modelNumber"))
-      parseElementProperties(json.getAsJsonObject("_modelNumber"), res.getModelNumberElement());
-    if (json.has("sterilityIndicator"))
-      res.setSterilityIndicator(parseCodeableConcept(json.getAsJsonObject("sterilityIndicator")));
-    if (json.has("sterilisationRequirement"))
-      res.setSterilisationRequirement(parseCodeableConcept(json.getAsJsonObject("sterilisationRequirement")));
-    if (json.has("usage"))
-      res.setUsage(parseCodeableConcept(json.getAsJsonObject("usage")));
-    if (json.has("nomenclature")) {
-      JsonArray array = json.getAsJsonArray("nomenclature");
-      for (int i = 0; i < array.size(); i++) {
-        res.getNomenclature().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("shelfLifeStorage")) {
-      JsonArray array = json.getAsJsonArray("shelfLifeStorage");
-      for (int i = 0; i < array.size(); i++) {
-        res.getShelfLifeStorage().add(parseProductShelfLife(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("physicalCharacteristics"))
-      res.setPhysicalCharacteristics(parseProdCharacteristic(json.getAsJsonObject("physicalCharacteristics")));
-    if (json.has("otherCharacteristics")) {
-      JsonArray array = json.getAsJsonArray("otherCharacteristics");
-      for (int i = 0; i < array.size(); i++) {
-        res.getOtherCharacteristics().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("batchIdentifier")) {
-      JsonArray array = json.getAsJsonArray("batchIdentifier");
-      for (int i = 0; i < array.size(); i++) {
-        res.getBatchIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("manufacturer")) {
-      JsonArray array = json.getAsJsonArray("manufacturer");
-      for (int i = 0; i < array.size(); i++) {
-        res.getManufacturer().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("material")) {
-      JsonArray array = json.getAsJsonArray("material");
-      for (int i = 0; i < array.size(); i++) {
-        res.getMaterial().add(parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-  }
-
-  protected MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(JsonObject json, MedicinalProductDeviceSpec owner) throws IOException, FHIRFormatError {
-    MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent res = new MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent();
-    parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentProperties(JsonObject json, MedicinalProductDeviceSpec owner, MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("substance"))
-      res.setSubstance(parseCodeableConcept(json.getAsJsonObject("substance")));
-    if (json.has("alternate"))
-      res.setAlternateElement(parseBoolean(json.get("alternate").getAsBoolean()));
-    if (json.has("_alternate"))
-      parseElementProperties(json.getAsJsonObject("_alternate"), res.getAlternateElement());
-    if (json.has("allergenicIndicator"))
-      res.setAllergenicIndicatorElement(parseBoolean(json.get("allergenicIndicator").getAsBoolean()));
-    if (json.has("_allergenicIndicator"))
-      parseElementProperties(json.getAsJsonObject("_allergenicIndicator"), res.getAllergenicIndicatorElement());
   }
 
   protected MedicinalProductIndication parseMedicinalProductIndication(JsonObject json) throws IOException, FHIRFormatError {
@@ -17390,7 +17130,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("population")) {
       JsonArray array = json.getAsJsonArray("population");
       for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMedicinalProductIndicationMedicinalProductIndicationPopulationComponent(array.get(i).getAsJsonObject(), res));
+        res.getPopulation().add(parsePopulation(array.get(i).getAsJsonObject()));
       }
     };
   }
@@ -17408,25 +17148,6 @@ public class JsonParser extends JsonParserBase {
     Type medication = parseType("medication", json);
     if (medication != null)
       res.setMedication(medication);
-  }
-
-  protected MedicinalProductIndication.MedicinalProductIndicationPopulationComponent parseMedicinalProductIndicationMedicinalProductIndicationPopulationComponent(JsonObject json, MedicinalProductIndication owner) throws IOException, FHIRFormatError {
-    MedicinalProductIndication.MedicinalProductIndicationPopulationComponent res = new MedicinalProductIndication.MedicinalProductIndicationPopulationComponent();
-    parseMedicinalProductIndicationMedicinalProductIndicationPopulationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductIndicationMedicinalProductIndicationPopulationComponentProperties(JsonObject json, MedicinalProductIndication owner, MedicinalProductIndication.MedicinalProductIndicationPopulationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    Type age = parseType("age", json);
-    if (age != null)
-      res.setAge(age);
-    if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
-    if (json.has("race"))
-      res.setRace(parseCodeableConcept(json.getAsJsonObject("race")));
-    if (json.has("physiologicalCondition"))
-      res.setPhysiologicalCondition(parseCodeableConcept(json.getAsJsonObject("physiologicalCondition")));
   }
 
   protected MedicinalProductIngredient parseMedicinalProductIngredient(JsonObject json) throws IOException, FHIRFormatError {
@@ -17900,28 +17621,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("population")) {
       JsonArray array = json.getAsJsonArray("population");
       for (int i = 0; i < array.size(); i++) {
-        res.getPopulation().add(parseMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponent(array.get(i).getAsJsonObject(), res));
+        res.getPopulation().add(parsePopulation(array.get(i).getAsJsonObject()));
       }
     };
-  }
-
-  protected MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent parseMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponent(JsonObject json, MedicinalProductUndesirableEffect owner) throws IOException, FHIRFormatError {
-    MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent res = new MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent();
-    parseMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponentProperties(JsonObject json, MedicinalProductUndesirableEffect owner, MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    Type age = parseType("age", json);
-    if (age != null)
-      res.setAge(age);
-    if (json.has("gender"))
-      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
-    if (json.has("race"))
-      res.setRace(parseCodeableConcept(json.getAsJsonObject("race")));
-    if (json.has("physiologicalCondition"))
-      res.setPhysiologicalCondition(parseCodeableConcept(json.getAsJsonObject("physiologicalCondition")));
   }
 
   protected MessageDefinition parseMessageDefinition(JsonObject json) throws IOException, FHIRFormatError {
@@ -18667,10 +18369,12 @@ public class JsonParser extends JsonParserBase {
         res.getInterpretation().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
-    if (json.has("comment"))
-      res.setCommentElement(parseString(json.get("comment").getAsString()));
-    if (json.has("_comment"))
-      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
+    if (json.has("note")) {
+      JsonArray array = json.getAsJsonArray("note");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNote().add(parseAnnotation(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("bodySite"))
       res.setBodySite(parseCodeableConcept(json.getAsJsonObject("bodySite")));
     if (json.has("method"))
@@ -18880,7 +18584,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("gender"))
-      res.setGenderElement(parseEnumeration(json.get("gender").getAsString(), ObservationDefinition.AdministrativeGender.NULL, new ObservationDefinition.AdministrativeGenderEnumFactory()));
+      res.setGenderElement(parseEnumeration(json.get("gender").getAsString(), Enumerations.AdministrativeGender.NULL, new Enumerations.AdministrativeGenderEnumFactory()));
     if (json.has("_gender"))
       parseElementProperties(json.getAsJsonObject("_gender"), res.getGenderElement());
     if (json.has("age"))
@@ -23804,7 +23508,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("fhirVersion"))
-      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), FhirVersion.NULL, new FhirVersionEnumFactory()));
+      res.setFhirVersionElement(parseEnumeration(json.get("fhirVersion").getAsString(), Enumerations.FHIRVersion.NULL, new Enumerations.FHIRVersionEnumFactory()));
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
     if (json.has("mapping")) {
@@ -24359,12 +24063,6 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_error"), res.getErrorElement());
     if (json.has("channel"))
       res.setChannel(parseSubscriptionSubscriptionChannelComponent(json.getAsJsonObject("channel"), res));
-    if (json.has("tag")) {
-      JsonArray array = json.getAsJsonArray("tag");
-      for (int i = 0; i < array.size(); i++) {
-        res.getTag().add(parseCoding(array.get(i).getAsJsonObject()));
-      }
-    };
   }
 
   protected Subscription.SubscriptionChannelComponent parseSubscriptionSubscriptionChannelComponent(JsonObject json, Subscription owner) throws IOException, FHIRFormatError {
@@ -24384,7 +24082,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_endpoint"))
       parseElementProperties(json.getAsJsonObject("_endpoint"), res.getEndpointElement());
     if (json.has("payload"))
-      res.setPayloadElement(parseString(json.get("payload").getAsString()));
+      res.setPayloadElement(parseCode(json.get("payload").getAsString()));
     if (json.has("_payload"))
       parseElementProperties(json.getAsJsonObject("_payload"), res.getPayloadElement());
     if (json.has("header")) {
@@ -27890,12 +27588,8 @@ public class JsonParser extends JsonParserBase {
       return parseMedicinalProduct(json);
     else if (t.equals("MedicinalProductAuthorization"))
       return parseMedicinalProductAuthorization(json);
-    else if (t.equals("MedicinalProductClinicals"))
-      return parseMedicinalProductClinicals(json);
     else if (t.equals("MedicinalProductContraindication"))
       return parseMedicinalProductContraindication(json);
-    else if (t.equals("MedicinalProductDeviceSpec"))
-      return parseMedicinalProductDeviceSpec(json);
     else if (t.equals("MedicinalProductIndication"))
       return parseMedicinalProductIndication(json);
     else if (t.equals("MedicinalProductIngredient"))
@@ -28066,6 +27760,8 @@ public class JsonParser extends JsonParserBase {
       return parseCoding(json.getAsJsonObject(prefix+"Coding"));
     else if (json.has(prefix+"SampledData"))
       return parseSampledData(json.getAsJsonObject(prefix+"SampledData"));
+    else if (json.has(prefix+"Population"))
+      return parsePopulation(json.getAsJsonObject(prefix+"Population"));
     else if (json.has(prefix+"Ratio"))
       return parseRatio(json.getAsJsonObject(prefix+"Ratio"));
     else if (json.has(prefix+"Distance"))
@@ -28258,6 +27954,8 @@ public class JsonParser extends JsonParserBase {
       return parseCoding(json);
     else if (type.equals("SampledData"))
       return parseSampledData(json);
+    else if (type.equals("Population"))
+      return parsePopulation(json);
     else if (type.equals("Ratio"))
       return parseRatio(json);
     else if (type.equals("Distance"))
@@ -28335,6 +28033,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Coding"))
       return true;
     if (json.has(prefix+"SampledData"))
+      return true;
+    if (json.has(prefix+"Population"))
       return true;
     if (json.has(prefix+"Ratio"))
       return true;
@@ -28544,11 +28244,7 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"MedicinalProductAuthorization"))
       return true;
-    if (json.has(prefix+"MedicinalProductClinicals"))
-      return true;
     if (json.has(prefix+"MedicinalProductContraindication"))
-      return true;
-    if (json.has(prefix+"MedicinalProductDeviceSpec"))
       return true;
     if (json.has(prefix+"MedicinalProductIndication"))
       return true;
@@ -29334,6 +29030,30 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasHighLimit()) {
         composeQuantity("highLimit", element.getHighLimit());
+      }
+  }
+
+  protected void composePopulation(String name, Population element) throws IOException {
+    if (element != null) {
+      open(name);
+      composePopulationInner(element);
+      close();
+    }
+  }
+
+  protected void composePopulationInner(Population element) throws IOException {
+      composeBackbone(element);
+      if (element.hasAge()) {
+        composeType("age", element.getAge());
+      }
+      if (element.hasGender()) {
+        composeCodeableConcept("gender", element.getGender());
+      }
+      if (element.hasRace()) {
+        composeCodeableConcept("race", element.getRace());
+      }
+      if (element.hasPhysiologicalCondition()) {
+        composeCodeableConcept("physiologicalCondition", element.getPhysiologicalCondition());
       }
   }
 
@@ -30192,8 +29912,11 @@ public class JsonParser extends JsonParserBase {
         composeType("timing", element.getTiming());
       }
       if (element.hasData()) {
-        composeDataRequirement("data", element.getData());
-      }
+        openArray("data");
+        for (DataRequirement e : element.getData()) 
+          composeDataRequirement(null, e);
+        closeArray();
+      };
       if (element.hasCondition()) {
         composeExpression("condition", element.getCondition());
       }
@@ -32613,8 +32336,8 @@ public class JsonParser extends JsonParserBase {
         composeCapabilityStatementCapabilityStatementImplementationComponent("implementation", element.getImplementation());
       }
       if (element.hasFhirVersionElement()) {
-        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
-        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
+        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new Enumerations.FHIRVersionEnumFactory(), false);
+        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new Enumerations.FHIRVersionEnumFactory(), false);
       }
       if (element.hasFormat()) {
         openArray("format");
@@ -40419,8 +40142,11 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasTrigger()) {
-        composeTriggerDefinition("trigger", element.getTrigger());
-      }
+        openArray("trigger");
+        for (TriggerDefinition e : element.getTrigger()) 
+          composeTriggerDefinition(null, e);
+        closeArray();
+      };
   }
 
   protected void composeEvidence(String name, Evidence element) throws IOException {
@@ -42390,8 +42116,11 @@ public class JsonParser extends JsonParserBase {
         composeType("start", element.getStart());
       }
       if (element.hasTarget()) {
-        composeGoalGoalTargetComponent("target", element.getTarget());
-      }
+        openArray("target");
+        for (Goal.GoalTargetComponent e : element.getTarget()) 
+          composeGoalGoalTargetComponent(null, e);
+        closeArray();
+      };
       if (element.hasStatusDateElement()) {
         composeDateCore("statusDate", element.getStatusDateElement(), false);
         composeDateExtras("statusDate", element.getStatusDateElement(), false);
@@ -43670,13 +43399,13 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasFhirVersion()) {
         openArray("fhirVersion");
-        for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
-          composeEnumerationCore(null, e, new FhirVersionEnumFactory(), true);
+        for (Enumeration<Enumerations.FHIRVersion> e : element.getFhirVersion()) 
+          composeEnumerationCore(null, e, new Enumerations.FHIRVersionEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getFhirVersion())) {
           openArray("_fhirVersion");
-          for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
-            composeEnumerationExtras(null, e, new FhirVersionEnumFactory(), true);
+          for (Enumeration<Enumerations.FHIRVersion> e : element.getFhirVersion()) 
+            composeEnumerationExtras(null, e, new Enumerations.FHIRVersionEnumFactory(), true);
           closeArray();
         }
       };
@@ -43818,13 +43547,13 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasFhirVersion()) {
         openArray("fhirVersion");
-        for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
-          composeEnumerationCore(null, e, new FhirVersionEnumFactory(), true);
+        for (Enumeration<Enumerations.FHIRVersion> e : element.getFhirVersion()) 
+          composeEnumerationCore(null, e, new Enumerations.FHIRVersionEnumFactory(), true);
         closeArray();
         if (anyHasExtras(element.getFhirVersion())) {
           openArray("_fhirVersion");
-          for (Enumeration<FhirVersion> e : element.getFhirVersion()) 
-            composeEnumerationExtras(null, e, new FhirVersionEnumFactory(), true);
+          for (Enumeration<Enumerations.FHIRVersion> e : element.getFhirVersion()) 
+            composeEnumerationExtras(null, e, new Enumerations.FHIRVersionEnumFactory(), true);
           closeArray();
         }
       };
@@ -45587,11 +45316,18 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeMedicationInner(Medication element) throws IOException {
       composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      if (element.hasStatus()) {
-        composeCodeableConcept("status", element.getStatus());
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Medication.MedicationStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Medication.MedicationStatusEnumFactory(), false);
       }
       if (element.hasManufacturer()) {
         composeReference("manufacturer", element.getManufacturer());
@@ -45653,10 +45389,6 @@ public class JsonParser extends JsonParserBase {
         composeDateTimeCore("expirationDate", element.getExpirationDateElement(), false);
         composeDateTimeExtras("expirationDate", element.getExpirationDateElement(), false);
       }
-      if (element.hasSerialNumberElement()) {
-        composeStringCore("serialNumber", element.getSerialNumberElement(), false);
-        composeStringExtras("serialNumber", element.getSerialNumberElement(), false);
-      }
   }
 
   protected void composeMedicationAdministration(String name, MedicationAdministration element) throws IOException {
@@ -45692,8 +45424,9 @@ public class JsonParser extends JsonParserBase {
           composeReference(null, e);
         closeArray();
       };
-      if (element.hasStatus()) {
-        composeCodeableConcept("status", element.getStatus());
+      if (element.hasStatusElement()) {
+        composeCodeCore("status", element.getStatusElement(), false);
+        composeCodeExtras("status", element.getStatusElement(), false);
       }
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
@@ -45836,8 +45569,9 @@ public class JsonParser extends JsonParserBase {
           composeReference(null, e);
         closeArray();
       };
-      if (element.hasStatus()) {
-        composeCodeableConcept("status", element.getStatus());
+      if (element.hasStatusElement()) {
+        composeCodeCore("status", element.getStatusElement(), false);
+        composeCodeExtras("status", element.getStatusElement(), false);
       }
       if (element.hasCategory()) {
         composeCodeableConcept("category", element.getCategory());
@@ -45991,8 +45725,9 @@ public class JsonParser extends JsonParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
-      if (element.hasStatus()) {
-        composeCodeableConcept("status", element.getStatus());
+      if (element.hasStatusElement()) {
+        composeCodeCore("status", element.getStatusElement(), false);
+        composeCodeExtras("status", element.getStatusElement(), false);
       }
       if (element.hasManufacturer()) {
         composeReference("manufacturer", element.getManufacturer());
@@ -46466,11 +46201,13 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
-      if (element.hasStatus()) {
-        composeCodeableConcept("status", element.getStatus());
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new MedicationRequest.MedicationRequestStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new MedicationRequest.MedicationRequestStatusEnumFactory(), false);
       }
-      if (element.hasIntent()) {
-        composeCodeableConcept("intent", element.getIntent());
+      if (element.hasIntentElement()) {
+        composeEnumerationCore("intent", element.getIntentElement(), new MedicationRequest.MedicationRequestIntentEnumFactory(), false);
+        composeEnumerationExtras("intent", element.getIntentElement(), new MedicationRequest.MedicationRequestIntentEnumFactory(), false);
       }
       if (element.hasCategory()) {
         openArray("category");
@@ -46478,8 +46215,9 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasPriority()) {
-        composeCodeableConcept("priority", element.getPriority());
+      if (element.hasPriorityElement()) {
+        composeEnumerationCore("priority", element.getPriorityElement(), new MedicationRequest.MedicationRequestPriorityEnumFactory(), false);
+        composeEnumerationExtras("priority", element.getPriorityElement(), new MedicationRequest.MedicationRequestPriorityEnumFactory(), false);
       }
       if (element.hasDoNotPerformElement()) {
         composeBooleanCore("doNotPerform", element.getDoNotPerformElement(), false);
@@ -46694,8 +46432,9 @@ public class JsonParser extends JsonParserBase {
           composeReference(null, e);
         closeArray();
       };
-      if (element.hasStatus()) {
-        composeCodeableConcept("status", element.getStatus());
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new MedicationStatement.MedicationStatementStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new MedicationStatement.MedicationStatementStatusEnumFactory(), false);
       }
       if (element.hasStatusReason()) {
         openArray("statusReason");
@@ -47174,234 +46913,6 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  protected void composeMedicinalProductClinicals(String name, MedicinalProductClinicals element) throws IOException {
-    if (element != null) {
-      prop("resourceType", name);
-      composeMedicinalProductClinicalsInner(element);
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsInner(MedicinalProductClinicals element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasUndesirableEffects()) {
-        openArray("undesirableEffects");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent e : element.getUndesirableEffects()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(null, e);
-        closeArray();
-      };
-      if (element.hasTherapeuticIndication()) {
-        openArray("therapeuticIndication");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent e : element.getTherapeuticIndication()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(null, e);
-        closeArray();
-      };
-      if (element.hasContraindication()) {
-        openArray("contraindication");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent e : element.getContraindication()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(null, e);
-        closeArray();
-      };
-      if (element.hasInteractions()) {
-        openArray("interactions");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent e : element.getInteractions()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasSymptomConditionEffect()) {
-        composeCodeableConcept("symptomConditionEffect", element.getSymptomConditionEffect());
-      }
-      if (element.hasClassification()) {
-        composeCodeableConcept("classification", element.getClassification());
-      }
-      if (element.hasFrequencyOfOccurrence()) {
-        composeCodeableConcept("frequencyOfOccurrence", element.getFrequencyOfOccurrence());
-      }
-      if (element.hasPopulation()) {
-        openArray("population");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent e : element.getPopulation()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasAge()) {
-        composeType("age", element.getAge());
-      }
-      if (element.hasGender()) {
-        composeCodeableConcept("gender", element.getGender());
-      }
-      if (element.hasRace()) {
-        composeCodeableConcept("race", element.getRace());
-      }
-      if (element.hasPhysiologicalCondition()) {
-        composeCodeableConcept("physiologicalCondition", element.getPhysiologicalCondition());
-      }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasDiseaseSymptomProcedure()) {
-        composeCodeableConcept("diseaseSymptomProcedure", element.getDiseaseSymptomProcedure());
-      }
-      if (element.hasDiseaseStatus()) {
-        composeCodeableConcept("diseaseStatus", element.getDiseaseStatus());
-      }
-      if (element.hasComorbidity()) {
-        openArray("comorbidity");
-        for (CodeableConcept e : element.getComorbidity()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasIntendedEffect()) {
-        composeCodeableConcept("intendedEffect", element.getIntendedEffect());
-      }
-      if (element.hasDuration()) {
-        composeQuantity("duration", element.getDuration());
-      }
-      if (element.hasUndesirableEffects()) {
-        openArray("undesirableEffects");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent e : element.getUndesirableEffects()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(null, e);
-        closeArray();
-      };
-      if (element.hasOtherTherapy()) {
-        openArray("otherTherapy");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent e : element.getOtherTherapy()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(null, e);
-        closeArray();
-      };
-      if (element.hasPopulation()) {
-        openArray("population");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent e : element.getPopulation()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasTherapyRelationshipType()) {
-        composeCodeableConcept("therapyRelationshipType", element.getTherapyRelationshipType());
-      }
-      if (element.hasMedication()) {
-        composeType("medication", element.getMedication());
-      }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasDisease()) {
-        composeCodeableConcept("disease", element.getDisease());
-      }
-      if (element.hasDiseaseStatus()) {
-        composeCodeableConcept("diseaseStatus", element.getDiseaseStatus());
-      }
-      if (element.hasComorbidity()) {
-        openArray("comorbidity");
-        for (CodeableConcept e : element.getComorbidity()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasTherapeuticIndication()) {
-        openArray("therapeuticIndication");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent e : element.getTherapeuticIndication()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(null, e);
-        closeArray();
-      };
-      if (element.hasOtherTherapy()) {
-        openArray("otherTherapy");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent e : element.getOtherTherapy()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(null, e);
-        closeArray();
-      };
-      if (element.hasPopulation()) {
-        openArray("population");
-        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent e : element.getPopulation()) 
-          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasInteractionElement()) {
-        composeStringCore("interaction", element.getInteractionElement(), false);
-        composeStringExtras("interaction", element.getInteractionElement(), false);
-      }
-      if (element.hasInteractant()) {
-        openArray("interactant");
-        for (CodeableConcept e : element.getInteractant()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
-      if (element.hasEffect()) {
-        composeCodeableConcept("effect", element.getEffect());
-      }
-      if (element.hasIncidence()) {
-        composeCodeableConcept("incidence", element.getIncidence());
-      }
-      if (element.hasManagement()) {
-        composeCodeableConcept("management", element.getManagement());
-      }
-  }
-
   protected void composeMedicinalProductContraindication(String name, MedicinalProductContraindication element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -47443,8 +46954,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasPopulation()) {
         openArray("population");
-        for (MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent e : element.getPopulation()) 
-          composeMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponent(null, e);
+        for (Population e : element.getPopulation()) 
+          composePopulation(null, e);
         closeArray();
       };
   }
@@ -47464,133 +46975,6 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasMedication()) {
         composeType("medication", element.getMedication());
-      }
-  }
-
-  protected void composeMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponent(String name, MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductContraindicationMedicinalProductContraindicationPopulationComponentInner(MedicinalProductContraindication.MedicinalProductContraindicationPopulationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasAge()) {
-        composeType("age", element.getAge());
-      }
-      if (element.hasGender()) {
-        composeCodeableConcept("gender", element.getGender());
-      }
-      if (element.hasRace()) {
-        composeCodeableConcept("race", element.getRace());
-      }
-      if (element.hasPhysiologicalCondition()) {
-        composeCodeableConcept("physiologicalCondition", element.getPhysiologicalCondition());
-      }
-  }
-
-  protected void composeMedicinalProductDeviceSpec(String name, MedicinalProductDeviceSpec element) throws IOException {
-    if (element != null) {
-      prop("resourceType", name);
-      composeMedicinalProductDeviceSpecInner(element);
-    }
-  }
-
-  protected void composeMedicinalProductDeviceSpecInner(MedicinalProductDeviceSpec element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
-      if (element.hasType()) {
-        composeCodeableConcept("type", element.getType());
-      }
-      if (element.hasTradeNameElement()) {
-        composeStringCore("tradeName", element.getTradeNameElement(), false);
-        composeStringExtras("tradeName", element.getTradeNameElement(), false);
-      }
-      if (element.hasQuantity()) {
-        composeQuantity("quantity", element.getQuantity());
-      }
-      if (element.hasListingNumberElement()) {
-        composeStringCore("listingNumber", element.getListingNumberElement(), false);
-        composeStringExtras("listingNumber", element.getListingNumberElement(), false);
-      }
-      if (element.hasModelNumberElement()) {
-        composeStringCore("modelNumber", element.getModelNumberElement(), false);
-        composeStringExtras("modelNumber", element.getModelNumberElement(), false);
-      }
-      if (element.hasSterilityIndicator()) {
-        composeCodeableConcept("sterilityIndicator", element.getSterilityIndicator());
-      }
-      if (element.hasSterilisationRequirement()) {
-        composeCodeableConcept("sterilisationRequirement", element.getSterilisationRequirement());
-      }
-      if (element.hasUsage()) {
-        composeCodeableConcept("usage", element.getUsage());
-      }
-      if (element.hasNomenclature()) {
-        openArray("nomenclature");
-        for (CodeableConcept e : element.getNomenclature()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasShelfLifeStorage()) {
-        openArray("shelfLifeStorage");
-        for (ProductShelfLife e : element.getShelfLifeStorage()) 
-          composeProductShelfLife(null, e);
-        closeArray();
-      };
-      if (element.hasPhysicalCharacteristics()) {
-        composeProdCharacteristic("physicalCharacteristics", element.getPhysicalCharacteristics());
-      }
-      if (element.hasOtherCharacteristics()) {
-        openArray("otherCharacteristics");
-        for (CodeableConcept e : element.getOtherCharacteristics()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasBatchIdentifier()) {
-        openArray("batchIdentifier");
-        for (Identifier e : element.getBatchIdentifier()) 
-          composeIdentifier(null, e);
-        closeArray();
-      };
-      if (element.hasManufacturer()) {
-        openArray("manufacturer");
-        for (Reference e : element.getManufacturer()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasMaterial()) {
-        openArray("material");
-        for (MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent e : element.getMaterial()) 
-          composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(String name, MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentInner(MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasSubstance()) {
-        composeCodeableConcept("substance", element.getSubstance());
-      }
-      if (element.hasAlternateElement()) {
-        composeBooleanCore("alternate", element.getAlternateElement(), false);
-        composeBooleanExtras("alternate", element.getAlternateElement(), false);
-      }
-      if (element.hasAllergenicIndicatorElement()) {
-        composeBooleanCore("allergenicIndicator", element.getAllergenicIndicatorElement(), false);
-        composeBooleanExtras("allergenicIndicator", element.getAllergenicIndicatorElement(), false);
       }
   }
 
@@ -47641,8 +47025,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasPopulation()) {
         openArray("population");
-        for (MedicinalProductIndication.MedicinalProductIndicationPopulationComponent e : element.getPopulation()) 
-          composeMedicinalProductIndicationMedicinalProductIndicationPopulationComponent(null, e);
+        for (Population e : element.getPopulation()) 
+          composePopulation(null, e);
         closeArray();
       };
   }
@@ -47662,30 +47046,6 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasMedication()) {
         composeType("medication", element.getMedication());
-      }
-  }
-
-  protected void composeMedicinalProductIndicationMedicinalProductIndicationPopulationComponent(String name, MedicinalProductIndication.MedicinalProductIndicationPopulationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductIndicationMedicinalProductIndicationPopulationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductIndicationMedicinalProductIndicationPopulationComponentInner(MedicinalProductIndication.MedicinalProductIndicationPopulationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasAge()) {
-        composeType("age", element.getAge());
-      }
-      if (element.hasGender()) {
-        composeCodeableConcept("gender", element.getGender());
-      }
-      if (element.hasRace()) {
-        composeCodeableConcept("race", element.getRace());
-      }
-      if (element.hasPhysiologicalCondition()) {
-        composeCodeableConcept("physiologicalCondition", element.getPhysiologicalCondition());
       }
   }
 
@@ -48229,34 +47589,10 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasPopulation()) {
         openArray("population");
-        for (MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent e : element.getPopulation()) 
-          composeMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponent(null, e);
+        for (Population e : element.getPopulation()) 
+          composePopulation(null, e);
         closeArray();
       };
-  }
-
-  protected void composeMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponent(String name, MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeMedicinalProductUndesirableEffectMedicinalProductUndesirableEffectPopulationComponentInner(MedicinalProductUndesirableEffect.MedicinalProductUndesirableEffectPopulationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasAge()) {
-        composeType("age", element.getAge());
-      }
-      if (element.hasGender()) {
-        composeCodeableConcept("gender", element.getGender());
-      }
-      if (element.hasRace()) {
-        composeCodeableConcept("race", element.getRace());
-      }
-      if (element.hasPhysiologicalCondition()) {
-        composeCodeableConcept("physiologicalCondition", element.getPhysiologicalCondition());
-      }
   }
 
   protected void composeMessageDefinition(String name, MessageDefinition element) throws IOException {
@@ -49048,10 +48384,12 @@ public class JsonParser extends JsonParserBase {
           composeCodeableConcept(null, e);
         closeArray();
       };
-      if (element.hasCommentElement()) {
-        composeStringCore("comment", element.getCommentElement(), false);
-        composeStringExtras("comment", element.getCommentElement(), false);
-      }
+      if (element.hasNote()) {
+        openArray("note");
+        for (Annotation e : element.getNote()) 
+          composeAnnotation(null, e);
+        closeArray();
+      };
       if (element.hasBodySite()) {
         composeCodeableConcept("bodySite", element.getBodySite());
       }
@@ -49284,8 +48622,8 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasGenderElement()) {
-        composeEnumerationCore("gender", element.getGenderElement(), new ObservationDefinition.AdministrativeGenderEnumFactory(), false);
-        composeEnumerationExtras("gender", element.getGenderElement(), new ObservationDefinition.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationCore("gender", element.getGenderElement(), new Enumerations.AdministrativeGenderEnumFactory(), false);
+        composeEnumerationExtras("gender", element.getGenderElement(), new Enumerations.AdministrativeGenderEnumFactory(), false);
       }
       if (element.hasAge()) {
         composeRange("age", element.getAge());
@@ -54453,8 +53791,8 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasFhirVersionElement()) {
-        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
-        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new FhirVersionEnumFactory(), false);
+        composeEnumerationCore("fhirVersion", element.getFhirVersionElement(), new Enumerations.FHIRVersionEnumFactory(), false);
+        composeEnumerationExtras("fhirVersion", element.getFhirVersionElement(), new Enumerations.FHIRVersionEnumFactory(), false);
       }
       if (element.hasMapping()) {
         openArray("mapping");
@@ -55025,12 +54363,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasChannel()) {
         composeSubscriptionSubscriptionChannelComponent("channel", element.getChannel());
       }
-      if (element.hasTag()) {
-        openArray("tag");
-        for (Coding e : element.getTag()) 
-          composeCoding(null, e);
-        closeArray();
-      };
   }
 
   protected void composeSubscriptionSubscriptionChannelComponent(String name, Subscription.SubscriptionChannelComponent element) throws IOException {
@@ -55052,8 +54384,8 @@ public class JsonParser extends JsonParserBase {
         composeUrlExtras("endpoint", element.getEndpointElement(), false);
       }
       if (element.hasPayloadElement()) {
-        composeStringCore("payload", element.getPayloadElement(), false);
-        composeStringExtras("payload", element.getPayloadElement(), false);
+        composeCodeCore("payload", element.getPayloadElement(), false);
+        composeCodeExtras("payload", element.getPayloadElement(), false);
       }
       if (element.hasHeader()) {
         openArray("header");
@@ -58891,12 +58223,8 @@ public class JsonParser extends JsonParserBase {
       composeMedicinalProduct("MedicinalProduct", (MedicinalProduct)resource);
     else if (resource instanceof MedicinalProductAuthorization)
       composeMedicinalProductAuthorization("MedicinalProductAuthorization", (MedicinalProductAuthorization)resource);
-    else if (resource instanceof MedicinalProductClinicals)
-      composeMedicinalProductClinicals("MedicinalProductClinicals", (MedicinalProductClinicals)resource);
     else if (resource instanceof MedicinalProductContraindication)
       composeMedicinalProductContraindication("MedicinalProductContraindication", (MedicinalProductContraindication)resource);
-    else if (resource instanceof MedicinalProductDeviceSpec)
-      composeMedicinalProductDeviceSpec("MedicinalProductDeviceSpec", (MedicinalProductDeviceSpec)resource);
     else if (resource instanceof MedicinalProductIndication)
       composeMedicinalProductIndication("MedicinalProductIndication", (MedicinalProductIndication)resource);
     else if (resource instanceof MedicinalProductIngredient)
@@ -59202,12 +58530,8 @@ public class JsonParser extends JsonParserBase {
       composeMedicinalProduct(name, (MedicinalProduct)resource);
     else if (resource instanceof MedicinalProductAuthorization)
       composeMedicinalProductAuthorization(name, (MedicinalProductAuthorization)resource);
-    else if (resource instanceof MedicinalProductClinicals)
-      composeMedicinalProductClinicals(name, (MedicinalProductClinicals)resource);
     else if (resource instanceof MedicinalProductContraindication)
       composeMedicinalProductContraindication(name, (MedicinalProductContraindication)resource);
-    else if (resource instanceof MedicinalProductDeviceSpec)
-      composeMedicinalProductDeviceSpec(name, (MedicinalProductDeviceSpec)resource);
     else if (resource instanceof MedicinalProductIndication)
       composeMedicinalProductIndication(name, (MedicinalProductIndication)resource);
     else if (resource instanceof MedicinalProductIngredient)
@@ -59359,6 +58683,8 @@ public class JsonParser extends JsonParserBase {
        composeMarketingStatus(prefix+"MarketingStatus", (MarketingStatus) type);
     else if (type instanceof SubstanceAmount)
        composeSubstanceAmount(prefix+"SubstanceAmount", (SubstanceAmount) type);
+    else if (type instanceof Population)
+       composePopulation(prefix+"Population", (Population) type);
     else if (type instanceof Distance)
        composeDistance(prefix+"Distance", (Distance) type);
     else if (type instanceof Age)
@@ -59516,6 +58842,8 @@ public class JsonParser extends JsonParserBase {
        composeMarketingStatusInner((MarketingStatus) type);
     else if (type instanceof SubstanceAmount)
        composeSubstanceAmountInner((SubstanceAmount) type);
+    else if (type instanceof Population)
+       composePopulationInner((Population) type);
     else if (type instanceof Distance)
        composeDistanceInner((Distance) type);
     else if (type instanceof Age)

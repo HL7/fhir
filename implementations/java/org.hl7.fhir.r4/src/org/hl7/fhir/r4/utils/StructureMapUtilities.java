@@ -39,9 +39,9 @@ import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ExpressionNode;
-import org.hl7.fhir.r4.model.FhirVersion;
 import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.IntegerType;
@@ -2656,7 +2656,7 @@ public class StructureMapUtilities {
     }
   }
 
-  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop, String sliceName, Base ctxt) throws DefinitionException {
+  private PropertyWithType createProfile(StructureMap map, List<StructureDefinition> profiles, PropertyWithType prop, String sliceName, Base ctxt) throws FHIRException {
     if (prop.getBaseProperty().getDefinition().getPath().contains(".")) 
       throw new DefinitionException("Unable to process entry point");
 
@@ -2690,7 +2690,7 @@ public class StructureMapUtilities {
     }
     profile.setDate(map.getDate());
     profile.setCopyright(map.getCopyright());
-    profile.setFhirVersion(FhirVersion.fromCode(Constants.VERSION));
+    profile.setFhirVersion(FHIRVersion.fromCode(Constants.VERSION));
     profile.setKind(prop.getBaseProperty().getStructure().getKind());
     profile.setAbstract(false);
     ElementDefinition ed = profile.getDifferential().addElement();

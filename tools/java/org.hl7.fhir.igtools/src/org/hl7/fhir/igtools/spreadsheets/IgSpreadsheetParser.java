@@ -42,10 +42,11 @@ import org.hl7.fhir.r4.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Identifier;
@@ -1074,7 +1075,7 @@ public class IgSpreadsheetParser {
     ex.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
     ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
-    ex.setFhirVersion(FhirVersion.fromCode(Constants.VERSION));
+    ex.setFhirVersion(FHIRVersion.fromCode(Constants.VERSION));
 
     String context = null;
     if (Utilities.noString(name))

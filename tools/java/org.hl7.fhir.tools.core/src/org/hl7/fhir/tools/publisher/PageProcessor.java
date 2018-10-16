@@ -191,6 +191,7 @@ import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
+import org.hl7.fhir.r4.utils.TypesUtilities.TypeClassification;
 import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.r4.utils.ResourceUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
@@ -832,6 +833,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("xcmchk")) {
+        src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
         if (com.length == 1) {
           StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
@@ -5563,6 +5566,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("xcmchk")) {
+        src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("fmm")) {
         src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("fmmshort")) {
@@ -10044,6 +10049,27 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       return "<span style=\"color: grey\">N</span>";
   }
 
+  private String getXcmChk(String param) {
+    boolean used = false;
+    if (searchTypeUsage.contains(param+":number"))
+      used = true;
+    if (searchTypeUsage.contains(param+":date"))
+      used = true;
+    if (searchTypeUsage.contains(param+":reference"))
+      used = true;
+    if (searchTypeUsage.contains(param+":quantity"))
+      used = true;
+    if (searchTypeUsage.contains(param+":uri"))
+      used = true;
+    if (searchTypeUsage.contains(param+":string"))
+      used = true;
+    if (searchTypeUsage.contains(param+":token"))
+      used = true;
+    if (used)
+      throw new Error("data type "+param+" is used in search after all");
+    return "";
+  }
+
   private String genCSList() throws FHIRException {
     StringBuilder b = new StringBuilder();
     List<String> names = new ArrayList<String>();
@@ -10700,13 +10726,25 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   
   private String genWildcardTypeList() {
     StringBuilder b = new StringBuilder();
-    for (String s : TypesUtilities.wildcardTypes()) {
+    TypeClassification tc = null;
+    boolean first = true;
+    for (WildcardInformation wi : TypesUtilities.wildcards()) {
+      if (tc != wi.getClassification()) {
+        if (first)
+          first = false;
+        else
+          b.append("</ul>\r\n");
+        tc = wi.getClassification();
+        b.append("<b>"+Utilities.pluralize(tc.toDisplay(), 2)+"</b>\r\n");
+        b.append("<ul class=\"dense\">\r\n");
+      }
       b.append("<li><a href=\"");
-      b.append(definitions.getSrcFile(s)+".html#"+s);
+      b.append(definitions.getSrcFile(wi.getTypeName())+".html#"+wi.getTypeName());
       b.append("\">");
-      b.append(s);      
-      b.append("</a></li>");
+      b.append(wi.getTypeName());      
+      b.append("</a></li>\r\n");
     }
+    b.append("</ul>\r\n");
     return b.toString();
   }
   

@@ -143,8 +143,37 @@ public class PackageCacheManager {
     save = checkIniHasMapping("hl7.fhir.vocabpoc", "http://hl7.org/fhir/ig/vocab-poc", ini) || save;
     if (save)
       ini.save();    
+    checkDeleteVersion("hl7.fhir.core", "1.0.2", 2);
+    checkDeleteVersion("hl7.fhir.core", "1.4.0", 2);
   }
   
+
+  private void checkDeleteVersion(String id, String ver, int minVer) {
+    if (hasPackage(id, ver)) {
+      boolean del = true;
+      NpmPackage pck;
+      try {
+        pck = resolvePackage(id, ver, "xx");
+        if (pck.getNpm().has("tool-version")) {
+          del = pck.getNpm().get("tool-version").getAsInt() < minVer;
+        }
+      } catch (Exception e) {
+      }
+      if (del)
+        try {
+          removePackage(id, ver);
+        } catch (IOException e) {
+        }
+    }
+  }
+
+
+  public void removePackage(String id, String ver) throws IOException  {
+    String f = Utilities.path(cacheFolder, id+"#"+ver);
+    Utilities.clearDirectory(f);    
+    new File(f).delete();
+  }
+
 
   private void convertPackageCacheFrom1To2() throws IOException {
     for (File f : new File(cacheFolder).listFiles()) {

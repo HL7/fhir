@@ -95,7 +95,8 @@ import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.Composition;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
@@ -157,7 +158,7 @@ public class SourceParser {
   public String dtDir;
   private final String rootDir;
   private final OIDRegistry registry;
-  private final FhirVersion version;
+  private final FHIRVersion version;
   private final BuildWorkerContext context;
   private final Calendar genDate;
   private final PageProcessor page;
@@ -170,7 +171,7 @@ public class SourceParser {
   private boolean exceptionIfExcelNotNormalised;
   
 
-  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, FhirVersion version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages, boolean exceptionIfExcelNotNormalised) throws IOException, ParserConfigurationException, SAXException {
+  public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, FHIRVersion version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages, boolean exceptionIfExcelNotNormalised) throws IOException, ParserConfigurationException, SAXException {
     this.logger = logger;
     this.forPublication = forPublication;
     this.registry = new OIDRegistry(root, forPublication);

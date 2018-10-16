@@ -25,7 +25,9 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.Enumeration;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
@@ -285,12 +287,19 @@ public class IGPack2NpmConvertor {
 
   private void checkVersions(ImplementationGuide ig, String version, String filename) throws FHIRException, IOException {
     if ("STU3".equals(ig.getFhirVersion()))
-      ig.addFhirVersion(FhirVersion.STU3);
+      ig.addFhirVersion(FHIRVersion._3_0_0);
     
     if (!ig.hasFhirVersion())
-      ig.addFhirVersion(FhirVersion.fromCode(version));
-    else if (!version.equals(ig.getFhirVersion()))
-      throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
+      ig.addFhirVersion(FHIRVersion.fromCode(version));
+    else {
+      boolean ok = false;
+      for (Enumeration<FHIRVersion> v : ig.getFhirVersion()) {
+        if (!version.equals(v.primitiveValue()))
+          ok = true;
+      }
+      if (!ok)
+        throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
+    }
     
     if (!ig.hasVersion()) {
       if (packageId != null) {

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -50,6 +50,7 @@ public class Enumerations {
 //   EventResourceType: A list of all the event resource types defined in this version of the FHIR specification.
 //   FHIRAllTypes: A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types.
 //   FHIRDefinedType: A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types.
+//   FHIRVersion: All published FHIR Versions.
 //   KnowledgeResourceType: A list of all the knowledge resource types defined in this version of the FHIR specification.
 //   MessageEvent: One of the message events defined as part of this version of FHIR.
 //   NoteType: The presentation types of notes.
@@ -1173,6 +1174,10 @@ public class Enumerations {
          */
         PERIOD, 
         /**
+         * A populatioof people with some set of grouping criteria.
+         */
+        POPULATION, 
+        /**
          * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
          */
         PRODCHARACTERISTIC, 
@@ -1237,7 +1242,7 @@ public class Enumerations {
          */
         BOOLEAN, 
         /**
-         * A URI that is a reference to a canonical URI on a FHIR resource
+         * A URI that is a reference to a canonical URL on a FHIR resource
          */
         CANONICAL, 
         /**
@@ -1371,6 +1376,8 @@ public class Enumerations {
           return PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return PERIOD;
+        if ("Population".equals(codeString))
+          return POPULATION;
         if ("ProdCharacteristic".equals(codeString))
           return PRODCHARACTERISTIC;
         if ("ProductShelfLife".equals(codeString))
@@ -1471,6 +1478,7 @@ public class Enumerations {
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
+            case POPULATION: return "Population";
             case PRODCHARACTERISTIC: return "ProdCharacteristic";
             case PRODUCTSHELFLIFE: return "ProductShelfLife";
             case QUANTITY: return "Quantity";
@@ -1538,6 +1546,7 @@ public class Enumerations {
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
+            case POPULATION: return "http://hl7.org/fhir/data-types";
             case PRODCHARACTERISTIC: return "http://hl7.org/fhir/data-types";
             case PRODUCTSHELFLIFE: return "http://hl7.org/fhir/data-types";
             case QUANTITY: return "http://hl7.org/fhir/data-types";
@@ -1605,6 +1614,7 @@ public class Enumerations {
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
+            case POPULATION: return "A populatioof people with some set of grouping criteria.";
             case PRODCHARACTERISTIC: return "The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.";
             case PRODUCTSHELFLIFE: return "The shelf-life and storage information for a medicinal product item or container can be described using this class.";
             case QUANTITY: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
@@ -1621,7 +1631,7 @@ public class Enumerations {
             case USAGECONTEXT: return "Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
-            case CANONICAL: return "A URI that is a reference to a canonical URI on a FHIR resource";
+            case CANONICAL: return "A URI that is a reference to a canonical URL on a FHIR resource";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
             case DATE: return "A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.";
             case DATETIME: return "A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.";
@@ -1672,6 +1682,7 @@ public class Enumerations {
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
+            case POPULATION: return "Population";
             case PRODCHARACTERISTIC: return "ProdCharacteristic";
             case PRODUCTSHELFLIFE: return "ProductShelfLife";
             case QUANTITY: return "Quantity";
@@ -1772,6 +1783,8 @@ public class Enumerations {
           return DataType.PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return DataType.PERIOD;
+        if ("Population".equals(codeString))
+          return DataType.POPULATION;
         if ("ProdCharacteristic".equals(codeString))
           return DataType.PRODCHARACTERISTIC;
         if ("ProductShelfLife".equals(codeString))
@@ -1906,6 +1919,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.PARAMETERDEFINITION);
         if ("Period".equals(codeString))
           return new Enumeration<DataType>(this, DataType.PERIOD);
+        if ("Population".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.POPULATION);
         if ("ProdCharacteristic".equals(codeString))
           return new Enumeration<DataType>(this, DataType.PRODCHARACTERISTIC);
         if ("ProductShelfLife".equals(codeString))
@@ -2033,6 +2048,8 @@ public class Enumerations {
         return "ParameterDefinition";
       if (code == DataType.PERIOD)
         return "Period";
+      if (code == DataType.POPULATION)
+        return "Population";
       if (code == DataType.PRODCHARACTERISTIC)
         return "ProdCharacteristic";
       if (code == DataType.PRODUCTSHELFLIFE)
@@ -3081,6 +3098,10 @@ public class Enumerations {
          */
         PERIOD, 
         /**
+         * A populatioof people with some set of grouping criteria.
+         */
+        POPULATION, 
+        /**
          * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
          */
         PRODCHARACTERISTIC, 
@@ -3145,7 +3166,7 @@ public class Enumerations {
          */
         BOOLEAN, 
         /**
-         * A URI that is a reference to a canonical URI on a FHIR resource
+         * A URI that is a reference to a canonical URL on a FHIR resource
          */
         CANONICAL, 
         /**
@@ -3266,7 +3287,7 @@ into another (possibly the same) biological entity.
          */
         BUNDLE, 
         /**
-         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
         CAPABILITYSTATEMENT, 
         /**
@@ -3478,7 +3499,7 @@ into another (possibly the same) biological entity.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
-         * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+         * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDE, 
         /**
@@ -3502,7 +3523,7 @@ into another (possibly the same) biological entity.
          */
         LINKAGE, 
         /**
-         * A set of information summarized from a list of other resources.
+         * A list is a curated collection of resources.
          */
         LIST, 
         /**
@@ -3556,15 +3577,7 @@ into another (possibly the same) biological entity.
         /**
          * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
          */
-        MEDICINALPRODUCTCLINICALS, 
-        /**
-         * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
-         */
         MEDICINALPRODUCTCONTRAINDICATION, 
-        /**
-         * A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to replace the Device resource, which covers use of device instances.
-         */
-        MEDICINALPRODUCTDEVICESPEC, 
         /**
          * Indication for the Medicinal Product.
          */
@@ -3634,7 +3647,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATIONAFFILIATION, 
         /**
-         * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
+         * This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
         /**
@@ -3904,6 +3917,8 @@ into another (possibly the same) biological entity.
           return PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return PERIOD;
+        if ("Population".equals(codeString))
+          return POPULATION;
         if ("ProdCharacteristic".equals(codeString))
           return PRODCHARACTERISTIC;
         if ("ProductShelfLife".equals(codeString))
@@ -4140,12 +4155,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCT;
         if ("MedicinalProductAuthorization".equals(codeString))
           return MEDICINALPRODUCTAUTHORIZATION;
-        if ("MedicinalProductClinicals".equals(codeString))
-          return MEDICINALPRODUCTCLINICALS;
         if ("MedicinalProductContraindication".equals(codeString))
           return MEDICINALPRODUCTCONTRAINDICATION;
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIndication".equals(codeString))
           return MEDICINALPRODUCTINDICATION;
         if ("MedicinalProductIngredient".equals(codeString))
@@ -4316,6 +4327,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
+            case POPULATION: return "Population";
             case PRODCHARACTERISTIC: return "ProdCharacteristic";
             case PRODUCTSHELFLIFE: return "ProductShelfLife";
             case QUANTITY: return "Quantity";
@@ -4434,9 +4446,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "MedicationStatement";
             case MEDICINALPRODUCT: return "MedicinalProduct";
             case MEDICINALPRODUCTAUTHORIZATION: return "MedicinalProductAuthorization";
-            case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTCONTRAINDICATION: return "MedicinalProductContraindication";
-            case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINDICATION: return "MedicinalProductIndication";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
             case MEDICINALPRODUCTINTERACTION: return "MedicinalProductInteraction";
@@ -4539,6 +4549,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
+            case POPULATION: return "http://hl7.org/fhir/data-types";
             case PRODCHARACTERISTIC: return "http://hl7.org/fhir/data-types";
             case PRODUCTSHELFLIFE: return "http://hl7.org/fhir/data-types";
             case QUANTITY: return "http://hl7.org/fhir/data-types";
@@ -4657,9 +4668,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTAUTHORIZATION: return "http://hl7.org/fhir/resource-types";
-            case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTCONTRAINDICATION: return "http://hl7.org/fhir/resource-types";
-            case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINDICATION: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINTERACTION: return "http://hl7.org/fhir/resource-types";
@@ -4762,6 +4771,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
+            case POPULATION: return "A populatioof people with some set of grouping criteria.";
             case PRODCHARACTERISTIC: return "The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.";
             case PRODUCTSHELFLIFE: return "The shelf-life and storage information for a medicinal product item or container can be described using this class.";
             case QUANTITY: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
@@ -4778,7 +4788,7 @@ into another (possibly the same) biological entity.
             case USAGECONTEXT: return "Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
-            case CANONICAL: return "A URI that is a reference to a canonical URI on a FHIR resource";
+            case CANONICAL: return "A URI that is a reference to a canonical URL on a FHIR resource";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
             case DATE: return "A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.";
             case DATETIME: return "A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.";
@@ -4808,7 +4818,7 @@ into another (possibly the same) biological entity.
             case BIOLOGICALLYDERIVEDPRODUCT: return "A material substance originating from a biological entity intended to be transplanted or infused\ninto another (possibly the same) biological entity.";
             case BODYSTRUCTURE: return "Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
-            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
+            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CATALOGENTRY: return "Catalog entries are wrappers that contextualize items included in a catalog.";
@@ -4861,13 +4871,13 @@ into another (possibly the same) biological entity.
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
             case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
-            case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case IMPLEMENTATIONGUIDE: return "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case INSURANCEPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case ITEMINSTANCE: return "A physical, countable instance of an item, for example one box or one unit.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
-            case LIST: return "A set of information summarized from a list of other resources.";
+            case LIST: return "A list is a curated collection of resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
             case MEASUREREPORT: return "The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.";
@@ -4880,9 +4890,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
             case MEDICINALPRODUCT: return "Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).";
             case MEDICINALPRODUCTAUTHORIZATION: return "The regulatory authorization of a medicinal product.";
-            case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTCONTRAINDICATION: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
-            case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to replace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINDICATION: return "Indication for the Medicinal Product.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
             case MEDICINALPRODUCTINTERACTION: return "The interactions of the medicinal product with other medicinal products, or other forms of interactions.";
@@ -4900,7 +4908,7 @@ into another (possibly the same) biological entity.
             case OPERATIONOUTCOME: return "A collection of error, warning, or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.";
             case ORGANIZATIONAFFILIATION: return "Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.";
-            case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
+            case PARAMETERS: return "This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
@@ -4985,6 +4993,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
+            case POPULATION: return "Population";
             case PRODCHARACTERISTIC: return "ProdCharacteristic";
             case PRODUCTSHELFLIFE: return "ProductShelfLife";
             case QUANTITY: return "Quantity";
@@ -5103,9 +5112,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "MedicationStatement";
             case MEDICINALPRODUCT: return "MedicinalProduct";
             case MEDICINALPRODUCTAUTHORIZATION: return "MedicinalProductAuthorization";
-            case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTCONTRAINDICATION: return "MedicinalProductContraindication";
-            case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINDICATION: return "MedicinalProductIndication";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
             case MEDICINALPRODUCTINTERACTION: return "MedicinalProductInteraction";
@@ -5241,6 +5248,8 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return FHIRAllTypes.PERIOD;
+        if ("Population".equals(codeString))
+          return FHIRAllTypes.POPULATION;
         if ("ProdCharacteristic".equals(codeString))
           return FHIRAllTypes.PRODCHARACTERISTIC;
         if ("ProductShelfLife".equals(codeString))
@@ -5477,12 +5486,8 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.MEDICINALPRODUCT;
         if ("MedicinalProductAuthorization".equals(codeString))
           return FHIRAllTypes.MEDICINALPRODUCTAUTHORIZATION;
-        if ("MedicinalProductClinicals".equals(codeString))
-          return FHIRAllTypes.MEDICINALPRODUCTCLINICALS;
         if ("MedicinalProductContraindication".equals(codeString))
           return FHIRAllTypes.MEDICINALPRODUCTCONTRAINDICATION;
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return FHIRAllTypes.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIndication".equals(codeString))
           return FHIRAllTypes.MEDICINALPRODUCTINDICATION;
         if ("MedicinalProductIngredient".equals(codeString))
@@ -5687,6 +5692,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PARAMETERDEFINITION);
         if ("Period".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PERIOD);
+        if ("Population".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.POPULATION);
         if ("ProdCharacteristic".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PRODCHARACTERISTIC);
         if ("ProductShelfLife".equals(codeString))
@@ -5923,12 +5930,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCT);
         if ("MedicinalProductAuthorization".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTAUTHORIZATION);
-        if ("MedicinalProductClinicals".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTCLINICALS);
         if ("MedicinalProductContraindication".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTCONTRAINDICATION);
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIndication".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.MEDICINALPRODUCTINDICATION);
         if ("MedicinalProductIngredient".equals(codeString))
@@ -6126,6 +6129,8 @@ into another (possibly the same) biological entity.
         return "ParameterDefinition";
       if (code == FHIRAllTypes.PERIOD)
         return "Period";
+      if (code == FHIRAllTypes.POPULATION)
+        return "Population";
       if (code == FHIRAllTypes.PRODCHARACTERISTIC)
         return "ProdCharacteristic";
       if (code == FHIRAllTypes.PRODUCTSHELFLIFE)
@@ -6362,12 +6367,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProduct";
       if (code == FHIRAllTypes.MEDICINALPRODUCTAUTHORIZATION)
         return "MedicinalProductAuthorization";
-      if (code == FHIRAllTypes.MEDICINALPRODUCTCLINICALS)
-        return "MedicinalProductClinicals";
       if (code == FHIRAllTypes.MEDICINALPRODUCTCONTRAINDICATION)
         return "MedicinalProductContraindication";
-      if (code == FHIRAllTypes.MEDICINALPRODUCTDEVICESPEC)
-        return "MedicinalProductDeviceSpec";
       if (code == FHIRAllTypes.MEDICINALPRODUCTINDICATION)
         return "MedicinalProductIndication";
       if (code == FHIRAllTypes.MEDICINALPRODUCTINGREDIENT)
@@ -6627,6 +6628,10 @@ into another (possibly the same) biological entity.
          */
         PERIOD, 
         /**
+         * A populatioof people with some set of grouping criteria.
+         */
+        POPULATION, 
+        /**
          * The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
          */
         PRODCHARACTERISTIC, 
@@ -6691,7 +6696,7 @@ into another (possibly the same) biological entity.
          */
         BOOLEAN, 
         /**
-         * A URI that is a reference to a canonical URI on a FHIR resource
+         * A URI that is a reference to a canonical URL on a FHIR resource
          */
         CANONICAL, 
         /**
@@ -6812,7 +6817,7 @@ into another (possibly the same) biological entity.
          */
         BUNDLE, 
         /**
-         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
         CAPABILITYSTATEMENT, 
         /**
@@ -7024,7 +7029,7 @@ into another (possibly the same) biological entity.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
-         * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+         * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDE, 
         /**
@@ -7048,7 +7053,7 @@ into another (possibly the same) biological entity.
          */
         LINKAGE, 
         /**
-         * A set of information summarized from a list of other resources.
+         * A list is a curated collection of resources.
          */
         LIST, 
         /**
@@ -7102,15 +7107,7 @@ into another (possibly the same) biological entity.
         /**
          * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
          */
-        MEDICINALPRODUCTCLINICALS, 
-        /**
-         * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
-         */
         MEDICINALPRODUCTCONTRAINDICATION, 
-        /**
-         * A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to replace the Device resource, which covers use of device instances.
-         */
-        MEDICINALPRODUCTDEVICESPEC, 
         /**
          * Indication for the Medicinal Product.
          */
@@ -7180,7 +7177,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATIONAFFILIATION, 
         /**
-         * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
+         * This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
         /**
@@ -7442,6 +7439,8 @@ into another (possibly the same) biological entity.
           return PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return PERIOD;
+        if ("Population".equals(codeString))
+          return POPULATION;
         if ("ProdCharacteristic".equals(codeString))
           return PRODCHARACTERISTIC;
         if ("ProductShelfLife".equals(codeString))
@@ -7678,12 +7677,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCT;
         if ("MedicinalProductAuthorization".equals(codeString))
           return MEDICINALPRODUCTAUTHORIZATION;
-        if ("MedicinalProductClinicals".equals(codeString))
-          return MEDICINALPRODUCTCLINICALS;
         if ("MedicinalProductContraindication".equals(codeString))
           return MEDICINALPRODUCTCONTRAINDICATION;
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIndication".equals(codeString))
           return MEDICINALPRODUCTINDICATION;
         if ("MedicinalProductIngredient".equals(codeString))
@@ -7850,6 +7845,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
+            case POPULATION: return "Population";
             case PRODCHARACTERISTIC: return "ProdCharacteristic";
             case PRODUCTSHELFLIFE: return "ProductShelfLife";
             case QUANTITY: return "Quantity";
@@ -7968,9 +7964,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "MedicationStatement";
             case MEDICINALPRODUCT: return "MedicinalProduct";
             case MEDICINALPRODUCTAUTHORIZATION: return "MedicinalProductAuthorization";
-            case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTCONTRAINDICATION: return "MedicinalProductContraindication";
-            case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINDICATION: return "MedicinalProductIndication";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
             case MEDICINALPRODUCTINTERACTION: return "MedicinalProductInteraction";
@@ -8071,6 +8065,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
             case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
+            case POPULATION: return "http://hl7.org/fhir/data-types";
             case PRODCHARACTERISTIC: return "http://hl7.org/fhir/data-types";
             case PRODUCTSHELFLIFE: return "http://hl7.org/fhir/data-types";
             case QUANTITY: return "http://hl7.org/fhir/data-types";
@@ -8189,9 +8184,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTAUTHORIZATION: return "http://hl7.org/fhir/resource-types";
-            case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTCONTRAINDICATION: return "http://hl7.org/fhir/resource-types";
-            case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINDICATION: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINTERACTION: return "http://hl7.org/fhir/resource-types";
@@ -8292,6 +8285,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "A human-readable formatted text, including images.";
             case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
+            case POPULATION: return "A populatioof people with some set of grouping criteria.";
             case PRODCHARACTERISTIC: return "The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.";
             case PRODUCTSHELFLIFE: return "The shelf-life and storage information for a medicinal product item or container can be described using this class.";
             case QUANTITY: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
@@ -8308,7 +8302,7 @@ into another (possibly the same) biological entity.
             case USAGECONTEXT: return "Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
-            case CANONICAL: return "A URI that is a reference to a canonical URI on a FHIR resource";
+            case CANONICAL: return "A URI that is a reference to a canonical URL on a FHIR resource";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
             case DATE: return "A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.";
             case DATETIME: return "A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.";
@@ -8338,7 +8332,7 @@ into another (possibly the same) biological entity.
             case BIOLOGICALLYDERIVEDPRODUCT: return "A material substance originating from a biological entity intended to be transplanted or infused\ninto another (possibly the same) biological entity.";
             case BODYSTRUCTURE: return "Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
-            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
+            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CATALOGENTRY: return "Catalog entries are wrappers that contextualize items included in a catalog.";
@@ -8391,13 +8385,13 @@ into another (possibly the same) biological entity.
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
             case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
-            case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case IMPLEMENTATIONGUIDE: return "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case INSURANCEPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case ITEMINSTANCE: return "A physical, countable instance of an item, for example one box or one unit.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
-            case LIST: return "A set of information summarized from a list of other resources.";
+            case LIST: return "A list is a curated collection of resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
             case MEASUREREPORT: return "The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.";
@@ -8410,9 +8404,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
             case MEDICINALPRODUCT: return "Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).";
             case MEDICINALPRODUCTAUTHORIZATION: return "The regulatory authorization of a medicinal product.";
-            case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTCONTRAINDICATION: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
-            case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to replace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINDICATION: return "Indication for the Medicinal Product.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
             case MEDICINALPRODUCTINTERACTION: return "The interactions of the medicinal product with other medicinal products, or other forms of interactions.";
@@ -8430,7 +8422,7 @@ into another (possibly the same) biological entity.
             case OPERATIONOUTCOME: return "A collection of error, warning, or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.";
             case ORGANIZATIONAFFILIATION: return "Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.";
-            case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
+            case PARAMETERS: return "This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
@@ -8513,6 +8505,7 @@ into another (possibly the same) biological entity.
             case NARRATIVE: return "Narrative";
             case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
+            case POPULATION: return "Population";
             case PRODCHARACTERISTIC: return "ProdCharacteristic";
             case PRODUCTSHELFLIFE: return "ProductShelfLife";
             case QUANTITY: return "Quantity";
@@ -8631,9 +8624,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "MedicationStatement";
             case MEDICINALPRODUCT: return "MedicinalProduct";
             case MEDICINALPRODUCTAUTHORIZATION: return "MedicinalProductAuthorization";
-            case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTCONTRAINDICATION: return "MedicinalProductContraindication";
-            case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINDICATION: return "MedicinalProductIndication";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
             case MEDICINALPRODUCTINTERACTION: return "MedicinalProductInteraction";
@@ -8767,6 +8758,8 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return FHIRDefinedType.PERIOD;
+        if ("Population".equals(codeString))
+          return FHIRDefinedType.POPULATION;
         if ("ProdCharacteristic".equals(codeString))
           return FHIRDefinedType.PRODCHARACTERISTIC;
         if ("ProductShelfLife".equals(codeString))
@@ -9003,12 +8996,8 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.MEDICINALPRODUCT;
         if ("MedicinalProductAuthorization".equals(codeString))
           return FHIRDefinedType.MEDICINALPRODUCTAUTHORIZATION;
-        if ("MedicinalProductClinicals".equals(codeString))
-          return FHIRDefinedType.MEDICINALPRODUCTCLINICALS;
         if ("MedicinalProductContraindication".equals(codeString))
           return FHIRDefinedType.MEDICINALPRODUCTCONTRAINDICATION;
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return FHIRDefinedType.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIndication".equals(codeString))
           return FHIRDefinedType.MEDICINALPRODUCTINDICATION;
         if ("MedicinalProductIngredient".equals(codeString))
@@ -9209,6 +9198,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PARAMETERDEFINITION);
         if ("Period".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PERIOD);
+        if ("Population".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.POPULATION);
         if ("ProdCharacteristic".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PRODCHARACTERISTIC);
         if ("ProductShelfLife".equals(codeString))
@@ -9445,12 +9436,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCT);
         if ("MedicinalProductAuthorization".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTAUTHORIZATION);
-        if ("MedicinalProductClinicals".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTCLINICALS);
         if ("MedicinalProductContraindication".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTCONTRAINDICATION);
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIndication".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDICINALPRODUCTINDICATION);
         if ("MedicinalProductIngredient".equals(codeString))
@@ -9644,6 +9631,8 @@ into another (possibly the same) biological entity.
         return "ParameterDefinition";
       if (code == FHIRDefinedType.PERIOD)
         return "Period";
+      if (code == FHIRDefinedType.POPULATION)
+        return "Population";
       if (code == FHIRDefinedType.PRODCHARACTERISTIC)
         return "ProdCharacteristic";
       if (code == FHIRDefinedType.PRODUCTSHELFLIFE)
@@ -9880,12 +9869,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProduct";
       if (code == FHIRDefinedType.MEDICINALPRODUCTAUTHORIZATION)
         return "MedicinalProductAuthorization";
-      if (code == FHIRDefinedType.MEDICINALPRODUCTCLINICALS)
-        return "MedicinalProductClinicals";
       if (code == FHIRDefinedType.MEDICINALPRODUCTCONTRAINDICATION)
         return "MedicinalProductContraindication";
-      if (code == FHIRDefinedType.MEDICINALPRODUCTDEVICESPEC)
-        return "MedicinalProductDeviceSpec";
       if (code == FHIRDefinedType.MEDICINALPRODUCTINDICATION)
         return "MedicinalProductIndication";
       if (code == FHIRDefinedType.MEDICINALPRODUCTINGREDIENT)
@@ -10023,6 +10008,399 @@ into another (possibly the same) biological entity.
       return "?";
       }
     public String toSystem(FHIRDefinedType code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum FHIRVersion {
+        /**
+         * Oldest archived version of FHIR.
+         */
+        _0_01, 
+        /**
+         * 1st Draft for Comment (Sept 2012 Ballot).
+         */
+        _0_05, 
+        /**
+         * 2nd Draft for Comment (January 2013 Ballot).
+         */
+        _0_06, 
+        /**
+         * DSTU 1 Ballot version.
+         */
+        _0_11, 
+        /**
+         * DSTU 1 Official version.
+         */
+        _0_0_80, 
+        /**
+         * DSTU 1 Official version Technical Errata #1.
+         */
+        _0_0_81, 
+        /**
+         * DSTU 1 Official version Technical Errata #2.
+         */
+        _0_0_82, 
+        /**
+         * Draft For Comment (January 2015 Ballot).
+         */
+        _0_4_0, 
+        /**
+         * DSTU 2 Ballot version (May 2015 Ballot).
+         */
+        _0_5_0, 
+        /**
+         * DSTU 2 QA Preview + CQIF Ballot (Sep 2015).
+         */
+        _1_0_0, 
+        /**
+         * DSTU 2 (Official version).
+         */
+        _1_0_1, 
+        /**
+         * DSTU 2 (Official version) with 1 technical errata.
+         */
+        _1_0_2, 
+        /**
+         * GAO Ballot + draft changes to main FHIR standard.
+         */
+        _1_1_0, 
+        /**
+         * CQF on FHIR Ballot + Connectathon 12 (Montreal).
+         */
+        _1_4_0, 
+        /**
+         * FHIR STU3 Ballot + Connectathon 13 (Baltimore).
+         */
+        _1_6_0, 
+        /**
+         * FHIR STU3 Candidate + Connectathon 14 (San Antonio).
+         */
+        _1_8_0, 
+        /**
+         * FHIR Release 3 (STU).
+         */
+        _3_0_0, 
+        /**
+         * FHIR Release 3 (STU) with 1 technical errata.
+         */
+        _3_0_1, 
+        /**
+         * R4 Ballot #1.
+         */
+        _3_3_0, 
+        /**
+         * R4 Ballot #2.
+         */
+        _3_5_0, 
+        /**
+         * Current Development build.
+         */
+        _3_6_0, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static FHIRVersion fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("0.01".equals(codeString))
+          return _0_01;
+        if ("0.05".equals(codeString))
+          return _0_05;
+        if ("0.06".equals(codeString))
+          return _0_06;
+        if ("0.11".equals(codeString))
+          return _0_11;
+        if ("0.0.80".equals(codeString))
+          return _0_0_80;
+        if ("0.0.81".equals(codeString))
+          return _0_0_81;
+        if ("0.0.82".equals(codeString))
+          return _0_0_82;
+        if ("0.4.0".equals(codeString))
+          return _0_4_0;
+        if ("0.5.0".equals(codeString))
+          return _0_5_0;
+        if ("1.0.0".equals(codeString))
+          return _1_0_0;
+        if ("1.0.1".equals(codeString))
+          return _1_0_1;
+        if ("1.0.2".equals(codeString))
+          return _1_0_2;
+        if ("1.1.0".equals(codeString))
+          return _1_1_0;
+        if ("1.4.0".equals(codeString))
+          return _1_4_0;
+        if ("1.6.0".equals(codeString))
+          return _1_6_0;
+        if ("1.8.0".equals(codeString))
+          return _1_8_0;
+        if ("3.0.0".equals(codeString))
+          return _3_0_0;
+        if ("3.0.1".equals(codeString))
+          return _3_0_1;
+        if ("3.3.0".equals(codeString))
+          return _3_3_0;
+        if ("3.5.0".equals(codeString))
+          return _3_5_0;
+        if ("3.6.0".equals(codeString))
+          return _3_6_0;
+        throw new FHIRException("Unknown FHIRVersion code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case _0_01: return "0.01";
+            case _0_05: return "0.05";
+            case _0_06: return "0.06";
+            case _0_11: return "0.11";
+            case _0_0_80: return "0.0.80";
+            case _0_0_81: return "0.0.81";
+            case _0_0_82: return "0.0.82";
+            case _0_4_0: return "0.4.0";
+            case _0_5_0: return "0.5.0";
+            case _1_0_0: return "1.0.0";
+            case _1_0_1: return "1.0.1";
+            case _1_0_2: return "1.0.2";
+            case _1_1_0: return "1.1.0";
+            case _1_4_0: return "1.4.0";
+            case _1_6_0: return "1.6.0";
+            case _1_8_0: return "1.8.0";
+            case _3_0_0: return "3.0.0";
+            case _3_0_1: return "3.0.1";
+            case _3_3_0: return "3.3.0";
+            case _3_5_0: return "3.5.0";
+            case _3_6_0: return "3.6.0";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case _0_01: return "http://hl7.org/fhir/FHIR-version";
+            case _0_05: return "http://hl7.org/fhir/FHIR-version";
+            case _0_06: return "http://hl7.org/fhir/FHIR-version";
+            case _0_11: return "http://hl7.org/fhir/FHIR-version";
+            case _0_0_80: return "http://hl7.org/fhir/FHIR-version";
+            case _0_0_81: return "http://hl7.org/fhir/FHIR-version";
+            case _0_0_82: return "http://hl7.org/fhir/FHIR-version";
+            case _0_4_0: return "http://hl7.org/fhir/FHIR-version";
+            case _0_5_0: return "http://hl7.org/fhir/FHIR-version";
+            case _1_0_0: return "http://hl7.org/fhir/FHIR-version";
+            case _1_0_1: return "http://hl7.org/fhir/FHIR-version";
+            case _1_0_2: return "http://hl7.org/fhir/FHIR-version";
+            case _1_1_0: return "http://hl7.org/fhir/FHIR-version";
+            case _1_4_0: return "http://hl7.org/fhir/FHIR-version";
+            case _1_6_0: return "http://hl7.org/fhir/FHIR-version";
+            case _1_8_0: return "http://hl7.org/fhir/FHIR-version";
+            case _3_0_0: return "http://hl7.org/fhir/FHIR-version";
+            case _3_0_1: return "http://hl7.org/fhir/FHIR-version";
+            case _3_3_0: return "http://hl7.org/fhir/FHIR-version";
+            case _3_5_0: return "http://hl7.org/fhir/FHIR-version";
+            case _3_6_0: return "http://hl7.org/fhir/FHIR-version";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case _0_01: return "Oldest archived version of FHIR.";
+            case _0_05: return "1st Draft for Comment (Sept 2012 Ballot).";
+            case _0_06: return "2nd Draft for Comment (January 2013 Ballot).";
+            case _0_11: return "DSTU 1 Ballot version.";
+            case _0_0_80: return "DSTU 1 Official version.";
+            case _0_0_81: return "DSTU 1 Official version Technical Errata #1.";
+            case _0_0_82: return "DSTU 1 Official version Technical Errata #2.";
+            case _0_4_0: return "Draft For Comment (January 2015 Ballot).";
+            case _0_5_0: return "DSTU 2 Ballot version (May 2015 Ballot).";
+            case _1_0_0: return "DSTU 2 QA Preview + CQIF Ballot (Sep 2015).";
+            case _1_0_1: return "DSTU 2 (Official version).";
+            case _1_0_2: return "DSTU 2 (Official version) with 1 technical errata.";
+            case _1_1_0: return "GAO Ballot + draft changes to main FHIR standard.";
+            case _1_4_0: return "CQF on FHIR Ballot + Connectathon 12 (Montreal).";
+            case _1_6_0: return "FHIR STU3 Ballot + Connectathon 13 (Baltimore).";
+            case _1_8_0: return "FHIR STU3 Candidate + Connectathon 14 (San Antonio).";
+            case _3_0_0: return "FHIR Release 3 (STU).";
+            case _3_0_1: return "FHIR Release 3 (STU) with 1 technical errata.";
+            case _3_3_0: return "R4 Ballot #1.";
+            case _3_5_0: return "R4 Ballot #2.";
+            case _3_6_0: return "Current Development build.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case _0_01: return "0.01";
+            case _0_05: return "0.05";
+            case _0_06: return "0.06";
+            case _0_11: return "0.11";
+            case _0_0_80: return "0.0.80";
+            case _0_0_81: return "0.0.81";
+            case _0_0_82: return "0.0.82";
+            case _0_4_0: return "0.4.0";
+            case _0_5_0: return "0.5.0";
+            case _1_0_0: return "1.0.0";
+            case _1_0_1: return "1.0.1";
+            case _1_0_2: return "1.0.2";
+            case _1_1_0: return "1.1.0";
+            case _1_4_0: return "1.4.0";
+            case _1_6_0: return "1.6.0";
+            case _1_8_0: return "1.8.0";
+            case _3_0_0: return "3.0.0";
+            case _3_0_1: return "3.0.1";
+            case _3_3_0: return "3.3.0";
+            case _3_5_0: return "3.5.0";
+            case _3_6_0: return "3.6.0";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class FHIRVersionEnumFactory implements EnumFactory<FHIRVersion> {
+    public FHIRVersion fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("0.01".equals(codeString))
+          return FHIRVersion._0_01;
+        if ("0.05".equals(codeString))
+          return FHIRVersion._0_05;
+        if ("0.06".equals(codeString))
+          return FHIRVersion._0_06;
+        if ("0.11".equals(codeString))
+          return FHIRVersion._0_11;
+        if ("0.0.80".equals(codeString))
+          return FHIRVersion._0_0_80;
+        if ("0.0.81".equals(codeString))
+          return FHIRVersion._0_0_81;
+        if ("0.0.82".equals(codeString))
+          return FHIRVersion._0_0_82;
+        if ("0.4.0".equals(codeString))
+          return FHIRVersion._0_4_0;
+        if ("0.5.0".equals(codeString))
+          return FHIRVersion._0_5_0;
+        if ("1.0.0".equals(codeString))
+          return FHIRVersion._1_0_0;
+        if ("1.0.1".equals(codeString))
+          return FHIRVersion._1_0_1;
+        if ("1.0.2".equals(codeString))
+          return FHIRVersion._1_0_2;
+        if ("1.1.0".equals(codeString))
+          return FHIRVersion._1_1_0;
+        if ("1.4.0".equals(codeString))
+          return FHIRVersion._1_4_0;
+        if ("1.6.0".equals(codeString))
+          return FHIRVersion._1_6_0;
+        if ("1.8.0".equals(codeString))
+          return FHIRVersion._1_8_0;
+        if ("3.0.0".equals(codeString))
+          return FHIRVersion._3_0_0;
+        if ("3.0.1".equals(codeString))
+          return FHIRVersion._3_0_1;
+        if ("3.3.0".equals(codeString))
+          return FHIRVersion._3_3_0;
+        if ("3.5.0".equals(codeString))
+          return FHIRVersion._3_5_0;
+        if ("3.6.0".equals(codeString))
+          return FHIRVersion._3_6_0;
+        throw new IllegalArgumentException("Unknown FHIRVersion code '"+codeString+"'");
+        }
+        public Enumeration<FHIRVersion> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<FHIRVersion>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("0.01".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_01);
+        if ("0.05".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_05);
+        if ("0.06".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_06);
+        if ("0.11".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_11);
+        if ("0.0.80".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_0_80);
+        if ("0.0.81".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_0_81);
+        if ("0.0.82".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_0_82);
+        if ("0.4.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_4_0);
+        if ("0.5.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._0_5_0);
+        if ("1.0.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_0_0);
+        if ("1.0.1".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_0_1);
+        if ("1.0.2".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_0_2);
+        if ("1.1.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_1_0);
+        if ("1.4.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_4_0);
+        if ("1.6.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_6_0);
+        if ("1.8.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._1_8_0);
+        if ("3.0.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._3_0_0);
+        if ("3.0.1".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._3_0_1);
+        if ("3.3.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._3_3_0);
+        if ("3.5.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._3_5_0);
+        if ("3.6.0".equals(codeString))
+          return new Enumeration<FHIRVersion>(this, FHIRVersion._3_6_0);
+        throw new FHIRException("Unknown FHIRVersion code '"+codeString+"'");
+        }
+    public String toCode(FHIRVersion code) {
+      if (code == FHIRVersion._0_01)
+        return "0.01";
+      if (code == FHIRVersion._0_05)
+        return "0.05";
+      if (code == FHIRVersion._0_06)
+        return "0.06";
+      if (code == FHIRVersion._0_11)
+        return "0.11";
+      if (code == FHIRVersion._0_0_80)
+        return "0.0.80";
+      if (code == FHIRVersion._0_0_81)
+        return "0.0.81";
+      if (code == FHIRVersion._0_0_82)
+        return "0.0.82";
+      if (code == FHIRVersion._0_4_0)
+        return "0.4.0";
+      if (code == FHIRVersion._0_5_0)
+        return "0.5.0";
+      if (code == FHIRVersion._1_0_0)
+        return "1.0.0";
+      if (code == FHIRVersion._1_0_1)
+        return "1.0.1";
+      if (code == FHIRVersion._1_0_2)
+        return "1.0.2";
+      if (code == FHIRVersion._1_1_0)
+        return "1.1.0";
+      if (code == FHIRVersion._1_4_0)
+        return "1.4.0";
+      if (code == FHIRVersion._1_6_0)
+        return "1.6.0";
+      if (code == FHIRVersion._1_8_0)
+        return "1.8.0";
+      if (code == FHIRVersion._3_0_0)
+        return "3.0.0";
+      if (code == FHIRVersion._3_0_1)
+        return "3.0.1";
+      if (code == FHIRVersion._3_3_0)
+        return "3.3.0";
+      if (code == FHIRVersion._3_5_0)
+        return "3.5.0";
+      if (code == FHIRVersion._3_6_0)
+        return "3.6.0";
+      return "?";
+      }
+    public String toSystem(FHIRVersion code) {
       return code.getSystem();
       }
     }
@@ -10980,7 +11358,7 @@ into another (possibly the same) biological entity.
          */
         BUNDLE, 
         /**
-         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
         CAPABILITYSTATEMENT, 
         /**
@@ -11192,7 +11570,7 @@ into another (possibly the same) biological entity.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
-         * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+         * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDE, 
         /**
@@ -11216,7 +11594,7 @@ into another (possibly the same) biological entity.
          */
         LINKAGE, 
         /**
-         * A set of information summarized from a list of other resources.
+         * A list is a curated collection of resources.
          */
         LIST, 
         /**
@@ -11270,15 +11648,7 @@ into another (possibly the same) biological entity.
         /**
          * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
          */
-        MEDICINALPRODUCTCLINICALS, 
-        /**
-         * The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.
-         */
         MEDICINALPRODUCTCONTRAINDICATION, 
-        /**
-         * A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to replace the Device resource, which covers use of device instances.
-         */
-        MEDICINALPRODUCTDEVICESPEC, 
         /**
          * Indication for the Medicinal Product.
          */
@@ -11348,7 +11718,7 @@ into another (possibly the same) biological entity.
          */
         ORGANIZATIONAFFILIATION, 
         /**
-         * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
+         * This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
         /**
@@ -11722,12 +12092,8 @@ into another (possibly the same) biological entity.
           return MEDICINALPRODUCT;
         if ("MedicinalProductAuthorization".equals(codeString))
           return MEDICINALPRODUCTAUTHORIZATION;
-        if ("MedicinalProductClinicals".equals(codeString))
-          return MEDICINALPRODUCTCLINICALS;
         if ("MedicinalProductContraindication".equals(codeString))
           return MEDICINALPRODUCTCONTRAINDICATION;
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIndication".equals(codeString))
           return MEDICINALPRODUCTINDICATION;
         if ("MedicinalProductIngredient".equals(codeString))
@@ -11950,9 +12316,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "MedicationStatement";
             case MEDICINALPRODUCT: return "MedicinalProduct";
             case MEDICINALPRODUCTAUTHORIZATION: return "MedicinalProductAuthorization";
-            case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTCONTRAINDICATION: return "MedicinalProductContraindication";
-            case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINDICATION: return "MedicinalProductIndication";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
             case MEDICINALPRODUCTINTERACTION: return "MedicinalProductInteraction";
@@ -12109,9 +12473,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTAUTHORIZATION: return "http://hl7.org/fhir/resource-types";
-            case MEDICINALPRODUCTCLINICALS: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTCONTRAINDICATION: return "http://hl7.org/fhir/resource-types";
-            case MEDICINALPRODUCTDEVICESPEC: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINDICATION: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINGREDIENT: return "http://hl7.org/fhir/resource-types";
             case MEDICINALPRODUCTINTERACTION: return "http://hl7.org/fhir/resource-types";
@@ -12196,7 +12558,7 @@ into another (possibly the same) biological entity.
             case BIOLOGICALLYDERIVEDPRODUCT: return "A material substance originating from a biological entity intended to be transplanted or infused\ninto another (possibly the same) biological entity.";
             case BODYSTRUCTURE: return "Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
-            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
+            case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CATALOGENTRY: return "Catalog entries are wrappers that contextualize items included in a catalog.";
@@ -12249,13 +12611,13 @@ into another (possibly the same) biological entity.
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
             case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
-            case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case IMPLEMENTATIONGUIDE: return "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case INSURANCEPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case ITEMINSTANCE: return "A physical, countable instance of an item, for example one box or one unit.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
-            case LIST: return "A set of information summarized from a list of other resources.";
+            case LIST: return "A list is a curated collection of resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
             case MEASUREREPORT: return "The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation.";
@@ -12268,9 +12630,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
             case MEDICINALPRODUCT: return "Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).";
             case MEDICINALPRODUCTAUTHORIZATION: return "The regulatory authorization of a medicinal product.";
-            case MEDICINALPRODUCTCLINICALS: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
             case MEDICINALPRODUCTCONTRAINDICATION: return "The clinical particulars - indications, contraindications etc. of a medicinal product, including for regulatory purposes.";
-            case MEDICINALPRODUCTDEVICESPEC: return "A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to replace the Device resource, which covers use of device instances.";
             case MEDICINALPRODUCTINDICATION: return "Indication for the Medicinal Product.";
             case MEDICINALPRODUCTINGREDIENT: return "An ingredient of a manufactured item or pharmaceutical product.";
             case MEDICINALPRODUCTINTERACTION: return "The interactions of the medicinal product with other medicinal products, or other forms of interactions.";
@@ -12288,7 +12648,7 @@ into another (possibly the same) biological entity.
             case OPERATIONOUTCOME: return "A collection of error, warning, or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.";
             case ORGANIZATIONAFFILIATION: return "Defines an affiliation/assotiation/relationship between 2 distinct oganizations, that is not a part-of relationship/sub-division relationship.";
-            case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
+            case PARAMETERS: return "This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
             case PAYMENTRECONCILIATION: return "This resource provides payment details and claim references supporting a bulk payment.";
@@ -12427,9 +12787,7 @@ into another (possibly the same) biological entity.
             case MEDICATIONSTATEMENT: return "MedicationStatement";
             case MEDICINALPRODUCT: return "MedicinalProduct";
             case MEDICINALPRODUCTAUTHORIZATION: return "MedicinalProductAuthorization";
-            case MEDICINALPRODUCTCLINICALS: return "MedicinalProductClinicals";
             case MEDICINALPRODUCTCONTRAINDICATION: return "MedicinalProductContraindication";
-            case MEDICINALPRODUCTDEVICESPEC: return "MedicinalProductDeviceSpec";
             case MEDICINALPRODUCTINDICATION: return "MedicinalProductIndication";
             case MEDICINALPRODUCTINGREDIENT: return "MedicinalProductIngredient";
             case MEDICINALPRODUCTINTERACTION: return "MedicinalProductInteraction";
@@ -12675,12 +13033,8 @@ into another (possibly the same) biological entity.
           return ResourceType.MEDICINALPRODUCT;
         if ("MedicinalProductAuthorization".equals(codeString))
           return ResourceType.MEDICINALPRODUCTAUTHORIZATION;
-        if ("MedicinalProductClinicals".equals(codeString))
-          return ResourceType.MEDICINALPRODUCTCLINICALS;
         if ("MedicinalProductContraindication".equals(codeString))
           return ResourceType.MEDICINALPRODUCTCONTRAINDICATION;
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return ResourceType.MEDICINALPRODUCTDEVICESPEC;
         if ("MedicinalProductIndication".equals(codeString))
           return ResourceType.MEDICINALPRODUCTINDICATION;
         if ("MedicinalProductIngredient".equals(codeString))
@@ -12993,12 +13347,8 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCT);
         if ("MedicinalProductAuthorization".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTAUTHORIZATION);
-        if ("MedicinalProductClinicals".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTCLINICALS);
         if ("MedicinalProductContraindication".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTCONTRAINDICATION);
-        if ("MedicinalProductDeviceSpec".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTDEVICESPEC);
         if ("MedicinalProductIndication".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEDICINALPRODUCTINDICATION);
         if ("MedicinalProductIngredient".equals(codeString))
@@ -13304,12 +13654,8 @@ into another (possibly the same) biological entity.
         return "MedicinalProduct";
       if (code == ResourceType.MEDICINALPRODUCTAUTHORIZATION)
         return "MedicinalProductAuthorization";
-      if (code == ResourceType.MEDICINALPRODUCTCLINICALS)
-        return "MedicinalProductClinicals";
       if (code == ResourceType.MEDICINALPRODUCTCONTRAINDICATION)
         return "MedicinalProductContraindication";
-      if (code == ResourceType.MEDICINALPRODUCTDEVICESPEC)
-        return "MedicinalProductDeviceSpec";
       if (code == ResourceType.MEDICINALPRODUCTINDICATION)
         return "MedicinalProductIndication";
       if (code == ResourceType.MEDICINALPRODUCTINGREDIENT)

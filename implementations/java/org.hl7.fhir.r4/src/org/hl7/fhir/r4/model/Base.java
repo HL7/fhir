@@ -455,18 +455,26 @@ private Map<String, Object> userData;
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an Identifier");
 	}
 	
-	public CodeableConcept castToCodeableConcept(Base b) throws FHIRException {
-		if (b instanceof CodeableConcept)
-			return (CodeableConcept) b;
+  public CodeableConcept castToCodeableConcept(Base b) throws FHIRException {
+    if (b instanceof CodeableConcept)
+      return (CodeableConcept) b;
     else if (b instanceof Element) {
       return ObjectConverter.readAsCodeableConcept((Element) b);
     } else if (b instanceof CodeType) {
-		  CodeableConcept cc = new CodeableConcept();
-		  cc.addCoding().setCode(((CodeType) b).asStringValue());
-		  return cc;
-		} else
-			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a CodeableConcept");
-	}
+      CodeableConcept cc = new CodeableConcept();
+      cc.addCoding().setCode(((CodeType) b).asStringValue());
+      return cc;
+    } else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a CodeableConcept");
+  }
+  
+  public Population castToPopulation(Base b) throws FHIRException {
+    if (b instanceof Population)
+      return (Population) b;
+    else
+      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a Population");
+  }
+  
 	
 	public Coding castToCoding(Base b) throws FHIRException {
     if (b instanceof Coding)

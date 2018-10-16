@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1447,11 +1447,11 @@ public class Observation extends DomainResource {
     protected List<CodeableConcept> interpretation;
 
     /**
-     * Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
+     * Comments about the observation or the results.
      */
-    @Child(name = "comment", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Comments about the test result value", formalDefinition="Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation." )
-    protected StringType comment;
+    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Comments about the observation", formalDefinition="Comments about the observation or the results." )
+    protected List<Annotation> note;
 
     /**
      * Indicates the site on the subject's body where the observation was made (i.e. the target site).
@@ -1531,7 +1531,7 @@ public class Observation extends DomainResource {
     @Description(shortDefinition="Component results", formalDefinition="Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations." )
     protected List<ObservationComponentComponent> component;
 
-    private static final long serialVersionUID = 1014801256L;
+    private static final long serialVersionUID = -2036786355L;
 
   /**
    * Constructor
@@ -2453,52 +2453,56 @@ public class Observation extends DomainResource {
     }
 
     /**
-     * @return {@link #comment} (Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     * @return {@link #note} (Comments about the observation or the results.)
      */
-    public StringType getCommentElement() { 
-      if (this.comment == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Observation.comment");
-        else if (Configuration.doAutoCreate())
-          this.comment = new StringType(); // bb
-      return this.comment;
-    }
-
-    public boolean hasCommentElement() { 
-      return this.comment != null && !this.comment.isEmpty();
-    }
-
-    public boolean hasComment() { 
-      return this.comment != null && !this.comment.isEmpty();
+    public List<Annotation> getNote() { 
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      return this.note;
     }
 
     /**
-     * @param value {@link #comment} (Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
+     * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Observation setCommentElement(StringType value) { 
-      this.comment = value;
+    public Observation setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
+    public boolean hasNote() { 
+      if (this.note == null)
+        return false;
+      for (Annotation item : this.note)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Annotation addNote() { //3
+      Annotation t = new Annotation();
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return t;
+    }
+
+    public Observation addNote(Annotation t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
       return this;
     }
 
     /**
-     * @return Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
      */
-    public String getComment() { 
-      return this.comment == null ? null : this.comment.getValue();
-    }
-
-    /**
-     * @param value Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.
-     */
-    public Observation setComment(String value) { 
-      if (Utilities.noString(value))
-        this.comment = null;
-      else {
-        if (this.comment == null)
-          this.comment = new StringType();
-        this.comment.setValue(value);
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
       }
-      return this;
+      return getNote().get(0);
     }
 
     /**
@@ -2881,7 +2885,7 @@ public class Observation extends DomainResource {
         children.add(new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value));
         children.add(new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason));
         children.add(new Property("interpretation", "CodeableConcept", "A categorical assessment of an observation value.  For example, high, low, normal.", 0, java.lang.Integer.MAX_VALUE, interpretation));
-        children.add(new Property("comment", "string", "Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.", 0, 1, comment));
+        children.add(new Property("note", "Annotation", "Comments about the observation or the results.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite));
         children.add(new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method));
         children.add(new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, 1, specimen));
@@ -2927,7 +2931,7 @@ public class Observation extends DomainResource {
         case -1524344174: /*valuePeriod*/  return new Property("value[x]", "Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period", "The information determined as a result of making the observation, if the information has a simple value.", 0, 1, value);
         case 1034315687: /*dataAbsentReason*/  return new Property("dataAbsentReason", "CodeableConcept", "Provides a reason why the expected value in the element Observation.value[x] is missing.", 0, 1, dataAbsentReason);
         case -297950712: /*interpretation*/  return new Property("interpretation", "CodeableConcept", "A categorical assessment of an observation value.  For example, high, low, normal.", 0, java.lang.Integer.MAX_VALUE, interpretation);
-        case 950398559: /*comment*/  return new Property("comment", "string", "Comments about the test result value may include statements about significant, unexpected or unreliable results values, or information about the its source when this is relevant to its interpretation.", 0, 1, comment);
+        case 3387378: /*note*/  return new Property("note", "Annotation", "Comments about the observation or the results.", 0, java.lang.Integer.MAX_VALUE, note);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the observation was made (i.e. the target site).", 0, 1, bodySite);
         case -1077554975: /*method*/  return new Property("method", "CodeableConcept", "Indicates the mechanism used to perform the observation.", 0, 1, method);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "The specimen that was used when this observation was made.", 0, 1, specimen);
@@ -2959,7 +2963,7 @@ public class Observation extends DomainResource {
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
         case 1034315687: /*dataAbsentReason*/ return this.dataAbsentReason == null ? new Base[0] : new Base[] {this.dataAbsentReason}; // CodeableConcept
         case -297950712: /*interpretation*/ return this.interpretation == null ? new Base[0] : this.interpretation.toArray(new Base[this.interpretation.size()]); // CodeableConcept
-        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
         case -1077554975: /*method*/ return this.method == null ? new Base[0] : new Base[] {this.method}; // CodeableConcept
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : new Base[] {this.specimen}; // Reference
@@ -3022,8 +3026,8 @@ public class Observation extends DomainResource {
         case -297950712: // interpretation
           this.getInterpretation().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 950398559: // comment
-          this.comment = castToString(value); // StringType
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
@@ -3087,8 +3091,8 @@ public class Observation extends DomainResource {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("interpretation")) {
           this.getInterpretation().add(castToCodeableConcept(value));
-        } else if (name.equals("comment")) {
-          this.comment = castToString(value); // StringType
+        } else if (name.equals("note")) {
+          this.getNote().add(castToAnnotation(value));
         } else if (name.equals("bodySite")) {
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("method")) {
@@ -3130,7 +3134,7 @@ public class Observation extends DomainResource {
         case 111972721:  return getValue(); 
         case 1034315687:  return getDataAbsentReason(); 
         case -297950712:  return addInterpretation(); 
-        case 950398559:  return getCommentElement();
+        case 3387378:  return addNote(); 
         case 1702620169:  return getBodySite(); 
         case -1077554975:  return getMethod(); 
         case -2132868344:  return getSpecimen(); 
@@ -3162,7 +3166,7 @@ public class Observation extends DomainResource {
         case 111972721: /*value*/ return new String[] {"Quantity", "CodeableConcept", "string", "boolean", "integer", "Range", "Ratio", "SampledData", "time", "dateTime", "Period"};
         case 1034315687: /*dataAbsentReason*/ return new String[] {"CodeableConcept"};
         case -297950712: /*interpretation*/ return new String[] {"CodeableConcept"};
-        case 950398559: /*comment*/ return new String[] {"string"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
         case -2132868344: /*specimen*/ return new String[] {"Reference"};
@@ -3281,8 +3285,8 @@ public class Observation extends DomainResource {
         else if (name.equals("interpretation")) {
           return addInterpretation();
         }
-        else if (name.equals("comment")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Observation.comment");
+        else if (name.equals("note")) {
+          return addNote();
         }
         else if (name.equals("bodySite")) {
           this.bodySite = new CodeableConcept();
@@ -3367,7 +3371,11 @@ public class Observation extends DomainResource {
           for (CodeableConcept i : interpretation)
             dst.interpretation.add(i.copy());
         };
-        dst.comment = comment == null ? null : comment.copy();
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
+        };
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         dst.method = method == null ? null : method.copy();
         dst.specimen = specimen == null ? null : specimen.copy();
@@ -3411,9 +3419,9 @@ public class Observation extends DomainResource {
            && compareDeep(subject, o.subject, true) && compareDeep(focus, o.focus, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true) && compareDeep(performer, o.performer, true)
            && compareDeep(value, o.value, true) && compareDeep(dataAbsentReason, o.dataAbsentReason, true)
-           && compareDeep(interpretation, o.interpretation, true) && compareDeep(comment, o.comment, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(method, o.method, true) && compareDeep(specimen, o.specimen, true)
-           && compareDeep(device, o.device, true) && compareDeep(referenceRange, o.referenceRange, true) && compareDeep(hasMember, o.hasMember, true)
+           && compareDeep(interpretation, o.interpretation, true) && compareDeep(note, o.note, true) && compareDeep(bodySite, o.bodySite, true)
+           && compareDeep(method, o.method, true) && compareDeep(specimen, o.specimen, true) && compareDeep(device, o.device, true)
+           && compareDeep(referenceRange, o.referenceRange, true) && compareDeep(hasMember, o.hasMember, true)
            && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(component, o.component, true);
       }
 
@@ -3424,15 +3432,14 @@ public class Observation extends DomainResource {
         if (!(other_ instanceof Observation))
           return false;
         Observation o = (Observation) other_;
-        return compareValues(status, o.status, true) && compareValues(issued, o.issued, true) && compareValues(comment, o.comment, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(issued, o.issued, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
           , status, category, code, subject, focus, encounter, effective, issued, performer
-          , value, dataAbsentReason, interpretation, comment, bodySite, method, specimen
-          , device, referenceRange, hasMember, derivedFrom, component);
+          , value, dataAbsentReason, interpretation, note, bodySite, method, specimen, device
+          , referenceRange, hasMember, derivedFrom, component);
       }
 
   @Override
