@@ -527,6 +527,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     FileOutputStream file = new FileOutputStream(filename);
     XMLWriter xml = new XMLWriter(file, "UTF-8");
     xml.setPretty(true);
+    xml.setLineType(XMLWriter.LINE_UNIX);
     xml.start();
     xml.comment("the build tool builds these from the designated snomed server, when it can", true);
     xml.enter("snomed");
@@ -572,6 +573,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public void saveLoinc(String filename) throws IOException {
     XMLWriter xml = new XMLWriter(new FileOutputStream(filename), "UTF-8");
     xml.setPretty(true);
+    xml.setLineType(XMLWriter.LINE_UNIX);
     xml.start();
     xml.enter("loinc");
     List<String> codes = new ArrayList<String>();
