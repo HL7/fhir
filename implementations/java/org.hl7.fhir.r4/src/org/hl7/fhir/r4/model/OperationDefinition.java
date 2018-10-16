@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -1903,10 +1903,10 @@ public class OperationDefinition extends MetadataResource {
     protected MarkdownType purpose;
 
     /**
-     * Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.
+     * Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.
      */
     @Child(name = "affectsState", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Whether content is changed by the operation", formalDefinition="Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'." )
+    @Description(shortDefinition="Whether content is changed by the operation", formalDefinition="Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'." )
     protected BooleanType affectsState;
 
     /**
@@ -2693,7 +2693,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #affectsState} (Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.). This is the underlying object with id, value and extensions. The accessor "getAffectsState" gives direct access to the value
+     * @return {@link #affectsState} (Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.). This is the underlying object with id, value and extensions. The accessor "getAffectsState" gives direct access to the value
      */
     public BooleanType getAffectsStateElement() { 
       if (this.affectsState == null)
@@ -2713,7 +2713,7 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #affectsState} (Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.). This is the underlying object with id, value and extensions. The accessor "getAffectsState" gives direct access to the value
+     * @param value {@link #affectsState} (Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.). This is the underlying object with id, value and extensions. The accessor "getAffectsState" gives direct access to the value
      */
     public OperationDefinition setAffectsStateElement(BooleanType value) { 
       this.affectsState = value;
@@ -2721,14 +2721,14 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.
+     * @return Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.
      */
     public boolean getAffectsState() { 
       return this.affectsState == null || this.affectsState.isEmpty() ? false : this.affectsState.getValue();
     }
 
     /**
-     * @param value Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.
+     * @param value Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.
      */
     public OperationDefinition setAffectsState(boolean value) { 
         if (this.affectsState == null)
@@ -3296,7 +3296,7 @@ public class OperationDefinition extends MetadataResource {
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate operation definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the operation definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("purpose", "markdown", "Explanation of why this operation definition is needed and why it has been designed as it has.", 0, 1, purpose));
-        children.add(new Property("affectsState", "boolean", "Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.", 0, 1, affectsState));
+        children.add(new Property("affectsState", "boolean", "Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.", 0, 1, affectsState));
         children.add(new Property("code", "code", "The name used to invoke the operation.", 0, 1, code));
         children.add(new Property("comment", "markdown", "Additional information about how to use this operation or named query.", 0, 1, comment));
         children.add(new Property("base", "canonical(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, 1, base));
@@ -3327,7 +3327,7 @@ public class OperationDefinition extends MetadataResource {
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate operation definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the operation definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explanation of why this operation definition is needed and why it has been designed as it has.", 0, 1, purpose);
-        case -14805197: /*affectsState*/  return new Property("affectsState", "boolean", "Whether the operation affects state = false (see [HTTP specification definition of idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2). Side effects such as producing audit trail entries do not count as 'changing state/content'.", 0, 1, affectsState);
+        case -14805197: /*affectsState*/  return new Property("affectsState", "boolean", "Whether the operation affects state. Side effects such as producing audit trail entries do not count as 'affecting  state'.", 0, 1, affectsState);
         case 3059181: /*code*/  return new Property("code", "code", "The name used to invoke the operation.", 0, 1, code);
         case 950398559: /*comment*/  return new Property("comment", "markdown", "Additional information about how to use this operation or named query.", 0, 1, comment);
         case 3016401: /*base*/  return new Property("base", "canonical(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, 1, base);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -158,13 +158,13 @@ public class EventDefinition extends MetadataResource {
     protected List<RelatedArtifact> relatedArtifact;
 
     /**
-     * The trigger element defines when the event occurs.
+     * The trigger element defines when the event occurs. If more than one trigger condition is specified, the event fires whenever any one of the trigger conditions is met.
      */
-    @Child(name = "trigger", type = {TriggerDefinition.class}, order=15, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="\"when\" the event occurs", formalDefinition="The trigger element defines when the event occurs." )
-    protected TriggerDefinition trigger;
+    @Child(name = "trigger", type = {TriggerDefinition.class}, order=15, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="\"when\" the event occurs (multiple = 'or')", formalDefinition="The trigger element defines when the event occurs. If more than one trigger condition is specified, the event fires whenever any one of the trigger conditions is met." )
+    protected List<TriggerDefinition> trigger;
 
-    private static final long serialVersionUID = -1956134580L;
+    private static final long serialVersionUID = 1022506246L;
 
   /**
    * Constructor
@@ -176,10 +176,9 @@ public class EventDefinition extends MetadataResource {
   /**
    * Constructor
    */
-    public EventDefinition(Enumeration<PublicationStatus> status, TriggerDefinition trigger) {
+    public EventDefinition(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
-      this.trigger = trigger;
     }
 
     /**
@@ -1515,27 +1514,56 @@ public class EventDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #trigger} (The trigger element defines when the event occurs.)
+     * @return {@link #trigger} (The trigger element defines when the event occurs. If more than one trigger condition is specified, the event fires whenever any one of the trigger conditions is met.)
      */
-    public TriggerDefinition getTrigger() { 
+    public List<TriggerDefinition> getTrigger() { 
       if (this.trigger == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create EventDefinition.trigger");
-        else if (Configuration.doAutoCreate())
-          this.trigger = new TriggerDefinition(); // cc
+        this.trigger = new ArrayList<TriggerDefinition>();
       return this.trigger;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public EventDefinition setTrigger(List<TriggerDefinition> theTrigger) { 
+      this.trigger = theTrigger;
+      return this;
+    }
+
     public boolean hasTrigger() { 
-      return this.trigger != null && !this.trigger.isEmpty();
+      if (this.trigger == null)
+        return false;
+      for (TriggerDefinition item : this.trigger)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public TriggerDefinition addTrigger() { //3
+      TriggerDefinition t = new TriggerDefinition();
+      if (this.trigger == null)
+        this.trigger = new ArrayList<TriggerDefinition>();
+      this.trigger.add(t);
+      return t;
+    }
+
+    public EventDefinition addTrigger(TriggerDefinition t) { //3
+      if (t == null)
+        return this;
+      if (this.trigger == null)
+        this.trigger = new ArrayList<TriggerDefinition>();
+      this.trigger.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #trigger} (The trigger element defines when the event occurs.)
+     * @return The first repetition of repeating field {@link #trigger}, creating it if it does not already exist
      */
-    public EventDefinition setTrigger(TriggerDefinition value) { 
-      this.trigger = value;
-      return this;
+    public TriggerDefinition getTriggerFirstRep() { 
+      if (getTrigger().isEmpty()) {
+        addTrigger();
+      }
+      return getTrigger().get(0);
     }
 
       protected void listChildren(List<Property> children) {
@@ -1567,7 +1595,7 @@ public class EventDefinition extends MetadataResource {
         children.add(new Property("reviewer", "ContactDetail", "An individual or organization primarily responsible for review of some aspect of the content.", 0, java.lang.Integer.MAX_VALUE, reviewer));
         children.add(new Property("endorser", "ContactDetail", "An individual or organization responsible for officially endorsing the content for use in some setting.", 0, java.lang.Integer.MAX_VALUE, endorser));
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
-        children.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the event occurs.", 0, 1, trigger));
+        children.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the event occurs. If more than one trigger condition is specified, the event fires whenever any one of the trigger conditions is met.", 0, java.lang.Integer.MAX_VALUE, trigger));
       }
 
       @Override
@@ -1603,7 +1631,7 @@ public class EventDefinition extends MetadataResource {
         case -261190139: /*reviewer*/  return new Property("reviewer", "ContactDetail", "An individual or organization primarily responsible for review of some aspect of the content.", 0, java.lang.Integer.MAX_VALUE, reviewer);
         case 1740277666: /*endorser*/  return new Property("endorser", "ContactDetail", "An individual or organization responsible for officially endorsing the content for use in some setting.", 0, java.lang.Integer.MAX_VALUE, endorser);
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Related resources such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
-        case -1059891784: /*trigger*/  return new Property("trigger", "TriggerDefinition", "The trigger element defines when the event occurs.", 0, 1, trigger);
+        case -1059891784: /*trigger*/  return new Property("trigger", "TriggerDefinition", "The trigger element defines when the event occurs. If more than one trigger condition is specified, the event fires whenever any one of the trigger conditions is met.", 0, java.lang.Integer.MAX_VALUE, trigger);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -1639,7 +1667,7 @@ public class EventDefinition extends MetadataResource {
         case -261190139: /*reviewer*/ return this.reviewer == null ? new Base[0] : this.reviewer.toArray(new Base[this.reviewer.size()]); // ContactDetail
         case 1740277666: /*endorser*/ return this.endorser == null ? new Base[0] : this.endorser.toArray(new Base[this.endorser.size()]); // ContactDetail
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
-        case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : new Base[] {this.trigger}; // TriggerDefinition
+        case -1059891784: /*trigger*/ return this.trigger == null ? new Base[0] : this.trigger.toArray(new Base[this.trigger.size()]); // TriggerDefinition
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1731,7 +1759,7 @@ public class EventDefinition extends MetadataResource {
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           return value;
         case -1059891784: // trigger
-          this.trigger = castToTriggerDefinition(value); // TriggerDefinition
+          this.getTrigger().add(castToTriggerDefinition(value)); // TriggerDefinition
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1796,7 +1824,7 @@ public class EventDefinition extends MetadataResource {
         } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
         } else if (name.equals("trigger")) {
-          this.trigger = castToTriggerDefinition(value); // TriggerDefinition
+          this.getTrigger().add(castToTriggerDefinition(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1833,7 +1861,7 @@ public class EventDefinition extends MetadataResource {
         case -261190139:  return addReviewer(); 
         case 1740277666:  return addEndorser(); 
         case 666807069:  return addRelatedArtifact(); 
-        case -1059891784:  return getTrigger(); 
+        case -1059891784:  return addTrigger(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1965,8 +1993,7 @@ public class EventDefinition extends MetadataResource {
           return addRelatedArtifact();
         }
         else if (name.equals("trigger")) {
-          this.trigger = new TriggerDefinition();
-          return this.trigger;
+          return addTrigger();
         }
         else
           return super.addChild(name);
@@ -2047,7 +2074,11 @@ public class EventDefinition extends MetadataResource {
           for (RelatedArtifact i : relatedArtifact)
             dst.relatedArtifact.add(i.copy());
         };
-        dst.trigger = trigger == null ? null : trigger.copy();
+        if (trigger != null) {
+          dst.trigger = new ArrayList<TriggerDefinition>();
+          for (TriggerDefinition i : trigger)
+            dst.trigger.add(i.copy());
+        };
         return dst;
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -329,7 +329,7 @@ public class Goal extends DomainResource {
         /**
          * The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.
          */
-        @Child(name = "detail", type = {Quantity.class, Range.class, CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "detail", type = {Quantity.class, Range.class, CodeableConcept.class, StringType.class, BooleanType.class, IntegerType.class, Ratio.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The target value to be achieved", formalDefinition="The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value." )
         protected Type detail;
 
@@ -425,6 +425,66 @@ public class Goal extends DomainResource {
           return this != null && this.detail instanceof CodeableConcept;
         }
 
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public StringType getDetailStringType() throws FHIRException { 
+          if (this.detail == null)
+            this.detail = new StringType();
+          if (!(this.detail instanceof StringType))
+            throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (StringType) this.detail;
+        }
+
+        public boolean hasDetailStringType() { 
+          return this != null && this.detail instanceof StringType;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public BooleanType getDetailBooleanType() throws FHIRException { 
+          if (this.detail == null)
+            this.detail = new BooleanType();
+          if (!(this.detail instanceof BooleanType))
+            throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (BooleanType) this.detail;
+        }
+
+        public boolean hasDetailBooleanType() { 
+          return this != null && this.detail instanceof BooleanType;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public IntegerType getDetailIntegerType() throws FHIRException { 
+          if (this.detail == null)
+            this.detail = new IntegerType();
+          if (!(this.detail instanceof IntegerType))
+            throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (IntegerType) this.detail;
+        }
+
+        public boolean hasDetailIntegerType() { 
+          return this != null && this.detail instanceof IntegerType;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public Ratio getDetailRatio() throws FHIRException { 
+          if (this.detail == null)
+            this.detail = new Ratio();
+          if (!(this.detail instanceof Ratio))
+            throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (Ratio) this.detail;
+        }
+
+        public boolean hasDetailRatio() { 
+          return this != null && this.detail instanceof Ratio;
+        }
+
         public boolean hasDetail() { 
           return this.detail != null && !this.detail.isEmpty();
         }
@@ -433,7 +493,7 @@ public class Goal extends DomainResource {
          * @param value {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
          */
         public GoalTargetComponent setDetail(Type value) { 
-          if (value != null && !(value instanceof Quantity || value instanceof Range || value instanceof CodeableConcept))
+          if (value != null && !(value instanceof Quantity || value instanceof Range || value instanceof CodeableConcept || value instanceof StringType || value instanceof BooleanType || value instanceof IntegerType || value instanceof Ratio))
             throw new Error("Not the right type for Goal.target.detail[x]: "+value.fhirType());
           this.detail = value;
           return this;
@@ -493,7 +553,7 @@ public class Goal extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("measure", "CodeableConcept", "The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.", 0, 1, measure));
-          children.add(new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail));
+          children.add(new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail));
           children.add(new Property("due[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, 1, due));
         }
 
@@ -501,11 +561,15 @@ public class Goal extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 938321246: /*measure*/  return new Property("measure", "CodeableConcept", "The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.", 0, 1, measure);
-          case -1973084529: /*detail[x]*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
-          case -1335224239: /*detail*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
-          case -1313079300: /*detailQuantity*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
-          case -2062632084: /*detailRange*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
-          case -175586544: /*detailCodeableConcept*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -1973084529: /*detail[x]*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -1335224239: /*detail*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -1313079300: /*detailQuantity*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -2062632084: /*detailRange*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -175586544: /*detailCodeableConcept*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case 529212354: /*detailString*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case 1172184727: /*detailBoolean*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -1229442131: /*detailInteger*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
+          case -2062626246: /*detailRatio*/  return new Property("detail[x]", "Quantity|Range|CodeableConcept|string|boolean|integer|Ratio", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, 1, detail);
           case -1320900084: /*due[x]*/  return new Property("due[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, 1, due);
           case 99828: /*due*/  return new Property("due[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, 1, due);
           case 2001063874: /*dueDate*/  return new Property("due[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, 1, due);
@@ -573,7 +637,7 @@ public class Goal extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 938321246: /*measure*/ return new String[] {"CodeableConcept"};
-        case -1335224239: /*detail*/ return new String[] {"Quantity", "Range", "CodeableConcept"};
+        case -1335224239: /*detail*/ return new String[] {"Quantity", "Range", "CodeableConcept", "string", "boolean", "integer", "Ratio"};
         case 99828: /*due*/ return new String[] {"date", "Duration"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -596,6 +660,22 @@ public class Goal extends DomainResource {
         }
         else if (name.equals("detailCodeableConcept")) {
           this.detail = new CodeableConcept();
+          return this.detail;
+        }
+        else if (name.equals("detailString")) {
+          this.detail = new StringType();
+          return this.detail;
+        }
+        else if (name.equals("detailBoolean")) {
+          this.detail = new BooleanType();
+          return this.detail;
+        }
+        else if (name.equals("detailInteger")) {
+          this.detail = new IntegerType();
+          return this.detail;
+        }
+        else if (name.equals("detailRatio")) {
+          this.detail = new Ratio();
           return this.detail;
         }
         else if (name.equals("dueDate")) {
@@ -713,9 +793,9 @@ public class Goal extends DomainResource {
     /**
      * Indicates what should be done by when.
      */
-    @Child(name = "target", type = {}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "target", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Target outcome for the goal", formalDefinition="Indicates what should be done by when." )
-    protected GoalTargetComponent target;
+    protected List<GoalTargetComponent> target;
 
     /**
      * Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
@@ -782,7 +862,7 @@ public class Goal extends DomainResource {
     protected List<Observation> outcomeReferenceTarget;
 
 
-    private static final long serialVersionUID = -1045412647L;
+    private static final long serialVersionUID = 1262608707L;
 
   /**
    * Constructor
@@ -1093,25 +1173,54 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #target} (Indicates what should be done by when.)
      */
-    public GoalTargetComponent getTarget() { 
+    public List<GoalTargetComponent> getTarget() { 
       if (this.target == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Goal.target");
-        else if (Configuration.doAutoCreate())
-          this.target = new GoalTargetComponent(); // cc
+        this.target = new ArrayList<GoalTargetComponent>();
       return this.target;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setTarget(List<GoalTargetComponent> theTarget) { 
+      this.target = theTarget;
+      return this;
+    }
+
     public boolean hasTarget() { 
-      return this.target != null && !this.target.isEmpty();
+      if (this.target == null)
+        return false;
+      for (GoalTargetComponent item : this.target)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public GoalTargetComponent addTarget() { //3
+      GoalTargetComponent t = new GoalTargetComponent();
+      if (this.target == null)
+        this.target = new ArrayList<GoalTargetComponent>();
+      this.target.add(t);
+      return t;
+    }
+
+    public Goal addTarget(GoalTargetComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.target == null)
+        this.target = new ArrayList<GoalTargetComponent>();
+      this.target.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #target} (Indicates what should be done by when.)
+     * @return The first repetition of repeating field {@link #target}, creating it if it does not already exist
      */
-    public Goal setTarget(GoalTargetComponent value) { 
-      this.target = value;
-      return this;
+    public GoalTargetComponent getTargetFirstRep() { 
+      if (getTarget().isEmpty()) {
+        addTarget();
+      }
+      return getTarget().get(0);
     }
 
     /**
@@ -1504,7 +1613,7 @@ public class Goal extends DomainResource {
         children.add(new Property("description", "CodeableConcept", "Human-readable and/or coded description of a specific desired objective of care, such as \"control blood pressure\" or \"negotiate an obstacle course\" or \"dance with child at wedding\".", 0, 1, description));
         children.add(new Property("subject", "Reference(Patient|Group|Organization)", "Identifies the patient, group or organization for whom the goal is being established.", 0, 1, subject));
         children.add(new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, 1, start));
-        children.add(new Property("target", "", "Indicates what should be done by when.", 0, 1, target));
+        children.add(new Property("target", "", "Indicates what should be done by when.", 0, java.lang.Integer.MAX_VALUE, target));
         children.add(new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, 1, statusDate));
         children.add(new Property("statusReason", "string", "Captures the reason for the current status.", 0, 1, statusReason));
         children.add(new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, 1, expressedBy));
@@ -1527,7 +1636,7 @@ public class Goal extends DomainResource {
         case 109757538: /*start*/  return new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, 1, start);
         case -2129778896: /*startDate*/  return new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, 1, start);
         case -1758833953: /*startCodeableConcept*/  return new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, 1, start);
-        case -880905839: /*target*/  return new Property("target", "", "Indicates what should be done by when.", 0, 1, target);
+        case -880905839: /*target*/  return new Property("target", "", "Indicates what should be done by when.", 0, java.lang.Integer.MAX_VALUE, target);
         case 247524032: /*statusDate*/  return new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, 1, statusDate);
         case 2051346646: /*statusReason*/  return new Property("statusReason", "string", "Captures the reason for the current status.", 0, 1, statusReason);
         case 175423686: /*expressedBy*/  return new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, 1, expressedBy);
@@ -1550,7 +1659,7 @@ public class Goal extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // Type
-        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // GoalTargetComponent
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // GoalTargetComponent
         case 247524032: /*statusDate*/ return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
         case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // StringType
         case 175423686: /*expressedBy*/ return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
@@ -1589,7 +1698,7 @@ public class Goal extends DomainResource {
           this.start = castToType(value); // Type
           return value;
         case -880905839: // target
-          this.target = (GoalTargetComponent) value; // GoalTargetComponent
+          this.getTarget().add((GoalTargetComponent) value); // GoalTargetComponent
           return value;
         case 247524032: // statusDate
           this.statusDate = castToDate(value); // DateType
@@ -1635,7 +1744,7 @@ public class Goal extends DomainResource {
         } else if (name.equals("start[x]")) {
           this.start = castToType(value); // Type
         } else if (name.equals("target")) {
-          this.target = (GoalTargetComponent) value; // GoalTargetComponent
+          this.getTarget().add((GoalTargetComponent) value);
         } else if (name.equals("statusDate")) {
           this.statusDate = castToDate(value); // DateType
         } else if (name.equals("statusReason")) {
@@ -1666,7 +1775,7 @@ public class Goal extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 1316793566:  return getStart(); 
         case 109757538:  return getStart(); 
-        case -880905839:  return getTarget(); 
+        case -880905839:  return addTarget(); 
         case 247524032:  return getStatusDateElement();
         case 2051346646:  return getStatusReasonElement();
         case 175423686:  return getExpressedBy(); 
@@ -1734,8 +1843,7 @@ public class Goal extends DomainResource {
           return this.start;
         }
         else if (name.equals("target")) {
-          this.target = new GoalTargetComponent();
-          return this.target;
+          return addTarget();
         }
         else if (name.equals("statusDate")) {
           throw new FHIRException("Cannot call addChild on a primitive type Goal.statusDate");
@@ -1786,7 +1894,11 @@ public class Goal extends DomainResource {
         dst.description = description == null ? null : description.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.start = start == null ? null : start.copy();
-        dst.target = target == null ? null : target.copy();
+        if (target != null) {
+          dst.target = new ArrayList<GoalTargetComponent>();
+          for (GoalTargetComponent i : target)
+            dst.target.add(i.copy());
+        };
         dst.statusDate = statusDate == null ? null : statusDate.copy();
         dst.statusReason = statusReason == null ? null : statusReason.copy();
         dst.expressedBy = expressedBy == null ? null : expressedBy.copy();

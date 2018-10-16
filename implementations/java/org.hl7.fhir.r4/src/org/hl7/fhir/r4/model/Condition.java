@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -629,7 +629,7 @@ public class Condition extends DomainResource {
      * The clinical status of the condition.
      */
     @Child(name = "clinicalStatus", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | recurrence | relapse | well-controlled | poorly-controlled | inactive | remission | resolved", formalDefinition="The clinical status of the condition." )
+    @Description(shortDefinition="active | recurrence | relapse | inactive | remission | resolved", formalDefinition="The clinical status of the condition." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-clinical")
     protected CodeableConcept clinicalStatus;
 

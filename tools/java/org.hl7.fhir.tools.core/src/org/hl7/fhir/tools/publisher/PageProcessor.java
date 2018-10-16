@@ -833,6 +833,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("xcmchk")) {
+        src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
         if (com.length == 1) {
           StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
@@ -5564,6 +5566,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("xcmchk")) {
+        src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("fmm")) {
         src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("fmmshort")) {
@@ -10043,6 +10047,27 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       return "<span style=\"font-weight: bold\">Y</span> ";
     else
       return "<span style=\"color: grey\">N</span>";
+  }
+
+  private String getXcmChk(String param) {
+    boolean used = false;
+    if (searchTypeUsage.contains(param+":number"))
+      used = true;
+    if (searchTypeUsage.contains(param+":date"))
+      used = true;
+    if (searchTypeUsage.contains(param+":reference"))
+      used = true;
+    if (searchTypeUsage.contains(param+":quantity"))
+      used = true;
+    if (searchTypeUsage.contains(param+":uri"))
+      used = true;
+    if (searchTypeUsage.contains(param+":string"))
+      used = true;
+    if (searchTypeUsage.contains(param+":token"))
+      used = true;
+    if (used)
+      throw new Error("data type "+param+" is used in search after all");
+    return "";
   }
 
   private String genCSList() throws FHIRException {

@@ -115,9 +115,10 @@ import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.r4.model.Enumeration;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ExpressionNode;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionGroupingComponent;
@@ -1111,10 +1112,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         txLog = null;
       } else {
         log("Connect to Terminology Server at "+txServer);
-        checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(txServer, FhirVersion.fromCode(version)), txLog));
+        checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(txServer, FhirPublication.fromCode(version)), txLog));
       }
     } else 
-      checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(webTxServer.getAddress(), FhirVersion.fromCode(version)), txLog));
+      checkTSVersion(vsCache, context.connectToTSServer(TerminologyClientFactory.makeClient(webTxServer.getAddress(), FhirPublication.fromCode(version)), txLog));
     
     
     loadSpecDetails(context.getBinaries().get("spec.internals"));
@@ -1757,7 +1758,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (!publishedIg.hasPackageId())
       publishedIg.setPackageId(npmName);
     if (!publishedIg.hasFhirVersion())
-      publishedIg.addFhirVersion(FhirVersion.fromCode(version));
+      publishedIg.addFhirVersion(FHIRVersion.fromCode(version));
     if (!publishedIg.hasVersion() && businessVersion != null)
       publishedIg.setVersion(businessVersion);
     if (publishedIg.hasPackageId())
@@ -2596,7 +2597,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd, boolean close) throws Exception {
     boolean changed = false;
     dlog(LogCategory.PROGRESS, "Check Snapshot for "+sd.getUrl());
-    sd.setFhirVersion(FhirVersion.fromCode(version));
+    sd.setFhirVersion(FHIRVersion.fromCode(version));
     ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
     StructureDefinition base = sd.hasBaseDefinition() ? fetchSnapshotted(sd.getBaseDefinition()) : null;
     utils.setIds(sd, true);
@@ -3805,7 +3806,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ig.addProperty("date", sourceIg.getDateElement().asStringValue());
     ig.addProperty("description", sourceIg.getDescription());
     ig.addProperty("copyright", sourceIg.getCopyright());
-    for (Enumeration<FhirVersion> v : sourceIg.getFhirVersion()) {
+    for (Enumeration<FHIRVersion> v : sourceIg.getFhirVersion()) {
       ig.addProperty("fhirVersion", v.asStringValue());
       break;
     }

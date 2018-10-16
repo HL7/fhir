@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -431,18 +431,6 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
           this.value = new Timing();
           return this.value;
         }
-        else if (name.equals("valueParameterDefinition")) {
-          this.value = new ParameterDefinition();
-          return this.value;
-        }
-        else if (name.equals("valueDataRequirement")) {
-          this.value = new DataRequirement();
-          return this.value;
-        }
-        else if (name.equals("valueRelatedArtifact")) {
-          this.value = new RelatedArtifact();
-          return this.value;
-        }
         else if (name.equals("valueContactDetail")) {
           this.value = new ContactDetail();
           return this.value;
@@ -451,12 +439,24 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
           this.value = new Contributor();
           return this.value;
         }
-        else if (name.equals("valueTriggerDefinition")) {
-          this.value = new TriggerDefinition();
+        else if (name.equals("valueDataRequirement")) {
+          this.value = new DataRequirement();
           return this.value;
         }
         else if (name.equals("valueExpression")) {
           this.value = new Expression();
+          return this.value;
+        }
+        else if (name.equals("valueParameterDefinition")) {
+          this.value = new ParameterDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueRelatedArtifact")) {
+          this.value = new RelatedArtifact();
+          return this.value;
+        }
+        else if (name.equals("valueTriggerDefinition")) {
+          this.value = new TriggerDefinition();
           return this.value;
         }
         else if (name.equals("valueUsageContext")) {

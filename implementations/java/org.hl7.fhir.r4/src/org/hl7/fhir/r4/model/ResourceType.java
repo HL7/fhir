@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 public enum ResourceType {
     Account,
@@ -88,9 +88,7 @@ public enum ResourceType {
     MedicationStatement,
     MedicinalProduct,
     MedicinalProductAuthorization,
-    MedicinalProductClinicals,
     MedicinalProductContraindication,
-    MedicinalProductDeviceSpec,
     MedicinalProductIndication,
     MedicinalProductIngredient,
     MedicinalProductInteraction,
@@ -327,12 +325,8 @@ public enum ResourceType {
       return "medicinalproduct";
     case MedicinalProductAuthorization:
       return "medicinalproductauthorization";
-    case MedicinalProductClinicals:
-      return "medicinalproductclinicals";
     case MedicinalProductContraindication:
       return "medicinalproductcontraindication";
-    case MedicinalProductDeviceSpec:
-      return "medicinalproductdevicespec";
     case MedicinalProductIndication:
       return "medicinalproductindication";
     case MedicinalProductIngredient:
@@ -637,12 +631,8 @@ public enum ResourceType {
       return MedicinalProduct;
     if ("MedicinalProductAuthorization".equals(code))
       return MedicinalProductAuthorization;
-    if ("MedicinalProductClinicals".equals(code))
-      return MedicinalProductClinicals;
     if ("MedicinalProductContraindication".equals(code))
       return MedicinalProductContraindication;
-    if ("MedicinalProductDeviceSpec".equals(code))
-      return MedicinalProductDeviceSpec;
     if ("MedicinalProductIndication".equals(code))
       return MedicinalProductIndication;
     if ("MedicinalProductIngredient".equals(code))

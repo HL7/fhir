@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.model.DataRequirement;
 import org.hl7.fhir.r4.model.DataRequirement.DataRequirementCodeFilterComponent;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.MetadataResource;
@@ -176,9 +177,10 @@ public class ValueSetRenderer extends BaseRenderer {
   private boolean referencesValueSet(PlanDefinition pd) {
     for (PlanDefinitionActionComponent pda : pd.getAction()) {
       for (TriggerDefinition td : pda.getTrigger()) {
-        for (DataRequirementCodeFilterComponent ed : td.getData().getCodeFilter())
-          if (ed.getValueSet().equals(vs.getUrl()))
-            return true;
+        for (DataRequirement dr : td.getData())
+          for (DataRequirementCodeFilterComponent ed : dr.getCodeFilter())
+            if (ed.getValueSet().equals(vs.getUrl()))
+              return true;
       }
     }
     return false;
