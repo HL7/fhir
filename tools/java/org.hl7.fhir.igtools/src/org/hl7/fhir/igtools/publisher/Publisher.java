@@ -1213,7 +1213,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     mdTemplate = configuration.has("md-template") ? str(configuration, "md-template") : null;
     npmName = configuration.has("npm-name") ? configuration.get("npm-name").getAsString(): null;
     brokenLinksError = "error".equals(ostr(configuration, "broken-links"));
-    nestedIgConfig = configuration.has("nestedIgConfig") ? configuration.get("nestedIgOutput").getAsString() : null;
+    nestedIgConfig = configuration.has("nestedIgConfig") ? configuration.get("nestedIgConfig").getAsString() : null;
     nestedIgOutput = configuration.has("nestedIgOutput") ? configuration.get("nestedIgOutput").getAsString() : null;
     igArtifactsPage = configuration.has("igArtifactsPage") ? configuration.get("igArtifactsPage").getAsString() : null;
     genExamples = "true".equals(ostr(configuration, "gen-examples"));
