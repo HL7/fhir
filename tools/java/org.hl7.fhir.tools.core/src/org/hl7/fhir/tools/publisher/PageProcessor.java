@@ -9997,7 +9997,8 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
 
   public Set<String> getSearchTypeUsage() {
-    return searchTypeUsage ;
+    searchTypeUsage.add("id:token");
+    return searchTypeUsage;
   }
 
   private String getStandardsStatus(String resourceName) throws FHIRException {
