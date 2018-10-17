@@ -1,8 +1,5 @@
 package org.hl7.fhir.validation.r4.tests;
 
-import java.io.IOException;
-
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.validation.NativeHostServices;
 import org.hl7.fhir.utilities.TextFile;
 

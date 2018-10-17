@@ -3,15 +3,14 @@ package org.hl7.fhir.convertors;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.HTMLClientLogger;
 import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.TerminologyCapabilities;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.terminologies.TerminologyClient;
-import org.hl7.fhir.dstu2.utils.client.ClientUtils;
-import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
-import org.hl7.fhir.exceptions.FHIRException;
 
 public class TerminologyClientR3 implements TerminologyClient {
 

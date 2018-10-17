@@ -1,10 +1,10 @@
 package org.hl7.fhir.rdf;
 
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.vocabulary.XSD;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.vocabulary.XSD;
 
 
 public class RDFTypeMap {

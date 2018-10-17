@@ -6,20 +6,19 @@ package org.hl7.fhir.rdf;
 //import java.nio.file.Paths;
 //import java.util.logging.Logger;
 
-import org.apache.jena.rdf.model.Model;
-
-import scala.Option;
-import scala.Tuple2;
-
 //import com.hp.hpl.jena.rdf.model.Model;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import es.weso.schema.*;
-import es.weso.rdf.PrefixMap;
+import org.apache.jena.rdf.model.Model;
+
 import es.weso.rdf.RDFReader;
 import es.weso.rdf.jena.RDFAsJenaModel;
+import es.weso.schema.Result;
+import es.weso.schema.Schema;
+import es.weso.schema.ShExSchema$;
+import scala.Option;
 
 public class ShExValidator {
 

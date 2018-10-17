@@ -1,15 +1,11 @@
 package org.hl7.fhir.validation.r4.tests;
 
-import static org.junit.Assert.*;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
-import org.hl7.fhir.r4.test.support.TestingUtilities;
-import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.json.JSONObject;
@@ -17,9 +13,6 @@ import org.json.JSONTokener;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 public class JsonSchemaTests {
 

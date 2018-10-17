@@ -1,7 +1,5 @@
 package org.hl7.fhir.definitions.validation;
 
-import static org.junit.Assert.*;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 

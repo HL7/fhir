@@ -30,13 +30,13 @@ import org.hl7.fhir.dstu2.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu2.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu2.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu2.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
-import org.hl7.fhir.utilities.Utilities;
 
 /**
  * A engine that generates difference analysis between two sets of structure 

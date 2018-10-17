@@ -1,9 +1,10 @@
 package org.hl7.fhir.utilities;
 
-import com.github.rjeschke.txtmark.Processor;
-import org.commonmark.node.*;
+import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
+
+import com.github.rjeschke.txtmark.Processor;
 
 public class MarkDownProcessor {
 
