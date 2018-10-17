@@ -170,6 +170,7 @@ signatures.html
         <page title="NDC" filename="ndc.html"/>
         <page title="ICD-X" filename="icd.html"/>
         <page title="ISO-3166" filename="iso3166.html"/>
+        <page title="MDC Codes" filename="mdc.html"/>
         <pages type="codesystem" filename="template-codesystem.html"/>
         <pages type="v2-table" filename="template-v2.html"/>
         <page title="Code Systems" filename="terminologies-v3.html"/>
