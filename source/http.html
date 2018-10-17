@@ -1232,8 +1232,8 @@ created within the batch are considered to be non-conformant.
 </p>
 <p>
 When processing the batch, the HTTP response code is 200 Ok if the batch was processed correctly, regardless of the success of the 
-operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code of other 
-than 200 indicates that processing the batch itself failed, and means that none of the operations in the batch succeeded.
+operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code on an 
+entry of other than 2xx (200, 202 etc) indicates that processing the request in the entry failed.
 </p>
 
 <a name="trules"> </a>
