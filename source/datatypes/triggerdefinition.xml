@@ -3459,7 +3459,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3544,7 +3544,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">TriggerDefinition</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A named event requires a name, a periodic event requires timing, and a data event requires data</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">type = 'named-event' implies name.exists() and type = 'periodic' implies timing.exists() and type.startsWith('data-') implies data.exists()</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">(type = 'named-event' implies name.exists()) and (type = 'periodic' implies timing.exists()) and (type.startsWith('data-') implies data.exists())</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">((not(f:type/@value = 'named-event')) or name.exists()) and (not(f:type/@value = 'periodic') or timing.exists()) and (not(starts-with(f:type/@value, 'data-')) or data.exists())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
