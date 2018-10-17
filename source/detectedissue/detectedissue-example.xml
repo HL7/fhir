@@ -15,13 +15,13 @@
     </div>
   </text>
   <status value="final"/>
-  <category>
+  <code>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="DRG"/>
       <display value="Drug Interaction Alert"/>
     </coding>
-  </category>
+  </code>
   <severity value="high"/>
   <date value="2014-01-05"/>
   <author>
