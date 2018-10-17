@@ -28,7 +28,6 @@ This granularity could include:
 <li>the ability to identify multiple distinct issues</li>
 <li>provision of finer error codes that connect to known business failure states</li>
 </ul>
-
 <p>
 Operation outcomes returned SHOULD be in alignment with the HTTP response code.  For example, if the HTTP code indicates a failure (300+), at least
 one of the issues should have a severity of "error", indicating the reason for the failure.
@@ -51,14 +50,14 @@ allow client systems to:
 
 <p>
 In order to support these kinds of usages, applications
-need to use the location element consistently. Applications
-can use the location element to refer to a location inside
+need to use the <code>expression</code> element consistently. Applications
+can use the <code>expression</code> element to refer to a location inside
 a resource, or some location in the HTTP request (when appropriate). 
 </p>
 
 <p>
 Error locations are always reported using a <a href="fhirpath.html#simple">simplified FHIRPath</a>
-statement. In addition to the simplified FHIRPath restrictions, the expression
+statement in the <code>expression</code> element. In addition to the simplified FHIRPath restrictions, the expression
 SHALL not contain a .resolve() function. These examples are legal:
 </p>
 <pre class="xml">
@@ -79,14 +78,18 @@ but this is not:
 <p>
 Servers may also need to report errors in the HTTP headers - especially 
 query parameters when processing searches. Errors are reported using 
-a case sensitive location that has two parts, a fixed "http" and 
+a case sensitive expression that has two parts, a fixed "http" and 
 the header or query parameter name separated by a ".". Some
 examples:
 </p>
 <table class="grid">
  <tr>
-   <td><b>Location</b></td>
+   <td><b>Expresson</b></td>
    <td><b>Description</b></td>
+ </tr>
+ <tr>
+   <td>http.code</td>
+   <td>A reference to the search parameter "code"</td>
  </tr>
  <tr>
    <td>http."name:exact"</td>
@@ -97,5 +100,10 @@ examples:
    <td>A reference to the Authorization header - perhaps to indicate that it is missing, and some form of authentication is required.</td>
  </tr>
 </table>
+<p>
+This specification follows the convention that HTTP headers start with an uppercase
+character, and URL parameters start with a lowercase character. Implementations 
+are encouraged to follow this convention, so that no name collisions occur.
+</p>
 
 </div>

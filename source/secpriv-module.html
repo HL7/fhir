@@ -342,7 +342,7 @@ For details, see
 <a name="deId"></a>
 <h4>De-Identification, pseudonymization, anonymization</h4>
 <p>
-De-Identification is inclusive of pseudonymization and anonymization; which are the Process of reducing privacy risk by eliminating 
+De-Identification is inclusive of pseudonymization and anonymization; which are the processes of reducing privacy risk by eliminating 
 and modifying data elements to meet a targeted use-case.
 </p><p>
 Use-Case: "Requesting Client should have access to De-Identified data only."
@@ -350,28 +350,49 @@ Use-Case: "Requesting Client should have access to De-Identified data only."
 <em>Trigger:</em> Based on an Access Control decision that results in a permit with an Obligation to De-Identify, the Results delivered 
 to the Requesting Client would be de-identified.
 </p><p>
-<em>Consideration:</em> This assumes the system knows the type and intensity of the de-identification algorithm. 
-Where de-identification is best viewed as a Process, not an algorithm. 
-A Process that reduces Privacy risk while enabling a targeted and authorized use-case.
+<em>Consideration:</em> This assumes the system knows the type and intensity of the de-identification algorithm, where 
+de-identification is best viewed as a process, not an algorithm - a process that reduces Privacy risk while enabling a targeted and authorized use-case.
 </p><p>
-<em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. See standards below for further details.
+<em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy 
+risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
+some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
+See standards below for further details.
 </p><p>
-<em>Discussion:</em> With the Observation Resource, one would remove the subject element as it is a Direct Identifier. 
-However, there are many other Reference elements that can easily be used to navigate back to the Subject; 
-e.g., Observation.context value of Encounter or EpisodeOfCare; or Observation.performer.   
+<em>Discussion:</em>
+Obviously the most important elements for de-identification are names and identifiers. FHIR resources have 
+many different types of ids and identifiers that serve different purposes. Some (<code>id</code>s) are the basis for internal
+links between different resources, while identifiers are mainly - but not exclusively - for correlating with external data sources. 
+Strategies for de-identification need to consider whether re-identification with the source system is a problem, 
+in which case ids will need to be modified - and consistently across the resource set being de-identified. 
+External identifiers will mostly need to be removed, but even then, where they are used for internal references
+within the resource set, they'll need to be changed consistently.
+</p><p>
+Then, there is the question of where to 
+make the de-identification changes. For example, the Observation Resource has a subject element that 
+mostly refers to a Patient resource. Should it be removed? or left and the Patient resource it refers to be de-identified? 
+Or it be updated to a new patient resource randomly or consistently? 
+There are many other Reference elements on Observation that can easily be used to navigate back 
+to the Subject;  e.g., Observation.context value of Encounter or EpisodeOfCare; or Observation.performer.   
+These also need to be de-identified, and it will depend on the intended use of the data whether these all
+need to be consistent with each other. 
 </p><p>
 Some identifiers in Observation Resource:
 <ul>
 <li>Direct Identifiers: .identifier, .subject, . performer, .text, .specimen, .device, .related, .text, .comment</li>
 <li>Indirect Identifiers: .issued, .component</li>
 </ul>
-</p><p>
+</p>
+<p>
 <em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be an indirect identifier of a particular person. 
 There is a ramification of having the specimen identifier. 
 One solution is to create pseudo specimen resources that will stand-in for the original specimen resource. 
 This pseudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversibility.
 </p><p>
 Care should be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
+</p><p>
+In practice, then, the de-identification process depends on the intended use of the data, the scope of the data being 
+extracted, and the risk associated with the release of the data (e.g. data released into the public domain has a 
+different risk than internal sharing of data within a tightly managed organization with strong information security policies.
 </p><p>
 <em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>
