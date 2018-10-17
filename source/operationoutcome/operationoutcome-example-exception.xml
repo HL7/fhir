@@ -2,7 +2,7 @@
 <OperationOutcome xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir /schema/operationoutcome.xsd">
   <id value="exception"/>
   <text>
-    <status value="additional"/>
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>SQL Link Communication Error (dbx = 34234)</p>
     </div>
