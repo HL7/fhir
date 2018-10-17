@@ -21,13 +21,13 @@
     <value value="12345"/>
   </identifier>
   <status value="final"/>
-  <category>
+  <code>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="DUPTHPY"/>
       <display value="Duplicate Therapy Alert"/>
     </coding>
-  </category>
+  </code>
   <patient>
     <reference value="Patient/dicom"/>
   </patient>
