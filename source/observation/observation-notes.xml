@@ -41,7 +41,7 @@
 	<p>
 
         </p>
-  <a name="gr-other"></a>      
+  <a name="gr-other"></a>
 	<h4>Observation.hasMember of and Observation.derivedFrom
 	</h4>
 	<p>
@@ -219,26 +219,73 @@
 	</ol>
 
 	<a name="refine">
-	</a>	
+	</a>
 		<h3>Refining the interpretation of an Observation using additional codes or Observations</h3>
 		<p>The following list provides guidance on using codes or other observations to provide additional context that may alter how an observation is interpreted.: </p>
 		<ol>
 		<li>
 		<p>If possible, use the most specific code you can</p>
-		<p>e.g.: Observation.code = 49134-0 Glucose [Mass/?volume] in Blood 2 hours post dose glucose</p>
-		</li>
-		<li>
-		<p>Alternatively, use code <a href="datatypes.html#CodeableConcept">translations</a> in Observation.code.</p>
-		<p>e.g.: Observation.code = coding-1: 20564-1 Oxygen saturation in Blood,  coding-2:   59408-5 Oxygen saturation in Arterial blood by Pulse oximetry</p>
-		</li>
-		<li>
-		<p>Another alternative is to use the <a href="extension-observation-precondition.html">precondition extension</a>.</p>
 		<p>e.g.:</p>
-		<p>Observation.code = 20564-1 Oxygen saturation in Blood,  Observation.value: 98%</p>
-		<p>observation-precondition extension: Observation.code: 19995-0 Oxygen/Inspired gas Respiratory system by O2 Analyzer on ventilator  Observation.value: 100%</p>
+		<pre class="json">
+{
+	"resourceType": "Observation",
+	... snip ...
+	"code": {
+		"coding": [
+			{
+				"system": "http://loinc.org",
+				"code": "6689-4",
+				"display": "Glucose [Mass/​volume] in Blood --2 hours post meal"
+			}
+		]
+	},
+	... snip ...
+}
+		</pre>
+		</li>
+		<li>
+		<p>Alternatively, use additional codes in Observation.code as described <a href="#translations">above</a>.</p>
+		<p>e.g.: Observation.code = coding-1: 59408-5 Oxygen saturation in Arterial blood by Pulse oximetry, coding-2: 20564-1 Oxygen saturation in Blood</p>
+		<pre class="json">
+{
+	"resourceType": "Observation",
+	... snip ...
+	"code": {
+		"coding": [
+			{
+				"system": "http://loinc.org",
+				"code": "59408-5",
+				"display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+			},
+			{
+				"system": "http://loinc.org",
+				"code": "20564-1",
+				"display": "Oxygen saturation in Blood"
+			}
+		]
+	},
+	... snip ...
+}
+		</pre>
+		</li>
+		<li>
+		<p>As described <a href="#obsgrouping">above</a> observations are typically grouped together
+		 to provide additional information needed for correctly understanding and interpreting the observation.
+		  As an alternative to grouping observations, extensions may be used to provide references to other
+			 observations needed for understanding and interpreting an observation.</p>
 		</li>
 		</ol>
-	
+
+		<blockquote class="stu-note">
+		<a name="dstu"></a>
+		<p>
+		<b>Note:</b>We are seeking input from the implementer community in evaluating existing <a href="observation-profiles.html#extensions">Observation Extensions</a> for this purpose<br/>
+		</p>
+		<p>
+		Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
+		</p>
+		</blockquote>
+
 		<a name="valuex">
 	</a>
 	<h3>Value[x] and Datatypes</h3>
@@ -327,4 +374,3 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 	</ul>See the <a href="observation-operation-stats.html">Observation Statistics</a> section in the Observation resource operations page for more information and examples<p>
 	</p>
 </div>
-
