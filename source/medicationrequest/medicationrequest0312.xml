@@ -90,7 +90,7 @@
         </expectedSupplyDuration>
     </dispenseRequest>
     <substitution>
-        <allowed value="true"/>
+        <allowedBoolean value="true"/>
         <reason>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
