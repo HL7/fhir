@@ -27,7 +27,7 @@ Similarly, this resource is not to be used to capture clinical facts that may im
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource only applies to documenting a risk associated with a specific planned or ongoing action, not a general propensity to risk.  The latter would be handled using <a href="allergyintolerance.html">AllergyIntolerance</a> for substance-specific issues or <a href="flag.html">Flag</a> for other types of issues.
+This resource only applies to documenting a risk associated with a specific planned or ongoing action, or the lack of an action which should be planned - not a general propensity to risk. The latter would be handled using <a href="allergyintolerance.html">AllergyIntolerance</a> for substance-specific issues or <a href="flag.html">Flag</a> for other types of issues. In addition, the resource represents patient-specific and time-bound risk manifestations, not generic knowledge statements about risks that can exist.
 </p>
 <p>This resource is limited to clinical issues associated with a proposed or ongoing action.  It does not cover technical issues such as lack of permission, duplicate identifiers, insufficient data, and other business rule violations. Technical issues are conveyed using the <a href="operationoutcome.html">OperationOutcome</a> resource.  
 It is possible to have both <a href="operationoutcome.html">OperationOutcome</a> and <code>DetectedIssue</code> together, where the OperationOutcome might 
