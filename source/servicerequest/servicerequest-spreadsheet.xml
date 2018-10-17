@@ -18,10 +18,10 @@
    <Path>/Users/ehaas/Documents/FHIR/working-build/source/request/\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  
-  
-  
-  
+
+
+
+
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -48,7 +48,7 @@
    <Protection/>
   </Style>
   <Style ss:ID="s64" ss:Name="Normal 3">
-   <Alignment ss:Vertical="Bottom"/>
+   <Alignment ss:Vertical="Bottom"/>f
    <Borders/>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
@@ -1758,7 +1758,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Individual the service is ordered for</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Individual or Entity the service is ordered for</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5113,7 +5113,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>28</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>120</x:PageLayoutZoom>
@@ -5634,7 +5634,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -6260,7 +6260,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -6870,7 +6870,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -7152,7 +7152,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -7405,7 +7405,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -7819,7 +7819,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -8217,7 +8217,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -8874,7 +8874,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -9459,7 +9459,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
