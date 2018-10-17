@@ -6114,7 +6114,7 @@
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
     <Cell ss:StyleID="s147"/>

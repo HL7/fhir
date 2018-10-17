@@ -8712,7 +8712,7 @@
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s206"/>
     <Cell ss:StyleID="s206"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s206"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring system does not know which.</Data></Cell>
+    <Cell ss:StyleID="s206"><Data ss:Type="String">The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which.</Data></Cell>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s172"/>
     <Cell ss:StyleID="s195"><Data ss:Type="String">2/26/2015 EH: #5669</Data></Cell>
