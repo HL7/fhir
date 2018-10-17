@@ -32,7 +32,7 @@ bundles. There is an important difference between the two:
 </ul>
 
 <p>
-In addition to these two technical mechanisms, there are three these administrative and infrastructure resources which also support grouping of content. 
+In addition to these two technical mechanisms, there are three administrative and infrastructure resources which also support grouping of content. 
 These resources do not contain resources directly, but instead use [Reference] to point to the grouped resources:
 </p>
 <ul>
