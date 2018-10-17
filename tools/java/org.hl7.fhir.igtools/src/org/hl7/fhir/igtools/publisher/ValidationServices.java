@@ -3,23 +3,19 @@ package org.hl7.fhir.igtools.publisher;
 import java.io.IOException;
 import java.util.List;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.ObjectConverter;
-import org.hl7.fhir.r4.model.Bundle;
-import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.terminologies.ImplicitValueSets;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.terminologies.ImplicitValueSets;
 import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.r4.utils.IResourceValidator.ReferenceValidationPolicy;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ValidationServices implements IValidatorResourceFetcher {

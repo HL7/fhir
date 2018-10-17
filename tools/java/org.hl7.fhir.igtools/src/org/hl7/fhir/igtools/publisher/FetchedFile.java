@@ -1,6 +1,5 @@
 package org.hl7.fhir.igtools.publisher;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class FetchedFile {

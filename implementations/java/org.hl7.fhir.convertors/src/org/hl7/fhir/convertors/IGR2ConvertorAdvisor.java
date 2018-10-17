@@ -1,10 +1,10 @@
 package org.hl7.fhir.convertors;
 
 import org.hl7.fhir.dstu2.model.Resource;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.exceptions.FHIRException;
 
 public class IGR2ConvertorAdvisor implements VersionConvertorAdvisor40 {
 

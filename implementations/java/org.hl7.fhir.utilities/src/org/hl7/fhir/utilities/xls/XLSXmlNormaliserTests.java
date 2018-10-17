@@ -1,7 +1,5 @@
 package org.hl7.fhir.utilities.xls;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 
 import javax.xml.parsers.ParserConfigurationException;

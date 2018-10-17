@@ -3,7 +3,6 @@ package org.hl7.fhir.convertors;
 import java.net.URISyntaxException;
 
 import org.hl7.fhir.r4.model.FhirPublication;
-import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.terminologies.TerminologyClient;
 import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.utilities.Utilities;

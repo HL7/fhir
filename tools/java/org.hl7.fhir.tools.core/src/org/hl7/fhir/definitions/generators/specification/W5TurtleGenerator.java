@@ -1,27 +1,28 @@
 package org.hl7.fhir.definitions.generators.specification;
 
-import net.sf.saxon.regex.RegexIterator;
-import org.apache.jena.datatypes.xsd.impl.XMLLiteralType;
-import org.apache.jena.ontology.*;
-import org.apache.jena.rdf.model.*;
+import java.io.OutputStream;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.jena.ontology.OntClass;
+import org.apache.jena.ontology.OntModel;
+import org.apache.jena.ontology.OntModelSpec;
+import org.apache.jena.ontology.OntProperty;
+import org.apache.jena.ontology.Ontology;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import org.apache.jena.vocabulary.*;
-import org.hl7.fhir.definitions.model.*;
+import org.apache.jena.vocabulary.OWL2;
+import org.apache.jena.vocabulary.RDFS;
+import org.hl7.fhir.definitions.model.Definitions;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
-import org.hl7.fhir.rdf.FHIRResource;
-import org.hl7.fhir.rdf.FHIRResourceFactory;
 import org.hl7.fhir.rdf.RDFNamespace;
-import org.hl7.fhir.rdf.RDFTypeMap;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
-
-
-import java.io.OutputStream;
-import java.util.*;
 
 /**
  * Generator to create fhir "Ontology" -- a model of the various subjects, predicates and types in the FHIR spec

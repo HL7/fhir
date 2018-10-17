@@ -5,13 +5,11 @@ import java.util.Hashtable;
 import java.util.List;
 
 import org.hl7.fhir.r4.context.IWorkerContext;
-import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
-import org.hl7.fhir.r4.validation.InstanceValidator.NodeStack;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;

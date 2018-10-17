@@ -28,12 +28,12 @@ import org.hl7.fhir.dstu2.model.ValueSet;
 import org.hl7.fhir.dstu2.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu2.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu2.utils.client.FHIRToolingClient;
-import org.hl7.fhir.utilities.validation.ValidationMessage;
-import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 
 /*
  * This is a stand alone implementation of worker context for use inside a tool.

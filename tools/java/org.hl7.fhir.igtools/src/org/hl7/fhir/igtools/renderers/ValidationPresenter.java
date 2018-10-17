@@ -2,15 +2,14 @@ package org.hl7.fhir.igtools.renderers;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
+import org.hl7.fhir.igtools.publisher.FetchedFile;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
@@ -19,8 +18,6 @@ import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.TranslatingUtilities;
-import org.hl7.fhir.igtools.publisher.FetchedFile;
-import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;

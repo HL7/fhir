@@ -1,9 +1,6 @@
 package org.hl7.fhir.dstu3.utils;
 
-import java.util.List;
-
 import org.hl7.fhir.dstu3.model.Coding;
-import org.hl7.fhir.dstu3.model.TestScript.TestActionComponent;
 
 public class CodingUtilities {
 

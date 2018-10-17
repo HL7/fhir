@@ -21,13 +21,13 @@ import org.hl7.fhir.dstu2.utils.ProfileComparer;
 import org.hl7.fhir.dstu2.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu2.utils.ProfileUtilities;
 import org.hl7.fhir.dstu2.utils.SimpleWorkerContext;
-import org.hl7.fhir.utilities.validation.ValidationMessage;
-import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 
 public class ProfileUtilitiesTests {
 

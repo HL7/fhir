@@ -3,7 +3,6 @@ package org.hl7.fhir.igtools.publisher;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;

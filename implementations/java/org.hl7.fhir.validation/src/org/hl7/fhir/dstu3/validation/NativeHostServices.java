@@ -4,15 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
-import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.CheckDisplayOption;
-import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
-import org.hl7.fhir.dstu3.validation.ValidationEngine;
 
 /**
  * This class wraps up the validation and conversion infrastructure
@@ -32,14 +26,16 @@ import org.hl7.fhir.dstu3.validation.ValidationEngine;
  */
 
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.CheckDisplayOption;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.Gson;

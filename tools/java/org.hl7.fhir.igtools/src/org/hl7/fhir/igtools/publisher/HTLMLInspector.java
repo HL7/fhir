@@ -12,10 +12,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService.LogCategory;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.igtools.publisher.HTLMLInspector.NodeChangeType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -25,7 +24,6 @@ import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode.Location;
-import org.omg.CosNaming.NamingContextExtOperations;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 //import org.owasp.html.Handler;

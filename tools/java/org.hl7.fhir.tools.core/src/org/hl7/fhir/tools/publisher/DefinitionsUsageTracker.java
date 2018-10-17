@@ -1,12 +1,9 @@
 package org.hl7.fhir.tools.publisher;
 
-import java.util.Map;
-
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.r4.elementmodel.Element;
-import org.hl7.fhir.utilities.Utilities;
 
 public class DefinitionsUsageTracker {
 
