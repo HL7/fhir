@@ -8,40 +8,40 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group HealthcareService extends DomainResource
+group for type+types HealthcareService extends DomainResource
   input src : HealthcareServiceR3 as source
   input tgt : HealthcareService as target
 
-  "HealthcareService.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "HealthcareService.active" : for src.active as vs make tgt.active as vt
-  "HealthcareService.providedBy" : for src.providedBy as vs make tgt.providedBy as vt
-  "HealthcareService.category" : for src.category as vs make tgt.category as vt
-  "HealthcareService.type" : for src.type as vs make tgt.type as vt
-  "HealthcareService.specialty" : for src.specialty as vs make tgt.specialty as vt
-  "HealthcareService.location" : for src.location as vs make tgt.location as vt
-  "HealthcareService.name" : for src.name as vs make tgt.name as vt
-  "HealthcareService.comment" : for src.comment as vs make tgt.comment as vt
-  "HealthcareService.extraDetails" : for src.extraDetails as vs make tgt.extraDetails as vt
-  "HealthcareService.photo" : for src.photo as vs make tgt.photo as vt
-  "HealthcareService.telecom" : for src.telecom as vs make tgt.telecom as vt
-  "HealthcareService.coverageArea" : for src.coverageArea as vs make tgt.coverageArea as vt
-  "HealthcareService.serviceProvisionCode" : for src.serviceProvisionCode as vs make tgt.serviceProvisionCode as vt
-  "HealthcareService.eligibility" : for src.eligibility as vs make tgt.eligibility as vt
-  "HealthcareService.eligibilityNote" : for src.eligibilityNote as vs make tgt.eligibilityNote as vt
-  "HealthcareService.programName" : for src.programName as vs make tgt.programName as vt
-  "HealthcareService.characteristic" : for src.characteristic as vs make tgt.characteristic as vt
-  "HealthcareService.referralMethod" : for src.referralMethod as vs make tgt.referralMethod as vt
-  "HealthcareService.appointmentRequired" : for src.appointmentRequired as vs make tgt.appointmentRequired as vt
+  "HealthcareService.identifier" : for src.identifier make tgt.identifier 
+  "HealthcareService.active" : for src.active make tgt.active 
+  "HealthcareService.providedBy" : for src.providedBy make tgt.providedBy 
+  "HealthcareService.category" : for src.category make tgt.category 
+  "HealthcareService.type" : for src.type make tgt.type 
+  "HealthcareService.specialty" : for src.specialty make tgt.specialty 
+  "HealthcareService.location" : for src.location make tgt.location 
+  "HealthcareService.name" : for src.name make tgt.name 
+  "HealthcareService.comment" : for src.comment make tgt.comment 
+  "HealthcareService.extraDetails" : for src.extraDetails make tgt.extraDetails 
+  "HealthcareService.photo" : for src.photo make tgt.photo 
+  "HealthcareService.telecom" : for src.telecom make tgt.telecom 
+  "HealthcareService.coverageArea" : for src.coverageArea make tgt.coverageArea 
+  "HealthcareService.serviceProvisionCode" : for src.serviceProvisionCode make tgt.serviceProvisionCode 
+  "HealthcareService.eligibility" : for src.eligibility make tgt.eligibility 
+  "HealthcareService.eligibilityNote" : for src.eligibilityNote make tgt.eligibilityNote 
+  "HealthcareService.programName" : for src.programName make tgt.programName 
+  "HealthcareService.characteristic" : for src.characteristic make tgt.characteristic 
+  "HealthcareService.referralMethod" : for src.referralMethod make tgt.referralMethod 
+  "HealthcareService.appointmentRequired" : for src.appointmentRequired make tgt.appointmentRequired 
   "HealthcareService.availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then {
-    "HealthcareService.availableTime.allDay" : for vs0.allDay as vs make vt0.allDay as vt
-    "HealthcareService.availableTime.availableStartTime" : for vs0.availableStartTime as vs make vt0.availableStartTime as vt
-    "HealthcareService.availableTime.availableEndTime" : for vs0.availableEndTime as vs make vt0.availableEndTime as vt
+    "HealthcareService.availableTime.allDay" : for vs0.allDay make vt0.allDay 
+    "HealthcareService.availableTime.availableStartTime" : for vs0.availableStartTime make vt0.availableStartTime 
+    "HealthcareService.availableTime.availableEndTime" : for vs0.availableEndTime make vt0.availableEndTime 
   }
   "HealthcareService.notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then {
-    "HealthcareService.notAvailable.description" : for vs0.description as vs make vt0.description as vt
-    "HealthcareService.notAvailable.during" : for vs0.during as vs make vt0.during as vt
+    "HealthcareService.notAvailable.description" : for vs0.description make vt0.description 
+    "HealthcareService.notAvailable.during" : for vs0.during make vt0.during 
   }
-  "HealthcareService.availabilityExceptions" : for src.availabilityExceptions as vs make tgt.availabilityExceptions as vt
-  "HealthcareService.endpoint" : for src.endpoint as vs make tgt.endpoint as vt
+  "HealthcareService.availabilityExceptions" : for src.availabilityExceptions make tgt.availabilityExceptions 
+  "HealthcareService.endpoint" : for src.endpoint make tgt.endpoint 
 endgroup
 

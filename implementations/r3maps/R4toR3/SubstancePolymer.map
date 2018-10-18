@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group SubstancePolymer extends DomainResource
+group for type+types SubstancePolymer extends DomainResource
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -20,7 +20,7 @@ group SubstancePolymer extends DomainResource
   "SubstancePolymer.repeat": for src.repeat as s make tgt.repeat as t then SubstancePolymerRepeat(s,t)
 endgroup
 
-group SubstancePolymerMonomerSet extends BackboneElement
+group for type+types SubstancePolymerMonomerSet extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -28,7 +28,7 @@ group SubstancePolymerMonomerSet extends BackboneElement
   "SubstancePolymer.monomerSet.startingMaterial": for src.startingMaterial as s make tgt.startingMaterial as t then SubstancePolymerMonomerSetStartingMaterial(s,t)
 endgroup
 
-group SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
+group for type+types SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -38,7 +38,7 @@ group SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
   "SubstancePolymer.monomerSet.startingMaterial.amount": for src.amount make tgt.amount
 endgroup
 
-group SubstancePolymerRepeat extends BackboneElement
+group for type+types SubstancePolymerRepeat extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -48,7 +48,7 @@ group SubstancePolymerRepeat extends BackboneElement
   "SubstancePolymer.repeat.repeatUnit": for src.repeatUnit as s make tgt.repeatUnit as t then SubstancePolymerRepeatRepeatUnit(s,t)
 endgroup
 
-group SubstancePolymerRepeatRepeatUnit extends BackboneElement
+group for type+types SubstancePolymerRepeatRepeatUnit extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -59,7 +59,7 @@ group SubstancePolymerRepeatRepeatUnit extends BackboneElement
   "SubstancePolymer.repeat.repeatUnit.structuralRepresentation": for src.structuralRepresentation as s make tgt.structuralRepresentation as t then SubstancePolymerRepeatRepeatUnitStructuralRepresentation(s,t)
 endgroup
 
-group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneElement
+group for type+types SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -67,7 +67,7 @@ group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneEle
   "SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.amount": for src.amount make tgt.amount
 endgroup
 
-group SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneElement
+group for type+types SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 

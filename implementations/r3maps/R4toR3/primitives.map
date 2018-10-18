@@ -183,3 +183,30 @@ group for type+types xhtml extends Element
   "xhtml-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types markdownToString extends Element
+  input src : markdown as source 
+  input tgt : stringR3 as target
+
+  "markdownToString-value" : for src.value as v make tgt.value = v
+endgroup
+
+group for types code2id extends Element
+  input src : code as source 
+  input tgt : idR3 as target
+
+  "code2id-value" : for src.value as v make tgt.value = v
+endgroup
+
+group for types uri2code extends Element
+  input src : uriR3 as source
+  input tgt : code as target
+
+  "uri2code-value" : for src.value as v make tgt.value = v
+endgroup
+
+group for types canonical2Uri extends Element
+  input src : canonicalR3 as source
+  input tgt : uri as target
+
+  "canonical2uri-value" : for src.value as v make tgt.value = v
+endgroup

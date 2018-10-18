@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicationKnowledge extends DomainResource
+group for type+types MedicationKnowledge extends DomainResource
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -37,7 +37,7 @@ group MedicationKnowledge extends DomainResource
 endgroup
 
 
-group MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
+group for type+types MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -46,7 +46,7 @@ group MedicationKnowledgeRelatedMedicationKnowledge extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeMonograph extends BackboneElement
+group for type+types MedicationKnowledgeMonograph extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -55,7 +55,7 @@ group MedicationKnowledgeMonograph extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeIngredient extends BackboneElement
+group for type+types MedicationKnowledgeIngredient extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -65,7 +65,7 @@ group MedicationKnowledgeIngredient extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeCost extends BackboneElement
+group for type+types MedicationKnowledgeCost extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -75,7 +75,7 @@ group MedicationKnowledgeCost extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeMonitoringProgram extends BackboneElement
+group for type+types MedicationKnowledgeMonitoringProgram extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -84,7 +84,7 @@ group MedicationKnowledgeMonitoringProgram extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeAdministrationGuidelines extends BackboneElement
+group for type+types MedicationKnowledgeAdministrationGuidelines extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -94,7 +94,7 @@ group MedicationKnowledgeAdministrationGuidelines extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeAdministrationGuidelinesDosage extends BackboneElement
+group for type+types MedicationKnowledgeAdministrationGuidelinesDosage extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -103,7 +103,7 @@ group MedicationKnowledgeAdministrationGuidelinesDosage extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics extends BackboneElement
+group for type+types MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -112,7 +112,7 @@ group MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics extends 
 endgroup
 
 
-group MedicationKnowledgeMedicineClassification extends BackboneElement
+group for type+types MedicationKnowledgeMedicineClassification extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -121,7 +121,7 @@ group MedicationKnowledgeMedicineClassification extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgePackaging extends BackboneElement
+group for type+types MedicationKnowledgePackaging extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -130,7 +130,7 @@ group MedicationKnowledgePackaging extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeDrugCharacteristic extends BackboneElement
+group for type+types MedicationKnowledgeDrugCharacteristic extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -139,7 +139,7 @@ group MedicationKnowledgeDrugCharacteristic extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeRegulatory extends BackboneElement
+group for type+types MedicationKnowledgeRegulatory extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -149,7 +149,7 @@ group MedicationKnowledgeRegulatory extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeRegulatorySubstitution extends BackboneElement
+group for type+types MedicationKnowledgeRegulatorySubstitution extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -158,7 +158,7 @@ group MedicationKnowledgeRegulatorySubstitution extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeRegulatorySchedule extends BackboneElement
+group for type+types MedicationKnowledgeRegulatorySchedule extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -167,7 +167,7 @@ group MedicationKnowledgeRegulatorySchedule extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
+group for type+types MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 
@@ -176,7 +176,7 @@ group MedicationKnowledgeRegulatoryMaxDispense extends BackboneElement
 endgroup
 
 
-group MedicationKnowledgeKinetics extends BackboneElement
+group for type+types MedicationKnowledgeKinetics extends BackboneElement
   input src : MedicationKnowledgeR3 as source
   input tgt : MedicationKnowledge as target
 

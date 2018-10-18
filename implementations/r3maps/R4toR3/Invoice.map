@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Invoice extends DomainResource
+group for type+types Invoice extends DomainResource
   input src : InvoiceR3 as source
   input tgt : Invoice as target
 
@@ -30,7 +30,7 @@ group Invoice extends DomainResource
   "Invoice.note": for src.note make tgt.note
 endgroup
 
-group InvoiceParticipant extends BackboneElement
+group for type+types InvoiceParticipant extends BackboneElement
   input src : InvoiceR3 as source
   input tgt : Invoice as target
 
@@ -38,7 +38,7 @@ group InvoiceParticipant extends BackboneElement
   "Invoice.participant.actor": for src.actor make tgt.actor
 endgroup
 
-group InvoiceLineItem extends BackboneElement
+group for type+types InvoiceLineItem extends BackboneElement
   input src : InvoiceR3 as source
   input tgt : Invoice as target
 
@@ -47,7 +47,7 @@ group InvoiceLineItem extends BackboneElement
   "Invoice.lineItem.priceComponent": for src.priceComponent as s make tgt.priceComponent as t then InvoiceLineItemPriceComponent(s,t)
 endgroup
 
-group InvoiceLineItemPriceComponent extends BackboneElement
+group for type+types InvoiceLineItemPriceComponent extends BackboneElement
   input src : InvoiceR3 as source
   input tgt : Invoice as target
 

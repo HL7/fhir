@@ -8,16 +8,16 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Attachment extends Element
+group for type+types Attachment extends Element
   input src : Attachment as source
   input tgt : AttachmentR3 as target
 
-  "Attachment.contentType" : for src.contentType as vs make tgt.contentType as vt
-  "Attachment.language" : for src.language as vs make tgt.language as vt
-  "Attachment.data" : for src.data as vs make tgt.data as vt
-  "Attachment.size" : for src.size as vs make tgt.size as vt
-  "Attachment.hash" : for src.hash as vs make tgt.hash as vt
-  "Attachment.title" : for src.title as vs make tgt.title as vt
-  "Attachment.creation" : for src.creation as vs make tgt.creation as vt
+  "Attachment.contentType" : for src.contentType make tgt.contentType 
+  "Attachment.language" : for src.language make tgt.language 
+  "Attachment.data" : for src.data make tgt.data 
+  "Attachment.size" : for src.size make tgt.size 
+  "Attachment.hash" : for src.hash make tgt.hash 
+  "Attachment.title" : for src.title make tgt.title 
+  "Attachment.creation" : for src.creation make tgt.creation 
 endgroup
 

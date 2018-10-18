@@ -8,20 +8,20 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Bundle extends Resource
+group for type+types Bundle extends Resource
   input src : Bundle as source
   input tgt : BundleR3 as target
 
-  "Bundle.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Bundle.type" : for src.type as vs make tgt.type as vt
-  "Bundle.total" : for src.total as vs make tgt.total as vt
+  "Bundle.identifier" : for src.identifier make tgt.identifier 
+  "Bundle.type" : for src.type make tgt.type 
+  "Bundle.total" : for src.total make tgt.total 
   "Bundle.link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Bundle.link.relation" : for vs0.relation as vs make vt0.relation as vt
-    "Bundle.link.url" : for vs0.url as vs make vt0.url as vt
+    "Bundle.link.relation" : for vs0.relation make vt0.relation 
+    "Bundle.link.url" : for vs0.url make vt0.url 
   }
   "Bundle.entry" : for src.entry as vs0 make tgt.entry as vt0 then {
-    "Bundle.entry.fullUrl" : for vs0.fullUrl as vs make vt0.fullUrl as vt
+    "Bundle.entry.fullUrl" : for vs0.fullUrl make vt0.fullUrl 
   }
-  "Bundle.signature" : for src.signature as vs make tgt.signature as vt
+  "Bundle.signature" : for src.signature make tgt.signature 
 endgroup
 

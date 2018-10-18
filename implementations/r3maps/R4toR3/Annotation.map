@@ -8,13 +8,13 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Annotation extends Element
+group for type+types Annotation extends Element
   input src : Annotation as source
   input tgt : AnnotationR3 as target
 
-  "Annotation.author-Reference" : for src.author  : Reference as vs make tgt.author = create("Reference") as vt then Reference(vs,vt)
-  "Annotation.author-string" : for src.author  : string as vs make tgt.author = create("string") as vt then string(vs,vt)
-  "Annotation.time" : for src.time as vs make tgt.time as vt
-  "Annotation.text" : for src.text as vs make tgt.text as vt
+  "Annotation.author-Reference" : for src.author : Reference as vs make tgt.author = create("Reference") as vt then Reference(vs,vt)
+  "Annotation.author-string" : for src.author : string as vs make tgt.author = create("string") as vt then string(vs,vt)
+  "Annotation.time" : for src.time make tgt.time 
+  "Annotation.text" : for src.text make tgt.text 
 endgroup
 

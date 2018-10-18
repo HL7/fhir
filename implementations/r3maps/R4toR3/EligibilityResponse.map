@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group EligibilityResponse extends DomainResource
+group for type+types EligibilityResponse extends DomainResource
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 
@@ -29,7 +29,7 @@ group EligibilityResponse extends DomainResource
   "EligibilityResponse.error": for src.error as s make tgt.error as t then EligibilityResponseError(s,t)
 endgroup
 
-group EligibilityResponseInsurance extends BackboneElement
+group for type+types EligibilityResponseInsurance extends BackboneElement
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 
@@ -39,7 +39,7 @@ group EligibilityResponseInsurance extends BackboneElement
   "EligibilityResponse.insurance.detail": for src.detail as s make tgt.detail as t then EligibilityResponseInsuranceDetail(s,t)
 endgroup
 
-group EligibilityResponseInsuranceDetail extends BackboneElement
+group for type+types EligibilityResponseInsuranceDetail extends BackboneElement
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 
@@ -59,7 +59,7 @@ group EligibilityResponseInsuranceDetail extends BackboneElement
   "EligibilityResponse.insurance.detail.authorizationUrl": for src.authorizationUrl make tgt.authorizationUrl
 endgroup
 
-group EligibilityResponseInsuranceDetailBenefit extends BackboneElement
+group for type+types EligibilityResponseInsuranceDetailBenefit extends BackboneElement
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 
@@ -68,7 +68,7 @@ group EligibilityResponseInsuranceDetailBenefit extends BackboneElement
   "EligibilityResponse.insurance.detail.benefit.used": for src.used make tgt.used
 endgroup
 
-group EligibilityResponseError extends BackboneElement
+group for type+types EligibilityResponseError extends BackboneElement
   input src : EligibilityResponseR3 as source
   input tgt : EligibilityResponse as target
 

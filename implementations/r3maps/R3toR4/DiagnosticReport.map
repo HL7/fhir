@@ -8,29 +8,29 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group DiagnosticReport extends DomainResource
+group for type+types DiagnosticReport extends DomainResource
   input src : DiagnosticReportR3 as source
   input tgt : DiagnosticReport as target
 
-  "DiagnosticReport.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "DiagnosticReport.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
-  "DiagnosticReport.status" : for src.status as vs make tgt.status as vt
-  "DiagnosticReport.category" : for src.category as vs make tgt.category as vt
-  "DiagnosticReport.code" : for src.code as vs make tgt.code as vt
-  "DiagnosticReport.subject" : for src.subject as vs make tgt.subject as vt
-  "DiagnosticReport.context" : for src.context as vs make tgt.context as vt
-  "DiagnosticReport.effective-dateTime" : for src.effective  : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
-  "DiagnosticReport.effective-Period" : for src.effective  : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
-  "DiagnosticReport.issued" : for src.issued as vs make tgt.issued as vt
-  "DiagnosticReport.specimen" : for src.specimen as vs make tgt.specimen as vt
-  "DiagnosticReport.result" : for src.result as vs make tgt.result as vt
-  "DiagnosticReport.imagingStudy" : for src.imagingStudy as vs make tgt.imagingStudy as vt
+  "DiagnosticReport.identifier" : for src.identifier make tgt.identifier 
+  "DiagnosticReport.basedOn" : for src.basedOn make tgt.basedOn 
+  "DiagnosticReport.status" : for src.status make tgt.status 
+  "DiagnosticReport.category" : for src.category make tgt.category 
+  "DiagnosticReport.code" : for src.code make tgt.code 
+  "DiagnosticReport.subject" : for src.subject make tgt.subject 
+  "DiagnosticReport.context" : for src.context make tgt.context 
+  "DiagnosticReport.effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
+  "DiagnosticReport.effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
+  "DiagnosticReport.issued" : for src.issued make tgt.issued 
+  "DiagnosticReport.specimen" : for src.specimen make tgt.specimen 
+  "DiagnosticReport.result" : for src.result make tgt.result 
+  "DiagnosticReport.imagingStudy" : for src.imagingStudy make tgt.imagingStudy 
   "DiagnosticReport.media" : for src.image as vs0 make tgt.media as vt0 then {
-    "DiagnosticReport.media.comment" : for vs0.comment as vs make vt0.comment as vt
-    "DiagnosticReport.media.link" : for vs0.link as vs make vt0.link as vt
+    "DiagnosticReport.media.comment" : for vs0.comment make vt0.comment 
+    "DiagnosticReport.media.link" : for vs0.link make vt0.link 
   }
-  "DiagnosticReport.conclusion" : for src.conclusion as vs make tgt.conclusion as vt
-  "DiagnosticReport.codedDiagnosis" : for src.codedDiagnosis as vs make tgt.conclusionCode as vt
-  "DiagnosticReport.presentedForm" : for src.presentedForm as vs make tgt.presentedForm as vt
+  "DiagnosticReport.conclusion" : for src.conclusion make tgt.conclusion 
+  "DiagnosticReport.codedDiagnosis" : for src.codedDiagnosis make tgt.conclusionCode 
+  "DiagnosticReport.presentedForm" : for src.presentedForm make tgt.presentedForm 
 endgroup
 

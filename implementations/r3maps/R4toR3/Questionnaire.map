@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Questionnaire extends DomainResource
+group for type+types Questionnaire extends DomainResource
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -36,7 +36,7 @@ group Questionnaire extends DomainResource
   "Questionnaire.item": for src.item as s make tgt.item as t then QuestionnaireItem(s,t)
 endgroup
 
-group QuestionnaireItem extends BackboneElement
+group for type+types QuestionnaireItem extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -58,7 +58,7 @@ group QuestionnaireItem extends BackboneElement
   "Questionnaire.item.item": for src.item make tgt.item
 endgroup
 
-group QuestionnaireItemEnableWhen extends BackboneElement
+group for type+types QuestionnaireItemEnableWhen extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -67,7 +67,7 @@ group QuestionnaireItemEnableWhen extends BackboneElement
   "Questionnaire.item.enableWhen.answer": for src.answer make tgt.answer
 endgroup
 
-group QuestionnaireItemAnswerOption extends BackboneElement
+group for type+types QuestionnaireItemAnswerOption extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -75,7 +75,7 @@ group QuestionnaireItemAnswerOption extends BackboneElement
   "Questionnaire.item.answerOption.initialSelected": for src.initialSelected make tgt.initialSelected
 endgroup
 
-group QuestionnaireItemInitial extends BackboneElement
+group for type+types QuestionnaireItemInitial extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group BiologicallyDerivedProduct extends DomainResource
+group for type+types BiologicallyDerivedProduct extends DomainResource
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -26,7 +26,7 @@ group BiologicallyDerivedProduct extends DomainResource
 endgroup
 
 
-group BiologicallyDerivedProductCollection extends BackboneElement
+group for type+types BiologicallyDerivedProductCollection extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -36,7 +36,7 @@ group BiologicallyDerivedProductCollection extends BackboneElement
 endgroup
 
 
-group BiologicallyDerivedProductProcessing extends BackboneElement
+group for type+types BiologicallyDerivedProductProcessing extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -47,7 +47,7 @@ group BiologicallyDerivedProductProcessing extends BackboneElement
 endgroup
 
 
-group BiologicallyDerivedProductManipulation extends BackboneElement
+group for type+types BiologicallyDerivedProductManipulation extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -56,7 +56,7 @@ group BiologicallyDerivedProductManipulation extends BackboneElement
 endgroup
 
 
-group BiologicallyDerivedProductStorage extends BackboneElement
+group for type+types BiologicallyDerivedProductStorage extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicinalProductPharmaceutical extends DomainResource
+group for type+types MedicinalProductPharmaceutical extends DomainResource
   input src : MedicinalProductPharmaceuticalR3 as source
   input tgt : MedicinalProductPharmaceutical as target
 
@@ -22,7 +22,7 @@ group MedicinalProductPharmaceutical extends DomainResource
 endgroup
 
 
-group MedicinalProductPharmaceuticalCharacteristics extends BackboneElement
+group for type+types MedicinalProductPharmaceuticalCharacteristics extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
   input tgt : MedicinalProductPharmaceutical as target
 
@@ -31,7 +31,7 @@ group MedicinalProductPharmaceuticalCharacteristics extends BackboneElement
 endgroup
 
 
-group MedicinalProductPharmaceuticalRouteOfAdministration extends BackboneElement
+group for type+types MedicinalProductPharmaceuticalRouteOfAdministration extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
   input tgt : MedicinalProductPharmaceutical as target
 
@@ -45,7 +45,7 @@ group MedicinalProductPharmaceuticalRouteOfAdministration extends BackboneElemen
 endgroup
 
 
-group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies extends BackboneElement
+group for type+types MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
   input tgt : MedicinalProductPharmaceutical as target
 
@@ -54,7 +54,7 @@ group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies extends B
 endgroup
 
 
-group MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod extends BackboneElement
+group for type+types MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod extends BackboneElement
   input src : MedicinalProductPharmaceuticalR3 as source
   input tgt : MedicinalProductPharmaceutical as target
 

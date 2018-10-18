@@ -8,17 +8,17 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group AppointmentResponse extends DomainResource
+group for type+types AppointmentResponse extends DomainResource
   input src : AppointmentResponseR3 as source
   input tgt : AppointmentResponse as target
 
-  "AppointmentResponse.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "AppointmentResponse.appointment" : for src.appointment as vs make tgt.appointment as vt
-  "AppointmentResponse.start" : for src.start as vs make tgt.start as vt
-  "AppointmentResponse.end" : for src.end as vs make tgt.end as vt
-  "AppointmentResponse.participantType" : for src.participantType as vs make tgt.participantType as vt
-  "AppointmentResponse.actor" : for src.actor as vs make tgt.actor as vt
-  "AppointmentResponse.participantStatus" : for src.participantStatus as vs make tgt.participantStatus as vt
-  "AppointmentResponse.comment" : for src.comment as vs make tgt.comment as vt
+  "AppointmentResponse.identifier" : for src.identifier make tgt.identifier 
+  "AppointmentResponse.appointment" : for src.appointment make tgt.appointment 
+  "AppointmentResponse.start" : for src.start make tgt.start 
+  "AppointmentResponse.end" : for src.end make tgt.end 
+  "AppointmentResponse.participantType" : for src.participantType make tgt.participantType 
+  "AppointmentResponse.actor" : for src.actor make tgt.actor 
+  "AppointmentResponse.participantStatus" : for src.participantStatus make tgt.participantStatus 
+  "AppointmentResponse.comment" : for src.comment make tgt.comment 
 endgroup
 

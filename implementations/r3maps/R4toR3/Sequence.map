@@ -8,60 +8,60 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Sequence extends DomainResource
+group for type+types Sequence extends DomainResource
   input src : Sequence as source
   input tgt : SequenceR3 as target
 
-  "Sequence.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Sequence.type" : for src.type as vs make tgt.type as vt
-  "Sequence.coordinateSystem" : for src.coordinateSystem as vs make tgt.coordinateSystem as vt
-  "Sequence.patient" : for src.patient as vs make tgt.patient as vt
-  "Sequence.specimen" : for src.specimen as vs make tgt.specimen as vt
-  "Sequence.device" : for src.device as vs make tgt.device as vt
-  "Sequence.performer" : for src.performer as vs make tgt.performer as vt
-  "Sequence.quantity" : for src.quantity as vs make tgt.quantity as vt
+  "Sequence.identifier" : for src.identifier make tgt.identifier 
+  "Sequence.type" : for src.type make tgt.type 
+  "Sequence.coordinateSystem" : for src.coordinateSystem make tgt.coordinateSystem 
+  "Sequence.patient" : for src.patient make tgt.patient 
+  "Sequence.specimen" : for src.specimen make tgt.specimen 
+  "Sequence.device" : for src.device make tgt.device 
+  "Sequence.performer" : for src.performer make tgt.performer 
+  "Sequence.quantity" : for src.quantity make tgt.quantity 
   "Sequence.referenceSeq" : for src.referenceSeq as vs0 make tgt.referenceSeq as vt0 then {
-    "Sequence.referenceSeq.chromosome" : for vs0.chromosome as vs make vt0.chromosome as vt
-    "Sequence.referenceSeq.genomeBuild" : for vs0.genomeBuild as vs make vt0.genomeBuild as vt
-    "Sequence.referenceSeq.referenceSeqId" : for vs0.referenceSeqId as vs make vt0.referenceSeqId as vt
-    "Sequence.referenceSeq.referenceSeqPointer" : for vs0.referenceSeqPointer as vs make vt0.referenceSeqPointer as vt
-    "Sequence.referenceSeq.referenceSeqString" : for vs0.referenceSeqString as vs make vt0.referenceSeqString as vt
-    "Sequence.referenceSeq.windowEnd" : for vs0.windowEnd as vs make vt0.windowEnd as vt
+    "Sequence.referenceSeq.chromosome" : for vs0.chromosome make vt0.chromosome 
+    "Sequence.referenceSeq.genomeBuild" : for vs0.genomeBuild make vt0.genomeBuild 
+    "Sequence.referenceSeq.referenceSeqId" : for vs0.referenceSeqId make vt0.referenceSeqId 
+    "Sequence.referenceSeq.referenceSeqPointer" : for vs0.referenceSeqPointer make vt0.referenceSeqPointer 
+    "Sequence.referenceSeq.referenceSeqString" : for vs0.referenceSeqString make vt0.referenceSeqString 
+    "Sequence.referenceSeq.windowEnd" : for vs0.windowEnd make vt0.windowEnd 
   }
   "Sequence.variant" : for src.variant as vs0 make tgt.variant as vt0 then {
-    "Sequence.variant.start" : for vs0.start as vs make vt0.start as vt
-    "Sequence.variant.end" : for vs0.end as vs make vt0.end as vt
-    "Sequence.variant.observedAllele" : for vs0.observedAllele as vs make vt0.observedAllele as vt
-    "Sequence.variant.referenceAllele" : for vs0.referenceAllele as vs make vt0.referenceAllele as vt
-    "Sequence.variant.cigar" : for vs0.cigar as vs make vt0.cigar as vt
-    "Sequence.variant.variantPointer" : for vs0.variantPointer as vs make vt0.variantPointer as vt
+    "Sequence.variant.start" : for vs0.start make vt0.start 
+    "Sequence.variant.end" : for vs0.end make vt0.end 
+    "Sequence.variant.observedAllele" : for vs0.observedAllele make vt0.observedAllele 
+    "Sequence.variant.referenceAllele" : for vs0.referenceAllele make vt0.referenceAllele 
+    "Sequence.variant.cigar" : for vs0.cigar make vt0.cigar 
+    "Sequence.variant.variantPointer" : for vs0.variantPointer make vt0.variantPointer 
   }
-  "Sequence.observedSeq" : for src.observedSeq as vs make tgt.observedSeq as vt
+  "Sequence.observedSeq" : for src.observedSeq make tgt.observedSeq 
   "Sequence.quality" : for src.quality as vs0 make tgt.quality as vt0 then {
-    "Sequence.quality.type" : for vs0.type as vs make vt0.type as vt
-    "Sequence.quality.standardSequence" : for vs0.standardSequence as vs make vt0.standardSequence as vt
-    "Sequence.quality.start" : for vs0.start as vs make vt0.start as vt
-    "Sequence.quality.end" : for vs0.end as vs make vt0.end as vt
-    "Sequence.quality.score" : for vs0.score as vs make vt0.score as vt
-    "Sequence.quality.method" : for vs0.method as vs make vt0.method as vt
-    "Sequence.quality.truthTP" : for vs0.truthTP as vs make vt0.truthTP as vt
-    "Sequence.quality.queryTP" : for vs0.queryTP as vs make vt0.queryTP as vt
-    "Sequence.quality.truthFN" : for vs0.truthFN as vs make vt0.truthFN as vt
-    "Sequence.quality.queryFP" : for vs0.queryFP as vs make vt0.queryFP as vt
-    "Sequence.quality.gtFP" : for vs0.gtFP as vs make vt0.gtFP as vt
-    "Sequence.quality.precision" : for vs0.precision as vs make vt0.precision as vt
-    "Sequence.quality.recall" : for vs0.recall as vs make vt0.recall as vt
-    "Sequence.quality.fScore" : for vs0.fScore as vs make vt0.fScore as vt
+    "Sequence.quality.type" : for vs0.type make vt0.type 
+    "Sequence.quality.standardSequence" : for vs0.standardSequence make vt0.standardSequence 
+    "Sequence.quality.start" : for vs0.start make vt0.start 
+    "Sequence.quality.end" : for vs0.end make vt0.end 
+    "Sequence.quality.score" : for vs0.score make vt0.score 
+    "Sequence.quality.method" : for vs0.method make vt0.method 
+    "Sequence.quality.truthTP" : for vs0.truthTP make vt0.truthTP 
+    "Sequence.quality.queryTP" : for vs0.queryTP make vt0.queryTP 
+    "Sequence.quality.truthFN" : for vs0.truthFN make vt0.truthFN 
+    "Sequence.quality.queryFP" : for vs0.queryFP make vt0.queryFP 
+    "Sequence.quality.gtFP" : for vs0.gtFP make vt0.gtFP 
+    "Sequence.quality.precision" : for vs0.precision make vt0.precision 
+    "Sequence.quality.recall" : for vs0.recall make vt0.recall 
+    "Sequence.quality.fScore" : for vs0.fScore make vt0.fScore 
   }
-  "Sequence.readCoverage" : for src.readCoverage as vs make tgt.readCoverage as vt
+  "Sequence.readCoverage" : for src.readCoverage make tgt.readCoverage 
   "Sequence.repository" : for src.repository as vs0 make tgt.repository as vt0 then {
-    "Sequence.repository.type" : for vs0.type as vs make vt0.type as vt
-    "Sequence.repository.url" : for vs0.url as vs make vt0.url as vt
-    "Sequence.repository.name" : for vs0.name as vs make vt0.name as vt
-    "Sequence.repository.datasetId" : for vs0.datasetId as vs make vt0.datasetId as vt
-    "Sequence.repository.variantsetId" : for vs0.variantsetId as vs make vt0.variantsetId as vt
-    "Sequence.repository.readsetId" : for vs0.readsetId as vs make vt0.readsetId as vt
+    "Sequence.repository.type" : for vs0.type make vt0.type 
+    "Sequence.repository.url" : for vs0.url make vt0.url 
+    "Sequence.repository.name" : for vs0.name make vt0.name 
+    "Sequence.repository.datasetId" : for vs0.datasetId make vt0.datasetId 
+    "Sequence.repository.variantsetId" : for vs0.variantsetId make vt0.variantsetId 
+    "Sequence.repository.readsetId" : for vs0.readsetId make vt0.readsetId 
   }
-  "Sequence.pointer" : for src.pointer as vs make tgt.pointer as vt
+  "Sequence.pointer" : for src.pointer make tgt.pointer 
 endgroup
 

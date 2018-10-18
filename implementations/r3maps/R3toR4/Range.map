@@ -8,11 +8,11 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Range extends Element
+group for type+types Range extends Element
   input src : RangeR3 as source
   input tgt : Range as target
 
-  "Range.low" : for src.low as vs make tgt.low as vt
-  "Range.high" : for src.high as vs make tgt.high as vt
+  "Range.low" : for src.low make tgt.low 
+  "Range.high" : for src.high make tgt.high 
 endgroup
 

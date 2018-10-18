@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Task extends DomainResource
+group for type+types Task extends DomainResource
   input src : TaskR3 as source
   input tgt : Task as target
 
@@ -43,7 +43,7 @@ group Task extends DomainResource
   "Task.output": for src.output as s make tgt.output as t then TaskOutput(s,t)
 endgroup
 
-group TaskRestriction extends BackboneElement
+group for type+types TaskRestriction extends BackboneElement
   input src : TaskR3 as source
   input tgt : Task as target
 
@@ -52,7 +52,7 @@ group TaskRestriction extends BackboneElement
   "Task.restriction.recipient": for src.recipient make tgt.recipient
 endgroup
 
-group TaskInput extends BackboneElement
+group for type+types TaskInput extends BackboneElement
   input src : TaskR3 as source
   input tgt : Task as target
 
@@ -61,7 +61,7 @@ group TaskInput extends BackboneElement
   "Task.input.value": for src.value make tgt.value
 endgroup
 
-group TaskOutput extends BackboneElement
+group for type+types TaskOutput extends BackboneElement
   input src : TaskR3 as source
   input tgt : Task as target
 

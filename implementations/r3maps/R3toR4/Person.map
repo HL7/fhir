@@ -8,22 +8,22 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Person extends DomainResource
+group for type+types Person extends DomainResource
   input src : PersonR3 as source
   input tgt : Person as target
 
-  "Person.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Person.name" : for src.name as vs make tgt.name as vt
-  "Person.telecom" : for src.telecom as vs make tgt.telecom as vt
-  "Person.gender" : for src.gender as vs make tgt.gender as vt
-  "Person.birthDate" : for src.birthDate as vs make tgt.birthDate as vt
-  "Person.address" : for src.address as vs make tgt.address as vt
-  "Person.photo" : for src.photo as vs make tgt.photo as vt
-  "Person.managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt
-  "Person.active" : for src.active as vs make tgt.active as vt
+  "Person.identifier" : for src.identifier make tgt.identifier 
+  "Person.name" : for src.name make tgt.name 
+  "Person.telecom" : for src.telecom make tgt.telecom 
+  "Person.gender" : for src.gender make tgt.gender 
+  "Person.birthDate" : for src.birthDate make tgt.birthDate 
+  "Person.address" : for src.address make tgt.address 
+  "Person.photo" : for src.photo make tgt.photo 
+  "Person.managingOrganization" : for src.managingOrganization make tgt.managingOrganization 
+  "Person.active" : for src.active make tgt.active 
   "Person.link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Person.link.target" : for vs0.target as vs make vt0.target as vt
-    "Person.link.assurance" : for vs0.assurance as vs make vt0.assurance as vt
+    "Person.link.target" : for vs0.target make vt0.target 
+    "Person.link.assurance" : for vs0.assurance make vt0.assurance 
   }
 endgroup
 

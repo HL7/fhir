@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Consent extends DomainResource
+group for type+types Consent extends DomainResource
   input src : Consent as source
   input tgt : ConsentR3 as target
 

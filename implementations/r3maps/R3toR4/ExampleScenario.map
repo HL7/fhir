@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ExampleScenario extends DomainResource
+group for type+types ExampleScenario extends DomainResource
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -32,7 +32,7 @@ group ExampleScenario extends DomainResource
 endgroup
 
 
-group ExampleScenarioActor extends BackboneElement
+group for type+types ExampleScenarioActor extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -43,7 +43,7 @@ group ExampleScenarioActor extends BackboneElement
 endgroup
 
 
-group ExampleScenarioInstance extends BackboneElement
+group for type+types ExampleScenarioInstance extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -56,7 +56,7 @@ group ExampleScenarioInstance extends BackboneElement
 endgroup
 
 
-group ExampleScenarioInstanceVersion extends BackboneElement
+group for type+types ExampleScenarioInstanceVersion extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -65,7 +65,7 @@ group ExampleScenarioInstanceVersion extends BackboneElement
 endgroup
 
 
-group ExampleScenarioInstanceContainedInstance extends BackboneElement
+group for type+types ExampleScenarioInstanceContainedInstance extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -74,7 +74,7 @@ group ExampleScenarioInstanceContainedInstance extends BackboneElement
 endgroup
 
 
-group ExampleScenarioProcess extends BackboneElement
+group for type+types ExampleScenarioProcess extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -86,7 +86,7 @@ group ExampleScenarioProcess extends BackboneElement
 endgroup
 
 
-group ExampleScenarioProcessStep extends BackboneElement
+group for type+types ExampleScenarioProcessStep extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -97,7 +97,7 @@ group ExampleScenarioProcessStep extends BackboneElement
 endgroup
 
 
-group ExampleScenarioProcessStepOperation extends BackboneElement
+group for type+types ExampleScenarioProcessStepOperation extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -114,7 +114,7 @@ group ExampleScenarioProcessStepOperation extends BackboneElement
 endgroup
 
 
-group ExampleScenarioProcessStepAlternative extends BackboneElement
+group for type+types ExampleScenarioProcessStepAlternative extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 
@@ -123,7 +123,7 @@ group ExampleScenarioProcessStepAlternative extends BackboneElement
 endgroup
 
 
-group ExampleScenarioProcessStepAlternativeOption extends BackboneElement
+group for type+types ExampleScenarioProcessStepAlternativeOption extends BackboneElement
   input src : ExampleScenarioR3 as source
   input tgt : ExampleScenario as target
 

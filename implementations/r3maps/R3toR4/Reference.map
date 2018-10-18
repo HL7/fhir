@@ -6,14 +6,21 @@ uses "http://hl7.org/fhir/StructureDefinition/Reference" alias Reference as targ
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group Reference extends Element
+group for type+types Reference extends Element
   input src : ReferenceR3 as source
   input tgt : Reference as target
 
-  "Reference.reference" : for src.reference as vs make tgt.reference as vt
-  "Reference.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Reference.display" : for src.display as vs make tgt.display as vt
+  "Reference.reference" : for src.reference make tgt.reference 
+  "Reference.identifier" : for src.identifier make tgt.identifier 
+  "Reference.display" : for src.display make tgt.display 
 endgroup
+
+group for types Reference2Canonical extends Element
+  input src : ReferenceR3 as source
+  input tgt : canonical as target
+
+  "Reference.reference" : for src.reference as vs then uri2Canonical(vs, tgt)
+  "Reference.display" : for src.display make tgt.extension as vt, vt.url as "http://hl7.org/fhir/StructureDefinition/rendered-value", vt.value as v 
+endgroup
+
 

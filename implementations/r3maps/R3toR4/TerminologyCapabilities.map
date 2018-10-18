@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group TerminologyCapabilities extends DomainResource
+group for type+types TerminologyCapabilities extends DomainResource
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -36,7 +36,7 @@ group TerminologyCapabilities extends DomainResource
 endgroup
 
 
-group TerminologyCapabilitiesCodeSystem extends BackboneElement
+group for type+types TerminologyCapabilitiesCodeSystem extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -45,7 +45,7 @@ group TerminologyCapabilitiesCodeSystem extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
+group for type+types TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -58,7 +58,7 @@ group TerminologyCapabilitiesCodeSystemVersion extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesCodeSystemVersionFilter extends BackboneElement
+group for type+types TerminologyCapabilitiesCodeSystemVersionFilter extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -67,7 +67,7 @@ group TerminologyCapabilitiesCodeSystemVersionFilter extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesExpansion extends BackboneElement
+group for type+types TerminologyCapabilitiesExpansion extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -79,7 +79,7 @@ group TerminologyCapabilitiesExpansion extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesExpansionParameter extends BackboneElement
+group for type+types TerminologyCapabilitiesExpansionParameter extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -88,7 +88,7 @@ group TerminologyCapabilitiesExpansionParameter extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesValidateCode extends BackboneElement
+group for type+types TerminologyCapabilitiesValidateCode extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -96,7 +96,7 @@ group TerminologyCapabilitiesValidateCode extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesTranslation extends BackboneElement
+group for type+types TerminologyCapabilitiesTranslation extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 
@@ -104,7 +104,7 @@ group TerminologyCapabilitiesTranslation extends BackboneElement
 endgroup
 
 
-group TerminologyCapabilitiesClosure extends BackboneElement
+group for type+types TerminologyCapabilitiesClosure extends BackboneElement
   input src : TerminologyCapabilitiesR3 as source
   input tgt : TerminologyCapabilities as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Contract extends DomainResource
+group for type+types Contract extends DomainResource
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -31,7 +31,7 @@ group Contract extends DomainResource
 endgroup
 
 
-group ContractTerm extends BackboneElement
+group for type+types ContractTerm extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -49,7 +49,7 @@ group ContractTerm extends BackboneElement
 endgroup
 
 
-group ContractTermOffer extends BackboneElement
+group for type+types ContractTermOffer extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -61,7 +61,7 @@ group ContractTermOffer extends BackboneElement
 endgroup
 
 
-group ContractTermAsset extends BackboneElement
+group for type+types ContractTermAsset extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -75,7 +75,7 @@ group ContractTermAsset extends BackboneElement
 endgroup
 
 
-group ContractTermAssetData extends BackboneElement
+group for type+types ContractTermAssetData extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -84,7 +84,7 @@ group ContractTermAssetData extends BackboneElement
 endgroup
 
 
-group ContractTermAssetValuedItem extends BackboneElement
+group for type+types ContractTermAssetValuedItem extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -99,7 +99,7 @@ group ContractTermAssetValuedItem extends BackboneElement
 endgroup
 
 
-group ContractTermAgent extends BackboneElement
+group for type+types ContractTermAgent extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -108,7 +108,7 @@ group ContractTermAgent extends BackboneElement
 endgroup
 
 
-group ContractSigner extends BackboneElement
+group for type+types ContractSigner extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -118,7 +118,7 @@ group ContractSigner extends BackboneElement
 endgroup
 
 
-group ContractFriendly extends BackboneElement
+group for type+types ContractFriendly extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -126,7 +126,7 @@ group ContractFriendly extends BackboneElement
 endgroup
 
 
-group ContractLegal extends BackboneElement
+group for type+types ContractLegal extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -134,7 +134,7 @@ group ContractLegal extends BackboneElement
 endgroup
 
 
-group ContractRule extends BackboneElement
+group for type+types ContractRule extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 

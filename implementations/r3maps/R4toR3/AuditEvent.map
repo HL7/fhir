@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group AuditEvent extends DomainResource
+group for type+types AuditEvent extends DomainResource
   input src : AuditEventR3 as source
   input tgt : AuditEvent as target
 
@@ -25,7 +25,7 @@ group AuditEvent extends DomainResource
   "AuditEvent.entity": for src.entity as s make tgt.entity as t then AuditEventEntity(s,t)
 endgroup
 
-group AuditEventAgent extends BackboneElement
+group for type+types AuditEventAgent extends BackboneElement
   input src : AuditEventR3 as source
   input tgt : AuditEvent as target
 
@@ -42,7 +42,7 @@ group AuditEventAgent extends BackboneElement
   "AuditEvent.agent.purposeOfUse": for src.purposeOfUse make tgt.purposeOfUse
 endgroup
 
-group AuditEventAgentNetwork extends BackboneElement
+group for type+types AuditEventAgentNetwork extends BackboneElement
   input src : AuditEventR3 as source
   input tgt : AuditEvent as target
 
@@ -50,7 +50,7 @@ group AuditEventAgentNetwork extends BackboneElement
   "AuditEvent.agent.network.type": for src.type make tgt.type
 endgroup
 
-group AuditEventSource extends BackboneElement
+group for type+types AuditEventSource extends BackboneElement
   input src : AuditEventR3 as source
   input tgt : AuditEvent as target
 
@@ -59,7 +59,7 @@ group AuditEventSource extends BackboneElement
   "AuditEvent.source.type": for src.type make tgt.type
 endgroup
 
-group AuditEventEntity extends BackboneElement
+group for type+types AuditEventEntity extends BackboneElement
   input src : AuditEventR3 as source
   input tgt : AuditEvent as target
 
@@ -74,7 +74,7 @@ group AuditEventEntity extends BackboneElement
   "AuditEvent.entity.detail": for src.detail as s make tgt.detail as t then AuditEventEntityDetail(s,t)
 endgroup
 
-group AuditEventEntityDetail extends BackboneElement
+group for type+types AuditEventEntityDetail extends BackboneElement
   input src : AuditEventR3 as source
   input tgt : AuditEvent as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group DocumentManifest extends DomainResource
+group for type+types DocumentManifest extends DomainResource
   input src : DocumentManifestR3 as source
   input tgt : DocumentManifest as target
 
@@ -27,7 +27,7 @@ group DocumentManifest extends DomainResource
 endgroup
 
 
-group DocumentManifestAgent extends BackboneElement
+group for type+types DocumentManifestAgent extends BackboneElement
   input src : DocumentManifestR3 as source
   input tgt : DocumentManifest as target
 
@@ -36,7 +36,7 @@ group DocumentManifestAgent extends BackboneElement
 endgroup
 
 
-group DocumentManifestRelated extends BackboneElement
+group for type+types DocumentManifestRelated extends BackboneElement
   input src : DocumentManifestR3 as source
   input tgt : DocumentManifest as target
 

@@ -8,21 +8,21 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Provenance extends DomainResource
+group for type+types Provenance extends DomainResource
   input src : ProvenanceR3 as source
   input tgt : Provenance as target
 
-  "Provenance.target" : for src.target as vs make tgt.target as vt
-  "Provenance.occurred" : for src.period as vs make tgt.occurred as vt
-  "Provenance.recorded" : for src.recorded as vs make tgt.recorded as vt
-  "Provenance.policy" : for src.policy as vs make tgt.policy as vt
-  "Provenance.location" : for src.location as vs make tgt.location as vt
+  "Provenance.target" : for src.target make tgt.target 
+  "Provenance.occurred" : for src.period make tgt.occurred 
+  "Provenance.recorded" : for src.recorded make tgt.recorded 
+  "Provenance.policy" : for src.policy make tgt.policy 
+  "Provenance.location" : for src.location make tgt.location 
   "Provenance.agent" : for src.agent as vs0 make tgt.agent as vt0 then {
-    "Provenance.agent.role" : for vs0.role as vs make vt0.role as vt
+    "Provenance.agent.role" : for vs0.role make vt0.role 
   }
   "Provenance.entity" : for src.entity as vs0 make tgt.entity as vt0 then {
-    "Provenance.entity.role" : for vs0.role as vs make vt0.role as vt
+    "Provenance.entity.role" : for vs0.role make vt0.role 
   }
-  "Provenance.signature" : for src.signature as vs make tgt.signature as vt
+  "Provenance.signature" : for src.signature make tgt.signature 
 endgroup
 

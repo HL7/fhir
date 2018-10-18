@@ -12,9 +12,10 @@ group for type+types Meta extends Element
   input src : Meta as source
   input tgt : MetaR3 as target
 
-  "Meta.versionId" : for src.versionId as vs make tgt.versionId as vt
-  "Meta.lastUpdated" : for src.lastUpdated as vs make tgt.lastUpdated as vt
-  "Meta.security" : for src.security as vs make tgt.security as vt
-  "Meta.tag" : for src.tag as vs make tgt.tag as vt
+  "Meta.versionId" : for src.versionId make tgt.versionId 
+  "Meta.lastUpdated" : for src.lastUpdated make tgt.lastUpdated 
+  "Meta.security" : for src.security make tgt.security 
+  "Meta.profile" : for src.profile make tgt.profile 
+  "Meta.tag" : for src.tag make tgt.tag 
 endgroup
 

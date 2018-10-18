@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group BackboneElement extends Element
+group for type+types BackboneElement extends Element
   input src : BackboneElementR3 as source
   input tgt : BackboneElement as target
 

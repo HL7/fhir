@@ -8,15 +8,15 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Linkage extends DomainResource
+group for type+types Linkage extends DomainResource
   input src : LinkageR3 as source
   input tgt : Linkage as target
 
-  "Linkage.active" : for src.active as vs make tgt.active as vt
-  "Linkage.author" : for src.author as vs make tgt.author as vt
+  "Linkage.active" : for src.active make tgt.active 
+  "Linkage.author" : for src.author make tgt.author 
   "Linkage.item" : for src.item as vs0 make tgt.item as vt0 then {
-    "Linkage.item.type" : for vs0.type as vs make vt0.type as vt
-    "Linkage.item.resource" : for vs0.resource as vs make vt0.resource as vt
+    "Linkage.item.type" : for vs0.type make vt0.type 
+    "Linkage.item.resource" : for vs0.resource make vt0.resource 
   }
 endgroup
 

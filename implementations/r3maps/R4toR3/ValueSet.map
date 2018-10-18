@@ -8,36 +8,38 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ValueSet extends DomainResource
+group for type+types ValueSet extends DomainResource
   input src : ValueSet as source
   input tgt : ValueSetR3 as target
 
-  "ValueSet.url" : for src.url as vs make tgt.url as vt
-  "ValueSet.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "ValueSet.version" : for src.version as vs make tgt.version as vt
-  "ValueSet.name" : for src.name as vs make tgt.name as vt
-  "ValueSet.title" : for src.title as vs make tgt.title as vt
-  "ValueSet.status" : for src.status as vs make tgt.status as vt
-  "ValueSet.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "ValueSet.date" : for src.date as vs make tgt.date as vt
-  "ValueSet.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "ValueSet.contact" : for src.contact as vs make tgt.contact as vt
-  "ValueSet.description" : for src.description as vs make tgt.description as vt
-  "ValueSet.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "ValueSet.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "ValueSet.immutable" : for src.immutable as vs make tgt.immutable as vt
-  "ValueSet.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "ValueSet.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "ValueSet.extensible" : for src.extensible as vs make tgt.extensible as vt
+  "ValueSet.url" : for src.url make tgt.url 
+  "ValueSet.identifier" : for src.identifier make tgt.identifier 
+  "ValueSet.version" : for src.version make tgt.version 
+  "ValueSet.name" : for src.name make tgt.name 
+  "ValueSet.title" : for src.title make tgt.title 
+  "ValueSet.status" : for src.status make tgt.status 
+  "ValueSet.experimental" : for src.experimental make tgt.experimental 
+  "ValueSet.date" : for src.date make tgt.date 
+  "ValueSet.publisher" : for src.publisher make tgt.publisher 
+  "ValueSet.contact" : for src.contact make tgt.contact 
+  "ValueSet.description" : for src.description make tgt.description 
+  "ValueSet.useContext" : for src.useContext make tgt.useContext 
+  "ValueSet.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "ValueSet.immutable" : for src.immutable make tgt.immutable 
+  "ValueSet.purpose" : for src.purpose make tgt.purpose 
+  "ValueSet.copyright" : for src.copyright make tgt.copyright 
+  "ValueSet.extensible" : for src.extension as ext where ext.url = 'http://hl7.org/fhir/StructureDefinition/valueset-extensible' then {
+    "ValueSet.extensible2" : for ext.value make tgt.extensible
+  }
   "ValueSet.compose" : for src.compose as vs0 make tgt.compose as vt0 then {
-    "ValueSet.compose.lockedDate" : for vs0.lockedDate as vs make vt0.lockedDate as vt
-    "ValueSet.compose.inactive" : for vs0.inactive as vs make vt0.inactive as vt
+    "ValueSet.compose.lockedDate" : for vs0.lockedDate make vt0.lockedDate 
+    "ValueSet.compose.inactive" : for vs0.inactive make vt0.inactive 
   }
   "ValueSet.expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
-    "ValueSet.expansion.identifier" : for vs0.identifier as vs make vt0.identifier as vt
-    "ValueSet.expansion.timestamp" : for vs0.timestamp as vs make vt0.timestamp as vt
-    "ValueSet.expansion.total" : for vs0.total as vs make vt0.total as vt
-    "ValueSet.expansion.offset" : for vs0.offset as vs make vt0.offset as vt
+    "ValueSet.expansion.identifier" : for vs0.identifier make vt0.identifier 
+    "ValueSet.expansion.timestamp" : for vs0.timestamp make vt0.timestamp 
+    "ValueSet.expansion.total" : for vs0.total make vt0.total 
+    "ValueSet.expansion.offset" : for vs0.offset make vt0.offset 
   }
 endgroup
 

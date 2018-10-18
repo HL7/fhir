@@ -8,45 +8,45 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Encounter extends DomainResource
+group for type+types Encounter extends DomainResource
   input src : EncounterR3 as source
   input tgt : Encounter as target
 
-  "Encounter.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Encounter.status" : for src.status as vs make tgt.status as vt
-  "Encounter.class" : for src.class as vs make tgt.class as vt
-  "Encounter.type" : for src.type as vs make tgt.type as vt
-  "Encounter.priority" : for src.priority as vs make tgt.priority as vt
-  "Encounter.subject" : for src.subject as vs make tgt.subject as vt
-  "Encounter.episodeOfCare" : for src.episodeOfCare as vs make tgt.episodeOfCare as vt
-  "Encounter.basedOn" : for src.incomingReferral as vs make tgt.basedOn as vt
+  "Encounter.identifier" : for src.identifier make tgt.identifier 
+  "Encounter.status" : for src.status make tgt.status 
+  "Encounter.class" : for src.class make tgt.class 
+  "Encounter.type" : for src.type make tgt.type 
+  "Encounter.priority" : for src.priority make tgt.priority 
+  "Encounter.subject" : for src.subject make tgt.subject 
+  "Encounter.episodeOfCare" : for src.episodeOfCare make tgt.episodeOfCare 
+  "Encounter.basedOn" : for src.incomingReferral make tgt.basedOn 
   "Encounter.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Encounter.participant.type" : for vs0.type as vs make vt0.type as vt
-    "Encounter.participant.period" : for vs0.period as vs make vt0.period as vt
-    "Encounter.participant.individual" : for vs0.individual as vs make vt0.individual as vt
+    "Encounter.participant.type" : for vs0.type make vt0.type 
+    "Encounter.participant.period" : for vs0.period make vt0.period 
+    "Encounter.participant.individual" : for vs0.individual make vt0.individual 
   }
-  "Encounter.appointment" : for src.appointment as vs make tgt.appointment as vt
-  "Encounter.period" : for src.period as vs make tgt.period as vt
-  "Encounter.length" : for src.length as vs make tgt.length as vt
-  "Encounter.reason" : for src.reason as vs make tgt.reason as vt
-  "Encounter.account" : for src.account as vs make tgt.account as vt
+  "Encounter.appointment" : for src.appointment make tgt.appointment 
+  "Encounter.period" : for src.period make tgt.period 
+  "Encounter.length" : for src.length make tgt.length 
+  "Encounter.reason" : for src.reason make tgt.reason 
+  "Encounter.account" : for src.account make tgt.account 
   "Encounter.hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then {
-    "Encounter.hospitalization.preAdmissionIdentifier" : for vs0.preAdmissionIdentifier as vs make vt0.preAdmissionIdentifier as vt
-    "Encounter.hospitalization.origin" : for vs0.origin as vs make vt0.origin as vt
-    "Encounter.hospitalization.admitSource" : for vs0.admitSource as vs make vt0.admitSource as vt
-    "Encounter.hospitalization.reAdmission" : for vs0.reAdmission as vs make vt0.reAdmission as vt
-    "Encounter.hospitalization.dietPreference" : for vs0.dietPreference as vs make vt0.dietPreference as vt
-    "Encounter.hospitalization.specialCourtesy" : for vs0.specialCourtesy as vs make vt0.specialCourtesy as vt
-    "Encounter.hospitalization.specialArrangement" : for vs0.specialArrangement as vs make vt0.specialArrangement as vt
-    "Encounter.hospitalization.destination" : for vs0.destination as vs make vt0.destination as vt
-    "Encounter.hospitalization.dischargeDisposition" : for vs0.dischargeDisposition as vs make vt0.dischargeDisposition as vt
+    "Encounter.hospitalization.preAdmissionIdentifier" : for vs0.preAdmissionIdentifier make vt0.preAdmissionIdentifier 
+    "Encounter.hospitalization.origin" : for vs0.origin make vt0.origin 
+    "Encounter.hospitalization.admitSource" : for vs0.admitSource make vt0.admitSource 
+    "Encounter.hospitalization.reAdmission" : for vs0.reAdmission make vt0.reAdmission 
+    "Encounter.hospitalization.dietPreference" : for vs0.dietPreference make vt0.dietPreference 
+    "Encounter.hospitalization.specialCourtesy" : for vs0.specialCourtesy make vt0.specialCourtesy 
+    "Encounter.hospitalization.specialArrangement" : for vs0.specialArrangement make vt0.specialArrangement 
+    "Encounter.hospitalization.destination" : for vs0.destination make vt0.destination 
+    "Encounter.hospitalization.dischargeDisposition" : for vs0.dischargeDisposition make vt0.dischargeDisposition 
   }
   "Encounter.location" : for src.location as vs0 make tgt.location as vt0 then {
-    "Encounter.location.location" : for vs0.location as vs make vt0.location as vt
-    "Encounter.location.status" : for vs0.status as vs make vt0.status as vt
-    "Encounter.location.period" : for vs0.period as vs make vt0.period as vt
+    "Encounter.location.location" : for vs0.location make vt0.location 
+    "Encounter.location.status" : for vs0.status make vt0.status 
+    "Encounter.location.period" : for vs0.period make vt0.period 
   }
-  "Encounter.serviceProvider" : for src.serviceProvider as vs make tgt.serviceProvider as vt
-  "Encounter.partOf" : for src.partOf as vs make tgt.partOf as vt
+  "Encounter.serviceProvider" : for src.serviceProvider make tgt.serviceProvider 
+  "Encounter.partOf" : for src.partOf make tgt.partOf 
 endgroup
 

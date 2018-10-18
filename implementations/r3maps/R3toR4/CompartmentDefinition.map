@@ -8,28 +8,28 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group CompartmentDefinition extends DomainResource
+group for type+types CompartmentDefinition extends DomainResource
   input src : CompartmentDefinitionR3 as source
   input tgt : CompartmentDefinition as target
 
-  "CompartmentDefinition.url" : for src.url as vs make tgt.url as vt
-  "CompartmentDefinition.name" : for src.name as vs make tgt.name as vt
-  "CompartmentDefinition.title" : for src.title as vs make tgt.title as vt
-  "CompartmentDefinition.status" : for src.status as vs make tgt.status as vt
-  "CompartmentDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "CompartmentDefinition.date" : for src.date as vs make tgt.date as vt
-  "CompartmentDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "CompartmentDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "CompartmentDefinition.description" : for src.description as vs make tgt.description as vt
-  "CompartmentDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "CompartmentDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "CompartmentDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "CompartmentDefinition.code" : for src.code as vs make tgt.code as vt
-  "CompartmentDefinition.search" : for src.search as vs make tgt.search as vt
+  "CompartmentDefinition.url" : for src.url make tgt.url 
+  "CompartmentDefinition.name" : for src.name make tgt.name 
+  "CompartmentDefinition.title" : for src.title make tgt.title 
+  "CompartmentDefinition.status" : for src.status make tgt.status 
+  "CompartmentDefinition.experimental" : for src.experimental make tgt.experimental 
+  "CompartmentDefinition.date" : for src.date make tgt.date 
+  "CompartmentDefinition.publisher" : for src.publisher make tgt.publisher 
+  "CompartmentDefinition.contact" : for src.contact make tgt.contact 
+  "CompartmentDefinition.description" : for src.description make tgt.description 
+  "CompartmentDefinition.purpose" : for src.purpose make tgt.purpose 
+  "CompartmentDefinition.useContext" : for src.useContext make tgt.useContext 
+  "CompartmentDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "CompartmentDefinition.code" : for src.code make tgt.code 
+  "CompartmentDefinition.search" : for src.search make tgt.search 
   "CompartmentDefinition.resource" : for src.resource as vs0 make tgt.resource as vt0 then {
-    "CompartmentDefinition.resource.code" : for vs0.code as vs make vt0.code as vt
-    "CompartmentDefinition.resource.param" : for vs0.param as vs make vt0.param as vt
-    "CompartmentDefinition.resource.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+    "CompartmentDefinition.resource.code" : for vs0.code make vt0.code 
+    "CompartmentDefinition.resource.param" : for vs0.param make vt0.param 
+    "CompartmentDefinition.resource.documentation" : for vs0.documentation make vt0.documentation 
   }
 endgroup
 

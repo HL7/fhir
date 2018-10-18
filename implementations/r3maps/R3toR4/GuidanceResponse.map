@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group GuidanceResponse extends DomainResource
+group for type+types GuidanceResponse extends DomainResource
   input src : GuidanceResponseR3 as source
   input tgt : GuidanceResponse as target
 

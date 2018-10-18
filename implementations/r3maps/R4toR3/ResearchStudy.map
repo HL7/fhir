@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ResearchStudy extends DomainResource
+group for type+types ResearchStudy extends DomainResource
   input src : ResearchStudyR3 as source
   input tgt : ResearchStudy as target
 
@@ -38,7 +38,7 @@ group ResearchStudy extends DomainResource
   "ResearchStudy.objective": for src.objective as s make tgt.objective as t then ResearchStudyObjective(s,t)
 endgroup
 
-group ResearchStudyArm extends BackboneElement
+group for type+types ResearchStudyArm extends BackboneElement
   input src : ResearchStudyR3 as source
   input tgt : ResearchStudy as target
 
@@ -47,7 +47,7 @@ group ResearchStudyArm extends BackboneElement
   "ResearchStudy.arm.description": for src.description make tgt.description
 endgroup
 
-group ResearchStudyObjective extends BackboneElement
+group for type+types ResearchStudyObjective extends BackboneElement
   input src : ResearchStudyR3 as source
   input tgt : ResearchStudy as target
 

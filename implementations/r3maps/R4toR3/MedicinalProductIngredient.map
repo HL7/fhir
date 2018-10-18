@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicinalProductIngredient extends DomainResource
+group for type+types MedicinalProductIngredient extends DomainResource
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -20,7 +20,7 @@ group MedicinalProductIngredient extends DomainResource
   "MedicinalProductIngredient.substance": for src.substance as s make tgt.substance as t then MedicinalProductIngredientSubstance(s,t)
 endgroup
 
-group MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
+group for type+types MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -30,7 +30,7 @@ group MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
   "MedicinalProductIngredient.specifiedSubstance.strength": for src.strength as s make tgt.strength as t then MedicinalProductIngredientSpecifiedSubstanceStrength(s,t)
 endgroup
 
-group MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneElement
+group for type+types MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -41,7 +41,7 @@ group MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneEleme
   "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength": for src.referenceStrength as s make tgt.referenceStrength as t then MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(s,t)
 endgroup
 
-group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength extends BackboneElement
+group for type+types MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -51,7 +51,7 @@ group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength exte
   "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.country": for src.country make tgt.country
 endgroup
 
-group MedicinalProductIngredientSubstance extends BackboneElement
+group for type+types MedicinalProductIngredientSubstance extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 

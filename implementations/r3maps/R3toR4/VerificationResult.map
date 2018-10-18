@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group VerificationResult extends DomainResource
+group for type+types VerificationResult extends DomainResource
   input src : VerificationResultR3 as source
   input tgt : VerificationResult as target
 
@@ -29,7 +29,7 @@ group VerificationResult extends DomainResource
 endgroup
 
 
-group VerificationResultPrimarySource extends BackboneElement
+group for type+types VerificationResultPrimarySource extends BackboneElement
   input src : VerificationResultR3 as source
   input tgt : VerificationResult as target
 
@@ -43,7 +43,7 @@ group VerificationResultPrimarySource extends BackboneElement
 endgroup
 
 
-group VerificationResultAttestation extends BackboneElement
+group for type+types VerificationResultAttestation extends BackboneElement
   input src : VerificationResultR3 as source
   input tgt : VerificationResult as target
 
@@ -58,7 +58,7 @@ group VerificationResultAttestation extends BackboneElement
 endgroup
 
 
-group VerificationResultValidator extends BackboneElement
+group for type+types VerificationResultValidator extends BackboneElement
   input src : VerificationResultR3 as source
   input tgt : VerificationResult as target
 

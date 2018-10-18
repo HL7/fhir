@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ImagingStudy extends DomainResource
+group for type+types ImagingStudy extends DomainResource
   input src : ImagingStudyR3 as source
   input tgt : ImagingStudy as target
 
@@ -34,7 +34,7 @@ group ImagingStudy extends DomainResource
 endgroup
 
 
-group ImagingStudySeries extends BackboneElement
+group for type+types ImagingStudySeries extends BackboneElement
   input src : ImagingStudyR3 as source
   input tgt : ImagingStudy as target
 
@@ -53,7 +53,7 @@ group ImagingStudySeries extends BackboneElement
 endgroup
 
 
-group ImagingStudySeriesPerformer extends BackboneElement
+group for type+types ImagingStudySeriesPerformer extends BackboneElement
   input src : ImagingStudyR3 as source
   input tgt : ImagingStudy as target
 
@@ -62,7 +62,7 @@ group ImagingStudySeriesPerformer extends BackboneElement
 endgroup
 
 
-group ImagingStudySeriesInstance extends BackboneElement
+group for type+types ImagingStudySeriesInstance extends BackboneElement
   input src : ImagingStudyR3 as source
   input tgt : ImagingStudy as target
 

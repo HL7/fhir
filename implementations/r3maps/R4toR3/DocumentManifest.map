@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group DocumentManifest extends DomainResource
+group for type+types DocumentManifest extends DomainResource
   input src : DocumentManifestR3 as source
   input tgt : DocumentManifest as target
 
@@ -26,7 +26,7 @@ group DocumentManifest extends DomainResource
   "DocumentManifest.related": for src.related as s make tgt.related as t then DocumentManifestRelated(s,t)
 endgroup
 
-group DocumentManifestAgent extends BackboneElement
+group for type+types DocumentManifestAgent extends BackboneElement
   input src : DocumentManifestR3 as source
   input tgt : DocumentManifest as target
 
@@ -34,7 +34,7 @@ group DocumentManifestAgent extends BackboneElement
   "DocumentManifest.agent.who": for src.who make tgt.who
 endgroup
 
-group DocumentManifestRelated extends BackboneElement
+group for type+types DocumentManifestRelated extends BackboneElement
   input src : DocumentManifestR3 as source
   input tgt : DocumentManifest as target
 

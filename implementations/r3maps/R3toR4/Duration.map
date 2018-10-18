@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Duration extends Quantity
+group for type+types Duration extends Quantity
   input src : DurationR3 as source
   input tgt : Duration as target
 

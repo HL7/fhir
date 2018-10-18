@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group UserSession extends DomainResource
+group for type+types UserSession extends DomainResource
   input src : UserSessionR3 as source
   input tgt : UserSession as target
 
@@ -22,7 +22,7 @@ group UserSession extends DomainResource
   "UserSession.context": for src.context as s make tgt.context as t then UserSessionContext(s,t)
 endgroup
 
-group UserSessionStatus extends BackboneElement
+group for type+types UserSessionStatus extends BackboneElement
   input src : UserSessionR3 as source
   input tgt : UserSession as target
 
@@ -30,7 +30,7 @@ group UserSessionStatus extends BackboneElement
   "UserSession.status.source": for src.source make tgt.source
 endgroup
 
-group UserSessionContext extends BackboneElement
+group for type+types UserSessionContext extends BackboneElement
   input src : UserSessionR3 as source
   input tgt : UserSession as target
 

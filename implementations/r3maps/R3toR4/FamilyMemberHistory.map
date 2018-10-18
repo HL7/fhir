@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group FamilyMemberHistory extends DomainResource
+group for type+types FamilyMemberHistory extends DomainResource
   input src : FamilyMemberHistoryR3 as source
   input tgt : FamilyMemberHistory as target
 
@@ -33,7 +33,7 @@ group FamilyMemberHistory extends DomainResource
 endgroup
 
 
-group FamilyMemberHistoryCondition extends BackboneElement
+group for type+types FamilyMemberHistoryCondition extends BackboneElement
   input src : FamilyMemberHistoryR3 as source
   input tgt : FamilyMemberHistory as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group CommunicationRequest extends DomainResource
+group for type+types CommunicationRequest extends DomainResource
   input src : CommunicationRequestR3 as source
   input tgt : CommunicationRequest as target
 
@@ -37,7 +37,7 @@ group CommunicationRequest extends DomainResource
 endgroup
 
 
-group CommunicationRequestPayload extends BackboneElement
+group for type+types CommunicationRequestPayload extends BackboneElement
   input src : CommunicationRequestR3 as source
   input tgt : CommunicationRequest as target
 

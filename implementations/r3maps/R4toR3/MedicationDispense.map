@@ -8,39 +8,39 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicationDispense extends DomainResource
+group for type+types MedicationDispense extends DomainResource
   input src : MedicationDispense as source
   input tgt : MedicationDispenseR3 as target
 
-  "MedicationDispense.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "MedicationDispense.partOf" : for src.partOf as vs make tgt.partOf as vt
-  "MedicationDispense.status" : for src.status as vs make tgt.status as vt
-  "MedicationDispense.category" : for src.category as vs make tgt.category as vt
-  "MedicationDispense.medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationDispense.medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationDispense.subject" : for src.subject as vs make tgt.subject as vt
-  "MedicationDispense.context" : for src.context as vs make tgt.context as vt
-  "MedicationDispense.supportingInformation" : for src.supportingInformation as vs make tgt.supportingInformation as vt
+  "MedicationDispense.identifier" : for src.identifier make tgt.identifier 
+  "MedicationDispense.partOf" : for src.partOf make tgt.partOf 
+  "MedicationDispense.status" : for src.status make tgt.status 
+  "MedicationDispense.category" : for src.category make tgt.category 
+  "MedicationDispense.medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "MedicationDispense.medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
+  "MedicationDispense.subject" : for src.subject make tgt.subject 
+  "MedicationDispense.context" : for src.context make tgt.context 
+  "MedicationDispense.supportingInformation" : for src.supportingInformation make tgt.supportingInformation 
   "MedicationDispense.performer" : for src.performer as vs0 make tgt.performer as vt0 then {
-    "MedicationDispense.performer.actor" : for vs0.actor as vs make vt0.actor as vt
+    "MedicationDispense.performer.actor" : for vs0.actor make vt0.actor 
   }
-  "MedicationDispense.authorizingPrescription" : for src.authorizingPrescription as vs make tgt.authorizingPrescription as vt
-  "MedicationDispense.type" : for src.type as vs make tgt.type as vt
-  "MedicationDispense.quantity" : for src.quantity as vs make tgt.quantity as vt
-  "MedicationDispense.daysSupply" : for src.daysSupply as vs make tgt.daysSupply as vt
-  "MedicationDispense.whenPrepared" : for src.whenPrepared as vs make tgt.whenPrepared as vt
-  "MedicationDispense.whenHandedOver" : for src.whenHandedOver as vs make tgt.whenHandedOver as vt
-  "MedicationDispense.destination" : for src.destination as vs make tgt.destination as vt
-  "MedicationDispense.receiver" : for src.receiver as vs make tgt.receiver as vt
-  "MedicationDispense.note" : for src.note as vs make tgt.note as vt
-  "MedicationDispense.dosageInstruction" : for src.dosageInstruction as vs make tgt.dosageInstruction as vt
+  "MedicationDispense.authorizingPrescription" : for src.authorizingPrescription make tgt.authorizingPrescription 
+  "MedicationDispense.type" : for src.type make tgt.type 
+  "MedicationDispense.quantity" : for src.quantity make tgt.quantity 
+  "MedicationDispense.daysSupply" : for src.daysSupply make tgt.daysSupply 
+  "MedicationDispense.whenPrepared" : for src.whenPrepared make tgt.whenPrepared 
+  "MedicationDispense.whenHandedOver" : for src.whenHandedOver make tgt.whenHandedOver 
+  "MedicationDispense.destination" : for src.destination make tgt.destination 
+  "MedicationDispense.receiver" : for src.receiver make tgt.receiver 
+  "MedicationDispense.note" : for src.note make tgt.note 
+  "MedicationDispense.dosageInstruction" : for src.dosageInstruction make tgt.dosageInstruction 
   "MedicationDispense.substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
-    "MedicationDispense.substitution.wasSubstituted" : for vs0.wasSubstituted as vs make vt0.wasSubstituted as vt
-    "MedicationDispense.substitution.type" : for vs0.type as vs make vt0.type as vt
-    "MedicationDispense.substitution.reason" : for vs0.reason as vs make vt0.reason as vt
-    "MedicationDispense.substitution.responsibleParty" : for vs0.responsibleParty as vs make vt0.responsibleParty as vt
+    "MedicationDispense.substitution.wasSubstituted" : for vs0.wasSubstituted make vt0.wasSubstituted 
+    "MedicationDispense.substitution.type" : for vs0.type make vt0.type 
+    "MedicationDispense.substitution.reason" : for vs0.reason make vt0.reason 
+    "MedicationDispense.substitution.responsibleParty" : for vs0.responsibleParty make vt0.responsibleParty 
   }
-  "MedicationDispense.detectedIssue" : for src.detectedIssue as vs make tgt.detectedIssue as vt
-  "MedicationDispense.eventHistory" : for src.eventHistory as vs make tgt.eventHistory as vt
+  "MedicationDispense.detectedIssue" : for src.detectedIssue make tgt.detectedIssue 
+  "MedicationDispense.eventHistory" : for src.eventHistory make tgt.eventHistory 
 endgroup
 

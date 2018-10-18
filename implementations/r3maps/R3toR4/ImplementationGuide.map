@@ -8,27 +8,27 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ImplementationGuide extends DomainResource
+group for type+types ImplementationGuide extends DomainResource
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
-  "ImplementationGuide.url" : for src.url as vs make tgt.url as vt
-  "ImplementationGuide.version" : for src.version as vs make tgt.version as vt
-  "ImplementationGuide.name" : for src.name as vs make tgt.name as vt
-  "ImplementationGuide.status" : for src.status as vs make tgt.status as vt
-  "ImplementationGuide.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "ImplementationGuide.date" : for src.date as vs make tgt.date as vt
-  "ImplementationGuide.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "ImplementationGuide.contact" : for src.contact as vs make tgt.contact as vt
-  "ImplementationGuide.description" : for src.description as vs make tgt.description as vt
-  "ImplementationGuide.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "ImplementationGuide.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "ImplementationGuide.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "ImplementationGuide.fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt
+  "ImplementationGuide.url" : for src.url make tgt.url 
+  "ImplementationGuide.version" : for src.version make tgt.version 
+  "ImplementationGuide.name" : for src.name make tgt.name 
+  "ImplementationGuide.status" : for src.status make tgt.status 
+  "ImplementationGuide.experimental" : for src.experimental make tgt.experimental 
+  "ImplementationGuide.date" : for src.date make tgt.date 
+  "ImplementationGuide.publisher" : for src.publisher make tgt.publisher 
+  "ImplementationGuide.contact" : for src.contact make tgt.contact 
+  "ImplementationGuide.description" : for src.description make tgt.description 
+  "ImplementationGuide.useContext" : for src.useContext make tgt.useContext 
+  "ImplementationGuide.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "ImplementationGuide.copyright" : for src.copyright make tgt.copyright 
+  "ImplementationGuide.fhirVersion" : for src.fhirVersion make tgt.fhirVersion 
   "ImplementationGuide.dependsOn" : for src.dependency as vs0 make tgt.dependsOn as vt0 then {
   }
   "ImplementationGuide.global" : for src.global as vs0 make tgt.global as vt0 then {
-    "ImplementationGuide.global.type" : for vs0.type as vs make vt0.type as vt
+    "ImplementationGuide.global.type" : for vs0.type make vt0.type 
   }
 endgroup
 

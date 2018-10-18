@@ -8,11 +8,11 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Ratio extends Element
+group for type+types Ratio extends Element
   input src : RatioR3 as source
   input tgt : Ratio as target
 
-  "Ratio.numerator" : for src.numerator as vs make tgt.numerator as vt
-  "Ratio.denominator" : for src.denominator as vs make tgt.denominator as vt
+  "Ratio.numerator" : for src.numerator make tgt.numerator 
+  "Ratio.denominator" : for src.denominator make tgt.denominator 
 endgroup
 

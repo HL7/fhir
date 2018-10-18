@@ -10,7 +10,7 @@ group for type+types Narrative extends Element
   input src : Narrative as source
   input tgt : NarrativeR3 as target
 
-  "Narrative.status" : for src.status as vs make tgt.status as vt
-//  "Narrative.div" : for src.div as vs make tgt.div as vt
+  "Narrative.status" : for src.status make tgt.status 
+  "Narrative.div" : for src.div make tgt.div 
 endgroup
 

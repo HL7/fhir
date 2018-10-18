@@ -8,17 +8,17 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group PaymentNotice extends DomainResource
+group for type+types PaymentNotice extends DomainResource
   input src : PaymentNotice as source
   input tgt : PaymentNoticeR3 as target
 
-  "PaymentNotice.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "PaymentNotice.status" : for src.status as vs make tgt.status as vt
-  "PaymentNotice.request" : for src.request as vs make tgt.request as vt
-  "PaymentNotice.response" : for src.response as vs make tgt.response as vt
-  "PaymentNotice.statusDate" : for src.statusDate as vs make tgt.statusDate as vt
-  "PaymentNotice.created" : for src.created as vs make tgt.created as vt
-  "PaymentNotice.target" : for src.target as vs make tgt.target as vt
-  "PaymentNotice.provider" : for src.provider as vs make tgt.provider as vt
+  "PaymentNotice.identifier" : for src.identifier make tgt.identifier 
+  "PaymentNotice.status" : for src.status make tgt.status 
+  "PaymentNotice.request" : for src.request make tgt.request 
+  "PaymentNotice.response" : for src.response make tgt.response 
+  "PaymentNotice.statusDate" : for src.statusDate make tgt.statusDate 
+  "PaymentNotice.created" : for src.created make tgt.created 
+  "PaymentNotice.target" : for src.target make tgt.target 
+  "PaymentNotice.provider" : for src.provider make tgt.provider 
 endgroup
 

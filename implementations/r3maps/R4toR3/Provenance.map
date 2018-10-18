@@ -8,25 +8,25 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Provenance extends DomainResource
+group for type+types Provenance extends DomainResource
   input src : Provenance as source
   input tgt : ProvenanceR3 as target
 
-  "Provenance.target" : for src.target as vs make tgt.target as vt
-  "Provenance.period" : for src.occurredPeriod as vs make tgt.period as vt
-  "Provenance.recorded" : for src.recorded as vs make tgt.recorded as vt
-  "Provenance.policy" : for src.policy as vs make tgt.policy as vt
-  "Provenance.location" : for src.location as vs make tgt.location as vt
-  "Provenance.activity" : for src.activity as vs make tgt.activity as vt
+  "Provenance.target" : for src.target make tgt.target 
+  "Provenance.period" : for src.occurredPeriod make tgt.period 
+  "Provenance.recorded" : for src.recorded make tgt.recorded 
+  "Provenance.policy" : for src.policy make tgt.policy 
+  "Provenance.location" : for src.location make tgt.location 
+  "Provenance.activity" : for src.activity make tgt.activity 
   "Provenance.agent" : for src.agent as vs0 make tgt.agent as vt0 then {
-    "Provenance.agent.role" : for vs0.role as vs make vt0.role as vt
-    "Provenance.agent.who-Reference" : for vs0.who  : Reference as vs make vt0.who = create("Reference") as vt then Reference(vs,vt)
-    "Provenance.agent.onBehalfOf-Reference" : for vs0.onBehalfOf  : Reference as vs make vt0.onBehalfOf = create("Reference") as vt then Reference(vs,vt)
+    "Provenance.agent.role" : for vs0.role make vt0.role 
+    "Provenance.agent.who-Reference" : for vs0.who : Reference as vs make vt0.who = create("Reference") as vt then Reference(vs,vt)
+    "Provenance.agent.onBehalfOf-Reference" : for vs0.onBehalfOf : Reference as vs make vt0.onBehalfOf = create("Reference") as vt then Reference(vs,vt)
   }
   "Provenance.entity" : for src.entity as vs0 make tgt.entity as vt0 then {
-    "Provenance.entity.role" : for vs0.role as vs make vt0.role as vt
-    "Provenance.entity.what-Reference" : for vs0.what  : Reference as vs make vt0.what = create("Reference") as vt then Reference(vs,vt)
+    "Provenance.entity.role" : for vs0.role make vt0.role 
+    "Provenance.entity.what-Reference" : for vs0.what : Reference as vs make vt0.what = create("Reference") as vt then Reference(vs,vt)
   }
-  "Provenance.signature" : for src.signature as vs make tgt.signature as vt
+  "Provenance.signature" : for src.signature make tgt.signature 
 endgroup
 

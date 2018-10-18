@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group RequestGroup extends DomainResource
+group for type+types RequestGroup extends DomainResource
   input src : RequestGroupR3 as source
   input tgt : RequestGroup as target
 
@@ -32,7 +32,7 @@ group RequestGroup extends DomainResource
   "RequestGroup.action": for src.action as s make tgt.action as t then RequestGroupAction(s,t)
 endgroup
 
-group RequestGroupAction extends BackboneElement
+group for type+types RequestGroupAction extends BackboneElement
   input src : RequestGroupR3 as source
   input tgt : RequestGroup as target
 
@@ -56,7 +56,7 @@ group RequestGroupAction extends BackboneElement
   "RequestGroup.action.action": for src.action make tgt.action
 endgroup
 
-group RequestGroupActionCondition extends BackboneElement
+group for type+types RequestGroupActionCondition extends BackboneElement
   input src : RequestGroupR3 as source
   input tgt : RequestGroup as target
 
@@ -66,7 +66,7 @@ group RequestGroupActionCondition extends BackboneElement
   "RequestGroup.action.condition.expression": for src.expression make tgt.expression
 endgroup
 
-group RequestGroupActionRelatedAction extends BackboneElement
+group for type+types RequestGroupActionRelatedAction extends BackboneElement
   input src : RequestGroupR3 as source
   input tgt : RequestGroup as target
 

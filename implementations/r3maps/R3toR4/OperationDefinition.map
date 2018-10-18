@@ -8,41 +8,59 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group OperationDefinition extends DomainResource
+group for type+types OperationDefinition extends DomainResource
   input src : OperationDefinitionR3 as source
   input tgt : OperationDefinition as target
 
-  "OperationDefinition.url" : for src.url as vs make tgt.url as vt
-  "OperationDefinition.version" : for src.version as vs make tgt.version as vt
-  "OperationDefinition.name" : for src.name as vs make tgt.name as vt
-  "OperationDefinition.status" : for src.status as vs make tgt.status as vt
-  "OperationDefinition.kind" : for src.kind as vs make tgt.kind as vt
-  "OperationDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "OperationDefinition.date" : for src.date as vs make tgt.date as vt
-  "OperationDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "OperationDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "OperationDefinition.description" : for src.description as vs make tgt.description as vt
-  "OperationDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "OperationDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "OperationDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "OperationDefinition.code" : for src.code as vs make tgt.code as vt
+  "OperationDefinition.url" : for src.url make tgt.url 
+  "OperationDefinition.version" : for src.version make tgt.version 
+  "OperationDefinition.name" : for src.name make tgt.name 
+  "OperationDefinition.status" : for src.status make tgt.status 
+  "OperationDefinition.kind" : for src.kind make tgt.kind 
+  "OperationDefinition.experimental" : for src.experimental make tgt.experimental 
+  "OperationDefinition.date" : for src.date make tgt.date 
+  "OperationDefinition.publisher" : for src.publisher make tgt.publisher 
+  "OperationDefinition.contact" : for src.contact make tgt.contact 
+  "OperationDefinition.description" : for src.description make tgt.description 
+  "OperationDefinition.useContext" : for src.useContext make tgt.useContext 
+  "OperationDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "OperationDefinition.purpose" : for src.purpose make tgt.purpose 
+  "OperationDefinition.affectsState" : for src.idempotent make tgt.affectsState 
+  "OperationDefinition.code" : for src.code make tgt.code 
   "OperationDefinition.comment" : for src.comment as vs make tgt.comment as vt then stringToMarkdown(vs, vt)
-  "OperationDefinition.resource" : for src.resource as vs make tgt.resource as vt
-  "OperationDefinition.system" : for src.system as vs make tgt.system as vt
-  "OperationDefinition.type" : for src.type as vs make tgt.type as vt
-  "OperationDefinition.instance" : for src.instance as vs make tgt.instance as vt
-  "OperationDefinition.parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
-    "OperationDefinition.parameter.name" : for vs0.name as vs make vt0.name as vt
-    "OperationDefinition.parameter.use" : for vs0.use as vs make vt0.use as vt
-    "OperationDefinition.parameter.min" : for vs0.min as vs make vt0.min as vt
-    "OperationDefinition.parameter.max" : for vs0.max as vs make vt0.max as vt
-    "OperationDefinition.parameter.documentation" : for vs0.documentation as vs make vt0.documentation as vt
-    "OperationDefinition.parameter.type" : for vs0.type as vs make vt0.type as vt
-    "OperationDefinition.parameter.searchType" : for vs0.searchType as vs make vt0.searchType as vt
-  }
+  "OperationDefinition.base" : for src.base make tgt.base
+  "OperationDefinition.resource" : for src.resource make tgt.resource 
+  "OperationDefinition.system" : for src.system make tgt.system 
+  "OperationDefinition.type" : for src.type make tgt.type 
+  "OperationDefinition.instance" : for src.instance make tgt.instance 
+  "OperationDefinition.parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then parameter(vs0, vt0)
   "OperationDefinition.overload" : for src.overload as vs0 make tgt.overload as vt0 then {
-    "OperationDefinition.overload.parameterName" : for vs0.parameterName as vs make vt0.parameterName as vt
-    "OperationDefinition.overload.comment" : for vs0.comment as vs make vt0.comment as vt
+    "OperationDefinition.overload.parameterName" : for vs0.parameterName make vt0.parameterName 
+    "OperationDefinition.overload.comment" : for vs0.comment make vt0.comment 
   }
 endgroup
 
+group parameter extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "OperationDefinition.parameter.name" : for src.name make tgt.name 
+  "OperationDefinition.parameter.use" : for src.use make tgt.use 
+  "OperationDefinition.parameter.min" : for src.min make tgt.min 
+  "OperationDefinition.parameter.max" : for src.max make tgt.max 
+  "OperationDefinition.parameter.documentation" : for src.documentation make tgt.documentation 
+  "OperationDefinition.parameter.type" : for src.type make tgt.type 
+  "OperationDefinition.parameter.searchType" : for src.searchType make tgt.searchType 
+  "OperationDefinition.parameter.profile" : for src.profile make tgt.targetProfile
+  "OperationDefinition.parameter.binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
+  "OperationDefinition.parameter.part" : for src.part as vs0 make tgt.part as vt0 then parameter(vs0, vt0)
+endgroup
+
+group binding extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "OperationDefinition.parameter.binding.strength" : for src.strength make tgt.strength 
+  "OperationDefinition.parameter.binding.valueSetU" : for src.valueSet : uri as vs0 make tgt.valueSet as vt0 then uri2Canonical(vs0, vt0)
+  "OperationDefinition.parameter.binding.valueSetR" : for src.valueSet : Reference as vs0 make tgt.valueSet as vt0 then Reference2Canonical(vs0, vt0)
+endgroup

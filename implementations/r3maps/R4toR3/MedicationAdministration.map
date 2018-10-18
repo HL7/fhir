@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicationAdministration extends DomainResource
+group for type+types MedicationAdministration extends DomainResource
   input src : MedicationAdministrationR3 as source
   input tgt : MedicationAdministration as target
 
@@ -33,7 +33,7 @@ group MedicationAdministration extends DomainResource
   "MedicationAdministration.eventHistory": for src.eventHistory make tgt.eventHistory
 endgroup
 
-group MedicationAdministrationPerformer extends BackboneElement
+group for type+types MedicationAdministrationPerformer extends BackboneElement
   input src : MedicationAdministrationR3 as source
   input tgt : MedicationAdministration as target
 
@@ -41,7 +41,7 @@ group MedicationAdministrationPerformer extends BackboneElement
   "MedicationAdministration.performer.actor": for src.actor make tgt.actor
 endgroup
 
-group MedicationAdministrationDosage extends BackboneElement
+group for type+types MedicationAdministrationDosage extends BackboneElement
   input src : MedicationAdministrationR3 as source
   input tgt : MedicationAdministration as target
 

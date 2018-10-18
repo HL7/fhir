@@ -8,34 +8,34 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Appointment extends DomainResource
+group for type+types Appointment extends DomainResource
   input src : Appointment as source
   input tgt : AppointmentR3 as target
 
-  "Appointment.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Appointment.status" : for src.status as vs make tgt.status as vt
-  "Appointment.serviceCategory" : for src.serviceCategoryFirstRep as vs make tgt.serviceCategory as vt
-  "Appointment.serviceType" : for src.serviceType as vs make tgt.serviceType as vt
-  "Appointment.specialty" : for src.specialty as vs make tgt.specialty as vt
-  "Appointment.appointmentType" : for src.appointmentType as vs make tgt.appointmentType as vt
-  "Appointment.reason" : for src.reason as vs make tgt.reason as vt
-  "Appointment.indication" : for src.indication as vs make tgt.indication as vt
-  "Appointment.priority" : for src.priority as vs make tgt.priority as vt
-  "Appointment.description" : for src.description as vs make tgt.description as vt
-  "Appointment.supportingInformation" : for src.supportingInformation as vs make tgt.supportingInformation as vt
-  "Appointment.start" : for src.start as vs make tgt.start as vt
-  "Appointment.end" : for src.end as vs make tgt.end as vt
-  "Appointment.minutesDuration" : for src.minutesDuration as vs make tgt.minutesDuration as vt
-  "Appointment.slot" : for src.slot as vs make tgt.slot as vt
-  "Appointment.created" : for src.created as vs make tgt.created as vt
-  "Appointment.comment" : for src.comment as vs make tgt.comment as vt
-  "Appointment.incomingReferral" : for src.basedOn as vs make tgt.incomingReferral as vt
+  "Appointment.identifier" : for src.identifier make tgt.identifier 
+  "Appointment.status" : for src.status make tgt.status 
+  "Appointment.serviceCategory" : for src.serviceCategoryFirstRep make tgt.serviceCategory 
+  "Appointment.serviceType" : for src.serviceType make tgt.serviceType 
+  "Appointment.specialty" : for src.specialty make tgt.specialty 
+  "Appointment.appointmentType" : for src.appointmentType make tgt.appointmentType 
+  "Appointment.reason" : for src.reason make tgt.reason 
+  "Appointment.indication" : for src.indication make tgt.indication 
+  "Appointment.priority" : for src.priority make tgt.priority 
+  "Appointment.description" : for src.description make tgt.description 
+  "Appointment.supportingInformation" : for src.supportingInformation make tgt.supportingInformation 
+  "Appointment.start" : for src.start make tgt.start 
+  "Appointment.end" : for src.end make tgt.end 
+  "Appointment.minutesDuration" : for src.minutesDuration make tgt.minutesDuration 
+  "Appointment.slot" : for src.slot make tgt.slot 
+  "Appointment.created" : for src.created make tgt.created 
+  "Appointment.comment" : for src.comment make tgt.comment 
+  "Appointment.incomingReferral" : for src.basedOn make tgt.incomingReferral 
   "Appointment.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Appointment.participant.type" : for vs0.type as vs make vt0.type as vt
-    "Appointment.participant.actor" : for vs0.actor as vs make vt0.actor as vt
-    "Appointment.participant.required" : for vs0.required as vs make vt0.required as vt
-    "Appointment.participant.status" : for vs0.status as vs make vt0.status as vt
+    "Appointment.participant.type" : for vs0.type make vt0.type 
+    "Appointment.participant.actor" : for vs0.actor make vt0.actor 
+    "Appointment.participant.required" : for vs0.required make vt0.required 
+    "Appointment.participant.status" : for vs0.status make vt0.status 
   }
-  "Appointment.requestedPeriod" : for src.requestedPeriod as vs make tgt.requestedPeriod as vt
+  "Appointment.requestedPeriod" : for src.requestedPeriod make tgt.requestedPeriod 
 endgroup
 

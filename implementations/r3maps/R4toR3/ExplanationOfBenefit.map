@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ExplanationOfBenefit extends DomainResource
+group for type+types ExplanationOfBenefit extends DomainResource
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -49,7 +49,7 @@ group ExplanationOfBenefit extends DomainResource
   "ExplanationOfBenefit.benefitBalance": for src.benefitBalance as s make tgt.benefitBalance as t then ExplanationOfBenefitBenefitBalance(s,t)
 endgroup
 
-group ExplanationOfBenefitRelated extends BackboneElement
+group for type+types ExplanationOfBenefitRelated extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -58,7 +58,7 @@ group ExplanationOfBenefitRelated extends BackboneElement
   "ExplanationOfBenefit.related.reference": for src.reference make tgt.reference
 endgroup
 
-group ExplanationOfBenefitPayee extends BackboneElement
+group for type+types ExplanationOfBenefitPayee extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -67,7 +67,7 @@ group ExplanationOfBenefitPayee extends BackboneElement
   "ExplanationOfBenefit.payee.party": for src.party make tgt.party
 endgroup
 
-group ExplanationOfBenefitInformation extends BackboneElement
+group for type+types ExplanationOfBenefitInformation extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -79,7 +79,7 @@ group ExplanationOfBenefitInformation extends BackboneElement
   "ExplanationOfBenefit.information.reason": for src.reason make tgt.reason
 endgroup
 
-group ExplanationOfBenefitCareTeam extends BackboneElement
+group for type+types ExplanationOfBenefitCareTeam extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -90,7 +90,7 @@ group ExplanationOfBenefitCareTeam extends BackboneElement
   "ExplanationOfBenefit.careTeam.qualification": for src.qualification make tgt.qualification
 endgroup
 
-group ExplanationOfBenefitDiagnosis extends BackboneElement
+group for type+types ExplanationOfBenefitDiagnosis extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -100,7 +100,7 @@ group ExplanationOfBenefitDiagnosis extends BackboneElement
   "ExplanationOfBenefit.diagnosis.packageCode": for src.packageCode make tgt.packageCode
 endgroup
 
-group ExplanationOfBenefitProcedure extends BackboneElement
+group for type+types ExplanationOfBenefitProcedure extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -109,7 +109,7 @@ group ExplanationOfBenefitProcedure extends BackboneElement
   "ExplanationOfBenefit.procedure.procedure": for src.procedure make tgt.procedure
 endgroup
 
-group ExplanationOfBenefitInsurance extends BackboneElement
+group for type+types ExplanationOfBenefitInsurance extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -117,7 +117,7 @@ group ExplanationOfBenefitInsurance extends BackboneElement
   "ExplanationOfBenefit.insurance.preAuthRef": for src.preAuthRef make tgt.preAuthRef
 endgroup
 
-group ExplanationOfBenefitAccident extends BackboneElement
+group for type+types ExplanationOfBenefitAccident extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -126,7 +126,7 @@ group ExplanationOfBenefitAccident extends BackboneElement
   "ExplanationOfBenefit.accident.location": for src.location make tgt.location
 endgroup
 
-group ExplanationOfBenefitItem extends BackboneElement
+group for type+types ExplanationOfBenefitItem extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -155,7 +155,7 @@ group ExplanationOfBenefitItem extends BackboneElement
   "ExplanationOfBenefit.item.detail": for src.detail as s make tgt.detail as t then ExplanationOfBenefitItemDetail(s,t)
 endgroup
 
-group ExplanationOfBenefitItemAdjudication extends BackboneElement
+group for type+types ExplanationOfBenefitItemAdjudication extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -165,7 +165,7 @@ group ExplanationOfBenefitItemAdjudication extends BackboneElement
   "ExplanationOfBenefit.item.adjudication.value": for src.value make tgt.value
 endgroup
 
-group ExplanationOfBenefitItemDetail extends BackboneElement
+group for type+types ExplanationOfBenefitItemDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -185,7 +185,7 @@ group ExplanationOfBenefitItemDetail extends BackboneElement
   "ExplanationOfBenefit.item.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ExplanationOfBenefitItemDetailSubDetail(s,t)
 endgroup
 
-group ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
+group for type+types ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -204,7 +204,7 @@ group ExplanationOfBenefitItemDetailSubDetail extends BackboneElement
   "ExplanationOfBenefit.item.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
 endgroup
 
-group ExplanationOfBenefitAddItem extends BackboneElement
+group for type+types ExplanationOfBenefitAddItem extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -227,7 +227,7 @@ group ExplanationOfBenefitAddItem extends BackboneElement
   "ExplanationOfBenefit.addItem.detail": for src.detail as s make tgt.detail as t then ExplanationOfBenefitAddItemDetail(s,t)
 endgroup
 
-group ExplanationOfBenefitAddItemDetail extends BackboneElement
+group for type+types ExplanationOfBenefitAddItemDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -243,7 +243,7 @@ group ExplanationOfBenefitAddItemDetail extends BackboneElement
   "ExplanationOfBenefit.addItem.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ExplanationOfBenefitAddItemDetailSubDetail(s,t)
 endgroup
 
-group ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
+group for type+types ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -258,7 +258,7 @@ group ExplanationOfBenefitAddItemDetailSubDetail extends BackboneElement
   "ExplanationOfBenefit.addItem.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
 endgroup
 
-group ExplanationOfBenefitTotal extends BackboneElement
+group for type+types ExplanationOfBenefitTotal extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -266,7 +266,7 @@ group ExplanationOfBenefitTotal extends BackboneElement
   "ExplanationOfBenefit.total.amount": for src.amount make tgt.amount
 endgroup
 
-group ExplanationOfBenefitPayment extends BackboneElement
+group for type+types ExplanationOfBenefitPayment extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -278,7 +278,7 @@ group ExplanationOfBenefitPayment extends BackboneElement
   "ExplanationOfBenefit.payment.identifier": for src.identifier make tgt.identifier
 endgroup
 
-group ExplanationOfBenefitProcessNote extends BackboneElement
+group for type+types ExplanationOfBenefitProcessNote extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -288,7 +288,7 @@ group ExplanationOfBenefitProcessNote extends BackboneElement
   "ExplanationOfBenefit.processNote.language": for src.language make tgt.language
 endgroup
 
-group ExplanationOfBenefitBenefitBalance extends BackboneElement
+group for type+types ExplanationOfBenefitBenefitBalance extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 
@@ -302,7 +302,7 @@ group ExplanationOfBenefitBenefitBalance extends BackboneElement
   "ExplanationOfBenefit.benefitBalance.financial": for src.financial as s make tgt.financial as t then ExplanationOfBenefitBenefitBalanceFinancial(s,t)
 endgroup
 
-group ExplanationOfBenefitBenefitBalanceFinancial extends BackboneElement
+group for type+types ExplanationOfBenefitBenefitBalanceFinancial extends BackboneElement
   input src : ExplanationOfBenefitR3 as source
   input tgt : ExplanationOfBenefit as target
 

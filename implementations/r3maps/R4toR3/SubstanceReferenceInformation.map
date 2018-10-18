@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group SubstanceReferenceInformation extends DomainResource
+group for type+types SubstanceReferenceInformation extends DomainResource
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -20,7 +20,7 @@ group SubstanceReferenceInformation extends DomainResource
   "SubstanceReferenceInformation.target": for src.target as s make tgt.target as t then SubstanceReferenceInformationTarget(s,t)
 endgroup
 
-group SubstanceReferenceInformationGene extends BackboneElement
+group for type+types SubstanceReferenceInformationGene extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -29,7 +29,7 @@ group SubstanceReferenceInformationGene extends BackboneElement
   "SubstanceReferenceInformation.gene.source": for src.source make tgt.source
 endgroup
 
-group SubstanceReferenceInformationGeneElement extends BackboneElement
+group for type+types SubstanceReferenceInformationGeneElement extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -38,7 +38,7 @@ group SubstanceReferenceInformationGeneElement extends BackboneElement
   "SubstanceReferenceInformation.geneElement.source": for src.source make tgt.source
 endgroup
 
-group SubstanceReferenceInformationClassification extends BackboneElement
+group for type+types SubstanceReferenceInformationClassification extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -48,7 +48,7 @@ group SubstanceReferenceInformationClassification extends BackboneElement
   "SubstanceReferenceInformation.classification.source": for src.source make tgt.source
 endgroup
 
-group SubstanceReferenceInformationRelationship extends BackboneElement
+group for type+types SubstanceReferenceInformationRelationship extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -62,7 +62,7 @@ group SubstanceReferenceInformationRelationship extends BackboneElement
   "SubstanceReferenceInformation.relationship.source": for src.source make tgt.source
 endgroup
 
-group SubstanceReferenceInformationTarget extends BackboneElement
+group for type+types SubstanceReferenceInformationTarget extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 

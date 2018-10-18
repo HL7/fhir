@@ -8,26 +8,26 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group SupplyDelivery extends DomainResource
+group for type+types SupplyDelivery extends DomainResource
   input src : SupplyDelivery as source
   input tgt : SupplyDeliveryR3 as target
 
-  "SupplyDelivery.identifier" : for src.identifierFirstRep as vs make tgt.identifier as vt
-  "SupplyDelivery.basedOn" : for src.basedOn as vs make tgt.basedOn as vt
-  "SupplyDelivery.partOf" : for src.partOf as vs make tgt.partOf as vt
-  "SupplyDelivery.status" : for src.status as vs make tgt.status as vt
-  "SupplyDelivery.patient" : for src.patient as vs make tgt.patient as vt
-  "SupplyDelivery.type" : for src.type as vs make tgt.type as vt
+  "SupplyDelivery.identifier" : for src.identifierFirstRep make tgt.identifier 
+  "SupplyDelivery.basedOn" : for src.basedOn make tgt.basedOn 
+  "SupplyDelivery.partOf" : for src.partOf make tgt.partOf 
+  "SupplyDelivery.status" : for src.status make tgt.status 
+  "SupplyDelivery.patient" : for src.patient make tgt.patient 
+  "SupplyDelivery.type" : for src.type make tgt.type 
   "SupplyDelivery.suppliedItem" : for src.suppliedItem as vs0 make tgt.suppliedItem as vt0 then {
-    "SupplyDelivery.suppliedItem.quantity" : for vs0.quantity as vs make vt0.quantity as vt
-    "SupplyDelivery.suppliedItem.item-CodeableConcept" : for vs0.item  : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "SupplyDelivery.suppliedItem.item-Reference" : for vs0.item  : Reference as vs make vt0.item = create("Reference") as vt then Reference(vs,vt)
+    "SupplyDelivery.suppliedItem.quantity" : for vs0.quantity make vt0.quantity 
+    "SupplyDelivery.suppliedItem.item-CodeableConcept" : for vs0.item : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "SupplyDelivery.suppliedItem.item-Reference" : for vs0.item : Reference as vs make vt0.item = create("Reference") as vt then Reference(vs,vt)
   }
-  "SupplyDelivery.occurrence-dateTime" : for src.occurrence  : dateTime as vs make tgt.occurrence = create("dateTime") as vt then dateTime(vs,vt)
-  "SupplyDelivery.occurrence-Period" : for src.occurrence  : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs,vt)
-  "SupplyDelivery.occurrence-Timing" : for src.occurrence  : Timing as vs make tgt.occurrence = create("Timing") as vt then Timing(vs,vt)
-  "SupplyDelivery.supplier" : for src.supplier as vs make tgt.supplier as vt
-  "SupplyDelivery.destination" : for src.destination as vs make tgt.destination as vt
-  "SupplyDelivery.receiver" : for src.receiver as vs make tgt.receiver as vt
+  "SupplyDelivery.occurrence-dateTime" : for src.occurrence : dateTime as vs make tgt.occurrence = create("dateTime") as vt then dateTime(vs,vt)
+  "SupplyDelivery.occurrence-Period" : for src.occurrence : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs,vt)
+  "SupplyDelivery.occurrence-Timing" : for src.occurrence : Timing as vs make tgt.occurrence = create("Timing") as vt then Timing(vs,vt)
+  "SupplyDelivery.supplier" : for src.supplier make tgt.supplier 
+  "SupplyDelivery.destination" : for src.destination make tgt.destination 
+  "SupplyDelivery.receiver" : for src.receiver make tgt.receiver 
 endgroup
 

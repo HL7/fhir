@@ -32,6 +32,9 @@ package org.hl7.fhir.r4.model;
 // Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r4.formats.FormatUtilities;
+import org.hl7.fhir.utilities.xhtml.NodeType;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class ResourceFactory extends Factory {
 
@@ -452,9 +455,10 @@ public class ResourceFactory extends Factory {
         if ("unsignedInt".equals(name))
             return new UnsignedIntType();
         if ("time".equals(name))
-            return new TimeType();
-        else
-            throw new FHIRException("Unknown Type Name '"+name+"'");
+          return new TimeType();
+        if ("xhtml".equals(name))
+          return new XhtmlType();
+       throw new FHIRException("Unknown Type Name '"+name+"'");
     }
 
     public static Base createResourceOrType(String name) throws FHIRException {
@@ -665,8 +669,9 @@ public class ResourceFactory extends Factory {
         case 116076: return new UriType();
         case 116079: return new UrlType();
         case 3601339: return new UuidType();
+        case 114035747: return new XhtmlType();
       default:
-        throw new FHIRException("Unknown Resource or Type Name '"+name+"'");
+        throw new FHIRException("Unknown Resource or Type Name '"+name+"' ("+name.hashCode()+")");
     }
   }
 

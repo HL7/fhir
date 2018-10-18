@@ -2,15 +2,15 @@
 
 
 uses "http://hl7.org/fhir/3.0/StructureDefinition/RequestGroup" alias RequestGroupR3 as source
-uses "http://hl7.org/fhir/StructureDefinition/RequestGroup" alias RequestGroup as target
+uses "http://hl7.org/fhir/StructureDefinition/RequestGroup" alias Requestgroup as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group RequestGroup extends DomainResource
+group for type+types Requestgroup extends DomainResource
   input src : RequestGroupR3 as source
-  input tgt : RequestGroup as target
+  input tgt : Requestgroup as target
 
   "RequestGroup.identifier": for src.identifier make tgt.identifier
   "RequestGroup.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
@@ -33,9 +33,9 @@ group RequestGroup extends DomainResource
 endgroup
 
 
-group RequestGroupAction extends BackboneElement
+group for type+types RequestGroupAction extends BackboneElement
   input src : RequestGroupR3 as source
-  input tgt : RequestGroup as target
+  input tgt : Requestgroup as target
 
   "RequestGroup.action.prefix": for src.prefix make tgt.prefix
   "RequestGroup.action.title": for src.title make tgt.title
@@ -58,9 +58,9 @@ group RequestGroupAction extends BackboneElement
 endgroup
 
 
-group RequestGroupActionCondition extends BackboneElement
+group for type+types RequestGroupActionCondition extends BackboneElement
   input src : RequestGroupR3 as source
-  input tgt : RequestGroup as target
+  input tgt : Requestgroup as target
 
   "RequestGroup.action.condition.kind": for src.kind make tgt.kind
   "RequestGroup.action.condition.description": for src.description make tgt.description
@@ -69,9 +69,9 @@ group RequestGroupActionCondition extends BackboneElement
 endgroup
 
 
-group RequestGroupActionRelatedAction extends BackboneElement
+group for type+types RequestGroupActionRelatedAction extends BackboneElement
   input src : RequestGroupR3 as source
-  input tgt : RequestGroup as target
+  input tgt : Requestgroup as target
 
   "RequestGroup.action.relatedAction.actionId": for src.actionId make tgt.actionId
   "RequestGroup.action.relatedAction.relationship": for src.relationship make tgt.relationship

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group OccupationalData extends DomainResource
+group for type+types OccupationalData extends DomainResource
   input src : OccupationalDataR3 as source
   input tgt : OccupationalData as target
 
@@ -26,7 +26,7 @@ group OccupationalData extends DomainResource
 endgroup
 
 
-group OccupationalDataEmploymentStatus extends BackboneElement
+group for type+types OccupationalDataEmploymentStatus extends BackboneElement
   input src : OccupationalDataR3 as source
   input tgt : OccupationalData as target
 
@@ -35,7 +35,7 @@ group OccupationalDataEmploymentStatus extends BackboneElement
 endgroup
 
 
-group OccupationalDataUsualWork extends BackboneElement
+group for type+types OccupationalDataUsualWork extends BackboneElement
   input src : OccupationalDataR3 as source
   input tgt : OccupationalData as target
 
@@ -46,7 +46,7 @@ group OccupationalDataUsualWork extends BackboneElement
 endgroup
 
 
-group OccupationalDataPastOrPresentJob extends BackboneElement
+group for type+types OccupationalDataPastOrPresentJob extends BackboneElement
   input src : OccupationalDataR3 as source
   input tgt : OccupationalData as target
 
@@ -62,7 +62,7 @@ group OccupationalDataPastOrPresentJob extends BackboneElement
 endgroup
 
 
-group OccupationalDataPastOrPresentJobWorkSchedule extends BackboneElement
+group for type+types OccupationalDataPastOrPresentJobWorkSchedule extends BackboneElement
   input src : OccupationalDataR3 as source
   input tgt : OccupationalData as target
 

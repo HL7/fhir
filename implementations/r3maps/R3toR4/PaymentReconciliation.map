@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group PaymentReconciliation extends DomainResource
+group for type+types PaymentReconciliation extends DomainResource
   input src : PaymentReconciliationR3 as source
   input tgt : PaymentReconciliation as target
 
@@ -28,7 +28,7 @@ group PaymentReconciliation extends DomainResource
 endgroup
 
 
-group PaymentReconciliationDetail extends BackboneElement
+group for type+types PaymentReconciliationDetail extends BackboneElement
   input src : PaymentReconciliationR3 as source
   input tgt : PaymentReconciliation as target
 
@@ -42,7 +42,7 @@ group PaymentReconciliationDetail extends BackboneElement
 endgroup
 
 
-group PaymentReconciliationProcessNote extends BackboneElement
+group for type+types PaymentReconciliationProcessNote extends BackboneElement
   input src : PaymentReconciliationR3 as source
   input tgt : PaymentReconciliation as target
 

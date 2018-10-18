@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicinalProduct extends DomainResource
+group for type+types MedicinalProduct extends DomainResource
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -35,7 +35,7 @@ group MedicinalProduct extends DomainResource
 endgroup
 
 
-group MedicinalProductName extends BackboneElement
+group for type+types MedicinalProductName extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -45,7 +45,7 @@ group MedicinalProductName extends BackboneElement
 endgroup
 
 
-group MedicinalProductNameNamePart extends BackboneElement
+group for type+types MedicinalProductNameNamePart extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -54,7 +54,7 @@ group MedicinalProductNameNamePart extends BackboneElement
 endgroup
 
 
-group MedicinalProductNameCountryLanguage extends BackboneElement
+group for type+types MedicinalProductNameCountryLanguage extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -64,7 +64,7 @@ group MedicinalProductNameCountryLanguage extends BackboneElement
 endgroup
 
 
-group MedicinalProductManufacturingBusinessOperation extends BackboneElement
+group for type+types MedicinalProductManufacturingBusinessOperation extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -77,7 +77,7 @@ group MedicinalProductManufacturingBusinessOperation extends BackboneElement
 endgroup
 
 
-group MedicinalProductOrphanDesignation extends BackboneElement
+group for type+types MedicinalProductOrphanDesignation extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 

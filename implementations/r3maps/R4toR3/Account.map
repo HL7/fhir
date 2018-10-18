@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Account extends DomainResource
+group for type+types Account extends DomainResource
   input src : AccountR3 as source
   input tgt : Account as target
 
@@ -25,7 +25,7 @@ group Account extends DomainResource
   "Account.partOf": for src.partOf make tgt.partOf
 endgroup
 
-group AccountCoverage extends BackboneElement
+group for type+types AccountCoverage extends BackboneElement
   input src : AccountR3 as source
   input tgt : Account as target
 
@@ -34,7 +34,7 @@ group AccountCoverage extends BackboneElement
 
 endgroup
 
-group AccountGuarantor extends BackboneElement
+group for type+types AccountGuarantor extends BackboneElement
   input src : AccountR3 as source
   input tgt : Account as target
 

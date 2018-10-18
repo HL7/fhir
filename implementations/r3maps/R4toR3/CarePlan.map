@@ -6,7 +6,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/CarePlan" alias CarePlanR3 as 
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group CarePlan extends DomainResource
+group for type+types CarePlan extends DomainResource
   input src : CarePlanR3 as source
   input tgt : CarePlan as target
 
@@ -35,7 +35,7 @@ group CarePlan extends DomainResource
   "CarePlan.note": for src.note make tgt.note
 endgroup
 
-group CarePlanActivity extends BackboneElement
+group for type+types CarePlanActivity extends BackboneElement
   input src : CarePlanR3 as source
   input tgt : CarePlan as target
 
@@ -46,7 +46,7 @@ group CarePlanActivity extends BackboneElement
   "CarePlan.activity.detail": for src.detail as s make tgt.detail as t then CarePlanActivityDetail(s,t)
 endgroup
 
-group CarePlanActivityDetail extends BackboneElement
+group for type+types CarePlanActivityDetail extends BackboneElement
   input src : CarePlanR3 as source
   input tgt : CarePlan as target
 

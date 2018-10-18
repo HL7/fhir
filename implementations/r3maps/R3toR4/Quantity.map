@@ -8,14 +8,14 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Quantity extends Element
+group for type+types Quantity extends Element
   input src : QuantityR3 as source
   input tgt : Quantity as target
 
-  "Quantity.value" : for src.value as vs make tgt.value as vt
-  "Quantity.comparator" : for src.comparator as vs make tgt.comparator as vt
-  "Quantity.unit" : for src.unit as vs make tgt.unit as vt
-  "Quantity.system" : for src.system as vs make tgt.system as vt
-  "Quantity.code" : for src.code as vs make tgt.code as vt
+  "Quantity.value" : for src.value make tgt.value 
+  "Quantity.comparator" : for src.comparator make tgt.comparator 
+  "Quantity.unit" : for src.unit make tgt.unit 
+  "Quantity.system" : for src.system make tgt.system 
+  "Quantity.code" : for src.code make tgt.code 
 endgroup
 

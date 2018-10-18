@@ -8,14 +8,14 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ContactPoint extends Element
+group for type+types ContactPoint extends Element
   input src : ContactPoint as source
   input tgt : ContactPointR3 as target
 
-  "ContactPoint.system" : for src.system as vs make tgt.system as vt
-  "ContactPoint.value" : for src.value as vs make tgt.value as vt
-  "ContactPoint.use" : for src.use as vs make tgt.use as vt
-  "ContactPoint.rank" : for src.rank as vs make tgt.rank as vt
-  "ContactPoint.period" : for src.period as vs make tgt.period as vt
+  "ContactPoint.system" : for src.system make tgt.system 
+  "ContactPoint.value" : for src.value make tgt.value 
+  "ContactPoint.use" : for src.use make tgt.use 
+  "ContactPoint.rank" : for src.rank make tgt.rank 
+  "ContactPoint.period" : for src.period make tgt.period 
 endgroup
 

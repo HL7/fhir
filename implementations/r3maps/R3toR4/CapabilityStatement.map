@@ -8,47 +8,47 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group CapabilityStatement extends DomainResource
+group for type+types CapabilityStatement extends DomainResource
   input src : CapabilityStatementR3 as source
   input tgt : CapabilityStatement as target
 
-  "CapabilityStatement.url" : for src.url as vs make tgt.url as vt
-  "CapabilityStatement.version" : for src.version as vs make tgt.version as vt
-  "CapabilityStatement.name" : for src.name as vs make tgt.name as vt
-  "CapabilityStatement.title" : for src.title as vs make tgt.title as vt
-  "CapabilityStatement.status" : for src.status as vs make tgt.status as vt
-  "CapabilityStatement.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "CapabilityStatement.date" : for src.date as vs make tgt.date as vt
-  "CapabilityStatement.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "CapabilityStatement.contact" : for src.contact as vs make tgt.contact as vt
-  "CapabilityStatement.description" : for src.description as vs make tgt.description as vt
-  "CapabilityStatement.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "CapabilityStatement.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "CapabilityStatement.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "CapabilityStatement.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "CapabilityStatement.kind" : for src.kind as vs make tgt.kind as vt
+  "CapabilityStatement.url" : for src.url make tgt.url 
+  "CapabilityStatement.version" : for src.version make tgt.version 
+  "CapabilityStatement.name" : for src.name make tgt.name 
+  "CapabilityStatement.title" : for src.title make tgt.title 
+  "CapabilityStatement.status" : for src.status make tgt.status 
+  "CapabilityStatement.experimental" : for src.experimental make tgt.experimental 
+  "CapabilityStatement.date" : for src.date make tgt.date 
+  "CapabilityStatement.publisher" : for src.publisher make tgt.publisher 
+  "CapabilityStatement.contact" : for src.contact make tgt.contact 
+  "CapabilityStatement.description" : for src.description make tgt.description 
+  "CapabilityStatement.useContext" : for src.useContext make tgt.useContext 
+  "CapabilityStatement.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "CapabilityStatement.purpose" : for src.purpose make tgt.purpose 
+  "CapabilityStatement.copyright" : for src.copyright make tgt.copyright 
+  "CapabilityStatement.kind" : for src.kind make tgt.kind 
   "CapabilityStatement.software" : for src.software as vs0 make tgt.software as vt0 then {
-    "CapabilityStatement.software.name" : for vs0.name as vs make vt0.name as vt
-    "CapabilityStatement.software.version" : for vs0.version as vs make vt0.version as vt
-    "CapabilityStatement.software.releaseDate" : for vs0.releaseDate as vs make vt0.releaseDate as vt
+    "CapabilityStatement.software.name" : for vs0.name make vt0.name 
+    "CapabilityStatement.software.version" : for vs0.version make vt0.version 
+    "CapabilityStatement.software.releaseDate" : for vs0.releaseDate make vt0.releaseDate 
   }
   "CapabilityStatement.implementation" : for src.implementation as vs0 make tgt.implementation as vt0 then {
-    "CapabilityStatement.implementation.description" : for vs0.description as vs make vt0.description as vt
+    "CapabilityStatement.implementation.description" : for vs0.description make vt0.description 
   }
-  "CapabilityStatement.fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt
-  "CapabilityStatement.format" : for src.format as vs make tgt.format as vt
-  "CapabilityStatement.patchFormat" : for src.patchFormat as vs make tgt.patchFormat as vt
+  "CapabilityStatement.fhirVersion" : for src.fhirVersion make tgt.fhirVersion 
+  "CapabilityStatement.format" : for src.format make tgt.format 
+  "CapabilityStatement.patchFormat" : for src.patchFormat make tgt.patchFormat 
   "CapabilityStatement.rest" : for src.rest as vs0 make tgt.rest as vt0 then {
-    "CapabilityStatement.rest.mode" : for vs0.mode as vs make vt0.mode as vt
-    "CapabilityStatement.rest.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+    "CapabilityStatement.rest.mode" : for vs0.mode make vt0.mode 
+    "CapabilityStatement.rest.documentation" : for vs0.documentation make vt0.documentation 
   }
   "CapabilityStatement.messaging" : for src.messaging as vs0 make tgt.messaging as vt0 then {
-    "CapabilityStatement.messaging.reliableCache" : for vs0.reliableCache as vs make vt0.reliableCache as vt
-    "CapabilityStatement.messaging.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+    "CapabilityStatement.messaging.reliableCache" : for vs0.reliableCache make vt0.reliableCache 
+    "CapabilityStatement.messaging.documentation" : for vs0.documentation make vt0.documentation 
   }
   "CapabilityStatement.document" : for src.document as vs0 make tgt.document as vt0 then {
-    "CapabilityStatement.document.mode" : for vs0.mode as vs make vt0.mode as vt
-    "CapabilityStatement.document.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+    "CapabilityStatement.document.mode" : for vs0.mode make vt0.mode 
+    "CapabilityStatement.document.documentation" : for vs0.documentation make vt0.documentation 
   }
 endgroup
 

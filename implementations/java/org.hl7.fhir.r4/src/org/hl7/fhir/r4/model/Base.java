@@ -12,6 +12,7 @@ import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBase;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
@@ -729,6 +730,8 @@ private Map<String, Object> userData;
   public XhtmlNode castToXhtml(Base b) throws FHIRException {
     if (b instanceof Element) {
       return ((Element) b).getXhtml();
+    } else if (b instanceof XhtmlType) {
+      return ((XhtmlType) b).getValue();
     } else if (b instanceof StringType) {
       try {
         return new XhtmlParser().parseFragment(((StringType) b).asStringValue());
@@ -742,6 +745,12 @@ private Map<String, Object> userData;
   public String castToXhtmlString(Base b) throws FHIRException {
     if (b instanceof Element) {
       return ((Element) b).getValue();
+    } else if (b instanceof XhtmlType) {
+      try {
+        return new XhtmlComposer(true).compose(((XhtmlType) b).getValue());
+      } catch (IOException e) {
+        return null;
+      }
     } else if (b instanceof StringType) {
       return ((StringType) b).asStringValue();
     } else

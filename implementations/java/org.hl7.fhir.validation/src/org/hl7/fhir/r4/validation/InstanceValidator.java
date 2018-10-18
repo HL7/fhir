@@ -3645,7 +3645,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           } else if (type.equals("Reference")) {
             checkReference(hostContext, errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
           // We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
-          } else if (type.equals("Extension") && ei.element.getChildValue("url").contains("/")) {
+          } else if (type.equals("Extension") && ei.element.getChildValue("url") != null && ei.element.getChildValue("url").contains("/")) {
             checkExtension(hostContext, errors, ei.path, resource, ei.element, ei.definition, profile, localStack);
           } else if (type.equals("Resource")) {
             validateContains(hostContext, errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei)); // if

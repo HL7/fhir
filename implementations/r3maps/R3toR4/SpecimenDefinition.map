@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group SpecimenDefinition extends DomainResource
+group for type+types SpecimenDefinition extends DomainResource
   input src : SpecimenDefinitionR3 as source
   input tgt : SpecimenDefinition as target
 
@@ -21,7 +21,7 @@ group SpecimenDefinition extends DomainResource
 endgroup
 
 
-group SpecimenDefinitionSpecimenToLab extends BackboneElement
+group for type+types SpecimenDefinitionSpecimenToLab extends BackboneElement
   input src : SpecimenDefinitionR3 as source
   input tgt : SpecimenDefinition as target
 
@@ -43,7 +43,7 @@ group SpecimenDefinitionSpecimenToLab extends BackboneElement
 endgroup
 
 
-group SpecimenDefinitionSpecimenToLabContainerAdditive extends BackboneElement
+group for type+types SpecimenDefinitionSpecimenToLabContainerAdditive extends BackboneElement
   input src : SpecimenDefinitionR3 as source
   input tgt : SpecimenDefinition as target
 
@@ -51,7 +51,7 @@ group SpecimenDefinitionSpecimenToLabContainerAdditive extends BackboneElement
 endgroup
 
 
-group SpecimenDefinitionSpecimenToLabHandling extends BackboneElement
+group for type+types SpecimenDefinitionSpecimenToLabHandling extends BackboneElement
   input src : SpecimenDefinitionR3 as source
   input tgt : SpecimenDefinition as target
 

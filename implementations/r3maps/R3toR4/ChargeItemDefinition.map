@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ChargeItemDefinition extends DomainResource
+group for type+types ChargeItemDefinition extends DomainResource
   input src : ChargeItemDefinitionR3 as source
   input tgt : ChargeItemDefinition as target
 
@@ -34,11 +34,11 @@ group ChargeItemDefinition extends DomainResource
   "ChargeItemDefinition.code": for src.code make tgt.code
   "ChargeItemDefinition.instance": for src.instance make tgt.instance
   "ChargeItemDefinition.applicability": for src.applicability as s make tgt.applicability as t then ChargeItemDefinitionApplicability(s,t)
-  "ChargeItemDefinition.propertyGroup": for src.propertyGroup as s make tgt.propertyGroup as t then ChargeItemDefinitionPropertyGroup(s,t)
+  "ChargeItemDefinition.propertyGroup": for src.propertygroup as s make tgt.propertygroup as t then ChargeItemDefinitionPropertyGroup(s,t)
 endgroup
 
 
-group ChargeItemDefinitionApplicability extends BackboneElement
+group for type+types ChargeItemDefinitionApplicability extends BackboneElement
   input src : ChargeItemDefinitionR3 as source
   input tgt : ChargeItemDefinition as target
 
@@ -48,7 +48,7 @@ group ChargeItemDefinitionApplicability extends BackboneElement
 endgroup
 
 
-group ChargeItemDefinitionPropertyGroup extends BackboneElement
+group for type+types ChargeItemDefinitionPropertygroup extends BackboneElement
   input src : ChargeItemDefinitionR3 as source
   input tgt : ChargeItemDefinition as target
 
@@ -57,7 +57,7 @@ group ChargeItemDefinitionPropertyGroup extends BackboneElement
 endgroup
 
 
-group ChargeItemDefinitionPropertyGroupPriceComponent extends BackboneElement
+group for type+types ChargeItemDefinitionPropertyGroupPriceComponent extends BackboneElement
   input src : ChargeItemDefinitionR3 as source
   input tgt : ChargeItemDefinition as target
 

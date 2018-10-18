@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ProductPlan extends DomainResource
+group for type+types ProductPlan extends DomainResource
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -28,7 +28,7 @@ group ProductPlan extends DomainResource
   "ProductPlan.plan": for src.plan as s make tgt.plan as t then ProductPlanPlan(s,t)
 endgroup
 
-group ProductPlanContact extends BackboneElement
+group for type+types ProductPlanContact extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -38,7 +38,7 @@ group ProductPlanContact extends BackboneElement
   "ProductPlan.contact.address": for src.address make tgt.address
 endgroup
 
-group ProductPlanCoverage extends BackboneElement
+group for type+types ProductPlanCoverage extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -47,7 +47,7 @@ group ProductPlanCoverage extends BackboneElement
   "ProductPlan.coverage.benefit": for src.benefit as s make tgt.benefit as t then ProductPlanCoverageBenefit(s,t)
 endgroup
 
-group ProductPlanCoverageBenefit extends BackboneElement
+group for type+types ProductPlanCoverageBenefit extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -56,7 +56,7 @@ group ProductPlanCoverageBenefit extends BackboneElement
   "ProductPlan.coverage.benefit.limit": for src.limit as s make tgt.limit as t then ProductPlanCoverageBenefitLimit(s,t)
 endgroup
 
-group ProductPlanCoverageBenefitLimit extends BackboneElement
+group for type+types ProductPlanCoverageBenefitLimit extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -64,7 +64,7 @@ group ProductPlanCoverageBenefitLimit extends BackboneElement
   "ProductPlan.coverage.benefit.limit.code": for src.code make tgt.code
 endgroup
 
-group ProductPlanPlan extends BackboneElement
+group for type+types ProductPlanPlan extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -76,7 +76,7 @@ group ProductPlanPlan extends BackboneElement
   "ProductPlan.plan.specificCost": for src.specificCost as s make tgt.specificCost as t then ProductPlanPlanSpecificCost(s,t)
 endgroup
 
-group ProductPlanPlanGeneralCost extends BackboneElement
+group for type+types ProductPlanPlanGeneralCost extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -86,7 +86,7 @@ group ProductPlanPlanGeneralCost extends BackboneElement
   "ProductPlan.plan.generalCost.comment": for src.comment make tgt.comment
 endgroup
 
-group ProductPlanPlanSpecificCost extends BackboneElement
+group for type+types ProductPlanPlanSpecificCost extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -94,7 +94,7 @@ group ProductPlanPlanSpecificCost extends BackboneElement
   "ProductPlan.plan.specificCost.benefit": for src.benefit as s make tgt.benefit as t then ProductPlanPlanSpecificCostBenefit(s,t)
 endgroup
 
-group ProductPlanPlanSpecificCostBenefit extends BackboneElement
+group for type+types ProductPlanPlanSpecificCostBenefit extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -102,7 +102,7 @@ group ProductPlanPlanSpecificCostBenefit extends BackboneElement
   "ProductPlan.plan.specificCost.benefit.cost": for src.cost as s make tgt.cost as t then ProductPlanPlanSpecificCostBenefitCost(s,t)
 endgroup
 
-group ProductPlanPlanSpecificCostBenefitCost extends BackboneElement
+group for type+types ProductPlanPlanSpecificCostBenefitCost extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
