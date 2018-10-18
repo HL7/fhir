@@ -1,7 +1,5 @@
 package org.hl7.fhir.igtools.openapi;
 
-import org.hl7.fhir.igtools.openapi.ParameterWriter.ParameterLocation;
-
 import com.google.gson.JsonObject;
 
 public class ParameterWriter extends BaseWriter {

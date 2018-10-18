@@ -71,6 +71,12 @@ Also, implementers can <a href="graphql.html">use GraphQL</a>.</p>
 <a name="general"></a>
 <h3>General Considerations</h3>
 
+<p>
+Note: Where the FHIR specification does not specify behavior with regards to HTTP 
+capabilities (such as OPTIONS), implementers cannot expect greater consistency 
+than is mandated in the underlying HTTP protocol.
+</p>
+
 <a name="styleguide"></a>
 <h4>Style Guide</h4>
 <p>
@@ -856,9 +862,8 @@ on how many matches are found:
 </p>
 <ul>
  <li><b>No matches</b> or <b>One Match</b>: The server performs an ordinary <code>delete</code> on the matching resource</li>
- <li><b>Multiple matches</b>: Servers may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough.
-   A server indicates whether it can delete multiple resources in its <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalDelete">Capability Statement (.rest.resource.conditionalDelete)</a>.
-   If there are multiple matches, either all must be deleted, or the server SHALL return an error</li>
+ <li><b>Multiple matches</b>: A server may choose to delete all the matching resources, or it may choose to return a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough.
+   A server indicates whether it can delete multiple resources in its <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalDelete">Capability Statement (.rest.resource.conditionalDelete)</a></li>
 </ul>
 <p>
 This variant can be used to allow a stateless client (such as an interface engine) to delete
@@ -907,7 +912,8 @@ the created resource version:
 <p>
 where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version. 
 The Location header should be as specific as possible - if the server understands versioning, the version is 
-included. If a server does not track versions, the Location header will just contain [base]/[type]/[id].
+included. If a server does not track versions, the Location header will just contain [base]/[type]/[id]. The
+Location MAY be an absolute or relative URL.
 </p>
 <p>
 Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code> (if versioning is supported) and a <code>Last-Modified</code> header.
@@ -1225,8 +1231,8 @@ created within the batch are considered to be non-conformant.
 </p>
 <p>
 When processing the batch, the HTTP response code is 200 Ok if the batch was processed correctly, regardless of the success of the 
-operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code of other 
-than 200 indicates that processing the batch itself failed, and means that none of the operations in the batch succeeded.
+operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code on an 
+entry of other than 2xx (200, 202 etc) indicates that processing the request in the entry failed.
 </p>
 
 <a name="trules"> </a>
@@ -1257,10 +1263,10 @@ then the transaction SHALL fail.
 
 <p>
 A transaction may include references from one resource to another in the bundle, including
-circular references where resources refer to each other. If the server assigns
-a new id to any resource in the bundle as part of the processing rules above,
-it SHALL also update any references to that resource in the same bundle as they
-are processed. References to resources that are not
+circular references where resources refer to each other. 
+When the server assigns a new id to any resource in the bundle which has a POST method
+as part of the processing rules above, it SHALL also update any references to that resource in the same bundle as they
+are processed  (see <a href="bundle.html#bundle-unique">about Ids in a bundle</a>). References to resources that are not
 part of the bundle are left untouched. Version-specific references should remain
 as version-specific references after the references have been updated. Note that 
 when building a transaction, a client can use arbitrarily chosen version references 

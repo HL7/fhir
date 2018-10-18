@@ -1,5 +1,4 @@
 package org.hl7.fhir.definitions.parsers;
-import java.io.File;
 import java.io.IOException;
 
 import org.hl7.fhir.utilities.IniFile;

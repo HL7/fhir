@@ -8,7 +8,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.igtools.publisher.FetchedResource;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
+import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.model.DataRequirement;
 import org.hl7.fhir.r4.model.DataRequirement.DataRequirementCodeFilterComponent;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.MetadataResource;
@@ -22,10 +27,6 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.igtools.publisher.FetchedResource;
-import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
-import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.NpmPackage;
@@ -176,9 +177,10 @@ public class ValueSetRenderer extends BaseRenderer {
   private boolean referencesValueSet(PlanDefinition pd) {
     for (PlanDefinitionActionComponent pda : pd.getAction()) {
       for (TriggerDefinition td : pda.getTrigger()) {
-        for (DataRequirementCodeFilterComponent ed : td.getData().getCodeFilter())
-          if (ed.getValueSet().equals(vs.getUrl()))
-            return true;
+        for (DataRequirement dr : td.getData())
+          for (DataRequirementCodeFilterComponent ed : dr.getCodeFilter())
+            if (ed.getValueSet().equals(vs.getUrl()))
+              return true;
       }
     }
     return false;

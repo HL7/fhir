@@ -77,7 +77,7 @@ In a StructureDefinition, this will look like:
   &lt;element&gt; 
     &lt;path value=&quot;Patient.telecom&quot;/&gt;
     &lt;slicing&gt;
-      &lt;discriminator value=&quot;system&quot;/&gt;
+      &lt;discriminator&gt;
         &lt;type value=&quot;value&quot;/&gt;
         &lt;path value=&quot;system&quot;/&gt;
       &lt;/discriminator/&gt;
@@ -181,6 +181,145 @@ This table illustrates the relationship between the instance and the ElementDefi
 <tr><td>&nbsp;&lt;/telecom&gt;                                       </td><td>Patient.telecom.use     </td><td>            </td><td>           </td><td>           </td><td>             </td></tr>
 </table>
 
+
+<a name="fixed-order"></a>
+<h3>Fixed Order Slicing</h3>
+
+<p>
+A variant to this that looks simpler but turns out to be deceptively complicated is to fix the order and make all slices mandatory.
+In this case the profile says:
+</p>
+<ul>
+ <li>The cardinality of <code>telecom</code> is 3..3</li>
+ <li>The slicing is closed, and ordered, no discriminator</li>
+ <li>The first slice is home phone number</li>
+ <li>The second slice is work phone number</li>
+ <li>The third slice is email address</li>
+</ul>
+<p>
+An example of a patient resource that meets these rules:
+</p>
+<pre class="json">
+{
+  "resourceType" : "Patient",
+  "telecom" : [
+    {
+      "system" : "phone",
+      "value" : "5551234567",
+      "use" : "home"
+    },
+    {
+      "system" : "phone",
+      "value" : "5551234567",
+      "use" : "work"
+    },
+    {
+      "system" : "email",
+      "value" : "someone@acme.org"
+    }
+  ]
+}
+</pre>
+<p>
+In a StructureDefinition, this will look like:
+</p>
+<pre class="xml">
+  &lt;!-- setting up the slicing --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom&quot;/&gt;
+    &lt;slicing&gt;
+      &lt;!-- invariant: there SHALL be discriminator or description --&gt;
+      &lt;description value=&quot;No discriminator needed since offsets are fixed&quot;/&gt;
+      &lt;rules value=&quot;closed&quot;/&gt;
+      &lt;ordered value=&quot;true&quot;/&gt;
+    &lt;/slicing&gt;
+    &lt;!-- cardinality rules --&gt;
+    &lt;min value=&quot;3&quot;/&gt;
+    &lt;max value=&quot;3&quot;/&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- first slice: home phone --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom&quot;/&gt;
+    &lt;name value=&quot;HomePhone&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;max value=&quot;1&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.system&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;fixedCode value=&quot;phone&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.value&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.use&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;fixedCode value=&quot;home&quot;/&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- second slice: work phone --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom&quot;/&gt;
+    &lt;name value=&quot;WorkPhone&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+    &lt;min value=&quot;0&quot;/&gt;
+    &lt;max value=&quot;1&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.system&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;fixedCode value=&quot;phone&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.value&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.use&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;fixedCode value=&quot;work&quot;/&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- third slice: email --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom&quot;/&gt;
+    &lt;name value=&quot;Email&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+    &lt;min value=&quot;0&quot;/&gt;
+    &lt;max value=&quot;1&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.system&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;fixedCode value=&quot;email&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.value&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;Patient.telecom.use&quot;/&gt;
+    &lt;max value=&quot;0&quot;/&gt;
+  &lt;/element&gt;
+</pre>  
+<p>
+A simple content model like this is attractive because it's both easier 
+to specify and to work with. There's no need to think about the values 
+of system and use - implementers can just grab first telecom value etc. 
+</p>
+<p>
+The problem with this approach is that such simple requirements are rarely valid
+in production healthcare systems, and even if they are valid during implementation,
+they rarely stay that way. Implementing multiple applications based on simple offsets
+will make the overall eco-system fragile against change, either internally, or as 
+the scope of the eco-system grows.
+</p>
+<p>
+Since the discriminator could be system+use in this case, it's best for future 
+compatibility to specify it anyway.
+</p>
+
 <a name="blood-pressure"></a>
 <h3>Blood Pressure Example</h3>
 
@@ -195,11 +334,11 @@ Another use of Slicing is for Blood Pressure Measurements, where the profile say
 </ul>
 
 <p>
-An example of an Observation resource that meets these rules:
+An example of an observation resource that conforms such constrained StructureDefinitions looks like this:
 </p>
 <pre class="xml">
 &lt;Observation&gt;                         
-... snip ...
+  ... 
   &lt;component&gt;                       
     &lt;code&gt;                       
       &lt;coding&gt;                       
@@ -208,12 +347,7 @@ An example of an Observation resource that meets these rules:
         &lt;display value=&quot;Systolic blood pressure&quot; /&gt;  
       &lt;/coding&gt;                       
     &lt;/code&gt;                       
-    &lt;valueQuantity&gt;                       
-      &lt;value value=&quot;120&quot; /&gt;  
-      &lt;unit value=&quot;mmHg&quot; /&gt;  
-      &lt;system value=&quot;http://unitsofmeasure.org&quot; /&gt;  
-      &lt;code value=&quot;mm[Hg]&quot; /&gt;  
-    &lt;/valueQuantity&gt;                       
+    &lt;valueQuantity ... /&gt;                       
   &lt;/component&gt;
   &lt;component&gt;                       
     &lt;code&gt;                       
@@ -223,12 +357,7 @@ An example of an Observation resource that meets these rules:
         &lt;display value=&quot;Diastolic blood pressure&quot; /&gt;  
       &lt;/coding&gt;                       
     &lt;/code&gt;                       
-    &lt;valueQuantity&gt;                       
-      &lt;value value=&quot;80&quot; /&gt;  
-      &lt;unit value=&quot;mmHg&quot; /&gt;  
-      &lt;system value=&quot;http://unitsofmeasure.org&quot; /&gt;  
-      &lt;code value=&quot;mm[Hg]&quot; /&gt;  
-    &lt;/valueQuantity&gt;                       
+    &lt;valueQuantity .../&gt;                       
   &lt;/component&gt;
 &lt;/Patient&gt;
 </pre>

@@ -3,7 +3,6 @@ package org.hl7.fhir.igtools.publisher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
@@ -16,18 +15,13 @@ import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.model.BaseReference;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.Resource;
-import org.hl7.fhir.r4.model.StringType;
-import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.ImplementationGuide.GuideParameterCode;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
@@ -35,12 +29,13 @@ import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnCom
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.Reference;
+import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.utils.IGHelper;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
 import org.hl7.fhir.utilities.cache.ToolsVersion;
 
@@ -94,7 +89,7 @@ public class ConfigFileConverter {
     ImplementationGuide ig = (ImplementationGuide) parse(igName, version);
 
     // populating the IG from the config file
-    ig.addFhirVersion(FhirVersion.fromCode(version));
+    ig.addFhirVersion(FHIRVersion.fromCode(version));
     if (configuration.has("fixed-business-version")) {
       ig.setVersion(configuration.getAsJsonPrimitive("fixed-business-version").getAsString());
       IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.APPLY, "version");

@@ -23,6 +23,7 @@ import org.hl7.fhir.dstu2016may.model.Parameters;
 import org.hl7.fhir.dstu2016may.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu2016may.model.Reference;
 import org.hl7.fhir.dstu2016may.model.StringType;
+import org.hl7.fhir.dstu2016may.model.StructureDefinition;
 import org.hl7.fhir.dstu2016may.model.ValueSet;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu2016may.model.ValueSet.ValueSetComposeComponent;
@@ -33,7 +34,6 @@ import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpander.ValueSetExpansion
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu2016may.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu2016may.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu2016may.model.StructureDefinition;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 

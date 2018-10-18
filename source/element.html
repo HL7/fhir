@@ -338,6 +338,7 @@ Specifically, this means:
  <li>The id SHALL be unique within a given resource</li>
  <li>The uniqueness boundary extends into contained resources. i.e. a contained resource cannot have the same id as any element in the resource that contains it or any other contained resource</li>
  <li>The uniqueness boundary is broken at Bundle.entry.resource and Parameters.parameter.resource, since these are elements that aggregate different resources</li>
+ <li>The <code>id</code> element does not have extensions itself</li>
 </ul>
 <p>
 These rules ensure that there is no need to change internal identifiers while exchanging resources.

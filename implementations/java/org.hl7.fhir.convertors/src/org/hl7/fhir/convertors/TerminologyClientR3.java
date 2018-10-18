@@ -3,15 +3,14 @@ package org.hl7.fhir.convertors;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.HTMLClientLogger;
 import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.Parameters;
 import org.hl7.fhir.r4.model.TerminologyCapabilities;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.terminologies.TerminologyClient;
-import org.hl7.fhir.dstu2.utils.client.ClientUtils;
-import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
-import org.hl7.fhir.exceptions.FHIRException;
 
 public class TerminologyClientR3 implements TerminologyClient {
 
@@ -23,7 +22,7 @@ public class TerminologyClientR3 implements TerminologyClient {
 
   @Override
   public TerminologyCapabilities getTerminologyCapabilities() throws FHIRException {
-    return (TerminologyCapabilities) VersionConvertor_30_40.convertResource(client.getTerminologyCapabilities(), false);
+    return (TerminologyCapabilities) VersionConvertor_30_40.convertTerminologyCapabilities(client.getTerminologyCapabilities(), false);
   }
 
   @Override
@@ -41,7 +40,9 @@ public class TerminologyClientR3 implements TerminologyClient {
 
   @Override
   public Parameters validateCS(Parameters pin) throws FHIRException {
-    throw new FHIRException("Code system validation not supported in R2"); // or else what do we do? 
+    org.hl7.fhir.dstu3.model.Parameters p2 = (org.hl7.fhir.dstu3.model.Parameters) VersionConvertor_30_40.convertResource(pin, false);
+    p2 = client.operateType(org.hl7.fhir.dstu3.model.CodeSystem.class, "validate-code", p2);
+    return (Parameters) VersionConvertor_30_40.convertResource(p2, false);
   }
 
   @Override

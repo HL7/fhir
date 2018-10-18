@@ -7,7 +7,7 @@
   <title value="Test FHIR Capability Statement"/> 
   <status value="draft"/> 
   <experimental value="true"/> 
-  <fhirVersion value="3.2.0"/> 
+  <fhirVersion value="3.0.0"/> 
   <acceptUnknown value="both"/> 
   <format value="xml"/> 
   <format value="json"/> 

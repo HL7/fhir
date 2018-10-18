@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,14 +17,12 @@ import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.hl7.fhir.convertors.VersionConvertor_10_40;
-import org.hl7.fhir.convertors.VersionConvertor_14_40;
-import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.Enumeration;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDependsOnComponent;
@@ -33,15 +30,12 @@ import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideManifestComp
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
 import org.hl7.fhir.r4.model.Reference;
-import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
-
-import com.google.gson.JsonSyntaxException;
 
 public class IGPack2NpmConvertor {
 
@@ -285,12 +279,19 @@ public class IGPack2NpmConvertor {
 
   private void checkVersions(ImplementationGuide ig, String version, String filename) throws FHIRException, IOException {
     if ("STU3".equals(ig.getFhirVersion()))
-      ig.addFhirVersion(FhirVersion.STU3);
+      ig.addFhirVersion(FHIRVersion._3_0_0);
     
     if (!ig.hasFhirVersion())
-      ig.addFhirVersion(FhirVersion.fromCode(version));
-    else if (!version.equals(ig.getFhirVersion()))
-      throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
+      ig.addFhirVersion(FHIRVersion.fromCode(version));
+    else {
+      boolean ok = false;
+      for (Enumeration<FHIRVersion> v : ig.getFhirVersion()) {
+        if (!version.equals(v.primitiveValue()))
+          ok = true;
+      }
+      if (!ok)
+        throw new FHIRException("FHIR version mismatch: "+version +" vs "+ig.getFhirVersion());
+    }
     
     if (!ig.hasVersion()) {
       if (packageId != null) {

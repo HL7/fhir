@@ -80,16 +80,16 @@ CPT(R) contained in the Measure specifications is copyright 2004-2015 American M
     <name value="National Committee for Quality Assurance"/>
   </author>
   <relatedArtifact>
-	<type value="documentation"/>
-	<citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment of children with sore throat.&quot; JAMA 294(18):2315-2322. "/>
+    <type value="documentation"/>
+    <citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. _Antibiotic treatment of children with sore throat._ JAMA 294(18):2315-2322. "/>
   </relatedArtifact>
   <relatedArtifact>
-	<type value="documentation"/>
-	<citation value="Infectious Diseases Society of America. 2012. &quot;Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update.&quot; "/>
+    <type value="documentation"/>
+    <citation value="Infectious Diseases Society of America. 2012. _Clinical Practice Guideline for the Diagnosis and Management of Group A Streptococcal Pharyngitis: 2012 Update._ "/>
   </relatedArtifact>
   <relatedArtifact>
-	<type value="documentation"/>
-	<citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. &quot;Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship.&quot; Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
+    <type value="documentation"/>
+    <citation value="Roberts, R.R., B. Hota, I. Ahmad, et al. _Hospital and Societal Costs of Antimicrobial-Resistant Infections in a Chicago Teaching Hospital: Implications for Antibiotic Stewardship._ Clin Infect Dis. Oct 2009; 49(8):1175-84."/>
   </relatedArtifact>
   <library value="Library/library-cms146-example"/>
   <disclaimer value="These performance Measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>

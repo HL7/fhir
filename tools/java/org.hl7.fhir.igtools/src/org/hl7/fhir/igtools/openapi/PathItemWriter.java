@@ -1,8 +1,6 @@
 package org.hl7.fhir.igtools.openapi;
 
 
-import org.hl7.fhir.utilities.Utilities;
-
 import com.google.gson.JsonObject;
 
 public class PathItemWriter extends BaseWriter {

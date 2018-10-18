@@ -219,11 +219,11 @@
         <display value="per Entity"/>
       </concept>
       <concept>
-        <code value="/{hpf}"/>
+        <code value="/[HPF]"/>
         <display value="per hpf"/>
       </concept>
       <concept>
-        <code value="/{LPF}"/>
+        <code value="/[LPF]"/>
         <display value="per LPF"/>
       </concept>
       <concept>
@@ -459,7 +459,7 @@
         <display value="drop"/>
       </concept>
       <concept>
-        <code value="[drp]/{HPF}"/>
+        <code value="[drp]/[HPF]"/>
         <display value="drop / HPF"/>
       </concept>
       <concept>

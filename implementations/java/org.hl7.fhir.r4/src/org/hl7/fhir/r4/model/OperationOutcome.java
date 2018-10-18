@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -50,7 +50,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
 
     public enum IssueSeverity {
         /**
-         * The issue caused the action to fail, and no further checking could be performed.
+         * The issue caused the action to fail and no further checking could be performed.
          */
         FATAL, 
         /**
@@ -105,7 +105,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         }
         public String getDefinition() {
           switch (this) {
-            case FATAL: return "The issue caused the action to fail, and no further checking could be performed.";
+            case FATAL: return "The issue caused the action to fail and no further checking could be performed.";
             case ERROR: return "The issue is sufficiently important to cause the action to fail.";
             case WARNING: return "The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or in a way that is not as desired.";
             case INFORMATION: return "The issue has no relation to the degree of success of the action.";

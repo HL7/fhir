@@ -20,22 +20,20 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
-import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
-import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
-import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.IResourceValidator.IValidatorResourceFetcher;
 import org.hl7.fhir.r4.utils.IResourceValidator.ReferenceValidationPolicy;
 import org.hl7.fhir.r4.validation.InstanceValidator;
@@ -97,7 +95,7 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
   @Test
   public void test() throws Exception {
     if (ve == null) {
-      ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FhirVersion.R4);
+      ve = new ValidationEngine(TestingUtilities.content(), DEF_TX, null, FhirPublication.R4);
       ve.getContext().setCanRunWithoutTerminology(true);
       TestingUtilities.context = ve.getContext();
     }

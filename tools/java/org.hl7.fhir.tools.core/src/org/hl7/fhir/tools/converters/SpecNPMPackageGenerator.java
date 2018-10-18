@@ -5,28 +5,16 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.hl7.fhir.r4.formats.JsonParser;
-import org.hl7.fhir.r4.formats.XmlParser;
-import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.hl7.fhir.r4.model.BooleanType;
-import org.hl7.fhir.r4.model.Bundle;
-import org.hl7.fhir.r4.model.Constants;
-import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.model.Bundle.BundleType;
-import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
@@ -34,17 +22,20 @@ import org.hl7.fhir.dstu2.model.StructureDefinition;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
+import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.JsonParser;
+import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.Enumerations.FHIRVersion;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ManifestResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.SPDXLicense;
-import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator;
 import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
-import org.hl7.fhir.tools.converters.SpecNPMPackageGenerator.ResourceEntry;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -78,7 +69,7 @@ public class SpecNPMPackageGenerator {
     System.out.println("Generate Package for "+folder);
     
     Map<String, byte[]> files = loadZip(new FileInputStream(Utilities.path(folder, "igpack.zip")));
-    FhirVersion version = determineVersion(files);    
+    FHIRVersion version = determineVersion(files);    
     
     System.out.println(" .. Loading v"+version);
     SpecMapManager spm = new SpecMapManager(files.get("spec.internals"), version.toCode());    
@@ -404,10 +395,10 @@ public class SpecNPMPackageGenerator {
     return res;
   }
 
-  private FhirVersion determineVersion(Map<String, byte[]> files) {
+  private FHIRVersion determineVersion(Map<String, byte[]> files) throws FHIRException {
     byte[] b = files.get("version.info");
     if (b == null)
-      return FhirVersion.NULL;
+      return FHIRVersion.NULL;
     String s = new String(b);
     s = Utilities.stripBOM(s).trim();
     while (s.charAt(0) != '[')
@@ -425,7 +416,7 @@ public class SpecNPMPackageGenerator {
       throw new Error("unable to determine version from "+new String(bytes));
     if ("3.0.0".equals(v))
       v = "3.0.1";
-    return FhirVersion.fromCode(v);
+    return FHIRVersion.fromCode(v);
   }
 
 

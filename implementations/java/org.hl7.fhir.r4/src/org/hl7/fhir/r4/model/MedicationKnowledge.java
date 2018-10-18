@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -4203,10 +4203,10 @@ public class MedicationKnowledge extends DomainResource {
     /**
      * A code to indicate if the medication is in active use.
      */
-    @Child(name = "status", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medicationknowledge-status")
-    protected CodeableConcept status;
+    protected CodeType status;
 
     /**
      * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
@@ -4365,7 +4365,7 @@ public class MedicationKnowledge extends DomainResource {
     @Description(shortDefinition="The time course of drug absorption, distribution, metabolism and excretion of a medication from the body", formalDefinition="The time course of drug absorption, distribution, metabolism and excretion of a medication from the body." )
     protected List<MedicationKnowledgeKineticsComponent> kinetics;
 
-    private static final long serialVersionUID = -1676820890L;
+    private static final long serialVersionUID = -1585251548L;
 
   /**
    * Constructor
@@ -4399,15 +4399,19 @@ public class MedicationKnowledge extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code to indicate if the medication is in active use.)
+     * @return {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeableConcept getStatus() { 
+    public CodeType getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationKnowledge.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeableConcept(); // cc
+          this.status = new CodeType(); // bb
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     public boolean hasStatus() { 
@@ -4415,10 +4419,31 @@ public class MedicationKnowledge extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code to indicate if the medication is in active use.)
+     * @param value {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationKnowledge setStatus(CodeableConcept value) { 
+    public MedicationKnowledge setStatusElement(CodeType value) { 
       this.status = value;
+      return this;
+    }
+
+    /**
+     * @return A code to indicate if the medication is in active use.
+     */
+    public String getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value A code to indicate if the medication is in active use.
+     */
+    public MedicationKnowledge setStatus(String value) { 
+      if (Utilities.noString(value))
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new CodeType();
+        this.status.setValue(value);
+      }
       return this;
     }
 
@@ -5437,7 +5462,7 @@ public class MedicationKnowledge extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("code", "CodeableConcept", "A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, 1, code));
-        children.add(new Property("status", "CodeableConcept", "A code to indicate if the medication is in active use.", 0, 1, status));
+        children.add(new Property("status", "code", "A code to indicate if the medication is in active use.", 0, 1, status));
         children.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, 1, manufacturer));
         children.add(new Property("doseForm", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, 1, doseForm));
         children.add(new Property("amount", "SimpleQuantity", "Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).", 0, 1, amount));
@@ -5464,7 +5489,7 @@ public class MedicationKnowledge extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, 1, code);
-        case -892481550: /*status*/  return new Property("status", "CodeableConcept", "A code to indicate if the medication is in active use.", 0, 1, status);
+        case -892481550: /*status*/  return new Property("status", "code", "A code to indicate if the medication is in active use.", 0, 1, status);
         case -1969347631: /*manufacturer*/  return new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, 1, manufacturer);
         case 1303858817: /*doseForm*/  return new Property("doseForm", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, 1, doseForm);
         case -1413853096: /*amount*/  return new Property("amount", "SimpleQuantity", "Specific amount of the drug in the packaged product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc).", 0, 1, amount);
@@ -5494,7 +5519,7 @@ public class MedicationKnowledge extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeType
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // Reference
         case 1303858817: /*doseForm*/ return this.doseForm == null ? new Base[0] : new Base[] {this.doseForm}; // CodeableConcept
         case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Quantity
@@ -5527,7 +5552,7 @@ public class MedicationKnowledge extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -892481550: // status
-          this.status = castToCodeableConcept(value); // CodeableConcept
+          this.status = castToCode(value); // CodeType
           return value;
         case -1969347631: // manufacturer
           this.manufacturer = castToReference(value); // Reference
@@ -5599,7 +5624,7 @@ public class MedicationKnowledge extends DomainResource {
         if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("status")) {
-          this.status = castToCodeableConcept(value); // CodeableConcept
+          this.status = castToCode(value); // CodeType
         } else if (name.equals("manufacturer")) {
           this.manufacturer = castToReference(value); // Reference
         } else if (name.equals("doseForm")) {
@@ -5649,7 +5674,7 @@ public class MedicationKnowledge extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); 
-        case -892481550:  return getStatus(); 
+        case -892481550:  return getStatusElement();
         case -1969347631:  return getManufacturer(); 
         case 1303858817:  return getDoseForm(); 
         case -1413853096:  return getAmount(); 
@@ -5679,7 +5704,7 @@ public class MedicationKnowledge extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -892481550: /*status*/ return new String[] {"CodeableConcept"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         case 1303858817: /*doseForm*/ return new String[] {"CodeableConcept"};
         case -1413853096: /*amount*/ return new String[] {"SimpleQuantity"};
@@ -5712,8 +5737,7 @@ public class MedicationKnowledge extends DomainResource {
           return this.code;
         }
         else if (name.equals("status")) {
-          this.status = new CodeableConcept();
-          return this.status;
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationKnowledge.status");
         }
         else if (name.equals("manufacturer")) {
           this.manufacturer = new Reference();
@@ -5906,7 +5930,7 @@ public class MedicationKnowledge extends DomainResource {
         if (!(other_ instanceof MedicationKnowledge))
           return false;
         MedicationKnowledge o = (MedicationKnowledge) other_;
-        return compareValues(synonym, o.synonym, true) && compareValues(preparationInstruction, o.preparationInstruction, true)
+        return compareValues(status, o.status, true) && compareValues(synonym, o.synonym, true) && compareValues(preparationInstruction, o.preparationInstruction, true)
           ;
       }
 

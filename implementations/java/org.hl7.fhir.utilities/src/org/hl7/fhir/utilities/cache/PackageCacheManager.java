@@ -1,34 +1,21 @@
 package org.hl7.fhir.utilities.cache;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
@@ -38,7 +25,6 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.cache.PackageCacheManager.PackageEntry;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -143,8 +129,37 @@ public class PackageCacheManager {
     save = checkIniHasMapping("hl7.fhir.vocabpoc", "http://hl7.org/fhir/ig/vocab-poc", ini) || save;
     if (save)
       ini.save();    
+    checkDeleteVersion("hl7.fhir.core", "1.0.2", 2);
+    checkDeleteVersion("hl7.fhir.core", "1.4.0", 2);
   }
   
+
+  private void checkDeleteVersion(String id, String ver, int minVer) {
+    if (hasPackage(id, ver)) {
+      boolean del = true;
+      NpmPackage pck;
+      try {
+        pck = resolvePackage(id, ver, "xx");
+        if (pck.getNpm().has("tool-version")) {
+          del = pck.getNpm().get("tool-version").getAsInt() < minVer;
+        }
+      } catch (Exception e) {
+      }
+      if (del)
+        try {
+          removePackage(id, ver);
+        } catch (IOException e) {
+        }
+    }
+  }
+
+
+  public void removePackage(String id, String ver) throws IOException  {
+    String f = Utilities.path(cacheFolder, id+"#"+ver);
+    Utilities.clearDirectory(f);    
+    new File(f).delete();
+  }
+
 
   private void convertPackageCacheFrom1To2() throws IOException {
     for (File f : new File(cacheFolder).listFiles()) {

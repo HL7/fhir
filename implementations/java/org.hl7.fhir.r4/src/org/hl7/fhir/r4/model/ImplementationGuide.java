@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Oct 11, 2018 10:20+1100 for FHIR v3.6.0
+// Generated on Tue, Oct 16, 2018 11:28+1100 for FHIR v3.6.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+ * A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
  */
 @ResourceDef(name="ImplementationGuide", profile="http://hl7.org/fhir/StructureDefinition/ImplementationGuide")
 @ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "copyright", "packageId", "license", "fhirVersion", "dependsOn", "global", "definition", "manifest"})
@@ -5993,10 +5993,10 @@ public class ImplementationGuide extends MetadataResource {
     @Block()
     public static class ImplementationGuideDependsOnComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The canonical URL of the Implementation guide for the dependency.
+         * A canonical reference to the Implementation guide for the dependency.
          */
         @Child(name = "uri", type = {CanonicalType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Identity of the IG that this depends on", formalDefinition="The canonical URL of the Implementation guide for the dependency." )
+        @Description(shortDefinition="Identity of the IG that this depends on", formalDefinition="A canonical reference to the Implementation guide for the dependency." )
         protected CanonicalType uri;
 
         /**
@@ -6031,7 +6031,7 @@ public class ImplementationGuide extends MetadataResource {
       }
 
         /**
-         * @return {@link #uri} (The canonical URL of the Implementation guide for the dependency.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         * @return {@link #uri} (A canonical reference to the Implementation guide for the dependency.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public CanonicalType getUriElement() { 
           if (this.uri == null)
@@ -6051,7 +6051,7 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @param value {@link #uri} (The canonical URL of the Implementation guide for the dependency.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
+         * @param value {@link #uri} (A canonical reference to the Implementation guide for the dependency.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
         public ImplementationGuideDependsOnComponent setUriElement(CanonicalType value) { 
           this.uri = value;
@@ -6059,14 +6059,14 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @return The canonical URL of the Implementation guide for the dependency.
+         * @return A canonical reference to the Implementation guide for the dependency.
          */
         public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
-         * @param value The canonical URL of the Implementation guide for the dependency.
+         * @param value A canonical reference to the Implementation guide for the dependency.
          */
         public ImplementationGuideDependsOnComponent setUri(String value) { 
             if (this.uri == null)
@@ -6175,7 +6175,7 @@ public class ImplementationGuide extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("uri", "canonical(ImplementationGuide)", "The canonical URL of the Implementation guide for the dependency.", 0, 1, uri));
+          children.add(new Property("uri", "canonical(ImplementationGuide)", "A canonical reference to the Implementation guide for the dependency.", 0, 1, uri));
           children.add(new Property("packageId", "id", "The NPM package name for the Implementation Guide that this IG depends on.", 0, 1, packageId));
           children.add(new Property("version", "string", "The version of the IG that is depended on, when the correct version is required to understand the IG correctly.", 0, 1, version));
         }
@@ -6183,7 +6183,7 @@ public class ImplementationGuide extends MetadataResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 116076: /*uri*/  return new Property("uri", "canonical(ImplementationGuide)", "The canonical URL of the Implementation guide for the dependency.", 0, 1, uri);
+          case 116076: /*uri*/  return new Property("uri", "canonical(ImplementationGuide)", "A canonical reference to the Implementation guide for the dependency.", 0, 1, uri);
           case 1802060801: /*packageId*/  return new Property("packageId", "id", "The NPM package name for the Implementation Guide that this IG depends on.", 0, 1, packageId);
           case 351608024: /*version*/  return new Property("version", "string", "The version of the IG that is depended on, when the correct version is required to understand the IG correctly.", 0, 1, version);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -7291,8 +7291,8 @@ public class ImplementationGuide extends MetadataResource {
          */
         @Child(name = "fhirVersion", type = {CodeType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Versions this applies to (if different to IG)", formalDefinition="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-        protected List<Enumeration<FhirVersion>> fhirVersion;
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/FHIR-version")
+        protected List<Enumeration<FHIRVersion>> fhirVersion;
 
         /**
          * A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).
@@ -7381,16 +7381,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public List<Enumeration<FhirVersion>> getFhirVersion() { 
+        public List<Enumeration<FHIRVersion>> getFhirVersion() { 
           if (this.fhirVersion == null)
-            this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+            this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
           return this.fhirVersion;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ImplementationGuideDefinitionResourceComponent setFhirVersion(List<Enumeration<FhirVersion>> theFhirVersion) { 
+        public ImplementationGuideDefinitionResourceComponent setFhirVersion(List<Enumeration<FHIRVersion>> theFhirVersion) { 
           this.fhirVersion = theFhirVersion;
           return this;
         }
@@ -7398,7 +7398,7 @@ public class ImplementationGuide extends MetadataResource {
         public boolean hasFhirVersion() { 
           if (this.fhirVersion == null)
             return false;
-          for (Enumeration<FhirVersion> item : this.fhirVersion)
+          for (Enumeration<FHIRVersion> item : this.fhirVersion)
             if (!item.isEmpty())
               return true;
           return false;
@@ -7407,10 +7407,10 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public Enumeration<FhirVersion> addFhirVersionElement() {//2 
-          Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
+        public Enumeration<FHIRVersion> addFhirVersionElement() {//2 
+          Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
           if (this.fhirVersion == null)
-            this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+            this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
           this.fhirVersion.add(t);
           return t;
         }
@@ -7418,11 +7418,11 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public ImplementationGuideDefinitionResourceComponent addFhirVersion(FhirVersion value) { //1
-          Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
+        public ImplementationGuideDefinitionResourceComponent addFhirVersion(FHIRVersion value) { //1
+          Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
           t.setValue(value);
           if (this.fhirVersion == null)
-            this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+            this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
           this.fhirVersion.add(t);
           return this;
         }
@@ -7430,10 +7430,10 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @param value {@link #fhirVersion} (Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.)
          */
-        public boolean hasFhirVersion(FhirVersion value) { 
+        public boolean hasFhirVersion(FHIRVersion value) { 
           if (this.fhirVersion == null)
             return false;
-          for (Enumeration<FhirVersion> v : this.fhirVersion)
+          for (Enumeration<FHIRVersion> v : this.fhirVersion)
             if (v.getValue().equals(value)) // code
               return true;
           return false;
@@ -7685,7 +7685,7 @@ public class ImplementationGuide extends MetadataResource {
           this.reference = castToReference(value); // Reference
           return value;
         case 461006061: // fhirVersion
-          value = new FhirVersionEnumFactory().fromType(castToCode(value));
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value); // Enumeration<FHIRVersion>
           return value;
         case 3373707: // name
@@ -7710,7 +7710,7 @@ public class ImplementationGuide extends MetadataResource {
         if (name.equals("reference")) {
           this.reference = castToReference(value); // Reference
         } else if (name.equals("fhirVersion")) {
-          value = new FhirVersionEnumFactory().fromType(castToCode(value));
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value);
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
@@ -7789,8 +7789,8 @@ public class ImplementationGuide extends MetadataResource {
         copyValues(dst);
         dst.reference = reference == null ? null : reference.copy();
         if (fhirVersion != null) {
-          dst.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
-          for (Enumeration<FhirVersion> i : fhirVersion)
+          dst.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+          for (Enumeration<FHIRVersion> i : fhirVersion)
             dst.fhirVersion.add(i.copy());
         };
         dst.name = name == null ? null : name.copy();
@@ -8249,10 +8249,10 @@ public class ImplementationGuide extends MetadataResource {
     @Block()
     public static class ImplementationGuideDefinitionParameterComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+         * apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template", formalDefinition="apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template." )
+        @Description(shortDefinition="apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template", formalDefinition="apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/guide-parameter-code")
         protected Enumeration<GuideParameterCode> code;
 
@@ -8282,7 +8282,7 @@ public class ImplementationGuide extends MetadataResource {
       }
 
         /**
-         * @return {@link #code} (apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #code} (apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public Enumeration<GuideParameterCode> getCodeElement() { 
           if (this.code == null)
@@ -8302,7 +8302,7 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @param value {@link #code} (apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #code} (apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
         public ImplementationGuideDefinitionParameterComponent setCodeElement(Enumeration<GuideParameterCode> value) { 
           this.code = value;
@@ -8310,14 +8310,14 @@ public class ImplementationGuide extends MetadataResource {
         }
 
         /**
-         * @return apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+         * @return apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
         public GuideParameterCode getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
-         * @param value apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
+         * @param value apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.
          */
         public ImplementationGuideDefinitionParameterComponent setCode(GuideParameterCode value) { 
             if (this.code == null)
@@ -8373,14 +8373,14 @@ public class ImplementationGuide extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("code", "code", "apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code));
+          children.add(new Property("code", "code", "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code));
           children.add(new Property("value", "string", "Value for named type.", 0, 1, value));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code);
+          case 3059181: /*code*/  return new Property("code", "code", "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.", 0, 1, code);
           case 111972721: /*value*/  return new Property("value", "string", "Value for named type.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -10015,8 +10015,8 @@ public class ImplementationGuide extends MetadataResource {
      */
     @Child(name = "fhirVersion", type = {CodeType.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version(s) this Implementation Guide targets", formalDefinition="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/fhir-versions")
-    protected List<Enumeration<FhirVersion>> fhirVersion;
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/FHIR-version")
+    protected List<Enumeration<FHIRVersion>> fhirVersion;
 
     /**
      * Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.
@@ -10796,16 +10796,16 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @return {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public List<Enumeration<FhirVersion>> getFhirVersion() { 
+    public List<Enumeration<FHIRVersion>> getFhirVersion() { 
       if (this.fhirVersion == null)
-        this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+        this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
       return this.fhirVersion;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ImplementationGuide setFhirVersion(List<Enumeration<FhirVersion>> theFhirVersion) { 
+    public ImplementationGuide setFhirVersion(List<Enumeration<FHIRVersion>> theFhirVersion) { 
       this.fhirVersion = theFhirVersion;
       return this;
     }
@@ -10813,7 +10813,7 @@ public class ImplementationGuide extends MetadataResource {
     public boolean hasFhirVersion() { 
       if (this.fhirVersion == null)
         return false;
-      for (Enumeration<FhirVersion> item : this.fhirVersion)
+      for (Enumeration<FHIRVersion> item : this.fhirVersion)
         if (!item.isEmpty())
           return true;
       return false;
@@ -10822,10 +10822,10 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @return {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public Enumeration<FhirVersion> addFhirVersionElement() {//2 
-      Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
+    public Enumeration<FHIRVersion> addFhirVersionElement() {//2 
+      Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
       if (this.fhirVersion == null)
-        this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+        this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
       this.fhirVersion.add(t);
       return t;
     }
@@ -10833,11 +10833,11 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @param value {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public ImplementationGuide addFhirVersion(FhirVersion value) { //1
-      Enumeration<FhirVersion> t = new Enumeration<FhirVersion>(new FhirVersionEnumFactory());
+    public ImplementationGuide addFhirVersion(FHIRVersion value) { //1
+      Enumeration<FHIRVersion> t = new Enumeration<FHIRVersion>(new FHIRVersionEnumFactory());
       t.setValue(value);
       if (this.fhirVersion == null)
-        this.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
+        this.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
       this.fhirVersion.add(t);
       return this;
     }
@@ -10845,10 +10845,10 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * @param value {@link #fhirVersion} (The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 3.6.0. for this version.)
      */
-    public boolean hasFhirVersion(FhirVersion value) { 
+    public boolean hasFhirVersion(FHIRVersion value) { 
       if (this.fhirVersion == null)
         return false;
-      for (Enumeration<FhirVersion> v : this.fhirVersion)
+      for (Enumeration<FHIRVersion> v : this.fhirVersion)
         if (v.getValue().equals(value)) // code
           return true;
       return false;
@@ -11139,7 +11139,7 @@ public class ImplementationGuide extends MetadataResource {
           this.license = (Enumeration) value; // Enumeration<SPDXLicense>
           return value;
         case 461006061: // fhirVersion
-          value = new FhirVersionEnumFactory().fromType(castToCode(value));
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value); // Enumeration<FHIRVersion>
           return value;
         case -1109214266: // dependsOn
@@ -11194,7 +11194,7 @@ public class ImplementationGuide extends MetadataResource {
           value = new SPDXLicenseEnumFactory().fromType(castToCode(value));
           this.license = (Enumeration) value; // Enumeration<SPDXLicense>
         } else if (name.equals("fhirVersion")) {
-          value = new FhirVersionEnumFactory().fromType(castToCode(value));
+          value = new FHIRVersionEnumFactory().fromType(castToCode(value));
           this.getFhirVersion().add((Enumeration) value);
         } else if (name.equals("dependsOn")) {
           this.getDependsOn().add((ImplementationGuideDependsOnComponent) value);
@@ -11369,8 +11369,8 @@ public class ImplementationGuide extends MetadataResource {
         dst.packageId = packageId == null ? null : packageId.copy();
         dst.license = license == null ? null : license.copy();
         if (fhirVersion != null) {
-          dst.fhirVersion = new ArrayList<Enumeration<FhirVersion>>();
-          for (Enumeration<FhirVersion> i : fhirVersion)
+          dst.fhirVersion = new ArrayList<Enumeration<FHIRVersion>>();
+          for (Enumeration<FHIRVersion> i : fhirVersion)
             dst.fhirVersion.add(i.copy());
         };
         if (dependsOn != null) {

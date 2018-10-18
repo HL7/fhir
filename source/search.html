@@ -400,7 +400,7 @@ the following prefixes are used:
 <p>
 If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
 is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
-<code>eb</code> (<code>ends-before</code>) are not used with integer values.
+<code>eb</code> (<code>ends-before</code>) are not used with integer values but are used for decimals.
 </p>
 <p>
 For each prefix above, two interpretations are provided - the simple intent of the prefix and the
@@ -463,6 +463,8 @@ Notes about searching on Numbers:
  <li>When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the 
      implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
  <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
+ <li>Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in 
+     the search parameter value, excluding leading zeros. So 100 and 1.00e2 both have the same number of significant digits - three</li>
 </ul>
 
 <p>
@@ -2037,241 +2039,321 @@ Cross-map between search parameter types and Data types:
   <td><b>Data Type</b></td>
   <td><b><a href="#number">number</a></b></td>
   <td><b><a href="#date">date</a></b></td>
-  <td><b><a href="#string">string</a></b></td>
-  <td><b><a href="#token">token</a></b></td>
   <td><b><a href="#reference">reference</a></b></td>
   <td><b><a href="#quantity">quantity</a></b></td>
   <td><b><a href="#uri">uri</a></b></td>
+  <td><b><a href="#string">string</a></b></td>
+  <td><b><a href="#token">token</a></b></td>
+ </tr>
+ <tr>
+   <td colspan="8" style="background-color: #efefef"><b>Primitive Types</b></td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#base64Binary">base64Binary</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk base64Binary%>Not used in search</td> <!-- uri -->
  </tr>
  <tr>
   <td><a href="datatypes.html#boolean">boolean</a></td>
   <td><%xcm boolean:number%></td> <!-- number -->
   <td><%xcm boolean:date%></td> <!-- date -->
-  <td><%xcm boolean:string%></td> <!-- string -->
-  <td><%xcm boolean:token%>. true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td> <!-- token -->
   <td><%xcm boolean:reference%></td> <!-- reference -->
   <td><%xcm boolean:quantity%></td> <!-- quantity -->
   <td><%xcm boolean:uri%></td> <!-- uri -->
+  <td><%xcm boolean:string%></td> <!-- string -->
+  <td><%xcm boolean:token%>. true|false (System = http://hl7.org/fhir/special-values but not usually needed)</td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#canonical">canonical</a></td>
+  <td><%xcm canonical:number%></td> <!-- number -->
+  <td><%xcm canonical:date%></td> <!-- date -->
+  <td><%xcm canonical:reference%></td> <!-- reference -->
+  <td><%xcm canonical:quantity%></td> <!-- quantity -->
+  <td><%xcm canonical:uri%></td> <!-- uri -->
+  <td><%xcm canonical:string%></td> <!-- string -->
+  <td><%xcm canonical:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#code">code</a></td>
   <td><%xcm code:number%></td> <!-- number -->
   <td><%xcm code:date%></td> <!-- date -->
-  <td><%xcm code:string%></td> <!-- string -->
-  <td><%xcm code:token%>. (System, if desired, is defined in the underlying value set for eeach code)</td> <!-- token -->
   <td><%xcm code:reference%></td> <!-- reference -->
   <td><%xcm code:quantity%></td> <!-- quantity -->
   <td><%xcm code:uri%></td> <!-- uri -->
+  <td><%xcm code:string%></td> <!-- string -->
+  <td><%xcm code:token%>. (System, if desired, is defined in the underlying value set for each code)</td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#date">date</a></td>
   <td><%xcm date:number%></td> <!-- number -->
   <td><%xcm date:date%></td> <!-- date -->
-  <td><%xcm date:string%></td> <!-- string -->
-  <td><%xcm date:token%></td> <!-- token -->
   <td><%xcm date:reference%></td> <!-- reference -->
   <td><%xcm date:quantity%></td> <!-- quantity -->
   <td><%xcm date:uri%></td> <!-- uri -->
+  <td><%xcm date:string%></td> <!-- string -->
+  <td><%xcm date:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#dateTime">dateTime</a></td>
   <td><%xcm dateTime:number%></td> <!-- number -->
   <td><%xcm dateTime:date%></td> <!-- date -->
-  <td><%xcm dateTime:string%></td> <!-- string -->
-  <td><%xcm dateTime:token%></td> <!-- token -->
   <td><%xcm dateTime:reference%></td> <!-- reference -->
   <td><%xcm dateTime:quantity%></td> <!-- quantity -->
   <td><%xcm dateTime:number%></td> <!-- uri -->
+  <td><%xcm dateTime:string%></td> <!-- string -->
+  <td><%xcm dateTime:token%></td> <!-- token -->
  </tr>
   <tr>
   <td><a href="datatypes.html#decimal">decimal</a></td>
-  <td><%xcm integer:number%></td> <!-- number -->
-  <td><%xcm integer:date%></td> <!-- date -->
-  <td><%xcm integer:string%></td> <!-- string -->
-  <td><%xcm integer:token%></td> <!-- token -->
-  <td><%xcm integer:reference%></td> <!-- reference -->
-  <td><%xcm integer:quantity%></td> <!-- quantity -->
-  <td><%xcm integer:uri%></td> <!-- uri -->
+  <td><%xcm decimal:number%></td> <!-- number -->
+  <td><%xcm decimal:date%></td> <!-- date -->
+  <td><%xcm decimal:reference%></td> <!-- reference -->
+  <td><%xcm decimal:quantity%></td> <!-- quantity -->
+  <td><%xcm decimal:uri%></td> <!-- uri -->
+  <td><%xcm decimal:string%></td> <!-- string -->
+  <td><%xcm decimal:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#id">id</a></td>
+  <td><%xcm id:number%></td> <!-- number -->
+  <td><%xcm id:date%></td> <!-- date -->
+  <td><%xcm id:reference%></td> <!-- reference -->
+  <td><%xcm id:quantity%></td> <!-- quantity -->
+  <td><%xcm id:uri%></td> <!-- uri -->
+  <td><%xcm id:string%></td> <!-- string -->
+  <td><%xcm id:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#instant">instant</a></td>
   <td><%xcm instant:number%></td> <!-- number -->
   <td><%xcm instant:date%></td> <!-- date -->
-  <td><%xcm instant:string%></td> <!-- string -->
-  <td><%xcm instant:token%></td> <!-- token -->
   <td><%xcm instant:reference%></td> <!-- reference -->
   <td><%xcm instant:quantity%></td> <!-- quantity -->
   <td><%xcm instant:uri%></td> <!-- uri -->
+  <td><%xcm instant:string%></td> <!-- string -->
+  <td><%xcm instant:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#integer">integer</a></td>
   <td><%xcm integer:number%></td> <!-- number -->
   <td><%xcm integer:date%></td> <!-- date -->
-  <td><%xcm integer:string%></td> <!-- string -->
-  <td><%xcm integer:token%></td> <!-- token -->
   <td><%xcm integer:reference%></td> <!-- reference -->
   <td><%xcm integer:quantity%></td> <!-- quantity -->
   <td><%xcm integer:uri%></td> <!-- uri -->
+  <td><%xcm integer:string%></td> <!-- string -->
+  <td><%xcm integer:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#markdown">markdown</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk markdown%>Not used in search</td> 
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#oid">oid</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk oid%>Not used in search (but see uri)</td> 
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#positiveInt">positiveInt</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk positiveInt%>Not used in search (but see integer)</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#string">string</a></td>
   <td><%xcm string:number%></td> <!-- number -->
   <td><%xcm string:date%></td> <!-- date -->
-  <td><%xcm string:string%></td> <!-- string -->
-  <td><%xcm string:token%></td> <!-- token -->
   <td><%xcm string:reference%></td> <!-- reference -->
   <td><%xcm string:quantity%></td> <!-- quantity -->
   <td><%xcm string:uri%></td> <!-- uri -->
+  <td><%xcm string:string%></td> <!-- string -->
+  <td><%xcm string:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#time">time</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk time%>Not used in search</td> 
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#unsignedInt">unsignedInt</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk unsignedInt%>Not used in search (but see integer)</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#uri">uri</a></td>
   <td><%xcm uri:number%></td> <!-- number -->
   <td><%xcm uri:date%></td> <!-- date -->
-  <td><%xcm uri:string%> </td> <!-- string -->
-  <td><%xcm uri:token%></td> <!-- token -->
   <td><%xcm uri:reference%></td> <!-- reference -->
   <td><%xcm uri:quantity%></td> <!-- quantity -->
   <td><%xcm uri:uri%></td> <!-- uri -->
+  <td><%xcm uri:string%> </td> <!-- string -->
+  <td><%xcm uri:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#url">url</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk url%>Not used in search (but see uri)</td> 
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#uuid">uuid</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk uuid%>Not used in search (but see uri)</td> 
+ </tr>
+ <tr>
+   <td colspan="8" style="background-color: #efefef"><b>Data Types</b></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Address">Address</a></td>
   <td><%xcm Address:number%></td> <!-- number -->
   <td><%xcm Address:date%></td> <!-- date -->
-  <td><%xcm Address:string%> search on any string element in the address</td> <!-- string -->
-  <td><%xcm Address:token%></td> <!-- token -->
   <td><%xcm Address:reference%></td> <!-- reference -->
   <td><%xcm Address:quantity%></td> <!-- quantity -->
   <td><%xcm Address:uri%></td> <!-- uri -->
+  <td><%xcm Address:string%> search on any string element in the address</td> <!-- string -->
+  <td><%xcm Address:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Age">Age</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Age%>Not used in search</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#Annotation">Annotation</a></td>
-  <td><%xcm Annotation:number%></td> <!-- number -->
-  <td><%xcm Annotation:date%></td> <!-- date -->
-  <td><%xcm Annotation:string%></td> <!-- string -->
-  <td><%xcm Annotation:token%></td> <!-- token -->
-  <td><%xcm Annotation:reference%></td> <!-- reference -->
-  <td><%xcm Annotation:quantity%></td> <!-- quantity -->
-  <td><%xcm Annotation:uri%></td> <!-- uri -->
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Annotation%>Not used in search</td> 
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Annotation">Attachment</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Attachment%>Not used in search</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td>
   <td><%xcm CodeableConcept:number%></td> <!-- number -->
   <td><%xcm CodeableConcept:date%></td> <!-- date -->
-  <td><%xcm CodeableConcept:string%></td> <!-- string -->
-  <td><%xcm CodeableConcept:token%></td> <!-- token -->
   <td><%xcm CodeableConcept:reference%></td> <!-- reference -->
   <td><%xcm CodeableConcept:quantity%></td> <!-- quantity -->
   <td><%xcm CodeableConcept:uri%></td> <!-- uri -->
+  <td><%xcm CodeableConcept:string%></td> <!-- string -->
+  <td><%xcm CodeableConcept:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Coding">Coding</a></td>
   <td><%xcm Coding:number%></td> <!-- number -->
   <td><%xcm Coding:date%></td> <!-- date -->
-  <td><%xcm Coding:string%></td> <!-- string -->
-  <td><%xcm Coding:token%></td> <!-- token -->
   <td><%xcm Coding:reference%></td> <!-- reference -->
   <td><%xcm Coding:quantity%></td> <!-- quantity -->
   <td><%xcm Coding:uri%></td> <!-- uri -->
+  <td><%xcm Coding:string%></td> <!-- string -->
+  <td><%xcm Coding:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Count">Count</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Count%>Not used in search</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#ContactPoint">ContactPoint</a></td>
   <td><%xcm ContactPoint:number%></td> <!-- number -->
   <td><%xcm ContactPoint:date%></td> <!-- date -->
-  <td><%xcm ContactPoint:string%></td> <!-- string -->
-  <td><%xcm ContactPoint:token%></td> <!-- token -->
   <td><%xcm ContactPoint:reference%></td> <!-- reference -->
   <td><%xcm ContactPoint:quantity%></td> <!-- quantity -->
   <td><%xcm ContactPoint:uri%></td> <!-- uri -->
+  <td><%xcm ContactPoint:string%></td> <!-- string -->
+  <td><%xcm ContactPoint:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Distance">Distance</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Distance%>Not used in search</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#Duration">Duration</a></td>
   <td><%xcm Duration:number%></td> <!-- number -->
   <td><%xcm Duration:date%></td> <!-- date -->
-  <td><%xcm Duration:string%></td> <!-- string -->
-  <td><%xcm Duration:token%></td> <!-- token -->
   <td><%xcm Duration:reference%></td> <!-- reference -->
   <td><%xcm Duration:quantity%></td> <!-- quantity -->
   <td><%xcm Duration:uri%></td> <!-- uri -->
+  <td><%xcm Duration:string%></td> <!-- string -->
+  <td><%xcm Duration:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#HumanName">HumanName</a></td>
   <td><%xcm HumanName:number%></td> <!-- number -->
   <td><%xcm HumanName:date%></td> <!-- date -->
-  <td><%xcm HumanName:string%> Search on any string element in the name</td> <!-- string -->
-  <td><%xcm HumanName:token%></td> <!-- token -->
   <td><%xcm HumanName:reference%></td> <!-- reference -->
   <td><%xcm HumanName:quantity%></td> <!-- quantity -->
   <td><%xcm HumanName:uri%></td> <!-- uri -->
+  <td><%xcm HumanName:string%> Search on any string element in the name</td> <!-- string -->
+  <td><%xcm HumanName:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Identifier">Identifier</a></td>
   <td><%xcm Identifier:number%></td> <!-- number -->
   <td><%xcm Identifier:date%></td> <!-- date -->
-  <td><%xcm Identifier:string%></td> <!-- string -->
-  <td><%xcm Identifier:token%></td> <!-- token -->
   <td><%xcm Identifier:reference%></td> <!-- reference -->
   <td><%xcm Identifier:quantity%></td> <!-- quantity -->
   <td><%xcm Identifier:uri%></td> <!-- uri -->
+  <td><%xcm Identifier:string%></td> <!-- string -->
+  <td><%xcm Identifier:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Money">Money</a></td>
+  <td><%xcm Money:number%></td> <!-- number -->
+  <td><%xcm Money:date%></td> <!-- date -->
+  <td><%xcm Money:reference%></td> <!-- reference -->
+  <td><%xcm Money:quantity%></td> <!-- quantity -->
+  <td><%xcm Money:uri%></td> <!-- uri -->
+  <td><%xcm Money:string%></td> <!-- string -->
+  <td><%xcm Money:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Period">Period</a></td>
   <td><%xcm Period:number%></td> <!-- number -->
   <td><%xcm Period:date%></td> <!-- date -->
-  <td><%xcm Period:string%></td> <!-- string -->
-  <td><%xcm Period:token%></td> <!-- token -->
   <td><%xcm Period:reference%></td> <!-- reference -->
   <td><%xcm Period:quantity%></td> <!-- quantity -->
   <td><%xcm Period:uri%></td> <!-- uri -->
+  <td><%xcm Period:string%></td> <!-- string -->
+  <td><%xcm Period:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Quantity">Quantity</a></td>
   <td><%xcm Quantity:number%></td> <!-- number -->
   <td><%xcm Quantity:date%></td> <!-- date -->
-  <td><%xcm Quantity:string%></td> <!-- string -->
-  <td><%xcm Quantity:token%></td> <!-- token -->
   <td><%xcm Quantity:reference%></td> <!-- reference -->
   <td><%xcm Quantity:quantity%></td> <!-- quantity -->
   <td><%xcm Quantity:uri%></td> <!-- uri -->
+  <td><%xcm Quantity:string%></td> <!-- string -->
+  <td><%xcm Quantity:token%></td> <!-- token -->
  </tr>
  <tr>
   <td><a href="datatypes.html#Range">Range</a></td>
   <td><%xcm Range:number%></td> <!-- number -->
   <td><%xcm Range:date%></td> <!-- date -->
-  <td><%xcm Range:string%></td> <!-- string -->
-  <td><%xcm Range:token%></td> <!-- token -->
   <td><%xcm Range:reference%></td> <!-- reference -->
   <td><%xcm Range:quantity%></td> <!-- quantity -->
   <td><%xcm Range:uri%></td> <!-- uri -->
+  <td><%xcm Range:string%></td> <!-- string -->
+  <td><%xcm Range:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Ratio">Ratio</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk base64Binary%>Not used in search</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#Reference">Reference</a></td>
   <td><%xcm Reference:number%></td> <!-- number -->
   <td><%xcm Reference:date%></td> <!-- date -->
-  <td><%xcm Reference:string%></td> <!-- string -->
-  <td><%xcm Reference:token%></td> <!-- token -->
   <td><%xcm Reference:reference%></td> <!-- reference -->
   <td><%xcm Reference:quantity%></td> <!-- quantity -->
   <td><%xcm Reference:uri%></td> <!-- uri -->
+  <td><%xcm Reference:string%></td> <!-- string -->
+  <td><%xcm Reference:token%></td> <!-- token -->
  </tr>
  <tr>
-  <td><a href="datatypes.html#SampledData">SampledData</a></td>
-  <td><%xcm SampledData:number%></td> <!-- number -->
-  <td><%xcm SampledData:date%></td> <!-- date -->
-  <td><%xcm SampledData:string%></td> <!-- string -->
-  <td><%xcm SampledData:token%></td> <!-- token -->
-  <td><%xcm SampledData:reference%></td> <!-- reference -->
-  <td><%xcm SampledData:quantity%></td> <!-- quantity -->
-  <td><%xcm SampledData:uri%></td> <!-- uri -->
+  <td><a href="datatypes.html#base64Binary">SampledData</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk SampledData%>Not used in search</td> 
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#Signature">Signature</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Signature%>Not used in search</td> 
  </tr>
  <tr>
   <td><a href="datatypes.html#Timing">Timing</a></td>
   <td><%xcm Timing:number%></td> <!-- number -->
   <td><%xcm Timing:date%></td> <!-- date -->
-  <td><%xcm Timing:string%></td> <!-- string -->
-  <td><%xcm Timing:token%></td> <!-- token -->
   <td><%xcm Timing:reference%></td> <!-- reference -->
   <td><%xcm Timing:quantity%></td> <!-- quantity -->
   <td><%xcm Timing:uri%></td> <!-- uri -->
+  <td><%xcm Timing:string%></td> <!-- string -->
+  <td><%xcm Timing:token%></td> <!-- token -->
  </tr>
 </table>
 

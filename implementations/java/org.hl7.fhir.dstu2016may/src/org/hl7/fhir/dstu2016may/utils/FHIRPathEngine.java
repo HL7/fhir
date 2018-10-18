@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.fhir.ucum.Decimal;
+import org.fhir.ucum.UcumException;
 import org.hl7.fhir.dstu2016may.metamodel.ParserBase;
 import org.hl7.fhir.dstu2016may.model.Base;
 import org.hl7.fhir.dstu2016may.model.BooleanType;
@@ -40,8 +42,6 @@ import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.utilities.Utilities;
-import org.fhir.ucum.Decimal;
-import org.fhir.ucum.UcumException;
 
 /**
  * 

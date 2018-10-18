@@ -50,6 +50,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.convertors.R2016MayToR4Loader;
+import org.hl7.fhir.convertors.R2ToR4Loader;
+import org.hl7.fhir.convertors.R3ToR4Loader;
+import org.hl7.fhir.convertors.TerminologyClientFactory;
+import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
+import org.hl7.fhir.convertors.VersionConvertor_10_40;
+import org.hl7.fhir.convertors.VersionConvertor_14_40;
+import org.hl7.fhir.convertors.VersionConvertor_30_40;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.context.SimpleWorkerContext.IContextResourceLoader;
@@ -64,22 +74,17 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.r4.model.Parameters;
-import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.ResourceFactory;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.terminologies.ConceptMapEngine;
-import org.hl7.fhir.r4.terminologies.TerminologyClient;
-import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
-import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
 import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
@@ -87,33 +92,18 @@ import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities.ITransformerServices;
-import org.hl7.fhir.r4.validation.ValidationEngine.TransformSupportServices;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.ValidationProfileSet;
-import org.hl7.fhir.convertors.R2016MayToR4Loader;
-import org.hl7.fhir.convertors.R2ToR3Loader;
-import org.hl7.fhir.convertors.R2ToR4Loader;
-import org.hl7.fhir.convertors.R3ToR4Loader;
-import org.hl7.fhir.convertors.TerminologyClientFactory;
-import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
-import org.hl7.fhir.convertors.VersionConvertor_10_40;
-import org.hl7.fhir.convertors.VersionConvertor_14_40;
-import org.hl7.fhir.convertors.VersionConvertor_30_40;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.cache.PackageCacheManager;
 import org.hl7.fhir.utilities.cache.NpmPackage;
+import org.hl7.fhir.utilities.cache.PackageCacheManager;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.xml.sax.SAXException;
-
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 /**
  * This is just a wrapper around the InstanceValidator class for convenient use 
@@ -267,7 +257,7 @@ public class ValidationEngine {
     loadDefinitions(src);   
   }
   
-  public void setTerminologyServer(String src, String log, FhirVersion version) throws Exception {
+  public void setTerminologyServer(String src, String log, FhirPublication version) throws Exception {
     connectToTSServer(src, log, version);   
   }
   
@@ -287,7 +277,7 @@ public class ValidationEngine {
     this.anyExtensionsAllowed = anyExtensionsAllowed;
   }
 
-  public ValidationEngine(String src, String txsrvr, String txLog, FhirVersion version) throws Exception {
+  public ValidationEngine(String src, String txsrvr, String txLog, FhirPublication version) throws Exception {
     pcm = new PackageCacheManager(true);
     loadInitialDefinitions(src);
     setTerminologyServer(txsrvr, txLog, version);
@@ -598,7 +588,7 @@ public class ValidationEngine {
     return checkIsResource(new FileInputStream(path));
 	}
 
-  public void connectToTSServer(String url, String log, FhirVersion version) throws URISyntaxException, FHIRException {
+  public void connectToTSServer(String url, String log, FhirPublication version) throws URISyntaxException, FHIRException {
     context.setTlogging(false);
     if (url == null) {
       context.setCanRunWithoutTerminology(true);

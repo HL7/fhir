@@ -4,7 +4,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Error parsing resource XML (Unknown Content &quot;label&quot; @ /Patient/identifier/label)</p>
+      <p>Error parsing resource XML (Unknown Content &quot;label&quot; @ /Patient/identifier/label) at Patient.identifier</p>
     </div>
   </text>
   <issue>

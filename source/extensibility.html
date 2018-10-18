@@ -464,6 +464,8 @@ extension, which is not allowed on simple data types.
 <a name="exchange"></a>
 <h2>Exchanging Extensions</h2>
 
+<p><i>Note: This section describes the use of "non-modifier extensions", except where "modifier extensions" are explicitly mentioned (see <a href="#isModifier">Modifier Extensions</a> above for details).</i></p>
+
 <p>
 Extensions are a way of allowing local requirements to be reflected in a resource using
 a common information based approach so that all systems can confidently process them
@@ -517,7 +519,7 @@ Use the following rules as a guideline for handling resources:
 <ul>
  <li>When writing extensions, make sure they are defined and published</li>
  <li>When reading, navigating through or searching on elements that can have modifier extensions, check whether there are any modifier extensions present</li>
- <li>When reading elements, read and process the extensions you know and use, and ignore other extensions</li>
+ <li>When reading elements, read and process the extensions you know and use, and ignore other extensions <b>except for modifier extensions</b></li>
  <li>Retain extensions whenever you can</li>
 </ul>
 

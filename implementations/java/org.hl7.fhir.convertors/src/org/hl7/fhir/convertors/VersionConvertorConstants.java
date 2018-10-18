@@ -1,7 +1,5 @@
 package org.hl7.fhir.convertors;
 
-import org.hl7.fhir.utilities.Utilities;
-
 public class VersionConvertorConstants {
 
   public final static String IG_DEPENDSON_PACKAGE_EXTENSION = "http://hl7.org/fhir/4.0/StructureDefinition/extension-ImplentationGuide.dependency.packageId";

@@ -3,7 +3,6 @@ package org.hl7.fhir.r4.validation;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import org.hl7.fhir.convertors.VersionConvertorAdvisor30;
 import org.hl7.fhir.convertors.VersionConvertorAdvisor40;
 import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
@@ -28,18 +27,16 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
-import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
-import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.r4.model.CodeSystem;
-import org.hl7.fhir.r4.model.FhirVersion;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.ValueSet;
-import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
+import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.Gson;
@@ -149,7 +146,7 @@ public class NativeHostServices {
    * @throws Exception
    */
   public void connectToTxSvc(String txServer, String log) throws Exception {
-    validator.connectToTSServer(txServer, log, FhirVersion.R4);
+    validator.connectToTSServer(txServer, log, FhirPublication.R4);
   }
 
   /**

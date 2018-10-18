@@ -113,11 +113,16 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.OIDRegistry;
 import org.hl7.fhir.definitions.validation.ValueSetValidator;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.PathEngineException;
+import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
+import org.hl7.fhir.igtools.spreadsheets.TypeParser;
+import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.r4.conformance.ProfileComparer;
 import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
-import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.IParser;
@@ -128,7 +133,6 @@ import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
@@ -155,17 +159,14 @@ import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
-import org.hl7.fhir.r4.model.MarkdownType;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
 import org.hl7.fhir.r4.model.Narrative;
 import org.hl7.fhir.r4.model.Quantity;
-import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
-import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
@@ -186,30 +187,19 @@ import org.hl7.fhir.r4.terminologies.TerminologyClientR4;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
-import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
+import org.hl7.fhir.r4.utils.IResourceValidator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
-import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
-import org.hl7.fhir.r4.utils.ResourceUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.Translations;
 import org.hl7.fhir.r4.utils.TypesUtilities;
-import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.hl7.fhir.exceptions.PathEngineException;
-import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
-import org.hl7.fhir.igtools.spreadsheets.TypeParser;
-import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.r4.utils.TypesUtilities.TypeClassification;
+import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
-import org.hl7.fhir.tools.publisher.PageProcessor.PageInfo;
-import org.hl7.fhir.tools.publisher.PageProcessor.PageInfoType;
-import org.hl7.fhir.tools.publisher.PageProcessor.ResourceSummary;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -832,6 +822,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("xcmchk")) {
+        src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("sstatus")) {
         if (com.length == 1) {
           StandardsStatus ss = ToolingExtensions.getStandardsStatus((DomainResource) resource);
@@ -5563,6 +5555,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genScList(com[1])+s3;
       } else if (com[0].equals("xcm")) {
         src = s1+getXcm(com[1])+s3;
+      } else if (com[0].equals("xcmchk")) {
+        src = s1+getXcmChk(com[1])+s3;
       } else if (com[0].equals("fmm")) {
         src = s1+getFmm(com[1])+s3;
       } else if (com[0].equals("fmmshort")) {
@@ -9992,7 +9986,8 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   }
 
   public Set<String> getSearchTypeUsage() {
-    return searchTypeUsage ;
+    searchTypeUsage.add("id:token");
+    return searchTypeUsage;
   }
 
   private String getStandardsStatus(String resourceName) throws FHIRException {
@@ -10042,6 +10037,27 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       return "<span style=\"font-weight: bold\">Y</span> ";
     else
       return "<span style=\"color: grey\">N</span>";
+  }
+
+  private String getXcmChk(String param) {
+    boolean used = false;
+    if (searchTypeUsage.contains(param+":number"))
+      used = true;
+    if (searchTypeUsage.contains(param+":date"))
+      used = true;
+    if (searchTypeUsage.contains(param+":reference"))
+      used = true;
+    if (searchTypeUsage.contains(param+":quantity"))
+      used = true;
+    if (searchTypeUsage.contains(param+":uri"))
+      used = true;
+    if (searchTypeUsage.contains(param+":string"))
+      used = true;
+    if (searchTypeUsage.contains(param+":token"))
+      used = true;
+    if (used)
+      throw new Error("data type "+param+" is used in search after all");
+    return "";
   }
 
   private String genCSList() throws FHIRException {
@@ -10700,13 +10716,25 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
   
   private String genWildcardTypeList() {
     StringBuilder b = new StringBuilder();
-    for (String s : TypesUtilities.wildcardTypes()) {
+    TypeClassification tc = null;
+    boolean first = true;
+    for (WildcardInformation wi : TypesUtilities.wildcards()) {
+      if (tc != wi.getClassification()) {
+        if (first)
+          first = false;
+        else
+          b.append("</ul>\r\n");
+        tc = wi.getClassification();
+        b.append("<b>"+Utilities.pluralize(tc.toDisplay(), 2)+"</b>\r\n");
+        b.append("<ul class=\"dense\">\r\n");
+      }
       b.append("<li><a href=\"");
-      b.append(definitions.getSrcFile(s)+".html#"+s);
+      b.append(definitions.getSrcFile(wi.getTypeName())+".html#"+wi.getTypeName());
       b.append("\">");
-      b.append(s);      
-      b.append("</a></li>");
+      b.append(wi.getTypeName());      
+      b.append("</a></li>\r\n");
     }
+    b.append("</ul>\r\n");
     return b.toString();
   }
   

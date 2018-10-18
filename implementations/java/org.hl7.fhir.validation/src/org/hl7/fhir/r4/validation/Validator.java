@@ -29,48 +29,35 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 
 import java.awt.Desktop;
-import java.awt.EventQueue;
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.UIManager;
-
 import org.hl7.fhir.r4.conformance.ProfileComparer;
-import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
-import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.DomainResource;
+import org.hl7.fhir.r4.model.FhirPublication;
 import org.hl7.fhir.r4.model.ImplementationGuide;
 import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
-import org.hl7.fhir.r4.validation.Validator.EngineMode;
-import org.hl7.fhir.utilities.TextFile;
-import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.ToolsVersion;
-import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
-import org.hl7.fhir.r4.model.FhirVersion;
 
 /**
  * A executable class that will validate one or more FHIR resources against 
@@ -202,7 +189,7 @@ public class Validator {
         else if (v.startsWith(Constants.VERSION)) v = Constants.VERSION;
         String definitions = "hl7.fhir.core#"+v;
         System.out.println("Loading (v = "+v+", tx server http://tx.fhir.org)");
-        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org", null, FhirVersion.fromCode(v));
+        ValidationEngine validator = new ValidationEngine(definitions, "http://tx.fhir.org", null, FhirPublication.fromCode(v));
         for (int i = 0; i < args.length; i++) {
           if ("-ig".equals(args[i])) {
             if (i+1 == args.length)
@@ -351,7 +338,7 @@ public class Validator {
       // Comment this out because definitions filename doesn't necessarily contain version (and many not even be 14 characters long).  Version gets spit out a couple of lines later after we've loaded the context
       System.out.println("  .. connect to tx server @ "+txServer);
       System.out.println("  .. definitions from "+definitions);
-      ValidationEngine validator = new ValidationEngine(definitions, txServer, txLog, FhirVersion.fromCode(sv));
+      ValidationEngine validator = new ValidationEngine(definitions, txServer, txLog, FhirPublication.fromCode(sv));
       System.out.println("    (v"+validator.getContext().getVersion()+")");
       if (sv != null)
         validator.setVersion(sv);

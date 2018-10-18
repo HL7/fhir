@@ -49,7 +49,7 @@ content</a> from other resources and still be considered generated.
 </p>
 <p>
 For example, the narrative for a MedicationRequest might include brief summary information
-about the referenced patient, prescriber and medication.  Some resources (e.g. List, Composition)
+about the referenced patient, prescriber and medication.  Some resources (e.g. List)
 can provide specific rules about what content must (or must not) be included in the resource narrative.
 Consideration would be given to the fact that referenced resources may be updated without updating
 referencing resources, so the proportion of content of a referenced resource included
@@ -61,9 +61,9 @@ perform, but SHALL NOT assume that the resource is rendered in any particular co
 when generating narrative, since resources will be used in multiple contexts.
 </p>
 <p>
-Resources SHOULD always contain narrative to support human-consumption
-as a fallback.  Structured data SHOULD NOT generally contain information of
-importance to human readers that is omitted from the narrative. Creators of FHIR
+Resource instances that permit narrative SHOULD always contain narrative to support 
+human-consumption as a fallback. Structured data SHOULD NOT generally contain information 
+of importance to human readers that is omitted from the narrative. Creators of FHIR
 resources should not assume that systems will render (or that humans will see)
 data that is not in the narrative. However, in strictly managed trading systems
 where all systems share a common data model and additional text is unnecessary or
