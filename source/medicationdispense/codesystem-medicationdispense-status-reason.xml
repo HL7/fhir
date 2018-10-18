@@ -104,4 +104,14 @@
     <display value="Washout"/>
     <definition value="The patient was previously receiving a medication contraindicated with the current medication. The current medication will remain on hold until the prior medication has been cleansed from their system."/>
   </concept>
+  <concept>
+    <code value="outofstock"/>
+    <display value="Drug not available - out of stock"/>
+    <definition value="Drug out of stock. Cannot supply."/>
+  </concept>
+  <concept>
+    <code value="offmarket"/>
+    <display value="Drug not available - off market"/>
+    <definition value="Drug no longer marketed Cannot supply."/>
+  </concept>
 </CodeSystem>
