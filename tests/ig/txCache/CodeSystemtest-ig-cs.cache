@@ -1,5 +1,4 @@
 -------------------------------------------------------------------------------------
-
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
@@ -19,7 +18,6 @@ e: {
   "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/CodeSystem/test-ig-cs"
 }
 -------------------------------------------------------------------------------------
-
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
