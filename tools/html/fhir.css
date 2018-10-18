@@ -743,6 +743,9 @@ tr.diff-new {
 tr.diff-new-item {
   background-color: #f4fff4;
 }
+tr.diff-changed-item {
+  background-color: #eaf8ff;
+}
 tr.diff-del {
   background-color: #fff4f4;
 }
