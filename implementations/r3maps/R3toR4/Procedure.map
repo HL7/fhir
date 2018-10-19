@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Procedure extends DomainResource
+group for type+types Procedure extends DomainResource
   input src : ProcedureR3 as source
   input tgt : Procedure as target
 
@@ -43,7 +43,7 @@ group Procedure extends DomainResource
 endgroup
 
 
-group ProcedurePerformer extends BackboneElement
+group for type+types ProcedurePerformer extends BackboneElement
   input src : ProcedureR3 as source
   input tgt : Procedure as target
 
@@ -53,7 +53,7 @@ group ProcedurePerformer extends BackboneElement
 endgroup
 
 
-group ProcedureFocalDevice extends BackboneElement
+group for type+types ProcedureFocalDevice extends BackboneElement
   input src : ProcedureR3 as source
   input tgt : Procedure as target
 

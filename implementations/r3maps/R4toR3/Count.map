@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Count extends Quantity
+group for type+types Count extends Quantity
   input src : Count as source
   input tgt : CountR3 as target
 

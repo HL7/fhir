@@ -8,17 +8,17 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Schedule extends DomainResource
+group for type+types Schedule extends DomainResource
   input src : Schedule as source
   input tgt : ScheduleR3 as target
 
-  "Schedule.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Schedule.active" : for src.active as vs make tgt.active as vt
-  "Schedule.serviceCategory" : for src.serviceCategoryFirstRep as vs make tgt.serviceCategory as vt
-  "Schedule.serviceType" : for src.serviceType as vs make tgt.serviceType as vt
-  "Schedule.specialty" : for src.specialty as vs make tgt.specialty as vt
-  "Schedule.actor" : for src.actor as vs make tgt.actor as vt
-  "Schedule.planningHorizon" : for src.planningHorizon as vs make tgt.planningHorizon as vt
-  "Schedule.comment" : for src.comment as vs make tgt.comment as vt
+  "Schedule.identifier" : for src.identifier make tgt.identifier 
+  "Schedule.active" : for src.active make tgt.active 
+  "Schedule.serviceCategory" : for src.serviceCategoryFirstRep make tgt.serviceCategory 
+  "Schedule.serviceType" : for src.serviceType make tgt.serviceType 
+  "Schedule.specialty" : for src.specialty make tgt.specialty 
+  "Schedule.actor" : for src.actor make tgt.actor 
+  "Schedule.planningHorizon" : for src.planningHorizon make tgt.planningHorizon 
+  "Schedule.comment" : for src.comment make tgt.comment 
 endgroup
 

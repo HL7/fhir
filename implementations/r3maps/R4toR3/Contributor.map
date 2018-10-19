@@ -8,12 +8,12 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Contributor extends Element
+group for type+types Contributor extends Element
   input src : Contributor as source
   input tgt : ContributorR3 as target
 
-  "Contributor.type" : for src.type as vs make tgt.type as vt
-  "Contributor.name" : for src.name as vs make tgt.name as vt
-  "Contributor.contact" : for src.contact as vs make tgt.contact as vt
+  "Contributor.type" : for src.type make tgt.type 
+  "Contributor.name" : for src.name make tgt.name 
+  "Contributor.contact" : for src.contact make tgt.contact 
 endgroup
 

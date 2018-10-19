@@ -8,21 +8,21 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group DataRequirement extends Element
+group for type+types DataRequirement extends Element
   input src : DataRequirement as source
   input tgt : DataRequirementR3 as target
 
-  "DataRequirement.type" : for src.type as vs make tgt.type as vt
-  "DataRequirement.mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt
+  "DataRequirement.type" : for src.type make tgt.type 
+  "DataRequirement.mustSupport" : for src.mustSupport make tgt.mustSupport 
   "DataRequirement.codeFilter" : for src.codeFilter as vs0 make tgt.codeFilter as vt0 then {
-    "DataRequirement.codeFilter.path" : for vs0.path as vs make vt0.path as vt
-    "DataRequirement.codeFilter.valueCoding" : for vs0.code as vs make vt0.valueCoding as vt
+    "DataRequirement.codeFilter.path" : for vs0.path make vt0.path 
+    "DataRequirement.codeFilter.valueCoding" : for vs0.code make vt0.valueCoding 
   }
   "DataRequirement.dateFilter" : for src.dateFilter as vs0 make tgt.dateFilter as vt0 then {
-    "DataRequirement.dateFilter.path" : for vs0.path as vs make vt0.path as vt
-    "DataRequirement.dateFilter.value-dateTime" : for vs0.value  : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
-    "DataRequirement.dateFilter.value-Period" : for vs0.value  : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
-    "DataRequirement.dateFilter.value-Duration" : for vs0.value  : Duration as vs make vt0.value = create("Duration") as vt then Duration(vs,vt)
+    "DataRequirement.dateFilter.path" : for vs0.path make vt0.path 
+    "DataRequirement.dateFilter.value-dateTime" : for vs0.value : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
+    "DataRequirement.dateFilter.value-Period" : for vs0.value : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
+    "DataRequirement.dateFilter.value-Duration" : for vs0.value : Duration as vs make vt0.value = create("Duration") as vt then Duration(vs,vt)
   }
 endgroup
 

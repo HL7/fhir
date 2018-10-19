@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicinalProductClinicals extends DomainResource
+group for type+types MedicinalProductClinicals extends DomainResource
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -18,7 +18,7 @@ group MedicinalProductClinicals extends DomainResource
   "MedicinalProductClinicals.interactions": for src.interactions as s make tgt.interactions as t then MedicinalProductClinicalsInteractions(s,t)
 endgroup
 
-group MedicinalProductClinicalsUndesirableEffects extends BackboneElement
+group for type+types MedicinalProductClinicalsUndesirableEffects extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -28,7 +28,7 @@ group MedicinalProductClinicalsUndesirableEffects extends BackboneElement
   "MedicinalProductClinicals.undesirableEffects.population": for src.population as s make tgt.population as t then MedicinalProductClinicalsUndesirableEffectsPopulation(s,t)
 endgroup
 
-group MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElement
+group for type+types MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -38,7 +38,7 @@ group MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElem
   "MedicinalProductClinicals.undesirableEffects.population.physiologicalCondition": for src.physiologicalCondition make tgt.physiologicalCondition
 endgroup
 
-group MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
+group for type+types MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -52,7 +52,7 @@ group MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
   "MedicinalProductClinicals.therapeuticIndication.population": for src.population make tgt.population
 endgroup
 
-group MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends BackboneElement
+group for type+types MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -60,7 +60,7 @@ group MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends Backbon
   "MedicinalProductClinicals.therapeuticIndication.otherTherapy.medication": for src.medication make tgt.medication
 endgroup
 
-group MedicinalProductClinicalsContraindication extends BackboneElement
+group for type+types MedicinalProductClinicalsContraindication extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -72,7 +72,7 @@ group MedicinalProductClinicalsContraindication extends BackboneElement
   "MedicinalProductClinicals.contraindication.population": for src.population make tgt.population
 endgroup
 
-group MedicinalProductClinicalsInteractions extends BackboneElement
+group for type+types MedicinalProductClinicalsInteractions extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 

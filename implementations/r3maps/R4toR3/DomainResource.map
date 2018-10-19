@@ -14,6 +14,6 @@ group for type+types DomainResource extends Resource
 
   "DomainResource.text": for src.text make tgt.text
   "DomainResource.contained": for src.contained make tgt.contained
-  "DomainResource.extension": for src.extension make tgt.extension
+  "DomainResource.extension": for src.extension where url != 'http://hl7.org/fhir/StructureDefinition/valueset-extensible' make tgt.extension
   "DomainResource.modifierExtension": for src.modifierExtension make tgt.modifierExtension
 endgroup

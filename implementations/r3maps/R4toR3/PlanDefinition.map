@@ -8,63 +8,63 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group PlanDefinition extends DomainResource
+group for type+types PlanDefinition extends DomainResource
   input src : PlanDefinition as source
   input tgt : PlanDefinitionR3 as target
 
-  "PlanDefinition.url" : for src.url as vs make tgt.url as vt
-  "PlanDefinition.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "PlanDefinition.version" : for src.version as vs make tgt.version as vt
-  "PlanDefinition.name" : for src.name as vs make tgt.name as vt
-  "PlanDefinition.title" : for src.title as vs make tgt.title as vt
-  "PlanDefinition.type" : for src.type as vs make tgt.type as vt
-  "PlanDefinition.status" : for src.status as vs make tgt.status as vt
-  "PlanDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "PlanDefinition.date" : for src.date as vs make tgt.date as vt
-  "PlanDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "PlanDefinition.description" : for src.description as vs make tgt.description as vt
-  "PlanDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "PlanDefinition.usage" : for src.usage as vs make tgt.usage as vt
-  "PlanDefinition.approvalDate" : for src.approvalDate as vs make tgt.approvalDate as vt
-  "PlanDefinition.lastReviewDate" : for src.lastReviewDate as vs make tgt.lastReviewDate as vt
-  "PlanDefinition.effectivePeriod" : for src.effectivePeriod as vs make tgt.effectivePeriod as vt
-  "PlanDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "PlanDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "PlanDefinition.topic" : for src.topic as vs make tgt.topic as vt
-  "PlanDefinition.contributor" : for src.contributor as vs make tgt.contributor as vt
-  "PlanDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "PlanDefinition.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "PlanDefinition.relatedArtifact" : for src.relatedArtifact as vs make tgt.relatedArtifact as vt
+  "PlanDefinition.url" : for src.url make tgt.url 
+  "PlanDefinition.identifier" : for src.identifier make tgt.identifier 
+  "PlanDefinition.version" : for src.version make tgt.version 
+  "PlanDefinition.name" : for src.name make tgt.name 
+  "PlanDefinition.title" : for src.title make tgt.title 
+  "PlanDefinition.type" : for src.type make tgt.type 
+  "PlanDefinition.status" : for src.status make tgt.status 
+  "PlanDefinition.experimental" : for src.experimental make tgt.experimental 
+  "PlanDefinition.date" : for src.date make tgt.date 
+  "PlanDefinition.publisher" : for src.publisher make tgt.publisher 
+  "PlanDefinition.description" : for src.description make tgt.description 
+  "PlanDefinition.purpose" : for src.purpose make tgt.purpose 
+  "PlanDefinition.usage" : for src.usage make tgt.usage 
+  "PlanDefinition.approvalDate" : for src.approvalDate make tgt.approvalDate 
+  "PlanDefinition.lastReviewDate" : for src.lastReviewDate make tgt.lastReviewDate 
+  "PlanDefinition.effectivePeriod" : for src.effectivePeriod make tgt.effectivePeriod 
+  "PlanDefinition.useContext" : for src.useContext make tgt.useContext 
+  "PlanDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "PlanDefinition.topic" : for src.topic make tgt.topic 
+  "PlanDefinition.contributor" : for src.contributor make tgt.contributor 
+  "PlanDefinition.contact" : for src.contact make tgt.contact 
+  "PlanDefinition.copyright" : for src.copyright make tgt.copyright 
+  "PlanDefinition.relatedArtifact" : for src.relatedArtifact make tgt.relatedArtifact 
   "PlanDefinition.goal" : for src.goal as vs0 make tgt.goal as vt0 then {
-    "PlanDefinition.goal.category" : for vs0.category as vs make vt0.category as vt
-    "PlanDefinition.goal.description" : for vs0.description as vs make vt0.description as vt
-    "PlanDefinition.goal.priority" : for vs0.priority as vs make vt0.priority as vt
-    "PlanDefinition.goal.start" : for vs0.start as vs make vt0.start as vt
-    "PlanDefinition.goal.addresses" : for vs0.addresses as vs make vt0.addresses as vt
-    "PlanDefinition.goal.documentation" : for vs0.documentation as vs make vt0.documentation as vt
+    "PlanDefinition.goal.category" : for vs0.category make vt0.category 
+    "PlanDefinition.goal.description" : for vs0.description make vt0.description 
+    "PlanDefinition.goal.priority" : for vs0.priority make vt0.priority 
+    "PlanDefinition.goal.start" : for vs0.start make vt0.start 
+    "PlanDefinition.goal.addresses" : for vs0.addresses make vt0.addresses 
+    "PlanDefinition.goal.documentation" : for vs0.documentation make vt0.documentation 
   }
   "PlanDefinition.action" : for src.action as vs0 make tgt.action as vt0 then {
-    "PlanDefinition.action.label" : for vs0.prefix as vs make vt0.label as vt
-    "PlanDefinition.action.title" : for vs0.title as vs make vt0.title as vt
-    "PlanDefinition.action.description" : for vs0.description as vs make vt0.description as vt
-    "PlanDefinition.action.textEquivalent" : for vs0.textEquivalent as vs make vt0.textEquivalent as vt
-    "PlanDefinition.action.code" : for vs0.code as vs make vt0.code as vt
-    "PlanDefinition.action.reason" : for vs0.reason as vs make vt0.reason as vt
-    "PlanDefinition.action.documentation" : for vs0.documentation as vs make vt0.documentation as vt
-    "PlanDefinition.action.goalId" : for vs0.goalId as vs make vt0.goalId as vt
-    "PlanDefinition.action.triggerDefinition" : for vs0.trigger as vs make vt0.triggerDefinition as vt
-    "PlanDefinition.action.input" : for vs0.input as vs make vt0.input as vt
-    "PlanDefinition.action.output" : for vs0.output as vs make vt0.output as vt
-    "PlanDefinition.action.timing-dateTime" : for vs0.timing  : dateTime as vs make vt0.timing = create("dateTime") as vt then dateTime(vs,vt)
-    "PlanDefinition.action.timing-Period" : for vs0.timing  : Period as vs make vt0.timing = create("Period") as vt then Period(vs,vt)
-    "PlanDefinition.action.timing-Duration" : for vs0.timing  : Duration as vs make vt0.timing = create("Duration") as vt then Duration(vs,vt)
-    "PlanDefinition.action.timing-Range" : for vs0.timing  : Range as vs make vt0.timing = create("Range") as vt then Range(vs,vt)
-    "PlanDefinition.action.timing-Timing" : for vs0.timing  : Timing as vs make vt0.timing = create("Timing") as vt then Timing(vs,vt)
-    "PlanDefinition.action.groupingBehavior" : for vs0.groupingBehavior as vs make vt0.groupingBehavior as vt
-    "PlanDefinition.action.selectionBehavior" : for vs0.selectionBehavior as vs make vt0.selectionBehavior as vt
-    "PlanDefinition.action.requiredBehavior" : for vs0.requiredBehavior as vs make vt0.requiredBehavior as vt
-    "PlanDefinition.action.precheckBehavior" : for vs0.precheckBehavior as vs make vt0.precheckBehavior as vt
-    "PlanDefinition.action.cardinalityBehavior" : for vs0.cardinalityBehavior as vs make vt0.cardinalityBehavior as vt
+    "PlanDefinition.action.label" : for vs0.prefix make vt0.label 
+    "PlanDefinition.action.title" : for vs0.title make vt0.title 
+    "PlanDefinition.action.description" : for vs0.description make vt0.description 
+    "PlanDefinition.action.textEquivalent" : for vs0.textEquivalent make vt0.textEquivalent 
+    "PlanDefinition.action.code" : for vs0.code make vt0.code 
+    "PlanDefinition.action.reason" : for vs0.reason make vt0.reason 
+    "PlanDefinition.action.documentation" : for vs0.documentation make vt0.documentation 
+    "PlanDefinition.action.goalId" : for vs0.goalId make vt0.goalId 
+    "PlanDefinition.action.triggerDefinition" : for vs0.trigger make vt0.triggerDefinition 
+    "PlanDefinition.action.input" : for vs0.input make vt0.input 
+    "PlanDefinition.action.output" : for vs0.output make vt0.output 
+    "PlanDefinition.action.timing-dateTime" : for vs0.timing : dateTime as vs make vt0.timing = create("dateTime") as vt then dateTime(vs,vt)
+    "PlanDefinition.action.timing-Period" : for vs0.timing : Period as vs make vt0.timing = create("Period") as vt then Period(vs,vt)
+    "PlanDefinition.action.timing-Duration" : for vs0.timing : Duration as vs make vt0.timing = create("Duration") as vt then Duration(vs,vt)
+    "PlanDefinition.action.timing-Range" : for vs0.timing : Range as vs make vt0.timing = create("Range") as vt then Range(vs,vt)
+    "PlanDefinition.action.timing-Timing" : for vs0.timing : Timing as vs make vt0.timing = create("Timing") as vt then Timing(vs,vt)
+    "PlanDefinition.action.groupingBehavior" : for vs0.groupingBehavior make vt0.groupingBehavior 
+    "PlanDefinition.action.selectionBehavior" : for vs0.selectionBehavior make vt0.selectionBehavior 
+    "PlanDefinition.action.requiredBehavior" : for vs0.requiredBehavior make vt0.requiredBehavior 
+    "PlanDefinition.action.precheckBehavior" : for vs0.precheckBehavior make vt0.precheckBehavior 
+    "PlanDefinition.action.cardinalityBehavior" : for vs0.cardinalityBehavior make vt0.cardinalityBehavior 
   }
 endgroup
 

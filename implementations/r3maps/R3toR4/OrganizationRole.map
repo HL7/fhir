@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group OrganizationRole extends DomainResource
+group for type+types OrganizationRole extends DomainResource
   input src : OrganizationRoleR3 as source
   input tgt : OrganizationRole as target
 
@@ -30,7 +30,7 @@ group OrganizationRole extends DomainResource
 endgroup
 
 
-group OrganizationRoleAvailableTime extends BackboneElement
+group for type+types OrganizationRoleAvailableTime extends BackboneElement
   input src : OrganizationRoleR3 as source
   input tgt : OrganizationRole as target
 
@@ -41,7 +41,7 @@ group OrganizationRoleAvailableTime extends BackboneElement
 endgroup
 
 
-group OrganizationRoleNotAvailable extends BackboneElement
+group for type+types OrganizationRoleNotAvailable extends BackboneElement
   input src : OrganizationRoleR3 as source
   input tgt : OrganizationRole as target
 

@@ -8,17 +8,17 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group OperationOutcome extends DomainResource
+group for type+types OperationOutcome extends DomainResource
   input src : OperationOutcomeR3 as source
   input tgt : OperationOutcome as target
 
   "OperationOutcome.issue" : for src.issue as vs0 make tgt.issue as vt0 then {
-    "OperationOutcome.issue.severity" : for vs0.severity as vs make vt0.severity as vt
-    "OperationOutcome.issue.code" : for vs0.code as vs make vt0.code as vt
-    "OperationOutcome.issue.details" : for vs0.details as vs make vt0.details as vt
-    "OperationOutcome.issue.diagnostics" : for vs0.diagnostics as vs make vt0.diagnostics as vt
-    "OperationOutcome.issue.location" : for vs0.location as vs make vt0.location as vt
-    "OperationOutcome.issue.expression" : for vs0.expression as vs make vt0.expression as vt
+    "OperationOutcome.issue.severity" : for vs0.severity make vt0.severity 
+    "OperationOutcome.issue.code" : for vs0.code make vt0.code 
+    "OperationOutcome.issue.details" : for vs0.details make vt0.details 
+    "OperationOutcome.issue.diagnostics" : for vs0.diagnostics make vt0.diagnostics 
+    "OperationOutcome.issue.location" : for vs0.location make vt0.location 
+    "OperationOutcome.issue.expression" : for vs0.expression make vt0.expression 
   }
 endgroup
 

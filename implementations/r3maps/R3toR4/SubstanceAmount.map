@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group SubstanceAmount extends BackboneElement
+group for type+types SubstanceAmount extends BackboneElement
   input src : SubstanceAmountR3 as source
   input tgt : SubstanceAmount as target
 
@@ -19,7 +19,7 @@ group SubstanceAmount extends BackboneElement
 endgroup
 
 
-group SubstanceAmountReferenceRange extends Element
+group for type+types SubstanceAmountReferenceRange extends Element
   input src : SubstanceAmountR3 as source
   input tgt : SubstanceAmount as target
 

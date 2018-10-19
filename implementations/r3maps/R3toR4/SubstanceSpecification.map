@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group SubstanceSpecification extends DomainResource
+group for type+types SubstanceSpecification extends DomainResource
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -28,7 +28,7 @@ group SubstanceSpecification extends DomainResource
 endgroup
 
 
-group SubstanceSpecificationMoiety extends BackboneElement
+group for type+types SubstanceSpecificationMoiety extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -42,7 +42,7 @@ group SubstanceSpecificationMoiety extends BackboneElement
 endgroup
 
 
-group SubstanceSpecificationProperty extends BackboneElement
+group for type+types SubstanceSpecificationProperty extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -55,7 +55,7 @@ group SubstanceSpecificationProperty extends BackboneElement
 endgroup
 
 
-group SubstanceSpecificationStructure extends BackboneElement
+group for type+types SubstanceSpecificationStructure extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -70,7 +70,7 @@ group SubstanceSpecificationStructure extends BackboneElement
 endgroup
 
 
-group SubstanceSpecificationStructureIsotope extends BackboneElement
+group for type+types SubstanceSpecificationStructureIsotope extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -83,7 +83,7 @@ group SubstanceSpecificationStructureIsotope extends BackboneElement
 endgroup
 
 
-group SubstanceSpecificationStructureIsotopeMolecularWeight extends BackboneElement
+group for type+types SubstanceSpecificationStructureIsotopeMolecularWeight extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -93,7 +93,7 @@ group SubstanceSpecificationStructureIsotopeMolecularWeight extends BackboneElem
 endgroup
 
 
-group SubstanceSpecificationStructureStructuralRepresentation extends BackboneElement
+group for type+types SubstanceSpecificationStructureStructuralRepresentation extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -103,7 +103,7 @@ group SubstanceSpecificationStructureStructuralRepresentation extends BackboneEl
 endgroup
 
 
-group SubstanceSpecificationSubstanceCode extends BackboneElement
+group for type+types SubstanceSpecificationSubstanceCode extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -115,7 +115,7 @@ group SubstanceSpecificationSubstanceCode extends BackboneElement
 endgroup
 
 
-group SubstanceSpecificationSubstanceName extends BackboneElement
+group for type+types SubstanceSpecificationSubstanceName extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 
@@ -129,7 +129,7 @@ group SubstanceSpecificationSubstanceName extends BackboneElement
 endgroup
 
 
-group SubstanceSpecificationSubstanceNameOfficialName extends BackboneElement
+group for type+types SubstanceSpecificationSubstanceNameOfficialName extends BackboneElement
   input src : SubstanceSpecificationR3 as source
   input tgt : SubstanceSpecification as target
 

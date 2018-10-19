@@ -8,21 +8,21 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Subscription extends DomainResource
+group for type+types Subscription extends DomainResource
   input src : Subscription as source
   input tgt : SubscriptionR3 as target
 
-  "Subscription.status" : for src.status as vs make tgt.status as vt
-  "Subscription.contact" : for src.contact as vs make tgt.contact as vt
-  "Subscription.end" : for src.end as vs make tgt.end as vt
-  "Subscription.reason" : for src.reason as vs make tgt.reason as vt
-  "Subscription.criteria" : for src.criteria as vs make tgt.criteria as vt
-  "Subscription.error" : for src.error as vs make tgt.error as vt
+  "Subscription.status" : for src.status make tgt.status 
+  "Subscription.contact" : for src.contact make tgt.contact 
+  "Subscription.end" : for src.end make tgt.end 
+  "Subscription.reason" : for src.reason make tgt.reason 
+  "Subscription.criteria" : for src.criteria make tgt.criteria 
+  "Subscription.error" : for src.error make tgt.error 
   "Subscription.channel" : for src.channel as vs0 make tgt.channel as vt0 then {
-    "Subscription.channel.type" : for vs0.type as vs make vt0.type as vt
-    "Subscription.channel.payload" : for vs0.payload as vs make vt0.payload as vt
-    "Subscription.channel.header" : for vs0.header as vs make vt0.header as vt
+    "Subscription.channel.type" : for vs0.type make vt0.type 
+    "Subscription.channel.payload" : for vs0.payload make vt0.payload 
+    "Subscription.channel.header" : for vs0.header make vt0.header 
   }
-  "Subscription.tag" : for src.tag as vs make tgt.tag as vt
+  "Subscription.tag" : for src.tag make tgt.tag 
 endgroup
 

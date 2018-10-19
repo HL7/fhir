@@ -8,13 +8,13 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group UsageContext extends Element
+group for type+types UsageContext extends Element
   input src : UsageContextR3 as source
   input tgt : UsageContext as target
 
-  "UsageContext.code" : for src.code as vs make tgt.code as vt
-  "UsageContext.value-CodeableConcept" : for src.value  : CodeableConcept as vs make tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "UsageContext.value-Quantity" : for src.value  : Quantity as vs make tgt.value = create("Quantity") as vt then Quantity(vs,vt)
-  "UsageContext.value-Range" : for src.value  : Range as vs make tgt.value = create("Range") as vt then Range(vs,vt)
+  "UsageContext.code" : for src.code make tgt.code 
+  "UsageContext.value-CodeableConcept" : for src.value : CodeableConcept as vs make tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "UsageContext.value-Quantity" : for src.value : Quantity as vs make tgt.value = create("Quantity") as vt then Quantity(vs,vt)
+  "UsageContext.value-Range" : for src.value : Range as vs make tgt.value = create("Range") as vt then Range(vs,vt)
 endgroup
 

@@ -8,13 +8,13 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group RelatedArtifact extends Element
+group for type+types RelatedArtifact extends Element
   input src : RelatedArtifact as source
   input tgt : RelatedArtifactR3 as target
 
-  "RelatedArtifact.type" : for src.type as vs make tgt.type as vt
-  "RelatedArtifact.display" : for src.display as vs make tgt.display as vt
-  "RelatedArtifact.citation" : for src.citation as vs make tgt.citation as vt
-  "RelatedArtifact.document" : for src.document as vs make tgt.document as vt
+  "RelatedArtifact.type" : for src.type make tgt.type 
+  "RelatedArtifact.display" : for src.display make tgt.display 
+  "RelatedArtifact.citation" : for src.citation make tgt.citation 
+  "RelatedArtifact.document" : for src.document make tgt.document 
 endgroup
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicinalProductPackaged extends DomainResource
+group for type+types MedicinalProductPackaged extends DomainResource
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 
@@ -20,7 +20,7 @@ group MedicinalProductPackaged extends DomainResource
 endgroup
 
 
-group MedicinalProductPackagedBatchIdentifier extends BackboneElement
+group for type+types MedicinalProductPackagedBatchIdentifier extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 
@@ -29,7 +29,7 @@ group MedicinalProductPackagedBatchIdentifier extends BackboneElement
 endgroup
 
 
-group MedicinalProductPackagedPackageItem extends BackboneElement
+group for type+types MedicinalProductPackagedPackageItem extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 
@@ -48,7 +48,7 @@ group MedicinalProductPackagedPackageItem extends BackboneElement
 endgroup
 
 
-group MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElement
+group for type+types MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 

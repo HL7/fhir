@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MeasureReport extends DomainResource
+group for type+types MeasureReport extends DomainResource
   input src : MeasureReportR3 as source
   input tgt : MeasureReport as target
 
@@ -20,11 +20,11 @@ group MeasureReport extends DomainResource
   "MeasureReport.date": for src.date make tgt.date
   "MeasureReport.reporter": for src.reporter make tgt.reporter
   "MeasureReport.period": for src.period make tgt.period
-  "MeasureReport.group": for src.group as s make tgt.group as t then MeasureReportGroup(s,t)
+  "MeasureReport.group": for src.Group as s make tgt.Group as t then MeasureReportGroup(s,t)
   "MeasureReport.evaluatedResources": for src.evaluatedResources make tgt.evaluatedResources
 endgroup
 
-group MeasureReportGroup extends BackboneElement
+group for type+types MeasureReportGroup extends BackboneElement
   input src : MeasureReportR3 as source
   input tgt : MeasureReport as target
 
@@ -34,7 +34,7 @@ group MeasureReportGroup extends BackboneElement
   "MeasureReport.group.stratifier": for src.stratifier as s make tgt.stratifier as t then MeasureReportGroupStratifier(s,t)
 endgroup
 
-group MeasureReportGroupPopulation extends BackboneElement
+group for type+types MeasureReportGroupPopulation extends BackboneElement
   input src : MeasureReportR3 as source
   input tgt : MeasureReport as target
 
@@ -43,7 +43,7 @@ group MeasureReportGroupPopulation extends BackboneElement
   "MeasureReport.group.population.subjects": for src.subjects make tgt.subjects
 endgroup
 
-group MeasureReportGroupStratifier extends BackboneElement
+group for type+types MeasureReportGroupStratifier extends BackboneElement
   input src : MeasureReportR3 as source
   input tgt : MeasureReport as target
 
@@ -51,7 +51,7 @@ group MeasureReportGroupStratifier extends BackboneElement
   "MeasureReport.group.stratifier.stratum": for src.stratum as s make tgt.stratum as t then MeasureReportGroupStratifierStratum(s,t)
 endgroup
 
-group MeasureReportGroupStratifierStratum extends BackboneElement
+group for type+types MeasureReportGroupStratifierStratum extends BackboneElement
   input src : MeasureReportR3 as source
   input tgt : MeasureReport as target
 
@@ -60,7 +60,7 @@ group MeasureReportGroupStratifierStratum extends BackboneElement
   "MeasureReport.group.stratifier.stratum.measureScore": for src.measureScore make tgt.measureScore
 endgroup
 
-group MeasureReportGroupStratifierStratumPopulation extends BackboneElement
+group for type+types MeasureReportGroupStratifierStratumPopulation extends BackboneElement
   input src : MeasureReportR3 as source
   input tgt : MeasureReport as target
 

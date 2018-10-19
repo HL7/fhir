@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group EligibilityRequest extends DomainResource
+group for type+types EligibilityRequest extends DomainResource
   input src : EligibilityRequestR3 as source
   input tgt : EligibilityRequest as target
 
@@ -27,7 +27,7 @@ group EligibilityRequest extends DomainResource
   "EligibilityRequest.detail": for src.detail as s make tgt.detail as t then EligibilityRequestDetail(s,t)
 endgroup
 
-group EligibilityRequestInsurance extends BackboneElement
+group for type+types EligibilityRequestInsurance extends BackboneElement
   input src : EligibilityRequestR3 as source
   input tgt : EligibilityRequest as target
 
@@ -36,7 +36,7 @@ group EligibilityRequestInsurance extends BackboneElement
   "EligibilityRequest.insurance.businessArrangement": for src.businessArrangement make tgt.businessArrangement
 endgroup
 
-group EligibilityRequestDetail extends BackboneElement
+group for type+types EligibilityRequestDetail extends BackboneElement
   input src : EligibilityRequestR3 as source
   input tgt : EligibilityRequest as target
 
@@ -50,7 +50,7 @@ group EligibilityRequestDetail extends BackboneElement
   "EligibilityRequest.detail.diagnosis": for src.diagnosis as s make tgt.diagnosis as t then EligibilityRequestDetailDiagnosis(s,t)
 endgroup
 
-group EligibilityRequestDetailDiagnosis extends BackboneElement
+group for type+types EligibilityRequestDetailDiagnosis extends BackboneElement
   input src : EligibilityRequestR3 as source
   input tgt : EligibilityRequest as target
 

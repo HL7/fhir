@@ -8,19 +8,19 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Endpoint extends DomainResource
+group for type+types Endpoint extends DomainResource
   input src : EndpointR3 as source
   input tgt : Endpoint as target
 
-  "Endpoint.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Endpoint.status" : for src.status as vs make tgt.status as vt
-  "Endpoint.connectionType" : for src.connectionType as vs make tgt.connectionType as vt
-  "Endpoint.name" : for src.name as vs make tgt.name as vt
-  "Endpoint.managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt
-  "Endpoint.contact" : for src.contact as vs make tgt.contact as vt
-  "Endpoint.period" : for src.period as vs make tgt.period as vt
-  "Endpoint.payloadType" : for src.payloadType as vs make tgt.payloadType as vt
-  "Endpoint.payloadMimeType" : for src.payloadMimeType as vs make tgt.payloadMimeType as vt
-  "Endpoint.header" : for src.header as vs make tgt.header as vt
+  "Endpoint.identifier" : for src.identifier make tgt.identifier 
+  "Endpoint.status" : for src.status make tgt.status 
+  "Endpoint.connectionType" : for src.connectionType make tgt.connectionType 
+  "Endpoint.name" : for src.name make tgt.name 
+  "Endpoint.managingOrganization" : for src.managingOrganization make tgt.managingOrganization 
+  "Endpoint.contact" : for src.contact make tgt.contact 
+  "Endpoint.period" : for src.period make tgt.period 
+  "Endpoint.payloadType" : for src.payloadType make tgt.payloadType 
+  "Endpoint.payloadMimeType" : for src.payloadMimeType make tgt.payloadMimeType 
+  "Endpoint.header" : for src.header make tgt.header 
 endgroup
 

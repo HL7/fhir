@@ -8,12 +8,12 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Binary extends Resource
+group for type+types Binary extends Resource
   input src : BinaryR3 as source
   input tgt : Binary as target
 
   "Binary.contentType": for src.contentType make tgt.contentType
   "Binary.securityContext": for src.securityContext make tgt.securityContext
-  "Binary.content": for src.content make tgt.content
+  "Binary.content": for src.content make tgt.data
 endgroup
 

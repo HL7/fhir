@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ObservationDefinition extends DomainResource
+group for type+types ObservationDefinition extends DomainResource
   input src : ObservationDefinitionR3 as source
   input tgt : ObservationDefinition as target
 
@@ -26,7 +26,7 @@ group ObservationDefinition extends DomainResource
   "ObservationDefinition.criticalCodedValueSet": for src.criticalCodedValueSet make tgt.criticalCodedValueSet
 endgroup
 
-group ObservationDefinitionQuantitativeDetails extends BackboneElement
+group for type+types ObservationDefinitionQuantitativeDetails extends BackboneElement
   input src : ObservationDefinitionR3 as source
   input tgt : ObservationDefinition as target
 
@@ -36,7 +36,7 @@ group ObservationDefinitionQuantitativeDetails extends BackboneElement
   "ObservationDefinition.quantitativeDetails.decimalPrecision": for src.decimalPrecision make tgt.decimalPrecision
 endgroup
 
-group ObservationDefinitionQualifiedInterval extends BackboneElement
+group for type+types ObservationDefinitionQualifiedInterval extends BackboneElement
   input src : ObservationDefinitionR3 as source
   input tgt : ObservationDefinition as target
 

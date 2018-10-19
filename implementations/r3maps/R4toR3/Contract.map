@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Contract extends DomainResource
+group for type+types Contract extends DomainResource
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -30,7 +30,7 @@ group Contract extends DomainResource
   "Contract.legallyBinding": for src.legallyBinding make tgt.legallyBinding
 endgroup
 
-group ContractTerm extends BackboneElement
+group for type+types ContractTerm extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -47,7 +47,7 @@ group ContractTerm extends BackboneElement
   "Contract.term.group": for src.group make tgt.group
 endgroup
 
-group ContractTermOffer extends BackboneElement
+group for type+types ContractTermOffer extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -58,7 +58,7 @@ group ContractTermOffer extends BackboneElement
   "Contract.term.offer.linkId": for src.linkId make tgt.linkId
 endgroup
 
-group ContractTermAsset extends BackboneElement
+group for type+types ContractTermAsset extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -71,7 +71,7 @@ group ContractTermAsset extends BackboneElement
   "Contract.term.asset.securityLabel": for src.securityLabel make tgt.securityLabel
 endgroup
 
-group ContractTermAssetData extends BackboneElement
+group for type+types ContractTermAssetData extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -79,7 +79,7 @@ group ContractTermAssetData extends BackboneElement
   "Contract.term.asset.data.reference": for src.reference make tgt.reference
 endgroup
 
-group ContractTermAssetValuedItem extends BackboneElement
+group for type+types ContractTermAssetValuedItem extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -93,7 +93,7 @@ group ContractTermAssetValuedItem extends BackboneElement
   "Contract.term.asset.valuedItem.net": for src.net make tgt.net
 endgroup
 
-group ContractTermAgent extends BackboneElement
+group for type+types ContractTermAgent extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -101,7 +101,7 @@ group ContractTermAgent extends BackboneElement
   "Contract.term.agent.role": for src.role make tgt.role
 endgroup
 
-group ContractSigner extends BackboneElement
+group for type+types ContractSigner extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
@@ -110,21 +110,21 @@ group ContractSigner extends BackboneElement
   "Contract.signer.signature": for src.signature make tgt.signature
 endgroup
 
-group ContractFriendly extends BackboneElement
+group for type+types ContractFriendly extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
   "Contract.friendly.content": for src.content make tgt.content
 endgroup
 
-group ContractLegal extends BackboneElement
+group for type+types ContractLegal extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 
   "Contract.legal.content": for src.content make tgt.content
 endgroup
 
-group ContractRule extends BackboneElement
+group for type+types ContractRule extends BackboneElement
   input src : ContractR3 as source
   input tgt : Contract as target
 

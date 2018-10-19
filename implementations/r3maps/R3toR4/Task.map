@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Task extends DomainResource
+group for type+types Task extends DomainResource
   input src : TaskR3 as source
   input tgt : Task as target
 
@@ -44,7 +44,7 @@ group Task extends DomainResource
 endgroup
 
 
-group TaskRestriction extends BackboneElement
+group for type+types TaskRestriction extends BackboneElement
   input src : TaskR3 as source
   input tgt : Task as target
 
@@ -54,7 +54,7 @@ group TaskRestriction extends BackboneElement
 endgroup
 
 
-group TaskInput extends BackboneElement
+group for type+types TaskInput extends BackboneElement
   input src : TaskR3 as source
   input tgt : Task as target
 
@@ -63,7 +63,7 @@ group TaskInput extends BackboneElement
 endgroup
 
 
-group TaskOutput extends BackboneElement
+group for type+types TaskOutput extends BackboneElement
   input src : TaskR3 as source
   input tgt : Task as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group NutritionOrder extends DomainResource
+group for type+types NutritionOrder extends DomainResource
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 
@@ -30,7 +30,7 @@ group NutritionOrder extends DomainResource
 endgroup
 
 
-group NutritionOrderOralDiet extends BackboneElement
+group for type+types NutritionOrderOralDiet extends BackboneElement
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 
@@ -43,7 +43,7 @@ group NutritionOrderOralDiet extends BackboneElement
 endgroup
 
 
-group NutritionOrderOralDietNutrient extends BackboneElement
+group for type+types NutritionOrderOralDietNutrient extends BackboneElement
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 
@@ -52,7 +52,7 @@ group NutritionOrderOralDietNutrient extends BackboneElement
 endgroup
 
 
-group NutritionOrderOralDietTexture extends BackboneElement
+group for type+types NutritionOrderOralDietTexture extends BackboneElement
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 
@@ -61,7 +61,7 @@ group NutritionOrderOralDietTexture extends BackboneElement
 endgroup
 
 
-group NutritionOrderSupplement extends BackboneElement
+group for type+types NutritionOrderSupplement extends BackboneElement
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 
@@ -73,7 +73,7 @@ group NutritionOrderSupplement extends BackboneElement
 endgroup
 
 
-group NutritionOrderEnteralFormula extends BackboneElement
+group for type+types NutritionOrderEnteralFormula extends BackboneElement
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 
@@ -89,7 +89,7 @@ group NutritionOrderEnteralFormula extends BackboneElement
 endgroup
 
 
-group NutritionOrderEnteralFormulaAdministration extends BackboneElement
+group for type+types NutritionOrderEnteralFormulaAdministration extends BackboneElement
   input src : NutritionOrderR3 as source
   input tgt : NutritionOrder as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicinalProductDeviceSpec extends DomainResource
+group for type+types MedicinalProductDeviceSpec extends DomainResource
   input src : MedicinalProductDeviceSpecR3 as source
   input tgt : MedicinalProductDeviceSpec as target
 
@@ -30,7 +30,7 @@ group MedicinalProductDeviceSpec extends DomainResource
   "MedicinalProductDeviceSpec.material": for src.material as s make tgt.material as t then MedicinalProductDeviceSpecMaterial(s,t)
 endgroup
 
-group MedicinalProductDeviceSpecMaterial extends BackboneElement
+group for type+types MedicinalProductDeviceSpecMaterial extends BackboneElement
   input src : MedicinalProductDeviceSpecR3 as source
   input tgt : MedicinalProductDeviceSpec as target
 

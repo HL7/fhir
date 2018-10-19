@@ -7,7 +7,7 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ClaimResponse" alias ClaimResp
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
-group ClaimResponse extends DomainResource
+group for type+types ClaimResponse extends DomainResource
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -36,7 +36,7 @@ group ClaimResponse extends DomainResource
   "ClaimResponse.insurance": for src.insurance as s make tgt.insurance as t then ClaimResponseInsurance(s,t)
 endgroup
 
-group ClaimResponseItem extends BackboneElement
+group for type+types ClaimResponseItem extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -46,7 +46,7 @@ group ClaimResponseItem extends BackboneElement
   "ClaimResponse.item.detail": for src.detail as s make tgt.detail as t then ClaimResponseItemDetail(s,t)
 endgroup
 
-group ClaimResponseItemAdjudication extends BackboneElement
+group for type+types ClaimResponseItemAdjudication extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -56,7 +56,7 @@ group ClaimResponseItemAdjudication extends BackboneElement
   "ClaimResponse.item.adjudication.value": for src.value make tgt.value
 endgroup
 
-group ClaimResponseItemDetail extends BackboneElement
+group for type+types ClaimResponseItemDetail extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -66,7 +66,7 @@ group ClaimResponseItemDetail extends BackboneElement
   "ClaimResponse.item.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ClaimResponseItemDetailSubDetail(s,t)
 endgroup
 
-group ClaimResponseItemDetailSubDetail extends BackboneElement
+group for type+types ClaimResponseItemDetailSubDetail extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -75,7 +75,7 @@ group ClaimResponseItemDetailSubDetail extends BackboneElement
   "ClaimResponse.item.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
 endgroup
 
-group ClaimResponseAddItem extends BackboneElement
+group for type+types ClaimResponseAddItem extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -98,7 +98,7 @@ group ClaimResponseAddItem extends BackboneElement
   "ClaimResponse.addItem.detail": for src.detail as s make tgt.detail as t then ClaimResponseAddItemDetail(s,t)
 endgroup
 
-group ClaimResponseAddItemDetail extends BackboneElement
+group for type+types ClaimResponseAddItemDetail extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -114,7 +114,7 @@ group ClaimResponseAddItemDetail extends BackboneElement
   "ClaimResponse.addItem.detail.subDetail": for src.subDetail as s make tgt.subDetail as t then ClaimResponseAddItemDetailSubDetail(s,t)
 endgroup
 
-group ClaimResponseAddItemDetailSubDetail extends BackboneElement
+group for type+types ClaimResponseAddItemDetailSubDetail extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -129,7 +129,7 @@ group ClaimResponseAddItemDetailSubDetail extends BackboneElement
   "ClaimResponse.addItem.detail.subDetail.adjudication": for src.adjudication make tgt.adjudication
 endgroup
 
-group ClaimResponseError extends BackboneElement
+group for type+types ClaimResponseError extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -139,7 +139,7 @@ group ClaimResponseError extends BackboneElement
   "ClaimResponse.error.code": for src.code make tgt.code
 endgroup
 
-group ClaimResponseTotal extends BackboneElement
+group for type+types ClaimResponseTotal extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -147,7 +147,7 @@ group ClaimResponseTotal extends BackboneElement
   "ClaimResponse.total.amount": for src.amount make tgt.amount
 endgroup
 
-group ClaimResponsePayment extends BackboneElement
+group for type+types ClaimResponsePayment extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -159,7 +159,7 @@ group ClaimResponsePayment extends BackboneElement
   "ClaimResponse.payment.identifier": for src.identifier make tgt.identifier
 endgroup
 
-group ClaimResponseProcessNote extends BackboneElement
+group for type+types ClaimResponseProcessNote extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 
@@ -169,7 +169,7 @@ group ClaimResponseProcessNote extends BackboneElement
   "ClaimResponse.processNote.language": for src.language make tgt.language
 endgroup
 
-group ClaimResponseInsurance extends BackboneElement
+group for type+types ClaimResponseInsurance extends BackboneElement
   input src : ClaimResponseR3 as source
   input tgt : ClaimResponse as target
 

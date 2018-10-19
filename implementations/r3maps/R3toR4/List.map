@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group List extends DomainResource
+group for type+types List extends DomainResource
   input src : ListR3 as source
   input tgt : List as target
 
@@ -28,7 +28,7 @@ group List extends DomainResource
 endgroup
 
 
-group ListEntry extends BackboneElement
+group for type+types ListEntry extends BackboneElement
   input src : ListR3 as source
   input tgt : List as target
 

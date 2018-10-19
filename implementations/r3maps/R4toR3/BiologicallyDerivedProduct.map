@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group BiologicallyDerivedProduct extends DomainResource
+group for type+types BiologicallyDerivedProduct extends DomainResource
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -25,7 +25,7 @@ group BiologicallyDerivedProduct extends DomainResource
   "BiologicallyDerivedProduct.storage": for src.storage as s make tgt.storage as t then BiologicallyDerivedProductStorage(s,t)
 endgroup
 
-group BiologicallyDerivedProductCollection extends BackboneElement
+group for type+types BiologicallyDerivedProductCollection extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -34,7 +34,7 @@ group BiologicallyDerivedProductCollection extends BackboneElement
   "BiologicallyDerivedProduct.collection.collected": for src.collected make tgt.collected
 endgroup
 
-group BiologicallyDerivedProductProcessing extends BackboneElement
+group for type+types BiologicallyDerivedProductProcessing extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -44,7 +44,7 @@ group BiologicallyDerivedProductProcessing extends BackboneElement
   "BiologicallyDerivedProduct.processing.time": for src.time make tgt.time
 endgroup
 
-group BiologicallyDerivedProductManipulation extends BackboneElement
+group for type+types BiologicallyDerivedProductManipulation extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 
@@ -52,7 +52,7 @@ group BiologicallyDerivedProductManipulation extends BackboneElement
   "BiologicallyDerivedProduct.manipulation.time": for src.time make tgt.time
 endgroup
 
-group BiologicallyDerivedProductStorage extends BackboneElement
+group for type+types BiologicallyDerivedProductStorage extends BackboneElement
   input src : BiologicallyDerivedProductR3 as source
   input tgt : BiologicallyDerivedProduct as target
 

@@ -8,21 +8,21 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ProcessRequest extends DomainResource
+group for type+types ProcessRequest extends DomainResource
   input src : ProcessRequest as source
   input tgt : ProcessRequestR3 as target
 
-  "ProcessRequest.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "ProcessRequest.status" : for src.status as vs make tgt.status as vt
-  "ProcessRequest.action" : for src.action as vs make tgt.action as vt
-  "ProcessRequest.target" : for src.target as vs make tgt.target as vt
-  "ProcessRequest.created" : for src.created as vs make tgt.created as vt
-  "ProcessRequest.provider" : for src.provider as vs make tgt.provider as vt
-  "ProcessRequest.response" : for src.response as vs make tgt.response as vt
-  "ProcessRequest.nullify" : for src.nullify as vs make tgt.nullify as vt
-  "ProcessRequest.reference" : for src.reference as vs make tgt.reference as vt
-  "ProcessRequest.include" : for src.include as vs make tgt.include as vt
-  "ProcessRequest.exclude" : for src.exclude as vs make tgt.exclude as vt
-  "ProcessRequest.period" : for src.period as vs make tgt.period as vt
+  "ProcessRequest.identifier" : for src.identifier make tgt.identifier 
+  "ProcessRequest.status" : for src.status make tgt.status 
+  "ProcessRequest.action" : for src.action make tgt.action 
+  "ProcessRequest.target" : for src.target make tgt.target 
+  "ProcessRequest.created" : for src.created make tgt.created 
+  "ProcessRequest.provider" : for src.provider make tgt.provider 
+  "ProcessRequest.response" : for src.response make tgt.response 
+  "ProcessRequest.nullify" : for src.nullify make tgt.nullify 
+  "ProcessRequest.reference" : for src.reference make tgt.reference 
+  "ProcessRequest.include" : for src.include make tgt.include 
+  "ProcessRequest.exclude" : for src.exclude make tgt.exclude 
+  "ProcessRequest.period" : for src.period make tgt.period 
 endgroup
 

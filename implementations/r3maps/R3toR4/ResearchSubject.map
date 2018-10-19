@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ResearchSubject extends DomainResource
+group for type+types ResearchSubject extends DomainResource
   input src : ResearchSubjectR3 as source
   input tgt : ResearchSubject as target
 

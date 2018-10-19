@@ -8,20 +8,20 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Slot extends DomainResource
+group for type+types Slot extends DomainResource
   input src : Slot as source
   input tgt : SlotR3 as target
 
-  "Slot.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Slot.serviceCategory" : for src.serviceCategoryFirstRep as vs make tgt.serviceCategory as vt
-  "Slot.serviceType" : for src.serviceType as vs make tgt.serviceType as vt
-  "Slot.specialty" : for src.specialty as vs make tgt.specialty as vt
-  "Slot.appointmentType" : for src.appointmentType as vs make tgt.appointmentType as vt
-  "Slot.schedule" : for src.schedule as vs make tgt.schedule as vt
-  "Slot.status" : for src.status as vs make tgt.status as vt
-  "Slot.start" : for src.start as vs make tgt.start as vt
-  "Slot.end" : for src.end as vs make tgt.end as vt
-  "Slot.overbooked" : for src.overbooked as vs make tgt.overbooked as vt
-  "Slot.comment" : for src.comment as vs make tgt.comment as vt
+  "Slot.identifier" : for src.identifier make tgt.identifier 
+  "Slot.serviceCategory" : for src.serviceCategoryFirstRep make tgt.serviceCategory 
+  "Slot.serviceType" : for src.serviceType make tgt.serviceType 
+  "Slot.specialty" : for src.specialty make tgt.specialty 
+  "Slot.appointmentType" : for src.appointmentType make tgt.appointmentType 
+  "Slot.schedule" : for src.schedule make tgt.schedule 
+  "Slot.status" : for src.status make tgt.status 
+  "Slot.start" : for src.start make tgt.start 
+  "Slot.end" : for src.end make tgt.end 
+  "Slot.overbooked" : for src.overbooked make tgt.overbooked 
+  "Slot.comment" : for src.comment make tgt.comment 
 endgroup
 

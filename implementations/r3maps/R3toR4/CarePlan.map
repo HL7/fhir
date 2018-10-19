@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group CarePlan extends DomainResource
+group for type+types CarePlan extends DomainResource
   input src : CarePlanR3 as source
   input tgt : CarePlan as target
 
@@ -38,7 +38,7 @@ group CarePlan extends DomainResource
 endgroup
 
 
-group CarePlanActivity extends BackboneElement
+group for type+types CarePlanActivity extends BackboneElement
   input src : CarePlanR3 as source
   input tgt : CarePlan as target
 
@@ -50,7 +50,7 @@ group CarePlanActivity extends BackboneElement
 endgroup
 
 
-group CarePlanActivityDetail extends BackboneElement
+group for type+types CarePlanActivityDetail extends BackboneElement
   input src : CarePlanR3 as source
   input tgt : CarePlan as target
 

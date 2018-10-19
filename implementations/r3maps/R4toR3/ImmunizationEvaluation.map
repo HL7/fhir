@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ImmunizationEvaluation extends DomainResource
+group for type+types ImmunizationEvaluation extends DomainResource
   input src : ImmunizationEvaluationR3 as source
   input tgt : ImmunizationEvaluation as target
 

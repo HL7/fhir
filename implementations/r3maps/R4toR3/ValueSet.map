@@ -8,36 +8,118 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ValueSet extends DomainResource
+group for type+types ValueSet extends DomainResource
   input src : ValueSet as source
   input tgt : ValueSetR3 as target
 
-  "ValueSet.url" : for src.url as vs make tgt.url as vt
-  "ValueSet.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "ValueSet.version" : for src.version as vs make tgt.version as vt
-  "ValueSet.name" : for src.name as vs make tgt.name as vt
-  "ValueSet.title" : for src.title as vs make tgt.title as vt
-  "ValueSet.status" : for src.status as vs make tgt.status as vt
-  "ValueSet.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "ValueSet.date" : for src.date as vs make tgt.date as vt
-  "ValueSet.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "ValueSet.contact" : for src.contact as vs make tgt.contact as vt
-  "ValueSet.description" : for src.description as vs make tgt.description as vt
-  "ValueSet.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "ValueSet.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "ValueSet.immutable" : for src.immutable as vs make tgt.immutable as vt
-  "ValueSet.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "ValueSet.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "ValueSet.extensible" : for src.extensible as vs make tgt.extensible as vt
-  "ValueSet.compose" : for src.compose as vs0 make tgt.compose as vt0 then {
-    "ValueSet.compose.lockedDate" : for vs0.lockedDate as vs make vt0.lockedDate as vt
-    "ValueSet.compose.inactive" : for vs0.inactive as vs make vt0.inactive as vt
+  "ValueSet.url" : for src.url make tgt.url 
+  "ValueSet.identifier" : for src.identifier make tgt.identifier 
+  "ValueSet.version" : for src.version make tgt.version 
+  "ValueSet.name" : for src.name make tgt.name 
+  "ValueSet.title" : for src.title make tgt.title 
+  "ValueSet.status" : for src.status make tgt.status 
+  "ValueSet.experimental" : for src.experimental make tgt.experimental 
+  "ValueSet.date" : for src.date make tgt.date 
+  "ValueSet.publisher" : for src.publisher make tgt.publisher 
+  "ValueSet.contact" : for src.contact make tgt.contact 
+  "ValueSet.description" : for src.description make tgt.description 
+  "ValueSet.useContext" : for src.useContext make tgt.useContext 
+  "ValueSet.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "ValueSet.immutable" : for src.immutable make tgt.immutable 
+  "ValueSet.purpose" : for src.purpose make tgt.purpose 
+  "ValueSet.copyright" : for src.copyright make tgt.copyright 
+  "ValueSet.extensible" : for src.extension as ext where url = 'http://hl7.org/fhir/StructureDefinition/valueset-extensible' then {
+    "ValueSet.extensible2" : for ext.value : boolean as vs0 make tgt.extensible = vs0
   }
-  "ValueSet.expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
-    "ValueSet.expansion.identifier" : for vs0.identifier as vs make vt0.identifier as vt
-    "ValueSet.expansion.timestamp" : for vs0.timestamp as vs make vt0.timestamp as vt
-    "ValueSet.expansion.total" : for vs0.total as vs make vt0.total as vt
-    "ValueSet.expansion.offset" : for vs0.offset as vs make vt0.offset as vt
-  }
+  "ValueSet.compose" : for src.compose as vs0 make tgt.compose as vt0 then compose(vs0, vt0)
+  "ValueSet.expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then expansion(vs0, vt0)
 endgroup
 
+group compose extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.compose.lockedDate" : for src.lockedDate make tgt.lockedDate 
+  "ValueSet.compose.inactive" : for src.inactive make tgt.inactive 
+  "ValueSet.compose.include" : for src.include as vs0 make tgt.include as vt0 then include(vs0, vt0)
+  "ValueSet.compose.exclude" : for src.exclude as vs0 make tgt.exclude as vt0 then include(vs0, vt0)
+endgroup  
+  
+group include extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.compose.XXclude.system" : for src.system make tgt.system
+  "ValueSet.compose.XXclude.version" : for src.version make tgt.version
+  "ValueSet.compose.XXclude.concept" : for src.concept as vs0 make tgt.concept as vt0 then concept(vs0, vt0)
+  "ValueSet.compose.XXclude.filter" : for src.filter as vs0 make tgt.filter as vt0 then filter(vs0, vt0)
+  "ValueSet.compose.XXclude.valueSet" : for src.valueSet make tgt.valueSet
+endgroup
+
+group concept extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.compose.XXclude.concept.code" : for src.code make tgt.code
+  "ValueSet.compose.XXclude.concept.display" : for src.display make tgt.display
+  "ValueSet.compose.XXclude.concept.designation" : for src.designation as vs0 make tgt.designation as vt0 then designation(vs0, vt0)
+endgroup
+
+group designation extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "ValueSet.compose.XXclude.concept.designation.language" : for src.language make tgt.language
+  "ValueSet.compose.XXclude.concept.designation.use" : for src.use make tgt.use
+  "ValueSet.compose.XXclude.concept.designation.value" : for src.value make tgt.value
+endgroup
+
+group filter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.compose.XXclude.filter.property" : for src.property make tgt.property
+  "ValueSet.compose.XXclude.filter.op" : for src.op make tgt.op
+  "ValueSet.compose.XXclude.filter.value" : for src.value make tgt.value
+endgroup
+
+
+group expansion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.expansion.identifier" : for src.identifier make tgt.identifier 
+  "ValueSet.expansion.timestamp" : for src.timestamp make tgt.timestamp 
+  "ValueSet.expansion.total" : for src.total make tgt.total 
+  "ValueSet.expansion.offset" : for src.offset make tgt.offset 
+  "ValueSet.expansion.parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then parameter(vs0, vt0)
+  "ValueSet.expansion.contains" : for src.contains as vs0 make tgt.contains as vt0 then contains(vs0, vt0)
+endgroup
+
+group parameter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.expansion.parameter.name" : for src.name make tgt.name 
+  "ValueSet.expansion.parameter.valueString" : for src.value : string as vs0 make tgt.value = create('string') as vt0 then string(vs0, vt0)
+  "ValueSet.expansion.parameter.valueBoolean" : for src.value : boolean as vs0 make tgt.value = create('boolean') as vt0 then boolean(vs0, vt0)
+  "ValueSet.expansion.parameter.valueInteger" : for src.value : integer as vs0 make tgt.value = create('integer') as vt0 then integer(vs0, vt0)
+  "ValueSet.expansion.parameter.valueDecimal" : for src.value : decimal as vs0 make tgt.value = create('decimal') as vt0 then decimal(vs0, vt0)
+  "ValueSet.expansion.parameter.valueUrl" : for src.value : url as vs0 make tgt.value = create('url') as vt0 then url(vs0, vt0)
+  "ValueSet.expansion.parameter.valueCode" : for src.value : code as vs0 make tgt.value = create('code') as vt0 then code(vs0, vt0)
+  "ValueSet.expansion.parameter.valueDateTime" : for src.value : dateTime as vs0 make tgt.value = create('dateTime') as vt0 then dateTime(vs0, vt0)
+endgroup
+
+group contains extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.expansion.contains.system" : for src.system make tgt.system 
+  "ValueSet.expansion.contains.abstract" : for src.abstract make tgt.abstract 
+  "ValueSet.expansion.contains.inactive" : for src.inactive make tgt.inactive 
+  "ValueSet.expansion.contains.version" : for src.version make tgt.version 
+  "ValueSet.expansion.contains.code" : for src.code make tgt.code 
+  "ValueSet.expansion.contains.display" : for src.display make tgt.display 
+  "ValueSet.expansion.contains.designation" : for src.designation as vs0 make tgt.designation as vt0 then designation(vs0, vt0)
+  "ValueSet.expansion.contains.contains" : for src.contains as vs0 make tgt.contains as vt0 then contains(vs0, vt0)
+endgroup

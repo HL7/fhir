@@ -16,34 +16,34 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MessageDefinition extends DomainResource
+group for type+types MessageDefinition extends DomainResource
   input src : MessageDefinition as source
   input tgt : MessageDefinitionR3 as target
 
-  "MessageDefinition.url" : for src.url as vs make tgt.url as vt
-  "MessageDefinition.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "MessageDefinition.version" : for src.version as vs make tgt.version as vt
-  "MessageDefinition.name" : for src.name as vs make tgt.name as vt
-  "MessageDefinition.title" : for src.title as vs make tgt.title as vt
-  "MessageDefinition.status" : for src.status as vs make tgt.status as vt
-  "MessageDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "MessageDefinition.date" : for src.date as vs make tgt.date as vt
-  "MessageDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "MessageDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "MessageDefinition.description" : for src.description as vs make tgt.description as vt
-  "MessageDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "MessageDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "MessageDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "MessageDefinition.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "MessageDefinition.event" : for src.eventCoding as vs make tgt.event as vt
+  "MessageDefinition.url" : for src.url make tgt.url 
+  "MessageDefinition.identifier" : for src.identifier make tgt.identifier 
+  "MessageDefinition.version" : for src.version make tgt.version 
+  "MessageDefinition.name" : for src.name make tgt.name 
+  "MessageDefinition.title" : for src.title make tgt.title 
+  "MessageDefinition.status" : for src.status make tgt.status 
+  "MessageDefinition.experimental" : for src.experimental make tgt.experimental 
+  "MessageDefinition.date" : for src.date make tgt.date 
+  "MessageDefinition.publisher" : for src.publisher make tgt.publisher 
+  "MessageDefinition.contact" : for src.contact make tgt.contact 
+  "MessageDefinition.description" : for src.description make tgt.description 
+  "MessageDefinition.useContext" : for src.useContext make tgt.useContext 
+  "MessageDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "MessageDefinition.purpose" : for src.purpose make tgt.purpose 
+  "MessageDefinition.copyright" : for src.copyright make tgt.copyright 
+  "MessageDefinition.event" : for src.eventCoding make tgt.event 
   "MessageDefinition.category" : for src.category as v make tgt.category = translate(v, "#MessageSignificanceCategory", "code")
   "MessageDefinition.focus" : for src.focus as vs0 make tgt.focus as vt0 then {
-    "MessageDefinition.focus.code" : for vs0.code as vs make vt0.code as vt
-    "MessageDefinition.focus.min" : for vs0.min as vs make vt0.min as vt
-    "MessageDefinition.focus.max" : for vs0.max as vs make vt0.max as vt
+    "MessageDefinition.focus.code" : for vs0.code make vt0.code 
+    "MessageDefinition.focus.min" : for vs0.min make vt0.min 
+    "MessageDefinition.focus.max" : for vs0.max make vt0.max 
   }
   "MessageDefinition.allowedResponse" : for src.allowedResponse as vs0 make tgt.allowedResponse as vt0 then {
-    "MessageDefinition.allowedResponse.situation" : for vs0.situation as vs make vt0.situation as vt
+    "MessageDefinition.allowedResponse.situation" : for vs0.situation make vt0.situation 
   }
 endgroup
 

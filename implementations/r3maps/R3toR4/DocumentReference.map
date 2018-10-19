@@ -8,36 +8,36 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group DocumentReference extends DomainResource
+group for type+types DocumentReference extends DomainResource
   input src : DocumentReferenceR3 as source
   input tgt : DocumentReference as target
 
-  "DocumentReference.masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt
-  "DocumentReference.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "DocumentReference.status" : for src.status as vs make tgt.status as vt
-  "DocumentReference.docStatus" : for src.docStatus as vs make tgt.docStatus as vt
-  "DocumentReference.type" : for src.type as vs make tgt.type as vt
-  "DocumentReference.class" : for src.class as vs make tgt.class as vt
-  "DocumentReference.subject" : for src.subject as vs make tgt.subject as vt
-  "DocumentReference.created" : for src.created as vs make tgt.created as vt
-  "DocumentReference.custodian" : for src.custodian as vs make tgt.custodian as vt
+  "DocumentReference.masterIdentifier" : for src.masterIdentifier make tgt.masterIdentifier 
+  "DocumentReference.identifier" : for src.identifier make tgt.identifier 
+  "DocumentReference.status" : for src.status make tgt.status 
+  "DocumentReference.docStatus" : for src.docStatus make tgt.docStatus 
+  "DocumentReference.type" : for src.type make tgt.type 
+  "DocumentReference.class" : for src.class make tgt.class 
+  "DocumentReference.subject" : for src.subject make tgt.subject 
+  "DocumentReference.created" : for src.created make tgt.created 
+  "DocumentReference.custodian" : for src.custodian make tgt.custodian 
   "DocumentReference.relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "DocumentReference.relatesTo.code" : for vs0.code as vs make vt0.code as vt
-    "DocumentReference.relatesTo.target" : for vs0.target as vs make vt0.target as vt
+    "DocumentReference.relatesTo.code" : for vs0.code make vt0.code 
+    "DocumentReference.relatesTo.target" : for vs0.target make vt0.target 
   }
-  "DocumentReference.description" : for src.description as vs make tgt.description as vt
-  "DocumentReference.securityLabel" : for src.securityLabel as vs make tgt.securityLabel as vt
+  "DocumentReference.description" : for src.description make tgt.description 
+  "DocumentReference.securityLabel" : for src.securityLabel make tgt.securityLabel 
   "DocumentReference.content" : for src.content as vs0 make tgt.content as vt0 then {
-    "DocumentReference.content.attachment" : for vs0.attachment as vs make vt0.attachment as vt
-    "DocumentReference.content.format" : for vs0.format as vs make vt0.format as vt
+    "DocumentReference.content.attachment" : for vs0.attachment make vt0.attachment 
+    "DocumentReference.content.format" : for vs0.format make vt0.format 
   }
   "DocumentReference.context" : for src.context as vs0 make tgt.context as vt0 then {
-    "DocumentReference.context.encounter" : for vs0.encounter as vs make vt0.encounter as vt
-    "DocumentReference.context.event" : for vs0.event as vs make vt0.event as vt
-    "DocumentReference.context.period" : for vs0.period as vs make vt0.period as vt
-    "DocumentReference.context.facilityType" : for vs0.facilityType as vs make vt0.facilityType as vt
-    "DocumentReference.context.practiceSetting" : for vs0.practiceSetting as vs make vt0.practiceSetting as vt
-    "DocumentReference.context.sourcePatientInfo" : for vs0.sourcePatientInfo as vs make vt0.sourcePatientInfo as vt
+    "DocumentReference.context.encounter" : for vs0.encounter make vt0.encounter 
+    "DocumentReference.context.event" : for vs0.event make vt0.event 
+    "DocumentReference.context.period" : for vs0.period make vt0.period 
+    "DocumentReference.context.facilityType" : for vs0.facilityType make vt0.facilityType 
+    "DocumentReference.context.practiceSetting" : for vs0.practiceSetting make vt0.practiceSetting 
+    "DocumentReference.context.sourcePatientInfo" : for vs0.sourcePatientInfo make vt0.sourcePatientInfo 
   }
 endgroup
 

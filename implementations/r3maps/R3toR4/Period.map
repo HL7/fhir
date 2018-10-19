@@ -8,11 +8,11 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Period extends Element
+group for type+types Period extends Element
   input src : PeriodR3 as source
   input tgt : Period as target
 
-  "Period.start" : for src.start as vs make tgt.start as vt
-  "Period.end" : for src.end as vs make tgt.end as vt
+  "Period.start" : for src.start make tgt.start 
+  "Period.end" : for src.end make tgt.end 
 endgroup
 

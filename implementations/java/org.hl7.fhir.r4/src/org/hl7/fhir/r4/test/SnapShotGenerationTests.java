@@ -313,7 +313,7 @@ public class SnapShotGenerationTests {
   public void test() throws FHIRException {
     try {
     if (TestingUtilities.context == null) {
-      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
+      TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.content(), "definitions.xml.zip"));
     }
     for (Resource cr : context.tests.getContained()) {
       if (cr instanceof StructureDefinition) {

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group SupplyRequest extends DomainResource
+group for type+types SupplyRequest extends DomainResource
   input src : SupplyRequestR3 as source
   input tgt : SupplyRequest as target
 
@@ -30,7 +30,7 @@ group SupplyRequest extends DomainResource
 endgroup
 
 
-group SupplyRequestParameter extends BackboneElement
+group for type+types SupplyRequestParameter extends BackboneElement
   input src : SupplyRequestR3 as source
   input tgt : SupplyRequest as target
 

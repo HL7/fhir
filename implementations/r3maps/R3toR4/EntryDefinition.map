@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group EntryDefinition extends DomainResource
+group for type+types EntryDefinition extends DomainResource
   input src : EntryDefinitionR3 as source
   input tgt : EntryDefinition as target
 
@@ -27,7 +27,7 @@ group EntryDefinition extends DomainResource
 endgroup
 
 
-group EntryDefinitionRelatedEntry extends BackboneElement
+group for type+types EntryDefinitionRelatedEntry extends BackboneElement
   input src : EntryDefinitionR3 as source
   input tgt : EntryDefinition as target
 

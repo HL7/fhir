@@ -648,9 +648,7 @@ public class StructureMapUtilities {
 			parseUses(result, lexer);
 		while (lexer.hasToken("imports"))
 			parseImports(result, lexer);
-
-		parseGroup(result, lexer);
-
+		
 		while (!lexer.done()) {
 			parseGroup(result, lexer);    
 		}
@@ -1238,7 +1236,7 @@ public class StructureMapUtilities {
 
 	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule, boolean atRoot) throws FHIRException {
 		log(indent+"rule : "+rule.getName());
-		if (rule.getName().contains("CarePlan.participant-unlink"))
+		if (rule.getName().contains("Meta.lastUpdated"))
 		  System.out.println("debug");
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
@@ -1273,7 +1271,7 @@ public class StructureMapUtilities {
 		}
 	}
 
-	private void executeDependency(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws FHIRException {
+  private void executeDependency(String indent, TransformContext context, StructureMap map, Variables vin, StructureMapGroupComponent group, StructureMapGroupRuleDependentComponent dependent) throws FHIRException {
 	  ResolvedGroup rg = resolveGroupReference(map, group, dependent.getName());
 
 		if (rg.target.getInput().size() != dependent.getVariable().size()) {
@@ -1289,7 +1287,7 @@ public class StructureMapUtilities {
       if (vv == null && mode == VariableMode.INPUT) //* once source, always source. but target can be treated as source at user convenient
         vv = vin.get(VariableMode.OUTPUT, var);
 			if (vv == null)
-				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' named as '"+var+"' has no value");
+				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' named as '"+var+"' has no value (vars = "+vin.summary()+")");
 			v.add(mode, input.getName(), vv);    	
 		}
 		executeGroup(indent+"  ", context, rg.targetMap, v, rg.target, false);
@@ -1899,13 +1897,25 @@ public class StructureMapUtilities {
 				for (Resource r : map.getContained()) {
 					if (r instanceof ConceptMap && ((ConceptMap) r).getId().equals(conceptMapUrl.substring(1))) {
 						cmap = (ConceptMap) r;
-						su = map.getUrl()+conceptMapUrl;
+						su = map.getUrl()+"#"+conceptMapUrl;
 					}
 				}
 				if (cmap == null)
 		      throw new FHIRException("Unable to translate - cannot find map "+conceptMapUrl);
-			} else
-				cmap = worker.fetchResource(ConceptMap.class, conceptMapUrl);
+			} else {
+			  if (conceptMapUrl.contains("#")) {
+			    String[] p = conceptMapUrl.split("\\#");
+			    StructureMap mapU = worker.fetchResource(StructureMap.class, p[0]);  
+	        for (Resource r : mapU.getContained()) {
+	          if (r instanceof ConceptMap && ((ConceptMap) r).getId().equals(p[1])) {
+	            cmap = (ConceptMap) r;
+	            su = conceptMapUrl;
+	          }
+	        }
+			  }
+			  if (cmap == null)
+				  cmap = worker.fetchResource(ConceptMap.class, conceptMapUrl);
+			}
 			Coding outcome = null;
 			boolean done = false;
 			String message = null;

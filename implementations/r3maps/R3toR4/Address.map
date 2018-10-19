@@ -8,19 +8,19 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Address extends Element
+group for type+types Address extends Element
   input src : AddressR3 as source
   input tgt : Address as target
 
-  "Address.use" : for src.use as vs make tgt.use as vt
-  "Address.type" : for src.type as vs make tgt.type as vt
-  "Address.text" : for src.text as vs make tgt.text as vt
-  "Address.line" : for src.line as vs make tgt.line as vt
-  "Address.city" : for src.city as vs make tgt.city as vt
-  "Address.district" : for src.district as vs make tgt.district as vt
-  "Address.state" : for src.state as vs make tgt.state as vt
-  "Address.postalCode" : for src.postalCode as vs make tgt.postalCode as vt
-  "Address.country" : for src.country as vs make tgt.country as vt
-  "Address.period" : for src.period as vs make tgt.period as vt
+  "Address.use" : for src.use make tgt.use 
+  "Address.type" : for src.type make tgt.type 
+  "Address.text" : for src.text make tgt.text 
+  "Address.line" : for src.line make tgt.line 
+  "Address.city" : for src.city make tgt.city 
+  "Address.district" : for src.district make tgt.district 
+  "Address.state" : for src.state make tgt.state 
+  "Address.postalCode" : for src.postalCode make tgt.postalCode 
+  "Address.country" : for src.country make tgt.country 
+  "Address.period" : for src.period make tgt.period 
 endgroup
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicinalProduct extends DomainResource
+group for type+types MedicinalProduct extends DomainResource
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -34,7 +34,7 @@ group MedicinalProduct extends DomainResource
   "MedicinalProduct.orphanDesignation": for src.orphanDesignation as s make tgt.orphanDesignation as t then MedicinalProductOrphanDesignation(s,t)
 endgroup
 
-group MedicinalProductName extends BackboneElement
+group for type+types MedicinalProductName extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -43,7 +43,7 @@ group MedicinalProductName extends BackboneElement
   "MedicinalProduct.name.countryLanguage": for src.countryLanguage as s make tgt.countryLanguage as t then MedicinalProductNameCountryLanguage(s,t)
 endgroup
 
-group MedicinalProductNameNamePart extends BackboneElement
+group for type+types MedicinalProductNameNamePart extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -51,7 +51,7 @@ group MedicinalProductNameNamePart extends BackboneElement
   "MedicinalProduct.name.namePart.type": for src.type make tgt.type
 endgroup
 
-group MedicinalProductNameCountryLanguage extends BackboneElement
+group for type+types MedicinalProductNameCountryLanguage extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -60,7 +60,7 @@ group MedicinalProductNameCountryLanguage extends BackboneElement
   "MedicinalProduct.name.countryLanguage.language": for src.language make tgt.language
 endgroup
 
-group MedicinalProductManufacturingBusinessOperation extends BackboneElement
+group for type+types MedicinalProductManufacturingBusinessOperation extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 
@@ -72,7 +72,7 @@ group MedicinalProductManufacturingBusinessOperation extends BackboneElement
   "MedicinalProduct.manufacturingBusinessOperation.regulator": for src.regulator make tgt.regulator
 endgroup
 
-group MedicinalProductOrphanDesignation extends BackboneElement
+group for type+types MedicinalProductOrphanDesignation extends BackboneElement
   input src : MedicinalProductR3 as source
   input tgt : MedicinalProduct as target
 

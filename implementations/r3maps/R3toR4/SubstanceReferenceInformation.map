@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group SubstanceReferenceInformation extends DomainResource
+group for type+types SubstanceReferenceInformation extends DomainResource
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -21,7 +21,7 @@ group SubstanceReferenceInformation extends DomainResource
 endgroup
 
 
-group SubstanceReferenceInformationGene extends BackboneElement
+group for type+types SubstanceReferenceInformationGene extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -31,7 +31,7 @@ group SubstanceReferenceInformationGene extends BackboneElement
 endgroup
 
 
-group SubstanceReferenceInformationGeneElement extends BackboneElement
+group for type+types SubstanceReferenceInformationGeneElement extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -41,7 +41,7 @@ group SubstanceReferenceInformationGeneElement extends BackboneElement
 endgroup
 
 
-group SubstanceReferenceInformationClassification extends BackboneElement
+group for type+types SubstanceReferenceInformationClassification extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -52,7 +52,7 @@ group SubstanceReferenceInformationClassification extends BackboneElement
 endgroup
 
 
-group SubstanceReferenceInformationRelationship extends BackboneElement
+group for type+types SubstanceReferenceInformationRelationship extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 
@@ -67,7 +67,7 @@ group SubstanceReferenceInformationRelationship extends BackboneElement
 endgroup
 
 
-group SubstanceReferenceInformationTarget extends BackboneElement
+group for type+types SubstanceReferenceInformationTarget extends BackboneElement
   input src : SubstanceReferenceInformationR3 as source
   input tgt : SubstanceReferenceInformation as target
 

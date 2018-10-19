@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Questionnaire extends DomainResource
+group for type+types Questionnaire extends DomainResource
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -37,7 +37,7 @@ group Questionnaire extends DomainResource
 endgroup
 
 
-group QuestionnaireItem extends BackboneElement
+group for type+types QuestionnaireItem extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -60,7 +60,7 @@ group QuestionnaireItem extends BackboneElement
 endgroup
 
 
-group QuestionnaireItemEnableWhen extends BackboneElement
+group for type+types QuestionnaireItemEnableWhen extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -70,7 +70,7 @@ group QuestionnaireItemEnableWhen extends BackboneElement
 endgroup
 
 
-group QuestionnaireItemAnswerOption extends BackboneElement
+group for type+types QuestionnaireItemAnswerOption extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 
@@ -79,7 +79,7 @@ group QuestionnaireItemAnswerOption extends BackboneElement
 endgroup
 
 
-group QuestionnaireItemInitial extends BackboneElement
+group for type+types QuestionnaireItemInitial extends BackboneElement
   input src : QuestionnaireR3 as source
   input tgt : Questionnaire as target
 

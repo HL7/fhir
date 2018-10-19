@@ -8,11 +8,11 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group CodeableConcept extends Element
+group for type+types CodeableConcept extends Element
   input src : CodeableConceptR3 as source
   input tgt : CodeableConcept as target
 
-  "CodeableConcept.coding" : for src.coding as vs make tgt.coding as vt
-  "CodeableConcept.text" : for src.text as vs make tgt.text as vt
+  "CodeableConcept.coding" : for src.coding make tgt.coding 
+  "CodeableConcept.text" : for src.text make tgt.text 
 endgroup
 

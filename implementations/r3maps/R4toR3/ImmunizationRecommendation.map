@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ImmunizationRecommendation extends DomainResource
+group for type+types ImmunizationRecommendation extends DomainResource
   input src : ImmunizationRecommendationR3 as source
   input tgt : ImmunizationRecommendation as target
 
@@ -19,7 +19,7 @@ group ImmunizationRecommendation extends DomainResource
   "ImmunizationRecommendation.recommendation": for src.recommendation as s make tgt.recommendation as t then ImmunizationRecommendationRecommendation(s,t)
 endgroup
 
-group ImmunizationRecommendationRecommendation extends BackboneElement
+group for type+types ImmunizationRecommendationRecommendation extends BackboneElement
   input src : ImmunizationRecommendationR3 as source
   input tgt : ImmunizationRecommendation as target
 
@@ -37,7 +37,7 @@ group ImmunizationRecommendationRecommendation extends BackboneElement
   "ImmunizationRecommendation.recommendation.supportingPatientInformation": for src.supportingPatientInformation make tgt.supportingPatientInformation
 endgroup
 
-group ImmunizationRecommendationRecommendationDateCriterion extends BackboneElement
+group for type+types ImmunizationRecommendationRecommendationDateCriterion extends BackboneElement
   input src : ImmunizationRecommendationR3 as source
   input tgt : ImmunizationRecommendation as target
 

@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicinalProductIngredient extends DomainResource
+group for type+types MedicinalProductIngredient extends DomainResource
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -21,7 +21,7 @@ group MedicinalProductIngredient extends DomainResource
 endgroup
 
 
-group MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
+group for type+types MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -32,7 +32,7 @@ group MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
 endgroup
 
 
-group MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneElement
+group for type+types MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -44,7 +44,7 @@ group MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneEleme
 endgroup
 
 
-group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength extends BackboneElement
+group for type+types MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 
@@ -55,7 +55,7 @@ group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength exte
 endgroup
 
 
-group MedicinalProductIngredientSubstance extends BackboneElement
+group for type+types MedicinalProductIngredientSubstance extends BackboneElement
   input src : MedicinalProductIngredientR3 as source
   input tgt : MedicinalProductIngredient as target
 

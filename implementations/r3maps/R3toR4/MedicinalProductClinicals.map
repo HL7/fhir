@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicinalProductClinicals extends DomainResource
+group for type+types MedicinalProductClinicals extends DomainResource
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -19,7 +19,7 @@ group MedicinalProductClinicals extends DomainResource
 endgroup
 
 
-group MedicinalProductClinicalsUndesirableEffects extends BackboneElement
+group for type+types MedicinalProductClinicalsUndesirableEffects extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -30,7 +30,7 @@ group MedicinalProductClinicalsUndesirableEffects extends BackboneElement
 endgroup
 
 
-group MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElement
+group for type+types MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -41,7 +41,7 @@ group MedicinalProductClinicalsUndesirableEffectsPopulation extends BackboneElem
 endgroup
 
 
-group MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
+group for type+types MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -56,7 +56,7 @@ group MedicinalProductClinicalsTherapeuticIndication extends BackboneElement
 endgroup
 
 
-group MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends BackboneElement
+group for type+types MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -65,7 +65,7 @@ group MedicinalProductClinicalsTherapeuticIndicationOtherTherapy extends Backbon
 endgroup
 
 
-group MedicinalProductClinicalsContraindication extends BackboneElement
+group for type+types MedicinalProductClinicalsContraindication extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 
@@ -78,7 +78,7 @@ group MedicinalProductClinicalsContraindication extends BackboneElement
 endgroup
 
 
-group MedicinalProductClinicalsInteractions extends BackboneElement
+group for type+types MedicinalProductClinicalsInteractions extends BackboneElement
   input src : MedicinalProductClinicalsR3 as source
   input tgt : MedicinalProductClinicals as target
 

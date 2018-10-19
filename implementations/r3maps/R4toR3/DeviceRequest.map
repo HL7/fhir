@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group DeviceRequest extends DomainResource
+group for type+types DeviceRequest extends DomainResource
   input src : DeviceRequestR3 as source
   input tgt : DeviceRequest as target
 
@@ -37,7 +37,7 @@ group DeviceRequest extends DomainResource
   "DeviceRequest.relevantHistory": for src.relevantHistory make tgt.relevantHistory
 endgroup
 
-group DeviceRequestParameter extends BackboneElement
+group for type+types DeviceRequestParameter extends BackboneElement
   input src : DeviceRequestR3 as source
   input tgt : DeviceRequest as target
 

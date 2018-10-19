@@ -8,225 +8,243 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ElementDefinition extends BackboneElement
+group for type+types ElementDefinition extends BackboneElement
   input src : ElementDefinitionR3 as source
   input tgt : ElementDefinition as target
 
-  "ElementDefinition.path" : for src.path as vs make tgt.path as vt
-  "ElementDefinition.sliceName" : for src.sliceName as vs make tgt.sliceName as vt
-  "ElementDefinition.label" : for src.label as vs make tgt.label as vt
-  "ElementDefinition.code" : for src.code as vs make tgt.code as vt
+  "ElementDefinition.path" : for src.path make tgt.path 
+  "ElementDefinition.representation" : for src.representation make tgt.representation 
+  "ElementDefinition.sliceName" : for src.sliceName make tgt.sliceName 
+  "ElementDefinition.label" : for src.label make tgt.label 
+  "ElementDefinition.code" : for src.code make tgt.code 
   "ElementDefinition.slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
-    "ElementDefinition.slicing.description" : for vs0.description as vs make vt0.description as vt
-    "ElementDefinition.slicing.ordered" : for vs0.ordered as vs make vt0.ordered as vt
-    "ElementDefinition.slicing.rules" : for vs0.rules as vs make vt0.rules as vt
+    "ElementDefinition.slicing.description" : for vs0.description make vt0.description 
+    "ElementDefinition.slicing.ordered" : for vs0.ordered make vt0.ordered 
+    "ElementDefinition.slicing.rules" : for vs0.rules make vt0.rules 
   }
-  "ElementDefinition.short" : for src.short as vs make tgt.short as vt
-  "ElementDefinition.definition" : for src.definition as vs make tgt.definition as vt
-  "ElementDefinition.comment" : for src.comment as vs make tgt.comment as vt
-  "ElementDefinition.requirements" : for src.requirements as vs make tgt.requirements as vt
-  "ElementDefinition.alias" : for src.alias as vs make tgt.alias as vt
-  "ElementDefinition.min" : for src.min as vs make tgt.min as vt
-  "ElementDefinition.max" : for src.max as vs make tgt.max as vt
+  "ElementDefinition.short" : for src.short make tgt.short 
+  "ElementDefinition.definition" : for src.definition make tgt.definition 
+  "ElementDefinition.comment" : for src.comment make tgt.comment 
+  "ElementDefinition.requirements" : for src.requirements make tgt.requirements 
+  "ElementDefinition.alias" : for src.alias make tgt.alias 
+  "ElementDefinition.min" : for src.min make tgt.min 
+  "ElementDefinition.max" : for src.max make tgt.max 
   "ElementDefinition.base" : for src.base as vs0 make tgt.base as vt0 then {
-    "ElementDefinition.base.path" : for vs0.path as vs make vt0.path as vt
-    "ElementDefinition.base.min" : for vs0.min as vs make vt0.min as vt
-    "ElementDefinition.base.max" : for vs0.max as vs make vt0.max as vt
+    "ElementDefinition.base.path" : for vs0.path make vt0.path 
+    "ElementDefinition.base.min" : for vs0.min make vt0.min 
+    "ElementDefinition.base.max" : for vs0.max make vt0.max 
   }
-  "ElementDefinition.contentReference" : for src.contentReference as vs make tgt.contentReference as vt
-  "ElementDefinition.defaultValue-base64Binary" : for src.defaultValue  : base64Binary as vs make tgt.defaultValue = create("base64Binary") as vt then base64Binary(vs,vt)
-  "ElementDefinition.defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
-  "ElementDefinition.defaultValue-code" : for src.defaultValue  : code as vs make tgt.defaultValue = create("code") as vt then code(vs,vt)
-  "ElementDefinition.defaultValue-date" : for src.defaultValue  : date as vs make tgt.defaultValue = create("date") as vt then date(vs,vt)
-  "ElementDefinition.defaultValue-dateTime" : for src.defaultValue  : dateTime as vs make tgt.defaultValue = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition.defaultValue-decimal" : for src.defaultValue  : decimal as vs make tgt.defaultValue = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition.defaultValue-id" : for src.defaultValue  : id as vs make tgt.defaultValue = create("id") as vt then id(vs,vt)
-  "ElementDefinition.defaultValue-instant" : for src.defaultValue  : instant as vs make tgt.defaultValue = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition.defaultValue-integer" : for src.defaultValue  : integer as vs make tgt.defaultValue = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition.defaultValue-markdown" : for src.defaultValue  : markdown as vs make tgt.defaultValue = create("markdown") as vt then markdown(vs,vt)
-  "ElementDefinition.defaultValue-oid" : for src.defaultValue  : oid as vs make tgt.defaultValue = create("oid") as vt then oid(vs,vt)
-  "ElementDefinition.defaultValue-positiveInt" : for src.defaultValue  : positiveInt as vs make tgt.defaultValue = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition.defaultValue-string" : for src.defaultValue  : string as vs make tgt.defaultValue = create("string") as vt then string(vs,vt)
-  "ElementDefinition.defaultValue-time" : for src.defaultValue  : time as vs make tgt.defaultValue = create("time") as vt then time(vs,vt)
-  "ElementDefinition.defaultValue-unsignedInt" : for src.defaultValue  : unsignedInt as vs make tgt.defaultValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition.defaultValue-uri" : for src.defaultValue  : uri as vs make tgt.defaultValue = create("uri") as vt then uri(vs,vt)
-  "ElementDefinition.defaultValue-Address" : for src.defaultValue  : Address as vs make tgt.defaultValue = create("Address") as vt then Address(vs,vt)
-  "ElementDefinition.defaultValue-Age" : for src.defaultValue  : Age as vs make tgt.defaultValue = create("Age") as vt then Age(vs,vt)
-  "ElementDefinition.defaultValue-Annotation" : for src.defaultValue  : Annotation as vs make tgt.defaultValue = create("Annotation") as vt then Annotation(vs,vt)
-  "ElementDefinition.defaultValue-Attachment" : for src.defaultValue  : Attachment as vs make tgt.defaultValue = create("Attachment") as vt then Attachment(vs,vt)
-  "ElementDefinition.defaultValue-CodeableConcept" : for src.defaultValue  : CodeableConcept as vs make tgt.defaultValue = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "ElementDefinition.defaultValue-Coding" : for src.defaultValue  : Coding as vs make tgt.defaultValue = create("Coding") as vt then Coding(vs,vt)
-  "ElementDefinition.defaultValue-ContactPoint" : for src.defaultValue  : ContactPoint as vs make tgt.defaultValue = create("ContactPoint") as vt then ContactPoint(vs,vt)
-  "ElementDefinition.defaultValue-Count" : for src.defaultValue  : Count as vs make tgt.defaultValue = create("Count") as vt then Count(vs,vt)
-  "ElementDefinition.defaultValue-Distance" : for src.defaultValue  : Distance as vs make tgt.defaultValue = create("Distance") as vt then Distance(vs,vt)
-  "ElementDefinition.defaultValue-Duration" : for src.defaultValue  : Duration as vs make tgt.defaultValue = create("Duration") as vt then Duration(vs,vt)
-  "ElementDefinition.defaultValue-HumanName" : for src.defaultValue  : HumanName as vs make tgt.defaultValue = create("HumanName") as vt then HumanName(vs,vt)
-  "ElementDefinition.defaultValue-Identifier" : for src.defaultValue  : Identifier as vs make tgt.defaultValue = create("Identifier") as vt then Identifier(vs,vt)
-  "ElementDefinition.defaultValue-Money" : for src.defaultValue  : Money as vs make tgt.defaultValue = create("Money") as vt then Money(vs,vt)
-  "ElementDefinition.defaultValue-Period" : for src.defaultValue  : Period as vs make tgt.defaultValue = create("Period") as vt then Period(vs,vt)
-  "ElementDefinition.defaultValue-Quantity" : for src.defaultValue  : Quantity as vs make tgt.defaultValue = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition.defaultValue-Range" : for src.defaultValue  : Range as vs make tgt.defaultValue = create("Range") as vt then Range(vs,vt)
-  "ElementDefinition.defaultValue-Ratio" : for src.defaultValue  : Ratio as vs make tgt.defaultValue = create("Ratio") as vt then Ratio(vs,vt)
-  "ElementDefinition.defaultValue-Reference" : for src.defaultValue  : Reference as vs make tgt.defaultValue = create("Reference") as vt then Reference(vs,vt)
-  "ElementDefinition.defaultValue-SampledData" : for src.defaultValue  : SampledData as vs make tgt.defaultValue = create("SampledData") as vt then SampledData(vs,vt)
-  "ElementDefinition.defaultValue-Signature" : for src.defaultValue  : Signature as vs make tgt.defaultValue = create("Signature") as vt then Signature(vs,vt)
-  "ElementDefinition.defaultValue-Timing" : for src.defaultValue  : Timing as vs make tgt.defaultValue = create("Timing") as vt then Timing(vs,vt)
-  "ElementDefinition.meaningWhenMissing" : for src.meaningWhenMissing as vs make tgt.meaningWhenMissing as vt
-  "ElementDefinition.orderMeaning" : for src.orderMeaning as vs make tgt.orderMeaning as vt
-  "ElementDefinition.fixed-base64Binary" : for src.fixed  : base64Binary as vs make tgt.fixed = create("base64Binary") as vt then base64Binary(vs,vt)
-  "ElementDefinition.fixed-boolean" : for src.fixed  : boolean as vs make tgt.fixed = create("boolean") as vt then boolean(vs,vt)
-  "ElementDefinition.fixed-code" : for src.fixed  : code as vs make tgt.fixed = create("code") as vt then code(vs,vt)
-  "ElementDefinition.fixed-date" : for src.fixed  : date as vs make tgt.fixed = create("date") as vt then date(vs,vt)
-  "ElementDefinition.fixed-dateTime" : for src.fixed  : dateTime as vs make tgt.fixed = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition.fixed-decimal" : for src.fixed  : decimal as vs make tgt.fixed = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition.fixed-id" : for src.fixed  : id as vs make tgt.fixed = create("id") as vt then id(vs,vt)
-  "ElementDefinition.fixed-instant" : for src.fixed  : instant as vs make tgt.fixed = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition.fixed-integer" : for src.fixed  : integer as vs make tgt.fixed = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition.fixed-markdown" : for src.fixed  : markdown as vs make tgt.fixed = create("markdown") as vt then markdown(vs,vt)
-  "ElementDefinition.fixed-oid" : for src.fixed  : oid as vs make tgt.fixed = create("oid") as vt then oid(vs,vt)
-  "ElementDefinition.fixed-positiveInt" : for src.fixed  : positiveInt as vs make tgt.fixed = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition.fixed-string" : for src.fixed  : string as vs make tgt.fixed = create("string") as vt then string(vs,vt)
-  "ElementDefinition.fixed-time" : for src.fixed  : time as vs make tgt.fixed = create("time") as vt then time(vs,vt)
-  "ElementDefinition.fixed-unsignedInt" : for src.fixed  : unsignedInt as vs make tgt.fixed = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition.fixed-uri" : for src.fixed  : uri as vs make tgt.fixed = create("uri") as vt then uri(vs,vt)
-  "ElementDefinition.fixed-Address" : for src.fixed  : Address as vs make tgt.fixed = create("Address") as vt then Address(vs,vt)
-  "ElementDefinition.fixed-Age" : for src.fixed  : Age as vs make tgt.fixed = create("Age") as vt then Age(vs,vt)
-  "ElementDefinition.fixed-Annotation" : for src.fixed  : Annotation as vs make tgt.fixed = create("Annotation") as vt then Annotation(vs,vt)
-  "ElementDefinition.fixed-Attachment" : for src.fixed  : Attachment as vs make tgt.fixed = create("Attachment") as vt then Attachment(vs,vt)
-  "ElementDefinition.fixed-CodeableConcept" : for src.fixed  : CodeableConcept as vs make tgt.fixed = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "ElementDefinition.fixed-Coding" : for src.fixed  : Coding as vs make tgt.fixed = create("Coding") as vt then Coding(vs,vt)
-  "ElementDefinition.fixed-ContactPoint" : for src.fixed  : ContactPoint as vs make tgt.fixed = create("ContactPoint") as vt then ContactPoint(vs,vt)
-  "ElementDefinition.fixed-Count" : for src.fixed  : Count as vs make tgt.fixed = create("Count") as vt then Count(vs,vt)
-  "ElementDefinition.fixed-Distance" : for src.fixed  : Distance as vs make tgt.fixed = create("Distance") as vt then Distance(vs,vt)
-  "ElementDefinition.fixed-Duration" : for src.fixed  : Duration as vs make tgt.fixed = create("Duration") as vt then Duration(vs,vt)
-  "ElementDefinition.fixed-HumanName" : for src.fixed  : HumanName as vs make tgt.fixed = create("HumanName") as vt then HumanName(vs,vt)
-  "ElementDefinition.fixed-Identifier" : for src.fixed  : Identifier as vs make tgt.fixed = create("Identifier") as vt then Identifier(vs,vt)
-  "ElementDefinition.fixed-Money" : for src.fixed  : Money as vs make tgt.fixed = create("Money") as vt then Money(vs,vt)
-  "ElementDefinition.fixed-Period" : for src.fixed  : Period as vs make tgt.fixed = create("Period") as vt then Period(vs,vt)
-  "ElementDefinition.fixed-Quantity" : for src.fixed  : Quantity as vs make tgt.fixed = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition.fixed-Range" : for src.fixed  : Range as vs make tgt.fixed = create("Range") as vt then Range(vs,vt)
-  "ElementDefinition.fixed-Ratio" : for src.fixed  : Ratio as vs make tgt.fixed = create("Ratio") as vt then Ratio(vs,vt)
-  "ElementDefinition.fixed-Reference" : for src.fixed  : Reference as vs make tgt.fixed = create("Reference") as vt then Reference(vs,vt)
-  "ElementDefinition.fixed-SampledData" : for src.fixed  : SampledData as vs make tgt.fixed = create("SampledData") as vt then SampledData(vs,vt)
-  "ElementDefinition.fixed-Signature" : for src.fixed  : Signature as vs make tgt.fixed = create("Signature") as vt then Signature(vs,vt)
-  "ElementDefinition.fixed-Timing" : for src.fixed  : Timing as vs make tgt.fixed = create("Timing") as vt then Timing(vs,vt)
-  "ElementDefinition.pattern-base64Binary" : for src.pattern  : base64Binary as vs make tgt.pattern = create("base64Binary") as vt then base64Binary(vs,vt)
-  "ElementDefinition.pattern-boolean" : for src.pattern  : boolean as vs make tgt.pattern = create("boolean") as vt then boolean(vs,vt)
-  "ElementDefinition.pattern-code" : for src.pattern  : code as vs make tgt.pattern = create("code") as vt then code(vs,vt)
-  "ElementDefinition.pattern-date" : for src.pattern  : date as vs make tgt.pattern = create("date") as vt then date(vs,vt)
-  "ElementDefinition.pattern-dateTime" : for src.pattern  : dateTime as vs make tgt.pattern = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition.pattern-decimal" : for src.pattern  : decimal as vs make tgt.pattern = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition.pattern-id" : for src.pattern  : id as vs make tgt.pattern = create("id") as vt then id(vs,vt)
-  "ElementDefinition.pattern-instant" : for src.pattern  : instant as vs make tgt.pattern = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition.pattern-integer" : for src.pattern  : integer as vs make tgt.pattern = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition.pattern-markdown" : for src.pattern  : markdown as vs make tgt.pattern = create("markdown") as vt then markdown(vs,vt)
-  "ElementDefinition.pattern-oid" : for src.pattern  : oid as vs make tgt.pattern = create("oid") as vt then oid(vs,vt)
-  "ElementDefinition.pattern-positiveInt" : for src.pattern  : positiveInt as vs make tgt.pattern = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition.pattern-string" : for src.pattern  : string as vs make tgt.pattern = create("string") as vt then string(vs,vt)
-  "ElementDefinition.pattern-time" : for src.pattern  : time as vs make tgt.pattern = create("time") as vt then time(vs,vt)
-  "ElementDefinition.pattern-unsignedInt" : for src.pattern  : unsignedInt as vs make tgt.pattern = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition.pattern-uri" : for src.pattern  : uri as vs make tgt.pattern = create("uri") as vt then uri(vs,vt)
-  "ElementDefinition.pattern-Address" : for src.pattern  : Address as vs make tgt.pattern = create("Address") as vt then Address(vs,vt)
-  "ElementDefinition.pattern-Age" : for src.pattern  : Age as vs make tgt.pattern = create("Age") as vt then Age(vs,vt)
-  "ElementDefinition.pattern-Annotation" : for src.pattern  : Annotation as vs make tgt.pattern = create("Annotation") as vt then Annotation(vs,vt)
-  "ElementDefinition.pattern-Attachment" : for src.pattern  : Attachment as vs make tgt.pattern = create("Attachment") as vt then Attachment(vs,vt)
-  "ElementDefinition.pattern-CodeableConcept" : for src.pattern  : CodeableConcept as vs make tgt.pattern = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "ElementDefinition.pattern-Coding" : for src.pattern  : Coding as vs make tgt.pattern = create("Coding") as vt then Coding(vs,vt)
-  "ElementDefinition.pattern-ContactPoint" : for src.pattern  : ContactPoint as vs make tgt.pattern = create("ContactPoint") as vt then ContactPoint(vs,vt)
-  "ElementDefinition.pattern-Count" : for src.pattern  : Count as vs make tgt.pattern = create("Count") as vt then Count(vs,vt)
-  "ElementDefinition.pattern-Distance" : for src.pattern  : Distance as vs make tgt.pattern = create("Distance") as vt then Distance(vs,vt)
-  "ElementDefinition.pattern-Duration" : for src.pattern  : Duration as vs make tgt.pattern = create("Duration") as vt then Duration(vs,vt)
-  "ElementDefinition.pattern-HumanName" : for src.pattern  : HumanName as vs make tgt.pattern = create("HumanName") as vt then HumanName(vs,vt)
-  "ElementDefinition.pattern-Identifier" : for src.pattern  : Identifier as vs make tgt.pattern = create("Identifier") as vt then Identifier(vs,vt)
-  "ElementDefinition.pattern-Money" : for src.pattern  : Money as vs make tgt.pattern = create("Money") as vt then Money(vs,vt)
-  "ElementDefinition.pattern-Period" : for src.pattern  : Period as vs make tgt.pattern = create("Period") as vt then Period(vs,vt)
-  "ElementDefinition.pattern-Quantity" : for src.pattern  : Quantity as vs make tgt.pattern = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition.pattern-Range" : for src.pattern  : Range as vs make tgt.pattern = create("Range") as vt then Range(vs,vt)
-  "ElementDefinition.pattern-Ratio" : for src.pattern  : Ratio as vs make tgt.pattern = create("Ratio") as vt then Ratio(vs,vt)
-  "ElementDefinition.pattern-Reference" : for src.pattern  : Reference as vs make tgt.pattern = create("Reference") as vt then Reference(vs,vt)
-  "ElementDefinition.pattern-SampledData" : for src.pattern  : SampledData as vs make tgt.pattern = create("SampledData") as vt then SampledData(vs,vt)
-  "ElementDefinition.pattern-Signature" : for src.pattern  : Signature as vs make tgt.pattern = create("Signature") as vt then Signature(vs,vt)
-  "ElementDefinition.pattern-Timing" : for src.pattern  : Timing as vs make tgt.pattern = create("Timing") as vt then Timing(vs,vt)
+  "ElementDefinition.type" : for src.type as vs0 make tgt.type as vt0 then {
+    "ElementDefinition.type.code" : for vs0.code make vt0.code 
+    "ElementDefinition.type.profile" : for vs0.profile make vt0.profile 
+    "ElementDefinition.type.targetProfile" : for vs0.targetProfile make vt0.targetProfile 
+    "ElementDefinition.type.aggregation" : for vs0.aggregation make vt0.aggregation 
+    "ElementDefinition.type.versioning" : for vs0.versioning make vt0.versioning 
+  }
+  "ElementDefinition.contentReference" : for src.contentReference make tgt.contentReference 
+  "ElementDefinition.defaultValue-base64Binary" : for src.defaultValue : base64Binary as vs make tgt.defaultValue = create("base64Binary") as vt then base64Binary(vs,vt)
+  "ElementDefinition.defaultValue-boolean" : for src.defaultValue : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
+  "ElementDefinition.defaultValue-code" : for src.defaultValue : code as vs make tgt.defaultValue = create("code") as vt then code(vs,vt)
+  "ElementDefinition.defaultValue-date" : for src.defaultValue : date as vs make tgt.defaultValue = create("date") as vt then date(vs,vt)
+  "ElementDefinition.defaultValue-dateTime" : for src.defaultValue : dateTime as vs make tgt.defaultValue = create("dateTime") as vt then dateTime(vs,vt)
+  "ElementDefinition.defaultValue-decimal" : for src.defaultValue : decimal as vs make tgt.defaultValue = create("decimal") as vt then decimal(vs,vt)
+  "ElementDefinition.defaultValue-id" : for src.defaultValue : id as vs make tgt.defaultValue = create("id") as vt then id(vs,vt)
+  "ElementDefinition.defaultValue-instant" : for src.defaultValue : instant as vs make tgt.defaultValue = create("instant") as vt then instant(vs,vt)
+  "ElementDefinition.defaultValue-integer" : for src.defaultValue : integer as vs make tgt.defaultValue = create("integer") as vt then integer(vs,vt)
+  "ElementDefinition.defaultValue-markdown" : for src.defaultValue : markdown as vs make tgt.defaultValue = create("markdown") as vt then markdown(vs,vt)
+  "ElementDefinition.defaultValue-oid" : for src.defaultValue : oid as vs make tgt.defaultValue = create("oid") as vt then oid(vs,vt)
+  "ElementDefinition.defaultValue-positiveInt" : for src.defaultValue : positiveInt as vs make tgt.defaultValue = create("positiveInt") as vt then positiveInt(vs,vt)
+  "ElementDefinition.defaultValue-string" : for src.defaultValue : string as vs make tgt.defaultValue = create("string") as vt then string(vs,vt)
+  "ElementDefinition.defaultValue-time" : for src.defaultValue : time as vs make tgt.defaultValue = create("time") as vt then time(vs,vt)
+  "ElementDefinition.defaultValue-unsignedInt" : for src.defaultValue : unsignedInt as vs make tgt.defaultValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
+  "ElementDefinition.defaultValue-uri" : for src.defaultValue : uri as vs make tgt.defaultValue = create("uri") as vt then uri(vs,vt)
+  "ElementDefinition.defaultValue-Address" : for src.defaultValue : Address as vs make tgt.defaultValue = create("Address") as vt then Address(vs,vt)
+  "ElementDefinition.defaultValue-Age" : for src.defaultValue : Age as vs make tgt.defaultValue = create("Age") as vt then Age(vs,vt)
+  "ElementDefinition.defaultValue-Annotation" : for src.defaultValue : Annotation as vs make tgt.defaultValue = create("Annotation") as vt then Annotation(vs,vt)
+  "ElementDefinition.defaultValue-Attachment" : for src.defaultValue : Attachment as vs make tgt.defaultValue = create("Attachment") as vt then Attachment(vs,vt)
+  "ElementDefinition.defaultValue-CodeableConcept" : for src.defaultValue : CodeableConcept as vs make tgt.defaultValue = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "ElementDefinition.defaultValue-Coding" : for src.defaultValue : Coding as vs make tgt.defaultValue = create("Coding") as vt then Coding(vs,vt)
+  "ElementDefinition.defaultValue-ContactPoint" : for src.defaultValue : ContactPoint as vs make tgt.defaultValue = create("ContactPoint") as vt then ContactPoint(vs,vt)
+  "ElementDefinition.defaultValue-Count" : for src.defaultValue : Count as vs make tgt.defaultValue = create("Count") as vt then Count(vs,vt)
+  "ElementDefinition.defaultValue-Distance" : for src.defaultValue : Distance as vs make tgt.defaultValue = create("Distance") as vt then Distance(vs,vt)
+  "ElementDefinition.defaultValue-Duration" : for src.defaultValue : Duration as vs make tgt.defaultValue = create("Duration") as vt then Duration(vs,vt)
+  "ElementDefinition.defaultValue-HumanName" : for src.defaultValue : HumanName as vs make tgt.defaultValue = create("HumanName") as vt then HumanName(vs,vt)
+  "ElementDefinition.defaultValue-Identifier" : for src.defaultValue : Identifier as vs make tgt.defaultValue = create("Identifier") as vt then Identifier(vs,vt)
+  "ElementDefinition.defaultValue-Money" : for src.defaultValue : Money as vs make tgt.defaultValue = create("Money") as vt then Money(vs,vt)
+  "ElementDefinition.defaultValue-Period" : for src.defaultValue : Period as vs make tgt.defaultValue = create("Period") as vt then Period(vs,vt)
+  "ElementDefinition.defaultValue-Quantity" : for src.defaultValue : Quantity as vs make tgt.defaultValue = create("Quantity") as vt then Quantity(vs,vt)
+  "ElementDefinition.defaultValue-Range" : for src.defaultValue : Range as vs make tgt.defaultValue = create("Range") as vt then Range(vs,vt)
+  "ElementDefinition.defaultValue-Ratio" : for src.defaultValue : Ratio as vs make tgt.defaultValue = create("Ratio") as vt then Ratio(vs,vt)
+  "ElementDefinition.defaultValue-Reference" : for src.defaultValue : Reference as vs make tgt.defaultValue = create("Reference") as vt then Reference(vs,vt)
+  "ElementDefinition.defaultValue-SampledData" : for src.defaultValue : SampledData as vs make tgt.defaultValue = create("SampledData") as vt then SampledData(vs,vt)
+  "ElementDefinition.defaultValue-Signature" : for src.defaultValue : Signature as vs make tgt.defaultValue = create("Signature") as vt then Signature(vs,vt)
+  "ElementDefinition.defaultValue-Timing" : for src.defaultValue : Timing as vs make tgt.defaultValue = create("Timing") as vt then Timing(vs,vt)
+  "ElementDefinition.meaningWhenMissing" : for src.meaningWhenMissing make tgt.meaningWhenMissing 
+  "ElementDefinition.orderMeaning" : for src.orderMeaning make tgt.orderMeaning 
+  "ElementDefinition.fixed-base64Binary" : for src.fixed : base64Binary as vs make tgt.fixed = create("base64Binary") as vt then base64Binary(vs,vt)
+  "ElementDefinition.fixed-boolean" : for src.fixed : boolean as vs make tgt.fixed = create("boolean") as vt then boolean(vs,vt)
+  "ElementDefinition.fixed-code" : for src.fixed : code as vs make tgt.fixed = create("code") as vt then code(vs,vt)
+  "ElementDefinition.fixed-date" : for src.fixed : date as vs make tgt.fixed = create("date") as vt then date(vs,vt)
+  "ElementDefinition.fixed-dateTime" : for src.fixed : dateTime as vs make tgt.fixed = create("dateTime") as vt then dateTime(vs,vt)
+  "ElementDefinition.fixed-decimal" : for src.fixed : decimal as vs make tgt.fixed = create("decimal") as vt then decimal(vs,vt)
+  "ElementDefinition.fixed-id" : for src.fixed : id as vs make tgt.fixed = create("id") as vt then id(vs,vt)
+  "ElementDefinition.fixed-instant" : for src.fixed : instant as vs make tgt.fixed = create("instant") as vt then instant(vs,vt)
+  "ElementDefinition.fixed-integer" : for src.fixed : integer as vs make tgt.fixed = create("integer") as vt then integer(vs,vt)
+  "ElementDefinition.fixed-markdown" : for src.fixed : markdown as vs make tgt.fixed = create("markdown") as vt then markdown(vs,vt)
+  "ElementDefinition.fixed-oid" : for src.fixed : oid as vs make tgt.fixed = create("oid") as vt then oid(vs,vt)
+  "ElementDefinition.fixed-positiveInt" : for src.fixed : positiveInt as vs make tgt.fixed = create("positiveInt") as vt then positiveInt(vs,vt)
+  "ElementDefinition.fixed-string" : for src.fixed : string as vs make tgt.fixed = create("string") as vt then string(vs,vt)
+  "ElementDefinition.fixed-time" : for src.fixed : time as vs make tgt.fixed = create("time") as vt then time(vs,vt)
+  "ElementDefinition.fixed-unsignedInt" : for src.fixed : unsignedInt as vs make tgt.fixed = create("unsignedInt") as vt then unsignedInt(vs,vt)
+  "ElementDefinition.fixed-uri" : for src.fixed : uri as vs make tgt.fixed = create("uri") as vt then uri(vs,vt)
+  "ElementDefinition.fixed-Address" : for src.fixed : Address as vs make tgt.fixed = create("Address") as vt then Address(vs,vt)
+  "ElementDefinition.fixed-Age" : for src.fixed : Age as vs make tgt.fixed = create("Age") as vt then Age(vs,vt)
+  "ElementDefinition.fixed-Annotation" : for src.fixed : Annotation as vs make tgt.fixed = create("Annotation") as vt then Annotation(vs,vt)
+  "ElementDefinition.fixed-Attachment" : for src.fixed : Attachment as vs make tgt.fixed = create("Attachment") as vt then Attachment(vs,vt)
+  "ElementDefinition.fixed-CodeableConcept" : for src.fixed : CodeableConcept as vs make tgt.fixed = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "ElementDefinition.fixed-Coding" : for src.fixed : Coding as vs make tgt.fixed = create("Coding") as vt then Coding(vs,vt)
+  "ElementDefinition.fixed-ContactPoint" : for src.fixed : ContactPoint as vs make tgt.fixed = create("ContactPoint") as vt then ContactPoint(vs,vt)
+  "ElementDefinition.fixed-Count" : for src.fixed : Count as vs make tgt.fixed = create("Count") as vt then Count(vs,vt)
+  "ElementDefinition.fixed-Distance" : for src.fixed : Distance as vs make tgt.fixed = create("Distance") as vt then Distance(vs,vt)
+  "ElementDefinition.fixed-Duration" : for src.fixed : Duration as vs make tgt.fixed = create("Duration") as vt then Duration(vs,vt)
+  "ElementDefinition.fixed-HumanName" : for src.fixed : HumanName as vs make tgt.fixed = create("HumanName") as vt then HumanName(vs,vt)
+  "ElementDefinition.fixed-Identifier" : for src.fixed : Identifier as vs make tgt.fixed = create("Identifier") as vt then Identifier(vs,vt)
+  "ElementDefinition.fixed-Money" : for src.fixed : Money as vs make tgt.fixed = create("Money") as vt then Money(vs,vt)
+  "ElementDefinition.fixed-Period" : for src.fixed : Period as vs make tgt.fixed = create("Period") as vt then Period(vs,vt)
+  "ElementDefinition.fixed-Quantity" : for src.fixed : Quantity as vs make tgt.fixed = create("Quantity") as vt then Quantity(vs,vt)
+  "ElementDefinition.fixed-Range" : for src.fixed : Range as vs make tgt.fixed = create("Range") as vt then Range(vs,vt)
+  "ElementDefinition.fixed-Ratio" : for src.fixed : Ratio as vs make tgt.fixed = create("Ratio") as vt then Ratio(vs,vt)
+  "ElementDefinition.fixed-Reference" : for src.fixed : Reference as vs make tgt.fixed = create("Reference") as vt then Reference(vs,vt)
+  "ElementDefinition.fixed-SampledData" : for src.fixed : SampledData as vs make tgt.fixed = create("SampledData") as vt then SampledData(vs,vt)
+  "ElementDefinition.fixed-Signature" : for src.fixed : Signature as vs make tgt.fixed = create("Signature") as vt then Signature(vs,vt)
+  "ElementDefinition.fixed-Timing" : for src.fixed : Timing as vs make tgt.fixed = create("Timing") as vt then Timing(vs,vt)
+  "ElementDefinition.pattern-base64Binary" : for src.pattern : base64Binary as vs make tgt.pattern = create("base64Binary") as vt then base64Binary(vs,vt)
+  "ElementDefinition.pattern-boolean" : for src.pattern : boolean as vs make tgt.pattern = create("boolean") as vt then boolean(vs,vt)
+  "ElementDefinition.pattern-code" : for src.pattern : code as vs make tgt.pattern = create("code") as vt then code(vs,vt)
+  "ElementDefinition.pattern-date" : for src.pattern : date as vs make tgt.pattern = create("date") as vt then date(vs,vt)
+  "ElementDefinition.pattern-dateTime" : for src.pattern : dateTime as vs make tgt.pattern = create("dateTime") as vt then dateTime(vs,vt)
+  "ElementDefinition.pattern-decimal" : for src.pattern : decimal as vs make tgt.pattern = create("decimal") as vt then decimal(vs,vt)
+  "ElementDefinition.pattern-id" : for src.pattern : id as vs make tgt.pattern = create("id") as vt then id(vs,vt)
+  "ElementDefinition.pattern-instant" : for src.pattern : instant as vs make tgt.pattern = create("instant") as vt then instant(vs,vt)
+  "ElementDefinition.pattern-integer" : for src.pattern : integer as vs make tgt.pattern = create("integer") as vt then integer(vs,vt)
+  "ElementDefinition.pattern-markdown" : for src.pattern : markdown as vs make tgt.pattern = create("markdown") as vt then markdown(vs,vt)
+  "ElementDefinition.pattern-oid" : for src.pattern : oid as vs make tgt.pattern = create("oid") as vt then oid(vs,vt)
+  "ElementDefinition.pattern-positiveInt" : for src.pattern : positiveInt as vs make tgt.pattern = create("positiveInt") as vt then positiveInt(vs,vt)
+  "ElementDefinition.pattern-string" : for src.pattern : string as vs make tgt.pattern = create("string") as vt then string(vs,vt)
+  "ElementDefinition.pattern-time" : for src.pattern : time as vs make tgt.pattern = create("time") as vt then time(vs,vt)
+  "ElementDefinition.pattern-unsignedInt" : for src.pattern : unsignedInt as vs make tgt.pattern = create("unsignedInt") as vt then unsignedInt(vs,vt)
+  "ElementDefinition.pattern-uri" : for src.pattern : uri as vs make tgt.pattern = create("uri") as vt then uri(vs,vt)
+  "ElementDefinition.pattern-Address" : for src.pattern : Address as vs make tgt.pattern = create("Address") as vt then Address(vs,vt)
+  "ElementDefinition.pattern-Age" : for src.pattern : Age as vs make tgt.pattern = create("Age") as vt then Age(vs,vt)
+  "ElementDefinition.pattern-Annotation" : for src.pattern : Annotation as vs make tgt.pattern = create("Annotation") as vt then Annotation(vs,vt)
+  "ElementDefinition.pattern-Attachment" : for src.pattern : Attachment as vs make tgt.pattern = create("Attachment") as vt then Attachment(vs,vt)
+  "ElementDefinition.pattern-CodeableConcept" : for src.pattern : CodeableConcept as vs make tgt.pattern = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+  "ElementDefinition.pattern-Coding" : for src.pattern : Coding as vs make tgt.pattern = create("Coding") as vt then Coding(vs,vt)
+  "ElementDefinition.pattern-ContactPoint" : for src.pattern : ContactPoint as vs make tgt.pattern = create("ContactPoint") as vt then ContactPoint(vs,vt)
+  "ElementDefinition.pattern-Count" : for src.pattern : Count as vs make tgt.pattern = create("Count") as vt then Count(vs,vt)
+  "ElementDefinition.pattern-Distance" : for src.pattern : Distance as vs make tgt.pattern = create("Distance") as vt then Distance(vs,vt)
+  "ElementDefinition.pattern-Duration" : for src.pattern : Duration as vs make tgt.pattern = create("Duration") as vt then Duration(vs,vt)
+  "ElementDefinition.pattern-HumanName" : for src.pattern : HumanName as vs make tgt.pattern = create("HumanName") as vt then HumanName(vs,vt)
+  "ElementDefinition.pattern-Identifier" : for src.pattern : Identifier as vs make tgt.pattern = create("Identifier") as vt then Identifier(vs,vt)
+  "ElementDefinition.pattern-Money" : for src.pattern : Money as vs make tgt.pattern = create("Money") as vt then Money(vs,vt)
+  "ElementDefinition.pattern-Period" : for src.pattern : Period as vs make tgt.pattern = create("Period") as vt then Period(vs,vt)
+  "ElementDefinition.pattern-Quantity" : for src.pattern : Quantity as vs make tgt.pattern = create("Quantity") as vt then Quantity(vs,vt)
+  "ElementDefinition.pattern-Range" : for src.pattern : Range as vs make tgt.pattern = create("Range") as vt then Range(vs,vt)
+  "ElementDefinition.pattern-Ratio" : for src.pattern : Ratio as vs make tgt.pattern = create("Ratio") as vt then Ratio(vs,vt)
+  "ElementDefinition.pattern-Reference" : for src.pattern : Reference as vs make tgt.pattern = create("Reference") as vt then Reference(vs,vt)
+  "ElementDefinition.pattern-SampledData" : for src.pattern : SampledData as vs make tgt.pattern = create("SampledData") as vt then SampledData(vs,vt)
+  "ElementDefinition.pattern-Signature" : for src.pattern : Signature as vs make tgt.pattern = create("Signature") as vt then Signature(vs,vt)
+  "ElementDefinition.pattern-Timing" : for src.pattern : Timing as vs make tgt.pattern = create("Timing") as vt then Timing(vs,vt)
   "ElementDefinition.example" : for src.example as vs0 make tgt.example as vt0 then {
-    "ElementDefinition.example.label" : for vs0.label as vs make vt0.label as vt
-    "ElementDefinition.example.value-base64Binary" : for vs0.value  : base64Binary as vs make vt0.value = create("base64Binary") as vt then base64Binary(vs,vt)
-    "ElementDefinition.example.value-boolean" : for vs0.value  : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)
-    "ElementDefinition.example.value-code" : for vs0.value  : code as vs make vt0.value = create("code") as vt then code(vs,vt)
-    "ElementDefinition.example.value-date" : for vs0.value  : date as vs make vt0.value = create("date") as vt then date(vs,vt)
-    "ElementDefinition.example.value-dateTime" : for vs0.value  : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
-    "ElementDefinition.example.value-decimal" : for vs0.value  : decimal as vs make vt0.value = create("decimal") as vt then decimal(vs,vt)
-    "ElementDefinition.example.value-id" : for vs0.value  : id as vs make vt0.value = create("id") as vt then id(vs,vt)
-    "ElementDefinition.example.value-instant" : for vs0.value  : instant as vs make vt0.value = create("instant") as vt then instant(vs,vt)
-    "ElementDefinition.example.value-integer" : for vs0.value  : integer as vs make vt0.value = create("integer") as vt then integer(vs,vt)
-    "ElementDefinition.example.value-markdown" : for vs0.value  : markdown as vs make vt0.value = create("markdown") as vt then markdown(vs,vt)
-    "ElementDefinition.example.value-oid" : for vs0.value  : oid as vs make vt0.value = create("oid") as vt then oid(vs,vt)
-    "ElementDefinition.example.value-positiveInt" : for vs0.value  : positiveInt as vs make vt0.value = create("positiveInt") as vt then positiveInt(vs,vt)
-    "ElementDefinition.example.value-string" : for vs0.value  : string as vs make vt0.value = create("string") as vt then string(vs,vt)
-    "ElementDefinition.example.value-time" : for vs0.value  : time as vs make vt0.value = create("time") as vt then time(vs,vt)
-    "ElementDefinition.example.value-unsignedInt" : for vs0.value  : unsignedInt as vs make vt0.value = create("unsignedInt") as vt then unsignedInt(vs,vt)
-    "ElementDefinition.example.value-uri" : for vs0.value  : uri as vs make vt0.value = create("uri") as vt then uri(vs,vt)
-    "ElementDefinition.example.value-Address" : for vs0.value  : Address as vs make vt0.value = create("Address") as vt then Address(vs,vt)
-    "ElementDefinition.example.value-Age" : for vs0.value  : Age as vs make vt0.value = create("Age") as vt then Age(vs,vt)
-    "ElementDefinition.example.value-Annotation" : for vs0.value  : Annotation as vs make vt0.value = create("Annotation") as vt then Annotation(vs,vt)
-    "ElementDefinition.example.value-Attachment" : for vs0.value  : Attachment as vs make vt0.value = create("Attachment") as vt then Attachment(vs,vt)
-    "ElementDefinition.example.value-CodeableConcept" : for vs0.value  : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "ElementDefinition.example.value-Coding" : for vs0.value  : Coding as vs make vt0.value = create("Coding") as vt then Coding(vs,vt)
-    "ElementDefinition.example.value-ContactPoint" : for vs0.value  : ContactPoint as vs make vt0.value = create("ContactPoint") as vt then ContactPoint(vs,vt)
-    "ElementDefinition.example.value-Count" : for vs0.value  : Count as vs make vt0.value = create("Count") as vt then Count(vs,vt)
-    "ElementDefinition.example.value-Distance" : for vs0.value  : Distance as vs make vt0.value = create("Distance") as vt then Distance(vs,vt)
-    "ElementDefinition.example.value-Duration" : for vs0.value  : Duration as vs make vt0.value = create("Duration") as vt then Duration(vs,vt)
-    "ElementDefinition.example.value-HumanName" : for vs0.value  : HumanName as vs make vt0.value = create("HumanName") as vt then HumanName(vs,vt)
-    "ElementDefinition.example.value-Identifier" : for vs0.value  : Identifier as vs make vt0.value = create("Identifier") as vt then Identifier(vs,vt)
-    "ElementDefinition.example.value-Money" : for vs0.value  : Money as vs make vt0.value = create("Money") as vt then Money(vs,vt)
-    "ElementDefinition.example.value-Period" : for vs0.value  : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
-    "ElementDefinition.example.value-Quantity" : for vs0.value  : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
-    "ElementDefinition.example.value-Range" : for vs0.value  : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
-    "ElementDefinition.example.value-Ratio" : for vs0.value  : Ratio as vs make vt0.value = create("Ratio") as vt then Ratio(vs,vt)
-    "ElementDefinition.example.value-Reference" : for vs0.value  : Reference as vs make vt0.value = create("Reference") as vt then Reference(vs,vt)
-    "ElementDefinition.example.value-SampledData" : for vs0.value  : SampledData as vs make vt0.value = create("SampledData") as vt then SampledData(vs,vt)
-    "ElementDefinition.example.value-Signature" : for vs0.value  : Signature as vs make vt0.value = create("Signature") as vt then Signature(vs,vt)
-    "ElementDefinition.example.value-Timing" : for vs0.value  : Timing as vs make vt0.value = create("Timing") as vt then Timing(vs,vt)
+    "ElementDefinition.example.label" : for vs0.label make vt0.label 
+    "ElementDefinition.example.value-base64Binary" : for vs0.value : base64Binary as vs make vt0.value = create("base64Binary") as vt then base64Binary(vs,vt)
+    "ElementDefinition.example.value-boolean" : for vs0.value : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)
+    "ElementDefinition.example.value-code" : for vs0.value : code as vs make vt0.value = create("code") as vt then code(vs,vt)
+    "ElementDefinition.example.value-date" : for vs0.value : date as vs make vt0.value = create("date") as vt then date(vs,vt)
+    "ElementDefinition.example.value-dateTime" : for vs0.value : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs,vt)
+    "ElementDefinition.example.value-decimal" : for vs0.value : decimal as vs make vt0.value = create("decimal") as vt then decimal(vs,vt)
+    "ElementDefinition.example.value-id" : for vs0.value : id as vs make vt0.value = create("id") as vt then id(vs,vt)
+    "ElementDefinition.example.value-instant" : for vs0.value : instant as vs make vt0.value = create("instant") as vt then instant(vs,vt)
+    "ElementDefinition.example.value-integer" : for vs0.value : integer as vs make vt0.value = create("integer") as vt then integer(vs,vt)
+    "ElementDefinition.example.value-markdown" : for vs0.value : markdown as vs make vt0.value = create("markdown") as vt then markdown(vs,vt)
+    "ElementDefinition.example.value-oid" : for vs0.value : oid as vs make vt0.value = create("oid") as vt then oid(vs,vt)
+    "ElementDefinition.example.value-positiveInt" : for vs0.value : positiveInt as vs make vt0.value = create("positiveInt") as vt then positiveInt(vs,vt)
+    "ElementDefinition.example.value-string" : for vs0.value : string as vs make vt0.value = create("string") as vt then string(vs,vt)
+    "ElementDefinition.example.value-time" : for vs0.value : time as vs make vt0.value = create("time") as vt then time(vs,vt)
+    "ElementDefinition.example.value-unsignedInt" : for vs0.value : unsignedInt as vs make vt0.value = create("unsignedInt") as vt then unsignedInt(vs,vt)
+    "ElementDefinition.example.value-uri" : for vs0.value : uri as vs make vt0.value = create("uri") as vt then uri(vs,vt)
+    "ElementDefinition.example.value-Address" : for vs0.value : Address as vs make vt0.value = create("Address") as vt then Address(vs,vt)
+    "ElementDefinition.example.value-Age" : for vs0.value : Age as vs make vt0.value = create("Age") as vt then Age(vs,vt)
+    "ElementDefinition.example.value-Annotation" : for vs0.value : Annotation as vs make vt0.value = create("Annotation") as vt then Annotation(vs,vt)
+    "ElementDefinition.example.value-Attachment" : for vs0.value : Attachment as vs make vt0.value = create("Attachment") as vt then Attachment(vs,vt)
+    "ElementDefinition.example.value-CodeableConcept" : for vs0.value : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
+    "ElementDefinition.example.value-Coding" : for vs0.value : Coding as vs make vt0.value = create("Coding") as vt then Coding(vs,vt)
+    "ElementDefinition.example.value-ContactPoint" : for vs0.value : ContactPoint as vs make vt0.value = create("ContactPoint") as vt then ContactPoint(vs,vt)
+    "ElementDefinition.example.value-Count" : for vs0.value : Count as vs make vt0.value = create("Count") as vt then Count(vs,vt)
+    "ElementDefinition.example.value-Distance" : for vs0.value : Distance as vs make vt0.value = create("Distance") as vt then Distance(vs,vt)
+    "ElementDefinition.example.value-Duration" : for vs0.value : Duration as vs make vt0.value = create("Duration") as vt then Duration(vs,vt)
+    "ElementDefinition.example.value-HumanName" : for vs0.value : HumanName as vs make vt0.value = create("HumanName") as vt then HumanName(vs,vt)
+    "ElementDefinition.example.value-Identifier" : for vs0.value : Identifier as vs make vt0.value = create("Identifier") as vt then Identifier(vs,vt)
+    "ElementDefinition.example.value-Money" : for vs0.value : Money as vs make vt0.value = create("Money") as vt then Money(vs,vt)
+    "ElementDefinition.example.value-Period" : for vs0.value : Period as vs make vt0.value = create("Period") as vt then Period(vs,vt)
+    "ElementDefinition.example.value-Quantity" : for vs0.value : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
+    "ElementDefinition.example.value-Range" : for vs0.value : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
+    "ElementDefinition.example.value-Ratio" : for vs0.value : Ratio as vs make vt0.value = create("Ratio") as vt then Ratio(vs,vt)
+    "ElementDefinition.example.value-Reference" : for vs0.value : Reference as vs make vt0.value = create("Reference") as vt then Reference(vs,vt)
+    "ElementDefinition.example.value-SampledData" : for vs0.value : SampledData as vs make vt0.value = create("SampledData") as vt then SampledData(vs,vt)
+    "ElementDefinition.example.value-Signature" : for vs0.value : Signature as vs make vt0.value = create("Signature") as vt then Signature(vs,vt)
+    "ElementDefinition.example.value-Timing" : for vs0.value : Timing as vs make vt0.value = create("Timing") as vt then Timing(vs,vt)
   }
-  "ElementDefinition.minValue-date" : for src.minValue  : date as vs make tgt.minValue = create("date") as vt then date(vs,vt)
-  "ElementDefinition.minValue-dateTime" : for src.minValue  : dateTime as vs make tgt.minValue = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition.minValue-instant" : for src.minValue  : instant as vs make tgt.minValue = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition.minValue-time" : for src.minValue  : time as vs make tgt.minValue = create("time") as vt then time(vs,vt)
-  "ElementDefinition.minValue-decimal" : for src.minValue  : decimal as vs make tgt.minValue = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition.minValue-integer" : for src.minValue  : integer as vs make tgt.minValue = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition.minValue-positiveInt" : for src.minValue  : positiveInt as vs make tgt.minValue = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition.minValue-unsignedInt" : for src.minValue  : unsignedInt as vs make tgt.minValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition.minValue-Quantity" : for src.minValue  : Quantity as vs make tgt.minValue = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition.maxValue-date" : for src.maxValue  : date as vs make tgt.maxValue = create("date") as vt then date(vs,vt)
-  "ElementDefinition.maxValue-dateTime" : for src.maxValue  : dateTime as vs make tgt.maxValue = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition.maxValue-instant" : for src.maxValue  : instant as vs make tgt.maxValue = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition.maxValue-time" : for src.maxValue  : time as vs make tgt.maxValue = create("time") as vt then time(vs,vt)
-  "ElementDefinition.maxValue-decimal" : for src.maxValue  : decimal as vs make tgt.maxValue = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition.maxValue-integer" : for src.maxValue  : integer as vs make tgt.maxValue = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition.maxValue-positiveInt" : for src.maxValue  : positiveInt as vs make tgt.maxValue = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition.maxValue-unsignedInt" : for src.maxValue  : unsignedInt as vs make tgt.maxValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition.maxValue-Quantity" : for src.maxValue  : Quantity as vs make tgt.maxValue = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition.maxLength" : for src.maxLength as vs make tgt.maxLength as vt
-  "ElementDefinition.condition" : for src.condition as vs make tgt.condition as vt
+  "ElementDefinition.minValue-date" : for src.minValue : date as vs make tgt.minValue = create("date") as vt then date(vs,vt)
+  "ElementDefinition.minValue-dateTime" : for src.minValue : dateTime as vs make tgt.minValue = create("dateTime") as vt then dateTime(vs,vt)
+  "ElementDefinition.minValue-instant" : for src.minValue : instant as vs make tgt.minValue = create("instant") as vt then instant(vs,vt)
+  "ElementDefinition.minValue-time" : for src.minValue : time as vs make tgt.minValue = create("time") as vt then time(vs,vt)
+  "ElementDefinition.minValue-decimal" : for src.minValue : decimal as vs make tgt.minValue = create("decimal") as vt then decimal(vs,vt)
+  "ElementDefinition.minValue-integer" : for src.minValue : integer as vs make tgt.minValue = create("integer") as vt then integer(vs,vt)
+  "ElementDefinition.minValue-positiveInt" : for src.minValue : positiveInt as vs make tgt.minValue = create("positiveInt") as vt then positiveInt(vs,vt)
+  "ElementDefinition.minValue-unsignedInt" : for src.minValue : unsignedInt as vs make tgt.minValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
+  "ElementDefinition.minValue-Quantity" : for src.minValue : Quantity as vs make tgt.minValue = create("Quantity") as vt then Quantity(vs,vt)
+  "ElementDefinition.maxValue-date" : for src.maxValue : date as vs make tgt.maxValue = create("date") as vt then date(vs,vt)
+  "ElementDefinition.maxValue-dateTime" : for src.maxValue : dateTime as vs make tgt.maxValue = create("dateTime") as vt then dateTime(vs,vt)
+  "ElementDefinition.maxValue-instant" : for src.maxValue : instant as vs make tgt.maxValue = create("instant") as vt then instant(vs,vt)
+  "ElementDefinition.maxValue-time" : for src.maxValue : time as vs make tgt.maxValue = create("time") as vt then time(vs,vt)
+  "ElementDefinition.maxValue-decimal" : for src.maxValue : decimal as vs make tgt.maxValue = create("decimal") as vt then decimal(vs,vt)
+  "ElementDefinition.maxValue-integer" : for src.maxValue : integer as vs make tgt.maxValue = create("integer") as vt then integer(vs,vt)
+  "ElementDefinition.maxValue-positiveInt" : for src.maxValue : positiveInt as vs make tgt.maxValue = create("positiveInt") as vt then positiveInt(vs,vt)
+  "ElementDefinition.maxValue-unsignedInt" : for src.maxValue : unsignedInt as vs make tgt.maxValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
+  "ElementDefinition.maxValue-Quantity" : for src.maxValue : Quantity as vs make tgt.maxValue = create("Quantity") as vt then Quantity(vs,vt)
+  "ElementDefinition.maxLength" : for src.maxLength make tgt.maxLength 
+  "ElementDefinition.condition" : for src.condition make tgt.condition 
   "ElementDefinition.constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then {
-    "ElementDefinition.constraint.key" : for vs0.key as vs make vt0.key as vt
-    "ElementDefinition.constraint.requirements" : for vs0.requirements as vs make vt0.requirements as vt
-    "ElementDefinition.constraint.severity" : for vs0.severity as vs make vt0.severity as vt
-    "ElementDefinition.constraint.human" : for vs0.human as vs make vt0.human as vt
-    "ElementDefinition.constraint.expression" : for vs0.expression as vs make vt0.expression as vt
-    "ElementDefinition.constraint.xpath" : for vs0.xpath as vs make vt0.xpath as vt
+    "ElementDefinition.constraint.key" : for vs0.key make vt0.key 
+    "ElementDefinition.constraint.requirements" : for vs0.requirements make vt0.requirements 
+    "ElementDefinition.constraint.severity" : for vs0.severity make vt0.severity 
+    "ElementDefinition.constraint.human" : for vs0.human make vt0.human 
+    "ElementDefinition.constraint.expression" : for vs0.expression make vt0.expression 
+    "ElementDefinition.constraint.xpath" : for vs0.xpath make vt0.xpath 
+    "ElementDefinition.constraint.source" : for vs0.source make vt0.source 
   }
-  "ElementDefinition.mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt
-  "ElementDefinition.isModifier" : for src.isModifier as vs make tgt.isModifier as vt
-  "ElementDefinition.isSummary" : for src.isSummary as vs make tgt.isSummary as vt
-  "ElementDefinition.binding" : for src.binding as vs0 make tgt.binding as vt0 then {
-    "ElementDefinition.binding.strength" : for vs0.strength as vs make vt0.strength as vt
-    "ElementDefinition.binding.description" : for vs0.description as vs make vt0.description as vt
-  }
+  "ElementDefinition.mustSupport" : for src.mustSupport make tgt.mustSupport 
+  "ElementDefinition.isModifier" : for src.isModifier make tgt.isModifier 
+  "ElementDefinition.isSummary" : for src.isSummary make tgt.isSummary 
+  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
   "ElementDefinition.mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "ElementDefinition.mapping.identity" : for vs0.identity as vs make vt0.identity as vt
-    "ElementDefinition.mapping.language" : for vs0.language as vs make vt0.language as vt
-    "ElementDefinition.mapping.map" : for vs0.map as vs make vt0.map as vt
-    "ElementDefinition.mapping.comment" : for vs0.comment as vs make vt0.comment as vt
+    "ElementDefinition.mapping.identity" : for vs0.identity make vt0.identity 
+    "ElementDefinition.mapping.language" : for vs0.language make vt0.language 
+    "ElementDefinition.mapping.map" : for vs0.map make vt0.map 
+    "ElementDefinition.mapping.comment" : for vs0.comment make vt0.comment 
   }
 endgroup
+
+group binding extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.binding.strength" : for src.strength make tgt.strength 
+  "ElementDefinition.binding.description" : for src.description make tgt.description 
+  "ElementDefinition.binding-valueSetU" : for src.valueSet : uri as vs0 make tgt.valueSet as vt0 then uri2Canonical(vs0, vt0)
+  "ElementDefinition.binding-valueSetR" : for src.valueSet : Reference as vs0 make tgt.valueSet as vt0 then Reference2Canonical(vs0, vt0)
+  
+endgroup
+
 

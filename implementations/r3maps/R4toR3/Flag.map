@@ -8,17 +8,17 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Flag extends DomainResource
+group for type+types Flag extends DomainResource
   input src : Flag as source
   input tgt : FlagR3 as target
 
-  "Flag.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "Flag.status" : for src.status as vs make tgt.status as vt
-  "Flag.category" : for src.categoryFirstRep as vs make tgt.category as vt
-  "Flag.code" : for src.code as vs make tgt.code as vt
-  "Flag.subject" : for src.subject as vs make tgt.subject as vt
-  "Flag.period" : for src.period as vs make tgt.period as vt
-  "Flag.encounter" : for src.encounter as vs make tgt.encounter as vt
-  "Flag.author" : for src.author as vs make tgt.author as vt
+  "Flag.identifier" : for src.identifier make tgt.identifier 
+  "Flag.status" : for src.status make tgt.status 
+  "Flag.category" : for src.categoryFirstRep make tgt.category 
+  "Flag.code" : for src.code make tgt.code 
+  "Flag.subject" : for src.subject make tgt.subject 
+  "Flag.period" : for src.period make tgt.period 
+  "Flag.encounter" : for src.encounter make tgt.encounter 
+  "Flag.author" : for src.author make tgt.author 
 endgroup
 

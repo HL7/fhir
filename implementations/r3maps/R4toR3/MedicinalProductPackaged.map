@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group MedicinalProductPackaged extends DomainResource
+group for type+types MedicinalProductPackaged extends DomainResource
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 
@@ -19,7 +19,7 @@ group MedicinalProductPackaged extends DomainResource
   "MedicinalProductPackaged.packageItem": for src.packageItem as s make tgt.packageItem as t then MedicinalProductPackagedPackageItem(s,t)
 endgroup
 
-group MedicinalProductPackagedBatchIdentifier extends BackboneElement
+group for type+types MedicinalProductPackagedBatchIdentifier extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 
@@ -27,7 +27,7 @@ group MedicinalProductPackagedBatchIdentifier extends BackboneElement
   "MedicinalProductPackaged.batchIdentifier.immediatePackaging": for src.immediatePackaging make tgt.immediatePackaging
 endgroup
 
-group MedicinalProductPackagedPackageItem extends BackboneElement
+group for type+types MedicinalProductPackagedPackageItem extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 
@@ -45,7 +45,7 @@ group MedicinalProductPackagedPackageItem extends BackboneElement
   "MedicinalProductPackaged.packageItem.shelfLifeStorage": for src.shelfLifeStorage make tgt.shelfLifeStorage
 endgroup
 
-group MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElement
+group for type+types MedicinalProductPackagedPackageItemManufacturedItem extends BackboneElement
   input src : MedicinalProductPackagedR3 as source
   input tgt : MedicinalProductPackaged as target
 

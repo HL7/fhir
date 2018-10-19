@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Distance extends Quantity
+group for type+types Distance extends Quantity
   input src : DistanceR3 as source
   input tgt : Distance as target
 

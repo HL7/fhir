@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ProcessResponse extends DomainResource
+group for type+types ProcessResponse extends DomainResource
   input src : ProcessResponseR3 as source
   input tgt : ProcessResponse as target
 
@@ -26,7 +26,7 @@ group ProcessResponse extends DomainResource
   "ProcessResponse.communicationRequest": for src.communicationRequest make tgt.communicationRequest
 endgroup
 
-group ProcessResponseProcessNote extends BackboneElement
+group for type+types ProcessResponseProcessNote extends BackboneElement
   input src : ProcessResponseR3 as source
   input tgt : ProcessResponse as target
 

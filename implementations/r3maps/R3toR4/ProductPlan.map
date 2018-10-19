@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ProductPlan extends DomainResource
+group for type+types ProductPlan extends DomainResource
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -29,7 +29,7 @@ group ProductPlan extends DomainResource
 endgroup
 
 
-group ProductPlanContact extends BackboneElement
+group for type+types ProductPlanContact extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -40,7 +40,7 @@ group ProductPlanContact extends BackboneElement
 endgroup
 
 
-group ProductPlanCoverage extends BackboneElement
+group for type+types ProductPlanCoverage extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -50,7 +50,7 @@ group ProductPlanCoverage extends BackboneElement
 endgroup
 
 
-group ProductPlanCoverageBenefit extends BackboneElement
+group for type+types ProductPlanCoverageBenefit extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -60,7 +60,7 @@ group ProductPlanCoverageBenefit extends BackboneElement
 endgroup
 
 
-group ProductPlanCoverageBenefitLimit extends BackboneElement
+group for type+types ProductPlanCoverageBenefitLimit extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -69,7 +69,7 @@ group ProductPlanCoverageBenefitLimit extends BackboneElement
 endgroup
 
 
-group ProductPlanPlan extends BackboneElement
+group for type+types ProductPlanPlan extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -82,7 +82,7 @@ group ProductPlanPlan extends BackboneElement
 endgroup
 
 
-group ProductPlanPlanGeneralCost extends BackboneElement
+group for type+types ProductPlanPlanGeneralCost extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -93,7 +93,7 @@ group ProductPlanPlanGeneralCost extends BackboneElement
 endgroup
 
 
-group ProductPlanPlanSpecificCost extends BackboneElement
+group for type+types ProductPlanPlanSpecificCost extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -102,7 +102,7 @@ group ProductPlanPlanSpecificCost extends BackboneElement
 endgroup
 
 
-group ProductPlanPlanSpecificCostBenefit extends BackboneElement
+group for type+types ProductPlanPlanSpecificCostBenefit extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 
@@ -111,7 +111,7 @@ group ProductPlanPlanSpecificCostBenefit extends BackboneElement
 endgroup
 
 
-group ProductPlanPlanSpecificCostBenefitCost extends BackboneElement
+group for type+types ProductPlanPlanSpecificCostBenefitCost extends BackboneElement
   input src : ProductPlanR3 as source
   input tgt : ProductPlan as target
 

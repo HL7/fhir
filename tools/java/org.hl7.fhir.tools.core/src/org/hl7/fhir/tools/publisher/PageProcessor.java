@@ -10591,7 +10591,7 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
         JsonObject el = (JsonObject) e.getValue();
         rs.testCount++;
         JsonPrimitive p = el.getAsJsonPrimitive("execution");
-        if (!p.isBoolean())
+        if (p!= null && !p.isBoolean())
           rs.executeFailCount++;
         if (el.has("r4.errors")) {
           rs.r4ValidationFailCount++;

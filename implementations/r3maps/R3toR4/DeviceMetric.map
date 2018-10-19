@@ -8,23 +8,23 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group DeviceMetric extends DomainResource
+group for type+types DeviceMetric extends DomainResource
   input src : DeviceMetricR3 as source
   input tgt : DeviceMetric as target
 
-  "DeviceMetric.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "DeviceMetric.type" : for src.type as vs make tgt.type as vt
-  "DeviceMetric.unit" : for src.unit as vs make tgt.unit as vt
-  "DeviceMetric.source" : for src.source as vs make tgt.source as vt
-  "DeviceMetric.parent" : for src.parent as vs make tgt.parent as vt
-  "DeviceMetric.operationalStatus" : for src.operationalStatus as vs make tgt.operationalStatus as vt
-  "DeviceMetric.color" : for src.color as vs make tgt.color as vt
-  "DeviceMetric.category" : for src.category as vs make tgt.category as vt
-  "DeviceMetric.measurementPeriod" : for src.measurementPeriod as vs make tgt.measurementPeriod as vt
+  "DeviceMetric.identifier" : for src.identifier make tgt.identifier 
+  "DeviceMetric.type" : for src.type make tgt.type 
+  "DeviceMetric.unit" : for src.unit make tgt.unit 
+  "DeviceMetric.source" : for src.source make tgt.source 
+  "DeviceMetric.parent" : for src.parent make tgt.parent 
+  "DeviceMetric.operationalStatus" : for src.operationalStatus make tgt.operationalStatus 
+  "DeviceMetric.color" : for src.color make tgt.color 
+  "DeviceMetric.category" : for src.category make tgt.category 
+  "DeviceMetric.measurementPeriod" : for src.measurementPeriod make tgt.measurementPeriod 
   "DeviceMetric.calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
-    "DeviceMetric.calibration.type" : for vs0.type as vs make vt0.type as vt
-    "DeviceMetric.calibration.state" : for vs0.state as vs make vt0.state as vt
-    "DeviceMetric.calibration.time" : for vs0.time as vs make vt0.time as vt
+    "DeviceMetric.calibration.type" : for vs0.type make vt0.type 
+    "DeviceMetric.calibration.state" : for vs0.state make vt0.state 
+    "DeviceMetric.calibration.time" : for vs0.time make vt0.time 
   }
 endgroup
 

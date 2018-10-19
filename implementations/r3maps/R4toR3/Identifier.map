@@ -8,15 +8,15 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Identifier extends Element
+group for type+types Identifier extends Element
   input src : Identifier as source
   input tgt : IdentifierR3 as target
 
-  "Identifier.use" : for src.use as vs make tgt.use as vt
-  "Identifier.type" : for src.type as vs make tgt.type as vt
-  "Identifier.system" : for src.system as vs make tgt.system as vt
-  "Identifier.value" : for src.value as vs make tgt.value as vt
-  "Identifier.period" : for src.period as vs make tgt.period as vt
-  "Identifier.assigner" : for src.assigner as vs make tgt.assigner as vt
+  "Identifier.use" : for src.use make tgt.use 
+  "Identifier.type" : for src.type make tgt.type 
+  "Identifier.system" : for src.system make tgt.system 
+  "Identifier.value" : for src.value make tgt.value 
+  "Identifier.period" : for src.period make tgt.period 
+  "Identifier.assigner" : for src.assigner make tgt.assigner 
 endgroup
 

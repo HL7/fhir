@@ -8,11 +8,11 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Money extends Element
+group for type+types Money extends Element
   input src : MoneyR3 as source
   input tgt : Money as target
 
-  "Money.value" : for src.value as vs make tgt.value as vt
-  "Money.currency" : for src.code as vs make tgt.currency as vt
+  "Money.value" : for src.value make tgt.value 
+  "Money.currency" : for src.code make tgt.currency 
 endgroup
 

@@ -8,42 +8,44 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group StructureDefinition extends DomainResource
+group for type+types StructureDefinition extends DomainResource
   input src : StructureDefinitionR3 as source
   input tgt : StructureDefinition as target
 
-  "StructureDefinition.url" : for src.url as vs make tgt.url as vt
-  "StructureDefinition.identifier" : for src.identifier as vs make tgt.identifier as vt
-  "StructureDefinition.version" : for src.version as vs make tgt.version as vt
-  "StructureDefinition.name" : for src.name as vs make tgt.name as vt
-  "StructureDefinition.title" : for src.title as vs make tgt.title as vt
-  "StructureDefinition.status" : for src.status as vs make tgt.status as vt
-  "StructureDefinition.experimental" : for src.experimental as vs make tgt.experimental as vt
-  "StructureDefinition.date" : for src.date as vs make tgt.date as vt
-  "StructureDefinition.publisher" : for src.publisher as vs make tgt.publisher as vt
-  "StructureDefinition.contact" : for src.contact as vs make tgt.contact as vt
-  "StructureDefinition.description" : for src.description as vs make tgt.description as vt
-  "StructureDefinition.useContext" : for src.useContext as vs make tgt.useContext as vt
-  "StructureDefinition.jurisdiction" : for src.jurisdiction as vs make tgt.jurisdiction as vt
-  "StructureDefinition.purpose" : for src.purpose as vs make tgt.purpose as vt
-  "StructureDefinition.copyright" : for src.copyright as vs make tgt.copyright as vt
-  "StructureDefinition.keyword" : for src.keyword as vs make tgt.keyword as vt
-  "StructureDefinition.fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt
+  "StructureDefinition.url" : for src.url make tgt.url 
+  "StructureDefinition.identifier" : for src.identifier make tgt.identifier 
+  "StructureDefinition.version" : for src.version make tgt.version 
+  "StructureDefinition.name" : for src.name make tgt.name 
+  "StructureDefinition.title" : for src.title make tgt.title 
+  "StructureDefinition.status" : for src.status make tgt.status 
+  "StructureDefinition.experimental" : for src.experimental make tgt.experimental 
+  "StructureDefinition.date" : for src.date make tgt.date 
+  "StructureDefinition.publisher" : for src.publisher make tgt.publisher 
+  "StructureDefinition.contact" : for src.contact make tgt.contact 
+  "StructureDefinition.description" : for src.description make tgt.description 
+  "StructureDefinition.useContext" : for src.useContext make tgt.useContext 
+  "StructureDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
+  "StructureDefinition.purpose" : for src.purpose make tgt.purpose 
+  "StructureDefinition.copyright" : for src.copyright make tgt.copyright 
+  "StructureDefinition.keyword" : for src.keyword make tgt.keyword 
+  "StructureDefinition.fhirVersion" : for src.fhirVersion make tgt.fhirVersion 
   "StructureDefinition.mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "StructureDefinition.mapping.identity" : for vs0.identity as vs make vt0.identity as vt
-    "StructureDefinition.mapping.uri" : for vs0.uri as vs make vt0.uri as vt
-    "StructureDefinition.mapping.name" : for vs0.name as vs make vt0.name as vt
-    "StructureDefinition.mapping.comment" : for vs0.comment as vs make vt0.comment as vt
+    "StructureDefinition.mapping.identity" : for vs0.identity make vt0.identity 
+    "StructureDefinition.mapping.uri" : for vs0.uri make vt0.uri 
+    "StructureDefinition.mapping.name" : for vs0.name make vt0.name 
+    "StructureDefinition.mapping.comment" : for vs0.comment make vt0.comment 
   }
-  "StructureDefinition.kind" : for src.kind as vs make tgt.kind as vt
-  "StructureDefinition.abstract" : for src.abstract as vs make tgt.abstract as vt
-  "StructureDefinition.contextInvariant" : for src.contextInvariant as vs make tgt.contextInvariant as vt
-  "StructureDefinition.derivation" : for src.derivation as vs make tgt.derivation as vt
+  "StructureDefinition.kind" : for src.kind make tgt.kind 
+  "StructureDefinition.abstract" : for src.abstract make tgt.abstract 
+  "StructureDefinition.type" : for src.type make tgt.type 
+  "StructureDefinition.baseDefinition" : for src.baseDefinition make tgt.baseDefinition 
+  "StructureDefinition.contextInvariant" : for src.contextInvariant make tgt.contextInvariant 
+  "StructureDefinition.derivation" : for src.derivation make tgt.derivation 
   "StructureDefinition.snapshot" : for src.snapshot as vs0 make tgt.snapshot as vt0 then {
-    "StructureDefinition.snapshot.element" : for vs0.element as vs make vt0.element as vt
+    "StructureDefinition.snapshot.element" : for vs0.element make vt0.element 
   }
   "StructureDefinition.differential" : for src.differential as vs0 make tgt.differential as vt0 then {
-    "StructureDefinition.differential.element" : for vs0.element as vs make vt0.element as vt
+    "StructureDefinition.differential.element" : for vs0.element make vt0.element 
   }
 endgroup
 

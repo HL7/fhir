@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ChargeItem extends DomainResource
+group for type+types ChargeItem extends DomainResource
   input src : ChargeItemR3 as source
   input tgt : ChargeItem as target
 
@@ -39,7 +39,7 @@ group ChargeItem extends DomainResource
   "ChargeItem.supportingInformation": for src.supportingInformation make tgt.supportingInformation
 endgroup
 
-group ChargeItemPerformer extends BackboneElement
+group for type+types ChargeItemPerformer extends BackboneElement
   input src : ChargeItemR3 as source
   input tgt : ChargeItem as target
 

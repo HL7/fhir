@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Measure extends DomainResource
+group for type+types Measure extends DomainResource
   input src : MeasureR3 as source
   input tgt : Measure as target
 
@@ -54,7 +54,7 @@ group Measure extends DomainResource
 endgroup
 
 
-group MeasureGroup extends BackboneElement
+group for type+types Measuregroup extends BackboneElement
   input src : MeasureR3 as source
   input tgt : Measure as target
 
@@ -65,7 +65,7 @@ group MeasureGroup extends BackboneElement
 endgroup
 
 
-group MeasureGroupPopulation extends BackboneElement
+group for type+types MeasureGroupPopulation extends BackboneElement
   input src : MeasureR3 as source
   input tgt : Measure as target
 
@@ -75,7 +75,7 @@ group MeasureGroupPopulation extends BackboneElement
 endgroup
 
 
-group MeasureGroupStratifier extends BackboneElement
+group for type+types MeasureGroupStratifier extends BackboneElement
   input src : MeasureR3 as source
   input tgt : Measure as target
 
@@ -86,7 +86,7 @@ group MeasureGroupStratifier extends BackboneElement
 endgroup
 
 
-group MeasureSupplementalData extends BackboneElement
+group for type+types MeasureSupplementalData extends BackboneElement
   input src : MeasureR3 as source
   input tgt : Measure as target
 

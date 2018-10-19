@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group Age extends Quantity
+group for type+types Age extends Quantity
   input src : Age as source
   input tgt : AgeR3 as target
 

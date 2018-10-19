@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ProductShelfLife extends BackboneElement
+group for type+types ProductShelfLife extends BackboneElement
   input src : ProductShelfLifeR3 as source
   input tgt : ProductShelfLife as target
 

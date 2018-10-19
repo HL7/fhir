@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group Coverage extends DomainResource
+group for type+types Coverage extends DomainResource
   input src : CoverageR3 as source
   input tgt : Coverage as target
 
@@ -31,7 +31,7 @@ group Coverage extends DomainResource
 endgroup
 
 
-group CoverageClass extends BackboneElement
+group for type+types CoverageClass extends BackboneElement
   input src : CoverageR3 as source
   input tgt : Coverage as target
 
@@ -41,7 +41,7 @@ group CoverageClass extends BackboneElement
 endgroup
 
 
-group CoverageCopay extends BackboneElement
+group for type+types CoverageCopay extends BackboneElement
   input src : CoverageR3 as source
   input tgt : Coverage as target
 

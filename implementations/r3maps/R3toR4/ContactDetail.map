@@ -8,11 +8,11 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group ContactDetail extends Element
+group for type+types ContactDetail extends Element
   input src : ContactDetailR3 as source
   input tgt : ContactDetail as target
 
-  "ContactDetail.name" : for src.name as vs make tgt.name as vt
-  "ContactDetail.telecom" : for src.telecom as vs make tgt.telecom as vt
+  "ContactDetail.name" : for src.name make tgt.name 
+  "ContactDetail.telecom" : for src.telecom make tgt.telecom 
 endgroup
 

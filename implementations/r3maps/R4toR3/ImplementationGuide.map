@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*4to3"
 
 
 
-group ImplementationGuide extends DomainResource
+group for type+types ImplementationGuide extends DomainResource
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -33,7 +33,7 @@ group ImplementationGuide extends DomainResource
   "ImplementationGuide.manifest": for src.manifest as s make tgt.manifest as t then ImplementationGuideManifest(s,t)
 endgroup
 
-group ImplementationGuideDependsOn extends BackboneElement
+group for type+types ImplementationGuideDependsOn extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -42,7 +42,7 @@ group ImplementationGuideDependsOn extends BackboneElement
   "ImplementationGuide.dependsOn.version": for src.version make tgt.version
 endgroup
 
-group ImplementationGuideGlobal extends BackboneElement
+group for type+types ImplementationGuideGlobal extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -50,7 +50,7 @@ group ImplementationGuideGlobal extends BackboneElement
   "ImplementationGuide.global.profile": for src.profile make tgt.profile
 endgroup
 
-group ImplementationGuideDefinition extends BackboneElement
+group for type+types ImplementationGuideDefinition extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -61,7 +61,7 @@ group ImplementationGuideDefinition extends BackboneElement
   "ImplementationGuide.definition.template": for src.template as s make tgt.template as t then ImplementationGuideDefinitionTemplate(s,t)
 endgroup
 
-group ImplementationGuideDefinitionPackage extends BackboneElement
+group for type+types ImplementationGuideDefinitionPackage extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -69,7 +69,7 @@ group ImplementationGuideDefinitionPackage extends BackboneElement
   "ImplementationGuide.definition.package.description": for src.description make tgt.description
 endgroup
 
-group ImplementationGuideDefinitionResource extends BackboneElement
+group for type+types ImplementationGuideDefinitionResource extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -80,7 +80,7 @@ group ImplementationGuideDefinitionResource extends BackboneElement
   "ImplementationGuide.definition.resource.package": for src.package make tgt.package
 endgroup
 
-group ImplementationGuideDefinitionPage extends BackboneElement
+group for type+types ImplementationGuideDefinitionPage extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -90,7 +90,7 @@ group ImplementationGuideDefinitionPage extends BackboneElement
   "ImplementationGuide.definition.page.page": for src.page make tgt.page
 endgroup
 
-group ImplementationGuideDefinitionParameter extends BackboneElement
+group for type+types ImplementationGuideDefinitionParameter extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -98,7 +98,7 @@ group ImplementationGuideDefinitionParameter extends BackboneElement
   "ImplementationGuide.definition.parameter.value": for src.value make tgt.value
 endgroup
 
-group ImplementationGuideDefinitionTemplate extends BackboneElement
+group for type+types ImplementationGuideDefinitionTemplate extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -107,7 +107,7 @@ group ImplementationGuideDefinitionTemplate extends BackboneElement
   "ImplementationGuide.definition.template.scope": for src.scope make tgt.scope
 endgroup
 
-group ImplementationGuideManifest extends BackboneElement
+group for type+types ImplementationGuideManifest extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -118,7 +118,7 @@ group ImplementationGuideManifest extends BackboneElement
   "ImplementationGuide.manifest.other": for src.other make tgt.other
 endgroup
 
-group ImplementationGuideManifestResource extends BackboneElement
+group for type+types ImplementationGuideManifestResource extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 
@@ -127,7 +127,7 @@ group ImplementationGuideManifestResource extends BackboneElement
   "ImplementationGuide.manifest.resource.relativePath": for src.relativePath make tgt.relativePath
 endgroup
 
-group ImplementationGuideManifestPage extends BackboneElement
+group for type+types ImplementationGuideManifestPage extends BackboneElement
   input src : ImplementationGuideR3 as source
   input tgt : ImplementationGuide as target
 

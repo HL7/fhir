@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group SubstancePolymer extends DomainResource
+group for type+types SubstancePolymer extends DomainResource
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -21,7 +21,7 @@ group SubstancePolymer extends DomainResource
 endgroup
 
 
-group SubstancePolymerMonomerSet extends BackboneElement
+group for type+types SubstancePolymerMonomerSet extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -30,7 +30,7 @@ group SubstancePolymerMonomerSet extends BackboneElement
 endgroup
 
 
-group SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
+group for type+types SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -41,7 +41,7 @@ group SubstancePolymerMonomerSetStartingMaterial extends BackboneElement
 endgroup
 
 
-group SubstancePolymerRepeat extends BackboneElement
+group for type+types SubstancePolymerRepeat extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -52,7 +52,7 @@ group SubstancePolymerRepeat extends BackboneElement
 endgroup
 
 
-group SubstancePolymerRepeatRepeatUnit extends BackboneElement
+group for type+types SubstancePolymerRepeatRepeatUnit extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -64,7 +64,7 @@ group SubstancePolymerRepeatRepeatUnit extends BackboneElement
 endgroup
 
 
-group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneElement
+group for type+types SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 
@@ -73,7 +73,7 @@ group SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation extends BackboneEle
 endgroup
 
 
-group SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneElement
+group for type+types SubstancePolymerRepeatRepeatUnitStructuralRepresentation extends BackboneElement
   input src : SubstancePolymerR3 as source
   input tgt : SubstancePolymer as target
 

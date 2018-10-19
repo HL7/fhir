@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 
 
 
-group MedicinalProductAuthorization extends DomainResource
+group for type+types MedicinalProductAuthorization extends DomainResource
   input src : MedicinalProductAuthorizationR3 as source
   input tgt : MedicinalProductAuthorization as target
 
@@ -31,7 +31,7 @@ group MedicinalProductAuthorization extends DomainResource
 endgroup
 
 
-group MedicinalProductAuthorizationJurisdictionalAuthorization extends BackboneElement
+group for type+types MedicinalProductAuthorizationJurisdictionalAuthorization extends BackboneElement
   input src : MedicinalProductAuthorizationR3 as source
   input tgt : MedicinalProductAuthorization as target
 
@@ -43,7 +43,7 @@ group MedicinalProductAuthorizationJurisdictionalAuthorization extends BackboneE
 endgroup
 
 
-group MedicinalProductAuthorizationProcedure extends BackboneElement
+group for type+types MedicinalProductAuthorizationProcedure extends BackboneElement
   input src : MedicinalProductAuthorizationR3 as source
   input tgt : MedicinalProductAuthorization as target
 
