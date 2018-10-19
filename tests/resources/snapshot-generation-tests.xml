@@ -3410,7 +3410,7 @@
     <action>
       <assert>
         <label value="test34a"/>
-        <description value="The narrative must mention the extension URL"/>
+        <description value="The narrative must mention the extension URL (http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status)"/>
         <direction value="response"/>
         <expression value="fixture('t34o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
         <warningOnly value="false"/>
@@ -3445,7 +3445,7 @@
     <action>
       <assert>
         <label value="test35a"/>
-        <description value="The narrative must mention the extension URL"/>
+        <description value="The narrative must mention the extension URL (http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status)"/>
         <direction value="response"/>
         <expression value="fixture('t35o').text.div.contains('http://www.fhir.org/guides/test3/StructureDefinition/extension-identifier-status')"/>
         <warningOnly value="false"/>
