@@ -798,7 +798,7 @@ public class SpecDifferenceEvaluator {
         System.out.println("null @ "+rev.getPath());
       if (r.contains("(") && o.contains("(") && r.startsWith(o.substring(0, o.indexOf("(")+1))) {
         compareParameters(bp, rev.getType().get(0), orig.getType().get(0));
-      } else if (r.equals(o))
+      } else if (!r.equals(o))
         bp.append("Type changed from "+o+" to "+r); 
     } else {
       CommaSeparatedStringBuilder removed = new CommaSeparatedStringBuilder();
