@@ -1287,7 +1287,7 @@ public class StructureMapUtilities {
       if (vv == null && mode == VariableMode.INPUT) //* once source, always source. but target can be treated as source at user convenient
         vv = vin.get(VariableMode.OUTPUT, var);
 			if (vv == null)
-				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' named as '"+var+"' has no value");
+				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' named as '"+var+"' has no value (vars = "+vin.summary()+")");
 			v.add(mode, input.getName(), vv);    	
 		}
 		executeGroup(indent+"  ", context, rg.targetMap, v, rg.target, false);

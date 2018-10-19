@@ -27,11 +27,66 @@ group for type+types ConceptMap extends DomainResource
   "ConceptMap.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
   "ConceptMap.purpose" : for src.purpose make tgt.purpose 
   "ConceptMap.copyright" : for src.copyright make tgt.copyright 
-  "ConceptMap.group" : for src.group as vs0 make tgt.group as vt0 then {
-    "ConceptMap.group.source" : for vs0.source make vt0.source 
-    "ConceptMap.group.sourceVersion" : for vs0.sourceVersion make vt0.sourceVersion 
-    "ConceptMap.group.target" : for vs0.target make vt0.target 
-    "ConceptMap.group.targetVersion" : for vs0.targetVersion make vt0.targetVersion 
-  }
+  "ConceptMap.sourceU" : for src.source : uri as vs0 make tgt.source = create('uri') as vt0 then uri(vs0, vt0)
+  "ConceptMap.sourceR" : for src.source : Reference as vs0 make tgt.source = create('canonical') as vt0 then Reference2Canonical(vs0, vt0)
+  "ConceptMap.targetU" : for src.target : uri as vs0 make tgt.target = create('uri') as vt0 then uri(vs0, vt0)
+  "ConceptMap.targetR" : for src.target : Reference as vs0 make tgt.target = create('canonical') as vt0 then Reference2Canonical(vs0, vt0)
+  
+  "ConceptMap.group" : for src.group as vs0 make tgt.group as vt0 then group(vs0, vt0)
 endgroup
 
+group group extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ConceptMap.group.source" : for src.source make tgt.source
+  "ConceptMap.group.sourceVersion" : for src.sourceVersion make tgt.sourceVersion
+  "ConceptMap.group.target" : for src.target make tgt.target
+  "ConceptMap.group.targetVersion" : for src.targetVersion make tgt.targetVersion
+  "ConceptMap.group.element" : for src.element as vs0 make tgt.element as vt0 then element(vs0, vt0)
+  "ConceptMap.group.unmapped" : for src.unmapped as vs0 make tgt.unmapped as vt0 then unmapped(vs0, vt0)
+endgroup
+
+group element extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ConceptMap.group.element.code" : for src.code make tgt.code
+  "ConceptMap.group.element.display" : for src.display make tgt.display
+  "ConceptMap.group.element.target" : for src.target as vs0 make tgt.target as vt0 then target(vs0, vt0)
+endgroup
+
+group target extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ConceptMap.group.element.target.code" : for src.code make tgt.code
+  "ConceptMap.group.element.target.display" : for src.display make tgt.display
+  "ConceptMap.group.element.target.code" : for src.code make tgt.code
+  "ConceptMap.group.element.target.display" : for src.display make tgt.display
+  "ConceptMap.group.element.target.equivalence" : for src.equivalence make tgt.equivalence
+  "ConceptMap.group.element.target.comment" : for src.comment make tgt.comment
+
+  "ConceptMap.group.element.target.dependsOn" : for src.dependsOn as vs0 make tgt.dependsOn as vt0 then qualifier(vs0, vt0)
+  "ConceptMap.group.element.target.product" : for src.product as vs0 make tgt.product as vt0 then qualifier(vs0, vt0)
+endgroup
+
+group qualifier extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ConceptMap.group.element.target.qualifier.property" : for src.property make tgt.property
+  "ConceptMap.group.element.target.qualifier.system" : for src.system make tgt.system
+  "ConceptMap.group.element.target.qualifier.code" : for src.code make tgt.value
+  "ConceptMap.group.element.target.qualifier.display" : for src.display make tgt.display 
+endgroup
+
+group unmapped extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ConceptMap.group.unmapped.mode" : for src.mode make tgt.mode
+  "ConceptMap.group.unmapped.code" : for src.code make tgt.code
+  "ConceptMap.group.unmapped.display" : for src.display make tgt.display
+  "ConceptMap.group.unmapped.url" : for src.url make tgt.url
+endgroup

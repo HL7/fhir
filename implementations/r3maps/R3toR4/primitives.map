@@ -210,3 +210,10 @@ group for types code2uri extends Element
 
   "code2uri-value" : for src.value as v make tgt.value = v
 endgroup
+
+group for types code2string extends Element
+  input src : codeR3 as source
+  input tgt : string as target
+
+  "code2uri-value" : for src.value as v make tgt.value = v
+endgroup

@@ -204,6 +204,13 @@ group for types uri2code extends Element
   "uri2code-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types string2code extends Element
+  input src : stringR3 as source
+  input tgt : code as target
+
+  "uri2code-value" : for src.value as v make tgt.value = v
+endgroup
+
 group for types canonical2Uri extends Element
   input src : canonicalR3 as source
   input tgt : uri as target
