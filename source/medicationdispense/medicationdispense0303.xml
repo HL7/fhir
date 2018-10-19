@@ -18,7 +18,10 @@
     <partOf>
         <reference value="Procedure/biopsy"></reference>
     </partOf>
-    <status value="on-hold"/>
+   <status value="on-hold"/>
+    <statusReasonReference>
+        <reference value="DetectedIssue/allergy"></reference>
+    </statusReasonReference>
     <category>
         <coding>
             <system value="http://terminology.hl7.org/CodeSystem/medication-dispense-category"/>
@@ -107,9 +110,7 @@
     <detectedIssue>
         <reference value="DetectedIssue/allergy"></reference>
     </detectedIssue>
-    <statusReasonReference>
-        <reference value="DetectedIssue/allergy"></reference>
-    </statusReasonReference>
+
 </MedicationDispense>
 
 
