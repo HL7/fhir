@@ -35,35 +35,23 @@
 
 		<filter>
 				
-			<!--   SNOMED CT - Children of 406149000 Medication Refused (situation)    -->
+			<!--   SNOMED CT - Children of 24299004 Drug Not available for administration    -->
 				
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="406149000"/>
-		</filter>
-	</include>
-	<include>
-		<system value="http://snomed.info/sct"/>
-
-		<filter>
-				
-			<!--   SNOMED CT - Children of 371900001 Medication Not Administered (situation)   -->
-		
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="371900001"/>
-		</filter>
-	</include>
-	<include>
-		<system value="http://snomed.info/sct"/>
-
-		<filter>
-				
-			<!--   SNOMED CT - Children of 242990004 Non Administration of necessary drug or medicine (event)   -->
-			
 			<property value="concept"/>
 			<op value="is-a"/>
 			<value value="242990004"/>
+		</filter>
+	</include>
+	<include>
+		<system value="http://snomed.info/sct"/>
+
+		<filter>
+				
+			<!--   SNOMED CT - Children of 182895007 Drug declined by patient   -->
+		
+			<property value="concept"/>
+			<op value="is-a"/>
+			<value value="182895007"/>
 		</filter>
 	</include>
 </compose>

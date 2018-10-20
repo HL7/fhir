@@ -11005,6 +11005,10 @@
     <display value="Medication requested"/>
     <display value="Medication requested (situation)"/>
   </concept>
+  <concept id="182895007" display="Drug declined by patient">
+    <display value="Drug declined by patient"/>
+    <display value="Drug declined by patient (situation)"/>
+  </concept>
   <concept id="182922004" display="Dietary regime">
     <display value="Dietary regime"/>
     <display value="Dietary regime (regime/therapy)"/>
