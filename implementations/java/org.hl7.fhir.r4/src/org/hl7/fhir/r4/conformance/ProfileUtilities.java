@@ -86,7 +86,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 
-/**
+/** 
  * This class provides a set of utility operations for working with Profiles.
  * Key functionality:
  *  * getChildMap --?
@@ -106,6 +106,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
 public class ProfileUtilities extends TranslatingUtilities {
 
   private static int nextSliceId = 0;
+  private static final int MAX_RECURSION_LIMIT = 10;
   
   public class ExtensionContext {
 
@@ -2926,6 +2927,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
 
     private int find(String path) {
+      String op = path;
       int lc = 0;
       String actual = base+path.substring(prefixLength);
       for (int i = 0; i < snapshot.size(); i++) {
@@ -2949,8 +2951,8 @@ public class ProfileUtilities extends TranslatingUtilities {
             
           i = 0;
           lc++;
-          if (lc > 5)
-            throw new Error("Error sorting: find() loop count > 5 - check paths are valid");
+          if (lc > MAX_RECURSION_LIMIT)
+            throw new Error("Internal recursion detection: find() loop path recursion > "+MAX_RECURSION_LIMIT+" - check paths are valid (for path "+path+"/"+op+")");
         }
       }
       if (prefixLength == 0)
