@@ -1,42 +1,36 @@
 ﻿map "http://hl7.org/fhir/StructureMap/RiskAssessment4to3" = "R4 to R3 Conversion for RiskAssessment"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessment as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/RiskAssessment" alias RiskAssessmentR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types RiskAssessment extends DomainResource
-  input src : RiskAssessment as source
-  input tgt : RiskAssessmentR3 as target
-
-  "RiskAssessment.identifier" : for src.identifierFirstRep make tgt.identifier 
-  "RiskAssessment.basedOn" : for src.basedOn make tgt.basedOn 
-  "RiskAssessment.parent" : for src.parent make tgt.parent 
-  "RiskAssessment.status" : for src.status make tgt.status 
-  "RiskAssessment.method" : for src.method make tgt.method 
-  "RiskAssessment.code" : for src.code make tgt.code 
-  "RiskAssessment.subject" : for src.subject make tgt.subject 
-  "RiskAssessment.context" : for src.context make tgt.context 
-  "RiskAssessment.occurrence-dateTime" : for src.occurrence : dateTime as vs make tgt.occurrence = create("dateTime") as vt then dateTime(vs,vt)
-  "RiskAssessment.occurrence-Period" : for src.occurrence : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs,vt)
-  "RiskAssessment.condition" : for src.condition make tgt.condition 
-  "RiskAssessment.performer" : for src.performer make tgt.performer 
-  "RiskAssessment.reason-CodeableConcept" : for src.reasonCode : CodeableConcept first as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "RiskAssessment.reason-Reference" : for src.reasonReference : Reference first as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
-  "RiskAssessment.basis" : for src.basis make tgt.basis 
-  "RiskAssessment.prediction" : for src.prediction as vs0 make tgt.prediction as vt0 then {
-    "RiskAssessment.prediction.outcome" : for vs0.outcome make vt0.outcome 
-    "RiskAssessment.prediction.probability-decimal" : for vs0.probability : decimal as vs make vt0.probability = create("decimal") as vt then decimal(vs,vt)
-    "RiskAssessment.prediction.probability-Range" : for vs0.probability : Range as vs make vt0.probability = create("Range") as vt then Range(vs,vt)
-    "RiskAssessment.prediction.qualitativeRisk" : for vs0.qualitativeRisk make vt0.qualitativeRisk 
-    "RiskAssessment.prediction.relativeRisk" : for vs0.relativeRisk make vt0.relativeRisk 
-    "RiskAssessment.prediction.when-Period" : for vs0.when : Period as vs make vt0.when = create("Period") as vt then Period(vs,vt)
-    "RiskAssessment.prediction.when-Range" : for vs0.when : Range as vs make vt0.when = create("Range") as vt then Range(vs,vt)
-    "RiskAssessment.prediction.rationale" : for vs0.rationale make vt0.rationale 
-  }
-  "RiskAssessment.mitigation" : for src.mitigation make tgt.mitigation 
-endgroup
+group RiskAssessment(source src : RiskAssessment, target tgt : RiskAssessmentR3) extends DomainResource <<type+>> {
+  src.identifierFirstRep -> tgt.identifier "identifier";
+  src.basedOn -> tgt.basedOn;
+  src.parent -> tgt.parent;
+  src.status -> tgt.status;
+  src.method -> tgt.method;
+  src.code -> tgt.code;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.occurrence : dateTime as vs -> tgt.occurrence = create("dateTime") as vt then dateTime(vs, vt);
+  src.occurrence : Period as vs -> tgt.occurrence = create("Period") as vt then Period(vs, vt);
+  src.condition -> tgt.condition;
+  src.performer -> tgt.performer;
+  src.reasonCode : CodeableConcept first as vs -> tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs, vt) "reason-CodeableConcept";
+  src.reasonReference : Reference first as vs -> tgt.reason = create("Reference") as vt then Reference(vs, vt) "reason-Reference";
+  src.basis -> tgt.basis;
+  src.prediction as vs0 -> tgt.prediction as vt0 then {
+    vs0.outcome -> vt0.outcome;
+    vs0.probability : decimal as vs -> vt0.probability = create("decimal") as vt then decimal(vs, vt);
+    vs0.probability : Range as vs -> vt0.probability = create("Range") as vt then Range(vs, vt);
+    vs0.qualitativeRisk -> vt0.qualitativeRisk;
+    vs0.relativeRisk -> vt0.relativeRisk;
+    vs0.when : Period as vs -> vt0.when = create("Period") as vt then Period(vs, vt);
+    vs0.when : Range as vs -> vt0.when = create("Range") as vt then Range(vs, vt);
+    vs0.rationale -> vt0.rationale;
+  };
+  src.mitigation -> tgt.mitigation;
+}
 

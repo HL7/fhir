@@ -1,143 +1,97 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Contract3to4" = "R3 to R4 Conversions for Contract"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Contract" alias ContractR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Contract" alias Contract as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group Contract(source src : ContractR3, target tgt : Contract) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.contentDerivative -> tgt.contentDerivative;
+  src.issued -> tgt.issued;
+  src.applies -> tgt.applies;
+  src.subject -> tgt.subject;
+  src.authority -> tgt.authority;
+  src.domain -> tgt.domain;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.term as s -> tgt.term as t then ContractTerm(s, t);
+  src.signer as s -> tgt.signer as t then ContractSigner(s, t);
+  src.friendly as s -> tgt.friendly as t then ContractFriendly(s, t);
+  src.legal as s -> tgt.legal as t then ContractLegal(s, t);
+  src.rule as s -> tgt.rule as t then ContractRule(s, t);
+  src.legallyBinding -> tgt.legallyBinding;
+}
 
+group ContractTerm(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.issued -> tgt.issued;
+  src.applies -> tgt.applies;
+  src.type -> tgt.type;
+  src.subType -> tgt.subType;
+  src.offer as s -> tgt.offer as t then ContractTermOffer(s, t);
+  src.asset as s -> tgt.asset as t then ContractTermAsset(s, t);
+  src.agent as s -> tgt.agent as t then ContractTermAgent(s, t);
+  src.action -> tgt.action;
+  src.actionReason -> tgt.actionReason;
+  src.group -> tgt.group;
+}
 
-group for type+types Contract extends DomainResource
-  input src : ContractR3 as source
-  input tgt : Contract as target
+group ContractTermOffer(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.topic -> tgt.topic;
+  src.type -> tgt.type;
+  src.decision -> tgt.decision;
+  src.text -> tgt.text;
+  src.linkId -> tgt.linkId;
+}
 
-  "Contract.identifier": for src.identifier make tgt.identifier
-  "Contract.status": for src.status make tgt.status
-  "Contract.contentDerivative": for src.contentDerivative make tgt.contentDerivative
-  "Contract.issued": for src.issued make tgt.issued
-  "Contract.applies": for src.applies make tgt.applies
-  "Contract.subject": for src.subject make tgt.subject
-  "Contract.authority": for src.authority make tgt.authority
-  "Contract.domain": for src.domain make tgt.domain
-  "Contract.type": for src.type make tgt.type
-  "Contract.subType": for src.subType make tgt.subType
-  "Contract.term": for src.term as s make tgt.term as t then ContractTerm(s,t)
-  "Contract.signer": for src.signer as s make tgt.signer as t then ContractSigner(s,t)
-  "Contract.friendly": for src.friendly as s make tgt.friendly as t then ContractFriendly(s,t)
-  "Contract.legal": for src.legal as s make tgt.legal as t then ContractLegal(s,t)
-  "Contract.rule": for src.rule as s make tgt.rule as t then ContractRule(s,t)
-  "Contract.legallyBinding": for src.legallyBinding make tgt.legallyBinding
-endgroup
+group ContractTermAsset(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.class -> tgt.class;
+  src.code -> tgt.code;
+  src.period -> tgt.period;
+  src.dataPeriod -> tgt.dataPeriod;
+  src.data as s -> tgt.data as t then ContractTermAssetData(s, t);
+  src.valuedItem as s -> tgt.valuedItem as t then ContractTermAssetValuedItem(s, t);
+  src.securityLabel -> tgt.securityLabel;
+}
 
+group ContractTermAssetData(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.meaning -> tgt.meaning;
+  src.reference -> tgt.reference;
+}
 
-group for type+types ContractTerm extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
+group ContractTermAssetValuedItem(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.entity -> tgt.entity;
+  src.identifier -> tgt.identifier;
+  src.effectiveTime -> tgt.effectiveTime;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.factor -> tgt.factor;
+  src.points -> tgt.points;
+  src.net -> tgt.net;
+}
 
-  "Contract.term.identifier": for src.identifier make tgt.identifier
-  "Contract.term.issued": for src.issued make tgt.issued
-  "Contract.term.applies": for src.applies make tgt.applies
-  "Contract.term.type": for src.type make tgt.type
-  "Contract.term.subType": for src.subType make tgt.subType
-  "Contract.term.offer": for src.offer as s make tgt.offer as t then ContractTermOffer(s,t)
-  "Contract.term.asset": for src.asset as s make tgt.asset as t then ContractTermAsset(s,t)
-  "Contract.term.agent": for src.agent as s make tgt.agent as t then ContractTermAgent(s,t)
-  "Contract.term.action": for src.action make tgt.action
-  "Contract.term.actionReason": for src.actionReason make tgt.actionReason
-  "Contract.term.group": for src.group make tgt.group
-endgroup
+group ContractTermAgent(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.actor -> tgt.actor;
+  src.role -> tgt.role;
+}
 
+group ContractSigner(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.party -> tgt.party;
+  src.signature -> tgt.signature;
+}
 
-group for type+types ContractTermOffer extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
+group ContractFriendly(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.content -> tgt.content;
+}
 
-  "Contract.term.offer.topic": for src.topic make tgt.topic
-  "Contract.term.offer.type": for src.type make tgt.type
-  "Contract.term.offer.decision": for src.decision make tgt.decision
-  "Contract.term.offer.text": for src.text make tgt.text
-  "Contract.term.offer.linkId": for src.linkId make tgt.linkId
-endgroup
+group ContractLegal(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.content -> tgt.content;
+}
 
-
-group for type+types ContractTermAsset extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.term.asset.class": for src.class make tgt.class
-  "Contract.term.asset.code": for src.code make tgt.code
-  "Contract.term.asset.period": for src.period make tgt.period
-  "Contract.term.asset.dataPeriod": for src.dataPeriod make tgt.dataPeriod
-  "Contract.term.asset.data": for src.data as s make tgt.data as t then ContractTermAssetData(s,t)
-  "Contract.term.asset.valuedItem": for src.valuedItem as s make tgt.valuedItem as t then ContractTermAssetValuedItem(s,t)
-  "Contract.term.asset.securityLabel": for src.securityLabel make tgt.securityLabel
-endgroup
-
-
-group for type+types ContractTermAssetData extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.term.asset.data.meaning": for src.meaning make tgt.meaning
-  "Contract.term.asset.data.reference": for src.reference make tgt.reference
-endgroup
-
-
-group for type+types ContractTermAssetValuedItem extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.term.asset.valuedItem.entity": for src.entity make tgt.entity
-  "Contract.term.asset.valuedItem.identifier": for src.identifier make tgt.identifier
-  "Contract.term.asset.valuedItem.effectiveTime": for src.effectiveTime make tgt.effectiveTime
-  "Contract.term.asset.valuedItem.quantity": for src.quantity make tgt.quantity
-  "Contract.term.asset.valuedItem.unitPrice": for src.unitPrice make tgt.unitPrice
-  "Contract.term.asset.valuedItem.factor": for src.factor make tgt.factor
-  "Contract.term.asset.valuedItem.points": for src.points make tgt.points
-  "Contract.term.asset.valuedItem.net": for src.net make tgt.net
-endgroup
-
-
-group for type+types ContractTermAgent extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.term.agent.actor": for src.actor make tgt.actor
-  "Contract.term.agent.role": for src.role make tgt.role
-endgroup
-
-
-group for type+types ContractSigner extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.signer.type": for src.type make tgt.type
-  "Contract.signer.party": for src.party make tgt.party
-  "Contract.signer.signature": for src.signature make tgt.signature
-endgroup
-
-
-group for type+types ContractFriendly extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.friendly.content": for src.content make tgt.content
-endgroup
-
-
-group for type+types ContractLegal extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.legal.content": for src.content make tgt.content
-endgroup
-
-
-group for type+types ContractRule extends BackboneElement
-  input src : ContractR3 as source
-  input tgt : Contract as target
-
-  "Contract.rule.content": for src.content make tgt.content
-endgroup
+group ContractRule(source src : ContractR3, target tgt : Contract) extends BackboneElement <<type+>> {
+  src.content -> tgt.content;
+}
 

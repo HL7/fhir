@@ -1,23 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Attachment3to4" = "R3 to R4 Conversions for Attachment"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Attachment" alias AttachmentR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Attachment" alias Attachment as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Attachment extends Element
-  input src : AttachmentR3 as source
-  input tgt : Attachment as target
-
-  "Attachment.contentType" : for src.contentType make tgt.contentType 
-  "Attachment.language" : for src.language make tgt.language 
-  "Attachment.data" : for src.data make tgt.data 
-  "Attachment.size" : for src.size make tgt.size 
-  "Attachment.hash" : for src.hash make tgt.hash 
-  "Attachment.title" : for src.title make tgt.title 
-  "Attachment.creation" : for src.creation make tgt.creation 
-endgroup
+group Attachment(source src : AttachmentR3, target tgt : Attachment) extends Element <<type+>> {
+  src.contentType -> tgt.contentType;
+  src.language -> tgt.language;
+  src.data -> tgt.data;
+  src.url -> tgt.url;
+  src.size -> tgt.size;
+  src.hash -> tgt.hash;
+  src.title -> tgt.title;
+  src.creation -> tgt.creation;
+}
 

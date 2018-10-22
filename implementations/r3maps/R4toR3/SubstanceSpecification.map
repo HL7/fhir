@@ -1,130 +1,98 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SubstanceSpecification4to3" = "R4 to R3 Conversion for SubstanceSpecification"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceSpecification" alias SubstanceSpecification as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceSpecification" alias SubstanceSpecificationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group SubstanceSpecification(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends DomainResource <<type+>> {
+  src.comment -> tgt.comment;
+  src.stoichiometric -> tgt.stoichiometric;
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.referenceSource -> tgt.referenceSource;
+  src.moiety as s -> tgt.moiety as t then SubstanceSpecificationMoiety(s, t);
+  src.property as s -> tgt.property as t then SubstanceSpecificationProperty(s, t);
+  src.referenceInformation -> tgt.referenceInformation;
+  src.structure as s -> tgt.structure as t then SubstanceSpecificationStructure(s, t);
+  src.substanceCode as s -> tgt.substanceCode as t then SubstanceSpecificationSubstanceCode(s, t);
+  src.substanceName as s -> tgt.substanceName as t then SubstanceSpecificationSubstanceName(s, t);
+  src.molecularWeight -> tgt.molecularWeight;
+  src.polymer -> tgt.polymer;
+}
 
+group SubstanceSpecificationMoiety(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.role -> tgt.role;
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.stereochemistry -> tgt.stereochemistry;
+  src.opticalActivity -> tgt.opticalActivity;
+  src.molecularFormula -> tgt.molecularFormula;
+  src.amount -> tgt.amount;
+}
 
-group for type+types SubstanceSpecification extends DomainResource
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
+group SubstanceSpecificationProperty(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.parameters -> tgt.parameters;
+  src.substanceId -> tgt.substanceId;
+  src.substanceName -> tgt.substanceName;
+  src.amount -> tgt.amount;
+}
 
-  "SubstanceSpecification.comment": for src.comment make tgt.comment
-  "SubstanceSpecification.stoichiometric": for src.stoichiometric make tgt.stoichiometric
-  "SubstanceSpecification.identifier": for src.identifier make tgt.identifier
-  "SubstanceSpecification.type": for src.type make tgt.type
-  "SubstanceSpecification.referenceSource": for src.referenceSource make tgt.referenceSource
-  "SubstanceSpecification.moiety": for src.moiety as s make tgt.moiety as t then SubstanceSpecificationMoiety(s,t)
-  "SubstanceSpecification.property": for src.property as s make tgt.property as t then SubstanceSpecificationProperty(s,t)
-  "SubstanceSpecification.referenceInformation": for src.referenceInformation make tgt.referenceInformation
-  "SubstanceSpecification.structure": for src.structure as s make tgt.structure as t then SubstanceSpecificationStructure(s,t)
-  "SubstanceSpecification.substanceCode": for src.substanceCode as s make tgt.substanceCode as t then SubstanceSpecificationSubstanceCode(s,t)
-  "SubstanceSpecification.substanceName": for src.substanceName as s make tgt.substanceName as t then SubstanceSpecificationSubstanceName(s,t)
-  "SubstanceSpecification.molecularWeight": for src.molecularWeight make tgt.molecularWeight
-  "SubstanceSpecification.polymer": for src.polymer make tgt.polymer
-endgroup
+group SubstanceSpecificationStructure(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.stereochemistry -> tgt.stereochemistry;
+  src.opticalActivity -> tgt.opticalActivity;
+  src.molecularFormula -> tgt.molecularFormula;
+  src.molecularFormulaByMoiety -> tgt.molecularFormulaByMoiety;
+  src.isotope as s -> tgt.isotope as t then SubstanceSpecificationStructureIsotope(s, t);
+  src.molecularWeight -> tgt.molecularWeight;
+  src.referenceSource -> tgt.referenceSource;
+  src.structuralRepresentation as s -> tgt.structuralRepresentation as t then SubstanceSpecificationStructureStructuralRepresentation(s, t);
+}
 
-group for type+types SubstanceSpecificationMoiety extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
+group SubstanceSpecificationStructureIsotope(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.nuclideId -> tgt.nuclideId;
+  src.nuclideName -> tgt.nuclideName;
+  src.substitutionType -> tgt.substitutionType;
+  src.nuclideHalfLife -> tgt.nuclideHalfLife;
+  src.amount -> tgt.amount;
+  src.molecularWeight as s -> tgt.molecularWeight as t then SubstanceSpecificationStructureIsotopeMolecularWeight(s, t);
+}
 
-  "SubstanceSpecification.moiety.role": for src.role make tgt.role
-  "SubstanceSpecification.moiety.identifier": for src.identifier make tgt.identifier
-  "SubstanceSpecification.moiety.name": for src.name make tgt.name
-  "SubstanceSpecification.moiety.stereochemistry": for src.stereochemistry make tgt.stereochemistry
-  "SubstanceSpecification.moiety.opticalActivity": for src.opticalActivity make tgt.opticalActivity
-  "SubstanceSpecification.moiety.molecularFormula": for src.molecularFormula make tgt.molecularFormula
-  "SubstanceSpecification.moiety.amount": for src.amount make tgt.amount
-endgroup
+group SubstanceSpecificationStructureIsotopeMolecularWeight(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.method -> tgt.method;
+  src.type -> tgt.type;
+  src.amount -> tgt.amount;
+}
 
-group for type+types SubstanceSpecificationProperty extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
+group SubstanceSpecificationStructureStructuralRepresentation(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.representation -> tgt.representation;
+  src.attachment -> tgt.attachment;
+}
 
-  "SubstanceSpecification.property.type": for src.type make tgt.type
-  "SubstanceSpecification.property.name": for src.name make tgt.name
-  "SubstanceSpecification.property.parameters": for src.parameters make tgt.parameters
-  "SubstanceSpecification.property.substanceId": for src.substanceId make tgt.substanceId
-  "SubstanceSpecification.property.substanceName": for src.substanceName make tgt.substanceName
-  "SubstanceSpecification.property.amount": for src.amount make tgt.amount
-endgroup
+group SubstanceSpecificationSubstanceCode(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.status -> tgt.status;
+  src.statusDate -> tgt.statusDate;
+  src.comment -> tgt.comment;
+  src.referenceSource -> tgt.referenceSource;
+}
 
-group for type+types SubstanceSpecificationStructure extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
+group SubstanceSpecificationSubstanceName(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.language -> tgt.language;
+  src.domain -> tgt.domain;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.officialName as s -> tgt.officialName as t then SubstanceSpecificationSubstanceNameOfficialName(s, t);
+  src.referenceSource -> tgt.referenceSource;
+}
 
-  "SubstanceSpecification.structure.stereochemistry": for src.stereochemistry make tgt.stereochemistry
-  "SubstanceSpecification.structure.opticalActivity": for src.opticalActivity make tgt.opticalActivity
-  "SubstanceSpecification.structure.molecularFormula": for src.molecularFormula make tgt.molecularFormula
-  "SubstanceSpecification.structure.molecularFormulaByMoiety": for src.molecularFormulaByMoiety make tgt.molecularFormulaByMoiety
-  "SubstanceSpecification.structure.isotope": for src.isotope as s make tgt.isotope as t then SubstanceSpecificationStructureIsotope(s,t)
-  "SubstanceSpecification.structure.molecularWeight": for src.molecularWeight make tgt.molecularWeight
-  "SubstanceSpecification.structure.referenceSource": for src.referenceSource make tgt.referenceSource
-  "SubstanceSpecification.structure.structuralRepresentation": for src.structuralRepresentation as s make tgt.structuralRepresentation as t then SubstanceSpecificationStructureStructuralRepresentation(s,t)
-endgroup
+group SubstanceSpecificationSubstanceNameOfficialName(source src : SubstanceSpecificationR3, target tgt : SubstanceSpecification) extends BackboneElement <<type+>> {
+  src.authority -> tgt.authority;
+  src.status -> tgt.status;
+  src.date -> tgt.date;
+}
 
-group for type+types SubstanceSpecificationStructureIsotope extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
-
-  "SubstanceSpecification.structure.isotope.nuclideId": for src.nuclideId make tgt.nuclideId
-  "SubstanceSpecification.structure.isotope.nuclideName": for src.nuclideName make tgt.nuclideName
-  "SubstanceSpecification.structure.isotope.substitutionType": for src.substitutionType make tgt.substitutionType
-  "SubstanceSpecification.structure.isotope.nuclideHalfLife": for src.nuclideHalfLife make tgt.nuclideHalfLife
-  "SubstanceSpecification.structure.isotope.amount": for src.amount make tgt.amount
-  "SubstanceSpecification.structure.isotope.molecularWeight": for src.molecularWeight as s make tgt.molecularWeight as t then SubstanceSpecificationStructureIsotopeMolecularWeight(s,t)
-endgroup
-
-group for type+types SubstanceSpecificationStructureIsotopeMolecularWeight extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
-
-  "SubstanceSpecification.structure.isotope.molecularWeight.method": for src.method make tgt.method
-  "SubstanceSpecification.structure.isotope.molecularWeight.type": for src.type make tgt.type
-  "SubstanceSpecification.structure.isotope.molecularWeight.amount": for src.amount make tgt.amount
-endgroup
-
-group for type+types SubstanceSpecificationStructureStructuralRepresentation extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
-
-  "SubstanceSpecification.structure.structuralRepresentation.type": for src.type make tgt.type
-  "SubstanceSpecification.structure.structuralRepresentation.representation": for src.representation make tgt.representation
-  "SubstanceSpecification.structure.structuralRepresentation.attachment": for src.attachment make tgt.attachment
-endgroup
-
-group for type+types SubstanceSpecificationSubstanceCode extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
-
-  "SubstanceSpecification.substanceCode.code": for src.code make tgt.code
-  "SubstanceSpecification.substanceCode.status": for src.status make tgt.status
-  "SubstanceSpecification.substanceCode.statusDate": for src.statusDate make tgt.statusDate
-  "SubstanceSpecification.substanceCode.comment": for src.comment make tgt.comment
-  "SubstanceSpecification.substanceCode.referenceSource": for src.referenceSource make tgt.referenceSource
-endgroup
-
-group for type+types SubstanceSpecificationSubstanceName extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
-
-  "SubstanceSpecification.substanceName.name": for src.name make tgt.name
-  "SubstanceSpecification.substanceName.type": for src.type make tgt.type
-  "SubstanceSpecification.substanceName.language": for src.language make tgt.language
-  "SubstanceSpecification.substanceName.domain": for src.domain make tgt.domain
-  "SubstanceSpecification.substanceName.jurisdiction": for src.jurisdiction make tgt.jurisdiction
-  "SubstanceSpecification.substanceName.officialName": for src.officialName as s make tgt.officialName as t then SubstanceSpecificationSubstanceNameOfficialName(s,t)
-  "SubstanceSpecification.substanceName.referenceSource": for src.referenceSource make tgt.referenceSource
-endgroup
-
-group for type+types SubstanceSpecificationSubstanceNameOfficialName extends BackboneElement
-  input src : SubstanceSpecificationR3 as source
-  input tgt : SubstanceSpecification as target
-
-  "SubstanceSpecification.substanceName.officialName.authority": for src.authority make tgt.authority
-  "SubstanceSpecification.substanceName.officialName.status": for src.status make tgt.status
-  "SubstanceSpecification.substanceName.officialName.date": for src.date make tgt.date
-endgroup

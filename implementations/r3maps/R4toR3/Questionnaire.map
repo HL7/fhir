@@ -1,83 +1,66 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Questionnaire4to3" = "R4 to R3 Conversion for Questionnaire"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Questionnaire" alias QuestionnaireR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Questionnaire(source src : QuestionnaireR3, target tgt : Questionnaire) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.subjectType -> tgt.subjectType;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.approvalDate -> tgt.approvalDate;
+  src.lastReviewDate -> tgt.lastReviewDate;
+  src.effectivePeriod -> tgt.effectivePeriod;
+  src.code -> tgt.code;
+  src.item as s -> tgt.item as t then QuestionnaireItem(s, t);
+}
 
+group QuestionnaireItem(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+  src.linkId -> tgt.linkId;
+  src.definition -> tgt.definition;
+  src.code -> tgt.code;
+  src.prefix -> tgt.prefix;
+  src.text -> tgt.text;
+  src.type -> tgt.type;
+  src.enableWhen as s -> tgt.enableWhen as t then QuestionnaireItemEnableWhen(s, t);
+  src.enableBehavior -> tgt.enableBehavior;
+  src.required -> tgt.required;
+  src.repeats -> tgt.repeats;
+  src.readOnly -> tgt.readOnly;
+  src.maxLength -> tgt.maxLength;
+  src.answerValueSet -> tgt.answerValueSet;
+  src.answerOption as s -> tgt.answerOption as t then QuestionnaireItemAnswerOption(s, t);
+  src.initial as s -> tgt.initial as t then QuestionnaireItemInitial(s, t);
+  src.item -> tgt.item;
+}
 
-group for type+types Questionnaire extends DomainResource
-  input src : QuestionnaireR3 as source
-  input tgt : Questionnaire as target
+group QuestionnaireItemEnableWhen(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+  src.question -> tgt.question;
+  src.operator -> tgt.operator;
+  src.answer -> tgt.answer;
+}
 
-  "Questionnaire.url": for src.url make tgt.url
-  "Questionnaire.identifier": for src.identifier make tgt.identifier
-  "Questionnaire.version": for src.version make tgt.version
-  "Questionnaire.name": for src.name make tgt.name
-  "Questionnaire.title": for src.title make tgt.title
-  "Questionnaire.derivedFrom": for src.derivedFrom make tgt.derivedFrom
-  "Questionnaire.status": for src.status make tgt.status
-  "Questionnaire.experimental": for src.experimental make tgt.experimental
-  "Questionnaire.subjectType": for src.subjectType make tgt.subjectType
-  "Questionnaire.date": for src.date make tgt.date
-  "Questionnaire.publisher": for src.publisher make tgt.publisher
-  "Questionnaire.contact": for src.contact make tgt.contact
-  "Questionnaire.description": for src.description make tgt.description
-  "Questionnaire.useContext": for src.useContext make tgt.useContext
-  "Questionnaire.jurisdiction": for src.jurisdiction make tgt.jurisdiction
-  "Questionnaire.purpose": for src.purpose make tgt.purpose
-  "Questionnaire.copyright": for src.copyright make tgt.copyright
-  "Questionnaire.approvalDate": for src.approvalDate make tgt.approvalDate
-  "Questionnaire.lastReviewDate": for src.lastReviewDate make tgt.lastReviewDate
-  "Questionnaire.effectivePeriod": for src.effectivePeriod make tgt.effectivePeriod
-  "Questionnaire.code": for src.code make tgt.code
-  "Questionnaire.item": for src.item as s make tgt.item as t then QuestionnaireItem(s,t)
-endgroup
+group QuestionnaireItemAnswerOption(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+  src.value -> tgt.value;
+  src.initialSelected -> tgt.initialSelected;
+}
 
-group for type+types QuestionnaireItem extends BackboneElement
-  input src : QuestionnaireR3 as source
-  input tgt : Questionnaire as target
+group QuestionnaireItemInitial(source src : QuestionnaireR3, target tgt : Questionnaire) extends BackboneElement <<type+>> {
+  src.value -> tgt.value;
+}
 
-  "Questionnaire.item.linkId": for src.linkId make tgt.linkId
-  "Questionnaire.item.definition": for src.definition make tgt.definition
-  "Questionnaire.item.code": for src.code make tgt.code
-  "Questionnaire.item.prefix": for src.prefix make tgt.prefix
-  "Questionnaire.item.text": for src.text make tgt.text
-  "Questionnaire.item.type": for src.type make tgt.type
-  "Questionnaire.item.enableWhen": for src.enableWhen as s make tgt.enableWhen as t then QuestionnaireItemEnableWhen(s,t)
-  "Questionnaire.item.enableBehavior": for src.enableBehavior make tgt.enableBehavior
-  "Questionnaire.item.required": for src.required make tgt.required
-  "Questionnaire.item.repeats": for src.repeats make tgt.repeats
-  "Questionnaire.item.readOnly": for src.readOnly make tgt.readOnly
-  "Questionnaire.item.maxLength": for src.maxLength make tgt.maxLength
-  "Questionnaire.item.answerValueSet": for src.answerValueSet make tgt.answerValueSet
-  "Questionnaire.item.answerOption": for src.answerOption as s make tgt.answerOption as t then QuestionnaireItemAnswerOption(s,t)
-  "Questionnaire.item.initial": for src.initial as s make tgt.initial as t then QuestionnaireItemInitial(s,t)
-  "Questionnaire.item.item": for src.item make tgt.item
-endgroup
-
-group for type+types QuestionnaireItemEnableWhen extends BackboneElement
-  input src : QuestionnaireR3 as source
-  input tgt : Questionnaire as target
-
-  "Questionnaire.item.enableWhen.question": for src.question make tgt.question
-  "Questionnaire.item.enableWhen.operator": for src.operator make tgt.operator
-  "Questionnaire.item.enableWhen.answer": for src.answer make tgt.answer
-endgroup
-
-group for type+types QuestionnaireItemAnswerOption extends BackboneElement
-  input src : QuestionnaireR3 as source
-  input tgt : Questionnaire as target
-
-  "Questionnaire.item.answerOption.value": for src.value make tgt.value
-  "Questionnaire.item.answerOption.initialSelected": for src.initialSelected make tgt.initialSelected
-endgroup
-
-group for type+types QuestionnaireItemInitial extends BackboneElement
-  input src : QuestionnaireR3 as source
-  input tgt : Questionnaire as target
-
-  "Questionnaire.item.initial.value": for src.value make tgt.value
-endgroup

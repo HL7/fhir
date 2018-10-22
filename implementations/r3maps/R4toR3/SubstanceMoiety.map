@@ -1,22 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SubstanceMoiety4to3" = "R4 to R3 Conversion for SubstanceMoiety"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/SubstanceMoiety" alias SubstanceMoiety as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SubstanceMoiety" alias SubstanceMoietyR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group SubstanceMoiety(source src : SubstanceMoietyR3, target tgt : SubstanceMoiety) extends BackboneElement <<type+>> {
+  src.role -> tgt.role;
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.stereochemistry -> tgt.stereochemistry;
+  src.opticalActivity -> tgt.opticalActivity;
+  src.molecularFormula -> tgt.molecularFormula;
+  src.amount -> tgt.amount;
+}
 
-
-group for type+types SubstanceMoiety extends BackboneElement
-  input src : SubstanceMoietyR3 as source
-  input tgt : SubstanceMoiety as target
-
-  "SubstanceMoiety.role": for src.role make tgt.role
-  "SubstanceMoiety.identifier": for src.identifier make tgt.identifier
-  "SubstanceMoiety.name": for src.name make tgt.name
-  "SubstanceMoiety.stereochemistry": for src.stereochemistry make tgt.stereochemistry
-  "SubstanceMoiety.opticalActivity": for src.opticalActivity make tgt.opticalActivity
-  "SubstanceMoiety.molecularFormula": for src.molecularFormula make tgt.molecularFormula
-  "SubstanceMoiety.amount": for src.amount make tgt.amount
-endgroup

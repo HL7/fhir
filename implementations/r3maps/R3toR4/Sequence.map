@@ -1,67 +1,61 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Sequence3to4" = "R3 to R4 Conversions for Sequence"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Sequence" alias SequenceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Sequence" alias Sequence as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Sequence extends DomainResource
-  input src : SequenceR3 as source
-  input tgt : Sequence as target
-
-  "Sequence.identifier" : for src.identifier make tgt.identifier 
-  "Sequence.type" : for src.type make tgt.type 
-  "Sequence.coordinateSystem" : for src.coordinateSystem make tgt.coordinateSystem 
-  "Sequence.patient" : for src.patient make tgt.patient 
-  "Sequence.specimen" : for src.specimen make tgt.specimen 
-  "Sequence.device" : for src.device make tgt.device 
-  "Sequence.performer" : for src.performer make tgt.performer 
-  "Sequence.quantity" : for src.quantity make tgt.quantity 
-  "Sequence.referenceSeq" : for src.referenceSeq as vs0 make tgt.referenceSeq as vt0 then {
-    "Sequence.referenceSeq.chromosome" : for vs0.chromosome make vt0.chromosome 
-    "Sequence.referenceSeq.genomeBuild" : for vs0.genomeBuild make vt0.genomeBuild 
-    "Sequence.referenceSeq.referenceSeqId" : for vs0.referenceSeqId make vt0.referenceSeqId 
-    "Sequence.referenceSeq.referenceSeqPointer" : for vs0.referenceSeqPointer make vt0.referenceSeqPointer 
-    "Sequence.referenceSeq.referenceSeqString" : for vs0.referenceSeqString make vt0.referenceSeqString 
-    "Sequence.referenceSeq.windowEnd" : for vs0.windowEnd make vt0.windowEnd 
-  }
-  "Sequence.variant" : for src.variant as vs0 make tgt.variant as vt0 then {
-    "Sequence.variant.start" : for vs0.start make vt0.start 
-    "Sequence.variant.end" : for vs0.end make vt0.end 
-    "Sequence.variant.observedAllele" : for vs0.observedAllele make vt0.observedAllele 
-    "Sequence.variant.referenceAllele" : for vs0.referenceAllele make vt0.referenceAllele 
-    "Sequence.variant.cigar" : for vs0.cigar make vt0.cigar 
-    "Sequence.variant.variantPointer" : for vs0.variantPointer make vt0.variantPointer 
-  }
-  "Sequence.observedSeq" : for src.observedSeq make tgt.observedSeq 
-  "Sequence.quality" : for src.quality as vs0 make tgt.quality as vt0 then {
-    "Sequence.quality.type" : for vs0.type make vt0.type 
-    "Sequence.quality.standardSequence" : for vs0.standardSequence make vt0.standardSequence 
-    "Sequence.quality.start" : for vs0.start make vt0.start 
-    "Sequence.quality.end" : for vs0.end make vt0.end 
-    "Sequence.quality.score" : for vs0.score make vt0.score 
-    "Sequence.quality.method" : for vs0.method make vt0.method 
-    "Sequence.quality.truthTP" : for vs0.truthTP make vt0.truthTP 
-    "Sequence.quality.queryTP" : for vs0.queryTP make vt0.queryTP 
-    "Sequence.quality.truthFN" : for vs0.truthFN make vt0.truthFN 
-    "Sequence.quality.queryFP" : for vs0.queryFP make vt0.queryFP 
-    "Sequence.quality.gtFP" : for vs0.gtFP make vt0.gtFP 
-    "Sequence.quality.precision" : for vs0.precision make vt0.precision 
-    "Sequence.quality.recall" : for vs0.recall make vt0.recall 
-    "Sequence.quality.fScore" : for vs0.fScore make vt0.fScore 
-  }
-  "Sequence.readCoverage" : for src.readCoverage make tgt.readCoverage 
-  "Sequence.repository" : for src.repository as vs0 make tgt.repository as vt0 then {
-    "Sequence.repository.type" : for vs0.type make vt0.type 
-    "Sequence.repository.url" : for vs0.url make vt0.url 
-    "Sequence.repository.name" : for vs0.name make vt0.name 
-    "Sequence.repository.datasetId" : for vs0.datasetId make vt0.datasetId 
-    "Sequence.repository.variantsetId" : for vs0.variantsetId make vt0.variantsetId 
-    "Sequence.repository.readsetId" : for vs0.readsetId make vt0.readsetId 
-  }
-  "Sequence.pointer" : for src.pointer make tgt.pointer 
-endgroup
+group Sequence(source src : SequenceR3, target tgt : Sequence) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coordinateSystem -> tgt.coordinateSystem;
+  src.patient -> tgt.patient;
+  src.specimen -> tgt.specimen;
+  src.device -> tgt.device;
+  src.performer -> tgt.performer;
+  src.quantity -> tgt.quantity;
+  src.referenceSeq as vs0 -> tgt.referenceSeq as vt0 then {
+    vs0.chromosome -> vt0.chromosome;
+    vs0.genomeBuild -> vt0.genomeBuild;
+    vs0.referenceSeqId -> vt0.referenceSeqId;
+    vs0.referenceSeqPointer -> vt0.referenceSeqPointer;
+    vs0.referenceSeqString -> vt0.referenceSeqString;
+    vs0.windowEnd -> vt0.windowEnd;
+  };
+  src.variant as vs0 -> tgt.variant as vt0 then {
+    vs0.start -> vt0.start;
+    vs0.end -> vt0.end;
+    vs0.observedAllele -> vt0.observedAllele;
+    vs0.referenceAllele -> vt0.referenceAllele;
+    vs0.cigar -> vt0.cigar;
+    vs0.variantPointer -> vt0.variantPointer;
+  };
+  src.observedSeq -> tgt.observedSeq;
+  src.quality as vs0 -> tgt.quality as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.standardSequence -> vt0.standardSequence;
+    vs0.start -> vt0.start;
+    vs0.end -> vt0.end;
+    vs0.score -> vt0.score;
+    vs0.method -> vt0.method;
+    vs0.truthTP -> vt0.truthTP;
+    vs0.queryTP -> vt0.queryTP;
+    vs0.truthFN -> vt0.truthFN;
+    vs0.queryFP -> vt0.queryFP;
+    vs0.gtFP -> vt0.gtFP;
+    vs0.precision -> vt0.precision;
+    vs0.recall -> vt0.recall;
+    vs0.fScore -> vt0.fScore;
+  };
+  src.readCoverage -> tgt.readCoverage;
+  src.repository as vs0 -> tgt.repository as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.url -> vt0.url;
+    vs0.name -> vt0.name;
+    vs0.datasetId -> vt0.datasetId;
+    vs0.variantsetId -> vt0.variantsetId;
+    vs0.readsetId -> vt0.readsetId;
+  };
+  src.pointer -> tgt.pointer;
+}
 

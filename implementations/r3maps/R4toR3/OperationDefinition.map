@@ -1,68 +1,55 @@
 ﻿map "http://hl7.org/fhir/StructureMap/OperationDefinition4to3" = "R4 to R3 Conversion for OperationDefinition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/OperationDefinition" alias OperationDefinitionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group OperationDefinition(source src : OperationDefinition, target tgt : OperationDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.affectsState -> tgt.idempotent;
+  src.code -> tgt.code;
+  src.comment as vs -> tgt.comment as vt then markdownToString(vs, vt);
+  src.base -> tgt.base;
+  src.resource -> tgt.resource;
+  src.system -> tgt.system;
+  src.type -> tgt.type;
+  src.instance -> tgt.instance;
+  src.parameter as vs0 -> tgt.parameter as vt0 then parameter(vs0, vt0);
+  src.overload as vs0 -> tgt.overload as vt0 then {
+    vs0.parameterName -> vt0.parameterName;
+    vs0.comment -> vt0.comment;
+  };
+}
 
+group parameter(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.use -> tgt.use;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+  src.documentation -> tgt.documentation;
+  src.type -> tgt.type;
+  src.searchType -> tgt.searchType;
+  src.targetProfile -> tgt.profile "profile";
+  src.binding as vs0 -> tgt.binding as vt0 then binding(vs0, vt0);
+  src.part as vs0 -> tgt.part as vt0 then parameter(vs0, vt0);
+}
 
-group for type+types OperationDefinition extends DomainResource
-  input src : OperationDefinition as source
-  input tgt : OperationDefinitionR3 as target
-
-  "OperationDefinition.url" : for src.url make tgt.url 
-  "OperationDefinition.version" : for src.version make tgt.version 
-  "OperationDefinition.name" : for src.name make tgt.name 
-  "OperationDefinition.status" : for src.status make tgt.status 
-  "OperationDefinition.kind" : for src.kind make tgt.kind 
-  "OperationDefinition.experimental" : for src.experimental make tgt.experimental 
-  "OperationDefinition.date" : for src.date make tgt.date 
-  "OperationDefinition.publisher" : for src.publisher make tgt.publisher 
-  "OperationDefinition.contact" : for src.contact make tgt.contact 
-  "OperationDefinition.description" : for src.description make tgt.description 
-  "OperationDefinition.useContext" : for src.useContext make tgt.useContext 
-  "OperationDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
-  "OperationDefinition.purpose" : for src.purpose make tgt.purpose 
-  "OperationDefinition.affectsState" : for src.affectsState make tgt.idempotent
-  "OperationDefinition.code" : for src.code make tgt.code 
-  "OperationDefinition.comment" : for src.comment as vs make tgt.comment as vt then markdownToString(vs, vt)
-  "OperationDefinition.base" : for src.base make tgt.base
-  "OperationDefinition.resource" : for src.resource make tgt.resource 
-  "OperationDefinition.system" : for src.system make tgt.system 
-  "OperationDefinition.type" : for src.type make tgt.type 
-  "OperationDefinition.instance" : for src.instance make tgt.instance 
-  "OperationDefinition.parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then parameter(vs0, vt0)
-  "OperationDefinition.overload" : for src.overload as vs0 make tgt.overload as vt0 then {
-    "OperationDefinition.overload.parameterName" : for vs0.parameterName make vt0.parameterName 
-    "OperationDefinition.overload.comment" : for vs0.comment make vt0.comment 
-  }
-endgroup
-
-
-group parameter extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "OperationDefinition.parameter.name" : for src.name make tgt.name 
-  "OperationDefinition.parameter.use" : for src.use make tgt.use 
-  "OperationDefinition.parameter.min" : for src.min make tgt.min 
-  "OperationDefinition.parameter.max" : for src.max make tgt.max 
-  "OperationDefinition.parameter.documentation" : for src.documentation make tgt.documentation 
-  "OperationDefinition.parameter.type" : for src.type make tgt.type 
-  "OperationDefinition.parameter.searchType" : for src.searchType make tgt.searchType 
-  "OperationDefinition.parameter.profile" : for src.targetProfile make tgt.profile
-  "OperationDefinition.parameter.binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
-  "OperationDefinition.parameter.part" : for src.part as vs0 make tgt.part as vt0 then parameter(vs0, vt0)
-endgroup
-
-group binding extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "OperationDefinition.parameter.binding.strength" : for src.strength make tgt.strength 
-  "OperationDefinition.parameter.binding.valueSetU" : for src.valueSet as vs0 where value.startsWith('http://hl7.org').not() make tgt.valueSet = create('uri') as vt0 then canonical2Uri(vs0, vt0)
-  "OperationDefinition.parameter.binding.valueSetR" : for src.valueSet as vs0 where value.startsWith('http://hl7.org') make tgt.valueSet = create('Reference') as vt0 then Canonical2Reference(vs0, vt0)
-endgroup
+group binding(source src, target tgt) extends BackboneElement {
+  src.strength -> tgt.strength;
+  src.valueSet as vs0 where value.startsWith('http://hl7.org').not() -> tgt.valueSet = create("uri") as vt0 then canonical2Uri(vs0, vt0) "valueSetU";
+  src.valueSet as vs0 where value.startsWith('http://hl7.org') -> tgt.valueSet = create("Reference") as vt0 then Canonical2Reference(vs0, vt0) "valueSetR";
+}
 

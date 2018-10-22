@@ -1,21 +1,15 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Coding4to3" = "R4 to R3 Conversion for Coding"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Coding" alias Coding as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Coding" alias CodingR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Coding extends Element
-  input src : Coding as source
-  input tgt : CodingR3 as target
-
-  "Coding.system" : for src.system make tgt.system 
-  "Coding.version" : for src.version make tgt.version 
-  "Coding.code" : for src.code make tgt.code 
-  "Coding.display" : for src.display make tgt.display 
-  "Coding.userSelected" : for src.userSelected make tgt.userSelected 
-endgroup
+group Coding(source src : Coding, target tgt : CodingR3) extends Element <<type+>> {
+  src.system -> tgt.system;
+  src.version -> tgt.version;
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.userSelected -> tgt.userSelected;
+}
 

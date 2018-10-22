@@ -1,44 +1,38 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationRequest3to4" = "R3 to R4 Conversions for MedicationRequest"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationRequest" alias MedicationRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types MedicationRequest extends DomainResource
-  input src : MedicationRequestR3 as source
-  input tgt : MedicationRequest as target
-
-  "MedicationRequest.identifier" : for src.identifier make tgt.identifier 
-  "MedicationRequest.basedOn" : for src.basedOn make tgt.basedOn 
-  "MedicationRequest.groupIdentifier" : for src.groupIdentifier make tgt.groupIdentifier 
-  "MedicationRequest.status" : for src.status make tgt.status 
-  "MedicationRequest.intent" : for src.intent make tgt.intent 
-  "MedicationRequest.medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationRequest.medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationRequest.subject" : for src.subject make tgt.subject 
-  "MedicationRequest.context" : for src.context make tgt.context 
-  "MedicationRequest.supportingInformation" : for src.supportingInformation make tgt.supportingInformation 
-  "MedicationRequest.authoredOn" : for src.authoredOn make tgt.authoredOn 
-  "MedicationRequest.reasonCode" : for src.reasonCode make tgt.reasonCode 
-  "MedicationRequest.reasonReference" : for src.reasonReference make tgt.reasonReference 
-  "MedicationRequest.note" : for src.note make tgt.note 
-  "MedicationRequest.dosageInstruction" : for src.dosageInstruction make tgt.dosageInstruction 
-  "MedicationRequest.dispenseRequest" : for src.dispenseRequest as vs0 make tgt.dispenseRequest as vt0 then {
-    "MedicationRequest.dispenseRequest.validityPeriod" : for vs0.validityPeriod make vt0.validityPeriod 
-    "MedicationRequest.dispenseRequest.quantity" : for vs0.quantity make vt0.quantity 
-    "MedicationRequest.dispenseRequest.expectedSupplyDuration" : for vs0.expectedSupplyDuration make vt0.expectedSupplyDuration 
-    "MedicationRequest.dispenseRequest.performer" : for vs0.performer make vt0.performer 
-  }
-  "MedicationRequest.substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
-    "MedicationRequest.substitution.allowed" : for vs0.allowed make vt0.allowed 
-    "MedicationRequest.substitution.reason" : for vs0.reason make vt0.reason 
-  }
-  "MedicationRequest.priorPrescription" : for src.priorPrescription make tgt.priorPrescription 
-  "MedicationRequest.detectedIssue" : for src.detectedIssue make tgt.detectedIssue 
-  "MedicationRequest.eventHistory" : for src.eventHistory make tgt.eventHistory 
-endgroup
+group MedicationRequest(source src : MedicationRequestR3, target tgt : MedicationRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.authoredOn -> tgt.authoredOn;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.dosageInstruction -> tgt.dosageInstruction;
+  src.dispenseRequest as vs0 -> tgt.dispenseRequest as vt0 then {
+    vs0.validityPeriod -> vt0.validityPeriod;
+    vs0.quantity -> vt0.quantity;
+    vs0.expectedSupplyDuration -> vt0.expectedSupplyDuration;
+    vs0.performer -> vt0.performer;
+  };
+  src.substitution as vs0 -> tgt.substitution as vt0 then {
+    vs0.allowed -> vt0.allowed;
+    vs0.reason -> vt0.reason;
+  };
+  src.priorPrescription -> tgt.priorPrescription;
+  src.detectedIssue -> tgt.detectedIssue;
+  src.eventHistory -> tgt.eventHistory;
+}
 

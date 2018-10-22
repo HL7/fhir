@@ -1,93 +1,70 @@
 ﻿map "http://hl7.org/fhir/StructureMap/NutritionOrder4to3" = "R4 to R3 Conversion for NutritionOrder"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/NutritionOrder" alias NutritionOrder as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/NutritionOrder" alias NutritionOrderR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group NutritionOrder(source src : NutritionOrderR3, target tgt : NutritionOrder) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiates -> tgt.instantiates;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.patient -> tgt.patient;
+  src.context -> tgt.context;
+  src.dateTime -> tgt.dateTime;
+  src.orderer -> tgt.orderer;
+  src.allergyIntolerance -> tgt.allergyIntolerance;
+  src.foodPreferenceModifier -> tgt.foodPreferenceModifier;
+  src.excludeFoodModifier -> tgt.excludeFoodModifier;
+  src.oralDiet as s -> tgt.oralDiet as t then NutritionOrderOralDiet(s, t);
+  src.supplement as s -> tgt.supplement as t then NutritionOrderSupplement(s, t);
+  src.enteralFormula as s -> tgt.enteralFormula as t then NutritionOrderEnteralFormula(s, t);
+  src.note -> tgt.note;
+}
 
+group NutritionOrderOralDiet(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.schedule -> tgt.schedule;
+  src.nutrient as s -> tgt.nutrient as t then NutritionOrderOralDietNutrient(s, t);
+  src.texture as s -> tgt.texture as t then NutritionOrderOralDietTexture(s, t);
+  src.fluidConsistencyType -> tgt.fluidConsistencyType;
+  src.instruction -> tgt.instruction;
+}
 
-group for type+types NutritionOrder extends DomainResource
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
+group NutritionOrderOralDietNutrient(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+  src.modifier -> tgt.modifier;
+  src.amount -> tgt.amount;
+}
 
-  "NutritionOrder.identifier": for src.identifier make tgt.identifier
-  "NutritionOrder.instantiates": for src.instantiates make tgt.instantiates
-  "NutritionOrder.status": for src.status make tgt.status
-  "NutritionOrder.intent": for src.intent make tgt.intent
-  "NutritionOrder.patient": for src.patient make tgt.patient
-  "NutritionOrder.context": for src.context make tgt.context
-  "NutritionOrder.dateTime": for src.dateTime make tgt.dateTime
-  "NutritionOrder.orderer": for src.orderer make tgt.orderer
-  "NutritionOrder.allergyIntolerance": for src.allergyIntolerance make tgt.allergyIntolerance
-  "NutritionOrder.foodPreferenceModifier": for src.foodPreferenceModifier make tgt.foodPreferenceModifier
-  "NutritionOrder.excludeFoodModifier": for src.excludeFoodModifier make tgt.excludeFoodModifier
-  "NutritionOrder.oralDiet": for src.oralDiet as s make tgt.oralDiet as t then NutritionOrderOralDiet(s,t)
-  "NutritionOrder.supplement": for src.supplement as s make tgt.supplement as t then NutritionOrderSupplement(s,t)
-  "NutritionOrder.enteralFormula": for src.enteralFormula as s make tgt.enteralFormula as t then NutritionOrderEnteralFormula(s,t)
-  "NutritionOrder.note": for src.note make tgt.note
-endgroup
+group NutritionOrderOralDietTexture(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+  src.modifier -> tgt.modifier;
+  src.foodType -> tgt.foodType;
+}
 
-group for type+types NutritionOrderOralDiet extends BackboneElement
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
+group NutritionOrderSupplement(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.productName -> tgt.productName;
+  src.schedule -> tgt.schedule;
+  src.quantity -> tgt.quantity;
+  src.instruction -> tgt.instruction;
+}
 
-  "NutritionOrder.oralDiet.type": for src.type make tgt.type
-  "NutritionOrder.oralDiet.schedule": for src.schedule make tgt.schedule
-  "NutritionOrder.oralDiet.nutrient": for src.nutrient as s make tgt.nutrient as t then NutritionOrderOralDietNutrient(s,t)
-  "NutritionOrder.oralDiet.texture": for src.texture as s make tgt.texture as t then NutritionOrderOralDietTexture(s,t)
-  "NutritionOrder.oralDiet.fluidConsistencyType": for src.fluidConsistencyType make tgt.fluidConsistencyType
-  "NutritionOrder.oralDiet.instruction": for src.instruction make tgt.instruction
-endgroup
+group NutritionOrderEnteralFormula(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+  src.baseFormulaType -> tgt.baseFormulaType;
+  src.baseFormulaProductName -> tgt.baseFormulaProductName;
+  src.additiveType -> tgt.additiveType;
+  src.additiveProductName -> tgt.additiveProductName;
+  src.caloricDensity -> tgt.caloricDensity;
+  src.routeofAdministration -> tgt.routeofAdministration;
+  src.administration as s -> tgt.administration as t then NutritionOrderEnteralFormulaAdministration(s, t);
+  src.maxVolumeToDeliver -> tgt.maxVolumeToDeliver;
+  src.administrationInstruction -> tgt.administrationInstruction;
+}
 
-group for type+types NutritionOrderOralDietNutrient extends BackboneElement
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
+group NutritionOrderEnteralFormulaAdministration(source src : NutritionOrderR3, target tgt : NutritionOrder) extends BackboneElement <<type+>> {
+  src.schedule -> tgt.schedule;
+  src.quantity -> tgt.quantity;
+  src.rate -> tgt.rate;
+}
 
-  "NutritionOrder.oralDiet.nutrient.modifier": for src.modifier make tgt.modifier
-  "NutritionOrder.oralDiet.nutrient.amount": for src.amount make tgt.amount
-endgroup
-
-group for type+types NutritionOrderOralDietTexture extends BackboneElement
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
-
-  "NutritionOrder.oralDiet.texture.modifier": for src.modifier make tgt.modifier
-  "NutritionOrder.oralDiet.texture.foodType": for src.foodType make tgt.foodType
-endgroup
-
-group for type+types NutritionOrderSupplement extends BackboneElement
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
-
-  "NutritionOrder.supplement.type": for src.type make tgt.type
-  "NutritionOrder.supplement.productName": for src.productName make tgt.productName
-  "NutritionOrder.supplement.schedule": for src.schedule make tgt.schedule
-  "NutritionOrder.supplement.quantity": for src.quantity make tgt.quantity
-  "NutritionOrder.supplement.instruction": for src.instruction make tgt.instruction
-endgroup
-
-group for type+types NutritionOrderEnteralFormula extends BackboneElement
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
-
-  "NutritionOrder.enteralFormula.baseFormulaType": for src.baseFormulaType make tgt.baseFormulaType
-  "NutritionOrder.enteralFormula.baseFormulaProductName": for src.baseFormulaProductName make tgt.baseFormulaProductName
-  "NutritionOrder.enteralFormula.additiveType": for src.additiveType make tgt.additiveType
-  "NutritionOrder.enteralFormula.additiveProductName": for src.additiveProductName make tgt.additiveProductName
-  "NutritionOrder.enteralFormula.caloricDensity": for src.caloricDensity make tgt.caloricDensity
-  "NutritionOrder.enteralFormula.routeofAdministration": for src.routeofAdministration make tgt.routeofAdministration
-  "NutritionOrder.enteralFormula.administration": for src.administration as s make tgt.administration as t then NutritionOrderEnteralFormulaAdministration(s,t)
-  "NutritionOrder.enteralFormula.maxVolumeToDeliver": for src.maxVolumeToDeliver make tgt.maxVolumeToDeliver
-  "NutritionOrder.enteralFormula.administrationInstruction": for src.administrationInstruction make tgt.administrationInstruction
-endgroup
-
-group for type+types NutritionOrderEnteralFormulaAdministration extends BackboneElement
-  input src : NutritionOrderR3 as source
-  input tgt : NutritionOrder as target
-
-  "NutritionOrder.enteralFormula.administration.schedule": for src.schedule make tgt.schedule
-  "NutritionOrder.enteralFormula.administration.quantity": for src.quantity make tgt.quantity
-  "NutritionOrder.enteralFormula.administration.rate": for src.rate make tgt.rate
-endgroup

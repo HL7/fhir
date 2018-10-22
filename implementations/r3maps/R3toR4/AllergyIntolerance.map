@@ -1,42 +1,36 @@
 ﻿map "http://hl7.org/fhir/StructureMap/AllergyIntolerance3to4" = "R3 to R4 Conversions for AllergyIntolerance"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types AllergyIntolerance extends DomainResource
-  input src : AllergyIntoleranceR3 as source
-  input tgt : AllergyIntolerance as target
-
-  "AllergyIntolerance.identifier" : for src.identifier make tgt.identifier 
-  "AllergyIntolerance.clinicalStatus" : for src.clinicalStatus make tgt.clinicalStatus 
-  "AllergyIntolerance.verificationStatus" : for src.verificationStatus make tgt.verificationStatus 
-  "AllergyIntolerance.type" : for src.type make tgt.type 
-  "AllergyIntolerance.criticality" : for src.criticality make tgt.criticality 
-  "AllergyIntolerance.code" : for src.code make tgt.code 
-  "AllergyIntolerance.patient" : for src.patient make tgt.patient 
-  "AllergyIntolerance.onset-dateTime" : for src.onset : dateTime as vs make tgt.onset = create("dateTime") as vt then dateTime(vs,vt)
-  "AllergyIntolerance.onset-Age" : for src.onset : Age as vs make tgt.onset = create("Age") as vt then Age(vs,vt)
-  "AllergyIntolerance.onset-Period" : for src.onset : Period as vs make tgt.onset = create("Period") as vt then Period(vs,vt)
-  "AllergyIntolerance.onset-Range" : for src.onset : Range as vs make tgt.onset = create("Range") as vt then Range(vs,vt)
-  "AllergyIntolerance.onset-string" : for src.onset : string as vs make tgt.onset = create("string") as vt then string(vs,vt)
-  "AllergyIntolerance.recordedDate" : for src.assertedDate make tgt.recordedDate 
-  "AllergyIntolerance.recorder" : for src.recorder make tgt.recorder 
-  "AllergyIntolerance.asserter" : for src.asserter make tgt.asserter 
-  "AllergyIntolerance.lastOccurrence" : for src.lastOccurrence make tgt.lastOccurrence 
-  "AllergyIntolerance.note" : for src.note make tgt.note 
-  "AllergyIntolerance.reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
-    "AllergyIntolerance.reaction.substance" : for vs0.substance make vt0.substance 
-    "AllergyIntolerance.reaction.manifestation" : for vs0.manifestation make vt0.manifestation 
-    "AllergyIntolerance.reaction.description" : for vs0.description make vt0.description 
-    "AllergyIntolerance.reaction.onset" : for vs0.onset make vt0.onset 
-    "AllergyIntolerance.reaction.severity" : for vs0.severity make vt0.severity 
-    "AllergyIntolerance.reaction.exposureRoute" : for vs0.exposureRoute make vt0.exposureRoute 
-    "AllergyIntolerance.reaction.note" : for vs0.note make vt0.note 
-  }
-endgroup
+group AllergyIntolerance(source src : AllergyIntoleranceR3, target tgt : AllergyIntolerance) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus -> tgt.clinicalStatus;
+  src.verificationStatus -> tgt.verificationStatus;
+  src.type -> tgt.type;
+  src.criticality -> tgt.criticality;
+  src.code -> tgt.code;
+  src.patient -> tgt.patient;
+  src.onset : dateTime as vs -> tgt.onset = create("dateTime") as vt then dateTime(vs, vt);
+  src.onset : Age as vs -> tgt.onset = create("Age") as vt then Age(vs, vt);
+  src.onset : Period as vs -> tgt.onset = create("Period") as vt then Period(vs, vt);
+  src.onset : Range as vs -> tgt.onset = create("Range") as vt then Range(vs, vt);
+  src.onset : string as vs -> tgt.onset = create("string") as vt then string(vs, vt);
+  src.assertedDate -> tgt.recordedDate "recordedDate";
+  src.recorder -> tgt.recorder;
+  src.asserter -> tgt.asserter;
+  src.lastOccurrence -> tgt.lastOccurrence;
+  src.note -> tgt.note;
+  src.reaction as vs0 -> tgt.reaction as vt0 then {
+    vs0.substance -> vt0.substance;
+    vs0.manifestation -> vt0.manifestation;
+    vs0.description -> vt0.description;
+    vs0.onset -> vt0.onset;
+    vs0.severity -> vt0.severity;
+    vs0.exposureRoute -> vt0.exposureRoute;
+    vs0.note -> vt0.note;
+  };
+}
 

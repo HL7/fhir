@@ -1,27 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Bundle3to4" = "R3 to R4 Conversions for Bundle"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Bundle" alias BundleR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group Bundle(source src : BundleR3, target tgt : Bundle) extends Resource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.total -> tgt.total;
+  src.link as vs0 -> tgt.link as vt0 then link(vs0, vt0);
+  src.entry as vs0 -> tgt.entry as vt0 then entry(vs0, vt0);
+  src.signature -> tgt.signature;
+}
 
+group link(source src, target tgt) extends BackboneElement {
+  src.relation -> tgt.relation;
+  src.url -> tgt.url;
+}
 
-group for type+types Bundle extends Resource
-  input src : BundleR3 as source
-  input tgt : Bundle as target
-
-  "Bundle.identifier" : for src.identifier make tgt.identifier 
-  "Bundle.type" : for src.type make tgt.type 
-  "Bundle.total" : for src.total make tgt.total 
-  "Bundle.link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Bundle.link.relation" : for vs0.relation make vt0.relation 
-    "Bundle.link.url" : for vs0.url make vt0.url 
-  }
-  "Bundle.entry" : for src.entry as vs0 make tgt.entry as vt0 then {
-    "Bundle.entry.fullUrl" : for vs0.fullUrl make vt0.fullUrl 
-  }
-  "Bundle.signature" : for src.signature make tgt.signature 
-endgroup
-
+group entry(source src, target tgt) extends BackboneElement {
+  src.fullUrl -> tgt.fullUrl;
+  src.resource -> tgt.resource;
+}

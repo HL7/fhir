@@ -1,21 +1,15 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Expression3to4" = "R3 to R4 Conversions for Expression"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Expression" alias ExpressionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Expression" alias Expression as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Expression extends Element
-  input src : ExpressionR3 as source
-  input tgt : Expression as target
-
-  "Expression.description": for src.description make tgt.description
-  "Expression.name": for src.name make tgt.name
-  "Expression.language": for src.language make tgt.language
-  "Expression.expression": for src.expression make tgt.expression
-  "Expression.reference": for src.reference make tgt.reference
-endgroup
+group Expression(source src : ExpressionR3, target tgt : Expression) extends Element <<type+>> {
+  src.description -> tgt.description;
+  src.name -> tgt.name;
+  src.language -> tgt.language;
+  src.expression -> tgt.expression;
+  src.reference -> tgt.reference;
+}
 

@@ -77,11 +77,11 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
       throw new Error("You must set the default directory to the build directory when you execute these tests");
     r3r4Outcomes = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "outcomes.json")));
     rules = new IniFile(Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-rules.ini"));
-          
+
     String srcFile = Utilities.path(TestingUtilities.home(), "source", "release3", "examples.zip");
     ZipInputStream stream = new ZipInputStream(new FileInputStream(srcFile));
 
-    String filter = System.getProperty("resource");
+    filter = System.getProperty("resource");
     if (filter != null)
       filter = filter.toLowerCase();
     Map<String, byte[]> examples = new HashMap<String, byte[]>();
@@ -100,7 +100,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
     List<String> names = new ArrayList<String>(examples.size());
     names.addAll(examples.keySet());
     Collections.sort(names);
-    
+
     List<Object[]> objects = new ArrayList<Object[]>(examples.size());
 
     for (String id : names) {
@@ -109,7 +109,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
 
     return objects;
   }
-  
+
   private static SimpleWorkerContext contextR3;
   private static SimpleWorkerContext contextR4;
   private static JsonObject r3r4Outcomes;
@@ -119,6 +119,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
   private final String name;
   private String workingid;
   private static Map<String, Exception> loadErrors = new HashMap<String, Exception>();
+  private static String filter;
 
   public R3R4ConversionTests(String name, byte[] content) {
     this.name = name;
@@ -135,13 +136,13 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
     workingid = null;
 
     byte[] cnt = content;
-    
+
     Exception executionError = null;
     List<ValidationMessage> r4validationErrors = new ArrayList<ValidationMessage>();
     String roundTripError = null;
     try {
       extras = new ArrayList<Resource>();
-      
+
       // load the example (r3)
       org.hl7.fhir.r4.elementmodel.Element r3 = new org.hl7.fhir.r4.elementmodel.XmlParser(contextR3).parse(new ByteArrayInputStream(content));
       tn = r3.fhirType();
@@ -152,7 +153,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         cnt = bso.toByteArray();
         TextFile.bytesToFile(cnt, Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output", tn+"-"+workingid+".input.json"));
       }
-            
+
       // load the r3 to R4 map
       String mapFile = Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "R3toR4", r3.fhirType()+".map");
       if (new File(mapFile).exists()) {
@@ -167,11 +168,11 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r4);
         if (SAVING) {
           TextFile.bytesToFile(bs.toByteArray(), Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output", tn+"-"+workingid+".r4.json"));
-        for (Resource r : extras) {
-          bs = new ByteArrayOutputStream();
-          new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r);
-          TextFile.bytesToFile(bs.toByteArray(), Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output", r.fhirType()+"-"+r.getId()+".r4.json"));
-        }
+          for (Resource r : extras) {
+            bs = new ByteArrayOutputStream();
+            new org.hl7.fhir.r4.formats.JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r);
+            TextFile.bytesToFile(bs.toByteArray(), Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output", r.fhirType()+"-"+r.getId()+".r4.json"));
+          }
         }
 
         // validate against R4
@@ -196,9 +197,9 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         new org.hl7.fhir.r4.elementmodel.JsonParser(contextR3).compose(ro3, bs, OutputStyle.PRETTY, null);
         if (SAVING)
           TextFile.bytesToFile(bs.toByteArray(), Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "test-output", tn+"-"+workingid+".output.json"));
-               
-//        check(errors, tn, workingid);
-        roundTripError = TestingUtilities.checkJsonSrcIsSame(new String(cnt), new String(bs.toByteArray()));
+
+        //        check(errors, tn, workingid);
+        roundTripError = TestingUtilities.checkJsonSrcIsSame(new String(cnt), new String(bs.toByteArray()), filter != null);
         if (roundTripError != null && roundTripError.equals(rules.getStringProperty(tn+"/"+workingid, "roundtrip")))
           roundTripError = null;
       } else {
@@ -256,7 +257,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(r3r4Outcomes);
     TextFile.stringToFile(json, (Utilities.path(TestingUtilities.home(), "implementations", "r3maps", "outcomes.json")));
-    
+
   }
 
   private void check(List<ValidationMessage> errors, String tn, String id) throws FHIRException {
@@ -272,7 +273,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         for (String m : s.split("\\;"))
           if (vm.getMessage().contains(m.trim()))
             ok = true;
-       if (ok)
+        if (ok)
           break;
       }
       s = rules.getStringProperty(tn, "validation");
@@ -281,7 +282,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         for (String m : s.split("\\;"))
           if (vm.getMessage().contains(m.trim()))
             ok = true;
-       if (ok)
+        if (ok)
           break;
       }
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL) {
@@ -311,7 +312,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
     contextR3.loadFromFile(Utilities.path(TestingUtilities.home(),"source","release3","profiles-types.xml"), ldr);
     contextR3.loadFromFile(Utilities.path(TestingUtilities.home(),"source","release3","profiles-resources.xml"), ldr);
     contextR3.loadFromFile(Utilities.path(TestingUtilities.home(),"source","release3","expansions.xml"), ldr);
-    
+
     System.out.println("loading R4");
     contextR4 = new SimpleWorkerContext();
     contextR4.setAllowLoadingDuplicates(true);
@@ -326,7 +327,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
       sdn.getExtension().clear();
       contextR4.cacheResource(sdn);
     }
-    
+
     for (StructureDefinition sd : contextR4.allStructures()) {
       if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
         contextR3.cacheResource(sd);
@@ -337,13 +338,13 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
         contextR4.cacheResource(sdn);
       }
     }
-        
+
     contextR3.setExpansionProfile(new org.hl7.fhir.r4.model.Parameters());
     contextR4.setExpansionProfile(new org.hl7.fhir.r4.model.Parameters());
     contextR3.setName("R3");
     contextR4.setName("R4");
     contextR4.setValidatorFactory(new InstanceValidatorFactory());
-    
+
     System.out.println("loading Maps");
     loadLib(Utilities.path(TestingUtilities.home(),"implementations","r3maps", "R3toR4"));
     loadLib(Utilities.path(TestingUtilities.home(),"implementations","r3maps", "R4toR3"));
@@ -369,7 +370,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
       } catch (FHIRException e) {
         System.out.println("Unable to load "+Utilities.path(dir, s)+": "+e.getMessage());
         loadErrors.put(s, e);
-//        e.printStackTrace();
+        //        e.printStackTrace();
       }
     }
   }
@@ -397,13 +398,13 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
   @Override
   public Base createType(Object appInfo, String name) throws FHIRException {
     BaseWorkerContext context = (BaseWorkerContext) appInfo;
-     if (context == contextR3) {
-       StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/3.0/StructureDefinition/"+name);
-       if (sd == null)
-         throw new FHIRException("Type not found: '"+name+"'");
-       return Manager.build(context, sd);
-     } else
-       return ResourceFactory.createResourceOrType(name);
+    if (context == contextR3) {
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/3.0/StructureDefinition/"+name);
+      if (sd == null)
+        throw new FHIRException("Type not found: '"+name+"'");
+      return Manager.build(context, sd);
+    } else
+      return ResourceFactory.createResourceOrType(name);
   }
 
   @Override
@@ -417,7 +418,7 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
       if (url.equals(r.fhirType()+"/"+r.getId()))
         return r;
     }
-    
+
     return null;
   }
 
@@ -428,11 +429,11 @@ public class R3R4ConversionTests implements ITransformerServices, IValidatorReso
     if (parts.length == 2 && parts[0].substring(1).equals("PractitionerRole")) {
       String[] vals = parts[1].split("\\=");
       if (vals.length == 2 && vals[0].equals("practitioner"))
-      for (Resource r : extras) {
-        if (r instanceof PractitionerRole && ((PractitionerRole) r).getPractitioner().getReference().equals("Practitioner/"+vals[1])) {
-          results.add(r);
+        for (Resource r : extras) {
+          if (r instanceof PractitionerRole && ((PractitionerRole) r).getPractitioner().getReference().equals("Practitioner/"+vals[1])) {
+            results.add(r);
+          }
         }
-      }
     }
     return results;
   }

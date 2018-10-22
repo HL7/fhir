@@ -1,35 +1,29 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Timing4to3" = "R4 to R3 Conversion for Timing"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Timing" alias Timing as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Timing" alias TimingR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Timing extends BackboneElement
-  input src : Timing as source
-  input tgt : TimingR3 as target
-
-  "Timing.event" : for src.event make tgt.event 
-  "Timing.repeat" : for src.repeat as vs0 make tgt.repeat as vt0 then {
-    "Timing.repeat.bounds-Duration" : for vs0.bounds : Duration as vs make vt0.bounds = create("Duration") as vt then Duration(vs,vt)
-    "Timing.repeat.bounds-Range" : for vs0.bounds : Range as vs make vt0.bounds = create("Range") as vt then Range(vs,vt)
-    "Timing.repeat.bounds-Period" : for vs0.bounds : Period as vs make vt0.bounds = create("Period") as vt then Period(vs,vt)
-    "Timing.repeat.count" : for vs0.count make vt0.count 
-    "Timing.repeat.countMax" : for vs0.countMax make vt0.countMax 
-    "Timing.repeat.duration" : for vs0.duration make vt0.duration 
-    "Timing.repeat.durationMax" : for vs0.durationMax make vt0.durationMax 
-    "Timing.repeat.durationUnit" : for vs0.durationUnit make vt0.durationUnit 
-    "Timing.repeat.frequency" : for vs0.frequency make vt0.frequency 
-    "Timing.repeat.frequencyMax" : for vs0.frequencyMax make vt0.frequencyMax 
-    "Timing.repeat.period" : for vs0.period make vt0.period 
-    "Timing.repeat.periodMax" : for vs0.periodMax make vt0.periodMax 
-    "Timing.repeat.periodUnit" : for vs0.periodUnit make vt0.periodUnit 
-    "Timing.repeat.timeOfDay" : for vs0.timeOfDay make vt0.timeOfDay 
-    "Timing.repeat.offset" : for vs0.offset make vt0.offset 
-  }
-  "Timing.code" : for src.code make tgt.code 
-endgroup
+group Timing(source src : Timing, target tgt : TimingR3) extends BackboneElement <<type+>> {
+  src.event -> tgt.event;
+  src.repeat as vs0 -> tgt.repeat as vt0 then {
+    vs0.bounds : Duration as vs -> vt0.bounds = create("Duration") as vt then Duration(vs, vt);
+    vs0.bounds : Range as vs -> vt0.bounds = create("Range") as vt then Range(vs, vt);
+    vs0.bounds : Period as vs -> vt0.bounds = create("Period") as vt then Period(vs, vt);
+    vs0.count -> vt0.count;
+    vs0.countMax -> vt0.countMax;
+    vs0.duration -> vt0.duration;
+    vs0.durationMax -> vt0.durationMax;
+    vs0.durationUnit -> vt0.durationUnit;
+    vs0.frequency -> vt0.frequency;
+    vs0.frequencyMax -> vt0.frequencyMax;
+    vs0.period -> vt0.period;
+    vs0.periodMax -> vt0.periodMax;
+    vs0.periodUnit -> vt0.periodUnit;
+    vs0.timeOfDay -> vt0.timeOfDay;
+    vs0.offset -> vt0.offset;
+  };
+  src.code -> tgt.code;
+}
 

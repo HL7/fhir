@@ -1,28 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Subscription3to4" = "R3 to R4 Conversions for Subscription"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Subscription" alias SubscriptionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias Subscription as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group Subscription(source src : SubscriptionR3, target tgt : Subscription) extends DomainResource <<type+>> {
+  src.status -> tgt.status;
+  src.contact -> tgt.contact;
+  src.end -> tgt.end;
+  src.reason -> tgt.reason;
+  src.criteria -> tgt.criteria;
+  src.error -> tgt.error;
+  src.channel as vs0 -> tgt.channel as vt0 then channel(vs0, vt0);
+}
 
-
-group for type+types Subscription extends DomainResource
-  input src : SubscriptionR3 as source
-  input tgt : Subscription as target
-
-  "Subscription.status" : for src.status make tgt.status 
-  "Subscription.contact" : for src.contact make tgt.contact 
-  "Subscription.end" : for src.end make tgt.end 
-  "Subscription.reason" : for src.reason make tgt.reason 
-  "Subscription.criteria" : for src.criteria make tgt.criteria 
-  "Subscription.error" : for src.error make tgt.error 
-  "Subscription.channel" : for src.channel as vs0 make tgt.channel as vt0 then {
-    "Subscription.channel.type" : for vs0.type make vt0.type 
-    "Subscription.channel.payload" : for vs0.payload make vt0.payload 
-    "Subscription.channel.header" : for vs0.header make vt0.header 
-  }
-  "Subscription.tag" : for src.tag make tgt.tag 
-endgroup
+group channel(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.endpoint -> tgt.endpoint;
+  src.payload -> tgt.payload;
+  src.header -> tgt.header;
+}
 

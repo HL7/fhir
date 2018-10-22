@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Practitioner3to4" = "R3 to R4 Conversions for Practitioner"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Practitioner" alias PractitionerR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Practitioner extends DomainResource
-  input src : PractitionerR3 as source
-  input tgt : Practitioner as target
-
-  "Practitioner.identifier" : for src.identifier make tgt.identifier 
-  "Practitioner.active" : for src.active make tgt.active 
-  "Practitioner.name" : for src.name make tgt.name 
-  "Practitioner.telecom" : for src.telecom make tgt.telecom 
-  "Practitioner.address" : for src.address make tgt.address 
-  "Practitioner.gender" : for src.gender make tgt.gender 
-  "Practitioner.birthDate" : for src.birthDate make tgt.birthDate 
-  "Practitioner.photo" : for src.photo make tgt.photo 
-  "Practitioner.qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then {
-    "Practitioner.qualification.identifier" : for vs0.identifier make vt0.identifier 
-    "Practitioner.qualification.code" : for vs0.code make vt0.code 
-    "Practitioner.qualification.period" : for vs0.period make vt0.period 
-    "Practitioner.qualification.issuer" : for vs0.issuer make vt0.issuer 
-  }
-  "Practitioner.communication" : for src.communication make tgt.communication 
-endgroup
+group Practitioner(source src : PractitionerR3, target tgt : Practitioner) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.gender -> tgt.gender;
+  src.birthDate -> tgt.birthDate;
+  src.photo -> tgt.photo;
+  src.qualification as vs0 -> tgt.qualification as vt0 then {
+    vs0.identifier -> vt0.identifier;
+    vs0.code -> vt0.code;
+    vs0.period -> vt0.period;
+    vs0.issuer -> vt0.issuer;
+  };
+  src.communication -> tgt.communication;
+}
 

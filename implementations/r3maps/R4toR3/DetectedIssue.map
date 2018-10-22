@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DetectedIssue4to3" = "R4 to R3 Conversion for DetectedIssue"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DetectedIssue" alias DetectedIssueR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types DetectedIssue extends DomainResource
-  input src : DetectedIssue as source
-  input tgt : DetectedIssueR3 as target
-
-  "DetectedIssue.identifier" : for src.identifierFirstRep make tgt.identifier 
-  "DetectedIssue.status" : for src.status make tgt.status 
-  "DetectedIssue.category" : for src.category make tgt.category 
-  "DetectedIssue.severity" : for src.severity make tgt.severity 
-  "DetectedIssue.patient" : for src.patient make tgt.patient 
-  "DetectedIssue.date" : for src.date make tgt.date 
-  "DetectedIssue.author" : for src.author make tgt.author 
-  "DetectedIssue.implicated" : for src.implicated make tgt.implicated 
-  "DetectedIssue.detail" : for src.detail make tgt.detail 
-  "DetectedIssue.reference" : for src.reference make tgt.reference 
-  "DetectedIssue.mitigation" : for src.mitigation as vs0 make tgt.mitigation as vt0 then {
-    "DetectedIssue.mitigation.action" : for vs0.action make vt0.action 
-    "DetectedIssue.mitigation.date" : for vs0.date make vt0.date 
-    "DetectedIssue.mitigation.author" : for vs0.author make vt0.author 
-  }
-endgroup
+group DetectedIssue(source src : DetectedIssue, target tgt : DetectedIssueR3) extends DomainResource <<type+>> {
+  src.identifierFirstRep -> tgt.identifier "identifier";
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.severity -> tgt.severity;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+  src.implicated -> tgt.implicated;
+  src.detail -> tgt.detail;
+  src.reference -> tgt.reference;
+  src.mitigation as vs0 -> tgt.mitigation as vt0 then {
+    vs0.action -> vt0.action;
+    vs0.date -> vt0.date;
+    vs0.author -> vt0.author;
+  };
+}
 

@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Organization3to4" = "R3 to R4 Conversions for Organization"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Organization" alias OrganizationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Organization extends DomainResource
-  input src : OrganizationR3 as source
-  input tgt : Organization as target
-
-  "Organization.identifier" : for src.identifier make tgt.identifier 
-  "Organization.active" : for src.active make tgt.active 
-  "Organization.type" : for src.type make tgt.type 
-  "Organization.name" : for src.name make tgt.name 
-  "Organization.alias" : for src.alias make tgt.alias 
-  "Organization.telecom" : for src.telecom make tgt.telecom 
-  "Organization.address" : for src.address make tgt.address 
-  "Organization.partOf" : for src.partOf make tgt.partOf 
-  "Organization.contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "Organization.contact.purpose" : for vs0.purpose make vt0.purpose 
-    "Organization.contact.name" : for vs0.name make vt0.name 
-    "Organization.contact.telecom" : for vs0.telecom make vt0.telecom 
-    "Organization.contact.address" : for vs0.address make vt0.address 
-  }
-  "Organization.endpoint" : for src.endpoint make tgt.endpoint 
-endgroup
+group Organization(source src : OrganizationR3, target tgt : Organization) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+  src.partOf -> tgt.partOf;
+  src.contact as vs0 -> tgt.contact as vt0 then {
+    vs0.purpose -> vt0.purpose;
+    vs0.name -> vt0.name;
+    vs0.telecom -> vt0.telecom;
+    vs0.address -> vt0.address;
+  };
+  src.endpoint -> tgt.endpoint;
+}
 

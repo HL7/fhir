@@ -1,5 +1,5 @@
 package org.hl7.fhir.igtools.publisher;
-
+ 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -68,7 +68,7 @@ public class ConfigFileConverter {
       rootDir = getCurentDirectory();
     // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
     rootDir = new File(rootDir).getCanonicalPath();
-    
+
     JsonObject paths = configuration.getAsJsonObject("paths");
     List<String> resourceDirs = new ArrayList<String>();
     List<String> pagesDirs = new ArrayList<String>();
@@ -122,7 +122,7 @@ public class ConfigFileConverter {
     IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEJSON, true);
     IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATEXML, true);
     IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATETURTLE, true);
-    
+
     Parameters p = new Parameters();
     String sct = str(configuration, "sct-edition", "http://snomed.info/sct/900000000000207008");
     p.addParameter("system-version", "http://snomed.info/sct|"+sct);
@@ -164,7 +164,7 @@ public class ConfigFileConverter {
           IGHelper.setParameter(ig.getDefinition(), GuideParameterCode.GENERATETURTLE, Boolean.parseBoolean(any.get("ttl").getAsString()));          
       }
     }
-    
+
     JsonArray deps = configuration.getAsJsonArray("dependencyList");
     ig.getDependsOn().clear();
     if (deps != null) {
@@ -174,14 +174,14 @@ public class ConfigFileConverter {
         String canonical = ostr(dep, "location");
         String igver = ostr(dep, "version");
         String packageId = ostr(dep, "package");
-        
+
         if (Utilities.noString(packageId))
           packageId = pcm.getPackageId(canonical);
         if (Utilities.noString(canonical) && !Utilities.noString(packageId))
           canonical = pcm.getPackageUrl(packageId);
         if (Utilities.noString(canonical))
           throw new Exception("You must specify a canonical URL for the IG "+name);
-        
+
         ImplementationGuideDependsOnComponent igd = ig.addDependsOn();
         igd.setId(name);
         igd.setUri(canonical);
@@ -189,32 +189,34 @@ public class ConfigFileConverter {
         igd.setVersion(igver);
       }
     }
-    for (Entry<String, JsonElement> pp : configuration.getAsJsonObject("resources").entrySet()) {
-      if (!pp.getKey().startsWith("_")) {
-        String s = pp.getKey();
-        JsonObject o = (JsonObject) pp.getValue();
-        JsonElement vb = o.get("base");
-        JsonElement vd = o.get("defns");
-        JsonElement vf = o.get("format");
-        JsonElement vs = o.get("source");
-        if (vb != null && vd != null && vf != null && vs != null) {
-          ImplementationGuideDefinitionResourceComponent res = getResource(ig.getDefinition(), s);
-          if (res == null) {
-            res = ig.getDefinition().addResource();
-            res.setReference(new Reference(s));
+    if (configuration.has("resources")) {
+      for (Entry<String, JsonElement> pp : configuration.getAsJsonObject("resources").entrySet()) {
+        if (!pp.getKey().startsWith("_")) {
+          String s = pp.getKey();
+          JsonObject o = (JsonObject) pp.getValue();
+          JsonElement vb = o.get("base");
+          JsonElement vd = o.get("defns");
+          JsonElement vf = o.get("format");
+          JsonElement vs = o.get("source");
+          if (vb != null && vd != null && vf != null && vs != null) {
+            ImplementationGuideDefinitionResourceComponent res = getResource(ig.getDefinition(), s);
+            if (res == null) {
+              res = ig.getDefinition().addResource();
+              res.setReference(new Reference(s));
+            }
+            if (vb != null)
+              res.addExtension(ToolingExtensions.EXT_IGP_BASE, new StringType(((JsonPrimitive) vb).getAsString()));
+            if (vd != null)
+              res.addExtension(ToolingExtensions.EXT_IGP_DEFNS, new StringType(((JsonPrimitive) vd).getAsString()));
+            if (vf != null)
+              res.addExtension(ToolingExtensions.EXT_IGP_FORMAT, new StringType(((JsonPrimitive) vf).getAsString()));
+            if (vs != null)
+              res.addExtension(ToolingExtensions.EXT_IGP_SOURCE, new StringType(((JsonPrimitive) vs).getAsString()));
           }
-          if (vb != null)
-            res.addExtension(ToolingExtensions.EXT_IGP_BASE, new StringType(((JsonPrimitive) vb).getAsString()));
-          if (vd != null)
-            res.addExtension(ToolingExtensions.EXT_IGP_DEFNS, new StringType(((JsonPrimitive) vd).getAsString()));
-          if (vf != null)
-            res.addExtension(ToolingExtensions.EXT_IGP_FORMAT, new StringType(((JsonPrimitive) vf).getAsString()));
-          if (vs != null)
-            res.addExtension(ToolingExtensions.EXT_IGP_SOURCE, new StringType(((JsonPrimitive) vs).getAsString()));
         }
       }
     }
-    
+
     String newfile = Utilities.path(Utilities.getDirectoryForFile(igName), "ig-new.json");
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(newfile), ig);
     newfile = Utilities.path(Utilities.getDirectoryForFile(igName), "ig-new.xml");
@@ -232,7 +234,7 @@ public class ConfigFileConverter {
     }
     return null;
   }
-  
+
   private Resource parse(String filename, String version) throws Exception {
     if (version.equals("3.0.1") || version.equals("3.0.0")) {
       org.hl7.fhir.dstu3.model.Resource res;
@@ -272,9 +274,9 @@ public class ConfigFileConverter {
         throw new Exception("Unable to determine file type for "+filename);
     } else
       throw new Exception("Unsupported version "+version+" (current = "+Constants.VERSION+" ("+ToolsVersion.TOOLS_VERSION+")");
-    
+
   }
-  
+
   private String str(JsonObject obj, String name) throws Exception {
     if (!obj.has(name))
       throw new Exception("Property "+name+" not found");

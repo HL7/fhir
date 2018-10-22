@@ -5,11 +5,8 @@ uses "http://hl7.org/fhir/StructureDefinition/ElementR3" as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group for type+types  Element
-  input src : Element as source
-  input tgt : ElementR3 as target
+group Element(source src : Element, target tgt : ElementR3) <<type+>> {
+  src.id -> tgt.id "Element-id";
+  src.extension where url.startsWith('http://hl7.org/fhir/StructureDefinition/X34').not() -> tgt.extension "Element-extensions";
+}
 
-  "Element-id" : for src.id make tgt.id
-  "Element-extensions" : for src.extension make tgt.extension
-
-endgroup

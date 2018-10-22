@@ -83,7 +83,7 @@ public class StructureMapRenderer extends BaseRenderer {
   }
 
   public String script() throws FHIRException {
-    return utils.render(map);
+    return utils.render(map, false);
   }
 
   public String content() throws IOException {
