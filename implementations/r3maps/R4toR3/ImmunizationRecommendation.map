@@ -1,46 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation4to3" = "R4 to R3 Conversion for ImmunizationRecommendation"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendation as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ImmunizationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.patient -> tgt.patient;
+  src.date -> tgt.date;
+  src.authority -> tgt.authority;
+  src.recommendation as s -> tgt.recommendation as t then ImmunizationRecommendationRecommendation(s, t);
+}
 
+group ImmunizationRecommendationRecommendation(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends BackboneElement <<type+>> {
+  src.vaccineCode -> tgt.vaccineCode;
+  src.targetDisease -> tgt.targetDisease;
+  src.contraindicatedVaccineCode -> tgt.contraindicatedVaccineCode;
+  src.forecastStatus -> tgt.forecastStatus;
+  src.forecastReason -> tgt.forecastReason;
+  src.dateCriterion as s -> tgt.dateCriterion as t then ImmunizationRecommendationRecommendationDateCriterion(s, t);
+  src.description -> tgt.description;
+  src.series -> tgt.series;
+  src.doseNumber -> tgt.doseNumber;
+  src.seriesDoses -> tgt.seriesDoses;
+  src.supportingImmunization -> tgt.supportingImmunization;
+  src.supportingPatientInformation -> tgt.supportingPatientInformation;
+}
 
-group for type+types ImmunizationRecommendation extends DomainResource
-  input src : ImmunizationRecommendationR3 as source
-  input tgt : ImmunizationRecommendation as target
+group ImmunizationRecommendationRecommendationDateCriterion(source src : ImmunizationRecommendationR3, target tgt : ImmunizationRecommendation) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.value -> tgt.value;
+}
 
-  "ImmunizationRecommendation.identifier": for src.identifier make tgt.identifier
-  "ImmunizationRecommendation.patient": for src.patient make tgt.patient
-  "ImmunizationRecommendation.date": for src.date make tgt.date
-  "ImmunizationRecommendation.authority": for src.authority make tgt.authority
-  "ImmunizationRecommendation.recommendation": for src.recommendation as s make tgt.recommendation as t then ImmunizationRecommendationRecommendation(s,t)
-endgroup
-
-group for type+types ImmunizationRecommendationRecommendation extends BackboneElement
-  input src : ImmunizationRecommendationR3 as source
-  input tgt : ImmunizationRecommendation as target
-
-  "ImmunizationRecommendation.recommendation.vaccineCode": for src.vaccineCode make tgt.vaccineCode
-  "ImmunizationRecommendation.recommendation.targetDisease": for src.targetDisease make tgt.targetDisease
-  "ImmunizationRecommendation.recommendation.contraindicatedVaccineCode": for src.contraindicatedVaccineCode make tgt.contraindicatedVaccineCode
-  "ImmunizationRecommendation.recommendation.forecastStatus": for src.forecastStatus make tgt.forecastStatus
-  "ImmunizationRecommendation.recommendation.forecastReason": for src.forecastReason make tgt.forecastReason
-  "ImmunizationRecommendation.recommendation.dateCriterion": for src.dateCriterion as s make tgt.dateCriterion as t then ImmunizationRecommendationRecommendationDateCriterion(s,t)
-  "ImmunizationRecommendation.recommendation.description": for src.description make tgt.description
-  "ImmunizationRecommendation.recommendation.series": for src.series make tgt.series
-  "ImmunizationRecommendation.recommendation.doseNumber": for src.doseNumber make tgt.doseNumber
-  "ImmunizationRecommendation.recommendation.seriesDoses": for src.seriesDoses make tgt.seriesDoses
-  "ImmunizationRecommendation.recommendation.supportingImmunization": for src.supportingImmunization make tgt.supportingImmunization
-  "ImmunizationRecommendation.recommendation.supportingPatientInformation": for src.supportingPatientInformation make tgt.supportingPatientInformation
-endgroup
-
-group for type+types ImmunizationRecommendationRecommendationDateCriterion extends BackboneElement
-  input src : ImmunizationRecommendationR3 as source
-  input tgt : ImmunizationRecommendation as target
-
-  "ImmunizationRecommendation.recommendation.dateCriterion.code": for src.code make tgt.code
-  "ImmunizationRecommendation.recommendation.dateCriterion.value": for src.value make tgt.value
-endgroup

@@ -1,37 +1,29 @@
 ﻿map "http://hl7.org/fhir/StructureMap/TestReport3to4" = "R3 to R4 Conversions for TestReport"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/TestReport" alias TestReportR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/TestReport" alias TestReport as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types TestReport extends DomainResource
-  input src : TestReportR3 as source
-  input tgt : TestReport as target
-
-  "TestReport.identifier" : for src.identifier make tgt.identifier 
-  "TestReport.name" : for src.name make tgt.name 
-  "TestReport.status" : for src.status make tgt.status 
-  "TestReport.testScript" : for src.testScript make tgt.testScript 
-  "TestReport.result" : for src.result make tgt.result 
-  "TestReport.score" : for src.score make tgt.score 
-  "TestReport.tester" : for src.tester make tgt.tester 
-  "TestReport.issued" : for src.issued make tgt.issued 
-  "TestReport.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "TestReport.participant.type" : for vs0.type make vt0.type 
-    "TestReport.participant.uri" : for vs0.uri make vt0.uri 
-    "TestReport.participant.display" : for vs0.display make vt0.display 
-  }
-  "TestReport.setup" : for src.setup as vs0 make tgt.setup as vt0 then {
-  }
-  "TestReport.test" : for src.test as vs0 make tgt.test as vt0 then {
-    "TestReport.test.name" : for vs0.name make vt0.name 
-    "TestReport.test.description" : for vs0.description make vt0.description 
-  }
-  "TestReport.teardown" : for src.teardown as vs0 make tgt.teardown as vt0 then {
-  }
-endgroup
+group TestReport(source src : TestReportR3, target tgt : TestReport) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.testScript -> tgt.testScript;
+  src.result -> tgt.result;
+  src.score -> tgt.score;
+  src.tester -> tgt.tester;
+  src.issued -> tgt.issued;
+  src.participant as vs0 -> tgt.participant as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.uri -> vt0.uri;
+    vs0.display -> vt0.display;
+  };
+  src.setup -> tgt.setup;
+  src.test as vs0 -> tgt.test as vt0 then {
+    vs0.name -> vt0.name;
+    vs0.description -> vt0.description;
+  };
+  src.teardown -> tgt.teardown;
+}
 

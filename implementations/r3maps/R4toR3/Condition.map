@@ -1,49 +1,38 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition4to3" = "R4 to R3 Conversion for Condition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Condition" alias ConditionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Condition(source src : ConditionR3, target tgt : Condition) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.clinicalStatus -> tgt.clinicalStatus;
+  src.verificationStatus -> tgt.verificationStatus;
+  src.category -> tgt.category;
+  src.severity -> tgt.severity;
+  src.code -> tgt.code;
+  src.bodySite -> tgt.bodySite;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.onset -> tgt.onset;
+  src.abatement -> tgt.abatement;
+  src.recordedDate -> tgt.recordedDate;
+  src.recorder -> tgt.recorder;
+  src.asserter -> tgt.asserter;
+  src.stage as s -> tgt.stage as t then ConditionStage(s, t);
+  src.evidence as s -> tgt.evidence as t then ConditionEvidence(s, t);
+  src.note -> tgt.note;
+}
 
+group ConditionStage(source src : ConditionR3, target tgt : Condition) extends BackboneElement <<type+>> {
+  src.summary -> tgt.summary;
+  src.assessment -> tgt.assessment;
+  src.type -> tgt.type;
+}
 
-group for type+types Condition extends DomainResource
-  input src : ConditionR3 as source
-  input tgt : Condition as target
+group ConditionEvidence(source src : ConditionR3, target tgt : Condition) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.detail -> tgt.detail;
+}
 
-  "Condition.identifier": for src.identifier make tgt.identifier
-  "Condition.clinicalStatus": for src.clinicalStatus make tgt.clinicalStatus
-  "Condition.verificationStatus": for src.verificationStatus make tgt.verificationStatus
-  "Condition.category": for src.category make tgt.category
-  "Condition.severity": for src.severity make tgt.severity
-  "Condition.code": for src.code make tgt.code
-  "Condition.bodySite": for src.bodySite make tgt.bodySite
-  "Condition.subject": for src.subject make tgt.subject
-  "Condition.context": for src.context make tgt.context
-  "Condition.onset": for src.onset make tgt.onset
-  "Condition.abatement": for src.abatement make tgt.abatement
-  "Condition.recordedDate": for src.recordedDate make tgt.recordedDate
-  "Condition.recorder": for src.recorder make tgt.recorder
-  "Condition.asserter": for src.asserter make tgt.asserter
-  "Condition.stage": for src.stage as s make tgt.stage as t then ConditionStage(s,t)
-  "Condition.evidence": for src.evidence as s make tgt.evidence as t then ConditionEvidence(s,t)
-  "Condition.note": for src.note make tgt.note
-endgroup
-
-group for type+types ConditionStage extends BackboneElement
-  input src : ConditionR3 as source
-  input tgt : Condition as target
-
-  "Condition.stage.summary": for src.summary make tgt.summary
-  "Condition.stage.assessment": for src.assessment make tgt.assessment
-  "Condition.stage.type": for src.type make tgt.type
-endgroup
-
-group for type+types ConditionEvidence extends BackboneElement
-  input src : ConditionR3 as source
-  input tgt : Condition as target
-
-  "Condition.evidence.code": for src.code make tgt.code
-  "Condition.evidence.detail": for src.detail make tgt.detail
-endgroup

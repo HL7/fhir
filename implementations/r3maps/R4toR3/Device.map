@@ -1,41 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Device4to3" = "R4 to R3 Conversion for Device"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Device" alias DeviceR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Device extends DomainResource
-  input src : Device as source
-  input tgt : DeviceR3 as target
-
-  "Device.identifier" : for src.identifier make tgt.identifier 
-  "Device.udi" : for src.udi as vs0 make tgt.udi as vt0 then {
-    "Device.udi.deviceIdentifier" : for vs0.deviceIdentifier make vt0.deviceIdentifier 
-    "Device.udi.name" : for vs0.name make vt0.name 
-    "Device.udi.jurisdiction" : for vs0.jurisdiction make vt0.jurisdiction 
-    "Device.udi.carrierHRF" : for vs0.carrierHRF make vt0.carrierHRF 
-    "Device.udi.carrierAIDC" : for vs0.carrierAIDC make vt0.carrierAIDC 
-    "Device.udi.issuer" : for vs0.issuer make vt0.issuer 
-    "Device.udi.entryType" : for vs0.entryType make vt0.entryType 
-  }
-  "Device.status" : for src.status make tgt.status 
-  "Device.type" : for src.type make tgt.type 
-  "Device.lotNumber" : for src.lotNumber make tgt.lotNumber 
-  "Device.manufacturer" : for src.manufacturer make tgt.manufacturer 
-  "Device.manufactureDate" : for src.manufactureDate make tgt.manufactureDate 
-  "Device.expirationDate" : for src.expirationDate make tgt.expirationDate 
-  "Device.model" : for src.model make tgt.model 
-  "Device.version" : for src.version make tgt.version 
-  "Device.patient" : for src.patient make tgt.patient 
-  "Device.owner" : for src.owner make tgt.owner 
-  "Device.contact" : for src.contact make tgt.contact 
-  "Device.location" : for src.location make tgt.location 
-  "Device.url" : for src.url make tgt.url 
-  "Device.note" : for src.note make tgt.note 
-  "Device.safety" : for src.safety make tgt.safety 
-endgroup
+group Device(source src : Device, target tgt : DeviceR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.udi as vs0 -> tgt.udi as vt0 then {
+    vs0.deviceIdentifier -> vt0.deviceIdentifier;
+    vs0.name -> vt0.name;
+    vs0.jurisdiction -> vt0.jurisdiction;
+    vs0.carrierHRF -> vt0.carrierHRF;
+    vs0.carrierAIDC -> vt0.carrierAIDC;
+    vs0.issuer -> vt0.issuer;
+    vs0.entryType -> vt0.entryType;
+  };
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.lotNumber -> tgt.lotNumber;
+  src.manufacturer -> tgt.manufacturer;
+  src.manufactureDate -> tgt.manufactureDate;
+  src.expirationDate -> tgt.expirationDate;
+  src.model -> tgt.model;
+  src.version -> tgt.version;
+  src.patient -> tgt.patient;
+  src.owner -> tgt.owner;
+  src.contact -> tgt.contact;
+  src.location -> tgt.location;
+  src.url -> tgt.url;
+  src.note -> tgt.note;
+  src.safety -> tgt.safety;
+}
 

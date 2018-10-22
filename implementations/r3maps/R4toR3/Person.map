@@ -1,29 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Person4to3" = "R4 to R3 Conversion for Person"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Person" alias Person as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Person" alias PersonR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Person extends DomainResource
-  input src : Person as source
-  input tgt : PersonR3 as target
-
-  "Person.identifier" : for src.identifier make tgt.identifier 
-  "Person.name" : for src.name make tgt.name 
-  "Person.telecom" : for src.telecom make tgt.telecom 
-  "Person.gender" : for src.gender make tgt.gender 
-  "Person.birthDate" : for src.birthDate make tgt.birthDate 
-  "Person.address" : for src.address make tgt.address 
-  "Person.photo" : for src.photo make tgt.photo 
-  "Person.managingOrganization" : for src.managingOrganization make tgt.managingOrganization 
-  "Person.active" : for src.active make tgt.active 
-  "Person.link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Person.link.target" : for vs0.target make vt0.target 
-    "Person.link.assurance" : for vs0.assurance make vt0.assurance 
-  }
-endgroup
+group Person(source src : Person, target tgt : PersonR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.gender -> tgt.gender;
+  src.birthDate -> tgt.birthDate;
+  src.address -> tgt.address;
+  src.photo -> tgt.photo;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.active -> tgt.active;
+  src.link as vs0 -> tgt.link as vt0 then {
+    vs0.target -> vt0.target;
+    vs0.assurance -> vt0.assurance;
+  };
+}
 

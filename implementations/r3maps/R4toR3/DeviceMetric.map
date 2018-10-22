@@ -1,30 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceMetric4to3" = "R4 to R3 Conversion for DeviceMetric"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceMetric" alias DeviceMetricR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types DeviceMetric extends DomainResource
-  input src : DeviceMetric as source
-  input tgt : DeviceMetricR3 as target
-
-  "DeviceMetric.identifier" : for src.identifierFirstRep make tgt.identifier 
-  "DeviceMetric.type" : for src.type make tgt.type 
-  "DeviceMetric.unit" : for src.unit make tgt.unit 
-  "DeviceMetric.source" : for src.source make tgt.source 
-  "DeviceMetric.parent" : for src.parent make tgt.parent 
-  "DeviceMetric.operationalStatus" : for src.operationalStatus make tgt.operationalStatus 
-  "DeviceMetric.color" : for src.color make tgt.color 
-  "DeviceMetric.category" : for src.category make tgt.category 
-  "DeviceMetric.measurementPeriod" : for src.measurementPeriod make tgt.measurementPeriod 
-  "DeviceMetric.calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
-    "DeviceMetric.calibration.type" : for vs0.type make vt0.type 
-    "DeviceMetric.calibration.state" : for vs0.state make vt0.state 
-    "DeviceMetric.calibration.time" : for vs0.time make vt0.time 
-  }
-endgroup
+group DeviceMetric(source src : DeviceMetric, target tgt : DeviceMetricR3) extends DomainResource <<type+>> {
+  src.identifierFirstRep -> tgt.identifier "identifier";
+  src.type -> tgt.type;
+  src.unit -> tgt.unit;
+  src.source -> tgt.source;
+  src.parent -> tgt.parent;
+  src.operationalStatus -> tgt.operationalStatus;
+  src.color -> tgt.color;
+  src.category -> tgt.category;
+  src.measurementPeriod -> tgt.measurementPeriod;
+  src.calibration as vs0 -> tgt.calibration as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.state -> vt0.state;
+    vs0.time -> vt0.time;
+  };
+}
 

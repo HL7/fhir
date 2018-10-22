@@ -1,49 +1,38 @@
 ﻿map "http://hl7.org/fhir/StructureMap/PaymentReconciliation4to3" = "R4 to R3 Conversion for PaymentReconciliation"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/PaymentReconciliation" alias PaymentReconciliation as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/PaymentReconciliation" alias PaymentReconciliationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group PaymentReconciliation(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.period -> tgt.period;
+  src.created -> tgt.created;
+  src.organization -> tgt.organization;
+  src.request -> tgt.request;
+  src.outcome -> tgt.outcome;
+  src.disposition -> tgt.disposition;
+  src.requestProvider -> tgt.requestProvider;
+  src.detail as s -> tgt.detail as t then PaymentReconciliationDetail(s, t);
+  src.form -> tgt.form;
+  src.total -> tgt.total;
+  src.processNote as s -> tgt.processNote as t then PaymentReconciliationProcessNote(s, t);
+}
 
+group PaymentReconciliationDetail(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.request -> tgt.request;
+  src.response -> tgt.response;
+  src.submitter -> tgt.submitter;
+  src.payee -> tgt.payee;
+  src.date -> tgt.date;
+  src.amount -> tgt.amount;
+}
 
-group for type+types PaymentReconciliation extends DomainResource
-  input src : PaymentReconciliationR3 as source
-  input tgt : PaymentReconciliation as target
+group PaymentReconciliationProcessNote(source src : PaymentReconciliationR3, target tgt : PaymentReconciliation) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.text -> tgt.text;
+}
 
-  "PaymentReconciliation.identifier": for src.identifier make tgt.identifier
-  "PaymentReconciliation.status": for src.status make tgt.status
-  "PaymentReconciliation.period": for src.period make tgt.period
-  "PaymentReconciliation.created": for src.created make tgt.created
-  "PaymentReconciliation.organization": for src.organization make tgt.organization
-  "PaymentReconciliation.request": for src.request make tgt.request
-  "PaymentReconciliation.outcome": for src.outcome make tgt.outcome
-  "PaymentReconciliation.disposition": for src.disposition make tgt.disposition
-  "PaymentReconciliation.requestProvider": for src.requestProvider make tgt.requestProvider
-  "PaymentReconciliation.detail": for src.detail as s make tgt.detail as t then PaymentReconciliationDetail(s,t)
-  "PaymentReconciliation.form": for src.form make tgt.form
-  "PaymentReconciliation.total": for src.total make tgt.total
-  "PaymentReconciliation.processNote": for src.processNote as s make tgt.processNote as t then PaymentReconciliationProcessNote(s,t)
-endgroup
-
-group for type+types PaymentReconciliationDetail extends BackboneElement
-  input src : PaymentReconciliationR3 as source
-  input tgt : PaymentReconciliation as target
-
-  "PaymentReconciliation.detail.type": for src.type make tgt.type
-  "PaymentReconciliation.detail.request": for src.request make tgt.request
-  "PaymentReconciliation.detail.response": for src.response make tgt.response
-  "PaymentReconciliation.detail.submitter": for src.submitter make tgt.submitter
-  "PaymentReconciliation.detail.payee": for src.payee make tgt.payee
-  "PaymentReconciliation.detail.date": for src.date make tgt.date
-  "PaymentReconciliation.detail.amount": for src.amount make tgt.amount
-endgroup
-
-group for type+types PaymentReconciliationProcessNote extends BackboneElement
-  input src : PaymentReconciliationR3 as source
-  input tgt : PaymentReconciliation as target
-
-  "PaymentReconciliation.processNote.type": for src.type make tgt.type
-  "PaymentReconciliation.processNote.text": for src.text make tgt.text
-endgroup

@@ -1,27 +1,42 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MessageHeader3to4" = "R3 to R4 Conversions for MessageHeader"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MessageHeader" alias MessageHeaderR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group MessageHeader(source src : MessageHeaderR3, target tgt : MessageHeader) extends DomainResource <<type+>> {
+  src.event -> tgt.event;
+  src.destination as vs0 -> tgt.destination as vt0 then destination(vs0, vt0, src);
+  src.sender -> tgt.sender; // todo: actually, this has been moved into the bundle - figure this out
+  src.timestamp as vs ->  tgt.extension as ext,  ext.url = "http://hl7.org/fhir/StructureDefinition/X34-mh-timestamp",  ext.value = vs;
+  src.enterer -> tgt.enterer;
+  src.author -> tgt.author;
+  src.source as vs0 -> tgt.source as vt0 then source(vs0, vt0);
+  src.responsible -> tgt.responsible;
+  src.reason -> tgt.reason;
+  src.response as vs0 -> tgt.response as vt0 then response(vs0, vt0);
+  src.focus -> tgt.focus;
+}
 
+group destination(source src, target tgt, source msrc) extends BackboneElement {
+  src.name -> tgt.name;
+  src.target -> tgt.target;
+  src.endpoint -> tgt.endpoint;
+  msrc.receiver -> tgt.receiver;
+}
 
-group for type+types MessageHeader extends DomainResource
-  input src : MessageHeaderR3 as source
-  input tgt : MessageHeader as target
+group source(source src, target tgt) extends BackboneElement {
+  src.name -> tgt.name;
+  src.software -> tgt.software;
+  src.version -> tgt.version;
+  src.contact -> tgt.contact;
+  src.endpoint -> tgt.endpoint;
+}
 
-  "MessageHeader.event" : for src.event make tgt.event 
-  "MessageHeader.sender" : for src.sender make tgt.sender 
-  "MessageHeader.author" : for src.author make tgt.author 
-  "MessageHeader.responsible" : for src.responsible make tgt.responsible 
-  "MessageHeader.reason" : for src.reason make tgt.reason 
-  "MessageHeader.response" : for src.response as vs0 make tgt.response as vt0 then {
-    "MessageHeader.response.identifier" : for vs0.identifier make vt0.identifier 
-    "MessageHeader.response.code" : for vs0.code make vt0.code 
-    "MessageHeader.response.details" : for vs0.details make vt0.details 
-  }
-  "MessageHeader.focus" : for src.focus make tgt.focus 
-endgroup
+group response(source src, target tgt) extends BackboneElement {
+  src.identifier -> tgt.identifier;
+  src.code -> tgt.code;
+  src.details -> tgt.details;
+}
 

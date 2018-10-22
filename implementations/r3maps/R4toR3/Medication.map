@@ -1,26 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Medication4to3" = "R4 to R3 Conversion for Medication"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Medication" alias Medication as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Medication" alias MedicationR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Medication extends DomainResource
-  input src : Medication as source
-  input tgt : MedicationR3 as target
-
-  "Medication.code" : for src.code make tgt.code 
-  "Medication.status" : for src.status make tgt.status 
-  "Medication.manufacturer" : for src.manufacturer make tgt.manufacturer 
-  "Medication.form" : for src.form make tgt.form 
-  "Medication.ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
-    "Medication.ingredient.item-CodeableConcept" : for vs0.item : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "Medication.ingredient.item-Reference" : for vs0.item : Reference as vs make vt0.item = create("Reference") as vt then Reference(vs,vt)
-    "Medication.ingredient.isActive" : for vs0.isActive make vt0.isActive 
-    "Medication.ingredient.amount" : for vs0.amount make vt0.amount 
-  }
-endgroup
+group Medication(source src : Medication, target tgt : MedicationR3) extends DomainResource <<type+>> {
+  src.code -> tgt.code;
+  src.status -> tgt.status;
+  src.manufacturer -> tgt.manufacturer;
+  src.form -> tgt.form;
+  src.ingredient as vs0 -> tgt.ingredient as vt0 then {
+    vs0.item : CodeableConcept as vs -> vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+    vs0.item : Reference as vs -> vt0.item = create("Reference") as vt then Reference(vs, vt);
+    vs0.isActive -> vt0.isActive;
+    vs0.amount -> vt0.amount;
+  };
+}
 

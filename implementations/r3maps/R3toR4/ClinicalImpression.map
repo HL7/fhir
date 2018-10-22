@@ -1,11 +1,11 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ClinicalImpression3to4" = "R3 to R4 Conversions for ClinicalImpression"
 
-conceptmap "Clinical Impression Status" {
+conceptmap "ClinicalImpressionStatus" {
   prefix s = "http://hl7.org/fhir/clinical-impression-status"
   prefix t = "http://hl7.org/fhir/event-status"
 
   s:draft - t:"in-progress"
-  s:completed - t:"completed"
+  s:completed - t:completed
   s:"entered-in-error" - t:"entered-in-error"
 }
 
@@ -14,38 +14,33 @@ uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias Clinical
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types ClinicalImpression extends DomainResource
-  input src : ClinicalImpressionR3 as source
-  input tgt : ClinicalImpression as target
-
-  "ClinicalImpression.identifier" : for src.identifier make tgt.identifier 
-  "ClinicalImpression.status" : for src.status as v make tgt.status = translate(v, "#Clinical Impression Status", "code")
-  "ClinicalImpression.code" : for src.code make tgt.code 
-  "ClinicalImpression.description" : for src.description make tgt.description 
-  "ClinicalImpression.subject" : for src.subject make tgt.subject 
-  "ClinicalImpression.context" : for src.context make tgt.context 
-  "ClinicalImpression.effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
-  "ClinicalImpression.effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
-  "ClinicalImpression.date" : for src.date make tgt.date 
-  "ClinicalImpression.assessor" : for src.assessor make tgt.assessor 
-  "ClinicalImpression.previous" : for src.previous make tgt.previous 
-  "ClinicalImpression.problem" : for src.problem make tgt.problem 
-  "ClinicalImpression.investigation" : for src.investigation as vs0 make tgt.investigation as vt0 then {
-    "ClinicalImpression.investigation.code" : for vs0.code make vt0.code 
-    "ClinicalImpression.investigation.item" : for vs0.item make vt0.item 
-  }
-  "ClinicalImpression.protocol" : for src.protocol make tgt.protocol 
-  "ClinicalImpression.summary" : for src.summary make tgt.summary 
-  "ClinicalImpression.finding" : for src.finding as vs0 make tgt.finding as vt0 then {
-    "ClinicalImpression.finding.itemCodeableConcept" : for vs0.itemCodeableConcept make vt0.itemCodeableConcept 
-    "ClinicalImpression.finding.itemReference" : for vs0.itemReference make vt0.itemReference 
-    "ClinicalImpression.finding.basis" : for vs0.basis make vt0.basis 
-  }
-  "ClinicalImpression.prognosisCodeableConcept" : for src.prognosisCodeableConcept make tgt.prognosisCodeableConcept 
-  "ClinicalImpression.prognosisReference" : for src.prognosisReference make tgt.prognosisReference 
-  "ClinicalImpression.action" : for src.action make tgt.action 
-  "ClinicalImpression.note" : for src.note make tgt.note 
-endgroup
+group ClinicalImpression(source src : ClinicalImpressionR3, target tgt : ClinicalImpression) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, "#Clinical Impression Status", "code");
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
+  src.date -> tgt.date;
+  src.assessor -> tgt.assessor;
+  src.previous -> tgt.previous;
+  src.problem -> tgt.problem;
+  src.investigation as vs0 -> tgt.investigation as vt0 then {
+    vs0.code -> vt0.code;
+    vs0.item -> vt0.item;
+  };
+  src.protocol -> tgt.protocol;
+  src.summary -> tgt.summary;
+  src.finding as vs0 -> tgt.finding as vt0 then {
+    vs0.itemCodeableConcept -> vt0.itemCodeableConcept;
+    vs0.itemReference -> vt0.itemReference;
+    vs0.basis -> vt0.basis;
+  };
+  src.prognosisCodeableConcept -> tgt.prognosisCodeableConcept;
+  src.prognosisReference -> tgt.prognosisReference;
+  src.action -> tgt.action;
+  src.note -> tgt.note;
+}
 

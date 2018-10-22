@@ -1,37 +1,31 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Group4to3" = "R4 to R3 Conversion for Group"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Group" alias Group as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Group" alias GroupR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Group extends DomainResource
-  input src : Group as source
-  input tgt : GroupR3 as target
-
-  "Group.identifier" : for src.identifier make tgt.identifier 
-  "Group.active" : for src.active make tgt.active 
-  "Group.type" : for src.type make tgt.type 
-  "Group.actual" : for src.actual make tgt.actual 
-  "Group.code" : for src.code make tgt.code 
-  "Group.name" : for src.name make tgt.name 
-  "Group.quantity" : for src.quantity make tgt.quantity 
-  "Group.characteristic" : for src.characteristic as vs0 make tgt.characteristic as vt0 then {
-    "Group.characteristic.code" : for vs0.code make vt0.code 
-    "Group.characteristic.value-CodeableConcept" : for vs0.value : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "Group.characteristic.value-boolean" : for vs0.value : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs,vt)
-    "Group.characteristic.value-Quantity" : for vs0.value : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs,vt)
-    "Group.characteristic.value-Range" : for vs0.value : Range as vs make vt0.value = create("Range") as vt then Range(vs,vt)
-    "Group.characteristic.exclude" : for vs0.exclude make vt0.exclude 
-    "Group.characteristic.period" : for vs0.period make vt0.period 
-  }
-  "Group.member" : for src.member as vs0 make tgt.member as vt0 then {
-    "Group.member.entity" : for vs0.entity make vt0.entity 
-    "Group.member.period" : for vs0.period make vt0.period 
-    "Group.member.inactive" : for vs0.inactive make vt0.inactive 
-  }
-endgroup
+group Group(source src : Group, target tgt : GroupR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.type -> tgt.type;
+  src.actual -> tgt.actual;
+  src.code -> tgt.code;
+  src.name -> tgt.name;
+  src.quantity -> tgt.quantity;
+  src.characteristic as vs0 -> tgt.characteristic as vt0 then {
+    vs0.code -> vt0.code;
+    vs0.value : CodeableConcept as vs -> vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+    vs0.value : boolean as vs -> vt0.value = create("boolean") as vt then boolean(vs, vt);
+    vs0.value : Quantity as vs -> vt0.value = create("Quantity") as vt then Quantity(vs, vt);
+    vs0.value : Range as vs -> vt0.value = create("Range") as vt then Range(vs, vt);
+    vs0.exclude -> vt0.exclude;
+    vs0.period -> vt0.period;
+  };
+  src.member as vs0 -> tgt.member as vt0 then {
+    vs0.entity -> vt0.entity;
+    vs0.period -> vt0.period;
+    vs0.inactive -> vt0.inactive;
+  };
+}
 

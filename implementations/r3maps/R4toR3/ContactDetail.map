@@ -1,18 +1,12 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ContactDetail4to3" = "R4 to R3 Conversion for ContactDetail"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ContactDetail" alias ContactDetail as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ContactDetail" alias ContactDetailR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types ContactDetail extends Element
-  input src : ContactDetail as source
-  input tgt : ContactDetailR3 as target
-
-  "ContactDetail.name" : for src.name make tgt.name 
-  "ContactDetail.telecom" : for src.telecom make tgt.telecom 
-endgroup
+group ContactDetail(source src : ContactDetail, target tgt : ContactDetailR3) extends Element <<type+>> {
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+}
 

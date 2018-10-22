@@ -10679,6 +10679,8 @@ private int countContains(List<ValueSetExpansionContainsComponent> list) {
       if (!first) {
         b.append("</table>\r\n");        
       }
+      if (first)
+        b.append("<p>No validation errors - all conversions are clean</p>\r\n");
     } else
       b.append("<p>n/a</p>\r\n");
     return b.toString();

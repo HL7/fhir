@@ -14,36 +14,42 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/MessageDefinition" alias Messa
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group MessageDefinition(source src : MessageDefinition, target tgt : MessageDefinitionR3) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.base -> tgt.base;
+  src.parent -> tgt.parent;
+  src.replaces -> tgt.replaces;
+  src.event as vs0 -> tgt.event = create("Coding") as vt0 then Coding(vs0, vt0);
+  src.category as v -> tgt.category = translate(v, "#MessageSignificanceCategory", "code");
+  src.focus as vs0 -> tgt.focus as vt0 then focus(vs0, vt0);
+  src.responseRequired where value = 'always' -> tgt.responseRequired = true;
+  src.responseRequired where value = 'never' -> tgt.responseRequired = false;
+  src.allowedResponse as vs0 -> tgt.allowedResponse as vt0 then allowedResponse(vs0, vt0);
+}
 
+group focus(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.profile -> tgt.profile;
+  src.min -> tgt.min;
+  src.max -> tgt.max;
+}
 
-group for type+types MessageDefinition extends DomainResource
-  input src : MessageDefinition as source
-  input tgt : MessageDefinitionR3 as target
-
-  "MessageDefinition.url" : for src.url make tgt.url 
-  "MessageDefinition.identifier" : for src.identifier make tgt.identifier 
-  "MessageDefinition.version" : for src.version make tgt.version 
-  "MessageDefinition.name" : for src.name make tgt.name 
-  "MessageDefinition.title" : for src.title make tgt.title 
-  "MessageDefinition.status" : for src.status make tgt.status 
-  "MessageDefinition.experimental" : for src.experimental make tgt.experimental 
-  "MessageDefinition.date" : for src.date make tgt.date 
-  "MessageDefinition.publisher" : for src.publisher make tgt.publisher 
-  "MessageDefinition.contact" : for src.contact make tgt.contact 
-  "MessageDefinition.description" : for src.description make tgt.description 
-  "MessageDefinition.useContext" : for src.useContext make tgt.useContext 
-  "MessageDefinition.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
-  "MessageDefinition.purpose" : for src.purpose make tgt.purpose 
-  "MessageDefinition.copyright" : for src.copyright make tgt.copyright 
-  "MessageDefinition.event" : for src.eventCoding make tgt.event 
-  "MessageDefinition.category" : for src.category as v make tgt.category = translate(v, "#MessageSignificanceCategory", "code")
-  "MessageDefinition.focus" : for src.focus as vs0 make tgt.focus as vt0 then {
-    "MessageDefinition.focus.code" : for vs0.code make vt0.code 
-    "MessageDefinition.focus.min" : for vs0.min make vt0.min 
-    "MessageDefinition.focus.max" : for vs0.max make vt0.max 
-  }
-  "MessageDefinition.allowedResponse" : for src.allowedResponse as vs0 make tgt.allowedResponse as vt0 then {
-    "MessageDefinition.allowedResponse.situation" : for vs0.situation make vt0.situation 
-  }
-endgroup
+group allowedResponse(source src, target tgt) extends BackboneElement {
+  src.message -> tgt.message;
+  src.situation -> tgt.situation;
+}
 

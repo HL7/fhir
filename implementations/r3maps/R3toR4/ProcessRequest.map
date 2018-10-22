@@ -1,28 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ProcessRequest3to4" = "R3 to R4 Conversions for ProcessRequest"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessRequest" alias ProcessRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ProcessRequest" alias ProcessRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types ProcessRequest extends DomainResource
-  input src : ProcessRequestR3 as source
-  input tgt : ProcessRequest as target
-
-  "ProcessRequest.identifier" : for src.identifier make tgt.identifier 
-  "ProcessRequest.status" : for src.status make tgt.status 
-  "ProcessRequest.action" : for src.action make tgt.action 
-  "ProcessRequest.target" : for src.target make tgt.target 
-  "ProcessRequest.created" : for src.created make tgt.created 
-  "ProcessRequest.provider" : for src.provider make tgt.provider 
-  "ProcessRequest.response" : for src.response make tgt.response 
-  "ProcessRequest.nullify" : for src.nullify make tgt.nullify 
-  "ProcessRequest.reference" : for src.reference make tgt.reference 
-  "ProcessRequest.include" : for src.include make tgt.include 
-  "ProcessRequest.exclude" : for src.exclude make tgt.exclude 
-  "ProcessRequest.period" : for src.period make tgt.period 
-endgroup
+group ProcessRequest(source src : ProcessRequestR3, target tgt : ProcessRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.action -> tgt.action;
+  src.target -> tgt.target;
+  src.created -> tgt.created;
+  src.provider -> tgt.provider;
+  src.response -> tgt.response;
+  src.nullify -> tgt.nullify;
+  src.reference -> tgt.reference;
+  src.include -> tgt.include;
+  src.exclude -> tgt.exclude;
+  src.period -> tgt.period;
+}
 

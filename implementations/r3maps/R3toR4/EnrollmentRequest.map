@@ -1,23 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EnrollmentRequest3to4" = "R3 to R4 Conversions for EnrollmentRequest"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EnrollmentRequest" alias EnrollmentRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types EnrollmentRequest extends DomainResource
-  input src : EnrollmentRequestR3 as source
-  input tgt : EnrollmentRequest as target
-
-  "EnrollmentRequest.identifier": for src.identifier make tgt.identifier
-  "EnrollmentRequest.status": for src.status make tgt.status
-  "EnrollmentRequest.created": for src.created make tgt.created
-  "EnrollmentRequest.insurer": for src.insurer make tgt.insurer
-  "EnrollmentRequest.provider": for src.provider make tgt.provider
-  "EnrollmentRequest.candidate": for src.candidate make tgt.candidate
-  "EnrollmentRequest.coverage": for src.coverage make tgt.coverage
-endgroup
+group EnrollmentRequest(source src : EnrollmentRequestR3, target tgt : EnrollmentRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.created -> tgt.created;
+  src.insurer -> tgt.insurer;
+  src.provider -> tgt.provider;
+  src.candidate -> tgt.candidate;
+  src.coverage -> tgt.coverage;
+}
 

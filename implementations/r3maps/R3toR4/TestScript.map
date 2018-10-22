@@ -1,71 +1,62 @@
 ﻿map "http://hl7.org/fhir/StructureMap/TestScript3to4" = "R3 to R4 Conversions for TestScript"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/TestScript" alias TestScriptR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types TestScript extends DomainResource
-  input src : TestScriptR3 as source
-  input tgt : TestScript as target
-
-  "TestScript.url" : for src.url make tgt.url 
-  "TestScript.identifier" : for src.identifier make tgt.identifier 
-  "TestScript.version" : for src.version make tgt.version 
-  "TestScript.name" : for src.name make tgt.name 
-  "TestScript.title" : for src.title make tgt.title 
-  "TestScript.status" : for src.status make tgt.status 
-  "TestScript.experimental" : for src.experimental make tgt.experimental 
-  "TestScript.date" : for src.date make tgt.date 
-  "TestScript.publisher" : for src.publisher make tgt.publisher 
-  "TestScript.contact" : for src.contact make tgt.contact 
-  "TestScript.description" : for src.description make tgt.description 
-  "TestScript.useContext" : for src.useContext make tgt.useContext 
-  "TestScript.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
-  "TestScript.purpose" : for src.purpose make tgt.purpose 
-  "TestScript.copyright" : for src.copyright make tgt.copyright 
-  "TestScript.origin" : for src.origin as vs0 make tgt.origin as vt0 then {
-    "TestScript.origin.index" : for vs0.index make vt0.index 
-    "TestScript.origin.profile" : for vs0.profile make vt0.profile 
-  }
-  "TestScript.destination" : for src.destination as vs0 make tgt.destination as vt0 then {
-    "TestScript.destination.index" : for vs0.index make vt0.index 
-    "TestScript.destination.profile" : for vs0.profile make vt0.profile 
-  }
-  "TestScript.metadata" : for src.metadata as vs0 make tgt.metadata as vt0 then {
-  }
-  "TestScript.fixture" : for src.fixture as vs0 make tgt.fixture as vt0 then {
-    "TestScript.fixture.autocreate" : for vs0.autocreate make vt0.autocreate 
-    "TestScript.fixture.autodelete" : for vs0.autodelete make vt0.autodelete 
-    "TestScript.fixture.resource" : for vs0.resource make vt0.resource 
-  }
-  "TestScript.profile" : for src.profile make tgt.profile 
-  "TestScript.variable" : for src.variable as vs0 make tgt.variable as vt0 then {
-    "TestScript.variable.name" : for vs0.name make vt0.name 
-    "TestScript.variable.defaultValue" : for vs0.defaultValue make vt0.defaultValue 
-    "TestScript.variable.description" : for vs0.description make vt0.description 
-    "TestScript.variable.expression" : for vs0.expression make vt0.expression 
-    "TestScript.variable.headerField" : for vs0.headerField make vt0.headerField 
-    "TestScript.variable.hint" : for vs0.hint make vt0.hint 
-    "TestScript.variable.path" : for vs0.path make vt0.path 
-    "TestScript.variable.sourceId" : for vs0.sourceId make vt0.sourceId 
-  }
-  "TestScript.rule" : for src.rule as vs0 make tgt.rule as vt0 then {
-    "TestScript.rule.resource" : for vs0.resource make vt0.resource 
-  }
-  "TestScript.ruleset" : for src.ruleset as vs0 make tgt.ruleset as vt0 then {
-    "TestScript.ruleset.resource" : for vs0.resource make vt0.resource 
-  }
-  "TestScript.setup" : for src.setup as vs0 make tgt.setup as vt0 then {
-  }
-  "TestScript.test" : for src.test as vs0 make tgt.test as vt0 then {
-    "TestScript.test.name" : for vs0.name make vt0.name 
-    "TestScript.test.description" : for vs0.description make vt0.description 
-  }
-  "TestScript.teardown" : for src.teardown as vs0 make tgt.teardown as vt0 then {
-  }
-endgroup
+group TestScript(source src : TestScriptR3, target tgt : TestScript) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.origin as vs0 -> tgt.origin as vt0 then {
+    vs0.index -> vt0.index;
+    vs0.profile -> vt0.profile;
+  };
+  src.destination as vs0 -> tgt.destination as vt0 then {
+    vs0.index -> vt0.index;
+    vs0.profile -> vt0.profile;
+  };
+  src.metadata -> tgt.metadata;
+  src.fixture as vs0 -> tgt.fixture as vt0 then {
+    vs0.autocreate -> vt0.autocreate;
+    vs0.autodelete -> vt0.autodelete;
+    vs0.resource -> vt0.resource;
+  };
+  src.profile -> tgt.profile;
+  src.variable as vs0 -> tgt.variable as vt0 then {
+    vs0.name -> vt0.name;
+    vs0.defaultValue -> vt0.defaultValue;
+    vs0.description -> vt0.description;
+    vs0.expression -> vt0.expression;
+    vs0.headerField -> vt0.headerField;
+    vs0.hint -> vt0.hint;
+    vs0.path -> vt0.path;
+    vs0.sourceId -> vt0.sourceId;
+  };
+  src.rule as vs0 -> tgt.rule as vt0 then {
+    vs0.resource -> vt0.resource;
+  };
+  src.ruleset as vs0 -> tgt.ruleset as vt0 then {
+    vs0.resource -> vt0.resource;
+  };
+  src.setup -> tgt.setup;
+  src.test as vs0 -> tgt.test as vt0 then {
+    vs0.name -> vt0.name;
+    vs0.description -> vt0.description;
+  };
+  src.teardown -> tgt.teardown;
+}
 

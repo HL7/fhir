@@ -1,74 +1,56 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy3to4" = "R3 to R4 Conversions for ImagingStudy"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ImagingStudy" alias ImagingStudyR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group ImagingStudy(source src : ImagingStudyR3, target tgt : ImagingStudy) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.modality -> tgt.modality;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.started -> tgt.started;
+  src.basedOn -> tgt.basedOn;
+  src.referrer -> tgt.referrer;
+  src.interpreter -> tgt.interpreter;
+  src.endpoint -> tgt.endpoint;
+  src.numberOfSeries -> tgt.numberOfSeries;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.procedureReference -> tgt.procedureReference;
+  src.procedureCode -> tgt.procedureCode;
+  src.location -> tgt.location;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.series as s -> tgt.series as t then ImagingStudySeries(s, t);
+}
 
+group ImagingStudySeries(source src : ImagingStudyR3, target tgt : ImagingStudy) extends BackboneElement <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.number -> tgt.number;
+  src.modality -> tgt.modality;
+  src.description -> tgt.description;
+  src.numberOfInstances -> tgt.numberOfInstances;
+  src.endpoint -> tgt.endpoint;
+  src.bodySite -> tgt.bodySite;
+  src.laterality -> tgt.laterality;
+  src.specimen -> tgt.specimen;
+  src.started -> tgt.started;
+  src.performer as s -> tgt.performer as t then ImagingStudySeriesPerformer(s, t);
+  src.instance as s -> tgt.instance as t then ImagingStudySeriesInstance(s, t);
+}
 
-group for type+types ImagingStudy extends DomainResource
-  input src : ImagingStudyR3 as source
-  input tgt : ImagingStudy as target
+group ImagingStudySeriesPerformer(source src : ImagingStudyR3, target tgt : ImagingStudy) extends BackboneElement <<type+>> {
+  src.function -> tgt.function;
+  src.actor -> tgt.actor;
+}
 
-  "ImagingStudy.identifier": for src.identifier make tgt.identifier
-  "ImagingStudy.status": for src.status make tgt.status
-  "ImagingStudy.modality": for src.modality make tgt.modality
-  "ImagingStudy.subject": for src.subject make tgt.subject
-  "ImagingStudy.context": for src.context make tgt.context
-  "ImagingStudy.started": for src.started make tgt.started
-  "ImagingStudy.basedOn": for src.basedOn make tgt.basedOn
-  "ImagingStudy.referrer": for src.referrer make tgt.referrer
-  "ImagingStudy.interpreter": for src.interpreter make tgt.interpreter
-  "ImagingStudy.endpoint": for src.endpoint make tgt.endpoint
-  "ImagingStudy.numberOfSeries": for src.numberOfSeries make tgt.numberOfSeries
-  "ImagingStudy.numberOfInstances": for src.numberOfInstances make tgt.numberOfInstances
-  "ImagingStudy.procedureReference": for src.procedureReference make tgt.procedureReference
-  "ImagingStudy.procedureCode": for src.procedureCode make tgt.procedureCode
-  "ImagingStudy.location": for src.location make tgt.location
-  "ImagingStudy.reasonCode": for src.reasonCode make tgt.reasonCode
-  "ImagingStudy.reasonReference": for src.reasonReference make tgt.reasonReference
-  "ImagingStudy.note": for src.note make tgt.note
-  "ImagingStudy.series": for src.series as s make tgt.series as t then ImagingStudySeries(s,t)
-endgroup
-
-
-group for type+types ImagingStudySeries extends BackboneElement
-  input src : ImagingStudyR3 as source
-  input tgt : ImagingStudy as target
-
-  "ImagingStudy.series.identifier": for src.identifier make tgt.identifier
-  "ImagingStudy.series.number": for src.number make tgt.number
-  "ImagingStudy.series.modality": for src.modality make tgt.modality
-  "ImagingStudy.series.description": for src.description make tgt.description
-  "ImagingStudy.series.numberOfInstances": for src.numberOfInstances make tgt.numberOfInstances
-  "ImagingStudy.series.endpoint": for src.endpoint make tgt.endpoint
-  "ImagingStudy.series.bodySite": for src.bodySite make tgt.bodySite
-  "ImagingStudy.series.laterality": for src.laterality make tgt.laterality
-  "ImagingStudy.series.specimen": for src.specimen make tgt.specimen
-  "ImagingStudy.series.started": for src.started make tgt.started
-  "ImagingStudy.series.performer": for src.performer as s make tgt.performer as t then ImagingStudySeriesPerformer(s,t)
-  "ImagingStudy.series.instance": for src.instance as s make tgt.instance as t then ImagingStudySeriesInstance(s,t)
-endgroup
-
-
-group for type+types ImagingStudySeriesPerformer extends BackboneElement
-  input src : ImagingStudyR3 as source
-  input tgt : ImagingStudy as target
-
-  "ImagingStudy.series.performer.function": for src.function make tgt.function
-  "ImagingStudy.series.performer.actor": for src.actor make tgt.actor
-endgroup
-
-
-group for type+types ImagingStudySeriesInstance extends BackboneElement
-  input src : ImagingStudyR3 as source
-  input tgt : ImagingStudy as target
-
-  "ImagingStudy.series.instance.identifier": for src.identifier make tgt.identifier
-  "ImagingStudy.series.instance.number": for src.number make tgt.number
-  "ImagingStudy.series.instance.sopClass": for src.sopClass make tgt.sopClass
-  "ImagingStudy.series.instance.title": for src.title make tgt.title
-endgroup
+group ImagingStudySeriesInstance(source src : ImagingStudyR3, target tgt : ImagingStudy) extends BackboneElement <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.number -> tgt.number;
+  src.sopClass -> tgt.sopClass;
+  src.title -> tgt.title;
+}
 

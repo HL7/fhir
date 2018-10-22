@@ -1,41 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Appointment3to4" = "R3 to R4 Conversions for Appointment"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Appointment" alias AppointmentR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias Appointment as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Appointment extends DomainResource
-  input src : AppointmentR3 as source
-  input tgt : Appointment as target
-
-  "Appointment.identifier" : for src.identifier make tgt.identifier 
-  "Appointment.status" : for src.status make tgt.status 
-  "Appointment.serviceCategory" : for src.serviceCategory make tgt.serviceCategory 
-  "Appointment.serviceType" : for src.serviceType make tgt.serviceType 
-  "Appointment.specialty" : for src.specialty make tgt.specialty 
-  "Appointment.appointmentType" : for src.appointmentType make tgt.appointmentType 
-  "Appointment.reason" : for src.reason make tgt.reason 
-  "Appointment.indication" : for src.indication make tgt.indication 
-  "Appointment.priority" : for src.priority make tgt.priority 
-  "Appointment.description" : for src.description make tgt.description 
-  "Appointment.supportingInformation" : for src.supportingInformation make tgt.supportingInformation 
-  "Appointment.start" : for src.start make tgt.start 
-  "Appointment.end" : for src.end make tgt.end 
-  "Appointment.minutesDuration" : for src.minutesDuration make tgt.minutesDuration 
-  "Appointment.slot" : for src.slot make tgt.slot 
-  "Appointment.created" : for src.created make tgt.created 
-  "Appointment.comment" : for src.comment make tgt.comment 
-  "Appointment.basedOn" : for src.incomingReferral make tgt.basedOn 
-  "Appointment.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Appointment.participant.type" : for vs0.type make vt0.type 
-    "Appointment.participant.actor" : for vs0.actor make vt0.actor 
-    "Appointment.participant.required" : for vs0.required make vt0.required 
-    "Appointment.participant.status" : for vs0.status make vt0.status 
-  }
-  "Appointment.requestedPeriod" : for src.requestedPeriod make tgt.requestedPeriod 
-endgroup
+group Appointment(source src : AppointmentR3, target tgt : Appointment) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.serviceCategory -> tgt.serviceCategory;
+  src.serviceType -> tgt.serviceType;
+  src.specialty -> tgt.specialty;
+  src.appointmentType -> tgt.appointmentType;
+  src.reason -> tgt.reason;
+  src.indication -> tgt.indication;
+  src.priority -> tgt.priority;
+  src.description -> tgt.description;
+  src.supportingInformation -> tgt.supportingInformation;
+  src.start -> tgt.start;
+  src.end -> tgt.end;
+  src.minutesDuration -> tgt.minutesDuration;
+  src.slot -> tgt.slot;
+  src.created -> tgt.created;
+  src.comment -> tgt.comment;
+  src.incomingReferral -> tgt.basedOn "basedOn";
+  src.participant as vs0 -> tgt.participant as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.actor -> vt0.actor;
+    vs0.required -> vt0.required;
+    vs0.status -> vt0.status;
+  };
+  src.requestedPeriod -> tgt.requestedPeriod;
+}
 

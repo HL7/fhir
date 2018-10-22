@@ -1,28 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceUseStatement3to4" = "R3 to R4 Conversions for DeviceUseStatement"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types DeviceUseStatement extends DomainResource
-  input src : DeviceUseStatementR3 as source
-  input tgt : DeviceUseStatement as target
-
-  "DeviceUseStatement.identifier" : for src.identifier make tgt.identifier 
-  "DeviceUseStatement.status" : for src.status make tgt.status 
-  "DeviceUseStatement.subject" : for src.subject make tgt.subject 
-  "DeviceUseStatement.timing-Timing" : for src.timing : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs,vt)
-  "DeviceUseStatement.timing-Period" : for src.timing : Period as vs make tgt.timing = create("Period") as vt then Period(vs,vt)
-  "DeviceUseStatement.timing-dateTime" : for src.timing : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs,vt)
-  "DeviceUseStatement.recordedOn" : for src.recordedOn make tgt.recordedOn 
-  "DeviceUseStatement.source" : for src.source make tgt.source 
-  "DeviceUseStatement.device" : for src.device make tgt.device 
-  "DeviceUseStatement.reasonCode" : for src.indication make tgt.reasonCode 
-  "DeviceUseStatement.bodySite" : for src.bodySite make tgt.bodySite 
-  "DeviceUseStatement.note" : for src.note make tgt.note 
-endgroup
+group DeviceUseStatement(source src : DeviceUseStatementR3, target tgt : DeviceUseStatement) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.timing : Timing as vs -> tgt.timing = create("Timing") as vt then Timing(vs, vt);
+  src.timing : Period as vs -> tgt.timing = create("Period") as vt then Period(vs, vt);
+  src.timing : dateTime as vs -> tgt.timing = create("dateTime") as vt then dateTime(vs, vt);
+  src.recordedOn -> tgt.recordedOn;
+  src.source -> tgt.source;
+  src.device -> tgt.device;
+  src.indication -> tgt.reasonCode "reasonCode";
+  src.bodySite -> tgt.bodySite;
+  src.note -> tgt.note;
+}
 

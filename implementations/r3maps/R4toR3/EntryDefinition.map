@@ -1,35 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EntryDefinition4to3" = "R4 to R3 Conversion for EntryDefinition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/EntryDefinition" alias EntryDefinition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EntryDefinition" alias EntryDefinitionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group EntryDefinition(source src : EntryDefinitionR3, target tgt : EntryDefinition) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.orderable -> tgt.orderable;
+  src.referencedItem -> tgt.referencedItem;
+  src.additionalIdentifier -> tgt.additionalIdentifier;
+  src.classification -> tgt.classification;
+  src.status -> tgt.status;
+  src.validityPeriod -> tgt.validityPeriod;
+  src.lastUpdated -> tgt.lastUpdated;
+  src.additionalCharacteristic -> tgt.additionalCharacteristic;
+  src.additionalClassification -> tgt.additionalClassification;
+  src.relatedEntry as s -> tgt.relatedEntry as t then EntryDefinitionRelatedEntry(s, t);
+}
 
+group EntryDefinitionRelatedEntry(source src : EntryDefinitionR3, target tgt : EntryDefinition) extends BackboneElement <<type+>> {
+  src.relationtype -> tgt.relationtype;
+  src.item -> tgt.item;
+}
 
-group for type+types EntryDefinition extends DomainResource
-  input src : EntryDefinitionR3 as source
-  input tgt : EntryDefinition as target
-
-  "EntryDefinition.identifier": for src.identifier make tgt.identifier
-  "EntryDefinition.type": for src.type make tgt.type
-  "EntryDefinition.orderable": for src.orderable make tgt.orderable
-  "EntryDefinition.referencedItem": for src.referencedItem make tgt.referencedItem
-  "EntryDefinition.additionalIdentifier": for src.additionalIdentifier make tgt.additionalIdentifier
-  "EntryDefinition.classification": for src.classification make tgt.classification
-  "EntryDefinition.status": for src.status make tgt.status
-  "EntryDefinition.validityPeriod": for src.validityPeriod make tgt.validityPeriod
-  "EntryDefinition.lastUpdated": for src.lastUpdated make tgt.lastUpdated
-  "EntryDefinition.additionalCharacteristic": for src.additionalCharacteristic make tgt.additionalCharacteristic
-  "EntryDefinition.additionalClassification": for src.additionalClassification make tgt.additionalClassification
-  "EntryDefinition.relatedEntry": for src.relatedEntry as s make tgt.relatedEntry as t then EntryDefinitionRelatedEntry(s,t)
-endgroup
-
-group for type+types EntryDefinitionRelatedEntry extends BackboneElement
-  input src : EntryDefinitionR3 as source
-  input tgt : EntryDefinition as target
-
-  "EntryDefinition.relatedEntry.relationtype": for src.relationtype make tgt.relationtype
-  "EntryDefinition.relatedEntry.item": for src.item make tgt.item
-endgroup

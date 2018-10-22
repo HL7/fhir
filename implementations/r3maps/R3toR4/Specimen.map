@@ -1,49 +1,43 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Specimen3to4" = "R3 to R4 Conversions for Specimen"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Specimen" alias SpecimenR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias Specimen as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Specimen extends DomainResource
-  input src : SpecimenR3 as source
-  input tgt : Specimen as target
-
-  "Specimen.identifier" : for src.identifier make tgt.identifier 
-  "Specimen.accessionIdentifier" : for src.accessionIdentifier make tgt.accessionIdentifier 
-  "Specimen.status" : for src.status make tgt.status 
-  "Specimen.type" : for src.type make tgt.type 
-  "Specimen.subject" : for src.subject make tgt.subject 
-  "Specimen.receivedTime" : for src.receivedTime make tgt.receivedTime 
-  "Specimen.parent" : for src.parent make tgt.parent 
-  "Specimen.request" : for src.request make tgt.request 
-  "Specimen.collection" : for src.collection as vs0 make tgt.collection as vt0 then {
-    "Specimen.collection.collector" : for vs0.collector make vt0.collector 
-    "Specimen.collection.collected-dateTime" : for vs0.collected : dateTime as vs make vt0.collected = create("dateTime") as vt then dateTime(vs,vt)
-    "Specimen.collection.collected-Period" : for vs0.collected : Period as vs make vt0.collected = create("Period") as vt then Period(vs,vt)
-    "Specimen.collection.quantity" : for vs0.quantity make vt0.quantity 
-    "Specimen.collection.method" : for vs0.method make vt0.method 
-    "Specimen.collection.bodySite" : for vs0.bodySite make vt0.bodySite 
-  }
-  "Specimen.processing" : for src.processing as vs0 make tgt.processing as vt0 then {
-    "Specimen.processing.description" : for vs0.description make vt0.description 
-    "Specimen.processing.procedure" : for vs0.procedure make vt0.procedure 
-    "Specimen.processing.additive" : for vs0.additive make vt0.additive 
-    "Specimen.processing.time-dateTime" : for vs0.time : dateTime as vs make vt0.time = create("dateTime") as vt then dateTime(vs,vt)
-    "Specimen.processing.time-Period" : for vs0.time : Period as vs make vt0.time = create("Period") as vt then Period(vs,vt)
-  }
-  "Specimen.container" : for src.container as vs0 make tgt.container as vt0 then {
-    "Specimen.container.identifier" : for vs0.identifier make vt0.identifier 
-    "Specimen.container.description" : for vs0.description make vt0.description 
-    "Specimen.container.type" : for vs0.type make vt0.type 
-    "Specimen.container.capacity" : for vs0.capacity make vt0.capacity 
-    "Specimen.container.specimenQuantity" : for vs0.specimenQuantity make vt0.specimenQuantity 
-    "Specimen.container.additive-CodeableConcept" : for vs0.additive : CodeableConcept as vs make vt0.additive = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "Specimen.container.additive-Reference" : for vs0.additive : Reference as vs make vt0.additive = create("Reference") as vt then Reference(vs,vt)
-  }
-  "Specimen.note" : for src.note make tgt.note 
-endgroup
+group Specimen(source src : SpecimenR3, target tgt : Specimen) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.accessionIdentifier -> tgt.accessionIdentifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.subject -> tgt.subject;
+  src.receivedTime -> tgt.receivedTime;
+  src.parent -> tgt.parent;
+  src.request -> tgt.request;
+  src.collection as vs0 -> tgt.collection as vt0 then {
+    vs0.collector -> vt0.collector;
+    vs0.collected : dateTime as vs -> vt0.collected = create("dateTime") as vt then dateTime(vs, vt);
+    vs0.collected : Period as vs -> vt0.collected = create("Period") as vt then Period(vs, vt);
+    vs0.quantity -> vt0.quantity;
+    vs0.method -> vt0.method;
+    vs0.bodySite -> vt0.bodySite;
+  };
+  src.processing as vs0 -> tgt.processing as vt0 then {
+    vs0.description -> vt0.description;
+    vs0.procedure -> vt0.procedure;
+    vs0.additive -> vt0.additive;
+    vs0.time : dateTime as vs -> vt0.time = create("dateTime") as vt then dateTime(vs, vt);
+    vs0.time : Period as vs -> vt0.time = create("Period") as vt then Period(vs, vt);
+  };
+  src.container as vs0 -> tgt.container as vt0 then {
+    vs0.identifier -> vt0.identifier;
+    vs0.description -> vt0.description;
+    vs0.type -> vt0.type;
+    vs0.capacity -> vt0.capacity;
+    vs0.specimenQuantity -> vt0.specimenQuantity;
+    vs0.additive : CodeableConcept as vs -> vt0.additive = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+    vs0.additive : Reference as vs -> vt0.additive = create("Reference") as vt then Reference(vs, vt);
+  };
+  src.note -> tgt.note;
+}
 

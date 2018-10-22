@@ -1,34 +1,28 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationStatement4to3" = "R4 to R3 Conversion for MedicationStatement"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicationStatement" alias MedicationStatementR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types MedicationStatement extends DomainResource
-  input src : MedicationStatement as source
-  input tgt : MedicationStatementR3 as target
-
-  "MedicationStatement.identifier" : for src.identifier make tgt.identifier 
-  "MedicationStatement.basedOn" : for src.basedOn make tgt.basedOn 
-  "MedicationStatement.partOf" : for src.partOf make tgt.partOf 
-  "MedicationStatement.context" : for src.context make tgt.context 
-  "MedicationStatement.status" : for src.status make tgt.status 
-  "MedicationStatement.category" : for src.category make tgt.category 
-  "MedicationStatement.medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationStatement.medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationStatement.effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
-  "MedicationStatement.effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
-  "MedicationStatement.dateAsserted" : for src.dateAsserted make tgt.dateAsserted 
-  "MedicationStatement.informationSource" : for src.informationSource make tgt.informationSource 
-  "MedicationStatement.subject" : for src.subject make tgt.subject 
-  "MedicationStatement.derivedFrom" : for src.derivedFrom make tgt.derivedFrom 
-  "MedicationStatement.reasonCode" : for src.reasonCode make tgt.reasonCode 
-  "MedicationStatement.reasonReference" : for src.reasonReference make tgt.reasonReference 
-  "MedicationStatement.note" : for src.note make tgt.note 
-  "MedicationStatement.dosage" : for src.dosage make tgt.dosage 
-endgroup
+group MedicationStatement(source src : MedicationStatement, target tgt : MedicationStatementR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.partOf;
+  src.context -> tgt.context;
+  src.status -> tgt.status;
+  src.category -> tgt.category;
+  src.medication : CodeableConcept as vs -> tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt);
+  src.medication : Reference as vs -> tgt.medication = create("Reference") as vt then Reference(vs, vt);
+  src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
+  src.dateAsserted -> tgt.dateAsserted;
+  src.informationSource -> tgt.informationSource;
+  src.subject -> tgt.subject;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.dosage -> tgt.dosage;
+}
 

@@ -14,35 +14,32 @@ uses "http://hl7.org/fhir/3.0/StructureDefinition/ClinicalImpression" alias Clin
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-group for type+types ClinicalImpression extends DomainResource
-  input src : ClinicalImpression as source
-  input tgt : ClinicalImpressionR3 as target
-
-  "ClinicalImpression.identifier" : for src.identifier make tgt.identifier 
-  "ClinicalImpression.status" : for src.status as v make tgt.status = translate(v, "#ClinicalImpressionStatus", "code")
-  "ClinicalImpression.code" : for src.code make tgt.code 
-  "ClinicalImpression.description" : for src.description make tgt.description 
-  "ClinicalImpression.subject" : for src.subject make tgt.subject 
-  "ClinicalImpression.context" : for src.context make tgt.context 
-  "ClinicalImpression.effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs,vt)
-  "ClinicalImpression.effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs,vt)
-  "ClinicalImpression.date" : for src.date make tgt.date 
-  "ClinicalImpression.assessor" : for src.assessor make tgt.assessor 
-  "ClinicalImpression.previous" : for src.previous make tgt.previous 
-  "ClinicalImpression.problem" : for src.problem make tgt.problem 
-  "ClinicalImpression.investigation" : for src.investigation as vs0 make tgt.investigation as vt0 then {
-    "ClinicalImpression.investigation.code" : for vs0.code make vt0.code 
-    "ClinicalImpression.investigation.item" : for vs0.item make vt0.item 
-  }
-  "ClinicalImpression.protocol" : for src.protocol make tgt.protocol 
-  "ClinicalImpression.summary" : for src.summary make tgt.summary 
-  "ClinicalImpression.finding" : for src.finding as vs0 make tgt.finding as vt0 then {
-    "ClinicalImpression.finding.item-CodeableConcept" : for vs0.itemCodeableConcept : CodeableConcept as vs make vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "ClinicalImpression.finding.basis" : for vs0.basis make vt0.basis 
-  }
-  "ClinicalImpression.prognosisCodeableConcept" : for src.prognosisCodeableConcept make tgt.prognosisCodeableConcept 
-  "ClinicalImpression.prognosisReference" : for src.prognosisReference make tgt.prognosisReference 
-  "ClinicalImpression.action" : for src.action make tgt.action 
-  "ClinicalImpression.note" : for src.note make tgt.note 
-endgroup
+group ClinicalImpression(source src : ClinicalImpression, target tgt : ClinicalImpressionR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status as v -> tgt.status = translate(v, "#ClinicalImpressionStatus", "code");
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.effective : dateTime as vs -> tgt.effective = create("dateTime") as vt then dateTime(vs, vt);
+  src.effective : Period as vs -> tgt.effective = create("Period") as vt then Period(vs, vt);
+  src.date -> tgt.date;
+  src.assessor -> tgt.assessor;
+  src.previous -> tgt.previous;
+  src.problem -> tgt.problem;
+  src.investigation as vs0 -> tgt.investigation as vt0 then {
+    vs0.code -> vt0.code;
+    vs0.item -> vt0.item;
+  };
+  src.protocol -> tgt.protocol;
+  src.summary -> tgt.summary;
+  src.finding as vs0 -> tgt.finding as vt0 then {
+    vs0.itemCodeableConcept : CodeableConcept as vs -> vt0.item = create("CodeableConcept") as vt then CodeableConcept(vs, vt) "item-CodeableConcept";
+    vs0.basis -> vt0.basis;
+  };
+  src.prognosisCodeableConcept -> tgt.prognosisCodeableConcept;
+  src.prognosisReference -> tgt.prognosisReference;
+  src.action -> tgt.action;
+  src.note -> tgt.note;
+}
 

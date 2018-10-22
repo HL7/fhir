@@ -1,75 +1,61 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CarePlan3to4" = "R3 to R4 Conversions for CarePlan"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CarePlan" alias CarePlanR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlan as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group CarePlan(source src : CarePlanR3, target tgt : CarePlan) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.basedOn -> tgt.basedOn;
+  src.replaces -> tgt.replaces;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.intent -> tgt.intent;
+  src.category -> tgt.category;
+  src.title -> tgt.title;
+  src.description -> tgt.description;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.period -> tgt.period;
+  src.created -> tgt.created;
+  src.author -> tgt.author;
+  src.contributor -> tgt.contributor;
+  src.careTeam -> tgt.careTeam;
+  src.addresses -> tgt.addresses;
+  src.supportingInfo -> tgt.supportingInfo;
+  src.goal -> tgt.goal;
+  src.activity as s -> tgt.activity as t then CarePlanActivity(s, t);
+  src.note -> tgt.note;
+}
 
+group CarePlanActivity(source src : CarePlanR3, target tgt : CarePlan) extends BackboneElement <<type+>> {
+  src.outcomeCodeableConcept -> tgt.outcomeCodeableConcept;
+  src.outcomeReference -> tgt.outcomeReference;
+  src.progress -> tgt.progress;
+  src.reference -> tgt.reference;
+  src.detail as s -> tgt.detail as t then CarePlanActivityDetail(s, t);
+}
 
-group for type+types CarePlan extends DomainResource
-  input src : CarePlanR3 as source
-  input tgt : CarePlan as target
-
-  "CarePlan.identifier": for src.identifier make tgt.identifier
-  "CarePlan.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
-  "CarePlan.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
-  "CarePlan.basedOn": for src.basedOn make tgt.basedOn
-  "CarePlan.replaces": for src.replaces make tgt.replaces
-  "CarePlan.partOf": for src.partOf make tgt.partOf
-  "CarePlan.status": for src.status make tgt.status
-  "CarePlan.intent": for src.intent make tgt.intent
-  "CarePlan.category": for src.category make tgt.category
-  "CarePlan.title": for src.title make tgt.title
-  "CarePlan.description": for src.description make tgt.description
-  "CarePlan.subject": for src.subject make tgt.subject
-  "CarePlan.context": for src.context make tgt.context
-  "CarePlan.period": for src.period make tgt.period
-  "CarePlan.created": for src.created make tgt.created
-  "CarePlan.author": for src.author make tgt.author
-  "CarePlan.contributor": for src.contributor make tgt.contributor
-  "CarePlan.careTeam": for src.careTeam make tgt.careTeam
-  "CarePlan.addresses": for src.addresses make tgt.addresses
-  "CarePlan.supportingInfo": for src.supportingInfo make tgt.supportingInfo
-  "CarePlan.goal": for src.goal make tgt.goal
-  "CarePlan.activity": for src.activity as s make tgt.activity as t then CarePlanActivity(s,t)
-  "CarePlan.note": for src.note make tgt.note
-endgroup
-
-
-group for type+types CarePlanActivity extends BackboneElement
-  input src : CarePlanR3 as source
-  input tgt : CarePlan as target
-
-  "CarePlan.activity.outcomeCodeableConcept": for src.outcomeCodeableConcept make tgt.outcomeCodeableConcept
-  "CarePlan.activity.outcomeReference": for src.outcomeReference make tgt.outcomeReference
-  "CarePlan.activity.progress": for src.progress make tgt.progress
-  "CarePlan.activity.reference": for src.reference make tgt.reference
-  "CarePlan.activity.detail": for src.detail as s make tgt.detail as t then CarePlanActivityDetail(s,t)
-endgroup
-
-
-group for type+types CarePlanActivityDetail extends BackboneElement
-  input src : CarePlanR3 as source
-  input tgt : CarePlan as target
-
-  "CarePlan.activity.detail.kind": for src.kind make tgt.kind
-  "CarePlan.activity.detail.instantiatesCanonical": for src.instantiatesCanonical make tgt.instantiatesCanonical
-  "CarePlan.activity.detail.instantiatesUri": for src.instantiatesUri make tgt.instantiatesUri
-  "CarePlan.activity.detail.code": for src.code make tgt.code
-  "CarePlan.activity.detail.reasonCode": for src.reasonCode make tgt.reasonCode
-  "CarePlan.activity.detail.reasonReference": for src.reasonReference make tgt.reasonReference
-  "CarePlan.activity.detail.goal": for src.goal make tgt.goal
-  "CarePlan.activity.detail.status": for src.status make tgt.status
-  "CarePlan.activity.detail.statusReason": for src.statusReason make tgt.statusReason
-  "CarePlan.activity.detail.doNotPerform": for src.doNotPerform make tgt.doNotPerform
-  "CarePlan.activity.detail.scheduled": for src.scheduled make tgt.scheduled
-  "CarePlan.activity.detail.location": for src.location make tgt.location
-  "CarePlan.activity.detail.performer": for src.performer make tgt.performer
-  "CarePlan.activity.detail.product": for src.product make tgt.product
-  "CarePlan.activity.detail.dailyAmount": for src.dailyAmount make tgt.dailyAmount
-  "CarePlan.activity.detail.quantity": for src.quantity make tgt.quantity
-  "CarePlan.activity.detail.description": for src.description make tgt.description
-endgroup
+group CarePlanActivityDetail(source src : CarePlanR3, target tgt : CarePlan) extends BackboneElement <<type+>> {
+  src.kind -> tgt.kind;
+  src.instantiatesCanonical -> tgt.instantiatesCanonical;
+  src.instantiatesUri -> tgt.instantiatesUri;
+  src.code -> tgt.code;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.goal -> tgt.goal;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.doNotPerform -> tgt.doNotPerform;
+  src.scheduled -> tgt.scheduled;
+  src.location -> tgt.location;
+  src.performer -> tgt.performer;
+  src.product -> tgt.product;
+  src.dailyAmount -> tgt.dailyAmount;
+  src.quantity -> tgt.quantity;
+  src.description -> tgt.description;
+}
 

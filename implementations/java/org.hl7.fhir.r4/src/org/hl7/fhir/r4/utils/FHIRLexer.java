@@ -50,9 +50,9 @@ public class FHIRLexer {
   }
 
   public boolean isConstant(boolean incDoubleQuotes) {
-    return current.charAt(0) == '\'' || (incDoubleQuotes && current.charAt(0) == '"') || current.charAt(0) == '@' || current.charAt(0) == '%' || 
+    return current != null && (current.charAt(0) == '\'' || (incDoubleQuotes && current.charAt(0) == '"') || current.charAt(0) == '@' || current.charAt(0) == '%' || 
         current.charAt(0) == '-' || current.charAt(0) == '+' || (current.charAt(0) >= '0' && current.charAt(0) <= '9') || 
-        current.equals("true") || current.equals("false") || current.equals("{}");
+        current.equals("true") || current.equals("false") || current.equals("{}"));
   }
 
   public boolean isStringConstant() {
@@ -125,7 +125,7 @@ public class FHIRLexer {
       char ch = source.charAt(cursor);
       if (ch == '!' || ch == '>' || ch == '<' || ch == ':' || ch == '-' || ch == '=')  {
         cursor++;
-        if (cursor < source.length() && (source.charAt(cursor) == '=' || source.charAt(cursor) == '~' || source.charAt(cursor) == '-')) 
+        if (cursor < source.length() && (source.charAt(cursor) == '=' || source.charAt(cursor) == '~' || source.charAt(cursor) == '-') || (ch == '-' && source.charAt(cursor) == '>')) 
           cursor++;
         current = source.substring(currentStart, cursor);
       } else if (ch == '.' ) {

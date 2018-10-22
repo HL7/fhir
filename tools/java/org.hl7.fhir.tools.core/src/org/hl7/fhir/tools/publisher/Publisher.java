@@ -3048,18 +3048,20 @@ public class Publisher implements URIResolver, SectionNumberer {
     String n = name.toLowerCase();
     Map<String, String> values = new HashMap<String, String>();
     values.put("conv-status", page.r3r4StatusForResource(name));
-    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R3toR4", page.r3nameForResource(name)+".map")));
-    values.put("bcks", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R4toR3", name+".map")));
+    String fwds = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R3toR4", page.r3nameForResource(name)+".map"));
+    String bcks = TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r3maps", "R4toR3", name+".map"));
+    values.put("fwds", Utilities.escapeXml(fwds));
+    values.put("bcks", Utilities.escapeXml(bcks));
     values.put("fwds-status", "");
     values.put("bcks-status", "");
-    values.put("r3errs", page.getR3R4ValidationErrors(name));
+    values.put("r3errs", Utilities.escapeXml(page.getR3R4ValidationErrors(name)));
     try {
-      new StructureMapUtilities(page.getWorkerContext()).parse(values.get("fwds"));
+      new StructureMapUtilities(page.getWorkerContext()).parse(fwds);
     } catch (FHIRException e) {
       values.put("fwds-status", "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n");
     }
     try {
-      new StructureMapUtilities(page.getWorkerContext()).parse(values.get("bcks"));
+      new StructureMapUtilities(page.getWorkerContext()).parse(bcks);
     } catch (FHIRException e) {
       values.put("bcks-status", "<p style=\"background-color: #ffb3b3; border:1px solid maroon; padding: 5px;\">This script does not compile: "+e.getMessage()+"</p>\r\n");
     }

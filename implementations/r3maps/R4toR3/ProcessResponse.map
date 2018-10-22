@@ -1,35 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ProcessResponse4to3" = "R4 to R3 Conversion for ProcessResponse"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ProcessResponse" alias ProcessResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProcessResponse" alias ProcessResponseR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ProcessResponse(source src : ProcessResponseR3, target tgt : ProcessResponse) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.created -> tgt.created;
+  src.organization -> tgt.organization;
+  src.request -> tgt.request;
+  src.outcome -> tgt.outcome;
+  src.disposition -> tgt.disposition;
+  src.requestProvider -> tgt.requestProvider;
+  src.form -> tgt.form;
+  src.processNote as s -> tgt.processNote as t then ProcessResponseProcessNote(s, t);
+  src.error -> tgt.error;
+  src.communicationRequest -> tgt.communicationRequest;
+}
 
+group ProcessResponseProcessNote(source src : ProcessResponseR3, target tgt : ProcessResponse) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.text -> tgt.text;
+}
 
-group for type+types ProcessResponse extends DomainResource
-  input src : ProcessResponseR3 as source
-  input tgt : ProcessResponse as target
-
-  "ProcessResponse.identifier": for src.identifier make tgt.identifier
-  "ProcessResponse.status": for src.status make tgt.status
-  "ProcessResponse.created": for src.created make tgt.created
-  "ProcessResponse.organization": for src.organization make tgt.organization
-  "ProcessResponse.request": for src.request make tgt.request
-  "ProcessResponse.outcome": for src.outcome make tgt.outcome
-  "ProcessResponse.disposition": for src.disposition make tgt.disposition
-  "ProcessResponse.requestProvider": for src.requestProvider make tgt.requestProvider
-  "ProcessResponse.form": for src.form make tgt.form
-  "ProcessResponse.processNote": for src.processNote as s make tgt.processNote as t then ProcessResponseProcessNote(s,t)
-  "ProcessResponse.error": for src.error make tgt.error
-  "ProcessResponse.communicationRequest": for src.communicationRequest make tgt.communicationRequest
-endgroup
-
-group for type+types ProcessResponseProcessNote extends BackboneElement
-  input src : ProcessResponseR3 as source
-  input tgt : ProcessResponse as target
-
-  "ProcessResponse.processNote.type": for src.type make tgt.type
-  "ProcessResponse.processNote.text": for src.text make tgt.text
-endgroup

@@ -1,35 +1,29 @@
 ﻿map "http://hl7.org/fhir/StructureMap/NamingSystem4to3" = "R4 to R3 Conversion for NamingSystem"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystem as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/NamingSystem" alias NamingSystemR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types NamingSystem extends DomainResource
-  input src : NamingSystem as source
-  input tgt : NamingSystemR3 as target
-
-  "NamingSystem.name" : for src.name make tgt.name 
-  "NamingSystem.status" : for src.status make tgt.status 
-  "NamingSystem.kind" : for src.kind make tgt.kind 
-  "NamingSystem.date" : for src.date make tgt.date 
-  "NamingSystem.publisher" : for src.publisher make tgt.publisher 
-  "NamingSystem.contact" : for src.contact make tgt.contact 
-  "NamingSystem.responsible" : for src.responsible make tgt.responsible 
-  "NamingSystem.type" : for src.type make tgt.type 
-  "NamingSystem.description" : for src.description make tgt.description 
-  "NamingSystem.useContext" : for src.useContext make tgt.useContext 
-  "NamingSystem.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
-  "NamingSystem.usage" : for src.usage make tgt.usage 
-  "NamingSystem.uniqueId" : for src.uniqueId as vs0 make tgt.uniqueId as vt0 then {
-    "NamingSystem.uniqueId.type" : for vs0.type make vt0.type 
-    "NamingSystem.uniqueId.value" : for vs0.value make vt0.value 
-    "NamingSystem.uniqueId.preferred" : for vs0.preferred make vt0.preferred 
-    "NamingSystem.uniqueId.comment" : for vs0.comment make vt0.comment 
-    "NamingSystem.uniqueId.period" : for vs0.period make vt0.period 
-  }
-endgroup
+group NamingSystem(source src : NamingSystem, target tgt : NamingSystemR3) extends DomainResource <<type+>> {
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.kind -> tgt.kind;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.responsible -> tgt.responsible;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.usage -> tgt.usage;
+  src.uniqueId as vs0 -> tgt.uniqueId as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.value -> vt0.value;
+    vs0.preferred -> vt0.preferred;
+    vs0.comment -> vt0.comment;
+    vs0.period -> vt0.period;
+  };
+}
 
