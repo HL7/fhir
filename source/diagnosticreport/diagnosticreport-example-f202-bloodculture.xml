@@ -69,10 +69,10 @@
 					<reference value="Patient/f201"/>
 					<display value="Roel"/>
 				</subject>
-				<context>
+				<encounter>
 					<reference value="Encounter/f203"/>
 					<display value="Roel's encounter on March elevanth 2013"/>
-				</context>
+				</encounter>
 				<requester>
 						<reference value="Practitioner/f201"/>
 						<display value="Dokter Bronsig"/>

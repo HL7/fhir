@@ -66,9 +66,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				<subject>
 					<reference value="Patient/pat2"/>
 				</subject>
-				<context>
+				<encounter>
 					<reference value="Encounter/example"/>
-				</context>
+				</encounter>
 				<effectiveDateTime value="2011-03-04T08:30:00+11:00"/><!--    all this report is final    --><issued value="2011-03-04T11:45:33+11:00"/>
 				<performer>
 					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
