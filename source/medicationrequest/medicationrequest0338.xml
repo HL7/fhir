@@ -22,7 +22,7 @@
                             <display value="Dopamine"/>
                         </coding>
                     </itemCodeableConcept>
-                    <amount>
+                    <strength>
                         <numerator>
                             <value value="400"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -33,7 +33,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="mL"/>
                         </denominator>
-                    </amount>
+                    </strength>
                 </ingredient>
                 <ingredient>
                     <itemCodeableConcept>
@@ -43,7 +43,7 @@
                             <display value="Dextrose 5% injection USP"/>
                         </coding>
                     </itemCodeableConcept>
-                    <amount>
+                    <strength>
                         <numerator>
                             <value value="5"/>
                             <system value="http://unitsofmeasure.org"/>
@@ -54,7 +54,7 @@
                             <system value="http://unitsofmeasure.org"/>
                             <code value="mL"/>
                         </denominator>
-                    </amount>
+                    </strength>
                 </ingredient>
             
         </Medication>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
-<PlanDefinition xmlns="http://hl7.org/fhir">
+<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="example-cardiology-os" />
   <contained>
     <Library>
@@ -115,7 +117,7 @@
         <itemReference>
           <reference value="#metoprololTartrate25Substance" />
         </itemReference>
-        <amount>
+        <strength>
           <numerator>
             <value value="25" />
             <unit value="mg" />
@@ -124,7 +126,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </amount>
+        </strength>
       </ingredient>
     </Medication>
   </contained>
@@ -209,7 +211,7 @@
         <itemReference>
           <reference value="#metoprololTartrate50Substance" />
         </itemReference>
-        <amount>
+        <strength>
           <numerator>
             <value value="50" />
             <unit value="mg" />
@@ -218,7 +220,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </amount>
+        </strength>
       </ingredient>
     </Medication>
   </contained>
@@ -398,7 +400,7 @@
         <itemReference>
           <reference value="#nitroglycerinSubstance" />
         </itemReference>
-        <amount>
+        <strength>
           <numerator>
             <value value="0.4" />
             <unit value="mg" />
@@ -407,7 +409,7 @@
             <value value="1" />
             <unit value="{tbl}" />
           </denominator>
-        </amount>
+        </strength>
       </ingredient>
     </Medication>
   </contained>

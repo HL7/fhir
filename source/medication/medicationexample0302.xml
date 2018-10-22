@@ -32,7 +32,7 @@
           <display value="Piperacillin Sodium"/>
         </coding>
       </itemCodeableConcept>
-      <amount>
+      <strength>
         <numerator>
           <value value="4"/>
           <system value="http://unitsofmeasure.org"/>
@@ -43,7 +43,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
     <ingredient>
       <itemCodeableConcept>
@@ -53,7 +53,7 @@
           <display value="Tazobactam Sodium"/>
         </coding>
       </itemCodeableConcept>
-      <amount>
+      <strength>
         <numerator>
           <value value="0.5"/>
           <system value="http://unitsofmeasure.org"/>
@@ -64,7 +64,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
   
 </Medication>
