@@ -1,4 +1,5 @@
 -------------------------------------------------------------------------------------
+
 {"code" : {
   "code" : "de"
 }, "valueSet" :{
@@ -35,7 +36,3008 @@
         },
         {
           "language" : "ru",
-          "value" : "Бенгальский"
+          "value" : "???????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Bengalisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Bengalsk"
+        }]
+      },
+      {
+        "code" : "cs",
+        "display" : "Czech",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Czech"
+        },
+        {
+          "language" : "nl",
+          "value" : "Tsjechisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Tschechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tjekkisk"
+        }]
+      },
+      {
+        "code" : "da",
+        "display" : "Danish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Danish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Deens"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "D�nisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Dansk"
+        }]
+      },
+      {
+        "code" : "de",
+        "display" : "German",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk"
+        }]
+      },
+      {
+        "code" : "de-AT",
+        "display" : "German (Austria)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Austria)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Oostenrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (�sterreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (�strig"
+        }]
+      },
+      {
+        "code" : "de-CH",
+        "display" : "German (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "de-DE",
+        "display" : "German (Germany)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Germany)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Duitsland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Deutschland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Tyskland)"
+        }]
+      },
+      {
+        "code" : "el",
+        "display" : "Greek",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Greek"
+        },
+        {
+          "language" : "nl",
+          "value" : "Grieks"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Griechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Gr�sk"
+        }]
+      },
+      {
+        "code" : "en",
+        "display" : "English",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk"
+        }]
+      },
+      {
+        "code" : "en-AU",
+        "display" : "English (Australia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Australia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Australi�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ??????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Australien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Australien)"
+        }]
+      },
+      {
+        "code" : "en-CA",
+        "display" : "English (Canada)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Canada)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Canada)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Kanada)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Canada)"
+        }]
+      },
+      {
+        "code" : "en-GB",
+        "display" : "English (Great Britain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Great Britain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Groot Brittanni�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (??????????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Gro�britannien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Storbritannien)"
+        }]
+      },
+      {
+        "code" : "en-IN",
+        "display" : "English (India)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (India)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (India)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (?????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Indien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Indien)"
+        }]
+      },
+      {
+        "code" : "en-NZ",
+        "display" : "English (New Zeland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (New Zeland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Nieuw Zeeland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (????? ????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Neuseeland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (New Zeeland)"
+        }]
+      },
+      {
+        "code" : "en-SG",
+        "display" : "English (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Singapore)"
+        }]
+      },
+      {
+        "code" : "en-US",
+        "display" : "English (United States)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (United States)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Verenigde Staten)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (???)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (USA)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Amerikansk)"
+        }]
+      },
+      {
+        "code" : "es",
+        "display" : "Spanish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk"
+        }]
+      },
+      {
+        "code" : "es-AR",
+        "display" : "Spanish (Argentina)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Argentina)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Argentini�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Argentinien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Argentina)"
+        }]
+      },
+      {
+        "code" : "es-ES",
+        "display" : "Spanish (Spain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Spain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Spanje)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Spanien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Spanien)"
+        }]
+      },
+      {
+        "code" : "es-UY",
+        "display" : "Spanish (Uruguay)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Uruguay)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Uruguay)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Uruguay)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Uruguay)"
+        }]
+      },
+      {
+        "code" : "fi",
+        "display" : "Finnish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Finnish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fins"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Finnisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk"
+        }]
+      },
+      {
+        "code" : "fr",
+        "display" : "French",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk"
+        }]
+      },
+      {
+        "code" : "fr-BE",
+        "display" : "French (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Belgi�)"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "fr-CH",
+        "display" : "French (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "fr-FR",
+        "display" : "French (France)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (France)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Frankrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch (Frankreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Frankrig)"
+        }]
+      },
+      {
+        "code" : "fy",
+        "display" : "Frysian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk"
+        }]
+      },
+      {
+        "code" : "fy-NL",
+        "display" : "Frysian (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries (Nederland)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????????"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk (Holland)"
+        }]
+      },
+      {
+        "code" : "hi",
+        "display" : "Hindi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "en",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Hindi"
+        }]
+      },
+      {
+        "code" : "hr",
+        "display" : "Croatian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Croatian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kroatisk"
+        }]
+      },
+      {
+        "code" : "it",
+        "display" : "Italian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk"
+        }]
+      },
+      {
+        "code" : "it-CH",
+        "display" : "Italian (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "it-IT",
+        "display" : "Italian (Italy)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Italy)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Itali�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Italien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Italien)"
+        }]
+      },
+      {
+        "code" : "ja",
+        "display" : "Japanese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Japanese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Japans"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Japanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Japansk"
+        }]
+      },
+      {
+        "code" : "ko",
+        "display" : "Korean",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Korean"
+        },
+        {
+          "language" : "nl",
+          "value" : "Koreaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Koreanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Koreansk"
+        }]
+      },
+      {
+        "code" : "nl",
+        "display" : "Dutch",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederl�ndisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk"
+        }]
+      },
+      {
+        "code" : "nl-BE",
+        "display" : "Dutch (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (Belgi�)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederl�ndisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "nl-NL",
+        "display" : "Dutch (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (Nederland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????????? (??????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederl�ndisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Holland)"
+        }]
+      },
+      {
+        "code" : "no",
+        "display" : "Norwegian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk"
+        }]
+      },
+      {
+        "code" : "no-NO",
+        "display" : "Norwegian (Norway)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian (Norway)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors (Noorwegen)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch (Norwegen)"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk (Norge)"
+        }]
+      },
+      {
+        "code" : "pa",
+        "display" : "Punjabi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "en",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Punjabi"
+        }]
+      },
+      {
+        "code" : "pt",
+        "display" : "Portuguese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk"
+        }]
+      },
+      {
+        "code" : "pt-BR",
+        "display" : "Portuguese (Brazil)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese (Brazil)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees (Brazili�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch (Brasilien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk (Brasilien)"
+        }]
+      },
+      {
+        "code" : "ru",
+        "display" : "Russian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk"
+        }]
+      },
+      {
+        "code" : "ru-RU",
+        "display" : "Russian (Russia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian (Russia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch (Rusland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch (Russland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk (Rusland)"
+        }]
+      },
+      {
+        "code" : "sr",
+        "display" : "Serbian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk"
+        }]
+      },
+      {
+        "code" : "sr-SP",
+        "display" : "Serbian (Serbia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian (Serbia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch (Servi�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "????? ??????"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch (Serbien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk (Serbien)"
+        }]
+      },
+      {
+        "code" : "sv",
+        "display" : "Swedish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk"
+        }]
+      },
+      {
+        "code" : "sv-SE",
+        "display" : "Swedish (Sweden)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish (Sweden)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds (Zweden)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch (Schweden)"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk (Sverige)"
+        }]
+      },
+      {
+        "code" : "te",
+        "display" : "Telegu",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Telegu"
+        },
+        {
+          "language" : "nl",
+          "value" : "Teloegoe"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Telugu"
+        },
+        {
+          "language" : "da",
+          "value" : "Telugu"
+        }]
+      },
+      {
+        "code" : "zh",
+        "display" : "Chinese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees"
+        },
+        {
+          "language" : "ru",
+          "value" : "K????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk"
+        }]
+      },
+      {
+        "code" : "zh-CN",
+        "display" : "Chinese (China)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (China)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (China)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (?????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (China)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Kina)"
+        }]
+      },
+      {
+        "code" : "zh-HK",
+        "display" : "Chinese (Hong Kong)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Hong Kong)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Hong Kong)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Hong Kong)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Hong Kong)"
+        }]
+      },
+      {
+        "code" : "zh-SG",
+        "display" : "Chinese (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Singapore)"
+        }]
+      },
+      {
+        "code" : "zh-TW",
+        "display" : "Chinese (Taiwan)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Taiwan)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Taiwan)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Taiwan)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Taiwan)"
+        }]
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "German",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+
+{"code" : {
+  "code" : "zh"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:47",
+      "concept" : [{
+        "code" : "ar",
+        "display" : "Arabic",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Arabisk"
+        },
+        {
+          "language" : "en",
+          "value" : "Arabic"
+        },
+        {
+          "language" : "nl",
+          "value" : "Arabisch"
+        }]
+      },
+      {
+        "code" : "bn",
+        "display" : "Bengali",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Bengali"
+        },
+        {
+          "language" : "nl",
+          "value" : "Bengaals"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Bengalisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Bengalsk"
+        }]
+      },
+      {
+        "code" : "cs",
+        "display" : "Czech",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Czech"
+        },
+        {
+          "language" : "nl",
+          "value" : "Tsjechisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Tschechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tjekkisk"
+        }]
+      },
+      {
+        "code" : "da",
+        "display" : "Danish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Danish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Deens"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "D�nisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Dansk"
+        }]
+      },
+      {
+        "code" : "de",
+        "display" : "German",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk"
+        }]
+      },
+      {
+        "code" : "de-AT",
+        "display" : "German (Austria)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Austria)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Oostenrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (�sterreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (�strig"
+        }]
+      },
+      {
+        "code" : "de-CH",
+        "display" : "German (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "de-DE",
+        "display" : "German (Germany)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "German (Germany)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Duits (Duitsland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Deutsch (Deutschland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Tysk (Tyskland)"
+        }]
+      },
+      {
+        "code" : "el",
+        "display" : "Greek",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Greek"
+        },
+        {
+          "language" : "nl",
+          "value" : "Grieks"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Griechisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Gr�sk"
+        }]
+      },
+      {
+        "code" : "en",
+        "display" : "English",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk"
+        }]
+      },
+      {
+        "code" : "en-AU",
+        "display" : "English (Australia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Australia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Australi�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ??????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Australien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Australien)"
+        }]
+      },
+      {
+        "code" : "en-CA",
+        "display" : "English (Canada)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Canada)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Canada)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Kanada)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Canada)"
+        }]
+      },
+      {
+        "code" : "en-GB",
+        "display" : "English (Great Britain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Great Britain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Groot Brittanni�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (??????????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Gro�britannien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Storbritannien)"
+        }]
+      },
+      {
+        "code" : "en-IN",
+        "display" : "English (India)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (India)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (India)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (?????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Indien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Indien)"
+        }]
+      },
+      {
+        "code" : "en-NZ",
+        "display" : "English (New Zeland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (New Zeland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Nieuw Zeeland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (????? ????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Neuseeland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (New Zeeland)"
+        }]
+      },
+      {
+        "code" : "en-SG",
+        "display" : "English (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Singapore)"
+        }]
+      },
+      {
+        "code" : "en-US",
+        "display" : "English (United States)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "English (United States)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Engels (Verenigde Staten)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (???)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Englisch (USA)"
+        },
+        {
+          "language" : "da",
+          "value" : "Engelsk (Amerikansk)"
+        }]
+      },
+      {
+        "code" : "es",
+        "display" : "Spanish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk"
+        }]
+      },
+      {
+        "code" : "es-AR",
+        "display" : "Spanish (Argentina)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Argentina)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Argentini�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Argentinien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Argentina)"
+        }]
+      },
+      {
+        "code" : "es-ES",
+        "display" : "Spanish (Spain)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Spain)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Spanje)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Spanien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Spanien)"
+        }]
+      },
+      {
+        "code" : "es-UY",
+        "display" : "Spanish (Uruguay)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Spanish (Uruguay)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Spaans (Uruguay)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Spanisch (Uruguay)"
+        },
+        {
+          "language" : "da",
+          "value" : "Spansk (Uruguay)"
+        }]
+      },
+      {
+        "code" : "fi",
+        "display" : "Finnish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Finnish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fins"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Finnisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk"
+        }]
+      },
+      {
+        "code" : "fr",
+        "display" : "French",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk"
+        }]
+      },
+      {
+        "code" : "fr-BE",
+        "display" : "French (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Belgi�)"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Finsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "fr-CH",
+        "display" : "French (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "fr-FR",
+        "display" : "French (France)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "French (France)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Frans (Frankrijk)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Franz�sisch (Frankreich)"
+        },
+        {
+          "language" : "da",
+          "value" : "Fransk (Frankrig)"
+        }]
+      },
+      {
+        "code" : "fy",
+        "display" : "Frysian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk"
+        }]
+      },
+      {
+        "code" : "fy-NL",
+        "display" : "Frysian (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Frysian (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Fries (Nederland)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????????"
+        },
+        {
+          "language" : "de",
+          "value" : "Friesisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Frisisk (Holland)"
+        }]
+      },
+      {
+        "code" : "hi",
+        "display" : "Hindi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "en",
+          "value" : "Hindi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Hindi"
+        }]
+      },
+      {
+        "code" : "hr",
+        "display" : "Croatian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Croatian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Kroatisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kroatisk"
+        }]
+      },
+      {
+        "code" : "it",
+        "display" : "Italian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk"
+        }]
+      },
+      {
+        "code" : "it-CH",
+        "display" : "Italian (Switzerland)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Switzerland)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Zwitserland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (?????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Schweiz)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Schweiz)"
+        }]
+      },
+      {
+        "code" : "it-IT",
+        "display" : "Italian (Italy)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Italian (Italy)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Italiaans (Itali�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Italienisch (Italien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Italiensk (Italien)"
+        }]
+      },
+      {
+        "code" : "ja",
+        "display" : "Japanese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Japanese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Japans"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Japanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Japansk"
+        }]
+      },
+      {
+        "code" : "ko",
+        "display" : "Korean",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Korean"
+        },
+        {
+          "language" : "nl",
+          "value" : "Koreaans"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Koreanisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Koreansk"
+        }]
+      },
+      {
+        "code" : "nl",
+        "display" : "Dutch",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederl�ndisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk"
+        }]
+      },
+      {
+        "code" : "nl-BE",
+        "display" : "Dutch (Belgium)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Belgium)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (Belgi�)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederl�ndisch (Belgien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Belgien)"
+        }]
+      },
+      {
+        "code" : "nl-NL",
+        "display" : "Dutch (Netherlands)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Dutch (Netherlands)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Nederlands (Nederland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????????? (??????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Niederl�ndisch (Niederlande)"
+        },
+        {
+          "language" : "da",
+          "value" : "Hollandsk (Holland)"
+        }]
+      },
+      {
+        "code" : "no",
+        "display" : "Norwegian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk"
+        }]
+      },
+      {
+        "code" : "no-NO",
+        "display" : "Norwegian (Norway)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Norwegian (Norway)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Noors (Noorwegen)"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Norwegisch (Norwegen)"
+        },
+        {
+          "language" : "da",
+          "value" : "Norsk (Norge)"
+        }]
+      },
+      {
+        "code" : "pa",
+        "display" : "Punjabi",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "en",
+          "value" : "Punjabi"
+        },
+        {
+          "language" : "nl",
+          "value" : "Punjabi"
+        }]
+      },
+      {
+        "code" : "pt",
+        "display" : "Portuguese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees"
+        },
+        {
+          "language" : "ru",
+          "value" : "?????????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk"
+        }]
+      },
+      {
+        "code" : "pt-BR",
+        "display" : "Portuguese (Brazil)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Portuguese (Brazil)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Portugees (Brazili�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "???? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Portugiesisch (Brasilien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Portugisisk (Brasilien)"
+        }]
+      },
+      {
+        "code" : "ru",
+        "display" : "Russian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk"
+        }]
+      },
+      {
+        "code" : "ru-RU",
+        "display" : "Russian (Russia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Russian (Russia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Russisch (Rusland)"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Russisch (Russland)"
+        },
+        {
+          "language" : "da",
+          "value" : "Russisk (Rusland)"
+        }]
+      },
+      {
+        "code" : "sr",
+        "display" : "Serbian",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk"
+        }]
+      },
+      {
+        "code" : "sr-SP",
+        "display" : "Serbian (Serbia)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Serbian (Serbia)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Servisch (Servi�)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "????? ??????"
+        },
+        {
+          "language" : "de",
+          "value" : "Serbisch (Serbien)"
+        },
+        {
+          "language" : "da",
+          "value" : "Serbisk (Serbien)"
+        }]
+      },
+      {
+        "code" : "sv",
+        "display" : "Swedish",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds"
+        },
+        {
+          "language" : "ru",
+          "value" : "????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "???"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk"
+        }]
+      },
+      {
+        "code" : "sv-SE",
+        "display" : "Swedish (Sweden)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Swedish (Sweden)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Zweeds (Zweden)"
+        },
+        {
+          "language" : "ru",
+          "value" : "???????? (??????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "??? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Schwedisch (Schweden)"
+        },
+        {
+          "language" : "da",
+          "value" : "Svensk (Sverige)"
+        }]
+      },
+      {
+        "code" : "te",
+        "display" : "Telegu",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Telegu"
+        },
+        {
+          "language" : "nl",
+          "value" : "Teloegoe"
+        },
+        {
+          "language" : "ru",
+          "value" : "??????"
+        },
+        {
+          "language" : "zh",
+          "value" : "????"
+        },
+        {
+          "language" : "de",
+          "value" : "Telugu"
+        },
+        {
+          "language" : "da",
+          "value" : "Telugu"
+        }]
+      },
+      {
+        "code" : "zh",
+        "display" : "Chinese",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees"
+        },
+        {
+          "language" : "ru",
+          "value" : "K????????"
+        },
+        {
+          "language" : "zh",
+          "value" : "??"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk"
+        }]
+      },
+      {
+        "code" : "zh-CN",
+        "display" : "Chinese (China)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (China)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (China)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (?????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (China)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Kina)"
+        }]
+      },
+      {
+        "code" : "zh-HK",
+        "display" : "Chinese (Hong Kong)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Hong Kong)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Hong Kong)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Hong Kong)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Hong Kong)"
+        }]
+      },
+      {
+        "code" : "zh-SG",
+        "display" : "Chinese (Singapore)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Singapore)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Singapore)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (????????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ?????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Singapur)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Singapore)"
+        }]
+      },
+      {
+        "code" : "zh-TW",
+        "display" : "Chinese (Taiwan)",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Chinese (Taiwan)"
+        },
+        {
+          "language" : "nl",
+          "value" : "Chinees (Taiwan)"
+        },
+        {
+          "language" : "ru",
+          "value" : "K???????? (???????)"
+        },
+        {
+          "language" : "zh",
+          "value" : "?? ????"
+        },
+        {
+          "language" : "de",
+          "value" : "Chinesisch (Taiwan)"
+        },
+        {
+          "language" : "da",
+          "value" : "Kinesisk (Taiwan)"
+        }]
+      }]
+    }]
+  }
+}}####
+v: {
+  "display" : "Chinese",
+  "severity" : null,
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "de"
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:47",
+      "concept" : [{
+        "code" : "ar",
+        "display" : "Arabic",
+        "designation" : [{
+          "language" : "da",
+          "value" : "Arabisk"
+        },
+        {
+          "language" : "en",
+          "value" : "Arabic"
+        },
+        {
+          "language" : "nl",
+          "value" : "Arabisch"
+        }]
+      },
+      {
+        "code" : "bn",
+        "display" : "Bengali",
+        "designation" : [{
+          "language" : "en",
+          "value" : "Bengali"
+        },
+        {
+          "language" : "nl",
+          "value" : "Bengaals"
+        },
+        {
+          "language" : "ru",
+          "value" : "Бенгаль�?кий"
         },
         {
           "language" : "zh",
@@ -63,11 +3065,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Чешский"
+          "value" : "Чеш�?кий"
         },
         {
           "language" : "zh",
-          "value" : "捷克语"
+          "value" : "�?�克语"
         },
         {
           "language" : "de",
@@ -91,7 +3093,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Датский"
+          "value" : "Дат�?кий"
         },
         {
           "language" : "zh",
@@ -119,7 +3121,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Немецкий"
+          "value" : "�?емецкий"
         },
         {
           "language" : "zh",
@@ -147,7 +3149,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Немецкий (Австрия)"
+          "value" : "�?емецкий (�?в�?три�?)"
         },
         {
           "language" : "zh",
@@ -175,7 +3177,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Немецкий (Швейцария)"
+          "value" : "�?емецкий (Швейцари�?)"
         },
         {
           "language" : "zh",
@@ -203,7 +3205,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Немецкий (Германия)"
+          "value" : "�?емецкий (Германи�?)"
         },
         {
           "language" : "zh",
@@ -231,7 +3233,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Греческий"
+          "value" : "Грече�?кий"
         },
         {
           "language" : "zh",
@@ -259,7 +3261,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский"
+          "value" : "�?нглий�?кий"
         },
         {
           "language" : "zh",
@@ -287,7 +3289,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (Австралия)"
+          "value" : "�?нглий�?кий (�?в�?трали�?)"
         },
         {
           "language" : "zh",
@@ -315,7 +3317,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (Канада)"
+          "value" : "�?нглий�?кий (Канада)"
         },
         {
           "language" : "zh",
@@ -343,7 +3345,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (Великобритания)"
+          "value" : "�?нглий�?кий (Великобритани�?)"
         },
         {
           "language" : "zh",
@@ -371,11 +3373,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (Индия)"
+          "value" : "�?нглий�?кий (Инди�?)"
         },
         {
           "language" : "zh",
-          "value" : "英语 （印度）"
+          "value" : "英语 （�?�度）"
         },
         {
           "language" : "de",
@@ -399,7 +3401,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (Новая Зеландия)"
+          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
         },
         {
           "language" : "zh",
@@ -427,11 +3429,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (Сингапур)"
+          "value" : "�?нглий�?кий (Сингапур)"
         },
         {
           "language" : "zh",
-          "value" : "英语 （新加坡）"
+          "value" : "英语 （新加�?�）"
         },
         {
           "language" : "de",
@@ -455,7 +3457,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Английский (США)"
+          "value" : "�?нглий�?кий (СШ�?)"
         },
         {
           "language" : "zh",
@@ -483,11 +3485,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Испанский"
+          "value" : "И�?пан�?кий"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语"
+          "value" : "西�?�牙语"
         },
         {
           "language" : "de",
@@ -511,11 +3513,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Испанский (Аргентина)"
+          "value" : "И�?пан�?кий (�?ргентина)"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语 （阿根廷）"
+          "value" : "西�?�牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -539,11 +3541,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Испанский (Испания)"
+          "value" : "И�?пан�?кий (И�?пани�?)"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语 （西班牙）"
+          "value" : "西�?�牙语 （西�?�牙）"
         },
         {
           "language" : "de",
@@ -567,11 +3569,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Испанский (Уругвай)"
+          "value" : "И�?пан�?кий (Уругвай)"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语 （乌拉圭）"
+          "value" : "西�?�牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -595,7 +3597,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Финский"
+          "value" : "Фин�?кий"
         },
         {
           "language" : "zh",
@@ -623,7 +3625,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Французский"
+          "value" : "Француз�?кий"
         },
         {
           "language" : "zh",
@@ -671,7 +3673,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Французский (Швейцария)"
+          "value" : "Француз�?кий (Швейцари�?)"
         },
         {
           "language" : "zh",
@@ -699,7 +3701,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Французский (Франция)"
+          "value" : "Француз�?кий (Франци�?)"
         },
         {
           "language" : "zh",
@@ -751,7 +3753,7 @@
         },
         {
           "language" : "zh",
-          "value" : "弗里士兰语（荷兰）"
+          "value" : "弗里士兰语（�?�兰）"
         },
         {
           "language" : "de",
@@ -791,7 +3793,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Хорватский"
+          "value" : "Хорват�?кий"
         },
         {
           "language" : "zh",
@@ -819,11 +3821,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Итальянский"
+          "value" : "Италь�?н�?кий"
         },
         {
           "language" : "zh",
-          "value" : "意大利语"
+          "value" : "�?大利语"
         },
         {
           "language" : "de",
@@ -847,11 +3849,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Итальянский (Швейцария)"
+          "value" : "Италь�?н�?кий (Швейцари�?)"
         },
         {
           "language" : "zh",
-          "value" : "意大利语 （瑞士）"
+          "value" : "�?大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -875,11 +3877,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Итальянский (Италия)"
+          "value" : "Италь�?н�?кий (Итали�?)"
         },
         {
           "language" : "zh",
-          "value" : "意大利语 （意大利）"
+          "value" : "�?大利语 （�?大利）"
         },
         {
           "language" : "de",
@@ -903,7 +3905,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Японский"
+          "value" : "Япон�?кий"
         },
         {
           "language" : "zh",
@@ -931,11 +3933,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Корейский"
+          "value" : "Корей�?кий"
         },
         {
           "language" : "zh",
-          "value" : "朝鲜语"
+          "value" : "�?鲜语"
         },
         {
           "language" : "de",
@@ -959,11 +3961,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Нидерландский"
+          "value" : "�?идерланд�?кий"
         },
         {
           "language" : "zh",
-          "value" : "荷兰语"
+          "value" : "�?�兰语"
         },
         {
           "language" : "de",
@@ -987,7 +3989,7 @@
         },
         {
           "language" : "zh",
-          "value" : "荷兰语 （比利时）"
+          "value" : "�?�兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -1011,11 +4013,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Нидерландский (Нидерланды)"
+          "value" : "�?идерланд�?кий (�?идерланды)"
         },
         {
           "language" : "zh",
-          "value" : "荷兰语 （荷兰）"
+          "value" : "�?�兰语 （�?�兰）"
         },
         {
           "language" : "de",
@@ -1039,11 +4041,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Норвежский"
+          "value" : "�?орвеж�?кий"
         },
         {
           "language" : "zh",
-          "value" : "挪威语"
+          "value" : "挪�?语"
         },
         {
           "language" : "de",
@@ -1067,11 +4069,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Норвежский (Норвегия)"
+          "value" : "�?орвеж�?кий (�?орвеги�?)"
         },
         {
           "language" : "zh",
-          "value" : "挪威语 （挪威）"
+          "value" : "挪�?语 （挪�?）"
         },
         {
           "language" : "de",
@@ -1111,11 +4113,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Португальский"
+          "value" : "Португаль�?кий"
         },
         {
           "language" : "zh",
-          "value" : "葡萄牙语"
+          "value" : "葡�?�牙语"
         },
         {
           "language" : "de",
@@ -1139,11 +4141,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Португальский (Бразилия)"
+          "value" : "Португаль�?кий (Бразили�?)"
         },
         {
           "language" : "zh",
-          "value" : "葡萄牙语 （巴西）"
+          "value" : "葡�?�牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -1167,7 +4169,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Русский"
+          "value" : "Ру�?�?кий"
         },
         {
           "language" : "zh",
@@ -1195,7 +4197,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Русский (Россия)"
+          "value" : "Ру�?�?кий (Ро�?�?и�?)"
         },
         {
           "language" : "zh",
@@ -1223,7 +4225,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Сербский"
+          "value" : "Серб�?кий"
         },
         {
           "language" : "zh",
@@ -1251,7 +4253,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Сербский (Сербия)"
+          "value" : "Серб�?кий (Серби�?)"
         },
         {
           "language" : "zh",
@@ -1279,7 +4281,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Шведский"
+          "value" : "Швед�?кий"
         },
         {
           "language" : "zh",
@@ -1307,7 +4309,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Шведский (Швеция)"
+          "value" : "Швед�?кий (Швеци�?)"
         },
         {
           "language" : "zh",
@@ -1339,7 +4341,7 @@
         },
         {
           "language" : "zh",
-          "value" : "泰卢固语"
+          "value" : "泰�?�固语"
         },
         {
           "language" : "de",
@@ -1363,7 +4365,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Kитайский"
+          "value" : "Kитай�?кий"
         },
         {
           "language" : "zh",
@@ -1391,7 +4393,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Китай)"
+          "value" : "Kитай�?кий (Китай)"
         },
         {
           "language" : "zh",
@@ -1419,7 +4421,7 @@
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Гонконг)"
+          "value" : "Kитай�?кий (Гонконг)"
         },
         {
           "language" : "zh",
@@ -1447,11 +4449,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Сингапур)"
+          "value" : "Kитай�?кий (Сингапур)"
         },
         {
           "language" : "zh",
-          "value" : "中文 （新加坡）"
+          "value" : "中文 （新加�?�）"
         },
         {
           "language" : "de",
@@ -1475,11 +4477,11 @@
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Тайвань)"
+          "value" : "Kитай�?кий (Тайвань)"
         },
         {
           "language" : "zh",
-          "value" : "中文 （台湾）"
+          "value" : "中文 （�?�湾）"
         },
         {
           "language" : "de",
@@ -1535,7 +4537,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Бенгальский"
+          "value" : "Бенгаль�?кий"
         },
         {
           "language" : "zh",
@@ -1563,11 +4565,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Чешский"
+          "value" : "Чеш�?кий"
         },
         {
           "language" : "zh",
-          "value" : "捷克语"
+          "value" : "�?�克语"
         },
         {
           "language" : "de",
@@ -1591,7 +4593,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Датский"
+          "value" : "Дат�?кий"
         },
         {
           "language" : "zh",
@@ -1619,7 +4621,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Немецкий"
+          "value" : "�?емецкий"
         },
         {
           "language" : "zh",
@@ -1647,7 +4649,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Немецкий (Австрия)"
+          "value" : "�?емецкий (�?в�?три�?)"
         },
         {
           "language" : "zh",
@@ -1675,7 +4677,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Немецкий (Швейцария)"
+          "value" : "�?емецкий (Швейцари�?)"
         },
         {
           "language" : "zh",
@@ -1703,7 +4705,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Немецкий (Германия)"
+          "value" : "�?емецкий (Германи�?)"
         },
         {
           "language" : "zh",
@@ -1731,7 +4733,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Греческий"
+          "value" : "Грече�?кий"
         },
         {
           "language" : "zh",
@@ -1759,7 +4761,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский"
+          "value" : "�?нглий�?кий"
         },
         {
           "language" : "zh",
@@ -1787,7 +4789,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (Австралия)"
+          "value" : "�?нглий�?кий (�?в�?трали�?)"
         },
         {
           "language" : "zh",
@@ -1815,7 +4817,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (Канада)"
+          "value" : "�?нглий�?кий (Канада)"
         },
         {
           "language" : "zh",
@@ -1843,7 +4845,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (Великобритания)"
+          "value" : "�?нглий�?кий (Великобритани�?)"
         },
         {
           "language" : "zh",
@@ -1871,11 +4873,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (Индия)"
+          "value" : "�?нглий�?кий (Инди�?)"
         },
         {
           "language" : "zh",
-          "value" : "英语 （印度）"
+          "value" : "英语 （�?�度）"
         },
         {
           "language" : "de",
@@ -1899,7 +4901,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (Новая Зеландия)"
+          "value" : "�?нглий�?кий (�?ова�? Зеланди�?)"
         },
         {
           "language" : "zh",
@@ -1927,11 +4929,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (Сингапур)"
+          "value" : "�?нглий�?кий (Сингапур)"
         },
         {
           "language" : "zh",
-          "value" : "英语 （新加坡）"
+          "value" : "英语 （新加�?�）"
         },
         {
           "language" : "de",
@@ -1955,7 +4957,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Английский (США)"
+          "value" : "�?нглий�?кий (СШ�?)"
         },
         {
           "language" : "zh",
@@ -1983,11 +4985,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Испанский"
+          "value" : "И�?пан�?кий"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语"
+          "value" : "西�?�牙语"
         },
         {
           "language" : "de",
@@ -2011,11 +5013,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Испанский (Аргентина)"
+          "value" : "И�?пан�?кий (�?ргентина)"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语 （阿根廷）"
+          "value" : "西�?�牙语 （阿根廷）"
         },
         {
           "language" : "de",
@@ -2039,11 +5041,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Испанский (Испания)"
+          "value" : "И�?пан�?кий (И�?пани�?)"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语 （西班牙）"
+          "value" : "西�?�牙语 （西�?�牙）"
         },
         {
           "language" : "de",
@@ -2067,11 +5069,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Испанский (Уругвай)"
+          "value" : "И�?пан�?кий (Уругвай)"
         },
         {
           "language" : "zh",
-          "value" : "西班牙语 （乌拉圭）"
+          "value" : "西�?�牙语 （乌拉圭）"
         },
         {
           "language" : "de",
@@ -2095,7 +5097,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Финский"
+          "value" : "Фин�?кий"
         },
         {
           "language" : "zh",
@@ -2123,7 +5125,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Французский"
+          "value" : "Француз�?кий"
         },
         {
           "language" : "zh",
@@ -2171,7 +5173,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Французский (Швейцария)"
+          "value" : "Француз�?кий (Швейцари�?)"
         },
         {
           "language" : "zh",
@@ -2199,7 +5201,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Французский (Франция)"
+          "value" : "Француз�?кий (Франци�?)"
         },
         {
           "language" : "zh",
@@ -2251,7 +5253,7 @@ v: {
         },
         {
           "language" : "zh",
-          "value" : "弗里士兰语（荷兰）"
+          "value" : "弗里士兰语（�?�兰）"
         },
         {
           "language" : "de",
@@ -2291,7 +5293,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Хорватский"
+          "value" : "Хорват�?кий"
         },
         {
           "language" : "zh",
@@ -2319,11 +5321,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Итальянский"
+          "value" : "Италь�?н�?кий"
         },
         {
           "language" : "zh",
-          "value" : "意大利语"
+          "value" : "�?大利语"
         },
         {
           "language" : "de",
@@ -2347,11 +5349,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Итальянский (Швейцария)"
+          "value" : "Италь�?н�?кий (Швейцари�?)"
         },
         {
           "language" : "zh",
-          "value" : "意大利语 （瑞士）"
+          "value" : "�?大利语 （瑞士）"
         },
         {
           "language" : "de",
@@ -2375,11 +5377,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Итальянский (Италия)"
+          "value" : "Италь�?н�?кий (Итали�?)"
         },
         {
           "language" : "zh",
-          "value" : "意大利语 （意大利）"
+          "value" : "�?大利语 （�?大利）"
         },
         {
           "language" : "de",
@@ -2403,7 +5405,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Японский"
+          "value" : "Япон�?кий"
         },
         {
           "language" : "zh",
@@ -2431,11 +5433,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Корейский"
+          "value" : "Корей�?кий"
         },
         {
           "language" : "zh",
-          "value" : "朝鲜语"
+          "value" : "�?鲜语"
         },
         {
           "language" : "de",
@@ -2459,11 +5461,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Нидерландский"
+          "value" : "�?идерланд�?кий"
         },
         {
           "language" : "zh",
-          "value" : "荷兰语"
+          "value" : "�?�兰语"
         },
         {
           "language" : "de",
@@ -2487,7 +5489,7 @@ v: {
         },
         {
           "language" : "zh",
-          "value" : "荷兰语 （比利时）"
+          "value" : "�?�兰语 （比利时）"
         },
         {
           "language" : "de",
@@ -2511,11 +5513,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Нидерландский (Нидерланды)"
+          "value" : "�?идерланд�?кий (�?идерланды)"
         },
         {
           "language" : "zh",
-          "value" : "荷兰语 （荷兰）"
+          "value" : "�?�兰语 （�?�兰）"
         },
         {
           "language" : "de",
@@ -2539,11 +5541,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Норвежский"
+          "value" : "�?орвеж�?кий"
         },
         {
           "language" : "zh",
-          "value" : "挪威语"
+          "value" : "挪�?语"
         },
         {
           "language" : "de",
@@ -2567,11 +5569,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Норвежский (Норвегия)"
+          "value" : "�?орвеж�?кий (�?орвеги�?)"
         },
         {
           "language" : "zh",
-          "value" : "挪威语 （挪威）"
+          "value" : "挪�?语 （挪�?）"
         },
         {
           "language" : "de",
@@ -2611,11 +5613,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Португальский"
+          "value" : "Португаль�?кий"
         },
         {
           "language" : "zh",
-          "value" : "葡萄牙语"
+          "value" : "葡�?�牙语"
         },
         {
           "language" : "de",
@@ -2639,11 +5641,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Португальский (Бразилия)"
+          "value" : "Португаль�?кий (Бразили�?)"
         },
         {
           "language" : "zh",
-          "value" : "葡萄牙语 （巴西）"
+          "value" : "葡�?�牙语 （巴西）"
         },
         {
           "language" : "de",
@@ -2667,7 +5669,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Русский"
+          "value" : "Ру�?�?кий"
         },
         {
           "language" : "zh",
@@ -2695,7 +5697,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Русский (Россия)"
+          "value" : "Ру�?�?кий (Ро�?�?и�?)"
         },
         {
           "language" : "zh",
@@ -2723,7 +5725,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Сербский"
+          "value" : "Серб�?кий"
         },
         {
           "language" : "zh",
@@ -2751,7 +5753,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Сербский (Сербия)"
+          "value" : "Серб�?кий (Серби�?)"
         },
         {
           "language" : "zh",
@@ -2779,7 +5781,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Шведский"
+          "value" : "Швед�?кий"
         },
         {
           "language" : "zh",
@@ -2807,7 +5809,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Шведский (Швеция)"
+          "value" : "Швед�?кий (Швеци�?)"
         },
         {
           "language" : "zh",
@@ -2839,7 +5841,7 @@ v: {
         },
         {
           "language" : "zh",
-          "value" : "泰卢固语"
+          "value" : "泰�?�固语"
         },
         {
           "language" : "de",
@@ -2863,7 +5865,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Kитайский"
+          "value" : "Kитай�?кий"
         },
         {
           "language" : "zh",
@@ -2891,7 +5893,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Китай)"
+          "value" : "Kитай�?кий (Китай)"
         },
         {
           "language" : "zh",
@@ -2919,7 +5921,7 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Гонконг)"
+          "value" : "Kитай�?кий (Гонконг)"
         },
         {
           "language" : "zh",
@@ -2947,11 +5949,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Сингапур)"
+          "value" : "Kитай�?кий (Сингапур)"
         },
         {
           "language" : "zh",
-          "value" : "中文 （新加坡）"
+          "value" : "中文 （新加�?�）"
         },
         {
           "language" : "de",
@@ -2975,11 +5977,11 @@ v: {
         },
         {
           "language" : "ru",
-          "value" : "Kитайский (Тайвань)"
+          "value" : "Kитай�?кий (Тайвань)"
         },
         {
           "language" : "zh",
-          "value" : "中文 （台湾）"
+          "value" : "中文 （�?�湾）"
         },
         {
           "language" : "de",

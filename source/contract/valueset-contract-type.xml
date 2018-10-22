@@ -18,7 +18,7 @@
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/coverage-copay-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/contract-type"/>
     </include>
   </compose>
 </ValueSet>
