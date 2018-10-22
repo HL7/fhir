@@ -36,9 +36,9 @@
 		<reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
 		<display value="Beverly Weaver"/>
 	</subject>
-	<context>
+	<encounter>
 		<display value="Beverly Waver's encounter on 2014-02-14"/>
-	</context>
+	</encounter>
 	<occurrencePeriod>
 		<end value="2014-03-14"/>
 	</occurrencePeriod>
