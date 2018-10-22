@@ -75,10 +75,10 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</for>
-	<context>
+	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Example In-Patient Encounter"/>
-	</context>
+	</encounter>
 	<!--	Lots of dates -->
 	<executionPeriod>
 		<start value="2016-10-31T08:25:05+10:00"/>
