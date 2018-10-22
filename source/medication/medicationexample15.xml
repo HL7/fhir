@@ -40,7 +40,7 @@
       <itemReference>
         <reference value="#sub04"/>
       </itemReference>
-      <amount>
+      <strength>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -51,7 +51,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="TAB"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>

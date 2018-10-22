@@ -33,7 +33,7 @@
           <display value="Acetaminophen 500 MG"/>
         </coding>
       </itemCodeableConcept>
-      <amount>
+      <strength>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -44,7 +44,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="Tab"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
     <ingredient>
       <itemCodeableConcept>
@@ -54,7 +54,7 @@
           <display value="Diphenhydramine Hydrochloride 25 mg"/>
         </coding>
       </itemCodeableConcept>
-      <amount>
+      <strength>
         <numerator>
           <value value="25"/>
           <system value="http://unitsofmeasure.org"/>
@@ -65,7 +65,7 @@
           <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
           <code value="Tab"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>
