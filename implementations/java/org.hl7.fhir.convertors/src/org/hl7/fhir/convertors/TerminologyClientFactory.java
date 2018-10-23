@@ -10,13 +10,15 @@ import org.hl7.fhir.utilities.Utilities;
 public class TerminologyClientFactory {
 
   public static TerminologyClient makeClient(String url, FhirPublication v) throws URISyntaxException {
-      switch (v) {
-      case DSTU2016May: return new TerminologyClientR3(checkEndsWith("/r3", url)); // r3 is the least worst match 
-      case DSTU1: throw new Error("The version "+v.toString()+" is not currently supported");
-      case DSTU2: return new TerminologyClientR2(checkEndsWith("/r2", url));
-      case R4: return new TerminologyClientR4(checkEndsWith("/r4", url));
-      case STU3: return new TerminologyClientR3(checkEndsWith("/r3", url));
-      default: throw new Error("The version "+v.toString()+" is not currently supported");
+    if (v == null)
+      return new TerminologyClientR4(checkEndsWith("/r4", url));
+    switch (v) {
+    case DSTU2016May: return new TerminologyClientR3(checkEndsWith("/r3", url)); // r3 is the least worst match 
+    case DSTU1: throw new Error("The version "+v.toString()+" is not currently supported");
+    case DSTU2: return new TerminologyClientR2(checkEndsWith("/r2", url));
+    case R4: return new TerminologyClientR4(checkEndsWith("/r4", url));
+    case STU3: return new TerminologyClientR3(checkEndsWith("/r3", url));
+    default: throw new Error("The version "+v.toString()+" is not currently supported");
     }
 
   }

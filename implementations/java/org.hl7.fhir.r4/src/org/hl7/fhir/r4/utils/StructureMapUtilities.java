@@ -1260,7 +1260,7 @@ public class StructureMapUtilities {
 			return object;
 		}
     public String summary() {
-      return name+": "+object.fhirType();
+      return name+": "+ (object == null  ? "null" : object.fhirType());
     }
 	}
 
@@ -1348,7 +1348,8 @@ public class StructureMapUtilities {
 
 		Variables vars = new Variables();
 		vars.add(VariableMode.INPUT, getInputName(g, StructureMapInputMode.SOURCE, "source"), source);
-		vars.add(VariableMode.OUTPUT, getInputName(g, StructureMapInputMode.TARGET, "target"), target);
+		if (target != null)
+  		vars.add(VariableMode.OUTPUT, getInputName(g, StructureMapInputMode.TARGET, "target"), target);
 
     executeGroup("", context, map, vars, g, true);
     if (target instanceof Element)
@@ -1381,7 +1382,7 @@ public class StructureMapUtilities {
 	}
 
 	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule, boolean atRoot) throws FHIRException {
-		log(indent+"rule : "+rule.getName()+" : "+vars.summary());
+		log(indent+"rule : "+rule.getName()+"; vars = "+vars.summary());
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
 			throw new FHIRException("Rule \""+rule.getName()+"\": not handled yet");

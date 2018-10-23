@@ -1,0 +1,57 @@
+map "http://hl7.org/fhir/cda/mapping/BundleToCDA" = "FHIR Bundle to CDA"
+
+uses "http://hl7.org/fhir/cda/StructureDefinition/ClinicalDocument" alias ClinicalDocument as target
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as source
+uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as source
+
+imports "http://hl7.org/fhir/cda/mapping/fhirToCDATypes"
+
+group BundleClinicalDocument
+	input source : Bundle as source
+	input target : ClinicalDocument as target
+	
+	id: for source.identifier make target.id
+	entry: for source.entry as entry then {
+		resource: for entry.resource as resource where resource.ofType(FHIR.Composition) then CompositionClinicalDocument(source, resource, target)
+	}
+endgroup
+
+group CompositionClinicalDocument
+	input bundle: Bundle as source
+	input source: Composition as source
+	input target : ClinicalDocument as target
+
+	languageCode: for source.language make target.languageCode
+
+	templateID: for source.extension as extension where extension.url = 'http://hl7.org/fhir/cda/StructureDefinition/templateID' then {
+		identifier: for extension.valueIdentifier make target.templateId
+	}
+
+	setID: for source.identifier make target.setId
+	code: for source.type make target.code
+	
+	effectiveTime: for source.date make target.effectiveTime
+
+	title: for source.title make target.title
+	confidentialityCode: for source.confidentiality make target.confidentialityCode
+
+	event: for source.event as srcEvent make target.documentationOf as doc, doc.serviceEvent as event then {
+		period: for srcEvent.period make event.effectiveTime
+	}
+	
+	sections: for source.section as section make target.component as comp, comp.structuredBody as body, body.component as secComp, secComp.section as tgtSection then {
+	
+		templateID: for section.extension as extension where extension.url = 'http://hl7.org/fhir/cda/StructureDefinition/templateID' then {
+			identifier: for extension.valueIdentifier make tgtSection.templateId
+		}
+		
+		code: for section.code make section.code
+		title: for section.title make tgtSection.title
+		text: for section.text as srcText make tgtSection.text as tgtText then {
+			div: for srcText.div make tgtText
+		}
+		
+	}
+
+endgroup

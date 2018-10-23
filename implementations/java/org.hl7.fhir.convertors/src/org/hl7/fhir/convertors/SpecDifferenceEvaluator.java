@@ -122,6 +122,8 @@ public class SpecDifferenceEvaluator {
     loadSD(self.revision.resources, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml");
     loadVS3(self.original.expansions, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\expansions.xml");
     loadVS(self.revision.expansions, "C:\\work\\org.hl7.fhir\\build\\publish\\expansions.xml");
+    loadVS3(self.original.valuesets, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\valuesets.xml");
+    loadVS(self.revision.valuesets, "C:\\work\\org.hl7.fhir\\build\\publish\\valuesets.xml");
     StringBuilder b = new StringBuilder();
     b.append("<html>\r\n");
     b.append("<head>\r\n");
@@ -347,7 +349,7 @@ public class SpecDifferenceEvaluator {
       StructureDefinition orig = original.types.get(s);
       StructureDefinition rev = revision.types.get(s);
       if (orig == null) {
-        markNew(rev.getName(), true, false);
+        markNew(rev.getName(), true, false, false);
       } else if (rev.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
         markNoChanges(rev.getName(), true);
       } else if (rev.hasDerivation() && orig.hasDerivation() && rev.getDerivation() != orig.getDerivation()) {
@@ -368,7 +370,7 @@ public class SpecDifferenceEvaluator {
       StructureDefinition orig = original.resources.get(checkRename(s));
       StructureDefinition rev = revision.resources.get(s);
       if (orig == null) {
-        markNew(rev.getName(), true, true);
+        markNew(rev.getName(), true, true, false);
       } else {
         compare(orig, rev);
       }
@@ -438,7 +440,7 @@ public class SpecDifferenceEvaluator {
     right.ul().li().addText("deleted");
   }
   
-  private void markNew(String name, boolean item, boolean res) {
+  private void markNew(String name, boolean item, boolean res, boolean mand) {
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", item ? "diff-new-item" : "diff-new");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     XhtmlNode right = tr.addTag("td").setAttribute("class", "diff-right");
@@ -447,7 +449,10 @@ public class SpecDifferenceEvaluator {
       left.addTag("a").setAttribute("href", link).addText(name);
     else
       left.addText(name);
-    right.ul().li().addText(res ? "Added Resource" :name.contains(".") ? "Added Element" : "Added Type");    
+    if (!res && mand)
+      right.ul().li().b().addText("Added Mandatory Element");    
+    else
+      right.ul().li().addText(res ? "Added Resource" : !name.contains(".") ? "Added Type" : mand ? "Added Mandatory Element " : "Added Element" );    
   }
 
   private void compare(StructureDefinition orig, StructureDefinition rev) {
@@ -479,7 +484,7 @@ public class SpecDifferenceEvaluator {
       ElementDefinition oed = (ElementDefinition) ed.getUserData("match");
       if (oed == null) {
         changed = true;
-        markNew(ed.getPath(), false, false);        
+        markNew(ed.getPath(), false, false, ed.getMin() > 0);        
       } else 
         changed = compareElement(ed, oed) || changed;
     }
@@ -694,6 +699,17 @@ public class SpecDifferenceEvaluator {
         b.append("Add "+Utilities.pluralize("Code", ir)+"  "+br);
       
     }
+    if (rev.getStrength() == BindingStrength.EXTENSIBLE && orig.getStrength() == BindingStrength.EXTENSIBLE) {
+      ValueSet vrev = getValueSet(rev.getValueSet(), revision.valuesets); 
+      ValueSet vorig = getValueSet(orig.getValueSet(), original.valuesets);
+      if (vrev != null && vrev.hasCompose() && vrev.getCompose().getInclude().size() == 1 && vrev.getCompose().getIncludeFirstRep().hasSystem() &&
+          vorig != null && vorig.hasCompose() && vorig.getCompose().getInclude().size() == 1 && vorig.getCompose().getIncludeFirstRep().hasSystem()) {
+        if (!vorig.getCompose().getIncludeFirstRep().getSystem().equals(vrev.getCompose().getIncludeFirstRep().getSystem())) {
+          b.append("Change code system for extensibly bound codes from \""+vorig.getCompose().getIncludeFirstRep().getSystem()+"\" to \""+vrev.getCompose().getIncludeFirstRep().getSystem()+"\"");
+        }
+      }
+    }
+    
     return b.toString();
   }
   
