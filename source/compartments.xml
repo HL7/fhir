@@ -626,7 +626,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>
-    <Cell><Data ss:Type="String">requester</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">requester</Data></Cell>
     <Cell><Data ss:Type="String">requester</Data></Cell>
     <Cell><Data ss:Type="String">requester</Data></Cell>
@@ -819,7 +819,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>36</TopRowBottomPane>
+   <TopRowBottomPane>74</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

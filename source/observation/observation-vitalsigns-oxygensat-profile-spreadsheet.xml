@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
@@ -574,7 +574,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:Formula="=NOW()" ss:StyleID="s77"><Data ss:Type="DateTime">2018-08-11T08:16:11.720</Data></Cell>
+    <Cell ss:Formula="=NOW()" ss:StyleID="s77"><Data ss:Type="DateTime">2018-10-23T12:50:58.370</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s73"><Data ss:Type="String">published.structure</Data></Cell>
@@ -602,7 +602,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-OxygenSat</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'9843-4'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system="http://unitsofmeasure.org"&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'cm', or '[in_i]'**&#xD;</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">"#### Complete Summary of the Mandatory Requirements&#10;&#10;1.  One code in `Observation.code` which must have&#10;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#10;    -   a fixed  `Observation.code.coding.code`= **'2708-6'**&#10;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#10;        Codes, SNOMED CT concepts, system specific codes. All codes&#10;        SHALL have an system value&#10;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#10;   - Each Observation.valueQuantity must have:&#10;     - One numeric value in Observation.valueQuantity.value&#10;     - a fixed Observation.valueQuantity.system="http://unitsofmeasure.org"&#10;     - a UCUM unit code in Observation.valueQuantity.code = **'%'**</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">fmm</Data></Cell>
@@ -624,7 +624,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
