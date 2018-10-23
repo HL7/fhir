@@ -228,18 +228,18 @@
 		<p>e.g.:</p>
 		<pre class="json">
 {
-	"resourceType": "Observation",
-	... snip ...
-	"code": {
-		"coding": [
-			{
-				"system": "http://loinc.org",
-				"code": "6689-4",
-				"display": "Glucose [Mass/​volume] in Blood --2 hours post meal"
-			}
-		]
-	},
-	... snip ...
+"resourceType": "Observation",
+... snip ...
+"code": {
+	"coding": [
+		{
+			"system": "http://loinc.org",
+			"code": "6689-4",
+			"display": "Glucose [Mass/​volume] in Blood --2 hours post meal"
+		}
+	]
+},
+... snip ...
 }
 		</pre>
 		</li>
@@ -248,28 +248,28 @@
 		<p>e.g.: Observation.code = coding-1: 59408-5 Oxygen saturation in Arterial blood by Pulse oximetry, coding-2: 20564-1 Oxygen saturation in Blood</p>
 		<pre class="json">
 {
-	"resourceType": "Observation",
-	... snip ...
-	"code": {
-		"coding": [
-			{
-				"system": "http://loinc.org",
-				"code": "59408-5",
-				"display": "Oxygen saturation in Arterial blood by Pulse oximetry"
-			},
-			{
-				"system": "http://loinc.org",
-				"code": "20564-1",
-				"display": "Oxygen saturation in Blood"
-			}
-		]
-	},
-	... snip ...
+"resourceType": "Observation",
+... snip ...
+"code": {
+	"coding": [
+		{
+			"system": "http://loinc.org",
+			"code": "59408-5",
+			"display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+		},
+		{
+			"system": "http://loinc.org",
+			"code": "20564-1",
+			"display": "Oxygen saturation in Blood"
+		}
+	]
+},
+... snip ...
 }
 		</pre>
 		</li>
 		<li>
-		<p>As described <a href="#obsgrouping">above</a> observations are typically grouped together
+		<p>As described <a href="#obsgrouping">above</a>, observations are typically grouped together
 		 to provide additional information needed for correctly understanding and interpreting the observation.
 		  As an alternative to grouping observations, extensions may be used to provide references to other
 			 observations needed for understanding and interpreting an observation.</p>
