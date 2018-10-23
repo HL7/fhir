@@ -1,62 +1,44 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EligibilityRequest3to4" = "R3 to R4 Conversions for EligibilityRequest"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/EligibilityRequest" alias EligibilityRequestR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/EligibilityRequest" alias EligibilityRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group EligibilityRequest(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.priority -> tgt.priority;
+  src.use -> tgt.use;
+  src.patient -> tgt.patient;
+  src.serviced -> tgt.serviced;
+  src.created -> tgt.created;
+  src.enterer -> tgt.enterer;
+  src.provider -> tgt.provider;
+  src.insurer -> tgt.insurer;
+  src.facility -> tgt.facility;
+  src.insurance as s -> tgt.insurance as t then EligibilityRequestInsurance(s, t);
+  src.detail as s -> tgt.detail as t then EligibilityRequestDetail(s, t);
+}
 
+group EligibilityRequestInsurance(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends BackboneElement <<type+>> {
+  src.focal -> tgt.focal;
+  src.coverage -> tgt.coverage;
+  src.businessArrangement -> tgt.businessArrangement;
+}
 
-group for type+types EligibilityRequest extends DomainResource
-  input src : EligibilityRequestR3 as source
-  input tgt : EligibilityRequest as target
+group EligibilityRequestDetail(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends BackboneElement <<type+>> {
+  src.category -> tgt.category;
+  src.service -> tgt.service;
+  src.modifier -> tgt.modifier;
+  src.provider -> tgt.provider;
+  src.quantity -> tgt.quantity;
+  src.unitPrice -> tgt.unitPrice;
+  src.facility -> tgt.facility;
+  src.diagnosis as s -> tgt.diagnosis as t then EligibilityRequestDetailDiagnosis(s, t);
+}
 
-  "EligibilityRequest.identifier": for src.identifier make tgt.identifier
-  "EligibilityRequest.status": for src.status make tgt.status
-  "EligibilityRequest.priority": for src.priority make tgt.priority
-  "EligibilityRequest.use": for src.use make tgt.use
-  "EligibilityRequest.patient": for src.patient make tgt.patient
-  "EligibilityRequest.serviced": for src.serviced make tgt.serviced
-  "EligibilityRequest.created": for src.created make tgt.created
-  "EligibilityRequest.enterer": for src.enterer make tgt.enterer
-  "EligibilityRequest.provider": for src.provider make tgt.provider
-  "EligibilityRequest.insurer": for src.insurer make tgt.insurer
-  "EligibilityRequest.facility": for src.facility make tgt.facility
-  "EligibilityRequest.insurance": for src.insurance as s make tgt.insurance as t then EligibilityRequestInsurance(s,t)
-  "EligibilityRequest.detail": for src.detail as s make tgt.detail as t then EligibilityRequestDetail(s,t)
-endgroup
-
-
-group for type+types EligibilityRequestInsurance extends BackboneElement
-  input src : EligibilityRequestR3 as source
-  input tgt : EligibilityRequest as target
-
-  "EligibilityRequest.insurance.focal": for src.focal make tgt.focal
-  "EligibilityRequest.insurance.coverage": for src.coverage make tgt.coverage
-  "EligibilityRequest.insurance.businessArrangement": for src.businessArrangement make tgt.businessArrangement
-endgroup
-
-
-group for type+types EligibilityRequestDetail extends BackboneElement
-  input src : EligibilityRequestR3 as source
-  input tgt : EligibilityRequest as target
-
-  "EligibilityRequest.detail.category": for src.category make tgt.category
-  "EligibilityRequest.detail.service": for src.service make tgt.service
-  "EligibilityRequest.detail.modifier": for src.modifier make tgt.modifier
-  "EligibilityRequest.detail.provider": for src.provider make tgt.provider
-  "EligibilityRequest.detail.quantity": for src.quantity make tgt.quantity
-  "EligibilityRequest.detail.unitPrice": for src.unitPrice make tgt.unitPrice
-  "EligibilityRequest.detail.facility": for src.facility make tgt.facility
-  "EligibilityRequest.detail.diagnosis": for src.diagnosis as s make tgt.diagnosis as t then EligibilityRequestDetailDiagnosis(s,t)
-endgroup
-
-
-group for type+types EligibilityRequestDetailDiagnosis extends BackboneElement
-  input src : EligibilityRequestR3 as source
-  input tgt : EligibilityRequest as target
-
-  "EligibilityRequest.detail.diagnosis.diagnosis": for src.diagnosis make tgt.diagnosis
-endgroup
+group EligibilityRequestDetailDiagnosis(source src : EligibilityRequestR3, target tgt : EligibilityRequest) extends BackboneElement <<type+>> {
+  src.diagnosis -> tgt.diagnosis;
+}
 

@@ -1,83 +1,63 @@
 ﻿map "http://hl7.org/fhir/StructureMap/AuditEvent4to3" = "R4 to R3 Conversion for AuditEvent"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/AuditEvent" alias AuditEventR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group AuditEvent(source src : AuditEventR3, target tgt : AuditEvent) extends DomainResource <<type+>> {
+  src.type -> tgt.type;
+  src.subtype -> tgt.subtype;
+  src.action -> tgt.action;
+  src.recorded -> tgt.recorded;
+  src.outcome -> tgt.outcome;
+  src.outcomeDesc -> tgt.outcomeDesc;
+  src.purposeOfEvent -> tgt.purposeOfEvent;
+  src.agent as s -> tgt.agent as t then AuditEventAgent(s, t);
+  src.source as s -> tgt.source as t then AuditEventSource(s, t);
+  src.entity as s -> tgt.entity as t then AuditEventEntity(s, t);
+}
 
+group AuditEventAgent(source src, target tgt) extends BackboneElement {
+  src.role -> tgt.role;
+  src.who as vs0 where reference.exists() -> tgt.reference as vt0 then ReferenceNoIdentifier(vs0, vt0);
+  src.who as vs0 where identifier.exists() -> tgt.userId as vt0 then Reference2Identifier(vs0, vt0);
+  src.altId -> tgt.altId;
+  src.name -> tgt.name;
+  src.requestor -> tgt.requestor;
+  src.location -> tgt.location;
+  src.policy -> tgt.policy;
+  src.media -> tgt.media;
+  src.network as s -> tgt.network as t then AuditEventAgentNetwork(s, t);
+  src.purposeOfUse -> tgt.purposeOfUse;
+}
 
-group for type+types AuditEvent extends DomainResource
-  input src : AuditEventR3 as source
-  input tgt : AuditEvent as target
+group AuditEventAgentNetwork(source src, target tgt) extends BackboneElement {
+  src.address -> tgt.address;
+  src.type -> tgt.type;
+}
 
-  "AuditEvent.type": for src.type make tgt.type
-  "AuditEvent.subtype": for src.subtype make tgt.subtype
-  "AuditEvent.action": for src.action make tgt.action
-  "AuditEvent.period": for src.period make tgt.period
-  "AuditEvent.recorded": for src.recorded make tgt.recorded
-  "AuditEvent.outcome": for src.outcome make tgt.outcome
-  "AuditEvent.outcomeDesc": for src.outcomeDesc make tgt.outcomeDesc
-  "AuditEvent.purposeOfEvent": for src.purposeOfEvent make tgt.purposeOfEvent
-  "AuditEvent.agent": for src.agent as s make tgt.agent as t then AuditEventAgent(s,t)
-  "AuditEvent.source": for src.source as s make tgt.source as t then AuditEventSource(s,t)
-  "AuditEvent.entity": for src.entity as s make tgt.entity as t then AuditEventEntity(s,t)
-endgroup
+group AuditEventSource(source src, target tgt) extends BackboneElement {
+  src.site -> tgt.site;
+  src.observer as vs0 -> tgt.identifier as vt0 then Reference2Identifier(vs0, vt0);
+  src.type -> tgt.type;
+}
 
-group for type+types AuditEventAgent extends BackboneElement
-  input src : AuditEventR3 as source
-  input tgt : AuditEvent as target
+group AuditEventEntity(source src, target tgt) extends BackboneElement {
+  src.what as vs0 where identifier.exists() -> tgt.identifier as vt0 then Reference2Identifier(vs0, vt0);
+  src.what as vs0 where reference.exists() -> tgt.reference as vt0 then ReferenceNoIdentifier(vs0, vt0);
+  src.type -> tgt.type;
+  src.role -> tgt.role;
+  src.lifecycle -> tgt.lifecycle;
+  src.securityLabel -> tgt.securityLabel;
+  src.name -> tgt.name;
+  src.description -> tgt.description;
+  src.query -> tgt.query;
+  src.detail as s -> tgt.detail as t then AuditEventEntityDetail(s, t);
+}
 
-  "AuditEvent.agent.type": for src.type make tgt.type
-  "AuditEvent.agent.role": for src.role make tgt.role
-  "AuditEvent.agent.who": for src.who make tgt.who
-  "AuditEvent.agent.altId": for src.altId make tgt.altId
-  "AuditEvent.agent.name": for src.name make tgt.name
-  "AuditEvent.agent.requestor": for src.requestor make tgt.requestor
-  "AuditEvent.agent.location": for src.location make tgt.location
-  "AuditEvent.agent.policy": for src.policy make tgt.policy
-  "AuditEvent.agent.media": for src.media make tgt.media
-  "AuditEvent.agent.network": for src.network as s make tgt.network as t then AuditEventAgentNetwork(s,t)
-  "AuditEvent.agent.purposeOfUse": for src.purposeOfUse make tgt.purposeOfUse
-endgroup
+group AuditEventEntityDetail(source src, target tgt) extends BackboneElement {
+  src.type -> tgt.type;
+  src.value where $this is base64Binary -> tgt.value;
+}
 
-group for type+types AuditEventAgentNetwork extends BackboneElement
-  input src : AuditEventR3 as source
-  input tgt : AuditEvent as target
-
-  "AuditEvent.agent.network.address": for src.address make tgt.address
-  "AuditEvent.agent.network.type": for src.type make tgt.type
-endgroup
-
-group for type+types AuditEventSource extends BackboneElement
-  input src : AuditEventR3 as source
-  input tgt : AuditEvent as target
-
-  "AuditEvent.source.site": for src.site make tgt.site
-  "AuditEvent.source.observer": for src.observer make tgt.observer
-  "AuditEvent.source.type": for src.type make tgt.type
-endgroup
-
-group for type+types AuditEventEntity extends BackboneElement
-  input src : AuditEventR3 as source
-  input tgt : AuditEvent as target
-
-  "AuditEvent.entity.what": for src.what make tgt.what
-  "AuditEvent.entity.type": for src.type make tgt.type
-  "AuditEvent.entity.role": for src.role make tgt.role
-  "AuditEvent.entity.lifecycle": for src.lifecycle make tgt.lifecycle
-  "AuditEvent.entity.securityLabel": for src.securityLabel make tgt.securityLabel
-  "AuditEvent.entity.name": for src.name make tgt.name
-  "AuditEvent.entity.description": for src.description make tgt.description
-  "AuditEvent.entity.query": for src.query make tgt.query
-  "AuditEvent.entity.detail": for src.detail as s make tgt.detail as t then AuditEventEntityDetail(s,t)
-endgroup
-
-group for type+types AuditEventEntityDetail extends BackboneElement
-  input src : AuditEventR3 as source
-  input tgt : AuditEvent as target
-
-  "AuditEvent.entity.detail.type": for src.type make tgt.type
-  "AuditEvent.entity.detail.value": for src.value make tgt.value
-endgroup

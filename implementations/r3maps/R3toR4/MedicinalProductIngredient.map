@@ -1,65 +1,43 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicinalProductIngredient3to4" = "R3 to R4 Conversions for MedicinalProductIngredient"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/MedicinalProductIngredient" alias MedicinalProductIngredientR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient" alias MedicinalProductIngredient as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group MedicinalProductIngredient(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.role -> tgt.role;
+  src.allergenicIndicator -> tgt.allergenicIndicator;
+  src.manufacturer -> tgt.manufacturer;
+  src.specifiedSubstance as s -> tgt.specifiedSubstance as t then MedicinalProductIngredientSpecifiedSubstance(s, t);
+  src.substance as s -> tgt.substance as t then MedicinalProductIngredientSubstance(s, t);
+}
 
+group MedicinalProductIngredientSpecifiedSubstance(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.group -> tgt.group;
+  src.confidentiality -> tgt.confidentiality;
+  src.strength as s -> tgt.strength as t then MedicinalProductIngredientSpecifiedSubstanceStrength(s, t);
+}
 
-group for type+types MedicinalProductIngredient extends DomainResource
-  input src : MedicinalProductIngredientR3 as source
-  input tgt : MedicinalProductIngredient as target
+group MedicinalProductIngredientSpecifiedSubstanceStrength(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+  src.presentation -> tgt.presentation;
+  src.concentration -> tgt.concentration;
+  src.measurementPoint -> tgt.measurementPoint;
+  src.country -> tgt.country;
+  src.referenceStrength as s -> tgt.referenceStrength as t then MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(s, t);
+}
 
-  "MedicinalProductIngredient.identifier": for src.identifier make tgt.identifier
-  "MedicinalProductIngredient.role": for src.role make tgt.role
-  "MedicinalProductIngredient.allergenicIndicator": for src.allergenicIndicator make tgt.allergenicIndicator
-  "MedicinalProductIngredient.manufacturer": for src.manufacturer make tgt.manufacturer
-  "MedicinalProductIngredient.specifiedSubstance": for src.specifiedSubstance as s make tgt.specifiedSubstance as t then MedicinalProductIngredientSpecifiedSubstance(s,t)
-  "MedicinalProductIngredient.substance": for src.substance as s make tgt.substance as t then MedicinalProductIngredientSubstance(s,t)
-endgroup
+group MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+  src.substance -> tgt.substance;
+  src.strength -> tgt.strength;
+  src.measurementPoint -> tgt.measurementPoint;
+  src.country -> tgt.country;
+}
 
-
-group for type+types MedicinalProductIngredientSpecifiedSubstance extends BackboneElement
-  input src : MedicinalProductIngredientR3 as source
-  input tgt : MedicinalProductIngredient as target
-
-  "MedicinalProductIngredient.specifiedSubstance.code": for src.code make tgt.code
-  "MedicinalProductIngredient.specifiedSubstance.group": for src.group make tgt.group
-  "MedicinalProductIngredient.specifiedSubstance.confidentiality": for src.confidentiality make tgt.confidentiality
-  "MedicinalProductIngredient.specifiedSubstance.strength": for src.strength as s make tgt.strength as t then MedicinalProductIngredientSpecifiedSubstanceStrength(s,t)
-endgroup
-
-
-group for type+types MedicinalProductIngredientSpecifiedSubstanceStrength extends BackboneElement
-  input src : MedicinalProductIngredientR3 as source
-  input tgt : MedicinalProductIngredient as target
-
-  "MedicinalProductIngredient.specifiedSubstance.strength.presentation": for src.presentation make tgt.presentation
-  "MedicinalProductIngredient.specifiedSubstance.strength.concentration": for src.concentration make tgt.concentration
-  "MedicinalProductIngredient.specifiedSubstance.strength.measurementPoint": for src.measurementPoint make tgt.measurementPoint
-  "MedicinalProductIngredient.specifiedSubstance.strength.country": for src.country make tgt.country
-  "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength": for src.referenceStrength as s make tgt.referenceStrength as t then MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(s,t)
-endgroup
-
-
-group for type+types MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength extends BackboneElement
-  input src : MedicinalProductIngredientR3 as source
-  input tgt : MedicinalProductIngredient as target
-
-  "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.substance": for src.substance make tgt.substance
-  "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.strength": for src.strength make tgt.strength
-  "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.measurementPoint": for src.measurementPoint make tgt.measurementPoint
-  "MedicinalProductIngredient.specifiedSubstance.strength.referenceStrength.country": for src.country make tgt.country
-endgroup
-
-
-group for type+types MedicinalProductIngredientSubstance extends BackboneElement
-  input src : MedicinalProductIngredientR3 as source
-  input tgt : MedicinalProductIngredient as target
-
-  "MedicinalProductIngredient.substance.code": for src.code make tgt.code
-  "MedicinalProductIngredient.substance.strength": for src.strength make tgt.strength
-endgroup
+group MedicinalProductIngredientSubstance(source src : MedicinalProductIngredientR3, target tgt : MedicinalProductIngredient) extends BackboneElement <<type+>> {
+  src.code -> tgt.code;
+  src.strength -> tgt.strength;
+}
 

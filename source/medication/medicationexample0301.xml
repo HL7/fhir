@@ -1,6 +1,5 @@
 <Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../../GForge/FHIRBuild/build/schema/medication.xsd"
- xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="med0301"/>
   <contained>
     <Organization>
@@ -15,7 +14,7 @@
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>
-<status value="active"/>
+  <status value="active"/>
   <manufacturer>
     <reference value="#org4" />
   </manufacturer>
@@ -35,7 +34,7 @@
         </coding>
       </itemCodeableConcept>
       <isActive value="true"></isActive>
-      <amount>
+      <strength>
         <numerator>
           <value value="500"/>
           <system value="http://unitsofmeasure.org"/>
@@ -46,7 +45,7 @@
           <system value="http://unitsofmeasure.org"/>
           <code value="mL"/>
         </denominator>
-      </amount>
+      </strength>
     </ingredient>
   <batch>
     <lotNumber value="9494788"/>

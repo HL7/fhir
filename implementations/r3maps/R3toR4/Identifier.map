@@ -1,22 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Identifier3to4" = "R3 to R4 Conversions for Identifier"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Identifier" alias IdentifierR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias Identifier as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Identifier extends Element
-  input src : IdentifierR3 as source
-  input tgt : Identifier as target
-
-  "Identifier.use" : for src.use make tgt.use 
-  "Identifier.type" : for src.type make tgt.type 
-  "Identifier.system" : for src.system make tgt.system 
-  "Identifier.value" : for src.value make tgt.value 
-  "Identifier.period" : for src.period make tgt.period 
-  "Identifier.assigner" : for src.assigner make tgt.assigner 
-endgroup
+group Identifier(source src : IdentifierR3, target tgt : Identifier) extends Element <<type+>> {
+  src.use -> tgt.use;
+  src.type -> tgt.type;
+  src.system -> tgt.system;
+  src.value -> tgt.value;
+  src.period -> tgt.period;
+  src.assigner -> tgt.assigner;
+}
 

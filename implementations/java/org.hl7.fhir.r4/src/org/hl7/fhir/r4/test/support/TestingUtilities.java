@@ -208,8 +208,11 @@ public class TestingUtilities {
   }
 
   public static String checkJsonSrcIsSame(String s1, String s2) throws JsonSyntaxException, FileNotFoundException, IOException {
+    return checkJsonSrcIsSame(s1,s2,true);
+  }
+  public static String checkJsonSrcIsSame(String s1, String s2, boolean showDiff) throws JsonSyntaxException, FileNotFoundException, IOException {
     String result = compareJsonSrc(s1, s2);
-    if (result != null && SHOW_DIFF) {
+    if (result != null && SHOW_DIFF && showDiff) {
       String diff = Utilities.path(System.getenv("ProgramFiles(X86)"), "WinMerge", "WinMergeU.exe");
       List<String> command = new ArrayList<String>();
       String f1 = Utilities.path("[tmp]", "input.json");

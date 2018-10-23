@@ -1,24 +1,18 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Schedule3to4" = "R3 to R4 Conversions for Schedule"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Schedule" alias ScheduleR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Schedule" alias Schedule as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Schedule extends DomainResource
-  input src : ScheduleR3 as source
-  input tgt : Schedule as target
-
-  "Schedule.identifier" : for src.identifier make tgt.identifier 
-  "Schedule.active" : for src.active make tgt.active 
-  "Schedule.serviceCategory" : for src.serviceCategory make tgt.serviceCategory 
-  "Schedule.serviceType" : for src.serviceType make tgt.serviceType 
-  "Schedule.specialty" : for src.specialty make tgt.specialty 
-  "Schedule.actor" : for src.actor make tgt.actor 
-  "Schedule.planningHorizon" : for src.planningHorizon make tgt.planningHorizon 
-  "Schedule.comment" : for src.comment make tgt.comment 
-endgroup
+group Schedule(source src : ScheduleR3, target tgt : Schedule) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.active -> tgt.active;
+  src.serviceCategory -> tgt.serviceCategory;
+  src.serviceType -> tgt.serviceType;
+  src.specialty -> tgt.specialty;
+  src.actor -> tgt.actor;
+  src.planningHorizon -> tgt.planningHorizon;
+  src.comment -> tgt.comment;
+}
 

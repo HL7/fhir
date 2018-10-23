@@ -1,31 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/QuestionnaireResponse4to3" = "R4 to R3 Conversion for QuestionnaireResponse"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types QuestionnaireResponse extends DomainResource
-  input src : QuestionnaireResponse as source
-  input tgt : QuestionnaireResponseR3 as target
-
-  "QuestionnaireResponse.identifier" : for src.identifier make tgt.identifier 
-  "QuestionnaireResponse.basedOn" : for src.basedOn make tgt.basedOn 
-  "QuestionnaireResponse.parent" : for src.partOf make tgt.parent 
-  "QuestionnaireResponse.status" : for src.status make tgt.status 
-  "QuestionnaireResponse.subject" : for src.subject make tgt.subject 
-  "QuestionnaireResponse.context" : for src.context make tgt.context 
-  "QuestionnaireResponse.authored" : for src.authored make tgt.authored 
-  "QuestionnaireResponse.author" : for src.author make tgt.author 
-  "QuestionnaireResponse.source" : for src.source make tgt.source 
-  "QuestionnaireResponse.item" : for src.item as vs0 make tgt.item as vt0 then {
-    "QuestionnaireResponse.item.linkId" : for vs0.linkId make vt0.linkId 
-    "QuestionnaireResponse.item.definition" : for vs0.definition make vt0.definition 
-    "QuestionnaireResponse.item.text" : for vs0.text make vt0.text 
-    "QuestionnaireResponse.item.subject" : for vs0.subject make vt0.subject 
-  }
-endgroup
+group QuestionnaireResponse(source src : QuestionnaireResponse, target tgt : QuestionnaireResponseR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.basedOn -> tgt.basedOn;
+  src.partOf -> tgt.parent "parent";
+  src.status -> tgt.status;
+  src.subject -> tgt.subject;
+  src.context -> tgt.context;
+  src.authored -> tgt.authored;
+  src.author -> tgt.author;
+  src.source -> tgt.source;
+  src.item as vs0 -> tgt.item as vt0 then {
+    vs0.linkId -> vt0.linkId;
+    vs0.definition -> vt0.definition;
+    vs0.text -> vt0.text;
+    vs0.subject -> vt0.subject;
+  };
+}
 

@@ -1,26 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Endpoint4to3" = "R4 to R3 Conversion for Endpoint"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Endpoint" alias Endpoint as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Endpoint" alias EndpointR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Endpoint extends DomainResource
-  input src : Endpoint as source
-  input tgt : EndpointR3 as target
-
-  "Endpoint.identifier" : for src.identifier make tgt.identifier 
-  "Endpoint.status" : for src.status make tgt.status 
-  "Endpoint.connectionType" : for src.connectionType make tgt.connectionType 
-  "Endpoint.name" : for src.name make tgt.name 
-  "Endpoint.managingOrganization" : for src.managingOrganization make tgt.managingOrganization 
-  "Endpoint.contact" : for src.contact make tgt.contact 
-  "Endpoint.period" : for src.period make tgt.period 
-  "Endpoint.payloadType" : for src.payloadType make tgt.payloadType 
-  "Endpoint.payloadMimeType" : for src.payloadMimeType make tgt.payloadMimeType 
-  "Endpoint.header" : for src.header make tgt.header 
-endgroup
+group Endpoint(source src : Endpoint, target tgt : EndpointR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.connectionType -> tgt.connectionType;
+  src.name -> tgt.name;
+  src.managingOrganization -> tgt.managingOrganization;
+  src.contact -> tgt.contact;
+  src.period -> tgt.period;
+  src.payloadType -> tgt.payloadType;
+  src.payloadMimeType -> tgt.payloadMimeType;
+  src.header -> tgt.header;
+}
 

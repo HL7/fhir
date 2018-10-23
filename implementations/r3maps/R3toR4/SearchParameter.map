@@ -1,39 +1,37 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SearchParameter3to4" = "R3 to R4 Conversions for SearchParameter"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SearchParameter" alias SearchParameterR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameter as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types SearchParameter extends DomainResource
-  input src : SearchParameterR3 as source
-  input tgt : SearchParameter as target
-
-  "SearchParameter.url" : for src.url make tgt.url 
-  "SearchParameter.version" : for src.version make tgt.version 
-  "SearchParameter.name" : for src.name make tgt.name 
-  "SearchParameter.status" : for src.status make tgt.status 
-  "SearchParameter.experimental" : for src.experimental make tgt.experimental 
-  "SearchParameter.date" : for src.date make tgt.date 
-  "SearchParameter.publisher" : for src.publisher make tgt.publisher 
-  "SearchParameter.contact" : for src.contact make tgt.contact 
-  "SearchParameter.useContext" : for src.useContext make tgt.useContext 
-  "SearchParameter.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
-  "SearchParameter.purpose" : for src.purpose make tgt.purpose 
-  "SearchParameter.code" : for src.code make tgt.code 
-  "SearchParameter.base" : for src.base make tgt.base 
-  "SearchParameter.type" : for src.type make tgt.type 
-  "SearchParameter.description" : for src.description make tgt.description 
-  "SearchParameter.expression" : for src.expression make tgt.expression 
-  "SearchParameter.xpath" : for src.xpath make tgt.xpath 
-  "SearchParameter.xpathUsage" : for src.xpathUsage make tgt.xpathUsage 
-  "SearchParameter.target" : for src.target make tgt.target 
-  "SearchParameter.chain" : for src.chain make tgt.chain 
-  "SearchParameter.component" : for src.component as vs0 make tgt.component as vt0 then {
-    "SearchParameter.component.expression" : for vs0.expression make vt0.expression 
-  }
-endgroup
+group SearchParameter(source src : SearchParameterR3, target tgt : SearchParameter) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.code -> tgt.code;
+  src.base -> tgt.base;
+  src.type -> tgt.type;
+  src.derivedFrom -> tgt.derivedFrom;
+  src.description -> tgt.description;
+  src.expression -> tgt.expression;
+  src.xpath -> tgt.xpath;
+  src.xpathUsage -> tgt.xpathUsage;
+  src.target -> tgt.target;
+  src.comparator -> tgt.comparator;
+  src.modifier -> tgt.modifier;
+  src.chain -> tgt.chain;
+  src.component as vs0 -> tgt.component as vt0 then {
+    vs0.definition -> vt0.definition;
+    vs0.expression -> vt0.expression;
+  };
+}
 

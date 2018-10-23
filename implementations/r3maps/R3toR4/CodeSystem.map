@@ -1,92 +1,74 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/CodeSystem" alias CodeSystemR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeSystem" alias CodeSystem as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-group for type+types CodeSystem extends DomainResource
-  input src : CodeSystemR3 as source
-  input tgt : CodeSystem as target
-  "CodeSystem.url" : for src.url make tgt.url 
-  "CodeSystem.identifier" : for src.identifier make tgt.identifier 
-  "CodeSystem.version" : for src.version make tgt.version 
-  "CodeSystem.name" : for src.name make tgt.name 
-  "CodeSystem.title" : for src.title make tgt.title 
-  "CodeSystem.status" : for src.status make tgt.status 
-  "CodeSystem.experimental" : for src.experimental make tgt.experimental 
-  "CodeSystem.date" : for src.date make tgt.date 
-  "CodeSystem.publisher" : for src.publisher make tgt.publisher 
-  "CodeSystem.contact" : for src.contact make tgt.contact 
-  "CodeSystem.description" : for src.description make tgt.description 
-  "CodeSystem.useContext" : for src.useContext make tgt.useContext 
-  "CodeSystem.jurisdiction" : for src.jurisdiction make tgt.jurisdiction 
-  "CodeSystem.purpose" : for src.purpose make tgt.purpose 
-  "CodeSystem.copyright" : for src.copyright make tgt.copyright 
-  "CodeSystem.caseSensitive" : for src.caseSensitive make tgt.caseSensitive 
-  "CodeSystem.valueSet" : for src.valueSet make tgt.valueSet 
-  "CodeSystem.hierarchyMeaning" : for src.hierarchyMeaning make tgt.hierarchyMeaning 
-  "CodeSystem.compositional" : for src.compositional make tgt.compositional 
-  "CodeSystem.versionNeeded" : for src.versionNeeded make tgt.versionNeeded 
-  "CodeSystem.content" : for src.content make tgt.content 
-  "CodeSystem.count" : for src.count make tgt.count 
-  "CodeSystem.filter" : for src.filter as vs0 make tgt.filter as vt0 then filter(vs0, vt0)
-  "CodeSystem.property" : for src.property as vs0 make tgt.property as vt0 then property(vs0, vt0)
-  "CodeSystem.concept" : for src.concept as vs0 make tgt.concept as vt0 then concept(vs0, vt0)
-endgroup
+group CodeSystem(source src : CodeSystemR3, target tgt : CodeSystem) extends DomainResource <<type+>> {
+  src.url -> tgt.url;
+  src.identifier -> tgt.identifier;
+  src.version -> tgt.version;
+  src.name -> tgt.name;
+  src.title -> tgt.title;
+  src.status -> tgt.status;
+  src.experimental -> tgt.experimental;
+  src.date -> tgt.date;
+  src.publisher -> tgt.publisher;
+  src.contact -> tgt.contact;
+  src.description -> tgt.description;
+  src.useContext -> tgt.useContext;
+  src.jurisdiction -> tgt.jurisdiction;
+  src.purpose -> tgt.purpose;
+  src.copyright -> tgt.copyright;
+  src.caseSensitive -> tgt.caseSensitive;
+  src.valueSet -> tgt.valueSet;
+  src.hierarchyMeaning -> tgt.hierarchyMeaning;
+  src.compositional -> tgt.compositional;
+  src.versionNeeded -> tgt.versionNeeded;
+  src.content -> tgt.content;
+  src.count -> tgt.count;
+  src.filter as vs0 -> tgt.filter as vt0 then filter(vs0, vt0);
+  src.property as vs0 -> tgt.property as vt0 then property(vs0, vt0);
+  src.concept as vs0 -> tgt.concept as vt0 then concept(vs0, vt0);
+}
 
-group filter extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "CodeSystem.filter.code" : for src.code make tgt.code 
-  "CodeSystem.filter.description" : for src.description make tgt.description 
-  "CodeSystem.filter.operator" : for src.operator make tgt.operator 
-  "CodeSystem.filter.value" : for src.value make tgt.value 
-endgroup
+group filter(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.operator -> tgt.operator;
+  src.value -> tgt.value;
+}
 
-group property extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "CodeSystem.property.code" : for src.code make tgt.code
-  "CodeSystem.property.uri" : for src.uri make tgt.uri
-  "CodeSystem.property.description" : for src.description make tgt.description
-  "CodeSystem.property.type" : for src.type make tgt.type
-endgroup
+group property(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.uri -> tgt.uri;
+  src.description -> tgt.description;
+  src.type -> tgt.type;
+}
 
-group concept extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "CodeSystem.concept.code" : for src.code make tgt.code
-  "CodeSystem.concept.display" : for src.display make tgt.display
-  "CodeSystem.concept.definition" : for src.definition make tgt.definition
-  "CodeSystem.concept.designation" : for src.designation as vs0 make tgt.designation as vt0 then designation(vs0, vt0)
-  "CodeSystem.concept.property" : for src.property as vs0 make tgt.property as vt0 then propertyC(vs0, vt0)
-  "CodeSystem.concept.concept" : for src.concept as vs0 make tgt.concept as vt0 then concept(vs0, vt0)
-endgroup
+group concept(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.display -> tgt.display;
+  src.definition -> tgt.definition;
+  src.designation as vs0 -> tgt.designation as vt0 then designation(vs0, vt0);
+  src.property as vs0 -> tgt.property as vt0 then propertyC(vs0, vt0);
+  src.concept as vs0 -> tgt.concept as vt0 then concept(vs0, vt0);
+}
 
-group designation extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "CodeSystem.concept.designation.language" : for src.language make tgt.language
-  "CodeSystem.concept.designation.use" : for src.use make tgt.use
-  "CodeSystem.concept.designation.value" : for src.value make tgt.value
-endgroup
+group designation(source src, target tgt) extends BackboneElement {
+  src.language -> tgt.language;
+  src.use -> tgt.use;
+  src.value -> tgt.value;
+}
 
-group propertyC extends BackboneElement
-  input src as source
-  input tgt as target
-  
-  "CodeSystem.concept.property.code" : for src.code make tgt.code
-  "CodeSystem.concept.property.valueCode" : for src.value : code as vs0 make tgt.value = create('code') as vt0 then code(vs0, vt0)
-  "CodeSystem.concept.property.valueCoding" : for src.value : Coding as vs0 make tgt.value = create('Coding') as vt0 then Coding(vs0, vt0)
-  "CodeSystem.concept.property.valueString" : for src.value : string as vs0 make tgt.value = create('string') as vt0 then string(vs0, vt0)
-  "CodeSystem.concept.property.valueInteger" : for src.value : integer as vs0 make tgt.value = create('integer') as vt0 then integer(vs0, vt0)
-  "CodeSystem.concept.property.valueBoolean" : for src.value : boolean as vs0 make tgt.value = create('boolean') as vt0 then boolean(vs0, vt0)
-  "CodeSystem.concept.property.valueDateTime" : for src.value : dateTime as vs0 make tgt.value = create('dateTime') as vt0 then dateTime(vs0, vt0)
-endgroup
+group propertyC(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.value : code as vs0 -> tgt.value = create("code") as vt0 then code(vs0, vt0) "valueCode";
+  src.value : Coding as vs0 -> tgt.value = create("Coding") as vt0 then Coding(vs0, vt0) "valueCoding";
+  src.value : string as vs0 -> tgt.value = create("string") as vt0 then string(vs0, vt0) "valueString";
+  src.value : integer as vs0 -> tgt.value = create("integer") as vt0 then integer(vs0, vt0) "valueInteger";
+  src.value : boolean as vs0 -> tgt.value = create("boolean") as vt0 then boolean(vs0, vt0) "valueBoolean";
+  src.value : dateTime as vs0 -> tgt.value = create("dateTime") as vt0 then dateTime(vs0, vt0) "valueDateTime";
+}
 

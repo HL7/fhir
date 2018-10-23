@@ -34,7 +34,7 @@ public class StructureMapTests {
     
     StructureMapUtilities scm = new StructureMapUtilities(TestingUtilities.context, null, null);
     StructureMap map = scm.parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), path)));
-    TextFile.stringToFile(scm.render(map), Utilities.path(TestingUtilities.home(), path+".out"));
+    TextFile.stringToFile(scm.render(map, false), Utilities.path(TestingUtilities.home(), path+".out"));
   }
   
 //  @Test

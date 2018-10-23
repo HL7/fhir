@@ -1,56 +1,45 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ResearchStudy4to3" = "R4 to R3 Conversion for ResearchStudy"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ResearchStudy" alias ResearchStudy as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ResearchStudy" alias ResearchStudyR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ResearchStudy(source src : ResearchStudyR3, target tgt : ResearchStudy) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.title -> tgt.title;
+  src.protocol -> tgt.protocol;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.primaryPurposeType -> tgt.primaryPurposeType;
+  src.phase -> tgt.phase;
+  src.category -> tgt.category;
+  src.focus -> tgt.focus;
+  src.condition -> tgt.condition;
+  src.contact -> tgt.contact;
+  src.relatedArtifact -> tgt.relatedArtifact;
+  src.keyword -> tgt.keyword;
+  src.location -> tgt.location;
+  src.description -> tgt.description;
+  src.enrollment -> tgt.enrollment;
+  src.period -> tgt.period;
+  src.sponsor -> tgt.sponsor;
+  src.principalInvestigator -> tgt.principalInvestigator;
+  src.site -> tgt.site;
+  src.reasonStopped -> tgt.reasonStopped;
+  src.note -> tgt.note;
+  src.arm as s -> tgt.arm as t then ResearchStudyArm(s, t);
+  src.objective as s -> tgt.objective as t then ResearchStudyObjective(s, t);
+}
 
+group ResearchStudyArm(source src : ResearchStudyR3, target tgt : ResearchStudy) extends BackboneElement <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+  src.description -> tgt.description;
+}
 
-group for type+types ResearchStudy extends DomainResource
-  input src : ResearchStudyR3 as source
-  input tgt : ResearchStudy as target
+group ResearchStudyObjective(source src : ResearchStudyR3, target tgt : ResearchStudy) extends BackboneElement <<type+>> {
+  src.name -> tgt.name;
+  src.type -> tgt.type;
+}
 
-  "ResearchStudy.identifier": for src.identifier make tgt.identifier
-  "ResearchStudy.title": for src.title make tgt.title
-  "ResearchStudy.protocol": for src.protocol make tgt.protocol
-  "ResearchStudy.partOf": for src.partOf make tgt.partOf
-  "ResearchStudy.status": for src.status make tgt.status
-  "ResearchStudy.primaryPurposeType": for src.primaryPurposeType make tgt.primaryPurposeType
-  "ResearchStudy.phase": for src.phase make tgt.phase
-  "ResearchStudy.category": for src.category make tgt.category
-  "ResearchStudy.focus": for src.focus make tgt.focus
-  "ResearchStudy.condition": for src.condition make tgt.condition
-  "ResearchStudy.contact": for src.contact make tgt.contact
-  "ResearchStudy.relatedArtifact": for src.relatedArtifact make tgt.relatedArtifact
-  "ResearchStudy.keyword": for src.keyword make tgt.keyword
-  "ResearchStudy.location": for src.location make tgt.location
-  "ResearchStudy.description": for src.description make tgt.description
-  "ResearchStudy.enrollment": for src.enrollment make tgt.enrollment
-  "ResearchStudy.period": for src.period make tgt.period
-  "ResearchStudy.sponsor": for src.sponsor make tgt.sponsor
-  "ResearchStudy.principalInvestigator": for src.principalInvestigator make tgt.principalInvestigator
-  "ResearchStudy.site": for src.site make tgt.site
-  "ResearchStudy.reasonStopped": for src.reasonStopped make tgt.reasonStopped
-  "ResearchStudy.note": for src.note make tgt.note
-  "ResearchStudy.arm": for src.arm as s make tgt.arm as t then ResearchStudyArm(s,t)
-  "ResearchStudy.objective": for src.objective as s make tgt.objective as t then ResearchStudyObjective(s,t)
-endgroup
-
-group for type+types ResearchStudyArm extends BackboneElement
-  input src : ResearchStudyR3 as source
-  input tgt : ResearchStudy as target
-
-  "ResearchStudy.arm.name": for src.name make tgt.name
-  "ResearchStudy.arm.type": for src.type make tgt.type
-  "ResearchStudy.arm.description": for src.description make tgt.description
-endgroup
-
-group for type+types ResearchStudyObjective extends BackboneElement
-  input src : ResearchStudyR3 as source
-  input tgt : ResearchStudy as target
-
-  "ResearchStudy.objective.name": for src.name make tgt.name
-  "ResearchStudy.objective.type": for src.type make tgt.type
-endgroup

@@ -1,36 +1,30 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Immunization3to4" = "R3 to R4 Conversions for Immunization"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Immunization" alias ImmunizationR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Immunization extends DomainResource
-  input src : ImmunizationR3 as source
-  input tgt : Immunization as target
-
-  "Immunization.identifier" : for src.identifier make tgt.identifier 
-  "Immunization.status" : for src.status make tgt.status 
-  "Immunization.vaccineCode" : for src.vaccineCode make tgt.vaccineCode 
-  "Immunization.patient" : for src.patient make tgt.patient 
-  "Immunization.encounter" : for src.encounter make tgt.encounter 
-  "Immunization.primarySource" : for src.primarySource make tgt.primarySource 
-  "Immunization.reportOrigin" : for src.reportOrigin make tgt.reportOrigin 
-  "Immunization.location" : for src.location make tgt.location 
-  "Immunization.manufacturer" : for src.manufacturer make tgt.manufacturer 
-  "Immunization.lotNumber" : for src.lotNumber make tgt.lotNumber 
-  "Immunization.expirationDate" : for src.expirationDate make tgt.expirationDate 
-  "Immunization.site" : for src.site make tgt.site 
-  "Immunization.route" : for src.route make tgt.route 
-  "Immunization.doseQuantity" : for src.doseQuantity make tgt.doseQuantity 
-  "Immunization.performer" : for src.practitioner as vs0 make tgt.performer as vt0 then {
-    "Immunization.performer.function" : for vs0.role make vt0.function 
-    "Immunization.performer.actor" : for vs0.actor make vt0.actor 
-  }
-  "Immunization.note" : for src.note make tgt.note 
-  "Immunization.reasonCode" : for src.reason make tgt.reasonCode 
-endgroup
+group Immunization(source src : ImmunizationR3, target tgt : Immunization) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.vaccineCode -> tgt.vaccineCode;
+  src.patient -> tgt.patient;
+  src.encounter -> tgt.encounter;
+  src.primarySource -> tgt.primarySource;
+  src.reportOrigin -> tgt.reportOrigin;
+  src.location -> tgt.location;
+  src.manufacturer -> tgt.manufacturer;
+  src.lotNumber -> tgt.lotNumber;
+  src.expirationDate -> tgt.expirationDate;
+  src.site -> tgt.site;
+  src.route -> tgt.route;
+  src.doseQuantity -> tgt.doseQuantity;
+  src.practitioner as vs0 -> tgt.performer as vt0 then {
+    vs0.role -> vt0.function "function";
+    vs0.actor -> vt0.actor;
+  } "performer";
+  src.note -> tgt.note;
+  src.reason -> tgt.reasonCode "reasonCode";
+}
 

@@ -1,113 +1,81 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ProductPlan4to3" = "R4 to R3 Conversion for ProductPlan"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ProductPlan" alias ProductPlan as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/ProductPlan" alias ProductPlanR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group ProductPlan(source src : ProductPlanR3, target tgt : ProductPlan) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.alias -> tgt.alias;
+  src.period -> tgt.period;
+  src.ownedBy -> tgt.ownedBy;
+  src.administeredBy -> tgt.administeredBy;
+  src.coverageArea -> tgt.coverageArea;
+  src.contact as s -> tgt.contact as t then ProductPlanContact(s, t);
+  src.endpoint -> tgt.endpoint;
+  src.network -> tgt.network;
+  src.coverage as s -> tgt.coverage as t then ProductPlanCoverage(s, t);
+  src.plan as s -> tgt.plan as t then ProductPlanPlan(s, t);
+}
 
+group ProductPlanContact(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.purpose -> tgt.purpose;
+  src.name -> tgt.name;
+  src.telecom -> tgt.telecom;
+  src.address -> tgt.address;
+}
 
-group for type+types ProductPlan extends DomainResource
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
+group ProductPlanCoverage(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.network -> tgt.network;
+  src.benefit as s -> tgt.benefit as t then ProductPlanCoverageBenefit(s, t);
+}
 
-  "ProductPlan.identifier": for src.identifier make tgt.identifier
-  "ProductPlan.status": for src.status make tgt.status
-  "ProductPlan.type": for src.type make tgt.type
-  "ProductPlan.name": for src.name make tgt.name
-  "ProductPlan.alias": for src.alias make tgt.alias
-  "ProductPlan.period": for src.period make tgt.period
-  "ProductPlan.ownedBy": for src.ownedBy make tgt.ownedBy
-  "ProductPlan.administeredBy": for src.administeredBy make tgt.administeredBy
-  "ProductPlan.coverageArea": for src.coverageArea make tgt.coverageArea
-  "ProductPlan.contact": for src.contact as s make tgt.contact as t then ProductPlanContact(s,t)
-  "ProductPlan.endpoint": for src.endpoint make tgt.endpoint
-  "ProductPlan.network": for src.network make tgt.network
-  "ProductPlan.coverage": for src.coverage as s make tgt.coverage as t then ProductPlanCoverage(s,t)
-  "ProductPlan.plan": for src.plan as s make tgt.plan as t then ProductPlanPlan(s,t)
-endgroup
+group ProductPlanCoverageBenefit(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.requirement -> tgt.requirement;
+  src.limit as s -> tgt.limit as t then ProductPlanCoverageBenefitLimit(s, t);
+}
 
-group for type+types ProductPlanContact extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
+group ProductPlanCoverageBenefitLimit(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.value -> tgt.value;
+  src.code -> tgt.code;
+}
 
-  "ProductPlan.contact.purpose": for src.purpose make tgt.purpose
-  "ProductPlan.contact.name": for src.name make tgt.name
-  "ProductPlan.contact.telecom": for src.telecom make tgt.telecom
-  "ProductPlan.contact.address": for src.address make tgt.address
-endgroup
+group ProductPlanPlan(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.type -> tgt.type;
+  src.coverageArea -> tgt.coverageArea;
+  src.network -> tgt.network;
+  src.generalCost as s -> tgt.generalCost as t then ProductPlanPlanGeneralCost(s, t);
+  src.specificCost as s -> tgt.specificCost as t then ProductPlanPlanSpecificCost(s, t);
+}
 
-group for type+types ProductPlanCoverage extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
+group ProductPlanPlanGeneralCost(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.groupSize -> tgt.groupSize;
+  src.cost -> tgt.cost;
+  src.comment -> tgt.comment;
+}
 
-  "ProductPlan.coverage.type": for src.type make tgt.type
-  "ProductPlan.coverage.network": for src.network make tgt.network
-  "ProductPlan.coverage.benefit": for src.benefit as s make tgt.benefit as t then ProductPlanCoverageBenefit(s,t)
-endgroup
+group ProductPlanPlanSpecificCost(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.category -> tgt.category;
+  src.benefit as s -> tgt.benefit as t then ProductPlanPlanSpecificCostBenefit(s, t);
+}
 
-group for type+types ProductPlanCoverageBenefit extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
+group ProductPlanPlanSpecificCostBenefit(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.cost as s -> tgt.cost as t then ProductPlanPlanSpecificCostBenefitCost(s, t);
+}
 
-  "ProductPlan.coverage.benefit.type": for src.type make tgt.type
-  "ProductPlan.coverage.benefit.requirement": for src.requirement make tgt.requirement
-  "ProductPlan.coverage.benefit.limit": for src.limit as s make tgt.limit as t then ProductPlanCoverageBenefitLimit(s,t)
-endgroup
+group ProductPlanPlanSpecificCostBenefitCost(source src : ProductPlanR3, target tgt : ProductPlan) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.applicability -> tgt.applicability;
+  src.qualifiers -> tgt.qualifiers;
+  src.value -> tgt.value;
+}
 
-group for type+types ProductPlanCoverageBenefitLimit extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
-
-  "ProductPlan.coverage.benefit.limit.value": for src.value make tgt.value
-  "ProductPlan.coverage.benefit.limit.code": for src.code make tgt.code
-endgroup
-
-group for type+types ProductPlanPlan extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
-
-  "ProductPlan.plan.identifier": for src.identifier make tgt.identifier
-  "ProductPlan.plan.type": for src.type make tgt.type
-  "ProductPlan.plan.coverageArea": for src.coverageArea make tgt.coverageArea
-  "ProductPlan.plan.network": for src.network make tgt.network
-  "ProductPlan.plan.generalCost": for src.generalCost as s make tgt.generalCost as t then ProductPlanPlanGeneralCost(s,t)
-  "ProductPlan.plan.specificCost": for src.specificCost as s make tgt.specificCost as t then ProductPlanPlanSpecificCost(s,t)
-endgroup
-
-group for type+types ProductPlanPlanGeneralCost extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
-
-  "ProductPlan.plan.generalCost.type": for src.type make tgt.type
-  "ProductPlan.plan.generalCost.groupSize": for src.groupSize make tgt.groupSize
-  "ProductPlan.plan.generalCost.cost": for src.cost make tgt.cost
-  "ProductPlan.plan.generalCost.comment": for src.comment make tgt.comment
-endgroup
-
-group for type+types ProductPlanPlanSpecificCost extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
-
-  "ProductPlan.plan.specificCost.category": for src.category make tgt.category
-  "ProductPlan.plan.specificCost.benefit": for src.benefit as s make tgt.benefit as t then ProductPlanPlanSpecificCostBenefit(s,t)
-endgroup
-
-group for type+types ProductPlanPlanSpecificCostBenefit extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
-
-  "ProductPlan.plan.specificCost.benefit.type": for src.type make tgt.type
-  "ProductPlan.plan.specificCost.benefit.cost": for src.cost as s make tgt.cost as t then ProductPlanPlanSpecificCostBenefitCost(s,t)
-endgroup
-
-group for type+types ProductPlanPlanSpecificCostBenefitCost extends BackboneElement
-  input src : ProductPlanR3 as source
-  input tgt : ProductPlan as target
-
-  "ProductPlan.plan.specificCost.benefit.cost.type": for src.type make tgt.type
-  "ProductPlan.plan.specificCost.benefit.cost.applicability": for src.applicability make tgt.applicability
-  "ProductPlan.plan.specificCost.benefit.cost.qualifiers": for src.qualifiers make tgt.qualifiers
-  "ProductPlan.plan.specificCost.benefit.cost.value": for src.value make tgt.value
-endgroup

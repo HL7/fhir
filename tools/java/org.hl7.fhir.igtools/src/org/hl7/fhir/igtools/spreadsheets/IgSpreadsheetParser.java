@@ -729,6 +729,9 @@ public class IgSpreadsheetParser {
     e.setSliceName(profileName);
     if (!Utilities.noString(discriminator)) {
       e.getSlicing().setRules(SlicingRules.OPEN);
+      if (discriminator.contains("|")) {
+        throw new Error("We don't yet support ordered or non-open slicing when defining profiles with spreadsheets: " + discriminator);
+      }
       for (String d : discriminator.split("\\,"))
         if (!Utilities.noString(d))
           e.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d.trim(), false));

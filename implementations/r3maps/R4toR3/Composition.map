@@ -1,42 +1,53 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Composition4to3" = "R4 to R3 Conversion for Composition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Composition" alias CompositionR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
+group Composition(source src : Composition, target tgt : CompositionR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.type -> tgt.type;
+  src.category -> tgt.class;
+  src.subject -> tgt.subject;
+  src.encounter -> tgt.encounter;
+  src.date -> tgt.date;
+  src.author -> tgt.author;
+  src.title -> tgt.title;
+  src.confidentiality -> tgt.confidentiality;
+  src.attester as vs0 -> tgt.attester as vt0 then attester(vs0, vt0);
+  src.custodian -> tgt.custodian;
+  src.relatesTo as vs0 -> tgt.relatesTo as vt0 then relatesTo(vs0, vt0);
+  src.event as vs0 -> tgt.event as vt0 then event(vs0, vt0);
+  src.section as vs0 -> tgt.section as vt0 then section(vs0, vt0);
+}
 
+group attester(source src, target tgt) extends BackboneElement {
+  src.mode -> tgt.mode;
+  src.time -> tgt.time;
+  src.party -> tgt.party;
+}
 
-group for type+types Composition extends DomainResource
-  input src : Composition as source
-  input tgt : CompositionR3 as target
+group relatesTo(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.target : Identifier as vs -> tgt.target = create("Identifier") as vt then Identifier(vs, vt);
+  src.target : Reference as vs -> tgt.target = create("Reference") as vt then Reference(vs, vt);
+}
+    
+group event(source src, target tgt) extends BackboneElement {
+  src.code -> tgt.code;
+  src.period -> tgt.period;
+  src.detail -> tgt.detail;
+}
 
-  "Composition.identifier" : for src.identifier make tgt.identifier 
-  "Composition.status" : for src.status make tgt.status 
-  "Composition.type" : for src.type make tgt.type 
-  "Composition.class" : for src.class make tgt.class 
-  "Composition.subject" : for src.subject make tgt.subject 
-  "Composition.encounter" : for src.encounter make tgt.encounter 
-  "Composition.date" : for src.date make tgt.date 
-  "Composition.author" : for src.author make tgt.author 
-  "Composition.title" : for src.title make tgt.title 
-  "Composition.confidentiality" : for src.confidentiality make tgt.confidentiality 
-  "Composition.attester" : for src.attester as vs0 make tgt.attester as vt0 then {
-    "Composition.attester.mode" : for vs0.mode make vt0.mode 
-    "Composition.attester.time" : for vs0.time make vt0.time 
-    "Composition.attester.party" : for vs0.party make vt0.party 
-  }
-  "Composition.custodian" : for src.custodian make tgt.custodian 
-  "Composition.relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "Composition.relatesTo.code" : for vs0.code make vt0.code 
-    "Composition.relatesTo.target-Identifier" : for vs0.target : Identifier as vs make vt0.target = create("Identifier") as vt then Identifier(vs,vt)
-    "Composition.relatesTo.target-Reference" : for vs0.target : Reference as vs make vt0.target = create("Reference") as vt then Reference(vs,vt)
-  }
-  "Composition.event" : for src.event as vs0 make tgt.event as vt0 then {
-    "Composition.event.code" : for vs0.code make vt0.code 
-    "Composition.event.period" : for vs0.period make vt0.period 
-    "Composition.event.detail" : for vs0.detail make vt0.detail 
-  }
-endgroup
-
+group section(source src, target tgt) extends BackboneElement {
+  src.title -> tgt.title;
+  src.code -> tgt.code;
+  src.text -> tgt.text;
+  src.mode -> tgt.mode;
+  src.orderedBy -> tgt.orderedBy;
+  src.entry -> tgt.entry;
+  src.emptyReason -> tgt.emptyReason;
+  src.section as vs0 -> tgt.section as vt0 then section(vs0, vt0);
+}

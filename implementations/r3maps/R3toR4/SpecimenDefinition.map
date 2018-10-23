@@ -1,64 +1,46 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SpecimenDefinition3to4" = "R3 to R4 Conversions for SpecimenDefinition"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/SpecimenDefinition" alias SpecimenDefinitionR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/SpecimenDefinition" alias SpecimenDefinition as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group SpecimenDefinition(source src : SpecimenDefinitionR3, target tgt : SpecimenDefinition) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.typeCollected -> tgt.typeCollected;
+  src.patientPreparation -> tgt.patientPreparation;
+  src.timeAspect -> tgt.timeAspect;
+  src.collection -> tgt.collection;
+  src.specimenToLab as s -> tgt.specimenToLab as t then SpecimenDefinitionSpecimenToLab(s, t);
+}
 
+group SpecimenDefinitionSpecimenToLab(source src : SpecimenDefinitionR3, target tgt : SpecimenDefinition) extends BackboneElement <<type+>> {
+  src.isDerived -> tgt.isDerived;
+  src.type -> tgt.type;
+  src.preference -> tgt.preference;
+  src.containerMaterial -> tgt.containerMaterial;
+  src.containerType -> tgt.containerType;
+  src.containerCap -> tgt.containerCap;
+  src.containerDescription -> tgt.containerDescription;
+  src.containerCapacity -> tgt.containerCapacity;
+  src.containerMinimumVolume -> tgt.containerMinimumVolume;
+  src.containerAdditive as s -> tgt.containerAdditive as t then SpecimenDefinitionSpecimenToLabContainerAdditive(s, t);
+  src.containerPreparation -> tgt.containerPreparation;
+  src.requirement -> tgt.requirement;
+  src.retentionTime -> tgt.retentionTime;
+  src.rejectionCriterion -> tgt.rejectionCriterion;
+  src.handling as s -> tgt.handling as t then SpecimenDefinitionSpecimenToLabHandling(s, t);
+}
 
-group for type+types SpecimenDefinition extends DomainResource
-  input src : SpecimenDefinitionR3 as source
-  input tgt : SpecimenDefinition as target
+group SpecimenDefinitionSpecimenToLabContainerAdditive(source src : SpecimenDefinitionR3, target tgt : SpecimenDefinition) extends BackboneElement <<type+>> {
+  src.additive -> tgt.additive;
+}
 
-  "SpecimenDefinition.identifier": for src.identifier make tgt.identifier
-  "SpecimenDefinition.typeCollected": for src.typeCollected make tgt.typeCollected
-  "SpecimenDefinition.patientPreparation": for src.patientPreparation make tgt.patientPreparation
-  "SpecimenDefinition.timeAspect": for src.timeAspect make tgt.timeAspect
-  "SpecimenDefinition.collection": for src.collection make tgt.collection
-  "SpecimenDefinition.specimenToLab": for src.specimenToLab as s make tgt.specimenToLab as t then SpecimenDefinitionSpecimenToLab(s,t)
-endgroup
-
-
-group for type+types SpecimenDefinitionSpecimenToLab extends BackboneElement
-  input src : SpecimenDefinitionR3 as source
-  input tgt : SpecimenDefinition as target
-
-  "SpecimenDefinition.specimenToLab.isDerived": for src.isDerived make tgt.isDerived
-  "SpecimenDefinition.specimenToLab.type": for src.type make tgt.type
-  "SpecimenDefinition.specimenToLab.preference": for src.preference make tgt.preference
-  "SpecimenDefinition.specimenToLab.containerMaterial": for src.containerMaterial make tgt.containerMaterial
-  "SpecimenDefinition.specimenToLab.containerType": for src.containerType make tgt.containerType
-  "SpecimenDefinition.specimenToLab.containerCap": for src.containerCap make tgt.containerCap
-  "SpecimenDefinition.specimenToLab.containerDescription": for src.containerDescription make tgt.containerDescription
-  "SpecimenDefinition.specimenToLab.containerCapacity": for src.containerCapacity make tgt.containerCapacity
-  "SpecimenDefinition.specimenToLab.containerMinimumVolume": for src.containerMinimumVolume make tgt.containerMinimumVolume
-  "SpecimenDefinition.specimenToLab.containerAdditive": for src.containerAdditive as s make tgt.containerAdditive as t then SpecimenDefinitionSpecimenToLabContainerAdditive(s,t)
-  "SpecimenDefinition.specimenToLab.containerPreparation": for src.containerPreparation make tgt.containerPreparation
-  "SpecimenDefinition.specimenToLab.requirement": for src.requirement make tgt.requirement
-  "SpecimenDefinition.specimenToLab.retentionTime": for src.retentionTime make tgt.retentionTime
-  "SpecimenDefinition.specimenToLab.rejectionCriterion": for src.rejectionCriterion make tgt.rejectionCriterion
-  "SpecimenDefinition.specimenToLab.handling": for src.handling as s make tgt.handling as t then SpecimenDefinitionSpecimenToLabHandling(s,t)
-endgroup
-
-
-group for type+types SpecimenDefinitionSpecimenToLabContainerAdditive extends BackboneElement
-  input src : SpecimenDefinitionR3 as source
-  input tgt : SpecimenDefinition as target
-
-  "SpecimenDefinition.specimenToLab.containerAdditive.additive": for src.additive make tgt.additive
-endgroup
-
-
-group for type+types SpecimenDefinitionSpecimenToLabHandling extends BackboneElement
-  input src : SpecimenDefinitionR3 as source
-  input tgt : SpecimenDefinition as target
-
-  "SpecimenDefinition.specimenToLab.handling.conditionSet": for src.conditionSet make tgt.conditionSet
-  "SpecimenDefinition.specimenToLab.handling.tempRange": for src.tempRange make tgt.tempRange
-  "SpecimenDefinition.specimenToLab.handling.maxDuration": for src.maxDuration make tgt.maxDuration
-  "SpecimenDefinition.specimenToLab.handling.lightExposure": for src.lightExposure make tgt.lightExposure
-  "SpecimenDefinition.specimenToLab.handling.instruction": for src.instruction make tgt.instruction
-endgroup
+group SpecimenDefinitionSpecimenToLabHandling(source src : SpecimenDefinitionR3, target tgt : SpecimenDefinition) extends BackboneElement <<type+>> {
+  src.conditionSet -> tgt.conditionSet;
+  src.tempRange -> tgt.tempRange;
+  src.maxDuration -> tgt.maxDuration;
+  src.lightExposure -> tgt.lightExposure;
+  src.instruction -> tgt.instruction;
+}
 

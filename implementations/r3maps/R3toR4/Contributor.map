@@ -1,19 +1,13 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Contributor3to4" = "R3 to R4 Conversions for Contributor"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Contributor" alias ContributorR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Contributor" alias Contributor as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
-
-
-group for type+types Contributor extends Element
-  input src : ContributorR3 as source
-  input tgt : Contributor as target
-
-  "Contributor.type" : for src.type make tgt.type 
-  "Contributor.name" : for src.name make tgt.name 
-  "Contributor.contact" : for src.contact make tgt.contact 
-endgroup
+group Contributor(source src : ContributorR3, target tgt : Contributor) extends Element <<type+>> {
+  src.type -> tgt.type;
+  src.name -> tgt.name;
+  src.contact -> tgt.contact;
+}
 

@@ -1,23 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/HumanName4to3" = "R4 to R3 Conversion for HumanName"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanName as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/HumanName" alias HumanNameR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types HumanName extends Element
-  input src : HumanName as source
-  input tgt : HumanNameR3 as target
-
-  "HumanName.use" : for src.use make tgt.use 
-  "HumanName.text" : for src.text make tgt.text 
-  "HumanName.family" : for src.family make tgt.family 
-  "HumanName.given" : for src.given make tgt.given 
-  "HumanName.prefix" : for src.prefix make tgt.prefix 
-  "HumanName.suffix" : for src.suffix make tgt.suffix 
-  "HumanName.period" : for src.period make tgt.period 
-endgroup
+group HumanName(source src : HumanName, target tgt : HumanNameR3) extends Element <<type+>> {
+  src.use -> tgt.use;
+  src.text -> tgt.text;
+  src.family -> tgt.family;
+  src.given -> tgt.given;
+  src.prefix -> tgt.prefix;
+  src.suffix -> tgt.suffix;
+  src.period -> tgt.period;
+}
 

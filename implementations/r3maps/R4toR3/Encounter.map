@@ -1,52 +1,46 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Encounter4to3" = "R4 to R3 Conversion for Encounter"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as source
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Encounter" alias EncounterR3 as target
 
 imports "http://hl7.org/fhir/StructureMap/*4to3"
 
-
-
-group for type+types Encounter extends DomainResource
-  input src : Encounter as source
-  input tgt : EncounterR3 as target
-
-  "Encounter.identifier" : for src.identifier make tgt.identifier 
-  "Encounter.status" : for src.status make tgt.status 
-  "Encounter.class" : for src.class make tgt.class 
-  "Encounter.type" : for src.type make tgt.type 
-  "Encounter.priority" : for src.priority make tgt.priority 
-  "Encounter.subject" : for src.subject make tgt.subject 
-  "Encounter.episodeOfCare" : for src.episodeOfCare make tgt.episodeOfCare 
-  "Encounter.incomingReferral" : for src.basedOn make tgt.incomingReferral 
-  "Encounter.participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Encounter.participant.type" : for vs0.type make vt0.type 
-    "Encounter.participant.period" : for vs0.period make vt0.period 
-    "Encounter.participant.individual" : for vs0.individual make vt0.individual 
-  }
-  "Encounter.appointment" : for src.appointment make tgt.appointment 
-  "Encounter.period" : for src.period make tgt.period 
-  "Encounter.length" : for src.length make tgt.length 
-  "Encounter.reason" : for src.reason make tgt.reason 
-  "Encounter.account" : for src.account make tgt.account 
-  "Encounter.hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then {
-    "Encounter.hospitalization.preAdmissionIdentifier" : for vs0.preAdmissionIdentifier make vt0.preAdmissionIdentifier 
-    "Encounter.hospitalization.origin" : for vs0.origin make vt0.origin 
-    "Encounter.hospitalization.admitSource" : for vs0.admitSource make vt0.admitSource 
-    "Encounter.hospitalization.reAdmission" : for vs0.reAdmission make vt0.reAdmission 
-    "Encounter.hospitalization.dietPreference" : for vs0.dietPreference make vt0.dietPreference 
-    "Encounter.hospitalization.specialCourtesy" : for vs0.specialCourtesy make vt0.specialCourtesy 
-    "Encounter.hospitalization.specialArrangement" : for vs0.specialArrangement make vt0.specialArrangement 
-    "Encounter.hospitalization.destination" : for vs0.destination make vt0.destination 
-    "Encounter.hospitalization.dischargeDisposition" : for vs0.dischargeDisposition make vt0.dischargeDisposition 
-  }
-  "Encounter.location" : for src.location as vs0 make tgt.location as vt0 then {
-    "Encounter.location.location" : for vs0.location make vt0.location 
-    "Encounter.location.status" : for vs0.status make vt0.status 
-    "Encounter.location.period" : for vs0.period make vt0.period 
-  }
-  "Encounter.serviceProvider" : for src.serviceProvider make tgt.serviceProvider 
-  "Encounter.partOf" : for src.partOf make tgt.partOf 
-endgroup
+group Encounter(source src : Encounter, target tgt : EncounterR3) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.status -> tgt.status;
+  src.class -> tgt.class;
+  src.type -> tgt.type;
+  src.priority -> tgt.priority;
+  src.subject -> tgt.subject;
+  src.episodeOfCare -> tgt.episodeOfCare;
+  src.basedOn -> tgt.incomingReferral "incomingReferral";
+  src.participant as vs0 -> tgt.participant as vt0 then {
+    vs0.type -> vt0.type;
+    vs0.period -> vt0.period;
+    vs0.individual -> vt0.individual;
+  };
+  src.appointment -> tgt.appointment;
+  src.period -> tgt.period;
+  src.length -> tgt.length;
+  src.reason -> tgt.reason;
+  src.account -> tgt.account;
+  src.hospitalization as vs0 -> tgt.hospitalization as vt0 then {
+    vs0.preAdmissionIdentifier -> vt0.preAdmissionIdentifier;
+    vs0.origin -> vt0.origin;
+    vs0.admitSource -> vt0.admitSource;
+    vs0.reAdmission -> vt0.reAdmission;
+    vs0.dietPreference -> vt0.dietPreference;
+    vs0.specialCourtesy -> vt0.specialCourtesy;
+    vs0.specialArrangement -> vt0.specialArrangement;
+    vs0.destination -> vt0.destination;
+    vs0.dischargeDisposition -> vt0.dischargeDisposition;
+  };
+  src.location as vs0 -> tgt.location as vt0 then {
+    vs0.location -> vt0.location;
+    vs0.status -> vt0.status;
+    vs0.period -> vt0.period;
+  };
+  src.serviceProvider -> tgt.serviceProvider;
+  src.partOf -> tgt.partOf;
+}
 

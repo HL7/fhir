@@ -1,73 +1,55 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Task3to4" = "R3 to R4 Conversions for Task"
 
-
 uses "http://hl7.org/fhir/3.0/StructureDefinition/Task" alias TaskR3 as source
 uses "http://hl7.org/fhir/StructureDefinition/Task" alias Task as target
 
 imports "http://hl7.org/fhir/StructureMap/*3to4"
 
+group Task(source src : TaskR3, target tgt : Task) extends DomainResource <<type+>> {
+  src.identifier -> tgt.identifier;
+  src.instantiates -> tgt.instantiates;
+  src.basedOn -> tgt.basedOn;
+  src.groupIdentifier -> tgt.groupIdentifier;
+  src.partOf -> tgt.partOf;
+  src.status -> tgt.status;
+  src.statusReason -> tgt.statusReason;
+  src.businessStatus -> tgt.businessStatus;
+  src.intent -> tgt.intent;
+  src.priority -> tgt.priority;
+  src.code -> tgt.code;
+  src.description -> tgt.description;
+  src.focus -> tgt.focus;
+  src.for -> tgt.for;
+  src.context -> tgt.context;
+  src.executionPeriod -> tgt.executionPeriod;
+  src.authoredOn -> tgt.authoredOn;
+  src.lastModified -> tgt.lastModified;
+  src.requester -> tgt.requester;
+  src.performerType -> tgt.performerType;
+  src.owner -> tgt.owner;
+  src.location -> tgt.location;
+  src.reasonCode -> tgt.reasonCode;
+  src.reasonReference -> tgt.reasonReference;
+  src.note -> tgt.note;
+  src.relevantHistory -> tgt.relevantHistory;
+  src.restriction as s -> tgt.restriction as t then TaskRestriction(s, t);
+  src.input as s -> tgt.input as t then TaskInput(s, t);
+  src.output as s -> tgt.output as t then TaskOutput(s, t);
+}
 
+group TaskRestriction(source src : TaskR3, target tgt : Task) extends BackboneElement <<type+>> {
+  src.repetitions -> tgt.repetitions;
+  src.period -> tgt.period;
+  src.recipient -> tgt.recipient;
+}
 
-group for type+types Task extends DomainResource
-  input src : TaskR3 as source
-  input tgt : Task as target
+group TaskInput(source src : TaskR3, target tgt : Task) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+}
 
-  "Task.identifier": for src.identifier make tgt.identifier
-  "Task.instantiates": for src.instantiates make tgt.instantiates
-  "Task.basedOn": for src.basedOn make tgt.basedOn
-  "Task.groupIdentifier": for src.groupIdentifier make tgt.groupIdentifier
-  "Task.partOf": for src.partOf make tgt.partOf
-  "Task.status": for src.status make tgt.status
-  "Task.statusReason": for src.statusReason make tgt.statusReason
-  "Task.businessStatus": for src.businessStatus make tgt.businessStatus
-  "Task.intent": for src.intent make tgt.intent
-  "Task.priority": for src.priority make tgt.priority
-  "Task.code": for src.code make tgt.code
-  "Task.description": for src.description make tgt.description
-  "Task.focus": for src.focus make tgt.focus
-  "Task.for": for src.for make tgt.for
-  "Task.context": for src.context make tgt.context
-  "Task.executionPeriod": for src.executionPeriod make tgt.executionPeriod
-  "Task.authoredOn": for src.authoredOn make tgt.authoredOn
-  "Task.lastModified": for src.lastModified make tgt.lastModified
-  "Task.requester": for src.requester make tgt.requester
-  "Task.performerType": for src.performerType make tgt.performerType
-  "Task.owner": for src.owner make tgt.owner
-  "Task.location": for src.location make tgt.location
-  "Task.reasonCode": for src.reasonCode make tgt.reasonCode
-  "Task.reasonReference": for src.reasonReference make tgt.reasonReference
-  "Task.note": for src.note make tgt.note
-  "Task.relevantHistory": for src.relevantHistory make tgt.relevantHistory
-  "Task.restriction": for src.restriction as s make tgt.restriction as t then TaskRestriction(s,t)
-  "Task.input": for src.input as s make tgt.input as t then TaskInput(s,t)
-  "Task.output": for src.output as s make tgt.output as t then TaskOutput(s,t)
-endgroup
-
-
-group for type+types TaskRestriction extends BackboneElement
-  input src : TaskR3 as source
-  input tgt : Task as target
-
-  "Task.restriction.repetitions": for src.repetitions make tgt.repetitions
-  "Task.restriction.period": for src.period make tgt.period
-  "Task.restriction.recipient": for src.recipient make tgt.recipient
-endgroup
-
-
-group for type+types TaskInput extends BackboneElement
-  input src : TaskR3 as source
-  input tgt : Task as target
-
-  "Task.input.type": for src.type make tgt.type
-  "Task.input.value": for src.value make tgt.value
-endgroup
-
-
-group for type+types TaskOutput extends BackboneElement
-  input src : TaskR3 as source
-  input tgt : Task as target
-
-  "Task.output.type": for src.type make tgt.type
-  "Task.output.value": for src.value make tgt.value
-endgroup
+group TaskOutput(source src : TaskR3, target tgt : Task) extends BackboneElement <<type+>> {
+  src.type -> tgt.type;
+  src.value -> tgt.value;
+}
 
