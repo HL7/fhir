@@ -5886,7 +5886,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void runJUnitTestsEnd() throws Exception {
     ValidationEngineTests.inbuild = true;
     runJUnitClass(ValidationEngineTests.class);
-//    runJUnitClass(TransformationTests.class); 
+    runJUnitClass(TransformationTests.class); 
     runJUnitClass(AllGuidesTests.class);
     checkAllOk();
   }
