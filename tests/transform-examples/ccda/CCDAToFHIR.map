@@ -1,0 +1,31 @@
+map "http://hl7.org/fhir/cda/mapping/ccdaDocumentToFhir" = "C-CDA Document from CDA to FHIR"
+
+uses "http://hl7.org/fhir/cda/StructureDefinition/ClinicalDocument" alias ClinicalDocument as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
+uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as produced
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as source
+
+uses "http://hl7.org/fhir/cda/StructureDefinition/Act" alias Act as source
+uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as source
+
+imports "http://hl7.org/fhir/cda/mapping/cdaAllergyIntolerance"
+imports "http://hl7.org/fhir/cda/mapping/ClinicalDocumentToFHIR"
+
+
+group CCDADocument
+	input source: ClinicalDocument as source
+	
+	start: for source make create("Bundle") as target then ClinicalDocumentBundle(source, target)
+endgroup
+
+
+group CCDASections
+	input source : ClinicalDocument as source
+	input component as source
+	input patient: Patient as source
+	input target: Composition as target
+	input bundle: Bundle as target
+
+	allergySection: for component.section as srcSection where code.code = '48765-2' make target.section as tgtSection then AllergySection(srcSection, patient, bundle, tgtSection)
+	section: for component.section as srcSection where code.code != '48765-2' make target.section as tgtSection then ClinicalDocumentSection(srcSection, patient, tgtSection)
+endgroup

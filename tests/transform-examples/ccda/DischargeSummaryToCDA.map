@@ -1,0 +1,13 @@
+map "http://hl7.org/fhir/cda/mapping/dischargeSummaryDocumentToCDA" = "DischargeSummaryDocument from CDA to FHIR"
+
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as source
+uses "http://hl7.org/fhir/cda/StructureDefinition/ClinicalDocument" alias ClinicalDocument as target
+
+imports "http://hl7.org/fhir/cda/mapping/BundleToCDA"
+
+
+group DischargeSummaryDocument
+	input source: Bundle as source
+	
+	start: for source make create("ClinicalDocument") as target then BundleClinicalDocument(source, target)
+endgroup

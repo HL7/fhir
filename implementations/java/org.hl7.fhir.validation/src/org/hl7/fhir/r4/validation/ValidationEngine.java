@@ -37,6 +37,7 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -162,7 +163,10 @@ public class ValidationEngine {
 
     @Override
     public void log(String message) {
-      System.out.println(message);
+      if (mapLog != null)
+        mapLog.println(message);
+      else
+        System.out.println(message);
     }
 
     @Override
@@ -211,6 +215,7 @@ public class ValidationEngine {
   private boolean anyExtensionsAllowed = false;
   private String version;
   private PackageCacheManager pcm;
+  private PrintWriter mapLog;
 
   private class AsteriskFilter implements FilenameFilter {
     String dir;
@@ -906,6 +911,7 @@ public class ValidationEngine {
     
     StructureMapUtilities scu = new StructureMapUtilities(context, new TransformSupportServices(outputs));
 
+    
     org.hl7.fhir.r4.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
     StructureMap map = context.getTransform(mapUri);
     if (map == null)
@@ -979,6 +985,10 @@ public class ValidationEngine {
     validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
     validator.setNoInvariantChecks(isNoInvariantChecks());
     return validator;
+  }
+
+  public void setMapLog(String mapLog) throws FileNotFoundException {
+    this.mapLog = new PrintWriter(mapLog);
   }
 
   

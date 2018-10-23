@@ -253,6 +253,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XhtmlGenerator;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
+import org.hl7.fhir.validation.r4.tests.TransformationTests;
 import org.hl7.fhir.validation.r4.tests.ValidationEngineTests;
 import org.hl7.fhir.validation.r4.tests.ValidationTestSuite;
 import org.junit.runner.JUnitCore;
@@ -5885,6 +5886,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void runJUnitTestsEnd() throws Exception {
     ValidationEngineTests.inbuild = true;
     runJUnitClass(ValidationEngineTests.class);
+    runJUnitClass(TransformationTests.class);
     runJUnitClass(AllGuidesTests.class);
     checkAllOk();
   }
