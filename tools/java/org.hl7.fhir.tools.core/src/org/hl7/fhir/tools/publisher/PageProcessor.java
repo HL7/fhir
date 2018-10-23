@@ -1971,21 +1971,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private void updateDiffEngineDefinitions() {
+  public void updateDiffEngineDefinitions() {
     for (BundleEntryComponent be : typeBundle.getEntry()) {
       if (be.getResource() instanceof StructureDefinition) {
         StructureDefinition sd = (StructureDefinition) be.getResource();
-        diffEngine.getRevision().getTypes().put(sd.getName(), sd);
+        if (!diffEngine.getRevision().getTypes().containsKey(sd.getName()))
+          diffEngine.getRevision().getTypes().put(sd.getName(), sd);
       }
     }
     for (BundleEntryComponent be : resourceBundle.getEntry()) {
       if (be.getResource() instanceof StructureDefinition) {
         StructureDefinition sd = (StructureDefinition) be.getResource();
-        diffEngine.getRevision().getResources().put(sd.getName(), sd);
+        if (!diffEngine.getRevision().getResources().containsKey(sd.getName()))
+          diffEngine.getRevision().getResources().put(sd.getName(), sd);
       }
     }
 
     for (ValueSet vs : getValueSets().values()) {
+      if (!diffEngine.getRevision().getValuesets().containsKey(vs.getUrl()))
+        diffEngine.getRevision().getValuesets().put(vs.getUrl(), vs);
       if (vs.getUserData(ToolResourceUtilities.NAME_VS_USE_MARKER) != null) {
         ValueSet evs = null;
         if (vs.hasUserData("expansion"))
@@ -1997,7 +2001,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             vs.setUserData("expansion", evs);
           }
         }
-        if (evs != null) {
+        if (evs != null && !diffEngine.getRevision().getExpansions().containsKey(evs.getUrl())) {
           diffEngine.getRevision().getExpansions().put(evs.getUrl(), evs);
         }
       }

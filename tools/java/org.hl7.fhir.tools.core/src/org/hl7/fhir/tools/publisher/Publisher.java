@@ -2393,6 +2393,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       ed.setUserData("path", (ig.isCore() ? "" : ig.getCode()+File.separator) + filename+".html");
     }
 
+    page.updateDiffEngineDefinitions();
+    
     loadValueSets2();
     page.log(" ...extensions", LogMessageType.Process);
 

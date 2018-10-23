@@ -469,7 +469,7 @@ public class ValidationEngine {
   public Map<String, byte[]> loadPackage(NpmPackage pi) throws IOException {
     Map<String, byte[]> res = new HashMap<String, byte[]>();
     for (String s : pi.list("package")) {
-      if (s.startsWith("CodeSystem-") || s.startsWith("ConceptMap-") || s.startsWith("ImplementationGuide-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
+      if (s.startsWith("CodeSystem-") || s.startsWith("ConceptMap-") || s.startsWith("ImplementationGuide-") || s.startsWith("StructureMap-") || s.startsWith("ValueSet-") || s.startsWith("StructureDefinition-"))
         res.put(s, TextFile.streamToBytes(pi.load("package", s)));
     }
     String ini = "[FHIR]\r\nversion="+pi.fhirVersion()+"\r\n";

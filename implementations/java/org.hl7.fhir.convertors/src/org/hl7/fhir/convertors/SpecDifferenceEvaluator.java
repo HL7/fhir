@@ -122,6 +122,8 @@ public class SpecDifferenceEvaluator {
     loadSD(self.revision.resources, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml");
     loadVS3(self.original.expansions, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\expansions.xml");
     loadVS(self.revision.expansions, "C:\\work\\org.hl7.fhir\\build\\publish\\expansions.xml");
+    loadVS3(self.original.valuesets, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\valuesets.xml");
+    loadVS(self.revision.valuesets, "C:\\work\\org.hl7.fhir\\build\\publish\\valuesets.xml");
     StringBuilder b = new StringBuilder();
     b.append("<html>\r\n");
     b.append("<head>\r\n");
@@ -694,6 +696,17 @@ public class SpecDifferenceEvaluator {
         b.append("Add "+Utilities.pluralize("Code", ir)+"  "+br);
       
     }
+    if (rev.getStrength() == BindingStrength.EXTENSIBLE && orig.getStrength() == BindingStrength.EXTENSIBLE) {
+      ValueSet vrev = getValueSet(rev.getValueSet(), revision.valuesets); 
+      ValueSet vorig = getValueSet(orig.getValueSet(), original.valuesets);
+      if (vrev != null && vrev.hasCompose() && vrev.getCompose().getInclude().size() == 1 && vrev.getCompose().getIncludeFirstRep().hasSystem() &&
+          vorig != null && vorig.hasCompose() && vorig.getCompose().getInclude().size() == 1 && vorig.getCompose().getIncludeFirstRep().hasSystem()) {
+        if (!vorig.getCompose().getIncludeFirstRep().getSystem().equals(vrev.getCompose().getIncludeFirstRep().getSystem())) {
+          b.append("Change code system for extensibly bound codes from \""+vorig.getCompose().getIncludeFirstRep().getSystem()+"\" to \""+vrev.getCompose().getIncludeFirstRep().getSystem()+"\"");
+        }
+      }
+    }
+    
     return b.toString();
   }
   
