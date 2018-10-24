@@ -13096,4 +13096,13 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
     throw new FHIRException("Unknown resource "+src.fhirType());
   }
 
+  public static boolean convertsResource(String rt) {
+    return Utilities.existsInList(rt, "Parameters", "Appointment", "AppointmentResponse", "AuditEvent", "Basic", "Binary", "Bundle", "CarePlan", "ClinicalImpression", "Communication", "CommunicationRequest", "Composition",
+        "ConceptMap", "Condition", "CapabilityStatement", "Contract", "DataElement", "DetectedIssue", "Device", "DeviceComponent", "DeviceMetric", "DeviceUseStatement", "DiagnosticReport", "DocumentManifest", "DocumentReference",
+        "Encounter", "EnrollmentRequest", "EnrollmentResponse", "EpisodeOfCare", "FamilyMemberHistory", "Flag", "Group", "HealthcareService", "ImagingStudy", "Immunization", "ImmunizationRecommendation", "ImplementationGuide",
+        "ListResource", "Location", "Media", "Medication", "MedicationDispense", "MedicationStatement", "MessageHeader", "NamingSystem", "Observation", "OperationDefinition", "OperationOutcome", "Organization", "Patient",
+        "Person", "Practitioner", "Procedure", "ProcedureRequest", "Provenance", "Questionnaire", "QuestionnaireResponse", "ReferralRequest", "RelatedPerson", "RiskAssessment", "Schedule", "SearchParameter", "Slot",
+        "StructureDefinition", "Subscription", "Substance", "SupplyDelivery", "SupplyRequest", "TestScript", "ValueSet");
+  }
+
 }

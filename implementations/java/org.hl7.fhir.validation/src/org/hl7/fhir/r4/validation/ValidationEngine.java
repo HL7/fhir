@@ -100,6 +100,7 @@ import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.NpmPackage;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
@@ -255,7 +256,7 @@ public class ValidationEngine {
   }
   
   public ValidationEngine() throws IOException {
-    pcm = new PackageCacheManager(true);  
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);  
   }
   
   public void loadInitialDefinitions(String src) throws Exception {
@@ -283,14 +284,14 @@ public class ValidationEngine {
   }
 
   public ValidationEngine(String src, String txsrvr, String txLog, FhirPublication version) throws Exception {
-    pcm = new PackageCacheManager(true);
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     loadInitialDefinitions(src);
     setTerminologyServer(txsrvr, txLog, version);
   }
   
   public ValidationEngine(String src) throws Exception {
     loadDefinitions(src);
-    pcm = new PackageCacheManager(true);
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
   }
   
   private void loadDefinitions(String src) throws Exception {
@@ -515,7 +516,7 @@ public class ValidationEngine {
     }
     if (pcm == null) {
       log("Creating Package manager?");
-      pcm = new PackageCacheManager(true);
+      pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     }
     NpmPackage pi = null;
     if (version == null) {

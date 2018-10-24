@@ -929,7 +929,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   public void initialize() throws Exception {
-    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL || mode == IGBuildMode.PUBLICATION);
+    pcm = new PackageCacheManager(mode == null || mode == IGBuildMode.MANUAL || mode == IGBuildMode.PUBLICATION, ToolsVersion.TOOLS_VERSION);
     if (mode == IGBuildMode.PUBLICATION)
       log("Build Formal Publication package, intended for "+getTargetOutput());
     
@@ -1359,7 +1359,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       Utilities.createDirectory(adHocTmpDir);
     Utilities.clearDirectory(adHocTmpDir);
 
-    PackageCacheManager pcm = new PackageCacheManager(true);
+    PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     
     NpmPackage npm = null; 
     if (pcm.hasPackage("hl7.fhir.core", Constants.VERSION))
