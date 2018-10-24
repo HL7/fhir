@@ -49,6 +49,21 @@
 	<concept>
 		<code value="copaypct"/>
 		<display value="Copay Percentage"/>
-		<definition value="A standard amount, percentage or fixed currency amount, applied to all classes or service or product not otherwise specified."/>
+		<definition value="A standard percentage applied to all classes or service or product not otherwise specified."/>
+	</concept>  
+	<concept>
+		<code value="copay"/>
+		<display value="Copay Amount"/>
+		<definition value="A standard fixed currency amount applied to all classes or service or product not otherwise specified."/>
+	</concept>  
+	<concept>
+		<code value="deductible"/>
+		<display value="Deductible"/>
+		<definition value="The accumulated amount of patient payment before the coverage begins to pay for services."/>
+	</concept>  
+	<concept>
+		<code value="maxoutofpocket"/>
+		<display value="Maximum out of pocket"/>
+		<definition value="The maximum amout of payment for services which a patient, or family, is expected to incur - typically annually."/>
 	</concept>  
 </CodeSystem>
