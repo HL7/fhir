@@ -75,7 +75,7 @@ public class PackageCacheManager {
   private List<NpmPackage> temporaryPackages = new ArrayList<NpmPackage>();
   private Map<String, String> ciList = new HashMap<String, String>();
   
-  public PackageCacheManager(boolean userMode) throws IOException {
+  public PackageCacheManager(boolean userMode, int toolsVersion) throws IOException {
     if (userMode)
       cacheFolder = Utilities.path(System.getProperty("user.home"), ".fhir", "packages");
     else
@@ -131,6 +131,8 @@ public class PackageCacheManager {
       ini.save();    
     checkDeleteVersion("hl7.fhir.core", "1.0.2", 2);
     checkDeleteVersion("hl7.fhir.core", "1.4.0", 2);
+    checkDeleteVersion("hl7.fhir.core", "current", toolsVersion);
+    checkDeleteVersion("hl7.fhir.core", "3.6.0", toolsVersion);
   }
   
 
@@ -140,8 +142,8 @@ public class PackageCacheManager {
       NpmPackage pck;
       try {
         pck = resolvePackage(id, ver, "xx");
-        if (pck.getNpm().has("tool-version")) {
-          del = pck.getNpm().get("tool-version").getAsInt() < minVer;
+        if (pck.getNpm().has("tools-version")) {
+          del = pck.getNpm().get("tools-version").getAsInt() < minVer;
         }
       } catch (Exception e) {
       }

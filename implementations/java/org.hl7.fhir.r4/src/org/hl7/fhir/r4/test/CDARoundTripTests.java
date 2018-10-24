@@ -16,6 +16,7 @@ import org.hl7.fhir.r4.elementmodel.Manager;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +27,7 @@ public class CDARoundTripTests {
   @Before
   public void setUp() throws Exception {
     context = new SimpleWorkerContext();
-    PackageCacheManager pcm = new PackageCacheManager(true);
+    PackageCacheManager pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     context.loadFromPackage(pcm.loadPackageCacheLatest("hl7.fhir.core"), null, "StructureDefinition");
     context.loadFromPackage(pcm.loadPackageCacheLatest("hl7.fhir.cda"), null, "StructureDefinition");
   }

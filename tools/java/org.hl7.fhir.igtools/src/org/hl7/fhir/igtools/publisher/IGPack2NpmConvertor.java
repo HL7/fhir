@@ -35,6 +35,7 @@ import org.hl7.fhir.r4.utils.NPMPackageGenerator.Category;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.cache.PackageCacheManager;
+import org.hl7.fhir.utilities.cache.ToolsVersion;
 import org.hl7.fhir.utilities.cache.PackageGenerator.PackageType;
 
 public class IGPack2NpmConvertor {
@@ -138,7 +139,7 @@ public class IGPack2NpmConvertor {
   }
 
   private void init() throws IOException {
-    pcm = new PackageCacheManager(true);
+    pcm = new PackageCacheManager(true, ToolsVersion.TOOLS_VERSION);
     scanner = new Scanner(System. in);
     paths = new ArrayList<String>();
   }
