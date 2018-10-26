@@ -1257,7 +1257,7 @@ Examples of using composite parameters:
 Consider the case of searching for all AllergyIntolerance resources:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active
+GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active
 </pre>
 <p>
 This search will only return resources that have a value for clinicalStatus:
@@ -1265,7 +1265,14 @@ This search will only return resources that have a value for clinicalStatus:
 <pre class="json" fragment="AllergyIntolerance">
 {
   "resourceType" : "AllergyIntolerance",
-  "clinicalStatus" : "active"
+   "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "code": "active"
+      }
+    ]
+  }
 }
 </pre>
 <p>
@@ -1275,7 +1282,7 @@ only return resources with an explicit clinicalStatus. Instead, it might be desi
 AllergyIntolerance resources with either an explicit value for clinicalStatus, or none:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active
+GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active
 GET [base]/AllergyIntolerance?clinical-status:missing=true
 </pre>
 <p>
@@ -1283,7 +1290,7 @@ Note that this is 2 separate queries. They can be <a href="http.html#transaction
 but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:missing=true
+GET [base]/AllergyIntolerance?clinical-status=http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical|active&amp;clinical-status:missing=true
 </pre>
 <p>
 There is no way to use the :missing modifier and mix with a value using the

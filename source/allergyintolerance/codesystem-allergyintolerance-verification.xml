@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
+  <name value="AllergyIntoleranceVerificationStatusCodes"/>
+  <title value="AllergyIntolerance Verification Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Preferred value set for AllergyIntolerance Verification Status."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/allergyintolerance-verification"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unconfirmed"/>
+    <display value="Unconfirmed"/>
+    <definition value="A low level of certainty about the propensity for a reaction to the identified substance."/> 
+  </concept>
+  <concept>
+    <code value="confirmed"/>
+    <display value="Confirmed"/>
+    <definition value="A high level of certainty about the propensity for a reaction to the identified substance, which may include clinical evidence by testing or rechallenge."/>
+   </concept>
+     <concept>
+    <code value="refuted"/>
+    <display value="Refuted"/>
+    <definition value="A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level of clinical certainty to justify invalidating the assertion. This might or might not include testing or rechallenge."/>
+   </concept>
+     <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="The statement was entered in error and is not valid."/>
+   </concept>
+</CodeSystem>
