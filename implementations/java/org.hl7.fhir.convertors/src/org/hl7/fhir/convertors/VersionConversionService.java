@@ -2,7 +2,6 @@ package org.hl7.fhir.convertors;
 
 import java.io.IOException;
 
-import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
@@ -14,9 +13,10 @@ public class VersionConversionService {
    * 
    * not thread safe
    * 
-   * @param url - Address of the terminology server to use (null = use http://tx.fhir.org
+   * @param system - true if the software is running in system context, not in a user context
+   * @param txServer - Address of the terminology server to use (null = use http://tx.fhir.org
    */
-  public VersionConversionService(String url) throws FHIRException {
+  public VersionConversionService(boolean system, String txServer) throws FHIRException {
     
   }
 
