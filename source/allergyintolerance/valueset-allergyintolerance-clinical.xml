@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/allergyintolerance-clinical"/>
+  <name value="AllergyIntoleranceClinicalStatusCodes"/>
+  <title value="AllergyIntolerance Clinical Status Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Preferred value set for AllergyIntolerance Clinical Status."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+    </include>
+  </compose>
+</ValueSet>

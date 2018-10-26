@@ -478,8 +478,21 @@
           <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Doxycycline :
                         Hives</div>
         </text>
-        <clinicalStatus value="active"/>
-		<verificationStatus value="confirmed"/>
+        <clinicalStatus>
+			<coding>
+			  <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+			  <code value="active"/>
+			  <display value="Active"/>
+			</coding>
+	    </clinicalStatus>
+
+	    <verificationStatus>
+			<coding>
+			  <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
+			  <code value="confirmed"/>
+			  <display value="Confirmed"/>
+			</coding>
+	    </verificationStatus>
         <type value="allergy"/>
         <criticality value="high"/>
         <code>
