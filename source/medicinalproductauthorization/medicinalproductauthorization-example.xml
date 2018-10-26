@@ -13,12 +13,6 @@
       <code value="EU"/>
     </coding>
   </country>
-  <legalStatusOfSupply>
-    <coding>
-      <system value="http://ema.europa.eu/example/legalstatusofsupply"/>
-      <code value="Subjecttomedicalprescription"/>
-    </coding>
-  </legalStatusOfSupply>
   <status>
     <coding>
       <system value="http://ema.europa.eu/example/authorisationstatus"/>
