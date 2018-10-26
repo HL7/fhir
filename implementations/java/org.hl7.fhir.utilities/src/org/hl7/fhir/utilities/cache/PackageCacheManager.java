@@ -449,7 +449,7 @@ public class PackageCacheManager {
 
   public JsonArray loadFromBuildServer() throws IOException {
     buildLoaded = true; // whether it succeeds or not
-    URL url = new URL("https://build.fhir.org/ig/qas.json");
+    URL url = new URL("https://build.fhir.org/ig/qas.json?nocache=" + System.currentTimeMillis());
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
     connection.setRequestMethod("GET");
     InputStream json = connection.getInputStream();
