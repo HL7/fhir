@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-03-02T00:04:26Z</LastSaved>
+  <LastSaved>2018-10-28T01:10:15Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>763</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3622,13 +3622,14 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="48" ss:StyleID="s103" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="48" ss:StyleID="s103" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s103" ss:Width="115.0"/>
    <Column ss:StyleID="s103" ss:Width="55.0"/>
    <Column ss:StyleID="s103" ss:Width="165.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="205.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="422.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="337.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s103" ss:Width="193.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s104"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique Number</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique short label</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3637,6 +3638,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">English</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">English description of constraint</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Expression</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Explanation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3658,12 +3660,13 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">3</Data><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Require clinicalStatus when not entered in error</Data></Cell>
-    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Require clinicalStatus when not entered in error and category is problem-list-item</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">best-practice</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Condition</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">verificationStatus='entered-in-error' or clinicalStatus.exists()</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">f:verificationStatus/@value='entered-in-error' or exists(f:clinicalStatus)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">clinicalStatus.exists() or verificationStatus='entered-in-error' or category.select($this='problem-list-item').empty()</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">exists(f:clinicalStatus) or f:verificationStatus/@value='entered-in-error' or not(exists(category[@value='problem-list-item']))</Data></Cell>
+    <Cell><Data ss:Type="String">Most systems will expect a clinicalStatus to be valued for problem-list-items that are managed over time, but might not need a clinicalStatus for point in time encounter-diagnosis.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">4</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4065,12 +4068,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6254,7 +6258,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
