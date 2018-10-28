@@ -353,7 +353,7 @@ public class ValidationEngine {
 
   private byte[] loadProfileFromUrl(String src) throws Exception {
     try {
-      URL url = new URL(src);
+      URL url = new URL(src+"?nocache=" + System.currentTimeMillis());
       URLConnection c = url.openConnection();
       return IOUtils.toByteArray(c.getInputStream());
     } catch (Exception e) {
@@ -445,7 +445,7 @@ public class ValidationEngine {
 
   private InputStream fetchFromUrlSpecific(String source, boolean optional) throws Exception {
     try {
-      URL url = new URL(source);
+      URL url = new URL(source+"?nocache=" + System.currentTimeMillis());
       URLConnection c = url.openConnection();
       return c.getInputStream();
     } catch (Exception e) {

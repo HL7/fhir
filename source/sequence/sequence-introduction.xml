@@ -1,11 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <blockquote class="stu-note">
   <p>
-At present, the Sequence resource is multi-purpose.  It can be used to represent a “definitional” sequence, as might be found in a knowledge-base source in a patient- and specimen-independent manner.  It can also be used to represent information about a specific finding when testing a specimen, including qualifying information about confidence, uncertainty, etc.  The Clinical Genomics workgroup is considering modifying the resource to be definition-only, removing the ability to convey patient, specimen and observation-specific information.  Such data elements would instead be conveyed using the Observation resource, as this is more typically used in the lab setting to report patient-specific results.  The Sequence resource would be retained for sharing of genetic knowledge, such as reference sequences, quality metrics, and links to external repository sequences.  Feedback about this proposed change is welcome.
+    The <a href="http://www.hl7.org/Special/committees/clingenomics/index.cfm">Clinical Genomics committee</a> has identified overlaps and redundancies between content in the Sequence Resource and content in Observation profiles in the evolving Implementation Guide for Clinical Genomics Reporting found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>. The committee is considering options for modifying the resource and anticipates potential changes being brought forward in an upcoming ballot.
   </p>
-  <p>
-For insight into what the new approach to representing patient-specific genetic information, refer to the Implementation Guide (IG) for clinical genomics reporting, which can be found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>.
-</p>
 </blockquote>
 <div>
     

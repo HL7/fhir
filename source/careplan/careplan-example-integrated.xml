@@ -199,7 +199,7 @@
   <contained>
     <Goal>
       <id value="g1"/>
-      <status value="in-progress"/>
+      <lifecycleStatus value="active" />
 	  <description>
         <text value="Eve will lose weight and reduce her GERDS symptoms by improving her diet"/>
       </description>
@@ -212,7 +212,7 @@
   <contained>
     <Goal>
       <id value="g2"/>
-	  <status value="in-progress"/>
+	  <lifecycleStatus value="active" />
       <description>
         <text value="Eve will improve her GERDS symptoms"/>
       </description>
@@ -225,7 +225,7 @@
   <contained>
     <Goal>
       <id value="g3"/>
-      <status value="in-progress"/>
+      <lifecycleStatus value="active" />
 	  <description>
         <text value="Eve will increase her energy by being more active"/>
       </description>
@@ -238,7 +238,7 @@
   <contained>
     <Goal>
       <id value="g4"/>
-      <status value="in-progress"/>
+      <lifecycleStatus value="active" />
 	  <description>
         <text value="Eve will set up her medications and take as prescribed"/>
       </description>
@@ -251,7 +251,7 @@
   <contained>
     <Goal>
       <id value="g5"/>
-      <status value="in-progress"/>
+      <lifecycleStatus value="active" />
 	  <description>
         <text value="Eve will restart her light treatments"/>
       </description>

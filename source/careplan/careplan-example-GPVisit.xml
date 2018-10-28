@@ -103,7 +103,7 @@
 <contained>
     <Goal>
       <id value="goal"/>
-      <status value="planned"/>
+      <lifecycleStatus value="planned" />
 	  <description>
         <text value="Complete consultation"/>
       </description>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://terminology.hl7.org/CodeSystem/goal-achievement"/>
+  <name value="GoalAchievementStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Describes the progression, or lack thereof, towards the goal against the target."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/goal-achievement"/>
+  <content value="complete"/>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="The goal is being sought but has not yet been reached. (Also applies if goal was reached in the past but there has been regression and goal is being sought again)."/>
+	<concept>
+		<code value="improving"/>
+		<display value="Improving"/>
+		<definition value="The goal is being sought, and is progressing."/>
+	</concept>
+	<concept>
+		<code value="worsening"/>
+		<display value="Worsening"/>
+		<definition value="The goal is being sought, but is regressing."/>
+	</concept>
+	<concept>
+		<code value="no-change"/>
+		<display value="No Change"/>
+		<definition value="The goal is being sought, but the trend is flat."/>
+	</concept>
+  </concept>
+  <concept>
+    <code value="achieved"/>
+    <display value="Achieved"/>
+    <definition value="The goal has been met."/>
+	<concept>
+		<code value="sustaining"/>
+		<display value="Sustaining"/>
+		<definition value="The goal has been met, but ongoing activity is needed to sustain the goal objective."/>
+	</concept>
+  </concept>
+  <concept>
+    <code value="not-achieved"/>
+    <display value="Not Achieved"/>
+    <definition value="The goal has not been met and there might or might not be progress towards target."/>
+	<concept>
+		<code value="no-progress"/>
+		<display value="No Progress"/>
+		<definition value="The goal has not been met and little to no progress towards target."/>
+	</concept>
+	<concept>
+		<code value="not-attainable"/>
+		<display value="Not Attainable"/>
+		<definition value="The goal is not possible to be met."/>
+	</concept>
+  </concept>
+</CodeSystem>
