@@ -6,10 +6,10 @@
 
 <h3>Sequence Coordinate System</h3>
 <p>
-	When saving the variant information, the nucleic acid will be numbered with order. Some files are using 0-based coordiantes (e.g. BCD file format) while some files are using 1-based coordinates (e.g. VCF file format) . The element coordinateSystem in Sequence Resource contains this information.
+	When saving the variant information, the nucleic acid will be numbered with order. Some files are using 0-based coordinates (e.g. BCD file format) while some files are using 1-based coordinates (e.g. VCF file format). The element coordinateSystem in Sequence Resource contains this information.
 </p>
 <p>
-	Sequence.coordinateSystem constraints within two possible values: 0 for 0-based system, which will mark the sequence from number 0, while 1 for 1-based system, which will begin marking the first position with number 1. The significant difference between two system is the end position. In 0-based system, the end position is <b>exclusive</b> , which means the last position will not be contained in the sequence window while in 1-based system, the end position is <b>inclusive</b> , which means the last position is included in the sequence window. Note both systems has an inclusive start position.
+	Sequence.coordinateSystem constraints within two possible values: 0 for 0-based system, which will mark the sequence from number 0, while 1 for 1-based system, which will begin marking the first position with number 1. The significant difference between two system is the end position. In 0-based system, the end position is <b>exclusive</b>, which means the last position will not be contained in the sequence window while in 1-based system, the end position is <b>inclusive</b> , which means the last position is included in the sequence window. Note both systems has an inclusive start position.
 
 </p>
 <p>
@@ -29,7 +29,7 @@ Here is a small-scale example: if 5' GCGATATCGCAAA 3' is the data, then GC..AAA 
 
 <h3> String usage for Reference Sequence and Observed Sequence </h3>
 <p>
-We hope that string of <b>observedSeq</b> can be constrained more than just any normal string but with notation tables. Here we present what the nucleotide acid stirng should be constrianed within the range:
+We hope that string of <b>observedSeq</b> can be constrained more than just any normal string but with notation tables. Here we present what the nucleotide acid string should be constrained within the range:
 
   <table>
     <tr>
