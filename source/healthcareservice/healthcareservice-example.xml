@@ -91,7 +91,7 @@
 				<display value="DVA Required"/>
 			</coding>
 		</code>
-		<note value="Evidence of application for DVA status may be sufficient for commencing assessment"/>
+		<comment value="Evidence of application for DVA status may be sufficient for commencing assessment"/>
 	</eligibility>
 	<program>
 		<text value="PTSD outreach"/>
