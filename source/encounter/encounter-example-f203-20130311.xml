@@ -63,33 +63,33 @@
         <start value="2013-03-11"/>
         <end value="2013-03-20"/>
     </period>
-    <reason>
+    <reasonCode>
         <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
-    </reason>
+    </reasonCode>
     <diagnosis>
       <condition>
           <reference value="Condition/stroke"/>
       </condition>
-      <role>
+      <use>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
           <code value="AD"/>
           <display value="Admission diagnosis"/>
         </coding>
-      </role>
+      </use>
       <rank value="1"/>
     </diagnosis>
     <diagnosis>
       <condition>
           <reference value="Condition/f201"/>
       </condition>
-      <role>
+      <use>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
           <code value="DD"/>
           <display value="Discharge diagnosis"/>
         </coding>
-      </role>
+      </use>
     </diagnosis>
 <account>
         <reference value="Account/example"></reference>

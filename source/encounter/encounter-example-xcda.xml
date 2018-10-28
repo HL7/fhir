@@ -20,11 +20,11 @@
       <reference value="Practitioner/xcda1"/>
     </individual>
   </participant>
-  <reason>
+  <reasonCode>
     <coding>
       <system value="http://ihe.net/xds/connectathon/eventCodes"/>
       <code value="T-D8200"/>
       <display value="Arm"/>
     </coding>
-  </reason>
+  </reasonCode>
 </Encounter>
