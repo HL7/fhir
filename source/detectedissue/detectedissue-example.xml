@@ -23,7 +23,7 @@
     </coding>
   </code>
   <severity value="high"/>
-  <date value="2014-01-05"/>
+  <identifiedDateTime value="2014-01-05"/>
   <author>
     <reference value="Device/software"/>
   </author>
