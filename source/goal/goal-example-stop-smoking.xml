@@ -10,7 +10,15 @@
 	<identifier>
 		<value value="123"/>
 	</identifier>
-	<status value="achieved"/>
+	<lifecycleStatus value="completed" />
+	<achievementStatus>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/goal-achievement" />
+			<code value="achieved" />
+			<display value="Achieved" />
+		</coding>
+		<text value="Achieved" />
+	</achievementStatus>
 	<description>
     		<text value="Stop smoking"/>
 	</description>

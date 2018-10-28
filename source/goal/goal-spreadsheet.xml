@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Miller,Michelle M</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-09-26T13:17:36Z</LastSaved>
+  <LastSaved>2018-10-27T01:33:23Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,9 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -762,9 +761,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R82C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R83C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="82" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="83" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s70" ss:Width="226.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="76.0"/>
    <Column ss:StyleID="s69" ss:Width="28.0"/>
@@ -865,26 +864,52 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Goal.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Goal.lifecycleStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">GoalStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">GoalLifecycleStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">proposed | accepted | planned | in-progress | on-target | ahead-of-target | behind-target | sustaining | achieved | on-hold | cancelled | entered-in-error | rejected</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Indicates whether the goal has been reached and is still considered relevant</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Allows measuring outcome and whether goal needs to be further tracked.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The state of the goal throughout its lifecycle.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Allows knowing whether goal needs to be further tracked.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">This element is labeled as a modifier because the lifecycleStatus contains codes that mark the resource as not currently valid</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">.statusCode in-progress = active (classCode = OBJ) achieved = complete sustaining = active (classCode=OBJC) cancelled = aborted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">.statusCode in-progress = active (classCode = OBJ) cancelled = aborted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">GOL-18-goal life cycle status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="105">
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Goal.achievementStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">GoalAchievementStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Describes the progression, or lack thereof, towards the goal against the target </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">.statusCode achieved = complete sustaining = active</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2930,20 +2955,19 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>3</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R82C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R83C24">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -3413,7 +3437,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="25" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="70.0"/>
+   <Column ss:StyleID="s111" ss:Width="96.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="57.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="109.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="210.0"/>
@@ -3461,10 +3485,10 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">lifecycle-status</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">Goal.status</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Goal.lifecycleStatus</Data></Cell>
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3475,10 +3499,10 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">achievement-status</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Goal.achievementStatus</Data></Cell>
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3599,6 +3623,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5040,7 +5065,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="26" ss:StyleID="s111" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s111" ss:Width="115.0"/>
+   <Column ss:StyleID="s111" ss:Width="119.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s111" ss:Width="274.0"/>
    <Column ss:StyleID="s111" ss:Width="51.0"/>
    <Column ss:StyleID="s111" ss:Width="79.0"/>
@@ -5068,7 +5093,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s145"><Data ss:Type="String">GoalStatus</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">GoalLifecycleStatus</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates whether the goal has been met and is still being targeted</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -5203,11 +5228,11 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">GoalAchievementStatus</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Indicates the progression, or lack thereof, towards the goal against the target</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">valueset-goal-achievement</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -5459,10 +5484,10 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='goal-status'!R1C1:R1C9"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="54" ss:StyleID="s136" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" ss:StyleID="s136" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s136" ss:Width="113.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s136" ss:Width="34.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s136" ss:Width="154.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s136" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s136" ss:Width="79.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s136" ss:Width="244.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s136" ss:Width="84.0"/>
@@ -5489,9 +5514,20 @@
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s139"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="21">
+    <Cell ss:StyleID="s130"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Planned</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">A goal is planned for this patient</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Accepted</Data></Cell>
@@ -5500,86 +5536,16 @@
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="21">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Planned</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">A goal is planned for this patient</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">on-target</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">On Target</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal is on schedule for the planned timelines</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">ahead-of-target</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Ahead of Target</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal is ahead of the planned timelines</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">behind-target</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Behind Target</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal is behind the planned timelines</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="18">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">achieved</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Achieved</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal has been met and no further action is needed</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"><Data ss:Type="String">sustaining</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">9</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Sustaining</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal has been met, but ongoing activity is needed to sustain the goal objective</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
+   <Row>
+    <Cell><Data ss:Type="String">active</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell><Data ss:Type="String">Active</Data></Cell>
+    <Cell><Data ss:Type="String">The goal is being sought actively</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s140"><Data ss:Type="String">on-hold</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">accepted</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">On Hold</Data></Cell>
@@ -5588,20 +5554,31 @@
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s140"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Completed</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal is no longer being sought</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s141"/>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Cancelled</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The previously accepted goal is no longer being sought</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The goal has been abandoned</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">12</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Entered In Error</Data></Cell>
@@ -5612,7 +5589,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="Number">13</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Rejected</Data></Cell>
@@ -5621,7 +5598,7 @@
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="18">
+   <Row ss:AutoFitHeight="0" ss:Index="14">
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s117"/>

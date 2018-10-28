@@ -34,7 +34,7 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <status value="cancelled"/>
+      <lifecycleStatus value="cancelled" />
       <description>
         <text value="Check whether further treatment of sepsis/pulmonary abcess is required"/>
       </description>
