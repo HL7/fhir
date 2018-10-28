@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+	<url value="http://hl7.org/fhir/ValueSet/program"/>
+	<name value="Program"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines an example set of codes that could be can be used to classify groupings of service-types/specialties."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/program"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -63,5 +63,13 @@
 			When creating an Appointment, the HealthcareService is to be assigned to one of the participants.<br/>
 			It is up to the scheduling system to determine if the service is available and can be accepted.
 		</p>
+		<p>The HealthcareService resource is used with the following resources:</p>
+		<ul>
+			<li><b><a href="organization.html">Organization</a></b>: The organization provides the services, the healthcareservice describes the services</li>
+			<li><b><a href="servicedefinition.html">ServiceDefinition</a></b>: This is a technical clinical decision support module/service, not a healthcare service provision related resource</li>
+			<li><b><a href="servicerequest.html">ServiceRequest</a></b>: This is a subject specific request for a specific service, it may be to a specific healthcare service, and/or simply a coded service value. The granularity included in the request codes may be finer than defined in the healthcare service. </li>
+			<li><b><a href="organizationaffiliation.html">OrganizationAffiliation</a></b>: Might constrain a list of healthcare services that are available between 2 organizations</li>
+			<li><b><a href="location.html">Location</a></b>: Specifies the place where the service(s) are offered/available within.</li>
+		</ul>
 	</div>
 </div>
