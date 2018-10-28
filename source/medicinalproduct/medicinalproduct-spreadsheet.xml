@@ -15,7 +15,7 @@
   
   
   
-  <TabRatio>754</TabRatio>
+  <TabRatio>709</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -552,6 +552,14 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s135">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s136">
+   <Alignment ss:Vertical="Bottom"/>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" x:Family="Swiss"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -595,8 +603,8 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R1C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="47" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="274.0"/>
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="69" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+   <Column ss:StyleID="s68" ss:Width="521.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="32.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="24.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="39.0"/>
@@ -861,7 +869,7 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">Package representation for the product</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProductReference</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s71"/>
@@ -1396,7 +1404,7 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Date when the designation was granted</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="55" ss:StyleID="Default">
+   <Row ss:StyleID="Default">
     <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.specialDesignation.species</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
@@ -1411,6 +1419,244 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">Animal species for which this applies</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Backbone Element</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">The medicinal product in terms of its pharmaceuticals</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s64">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.identifier</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">An identifier for the pharmaceutical medicinal product </Data></Cell>
+    <Cell ss:StyleID="s72"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.administrableDoseForm</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The administrable dose form, after necessary reconstitution</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.unitOfPresentation</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Todo</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.ingredient</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(MedicinalProductIngredient)</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Ingredient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.device</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Reference(DeviceDefinition)</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Accompanying device</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.characteristics</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Backbone Element</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Characteristics e.g. a products onset of action</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">400;10</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.characteristics.code</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A coded characteristic</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.characteristics.status</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The status of characteristic e.g. assigned or pending</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Backbone Element</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The path by which the pharmaceutical product is taken into or makes contact with the body</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">60;155</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.code</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Coded expression for the route</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.firstDose</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s135"><Data ss:Type="String">The first dose (dose quantity) administered in humans can be specified, for a product under investigation, using a numerical value and its unit of measurement</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.maxSingleDose</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s135"><Data ss:Type="String">The maximum single dose that can be administered as per the protocol of a clinical trial can be specified using a numerical value and its unit of measurement</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.maxDosePerDay</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s135"><Data ss:Type="String">The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered as per the protocol referenced in the clinical trial authorisation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.maxDosePerTreatmentPeriod</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Ratio</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s135"><Data ss:Type="String">The maximum dose per treatment period that can be administered as per the protocol referenced in the clinical trial authorisation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.maxTreatmentPeriod</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Duration</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s135"><Data ss:Type="String">The maximum treatment period during which an Investigational Medicinal Product can be administered as per the protocol referenced in the clinical trial authorisation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.targetSpecies</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Backbone Element</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A species for which this route applies</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">320;180</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.targetSpecies.code</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Coded expression for the species</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s136"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.targetSpecies.withdrawalPeriod</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Backbone Element</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A species specific time during which consumption of animal product is not appropriate</Data></Cell>
+    <Cell ss:Index="22"><Data ss:Type="String">580;165</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.targetSpecies.withdrawalPeriod.value</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">1..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">Quantity</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">A value for the time</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="27" ss:StyleID="Default">
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MedicinalProduct.pharmaceuticalProduct.routeOfAdministration.targetSpecies.withdrawalPeriod.supportingInformation</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s72"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s72"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14" ss:StyleID="s72"><Data ss:Type="String">Extra information about the withdrawal period</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1430,7 +1676,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>5</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
