@@ -17,9 +17,9 @@
 	<packagedMedicinalProduct>
 		<reference value="MedicinalProductPackaged/example"/>
 	</packagedMedicinalProduct>
-	<pharmaceuticalProduct>
+	<pharmaceuticalProductReference>
 		<reference value="MedicinalProductPharmaceutical/example"/>
-	</pharmaceuticalProduct>
+	</pharmaceuticalProductReference>
 	<attachedDocument>
 		<reference value="DocumentReference/example"/>
 	</attachedDocument>
@@ -47,7 +47,6 @@
 			</type>
 		</namePart>
 		<countryLanguage>
-			<!-- ISO name: /MedicinalProduct/MedicinalProductName/Country-Language/Country -->
 			<country>
 				<coding>
 					<system value="http://ema.europa.eu/example/countryCode"/>
