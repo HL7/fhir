@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
@@ -17,8 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -780,9 +779,6 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s159">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -806,6 +802,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -813,9 +810,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R132C24"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R133C24"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="154" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="155" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="303.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="77.0"/>
    <Column ss:StyleID="s68" ss:Width="29.0"/>
@@ -1487,7 +1484,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s159">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s91"><Data ss:Type="String">PlanDefinition.author</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1512,7 +1509,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s159">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s91"><Data ss:Type="String">PlanDefinition.editor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1536,7 +1533,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s159">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s91"><Data ss:Type="String">PlanDefinition.reviewer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1561,7 +1558,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s159">
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s91"><Data ss:Type="String">PlanDefinition.endorser</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2183,6 +2180,32 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s91"><Data ss:Type="String">PlanDefinition.action.subject[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CodeableConcept | Reference(Group)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">SubjectType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Patient</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Type of individual the action is focused on</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A code or group definition that describes the intended subject of the action and its children, if any</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Multiple steps in a protocol often have different groups of steps that are focused on testing different things. The subject of an action specifies the focus of the action and any child actions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The subject of an action overrides the subject at a parent action or on the root of the PlanDefinition if specified.&#10;&#10;In addition, because the subject needs to be resolved during realization, use of subjects in actions (or in the ActivityDefinition referenced by the action) resolves based on the set of subjects supplied in context and by type (i.e. the patient subject would resolve to a resource of type Patient).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Definition.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s91"><Data ss:Type="String">PlanDefinition.action.trigger</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4689,18 +4712,18 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>46</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4714,10 +4737,10 @@
    <Value>"N/A"</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R132C24">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R133C24">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R44C15:R47C15</Range>
+   <Range>R44C15:R47C15,R57C15:R69C15</Range>
    <Condition>
     <Value1>R[-43]C6="0..0"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
@@ -4728,106 +4751,35 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R44C15:R47C15</Range>
+   <Range>R44C15:R47C15,R57C15:R69C15</Range>
    <Condition>
     <Value1>(R[-43]C1="")&lt;&gt;(R[-43]C[-14]="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R44C15:R47C15</Range>
+   <Range>R44C15:R47C15,R57C15:R69C15</Range>
    <Condition>
     <Value1>LEFT(R[-43]C1,1)="!"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R75C15,R69C15:R73C15</Range>
+   <Range>R76C15,R70C15:R74C15</Range>
    <Condition>
-    <Value1>AND(R[-39]C15&lt;&gt;"",R[-39]C15=R[-39]C16)</Value1>
+    <Value1>AND(R[-40]C15&lt;&gt;"",R[-40]C15=R[-40]C16)</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R74C15,R65C15:R66C15</Range>
+   <Range>R75C15,R66C15:R67C15</Range>
    <Condition>
-    <Value1>AND(R[-64]C14&lt;&gt;"",R[-64]C14=R[-64]C15)</Value1>
+    <Value1>AND(R[-65]C14&lt;&gt;"",R[-65]C14=R[-65]C15)</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C15</Range>
-   <Condition>
-    <Value1>R[-38]C6="0..0"</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
-   </Condition>
-   <Condition>
-    <Value1>AND(R[-38]C[-14]&lt;&gt;"",R[-38]C1="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C15</Range>
-   <Condition>
-    <Value1>(R[-38]C1="")&lt;&gt;(R[-38]C[-14]="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C15</Range>
-   <Condition>
-    <Value1>LEFT(R[-38]C1,1)="!"</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R76C15</Range>
-   <Condition>
-    <Value1>AND(R[-38]C15&lt;&gt;"",R[-38]C15=R[-38]C16)</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C15:R78C15</Range>
-   <Condition>
-    <Value1>R[-37]C6="0..0"</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
-   </Condition>
-   <Condition>
-    <Value1>AND(R[-37]C[-14]&lt;&gt;"",R[-37]C1="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C15:R78C15</Range>
-   <Condition>
-    <Value1>(R[-37]C1="")&lt;&gt;(R[-37]C[-14]="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C15:R78C15</Range>
-   <Condition>
-    <Value1>LEFT(R[-37]C1,1)="!"</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R77C15:R78C15</Range>
-   <Condition>
-    <Value1>AND(R[-37]C15&lt;&gt;"",R[-37]C15=R[-37]C16)</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R44C15:R47C15</Range>
-   <Condition>
-    <Value1>AND(R[-43]C15&lt;&gt;"",R[-43]C15=R[-43]C16)</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R69C15:R75C15</Range>
+   <Range>R77C15</Range>
    <Condition>
     <Value1>R[-39]C6="0..0"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
@@ -4838,21 +4790,92 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R69C15:R75C15</Range>
+   <Range>R77C15</Range>
    <Condition>
     <Value1>(R[-39]C1="")&lt;&gt;(R[-39]C[-14]="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R69C15:R75C15</Range>
+   <Range>R77C15</Range>
    <Condition>
     <Value1>LEFT(R[-39]C1,1)="!"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R49C15:R55C15</Range>
+   <Range>R77C15</Range>
+   <Condition>
+    <Value1>AND(R[-39]C15&lt;&gt;"",R[-39]C15=R[-39]C16)</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R78C15:R79C15</Range>
+   <Condition>
+    <Value1>R[-38]C6="0..0"</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
+   </Condition>
+   <Condition>
+    <Value1>AND(R[-38]C[-14]&lt;&gt;"",R[-38]C1="")</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R78C15:R79C15</Range>
+   <Condition>
+    <Value1>(R[-38]C1="")&lt;&gt;(R[-38]C[-14]="")</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R78C15:R79C15</Range>
+   <Condition>
+    <Value1>LEFT(R[-38]C1,1)="!"</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R78C15:R79C15</Range>
+   <Condition>
+    <Value1>AND(R[-38]C15&lt;&gt;"",R[-38]C15=R[-38]C16)</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R44C15:R47C15,R68C15:R69C15,R57C15:R65C15</Range>
+   <Condition>
+    <Value1>AND(R[-43]C15&lt;&gt;"",R[-43]C15=R[-43]C16)</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R70C15:R76C15</Range>
+   <Condition>
+    <Value1>R[-40]C6="0..0"</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
+   </Condition>
+   <Condition>
+    <Value1>AND(R[-40]C[-14]&lt;&gt;"",R[-40]C1="")</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R70C15:R76C15</Range>
+   <Condition>
+    <Value1>(R[-40]C1="")&lt;&gt;(R[-40]C[-14]="")</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R70C15:R76C15</Range>
+   <Condition>
+    <Value1>LEFT(R[-40]C1,1)="!"</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R49C15:R52C15</Range>
    <Condition>
     <Value1>R[-44]C6="0..0"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
@@ -4863,56 +4886,56 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R49C15:R55C15</Range>
+   <Range>R49C15:R52C15</Range>
    <Condition>
     <Value1>(R[-44]C1="")&lt;&gt;(R[-44]C[-14]="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R49C15:R55C15</Range>
+   <Range>R49C15:R52C15</Range>
    <Condition>
     <Value1>LEFT(R[-44]C1,1)="!"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R49C15:R55C15</Range>
+   <Range>R49C15:R52C15</Range>
    <Condition>
     <Value1>AND(R[-44]C15&lt;&gt;"",R[-44]C15=R[-44]C16)</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R67C15:R68C15,R56C15:R64C15</Range>
+   <Range>R54C15:R56C15</Range>
    <Condition>
-    <Value1>AND(R[-42]C15&lt;&gt;"",R[-42]C15=R[-42]C16)</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R56C15:R68C15</Range>
-   <Condition>
-    <Value1>R[-42]C6="0..0"</Value1>
+    <Value1>R[-45]C6="0..0"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
    </Condition>
    <Condition>
-    <Value1>AND(R[-42]C[-14]&lt;&gt;"",R[-42]C1="")</Value1>
+    <Value1>AND(R[-45]C[-14]&lt;&gt;"",R[-45]C1="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R56C15:R68C15</Range>
+   <Range>R54C15:R56C15</Range>
    <Condition>
-    <Value1>(R[-42]C1="")&lt;&gt;(R[-42]C[-14]="")</Value1>
+    <Value1>(R[-45]C1="")&lt;&gt;(R[-45]C[-14]="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R56C15:R68C15</Range>
+   <Range>R54C15:R56C15</Range>
    <Condition>
-    <Value1>LEFT(R[-42]C1,1)="!"</Value1>
+    <Value1>LEFT(R[-45]C1,1)="!"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R54C15:R56C15</Range>
+   <Condition>
+    <Value1>AND(R[-45]C15&lt;&gt;"",R[-45]C15=R[-45]C16)</Value1>
+    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
@@ -5435,6 +5458,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5698,6 +5722,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5771,15 +5796,15 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">apply.patient</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">apply.subject</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">Patient</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">The patient that is the target of the plan to be applied</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Subject</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">The subject(s) that is/are the target of the plan to be applied. The subject may be a Patient, Practitioner, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the PlanDefinition based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6452,6 +6477,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6709,6 +6736,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6986,6 +7014,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7381,6 +7410,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7872,6 +7902,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -8462,6 +8493,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -9052,6 +9084,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9627,6 +9660,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10213,6 +10247,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -10775,6 +10810,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -11361,6 +11397,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -11947,6 +11984,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -12533,6 +12571,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -13119,6 +13158,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -13771,6 +13811,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -14357,6 +14398,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
