@@ -1,4 +1,4 @@
 // Apply a citalopram prescription activity definition to a patient
-GET [base]/ActivityDefinition/citalopramPrescription/$apply?patient=124
+GET [base]/ActivityDefinition/citalopramPrescription/$apply?subject=Patient/124
 
 

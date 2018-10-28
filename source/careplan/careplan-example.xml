@@ -55,9 +55,9 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
-	<context>
+	<encounter>
 		<reference value="Encounter/home" />
-	</context>
+	</encounter>
 	<period>
 		<end value="2017-06-01"/>
 	</period>
