@@ -36,9 +36,9 @@
     <reference value="Patient/example"/>
   </subject>
   
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <sent value="2014-12-12T18:01:10-08:00"/>
   <received value="2014-12-12T18:01:11-08:00"/>
   <recipient>
