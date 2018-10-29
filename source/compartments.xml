@@ -4,7 +4,7 @@
   <LastAuthor>Paul</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2017-02-23T12:11:36Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
@@ -191,13 +191,15 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | performer</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">participant </Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">participant </Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -223,7 +225,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">assessor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -232,7 +234,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Communication</Data></Cell>
     <Cell><Data ss:Type="String">subject | sender | recipient</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
@@ -240,7 +242,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>
     <Cell><Data ss:Type="String">subject | sender | recipient | requester</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
@@ -266,7 +268,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
     <Cell><Data ss:Type="String">patient | asserter</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">asserter</Data></Cell>
     <Cell><Data ss:Type="String">asserter</Data></Cell>
    </Row>
@@ -669,6 +671,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Sequence</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Task</Data></Cell>
@@ -819,7 +822,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>74</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
