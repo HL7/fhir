@@ -39,5 +39,7 @@ steps:
    tar czf - * | ssh  -i ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa -p 2222 build.fhir.org ./publish ${BUILD_SOURCEBRANCHNAME:=unknown-branch}
    
    rm ${BUILD_REPOSITORY_LOCALPATH}/deploy.rsa
+   echo "Published"
+
   workingDirectory: publish
   displayName: Publish
