@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<url value="http://terminology.hl7.org/CodeSystem/program" />
+	<name value="Program" />
+	<status value="draft" />
+	<experimental value="true" />
+	<description value="This value set defines an example set of codes for health program names that could exist for various jurisdictions." />
+	<caseSensitive value="true" />
+	<content value="example" />
+	<concept>
+		<code value="1" />
+		<display value="Acquired Brain Injury (ABI) Program " />
+	</concept>
+	<concept>
+		<code value="2" />
+		<display value="ABI Slow To Recover (ABI STR) Program" />
+	</concept>
+	<concept>
+		<code value="3" />
+		<display value="Access Programs" />
+	</concept>
+	<concept>
+		<code value="4" />
+		<display value="Adult and Further Education (ACFE) Program" />
+	</concept>
+	<concept>
+		<code value="5" />
+		<display value="Adult Day Activity and Support Services (ADASS) Program" />
+	</concept>
+	<concept>
+		<code value="6" />
+		<display value="Adult Day Care Program" />
+	</concept>
+	<concept>
+		<code value="7" />
+		<display value="ATSS (Adult Training Support Service)" />
+	</concept>
+	<concept>
+		<code value="8" />
+		<display value="Community Aged Care Packages (CACP)" />
+	</concept>
+	<concept>
+		<code value="9" />
+		<display value="Care Coordination &amp; Supplementary Services (CCSS)" />
+	</concept>
+	<concept>
+		<code value="10" />
+		<display value="Cognitive Dementia Memory Service (CDAMS)" />
+	</concept>
+	<concept>
+		<code value="11" />
+		<display value="ChildFIRST" />
+	</concept>
+	<concept>
+		<code value="12" />
+		<display value="Children's Contact Services" />
+	</concept>
+	<concept>
+		<code value="13" />
+		<display value="Community Visitors Scheme" />
+	</concept>
+	<concept>
+		<code value="14" />
+		<display value="CPP (Community Partners Program)" />
+	</concept>
+	<concept>
+		<code value="15" />
+		<display value="Closing the Gap (CTG)" />
+	</concept>
+	<concept>
+		<code value="16" />
+		<display value="Coordinated Veterans' Care (CVC) Program" />
+	</concept>
+	<concept>
+		<code value="17" />
+		<display value="Day Program" />
+	</concept>
+	<concept>
+		<code value="18" />
+		<display value="Drop In Program" />
+	</concept>
+	<concept>
+		<code value="19" />
+		<display value="Early Years Program" />
+	</concept>
+	<concept>
+		<code value="20" />
+		<display value="Employee Assistance Program" />
+	</concept>
+	<concept>
+		<code value="21" />
+		<display value="Home And Community Care (HACC)" />
+	</concept>
+	<concept>
+		<code value="22" />
+		<display value="Hospital Admission Risk Program (HARP)" />
+	</concept>
+	<concept>
+		<code value="23" />
+		<display value="Hospital in the Home (HITH) Program" />
+	</concept>
+	<concept>
+		<code value="24" />
+		<display value="ICTP (Intensive Community Treatment Program)" />
+	</concept>
+	<concept>
+		<code value="25" />
+		<display value="IFSS (Intensive Family Support Program)" />
+	</concept>
+	<concept>
+		<code value="26" />
+		<display value="JPET (Job Placement, Education and Training)" />
+	</concept>
+	<concept>
+		<code value="27" />
+		<display value="Koori Juvenile Justice Program" />
+	</concept>
+	<concept>
+		<code value="28" />
+		<display value="Language Literacy and Numeracy Program" />
+	</concept>
+	<concept>
+		<code value="29" />
+		<display value="Life Skills Program" />
+	</concept>
+	<concept>
+		<code value="30" />
+		<display value="LMP (Lifestyle Modification Program)" />
+	</concept>
+	<concept>
+		<code value="31" />
+		<display value="MedsCheck Program" />
+	</concept>
+	<concept>
+		<code value="32" />
+		<display value="Methadone/Buprenorphine Program" />
+	</concept>
+	<concept>
+		<code value="33" />
+		<display value="National Disabilities Insurance Scheme (NDIS)" />
+	</concept>
+	<concept>
+		<code value="34" />
+		<display value="National Diabetes Services Scheme (NDSS)" />
+	</concept>
+	<concept>
+		<code value="35" />
+		<display value="Needle/Syringe Program" />
+	</concept>
+	<concept>
+		<code value="36" />
+		<display value="nPEP Program" />
+	</concept>
+	<concept>
+		<code value="37" />
+		<display value="Personal Support Program" />
+	</concept>
+	<concept>
+		<code value="38" />
+		<display value="Partners in Recovery (PIR) Program" />
+	</concept>
+	<concept>
+		<code value="39" />
+		<display value="Pre-employment Program" />
+	</concept>
+	<concept>
+		<code value="40" />
+		<display value="Reconnect Program" />
+	</concept>
+	<concept>
+		<code value="41" />
+		<display value="Sexual Abuse Counselling and Prevention Program (SACPP)" />
+	</concept>
+	<concept>
+		<code value="42" />
+		<display value="Social Support Programs" />
+	</concept>
+	<concept>
+		<code value="43" />
+		<display value="Supported Residential Service (SRS)" />
+	</concept>
+	<concept>
+		<code value="44" />
+		<display value="Tasmanian Aboriginal Centre (TAC)" />
+	</concept>
+	<concept>
+		<code value="45" />
+		<display value="Victim's Assistance Program" />
+	</concept>
+</CodeSystem>
